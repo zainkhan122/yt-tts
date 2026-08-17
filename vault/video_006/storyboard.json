@@ -940,7 +940,10 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 2.1333333333333333,
+  "beat_dur": 2.1333333333333333,
+  "v_dur": 2.13
  },
  {
   "sentence": "Carl Jung described something that explains your entire mind.",
@@ -954,7 +957,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 3.7,
+  "beat_dur": 3.7,
+  "v_dur": 3.7
  },
  {
   "sentence": "He saw that we all run on cognitive functions \u2014 different tools for processing the world.",
@@ -968,7 +974,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 5.666666666666667,
+  "beat_dur": 5.666666666666667,
+  "v_dur": 5.67
  },
  {
   "sentence": "And you, specifically, run on two very powerful ones: introverted intuition, and introverted thinking.",
@@ -987,7 +996,10 @@
    "INTROVERTED INTUITION = PATTERNS",
    "gold"
   ],
-  "cap_start": 3.875
+  "cap_start": 3.875,
+  "beat_len": 7.2,
+  "beat_dur": 7.2,
+  "v_dur": 7.2
  },
  {
   "sentence": "Introverted intuition is your pattern detector.",
@@ -1001,7 +1013,10 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 3.3666666666666667,
+  "beat_dur": 3.3666666666666667,
+  "v_dur": 3.37
  },
  {
   "sentence": "It doesn't process facts.",
@@ -1015,7 +1030,10 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.7333333333333334,
+  "beat_dur": 1.7333333333333334,
+  "v_dur": 1.73
  },
  {
   "sentence": "It connects everything into patterns \u2014 meanings, possibilities, trajectories.",
@@ -1029,7 +1047,10 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 5.166666666666667,
+  "beat_dur": 5.166666666666667,
+  "v_dur": 5.17
  },
  {
   "sentence": "It's why you just know things.",
@@ -1043,7 +1064,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 2.066666666666667,
+  "beat_dur": 2.066666666666667,
+  "v_dur": 2.07
  },
  {
   "sentence": "It's why you see how a situation will end before it ends.",
@@ -1057,7 +1081,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 3.4,
+  "beat_dur": 3.4,
+  "v_dur": 3.4
  },
  {
   "sentence": "Introverted thinking is your internal logic.",
@@ -1076,7 +1103,10 @@
    "INTROVERTED THINKING = LOGIC",
    "gold"
   ],
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.1666666666666665,
+  "beat_dur": 3.1666666666666665,
+  "v_dur": 3.17
  },
  {
   "sentence": "It checks everything against a framework of what's true and what makes sense.",
@@ -1090,7 +1120,10 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 4.6,
+  "beat_dur": 4.6,
+  "v_dur": 4.6
  },
  {
   "sentence": "It's rigorous.",
@@ -1104,7 +1137,10 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.2666666666666666,
+  "beat_dur": 1.2666666666666666,
+  "v_dur": 1.27
  },
  {
   "sentence": "It's precise.",
@@ -1118,7 +1154,10 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.3333333333333333,
+  "beat_dur": 1.3333333333333333,
+  "v_dur": 1.33
  },
  {
   "sentence": "It never sleeps.",
@@ -1132,7 +1171,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.3666666666666667,
+  "beat_dur": 1.3666666666666667,
+  "v_dur": 1.37
  },
  {
   "sentence": "Now, normally, these two aren't alone.",
@@ -1146,7 +1188,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 2.533333333333333,
+  "beat_dur": 2.533333333333333,
+  "v_dur": 2.53
  },
  {
   "sentence": "For an INFJ, they're balanced by extraverted feeling \u2014 the drive that pushes you OUT into the world, to connect, to act, to test your ideas against real people.",
@@ -1165,7 +1210,10 @@
    "INFJ: EXTRAVERTED FEELING",
    "caption"
   ],
-  "cap_start": 2.296
+  "cap_start": 2.296,
+  "beat_len": 10.866666666666667,
+  "beat_dur": 10.866666666666667,
+  "v_dur": 10.87
  },
  {
   "sentence": "For an INTJ, they're balanced by extraverted thinking \u2014 the drive that organizes, decides, and gets things done.",
@@ -1184,7 +1232,10 @@
    "INTJ: EXTRAVERTED THINKING",
    "caption"
   ],
-  "cap_start": 2.275
+  "cap_start": 2.275,
+  "beat_len": 7.966666666666667,
+  "beat_dur": 7.966666666666667,
+  "v_dur": 7.97
  },
  {
   "sentence": "But here's the problem.",
@@ -1198,7 +1249,10 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.5333333333333334,
+  "beat_dur": 1.5333333333333334,
+  "v_dur": 1.53
  },
  {
   "sentence": "When you're stressed \u2014 when life feels heavy or out of control \u2014 those outer functions shut down.",
@@ -1217,7 +1271,10 @@
    "THE OUTER FUNCTIONS SHUT DOWN",
    "caption"
   ],
-  "cap_start": 4.323
+  "cap_start": 4.323,
+  "beat_len": 6.333333333333333,
+  "beat_dur": 6.333333333333333,
+  "v_dur": 6.33
  },
  {
   "sentence": "You withdraw.",
@@ -1231,7 +1288,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.2333333333333334,
+  "beat_dur": 1.2333333333333334,
+  "v_dur": 1.23
  },
  {
   "sentence": "You stop reaching out.",
@@ -1245,7 +1305,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.6333333333333333,
+  "beat_dur": 1.6333333333333333,
+  "v_dur": 1.63
  },
  {
   "sentence": "You stop acting.",
@@ -1259,7 +1322,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.4,
+  "beat_dur": 1.4,
+  "v_dur": 1.4
  },
  {
   "sentence": "And you retreat fully into intuition and logic.",
@@ -1273,7 +1339,10 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 2.966666666666667,
+  "beat_dur": 2.966666666666667,
+  "v_dur": 2.97
  },
  {
   "sentence": "And those two, alone together, form a loop.",
@@ -1292,7 +1361,10 @@
    "INTUITION + LOGIC = THE LOOP",
    "gold"
   ],
-  "cap_start": 2.189
+  "cap_start": 2.189,
+  "beat_len": 3.466666666666667,
+  "beat_dur": 3.466666666666667,
+  "v_dur": 3.47
  },
  {
   "sentence": "Intuition generates an interpretation.",
@@ -1306,7 +1378,10 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 2.6333333333333333,
+  "beat_dur": 2.6333333333333333,
+  "v_dur": 2.63
  },
  {
   "sentence": "Logic checks it.",
@@ -1320,7 +1395,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.4666666666666666,
+  "beat_dur": 1.4666666666666666,
+  "v_dur": 1.47
  },
  {
   "sentence": "The check raises a new question.",
