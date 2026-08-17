@@ -16,7 +16,10 @@
    "3AM",
    "pop"
   ],
-  "cap_start": 0.76
+  "cap_start": 0.76,
+  "beat_len": 2.1,
+  "beat_dur": 2.1,
+  "v_dur": 2.1
  },
  {
   "sentence": "Everyone is asleep.",
@@ -30,7 +33,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.6333333333333333,
+  "beat_dur": 1.6333333333333333,
+  "v_dur": 1.63
  },
  {
   "sentence": "The house is silent.",
@@ -44,7 +50,10 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.6,
+  "beat_dur": 1.6,
+  "v_dur": 1.6
  },
  {
   "sentence": "And your brain?",
@@ -58,7 +67,10 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.3333333333333333,
+  "beat_dur": 1.3333333333333333,
+  "v_dur": 1.33
  },
  {
   "sentence": "Your brain is hosting a live panel discussion with itself.",
@@ -72,7 +84,10 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 3.6,
+  "beat_dur": 3.6,
+  "v_dur": 3.6
  },
  {
   "sentence": "A conversation from 2016.",
@@ -86,7 +101,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 2.7666666666666666,
+  "beat_dur": 2.7666666666666666,
+  "v_dur": 2.77
  },
  {
   "sentence": "An email you need to send.",
@@ -100,7 +118,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.8666666666666667,
+  "beat_dur": 1.8666666666666667,
+  "v_dur": 1.87
  },
  {
   "sentence": "Something your mother said when you were twelve.",
@@ -114,7 +135,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 2.6,
+  "beat_dur": 2.6,
+  "v_dur": 2.6
  },
  {
   "sentence": "And, just for good measure, the meaning of existence.",
@@ -128,7 +152,10 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 3.1,
+  "beat_dur": 3.1,
+  "v_dur": 3.1
  },
  {
   "sentence": "All at once.",
@@ -142,7 +169,10 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.2666666666666666,
+  "beat_dur": 1.2666666666666666,
+  "v_dur": 1.27
  },
  {
   "sentence": "All on repeat.",
@@ -156,7 +186,10 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.4,
+  "beat_dur": 1.4,
+  "v_dur": 1.4
  },
  {
   "sentence": "And here's the part that would scare most people.",
@@ -170,7 +203,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 2.6333333333333333,
+  "beat_dur": 2.6333333333333333,
+  "v_dur": 2.63
  },
  {
   "sentence": "You're not even anxious.",
@@ -184,7 +220,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.5666666666666667,
+  "beat_dur": 1.5666666666666667,
+  "v_dur": 1.57
  },
  {
   "sentence": "You're not panicking.",
@@ -198,7 +237,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.5,
+  "beat_dur": 1.5,
+  "v_dur": 1.5
  },
  {
   "sentence": "You're just...",
@@ -212,7 +254,10 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.1666666666666667,
+  "beat_dur": 1.1666666666666667,
+  "v_dur": 1.17
  },
  {
   "sentence": "thinking.",
@@ -226,7 +271,10 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.1,
+  "beat_dur": 1.1,
+  "v_dur": 1.1
  },
  {
   "sentence": "Deeply.",
@@ -240,7 +288,10 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.0333333333333334,
+  "beat_dur": 1.0333333333333334,
+  "v_dur": 1.03
  },
  {
   "sentence": "Endlessly.",
@@ -254,7 +305,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.2333333333333334,
+  "beat_dur": 1.2333333333333334,
+  "v_dur": 1.23
  },
  {
   "sentence": "About everything.",
@@ -268,7 +322,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.5,
+  "beat_dur": 1.5,
+  "v_dur": 1.5
  },
  {
   "sentence": "And none of it ever resolves.",
@@ -287,7 +344,10 @@
    "IT NEVER RESOLVES",
    "caption"
   ],
-  "cap_start": 0.781
+  "cap_start": 0.781,
+  "beat_len": 2.6333333333333333,
+  "beat_dur": 2.6333333333333333,
+  "v_dur": 2.63
  },
  {
   "sentence": "If that's you \u2014 if 3AM has become your least favorite time of day \u2014 then this video is going to explain something about your brain that no one has ever told you.",
@@ -301,7 +361,10 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 10.266666666666667,
+  "beat_dur": 10.266666666666667,
+  "v_dur": 10.27
  },
  {
   "sentence": "Because this isn't insomnia.",
@@ -320,7 +383,10 @@
    "IT'S NOT INSOMNIA",
    "gold"
   ],
-  "cap_start": 1.101
+  "cap_start": 1.101,
+  "beat_len": 2.7666666666666666,
+  "beat_dur": 2.7666666666666666,
+  "v_dur": 2.77
  },
  {
   "sentence": "And it isn't anxiety.",
@@ -334,7 +400,10 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 1.7,
+  "beat_dur": 1.7,
+  "v_dur": 1.7
  },
  {
   "sentence": "It's a loop.",
@@ -353,7 +422,10 @@
    "IT'S A LOOP",
    "gold"
   ],
-  "cap_start": 0.76
+  "cap_start": 0.76,
+  "beat_len": 1.8,
+  "beat_dur": 1.8,
+  "v_dur": 1.8
  },
  {
   "sentence": "A very specific, very mechanical loop.",
@@ -367,7 +439,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 3.0,
+  "beat_dur": 3.0,
+  "v_dur": 3.0
  },
  {
   "sentence": "And once you see the mechanism, there's a way out.",
@@ -381,7 +456,10 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "beat_len": 3.066666666666667,
+  "beat_dur": 3.066666666666667,
+  "v_dur": 3.07
  },
  {
   "sentence": "Let me describe what it actually feels like.",
