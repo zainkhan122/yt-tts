@@ -1422,7 +1422,9 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 7.8,
+  "beat_dur": 7.8
  },
  {
   "sentence": "Here's what I want you to do.",
@@ -1437,7 +1439,9 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.8666666666666667,
+  "beat_dur": 1.8666666666666667
  },
  {
   "sentence": "Tell me in the comments: what is one part of yourself that you buried to be loved?",
@@ -1456,7 +1460,9 @@
    "WHAT DID YOU BURY TO BE LOVED?",
    "caption"
   ],
-  "cap_start": 3.619
+  "cap_start": 3.619,
+  "beat_len": 5.1,
+  "beat_dur": 5.1
  },
  {
   "sentence": "The anger, the ambition, the wildness, the honesty \u2014 what did you put in the basement?",
@@ -1471,7 +1477,9 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 5.233333333333333,
+  "beat_dur": 5.233333333333333
  },
  {
   "sentence": "Because when you name it, you start to dig it back up.",
@@ -1486,7 +1494,9 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.1333333333333333,
+  "beat_dur": 3.1333333333333333
  },
  {
   "sentence": "And if this video made you feel seen, subscribe.",
@@ -1501,7 +1511,9 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.3,
+  "beat_dur": 3.3
  },
  {
   "sentence": "This channel is for people who are done being half-built.",
@@ -1516,7 +1528,9 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.1666666666666665,
+  "beat_dur": 3.1666666666666665
  },
  {
   "sentence": "We're going deep every week.",
@@ -1531,7 +1545,9 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.9,
+  "beat_dur": 1.9
  },
  {
   "sentence": "I'll see you in the next one.",
@@ -1550,6 +1566,8 @@
    "SUBSCRIBE \u2014 YOU'RE NOT ALONE",
    "gold"
   ],
-  "cap_start": 1.293
+  "cap_start": 1.293,
+  "beat_len": 2.466666666666667,
+  "beat_dur": 2.466666666666667
  }
 ]
