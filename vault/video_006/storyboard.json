@@ -334,8 +334,12 @@
    0.0,
    0.5
   ],
-  "caption": null,
-  "cap_start": 0.0
+  "caption": [
+   "isn't insomnia",
+   "IT'S NOT INSOMNIA",
+   "gold"
+  ],
+  "cap_start": 1.101
  },
  {
   "sentence": "And it isn't anxiety.",
@@ -477,11 +481,7 @@
    0.5,
    0.5
   ],
-  "caption": [
-   "one thought",
-   "WHAT KEEPS YOU UP AT 3AM?",
-   "caption"
-  ],
+  "caption": null,
   "cap_start": 0.0
  },
  {
@@ -1903,8 +1903,12 @@
    0.5,
    0.5
   ],
-  "caption": null,
-  "cap_start": 0.0
+  "caption": [
+   "keeps you up at 3AM",
+   "WHAT KEEPS YOU UP AT 3AM?",
+   "caption"
+  ],
+  "cap_start": 2.957
  },
  {
   "sentence": "The one you've turned over a hundred times.",
