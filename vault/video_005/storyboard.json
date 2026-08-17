@@ -1,0 +1,1399 @@
+[
+ {
+  "sentence": "There is a version of you that you have never met.",
+  "asset": "img01",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "version of you that you have never met",
+   "A VERSION OF YOU YOU'VE NEVER MET",
+   "gold"
+  ],
+  "cap_start": 1.037
+ },
+ {
+  "sentence": "Someone braver.",
+  "asset": "img02",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Louder.",
+  "asset": "img10",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Freer.",
+  "asset": "sp00",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Someone who says the thing you always swallow.",
+  "asset": "sv00",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And you buried them so deep, so long ago, that you forgot they ever existed.",
+  "asset": "sv01",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "buried them so deep",
+   "YOU BURIED THEM",
+   "pop"
+  ],
+  "cap_start": 0.952
+ },
+ {
+  "sentence": "This video is about that buried self.",
+  "asset": "img01",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Because what Carl Jung discovered about it \u2014 in the darkest period of his own life \u2014 will change the way you see yourself forever.",
+  "asset": "sp00",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Let me describe the version of you that everyone else knows.",
+  "asset": "img06",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "You're polite.",
+  "asset": "sp01",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "You keep the peace.",
+  "asset": "sp02",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "keep the peace",
+   "YOU KEEP THE PEACE",
+   "caption"
+  ],
+  "cap_start": 0.76
+ },
+ {
+  "sentence": "You say sorry when it isn't your fault.",
+  "asset": "sp03",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "You shrink so other people can feel big.",
+  "asset": "sv02",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And people love this version of you.",
+  "asset": "sv03",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "They call you easygoing.",
+  "asset": "img06",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Kind.",
+  "asset": "sp01",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Easy to be around.",
+  "asset": "sp02",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "But there's a cost, and you feel it in ways you can't quite name.",
+  "asset": "sp03",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "A restlessness that won't leave.",
+  "asset": "sv02",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "An anger that flares up out of nowhere \u2014 at small things, at the wrong people, at yourself.",
+  "asset": "sv03",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "A quiet grief for a life you never lived.",
+  "asset": "img03",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And here's what Jung would tell you.",
+  "asset": "img04",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "You're not broken.",
+  "asset": "sp17",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "You're only half-built.",
+  "asset": "img05",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "half-built",
+   "NOT BROKEN. HALF-BUILT.",
+   "gold"
+  ],
+  "cap_start": 1.08
+ },
+ {
+  "sentence": "Because here is Jung's darkest insight.",
+  "asset": "sp05",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "darkest insight",
+   "JUNG'S DARKEST INSIGHT",
+   "gold"
+  ],
+  "cap_start": 1.571
+ },
+ {
+  "sentence": "And it's not what you think.",
+  "asset": "img07",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The shadow \u2014 the name he gave to everything you hide \u2014 is not your evil side.",
+  "asset": "sp04",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It's not the monster.",
+  "asset": "sv04",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It's everything you were never allowed to be.",
+  "asset": "sv05",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "never allowed to be",
+   "EVERYTHING YOU WERE NEVER ALLOWED TO BE",
+   "caption"
+  ],
+  "cap_start": 1.549
+ },
+ {
+  "sentence": "The confidence you learned to hide so you wouldn't seem arrogant.",
+  "asset": "img05",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The anger you swallowed to keep the peace.",
+  "asset": "img07",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "anger you swallowed",
+   "THE ANGER YOU SWALLOWED",
+   "caption"
+  ],
+  "cap_start": 0.611
+ },
+ {
+  "sentence": "The ambition you dimmed so nobody would feel threatened.",
+  "asset": "sp04",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The desires you denied so you could be good.",
+  "asset": "sp05",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "None of it is dark.",
+  "asset": "sv04",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It's just unlived.",
+  "asset": "sv05",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "just unlived",
+   "IT'S NOT DARK. IT'S UNLIVED.",
+   "gold"
+  ],
+  "cap_start": 0.76
+ },
+ {
+  "sentence": "And this didn't start with you.",
+  "asset": "img08",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It started in childhood.",
+  "asset": "sp06",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "started in childhood",
+   "IT STARTED IN CHILDHOOD",
+   "caption"
+  ],
+  "cap_start": 0.521
+ },
+ {
+  "sentence": "You learned very early what was allowed and what wasn't.",
+  "asset": "sp07",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The loud child learned to be quiet.",
+  "asset": "sp08",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "loud child",
+   "THE LOUD CHILD LEARNED TO BE QUIET",
+   "caption"
+  ],
+  "cap_start": 0.611
+ },
+ {
+  "sentence": "The honest child learned to be polite.",
+  "asset": "sv06",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The passionate child learned to be calm.",
+  "asset": "sv07",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And every time you buried a piece of yourself, you didn't kill it.",
+  "asset": "img04",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "You locked it in the basement of your mind, where it waits.",
+  "asset": "sp06",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "basement of your mind",
+   "LOCKED IN THE BASEMENT",
+   "pop"
+  ],
+  "cap_start": 1.315
+ },
+ {
+  "sentence": "Now here's the part nobody warns you about.",
+  "asset": "sp07",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "What you bury doesn't disappear.",
+  "asset": "img09",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "doesn't disappear",
+   "WHAT YOU BURY DOESN'T DISAPPEAR",
+   "caption"
+  ],
+  "cap_start": 1.123
+ },
+ {
+  "sentence": "It leaks.",
+  "asset": "sp09",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It leaks out as projection.",
+  "asset": "sp10",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "leaks out as projection",
+   "IT LEAKS OUT AS PROJECTION",
+   "caption"
+  ],
+  "cap_start": 0.521
+ },
+ {
+  "sentence": "The qualities you can't stand in other people \u2014 the arrogance, the selfishness, the neediness \u2014 are often the exact qualities you refuse to admit in yourself.",
+  "asset": "sp11",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Jung said it plainly: everything that irritates us about others can lead us to an understanding of ourselves.",
+  "asset": "sv08",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "irritates us",
+   "EVERYTHING THAT IRRITATES YOU IS A MIRROR",
+   "caption"
+  ],
+  "cap_start": 2.808
+ },
+ {
+  "sentence": "It leaks out as exhaustion.",
+  "asset": "sv09",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Keeping a whole self underground takes enormous energy.",
+  "asset": "sv10",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It's why you feel tired even when you've done nothing.",
+  "asset": "img09",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Part of you is standing guard over a grave.",
+  "asset": "sp09",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "standing guard",
+   "STANDING GUARD OVER A GRAVE",
+   "caption"
+  ],
+  "cap_start": 1.165
+ },
+ {
+  "sentence": "And sometimes \u2014 rarely \u2014 it breaks out.",
+  "asset": "sp10",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "it breaks out",
+   "WHEN IT BREAKS OUT",
+   "pop"
+  ],
+  "cap_start": 1.997
+ },
+ {
+  "sentence": "In the words you say when you finally snap.",
+  "asset": "sp11",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "In the thing you do that shocks even you.",
+  "asset": "sv08",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And then you feel ashamed, and you push it back down even deeper.",
+  "asset": "sv09",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And the cycle continues.",
+  "asset": "sv10",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "So what do you do with this?",
+  "asset": "sp12",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Not destroy the shadow.",
+  "asset": "img08",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Not become it.",
+  "asset": "sp13",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "But meet it.",
+  "asset": "sp14",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "But meet it",
+   "MEET YOUR SHADOW",
+   "gold"
+  ],
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Integration is the word Jung used.",
+  "asset": "img10",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "Integration is the word",
+   "INTEGRATION",
+   "gold"
+  ],
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It doesn't mean becoming your anger or your ambition.",
+  "asset": "sv11",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It means owning them.",
+  "asset": "sv12",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Knowing them.",
+  "asset": "sv13",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Letting them exist in the room with you, so they stop running your life from the basement.",
+  "asset": "sp12",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Start small.",
+  "asset": "sp13",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Notice what you project.",
+  "asset": "sp14",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The person who irritates you most is holding up a mirror \u2014 what is it showing you?",
+  "asset": "sv11",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "holding up a mirror",
+   "THEY'RE HOLDING UP A MIRROR",
+   "caption"
+  ],
+  "cap_start": 2.509
+ },
+ {
+  "sentence": "Say the small true thing.",
+  "asset": "sv12",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "When you agree but mean no, that no is a piece of your shadow.",
+  "asset": "sv13",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Speak it.",
+  "asset": "sp15",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It's not cruelty.",
+  "asset": "sp16",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It's retrieval.",
+  "asset": "sv14",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "It's retrieval",
+   "SPEAK YOUR NO. IT'S RETRIEVAL.",
+   "caption"
+  ],
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And stop apologizing for your depth.",
+  "asset": "sv15",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "stop apologizing",
+   "STOP APOLOGIZING FOR YOUR DEPTH",
+   "caption"
+  ],
+  "cap_start": 0.781
+ },
+ {
+  "sentence": "The world has enough small, careful people.",
+  "asset": "sv16",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "What it's starving for is someone whole.",
+  "asset": "sv17",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Someone who has met their darkness and still chooses the light \u2014 not because they can't see the dark, but because they've looked straight at it.",
+  "asset": "sv19",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Here's what I want you to do.",
+  "asset": "sp15",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Tell me in the comments: what is one part of yourself that you buried to be loved?",
+  "asset": "sp16",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "buried to be loved",
+   "WHAT DID YOU BURY TO BE LOVED?",
+   "caption"
+  ],
+  "cap_start": 3.619
+ },
+ {
+  "sentence": "The anger, the ambition, the wildness, the honesty \u2014 what did you put in the basement?",
+  "asset": "sv14",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Because when you name it, you start to dig it back up.",
+  "asset": "sv15",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And if this video made you feel seen, subscribe.",
+  "asset": "sv18",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "This channel is for people who are done being half-built.",
+  "asset": "sv20",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "We're going deep every week.",
+  "asset": "sv21",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "I'll see you in the next one.",
+  "asset": "sv22",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "next one",
+   "SUBSCRIBE \u2014 YOU'RE NOT ALONE",
+   "gold"
+  ],
+  "cap_start": 1.293
+ }
+]
