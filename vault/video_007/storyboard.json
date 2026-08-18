@@ -1,0 +1,1808 @@
+[
+ {
+  "sentence": "How many times have you heard it?",
+  "asset": "img01",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "You're just too intense.",
+  "asset": "img02",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "too intense",
+   "TOO INTENSE",
+   "pop"
+  ],
+  "cap_start": 0.995
+ },
+ {
+  "sentence": "Too serious.",
+  "asset": "img03",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Too deep.",
+  "asset": "sp00",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Too sensitive.",
+  "asset": "sp01",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Too much.",
+  "asset": "sv00",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And how many times have you apologized for it?",
+  "asset": "sv01",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "apologized for it",
+   "HOW MANY TIMES DID YOU APOLOGIZE?",
+   "caption"
+  ],
+  "cap_start": 1.699
+ },
+ {
+  "sentence": "Shrunk yourself down, dimmed yourself, flattened yourself \u2014 just to make someone else comfortable?",
+  "asset": "img07",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "What if everything you've been told is wrong?",
+  "asset": "img04",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "What if your intensity isn't a flaw at all \u2014 what if it's the clearest signal you have about who belongs in your life, and who never did?",
+  "asset": "img08",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Here's what I want you to see.",
+  "asset": "img05",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Because this one misunderstanding has cost you more than you know.",
+  "asset": "sp20",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Let me describe what it's like to be you.",
+  "asset": "img06",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "You don't do things halfway.",
+  "asset": "sp02",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "When you love, you love with your whole chest.",
+  "asset": "sp03",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "with your whole chest",
+   "YOU LOVE WITH YOUR WHOLE CHEST",
+   "caption"
+  ],
+  "cap_start": 1.485
+ },
+ {
+  "sentence": "When you care, you care until it hurts.",
+  "asset": "sp04",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "When you're curious about something, you disappear into it for days.",
+  "asset": "sv02",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And when you speak, you speak the truth \u2014 the real, uncomfortable truth \u2014 because you physically cannot pretend.",
+  "asset": "sv03",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And people react to you in two ways.",
+  "asset": "sv04",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "There are the ones who light up.",
+  "asset": "sp07",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "light up",
+   "THE ONES WHO LIGHT UP",
+   "caption"
+  ],
+  "cap_start": 1.379
+ },
+ {
+  "sentence": "Who lean in.",
+  "asset": "img09",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Who say, finally, someone who means it.",
+  "asset": "img10",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And then there are the others.",
+  "asset": "sp05",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The ones who step back.",
+  "asset": "sp06",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "step back",
+   "THE ONES WHO STEP BACK",
+   "caption"
+  ],
+  "cap_start": 1.187
+ },
+ {
+  "sentence": "Who get uncomfortable.",
+  "asset": "sp08",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Who say, calm down, it's not that serious, you're being too much.",
+  "asset": "sp09",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And here's the thing that's been happening to you your whole life.",
+  "asset": "img04",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "You learned, slowly, quietly, that your intensity made people uncomfortable.",
+  "asset": "sv02",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "So you started calibrating.",
+  "asset": "img05",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "calibrating",
+   "YOU STARTED CALIBRATING",
+   "caption"
+  ],
+  "cap_start": 1.187
+ },
+ {
+  "sentence": "You learned to soften.",
+  "asset": "img06",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "To laugh at things that weren't funny.",
+  "asset": "sp02",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "To say \"I'm fine\" when you were anything but.",
+  "asset": "sp03",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "I'm fine",
+   "I'M FINE",
+   "pop"
+  ],
+  "cap_start": 0.995
+ },
+ {
+  "sentence": "To hold back the opinion, the passion, the depth \u2014 because every time you let it out, someone flinched.",
+  "asset": "sp04",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And the cost of all that calibration?",
+  "asset": "sv03",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "A slow, quiet death of the self.",
+  "asset": "sv04",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "You became a dimmer version of you.",
+  "asset": "img03",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "dimmer version",
+   "A DIMMER VERSION OF YOU",
+   "gold"
+  ],
+  "cap_start": 1.208
+ },
+ {
+  "sentence": "Palatable.",
+  "asset": "sp10",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Easy to be around.",
+  "asset": "sp11",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And lonelier than you've ever been \u2014 because the people around you now don't know the real you at all.",
+  "asset": "sp12",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Here's what Carl Jung would tell you.",
+  "asset": "sv05",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Because he understood this better than anyone.",
+  "asset": "sv06",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Jung said that when you suppress a part of yourself \u2014 any part \u2014 it doesn't disappear.",
+  "asset": "img07",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It goes underground.",
+  "asset": "sv07",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "goes underground",
+   "IT GOES UNDERGROUND",
+   "caption"
+  ],
+  "cap_start": 0.521
+ },
+ {
+  "sentence": "Into the shadow.",
+  "asset": "img08",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "the shadow",
+   "INTO THE SHADOW",
+   "pop"
+  ],
+  "cap_start": 0.867
+ },
+ {
+  "sentence": "And from the shadow, it doesn't get weaker.",
+  "asset": "sp05",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It gets more powerful.",
+  "asset": "sp06",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And more dangerous.",
+  "asset": "sp07",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "more dangerous",
+   "IT GETS MORE DANGEROUS",
+   "caption"
+  ],
+  "cap_start": 0.781
+ },
+ {
+  "sentence": "Because here's what happens to unintegrated intensity.",
+  "asset": "img01",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "When you bury it to make other people comfortable, it doesn't go away.",
+  "asset": "sp13",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It simmers.",
+  "asset": "sp14",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It waits.",
+  "asset": "sp15",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And then it comes out sideways \u2014 as resentment, as explosion, as that moment where the \"too calm\" person suddenly snaps and scares everyone, including themselves.",
+  "asset": "sp16",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "sideways",
+   "IT COMES OUT SIDEWAYS",
+   "caption"
+  ],
+  "cap_start": 1.4
+ },
+ {
+  "sentence": "Jung called the shadow a reservoir of gold.",
+  "asset": "sv05",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "gold",
+   "THE SHADOW IS GOLD",
+   "gold"
+  ],
+  "cap_start": 2.424
+ },
+ {
+  "sentence": "That's the phrase.",
+  "asset": "sv06",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Gold.",
+  "asset": "sv07",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Not garbage.",
+  "asset": "sp17",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Not your flaws.",
+  "asset": "sp18",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Gold.",
+  "asset": "sp19",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Because everything you exiled \u2014 your passion, your honesty, your intensity \u2014 was never the problem.",
+  "asset": "sp23",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The problem was always the burial.",
+  "asset": "sp21",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "So here's the reframe that changes everything.",
+  "asset": "sv08",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And I want you to hear it slowly.",
+  "asset": "sv09",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Too much for who?",
+  "asset": "sv10",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "Too much for who",
+   "TOO MUCH FOR WHO?",
+   "gold"
+  ],
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Too intense for the person who wanted you small.",
+  "asset": "img09",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Too deep for the person who wanted you shallow.",
+  "asset": "img10",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Too sensitive for the person who wanted you numb.",
+  "asset": "sp08",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Too serious for the person who wanted you distracted.",
+  "asset": "sp09",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Notice the pattern.",
+  "asset": "sp10",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The \"too much\" was never about you.",
+  "asset": "sp11",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It was always about what they couldn't hold.",
+  "asset": "sp22",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "they couldn't hold",
+   "ABOUT WHAT THEY COULDN'T HOLD",
+   "caption"
+  ],
+  "cap_start": 1.635
+ },
+ {
+  "sentence": "You were never too much.",
+  "asset": "sp24",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "You were just aimed at people who were too little.",
+  "asset": "sv11",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "too little",
+   "AIMED AT PEOPLE TOO LITTLE",
+   "caption"
+  ],
+  "cap_start": 2.147
+ },
+ {
+  "sentence": "And here's the beautiful part.",
+  "asset": "sv12",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Your intensity \u2014 the very thing you've spent years apologizing for \u2014 is the most precise filter you will ever own.",
+  "asset": "sp00",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "filter",
+   "YOUR INTENSITY IS A FILTER",
+   "gold"
+  ],
+  "cap_start": 5.837
+ },
+ {
+  "sentence": "It doesn't push everyone away.",
+  "asset": "sv13",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It pushes away the ones who were never meant to stay.",
+  "asset": "sv14",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And it pulls in the ones who've been waiting for someone exactly like you.",
+  "asset": "sv15",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Because the people who are meant for you?",
+  "asset": "sv16",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "They don't flinch at your depth.",
+  "asset": "sv08",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "They swim in it.",
+  "asset": "sv09",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "swim in it",
+   "THEY SWIM IN YOUR DEPTH",
+   "caption"
+  ],
+  "cap_start": 0.781
+ },
+ {
+  "sentence": "So how do you actually live this?",
+  "asset": "sp12",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Not as a nice idea \u2014 as a practice.",
+  "asset": "sv13",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "First \u2014 stop apologizing for your intensity.",
+  "asset": "sp13",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "stop apologizing",
+   "STOP APOLOGIZING",
+   "pop"
+  ],
+  "cap_start": 1.016
+ },
+ {
+  "sentence": "Not all at once.",
+  "asset": "sp14",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Just notice how many times a day you say sorry for being yourself.",
+  "asset": "sv11",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The sorry for laughing too loud.",
+  "asset": "sv12",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The sorry for caring too much.",
+  "asset": "sv14",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The sorry for having an opinion.",
+  "asset": "sv17",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Each one is a tiny betrayal of who you are.",
+  "asset": "sv18",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Stop.",
+  "asset": "sv19",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Second \u2014 stop calibrating to the wrong audience.",
+  "asset": "sv20",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "You don't need to be for everyone.",
+  "asset": "sv21",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "You need to be fully for the few.",
+  "asset": "sv22",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And you can't be fully for the few if you're half for everyone.",
+  "asset": "sv23",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "half for everyone",
+   "NOT HALF FOR EVERYONE",
+   "caption"
+  ],
+  "cap_start": 2.147
+ },
+ {
+  "sentence": "Third \u2014 integrate the gold.",
+  "asset": "sv24",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Your intensity isn't something to manage.",
+  "asset": "sv00",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It's something to channel.",
+  "asset": "sv25",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "channel",
+   "CHANNEL THE GOLD",
+   "gold"
+  ],
+  "cap_start": 1.293
+ },
+ {
+  "sentence": "The same fire that makes people uncomfortable in small talk is the fire that writes the books, builds the things, loves the deeply.",
+  "asset": "sp21",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Point it at what matters, and it becomes your power.",
+  "asset": "sv27",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And fourth \u2014 let the wrong people leave.",
+  "asset": "sv26",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "let the wrong people leave",
+   "LET THE WRONG PEOPLE LEAVE",
+   "caption"
+  ],
+  "cap_start": 1.101
+ },
+ {
+  "sentence": "When someone says you're too much, believe them about themselves, not about you.",
+  "asset": "sv28",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "They've just told you they can't hold depth.",
+  "asset": "sv29",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "That's not your cue to shrink.",
+  "asset": "sv30",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "That's your cue to let them go.",
+  "asset": "sv31",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Gracefully.",
+  "asset": "sv32",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Gratefully.",
+  "asset": "sv33",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Without apology.",
+  "asset": "img02",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Here's what I want you to do.",
+  "asset": "sp15",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Tell me in the comments: what's one thing you've been called \"too much\" for \u2014 that you now realize was actually your best quality?",
+  "asset": "sp16",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Because I have a feeling the comments are about to become a list of superpowers wearing disguises.",
+  "asset": "sp17",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And if this video made you feel seen, subscribe.",
+  "asset": "sv15",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "This channel is for the ones who were always too much for the wrong people.",
+  "asset": "sv16",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "too much for",
+   "WHAT WERE YOU TOO MUCH FOR?",
+   "caption"
+  ],
+  "cap_start": 2.552
+ },
+ {
+  "sentence": "We're going deep every week.",
+  "asset": "sv17",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "I'll see you in the next one.",
+  "asset": "sv18",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "next one",
+   "SUBSCRIBE \u2014 YOU'RE NOT ALONE",
+   "gold"
+  ],
+  "cap_start": 1.293
+ }
+]
