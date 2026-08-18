@@ -93,6 +93,13 @@ stores beat_dur) → assemble (per-beat pad) → finalize (absolute captions) �
    video's concept (e.g. if "SHADOW" is used once, no other video may use "SHADOW").
    Each video gets a distinct, fresh curiosity-gap line. Keep a running list of used
    lines in VIDEO_QUEUE.md and check it before every new thumbnail.
+7. **VISUAL VARIETY ACROSS THE CHANNEL:** not every thumbnail may be "a face + text."
+   Vary the composition by the video's own pain point — use faces for *relational/emotional*
+   pains, but symbols, objects, silhouettes, split-scenes, or concept art for others
+   (e.g. an empty chair, a closed door, a shadow, a spiral). Before building any new
+   thumbnail, list the last 3 thumbnails' compositions and pick a DIFFERENT treatment,
+   so no two adjacent thumbnails look alike. The goal: each thumbnail is instantly
+   recognizable as ITS video, not as "another one from that channel."
 
 ## R9. DOUBLE-VERIFY EVERYTHING (check twice, ship zero mistakes)
 
