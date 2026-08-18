@@ -1,0 +1,1515 @@
+[
+ {
+  "sentence": "One day you're in their life.",
+  "asset": "sv48",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The next day, you never existed.",
+  "asset": "sv70",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "never existed",
+   "YOU NEVER EXISTED",
+   "pop"
+  ],
+  "cap_start": 1.677
+ },
+ {
+  "sentence": "No fight.",
+  "asset": "img04",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "No warning.",
+  "asset": "sv14",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "No explanation.",
+  "asset": "sv58",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Just silence.",
+  "asset": "sv42",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "silence",
+   "JUST SILENCE",
+   "caption"
+  ],
+  "cap_start": 0.845
+ },
+ {
+  "sentence": "Your messages stop getting replies.",
+  "asset": "sp22",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Your calls go to voicemail.",
+  "asset": "sp26",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And the person you talked to every single day is suddenly a ghost.",
+  "asset": "sp12",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "ghost",
+   "SUDDENLY A GHOST",
+   "caption"
+  ],
+  "cap_start": 3.725
+ },
+ {
+  "sentence": "If you've ever been on the receiving end of that silence, you know the particular kind of pain it causes.",
+  "asset": "sv53",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The not-knowing.",
+  "asset": "sp53",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The endless loop of wondering what you did wrong.",
+  "asset": "sv38",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The way you replay every conversation, searching for the moment it broke.",
+  "asset": "sv64",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And if you've ever been the one who disappeared \u2014 I need you to stay with me for this.",
+  "asset": "img03",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "disappeared",
+   "THE ONE WHO DISAPPEARED",
+   "caption"
+  ],
+  "cap_start": 1.827
+ },
+ {
+  "sentence": "Because this video is going to explain something about you that no one has ever told you.",
+  "asset": "sv54",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And it might be the most uncomfortable thing you've heard in a long time.",
+  "asset": "sp23",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Here's what Jung would say is really happening.",
+  "asset": "sv15",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And it's not what either side thinks.",
+  "asset": "sp36",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Let me talk to the ones who disappeared first.",
+  "asset": "sv67",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Because you've probably told yourself a story about it.",
+  "asset": "sp01",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The story goes like this: I had my reasons.",
+  "asset": "sp77",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "I was protecting myself.",
+  "asset": "sp69",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "protecting myself",
+   "I WAS PROTECTING MYSELF",
+   "caption"
+  ],
+  "cap_start": 0.973
+ },
+ {
+  "sentence": "They hurt me one too many times.",
+  "asset": "sv39",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "I set a boundary, and this is what boundaries look like.",
+  "asset": "sp11",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And here's the part that's hard to hear.",
+  "asset": "img05",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "What you did wasn't a boundary.",
+  "asset": "sp24",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "wasn't a boundary",
+   "THAT WASN'T A BOUNDARY",
+   "gold"
+  ],
+  "cap_start": 1.037
+ },
+ {
+  "sentence": "A boundary says: I'm still here, but this stops.",
+  "asset": "sv17",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "A boundary holds the relationship and says no to the behavior.",
+  "asset": "sp75",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "But disappearing says: I'm gone, and you'll never know why.",
+  "asset": "sp10",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "That's not protection.",
+  "asset": "sv71",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "That's punishment \u2014 delivered in the coldest way possible.",
+  "asset": "sv63",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Silence isn't a boundary.",
+  "asset": "sp54",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Silence is a weapon.",
+  "asset": "sv33",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "Silence is a weapon",
+   "SILENCE IS A WEAPON",
+   "gold"
+  ],
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Now let me talk to the ones who were left.",
+  "asset": "img02",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "ones who were left",
+   "THE ONE WHO WAS LEFT",
+   "caption"
+  ],
+  "cap_start": 1.592
+ },
+ {
+  "sentence": "Because you've been telling yourself a different story.",
+  "asset": "sv57",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The story goes: I must have done something unforgivable.",
+  "asset": "sv02",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "I'm the problem.",
+  "asset": "sv82",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "If only I'd been better, they would have stayed.",
+  "asset": "sv72",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And here's the part that's hard to hear.",
+  "asset": "sp62",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Their disappearance was almost never about what you did.",
+  "asset": "sv30",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It was about what they couldn't face.",
+  "asset": "sp06",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "what they couldn't face",
+   "WHAT THEY COULDN'T FACE",
+   "caption"
+  ],
+  "cap_start": 1.123
+ },
+ {
+  "sentence": "The door didn't slam because you were too much.",
+  "asset": "sp31",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It slammed because they never learned to say the small truth out loud \u2014 until it was too big to say at all.",
+  "asset": "img01",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "So if both stories are wrong, what's actually happening?",
+  "asset": "sv22",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "This is where Jung comes in.",
+  "asset": "sp00",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Jung described something called the autonomous complex.",
+  "asset": "img08",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "autonomous complex",
+   "THE AUTONOMOUS COMPLEX",
+   "gold"
+  ],
+  "cap_start": 2.019
+ },
+ {
+  "sentence": "It's a part of the psyche that splits off and starts acting on its own.",
+  "asset": "img10",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "When we refuse to feel something \u2014 when we swallow anger, swallow hurt, swallow the thousand small \"you hurt me\"s \u2014 those feelings don't disappear.",
+  "asset": "sp14",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "They gather.",
+  "asset": "sp45",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "They accumulate.",
+  "asset": "sp29",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And eventually they form something with a mind of its own.",
+  "asset": "sp33",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And when that thing takes over, Jung called it shadow possession.",
+  "asset": "sp20",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "shadow possession",
+   "SHADOW POSSESSION",
+   "gold"
+  ],
+  "cap_start": 2.744
+ },
+ {
+  "sentence": "Here's what possession looks like.",
+  "asset": "sv18",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The person who never raises their voice suddenly ends a ten-year friendship with a single cold message, and never speaks of it again.",
+  "asset": "sp55",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The person who prides themselves on kindness becomes capable of a cruelty they would never allow in themselves.",
+  "asset": "sp48",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The person who hates being abandoned becomes the one who abandons.",
+  "asset": "sp17",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Do you see it?",
+  "asset": "sv27",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "In the moment of the door slam, you become the very thing you fear.",
+  "asset": "sv00",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "very thing you fear",
+   "YOU BECOME WHAT YOU FEAR",
+   "caption"
+  ],
+  "cap_start": 2.744
+ },
+ {
+  "sentence": "You spend your life terrified of being left \u2014 and then you leave, without warning, in exactly the way that once destroyed you.",
+  "asset": "sv32",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "That's not a decision you made.",
+  "asset": "sp46",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "That's the shadow, finally running the show.",
+  "asset": "sv10",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "running the show",
+   "THE SHADOW RUNS THE SHOW",
+   "caption"
+  ],
+  "cap_start": 1.976
+ },
+ {
+  "sentence": "And here's why it feels like strength.",
+  "asset": "img09",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "feels like strength",
+   "IT FEELS LIKE STRENGTH",
+   "caption"
+  ],
+  "cap_start": 1.187
+ },
+ {
+  "sentence": "Because it's clean.",
+  "asset": "sv41",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It's final.",
+  "asset": "sv80",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It's the one moment where the person who always swallowed their feelings finally has total power.",
+  "asset": "sp79",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "No more waiting.",
+  "asset": "sp68",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "No more hoping.",
+  "asset": "sp08",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "No more vulnerability.",
+  "asset": "sp78",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It feels like winning.",
+  "asset": "sp27",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "But it isn't strength.",
+  "asset": "sp58",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "It isn't strength",
+   "IT ISN'T STRENGTH",
+   "pop"
+  ],
+  "cap_start": 0.739
+ },
+ {
+  "sentence": "It's the opposite.",
+  "asset": "sv79",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Real strength is what happens before the slam.",
+  "asset": "sv76",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Real strength is saying the small truth while it's still small.",
+  "asset": "sp73",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "while it's still small",
+   "SAY IT WHILE IT'S SMALL",
+   "gold"
+  ],
+  "cap_start": 2.68
+ },
+ {
+  "sentence": "It's \"that hurt me\" on the day it hurt \u2014 not three years later, from a distance, when the only option left is erasure.",
+  "asset": "sv50",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Real strength is staying present while holding a boundary.",
+  "asset": "sp56",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "staying present",
+   "REAL STRENGTH IS STAYING",
+   "caption"
+  ],
+  "cap_start": 1.4
+ },
+ {
+  "sentence": "Staying, while saying no.",
+  "asset": "sp38",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "That's the hardest thing a person can do \u2014 because it means feeling everything, and staying anyway.",
+  "asset": "sp19",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "So if you've been the one who disappears: the work isn't learning to stay in every relationship.",
+  "asset": "sv69",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It's learning to speak before you shatter.",
+  "asset": "sv46",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "speak before you shatter",
+   "SPEAK BEFORE YOU SHATTER",
+   "gold"
+  ],
+  "cap_start": 1.272
+ },
+ {
+  "sentence": "One sentence, said early, saves you from the possession later.",
+  "asset": "sp16",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And if you've been the one who was left: the work is letting go of the question.",
+  "asset": "sp52",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "letting go of the question",
+   "STOP WAITING FOR CLOSURE",
+   "caption"
+  ],
+  "cap_start": 3.043
+ },
+ {
+  "sentence": "Not because it doesn't matter \u2014 but because their silence was never an answer about you.",
+  "asset": "sv06",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It was a statement about their shadow.",
+  "asset": "sv55",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The closure you're waiting for may never come.",
+  "asset": "sv65",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And you can stop waiting for it.",
+  "asset": "sv12",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "That's your freedom.",
+  "asset": "sp34",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Here's what I want you to do.",
+  "asset": "sp07",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Tell me in the comments: have you ever been on either side of the door slam?",
+  "asset": "sp47",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "either side of the door slam",
+   "EITHER SIDE OF THE DOOR SLAM?",
+   "caption"
+  ],
+  "cap_start": 2.893
+ },
+ {
+  "sentence": "The one who disappeared, or the one who was left?",
+  "asset": "sv13",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And what do you wish you had said \u2014 or heard \u2014 before the door closed?",
+  "asset": "sv75",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Because I think those comments are going to become something rare: a room full of people finally saying the things they never said.",
+  "asset": "sp02",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "never said",
+   "WHAT DID YOU NEVER SAY?",
+   "caption"
+  ],
+  "cap_start": 6.541
+ },
+ {
+  "sentence": "And if this video made you feel seen, subscribe.",
+  "asset": "sp39",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "This channel is for the ones who go quiet, the ones who disappear, and the ones still standing at the closed door.",
+  "asset": "sv25",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "We're going deep every week.",
+  "asset": "sv66",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "I'll see you in the next one.",
+  "asset": "img07",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "next one",
+   "SUBSCRIBE \u2014 YOU'RE NOT ALONE",
+   "gold"
+  ],
+  "cap_start": 1.293
+ }
+]
