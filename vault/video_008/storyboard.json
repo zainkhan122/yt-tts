@@ -1972,7 +1972,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.4,
+  "beat_dur": 3.4,
+  "v_dur": 3.4
  },
  {
   "sentence": "We're going deep every week.",
@@ -1987,7 +1990,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.9,
+  "beat_dur": 1.9,
+  "v_dur": 1.9
  },
  {
   "sentence": "I'll see you in the next one.",
@@ -2006,6 +2012,9 @@
    "SUBSCRIBE \u2014 YOU'RE NOT ALONE",
    "gold"
   ],
-  "cap_start": 1.293
+  "cap_start": 1.293,
+  "beat_len": 2.466666666666667,
+  "beat_dur": 2.466666666666667,
+  "v_dur": 2.47
  }
 ]
