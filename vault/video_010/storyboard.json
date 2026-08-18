@@ -1480,7 +1480,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 7.5,
+  "beat_dur": 7.5,
+  "v_dur": 7.5
  },
  {
   "sentence": "They're just rare.",
@@ -1495,7 +1498,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.3333333333333333,
+  "beat_dur": 1.3333333333333333,
+  "v_dur": 1.33
  },
  {
   "sentence": "Like you.",
@@ -1510,7 +1516,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.1666666666666667,
+  "beat_dur": 1.1666666666666667,
+  "v_dur": 1.17
  },
  {
   "sentence": "And fourth \u2014 remember this, especially in the dark hours.",
@@ -1525,7 +1534,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.0,
+  "beat_dur": 4.0,
+  "v_dur": 4.0
  },
  {
   "sentence": "The loneliness of becoming yourself is temporary.",
@@ -1544,7 +1556,10 @@
    "ONE LONELINESS ENDS",
    "gold"
   ],
-  "cap_start": 2.424
+  "cap_start": 2.424,
+  "beat_len": 3.566666666666667,
+  "beat_dur": 3.566666666666667,
+  "v_dur": 3.57
  },
  {
   "sentence": "The loneliness of never becoming yourself is permanent.",
@@ -1563,7 +1578,10 @@
    "THE OTHER DOESN'T",
    "caption"
   ],
-  "cap_start": 1.357
+  "cap_start": 1.357,
+  "beat_len": 3.8,
+  "beat_dur": 3.8,
+  "v_dur": 3.8
  },
  {
   "sentence": "One of them ends.",
@@ -1578,7 +1596,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.4,
+  "beat_dur": 1.4,
+  "v_dur": 1.4
  },
  {
   "sentence": "The other doesn't.",
@@ -1593,7 +1614,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.3,
+  "beat_dur": 1.3,
+  "v_dur": 1.3
  },
  {
   "sentence": "Jung emerged from those six years a different man \u2014 and went on to write the work the world remembers.",
@@ -1608,7 +1632,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 6.133333333333334,
+  "beat_dur": 6.133333333333334,
+  "v_dur": 6.13
  },
  {
   "sentence": "He didn't find connection first, and then become himself.",
@@ -1623,7 +1650,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.6,
+  "beat_dur": 3.6,
+  "v_dur": 3.6
  },
  {
   "sentence": "It was the other way around.",
@@ -1638,7 +1668,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.7666666666666666,
+  "beat_dur": 1.7666666666666666,
+  "v_dur": 1.77
  },
  {
   "sentence": "He became himself \u2014 and then, and only then, could he meet the world without needing it to approve of him.",
@@ -1657,7 +1690,10 @@
    "BECOME YOURSELF FIRST",
    "gold"
   ],
-  "cap_start": 0.824
+  "cap_start": 0.824,
+  "beat_len": 6.9,
+  "beat_dur": 6.9,
+  "v_dur": 6.9
  },
  {
   "sentence": "Here's what I want you to do.",
@@ -1672,7 +1708,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.8666666666666667,
+  "beat_dur": 1.8666666666666667,
+  "v_dur": 1.87
  },
  {
   "sentence": "Tell me in the comments: what's one thing you believe, want, or feel \u2014 that you've never said out loud, because you knew it would set you apart?",
@@ -1691,7 +1730,10 @@
    "WHAT HAVE YOU NEVER SAID?",
    "caption"
   ],
-  "cap_start": 4.749
+  "cap_start": 4.749,
+  "beat_len": 8.366666666666667,
+  "beat_dur": 8.366666666666667,
+  "v_dur": 8.37
  },
  {
   "sentence": "Because I think the comments are about to become a room where people finally say those things.",
@@ -1706,7 +1748,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.866666666666666,
+  "beat_dur": 4.866666666666666,
+  "v_dur": 4.87
  },
  {
   "sentence": "And if this video made you feel less alone in your loneliness, subscribe.",
@@ -1721,7 +1766,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.666666666666667,
+  "beat_dur": 4.666666666666667,
+  "v_dur": 4.67
  },
  {
   "sentence": "This channel is for the ones who are becoming.",
@@ -1736,7 +1784,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.7666666666666666,
+  "beat_dur": 2.7666666666666666,
+  "v_dur": 2.77
  },
  {
   "sentence": "We're going deep every week.",
@@ -1751,7 +1802,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.9,
+  "beat_dur": 1.9,
+  "v_dur": 1.9
  },
  {
   "sentence": "I'll see you in the next one.",
@@ -1770,6 +1824,9 @@
    "SUBSCRIBE \u2014 YOU'RE NOT ALONE",
    "gold"
   ],
-  "cap_start": 1.293
+  "cap_start": 1.293,
+  "beat_len": 2.466666666666667,
+  "beat_dur": 2.466666666666667,
+  "v_dur": 2.47
  }
 ]
