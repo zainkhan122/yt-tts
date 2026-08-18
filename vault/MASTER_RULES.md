@@ -39,6 +39,10 @@
    together (use `-t DUR`).
 5. Push the final via `git_push.py`. On failure: `rm -rf /tmp/yt-tts-vault` and retry.
 
+3. **Back up AI images to the repo immediately** after generating them
+   (`vault/video_NNN/images/`). Generated images can't be re-fetched like stock —
+   if the workspace snapshot drops them, they'd be lost. Push once, right after generation.
+
 ## R4. QUALITY BAR (the video must hold viewers)
 
 1. Visual change every 3–5s (one beat = one sentence).
@@ -66,3 +70,96 @@
 storyboard → verify assets (R1) → tts (split timings) → render (no captions,
 stores beat_dur) → assemble (per-beat pad) → finalize (absolute captions) → push
 ```
+
+## R8. THUMBNAIL STYLE (locked — "C: the cryptic diagnosis")
+
+1. **Title/Thumbnail Synergy (the core rule):**
+   - The **TITLE** does *identification* — it names the viewer's pain / behavioral pattern.
+   - The **THUMBNAIL** does the *cryptic diagnosis* — the ONE insight or mechanism they
+     must click to discover. It is the knowledge gap, the promised cure.
+   - **They must NEVER repeat each other.** If the title points at the viewer, the
+     thumbnail names the hidden cause; if the title names the concept, the thumbnail
+     hits the emotional gut. Complementary, not duplicate.
+2. **Thumbnail text:** 2-3 words. Bright **white #FFFFFF**, thick black stroke (~9px)
+   + soft dark glow, over a dark scrim at the bottom-left. Readable at 120px.
+   - NO questions. NO relatable quotes. NO full titles.
+   - Give the diagnosis, not a mirror. ("IT'S YOUR SHADOW", not "TOO MUCH?".)
+3. **Image:** full-bleed emotional close-up **FACE** (right side), eyes gazing toward
+   the text, high contrast, bright midtones, dark negative space on the left.
+4. **Diagnosis-line bank** (title → thumbnail line) is kept per-video in VIDEO_QUEUE.md.
+5. Every thumbnail is generated against this formula and presented for approval before
+   it is pushed as final.
+
+## R9. DOUBLE-VERIFY EVERYTHING (check twice, ship zero mistakes)
+
+1. **After storyboard** — verify ALL of: (a) every caption anchor exists in its sentence,
+   (b) no duplicate captions, (c) no asset used > max_uses, (d) no two consecutive beats
+   share an asset, (e) every asset file exists on disk, (f) no beat reuses an asset
+   that already appeared ≥1× in the SAME chunk.
+2. **After TTS** — verify ALL captioned beats have `cap_start`; mid-sentence keywords must
+   have cap_start > 0; all audio chunks pushed + state updated.
+3. **FIRST-CHUNK GATE (mandatory):** render chunk 0 ALONE, then verify EVERY beat in it —
+   30fps, SAR 1:1, duration ≈ beat_len, caption present on captioned beats. Only if
+   chunk 0 is PERFECT do you render chunks 1..n.
+4. **After assemble** — verify every part video==audio (±0.1s).
+5. **After finalize** — decode spot-check ≥4 timestamps + print full caption schedule.
+6. Any verification failure → STOP, fix, re-verify. Never proceed on a failed check.
+
+## R10. CONTINUOUS IMPROVEMENT
+
+Every build must be at least as correct as the last. When a mistake slips through, add a
+new check to R10 so that class of mistake can never ship again.
+
+## R11. AUTO-CLEANUP BETWEEN VIDEOS (never make the user ask)
+
+1. When the user says a video is downloaded (or before starting a NEW video), AUTOMATICALLY:
+   - delete that video's workspace folder (`videos/video_NNN/`) EXCEPT keep nothing — it's in the repo
+   - delete its thumbnail (`thumbnails/video_NNN_cover.jpg`) — user has it
+   - delete its stock dir (`stockN/`), work dirs, beat/vbeat files, zips, parts
+   - purge repo intermediates (chunks/parts/zips) but KEEP final.mp4 + text files in repo
+2. Clean /tmp (clone dirs, verify temp, logs) at the START of every turn's build work.
+3. The workspace should hold ONLY: tools/, reusable/, secrets/, MASTER_RULES.md,
+   VIDEO_QUEUE.md, and the CURRENT video's source files + final.mp4 (until downloaded).
+4. Do this WITHOUT being told. This rule exists so the user never has to ask again.
+
+## R12. SLOW ONE-STEP-AT-A-TIME WORKFLOW (mandatory pace)
+
+1. **One step per turn.** Never chain a whole build in one turn — long turns get
+   terminated mid-step and lose work.
+2. **The fixed cadence, one turn each:**
+   `(a) assets+script → (b) storyboard+verify → (c) tts → (d) render+verify chunks →
+    (e) assemble+verify parts → (f) FINALIZE (concatenation) in its OWN turn.
+3. **Verify before moving on** (never trust, always measure):
+   - after render: every vbeat must be **30fps + SAR 1:1 + duration≈beat_dur**;
+   - after assemble: every part **video duration == audio duration (±0.1s)**;
+   - if any check fails, STOP and fix — do not proceed.
+4. End every turn with a one-line status + the exact next step, so a fresh session
+   can pick up with zero context loss (also write `STATUS.md` in the video folder).
+
+## R13. PRE-FLIGHT CHECK BEFORE EVERY STEP (avoid crashes)
+
+Before ANY heavy step (tts / render / assemble / finalize), check:
+1. `/tmp` free space (df) — need >300MB for git clones / zips; clean if <300MB.
+2. Workspace size (du) — snapshot cap ~128MB; clean old videos/stock if over.
+3. Time budget — heavy steps can take 5-15 min; if a step risks the 30-min cap,
+   SPLIT it (do fewer chunks per turn).
+Never start a step without this check. Print the numbers so the user sees them.
+
+## R14. ASSET VARIETY — NO PATTERNS, NO UNNECESSARY REPEATS
+
+1. **Fetch enough assets:** stock + AI count should be ≥ 90% of the beat count, so a
+   5-6 min video (~110-130 beats) carries ~100+ assets and reuses are rare.
+2. **Global pool:** asset selection spans ALL assets — never locked to a small
+   section list (that caused a fixed rotation pattern).
+3. **Use everything before reusing:** prefer never-used assets strongly, so no asset
+   gets a 2nd use while another is untouched.
+4. **Maximize reuse distance:** when an asset must repeat, its 2nd use must be as far
+   as possible from the 1st (≥ 40 beats). Reusing an asset 17 beats later reads as
+   "the same sequence twice" — banned.
+5. **Randomize:** seeded-random asset order + motion per beat (never the same motion
+   twice in a row, never a fixed cycle). Deterministic per video (same seed = same
+   storyboard) so builds stay reproducible.
+6. `verify.py storyboard` must report: distinct assets, unused assets, min reuse
+   distance — and FAIL if (a) assets unused while pool ≤ beats, or (b) min reuse
+   distance < 26 beats.
+
