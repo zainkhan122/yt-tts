@@ -1,0 +1,187 @@
+[
+ {
+  "sentence": "You've felt old since you were a child.",
+  "asset": "img01",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "old since you were a child",
+   "OLD SINCE CHILDHOOD",
+   "gold"
+  ],
+  "cap_start": 1.016
+ },
+ {
+  "sentence": "Not tired.",
+  "asset": "img02",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Old.",
+  "asset": "img07",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Like you've already lived some of this before.",
+  "asset": "img03",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "People tell you you're wise beyond your years.",
+  "asset": "img05",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "wise beyond your years",
+   "WISE BEYOND YOUR YEARS",
+   "caption"
+  ],
+  "cap_start": 1.421
+ },
+ {
+  "sentence": "But it never felt like wisdom to you.",
+  "asset": "img06",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It felt like weight.",
+  "asset": "img04",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "felt like weight",
+   "IT FELT LIKE WEIGHT",
+   "caption"
+  ],
+  "cap_start": 0.521
+ },
+ {
+  "sentence": "Here's what it actually means, and it's not what anyone told you.",
+  "asset": "img08",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Carl Jung noticed that some children are born carrying a depth that doesn't belong to their age.",
+  "asset": "img01",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "some children are born",
+   "BORN WITH DEPTH",
+   "gold"
+  ],
+  "cap_start": 1.613
+ },
+ {
+  "sentence": "And he had a name for it.",
+  "asset": "img02",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "a name for it",
+   "HE HAD A NAME FOR IT",
+   "caption"
+  ],
+  "cap_start": 1.059
+ },
+ {
+  "sentence": "Once you know the name, your whole childhood finally makes sense.",
+  "asset": "img05",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ }
+]
