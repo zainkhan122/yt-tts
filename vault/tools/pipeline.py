@@ -4,7 +4,7 @@ Follows MASTER_RULES.md.  Set target via env PIPE_VIDEO.
 Caption sync: captions applied at FINALIZE on the absolute shared timeline
 (video & audio both use per-beat beat_dur) => zero cumulative drift.
 """
-import json, os, re, sys, subprocess, zipfile, urllib.request
+import json, math, os, re, sys, subprocess, time, zipfile, urllib.request, urllib.error
 
 BASE   = os.environ.get("PIPE_VIDEO", "/home/user/videos/video_001")
 NAME   = os.path.basename(BASE)
@@ -30,12 +30,12 @@ VOICE_MODEL_URL  = "https://github.com/thewh1teagle/kokoro-onnx/releases/downloa
 VOICE_VOICES_URL = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin"
 
 MOTIONS = [
-    (1.00, 1.14, 0.50, 0.50, 0.50, 0.50),
-    (1.16, 1.02, 0.50, 0.50, 0.50, 0.50),
-    (1.10, 1.10, 0.00, 0.50, 1.00, 0.50),
-    (1.10, 1.10, 1.00, 0.50, 0.00, 0.50),
-    (1.08, 1.20, 0.50, 0.30, 0.50, 0.50),
-    (1.20, 1.08, 0.50, 0.60, 0.50, 0.60),
+    ("zin",  1.00, 1.38, 0.50, 0.50, 0.50, 0.50),
+    ("zout", 1.30, 1.02, 0.50, 0.50, 0.50, 0.50),
+    ("panlr",1.22, 1.22, 0.00, 0.50, 1.00, 0.50),
+    ("panrl",1.22, 1.22, 1.00, 0.50, 0.00, 0.50),
+    ("diag", 1.04, 1.34, 0.15, 0.20, 0.75, 0.55),
+    ("settle",1.45, 1.00, 0.50, 0.50, 0.50, 0.50),
 ]
 
 def run(args, check=True):
@@ -51,10 +51,38 @@ def load_state():
     return json.load(open(STATE)) if os.path.exists(STATE) else {}
 def save_state(s):
     json.dump(s, open(STATE, "w"), indent=1)
-def download(url, path):
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=300) as r, open(path, "wb") as f:
-        f.write(r.read())
+
+# ---- ROBUST DOWNLOAD: exponential backoff + retries for 429/5xx/network errors ----
+MAX_RETRIES = 8
+BASE_BACKOFF = 3.0   # seconds; grows exponentially (3, 6, 12, 24, ...)
+
+def download(url, path, retries=MAX_RETRIES):
+    import http.client
+    last = None
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=300) as r, open(path, "wb") as f:
+                f.write(r.read())
+            return True
+        except urllib.error.HTTPError as e:
+            last = e
+            # 429 rate-limit, 5xx server errors, 403 (Pexels-style throttle) -> retry
+            if e.code in (429, 500, 502, 503, 504, 403):
+                wait = BASE_BACKOFF * (2 ** attempt)
+                print(f"  ⏳ {e.code} on {url[:70]}... retry {attempt+1}/{retries} in {wait:.0f}s")
+                time.sleep(wait)
+                continue
+            raise
+        except (urllib.error.URLError, http.client.RemoteDisconnected,
+                ConnectionResetError, TimeoutError, OSError) as e:
+            last = e
+            wait = BASE_BACKOFF * (2 ** attempt)
+            print(f"  ⏳ net error ({e.__class__.__name__}) on {url[:70]}... retry {attempt+1}/{retries} in {wait:.0f}s")
+            time.sleep(wait)
+            continue
+    raise RuntimeError(f"download failed after {retries} tries: {url[:80]} -> {last}")
+
 def pull_raw(repo_path, local):
     os.makedirs(os.path.dirname(local), exist_ok=True)
     download(f"https://raw.githubusercontent.com/{REPO}/main/{repo_path}", local)
@@ -88,6 +116,16 @@ def build_storyboard():
     ASSETS, SECTIONS, CAPTIONS, MAX_USES = load_cfg()
     sents = sentences()
     N = len(sents)
+    # preserve timings (cap_start/beat_len) from existing storyboard by sentence text
+    old = {}
+    if os.path.exists(SB):
+        try:
+            for ob in json.load(open(SB)):
+                for k in ("cap_start", "beat_len", "v_dur", "beat_dur"):
+                    if k in ob:
+                        old.setdefault(ob["sentence"], {})[k] = ob[k]
+        except Exception:
+            pass
     section_of, cur = [], 0
     for s in sents:
         for si in range(cur, len(SECTIONS)):
@@ -95,22 +133,58 @@ def build_storyboard():
             if st is not None and st in s:
                 cur = si
         section_of.append(cur)
+    import random, hashlib
+    rng = random.Random(hashlib.md5(NAME.encode()).hexdigest())  # deterministic per video
     usage = {}
+    chunk_usage = {}   # asset -> set of chunk indices where it's already used
+    last_use = {}      # asset -> last beat index it was used (for reuse distance)
     used_caps = set()
     beats = []
-    def pick(section_assets):
-        valid = [a for a in section_assets if a in ASSETS]
-        pool = valid if valid else sorted(ASSETS.keys())
-        under = [a for a in pool if usage.get(a, 0) < MAX_USES]
-        cands = under if under else sorted(ASSETS.keys())
-        cands.sort(key=lambda a: (usage.get(a, 0), a))
-        return cands[0]
+    prev_asset = None
+    prev_motion = None
+    def tags_of(a):
+        v = ASSETS[a]
+        return [t for t in (v[2] if len(v) > 2 else [])]
+    def tag_hit(a, low):
+        return sum(1 for t in tags_of(a) if t in low)
     for i, s in enumerate(sents):
         si = section_of[i]
-        asset = pick(SECTIONS[si]["assets"])
-        usage[asset] = usage.get(asset, 0) + 1
-        cap = None
+        chunk = i // CHUNK
         low = s.lower()
+        def tier(a):
+            # 0=unused+tag match, 1=unused, 2=used-once+tag, 3=used-once, 4=at cap
+            u = usage.get(a, 0)
+            th = tag_hit(a, low)
+            if u == 0 and th > 0: return 0
+            if u == 0: return 1
+            if u < MAX_USES and th > 0: return 2
+            if u < MAX_USES: return 3
+            return 4
+        # GLOBAL pool (all assets, not section-locked). Constraints: not prev,
+        # not already used in this chunk, under max uses.
+        cands = [a for a in ASSETS
+                 if a != prev_asset
+                 and chunk not in chunk_usage.get(a, set())
+                 and usage.get(a, 0) < MAX_USES]
+        if not cands:
+            cands = [a for a in ASSETS if a != prev_asset and usage.get(a, 0) < MAX_USES]
+        if not cands:
+            cands = [a for a in ASSETS if a != prev_asset]
+        # shuffle BEFORE the stable sort => random order within equal keys (no pattern)
+        rng.shuffle(cands)
+        # sort: best tier first; within tier, oldest last-use first (max reuse distance)
+        cands.sort(key=lambda a: (tier(a), last_use.get(a, -1), usage.get(a, 0)))
+        asset = cands[0]
+        usage[asset] = usage.get(asset, 0) + 1
+        chunk_usage.setdefault(asset, set()).add(chunk)
+        last_use[asset] = i
+        prev_asset = asset
+        # randomized motion, never repeating the previous motion
+        m = MOTIONS[rng.randrange(len(MOTIONS))]
+        while m is prev_motion:
+            m = MOTIONS[rng.randrange(len(MOTIONS))]
+        prev_motion = m
+        cap = None
         for (anchor, disp, style) in CAPTIONS:
             if disp in used_caps:
                 continue
@@ -118,8 +192,12 @@ def build_storyboard():
                 cap = (anchor, disp, style)
                 used_caps.add(disp)
                 break
-        beats.append({"sentence": s, "asset": asset,
-                      "motion": MOTIONS[i % len(MOTIONS)], "caption": cap})
+        b = {"sentence": s, "asset": asset,
+             "motion": m, "caption": cap}
+        # carry over timings preserved from the previous storyboard
+        for k, v in old.get(s, {}).items():
+            b[k] = v
+        beats.append(b)
     json.dump(beats, open(SB, "w"), indent=1)
     st = load_state(); st["total_beats"] = N; save_state(st)
     over = {a: c for a, c in usage.items() if c > MAX_USES}
@@ -237,7 +315,8 @@ def tts_all():
         st["tts_done"].append(k); save_state(st)
         json.dump(beats, open(SB, "w"), indent=1)
         print(f"tts chunk {k} pushed ({a}-{b})")
-    subprocess.run([sys.executable, "/home/user/tools/git_push.py", f"{NAME} storyboard caption timings",
+    subprocess.run([sys.executable, "/home/user/tools/vault_push.py", REPO,
+        f"{NAME} storyboard caption timings",
         f"{REPO_BASE}/storyboard.json", SB, f"{REPO_BASE}/state.json", STATE], check=True)
     print("tts_all done. caption start times:")
     for i, b in enumerate(beats):
@@ -293,8 +372,9 @@ def render_chunk(k):
     if vbeats:
         zp = f"{BASE}/video_chunk_{k:02d}.zip"
         zip_files(zp, vbeats)
+        # large files -> git (API blob limit ~50MB)
         subprocess.run([sys.executable, "/home/user/tools/vault_push.py", REPO,
-            f"{NAME} video chunk {k}", f"{REPO_BASE}/video_chunk_{k:02d}.zip", zp], check=True)
+                        f"{NAME} video chunk {k}", f"{REPO_BASE}/video_chunk_{k:02d}.zip", zp], check=True)
         for _, v in vbeats: os.remove(v)
         os.remove(zp)
         st = load_state(); st.setdefault("render_done", []).append(k); save_state(st)
@@ -303,27 +383,56 @@ def render_chunk(k):
         print(f"render chunk {k}: nothing new")
 
 def _render_one(ASSETS, beats, i, vout):
+    import soundfile as sf
     bt = beats[i]
     wav = f"{BASE}/beat_{i:03d}.wav"
-    wav_dur = dur_of(wav)
-    beat_dur = round((wav_dur + GAP) * FPS) / FPS   # exact video==audio duration
-    bt["beat_dur"] = beat_dur
-    Nf = int(round(beat_dur * FPS))
-    path, kind = ASSETS[bt["asset"]]
+    with sf.SoundFile(wav) as f:
+        wav_samples, sr = f.frames, f.samplerate
+    wav_dur = wav_samples / sr
+    # FRAME-EXACT beat length: pad to whole frames (1 frame = sr/FPS samples).
+    # Video AND audio both use beat_len => sample-exact A/V + caption sync.
+    frame_samples = sr / FPS
+    beat_samples = math.ceil((wav_samples + GAP * sr) / frame_samples) * frame_samples
+    beat_len = beat_samples / sr
+    Nf = int(round(beat_samples / frame_samples))
+    bt["beat_len"] = beat_len
+    bt["beat_dur"] = beat_len
+    v = ASSETS[bt["asset"]]
+    path = v[0]; kind = v[1]
     if kind == "video":
-        fc = "[0:v]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,fps=30,format=yuv420p,setpts=PTS-STARTPTS[v]"
+        fc = ("[0:v]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,fps=30,setsar=1,format=yuv420p,setpts=PTS-STARTPTS,"
+              "eq=brightness='0.015*sin(2*PI*t/5)':saturation=1.06,"
+              "vignette=PI/4.6,"
+              "noise=alls=5:allf=t,"
+              "fade=t=in:st=0:d=0.18[v]")
         args = [ff(), "-y", "-stream_loop", "-1", "-i", path]
     else:
-        zs, ze, px0, py0, px1, py1 = bt["motion"]
-        z = f"{zs}+({ze}-{zs})*on/{Nf}"
-        x = f"(iw-iw/zoom)*({px0}+({px1}-{px0})*on/{Nf})"
-        y = f"(ih-ih/zoom)*({py0}+({py1}-{py0})*on/{Nf})"
+        m = bt["motion"]
+        name, zs, ze, px0, py0, px1, py1 = m
+        if name == "settle":
+            # fast push-in that settles: ease-out via sqrt
+            z = f"{ze}+({zs}-{ze})*sqrt(max(0,1-on/{Nf}))"
+            x = f"(iw-iw/zoom)*({px0}+({px1}-{px0})*on/{Nf})"
+            y = f"(ih-ih/zoom)*({py0}+({py1}-{py0})*on/{Nf})"
+        elif name == "diag":
+            z = f"{zs}+({ze}-{zs})*on/{Nf}"
+            x = f"(iw-iw/zoom)*({px0}+({px1}-{px0})*on/{Nf})"
+            y = f"(ih-ih/zoom)*({py0}+({py1}-{py0})*on/{Nf})"
+        else:
+            z = f"{zs}+({ze}-{zs})*on/{Nf}"
+            x = f"(iw-iw/zoom)*({px0}+({px1}-{px0})*on/{Nf})"
+            y = f"(ih-ih/zoom)*({py0}+({py1}-{py0})*on/{Nf})"
         fc = (f"[0:v]scale=2560:1440:flags=lanczos,"
-              f"zoompan=z='{z}':x='{x}':y='{y}':d={Nf}:s=1920x1080:fps={FPS}[v]")
+              f"zoompan=z='{z}':x='{x}':y='{y}':d={Nf}:s=1920x1080:fps={FPS},setsar=1,"
+              f"eq=brightness='0.015*sin(2*PI*t/5)':saturation=1.06,"
+              f"vignette=PI/4.6,"
+              f"noise=alls=5:allf=t,"
+              f"fade=t=in:st=0:d=0.18[v]")
         args = [ff(), "-y", "-i", path]
     args += ["-filter_complex", fc, "-map", "[v]", "-c:v","libx264","-preset","veryfast",
-             "-crf","21","-pix_fmt","yuv420p","-frames:v",str(Nf),"-an",vout]
+             "-crf","21","-pix_fmt","yuv420p","-r","30","-t",f"{beat_len:.6f}","-an",vout]
     run(args)
+    bt["v_dur"] = round(dur_of(vout), 3)   # MEASURED video duration = master clock
 
 # ---------------- assemble (per-beat pad = beat_dur) ----------------
 def assemble_chunk(k):
@@ -342,26 +451,30 @@ def assemble_chunk(k):
         for i in range(a, b):
             f.write(f"file '{BASE}/work_v/vbeat_{i:03d}.mp4'\n")
     partv = f"{BASE}/part_{k:02d}.mp4"
+    # NO fps filter here (beats are exact 30fps via -t; fps=30 caused drift)
     run([ff(),"-y","-f","concat","-safe","0","-i",f"{BASE}/vlist.txt",
-         "-vf","scale=1920:1080,setsar=1,fps=30,format=yuv420p",
+         "-vf","scale=1920:1080,setsar=1,format=yuv420p",
          "-c:v","libx264","-preset","veryfast","-crf","20","-pix_fmt","yuv420p","-an",partv])
     acmd = [ff(), "-y"]
     for i in range(a, b):
         acmd += ["-i", f"{BASE}/work_a/beat_{i:03d}.wav"]
     fc = []
+    import soundfile as sf
     for i in range(a, b):
-        wav_dur = dur_of(f"{BASE}/work_a/beat_{i:03d}.wav")
-        bd = beats[i].get("beat_dur") or round((wav_dur + GAP) * FPS) / FPS
+        with sf.SoundFile(f"{BASE}/work_a/beat_{i:03d}.wav") as f:
+            wav_samples, sr = f.frames, f.samplerate
+        wav_dur = wav_samples / sr
+        bd = beats[i].get("beat_len") or beats[i].get("v_dur") or beats[i].get("beat_dur") or round((wav_dur + GAP) * FPS) / FPS
         pad = max(bd - wav_dur, 0.0)
-        fc.append(f"[{i-a}:a]apad=pad_dur={pad:.4f}[a{i-a}]")
+        fc.append(f"[{i-a}:a]apad=pad_dur={pad:.6f}[a{i-a}]")
     fc.append("".join(f"[a{j}]" for j in range(b-a)) + f"concat=n={b-a}:v=0:a=1[aout]")
-    parta = f"{BASE}/part_{k:02d}.mp3"
-    acmd += ["-filter_complex",";".join(fc),"-map","[aout]","-ar","48000","-c:a","libmp3lame","-b:a","160k",parta]
+    parta = f"{BASE}/part_{k:02d}.wav"
+    acmd += ["-filter_complex",";".join(fc),"-map","[aout]","-ar","48000","-ac","1","-c:a","pcm_s16le",parta]
     run(acmd)
     subprocess.run([sys.executable, "/home/user/tools/vault_push.py", REPO,
         f"{NAME} parts chunk {k}",
         f"{REPO_BASE}/part_{k:02d}.mp4", partv,
-        f"{REPO_BASE}/part_{k:02d}.mp3", parta], check=True)
+        f"{REPO_BASE}/part_{k:02d}.wav", parta], check=True)
     for p in [vz, az, partv, parta, f"{BASE}/vlist.txt"]:
         if os.path.exists(p): os.remove(p)
     subprocess.run(["rm","-rf",f"{BASE}/work_v",f"{BASE}/work_a"])
@@ -375,20 +488,21 @@ def finalize():
     wd = f"{BASE}/work_f"
     os.makedirs(wd, exist_ok=True)
     for k in range(nc):
-        for ext in ["mp4","mp3"]:
+        for ext in ["mp4","wav"]:
             lp = f"{wd}/part_{k:02d}.{ext}"
             if not os.path.exists(lp):
                 pull_raw(f"{REPO_BASE}/part_{k:02d}.{ext}", lp)
     if not os.path.exists(SB):
         pull_raw(f"{REPO_BASE}/storyboard.json", SB)
     beats = json.load(open(SB)); N = len(beats)
-    afull = f"{wd}/audio_full.mp3"
+    afull = f"{wd}/audio_full.wav"
     if not os.path.exists(afull):
         acmd = [ff(), "-y"]
         for k in range(nc):
-            acmd += ["-i", f"{wd}/part_{k:02d}.mp3"]
-        fc = "".join(f"[{k}:a]" for k in range(nc)) + f"concat=n={nc}:v=0:a=1[a1];[a1]loudnorm=I=-16:TP=-1.5:LRA=11[af]"
-        acmd += ["-filter_complex", fc, "-map","[af]","-ar","48000","-c:a","libmp3lame","-b:a","160k",afull]
+            acmd += ["-i", f"{wd}/part_{k:02d}.wav"]
+        # NO loudnorm (it can shift timing). WAV concat = no priming = sample-exact.
+        fc = "".join(f"[{k}:a]" for k in range(nc)) + f"concat=n={nc}:v=0:a=1[af]"
+        acmd += ["-filter_complex", fc, "-map","[af]","-ar","48000","-ac","1","-c:a","pcm_s16le",afull]
         run(acmd)
     DUR = dur_of(afull)
     with open(f"{wd}/plist.txt","w") as f:
@@ -400,39 +514,69 @@ def finalize():
     graded = f"{wd}/graded.mp4"
     run([ff(),"-y","-i",vfull,"-vf",
          f"eq=contrast=1.03:saturation=1.06,vignette=PI/4.6,fade=t=in:st=0:d=0.4,fade=t=out:st={DUR-0.8:.2f}:d=0.8",
-         "-c:v","libx264","-preset","veryfast","-crf","22","-pix_fmt","yuv420p","-threads","2","-an",graded])
-    # absolute caption times on the shared beat_dur timeline
+         "-c:v","libx264","-preset","ultrafast","-crf","22","-pix_fmt","yuv420p","-threads","2","-an",graded])
+    # absolute caption times on the MEASURED video timeline (v_dur = master clock)
     captions = []
     t = 0.0
     for i in range(N):
         if beats[i].get("caption"):
             captions.append((i, t + beats[i].get("cap_start", 0.0), beats[i]["caption"]))
-        t += beats[i].get("beat_dur", 0.0)
-    # PASS 2: overlay captions + mux audio
-    args = [ff(), "-y", "-i", graded]
-    for j, (i, abs_t, cap) in enumerate(captions):
-        png = f"{wd}/cap_{j:03d}.png"
-        make_caption(cap[1], cap[2], png)
-        args += ["-loop","1","-framerate","30","-t",f"{DUR:.2f}","-i",png]
-    args += ["-i", afull]
-    parts = []
-    last = "0:v"
-    for j, (i, abs_t, cap) in enumerate(captions):
-        ypos = "H*0.30" if cap[2] == "pop" else "H-h-120"
-        hold = min(CAP_HOLD, max(DUR - abs_t - 0.05, 1.0))
-        parts.append(f"[{j+1}:v]format=rgba[c{j}]")
-        parts.append(f"[{last}][c{j}]overlay=x=(W-w)/2:y={ypos}:enable='between(t,{abs_t:.2f},{abs_t+hold:.2f})'[o{j}]")
-        last = f"o{j}"
-    fc = ";".join(parts)
+        t += beats[i].get("beat_len", beats[i].get("v_dur", beats[i].get("beat_dur", 0.0)))
+    # PASS 2: overlay captions in BATCHES via -itsoffset (3s clips, memory-frugal)
+    BATCH = 5
+    cur = graded
+    for bi in range(0, len(captions), BATCH):
+        group = captions[bi:bi+BATCH]
+        args = [ff(), "-y", "-i", cur]
+        for j, (i, abs_t, cap) in enumerate(group):
+            png = f"{wd}/cap_{bi+j:03d}.png"
+            make_caption(cap[1], cap[2], png)
+            hold = min(CAP_HOLD, max(DUR - abs_t - 0.05, 1.0))
+            args += ["-itsoffset", f"{abs_t:.3f}", "-loop","1","-framerate","30","-t",f"{hold:.2f}","-i",png]
+        parts = []
+        last = "0:v"
+        for j, (i, abs_t, cap) in enumerate(group):
+            ypos = "H*0.30" if cap[2] == "pop" else "H-h-120"
+            parts.append(f"[{j+1}:v]format=rgba[c{j}]")
+            parts.append(f"[{last}][c{j}]overlay=x=(W-w)/2:y={ypos}:shortest=0:eof_action=pass[o{j}]")
+            last = f"o{j}"
+        fc = ";".join(parts)
+        outb = f"{wd}/ov_{bi:03d}.mp4" if bi + BATCH < len(captions) else f"{wd}/overlaid.mp4"
+        args += ["-filter_complex", fc, "-map", f"[{last}]",
+                 "-c:v","libx264","-preset","ultrafast","-crf","22","-pix_fmt","yuv420p","-threads","2","-an",outb]
+        run(args)
+        cur = outb
+        for j in range(len(group)):
+            p = f"{wd}/cap_{bi+j:03d}.png"
+            if os.path.exists(p): os.remove(p)
+        print(f"overlay batch {bi//BATCH + 1} done ({len(group)} captions)")
+    # PASS 3: ambient music bed (R18) + mux mastered audio
+    # generate a subtle pad (stereo), mix under the voice (~-27 LUFS) -> stereo out
+    pad = f"{wd}/pad.wav"
+    if not os.path.exists(pad):
+        subprocess.run([sys.executable, "/home/user/tools/make_pad.py", f"{DUR:.1f}", pad], check=True)
+    mixed = f"{wd}/audio_mixed.m4a"
+    run([ff(),"-y","-i",afull,"-i",pad,
+         "-filter_complex",
+         "[1:a]volume=0.30,afade=t=in:st=0:d=4,afade=t=out:st={:.2f}:d=6[pad];"
+         "[0:a]aformat=channel_layouts=stereo[v];"
+         "[v][pad]amix=inputs=2:duration=first:normalize=0,"
+         "loudnorm=I=-16:TP=-1.5:LRA=11[a]".format(max(DUR-6, 1)),
+         "-map","[a]","-c:a","aac","-b:a","160k","-ar","48000","-ac","2","-t",f"{DUR:.2f}",mixed])
     out = f"{BASE}/final.mp4"
-    args += ["-filter_complex", fc, "-map", f"[{last}]", "-map", f"{len(captions)+1}:a",
-             "-c:v","libx264","-preset","veryfast","-crf","22","-pix_fmt","yuv420p",
-             "-c:a","aac","-b:a","160k","-threads","2","-t",f"{DUR:.2f}",out]
-    run(args)
-    for j in range(len(captions)):
-        p = f"{wd}/cap_{j:03d}.png"
-        if os.path.exists(p): os.remove(p)
+    run([ff(),"-y","-i",cur,"-i",mixed,
+         "-map","0:v","-map","1:a","-c:v","copy","-c:a","copy","-threads","2","-t",f"{DUR:.2f}",out])
     print("final built:", out, "duration:", round(DUR,1))
+    # SIZE GUARD (R10): GitHub hard limit = 100MB per file. Shrink if over.
+    LIMIT_MB = 95
+    sz = os.path.getsize(out) / 1e6
+    if sz > LIMIT_MB:
+        print(f"final {sz:.1f}MB > {LIMIT_MB}MB limit — re-encoding lean (crf 26)")
+        lean = f"{wd}/final_lean.mp4"
+        run([ff(),"-y","-i",out,"-c:v","libx264","-preset","veryfast","-crf","26",
+             "-pix_fmt","yuv420p","-c:a","copy","-threads","2",lean])
+        os.replace(lean, out)
+        print(f"shrunk to {os.path.getsize(out)/1e6:.1f}MB")
     print("caption schedule (absolute seconds, hold %.1fs):" % CAP_HOLD)
     for (i, abs_t, cap) in captions:
         print(f"  {cap[1]:32s} @ {abs_t:6.2f}s")
