@@ -1,0 +1,1541 @@
+[
+ {
+  "sentence": "Here's something strange about your loneliness.",
+  "asset": "sv53",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "You can be surrounded by people \u2014 a warm room, familiar voices, people who love you \u2014 and still feel like you're watching it all from behind glass.",
+  "asset": "img01",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "watching it all from behind glass",
+   "BEHIND GLASS",
+   "caption"
+  ],
+  "cap_start": 6.797
+ },
+ {
+  "sentence": "And here's something even stranger.",
+  "asset": "sp17",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The lonelier you feel, the more you're told the solution is connection.",
+  "asset": "sp46",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Reach out.",
+  "asset": "sp49",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Be social.",
+  "asset": "sv20",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Put yourself out there.",
+  "asset": "img05",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "But every time you do \u2014 every party, every group, every attempt to belong \u2014 you come home feeling *more* alone than before.",
+  "asset": "sp22",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "alone than before",
+   "MORE ALONE THAN BEFORE",
+   "caption"
+  ],
+  "cap_start": 8.013
+ },
+ {
+  "sentence": "What if everything you've been told about loneliness is backwards?",
+  "asset": "sv62",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "What if the loneliness you feel isn't a sign that you're failing to connect \u2014 but a sign that you're finally becoming yourself?",
+  "asset": "sp54",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "becoming yourself",
+   "BECOMING YOURSELF",
+   "gold"
+  ],
+  "cap_start": 5.859
+ },
+ {
+  "sentence": "Because one of the greatest minds in psychology discovered this a hundred years ago.",
+  "asset": "img04",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And he paid for it with six years of almost complete isolation.",
+  "asset": "sp18",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "six years of almost complete isolation",
+   "SIX YEARS ALONE",
+   "pop"
+  ],
+  "cap_start": 1.4
+ },
+ {
+  "sentence": "Let me start with Carl Jung.",
+  "asset": "img03",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "In 1913, at the height of his career, Jung broke with his mentor, Sigmund Freud.",
+  "asset": "img06",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It was the most important relationship of his professional life.",
+  "asset": "sp43",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And when it shattered, Jung fell into a period that would have looked, from the outside, like madness.",
+  "asset": "sp67",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "For six years, he withdrew.",
+  "asset": "sv18",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "He resigned from positions.",
+  "asset": "sv08",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "He stopped lecturing.",
+  "asset": "sv28",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "He spent his days alone, talking to figures that appeared in his imagination \u2014 an old man, a young woman, a wise figure he called Philemon.",
+  "asset": "sp36",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "talking to figures",
+   "TALKING TO FIGURES",
+   "caption"
+  ],
+  "cap_start": 1.741
+ },
+ {
+  "sentence": "He drew.",
+  "asset": "sp31",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "He painted.",
+  "asset": "sv03",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "He wrote, page after page, in a red leather book that he kept hidden for decades.",
+  "asset": "sv47",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It would later be published as The Red Book.",
+  "asset": "sv51",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "His colleagues thought he'd lost his mind.",
+  "asset": "sp23",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Jung knew better.",
+  "asset": "sv40",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "He wasn't hiding.",
+  "asset": "sp21",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "He was doing the most important work of his life.",
+  "asset": "sp01",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "He was descending into his own depths \u2014 and becoming, for the first time, fully himself.",
+  "asset": "sv57",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "He called this process individuation.",
+  "asset": "sv54",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "called this process individuation",
+   "INDIVIDUATION",
+   "gold"
+  ],
+  "cap_start": 0.824
+ },
+ {
+  "sentence": "And he said something about it that almost nobody quotes, because it's uncomfortable.",
+  "asset": "sp38",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Becoming an individual means separating yourself from the collective.",
+  "asset": "sv17",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And separation is lonely.",
+  "asset": "sp40",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "separation is lonely",
+   "SEPARATION IS LONELY",
+   "caption"
+  ],
+  "cap_start": 0.781
+ },
+ {
+  "sentence": "Here's what he meant.",
+  "asset": "img09",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Most of us, most of the time, live borrowed lives.",
+  "asset": "sv59",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "borrowed lives",
+   "YOU LIVE A BORROWED LIFE",
+   "caption"
+  ],
+  "cap_start": 2.595
+ },
+ {
+  "sentence": "We think borrowed thoughts, feel borrowed feelings, want borrowed wants \u2014 inherited from our family, our culture, our crowd.",
+  "asset": "img02",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "There's a comfort in that.",
+  "asset": "sv35",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "When you think what everyone thinks, you're never alone.",
+  "asset": "sp28",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The crowd is always with you.",
+  "asset": "sp33",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "But the moment you begin to become yourself \u2014 the moment you form a view that isn't the family's view, a dream that isn't the culture's dream, a truth that isn't the crowd's truth \u2014 something shifts.",
+  "asset": "sp45",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The crowd can't follow you there.",
+  "asset": "sp34",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "the crowd can't follow you there",
+   "THE CROWD CAN'T FOLLOW",
+   "caption"
+  ],
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "They don't hate you.",
+  "asset": "sv45",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "They just...",
+  "asset": "sp08",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "can't come.",
+  "asset": "sv43",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And you feel it as loneliness.",
+  "asset": "sv50",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "That's the loneliness nobody warned you about.",
+  "asset": "sv68",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Not the loneliness of being alone.",
+  "asset": "sv46",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The loneliness of becoming.",
+  "asset": "sv31",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "loneliness of becoming",
+   "THE LONELINESS OF BECOMING",
+   "gold"
+  ],
+  "cap_start": 0.611
+ },
+ {
+  "sentence": "Friedrich Nietzsche saw it too.",
+  "asset": "sv63",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "He wrote that the higher we soar, the smaller we appear to those who cannot fly.",
+  "asset": "img07",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "higher we soar",
+   "THE HIGHER WE SOAR",
+   "caption"
+  ],
+  "cap_start": 1.272
+ },
+ {
+  "sentence": "And Rainer Maria Rilke, in his letters to a young poet, said it most gently of all.",
+  "asset": "sp42",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "He told a young man not to fear his solitude \u2014 that real relationship is not two people merging into one, but two solitudes standing beside each other, protecting and saluting each other.",
+  "asset": "sv58",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "two solitudes",
+   "TWO SOLITUDES",
+   "caption"
+  ],
+  "cap_start": 7.075
+ },
+ {
+  "sentence": "Notice what all three are saying.",
+  "asset": "sv11",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Loneliness, in this view, is not a wound to be healed by finding enough people.",
+  "asset": "sv27",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "not a wound",
+   "IT'S NOT A WOUND",
+   "gold"
+  ],
+  "cap_start": 2.317
+ },
+ {
+  "sentence": "It's a threshold.",
+  "asset": "sv56",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "A rite of passage.",
+  "asset": "sp60",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The unavoidable price of a self.",
+  "asset": "sv22",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "So what do you do with this?",
+  "asset": "sv36",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Because none of this makes the loneliness feel warm.",
+  "asset": "sv26",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It still hurts in the dark hours.",
+  "asset": "sp26",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Here's what actually helps.",
+  "asset": "sv30",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "First \u2014 distinguish solitude from isolation.",
+  "asset": "sv42",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "solitude from isolation",
+   "SOLITUDE, NOT ISOLATION",
+   "caption"
+  ],
+  "cap_start": 1.549
+ },
+ {
+  "sentence": "Isolation is when you're cut off against your will.",
+  "asset": "sp48",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Solitude is when you choose to be with yourself, on purpose.",
+  "asset": "sp15",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Isolation hollows you out.",
+  "asset": "sp16",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Solitude fills you back up.",
+  "asset": "sv66",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The difference isn't the number of people around you.",
+  "asset": "sp59",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It's whether you're choosing the quiet, or being trapped by it.",
+  "asset": "sv33",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Second \u2014 stop treating every lonely moment as an emergency.",
+  "asset": "sv16",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The reflex is to reach for the phone, the feed, the distraction \u2014 anything to not feel it.",
+  "asset": "sp02",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "But Jung's six years happened because he stopped running from the emptiness and turned toward it.",
+  "asset": "sv14",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "turned toward it",
+   "TURN TOWARD THE EMPTINESS",
+   "caption"
+  ],
+  "cap_start": 5.069
+ },
+ {
+  "sentence": "Not all loneliness needs to be fixed.",
+  "asset": "sv25",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Some of it needs to be listened to.",
+  "asset": "sv60",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It has things to tell you about who you're becoming.",
+  "asset": "sv07",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Third \u2014 let the wrong connections fall away without panic.",
+  "asset": "sp30",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "let the wrong connections fall away",
+   "LET THE WRONG ONES GO",
+   "caption"
+  ],
+  "cap_start": 0.973
+ },
+ {
+  "sentence": "When you begin becoming yourself, some relationships won't survive it.",
+  "asset": "sv29",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "That's not a failure.",
+  "asset": "sv37",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "That's individuation doing its work.",
+  "asset": "sv65",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The people who can hold the real you \u2014 the one who thinks differently, feels deeply, wants strange things \u2014 those people exist.",
+  "asset": "sp55",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "They're just rare.",
+  "asset": "sv01",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Like you.",
+  "asset": "sp04",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And fourth \u2014 remember this, especially in the dark hours.",
+  "asset": "sp03",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The loneliness of becoming yourself is temporary.",
+  "asset": "sv19",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "temporary",
+   "ONE LONELINESS ENDS",
+   "gold"
+  ],
+  "cap_start": 2.424
+ },
+ {
+  "sentence": "The loneliness of never becoming yourself is permanent.",
+  "asset": "sv38",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "never becoming yourself",
+   "THE OTHER DOESN'T",
+   "caption"
+  ],
+  "cap_start": 1.357
+ },
+ {
+  "sentence": "One of them ends.",
+  "asset": "sp53",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "The other doesn't.",
+  "asset": "img10",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Jung emerged from those six years a different man \u2014 and went on to write the work the world remembers.",
+  "asset": "sv09",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "He didn't find connection first, and then become himself.",
+  "asset": "sp00",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "It was the other way around.",
+  "asset": "sp41",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "He became himself \u2014 and then, and only then, could he meet the world without needing it to approve of him.",
+  "asset": "sp12",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "became himself",
+   "BECOME YOURSELF FIRST",
+   "gold"
+  ],
+  "cap_start": 0.824
+ },
+ {
+  "sentence": "Here's what I want you to do.",
+  "asset": "sp50",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "Tell me in the comments: what's one thing you believe, want, or feel \u2014 that you've never said out loud, because you knew it would set you apart?",
+  "asset": "sp44",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "never said out loud",
+   "WHAT HAVE YOU NEVER SAID?",
+   "caption"
+  ],
+  "cap_start": 4.749
+ },
+ {
+  "sentence": "Because I think the comments are about to become a room where people finally say those things.",
+  "asset": "sp06",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "And if this video made you feel less alone in your loneliness, subscribe.",
+  "asset": "sv00",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "This channel is for the ones who are becoming.",
+  "asset": "sv02",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "We're going deep every week.",
+  "asset": "sv24",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null,
+  "cap_start": 0.0
+ },
+ {
+  "sentence": "I'll see you in the next one.",
+  "asset": "sv04",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "next one",
+   "SUBSCRIBE \u2014 YOU'RE NOT ALONE",
+   "gold"
+  ],
+  "cap_start": 1.293
+ }
+]
