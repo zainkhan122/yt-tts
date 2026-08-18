@@ -550,19 +550,25 @@ def finalize():
             p = f"{wd}/cap_{bi+j:03d}.png"
             if os.path.exists(p): os.remove(p)
         print(f"overlay batch {bi//BATCH + 1} done ({len(group)} captions)")
-    # PASS 3: ambient music bed (R18) + mux mastered audio
-    # generate a subtle pad (stereo), mix under the voice (~-27 LUFS) -> stereo out
+    # PASS 3: ambient music bed (R14) + voice polish + sidechain ducking, then mux
+    # generate a scored pad (chord progression, stereo) -> duck under the voice
     pad = f"{wd}/pad.wav"
     if not os.path.exists(pad):
         subprocess.run([sys.executable, "/home/user/tools/make_pad.py", f"{DUR:.1f}", pad], check=True)
     mixed = f"{wd}/audio_mixed.m4a"
     run([ff(),"-y","-i",afull,"-i",pad,
          "-filter_complex",
-         "[1:a]volume=0.30,afade=t=in:st=0:d=4,afade=t=out:st={:.2f}:d=6[pad];"
-         "[0:a]aformat=channel_layouts=stereo[v];"
-         "[v][pad]amix=inputs=2:duration=first:normalize=0,"
-         "loudnorm=I=-16:TP=-1.5:LRA=11[a]".format(max(DUR-6, 1)),
-         "-map","[a]","-c:a","aac","-b:a","160k","-ar","48000","-ac","2","-t",f"{DUR:.2f}",mixed])
+         # VOICE: de-rumble -> presence EQ -> light compression -> stereo -> asplit
+         # (asplit is REQUIRED: a filter output feeding two consumers needs a fan-out)
+         "[0:a]highpass=f=80,equalizer=f=8000:t=q:w=1:g=2,"
+         "acompressor=threshold=-18dB:ratio=2.5:attack=5:release=80,"
+         "aformat=channel_layouts=stereo,asplit=2[voice][voice2];"
+         # PAD: level + fades, then DUCK under the voice (sidechain compression)
+         "[1:a]volume=0.26,afade=t=in:st=0:d=4,afade=t=out:st={:.2f}:d=6[pd];"
+         "[pd][voice]sidechaincompress=threshold=0.02:ratio=12:attack=15:release=250[duck];"
+         "[voice2][duck]amix=inputs=2:duration=first:normalize=0,"
+         "loudnorm=I=-16:TP=-1.5:LRA=11[aout]".format(max(DUR-6, 1)),
+         "-map","[aout]","-c:a","aac","-b:a","160k","-ar","48000","-ac","2","-t",f"{DUR:.2f}",mixed])
     out = f"{BASE}/final.mp4"
     run([ff(),"-y","-i",cur,"-i",mixed,
          "-map","0:v","-map","1:a","-c:v","copy","-c:a","copy","-threads","2","-t",f"{DUR:.2f}",out])
