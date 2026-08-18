@@ -100,6 +100,11 @@ stores beat_dur) → assemble (per-beat pad) → finalize (absolute captions) �
    thumbnail, list the last 3 thumbnails' compositions and pick a DIFFERENT treatment,
    so no two adjacent thumbnails look alike. The goal: each thumbnail is instantly
    recognizable as ITS video, not as "another one from that channel."
+8. **MEASURE TEXT WIDTH BEFORE COMPOSITING:** before placing thumbnail text, render the
+   label and measure its width (ImageMagick `-format %w`). If width > ~1150px (frame
+   1280 minus margins), reduce the font size until it fits. Never let text touch or
+   exceed the frame edge. This rule exists because oversized text clips and ruins
+   thumbnails.
 
 ## R9. DOUBLE-VERIFY EVERYTHING (check twice, ship zero mistakes)
 
