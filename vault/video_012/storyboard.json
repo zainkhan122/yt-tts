@@ -1504,7 +1504,10 @@
    "WHICH ONE HAVE YOU IGNORED?",
    "caption"
   ],
-  "cap_start": 1.379
+  "cap_start": 1.379,
+  "beat_len": 4.0,
+  "beat_dur": 4.0,
+  "v_dur": 4.0
  },
  {
   "sentence": "The mask you've been wearing?",
@@ -1519,7 +1522,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.8666666666666667,
+  "beat_dur": 1.8666666666666667,
+  "v_dur": 1.87
  },
  {
   "sentence": "The shadow you've been running from?",
@@ -1534,7 +1540,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.1,
+  "beat_dur": 2.1,
+  "v_dur": 2.1
  },
  {
   "sentence": "The inner opposite you keep falling for?",
@@ -1549,7 +1558,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.566666666666667,
+  "beat_dur": 2.566666666666667,
+  "v_dur": 2.57
  },
  {
   "sentence": "Or the Self you've never stopped to ask?",
@@ -1564,7 +1576,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.533333333333333,
+  "beat_dur": 2.533333333333333,
+  "v_dur": 2.53
  },
  {
   "sentence": "Because once you name the one you've been avoiding, you've already begun to meet them.",
@@ -1579,7 +1594,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.533333333333333,
+  "beat_dur": 4.533333333333333,
+  "v_dur": 4.53
  },
  {
   "sentence": "And if this video made you feel a little more whole, subscribe.",
@@ -1594,7 +1612,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.933333333333333,
+  "beat_dur": 3.933333333333333,
+  "v_dur": 3.93
  },
  {
   "sentence": "This channel is about meeting the ones who live inside you.",
@@ -1609,7 +1630,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.1,
+  "beat_dur": 3.1,
+  "v_dur": 3.1
  },
  {
   "sentence": "We're going deep every week.",
@@ -1624,7 +1648,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.9,
+  "beat_dur": 1.9,
+  "v_dur": 1.9
  },
  {
   "sentence": "I'll see you in the next one.",
@@ -1643,6 +1670,9 @@
    "SUBSCRIBE \u2014 YOU'RE NOT ALONE",
    "gold"
   ],
-  "cap_start": 1.293
+  "cap_start": 1.293,
+  "beat_len": 2.466666666666667,
+  "beat_dur": 2.466666666666667,
+  "v_dur": 2.47
  }
 ]
