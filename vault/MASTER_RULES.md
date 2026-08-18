@@ -89,6 +89,10 @@ stores beat_dur) → assemble (per-beat pad) → finalize (absolute captions) �
 4. **Diagnosis-line bank** (title → thumbnail line) is kept per-video in VIDEO_QUEUE.md.
 5. Every thumbnail is generated against this formula and presented for approval before
    it is pushed as final.
+6. **UNIQUE CURIOSITY-GAP LINE PER VIDEO:** no thumbnail line may repeat another
+   video's concept (e.g. if "SHADOW" is used once, no other video may use "SHADOW").
+   Each video gets a distinct, fresh curiosity-gap line. Keep a running list of used
+   lines in VIDEO_QUEUE.md and check it before every new thumbnail.
 
 ## R9. DOUBLE-VERIFY EVERYTHING (check twice, ship zero mistakes)
 
