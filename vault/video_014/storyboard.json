@@ -2920,7 +2920,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.6,
+  "beat_dur": 3.6,
+  "v_dur": 3.6
  },
  {
   "sentence": "It was proof that you care.",
@@ -2935,7 +2938,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.7666666666666666,
+  "beat_dur": 1.7666666666666666,
+  "v_dur": 1.77
  },
  {
   "sentence": "And caring without an anchor is just drowning politely.",
@@ -2954,7 +2960,10 @@
    "DROWNING POLITELY",
    "caption"
   ],
-  "cap_start": 2.061
+  "cap_start": 2.061,
+  "beat_len": 3.566666666666667,
+  "beat_dur": 3.566666666666667,
+  "v_dur": 3.57
  },
  {
   "sentence": "You were never too much.",
@@ -2969,7 +2978,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.6,
+  "beat_dur": 1.6,
+  "v_dur": 1.6
  },
  {
   "sentence": "You were never a burden.",
@@ -2984,7 +2996,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.5666666666666667,
+  "beat_dur": 1.5666666666666667,
+  "v_dur": 1.57
  },
  {
   "sentence": "You were never the inconvenience you keep apologizing for.",
@@ -2999,7 +3014,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.566666666666667,
+  "beat_dur": 3.566666666666667,
+  "v_dur": 3.57
  },
  {
   "sentence": "You were just feeling the room so intensely that you forgot to feel yourself.",
@@ -3014,7 +3032,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.8,
+  "beat_dur": 4.8,
+  "v_dur": 4.8
  },
  {
   "sentence": "So the next time sorry climbs up your throat.",
@@ -3029,7 +3050,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.7666666666666666,
+  "beat_dur": 2.7666666666666666,
+  "v_dur": 2.77
  },
  {
   "sentence": "Ask what you're really apologizing for.",
@@ -3044,7 +3068,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.533333333333333,
+  "beat_dur": 2.533333333333333,
+  "v_dur": 2.53
  },
  {
   "sentence": "And if the answer is existing.",
@@ -3059,7 +3086,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.1666666666666665,
+  "beat_dur": 2.1666666666666665,
+  "v_dur": 2.17
  },
  {
   "sentence": "Put the word down.",
@@ -3074,7 +3104,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.4666666666666666,
+  "beat_dur": 1.4666666666666666,
+  "v_dur": 1.47
  },
  {
   "sentence": "You don't owe anyone an apology for being here.",
@@ -3089,7 +3122,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.6,
+  "beat_dur": 2.6,
+  "v_dur": 2.6
  },
  {
   "sentence": "Now tell me in the comments.",
@@ -3104,7 +3140,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.7666666666666666,
+  "beat_dur": 1.7666666666666666,
+  "v_dur": 1.77
  },
  {
   "sentence": "What's the most ridiculous thing you've ever apologized for.",
@@ -3123,7 +3162,10 @@
    "THE SILLIEST SORRY",
    "gold"
   ],
-  "cap_start": 1.016
+  "cap_start": 1.016,
+  "beat_len": 4.466666666666667,
+  "beat_dur": 4.466666666666667,
+  "v_dur": 4.47
  },
  {
   "sentence": "I read every single one.",
@@ -3138,6 +3180,9 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.8,
+  "beat_dur": 1.8,
+  "v_dur": 1.8
  }
 ]
