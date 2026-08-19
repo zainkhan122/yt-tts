@@ -1,7 +1,20 @@
 # 📅 MONTH 2 PLAN — The Deeper Mind
 
-*Prepared 2026-08-19. Videos 1–12 shipped (Month 1 ≈ 3/wk). This is the honest
-strategy for Month 2, grounded in current channel-stage data.*
+*Prepared 2026-08-19. Videos 1–12 shipped (Month 1 ≈ 3/wk).*
+
+## ✅ DECISIONS (user-confirmed 2026-08-19)
+1. **Cadence: 2 long-form/week + 3 Shorts/week** (Tue+Fri long; Mon/Wed/Sat Shorts).
+2. **Shorts: repurposed from existing long-forms only** (hook + midpoint), no
+   original-topic Shorts in Month 2.
+
+## SCHEDULE (locked)
+| Day | Format |
+|---|---|
+| Tue | long-form (new video) |
+| Wed | Short (from Tue's video) |
+| Fri | long-form (new video) |
+| Sat | Short (from Fri's video) |
+| Mon | Short (from a high-CTR back-catalog video) |
 
 ---
 

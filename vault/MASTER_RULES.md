@@ -1,7 +1,6 @@
 # ⚖️ MASTER RULES — The Deeper Mind
 ### Must-follow for EVERY video. If a rule is violated, the video is NOT done.
 *Last updated: 2026-08-19*
-
 ---
 
 ## R1. NEW ASSETS EVERY VIDEO (variety is non-negotiable)
@@ -153,6 +152,26 @@ Every video gets a SCORED ambient bed + polished voice via `finalize` PASS 3:
    Final loudnorm −16 LUFS / TP −1.5, stereo AAC 160k.
 6. NEVER raise the pad above 0.55 or drop duck ratio below 3 — the voice must stay
    dominant. (See R20.)
+
+## R21. MONTH-2 CADENCE + SHORTS (locked 2026-08-19)
+
+1. **2 long-form/week** (Tue + Fri), prime US/UK evening. Do NOT exceed 2 — the
+   niche has finite topics and quality beats frequency.
+2. **3 Shorts/week** (Mon/Wed/Sat), all **repurposed from existing long-forms**
+   (hook segment or the R12 midpoint interrupt). No original-topic Shorts.
+3. A Short is a 30–45s vertical crop of a long-form, keeping captions + R20 audio
+   balance, linking back to the full video. Build via `tools/make_short.py`
+   (to be written) using the long-form's caption schedule.
+4. The niche fence (R22) applies to Shorts too — same audience, same lane.
+
+## R22. NICHE FENCE (what we are / are NOT)
+
+We are: deep psychology for rare intuitive types (INFJ/INTJ/INFP/INTP) through a
+Jungian lens. We are NOT: generic self-help (habits, motivation, dopamine,
+productivity) or dark-psychology clickbait. Every topic must pass:
+> "Does this name an experience a rare intuitive type secretly has, and explain
+> it with a Jungian mechanism?" — if a generic motivation channel could publish
+> it unchanged, REJECT it.
 
 ## R15. AUTO-CLEANUP BETWEEN VIDEOS (never make the user ask)
 
