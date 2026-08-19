@@ -37,10 +37,10 @@ mechanism already registered — even if the title is worded differently.
 | 13 | Why You Feel Like an Old Soul | rarity burden (ancient since childhood) | Precocious Introverted Intuition (Ni) |
 
 ## 🎬 SHORTS REGISTER (R23 — track every Short's hook so we never re-use one)
-| Parent | Short title | Segment | Captions (first→last) | Status |
-|---|---|---|---|---|
-| 13 Old Soul | You've Felt Old Since Childhood | hook (beats 0–12, 36.7s) | OLD SINCE CHILDHOOD → THEY CALL YOU AN OLD SOUL | built+verified |
-| 13 Old Soul | The Adults Didn't Know | midpoint (beats 49–64, 38.6s) | OLDER THAN THE ROOM → THE REAL COST IS WAITING | built+verified |
+| Parent | Short title | Segment | Captions (first→last) | CTA | Status |
+|---|---|---|---|---|---|
+| 13 Old Soul | You've Felt Old Since Childhood | hook (beats 0–12, 36.7s) | OLD SINCE CHILDHOOD → THEY CALL YOU AN OLD SOUL | text + spoken af_heart | built+verified |
+| 13 Old Soul | The Adults Didn't Know | midpoint (beats 49–64, 38.6s) | OLDER THAN THE ROOM → THE REAL COST IS WAITING | text + spoken af_heart | built+verified |
 
 ## ⛔ USED THUMBNAIL LINES (R8.6 — never repeat these concepts)
 YOURS / OS / FROZEN / MASKED / UNLIVED / LOOP / SHADOW (used 2× — banned forever) /
