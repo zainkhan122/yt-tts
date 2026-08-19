@@ -15,4 +15,6 @@ Full video: "Why You Feel Like an Old Soul" on this channel.
 #oldsoul #psychology #deepthinkers #infj #intj #jungianpsychology #shorts
 
 > Both Shorts: 1080×1920, 30fps, word-synced captions, R20 audio (music bed
-> audible under voice), end CTA "▶ FULL VIDEO ON CHANNEL".
+> audible under voice). End CTA (2026-08-19 v2): prominent text bar
+> "▶ FULL VIDEO ON CHANNEL" + SPOKEN CTA "Watch the full video on this channel."
+> in the locked af_heart voice — every Short stands alone and asks for the click.
