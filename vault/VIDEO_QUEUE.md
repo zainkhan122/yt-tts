@@ -13,6 +13,7 @@
 10. Why Being Yourself Feels So Lonely — thumb: "THE PRICE OF SELF" (lone figure — first non-face)
 11. The Psychology of People Who See What Others Don't — thumb: "YOU SAW IT FIRST" (macro eye)
 12. There Are 4 People Living Inside You — thumb: "MEET THE OTHER THREE" (four-window house)
+13. Why You Feel Like an Old Soul — thumb: TBD ("ARRIVED EARLY" proposed) — 5:06
 
 ## 🧠 TITLE + PAIN-POINT + MECHANISM REGISTER (R23 — dedup master; check BEFORE approving ANY new topic/Short)
 Every shipped video/short gets registered here the same day it's finalized.
@@ -33,6 +34,7 @@ mechanism already registered — even if the title is worded differently.
 | 10 | Being Yourself Feels Lonely | cost of authenticity | individuation vs belonging |
 | 11 | See What Others Don't | pattern foresight ("gut knows") | Introverted Intuition (Ni) |
 | 12 | 4 People Inside You | inner multiplicity / feeling split | persona–shadow–anima/animus–Self |
+| 13 | Why You Feel Like an Old Soul | rarity burden (ancient since childhood) | Precocious Introverted Intuition (Ni) |
 
 ## 🎬 SHORTS REGISTER (R23 — track every Short's hook so we never re-use one)
 | Parent video | Short title | Hook/segment | Published |
@@ -69,9 +71,10 @@ Why You're Drawn to Your Complete Opposite · The Psychology of People Who Read 
 Room Too Well · Why You Plan for Disasters That Never Come
 
 ## Title formula tracker (R11 — no 3 consecutive same formula)
-Last formulas: V10 "Why…" → V11 "The Psychology of People Who…" → V12 claim-statement.
-V13 = "Why…" is safe (breaks the streak).
+Last formulas: V10 "Why…" → V11 "The Psychology of People Who…" → V12 claim → V13 "Why…".
+V14 = "The Psychology of People Who…" (rotates back, safe).
 
-## ▶️ NEXT UP: Video 13 — Why You Feel Like an Old Soul
-- Pain: Rarity Burden · Jungian: Precocious Ni · Mood: dawn/cool-blue (R13)
+## ▶️ NEXT UP: Video 14 — The Psychology of People Who Apologize for Existing
+- Pain: Fe over-accommodation · Jungian: Fe dominance / weak Fi
+- Pending: Video 13 thumbnail approval + repo intermediate purge (R6.4) + first Short.
 - Starts with (a) assets + script per R16 cadence.
