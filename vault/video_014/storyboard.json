@@ -15,7 +15,8 @@
    "say sorry more than you say your own name",
    "SORRY, MORE THAN YOUR NAME",
    "gold"
-  ]
+  ],
+  "cap_start": 0.717
  },
  {
   "sentence": "It comes out before anything has even gone wrong.",
@@ -29,7 +30,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Someone bumps into you on the street, and you apologize.",
@@ -43,7 +45,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The waiter brings you the wrong order, and you apologize.",
@@ -57,7 +60,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You've apologized to a door you walked into.",
@@ -71,7 +75,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You've apologized to a chair.",
@@ -85,7 +90,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You apologize for needing a minute.",
@@ -99,7 +105,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "For taking up space.",
@@ -113,7 +120,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "For having an opinion.",
@@ -127,7 +135,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "For feeling what you feel.",
@@ -141,7 +150,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Somewhere along the way, you learned to apologize for existing.",
@@ -159,7 +169,8 @@
    "learned to apologize for existing",
    "APOLOGIZING FOR EXISTING",
    "gold"
-  ]
+  ],
+  "cap_start": 1.997
  },
  {
   "sentence": "And nobody ever told you to stop.",
@@ -173,7 +184,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "So you never did.",
@@ -187,7 +199,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And now it's automatic.",
@@ -201,7 +214,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Let's be honest about what's actually going on.",
@@ -215,7 +229,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Most of your sorries aren't apologies.",
@@ -233,7 +248,8 @@
    "aren't apologies",
    "THOSE AREN'T APOLOGIES",
    "gold"
-  ]
+  ],
+  "cap_start": 1.379
  },
  {
   "sentence": "A real apology is for a harm you caused.",
@@ -247,7 +263,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "But you are not harming anyone by existing.",
@@ -261,7 +278,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You're apologizing for being visible.",
@@ -279,7 +297,8 @@
    "apologizing for being visible",
    "SORRY FOR BEING VISIBLE",
    "caption"
-  ]
+  ],
+  "cap_start": 0.486
  },
  {
   "sentence": "For being inconvenient.",
@@ -293,7 +312,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "For being a person who needs things.",
@@ -307,7 +327,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "That isn't guilt.",
@@ -321,7 +342,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It's a reflex.",
@@ -335,7 +357,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "A reflex with a very specific origin.",
@@ -349,7 +372,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It's a question you never stop asking.",
@@ -363,7 +387,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Do I have permission to be here.",
@@ -377,7 +402,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And the answer you keep giving is sorry.",
@@ -391,7 +417,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "That's not an apology.",
@@ -405,7 +432,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "That's a surrender.",
@@ -419,7 +447,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And it has a name.",
@@ -437,7 +466,8 @@
    "it has a name",
    "IT HAS A NAME",
    "gold"
-  ]
+  ],
+  "cap_start": 0.76
  },
  {
   "sentence": "There's a reason some people apologize constantly and others never do.",
@@ -451,7 +481,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It isn't manners.",
@@ -465,7 +496,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It isn't humility.",
@@ -479,7 +511,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It's the structure of the mind itself.",
@@ -493,7 +526,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Carl Jung spent his life mapping that structure.",
@@ -511,7 +545,8 @@
    "Carl Jung spent his life",
    "JUNG SAW THIS",
    "gold"
-  ]
+  ],
+  "cap_start": 0.0
  },
  {
   "sentence": "He saw that every person runs on different mental functions.",
@@ -525,7 +560,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Some people think their way through life.",
@@ -539,7 +575,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Some people feel their way through.",
@@ -553,7 +590,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And in each of us, one function leads.",
@@ -567,7 +605,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Yours is feeling.",
@@ -585,7 +624,8 @@
    "Yours is feeling",
    "YOURS IS FEELING",
    "gold"
-  ]
+  ],
+  "cap_start": 0.0
  },
  {
   "sentence": "Not raw emotion.",
@@ -599,7 +639,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Feeling, for Jung, is a way of judging.",
@@ -613,7 +654,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "What is right, and what is wrong.",
@@ -627,7 +669,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "What keeps harmony, and what breaks it.",
@@ -641,7 +684,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "What keeps other people comfortable.",
@@ -655,7 +699,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You can read a room in seconds.",
@@ -673,7 +718,8 @@
    "read a room in seconds",
    "YOU READ ROOMS IN SECONDS",
    "gold"
-  ]
+  ],
+  "cap_start": 0.973
  },
  {
   "sentence": "You know who's tense before they say a word.",
@@ -687,7 +733,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You know who's hurt behind their smile.",
@@ -701,7 +748,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You know the temperature of a room like a thermometer.",
@@ -715,7 +763,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You can't not know it.",
@@ -729,7 +778,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It's not a choice.",
@@ -743,7 +793,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It's how your mind is built.",
@@ -757,7 +808,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "So you adjust.",
@@ -771,7 +823,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You soften.",
@@ -785,7 +838,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You make yourself smaller so the room can breathe.",
@@ -803,7 +857,8 @@
    "make yourself smaller",
    "YOU SHRINK TO FIT",
    "caption"
-  ]
+  ],
+  "cap_start": 0.717
  },
  {
   "sentence": "That's the gift of feeling.",
@@ -817,7 +872,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It makes you gentle in a hard world.",
@@ -831,7 +887,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "But a gift only works if it has an anchor.",
@@ -849,7 +906,8 @@
    "gift only works if it has an anchor",
    "THE GIFT NEEDS AN ANCHOR",
    "gold"
-  ]
+  ],
+  "cap_start": 0.888
  },
  {
   "sentence": "And yours doesn't.",
@@ -863,7 +921,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "So the gift starts running you.",
@@ -877,7 +936,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Instead of you running it.",
@@ -891,7 +951,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Here's the part nobody explained to you.",
@@ -905,7 +966,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Feeling, as a dominant function, is tuned to other people.",
@@ -919,7 +981,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It asks one question, over and over.",
@@ -933,7 +996,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Are they okay.",
@@ -947,7 +1011,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Are they comfortable.",
@@ -961,7 +1026,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Is the harmony intact.",
@@ -975,7 +1041,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "That question is beautiful.",
@@ -989,7 +1056,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "But there's a second question feeling should also ask.",
@@ -1003,7 +1071,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Am I okay.",
@@ -1017,7 +1086,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And that question needs a different function.",
@@ -1031,7 +1101,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Jung called it introverted feeling.",
@@ -1049,7 +1120,8 @@
    "introverted feeling",
    "THE ANCHOR YOU'RE MISSING",
    "gold"
-  ]
+  ],
+  "cap_start": 1.101
  },
  {
   "sentence": "The part of you that knows what you need.",
@@ -1063,7 +1135,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "What you value.",
@@ -1077,7 +1150,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "What you deserve.",
@@ -1091,7 +1165,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "What is yours, regardless of what anyone else feels.",
@@ -1105,7 +1180,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "When that part is weak, something happens.",
@@ -1119,7 +1195,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Your worth stops coming from inside.",
@@ -1137,7 +1214,8 @@
    "worth stops coming from inside",
    "WORTH FROM OUTSIDE",
    "caption"
-  ]
+  ],
+  "cap_start": 0.486
  },
  {
   "sentence": "It starts coming from the room.",
@@ -1151,7 +1229,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "From their faces.",
@@ -1165,7 +1244,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "From whether they're pleased with you.",
@@ -1179,7 +1259,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And if you need their approval just to exist.",
@@ -1193,7 +1274,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Then existing feels like a favor they're granting.",
@@ -1211,7 +1293,8 @@
    "existing feels like a favor",
    "EXISTING AS A FAVOR",
    "caption"
-  ]
+  ],
+  "cap_start": 0.803
  },
  {
   "sentence": "And every favor demands a thank you.",
@@ -1225,7 +1308,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Or an apology.",
@@ -1239,7 +1323,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Let me ask you something, and I want you to actually pause here.",
@@ -1257,7 +1342,8 @@
    "actually pause here",
    "PAUSE. SIT WITH THIS.",
    "gold"
-  ]
+  ],
+  "cap_start": 2.573
  },
  {
   "sentence": "Think about the last time you said sorry.",
@@ -1271,7 +1357,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Not the word.",
@@ -1285,7 +1372,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The moment right before it.",
@@ -1299,7 +1387,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "What were you actually afraid of.",
@@ -1317,7 +1406,8 @@
    "what were you actually afraid of",
    "WHAT WERE YOU AFRAID OF",
    "caption"
-  ]
+  ],
+  "cap_start": 0.0
  },
  {
   "sentence": "That you'd done something wrong.",
@@ -1331,7 +1421,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Or that they'd stop wanting you around.",
@@ -1349,7 +1440,8 @@
    "stop wanting you around",
    "FEAR OF BEING UNWANTED",
    "caption"
-  ]
+  ],
+  "cap_start": 1.165
  },
  {
   "sentence": "Sit with that answer for a second.",
@@ -1363,7 +1455,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Because it changes everything.",
@@ -1377,7 +1470,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "This reflex is not free.",
@@ -1391,7 +1485,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It costs you more than you think.",
@@ -1405,7 +1500,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Every unnecessary sorry is a small surrender.",
@@ -1423,7 +1519,8 @@
    "small surrender",
    "EVERY SORRY IS A SURRENDER",
    "gold"
-  ]
+  ],
+  "cap_start": 2.189
  },
  {
   "sentence": "You're teaching people to see you as a burden.",
@@ -1437,7 +1534,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Not because they think that.",
@@ -1451,7 +1549,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Because you keep insisting you are.",
@@ -1465,7 +1564,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Say sorry enough times, and people start to believe you.",
@@ -1479,7 +1579,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And worse.",
@@ -1493,7 +1594,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You start to believe you.",
@@ -1511,7 +1613,8 @@
    "you start to believe you",
    "YOU START TO BELIEVE IT",
    "caption"
-  ]
+  ],
+  "cap_start": 0.0
  },
  {
   "sentence": "There's a word for what happens next.",
@@ -1525,7 +1628,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Jung called it the shadow.",
@@ -1543,7 +1647,8 @@
    "called it the shadow",
    "THE SHADOW COLLECTS IT",
    "caption"
-  ]
+  ],
+  "cap_start": 0.803
  },
  {
   "sentence": "The part of you that holds everything you're not allowed to feel.",
@@ -1557,7 +1662,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "All the annoyance you swallowed.",
@@ -1571,7 +1677,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "All the anger you never expressed.",
@@ -1585,7 +1692,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "All the times you were walked over, and said it was fine.",
@@ -1599,7 +1707,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It doesn't disappear.",
@@ -1613,7 +1722,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It accumulates.",
@@ -1627,7 +1737,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And one day, it comes out sideways.",
@@ -1641,7 +1752,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "As exhaustion.",
@@ -1655,7 +1767,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "As resentment.",
@@ -1669,7 +1782,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "As snapping at someone who didn't deserve it.",
@@ -1683,7 +1797,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The person who apologizes for existing always ends up exhausted.",
@@ -1697,7 +1812,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Because they're carrying two lives.",
@@ -1715,7 +1831,8 @@
    "carrying two lives",
    "TWO LIVES AT ONCE",
    "caption"
-  ]
+  ],
+  "cap_start": 1.144
  },
  {
   "sentence": "The one they live.",
@@ -1729,7 +1846,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And the one they perform to keep everyone comfortable.",
@@ -1743,7 +1861,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "No one can carry that forever.",
@@ -1757,7 +1876,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And it quietly teaches people that your time isn't valuable.",
@@ -1771,7 +1891,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "That your feelings aren't valid.",
@@ -1785,7 +1906,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "That your space isn't yours.",
@@ -1799,7 +1921,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "So what do you do about it.",
@@ -1813,7 +1936,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You don't become cold.",
@@ -1827,7 +1951,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You don't stop caring.",
@@ -1841,7 +1966,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "That would be amputating the gift.",
@@ -1855,7 +1981,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You do something much harder, and much better.",
@@ -1869,7 +1996,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You build the anchor.",
@@ -1887,7 +2015,8 @@
    "build the anchor",
    "BUILD THE ANCHOR",
    "gold"
-  ]
+  ],
+  "cap_start": 0.717
  },
  {
   "sentence": "You strengthen the voice inside that knows what you need.",
@@ -1901,7 +2030,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And it starts with one small move.",
@@ -1915,7 +2045,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The next time sorry rises up in you, pause.",
@@ -1929,7 +2060,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Ask yourself one question.",
@@ -1943,7 +2075,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Did I actually cause harm here.",
@@ -1957,7 +2090,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Or am I just asking permission to exist.",
@@ -1975,7 +2109,8 @@
    "asking permission to exist",
    "ASKING PERMISSION TO EXIST",
    "caption"
-  ]
+  ],
+  "cap_start": 1.187
  },
  {
   "sentence": "If the answer is the second one.",
@@ -1989,7 +2124,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Don't say sorry.",
@@ -2003,7 +2139,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Say nothing.",
@@ -2017,7 +2154,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Or say what you actually mean.",
@@ -2031,7 +2169,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Excuse me, instead of sorry.",
@@ -2049,7 +2188,8 @@
    "Excuse me, instead of sorry",
    "EXCUSE ME, NOT SORRY",
    "gold"
-  ]
+  ],
+  "cap_start": 0.0
  },
  {
   "sentence": "Thank you for waiting, instead of sorry I'm late.",
@@ -2063,7 +2203,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "That's not wordplay.",
@@ -2077,7 +2218,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It's rewiring.",
@@ -2095,7 +2237,8 @@
    "It's rewiring",
    "IT'S REWIRING",
    "caption"
-  ]
+  ],
+  "cap_start": 0.0
  },
  {
   "sentence": "Every time you refuse an unnecessary sorry, you teach your mind something.",
@@ -2109,7 +2252,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "That you don't need permission.",
@@ -2123,7 +2267,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "That your presence is not an inconvenience.",
@@ -2137,7 +2282,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "That your needs are not a crime.",
@@ -2151,7 +2297,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Write down one thing you need this week.",
@@ -2165,7 +2312,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Just one.",
@@ -2179,7 +2327,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And ask for it without a sorry attached.",
@@ -2193,7 +2342,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Practice with small things first.",
@@ -2207,7 +2357,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And slowly, the room stops deciding your worth.",
@@ -2221,7 +2372,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You do.",
@@ -2235,7 +2387,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "That's what Jung meant by individuation.",
@@ -2253,7 +2406,8 @@
    "individuation",
    "JUNG CALLED IT INDIVIDUATION",
    "gold"
-  ]
+  ],
+  "cap_start": 1.699
  },
  {
   "sentence": "Becoming a person who is whole on their own.",
@@ -2267,7 +2421,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Not a mirror that only reflects other people's comfort.",
@@ -2281,7 +2436,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The apology reflex was never proof that you're broken.",
@@ -2295,7 +2451,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It was proof that you care.",
@@ -2309,7 +2466,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And caring without an anchor is just drowning politely.",
@@ -2327,7 +2485,8 @@
    "drowning politely",
    "DROWNING POLITELY",
    "caption"
-  ]
+  ],
+  "cap_start": 2.061
  },
  {
   "sentence": "You were never too much.",
@@ -2341,7 +2500,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You were never a burden.",
@@ -2355,7 +2515,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You were never the inconvenience you keep apologizing for.",
@@ -2369,7 +2530,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You were just feeling the room so intensely that you forgot to feel yourself.",
@@ -2383,7 +2545,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "So the next time sorry climbs up your throat.",
@@ -2397,7 +2560,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Ask what you're really apologizing for.",
@@ -2411,7 +2575,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And if the answer is existing.",
@@ -2425,7 +2590,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Put the word down.",
@@ -2439,7 +2605,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You don't owe anyone an apology for being here.",
@@ -2453,7 +2620,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Now tell me in the comments.",
@@ -2467,7 +2635,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "What's the most ridiculous thing you've ever apologized for.",
@@ -2485,7 +2654,8 @@
    "most ridiculous thing you've ever apologized for",
    "THE SILLIEST SORRY",
    "gold"
-  ]
+  ],
+  "cap_start": 1.016
  },
  {
   "sentence": "I read every single one.",
@@ -2499,6 +2669,7 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  }
 ]
