@@ -36,30 +36,39 @@ def main():
     if len(pairs) % 2:
         print("need even repo_path/local pairs"); sys.exit(1)
     files = {pairs[i]: pairs[i+1] for i in range(0, len(pairs), 2)}
-    ensure_clone()
-    for repo_path, local in files.items():
-        dest = os.path.join(CLONE, repo_path)
-        os.makedirs(os.path.dirname(dest), exist_ok=True)
-        shutil.copyfile(local, dest)
-        subprocess.run(["git", "-C", CLONE, "add", "-f", "--", repo_path],
-                       check=True, capture_output=True, text=True)
-        print("  staged:", repo_path)
-    r = subprocess.run(["git", "-C", CLONE,
-                        "-c", "user.name=agent", "-c", "user.email=agent@local",
-                        "commit", "-m", msg], capture_output=True, text=True)
-    print(r.stdout.strip()); print(r.stderr.strip()[-300:] if r.returncode else "")
-    if r.returncode != 0:
-        print("commit failed (maybe nothing new)"); sys.exit(1)
-    r = subprocess.run(["git", "-C", CLONE,
-                        "-c", "pack.window=0", "-c", "pack.depth=0",
-                        "-c", "http.postBuffer=536870912",
-                        "push", "origin", "HEAD:main"],
-                       capture_output=True, text=True)
-    if r.returncode != 0:
-        print("push failed:", r.stderr[-800:]); sys.exit(1)
-    print("PUSHED -> main")
-    # clean the clone NOW (it accumulates pack objects and can fill /tmp)
-    shutil.rmtree(CLONE, ignore_errors=True)
+    try:
+        ensure_clone()
+        for repo_path, local in files.items():
+            dest = os.path.join(CLONE, repo_path)
+            os.makedirs(os.path.dirname(dest), exist_ok=True)
+            shutil.copyfile(local, dest)
+            subprocess.run(["git", "-C", CLONE, "add", "-f", "--", repo_path],
+                           check=True, capture_output=True, text=True)
+            print("  staged:", repo_path)
+        r = subprocess.run(["git", "-C", CLONE,
+                            "-c", "user.name=agent", "-c", "user.email=agent@local",
+                            "commit", "-m", msg], capture_output=True, text=True)
+        print(r.stdout.strip()); print(r.stderr.strip()[-300:] if r.returncode else "")
+        if r.returncode != 0:
+            print("commit failed (maybe nothing new)"); sys.exit(1)
+        # pre-push headroom: the shallow push can deepen (fetch history) and needs
+        # several hundred MB free in /tmp; abort LOUDLY before a cryptic ENOSPC.
+        free_mb = shutil.disk_usage(CLONE).free // (1024 * 1024)
+        print(f"  /tmp free before push: {free_mb}MB")
+        if free_mb < 400:
+            print("NOT ENOUGH /tmp SPACE for push — aborting"); sys.exit(1)
+        r = subprocess.run(["git", "-C", CLONE,
+                            "-c", "pack.window=0", "-c", "pack.depth=0",
+                            "-c", "http.postBuffer=536870912",
+                            "push", "origin", "HEAD:main"],
+                           capture_output=True, text=True)
+        if r.returncode != 0:
+            print("push failed:", r.stderr[-800:]); sys.exit(1)
+        print("PUSHED -> main")
+    finally:
+        # clean the clone on SUCCESS and FAILURE (it accumulates pack objects
+        # and can fill /tmp, starving later builds)
+        shutil.rmtree(CLONE, ignore_errors=True)
 
 if __name__ == "__main__":
     main()
