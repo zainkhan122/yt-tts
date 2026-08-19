@@ -13,7 +13,7 @@
 10. Why Being Yourself Feels So Lonely — thumb: "THE PRICE OF SELF" (lone figure — first non-face)
 11. The Psychology of People Who See What Others Don't — thumb: "YOU SAW IT FIRST" (macro eye)
 12. There Are 4 People Living Inside You — thumb: "MEET THE OTHER THREE" (four-window house)
-13. Why You Feel Like an Old Soul — thumb: TBD ("ARRIVED EARLY" proposed) — 5:06
+13. Why You Feel Like an Old Soul — thumb: "ARRIVED EARLY" (child's face, right) — 5:06
 
 ## 🧠 TITLE + PAIN-POINT + MECHANISM REGISTER (R23 — dedup master; check BEFORE approving ANY new topic/Short)
 Every shipped video/short gets registered here the same day it's finalized.
@@ -37,13 +37,14 @@ mechanism already registered — even if the title is worded differently.
 | 13 | Why You Feel Like an Old Soul | rarity burden (ancient since childhood) | Precocious Introverted Intuition (Ni) |
 
 ## 🎬 SHORTS REGISTER (R23 — track every Short's hook so we never re-use one)
-| Parent video | Short title | Hook/segment | Published |
-|---|---|---|---|
-| (none yet) | — | — | — |
+| Parent | Short title | Segment | Captions (first→last) | Status |
+|---|---|---|---|---|
+| 13 Old Soul | You've Felt Old Since Childhood | hook (beats 0–12, 36.7s) | OLD SINCE CHILDHOOD → THEY CALL YOU AN OLD SOUL | built+verified |
+| 13 Old Soul | The Adults Didn't Know | midpoint (beats 49–64, 38.6s) | OLDER THAN THE ROOM → THE REAL COST IS WAITING | built+verified |
 
 ## ⛔ USED THUMBNAIL LINES (R8.6 — never repeat these concepts)
 YOURS / OS / FROZEN / MASKED / UNLIVED / LOOP / SHADOW (used 2× — banned forever) /
-BECAME THEM / PRICE OF SELF / SAW IT FIRST / OTHER THREE
+BECAME THEM / PRICE OF SELF / SAW IT FIRST / OTHER THREE / ARRIVED EARLY
 
 ## 🚫 RETIRED TOPICS (R23 — duplicates; NEVER revive)
 - "The Real Reason You Feel Alone in a Room Full of People" — dup of #4 + #10 (loneliness).
