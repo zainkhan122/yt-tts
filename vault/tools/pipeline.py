@@ -372,8 +372,8 @@ def render_chunk(k):
     if vbeats:
         zp = f"{BASE}/video_chunk_{k:02d}.zip"
         zip_files(zp, vbeats)
-        # large files -> git (API blob limit ~50MB)
-        subprocess.run([sys.executable, "/home/user/tools/vault_push.py", REPO,
+        # chunk zips can exceed the Git Data API blob ceiling (~40MB) -> native git
+        subprocess.run([sys.executable, "/home/user/tools/git_push.py",
                         f"{NAME} video chunk {k}", f"{REPO_BASE}/video_chunk_{k:02d}.zip", zp], check=True)
         for _, v in vbeats: os.remove(v)
         os.remove(zp)
