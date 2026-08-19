@@ -1992,7 +1992,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.1666666666666667,
+  "beat_dur": 1.1666666666666667,
+  "v_dur": 1.17
  },
  {
   "sentence": "It's always been you.",
@@ -2007,7 +2010,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.5666666666666667,
+  "beat_dur": 1.5666666666666667,
+  "v_dur": 1.57
  },
  {
   "sentence": "So tell me, what's the earliest memory you have of feeling older than the room you were in?",
@@ -2022,7 +2028,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 5.233333333333333,
+  "beat_dur": 5.233333333333333,
+  "v_dur": 5.23
  },
  {
   "sentence": "Drop it in the comments.",
@@ -2037,7 +2046,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.5666666666666667,
+  "beat_dur": 1.5666666666666667,
+  "v_dur": 1.57
  },
  {
   "sentence": "I read every single one.",
@@ -2052,6 +2064,9 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.8,
+  "beat_dur": 1.8,
+  "v_dur": 1.8
  }
 ]
