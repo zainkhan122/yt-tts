@@ -2436,7 +2436,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.2333333333333334,
+  "beat_dur": 2.2333333333333334,
+  "v_dur": 2.23
  },
  {
   "sentence": "The next time sorry rises up in you, pause.",
@@ -2451,7 +2454,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.933333333333333,
+  "beat_dur": 2.933333333333333,
+  "v_dur": 2.93
  },
  {
   "sentence": "Ask yourself one question.",
@@ -2466,7 +2472,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.9333333333333333,
+  "beat_dur": 1.9333333333333333,
+  "v_dur": 1.93
  },
  {
   "sentence": "Did I actually cause harm here.",
@@ -2481,7 +2490,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.066666666666667,
+  "beat_dur": 2.066666666666667,
+  "v_dur": 2.07
  },
  {
   "sentence": "Or am I just asking permission to exist.",
@@ -2500,7 +2512,10 @@
    "ASKING PERMISSION TO EXIST",
    "caption"
   ],
-  "cap_start": 1.187
+  "cap_start": 1.187,
+  "beat_len": 3.2,
+  "beat_dur": 3.2,
+  "v_dur": 3.2
  },
  {
   "sentence": "If the answer is the second one.",
@@ -2515,7 +2530,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.1666666666666665,
+  "beat_dur": 2.1666666666666665,
+  "v_dur": 2.17
  },
  {
   "sentence": "Don't say sorry.",
@@ -2530,7 +2548,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.4,
+  "beat_dur": 1.4,
+  "v_dur": 1.4
  },
  {
   "sentence": "Say nothing.",
@@ -2545,7 +2566,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.2333333333333334,
+  "beat_dur": 1.2333333333333334,
+  "v_dur": 1.23
  },
  {
   "sentence": "Or say what you actually mean.",
@@ -2560,7 +2584,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.033333333333333,
+  "beat_dur": 2.033333333333333,
+  "v_dur": 2.03
  },
  {
   "sentence": "Excuse me, instead of sorry.",
@@ -2579,7 +2606,10 @@
    "EXCUSE ME, NOT SORRY",
    "gold"
   ],
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.3333333333333335,
+  "beat_dur": 2.3333333333333335,
+  "v_dur": 2.33
  },
  {
   "sentence": "Thank you for waiting, instead of sorry I'm late.",
@@ -2594,7 +2624,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.0,
+  "beat_dur": 3.0,
+  "v_dur": 3.0
  },
  {
   "sentence": "That's not wordplay.",
@@ -2609,7 +2642,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.6333333333333333,
+  "beat_dur": 1.6333333333333333,
+  "v_dur": 1.63
  },
  {
   "sentence": "It's rewiring.",
@@ -2628,7 +2664,10 @@
    "IT'S REWIRING",
    "caption"
   ],
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.3666666666666667,
+  "beat_dur": 1.3666666666666667,
+  "v_dur": 1.37
  },
  {
   "sentence": "Every time you refuse an unnecessary sorry, you teach your mind something.",
@@ -2643,7 +2682,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.766666666666667,
+  "beat_dur": 4.766666666666667,
+  "v_dur": 4.77
  },
  {
   "sentence": "That you don't need permission.",
@@ -2658,7 +2700,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.7,
+  "beat_dur": 1.7,
+  "v_dur": 1.7
  },
  {
   "sentence": "That your presence is not an inconvenience.",
@@ -2673,7 +2718,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.933333333333333,
+  "beat_dur": 2.933333333333333,
+  "v_dur": 2.93
  },
  {
   "sentence": "That your needs are not a crime.",
@@ -2688,7 +2736,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.8666666666666667,
+  "beat_dur": 1.8666666666666667,
+  "v_dur": 1.87
  },
  {
   "sentence": "Write down one thing you need this week.",
@@ -2703,7 +2754,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.2666666666666666,
+  "beat_dur": 2.2666666666666666,
+  "v_dur": 2.27
  },
  {
   "sentence": "Just one.",
@@ -2718,7 +2772,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.1666666666666667,
+  "beat_dur": 1.1666666666666667,
+  "v_dur": 1.17
  },
  {
   "sentence": "And ask for it without a sorry attached.",
@@ -2733,7 +2790,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.6333333333333333,
+  "beat_dur": 2.6333333333333333,
+  "v_dur": 2.63
  },
  {
   "sentence": "Practice with small things first.",
@@ -2748,7 +2808,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.3333333333333335,
+  "beat_dur": 2.3333333333333335,
+  "v_dur": 2.33
  },
  {
   "sentence": "And slowly, the room stops deciding your worth.",
@@ -2763,7 +2826,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.466666666666667,
+  "beat_dur": 3.466666666666667,
+  "v_dur": 3.47
  },
  {
   "sentence": "You do.",
@@ -2778,7 +2844,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.0666666666666667,
+  "beat_dur": 1.0666666666666667,
+  "v_dur": 1.07
  },
  {
   "sentence": "That's what Jung meant by individuation.",
@@ -2797,7 +2866,10 @@
    "JUNG CALLED IT INDIVIDUATION",
    "gold"
   ],
-  "cap_start": 1.699
+  "cap_start": 1.699,
+  "beat_len": 3.1333333333333333,
+  "beat_dur": 3.1333333333333333,
+  "v_dur": 3.13
  },
  {
   "sentence": "Becoming a person who is whole on their own.",
@@ -2812,7 +2884,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.5,
+  "beat_dur": 2.5,
+  "v_dur": 2.5
  },
  {
   "sentence": "Not a mirror that only reflects other people's comfort.",
@@ -2827,7 +2902,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.1666666666666665,
+  "beat_dur": 3.1666666666666665,
+  "v_dur": 3.17
  },
  {
   "sentence": "The apology reflex was never proof that you're broken.",
