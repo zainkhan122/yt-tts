@@ -1,0 +1,2504 @@
+[
+ {
+  "sentence": "You say sorry more than you say your own name.",
+  "asset": "sv03",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "say sorry more than you say your own name",
+   "SORRY, MORE THAN YOUR NAME",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "It comes out before anything has even gone wrong.",
+  "asset": "sv50",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Someone bumps into you on the street, and you apologize.",
+  "asset": "sv46",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The waiter brings you the wrong order, and you apologize.",
+  "asset": "img04",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You've apologized to a door you walked into.",
+  "asset": "sv45",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You've apologized to a chair.",
+  "asset": "sp14",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You apologize for needing a minute.",
+  "asset": "sp16",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "For taking up space.",
+  "asset": "sp31",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "For having an opinion.",
+  "asset": "sv47",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "For feeling what you feel.",
+  "asset": "img01",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Somewhere along the way, you learned to apologize for existing.",
+  "asset": "sp28",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "learned to apologize for existing",
+   "APOLOGIZING FOR EXISTING",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "And nobody ever told you to stop.",
+  "asset": "sp66",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "So you never did.",
+  "asset": "sp00",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And now it's automatic.",
+  "asset": "sv04",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Let's be honest about what's actually going on.",
+  "asset": "sv18",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Most of your sorries aren't apologies.",
+  "asset": "sv26",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "aren't apologies",
+   "THOSE AREN'T APOLOGIES",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "A real apology is for a harm you caused.",
+  "asset": "sv01",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "But you are not harming anyone by existing.",
+  "asset": "sv02",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You're apologizing for being visible.",
+  "asset": "sv00",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "apologizing for being visible",
+   "SORRY FOR BEING VISIBLE",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "For being inconvenient.",
+  "asset": "sp43",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "For being a person who needs things.",
+  "asset": "sv17",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "That isn't guilt.",
+  "asset": "sv30",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It's a reflex.",
+  "asset": "sv44",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "A reflex with a very specific origin.",
+  "asset": "sp63",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It's a question you never stop asking.",
+  "asset": "sp12",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Do I have permission to be here.",
+  "asset": "sp54",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And the answer you keep giving is sorry.",
+  "asset": "sv31",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "That's not an apology.",
+  "asset": "sv49",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "That's a surrender.",
+  "asset": "sp57",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And it has a name.",
+  "asset": "sp65",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "it has a name",
+   "IT HAS A NAME",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "There's a reason some people apologize constantly and others never do.",
+  "asset": "sv37",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It isn't manners.",
+  "asset": "sv05",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It isn't humility.",
+  "asset": "sv68",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It's the structure of the mind itself.",
+  "asset": "sp08",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Carl Jung spent his life mapping that structure.",
+  "asset": "sp24",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "Carl Jung spent his life",
+   "JUNG SAW THIS",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "He saw that every person runs on different mental functions.",
+  "asset": "sv62",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Some people think their way through life.",
+  "asset": "sv38",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Some people feel their way through.",
+  "asset": "sv39",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And in each of us, one function leads.",
+  "asset": "sp71",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Yours is feeling.",
+  "asset": "sp60",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "Yours is feeling",
+   "YOURS IS FEELING",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "Not raw emotion.",
+  "asset": "sp26",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Feeling, for Jung, is a way of judging.",
+  "asset": "sp68",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "What is right, and what is wrong.",
+  "asset": "sv54",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "What keeps harmony, and what breaks it.",
+  "asset": "sv69",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "What keeps other people comfortable.",
+  "asset": "sv67",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You can read a room in seconds.",
+  "asset": "sv24",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "read a room in seconds",
+   "YOU READ ROOMS IN SECONDS",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "You know who's tense before they say a word.",
+  "asset": "sp55",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You know who's hurt behind their smile.",
+  "asset": "sp59",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You know the temperature of a room like a thermometer.",
+  "asset": "sp50",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You can't not know it.",
+  "asset": "sp49",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It's not a choice.",
+  "asset": "sv09",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It's how your mind is built.",
+  "asset": "sp41",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "So you adjust.",
+  "asset": "img08",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You soften.",
+  "asset": "sv28",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You make yourself smaller so the room can breathe.",
+  "asset": "sv40",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "make yourself smaller",
+   "YOU SHRINK TO FIT",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "That's the gift of feeling.",
+  "asset": "sp17",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It makes you gentle in a hard world.",
+  "asset": "sp29",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "But a gift only works if it has an anchor.",
+  "asset": "sv66",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "gift only works if it has an anchor",
+   "THE GIFT NEEDS AN ANCHOR",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "And yours doesn't.",
+  "asset": "sp69",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "So the gift starts running you.",
+  "asset": "sv55",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Instead of you running it.",
+  "asset": "sp45",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Here's the part nobody explained to you.",
+  "asset": "sv61",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Feeling, as a dominant function, is tuned to other people.",
+  "asset": "sv36",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It asks one question, over and over.",
+  "asset": "sp33",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Are they okay.",
+  "asset": "img09",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Are they comfortable.",
+  "asset": "img07",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Is the harmony intact.",
+  "asset": "sp48",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "That question is beautiful.",
+  "asset": "sp70",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "But there's a second question feeling should also ask.",
+  "asset": "sp61",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Am I okay.",
+  "asset": "sv23",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And that question needs a different function.",
+  "asset": "sp19",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Jung called it introverted feeling.",
+  "asset": "sv15",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "introverted feeling",
+   "THE ANCHOR YOU'RE MISSING",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "The part of you that knows what you need.",
+  "asset": "sp11",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "What you value.",
+  "asset": "sv64",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "What you deserve.",
+  "asset": "sp07",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "What is yours, regardless of what anyone else feels.",
+  "asset": "sv32",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "When that part is weak, something happens.",
+  "asset": "sp27",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Your worth stops coming from inside.",
+  "asset": "sv71",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "worth stops coming from inside",
+   "WORTH FROM OUTSIDE",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "It starts coming from the room.",
+  "asset": "sp06",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "From their faces.",
+  "asset": "img06",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "From whether they're pleased with you.",
+  "asset": "sv27",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And if you need their approval just to exist.",
+  "asset": "sv22",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Then existing feels like a favor they're granting.",
+  "asset": "sv70",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "existing feels like a favor",
+   "EXISTING AS A FAVOR",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "And every favor demands a thank you.",
+  "asset": "sp64",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Or an apology.",
+  "asset": "sv14",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Let me ask you something, and I want you to actually pause here.",
+  "asset": "sp22",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "actually pause here",
+   "PAUSE. SIT WITH THIS.",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "Think about the last time you said sorry.",
+  "asset": "sp38",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Not the word.",
+  "asset": "sp34",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The moment right before it.",
+  "asset": "sv10",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "What were you actually afraid of.",
+  "asset": "sp47",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "what were you actually afraid of",
+   "WHAT WERE YOU AFRAID OF",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "That you'd done something wrong.",
+  "asset": "sv29",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Or that they'd stop wanting you around.",
+  "asset": "sv21",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "stop wanting you around",
+   "FEAR OF BEING UNWANTED",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "Sit with that answer for a second.",
+  "asset": "sv11",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Because it changes everything.",
+  "asset": "sp36",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "This reflex is not free.",
+  "asset": "sv20",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It costs you more than you think.",
+  "asset": "sp02",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Every unnecessary sorry is a small surrender.",
+  "asset": "sp67",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "small surrender",
+   "EVERY SORRY IS A SURRENDER",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "You're teaching people to see you as a burden.",
+  "asset": "sp44",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Not because they think that.",
+  "asset": "sv34",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Because you keep insisting you are.",
+  "asset": "sp52",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Say sorry enough times, and people start to believe you.",
+  "asset": "sp58",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And worse.",
+  "asset": "sp23",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You start to believe you.",
+  "asset": "sp35",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "you start to believe you",
+   "YOU START TO BELIEVE IT",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "There's a word for what happens next.",
+  "asset": "sv63",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Jung called it the shadow.",
+  "asset": "sv48",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "called it the shadow",
+   "THE SHADOW COLLECTS IT",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "The part of you that holds everything you're not allowed to feel.",
+  "asset": "sv33",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "All the annoyance you swallowed.",
+  "asset": "sv60",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "All the anger you never expressed.",
+  "asset": "sv35",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "All the times you were walked over, and said it was fine.",
+  "asset": "sp46",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It doesn't disappear.",
+  "asset": "sv53",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It accumulates.",
+  "asset": "sp10",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And one day, it comes out sideways.",
+  "asset": "sp05",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "As exhaustion.",
+  "asset": "sp40",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "As resentment.",
+  "asset": "sp37",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "As snapping at someone who didn't deserve it.",
+  "asset": "sv51",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The person who apologizes for existing always ends up exhausted.",
+  "asset": "sp62",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Because they're carrying two lives.",
+  "asset": "sp56",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "carrying two lives",
+   "TWO LIVES AT ONCE",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "The one they live.",
+  "asset": "img10",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And the one they perform to keep everyone comfortable.",
+  "asset": "sv65",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "No one can carry that forever.",
+  "asset": "sp25",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And it quietly teaches people that your time isn't valuable.",
+  "asset": "img05",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "That your feelings aren't valid.",
+  "asset": "sv57",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "That your space isn't yours.",
+  "asset": "sp20",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "So what do you do about it.",
+  "asset": "sv58",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You don't become cold.",
+  "asset": "sp18",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You don't stop caring.",
+  "asset": "sp51",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "That would be amputating the gift.",
+  "asset": "sv13",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You do something much harder, and much better.",
+  "asset": "sp15",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You build the anchor.",
+  "asset": "sv08",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "build the anchor",
+   "BUILD THE ANCHOR",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "You strengthen the voice inside that knows what you need.",
+  "asset": "sv16",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And it starts with one small move.",
+  "asset": "sp32",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The next time sorry rises up in you, pause.",
+  "asset": "sv41",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Ask yourself one question.",
+  "asset": "sp42",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Did I actually cause harm here.",
+  "asset": "sv25",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Or am I just asking permission to exist.",
+  "asset": "sv59",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "asking permission to exist",
+   "ASKING PERMISSION TO EXIST",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "If the answer is the second one.",
+  "asset": "sp01",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Don't say sorry.",
+  "asset": "sv19",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Say nothing.",
+  "asset": "sp13",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Or say what you actually mean.",
+  "asset": "sp39",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Excuse me, instead of sorry.",
+  "asset": "sv56",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "Excuse me, instead of sorry",
+   "EXCUSE ME, NOT SORRY",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "Thank you for waiting, instead of sorry I'm late.",
+  "asset": "sv43",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "That's not wordplay.",
+  "asset": "sp30",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It's rewiring.",
+  "asset": "sp04",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "It's rewiring",
+   "IT'S REWIRING",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "Every time you refuse an unnecessary sorry, you teach your mind something.",
+  "asset": "sp21",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "That you don't need permission.",
+  "asset": "sv07",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "That your presence is not an inconvenience.",
+  "asset": "sp53",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "That your needs are not a crime.",
+  "asset": "sv12",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Write down one thing you need this week.",
+  "asset": "sv52",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Just one.",
+  "asset": "img03",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And ask for it without a sorry attached.",
+  "asset": "img02",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Practice with small things first.",
+  "asset": "sp03",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And slowly, the room stops deciding your worth.",
+  "asset": "sp09",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You do.",
+  "asset": "sv42",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "That's what Jung meant by individuation.",
+  "asset": "sv06",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "individuation",
+   "JUNG CALLED IT INDIVIDUATION",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "Becoming a person who is whole on their own.",
+  "asset": "sv03",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Not a mirror that only reflects other people's comfort.",
+  "asset": "sv37",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The apology reflex was never proof that you're broken.",
+  "asset": "sv01",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It was proof that you care.",
+  "asset": "sv50",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And caring without an anchor is just drowning politely.",
+  "asset": "sv46",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "drowning politely",
+   "DROWNING POLITELY",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "You were never too much.",
+  "asset": "img04",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You were never a burden.",
+  "asset": "sv45",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You were never the inconvenience you keep apologizing for.",
+  "asset": "sv02",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You were just feeling the room so intensely that you forgot to feel yourself.",
+  "asset": "sv26",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "So the next time sorry climbs up your throat.",
+  "asset": "sv00",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Ask what you're really apologizing for.",
+  "asset": "sp14",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And if the answer is existing.",
+  "asset": "sp16",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Put the word down.",
+  "asset": "sp00",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You don't owe anyone an apology for being here.",
+  "asset": "sp31",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Now tell me in the comments.",
+  "asset": "sv47",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "What's the most ridiculous thing you've ever apologized for.",
+  "asset": "img01",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "most ridiculous thing you've ever apologized for",
+   "THE SILLIEST SORRY",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "I read every single one.",
+  "asset": "sp28",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ }
+]
