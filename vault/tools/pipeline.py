@@ -471,7 +471,7 @@ def assemble_chunk(k):
     parta = f"{BASE}/part_{k:02d}.wav"
     acmd += ["-filter_complex",";".join(fc),"-map","[aout]","-ar","48000","-ac","1","-c:a","pcm_s16le",parta]
     run(acmd)
-    subprocess.run([sys.executable, "/home/user/tools/vault_push.py", REPO,
+    subprocess.run([sys.executable, "/home/user/tools/git_push.py",
         f"{NAME} parts chunk {k}",
         f"{REPO_BASE}/part_{k:02d}.mp4", partv,
         f"{REPO_BASE}/part_{k:02d}.wav", parta], check=True)
