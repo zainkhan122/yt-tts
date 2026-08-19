@@ -161,8 +161,17 @@ Every video gets a SCORED ambient bed + polished voice via `finalize` PASS 3:
    (hook segment or the R12 midpoint interrupt). No original-topic Shorts.
 3. A Short is a 30–45s vertical crop of a long-form, keeping captions + R20 audio
    balance, linking back to the full video. Build via `tools/make_short.py`
-   (to be written) using the long-form's caption schedule.
+   using the long-form's caption schedule.
 4. The niche fence (R22) applies to Shorts too — same audience, same lane.
+5. **Every Short gets an end-CTA, BOTH text AND spoken** (af_heart): a prominent
+   text bar "▶ FULL VIDEO ON CHANNEL" + a spoken "Watch the full video on this
+   channel." in the locked voice. A Short is independent — it must ask for the
+   click itself. (`make_short.py` builds this in; `fix_short_cta.py` patches
+   older Shorts.)
+6. **DO NOT purge a video's parts until every Short for that video is built AND
+   user-approved.** Parts are the caption-free + clean-voice source for Shorts.
+   Purge order: parts LAST (after Shorts), never before. (Lesson: video_013 —
+   parts purged early forced a CTA patch on the finished Shorts.)
 
 ## R22. NICHE FENCE (what we are / are NOT)
 
