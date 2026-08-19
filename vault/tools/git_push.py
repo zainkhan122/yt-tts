@@ -15,20 +15,20 @@ REPO = "zainkhan122/yt-tts"
 CLONE = "/tmp/yt-tts-vault"
 
 def ensure_clone():
-    if os.path.isdir(os.path.join(CLONE, ".git")):
-        subprocess.run(["git", "-C", CLONE, "fetch", "--depth", "1", "origin", "main"],
-                       capture_output=True, text=True)
-        # re-sync working tree with fresh main
-        subprocess.run(["git", "-C", CLONE, "reset", "--hard", "origin/main"],
-                       capture_output=True, text=True)
-        return
+    # ALWAYS fresh BLOBLESS partial clone — tiny (no blob download), avoids /tmp overflow.
+    if os.path.isdir(CLONE):
+        shutil.rmtree(CLONE, ignore_errors=True)
     url = f"https://x-access-token:{TOKEN}@github.com/{REPO}.git"
-    # FULL checkout (not --no-checkout) so the index + working tree contain the
-    # complete tree — commits then preserve existing files.
-    r = subprocess.run(["git", "clone", "--depth", "1", url, CLONE],
-                       capture_output=True, text=True)
+    r = subprocess.run(["git", "clone", "--depth", "1", "--filter=blob:none",
+                        "--no-checkout", url, CLONE], capture_output=True, text=True)
     if r.returncode != 0:
         print("clone failed:", r.stderr[-800:]); sys.exit(1)
+    # populate the INDEX from HEAD's tree WITHOUT downloading blobs (read-tree)
+    # — this makes commits preserve all existing files (no accidental deletes).
+    r = subprocess.run(["git", "-C", CLONE, "read-tree", "HEAD"],
+                       capture_output=True, text=True)
+    if r.returncode != 0:
+        print("read-tree failed:", r.stderr[-500:]); sys.exit(1)
 
 def main():
     msg = sys.argv[1]
@@ -50,11 +50,16 @@ def main():
     print(r.stdout.strip()); print(r.stderr.strip()[-300:] if r.returncode else "")
     if r.returncode != 0:
         print("commit failed (maybe nothing new)"); sys.exit(1)
-    r = subprocess.run(["git", "-C", CLONE, "push", "origin", "HEAD:main"],
+    r = subprocess.run(["git", "-C", CLONE,
+                        "-c", "pack.window=0", "-c", "pack.depth=0",
+                        "-c", "http.postBuffer=536870912",
+                        "push", "origin", "HEAD:main"],
                        capture_output=True, text=True)
     if r.returncode != 0:
         print("push failed:", r.stderr[-800:]); sys.exit(1)
     print("PUSHED -> main")
+    # clean the clone NOW (it accumulates pack objects and can fill /tmp)
+    shutil.rmtree(CLONE, ignore_errors=True)
 
 if __name__ == "__main__":
     main()
