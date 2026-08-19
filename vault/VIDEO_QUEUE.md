@@ -14,22 +14,54 @@
 11. The Psychology of People Who See What Others Don't — thumb: "YOU SAW IT FIRST" (macro eye)
 12. There Are 4 People Living Inside You — thumb: "MEET THE OTHER THREE" (four-window house)
 
+## 🧠 TITLE + PAIN-POINT + MECHANISM REGISTER (R23 — dedup master; check BEFORE approving ANY new topic/Short)
+Every shipped video/short gets registered here the same day it's finalized.
+A new topic is a DUPLICATE (reject) if it hits the same pain point OR same Jungian
+mechanism already registered — even if the title is worded differently.
+
+| # | Title | Pain point | Jungian mechanism |
+|---|---|---|---|
+| 1 | Feel Everything Too Deeply | emotional absorption | porous boundaries (Fe/Fi overload) |
+| 2 | Smart People Feel Misunderstood | intellectual isolation | rare Ni/Ti cognition vs collective |
+| 3 | Go Quiet When Hurt | withdraw when hurt | Fi — feeling turned inward |
+| 4 | Loneliest Personality Types | loneliness of rare types | Ni-dominant scarcity of like-minds |
+| 5 | Jung's Darkest Insight | unlived life / regret | shadow of the unlived life |
+| 6 | Overthinking at 3AM | night rumination | Ni–Ti anxiety loop |
+| 7 | "Too Much" | seen as too intense | shadow intensity ("shadow is gold") |
+| 8 | Attracted to Those Who Can't Love You | chasing unavailable partners | shadow projection / attachment wound |
+| 9 | Disappear Without Warning | ghosting / vanishing | door-slam; inferior-Se stress exit |
+| 10 | Being Yourself Feels Lonely | cost of authenticity | individuation vs belonging |
+| 11 | See What Others Don't | pattern foresight ("gut knows") | Introverted Intuition (Ni) |
+| 12 | 4 People Inside You | inner multiplicity / feeling split | persona–shadow–anima/animus–Self |
+
+## 🎬 SHORTS REGISTER (R23 — track every Short's hook so we never re-use one)
+| Parent video | Short title | Hook/segment | Published |
+|---|---|---|---|
+| (none yet) | — | — | — |
+
 ## ⛔ USED THUMBNAIL LINES (R8.6 — never repeat these concepts)
 YOURS / OS / FROZEN / MASKED / UNLIVED / LOOP / SHADOW (used 2× — banned forever) /
 BECAME THEM / PRICE OF SELF / SAW IT FIRST / OTHER THREE
 
-## 🎬 MONTH 2 SLATE — see MONTH2_PLAN.md (cadence: 2 long-form/wk + 3 Shorts/wk, pending user OK)
+## 🚫 RETIRED TOPICS (R23 — duplicates; NEVER revive)
+- "The Real Reason You Feel Alone in a Room Full of People" — dup of #4 + #10 (loneliness).
+- "Why Your Gut Feelings Keep Coming True" — dup of #11 (Ni foresight).
+
+## 🎬 MONTH 2 SLATE — see MONTH2_PLAN.md (cadence: 2 long-form/wk + 3 Shorts/wk)
 
 | # | Title | Pain point | Jungian |
 |---|---|---|---|
 | 13 | Why You Feel Like an Old Soul | Rarity burden | Precocious Ni |
-| 14 | The Psychology of People Who Apologize for Existing | Fe over-accommodation | Fe dominance |
-| 15 | Why INFJs Push People Away When They Need Them Most | Self-sabotaged closeness | Fe–Ti loop |
-| 16 | Why You're Exhausted as a Deep Thinker | Cognitive drain | Ni/Ti economics |
-| 17 | The Real Reason You Feel Alone in a Room Full of People | Alone in a crowd | Individuation |
-| 18 | Why Your Gut Feelings Keep Coming True | Pattern foresight | Introverted Intuition |
-| 19 | The Psychology of People Who Never Feel Good Enough | Ti self-criticism | Perfectionism |
+| 14 | The Psychology of People Who Apologize for Existing | Fe over-accommodation | Fe dominance / weak Fi |
+| 15 | Why INFJs Push People Away When They Need Them Most | Self-sabotaged closeness | Fe–Ti loop under stress |
+| 16 | Why You're Exhausted as a Deep Thinker | Cognitive drain | Ni/Ti energy economics |
+| 17 | The Psychology of People Who Can't Do Small Talk | Small-talk dread | Ni–Ti depth vs inferior Se |
+| 18 | Why You Feel Guilty for Resting | Rest-guilt | Inferior-function pressure / output-linked worth |
+| 19 | The Psychology of People Who Never Feel Good Enough | Ti self-criticism | Perfectionism / inferior Fe |
 | 20 | Why You Replay Conversations Years Later | Rumination | Si/Ti loops |
+
+> ⚠️ #20 brushes #6 (both "replay/ruminate"). Script for #20 must center Si
+> detail-memory + nostalgia, NOT anxiety — otherwise retire it like 17/18.
 
 ### Bench (Month 3 or scale-up)
 Why You Feel Every Emotion in the Room · Why You Keep Your Best Ideas to Yourself ·

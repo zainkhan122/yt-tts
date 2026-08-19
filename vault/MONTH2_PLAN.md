@@ -127,10 +127,16 @@ Title formulas rotate per R11.
 | 14 | The Psychology of People Who Apologize for Existing | Fe over-accommodation | Fe dominance / weak Fi |
 | 15 | Why INFJs Push People Away When They Need Them Most | Self-sabotaged closeness | Fe–Ti loop under stress |
 | 16 | Why You're Exhausted as a Deep Thinker | Cognitive drain | Ni/Ti energy economics |
-| 17 | The Real Reason You Feel Alone in a Room Full of People | Alone in a crowd | Individuation vs persona |
-| 18 | Why Your Gut Feelings Keep Coming True | Pattern foresight | Introverted Intuition |
+| 17 | The Psychology of People Who Can't Do Small Talk | Small-talk dread | Ni–Ti depth vs inferior Se |
+| 18 | Why You Feel Guilty for Resting | Rest-guilt | Inferior-function pressure / output-linked worth |
 | 19 | The Psychology of People Who Never Feel Good Enough | Ti self-criticism | Perfectionism / inferior Fe |
 | 20 | Why You Replay Conversations Years Later | Rumination | Si/Ti loops (INTP/INTJ) |
+
+**Dedup pass (2026-08-19, per R23):** the original #17 ("Alone in a Room Full of
+People") duplicated #4 + #10 (loneliness) and the original #18 ("Gut Feelings Keep
+Coming True") duplicated #11 (Ni foresight). Both are RETIRED and replaced above.
+Every shipped video/short is registered by title + pain point + mechanism in
+VIDEO_QUEUE.md; new topics must clear that register before being approved.
 
 **Bench (if we scale to 3/wk, or for Month 3):**
 Why You Feel Every Emotion in the Room · Why You Keep Your Best Ideas to

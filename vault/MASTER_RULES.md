@@ -244,3 +244,16 @@ Never start a step without this check. Print the numbers so the user sees them.
    mix), voice stays ~5–7dB on top in the speech band. Final loudnorm −16 LUFS / TP −1.5.
 3. These values are hard-coded in `pipeline.py` finalize PASS 3. `tools/remix_test.py`
    can rebuild the test mix at any pad volume for A/B review.
+
+## R23. TOPIC DEDUP REGISTER (no duplicate pain points or mechanisms)
+
+1. VIDEO_QUEUE.md keeps the master register: every shipped video/short's TITLE +
+   PAIN POINT + JUNGIAN MECHANISM + thumbnail line + Short hook.
+2. Before approving ANY new topic (or Short hook), check the register. A new topic
+   is a DUPLICATE (reject) if it gives the viewer the same "this is about me" hit
+   OR reuses a registered pain point / mechanism — even if the title is reworded.
+3. Cosmetic rewording of an old title = duplicate. A genuinely different pain +
+   mechanism = acceptable.
+4. When a topic is retired for duplication, add it to the RETIRED list in
+   VIDEO_QUEUE.md so it is never resurrected.
+5. Every shipped video/short is registered the same day it is finalized.
