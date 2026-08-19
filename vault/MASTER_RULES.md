@@ -166,8 +166,10 @@ Every video gets a SCORED ambient bed + polished voice via `finalize` PASS 3:
 5. **Every Short gets an end-CTA, BOTH text AND spoken** (af_heart): a prominent
    text bar "▶ FULL VIDEO ON CHANNEL" + a spoken "Watch the full video on this
    channel." in the locked voice. A Short is independent — it must ask for the
-   click itself. (`make_short.py` builds this in; `fix_short_cta.py` patches
-   older Shorts.)
+   click itself. The CTA is **APPENDED after the narration ends** (the Short's
+   total length extends to fit it) — the CTA voice must NEVER overlap the
+   narration's last words. (`make_short.py` builds this in; `fix_short_cta.py`
+   patches older Shorts.)
 6. **DO NOT purge a video's parts until every Short for that video is built AND
    user-approved.** Parts are the caption-free + clean-voice source for Shorts.
    Purge order: parts LAST (after Shorts), never before. (Lesson: video_013 —

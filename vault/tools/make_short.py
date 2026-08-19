@@ -170,15 +170,13 @@ def main():
     if not os.path.exists(SB):
         pull_raw(f"{REPO_BASE}/storyboard.json", SB)
     beats = json.load(open(SB))
-    a, b, seg_start, seg_dur = pick_segment(beats, seg_kind, target)
-    print(f"segment [{seg_kind}] beats {a}..{b-1}  start={seg_start:.2f}s  dur={seg_dur:.2f}s")
+    starts, _total = beats_timeline(beats)
 
-    # ---- spoken end-CTA (af_heart) — every Short stands alone, so the voice
-    #      itself asks the viewer to watch the full video ----
+    # ---- spoken end-CTA (af_heart) — APPENDED AFTER the narration ends, so the
+    #      CTA can never overlap the segment's last words (R21.5) ----
     CTA_TEXT = "Watch the full video on this channel."
-    CTA_DELAY_END = 0.15          # gap between CTA voice end and short end
-    FADE_D = 1.6                  # narration fade-out length into the CTA
-    cta_dur = None
+    CTA_GAP  = 0.25   # silence between narration end and CTA voice start
+    TAIL     = 0.25   # tail after the CTA voice before the short ends
 
     # work entirely in /tmp (never bloats the workspace snapshot)
     work = f"/tmp/short_make/{NAME}"
@@ -186,12 +184,22 @@ def main():
         import shutil; shutil.rmtree(work)
     os.makedirs(work)
 
-    # synthesize the spoken CTA now so its real duration drives the timing
+    # synthesize the spoken CTA first — its real duration drives all timing
     cta_wav = f"{work}/cta.wav"
     cta_dur = synth_cta(CTA_TEXT, cta_wav)
-    cta_start = max(seg_dur - cta_dur - CTA_DELAY_END, 0.0)
-    fade_st = max(cta_start - 0.4, 0.0)   # narration fades just before the CTA voice
-    print(f"voice CTA: {cta_dur:.2f}s @ {cta_start:.2f}s (fade narration from {fade_st:.2f}s)")
+    ext = CTA_GAP + cta_dur + TAIL
+
+    # keep narration + CTA inside the 30-45s Short window
+    target = min(target, 45.0 - ext)
+    a, b, seg_start, seg_dur = pick_segment(beats, seg_kind, target)
+    # safety: if a long last beat overshoots, drop beats until total <= 45s
+    while b - 1 > a and seg_dur + ext > 45.0:
+        b -= 1
+        last_end = starts[b - 1] + beats[b - 1].get("beat_len", beats[b - 1].get("v_dur", beats[b - 1].get("beat_dur", 0.0)))
+        seg_dur = last_end - seg_start
+    cta_start = seg_dur + CTA_GAP
+    total = seg_dur + ext
+    print(f"segment [{seg_kind}] beats {a}..{b-1}  start={seg_start:.2f}s  dur={seg_dur:.2f}s  CTA@{cta_start:.2f}s  total={total:.2f}s")
 
     # pull the parts (chunks) this segment spans; the concat of those parts
     # starts at the first pulled chunk's first beat, so rebase seg_start to it.
@@ -278,18 +286,16 @@ def main():
     run(args)
     cur = vcap
 
-    # ---- audio: R20 chain + spoken CTA ----
-    # narration fades out into the CTA; pad ducks under BOTH narration and the
-    # CTA voice (the sidechain key is narration+CTA) so the CTA is never buried.
+    # ---- audio: R20 chain + spoken CTA (CTA is APPENDED, zero overlap) ----
     aseg = f"{work}/aseg.wav"
     run([ff(), "-y", "-ss", f"{local_start:.3f}", "-t", f"{seg_dur:.3f}", "-i", afull,
          "-c:a", "pcm_s16le", aseg])
     pad = f"{work}/pad.wav"
-    subprocess.run([sys.executable, "/home/user/tools/make_pad.py", f"{seg_dur:.1f}", pad], check=True)
+    subprocess.run([sys.executable, "/home/user/tools/make_pad.py", f"{total:.1f}", pad], check=True)
     cta_delay_ms = int(cta_start * 1000)
     amix = f"{work}/amix.m4a"
     run([ff(), "-y", "-i", aseg, "-i", pad, "-i", cta_wav, "-filter_complex",
-         "[0:a]afade=t=out:st={fade_st:.2f}:d={fade_d:.2f},"
+         "[0:a]afade=t=out:st={narr_out:.2f}:d=0.25,"
          "highpass=f=80,equalizer=f=8000:t=q:w=1:g=2,"
          "acompressor=threshold=-18dB:ratio=2.5:attack=5:release=80,"
          "aformat=channel_layouts=stereo,asplit=2[voice][voice2];"
@@ -297,21 +303,21 @@ def main():
          "acompressor=threshold=-18dB:ratio=2.5:attack=5:release=80,"
          "adelay={cta_delay_ms}:all=1,aformat=channel_layouts=stereo,asplit=2[cta][cta2];"
          "[1:a]volume=0.55,afade=t=in:st=0:d=3,afade=t=out:st={pad_out:.2f}:d=3[pd];"
-         "[voice][cta]amix=inputs=2:duration=first:normalize=0[key];"
+         "[voice][cta]amix=inputs=2:duration=longest:normalize=0[key];"
          "[pd][key]sidechaincompress=threshold=0.05:ratio=3:attack=15:release=250[duck];"
-         "[voice2][cta2][duck]amix=inputs=3:duration=first:normalize=0,"
-         "loudnorm=I=-16:TP=-1.5:LRA=11[aout]".format(fade_st=fade_st, fade_d=FADE_D,
+         "[voice2][cta2][duck]amix=inputs=3:duration=longest:normalize=0,"
+         "loudnorm=I=-16:TP=-1.5:LRA=11[aout]".format(narr_out=max(seg_dur - 0.25, 0),
                                                       cta_delay_ms=cta_delay_ms,
-                                                      pad_out=max(seg_dur - 3, 1)),
+                                                      pad_out=max(total - 3, 1)),
          "-map", "[aout]", "-c:a", "aac", "-b:a", "160k", "-ar", "48000", "-ac", "2",
-         "-t", f"{seg_dur:.2f}", amix])
+         "-t", f"{total:.2f}", amix])
 
     # ---- mux ----
     os.makedirs(f"{BASE}/shorts", exist_ok=True)
     out_name = f"short_{seg_kind}.mp4"
     out = f"{work}/{out_name}"
     run([ff(), "-y", "-i", cur, "-i", amix, "-map", "0:v", "-map", "1:a",
-         "-c:v", "copy", "-c:a", "copy", "-t", f"{seg_dur:.2f}", out])
+         "-c:v", "copy", "-c:a", "copy", "-t", f"{total:.2f}", out])
 
     # ---- verify ----
     r = subprocess.run([ff(), "-i", out], capture_output=True, text=True)
