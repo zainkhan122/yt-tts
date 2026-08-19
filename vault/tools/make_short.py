@@ -48,11 +48,32 @@ def ff():
 
 def bootstrap():
     import importlib
-    for mod, pkg in [("soundfile", "soundfile"), ("imageio_ffmpeg", "imageio-ffmpeg")]:
+    for mod, pkg in [("soundfile", "soundfile"), ("imageio_ffmpeg", "imageio-ffmpeg"),
+                     ("numpy", "numpy"), ("kokoro_onnx", "kokoro-onnx")]:
         try:
             importlib.import_module(mod)
         except ImportError:
             run([sys.executable, "-m", "pip", "install", "--quiet", pkg], check=False)
+    CACHE = os.path.expanduser("~/.cache/kokoro")
+    os.makedirs(CACHE, exist_ok=True)
+    model, voices = f"{CACHE}/kokoro-v0_19.onnx", f"{CACHE}/voices-v1.0.bin"
+    if not os.path.exists(model):
+        run(["curl", "-sL", "--max-time", "550", "-o", model,
+             "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files/kokoro-v0_19.onnx"])
+    if not os.path.exists(voices):
+        run(["curl", "-sL", "--max-time", "120", "-o", voices,
+             "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin"])
+
+def synth_cta(text, path):
+    """Spoken end-CTA in the SAME locked voice (af_heart) as the long-form (R5)."""
+    import numpy as np
+    import soundfile as sf
+    from kokoro_onnx import Kokoro
+    CACHE = os.path.expanduser("~/.cache/kokoro")
+    ko = Kokoro(f"{CACHE}/kokoro-v0_19.onnx", f"{CACHE}/voices-v1.0.bin")
+    s, sr = ko.create(text, voice="af_heart", speed=1.0, lang="en-us")
+    sf.write(path, s, sr)
+    return len(s) / sr
 
 def pull_raw(repo_path, local):
     os.makedirs(os.path.dirname(local), exist_ok=True)
@@ -152,11 +173,25 @@ def main():
     a, b, seg_start, seg_dur = pick_segment(beats, seg_kind, target)
     print(f"segment [{seg_kind}] beats {a}..{b-1}  start={seg_start:.2f}s  dur={seg_dur:.2f}s")
 
+    # ---- spoken end-CTA (af_heart) — every Short stands alone, so the voice
+    #      itself asks the viewer to watch the full video ----
+    CTA_TEXT = "Watch the full video on this channel."
+    CTA_DELAY_END = 0.15          # gap between CTA voice end and short end
+    FADE_D = 1.6                  # narration fade-out length into the CTA
+    cta_dur = None
+
     # work entirely in /tmp (never bloats the workspace snapshot)
     work = f"/tmp/short_make/{NAME}"
     if os.path.isdir(work):
         import shutil; shutil.rmtree(work)
     os.makedirs(work)
+
+    # synthesize the spoken CTA now so its real duration drives the timing
+    cta_wav = f"{work}/cta.wav"
+    cta_dur = synth_cta(CTA_TEXT, cta_wav)
+    cta_start = max(seg_dur - cta_dur - CTA_DELAY_END, 0.0)
+    fade_st = max(cta_start - 0.4, 0.0)   # narration fades just before the CTA voice
+    print(f"voice CTA: {cta_dur:.2f}s @ {cta_start:.2f}s (fade narration from {fade_st:.2f}s)")
 
     # pull the parts (chunks) this segment spans; the concat of those parts
     # starts at the first pulled chunk's first beat, so rebase seg_start to it.
@@ -207,7 +242,7 @@ def main():
             rel = (beats[i].get("cap_start", 0.0)) + (sum(
                 beats[j].get("beat_len", beats[j].get("v_dur", beats[j].get("beat_dur", 0.0)))
                 for j in range(a, i)))
-            if 0 <= rel < seg_dur - 0.2:
+            if 0 <= rel < cta_start - 0.3:
                 caps.append((rel, beats[i]["caption"][1]))
     print(f"captions in segment: {len(caps)}")
     cur = vseg
@@ -219,12 +254,13 @@ def main():
         hold = min(CAP_HOLD, seg_dur - rel - 0.05)
         args += ["-itsoffset", f"{rel:.3f}", "-loop", "1", "-framerate", "30", "-t", f"{hold:.2f}", "-i", png]
         fi += 1
-    # end CTA
+    # end CTA (text overlay, aligned with the spoken CTA)
     cta = f"{work}/cta.png"
-    run(["magick", "-background", "none", "-font", FONT, "-pointsize", "54",
-         "-fill", "white", "-stroke", "black", "-strokewidth", "5",
+    run(["magick", "-background", "none", "-font", FONT, "-pointsize", "62",
+         "-fill", "white", "-stroke", "black", "-strokewidth", "6",
          "label:\u25b6  FULL VIDEO ON CHANNEL", "-trim", "+repage", cta])
-    args += ["-itsoffset", f"{seg_dur-3.0:.3f}", "-loop", "1", "-framerate", "30", "-t", "2.9", "-i", cta]
+    cta_hold = min(cta_dur + 0.4, seg_dur - cta_start - 0.03)
+    args += ["-itsoffset", f"{cta_start:.3f}", "-loop", "1", "-framerate", "30", "-t", f"{cta_hold:.2f}", "-i", cta]
     fc = []
     last = "0:v"
     for j in range(fi + 1):
@@ -242,21 +278,31 @@ def main():
     run(args)
     cur = vcap
 
-    # ---- audio: R20 chain (voice polish + pad 0.55 + sidechain 0.05:3 + loudnorm) ----
+    # ---- audio: R20 chain + spoken CTA ----
+    # narration fades out into the CTA; pad ducks under BOTH narration and the
+    # CTA voice (the sidechain key is narration+CTA) so the CTA is never buried.
     aseg = f"{work}/aseg.wav"
     run([ff(), "-y", "-ss", f"{local_start:.3f}", "-t", f"{seg_dur:.3f}", "-i", afull,
          "-c:a", "pcm_s16le", aseg])
     pad = f"{work}/pad.wav"
     subprocess.run([sys.executable, "/home/user/tools/make_pad.py", f"{seg_dur:.1f}", pad], check=True)
+    cta_delay_ms = int(cta_start * 1000)
     amix = f"{work}/amix.m4a"
-    run([ff(), "-y", "-i", aseg, "-i", pad, "-filter_complex",
-         "[0:a]highpass=f=80,equalizer=f=8000:t=q:w=1:g=2,"
+    run([ff(), "-y", "-i", aseg, "-i", pad, "-i", cta_wav, "-filter_complex",
+         "[0:a]afade=t=out:st={fade_st:.2f}:d={fade_d:.2f},"
+         "highpass=f=80,equalizer=f=8000:t=q:w=1:g=2,"
          "acompressor=threshold=-18dB:ratio=2.5:attack=5:release=80,"
          "aformat=channel_layouts=stereo,asplit=2[voice][voice2];"
-         "[1:a]volume=0.55,afade=t=in:st=0:d=3,afade=t=out:st={:.2f}:d=3[pd];"
-         "[pd][voice]sidechaincompress=threshold=0.05:ratio=3:attack=15:release=250[duck];"
-         "[voice2][duck]amix=inputs=2:duration=first:normalize=0,"
-         "loudnorm=I=-16:TP=-1.5:LRA=11[aout]".format(max(seg_dur - 3, 1)),
+         "[2:a]highpass=f=80,equalizer=f=8000:t=q:w=1:g=2,"
+         "acompressor=threshold=-18dB:ratio=2.5:attack=5:release=80,"
+         "adelay={cta_delay_ms}:all=1,aformat=channel_layouts=stereo,asplit=2[cta][cta2];"
+         "[1:a]volume=0.55,afade=t=in:st=0:d=3,afade=t=out:st={pad_out:.2f}:d=3[pd];"
+         "[voice][cta]amix=inputs=2:duration=first:normalize=0[key];"
+         "[pd][key]sidechaincompress=threshold=0.05:ratio=3:attack=15:release=250[duck];"
+         "[voice2][cta2][duck]amix=inputs=3:duration=first:normalize=0,"
+         "loudnorm=I=-16:TP=-1.5:LRA=11[aout]".format(fade_st=fade_st, fade_d=FADE_D,
+                                                      cta_delay_ms=cta_delay_ms,
+                                                      pad_out=max(seg_dur - 3, 1)),
          "-map", "[aout]", "-c:a", "aac", "-b:a", "160k", "-ar", "48000", "-ac", "2",
          "-t", f"{seg_dur:.2f}", amix])
 
