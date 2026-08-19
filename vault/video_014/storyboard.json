@@ -496,7 +496,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.3333333333333335,
+  "beat_dur": 2.3333333333333335,
+  "v_dur": 2.33
  },
  {
   "sentence": "That's not an apology.",
@@ -511,7 +514,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.6,
+  "beat_dur": 1.6,
+  "v_dur": 1.6
  },
  {
   "sentence": "That's a surrender.",
@@ -526,7 +532,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.4,
+  "beat_dur": 1.4,
+  "v_dur": 1.4
  },
  {
   "sentence": "And it has a name.",
@@ -545,7 +554,10 @@
    "IT HAS A NAME",
    "gold"
   ],
-  "cap_start": 0.76
+  "cap_start": 0.76,
+  "beat_len": 2.1,
+  "beat_dur": 2.1,
+  "v_dur": 2.1
  },
  {
   "sentence": "There's a reason some people apologize constantly and others never do.",
@@ -560,7 +572,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.833333333333333,
+  "beat_dur": 4.833333333333333,
+  "v_dur": 4.83
  },
  {
   "sentence": "It isn't manners.",
@@ -575,7 +590,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.4,
+  "beat_dur": 1.4,
+  "v_dur": 1.4
  },
  {
   "sentence": "It isn't humility.",
@@ -590,7 +608,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.5,
+  "beat_dur": 1.5,
+  "v_dur": 1.5
  },
  {
   "sentence": "It's the structure of the mind itself.",
@@ -605,7 +626,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.2333333333333334,
+  "beat_dur": 2.2333333333333334,
+  "v_dur": 2.23
  },
  {
   "sentence": "Carl Jung spent his life mapping that structure.",
@@ -624,7 +648,10 @@
    "JUNG SAW THIS",
    "gold"
   ],
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.933333333333333,
+  "beat_dur": 2.933333333333333,
+  "v_dur": 2.93
  },
  {
   "sentence": "He saw that every person runs on different mental functions.",
@@ -639,7 +666,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.533333333333333,
+  "beat_dur": 3.533333333333333,
+  "v_dur": 3.53
  },
  {
   "sentence": "Some people think their way through life.",
@@ -654,7 +684,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.2666666666666666,
+  "beat_dur": 2.2666666666666666,
+  "v_dur": 2.27
  },
  {
   "sentence": "Some people feel their way through.",
@@ -669,7 +702,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.1,
+  "beat_dur": 2.1,
+  "v_dur": 2.1
  },
  {
   "sentence": "And in each of us, one function leads.",
@@ -684,7 +720,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.6,
+  "beat_dur": 2.6,
+  "v_dur": 2.6
  },
  {
   "sentence": "Yours is feeling.",
@@ -703,7 +742,10 @@
    "YOURS IS FEELING",
    "gold"
   ],
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.5333333333333334,
+  "beat_dur": 1.5333333333333334,
+  "v_dur": 1.53
  },
  {
   "sentence": "Not raw emotion.",
@@ -718,7 +760,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.5333333333333334,
+  "beat_dur": 1.5333333333333334,
+  "v_dur": 1.53
  },
  {
   "sentence": "Feeling, for Jung, is a way of judging.",
@@ -733,7 +778,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.7666666666666666,
+  "beat_dur": 2.7666666666666666,
+  "v_dur": 2.77
  },
  {
   "sentence": "What is right, and what is wrong.",
@@ -748,7 +796,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.2333333333333334,
+  "beat_dur": 2.2333333333333334,
+  "v_dur": 2.23
  },
  {
   "sentence": "What keeps harmony, and what breaks it.",
@@ -763,7 +814,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.3333333333333335,
+  "beat_dur": 2.3333333333333335,
+  "v_dur": 2.33
  },
  {
   "sentence": "What keeps other people comfortable.",
@@ -778,7 +832,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.066666666666667,
+  "beat_dur": 2.066666666666667,
+  "v_dur": 2.07
  },
  {
   "sentence": "You can read a room in seconds.",
@@ -797,7 +854,10 @@
    "YOU READ ROOMS IN SECONDS",
    "gold"
   ],
-  "cap_start": 0.973
+  "cap_start": 0.973,
+  "beat_len": 2.6666666666666665,
+  "beat_dur": 2.6666666666666665,
+  "v_dur": 2.67
  },
  {
   "sentence": "You know who's tense before they say a word.",
@@ -812,7 +872,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.533333333333333,
+  "beat_dur": 2.533333333333333,
+  "v_dur": 2.53
  },
  {
   "sentence": "You know who's hurt behind their smile.",
@@ -827,7 +890,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.2,
+  "beat_dur": 2.2,
+  "v_dur": 2.2
  },
  {
   "sentence": "You know the temperature of a room like a thermometer.",
@@ -842,7 +908,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.7333333333333334,
+  "beat_dur": 2.7333333333333334,
+  "v_dur": 2.73
  },
  {
   "sentence": "You can't not know it.",
@@ -857,7 +926,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.5333333333333334,
+  "beat_dur": 1.5333333333333334,
+  "v_dur": 1.53
  },
  {
   "sentence": "It's not a choice.",
@@ -872,7 +944,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.4,
+  "beat_dur": 1.4,
+  "v_dur": 1.4
  },
  {
   "sentence": "It's how your mind is built.",
@@ -887,7 +962,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.7,
+  "beat_dur": 1.7,
+  "v_dur": 1.7
  },
  {
   "sentence": "So you adjust.",
