@@ -1,6 +1,6 @@
 # ⚖️ MASTER RULES — The Deeper Mind
 ### Must-follow for EVERY video. If a rule is violated, the video is NOT done.
-*Last updated: 2026-08-18*
+*Last updated: 2026-08-19*
 
 ---
 
@@ -144,13 +144,15 @@ Every video gets a SCORED ambient bed + polished voice via `finalize` PASS 3:
    (14s/chord, looping), slow breathing LFO, short room reverb, stereo, exact DUR.
 2. **Voice polish** = `highpass=f=80` (de-rumble) → `equalizer=f=8000:g=2` (presence)
    → `acompressor=threshold=-18dB:ratio=2.5` (even out TTS spikes) → stereo.
-3. **Sidechain ducking** = `sidechaincompress=threshold=0.02:ratio=12:attack=15:release=250`
-   — pad dips ~9dB while the voice speaks, swells in pauses. (Ducking ~9dB verified.)
+3. **Sidechain ducking** = `sidechaincompress=threshold=0.05:ratio=3:attack=15:release=250`
+   — pad dips gently (~6dB) while the voice speaks, swells in pauses. (Ducking verified.)
 4. **REQUIRED:** `asplit` before the voice feeds both sidechain and mix (a filter
    output cannot feed two consumers in this ffmpeg build — verified 2026-08-18).
-5. **Balance:** pad volume 0.26 → pad sits ~14dB under the voice clarity band
-   (measured). Final loudnorm −16 LUFS / TP −1.5, stereo AAC 160k.
-6. NEVER mix the pad louder than volume 0.30, and never duck ratio < 8.
+5. **Balance (v2, user-approved 2026-08-19):** pad volume **0.55** → music clearly
+   audible in pauses, voice stays ~5–7dB on top in the speech band (measured).
+   Final loudnorm −16 LUFS / TP −1.5, stereo AAC 160k.
+6. NEVER raise the pad above 0.55 or drop duck ratio below 3 — the voice must stay
+   dominant. (See R20.)
 
 ## R15. AUTO-CLEANUP BETWEEN VIDEOS (never make the user ask)
 
@@ -198,3 +200,28 @@ Never start a step without this check. Print the numbers so the user sees them.
 6. `verify.py storyboard` must report distinct assets, unused assets, min reuse
    distance — and FAIL if (a) assets unused while pool ≤ beats, or (b) min reuse
    distance < 26 beats.
+
+## R19. SESSION-RESET RESILIENCE (self-heal, never rebuild from memory)
+
+1. A session reset wipes pip packages, `~/.cache/kokoro/`, and `/tmp` — but **NOT**
+   workspace files (`tools/`, `reusable/`, `secrets/`, `MASTER_RULES.md`, `VIDEO_QUEUE.md`).
+2. **At the start of EVERY build session run `python3 tools/bootstrap.py`.** It
+   reinstalls deps, re-downloads the Kokoro model/voices if missing, verifies
+   ffmpeg + fonts + ImageMagick, checks secrets, cleans `/tmp`, and prints the
+   R17 pre-flight numbers (df /tmp, du /home/user).
+3. `pipeline.py` also self-heals on every subcommand (its internal `bootstrap()`
+   installs missing pip packages + re-fetches the Kokoro model before TTS).
+4. **If secrets are missing** after a snapshot reset (`secrets/github_pat.txt`,
+   `~/.pexels_key`) → STOP and ASK THE USER to re-paste them. Never guess or skip.
+5. Repo = source of truth (R3). After every session reset, re-sync the latest
+   `pipeline.py` / `MASTER_RULES.md` from the repo if the workspace copies are
+   older than the repo's.
+
+## R20. AUDIO MIX V2 (locked — user-approved 2026-08-19)
+
+1. Pad volume **0.55**, sidechain **`threshold=0.05:ratio=3`** (replaces the old
+   0.26 / 0.02:12 which buried the music bed under the voice).
+2. Result: music bed clearly audible in pauses (pad 60–100Hz band ≈ −30dB in the
+   mix), voice stays ~5–7dB on top in the speech band. Final loudnorm −16 LUFS / TP −1.5.
+3. These values are hard-coded in `pipeline.py` finalize PASS 3. `tools/remix_test.py`
+   can rebuild the test mix at any pad volume for A/B review.

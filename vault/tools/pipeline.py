@@ -564,8 +564,9 @@ def finalize():
          "acompressor=threshold=-18dB:ratio=2.5:attack=5:release=80,"
          "aformat=channel_layouts=stereo,asplit=2[voice][voice2];"
          # PAD: level + fades, then DUCK under the voice (sidechain compression)
-         "[1:a]volume=0.26,afade=t=in:st=0:d=4,afade=t=out:st={:.2f}:d=6[pd];"
-         "[pd][voice]sidechaincompress=threshold=0.02:ratio=12:attack=15:release=250[duck];"
+         # (v2 balance, user-approved 2026-08-19: pad 0.55 + gentle duck 0.05:3)
+         "[1:a]volume=0.55,afade=t=in:st=0:d=4,afade=t=out:st={:.2f}:d=6[pd];"
+         "[pd][voice]sidechaincompress=threshold=0.05:ratio=3:attack=15:release=250[duck];"
          "[voice2][duck]amix=inputs=2:duration=first:normalize=0,"
          "loudnorm=I=-16:TP=-1.5:LRA=11[aout]".format(max(DUR-6, 1)),
          "-map","[aout]","-c:a","aac","-b:a","160k","-ar","48000","-ac","2","-t",f"{DUR:.2f}",mixed])
