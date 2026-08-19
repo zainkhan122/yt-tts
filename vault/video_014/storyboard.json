@@ -16,7 +16,10 @@
    "SORRY, MORE THAN YOUR NAME",
    "gold"
   ],
-  "cap_start": 0.717
+  "cap_start": 0.717,
+  "beat_len": 3.2666666666666666,
+  "beat_dur": 3.2666666666666666,
+  "v_dur": 3.27
  },
  {
   "sentence": "It comes out before anything has even gone wrong.",
@@ -31,7 +34,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.066666666666667,
+  "beat_dur": 3.066666666666667,
+  "v_dur": 3.07
  },
  {
   "sentence": "Someone bumps into you on the street, and you apologize.",
@@ -46,7 +52,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.7,
+  "beat_dur": 3.7,
+  "v_dur": 3.7
  },
  {
   "sentence": "The waiter brings you the wrong order, and you apologize.",
@@ -61,7 +70,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.533333333333333,
+  "beat_dur": 3.533333333333333,
+  "v_dur": 3.53
  },
  {
   "sentence": "You've apologized to a door you walked into.",
@@ -76,7 +88,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.8,
+  "beat_dur": 2.8,
+  "v_dur": 2.8
  },
  {
   "sentence": "You've apologized to a chair.",
@@ -91,7 +106,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.9333333333333333,
+  "beat_dur": 1.9333333333333333,
+  "v_dur": 1.93
  },
  {
   "sentence": "You apologize for needing a minute.",
@@ -106,7 +124,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.1333333333333333,
+  "beat_dur": 2.1333333333333333,
+  "v_dur": 2.13
  },
  {
   "sentence": "For taking up space.",
@@ -121,7 +142,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.5333333333333334,
+  "beat_dur": 1.5333333333333334,
+  "v_dur": 1.53
  },
  {
   "sentence": "For having an opinion.",
@@ -136,7 +160,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.5333333333333334,
+  "beat_dur": 1.5333333333333334,
+  "v_dur": 1.53
  },
  {
   "sentence": "For feeling what you feel.",
@@ -151,7 +178,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.8,
+  "beat_dur": 1.8,
+  "v_dur": 1.8
  },
  {
   "sentence": "Somewhere along the way, you learned to apologize for existing.",
@@ -170,7 +200,10 @@
    "APOLOGIZING FOR EXISTING",
    "gold"
   ],
-  "cap_start": 1.997
+  "cap_start": 1.997,
+  "beat_len": 4.466666666666667,
+  "beat_dur": 4.466666666666667,
+  "v_dur": 4.47
  },
  {
   "sentence": "And nobody ever told you to stop.",
@@ -185,7 +218,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.2,
+  "beat_dur": 2.2,
+  "v_dur": 2.2
  },
  {
   "sentence": "So you never did.",
@@ -200,7 +236,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.4333333333333333,
+  "beat_dur": 1.4333333333333333,
+  "v_dur": 1.43
  },
  {
   "sentence": "And now it's automatic.",
@@ -215,7 +254,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.7,
+  "beat_dur": 1.7,
+  "v_dur": 1.7
  },
  {
   "sentence": "Let's be honest about what's actually going on.",
@@ -230,7 +272,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.8333333333333335,
+  "beat_dur": 2.8333333333333335,
+  "v_dur": 2.83
  },
  {
   "sentence": "Most of your sorries aren't apologies.",
@@ -249,7 +294,10 @@
    "THOSE AREN'T APOLOGIES",
    "gold"
   ],
-  "cap_start": 1.379
+  "cap_start": 1.379,
+  "beat_len": 2.8,
+  "beat_dur": 2.8,
+  "v_dur": 2.8
  },
  {
   "sentence": "A real apology is for a harm you caused.",
@@ -264,7 +312,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.9,
+  "beat_dur": 2.9,
+  "v_dur": 2.9
  },
  {
   "sentence": "But you are not harming anyone by existing.",
@@ -279,7 +330,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.6,
+  "beat_dur": 2.6,
+  "v_dur": 2.6
  },
  {
   "sentence": "You're apologizing for being visible.",
@@ -298,7 +352,10 @@
    "SORRY FOR BEING VISIBLE",
    "caption"
   ],
-  "cap_start": 0.486
+  "cap_start": 0.486,
+  "beat_len": 2.6666666666666665,
+  "beat_dur": 2.6666666666666665,
+  "v_dur": 2.67
  },
  {
   "sentence": "For being inconvenient.",
@@ -313,7 +370,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.7333333333333334,
+  "beat_dur": 1.7333333333333334,
+  "v_dur": 1.73
  },
  {
   "sentence": "For being a person who needs things.",
@@ -328,7 +388,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.1666666666666665,
+  "beat_dur": 2.1666666666666665,
+  "v_dur": 2.17
  },
  {
   "sentence": "That isn't guilt.",
@@ -343,7 +406,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.4333333333333333,
+  "beat_dur": 1.4333333333333333,
+  "v_dur": 1.43
  },
  {
   "sentence": "It's a reflex.",
@@ -358,7 +424,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.3666666666666667,
+  "beat_dur": 1.3666666666666667,
+  "v_dur": 1.37
  },
  {
   "sentence": "A reflex with a very specific origin.",
@@ -373,7 +442,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.8666666666666667,
+  "beat_dur": 2.8666666666666667,
+  "v_dur": 2.87
  },
  {
   "sentence": "It's a question you never stop asking.",
@@ -388,7 +460,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.466666666666667,
+  "beat_dur": 2.466666666666667,
+  "v_dur": 2.47
  },
  {
   "sentence": "Do I have permission to be here.",
@@ -403,7 +478,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.8666666666666667,
+  "beat_dur": 1.8666666666666667,
+  "v_dur": 1.87
  },
  {
   "sentence": "And the answer you keep giving is sorry.",
