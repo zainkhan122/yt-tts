@@ -193,7 +193,7 @@ def render_beat(media_path, kind, beat_len, motion, out):
               "fade=t=in:st=0:d=0.15[v]")
         args = [ff(), "-y", "-stream_loop", "-1", "-i", media_path]
     else:
-        zs, ze, px0, py0, px1, py1 = motion
+        _name, zs, ze, px0, py0, px1, py1 = motion
         z = f"{zs}+({ze}-{zs})*on/{Nf}"
         x = f"(iw-iw/zoom)*({px0}+({px1}-{px0})*on/{Nf})"
         y = f"(ih-ih/zoom)*({py0}+({py1}-{py0})*on/{Nf})"
@@ -301,38 +301,82 @@ def main():
           f"{sum(1 for _, k in media if k=='photo')} AI)")
 
     rng = random.Random(hashlib.md5(NAME.encode()).hexdigest())
-    rng.shuffle(media)
-    prev = None
-    assign = []
-    for i in range(len(seg_beats)):
-        cands = [m for m in media if m[0] != prev] or media
-        m = cands[0]
-        assign.append(m)
-        prev = m[0]
+    videos = [m for m in media if m[1] == "video"]
+    photos = [m for m in media if m[1] == "photo"]
+    rng.shuffle(videos)
+    rng.shuffle(photos)
+    n = len(seg_beats)
+    assign = [None] * n
+    # spread the AI images evenly across the beats (no clumping, no fixed cycle)
+    n_photo = min(len(photos), n // 2)
+    positions = sorted({round(j * (n - 1) / max(n_photo, 1)) for j in range(n_photo)})
+    pi = 0
+    for pos in positions:
+        if pi < len(photos):
+            assign[pos] = photos[pi]; pi += 1
+    # fill the rest with unique stock videos (pool >> beats -> zero repeats)
+    vi = 0
+    for i in range(n):
+        if assign[i] is None:
+            assign[i] = videos[vi % max(len(videos), 1)]; vi += 1
+    used = [p for p, _ in assign]
+    print(f"assign: {n} beats, {len(set(used))} distinct media, "
+          f"{len(used) - len(set(used))} repeats, {pi} AI images used")
+
+    # --- hand off RENDER + audio + mux to a FRESH interpreter ---
+    # (2GB box: Kokoro's native memory is not reclaimed in-process, so any
+    #  ffmpeg render alongside it OOMs. A fresh process has no Kokoro.)
+    motions = [MOTIONS[rng.randrange(len(MOTIONS))] for _ in range(len(seg_beats))]
+    manifest = {
+        "work": work,
+        "assign": [[p, k] for p, k in assign],
+        "motions": motions,
+        "voice_parts": voice_parts,
+        "lens": [bt["_beat_len"] for bt in seg_beats],
+        "voice_dur": voice_dur,
+        "cta_wav": cta_wav,
+        "cta_start": cta_start,
+        "total": total,
+        "ext": ext,
+        "cap_times": cap_times,
+        "base": BASE,
+        "repo_base": REPO_BASE,
+        "out_name": f"short_{kind}.mp4",
+    }
+    mp = f"{work}/manifest.json"
+    json.dump(manifest, open(mp, "w"))
+    # exec: REPLACE this process (frees Kokoro's native memory instantly) —
+    # avoids the parent holding ~600MB while phase2's git push needs the RAM.
+    os.execv(sys.executable, [sys.executable, os.path.abspath(__file__), "--phase", mp])
+
+
+def phase2(mp):
+    """Fresh-interpreter phase: render -> captions -> voice -> mix -> mux -> push."""
+    import soundfile as sflib
+    m = json.load(open(mp))
+    work = m["work"]; voice_parts = m["voice_parts"]; lens = m["lens"]
+    voice_dur = m["voice_dur"]; cta_wav = m["cta_wav"]; cta_start = m["cta_start"]
+    total = m["total"]; cap_times = m["cap_times"]; ext = m["ext"]
+    assign = [tuple(a) for a in m["assign"]]; motions = [tuple(x) for x in m["motions"]]
+    BASE = m["base"]; REPO_BASE = m["repo_base"]; out_name = m["out_name"]
+    NBEATS = len(voice_parts)
+    cta_dur = total - voice_dur - CTA_GAP - TAIL
 
     # --- render each beat (vertical) ---
-    vbeats = []
-    for i, bt in enumerate(seg_beats):
-        vout = f"{work}/vbeat_{i:03d}.mp4"
-        mpath, mkind = assign[i]
-        motion = MOTIONS[rng.randrange(len(MOTIONS))]
-        render_beat(mpath, mkind, bt["_beat_len"], motion, vout)
-        vbeats.append(vout)
+    for i in range(NBEATS):
+        render_beat(assign[i][0], assign[i][1], lens[i], motions[i], f"{work}/vbeat_{i:03d}.mp4")
     with open(f"{work}/vlist.txt", "w") as f:
-        for v in vbeats:
-            f.write(f"file '{v}'\n")
+        for i in range(NBEATS):
+            f.write(f"file '{work}/vbeat_{i:03d}.mp4'\n")
     vfull = f"{work}/vfull.mp4"
-    run([ff(), "-y", "-f", "concat", "-safe", "0", "-i", f"{work}/vlist.txt",
-         "-c", "copy", vfull])
-    # extend the last frame through the CTA tail
+    run([ff(), "-y", "-f", "concat", "-safe", "0", "-i", f"{work}/vlist.txt", "-c", "copy", vfull])
     vpadded = f"{work}/vpadded.mp4"
     run([ff(), "-y", "-i", vfull, "-vf", f"tpad=stop_mode=clone:stop_duration={ext:.3f}",
          "-c:v", "libx264", "-preset", "veryfast", "-crf", "23", "-pix_fmt", "yuv420p",
          "-r", str(FPS), "-an", vpadded])
 
     # --- captions + CTA text overlay ---
-    cur = vpadded
-    args2 = [ff(), "-y", "-i", cur]
+    args2 = [ff(), "-y", "-i", vpadded]
     fi = 0
     for (rel, disp) in cap_times:
         png = f"{work}/cap_{fi:03d}.png"
@@ -359,37 +403,6 @@ def main():
               "-c:v", "libx264", "-preset", "veryfast", "-crf", "23", "-pix_fmt", "yuv420p",
               "-r", str(FPS), "-an", vcap]
     run(args2)
-
-    # --- hand off the audio+mux phase to a FRESH interpreter ---
-    # (2GB box: Kokoro's native memory is not reclaimed in-process, so running
-    #  the audio mix right after render OOMs. A fresh process has no Kokoro.)
-    manifest = {
-        "work": work,
-        "voice_parts": voice_parts,
-        "lens": [bt["_beat_len"] for bt in seg_beats],
-        "voice_dur": voice_dur,
-        "cta_wav": cta_wav,
-        "cta_start": cta_start,
-        "total": total,
-        "cap_times": cap_times,
-        "base": BASE,
-        "repo_base": REPO_BASE,
-        "out_name": f"short_{kind}.mp4",
-    }
-    mp = f"{work}/manifest.json"
-    json.dump(manifest, open(mp, "w"))
-    subprocess.run([sys.executable, os.path.abspath(__file__), "--phase", mp], check=True)
-
-
-def phase2(mp):
-    """Fresh-interpreter phase: voice concat -> pad -> R20 mix -> mux -> push."""
-    import soundfile as sflib
-    m = json.load(open(mp))
-    work = m["work"]; voice_parts = m["voice_parts"]; lens = m["lens"]
-    voice_dur = m["voice_dur"]; cta_wav = m["cta_wav"]; cta_start = m["cta_start"]
-    total = m["total"]; cap_times = m["cap_times"]
-    BASE = m["base"]; REPO_BASE = m["repo_base"]; out_name = m["out_name"]
-    NBEATS = len(voice_parts)
 
     vcmd = [ff(), "-y"]
     for w in voice_parts:
