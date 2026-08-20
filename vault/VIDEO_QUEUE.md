@@ -14,6 +14,7 @@
 11. The Psychology of People Who See What Others Don't — thumb: "YOU SAW IT FIRST" (macro eye)
 12. There Are 4 People Living Inside You — thumb: "MEET THE OTHER THREE" (four-window house)
 13. Why You Feel Like an Old Soul — thumb: "ARRIVED EARLY" (child's face, right) — 5:06
+14. The Psychology of People Who Apologize for Existing — thumb: TBD — 6:38
 
 ## 🧠 TITLE + PAIN-POINT + MECHANISM REGISTER (R23 — dedup master; check BEFORE approving ANY new topic/Short)
 Every shipped video/short gets registered here the same day it's finalized.
@@ -35,6 +36,7 @@ mechanism already registered — even if the title is worded differently.
 | 11 | See What Others Don't | pattern foresight ("gut knows") | Introverted Intuition (Ni) |
 | 12 | 4 People Inside You | inner multiplicity / feeling split | persona–shadow–anima/animus–Self |
 | 13 | Why You Feel Like an Old Soul | rarity burden (ancient since childhood) | Precocious Introverted Intuition (Ni) |
+| 14 | People Who Apologize for Existing | over-apologizing / self-erasure | Extraverted Feeling dom + weak Introverted Feeling |
 
 ## 🎬 SHORTS REGISTER (R23 — track every Short's hook so we never re-use one)
 | Parent | Short title | Segment | Captions (first→last) | CTA | Status |
@@ -72,10 +74,10 @@ Why You're Drawn to Your Complete Opposite · The Psychology of People Who Read 
 Room Too Well · Why You Plan for Disasters That Never Come
 
 ## Title formula tracker (R11 — no 3 consecutive same formula)
-Last formulas: V10 "Why…" → V11 "The Psychology of People Who…" → V12 claim → V13 "Why…".
-V14 = "The Psychology of People Who…" (rotates back, safe).
+Last formulas: V10 "Why…" → V11 "The Psychology of People Who…" → V12 claim → V13 "Why…" → V14 "The Psychology of People Who…".
+V15 = "Why INFJs Push People Away…" ("Why…") is safe.
 
-## ▶️ NEXT UP: Video 14 — The Psychology of People Who Apologize for Existing
-- Pain: Fe over-accommodation · Jungian: Fe dominance / weak Fi
-- Pending: Video 13 thumbnail approval + repo intermediate purge (R6.4) + first Short.
+## ▶️ NEXT UP: Video 15 — Why INFJs Push People Away When They Need Them Most
+- Pain: Self-sabotaged closeness · Jungian: Fe–Ti loop under stress
+- Pending: Video 14 thumbnail approval + 2 Shorts (from v14) + purge parts after Shorts approved.
 - Starts with (a) assets + script per R16 cadence.
