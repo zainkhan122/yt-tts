@@ -44,15 +44,21 @@ def load_key():
         return open(PEXELS_KEY_FILE).read().strip()
     return None
 
-def pexels_videos(query, n, out):
+def pexels_videos(query, n, out, orientation="landscape"):
     key = load_key()
-    data = get(f"https://api.pexels.com/videos/search?query={urllib.parse.quote(query)}&per_page={max(n*3,6)}&orientation=landscape", key)
+    data = get(f"https://api.pexels.com/videos/search?query={urllib.parse.quote(query)}&per_page={max(n*3,6)}&orientation={orientation}", key)
     saved = []
     for v in data.get("videos", []):
         if len(saved) >= n:
             break
-        files = [f for f in v.get("video_files", []) if f.get("width", 0) >= 1280 and f.get("height", 0) <= f.get("width", 0)]
-        files.sort(key=lambda f: f.get("width", 0))
+        if orientation == "portrait":
+            files = [f for f in v.get("video_files", []) if f.get("height", 0) >= 1280 and f.get("height", 0) > f.get("width", 0)]
+            # prefer 1080x1920 (best quality without 4K bloat); fall back to 4K
+            files = [f for f in files if f.get("height", 0) <= 1920] or files
+            files.sort(key=lambda f: -f.get("height", 0))
+        else:
+            files = [f for f in v.get("video_files", []) if f.get("width", 0) >= 1280 and f.get("height", 0) <= f.get("width", 0)]
+            files.sort(key=lambda f: f.get("width", 0))
         if not files:
             continue
         f = files[0]
@@ -64,15 +70,19 @@ def pexels_videos(query, n, out):
         print(f"  [video] {name}  {f['width']}x{f['height']}  {v.get('duration')}s")
     return saved
 
-def pexels_photos(query, n, out):
+def pexels_photos(query, n, out, orientation="landscape"):
     key = load_key()
-    data = get(f"https://api.pexels.com/v1/search?query={urllib.parse.quote(query)}&per_page={max(n*2,8)}&orientation=landscape", key)
+    data = get(f"https://api.pexels.com/v1/search?query={urllib.parse.quote(query)}&per_page={max(n*2,8)}&orientation={orientation}", key)
     saved = []
     for ph in data.get("photos", []):
         if len(saved) >= n:
             break
-        if ph.get("width", 0) < ph.get("height", 0):
-            continue
+        if orientation == "portrait":
+            if ph.get("width", 0) > ph.get("height", 0):
+                continue
+        else:
+            if ph.get("width", 0) < ph.get("height", 0):
+                continue
         url = ph["src"].get("large2x") or ph["src"].get("large") or ph["src"]["original"]
         name = f"pexels_p{ph['id']}.jpg"
         p = os.path.join(out, name)
@@ -111,14 +121,17 @@ def main():
     ap.add_argument("query")
     ap.add_argument("--n", type=int, default=5)
     ap.add_argument("--out", default="stock")
+    ap.add_argument("--portrait", action="store_true",
+                    help="fetch PORTRAIT (vertical 9:16) media — for Shorts")
     a = ap.parse_args()
+    orientation = "portrait" if a.portrait else "landscape"
     os.makedirs(a.out, exist_ok=True)
-    print(f"searching {a.source}: '{a.query}' -> {a.out}/")
+    print(f"searching {a.source}: '{a.query}' -> {a.out}/ ({orientation})")
     try:
         if a.source == "pexels-video":
-            pexels_videos(a.query, a.n, a.out)
+            pexels_videos(a.query, a.n, a.out, orientation)
         elif a.source == "pexels-photo":
-            pexels_photos(a.query, a.n, a.out)
+            pexels_photos(a.query, a.n, a.out, orientation)
         else:
             openverse(a.query, a.n, a.out)
     except urllib.error.HTTPError as e:

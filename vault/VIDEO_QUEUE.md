@@ -14,7 +14,7 @@
 11. The Psychology of People Who See What Others Don't — thumb: "YOU SAW IT FIRST" (macro eye)
 12. There Are 4 People Living Inside You — thumb: "MEET THE OTHER THREE" (four-window house)
 13. Why You Feel Like an Old Soul — thumb: "ARRIVED EARLY" (child's face, right) — 5:06
-14. The Psychology of People Who Apologize for Existing — thumb: TBD — 6:38
+14. The Psychology of People Who Apologize for Existing — thumb: "SORRY IS SURRENDER" (bowed figure, right) — 6:38
 
 ## 🧠 TITLE + PAIN-POINT + MECHANISM REGISTER (R23 — dedup master; check BEFORE approving ANY new topic/Short)
 Every shipped video/short gets registered here the same day it's finalized.
