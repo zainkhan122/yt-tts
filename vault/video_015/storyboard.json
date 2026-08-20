@@ -2928,7 +2928,9 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.3333333333333333,
+  "beat_dur": 1.3333333333333333
  },
  {
   "sentence": "One honest sentence.",
@@ -2943,7 +2945,9 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.5666666666666667,
+  "beat_dur": 1.5666666666666667
  },
  {
   "sentence": "One unlocked door.",
@@ -2958,7 +2962,9 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.7,
+  "beat_dur": 1.7
  },
  {
   "sentence": "And watch what happens.",
@@ -2973,7 +2979,9 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.6333333333333333,
+  "beat_dur": 1.6333333333333333
  },
  {
   "sentence": "Because the people who love you are not the problem.",
@@ -2988,7 +2996,9 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.7666666666666666,
+  "beat_dur": 2.7666666666666666
  },
  {
   "sentence": "The wall is.",
@@ -3003,7 +3013,9 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.2666666666666666,
+  "beat_dur": 1.2666666666666666
  },
  {
   "sentence": "And walls are only strong from the inside.",
@@ -3018,7 +3030,9 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.6666666666666665,
+  "beat_dur": 2.6666666666666665
  },
  {
   "sentence": "You built it.",
@@ -3033,7 +3047,9 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.1666666666666667,
+  "beat_dur": 1.1666666666666667
  },
  {
   "sentence": "You can open it.",
@@ -3048,7 +3064,9 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.3666666666666667,
+  "beat_dur": 1.3666666666666667
  },
  {
   "sentence": "So tell me in the comments.",
@@ -3063,7 +3081,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.7,
+  "beat_dur": 1.7,
+  "v_dur": 1.7
  },
  {
   "sentence": "What do you say when someone asks if you're okay.",
@@ -3078,7 +3099,9 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.8666666666666667,
+  "beat_dur": 2.8666666666666667
  },
  {
   "sentence": "Be honest.",
@@ -3093,7 +3116,9 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.2333333333333334,
+  "beat_dur": 1.2333333333333334
  },
  {
   "sentence": "I read every single one.",
@@ -3108,6 +3133,8 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.8,
+  "beat_dur": 1.8
  }
 ]
