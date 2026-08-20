@@ -51,7 +51,7 @@ mechanism already registered — even if the title is worded differently.
 | 14 Apologize | hook | beats 0–13 (sorry reflex cold open, 37.4s, 2 captions) | ✅ DONE vertical |
 | 14 Apologize | payoff | beats 139–152 (Excuse me not sorry → You do, 34.9s, 2 captions) | ✅ DONE vertical |
 | 15 Push Away | hook | beats 0–13 (pattern cold open, 36.5s, 3 captions) | ✅ DONE vertical |
-| 15 Push Away | payoff | "how do you break it" loop-breaking section | TO BUILD vertical |
+| 15 Push Away | payoff | beats 117–133 (break the loop → the crack in the wall, 37.4s, 1 caption) | ✅ DONE vertical |
 
 ## ⛔ USED THUMBNAIL LINES (R8.6 — never repeat these concepts)
 YOURS / OS / FROZEN / MASKED / UNLIVED / LOOP / SHADOW (used 2× — banned forever) /
