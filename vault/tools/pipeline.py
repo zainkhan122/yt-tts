@@ -574,16 +574,21 @@ def finalize():
     run([ff(),"-y","-i",cur,"-i",mixed,
          "-map","0:v","-map","1:a","-c:v","copy","-c:a","copy","-threads","2","-t",f"{DUR:.2f}",out])
     print("final built:", out, "duration:", round(DUR,1))
-    # SIZE GUARD (R10): GitHub hard limit = 100MB per file. Shrink if over.
+    # SIZE GUARD (R10): GitHub hard limit = 100MB per file. Escalate crf until
+    # under LIMIT_MB (a single crf 26 pass left 6:38 videos at 110MB — rejected).
     LIMIT_MB = 95
-    sz = os.path.getsize(out) / 1e6
-    if sz > LIMIT_MB:
-        print(f"final {sz:.1f}MB > {LIMIT_MB}MB limit — re-encoding lean (crf 26)")
+    for crf in (26, 28, 30, 32):
+        sz = os.path.getsize(out) / 1e6
+        if sz <= LIMIT_MB:
+            break
+        print(f"final {sz:.1f}MB > {LIMIT_MB}MB limit — re-encoding lean (crf {crf})")
         lean = f"{wd}/final_lean.mp4"
-        run([ff(),"-y","-i",out,"-c:v","libx264","-preset","veryfast","-crf","26",
-             "-pix_fmt","yuv420p","-c:a","copy","-threads","2",lean])
+        run([ff(), "-y", "-i", out, "-c:v", "libx264", "-preset", "veryfast",
+             "-crf", str(crf), "-pix_fmt", "yuv420p", "-c:a", "copy", "-threads", "2", lean])
         os.replace(lean, out)
         print(f"shrunk to {os.path.getsize(out)/1e6:.1f}MB")
+    if os.path.getsize(out) / 1e6 > LIMIT_MB:
+        raise SystemExit("FINAL STILL OVER 95MB EVEN AT crf 32 — abort, do not push")
     print("caption schedule (absolute seconds, hold %.1fs):" % CAP_HOLD)
     for (i, abs_t, cap) in captions:
         print(f"  {cap[1]:32s} @ {abs_t:6.2f}s")
