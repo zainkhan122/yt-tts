@@ -41,16 +41,12 @@ mechanism already registered — even if the title is worded differently.
 ## 🎬 SHORTS REGISTER (R23 — track every Short's hook so we never re-use one)
 > 2026-08-20 decision: Shorts = **HOOK + best self-contained PAYOFF** (no midpoint),
 > rendered in **NATIVE VERTICAL** media (portrait stock + vertical AI).
-> `tools/make_short.py` v2 built for this. The two v13 Shorts below are LEGACY
-> blur-fill — to be REDONE vertical.
 
 | Parent | Short | Segment | Status |
 |---|---|---|---|
 | 13 Old Soul | hook | beats 0–11 (cold open, 37.5s, 4 captions) | ✅ DONE vertical |
 | 13 Old Soul | payoff | beats 89–99 (mind arrived early → understood, 31.4s, 2 captions) | ✅ DONE vertical |
-| 14 Apologize | hook | beats 0–~14 (sorry reflex) | TO BUILD vertical |
-| 14 Apologize | payoff | "build the anchor / put the word down" (~beats 140–168) | TO BUILD vertical |
-| 14 Apologize | hook | beats 0–~14 (sorry reflex) | TO BUILD vertical |
+| 14 Apologize | hook | beats 0–13 (sorry reflex cold open, 37.4s, 2 captions) | ✅ DONE vertical |
 | 14 Apologize | payoff | "build the anchor / put the word down" (~beats 140–168) | TO BUILD vertical |
 
 ## ⛔ USED THUMBNAIL LINES (R8.6 — never repeat these concepts)
