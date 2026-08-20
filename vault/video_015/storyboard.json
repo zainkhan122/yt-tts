@@ -1484,7 +1484,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.0,
+  "beat_dur": 2.0,
+  "v_dur": 2.0
  },
  {
   "sentence": "Or what were you protecting yourself from.",
@@ -1499,7 +1502,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.5,
+  "beat_dur": 2.5,
+  "v_dur": 2.5
  },
  {
   "sentence": "Because there's a difference.",
@@ -1514,7 +1520,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.6,
+  "beat_dur": 1.6,
+  "v_dur": 1.6
  },
  {
   "sentence": "And I think you know which one it was.",
@@ -1529,7 +1538,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.1,
+  "beat_dur": 2.1,
+  "v_dur": 2.1
  },
  {
   "sentence": "You weren't protecting them.",
@@ -1544,7 +1556,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.5666666666666667,
+  "beat_dur": 1.5666666666666667,
+  "v_dur": 1.57
  },
  {
   "sentence": "You were protecting yourself from the moment they'd see you needing.",
@@ -1563,7 +1578,10 @@
    "PROTECTING YOURSELF",
    "caption"
   ],
-  "cap_start": 0.888
+  "cap_start": 0.888,
+  "beat_len": 4.266666666666667,
+  "beat_dur": 4.266666666666667,
+  "v_dur": 4.27
  },
  {
   "sentence": "From the moment you'd be the one who couldn't hold it together.",
@@ -1578,7 +1596,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.2333333333333334,
+  "beat_dur": 3.2333333333333334,
+  "v_dur": 3.23
  },
  {
   "sentence": "Sit with that.",
@@ -1593,7 +1614,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.2666666666666666,
+  "beat_dur": 1.2666666666666666,
+  "v_dur": 1.27
  },
  {
   "sentence": "Because this is the whole thing.",
@@ -1608,7 +1632,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.066666666666667,
+  "beat_dur": 2.066666666666667,
+  "v_dur": 2.07
  },
  {
   "sentence": "You push people away when you need them most.",
@@ -1623,7 +1650,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.4,
+  "beat_dur": 2.4,
+  "v_dur": 2.4
  },
  {
   "sentence": "Because being needed is easier than needing.",
@@ -1642,7 +1672,10 @@
    "EASIER TO BE NEEDED",
    "gold"
   ],
-  "cap_start": 0.888
+  "cap_start": 0.888,
+  "beat_len": 3.5,
+  "beat_dur": 3.5,
+  "v_dur": 3.5
  },
  {
   "sentence": "Because giving is safer than asking.",
@@ -1657,7 +1690,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.433333333333333,
+  "beat_dur": 2.433333333333333,
+  "v_dur": 2.43
  },
  {
   "sentence": "This loop has a price.",
@@ -1672,7 +1708,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.7,
+  "beat_dur": 1.7,
+  "v_dur": 1.7
  },
  {
   "sentence": "And you've been paying it for years.",
@@ -1687,7 +1726,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.8666666666666667,
+  "beat_dur": 1.8666666666666667,
+  "v_dur": 1.87
  },
  {
   "sentence": "First, it teaches people a lesson you never meant to teach.",
@@ -1706,7 +1748,10 @@
    "THE LESSON YOU NEVER MEANT",
    "caption"
   ],
-  "cap_start": 1.997
+  "cap_start": 1.997,
+  "beat_len": 3.9,
+  "beat_dur": 3.9,
+  "v_dur": 3.9
  },
  {
   "sentence": "That you don't want them around.",
@@ -1721,7 +1766,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.7,
+  "beat_dur": 1.7,
+  "v_dur": 1.7
  },
  {
   "sentence": "Say I'm fine enough times, and people learn to believe you.",
@@ -1740,7 +1788,10 @@
    "THEY LEARN TO BELIEVE YOU",
    "caption"
   ],
-  "cap_start": 2.509
+  "cap_start": 2.509,
+  "beat_len": 4.033333333333333,
+  "beat_dur": 4.033333333333333,
+  "v_dur": 4.03
  },
  {
   "sentence": "Not because they don't care.",
@@ -1755,7 +1806,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.7666666666666666,
+  "beat_dur": 1.7666666666666666,
+  "v_dur": 1.77
  },
  {
   "sentence": "Because they trust your words.",
@@ -1770,7 +1824,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.8333333333333333,
+  "beat_dur": 1.8333333333333333,
+  "v_dur": 1.83
  },
  {
   "sentence": "So the day you finally need someone, they're not watching for it.",
@@ -1785,7 +1842,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.6666666666666665,
+  "beat_dur": 3.6666666666666665,
+  "v_dur": 3.67
  },
  {
   "sentence": "And you feel abandoned, when you trained them to leave you alone.",
@@ -1800,7 +1860,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.6666666666666665,
+  "beat_dur": 3.6666666666666665,
+  "v_dur": 3.67
  },
  {
   "sentence": "Second, it starves you.",
@@ -1819,7 +1882,10 @@
    "IT STARVES YOU",
    "caption"
   ],
-  "cap_start": 1.379
+  "cap_start": 1.379,
+  "beat_len": 2.6333333333333333,
+  "beat_dur": 2.6333333333333333,
+  "v_dur": 2.63
  },
  {
   "sentence": "You're a person who lives on depth and connection.",
@@ -1834,7 +1900,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.7666666666666666,
+  "beat_dur": 2.7666666666666666,
+  "v_dur": 2.77
  },
  {
   "sentence": "And this pattern is the opposite of connection.",
@@ -1849,7 +1918,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.7,
+  "beat_dur": 2.7,
+  "v_dur": 2.7
  },
  {
   "sentence": "It's isolation dressed up as independence.",
@@ -1868,7 +1940,10 @@
    "ISOLATION AS INDEPENDENCE",
    "gold"
   ],
-  "cap_start": 1.379
+  "cap_start": 1.379,
+  "beat_len": 3.3,
+  "beat_dur": 3.3,
+  "v_dur": 3.3
  },
  {
   "sentence": "So the loneliness compounds.",
@@ -1883,7 +1958,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.9333333333333333,
+  "beat_dur": 1.9333333333333333,
+  "v_dur": 1.93
  },
  {
   "sentence": "Third, it lies to you about strength.",
