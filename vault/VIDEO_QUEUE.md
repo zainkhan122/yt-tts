@@ -46,8 +46,8 @@ mechanism already registered — even if the title is worded differently.
 
 | Parent | Short | Segment | Status |
 |---|---|---|---|
-| 13 Old Soul | hook | beats 0–11 (cold open, 37.2s, 4 captions) | ✅ DONE vertical |
-| 13 Old Soul | payoff | "what do you do with a mind that arrived early" (~beats 89–100) | TO BUILD vertical |
+| 13 Old Soul | hook | beats 0–11 (cold open, 37.5s, 4 captions) | ✅ DONE vertical |
+| 13 Old Soul | payoff | beats 89–99 (mind arrived early → understood, 31.4s, 2 captions) | ✅ DONE vertical |
 | 14 Apologize | hook | beats 0–~14 (sorry reflex) | TO BUILD vertical |
 | 14 Apologize | payoff | "build the anchor / put the word down" (~beats 140–168) | TO BUILD vertical |
 | 14 Apologize | hook | beats 0–~14 (sorry reflex) | TO BUILD vertical |
