@@ -39,16 +39,17 @@ mechanism already registered — even if the title is worded differently.
 | 14 | People Who Apologize for Existing | over-apologizing / self-erasure | Extraverted Feeling dom + weak Introverted Feeling |
 
 ## 🎬 SHORTS REGISTER (R23 — track every Short's hook so we never re-use one)
-> 2026-08-20 decision: Shorts = HOOK + best self-contained PAYOFF (no midpoint),
-> rendered in NATIVE VERTICAL media. The two v13 Shorts below are LEGACY blur-fill
-> (shipped before the decision). v14 Shorts will be the first vertical ones.
+> 2026-08-20 decision: Shorts = **HOOK + best self-contained PAYOFF** (no midpoint),
+> rendered in **NATIVE VERTICAL** media (portrait stock + vertical AI).
+> `tools/make_short.py` v2 built for this. The two v13 Shorts below are LEGACY
+> blur-fill — to be REDONE vertical.
 
-| Parent | Short title | Segment | Captions (first→last) | CTA | Status |
-|---|---|---|---|---|---|
-| 13 Old Soul | You've Felt Old Since Childhood | hook (beats 0–12, 36.7s) | OLD SINCE CHILDHOOD → THEY CALL YOU AN OLD SOUL | text + spoken af_heart | LEGACY blur-fill, shipped |
-| 13 Old Soul | The Adults Didn't Know | midpoint (beats 49–64, 38.6s) | OLDER THAN THE ROOM → THE REAL COST IS WAITING | text + spoken af_heart | LEGACY blur-fill, shipped |
-| 14 Apologize for Existing | (hook Short) | hook — pending | — | vertical + CTA | TO BUILD |
-| 14 Apologize for Existing | (payoff Short) | best self-contained payoff — pending | — | vertical + CTA | TO BUILD |
+| Parent | Short | Segment | Status |
+|---|---|---|---|
+| 13 Old Soul | hook | beats 0–~12 (cold open) | REDO vertical |
+| 13 Old Soul | payoff | "what do you do with a mind that arrived early" (~beats 85–100) | REDO vertical |
+| 14 Apologize | hook | beats 0–~14 (sorry reflex) | TO BUILD vertical |
+| 14 Apologize | payoff | "build the anchor / put the word down" (~beats 140–168) | TO BUILD vertical |
 
 ## ⛔ USED THUMBNAIL LINES (R8.6 — never repeat these concepts)
 YOURS / OS / FROZEN / MASKED / UNLIVED / LOOP / SHADOW (used 2× — banned forever) /
@@ -84,10 +85,10 @@ Last formulas: V10 "Why…" → V11 "The Psychology of People Who…" → V12 cl
 V15 = "Why INFJs Push People Away…" ("Why…") is safe.
 
 ## ▶️ NEXT UP (in order)
-1. **Video 14 thumbnail** — candidate "SORRY IS SURRENDER" built; awaiting user "go".
-2. **Build the VERTICAL Shorts system** (rewrite make_short.py + portrait stock).
-3. **Video 14's 2 Shorts** (hook + best self-contained payoff) — vertical.
-4. Purge v14 parts .wav after Shorts approved (parts .mp4 already purged).
-5. **Video 15 — Why INFJs Push People Away When They Need Them Most**
+1. **Build v13's 2 vertical Shorts** (REDO — hook + payoff) — generate 5 vertical
+   AI images into videos/video_013/shorts_ai/ then run make_short.py.
+2. **Build v14's 2 vertical Shorts** (hook + payoff) — same flow.
+3. Purge v14 parts .wav after Shorts approved (voice re-derivable via re-TTS).
+4. **Video 15 — Why INFJs Push People Away When They Need Them Most**
    - Pain: Self-sabotaged closeness · Jungian: Fe–Ti loop under stress
    - Starts with (a) assets + script per R16 cadence.
