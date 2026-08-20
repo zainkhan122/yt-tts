@@ -177,11 +177,12 @@ Every video gets a SCORED ambient bed + polished voice via `finalize` PASS 3:
    total length extends to fit it) — the CTA voice must NEVER overlap the
    narration's last words. (`make_short.py` builds this in; `fix_short_cta.py`
    patches older Shorts.)
-6. **Purge order for a video's parts:** keep parts' .wav until every Short for
-   that video is built AND user-approved (they are the voice source — no
-   re-TTS). Parts' .mp4 (landscape) are dead once final.mp4 is pushed AND Shorts
-   go vertical — purge those immediately. (Lesson: video_013 — parts purged
-   early forced a CTA patch on finished Shorts.)
+6. **Purge order for a video's intermediates (CRITICAL after video_015):**
+   purge chunk zips + parts BEFORE pushing final.mp4. The repo tip must stay
+   below ~700MB or the shallow full clone used by git_push.py for >35MB files
+   (final.mp4) overflows the 993MB /tmp. Shorts re-TTS their voice
+   (make_short.py v2), so parts .wav are NOT needed after assemble either.
+   (Lesson: video_015 finalize — 970MB tip blew the push; purge → 453MB → OK.)
 
 ## R22. NICHE FENCE (what we are / are NOT)
 

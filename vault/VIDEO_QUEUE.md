@@ -15,6 +15,7 @@
 12. There Are 4 People Living Inside You — thumb: "MEET THE OTHER THREE" (four-window house)
 13. Why You Feel Like an Old Soul — thumb: "ARRIVED EARLY" (child's face, right) — 5:06
 14. The Psychology of People Who Apologize for Existing — thumb: "SORRY IS SURRENDER" (bowed figure, right) — 6:38
+15. Why INFJs Push People Away When They Need Them Most — thumb: TBD — 6:30
 
 ## 🧠 TITLE + PAIN-POINT + MECHANISM REGISTER (R23 — dedup master; check BEFORE approving ANY new topic/Short)
 Every shipped video/short gets registered here the same day it's finalized.
@@ -37,6 +38,7 @@ mechanism already registered — even if the title is worded differently.
 | 12 | 4 People Inside You | inner multiplicity / feeling split | persona–shadow–anima/animus–Self |
 | 13 | Why You Feel Like an Old Soul | rarity burden (ancient since childhood) | Precocious Introverted Intuition (Ni) |
 | 14 | People Who Apologize for Existing | over-apologizing / self-erasure | Extraverted Feeling dom + weak Introverted Feeling |
+| 15 | INFJs Push People Away When They Need Them Most | refusing help while hurting | Fe–Ti loop under stress |
 
 ## 🎬 SHORTS REGISTER (R23 — track every Short's hook so we never re-use one)
 > 2026-08-20 decision: Shorts = **HOOK + best self-contained PAYOFF** (no midpoint),
@@ -79,14 +81,12 @@ Why You're Drawn to Your Complete Opposite · The Psychology of People Who Read 
 Room Too Well · Why You Plan for Disasters That Never Come
 
 ## Title formula tracker (R11 — no 3 consecutive same formula)
-Last formulas: V10 "Why…" → V11 "The Psychology of People Who…" → V12 claim → V13 "Why…" → V14 "The Psychology of People Who…".
-V15 = "Why INFJs Push People Away…" ("Why…") is safe.
+Last formulas: V10 "Why…" → V11 "The Psychology of People Who…" → V12 claim → V13 "Why…" → V14 "The Psychology of People Who…" → V15 "Why…".
+V16 = "Why…" would be 2 in a row (OK); V17 must NOT be "Why…".
 
 ## ▶️ NEXT UP (in order)
-1. **Build v13's 2 vertical Shorts** (REDO — hook + payoff) — generate 5 vertical
-   AI images into videos/video_013/shorts_ai/ then run make_short.py.
-2. **Build v14's 2 vertical Shorts** (hook + payoff) — same flow.
-3. Purge v14 parts .wav after Shorts approved (voice re-derivable via re-TTS).
-4. **Video 15 — Why INFJs Push People Away When They Need Them Most**
-   - Pain: Self-sabotaged closeness · Jungian: Fe–Ti loop under stress
-   - Starts with (a) assets + script per R16 cadence.
+1. **Video 15 thumbnail** (next turn) — then 2 Shorts (hook + payoff, vertical).
+2. **Video 16 — Why You're Exhausted as a Deep Thinker** — ⚠️ title formula:
+   V15 was "Why…", so V16 "Why…" would be 2 in a row (OK) but V17 must rotate.
+   Pain: Cognitive drain · Jungian: Ni/Ti energy economics.
+   - Check slate + dedup register first (R23).
