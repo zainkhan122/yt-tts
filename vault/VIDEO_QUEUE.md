@@ -15,7 +15,7 @@
 12. There Are 4 People Living Inside You — thumb: "MEET THE OTHER THREE" (four-window house)
 13. Why You Feel Like an Old Soul — thumb: "ARRIVED EARLY" (child's face, right) — 5:06
 14. The Psychology of People Who Apologize for Existing — thumb: "SORRY IS SURRENDER" (bowed figure, right) — 6:38
-15. Why INFJs Push People Away When They Need Them Most — thumb: TBD — 6:30
+15. Why INFJs Push People Away When They Need Them Most — thumb: "THE LOCKED DOOR" (padlocked door, right) — 6:30
 
 ## 🧠 TITLE + PAIN-POINT + MECHANISM REGISTER (R23 — dedup master; check BEFORE approving ANY new topic/Short)
 Every shipped video/short gets registered here the same day it's finalized.
@@ -53,7 +53,8 @@ mechanism already registered — even if the title is worded differently.
 
 ## ⛔ USED THUMBNAIL LINES (R8.6 — never repeat these concepts)
 YOURS / OS / FROZEN / MASKED / UNLIVED / LOOP / SHADOW (used 2× — banned forever) /
-BECAME THEM / PRICE OF SELF / SAW IT FIRST / OTHER THREE / ARRIVED EARLY
+BECAME THEM / PRICE OF SELF / SAW IT FIRST / OTHER THREE / ARRIVED EARLY /
+SORRY IS SURRENDER / THE LOCKED DOOR
 
 ## 🚫 RETIRED TOPICS (R23 — duplicates; NEVER revive)
 - "The Real Reason You Feel Alone in a Room Full of People" — dup of #4 + #10 (loneliness).
