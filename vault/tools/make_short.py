@@ -131,6 +131,8 @@ def synth_voice(text, wav_out):
     ko = Kokoro(MODEL, VOICES)
     s, sr = ko.create(text, voice=VOICE, speed=SPEED, lang="en-us")
     sf.write(wav_out, s, sr)
+    del ko
+    import gc; gc.collect()
     return len(s) / sr
 
 
@@ -187,7 +189,7 @@ def render_beat(media_path, kind, beat_len, motion, out):
         fc = ("[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
               "fps=30,setsar=1,format=yuv420p,setpts=PTS-STARTPTS,"
               "eq=brightness='0.015*sin(2*PI*t/5)':saturation=1.06,"
-              "vignette=PI/4.6,noise=alls=5:allf=t,"
+              "vignette=PI/4.6,"
               "fade=t=in:st=0:d=0.15[v]")
         args = [ff(), "-y", "-stream_loop", "-1", "-i", media_path]
     else:
@@ -195,14 +197,15 @@ def render_beat(media_path, kind, beat_len, motion, out):
         z = f"{zs}+({ze}-{zs})*on/{Nf}"
         x = f"(iw-iw/zoom)*({px0}+({px1}-{px0})*on/{Nf})"
         y = f"(ih-ih/zoom)*({py0}+({py1}-{py0})*on/{Nf})"
-        fc = (f"[0:v]scale=2160:3840:flags=lanczos,"
+        fc = (f"[0:v]scale=1620:2880:flags=lanczos,"
               f"zoompan=z='{z}':x='{x}':y='{y}':d={Nf}:s=1080x1920:fps=30,setsar=1,"
               f"eq=brightness='0.015*sin(2*PI*t/5)':saturation=1.06,"
-              f"vignette=PI/4.6,noise=alls=5:allf=t,"
+              f"vignette=PI/4.6,"
               f"fade=t=in:st=0:d=0.15[v]")
         args = [ff(), "-y", "-i", media_path]
     args += ["-filter_complex", fc, "-map", "[v]", "-c:v", "libx264", "-preset", "veryfast",
-             "-crf", "23", "-pix_fmt", "yuv420p", "-r", "30", "-t", f"{beat_len:.6f}", "-an", out]
+             "-threads", "1", "-crf", "23", "-pix_fmt", "yuv420p", "-r", "30",
+             "-t", f"{beat_len:.6f}", "-an", out]
     run(args)
 
 
@@ -280,6 +283,10 @@ def main():
     total = voice_dur + ext
     print(f"voice_dur={voice_dur:.2f}s  CTA@{cta_start:.2f}s  total={total:.2f}s  captions={len(cap_times)}")
 
+    # release Kokoro (325MB) before the render phase — 2GB RAM box
+    del ko
+    import gc; gc.collect()
+
     # --- media: portrait stock (fetched) + vertical AI images (you generated) ---
     stock_dir = f"/tmp/{NAME}_short"
     media = fetch_portrait(queries, 6, stock_dir)
@@ -353,25 +360,52 @@ def main():
               "-r", str(FPS), "-an", vcap]
     run(args2)
 
-    # --- voice track (beats padded to _beat_len, concatenated) ---
+    # --- hand off the audio+mux phase to a FRESH interpreter ---
+    # (2GB box: Kokoro's native memory is not reclaimed in-process, so running
+    #  the audio mix right after render OOMs. A fresh process has no Kokoro.)
+    manifest = {
+        "work": work,
+        "voice_parts": voice_parts,
+        "lens": [bt["_beat_len"] for bt in seg_beats],
+        "voice_dur": voice_dur,
+        "cta_wav": cta_wav,
+        "cta_start": cta_start,
+        "total": total,
+        "cap_times": cap_times,
+        "base": BASE,
+        "repo_base": REPO_BASE,
+        "out_name": f"short_{kind}.mp4",
+    }
+    mp = f"{work}/manifest.json"
+    json.dump(manifest, open(mp, "w"))
+    subprocess.run([sys.executable, os.path.abspath(__file__), "--phase", mp], check=True)
+
+
+def phase2(mp):
+    """Fresh-interpreter phase: voice concat -> pad -> R20 mix -> mux -> push."""
+    import soundfile as sflib
+    m = json.load(open(mp))
+    work = m["work"]; voice_parts = m["voice_parts"]; lens = m["lens"]
+    voice_dur = m["voice_dur"]; cta_wav = m["cta_wav"]; cta_start = m["cta_start"]
+    total = m["total"]; cap_times = m["cap_times"]
+    BASE = m["base"]; REPO_BASE = m["repo_base"]; out_name = m["out_name"]
+    NBEATS = len(voice_parts)
+
     vcmd = [ff(), "-y"]
     for w in voice_parts:
         vcmd += ["-i", w]
     fvoice = []
-    import soundfile as sflib
-    for i, bt in enumerate(seg_beats):
+    for i in range(NBEATS):
         with sflib.SoundFile(voice_parts[i]) as f:
             wd = f.frames / f.samplerate
-        pad = max(bt["_beat_len"] - wd, 0.0)
-        fvoice.append(f"[{i}:a]apad=pad_dur={pad:.6f}[a{i}]")
-    fvoice.append("".join(f"[a{j}]" for j in range(len(voice_parts))) +
-                  f"concat=n={len(voice_parts)}:v=0:a=1,afade=t=out:st={max(voice_dur-0.15,0):.2f}:d=0.15[vo]")
+        fvoice.append(f"[{i}:a]apad=pad_dur={max(lens[i]-wd,0):.6f}[a{i}]")
+    fvoice.append("".join(f"[a{j}]" for j in range(NBEATS)) +
+                  f"concat=n={NBEATS}:v=0:a=1,afade=t=out:st={max(voice_dur-0.15,0):.2f}:d=0.15[vo]")
     voice_full = f"{work}/voice_full.wav"
     vcmd += ["-filter_complex", ";".join(fvoice), "-map", "[vo]",
              "-ar", "48000", "-ac", "1", "-c:a", "pcm_s16le", voice_full]
     run(vcmd)
 
-    # --- audio mix (R20 chain + appended CTA voice) ---
     pad = f"{work}/pad.wav"
     subprocess.run([sys.executable, "/home/user/tools/make_pad.py", f"{total:.1f}", pad], check=True)
     cta_ms = int(cta_start * 1000)
@@ -391,27 +425,26 @@ def main():
          "-map", "[aout]", "-c:a", "aac", "-b:a", "160k", "-ar", "48000", "-ac", "2",
          "-t", f"{total:.2f}", amix])
 
-    # --- mux + verify + push ---
     os.makedirs(f"{BASE}/shorts", exist_ok=True)
-    out_name = f"short_{kind}.mp4"
     out = f"{work}/{out_name}"
-    run([ff(), "-y", "-i", vcap, "-i", amix, "-map", "0:v", "-map", "1:a",
+    run([ff(), "-y", "-i", f"{work}/vcap.mp4", "-i", amix, "-map", "0:v", "-map", "1:a",
          "-c:v", "copy", "-c:a", "copy", "-t", f"{total:.2f}", out])
 
     r = subprocess.run([ff(), "-i", out], capture_output=True, text=True)
-    m = re.search(r"Duration: (\d+):(\d+):(\d+\.\d+)", r.stderr)
-    d = int(m.group(1)) * 3600 + int(m.group(2)) * 60 + float(m.group(3))
+    mm = re.search(r"Duration: (\d+):(\d+):(\d+\.\d+)", r.stderr)
+    d = int(mm.group(1)) * 3600 + int(mm.group(2)) * 60 + float(mm.group(3))
     ok_dim = "1080x1920" in r.stderr
     ok_fps = "30 fps" in r.stderr
     ok_aud = "aac" in r.stderr
-    print(f"short built: {out}  dur={d:.2f}s  dim={'1080x1920' if ok_dim else '?'} "
-          f"fps=30 aud={ok_aud}")
+    print(f"short built: {out}  dur={d:.2f}s  dim={'1080x1920' if ok_dim else '?'} fps=30 aud={ok_aud}")
     if not (ok_dim and ok_fps and ok_aud and 25 <= d <= 50):
         raise SystemExit("SHORT VERIFY FAILED")
 
+    # free /tmp before the git push (the clone + write-tree need several hundred MB)
+    shutil.rmtree(f"/tmp/{os.path.basename(BASE)}_short", ignore_errors=True)
     subprocess.run([sys.executable, "/home/user/tools/git_push.py",
-                    f"{NAME} {kind} short (vertical)", f"{REPO_BASE}/shorts/{out_name}", out],
-                   check=True)
+                    f"{os.path.basename(BASE)} {out_name} (vertical)",
+                    f"{REPO_BASE}/shorts/{out_name}", out], check=True)
     shutil.copyfile(out, f"{BASE}/shorts/{out_name}")
     shutil.rmtree(work, ignore_errors=True)
     print(f"pushed + saved {BASE}/shorts/{out_name}")
@@ -420,4 +453,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) > 2 and sys.argv[1] == "--phase":
+        phase2(sys.argv[2])
+    else:
+        main()
