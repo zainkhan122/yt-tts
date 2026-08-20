@@ -47,7 +47,7 @@ mechanism already registered — even if the title is worded differently.
 | 13 Old Soul | hook | beats 0–11 (cold open, 37.5s, 4 captions) | ✅ DONE vertical |
 | 13 Old Soul | payoff | beats 89–99 (mind arrived early → understood, 31.4s, 2 captions) | ✅ DONE vertical |
 | 14 Apologize | hook | beats 0–13 (sorry reflex cold open, 37.4s, 2 captions) | ✅ DONE vertical |
-| 14 Apologize | payoff | "build the anchor / put the word down" (~beats 140–168) | TO BUILD vertical |
+| 14 Apologize | payoff | beats 139–152 (Excuse me not sorry → You do, 34.9s, 2 captions) | ✅ DONE vertical |
 
 ## ⛔ USED THUMBNAIL LINES (R8.6 — never repeat these concepts)
 YOURS / OS / FROZEN / MASKED / UNLIVED / LOOP / SHADOW (used 2× — banned forever) /
