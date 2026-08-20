@@ -504,7 +504,10 @@
    "A HOLE YOU'RE DIGGING",
    "caption"
   ],
-  "cap_start": 0.931
+  "cap_start": 0.931,
+  "beat_len": 2.4,
+  "beat_dur": 2.4,
+  "v_dur": 2.4
  },
  {
   "sentence": "And the deeper it gets, the harder it is to call for help.",
@@ -519,7 +522,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.3,
+  "beat_dur": 3.3,
+  "v_dur": 3.3
  },
  {
   "sentence": "Because now you'd have to explain.",
@@ -534,7 +540,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.1,
+  "beat_dur": 2.1,
+  "v_dur": 2.1
  },
  {
   "sentence": "You'd have to admit how long you've been down there.",
@@ -549,7 +558,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.566666666666667,
+  "beat_dur": 2.566666666666667,
+  "v_dur": 2.57
  },
  {
   "sentence": "So you stay.",
@@ -564,7 +576,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.2666666666666666,
+  "beat_dur": 1.2666666666666666,
+  "v_dur": 1.27
  },
  {
   "sentence": "And you wait for someone to notice anyway.",
@@ -579,7 +594,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.4,
+  "beat_dur": 2.4,
+  "v_dur": 2.4
  },
  {
   "sentence": "That's the cruelest part of this pattern.",
@@ -594,7 +612,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.2,
+  "beat_dur": 2.2,
+  "v_dur": 2.2
  },
  {
   "sentence": "You test people without telling them they're being tested.",
@@ -613,7 +634,10 @@
    "TESTING WITHOUT TELLING",
    "gold"
   ],
-  "cap_start": 0.717
+  "cap_start": 0.717,
+  "beat_len": 3.6333333333333333,
+  "beat_dur": 3.6333333333333333,
+  "v_dur": 3.63
  },
  {
   "sentence": "You hope they'll prove they care by ignoring your walls.",
@@ -628,7 +652,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.2,
+  "beat_dur": 3.2,
+  "v_dur": 3.2
  },
  {
   "sentence": "And when they respect your walls, you read it as rejection.",
@@ -647,7 +674,10 @@
    "YOU READ IT AS REJECTION",
    "caption"
   ],
-  "cap_start": 2.445
+  "cap_start": 2.445,
+  "beat_len": 4.2,
+  "beat_dur": 4.2,
+  "v_dur": 4.2
  },
  {
   "sentence": "So you build the wall higher.",
@@ -662,7 +692,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.8333333333333333,
+  "beat_dur": 1.8333333333333333,
+  "v_dur": 1.83
  },
  {
   "sentence": "The very thing you needed could have saved you.",
@@ -677,7 +710,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.466666666666667,
+  "beat_dur": 2.466666666666667,
+  "v_dur": 2.47
  },
  {
   "sentence": "You're pushing people away when you need them most.",
@@ -696,7 +732,10 @@
    "PUSHING THEM AWAY",
    "gold"
   ],
-  "cap_start": 0.486
+  "cap_start": 0.486,
+  "beat_len": 3.033333333333333,
+  "beat_dur": 3.033333333333333,
+  "v_dur": 3.03
  },
  {
   "sentence": "And you don't know how to stop.",
@@ -711,7 +750,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.7,
+  "beat_dur": 1.7,
+  "v_dur": 1.7
  },
  {
   "sentence": "So why does this happen.",
@@ -726,7 +768,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.7,
+  "beat_dur": 1.7,
+  "v_dur": 1.7
  },
  {
   "sentence": "It isn't coldness.",
@@ -741,7 +786,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.5333333333333334,
+  "beat_dur": 1.5333333333333334,
+  "v_dur": 1.53
  },
  {
   "sentence": "It isn't self-sabotage for its own sake.",
@@ -756,7 +804,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.7333333333333334,
+  "beat_dur": 2.7333333333333334,
+  "v_dur": 2.73
  },
  {
   "sentence": "Carl Jung gave us the map for this.",
@@ -775,7 +826,10 @@
    "JUNG'S MAP",
    "gold"
   ],
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.2666666666666666,
+  "beat_dur": 2.2666666666666666,
+  "v_dur": 2.27
  },
  {
   "sentence": "He saw that every personality runs on a set of mental functions.",
@@ -790,7 +844,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.933333333333333,
+  "beat_dur": 3.933333333333333,
+  "v_dur": 3.93
  },
  {
   "sentence": "Some push outward into the world.",
@@ -805,7 +862,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.2333333333333334,
+  "beat_dur": 2.2333333333333334,
+  "v_dur": 2.23
  },
  {
   "sentence": "Some turn inward.",
@@ -820,7 +880,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.4666666666666666,
+  "beat_dur": 1.4666666666666666,
+  "v_dur": 1.47
  },
  {
   "sentence": "Yours are a strange pair.",
@@ -835,7 +898,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.9,
+  "beat_dur": 1.9,
+  "v_dur": 1.9
  },
  {
   "sentence": "Your leading function is feeling.",
@@ -850,7 +916,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.066666666666667,
+  "beat_dur": 2.066666666666667,
+  "v_dur": 2.07
  },
  {
   "sentence": "Extraverted feeling.",
@@ -869,7 +938,10 @@
    "EXTRAVERTED FEELING",
    "gold"
   ],
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.5666666666666667,
+  "beat_dur": 1.5666666666666667,
+  "v_dur": 1.57
  },
  {
   "sentence": "It's tuned to other people like an antenna.",
@@ -884,7 +956,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.566666666666667,
+  "beat_dur": 2.566666666666667,
+  "v_dur": 2.57
  },
  {
   "sentence": "You feel what they feel, sometimes before they do.",
@@ -899,7 +974,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.3666666666666667,
+  "beat_dur": 3.3666666666666667,
+  "v_dur": 3.37
  },
  {
   "sentence": "You know when someone is uncomfortable.",
