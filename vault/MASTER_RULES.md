@@ -157,11 +157,18 @@ Every video gets a SCORED ambient bed + polished voice via `finalize` PASS 3:
 
 1. **2 long-form/week** (Tue + Fri), prime US/UK evening. Do NOT exceed 2 — the
    niche has finite topics and quality beats frequency.
-2. **3 Shorts/week** (Mon/Wed/Sat), all **repurposed from existing long-forms**
-   (hook segment or the R12 midpoint interrupt). No original-topic Shorts.
-3. A Short is a 30–45s vertical crop of a long-form, keeping captions + R20 audio
-   balance, linking back to the full video. Build via `tools/make_short.py`
-   using the long-form's caption schedule.
+2. **3 Shorts/week** (Mon/Wed/Sat), all **repurposed from existing long-forms**.
+   Segments = the **HOOK (cold open) + the video's best SELF-CONTAINED payoff**
+   — NEVER the R12 midpoint (it needs long-form context and dies without it;
+   user-confirmed 2026-08-20). A Short must be a complete setup → tension →
+   payoff in 30–45s. No original-topic Shorts.
+3. **A Short uses NATIVE VERTICAL media (1080×1920)** — portrait stock clips +
+   vertical AI images fetched FOR the Short (user-confirmed 2026-08-20). NOT
+   blur-fill from landscape (reads amateur) and NOT a hard crop. We still reuse
+   the long-form's expensive parts: the script segment, the already-generated
+   voice (parts .wav — no re-TTS), the caption timings (storyboard.json), and
+   the R20 audio balance. Build via `tools/make_short.py` (REWRITE needed for
+   vertical; `stock_fetch.py` needs an orientation=portrait option).
 4. The niche fence (R22) applies to Shorts too — same audience, same lane.
 5. **Every Short gets an end-CTA, BOTH text AND spoken** (af_heart): a prominent
    text bar "▶ FULL VIDEO ON CHANNEL" + a spoken "Watch the full video on this
@@ -170,10 +177,11 @@ Every video gets a SCORED ambient bed + polished voice via `finalize` PASS 3:
    total length extends to fit it) — the CTA voice must NEVER overlap the
    narration's last words. (`make_short.py` builds this in; `fix_short_cta.py`
    patches older Shorts.)
-6. **DO NOT purge a video's parts until every Short for that video is built AND
-   user-approved.** Parts are the caption-free + clean-voice source for Shorts.
-   Purge order: parts LAST (after Shorts), never before. (Lesson: video_013 —
-   parts purged early forced a CTA patch on the finished Shorts.)
+6. **Purge order for a video's parts:** keep parts' .wav until every Short for
+   that video is built AND user-approved (they are the voice source — no
+   re-TTS). Parts' .mp4 (landscape) are dead once final.mp4 is pushed AND Shorts
+   go vertical — purge those immediately. (Lesson: video_013 — parts purged
+   early forced a CTA patch on finished Shorts.)
 
 ## R22. NICHE FENCE (what we are / are NOT)
 

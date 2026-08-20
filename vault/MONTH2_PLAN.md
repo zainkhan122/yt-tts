@@ -2,10 +2,14 @@
 
 *Prepared 2026-08-19. Videos 1–12 shipped (Month 1 ≈ 3/wk).*
 
-## ✅ DECISIONS (user-confirmed 2026-08-19)
+## ✅ DECISIONS (user-confirmed 2026-08-19; revised 2026-08-20)
 1. **Cadence: 2 long-form/week + 3 Shorts/week** (Tue+Fri long; Mon/Wed/Sat Shorts).
-2. **Shorts: repurposed from existing long-forms only** (hook + midpoint), no
-   original-topic Shorts in Month 2.
+2. **Shorts: repurposed from existing long-forms only**, no original-topic Shorts.
+3. **Shorts (revised 2026-08-20):** segments = **hook + best self-contained
+   payoff** (NOT the midpoint — contextless clips die). Visuals = **NATIVE
+   VERTICAL** (portrait stock + vertical AI images), NOT blur-fill from the
+   landscape video. Voice / caption timings / R20 audio reused from the
+   long-form.
 
 ## SCHEDULE (locked)
 | Day | Format |
