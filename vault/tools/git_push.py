@@ -48,9 +48,16 @@ def main():
             dest = os.path.join(CLONE, repo_path)
             os.makedirs(os.path.dirname(dest), exist_ok=True)
             shutil.copyfile(local, dest)
-            subprocess.run(["git", "-C", CLONE, "add", "-f", "--", repo_path],
+            # Index-level plumbing (NO `git add`): `git add` refreshes the index
+            # and in a partial clone triggers a lazy fetch of a ~600MB promisor
+            # pack that fills /tmp. hash-object + update-index --cacheinfo keeps
+            # the clone tiny and fetch-free (verified 2026-08-20).
+            blob = subprocess.check_output(
+                ["git", "-C", CLONE, "hash-object", "-w", dest], text=True).strip()
+            subprocess.run(["git", "-C", CLONE, "update-index", "--add",
+                            "--cacheinfo", f"100644,{blob},{repo_path}"],
                            check=True, capture_output=True, text=True)
-            print("  staged:", repo_path)
+            print("  staged:", repo_path, blob[:12])
         # PLUMBING path (write-tree + commit-tree + update-ref), NOT `git commit`:
         # in a partial clone, `git commit` lazy-fetches a huge promisor pack
         # (~600MB of blobs) which can fill /tmp. The plumbing avoids it — a
