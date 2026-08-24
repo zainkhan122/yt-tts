@@ -59,12 +59,24 @@
 - verify.py storyboard: ✅ ALL CHECKS PASS.
 - /tmp/ytrepo clone removed.
 
-## NEXT TURN — step (c) TTS
-1. PIPE_VIDEO=/home/user/videos/video_016 python3 tools/pipeline.py tts
-   (~6 min; 200 beats → 8 audio chunks; runs chunked + pushed to repo)
-2. verify.py tts → update state; STATUS.md.
-3. ⚠️ If session reset wiped /tmp/stock16 before render: re-run
-   fetch_assets.py (idempotent). Not needed for TTS itself.
+## Step (c) TTS — DONE (2026-08-24)
+- 200 clips, voice af_heart @1.0 (R5). 8 audio chunks (00–07) pushed to repo.
+- verify.py tts: ✅ ALL CHECKS PASS (27/27 captions have cap_start; mid-sentence
+  keywords cap_start > 0).
+- **Runtime projection: ~10.9 min** (sampled 70 wavs across chunks 00/04/07:
+  avg 3.06s/beat speech + 0.2s gaps). LONGEST video yet — slightly over R4's
+  8–10 window after chronic under-length (v14 6:38, v15 6:30). Decision for
+  user: ship as-is (recommended — midroll-eligible, fixes the under-length
+  flag) or trim ~15–20 beats (would invalidate TTS chunks — expensive).
+  If shipping as-is, no action needed; render proceeds on the full 200.
+
+## NEXT TURN — step (d) render
+1. Pre-flight (R17): /tmp free, stock16 present (169 files — re-run
+   videos/video_016/fetch_assets.py if a reset wiped /tmp).
+2. FIRST-CHUNK GATE (R9.3): render chunk 0 ALONE → verify.py chunk 0
+   (30fps, SAR 1:1, duration≈beat_len) → then chunks 1–7, one process at a
+   time (RAM 2GB).
+3. ~13 min total expected for 8 chunks; run detached, poll.
 
 ## Repo (video_016) — after this push
 - voiceover.txt, storyboard_config.json, images/img01-07+09+10, fetch_assets.py,
