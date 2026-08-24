@@ -12,7 +12,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.9,
+  "beat_dur": 1.9,
+  "v_dur": 1.9
  },
  {
   "sentence": "And you will wake up tired tomorrow, no matter how long you sleep.",
@@ -27,7 +30,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.9,
+  "beat_dur": 3.9,
+  "v_dur": 3.9
  },
  {
   "sentence": "This is a different kind of exhaustion.",
@@ -42,7 +48,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.033333333333333,
+  "beat_dur": 2.033333333333333,
+  "v_dur": 2.03
  },
  {
   "sentence": "The kind that shows up on days when you did nothing at all.",
@@ -57,7 +66,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.533333333333333,
+  "beat_dur": 3.533333333333333,
+  "v_dur": 3.53
  },
  {
   "sentence": "You didn't lift anything heavy.",
@@ -72,7 +84,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.9333333333333333,
+  "beat_dur": 1.9333333333333333,
+  "v_dur": 1.93
  },
  {
   "sentence": "You didn't run anywhere.",
@@ -87,7 +102,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.6,
+  "beat_dur": 1.6,
+  "v_dur": 1.6
  },
  {
   "sentence": "But by evening you were drained to the last drop.",
@@ -106,7 +124,10 @@
    "EMPTY BY DEFAULT",
    "caption"
   ],
-  "cap_start": 1.485
+  "cap_start": 1.485,
+  "beat_len": 3.2,
+  "beat_dur": 3.2,
+  "v_dur": 3.2
  },
  {
   "sentence": "Because your mind did run.",
@@ -121,7 +142,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.8666666666666667,
+  "beat_dur": 1.8666666666666667,
+  "v_dur": 1.87
  },
  {
   "sentence": "It rehearsed conversations that never happened.",
@@ -136,7 +160,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.8,
+  "beat_dur": 2.8,
+  "v_dur": 2.8
  },
  {
   "sentence": "It replayed the ones that did.",
@@ -151,7 +178,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.9333333333333333,
+  "beat_dur": 1.9333333333333333,
+  "v_dur": 1.93
  },
  {
   "sentence": "It read every room you walked into.",
@@ -166,7 +196,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.3333333333333335,
+  "beat_dur": 2.3333333333333335,
+  "v_dur": 2.33
  },
  {
   "sentence": "It simulated three different futures before lunch.",
@@ -181,7 +214,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.1333333333333333,
+  "beat_dur": 3.1333333333333333,
+  "v_dur": 3.13
  },
  {
   "sentence": "And it never, not for one second, went quiet.",
@@ -200,7 +236,10 @@
    "IT NEVER GOES QUIET",
    "gold"
   ],
-  "cap_start": 0.824
+  "cap_start": 0.824,
+  "beat_len": 3.7,
+  "beat_dur": 3.7,
+  "v_dur": 3.7
  },
  {
   "sentence": "If that is your life, this video is about why it happens, and about the one kind of rest that finally reaches it.",
@@ -215,7 +254,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 6.9,
+  "beat_dur": 6.9,
+  "v_dur": 6.9
  },
  {
   "sentence": "Picture an ordinary day inside your head.",
@@ -230,7 +272,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.7666666666666666,
+  "beat_dur": 2.7666666666666666,
+  "v_dur": 2.77
  },
  {
   "sentence": "You open your eyes, and the machine boots up before your feet touch the floor.",
@@ -245,7 +290,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.733333333333333,
+  "beat_dur": 4.733333333333333,
+  "v_dur": 4.73
  },
  {
   "sentence": "Before you have spoken to a single person, you have already held a meeting with yourself about the day ahead.",
@@ -260,7 +308,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 5.966666666666667,
+  "beat_dur": 5.966666666666667,
+  "v_dur": 5.97
  },
  {
   "sentence": "You considered everything that could go wrong.",
@@ -275,7 +326,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.6,
+  "beat_dur": 2.6,
+  "v_dur": 2.6
  },
  {
   "sentence": "You prepared answers to questions nobody asked.",
@@ -290,7 +344,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.1,
+  "beat_dur": 3.1,
+  "v_dur": 3.1
  },
  {
   "sentence": "On your way anywhere, you notice everything.",
@@ -305,7 +362,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.933333333333333,
+  "beat_dur": 2.933333333333333,
+  "v_dur": 2.93
  },
  {
   "sentence": "The mood of the driver.",
@@ -320,7 +380,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.5333333333333334,
+  "beat_dur": 1.5333333333333334,
+  "v_dur": 1.53
  },
  {
   "sentence": "The couple that is not talking to each other.",
@@ -335,7 +398,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.4,
+  "beat_dur": 2.4,
+  "v_dur": 2.4
  },
  {
   "sentence": "The tone in that one-line message.",
@@ -350,7 +416,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.2333333333333334,
+  "beat_dur": 2.2333333333333334,
+  "v_dur": 2.23
  },
  {
   "sentence": "You don't choose to notice these things.",
@@ -365,7 +434,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.2333333333333334,
+  "beat_dur": 2.2333333333333334,
+  "v_dur": 2.23
  },
  {
   "sentence": "Your mind takes every signal in at full depth, automatically.",
@@ -380,7 +452,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.033333333333333,
+  "beat_dur": 4.033333333333333,
+  "v_dur": 4.03
  },
  {
   "sentence": "Where another person hears a sentence, you hear the sentence, the pause before it, and everything the pause might mean.",
@@ -395,7 +470,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 7.033333333333333,
+  "beat_dur": 7.033333333333333,
+  "v_dur": 7.03
  },
  {
   "sentence": "A small decision, like what to eat, runs through values, consequences, and how the choice will feel an hour from now.",
