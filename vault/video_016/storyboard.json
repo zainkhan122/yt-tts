@@ -2428,7 +2428,10 @@
    "DEPLETION, NOT TIREDNESS",
    "caption"
   ],
-  "cap_start": 1.272
+  "cap_start": 1.272,
+  "beat_len": 2.4,
+  "beat_dur": 2.4,
+  "v_dur": 2.4
  },
  {
   "sentence": "The gray, spread-thin feeling that comes from processing without pause.",
@@ -2443,7 +2446,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.2,
+  "beat_dur": 4.2,
+  "v_dur": 4.2
  },
  {
   "sentence": "From giving every single input the same full-depth treatment.",
@@ -2458,7 +2464,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.933333333333333,
+  "beat_dur": 3.933333333333333,
+  "v_dur": 3.93
  },
  {
   "sentence": "From a mind that cannot clock out, because clocking out was never taught.",
@@ -2473,7 +2482,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.2,
+  "beat_dur": 4.2,
+  "v_dur": 4.2
  },
  {
   "sentence": "Most deep thinkers spent years being told to calm down, to think less, to care less.",
@@ -2488,7 +2500,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 5.766666666666667,
+  "beat_dur": 5.766666666666667,
+  "v_dur": 5.77
  },
  {
   "sentence": "So they learned to hide the cost.",
@@ -2503,7 +2518,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.9333333333333333,
+  "beat_dur": 1.9333333333333333,
+  "v_dur": 1.93
  },
  {
   "sentence": "They perform being fine, and performing is itself more processing.",
@@ -2522,7 +2540,10 @@
    "PERFORMING FINE",
    "caption"
   ],
-  "cap_start": 0.739
+  "cap_start": 0.739,
+  "beat_len": 4.833333333333333,
+  "beat_dur": 4.833333333333333,
+  "v_dur": 4.83
  },
  {
   "sentence": "Pretending to be okay becomes another simulation to run.",
@@ -2537,7 +2558,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.7666666666666666,
+  "beat_dur": 3.7666666666666666,
+  "v_dur": 3.77
  },
  {
   "sentence": "The hiding costs almost as much as the thinking.",
@@ -2552,7 +2576,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.066666666666667,
+  "beat_dur": 3.066666666666667,
+  "v_dur": 3.07
  },
  {
   "sentence": "That is why you can come back from a vacation more drained than you left.",
@@ -2567,7 +2594,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.133333333333334,
+  "beat_dur": 4.133333333333334,
+  "v_dur": 4.13
  },
  {
   "sentence": "So how do you stop the leak.",
@@ -2582,7 +2612,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.7666666666666666,
+  "beat_dur": 1.7666666666666666,
+  "v_dur": 1.77
  },
  {
   "sentence": "Not by thinking your way out.",
@@ -2597,7 +2630,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.9,
+  "beat_dur": 1.9,
+  "v_dur": 1.9
  },
  {
   "sentence": "You have already tried that.",
@@ -2612,7 +2648,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.8,
+  "beat_dur": 1.8,
+  "v_dur": 1.8
  },
  {
   "sentence": "Your depth is not the problem.",
@@ -2627,7 +2666,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.0,
+  "beat_dur": 2.0,
+  "v_dur": 2.0
  },
  {
   "sentence": "The budget is.",
@@ -2642,7 +2684,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.3333333333333333,
+  "beat_dur": 1.3333333333333333,
+  "v_dur": 1.33
  },
  {
   "sentence": "This is energy economics, so treat it like economics.",
@@ -2657,7 +2702,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.566666666666667,
+  "beat_dur": 3.566666666666667,
+  "v_dur": 3.57
  },
  {
   "sentence": "Rule one, externalize the simulation.",
@@ -2676,7 +2724,10 @@
    "EXTERNALIZE THE LOOP",
    "gold"
   ],
-  "cap_start": 1.187
+  "cap_start": 1.187,
+  "beat_len": 3.1666666666666665,
+  "beat_dur": 3.1666666666666665,
+  "v_dur": 3.17
  },
  {
   "sentence": "Your mind keeps reprocessing anything that stays unfinished.",
@@ -2691,7 +2742,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.133333333333334,
+  "beat_dur": 4.133333333333334,
+  "v_dur": 4.13
  },
  {
   "sentence": "An open loop in the head pays rent every hour it stays open.",
@@ -2706,7 +2760,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.333333333333333,
+  "beat_dur": 4.333333333333333,
+  "v_dur": 4.33
  },
  {
   "sentence": "So move the loops out of your head and onto paper.",
@@ -2721,7 +2778,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.1666666666666665,
+  "beat_dur": 3.1666666666666665,
+  "v_dur": 3.17
  },
  {
   "sentence": "Write the worry down fully, in plain sentences.",
@@ -2736,7 +2796,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.3,
+  "beat_dur": 3.3,
+  "v_dur": 3.3
  },
  {
   "sentence": "A written loop stops running, because it finally has somewhere to live.",
@@ -2751,7 +2814,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.133333333333334,
+  "beat_dur": 4.133333333333334,
+  "v_dur": 4.13
  },
  {
   "sentence": "Rule two, cap the rehearsal.",
@@ -2766,7 +2832,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.1666666666666665,
+  "beat_dur": 2.1666666666666665,
+  "v_dur": 2.17
  },
  {
   "sentence": "When you catch yourself replaying a conversation for the third time, ask one question.",
@@ -2781,7 +2850,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 5.433333333333334,
+  "beat_dur": 5.433333333333334,
+  "v_dur": 5.43
  },
  {
   "sentence": "Is anything new being added.",
@@ -2796,7 +2868,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.8666666666666667,
+  "beat_dur": 1.8666666666666667,
+  "v_dur": 1.87
  },
  {
   "sentence": "If the answer is ready, the rest of the rehearsal is just spending.",
@@ -2811,7 +2886,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.1,
+  "beat_dur": 4.1,
+  "v_dur": 4.1
  },
  {
   "sentence": "Rule three, feed the inferior function.",
