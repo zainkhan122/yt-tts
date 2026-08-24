@@ -83,12 +83,34 @@
   calls. Render loop = refetch → render per chunk (~3 min/chunk, all 8 in
   ~25 min wall).
 
-## NEXT TURN — step (e) assemble
-1. Pre-flight (R17): /tmp free >300MB (refetch_stock if stock16 freed).
-2. PIPE_VIDEO=/home/user/videos/video_016 python3 tools/pipeline.py assemble 0
-   → then 1–7 (pulls audio+video chunk zips from repo, joins per-beat,
-   pushes part_NN.mp4/.wav). ~8 min for v15's 7 parts; expect ~10 min for 8.
-3. verify.py assemble (every part video==audio ±0.1s).
+## Step (e) assemble — DONE (2026-08-24)
+- **R21.6 pressure hit at ASSEMBLE time** (not just finalize): part_01 push
+  failed — shallow clone of main tip (~840MB, bloated by 300MB video chunk
+  zips) + part copy + loose object > 993MB tmpfs. Real error surfaced by new
+  git_push stderr print (R10): "unable to write loose object: No space left".
+- **Structural fix (now permanent in tools):**
+  1. `git_push.py --branch X` — clone main once, push to refs/heads/X (side
+     branch) so main's tip never grows during intermediate pushes.
+  2. `pipeline.py` assemble pushes parts to `parts/{NAME}-{k:02d}` branches;
+     finalize pulls branch-first, main-fallback.
+  3. Purged video_chunk_00..07.zip from main tip (served their purpose);
+     audio chunks KEPT (re-TTS insurance, 32MB).
+- Parts: part_00 on MAIN; parts 01–07 on branches parts/video_016-01..07.
+- verify.py assemble (re-pulled all 8): ✅ ALL PASS (A/V diff ±0.1s each).
+- **Total runtime: 656.8s = 10.95 min** (matches TTS projection).
+- Local intermediates cleaned (workspace 29MB).
+
+## NEXT TURN — step (f) FINALIZE (its OWN turn, R16.2)
+1. Pre-flight: /tmp >300MB free ✓ (936MB).
+2. PIPE_VIDEO=/home/user/videos/video_016 python3 tools/pipeline.py finalize
+   (~12 min: pulls 8 parts branch-first, concat + captions on absolute
+   timeline, R20 audio chain, loudnorm; size-guard crf 26→28→30→32 <95MB).
+3. **R21.6 purge BEFORE final.mp4 push**: delete audio_chunk_00..07.zip from
+   main + part_00 from main + refs/heads/parts/video_016-0* (API) → tip ~460MB.
+4. Push final.mp4 (75-95MB → shallow path OK at slim tip). Decode spot-check
+   ×4 + caption schedule print. metadata.md.
+5. THEN (separate turns): thumbnail (R8 — vary composition; last 3: bowed
+   figure / padlocked door / child's face) → 2 vertical Shorts.
 
 ## Repo (video_016) — after this push
 - voiceover.txt, storyboard_config.json, images/img01-07+09+10, fetch_assets.py,
