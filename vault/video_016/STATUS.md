@@ -100,17 +100,31 @@
 - **Total runtime: 656.8s = 10.95 min** (matches TTS projection).
 - Local intermediates cleaned (workspace 29MB).
 
-## NEXT TURN — step (f) FINALIZE (its OWN turn, R16.2)
-1. Pre-flight: /tmp >300MB free ✓ (936MB).
-2. PIPE_VIDEO=/home/user/videos/video_016 python3 tools/pipeline.py finalize
-   (~12 min: pulls 8 parts branch-first, concat + captions on absolute
-   timeline, R20 audio chain, loudnorm; size-guard crf 26→28→30→32 <95MB).
-3. **R21.6 purge BEFORE final.mp4 push**: delete audio_chunk_00..07.zip from
-   main + part_00 from main + refs/heads/parts/video_016-0* (API) → tip ~460MB.
-4. Push final.mp4 (75-95MB → shallow path OK at slim tip). Decode spot-check
-   ×4 + caption schedule print. metadata.md.
-5. THEN (separate turns): thumbnail (R8 — vary composition; last 3: bowed
-   figure / padlocked door / child's face) → 2 vertical Shorts.
+## Step (f) FINALIZE — DONE (2026-08-24) 🎬
+- Cleanup FIRST (user-requested, R21.6): parts pre-staged locally in work_f →
+  audio_chunk_00..07.zip + part_00 purged from main (commit 7e4fac05d6) →
+  branches parts/video_016-01..07 deleted (API 204) → main tip ~460MB.
+- finalize: PASS1 grade+fades → PASS2 6 caption batches (27 caps, absolute
+  timeline) → PASS3 R20 audio (pad 0.55 + sidechain 3:1 + loudnorm -16).
+- **Size guard: first encode 100.7MB → shrunk to 74.6MB** (<95MB ✓).
+- **final.mp4: 10:56.77, 1080p/30fps, SAR 1:1, stereo AAC 164k, 74.6MB.**
+- Decode spot-check t=30/180/400/630s: ZERO errors.
+- Pushed: vault/video_016/final.mp4 @ commit d79b6775bb ✓
+- work_f purged (8.5GB → workspace 100MB: 74.6 final + 29 sources).
+- metadata.md written (title/desc/chapters/tags/pinned comment).
+
+## REMAINING (separate turns per R16)
+1. **Thumbnail** — R8.7: last 3 comps = bowed figure (v14), padlocked door
+   (v15), child's face (v13) → pick a DIFFERENT treatment (object/symbol/split
+   fits "exhaustion/invoice/budget" theme). Candidate lines (check used-lines):
+   THE INVISIBLE BILL / NOT LAZY. DEPLETED. / IT'S AN INVOICE / ALWAYS-ON MIND.
+   Build candidate → present for approval → push + register used-line.
+2. **2 vertical Shorts** (hook beats 0–13ish + self-contained payoff; likely
+   the Maya experiment beats ~95–110 or the five-rules beat ~146–178) via
+   make_short.py v2 (portrait stock via stock_fetch --portrait).
+3. Register v16 in VIDEO_QUEUE.md (DONE list + R23 register + used-lines +
+   shorts register) at ship. V17 title must NOT be "Why…" (R11).
+4. After user downloads: delete local final.mp4 (R15).
 
 ## Repo (video_016) — after this push
 - voiceover.txt, storyboard_config.json, images/img01-07+09+10, fetch_assets.py,
