@@ -11,7 +11,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And you will wake up tired tomorrow, no matter how long you sleep.",
@@ -25,7 +26,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "This is a different kind of exhaustion.",
@@ -39,7 +41,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The kind that shows up on days when you did nothing at all.",
@@ -53,7 +56,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You didn't lift anything heavy.",
@@ -67,7 +71,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You didn't run anywhere.",
@@ -81,7 +86,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "But by evening you were drained to the last drop.",
@@ -99,7 +105,8 @@
    "drained to the last drop",
    "EMPTY BY DEFAULT",
    "caption"
-  ]
+  ],
+  "cap_start": 1.485
  },
  {
   "sentence": "Because your mind did run.",
@@ -113,7 +120,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It rehearsed conversations that never happened.",
@@ -127,7 +135,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It replayed the ones that did.",
@@ -141,7 +150,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It read every room you walked into.",
@@ -155,7 +165,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It simulated three different futures before lunch.",
@@ -169,7 +180,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And it never, not for one second, went quiet.",
@@ -187,7 +199,8 @@
    "never, not for one second",
    "IT NEVER GOES QUIET",
    "gold"
-  ]
+  ],
+  "cap_start": 0.824
  },
  {
   "sentence": "If that is your life, this video is about why it happens, and about the one kind of rest that finally reaches it.",
@@ -201,7 +214,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Picture an ordinary day inside your head.",
@@ -215,7 +229,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You open your eyes, and the machine boots up before your feet touch the floor.",
@@ -229,7 +244,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Before you have spoken to a single person, you have already held a meeting with yourself about the day ahead.",
@@ -243,7 +259,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You considered everything that could go wrong.",
@@ -257,7 +274,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You prepared answers to questions nobody asked.",
@@ -271,7 +289,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "On your way anywhere, you notice everything.",
@@ -285,7 +304,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The mood of the driver.",
@@ -299,7 +319,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The couple that is not talking to each other.",
@@ -313,7 +334,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The tone in that one-line message.",
@@ -327,7 +349,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You don't choose to notice these things.",
@@ -341,7 +364,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Your mind takes every signal in at full depth, automatically.",
@@ -355,7 +379,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Where another person hears a sentence, you hear the sentence, the pause before it, and everything the pause might mean.",
@@ -369,7 +394,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "A small decision, like what to eat, runs through values, consequences, and how the choice will feel an hour from now.",
@@ -383,7 +409,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "By noon you have made a thousand small calculations you will never get credit for.",
@@ -397,7 +424,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Because none of them are visible.",
@@ -411,7 +439,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Deep processing is invisible labor.",
@@ -429,7 +458,8 @@
    "invisible labor",
    "INVISIBLE LABOR",
    "gold"
-  ]
+  ],
+  "cap_start": 1.464
  },
  {
   "sentence": "The world sees you sitting still.",
@@ -443,7 +473,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The world calls that doing nothing.",
@@ -457,7 +488,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Meanwhile your inner committee never once broke for lunch.",
@@ -475,7 +507,8 @@
    "inner committee",
    "THE INNER COMMITTEE",
    "gold"
-  ]
+  ],
+  "cap_start": 1.165
  },
  {
   "sentence": "It debated.",
@@ -489,7 +522,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It worried.",
@@ -503,7 +537,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It edited itself.",
@@ -517,7 +552,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It planned for a version of the day that never arrived.",
@@ -531,7 +567,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And that, not your job, is what emptied you by the evening.",
@@ -545,7 +582,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "So why does this happen to you specifically.",
@@ -559,7 +597,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Why can some people scroll for an hour and feel nothing, while you end a phone call needing to lie down.",
@@ -573,7 +612,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It starts with how your mind is built.",
@@ -587,7 +627,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "If you are an INFJ, an INTJ, an INFP, or an INTP, your dominant function is an introverted one.",
@@ -601,7 +642,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Introverted intuition, or introverted thinking, or introverted feeling.",
@@ -615,7 +657,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And introverted functions do not process the world directly.",
@@ -629,7 +672,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "They take it in, and then they process it privately, deeply, and completely.",
@@ -643,7 +687,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Every experience must pass through the whole system.",
@@ -657,7 +702,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Nothing moves fast, because nothing is allowed to stay shallow.",
@@ -671,7 +717,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Your brain does not have an idle mode.",
@@ -689,7 +736,8 @@
    "does not have an idle mode",
    "NO IDLE MODE",
    "gold"
-  ]
+  ],
+  "cap_start": 1.059
  },
  {
   "sentence": "Other minds can sit in a room and simply sit in a room.",
@@ -703,7 +751,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Your mind sits in a room, analyzes the room, remembers the last five rooms, and predicts the next one.",
@@ -717,7 +766,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "This is not a defect.",
@@ -731,7 +781,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It is the price of a machine that runs simulations instead of snapshots.",
@@ -749,7 +800,8 @@
    "runs simulations instead of snapshots",
    "SIMULATIONS, NOT SNAPSHOTS",
    "gold"
-  ]
+  ],
+  "cap_start": 1.912
  },
  {
   "sentence": "But it runs them day and night.",
@@ -763,7 +815,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And simulation is the most expensive thing a mind can do.",
@@ -781,7 +834,8 @@
    "most expensive thing a mind can do",
    "THE MOST EXPENSIVE ACT",
    "caption"
-  ]
+  ],
+  "cap_start": 1.72
  },
  {
   "sentence": "Think about what a single worry actually contains.",
@@ -795,7 +849,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "A full mental movie, with characters, dialogue, and consequences.",
@@ -809,7 +864,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You don't have one thought about the meeting on Thursday.",
@@ -823,7 +879,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You have forty, from forty angles, and several of them you directed yourself.",
@@ -837,7 +894,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Now multiply that by every day of your life.",
@@ -851,7 +909,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "No muscle could survive that workload.",
@@ -865,7 +924,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Your mind does it without ever being seen.",
@@ -879,7 +939,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And nobody warns you about the part that follows.",
@@ -893,7 +954,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The drain is physical drain.",
@@ -907,7 +969,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Heavy thinking burns real fuel.",
@@ -921,7 +984,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Your exhaustion is not dramatic.",
@@ -935,7 +999,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It is arithmetic.",
@@ -953,7 +1018,8 @@
    "arithmetic",
    "IT IS ARITHMETIC",
    "gold"
-  ]
+  ],
+  "cap_start": 0.931
  },
  {
   "sentence": "Carl Jung had a language for this.",
@@ -967,7 +1033,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "He described the mind as running on a finite supply of psychic energy.",
@@ -985,7 +1052,8 @@
    "psychic energy",
    "PSYCHIC ENERGY",
    "gold"
-  ]
+  ],
+  "cap_start": 3.533
  },
  {
   "sentence": "Not motivation, and not willpower.",
@@ -999,7 +1067,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "A literal budget of force, and everything in the psyche pays out of the same account.",
@@ -1013,7 +1082,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Every thought, every feeling, every act of attention is purchased from that one balance.",
@@ -1027,7 +1097,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Jung also split thinking itself into two kinds.",
@@ -1041,7 +1112,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The first he called directed thinking.",
@@ -1059,7 +1131,8 @@
    "directed thinking",
    "DIRECTED THINKING",
    "gold"
-  ]
+  ],
+  "cap_start": 1.336
  },
  {
   "sentence": "Aimed, logical, adapted to reality.",
@@ -1073,7 +1146,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The kind of thinking that solves problems, follows arguments, and gets things done.",
@@ -1087,7 +1161,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The second he called fantasy thinking.",
@@ -1105,7 +1180,8 @@
    "fantasy thinking",
    "FANTASY THINKING",
    "caption"
-  ]
+  ],
+  "cap_start": 1.443
  },
  {
   "sentence": "A loose, unguided stream of images and associations.",
@@ -1119,7 +1195,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The insight that matters to you is this.",
@@ -1133,7 +1210,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Directed thinking is work.",
@@ -1147,7 +1225,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It consumes energy the way physical labor does.",
@@ -1161,7 +1240,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Fantasy thinking simply flows, and costs almost nothing.",
@@ -1175,7 +1255,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Most people live closer to the stream.",
@@ -1189,7 +1270,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "They think when it is needed, and then they drift.",
@@ -1203,7 +1285,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You don't get to drift.",
@@ -1217,7 +1300,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Your dominant function holds the steering wheel from the moment you wake up.",
@@ -1231,7 +1315,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It turns even your rest into material.",
@@ -1245,7 +1330,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "A walk becomes processing time.",
@@ -1259,7 +1345,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "A shower becomes a strategy session.",
@@ -1273,7 +1360,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Lying in bed becomes an executive meeting you never called.",
@@ -1291,7 +1379,8 @@
    "executive meeting you never called",
    "A MEETING YOU DIDN'T CALL",
    "caption"
-  ]
+  ],
+  "cap_start": 1.848
  },
  {
   "sentence": "Jung would say your psychic energy is being spent almost entirely on one kind of work.",
@@ -1305,7 +1394,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Directed, effortful, and continuous.",
@@ -1319,7 +1409,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And the account never receives a deposit large enough to cover it.",
@@ -1333,7 +1424,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "That is what you are feeling when you say you are tired for no reason.",
@@ -1347,7 +1439,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "There is a reason.",
@@ -1361,7 +1454,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You spent the entire day paying for thought.",
@@ -1379,7 +1473,8 @@
    "paying for thought",
    "PAYING FOR THOUGHT",
    "gold"
-  ]
+  ],
+  "cap_start": 1.677
  },
  {
   "sentence": "I want to tell you about a woman I will call Maya.",
@@ -1393,7 +1488,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Maya spent one Saturday doing, by any outside measure, nothing.",
@@ -1407,7 +1503,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "She answered four messages, ran one errand, and read for a while.",
@@ -1421,7 +1518,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "By dinner she felt like she had moved furniture all day.",
@@ -1435,7 +1533,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "So she ran an experiment.",
@@ -1449,7 +1548,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "She wrote down where her mind actually went, hour by hour.",
@@ -1463,7 +1563,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The list filled three pages.",
@@ -1481,7 +1582,8 @@
    "three pages",
    "THREE PAGES OF NOTHING",
    "caption"
-  ]
+  ],
+  "cap_start": 1.229
  },
  {
   "sentence": "She had mentally rewritten one message eleven times.",
@@ -1499,7 +1601,8 @@
    "eleven times",
    "ELEVEN REWRITES",
    "caption"
-  ]
+  ],
+  "cap_start": 2.125
  },
  {
   "sentence": "She had predicted an argument that never happened, twice.",
@@ -1513,7 +1616,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "She had reviewed a conversation from years ago, frame by frame.",
@@ -1527,7 +1631,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "She had compared herself to two strangers online.",
@@ -1541,7 +1646,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "None of it was visible from the outside.",
@@ -1555,7 +1661,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "All of it was paid for from the same account.",
@@ -1569,7 +1676,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Maya was not weak.",
@@ -1583,7 +1691,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Maya was broke from thinking.",
@@ -1601,7 +1710,8 @@
    "broke from thinking",
    "BROKE FROM THINKING",
    "gold"
-  ]
+  ],
+  "cap_start": 1.059
  },
  {
   "sentence": "This depth has a price, and the bill arrives in a body.",
@@ -1615,7 +1725,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Shallow breath, tight shoulders, a jaw that has been clenched since morning.",
@@ -1629,7 +1740,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "A wired, jittery fatigue that no nap can touch.",
@@ -1643,7 +1755,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And now the trap, the one you have felt a hundred times.",
@@ -1657,7 +1770,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Sleep repairs muscles and restores the body.",
@@ -1671,7 +1785,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "But your exhaustion was never muscular.",
@@ -1685,7 +1800,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It lives in the mind, so sleep only touches the edges of it.",
@@ -1699,7 +1815,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You wake up with the tab still open.",
@@ -1717,7 +1834,8 @@
    "tab still open",
    "THE TAB IS STILL OPEN",
    "gold"
-  ]
+  ],
+  "cap_start": 1.293
  },
  {
   "sentence": "There is a second trap.",
@@ -1731,7 +1849,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Your weakest function, the one Jung called inferior, is the one that could actually rest you.",
@@ -1745,7 +1864,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "For intuitive thinkers, that is sensation, the five senses, the present moment.",
@@ -1759,7 +1879,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "But because it is undeveloped, you rarely go there.",
@@ -1773,7 +1894,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "When you finally get free time, you hand it right back to the mind.",
@@ -1787,7 +1909,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You read, you plan, you analyze your own exhaustion.",
@@ -1801,7 +1924,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You rest a tired mind with more mind.",
@@ -1819,7 +1943,8 @@
    "rest a tired mind with more mind",
    "RESTING MIND WITH MIND",
    "gold"
-  ]
+  ],
+  "cap_start": 0.717
  },
  {
   "sentence": "And then you wonder why the weekend didn't fix you.",
@@ -1833,7 +1958,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "There is a third cost, and it is the quietest one.",
@@ -1847,7 +1973,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It matters what kind of tired you are.",
@@ -1861,7 +1988,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "There is a good tired, the kind after creating something, after a real conversation, after honest work.",
@@ -1875,7 +2003,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "That tired feels earned, and it fades with one night of sleep.",
@@ -1889,7 +2018,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Then there is depletion.",
@@ -1907,7 +2037,8 @@
    "depletion",
    "DEPLETION, NOT TIREDNESS",
    "caption"
-  ]
+  ],
+  "cap_start": 1.272
  },
  {
   "sentence": "The gray, spread-thin feeling that comes from processing without pause.",
@@ -1921,7 +2052,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "From giving every single input the same full-depth treatment.",
@@ -1935,7 +2067,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "From a mind that cannot clock out, because clocking out was never taught.",
@@ -1949,7 +2082,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Most deep thinkers spent years being told to calm down, to think less, to care less.",
@@ -1963,7 +2097,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "So they learned to hide the cost.",
@@ -1977,7 +2112,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "They perform being fine, and performing is itself more processing.",
@@ -1995,7 +2131,8 @@
    "perform being fine",
    "PERFORMING FINE",
    "caption"
-  ]
+  ],
+  "cap_start": 0.739
  },
  {
   "sentence": "Pretending to be okay becomes another simulation to run.",
@@ -2009,7 +2146,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The hiding costs almost as much as the thinking.",
@@ -2023,7 +2161,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "That is why you can come back from a vacation more drained than you left.",
@@ -2037,7 +2176,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "So how do you stop the leak.",
@@ -2051,7 +2191,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Not by thinking your way out.",
@@ -2065,7 +2206,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You have already tried that.",
@@ -2079,7 +2221,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Your depth is not the problem.",
@@ -2093,7 +2236,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The budget is.",
@@ -2107,7 +2251,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "This is energy economics, so treat it like economics.",
@@ -2121,7 +2266,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Rule one, externalize the simulation.",
@@ -2139,7 +2285,8 @@
    "externalize the simulation",
    "EXTERNALIZE THE LOOP",
    "gold"
-  ]
+  ],
+  "cap_start": 1.187
  },
  {
   "sentence": "Your mind keeps reprocessing anything that stays unfinished.",
@@ -2153,7 +2300,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "An open loop in the head pays rent every hour it stays open.",
@@ -2167,7 +2315,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "So move the loops out of your head and onto paper.",
@@ -2181,7 +2330,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Write the worry down fully, in plain sentences.",
@@ -2195,7 +2345,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "A written loop stops running, because it finally has somewhere to live.",
@@ -2209,7 +2360,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Rule two, cap the rehearsal.",
@@ -2223,7 +2375,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "When you catch yourself replaying a conversation for the third time, ask one question.",
@@ -2237,7 +2390,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Is anything new being added.",
@@ -2251,7 +2405,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "If the answer is ready, the rest of the rehearsal is just spending.",
@@ -2265,7 +2420,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Rule three, feed the inferior function.",
@@ -2283,7 +2439,8 @@
    "feed the inferior function",
    "FEED THE INFERIOR",
    "gold"
-  ]
+  ],
+  "cap_start": 1.208
  },
  {
   "sentence": "The part of you that is starved of sensation needs raw, physical, present-tense input.",
@@ -2297,7 +2454,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Walk without a podcast.",
@@ -2311,7 +2469,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Cook something with your hands.",
@@ -2325,7 +2484,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Sit outside and name five things you can see.",
@@ -2339,7 +2499,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "This feels useless to a deep thinker, and that is exactly why it works.",
@@ -2353,7 +2514,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You are not doing nothing.",
@@ -2367,7 +2529,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You are finally spending on a different account.",
@@ -2381,7 +2544,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Rule four, ration your depth.",
@@ -2399,7 +2563,8 @@
    "ration your depth",
    "RATION YOUR DEPTH",
    "gold"
-  ]
+  ],
+  "cap_start": 1.187
  },
  {
   "sentence": "Depth is your gift, but not everything deserves it.",
@@ -2413,7 +2578,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Not every message deserves a reading between the lines.",
@@ -2427,7 +2593,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Not every mood in the room is yours to process.",
@@ -2441,7 +2608,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Not every future deserves a simulation.",
@@ -2455,7 +2623,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You are allowed to notice something and simply not go in.",
@@ -2469,7 +2638,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Rule five, build a real shutdown.",
@@ -2483,7 +2653,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The mind needs an off-ramp, and off-ramps are built, not found.",
@@ -2501,7 +2672,8 @@
    "off-ramps are built",
    "OFF-RAMPS ARE BUILT",
    "caption"
-  ]
+  ],
+  "cap_start": 2.275
  },
  {
   "sentence": "Pick an hour each night, write down tomorrow's three loudest loops, and close the notebook.",
@@ -2515,7 +2687,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Not to solve them.",
@@ -2529,7 +2702,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Just to park them.",
@@ -2543,7 +2717,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Deep sleep begins with a parked mind.",
@@ -2557,7 +2732,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "And one more thing, harder than all five rules.",
@@ -2571,7 +2747,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Stop measuring the day by how much of your mind you spent.",
@@ -2585,7 +2762,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "A day where you thought less is not a wasted day.",
@@ -2599,7 +2777,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Sometimes it is the wisest thing a mind like yours can do.",
@@ -2613,7 +2792,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "So here is what I want you to take with you.",
@@ -2627,7 +2807,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You are not lazy.",
@@ -2645,7 +2826,8 @@
    "You are not lazy",
    "YOU'RE NOT LAZY",
    "gold"
-  ]
+  ],
+  "cap_start": 0.0
  },
  {
   "sentence": "Lazy people don't carry this much.",
@@ -2659,7 +2841,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You are running one of the most expensive minds ever built, on a budget designed for simpler ones.",
@@ -2673,7 +2856,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Your tiredness is not weakness.",
@@ -2687,7 +2871,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It is an invoice.",
@@ -2705,7 +2890,8 @@
    "It is an invoice",
    "IT'S AN INVOICE",
    "gold"
-  ]
+  ],
+  "cap_start": 0.0
  },
  {
   "sentence": "Proof of processing that nobody ever saw.",
@@ -2719,7 +2905,8 @@
    0.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Jung's entire psychology begins with one honest question of accounting.",
@@ -2733,7 +2920,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Where is your energy actually going.",
@@ -2747,7 +2935,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Ask yourself that this week, and follow the answer without judging it.",
@@ -2761,7 +2950,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "When you find the leak, don't hate it.",
@@ -2775,7 +2965,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "It is usually a mind that was never told it was allowed to stop.",
@@ -2789,7 +2980,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "You can tell it now.",
@@ -2803,7 +2995,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The machine that drains you is the same machine that makes you rare.",
@@ -2821,7 +3014,8 @@
    "makes you rare",
    "THE MACHINE THAT MAKES YOU RARE",
    "gold"
-  ]
+  ],
+  "cap_start": 3.085
  },
  {
   "sentence": "You just have to stop making it pay for everything.",
@@ -2835,7 +3029,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Drop your answer in the comments.",
@@ -2849,7 +3044,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "At the end of your longest days, what drains you the most.",
@@ -2863,7 +3059,8 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "The past you kept replaying, or the future you kept rehearsing.",
@@ -2877,7 +3074,8 @@
    1.0,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Read the other answers while you are here.",
@@ -2891,7 +3089,8 @@
    0.75,
    0.55
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  },
  {
   "sentence": "Yours might be the exact sentence someone else needs tonight.",
@@ -2905,6 +3104,7 @@
    0.5,
    0.5
   ],
-  "caption": null
+  "caption": null,
+  "cap_start": 0.0
  }
 ]
