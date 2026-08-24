@@ -972,7 +972,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.0,
+  "beat_dur": 2.0,
+  "v_dur": 2.0
  },
  {
   "sentence": "And simulation is the most expensive thing a mind can do.",
@@ -991,7 +994,10 @@
    "THE MOST EXPENSIVE ACT",
    "caption"
   ],
-  "cap_start": 1.72
+  "cap_start": 1.72,
+  "beat_len": 4.533333333333333,
+  "beat_dur": 4.533333333333333,
+  "v_dur": 4.53
  },
  {
   "sentence": "Think about what a single worry actually contains.",
@@ -1006,7 +1012,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.066666666666667,
+  "beat_dur": 3.066666666666667,
+  "v_dur": 3.07
  },
  {
   "sentence": "A full mental movie, with characters, dialogue, and consequences.",
@@ -1021,7 +1030,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.6,
+  "beat_dur": 4.6,
+  "v_dur": 4.6
  },
  {
   "sentence": "You don't have one thought about the meeting on Thursday.",
@@ -1036,7 +1048,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.8333333333333335,
+  "beat_dur": 2.8333333333333335,
+  "v_dur": 2.83
  },
  {
   "sentence": "You have forty, from forty angles, and several of them you directed yourself.",
@@ -1051,7 +1066,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.966666666666667,
+  "beat_dur": 4.966666666666667,
+  "v_dur": 4.97
  },
  {
   "sentence": "Now multiply that by every day of your life.",
@@ -1066,7 +1084,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.8,
+  "beat_dur": 2.8,
+  "v_dur": 2.8
  },
  {
   "sentence": "No muscle could survive that workload.",
@@ -1081,7 +1102,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.433333333333333,
+  "beat_dur": 2.433333333333333,
+  "v_dur": 2.43
  },
  {
   "sentence": "Your mind does it without ever being seen.",
@@ -1096,7 +1120,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.5,
+  "beat_dur": 2.5,
+  "v_dur": 2.5
  },
  {
   "sentence": "And nobody warns you about the part that follows.",
@@ -1111,7 +1138,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.8333333333333335,
+  "beat_dur": 2.8333333333333335,
+  "v_dur": 2.83
  },
  {
   "sentence": "The drain is physical drain.",
@@ -1126,7 +1156,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.0,
+  "beat_dur": 2.0,
+  "v_dur": 2.0
  },
  {
   "sentence": "Heavy thinking burns real fuel.",
@@ -1141,7 +1174,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.3,
+  "beat_dur": 2.3,
+  "v_dur": 2.3
  },
  {
   "sentence": "Your exhaustion is not dramatic.",
@@ -1156,7 +1192,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.2666666666666666,
+  "beat_dur": 2.2666666666666666,
+  "v_dur": 2.27
  },
  {
   "sentence": "It is arithmetic.",
@@ -1175,7 +1214,10 @@
    "IT IS ARITHMETIC",
    "gold"
   ],
-  "cap_start": 0.931
+  "cap_start": 0.931,
+  "beat_len": 2.2,
+  "beat_dur": 2.2,
+  "v_dur": 2.2
  },
  {
   "sentence": "Carl Jung had a language for this.",
@@ -1190,7 +1232,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.2333333333333334,
+  "beat_dur": 2.2333333333333334,
+  "v_dur": 2.23
  },
  {
   "sentence": "He described the mind as running on a finite supply of psychic energy.",
@@ -1209,7 +1254,10 @@
    "PSYCHIC ENERGY",
    "gold"
   ],
-  "cap_start": 3.533
+  "cap_start": 3.533,
+  "beat_len": 4.966666666666667,
+  "beat_dur": 4.966666666666667,
+  "v_dur": 4.97
  },
  {
   "sentence": "Not motivation, and not willpower.",
@@ -1224,7 +1272,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.6,
+  "beat_dur": 2.6,
+  "v_dur": 2.6
  },
  {
   "sentence": "A literal budget of force, and everything in the psyche pays out of the same account.",
@@ -1239,7 +1290,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.966666666666667,
+  "beat_dur": 4.966666666666667,
+  "v_dur": 4.97
  },
  {
   "sentence": "Every thought, every feeling, every act of attention is purchased from that one balance.",
@@ -1254,7 +1308,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 5.633333333333334,
+  "beat_dur": 5.633333333333334,
+  "v_dur": 5.63
  },
  {
   "sentence": "Jung also split thinking itself into two kinds.",
@@ -1269,7 +1326,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.1333333333333333,
+  "beat_dur": 3.1333333333333333,
+  "v_dur": 3.13
  },
  {
   "sentence": "The first he called directed thinking.",
@@ -1288,7 +1348,10 @@
    "DIRECTED THINKING",
    "gold"
   ],
-  "cap_start": 1.336
+  "cap_start": 1.336,
+  "beat_len": 2.8,
+  "beat_dur": 2.8,
+  "v_dur": 2.8
  },
  {
   "sentence": "Aimed, logical, adapted to reality.",
@@ -1303,7 +1366,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.2333333333333334,
+  "beat_dur": 3.2333333333333334,
+  "v_dur": 3.23
  },
  {
   "sentence": "The kind of thinking that solves problems, follows arguments, and gets things done.",
@@ -1318,7 +1384,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 5.1,
+  "beat_dur": 5.1,
+  "v_dur": 5.1
  },
  {
   "sentence": "The second he called fantasy thinking.",
@@ -1337,7 +1406,10 @@
    "FANTASY THINKING",
    "caption"
   ],
-  "cap_start": 1.443
+  "cap_start": 1.443,
+  "beat_len": 2.966666666666667,
+  "beat_dur": 2.966666666666667,
+  "v_dur": 2.97
  },
  {
   "sentence": "A loose, unguided stream of images and associations.",
@@ -1352,7 +1424,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.966666666666667,
+  "beat_dur": 3.966666666666667,
+  "v_dur": 3.97
  },
  {
   "sentence": "The insight that matters to you is this.",
@@ -1367,7 +1442,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.7,
+  "beat_dur": 2.7,
+  "v_dur": 2.7
  },
  {
   "sentence": "Directed thinking is work.",
