@@ -1,0 +1,2910 @@
+[
+ {
+  "sentence": "You woke up tired today.",
+  "asset": "sp04",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And you will wake up tired tomorrow, no matter how long you sleep.",
+  "asset": "sp03",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "This is a different kind of exhaustion.",
+  "asset": "sp10",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The kind that shows up on days when you did nothing at all.",
+  "asset": "sv43",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You didn't lift anything heavy.",
+  "asset": "sv37",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You didn't run anywhere.",
+  "asset": "sp00",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "But by evening you were drained to the last drop.",
+  "asset": "sv05",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "drained to the last drop",
+   "EMPTY BY DEFAULT",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "Because your mind did run.",
+  "asset": "sp56",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It rehearsed conversations that never happened.",
+  "asset": "sp95",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It replayed the ones that did.",
+  "asset": "sv06",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It read every room you walked into.",
+  "asset": "sp102",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It simulated three different futures before lunch.",
+  "asset": "sv18",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And it never, not for one second, went quiet.",
+  "asset": "sp77",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "never, not for one second",
+   "IT NEVER GOES QUIET",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "If that is your life, this video is about why it happens, and about the one kind of rest that finally reaches it.",
+  "asset": "sp92",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Picture an ordinary day inside your head.",
+  "asset": "img04",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You open your eyes, and the machine boots up before your feet touch the floor.",
+  "asset": "sp06",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Before you have spoken to a single person, you have already held a meeting with yourself about the day ahead.",
+  "asset": "sp42",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You considered everything that could go wrong.",
+  "asset": "sv46",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You prepared answers to questions nobody asked.",
+  "asset": "sv16",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "On your way anywhere, you notice everything.",
+  "asset": "sp71",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The mood of the driver.",
+  "asset": "sp27",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The couple that is not talking to each other.",
+  "asset": "sv45",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The tone in that one-line message.",
+  "asset": "sp30",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You don't choose to notice these things.",
+  "asset": "sp82",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Your mind takes every signal in at full depth, automatically.",
+  "asset": "sv08",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Where another person hears a sentence, you hear the sentence, the pause before it, and everything the pause might mean.",
+  "asset": "sv27",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "A small decision, like what to eat, runs through values, consequences, and how the choice will feel an hour from now.",
+  "asset": "sp103",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "By noon you have made a thousand small calculations you will never get credit for.",
+  "asset": "sv47",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Because none of them are visible.",
+  "asset": "sp12",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Deep processing is invisible labor.",
+  "asset": "img08",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "invisible labor",
+   "INVISIBLE LABOR",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "The world sees you sitting still.",
+  "asset": "sv58",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The world calls that doing nothing.",
+  "asset": "sp40",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Meanwhile your inner committee never once broke for lunch.",
+  "asset": "img06",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "inner committee",
+   "THE INNER COMMITTEE",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "It debated.",
+  "asset": "sv19",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It worried.",
+  "asset": "sv40",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It edited itself.",
+  "asset": "sv49",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It planned for a version of the day that never arrived.",
+  "asset": "sp84",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And that, not your job, is what emptied you by the evening.",
+  "asset": "sv15",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "So why does this happen to you specifically.",
+  "asset": "sp93",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Why can some people scroll for an hour and feel nothing, while you end a phone call needing to lie down.",
+  "asset": "sv28",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It starts with how your mind is built.",
+  "asset": "sp61",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "If you are an INFJ, an INTJ, an INFP, or an INTP, your dominant function is an introverted one.",
+  "asset": "sv22",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Introverted intuition, or introverted thinking, or introverted feeling.",
+  "asset": "sp24",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And introverted functions do not process the world directly.",
+  "asset": "sv02",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "They take it in, and then they process it privately, deeply, and completely.",
+  "asset": "sv26",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Every experience must pass through the whole system.",
+  "asset": "sp107",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Nothing moves fast, because nothing is allowed to stay shallow.",
+  "asset": "img02",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Your brain does not have an idle mode.",
+  "asset": "sv09",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "does not have an idle mode",
+   "NO IDLE MODE",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "Other minds can sit in a room and simply sit in a room.",
+  "asset": "sv50",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Your mind sits in a room, analyzes the room, remembers the last five rooms, and predicts the next one.",
+  "asset": "sp105",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "This is not a defect.",
+  "asset": "sp88",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It is the price of a machine that runs simulations instead of snapshots.",
+  "asset": "img05",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "runs simulations instead of snapshots",
+   "SIMULATIONS, NOT SNAPSHOTS",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "But it runs them day and night.",
+  "asset": "sp60",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And simulation is the most expensive thing a mind can do.",
+  "asset": "sp90",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "most expensive thing a mind can do",
+   "THE MOST EXPENSIVE ACT",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "Think about what a single worry actually contains.",
+  "asset": "sp38",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "A full mental movie, with characters, dialogue, and consequences.",
+  "asset": "sp36",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You don't have one thought about the meeting on Thursday.",
+  "asset": "sv56",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You have forty, from forty angles, and several of them you directed yourself.",
+  "asset": "sp49",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Now multiply that by every day of your life.",
+  "asset": "img03",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "No muscle could survive that workload.",
+  "asset": "sp08",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Your mind does it without ever being seen.",
+  "asset": "sp54",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And nobody warns you about the part that follows.",
+  "asset": "sp05",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The drain is physical drain.",
+  "asset": "sv35",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Heavy thinking burns real fuel.",
+  "asset": "sp86",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Your exhaustion is not dramatic.",
+  "asset": "sp52",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It is arithmetic.",
+  "asset": "sp16",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "arithmetic",
+   "IT IS ARITHMETIC",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "Carl Jung had a language for this.",
+  "asset": "sp55",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "He described the mind as running on a finite supply of psychic energy.",
+  "asset": "sp65",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "psychic energy",
+   "PSYCHIC ENERGY",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "Not motivation, and not willpower.",
+  "asset": "sv48",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "A literal budget of force, and everything in the psyche pays out of the same account.",
+  "asset": "sp83",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Every thought, every feeling, every act of attention is purchased from that one balance.",
+  "asset": "sp58",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Jung also split thinking itself into two kinds.",
+  "asset": "sp37",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The first he called directed thinking.",
+  "asset": "sp01",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "directed thinking",
+   "DIRECTED THINKING",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "Aimed, logical, adapted to reality.",
+  "asset": "sp34",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The kind of thinking that solves problems, follows arguments, and gets things done.",
+  "asset": "img09",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The second he called fantasy thinking.",
+  "asset": "sp87",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "fantasy thinking",
+   "FANTASY THINKING",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "A loose, unguided stream of images and associations.",
+  "asset": "sp80",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The insight that matters to you is this.",
+  "asset": "sp69",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Directed thinking is work.",
+  "asset": "img07",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It consumes energy the way physical labor does.",
+  "asset": "sp106",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Fantasy thinking simply flows, and costs almost nothing.",
+  "asset": "sp13",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Most people live closer to the stream.",
+  "asset": "sp44",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "They think when it is needed, and then they drift.",
+  "asset": "sv41",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You don't get to drift.",
+  "asset": "img10",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Your dominant function holds the steering wheel from the moment you wake up.",
+  "asset": "sv42",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It turns even your rest into material.",
+  "asset": "sp75",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "A walk becomes processing time.",
+  "asset": "sv04",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "A shower becomes a strategy session.",
+  "asset": "sp91",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Lying in bed becomes an executive meeting you never called.",
+  "asset": "sv17",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "executive meeting you never called",
+   "A MEETING YOU DIDN'T CALL",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "Jung would say your psychic energy is being spent almost entirely on one kind of work.",
+  "asset": "sp94",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Directed, effortful, and continuous.",
+  "asset": "sv13",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And the account never receives a deposit large enough to cover it.",
+  "asset": "sv36",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "That is what you are feeling when you say you are tired for no reason.",
+  "asset": "sp09",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "There is a reason.",
+  "asset": "sv55",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You spent the entire day paying for thought.",
+  "asset": "sp72",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "paying for thought",
+   "PAYING FOR THOUGHT",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "I want to tell you about a woman I will call Maya.",
+  "asset": "sp07",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Maya spent one Saturday doing, by any outside measure, nothing.",
+  "asset": "sp64",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "She answered four messages, ran one errand, and read for a while.",
+  "asset": "sp02",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "By dinner she felt like she had moved furniture all day.",
+  "asset": "sv53",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "So she ran an experiment.",
+  "asset": "sp50",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "She wrote down where her mind actually went, hour by hour.",
+  "asset": "sp51",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The list filled three pages.",
+  "asset": "sp17",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "three pages",
+   "THREE PAGES OF NOTHING",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "She had mentally rewritten one message eleven times.",
+  "asset": "sv21",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "eleven times",
+   "ELEVEN REWRITES",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "She had predicted an argument that never happened, twice.",
+  "asset": "sv38",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "She had reviewed a conversation from years ago, frame by frame.",
+  "asset": "sv03",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "She had compared herself to two strangers online.",
+  "asset": "sp33",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "None of it was visible from the outside.",
+  "asset": "sv33",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "All of it was paid for from the same account.",
+  "asset": "sp48",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Maya was not weak.",
+  "asset": "sp21",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Maya was broke from thinking.",
+  "asset": "sp85",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "broke from thinking",
+   "BROKE FROM THINKING",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "This depth has a price, and the bill arrives in a body.",
+  "asset": "sp104",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Shallow breath, tight shoulders, a jaw that has been clenched since morning.",
+  "asset": "sp35",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "A wired, jittery fatigue that no nap can touch.",
+  "asset": "sp100",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And now the trap, the one you have felt a hundred times.",
+  "asset": "sp81",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Sleep repairs muscles and restores the body.",
+  "asset": "sv57",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "But your exhaustion was never muscular.",
+  "asset": "sp97",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It lives in the mind, so sleep only touches the edges of it.",
+  "asset": "sv29",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You wake up with the tab still open.",
+  "asset": "sp63",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "tab still open",
+   "THE TAB IS STILL OPEN",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "There is a second trap.",
+  "asset": "sp53",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Your weakest function, the one Jung called inferior, is the one that could actually rest you.",
+  "asset": "sp76",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "For intuitive thinkers, that is sensation, the five senses, the present moment.",
+  "asset": "sp43",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "But because it is undeveloped, you rarely go there.",
+  "asset": "sv12",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "When you finally get free time, you hand it right back to the mind.",
+  "asset": "img01",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You read, you plan, you analyze your own exhaustion.",
+  "asset": "sp26",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You rest a tired mind with more mind.",
+  "asset": "sv01",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "rest a tired mind with more mind",
+   "RESTING MIND WITH MIND",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "And then you wonder why the weekend didn't fix you.",
+  "asset": "sp31",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "There is a third cost, and it is the quietest one.",
+  "asset": "sv07",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It matters what kind of tired you are.",
+  "asset": "sv00",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "There is a good tired, the kind after creating something, after a real conversation, after honest work.",
+  "asset": "sp11",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "That tired feels earned, and it fades with one night of sleep.",
+  "asset": "sv34",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Then there is depletion.",
+  "asset": "sv44",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "depletion",
+   "DEPLETION, NOT TIREDNESS",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "The gray, spread-thin feeling that comes from processing without pause.",
+  "asset": "sp96",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "From giving every single input the same full-depth treatment.",
+  "asset": "sp73",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "From a mind that cannot clock out, because clocking out was never taught.",
+  "asset": "sp62",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Most deep thinkers spent years being told to calm down, to think less, to care less.",
+  "asset": "sp78",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "So they learned to hide the cost.",
+  "asset": "sp20",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "They perform being fine, and performing is itself more processing.",
+  "asset": "sp18",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "perform being fine",
+   "PERFORMING FINE",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "Pretending to be okay becomes another simulation to run.",
+  "asset": "sv24",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The hiding costs almost as much as the thinking.",
+  "asset": "sp101",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "That is why you can come back from a vacation more drained than you left.",
+  "asset": "sp22",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "So how do you stop the leak.",
+  "asset": "sv60",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Not by thinking your way out.",
+  "asset": "sp47",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You have already tried that.",
+  "asset": "sv14",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Your depth is not the problem.",
+  "asset": "sv10",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The budget is.",
+  "asset": "sv32",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "This is energy economics, so treat it like economics.",
+  "asset": "sv11",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Rule one, externalize the simulation.",
+  "asset": "sp32",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "externalize the simulation",
+   "EXTERNALIZE THE LOOP",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "Your mind keeps reprocessing anything that stays unfinished.",
+  "asset": "sp79",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "An open loop in the head pays rent every hour it stays open.",
+  "asset": "sp74",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "So move the loops out of your head and onto paper.",
+  "asset": "sp41",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Write the worry down fully, in plain sentences.",
+  "asset": "sp25",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "A written loop stops running, because it finally has somewhere to live.",
+  "asset": "sp98",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Rule two, cap the rehearsal.",
+  "asset": "sp15",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "When you catch yourself replaying a conversation for the third time, ask one question.",
+  "asset": "sp19",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Is anything new being added.",
+  "asset": "sp39",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "If the answer is ready, the rest of the rehearsal is just spending.",
+  "asset": "sp66",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Rule three, feed the inferior function.",
+  "asset": "sv23",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "feed the inferior function",
+   "FEED THE INFERIOR",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "The part of you that is starved of sensation needs raw, physical, present-tense input.",
+  "asset": "sv20",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Walk without a podcast.",
+  "asset": "sp57",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Cook something with your hands.",
+  "asset": "sv30",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Sit outside and name five things you can see.",
+  "asset": "sv51",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "This feels useless to a deep thinker, and that is exactly why it works.",
+  "asset": "sp67",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You are not doing nothing.",
+  "asset": "sp89",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You are finally spending on a different account.",
+  "asset": "sp99",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Rule four, ration your depth.",
+  "asset": "sv39",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": [
+   "ration your depth",
+   "RATION YOUR DEPTH",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "Depth is your gift, but not everything deserves it.",
+  "asset": "sp23",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Not every message deserves a reading between the lines.",
+  "asset": "sv31",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Not every mood in the room is yours to process.",
+  "asset": "sv52",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Not every future deserves a simulation.",
+  "asset": "sp14",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You are allowed to notice something and simply not go in.",
+  "asset": "sp46",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Rule five, build a real shutdown.",
+  "asset": "sp59",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The mind needs an off-ramp, and off-ramps are built, not found.",
+  "asset": "sp45",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": [
+   "off-ramps are built",
+   "OFF-RAMPS ARE BUILT",
+   "caption"
+  ]
+ },
+ {
+  "sentence": "Pick an hour each night, write down tomorrow's three loudest loops, and close the notebook.",
+  "asset": "sp29",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Not to solve them.",
+  "asset": "sv54",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Just to park them.",
+  "asset": "sv59",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Deep sleep begins with a parked mind.",
+  "asset": "sp28",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "And one more thing, harder than all five rules.",
+  "asset": "sp70",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Stop measuring the day by how much of your mind you spent.",
+  "asset": "sp68",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "A day where you thought less is not a wasted day.",
+  "asset": "sv25",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Sometimes it is the wisest thing a mind like yours can do.",
+  "asset": "sp04",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "So here is what I want you to take with you.",
+  "asset": "sp03",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You are not lazy.",
+  "asset": "sp10",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": [
+   "You are not lazy",
+   "YOU'RE NOT LAZY",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "Lazy people don't carry this much.",
+  "asset": "sv05",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You are running one of the most expensive minds ever built, on a budget designed for simpler ones.",
+  "asset": "sp95",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Your tiredness is not weakness.",
+  "asset": "sp00",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It is an invoice.",
+  "asset": "sv43",
+  "motion": [
+   "zout",
+   1.3,
+   1.02,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "It is an invoice",
+   "IT'S AN INVOICE",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "Proof of processing that nobody ever saw.",
+  "asset": "sv37",
+  "motion": [
+   "panrl",
+   1.22,
+   1.22,
+   1.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Jung's entire psychology begins with one honest question of accounting.",
+  "asset": "sp56",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Where is your energy actually going.",
+  "asset": "sv06",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Ask yourself that this week, and follow the answer without judging it.",
+  "asset": "img02",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "When you find the leak, don't hate it.",
+  "asset": "sp102",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "It is usually a mind that was never told it was allowed to stop.",
+  "asset": "sv18",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "You can tell it now.",
+  "asset": "sp77",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The machine that drains you is the same machine that makes you rare.",
+  "asset": "img06",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": [
+   "makes you rare",
+   "THE MACHINE THAT MAKES YOU RARE",
+   "gold"
+  ]
+ },
+ {
+  "sentence": "You just have to stop making it pay for everything.",
+  "asset": "sp92",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Drop your answer in the comments.",
+  "asset": "img04",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "At the end of your longest days, what drains you the most.",
+  "asset": "sp54",
+  "motion": [
+   "settle",
+   1.45,
+   1.0,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "The past you kept replaying, or the future you kept rehearsing.",
+  "asset": "sp06",
+  "motion": [
+   "panlr",
+   1.22,
+   1.22,
+   0.0,
+   0.5,
+   1.0,
+   0.5
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Read the other answers while you are here.",
+  "asset": "sp42",
+  "motion": [
+   "diag",
+   1.04,
+   1.34,
+   0.15,
+   0.2,
+   0.75,
+   0.55
+  ],
+  "caption": null
+ },
+ {
+  "sentence": "Yours might be the exact sentence someone else needs tonight.",
+  "asset": "sv46",
+  "motion": [
+   "zin",
+   1.0,
+   1.38,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "caption": null
+ }
+]

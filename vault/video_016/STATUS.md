@@ -51,13 +51,20 @@
 - Old /tmp/ytrepo clone kept for reference this turn (28M); remove at step (b).
 - Workspace: only video_016 sources (videos dir otherwise empty).
 
-## NEXT TURN — step (b) storyboard + verify
-1. Generate img08 (underwater depth metaphor — reworded prompt to pass safety:
-   no people, "looking up from deep dark water toward distant surface").
-2. python3 videos/video_016/rebuild_assets.py  (pulls img08 into assets.json)
-3. PIPE_VIDEO=/home/user/videos/video_016 python3 tools/pipeline.py storyboard
-4. python3 tools/verify.py /home/user/videos/video_016 storyboard
-5. Push storyboard.json + state.json + img08 to repo.
+## Step (b) storyboard + verify — DONE (2026-08-24)
+- img08 generated (softened prompt passed; 1672×941, brightness 10459) →
+  rebuild_assets.py → 179 assets (90% of 200 beats, R18 ✓).
+- storyboard: 200 beats, captioned 27, assets used 179/179 (100% of pool),
+  over-cap none, min reuse distance 136 beats (floor 26), avg 175.
+- verify.py storyboard: ✅ ALL CHECKS PASS.
+- /tmp/ytrepo clone removed.
+
+## NEXT TURN — step (c) TTS
+1. PIPE_VIDEO=/home/user/videos/video_016 python3 tools/pipeline.py tts
+   (~6 min; 200 beats → 8 audio chunks; runs chunked + pushed to repo)
+2. verify.py tts → update state; STATUS.md.
+3. ⚠️ If session reset wiped /tmp/stock16 before render: re-run
+   fetch_assets.py (idempotent). Not needed for TTS itself.
 
 ## Repo (video_016) — after this push
 - voiceover.txt, storyboard_config.json, images/img01-07+09+10, fetch_assets.py,
