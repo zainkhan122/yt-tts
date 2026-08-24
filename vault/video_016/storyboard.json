@@ -1460,7 +1460,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.9333333333333333,
+  "beat_dur": 1.9333333333333333,
+  "v_dur": 1.93
  },
  {
   "sentence": "It consumes energy the way physical labor does.",
@@ -1475,7 +1478,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.2333333333333334,
+  "beat_dur": 3.2333333333333334,
+  "v_dur": 3.23
  },
  {
   "sentence": "Fantasy thinking simply flows, and costs almost nothing.",
@@ -1490,7 +1496,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.066666666666666,
+  "beat_dur": 4.066666666666666,
+  "v_dur": 4.07
  },
  {
   "sentence": "Most people live closer to the stream.",
@@ -1505,7 +1514,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.4,
+  "beat_dur": 2.4,
+  "v_dur": 2.4
  },
  {
   "sentence": "They think when it is needed, and then they drift.",
@@ -1520,7 +1532,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.933333333333333,
+  "beat_dur": 2.933333333333333,
+  "v_dur": 2.93
  },
  {
   "sentence": "You don't get to drift.",
@@ -1535,7 +1550,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.4333333333333333,
+  "beat_dur": 1.4333333333333333,
+  "v_dur": 1.43
  },
  {
   "sentence": "Your dominant function holds the steering wheel from the moment you wake up.",
@@ -1550,7 +1568,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.3,
+  "beat_dur": 4.3,
+  "v_dur": 4.3
  },
  {
   "sentence": "It turns even your rest into material.",
@@ -1565,7 +1586,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.3666666666666667,
+  "beat_dur": 2.3666666666666667,
+  "v_dur": 2.37
  },
  {
   "sentence": "A walk becomes processing time.",
@@ -1580,7 +1604,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.3333333333333335,
+  "beat_dur": 2.3333333333333335,
+  "v_dur": 2.33
  },
  {
   "sentence": "A shower becomes a strategy session.",
@@ -1595,7 +1622,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.466666666666667,
+  "beat_dur": 2.466666666666667,
+  "v_dur": 2.47
  },
  {
   "sentence": "Lying in bed becomes an executive meeting you never called.",
@@ -1614,7 +1644,10 @@
    "A MEETING YOU DIDN'T CALL",
    "caption"
   ],
-  "cap_start": 1.848
+  "cap_start": 1.848,
+  "beat_len": 4.1,
+  "beat_dur": 4.1,
+  "v_dur": 4.1
  },
  {
   "sentence": "Jung would say your psychic energy is being spent almost entirely on one kind of work.",
@@ -1629,7 +1662,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 5.366666666666666,
+  "beat_dur": 5.366666666666666,
+  "v_dur": 5.37
  },
  {
   "sentence": "Directed, effortful, and continuous.",
@@ -1644,7 +1680,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.8333333333333335,
+  "beat_dur": 2.8333333333333335,
+  "v_dur": 2.83
  },
  {
   "sentence": "And the account never receives a deposit large enough to cover it.",
@@ -1659,7 +1698,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.7,
+  "beat_dur": 3.7,
+  "v_dur": 3.7
  },
  {
   "sentence": "That is what you are feeling when you say you are tired for no reason.",
@@ -1674,7 +1716,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.6666666666666665,
+  "beat_dur": 3.6666666666666665,
+  "v_dur": 3.67
  },
  {
   "sentence": "There is a reason.",
@@ -1689,7 +1734,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.4,
+  "beat_dur": 1.4,
+  "v_dur": 1.4
  },
  {
   "sentence": "You spent the entire day paying for thought.",
@@ -1708,7 +1756,10 @@
    "PAYING FOR THOUGHT",
    "gold"
   ],
-  "cap_start": 1.677
+  "cap_start": 1.677,
+  "beat_len": 3.033333333333333,
+  "beat_dur": 3.033333333333333,
+  "v_dur": 3.03
  },
  {
   "sentence": "I want to tell you about a woman I will call Maya.",
@@ -1723,7 +1774,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.8,
+  "beat_dur": 2.8,
+  "v_dur": 2.8
  },
  {
   "sentence": "Maya spent one Saturday doing, by any outside measure, nothing.",
@@ -1738,7 +1792,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.466666666666667,
+  "beat_dur": 4.466666666666667,
+  "v_dur": 4.47
  },
  {
   "sentence": "She answered four messages, ran one errand, and read for a while.",
@@ -1753,7 +1810,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.433333333333334,
+  "beat_dur": 4.433333333333334,
+  "v_dur": 4.43
  },
  {
   "sentence": "By dinner she felt like she had moved furniture all day.",
@@ -1768,7 +1828,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.3666666666666667,
+  "beat_dur": 3.3666666666666667,
+  "v_dur": 3.37
  },
  {
   "sentence": "So she ran an experiment.",
@@ -1783,7 +1846,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.8333333333333333,
+  "beat_dur": 1.8333333333333333,
+  "v_dur": 1.83
  },
  {
   "sentence": "She wrote down where her mind actually went, hour by hour.",
@@ -1798,7 +1864,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.7666666666666666,
+  "beat_dur": 3.7666666666666666,
+  "v_dur": 3.77
  },
  {
   "sentence": "The list filled three pages.",
@@ -1817,7 +1886,10 @@
    "THREE PAGES OF NOTHING",
    "caption"
   ],
-  "cap_start": 1.229
+  "cap_start": 1.229,
+  "beat_len": 2.6,
+  "beat_dur": 2.6,
+  "v_dur": 2.6
  },
  {
   "sentence": "She had mentally rewritten one message eleven times.",
@@ -1836,7 +1908,10 @@
    "ELEVEN REWRITES",
    "caption"
   ],
-  "cap_start": 2.125
+  "cap_start": 2.125,
+  "beat_len": 3.6,
+  "beat_dur": 3.6,
+  "v_dur": 3.6
  },
  {
   "sentence": "She had predicted an argument that never happened, twice.",
@@ -1851,7 +1926,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.8,
+  "beat_dur": 3.8,
+  "v_dur": 3.8
  },
  {
   "sentence": "She had reviewed a conversation from years ago, frame by frame.",
