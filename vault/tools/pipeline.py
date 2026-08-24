@@ -83,9 +83,9 @@ def download(url, path, retries=MAX_RETRIES):
             continue
     raise RuntimeError(f"download failed after {retries} tries: {url[:80]} -> {last}")
 
-def pull_raw(repo_path, local):
+def pull_raw(repo_path, local, ref="main"):
     os.makedirs(os.path.dirname(local), exist_ok=True)
-    download(f"https://raw.githubusercontent.com/{REPO}/main/{repo_path}", local)
+    download(f"https://raw.githubusercontent.com/{REPO}/{ref}/{repo_path}", local)
 
 def bootstrap():
     import importlib
@@ -473,6 +473,7 @@ def assemble_chunk(k):
     run(acmd)
     subprocess.run([sys.executable, "/home/user/tools/git_push.py",
         f"{NAME} parts chunk {k}",
+        "--branch", f"parts/{NAME}-{k:02d}",
         f"{REPO_BASE}/part_{k:02d}.mp4", partv,
         f"{REPO_BASE}/part_{k:02d}.wav", parta], check=True)
     for p in [vz, az, partv, parta, f"{BASE}/vlist.txt"]:
@@ -491,7 +492,11 @@ def finalize():
         for ext in ["mp4","wav"]:
             lp = f"{wd}/part_{k:02d}.{ext}"
             if not os.path.exists(lp):
-                pull_raw(f"{REPO_BASE}/part_{k:02d}.{ext}", lp)
+                try:
+                    pull_raw(f"{REPO_BASE}/part_{k:02d}.{ext}", lp,
+                             ref=f"parts/{NAME}-{k:02d}")
+                except Exception:
+                    pull_raw(f"{REPO_BASE}/part_{k:02d}.{ext}", lp)
     if not os.path.exists(SB):
         pull_raw(f"{REPO_BASE}/storyboard.json", SB)
     beats = json.load(open(SB)); N = len(beats)

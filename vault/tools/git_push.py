@@ -114,16 +114,20 @@ def ensure_clone():
         print("read-tree failed:", r.stderr[-500:]); sys.exit(1)
 
 
-def push_shallow(msg, files):
-    """Shallow FULL clone path — for files > 35MB. No partial-clone filter."""
+def push_shallow(msg, files, branch=None):
+    """Shallow FULL clone path — for files > 35MB (or explicit --branch pushes:
+    clone main once, push to refs/heads/<branch> so MAIN's tip never grows)."""
     free_tmp(750)
     ensure_clone()
     for repo_path, local in files.items():
         dest = os.path.join(CLONE, repo_path)
         os.makedirs(os.path.dirname(dest), exist_ok=True)
         shutil.copyfile(local, dest)
-        subprocess.run(["git", "-C", CLONE, "add", "-f", "--", repo_path],
-                       check=True, capture_output=True, text=True)
+        r = subprocess.run(["git", "-C", CLONE, "add", "-f", "--", repo_path],
+                           capture_output=True, text=True)
+        if r.returncode != 0:
+            print(f"add failed for {repo_path}:", r.stderr[-800:])
+            sys.exit(1)
         print("  staged:", repo_path)
     r = subprocess.run(["git", "-C", CLONE,
                         "-c", "gc.auto=0",
@@ -135,26 +139,33 @@ def push_shallow(msg, files):
     r = subprocess.run(["git", "-C", CLONE,
                         "-c", "pack.window=0", "-c", "pack.depth=0",
                         "-c", "http.postBuffer=536870912",
-                        "push", "origin", "HEAD:main"],
+                        "push", "origin",
+                        f"HEAD:refs/heads/{branch}" if branch else "HEAD:main"],
                        capture_output=True, text=True)
     if r.returncode != 0:
         print("push failed:", r.stderr[-800:]); sys.exit(1)
-    print("PUSHED -> main (shallow clone)")
+    print(f"PUSHED -> {branch or 'main'} (shallow clone)")
 
 
 def main():
     msg = sys.argv[1]
     pairs = sys.argv[2:]
+    branch = None
+    if pairs and pairs[0] == "--branch":
+        branch = pairs[1]; pairs = pairs[2:]
     if len(pairs) % 2:
         print("need even repo_path/local pairs"); sys.exit(1)
     files = {pairs[i]: pairs[i+1] for i in range(0, len(pairs), 2)}
     biggest = max(os.path.getsize(local) for local in files.values())
     try:
-        if biggest <= API_LIMIT:
+        if biggest <= API_LIMIT and not branch:
             push_api(msg, files)
         else:
-            print(f"  (largest file {biggest/1e6:.1f}MB > 35MB -> shallow clone path)")
-            push_shallow(msg, files)
+            if branch:
+                print(f"  (branch push {branch}: shallow clone path)")
+            else:
+                print(f"  (largest file {biggest/1e6:.1f}MB > 35MB -> shallow clone path)")
+            push_shallow(msg, files, branch)
     finally:
         shutil.rmtree(CLONE, ignore_errors=True)
 
