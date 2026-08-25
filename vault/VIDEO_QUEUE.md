@@ -55,6 +55,7 @@ mechanism already registered — even if the title is worded differently.
 | 15 Push Away | hook | beats 0–13 (pattern cold open, 36.5s, 3 captions) | ✅ DONE vertical |
 | 15 Push Away | payoff | beats 117–133 (break the loop → the crack in the wall, 37.4s, 1 caption) | ✅ DONE vertical |
 | 16 Exhausted | hook | beats 0–11 (tired cold open, 36.2s, 2 captions) | ✅ DONE vertical |
+| 16 Exhausted | payoff | beats 96–109 skip 97 (Maya experiment → broke from thinking, 41.9s, 3 captions) | ✅ DONE vertical |
 
 ## ⛔ USED THUMBNAIL LINES (R8.6 — never repeat these concepts)
 YOURS / OS / FROZEN / MASKED / UNLIVED / LOOP / SHADOW (used 2× — banned forever) /

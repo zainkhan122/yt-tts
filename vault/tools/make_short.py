@@ -229,6 +229,9 @@ def main():
     if "--beats" in args:
         pay_a = int(args[args.index("--beats") + 1])
         pay_b = int(args[args.index("--beats") + 2])
+    skip = set()
+    if "--skip" in args:
+        skip = {int(x) for x in args[args.index("--skip") + 1].split(",") if x.strip()}
     if kind == "payoff" and pay_a is None:
         raise SystemExit("payoff requires --beats A B")
 
@@ -260,8 +263,9 @@ def main():
             b += 1
     else:
         a, b = pay_a, min(pay_b, N)
-    seg_beats = beats[a:b]
-    print(f"segment [{kind}] beats {a}..{b-1} ({len(seg_beats)} beats)")
+    seg_beats = [bt for i, bt in enumerate(beats[a:b]) if (a + i) not in skip]
+    print(f"segment [{kind}] beats {a}..{b-1} ({len(seg_beats)} beats"
+          + (f", skipped {sorted(skip)})" if skip else "") + ")")
 
     # --- TTS every segment beat (replicating the keyword-split) ---
     cap_times = []   # (abs_time_in_segment, display)

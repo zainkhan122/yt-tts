@@ -125,15 +125,26 @@
   magick compositing: argv-list labels, per-op geometry, 50% glow) → repo
   vault/pipeline/. Metadata pack (v15 pattern) pushed.
 
-## NEXT — payoff Short (last item for v16)
-- Pick self-contained setup→tension→payoff. Best candidates:
-  A) **Maya experiment** beats ~95–109 (setup: Saturday of nothing → tension:
-  felt like moving furniture → payoff: three pages / broke from thinking).
-  B) rules beats ~140–152 (externalize the loop → somewhere to live).
-  → A is the strongest arc; suggest --beats 95 109.
-- Then: purge shorts_ai from workspace? NO — keep (R3.6 repo has them; local
-  purge after user downloads). After both Shorts approved: user downloads,
-  purge videos/video_016 local (R15), update HANDOFF NEXT ACTIONS → V17.
+## v16 SHORTS — BOTH DONE (2026-08-24) — 🎉 VIDEO 16 COMPLETE
+- short_hook.mp4: 36.2s vertical (beats 0–11, 2 captions) — pushed 099b1bf01a.
+- short_payoff.mp4: 41.9s vertical (beats 96–109 skipping texture beat 97 —
+  new make_short `--skip` option; 3 captions: THREE PAGES OF NOTHING,
+  ELEVEN REWRITES, BROKE FROM THINKING) — pushed 05b659a8fc.
+- Local copies: videos/video_016/shorts/. shorts_ai: 8 vertical AI images.
+- Metadata pack, thumbnail (NOT LAZY. DEPLETED.), queue registration: ALL done.
+
+## AFTER USER DOWNLOADS (R15)
+- User downloads: shorts/short_hook.mp4, shorts/short_payoff.mp4,
+  thumbnail (thumbnails/video_016_cover.jpg), metadata.md.
+- Then purge workspace videos/video_016 + thumbnails/ (repo holds everything).
+
+## NEXT VIDEO — V17 (fresh turn)
+- Title formula: NOT "Why…" (R11 — V15/V16 both Why).
+- Slate #17 "The Psychology of People Who Can't Do Small Talk" — ⚠️ likely
+  dup retire (brushes #2 intellectual isolation + #4 rare-type loneliness).
+  Check R23 register; if retired → #18 Rest-Guilt / #19 Never Good Enough
+  (⚠ #19 brushes #16's "stop earning worth" beat — differentiate) / #20
+  (⚠ brushes #6 — center Si memory, not anxiety). Decide with user.
 
 ## Repo (video_016) — after this push
 - voiceover.txt, storyboard_config.json, images/img01-07+09+10, fetch_assets.py,
