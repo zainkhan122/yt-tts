@@ -16,6 +16,7 @@
 13. Why You Feel Like an Old Soul — thumb: "ARRIVED EARLY" (child's face, right) — 5:06
 14. The Psychology of People Who Apologize for Existing — thumb: "SORRY IS SURRENDER" (bowed figure, right) — 6:38
 15. Why INFJs Push People Away When They Need Them Most — thumb: "THE LOCKED DOOR" (padlocked door, right) — 6:30
+16. Why You're Exhausted as a Deep Thinker — thumb: "NOT LAZY. DEPLETED." (burnt-match macro, ember right, text bottom-left) — 10:57
 
 ## 🧠 TITLE + PAIN-POINT + MECHANISM REGISTER (R23 — dedup master; check BEFORE approving ANY new topic/Short)
 Every shipped video/short gets registered here the same day it's finalized.
@@ -39,6 +40,7 @@ mechanism already registered — even if the title is worded differently.
 | 13 | Why You Feel Like an Old Soul | rarity burden (ancient since childhood) | Precocious Introverted Intuition (Ni) |
 | 14 | People Who Apologize for Existing | over-apologizing / self-erasure | Extraverted Feeling dom + weak Introverted Feeling |
 | 15 | INFJs Push People Away When They Need Them Most | refusing help while hurting | Fe–Ti loop under stress |
+| 16 | Exhausted as a Deep Thinker | cognitive drain / invisible labor of depth | psychic-energy economics (Ni/Ti; directed vs fantasy thinking) |
 
 ## 🎬 SHORTS REGISTER (R23 — track every Short's hook so we never re-use one)
 > 2026-08-20 decision: Shorts = **HOOK + best self-contained PAYOFF** (no midpoint),
@@ -56,7 +58,7 @@ mechanism already registered — even if the title is worded differently.
 ## ⛔ USED THUMBNAIL LINES (R8.6 — never repeat these concepts)
 YOURS / OS / FROZEN / MASKED / UNLIVED / LOOP / SHADOW (used 2× — banned forever) /
 BECAME THEM / PRICE OF SELF / SAW IT FIRST / OTHER THREE / ARRIVED EARLY /
-SORRY IS SURRENDER / THE LOCKED DOOR
+SORRY IS SURRENDER / THE LOCKED DOOR / NOT LAZY. DEPLETED.
 
 ## 🚫 RETIRED TOPICS (R23 — duplicates; NEVER revive)
 - "The Real Reason You Feel Alone in a Room Full of People" — dup of #4 + #10 (loneliness).
@@ -88,8 +90,11 @@ Last formulas: V10 "Why…" → V11 "The Psychology of People Who…" → V12 cl
 V16 = "Why…" would be 2 in a row (OK); V17 must NOT be "Why…".
 
 ## ▶️ NEXT UP (in order)
-1. **Video 15 thumbnail** (next turn) — then 2 Shorts (hook + payoff, vertical).
-2. **Video 16 — Why You're Exhausted as a Deep Thinker** — ⚠️ title formula:
-   V15 was "Why…", so V16 "Why…" would be 2 in a row (OK) but V17 must rotate.
-   Pain: Cognitive drain · Jungian: Ni/Ti energy economics.
-   - Check slate + dedup register first (R23).
+1. **Video 16 Shorts** — hook (in progress 2026-08-24) + payoff (pick self-contained
+   segment; candidates: Maya experiment beats ~95–109, or five-rules ~140–160).
+   Vertical via make_short.py v2; register both in the Shorts register below.
+2. **Video 17** — title formula must NOT be "Why…" (R11: V15 Why, V16 Why).
+   Slate: #17 "The Psychology of People Who Can't Do Small Talk" — ⚠️ flagged as
+   likely-dup retire (brushes #2 misunderstood + #4 loneliness of rare types).
+   Re-check R23 register before scripting; if retired, promote #18/19/20 or bench.
+   Note: #20 brushes #6 (replay/ruminate) — must center Si detail-memory.
