@@ -113,18 +113,27 @@
 - work_f purged (8.5GB → workspace 100MB: 74.6 final + 29 sources).
 - metadata.md written (title/desc/chapters/tags/pinned comment).
 
-## REMAINING (separate turns per R16)
-1. **Thumbnail** — R8.7: last 3 comps = bowed figure (v14), padlocked door
-   (v15), child's face (v13) → pick a DIFFERENT treatment (object/symbol/split
-   fits "exhaustion/invoice/budget" theme). Candidate lines (check used-lines):
-   THE INVISIBLE BILL / NOT LAZY. DEPLETED. / IT'S AN INVOICE / ALWAYS-ON MIND.
-   Build candidate → present for approval → push + register used-line.
-2. **2 vertical Shorts** (hook beats 0–13ish + self-contained payoff; likely
-   the Maya experiment beats ~95–110 or the five-rules beat ~146–178) via
-   make_short.py v2 (portrait stock via stock_fetch --portrait).
-3. Register v16 in VIDEO_QUEUE.md (DONE list + R23 register + used-lines +
-   shorts register) at ship. V17 title must NOT be "Why…" (R11).
-4. After user downloads: delete local final.mp4 (R15).
+## v16 SHORTS — hook DONE (2026-08-24)
+- **short_hook.mp4: 36.2s, 1080×1920 vertical, 30fps, AAC — built, verified,
+  pushed (repo commit 099b1bf01a), local copy at videos/video_016/shorts/.**
+- Beats 0–11 (cold open) + appended text+spoken CTA. 2 word-synced captions
+  (EMPTY BY DEFAULT @16.3s, IT NEVER GOES QUIET @30.8s). af_heart re-TTS with
+  the long-form's exact keyword splits. 5 vertical AI images (shorts_ai/) +
+  portrait stock (5 queries ×6). Registered in queue Shorts register.
+- Thumbnail APPROVED + pushed as vault/video_016/thumbnail.jpg; line
+  "NOT LAZY. DEPLETED." registered in used-lines. render_thumb16.py (fixed
+  magick compositing: argv-list labels, per-op geometry, 50% glow) → repo
+  vault/pipeline/. Metadata pack (v15 pattern) pushed.
+
+## NEXT — payoff Short (last item for v16)
+- Pick self-contained setup→tension→payoff. Best candidates:
+  A) **Maya experiment** beats ~95–109 (setup: Saturday of nothing → tension:
+  felt like moving furniture → payoff: three pages / broke from thinking).
+  B) rules beats ~140–152 (externalize the loop → somewhere to live).
+  → A is the strongest arc; suggest --beats 95 109.
+- Then: purge shorts_ai from workspace? NO — keep (R3.6 repo has them; local
+  purge after user downloads). After both Shorts approved: user downloads,
+  purge videos/video_016 local (R15), update HANDOFF NEXT ACTIONS → V17.
 
 ## Repo (video_016) — after this push
 - voiceover.txt, storyboard_config.json, images/img01-07+09+10, fetch_assets.py,
