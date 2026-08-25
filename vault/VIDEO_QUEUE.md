@@ -62,6 +62,8 @@ mechanism already registered — even if the title is worded differently.
 | 5 Darkest Insight | payoff | beats 24–34 (shadow = unlived life thesis, 33.4s, 4 captions) | ✅ DONE vertical (backfill) |
 | 6 3AM Overthinking | hook | beats 0–19 (3AM cold open, 35.5s, 2 captions) | ✅ DONE vertical (backfill) |
 | 6 3AM Overthinking | payoff | beats 75–92 skip 78,79,88,89 (Ni–Ti loop → jammed gears, 38.4s, 4 captions) | ✅ DONE vertical (backfill) |
+| 7 "Too Much" | hook | beats 0–13 (too intense cold open, 36.9s, 3 captions) | ✅ DONE vertical (backfill) |
+| 7 "Too Much" | payoff | beats 62–79 skip 74–76 (too much for who → they swim in your depth, 42.3s, 5 captions) | ✅ DONE vertical (backfill) |
 
 ## ⛔ USED THUMBNAIL LINES (R8.6 — never repeat these concepts)
 YOURS / OS / FROZEN / MASKED / UNLIVED / LOOP / SHADOW (used 2× — banned forever) /
