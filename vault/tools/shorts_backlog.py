@@ -120,7 +120,7 @@ def state_load(vd):
 def state_save(vd, st):
     json.dump(st, open(f"{vd}/shorts/SHORTS_STATE.json", "w"), indent=1)
 
-def build(n, kind, pay_a=None, pay_b=None):
+def build(n, kind, pay_a=None, pay_b=None, skip=None):
     vd = vid_dir(n)
     st = state_load(vd)
     if st.get(f"{kind}_done"):
@@ -135,11 +135,15 @@ def build(n, kind, pay_a=None, pay_b=None):
             a, b, d = payoff_range(sb)
         else:
             a, b = pay_a, pay_b if pay_b is not None else len(sb)
-            d = sum(beat_dur(sb[i]) + GAP for i in range(a, b))
+            skip = skip or set()
+            d = sum(beat_dur(sb[i]) + GAP for i in range(a, b) if i not in skip)
         if not (WIN[0] - CTA_EXT <= d <= WIN[1] - CTA_EXT):
             die(vd, f"payoff voice {d:.1f}s outside safe window "
                     f"[{WIN[0]-CTA_EXT:.0f}-{WIN[1]-CTA_EXT:.0f}]s — adjust --pay-a/--pay-b")
         cmd = ["python3", "/home/user/tools/make_short.py", "payoff", "--beats", str(a), str(b)]
+        if skip:
+            cmd += ["--skip", ",".join(str(x) for x in sorted(skip))]
+            log(vd, f"payoff skips: {sorted(skip)}")
     if d < WIN[0] - CTA_EXT:
         die(vd, f"{kind} voice {d:.1f}s too SHORT (<{WIN[0]-CTA_EXT:.0f}s)")
     qs = open(f"{vd}/shorts/queries.txt").read().strip() if os.path.exists(f"{vd}/shorts/queries.txt") else ""
@@ -168,10 +172,13 @@ if __name__ == "__main__":
     elif cmd == "build":
         kind = sys.argv[3] if len(sys.argv) > 3 else "both"
         pa = pb = None
+        skip = set()
         if "--pay-a" in sys.argv:
             pa = int(sys.argv[sys.argv.index("--pay-a") + 1])
             pb = int(sys.argv[sys.argv.index("--pay-b") + 1]) if "--pay-b" in sys.argv else None
+        if "--skip" in sys.argv:
+            skip = {int(x) for x in sys.argv[sys.argv.index("--skip") + 1].split(",") if x.strip()}
         for k in (["hook", "payoff"] if kind == "both" else [kind]):
-            build(n, k, pa, pb)
+            build(n, k, pa, pb, skip)
     else:
         print(__doc__); sys.exit(1)
