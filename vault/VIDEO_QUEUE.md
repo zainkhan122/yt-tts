@@ -64,6 +64,8 @@ mechanism already registered — even if the title is worded differently.
 | 6 3AM Overthinking | payoff | beats 75–92 skip 78,79,88,89 (Ni–Ti loop → jammed gears, 38.4s, 4 captions) | ✅ vertical — REBUILT R24 (own media) |
 | 7 "Too Much" | hook | beats 0–13 (too intense cold open, 36.9s, 3 captions) | ✅ vertical — REBUILT R24 (own media) |
 | 7 "Too Much" | payoff | beats 62–79 skip 74–76 (too much for who → they swim in your depth, 42.3s, 5 captions) | ✅ vertical — REBUILT R24 (own media) |
+| 8 Can't Love You | hook | beats 0–11 (same person different body cold open, 39.4s, 4 captions) | ✅ vertical R24 (own media) |
+| 8 Can't Love You | payoff | beats 30–40 skip 32,34 (Jung's projection → the quality you exiled, 41.8s, 4 captions) | ✅ vertical R24 (own media) |
 
 ## ⛔ USED THUMBNAIL LINES (R8.6 — never repeat these concepts)
 YOURS / OS / FROZEN / MASKED / UNLIVED / LOOP / SHADOW (used 2× — banned forever) /
