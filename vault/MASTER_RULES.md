@@ -303,3 +303,28 @@ Never start a step without this check. Print the numbers so the user sees them.
    (fetch_assets.py queries, queries_hook/payoff.txt, stock_urls.json,
    storyboards) — never generic code.
 3. Repo > HANDOFF > memory: if they disagree, the repo is the truth.
+
+## R26. TRAFFIC QUALITY GATE (2026-08-26 — every video passes before publish)
+The pack (title+thumbnail+description+tags+hashtags+script hook) decides CTR;
+CTR + retention decide distribution. Hard criteria, checked by
+`tools/qa_pack.py VIDEO_DIR` before ANY upload:
+1. **TITLE:** ≤60 chars (mobile truncation). Primary search keyword in the
+   first 5 words. Formula rotation per R11 still applies. Must pair keyword
+   with curiosity/benefit — identification AND intrigue.
+2. **DESCRIPTION:** primary keyword in the FIRST sentence (first 150 chars =
+   the search snippet — never waste them on pure hook prose). ≥200 words.
+   Chapters included (Google video snippets). Comment CTA. Disclaimer.
+3. **HASHTAGS: 3–5 TOTAL, no more.** First 3 appear above the title — order
+   by strength: niche audience first (#infj etc.), then topic (#psychology),
+   then optional channel brand tag. NEVER 6–15 (diluted) and NEVER >15
+   (YouTube ignores ALL). #Shorts mandatory in every Short description.
+4. **TAGS (backend):** exact primary keyword FIRST, then 5–10 variations,
+   within the 500-char budget. Low weight but free.
+5. **THUMBNAIL (R8 +):** 2–3 word cryptic diagnosis, ≤1150px text width,
+   readable at 120px, composition varies from last 3. Title and thumbnail
+   must NEVER repeat each other (curiosity gap, not redundancy).
+6. **SCRIPT:** primary keyword SPOKEN naturally in the first 60 seconds
+   (transcript indexing); hook = first 2 sentences; comment-driving closer.
+   First visual asset must MIRROR the first spoken line (beat-match).
+7. **ENGAGEMENT:** pinned comment ready at publish (first-24h comments are
+   the strongest engagement signal); community post for major videos.

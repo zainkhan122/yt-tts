@@ -12,7 +12,7 @@ Alternatives:
 
 ## DESCRIPTION (copy-paste)
 
-You woke up tired today. And you'll wake up tired tomorrow, no matter how long you sleep — because the exhaustion was never physical.
+Why are deep thinkers — INFJ, INTJ, INFP, INTP — always exhausted? You woke up tired today. And you'll wake up tired tomorrow, no matter how long you sleep — because the exhaustion was never physical.
 
 You didn't lift anything heavy. You didn't run anywhere. But your mind did run: it rehearsed conversations that never happened, replayed the ones that did, read every room, simulated three futures before lunch. That's the invisible labor of a deep thinker — and it runs on a budget.
 
@@ -38,10 +38,10 @@ Your tiredness is not weakness. It's an invoice.
 
 ⚠️ Disclaimer: This channel is for educational and informational purposes only. It is not a substitute for professional mental health or medical advice.
 
-#psychology #infj #jungianpsychology #carljung #psychicenergy #deepthinkers #exhausted #intj #infp #intp #mbti #introvert #cognitivedrain #overthinking #rest
+#psychology #infj #deepthinkers #jungianpsychology #carljung
 
 ## TAGS
-psychology, infj, why you're always tired, jungian psychology, carl jung, psychic energy, directed thinking, deep thinkers, cognitive drain, exhausted no matter how much you sleep, introvert exhaustion, intj, infp, intp, mbti, inferior function, overthinking, energy management
+why you're exhausted as a deep thinker, exhausted deep thinker, why am i always tired, infj exhausted, deep thinker psychology, jungian psychology, carl jung, psychic energy, cognitive drain, introvert exhaustion, intj, infp, intp, mbti
 
 ## PINNED COMMENT
 "Which one drains you the most at the end of a long day: replaying the past, or rehearsing the future? 👇

@@ -113,6 +113,14 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
 - Image-model safety filter: avoid "child + darkness", underwater people;
   rephrase with objects/landscapes instead.
 
+- **R26 TRAFFIC QUALITY GATE (2026-08-26):** every pack passes
+  `python3 tools/qa_pack.py VIDEO_DIR [keyword_stem]` BEFORE upload. Caught +
+  fixed on v16: keyword missing from description's first 150 chars (search
+  snippet), 15 hashtags (diluted — now 5, first-3 strongest), tags not
+  keyword-first. v16's updated pack is the template. Research-backed: CTR=
+  #1 factor, keyword in first 5 title words + first description sentence,
+  3-5 hashtags max (first 3 show above title), spoken keyword in first 60s.
+
 ## NEXT ACTIONS (in order)
 1. **v12 Shorts** (last backfill): "There Are 4 People Living Inside You"
    (persona–shadow–anima–Self). Sources ✓ in repo. Same recipe.
