@@ -66,6 +66,8 @@ mechanism already registered — even if the title is worded differently.
 | 7 "Too Much" | payoff | beats 62–79 skip 74–76 (too much for who → they swim in your depth, 42.3s, 5 captions) | ✅ vertical — REBUILT R24 (own media) |
 | 8 Can't Love You | hook | beats 0–11 (same person different body cold open, 39.4s, 4 captions) | ✅ vertical R24 (own media) |
 | 8 Can't Love You | payoff | beats 30–40 skip 32,34 (Jung's projection → the quality you exiled, 41.8s, 4 captions) | ✅ vertical R24 (own media) |
+| 9 Disappear | hook | beats 0–13 (ghosting cold open, 36.6s, 4 captions) | ✅ vertical R24 (own media) |
+| 9 Disappear | payoff | beats 52–60 (possession → the shadow runs the show, 42.5s, 3 captions) | ✅ vertical R24 (own media) |
 
 ## ⛔ USED THUMBNAIL LINES (R8.6 — never repeat these concepts)
 YOURS / OS / FROZEN / MASKED / UNLIVED / LOOP / SHADOW (used 2× — banned forever) /
