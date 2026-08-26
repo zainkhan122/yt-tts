@@ -292,3 +292,14 @@ Never start a step without this check. Print the numbers so the user sees them.
    Shorts of the same video can never show the same assets in the same order.
 4. **Verify before ship:** the build log's `media pool [kind]` line must show
    the per-kind AI dir; if it ever falls back to the flat shared dir, STOP.
+
+## R25. HANDOFF FRESHNESS (user-mandated 2026-08-26)
+1. **Update HANDOFF.md at the START of every session** (and after any
+   milestone) so a new chat can resume instantly if this one dies: current
+   state, next actions, any new operational facts. Push it to the repo the
+   same turn.
+2. **All tools live in `tools/`** (workspace) and `vault/tools/` (repo) —
+   generalized, CLI-parameterized. Per-video dirs keep only per-video CONFIG
+   (fetch_assets.py queries, queries_hook/payoff.txt, stock_urls.json,
+   storyboards) — never generic code.
+3. Repo > HANDOFF > memory: if they disagree, the repo is the truth.

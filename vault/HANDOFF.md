@@ -4,11 +4,13 @@ If this file and VIDEO_QUEUE.md disagree, VIDEO_QUEUE.md wins on progress.*
 
 ## How to use this file
 1. Read this whole file.
-2. Run `python3 tools/bootstrap.py` (resets wipe pip/ffmpeg/kokoro).
-3. If the workspace is EMPTY (full wipe): recover from the PUBLIC repo —
+2. **UPDATE THIS FILE FIRST** (R25): refresh CURRENT STATE + NEXT ACTIONS to
+   match reality before doing anything else, push it, THEN work.
+3. Run `python3 tools/bootstrap.py` (resets wipe pip/ffmpeg/kokoro).
+4. If the workspace is EMPTY (full wipe): recover from the PUBLIC repo —
    blobless sparse clone (see OPERATIONAL FACTS) — then re-ask the user for
    BOTH secrets. Never guess or skip.
-4. Continue from NEXT ACTIONS.
+5. Continue from NEXT ACTIONS.
 
 ## The project in one paragraph
 "The Deeper Mind" — faceless YouTube psychology channel for rare intuitive
@@ -19,24 +21,30 @@ videos; `tools/make_short.py` v2 + `tools/shorts_backlog.py` produce NATIVE
 VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
 (branch main — PUBLIC, ~6.8GB history).
 
-## CURRENT STATE (2026-08-26)
-- **v16 "Why You're Exhausted as a Deep Thinker" COMPLETE:** final.mp4
-  10:57 (74.6MB, midroll-eligible — longest yet), thumbnail NOT LAZY.
-  DEPLETED. (approved, registered), metadata pack (v15 pattern), 2 vertical
-  Shorts (hook + Maya-experiment payoff). User downloaded everything; local
-  copies purged. v16 in repo: vault/video_016/ complete.
-- **SHORTS BACKFILL CAMPAIGN (user-directed):** vertical Shorts for the
-  Month-1/2 back-catalog. Status: **v4 v5 v6 v7 (rebuilt) + v8 v9 v10 v11
-  (native) DONE — 2 Shorts each, all R24-compliant.** Remaining: v12, then
-  optional v13–v16 refresh (v16's payoff reused hook images pre-R24).
-- **⚠ v1–v3 CANNOT get Shorts:** repo has only thumbnails (no script/
-  storyboard/audio — Month-1 backups started at v4). If user still has the
-  final.mp4s locally, upload → transcribe → rebuild. Otherwise skip.
-- **R24 (user-mandated 2026-08-26):** every Short gets its OWN fresh media —
-  per-kind portrait stock (queries_hook.txt / queries_payoff.txt, THEMED to
-  the actual beats) + per-kind AI images in shorts_ai/{hook,payoff}/. Never
-  shared between the two Shorts of a video. make_short seeds RNG per
-  (video, kind). ASSETS MUST BE BEAT-MATCHED (mirror the spoken line).
+## CURRENT STATE (2026-08-26, later)
+- **v16 COMPLETE + downloaded. Shorts backfill: v4–v11 DONE (16 R24 Shorts),
+  all downloaded. v12 = last backfill (next).** v1–v3 blocked (no sources).
+- **Tools consolidated (R25.2):** ALL tools in tools/ (repo vault/tools/):
+  + `render_thumb.py` (generalized R8 compositor: `render_thumb.py BASE OUT
+    "LINE 1." "LINE 2." [ptsize]`), + `check_script.py` (generalized step-a
+    checker: `check_script.py VIDEO_DIR [prev_voiceover.txt]`). Deleted repo
+    strays: vault/pipeline/render_thumb16.py, vault/video_016/{check_step_a,
+    rebuild_assets}.py. Per-video dirs keep only CONFIG (fetch_assets.py,
+    queries_*.txt, stock_urls.json).
+- **YT-AUTOMATION REVIEW (2026-08-26, user asked):** gemini-youtube-
+  automation (327★, active) = proven GitHub-Actions daily pipeline — the ONLY
+  thing worth adopting is its YouTube Data API v3 upload pattern (base64
+  OAuth secrets, quota fine: upload=1600 units of 10k/day). darkzOGx/
+  youtube-automation-agent (2.7k★, active) = heavy Node dashboard; steal
+  IDEAS only (analytics feedback loop, controlled title/thumb A/B). khaoss85/
+  youtube-autopilot (24★, stale) = skip. VERDICT: automate plumbing, never
+  judgment — our R4/R8/R22/R23 systems beat generic LLM pipes. **Phase 1
+  (pending user): `tools/youtube_upload.py` — OAuth once (user creates GCP
+  project + OAuth client, token to secrets/ NEVER pushed), reads metadata.md
+  pack + final.mp4 + thumbnail.jpg, uploads with synthetic-content
+  disclosure + prime-time schedule (R21). Phase 2: yt_analytics.py weekly
+  CTR/retention report into the queue. Phase 3 (optional): controlled
+  packaging experiments.**
 
 ## KEY TOOLS (all in vault/tools/ — verified in sync 2026-08-26)
 - `pipeline.py` — long-form builder (steps a–f; branch-aware part push/pull)
