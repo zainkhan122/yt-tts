@@ -72,6 +72,12 @@ mechanism already registered — even if the title is worded differently.
 | 10 Being Yourself | payoff | beats 34–47 skip 37,38 (borrowed lives → the loneliness of becoming, 42.0s, 3 captions) | ✅ vertical R24 (own media) |
 | 11 See What Others Don't | hook | beats 0–11 (you notice things cold open, 36.6s, 2 captions) | ✅ vertical R24 (own media) |
 | 11 See What Others Don't | payoff | beats 27–35 skip 29 (collects everything → the answer arrives whole, 43.1s, 4 captions) | ✅ vertical R24 (own media) |
+| 12 Four Inside You | hook | beats 0–12 (four people one house cold open, 36.6s, 2 captions) | ✅ vertical R24 (own media) |
+| 12 Four Inside You | payoff | beats 48–56 (at war with your house → built to be four, 41.9s, 3 captions) | ✅ vertical R24 (own media) |
+
+> **BACKFILL COMPLETE (2026-08-26): v4–v12 = 18 vertical Shorts, all R24
+> (independent beat-matched media per Short). v1–v3 impossible (no sources in
+> repo). Optional: refresh v13–v16 pairs under R24 (predate the rule).**
 
 ## ⛔ USED THUMBNAIL LINES (R8.6 — never repeat these concepts)
 YOURS / OS / FROZEN / MASKED / UNLIVED / LOOP / SHADOW (used 2× — banned forever) /
