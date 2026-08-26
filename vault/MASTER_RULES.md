@@ -277,3 +277,18 @@ Never start a step without this check. Print the numbers so the user sees them.
 4. When a topic is retired for duplication, add it to the RETIRED list in
    VIDEO_QUEUE.md so it is never resurrected.
 5. Every shipped video/short is registered the same day it is finalized.
+
+## R24. SHORTS MEDIA INDEPENDENCE (user-mandated 2026-08-26, non-negotiable)
+1. **EVERY Short gets its OWN media pool** — fresh portrait stock fetched with
+   queries unique to THAT Short (`queries_hook.txt` / `queries_payoff.txt`)
+   plus its OWN newly generated vertical AI images. Never share AI images
+   between the two Shorts of a video, never reuse another video's assets (R1).
+2. **Queries must be themed to the segment's actual content** — the hook's
+   cold-open imagery vs the payoff arc's imagery — not generic video-level
+   queries.
+3. **Layout:** `videos/NNN/shorts_ai/hook/` and `videos/NNN/shorts_ai/payoff/`
+   (disjoint). `make_short.py` reads ONLY its own kind's dir, fetches stock
+   into a per-kind /tmp dir, and seeds its RNG with (video, kind) — so two
+   Shorts of the same video can never show the same assets in the same order.
+4. **Verify before ship:** the build log's `media pool [kind]` line must show
+   the per-kind AI dir; if it ever falls back to the flat shared dir, STOP.

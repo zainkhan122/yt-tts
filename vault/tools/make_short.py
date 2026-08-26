@@ -292,19 +292,26 @@ def main():
     import gc; gc.collect()
 
     # --- media: portrait stock (fetched) + vertical AI images (you generated) ---
-    stock_dir = f"/tmp/{NAME}_short"
+    stock_dir = f"/tmp/{NAME}_short_{kind}"          # per-kind stock dir
     media = fetch_portrait(queries, 6, stock_dir)
-    ai_dir = os.path.join(BASE, "shorts_ai")
+    # per-kind AI pool: prefer shorts_ai/{kind}/ (disjoint assets per short);
+    # fall back to flat shorts_ai/ only for backward compatibility.
+    ai_dir = os.path.join(BASE, "shorts_ai", kind)
+    if not os.path.isdir(ai_dir) or not any(
+            f.lower().endswith((".jpg", ".jpeg", ".png"))
+            for f in os.listdir(ai_dir)):
+        ai_dir = os.path.join(BASE, "shorts_ai")
     if os.path.isdir(ai_dir):
         for f in sorted(os.listdir(ai_dir)):
             if f.lower().endswith((".jpg", ".jpeg", ".png")):
                 media.append((os.path.join(ai_dir, f), "photo"))
     if not media:
         raise SystemExit("no portrait media fetched — check Pexels key / queries")
-    print(f"media pool: {len(media)} ({sum(1 for _, k in media if k=='video')} video, "
-          f"{sum(1 for _, k in media if k=='photo')} AI)")
+    print(f"media pool [{kind}]: {len(media)} ({sum(1 for _, k in media if k=='video')} video, "
+          f"{sum(1 for _, k in media if k=='photo')} AI from {ai_dir})")
 
-    rng = random.Random(hashlib.md5(NAME.encode()).hexdigest())
+    # seed PER SHORT (name + kind): hook and payoff never share asset order
+    rng = random.Random(hashlib.md5(f"{NAME}_{kind}".encode()).hexdigest())
     videos = [m for m in media if m[1] == "video"]
     photos = [m for m in media if m[1] == "photo"]
     rng.shuffle(videos)
@@ -458,6 +465,7 @@ def phase2(mp):
         raise SystemExit("SHORT VERIFY FAILED")
 
     # free /tmp before the git push (the clone + write-tree need several hundred MB)
+    shutil.rmtree(f"/tmp/{os.path.basename(BASE)}_short_{kind}", ignore_errors=True)
     shutil.rmtree(f"/tmp/{os.path.basename(BASE)}_short", ignore_errors=True)
     subprocess.run([sys.executable, "/home/user/tools/git_push.py",
                     f"{os.path.basename(BASE)} {out_name} (vertical)",

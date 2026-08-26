@@ -146,10 +146,13 @@ def build(n, kind, pay_a=None, pay_b=None, skip=None):
             log(vd, f"payoff skips: {sorted(skip)}")
     if d < WIN[0] - CTA_EXT:
         die(vd, f"{kind} voice {d:.1f}s too SHORT (<{WIN[0]-CTA_EXT:.0f}s)")
-    qs = open(f"{vd}/shorts/queries.txt").read().strip() if os.path.exists(f"{vd}/shorts/queries.txt") else ""
+    qs_file = f"{vd}/shorts/queries_{kind}.txt"
+    if not os.path.exists(qs_file):
+        qs_file = f"{vd}/shorts/queries.txt"
+    qs = open(qs_file).read().strip() if os.path.exists(qs_file) else ""
     if qs:
         cmd += ["--queries", qs.replace("\n", ",")]
-    log(vd, f"building {kind}: beats {a}..{b-1}, voice {d:.1f}s, queries: {qs or '(defaults)'}")
+    log(vd, f"building {kind}: beats {a}..{b-1}, voice {d:.1f}s, queries[{qs_file.split('/')[-1]}]: {qs or '(defaults)'}")
     env = dict(os.environ, PIPE_VIDEO=vd)
     r = subprocess.run(cmd, env=env, capture_output=True, text=True)
     out = (r.stdout + r.stderr)[-2500:]
