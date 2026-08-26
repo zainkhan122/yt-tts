@@ -465,8 +465,9 @@ def phase2(mp):
         raise SystemExit("SHORT VERIFY FAILED")
 
     # free /tmp before the git push (the clone + write-tree need several hundred MB)
-    shutil.rmtree(f"/tmp/{os.path.basename(BASE)}_short_{kind}", ignore_errors=True)
-    shutil.rmtree(f"/tmp/{os.path.basename(BASE)}_short", ignore_errors=True)
+    import glob
+    for d in glob.glob(f"/tmp/{os.path.basename(BASE)}_short*"):
+        shutil.rmtree(d, ignore_errors=True)
     subprocess.run([sys.executable, "/home/user/tools/git_push.py",
                     f"{os.path.basename(BASE)} {out_name} (vertical)",
                     f"{REPO_BASE}/shorts/{out_name}", out], check=True)
