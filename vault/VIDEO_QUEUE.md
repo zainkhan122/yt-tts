@@ -68,6 +68,8 @@ mechanism already registered — even if the title is worded differently.
 | 8 Can't Love You | payoff | beats 30–40 skip 32,34 (Jung's projection → the quality you exiled, 41.8s, 4 captions) | ✅ vertical R24 (own media) |
 | 9 Disappear | hook | beats 0–13 (ghosting cold open, 36.6s, 4 captions) | ✅ vertical R24 (own media) |
 | 9 Disappear | payoff | beats 52–60 (possession → the shadow runs the show, 42.5s, 3 captions) | ✅ vertical R24 (own media) |
+| 10 Being Yourself | hook | beats 0–8 (behind glass cold open, 37.8s, 2 captions) | ✅ vertical R24 (own media) |
+| 10 Being Yourself | payoff | beats 34–47 skip 37,38 (borrowed lives → the loneliness of becoming, 42.0s, 3 captions) | ✅ vertical R24 (own media) |
 
 ## ⛔ USED THUMBNAIL LINES (R8.6 — never repeat these concepts)
 YOURS / OS / FROZEN / MASKED / UNLIVED / LOOP / SHADOW (used 2× — banned forever) /
