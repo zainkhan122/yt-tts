@@ -20,7 +20,7 @@ import base64, json, os, sys, subprocess, shutil, time, urllib.request, urllib.e
 
 TOKEN = open(os.path.expanduser("~/secrets/github_pat.txt")).read().strip()
 REPO = "zainkhan122/yt-tts"
-CLONE = "/tmp/yt-tts-vault"
+CLONE = "/home/user/.yt-tts-vault-clone"  # /tmp is 993MB; main tip now too fat for tmpfs
 API_LIMIT = 35_000_000   # raw bytes; base64 stays under GitHub's body ceiling
 
 
