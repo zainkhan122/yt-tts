@@ -143,9 +143,9 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
 - metadata_packs_R26.zip delivered to user (42 packs).
 
 ## NEXT ACTIONS (in order)
-1. **v17 finalize** this turn (`pipeline.py finalize`) — captions + pad + loudnorm, push final.mp4.
-2. Thumbnail + metadata pack (R8/R26) after final.
-3. Optional: v13–v16 Shorts refresh under R24.
+1. User approve/reject v17 thumb **ONE-WAY VALVE.** then download final.mp4 (drop local 80MB).
+2. V17 Shorts hook+payoff after thumb lock.
+3. V18 Black Sheep (MONTH3_PLAN).
 
 ## SECRETS (do NOT push into the PUBLIC repo)
 - /home/user/secrets/github_pat.txt · /home/user/.pexels_key
