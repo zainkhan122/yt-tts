@@ -500,7 +500,10 @@
    "NOBODY ASKS ABOUT YOU",
    "caption"
   ],
-  "cap_start": 0.973
+  "cap_start": 0.973,
+  "beat_len": 3.466666666666667,
+  "beat_dur": 3.466666666666667,
+  "v_dur": 3.47
  },
  {
   "sentence": "And when you try to speak, actually speak, something strange happens.",
@@ -515,7 +518,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.6,
+  "beat_dur": 4.6,
+  "v_dur": 4.6
  },
  {
   "sentence": "The conversation bends away from you.",
@@ -534,7 +540,10 @@
    "CONVERSATIONS BEND AWAY",
    "caption"
   ],
-  "cap_start": 1.336
+  "cap_start": 1.336,
+  "beat_len": 2.8666666666666667,
+  "beat_dur": 2.8666666666666667,
+  "v_dur": 2.87
  },
  {
   "sentence": "Within two sentences, they're talking again.",
@@ -549,7 +558,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.0,
+  "beat_dur": 3.0,
+  "v_dur": 3.0
  },
  {
   "sentence": "You let it bend.",
@@ -564,7 +576,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.4,
+  "beat_dur": 1.4,
+  "v_dur": 1.4
  },
  {
   "sentence": "You tell yourself you prefer it this way.",
@@ -579,7 +594,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.3333333333333335,
+  "beat_dur": 2.3333333333333335,
+  "v_dur": 2.33
  },
  {
   "sentence": "Listening is your gift, you say.",
@@ -594,7 +612,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.3666666666666667,
+  "beat_dur": 2.3666666666666667,
+  "v_dur": 2.37
  },
  {
   "sentence": "And it is.",
@@ -609,7 +630,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.1,
+  "beat_dur": 1.1,
+  "v_dur": 1.1
  },
  {
   "sentence": "But a gift you cannot refuse is not a gift.",
@@ -628,7 +652,10 @@
    "A GIFT YOU CAN'T REFUSE",
    "gold"
   ],
-  "cap_start": 1.229
+  "cap_start": 1.229,
+  "beat_len": 3.4,
+  "beat_dur": 3.4,
+  "v_dur": 3.4
  },
  {
   "sentence": "It's a job.",
@@ -647,7 +674,10 @@
    "IT'S A JOB",
    "caption"
   ],
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.3,
+  "beat_dur": 1.3,
+  "v_dur": 1.3
  },
  {
   "sentence": "And you've been working it unpaid since childhood.",
@@ -662,7 +692,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.8333333333333335,
+  "beat_dur": 2.8333333333333335,
+  "v_dur": 2.83
  },
  {
   "sentence": "Somewhere early, you were assigned a position.",
@@ -681,7 +714,10 @@
    "HIRED IN CHILDHOOD",
    "gold"
   ],
-  "cap_start": 1.592
+  "cap_start": 1.592,
+  "beat_len": 3.2,
+  "beat_dur": 3.2,
+  "v_dur": 3.2
  },
  {
   "sentence": "In your family, someone had to carry the feelings.",
@@ -696,7 +732,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.3,
+  "beat_dur": 3.3,
+  "v_dur": 3.3
  },
  {
   "sentence": "And the family decided it was you.",
@@ -711,7 +750,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.2333333333333334,
+  "beat_dur": 2.2333333333333334,
+  "v_dur": 2.23
  },
  {
   "sentence": "So why does everyone pick you?",
@@ -726,7 +768,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.9333333333333333,
+  "beat_dur": 1.9333333333333333,
+  "v_dur": 1.93
  },
  {
   "sentence": "It's not an accident.",
@@ -741,7 +786,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.5666666666666667,
+  "beat_dur": 1.5666666666666667,
+  "v_dur": 1.57
  },
  {
   "sentence": "It's your wiring.",
@@ -756,7 +804,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.4333333333333333,
+  "beat_dur": 1.4333333333333333,
+  "v_dur": 1.43
  },
  {
   "sentence": "Whatever your type, the pattern holds.",
@@ -771,7 +822,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.6,
+  "beat_dur": 2.6,
+  "v_dur": 2.6
  },
  {
   "sentence": "If you lead with intuition, you read people before they open their mouths.",
@@ -786,7 +840,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.466666666666667,
+  "beat_dur": 4.466666666666667,
+  "v_dur": 4.47
  },
  {
   "sentence": "If you lead with feeling, you hold their emotions like they're your own.",
@@ -801,7 +858,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.0,
+  "beat_dur": 4.0,
+  "v_dur": 4.0
  },
  {
   "sentence": "If you lead with thinking, you're the one who untangles what they can't.",
@@ -816,7 +876,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.233333333333333,
+  "beat_dur": 4.233333333333333,
+  "v_dur": 4.23
  },
  {
   "sentence": "People say I don't know why I'm telling you this to you like it's a reflex.",
@@ -835,7 +898,10 @@
    "STRANGERS TELL YOU EVERYTHING",
    "gold"
   ],
-  "cap_start": 1.528
+  "cap_start": 1.528,
+  "beat_len": 4.2,
+  "beat_dur": 4.2,
+  "v_dur": 4.2
  },
  {
   "sentence": "It is a reflex.",
@@ -850,7 +916,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.4333333333333333,
+  "beat_dur": 1.4333333333333333,
+  "v_dur": 1.43
  },
  {
   "sentence": "You offer people the rarest experience in modern life.",
@@ -865,7 +934,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.4,
+  "beat_dur": 3.4,
+  "v_dur": 3.4
  },
  {
   "sentence": "A person who is actually attending.",
@@ -880,7 +952,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.3,
+  "beat_dur": 2.3,
+  "v_dur": 2.3
  },
  {
   "sentence": "No waiting for their turn to talk.",
@@ -895,7 +970,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.1666666666666665,
+  "beat_dur": 2.1666666666666665,
+  "v_dur": 2.17
  },
  {
   "sentence": "No fixing when they need witnessing.",
