@@ -27,8 +27,10 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
   Script 171 beats + storyboard_config (28 captions) ALL PASS. 10 AI images +
   stock (182 pool). **Storyboard DONE:** 171 beats, 28 captions, 171/182 assets
   (94%), max_uses 1, no consecutive reuse, no intra-chunk reuse.
-  **FINAL.mp4 SHIPPED** 8:01 (481s), 83.2MB crf 28, 28 captions word-synced,
-  pushed to vault/video_017/final.mp4. work_f purged. Next: R8 thumbnail + R26 metadata.
+  **FINAL.mp4 SHIPPED** 8:01, 83.2MB. **Thumb candidate:** "ONE-WAY VALVE."
+  (empty armchair, R8). **metadata.md PASSES R26** (2 warns: keyword not in
+  first 5 title words / not in first ~12 sents — title is Psych formula).
+  Queue registered #17. Awaiting user thumb approval.
 - **Tools consolidated (R25.2):** ALL tools in tools/ (repo vault/tools/):
   + `render_thumb.py` (generalized R8 compositor: `render_thumb.py BASE OUT
     "LINE 1." "LINE 2." [ptsize]`), + `check_script.py` (generalized step-a
