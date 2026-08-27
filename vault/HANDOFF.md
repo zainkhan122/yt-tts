@@ -1,5 +1,5 @@
 # 🔄 HANDOFF — The Deeper Mind (resume here)
-*Rewritten 2026-08-26 (v11 turn). Read this FIRST in a new chat session.
+*Rewritten 2026-08-27 (v17 assets turn). Read this FIRST in a new chat session.
 If this file and VIDEO_QUEUE.md disagree, VIDEO_QUEUE.md wins on progress.*
 
 ## How to use this file
@@ -21,9 +21,11 @@ videos; `tools/make_short.py` v2 + `tools/shorts_backlog.py` produce NATIVE
 VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
 (branch main — PUBLIC, ~6.8GB history).
 
-## CURRENT STATE (2026-08-26, later)
-- **v16 COMPLETE + downloaded. Shorts backfill: v4–v11 DONE (16 R24 Shorts),
-  all downloaded. v12 = last backfill (next).** v1–v3 blocked (no sources).
+## CURRENT STATE (2026-08-27)
+- **v16 COMPLETE. Shorts backfill v4–v12 DONE (VIDEO_QUEUE wins).** v1–v3 blocked (no sources).
+- **v17 IN PROGRESS — The Psychology of the Friend Everyone Confides In.**
+  Script 171 beats + storyboard_config (28 captions) ALL PASS. **10 AI images
+  generated this turn** (warm-interior mood, R13 vs v16 ember-dusk). Next: stock fetch.
 - **Tools consolidated (R25.2):** ALL tools in tools/ (repo vault/tools/):
   + `render_thumb.py` (generalized R8 compositor: `render_thumb.py BASE OUT
     "LINE 1." "LINE 2." [ptsize]`), + `check_script.py` (generalized step-a
