@@ -142,7 +142,7 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
 - metadata_packs_R26.zip delivered to user (42 packs).
 
 ## NEXT ACTIONS (in order)
-1. **v17 finalize** (`pipeline.py finalize`) — captions + pad + loudnorm, push final.mp4.
+1. **v17 finalize** this turn (`pipeline.py finalize`) — captions + pad + loudnorm, push final.mp4.
 2. Thumbnail + metadata pack (R8/R26) after final.
 3. Optional: v13–v16 Shorts refresh under R24.
 
