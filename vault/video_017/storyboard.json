@@ -2924,7 +2924,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.8333333333333335,
+  "beat_dur": 2.8333333333333335,
+  "v_dur": 2.83
  },
  {
   "sentence": "Because the care you hand out so freely was never meant to flow in only one direction.",
@@ -2939,7 +2942,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 5.4,
+  "beat_dur": 5.4,
+  "v_dur": 5.4
  },
  {
   "sentence": "This week, one honest sentence to one person.",
@@ -2954,7 +2960,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.4,
+  "beat_dur": 3.4,
+  "v_dur": 3.4
  },
  {
   "sentence": "Not the whole truth.",
@@ -2969,7 +2978,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.4666666666666666,
+  "beat_dur": 1.4666666666666666,
+  "v_dur": 1.47
  },
  {
   "sentence": "Just one floor of it.",
@@ -2984,7 +2996,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.5666666666666667,
+  "beat_dur": 1.5666666666666667,
+  "v_dur": 1.57
  },
  {
   "sentence": "And watch what happens when the Listener finally speaks.",
@@ -2999,7 +3014,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.466666666666667,
+  "beat_dur": 3.466666666666667,
+  "v_dur": 3.47
  },
  {
   "sentence": "Some conversations will change.",
@@ -3014,7 +3032,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.1666666666666665,
+  "beat_dur": 2.1666666666666665,
+  "v_dur": 2.17
  },
  {
   "sentence": "A few relationships will too.",
@@ -3029,7 +3050,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.066666666666667,
+  "beat_dur": 2.066666666666667,
+  "v_dur": 2.07
  },
  {
   "sentence": "And somewhere in there, you'll feel the word this entire video has been about.",
@@ -3044,7 +3068,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.566666666666666,
+  "beat_dur": 4.566666666666666,
+  "v_dur": 4.57
  },
  {
   "sentence": "Known.",
@@ -3063,7 +3090,10 @@
    "KNOWN.",
    "gold"
   ],
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.0,
+  "beat_dur": 1.0,
+  "v_dur": 1.0
  },
  {
   "sentence": "The comments are yours now.",
@@ -3078,7 +3108,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.8666666666666667,
+  "beat_dur": 1.8666666666666667,
+  "v_dur": 1.87
  },
  {
   "sentence": "What is the heaviest thing someone ever handed you that you never signed up to carry?",
@@ -3093,7 +3126,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 5.066666666666666,
+  "beat_dur": 5.066666666666666,
+  "v_dur": 5.07
  },
  {
   "sentence": "And when was the last time someone held something for you?",
@@ -3108,7 +3144,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.566666666666667,
+  "beat_dur": 3.566666666666667,
+  "v_dur": 3.57
  },
  {
   "sentence": "You'll find a waiting room full of listeners down there.",
@@ -3123,7 +3162,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.0,
+  "beat_dur": 3.0,
+  "v_dur": 3.0
  },
  {
   "sentence": "Maybe it's time we took turns.",
@@ -3142,6 +3184,9 @@
    "TIME WE TOOK TURNS",
    "gold"
   ],
-  "cap_start": 1.059
+  "cap_start": 1.059,
+  "beat_len": 2.6666666666666665,
+  "beat_dur": 2.6666666666666665,
+  "v_dur": 2.67
  }
 ]
