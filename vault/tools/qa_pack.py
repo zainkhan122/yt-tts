@@ -9,7 +9,14 @@ sentences). Exit 1 on any FAIL; WARNs don't block."""
 import os, re, sys
 
 VD = sys.argv[1]
-kw = sys.argv[2].lower() if len(sys.argv) > 2 else None
+SHORTS = "--shorts" in sys.argv
+argv = [a for a in sys.argv[1:] if a != "--shorts"]
+kw = argv[1].lower() if len(argv) > 1 else None
+# Shorts profile: titles <=50, desc >=15 words (Shorts descriptions are
+# scanned but don't need 200), 3-5 hashtags incl #Shorts (mandatory —
+# Shorts discovery leans harder on topic tags). 2026 research-backed.
+TMAX = 50 if SHORTS else 60
+WMIN = 15 if SHORTS else 200
 md = open(f"{VD}/metadata.md", encoding="utf-8").read()
 fails, warns = [], []
 
@@ -20,8 +27,8 @@ if not title:
     fails.append("no TITLE section found")
 L = len(title)
 print(f"TITLE: {title!r} ({L} chars)")
-if L > 60: fails.append(f"title {L} chars > 60 (mobile truncation)")
-if L < 25: warns.append("title short (<25) — may under-identify the pain")
+if L > TMAX: fails.append(f"title {L} chars > {TMAX}")
+if L < 15: warns.append("title very short")
 if kw:
     pos = title.lower().split()[:5]
     if kw not in " ".join(pos):
@@ -35,10 +42,11 @@ body = re.sub(r"#\w+", "", desc)                     # strip hashtags for word c
 words = len(body.split())
 first150 = re.sub(r"\s+", " ", body)[:150].strip()
 print(f"DESC: {words} words | first 150: {first150[:90]!r}...")
-if words < 200: fails.append(f"description {words} words < 200 (indexing)")
+if words < WMIN: fails.append(f"description {words} words < {WMIN}")
 if kw and kw not in first150.lower():
     fails.append(f"primary keyword {kw!r} NOT in first 150 chars (search snippet)")
-if not re.search(r"\d{1,2}:\d{2}", desc): warns.append("no chapters/timestamps found")
+if not SHORTS and not re.search(r"\d{1,2}:\d{2}", desc): warns.append("no chapters/timestamps found")
+if SHORTS and "#shorts" not in desc.lower(): fails.append("Shorts description missing #Shorts")
 
 # --- HASHTAGS ---
 tags_in_desc = re.findall(r"#\w+", desc)
@@ -47,7 +55,7 @@ print(f"HASHTAGS: {n} -> {tags_in_desc[:6]}")
 if n == 0: warns.append("no hashtags")
 if 6 <= n <= 15: warns.append(f"{n} hashtags (6-15 = diluted; use 3-5)")
 if n > 15: fails.append(f"{n} hashtags > 15 — YouTube ignores ALL")
-if n and not any(t.lower() in ("#infj", "#intj", "#infp", "#intp", "#psychology") for t in tags_in_desc[:3]):
+if n and not SHORTS and not any(t.lower() in ("#infj", "#intj", "#infp", "#intp", "#psychology") for t in tags_in_desc[:3]):
     warns.append("first 3 hashtags (shown above title) lack the niche audience tag")
 
 # --- TAGS (backend) ---
@@ -70,7 +78,7 @@ if os.path.exists(vp):
     hook = " ".join(sents[:2])
     print(f"HOOK (first 2 sents, {len(hook)} chars): {hook[:80]!r}")
     if len(hook) > 220: warns.append("hook longer than ~2 spoken breaths")
-    if kw and kw not in " ".join(sents[:12]).lower():
+    if kw and not SHORTS and kw not in " ".join(sents[:12]).lower():
         warns.append(f"keyword {kw!r} not spoken in first ~12 sentences (60s window)")
 
 print()

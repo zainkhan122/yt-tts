@@ -121,6 +121,13 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
   #1 factor, keyword in first 5 title words + first description sentence,
   3-5 hashtags max (first 3 show above title), spoken keyword in first 60s.
 
+- **METADATA PACKS (2026-08-26):** `vault/metadata_packs/` holds ALL 42
+  gate-passing packs: 'metadata for video 1..16.md' (v1–v3 reconstructed —
+  paste into YouTube Studio; v4–v16 keyword-first snippets, 5 hashtags,
+  keyword-first tags) + 'metadata for short N hook|payoff.md' (26, Shorts
+  profile incl #Shorts). ALL PASS `tools/qa_pack.py` (R26; --shorts profile).
+  Generator: tools/gen_packs.py. User pastes these into YouTube manually.
+
 ## NEXT ACTIONS (in order)
 1. **v12 Shorts** (last backfill): "There Are 4 People Living Inside You"
    (persona–shadow–anima–Self). Sources ✓ in repo. Same recipe.
