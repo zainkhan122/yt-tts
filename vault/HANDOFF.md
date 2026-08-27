@@ -30,7 +30,9 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
   **FINAL.mp4 SHIPPED** 8:01, 83.2MB. **Thumb candidate:** "ONE-WAY VALVE."
   (empty armchair, R8). **metadata.md PASSES R26** (2 warns: keyword not in
   first 5 title words / not in first ~12 sents — title is Psych formula).
-  Queue registered #17. Awaiting user thumb approval.
+  Queue registered #17. Thumb locked (user downloaded). **Shorts DONE:**
+  `short 17 hook.mp4` 38.6s + `short 17 payoff.mp4` 33.5s (1080x1920/30).
+  Metadata: `metadata for short 17 hook.md` / `payoff.md` (R26 pass).
 - **Tools consolidated (R25.2):** ALL tools in tools/ (repo vault/tools/):
   + `render_thumb.py` (generalized R8 compositor: `render_thumb.py BASE OUT
     "LINE 1." "LINE 2." [ptsize]`), + `check_script.py` (generalized step-a
@@ -143,9 +145,8 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
 - metadata_packs_R26.zip delivered to user (42 packs).
 
 ## NEXT ACTIONS (in order)
-1. User approve/reject v17 thumb **ONE-WAY VALVE.** then download final.mp4 (drop local 80MB).
-2. V17 Shorts hook+payoff after thumb lock.
-3. V18 Black Sheep (MONTH3_PLAN).
+1. User download `short 17 hook.mp4` + `short 17 payoff.mp4` + metadata packs. Then drop local shorts to free snapshot.
+2. **V18** Why You Feel Like the Black Sheep of Your Family (MONTH3_PLAN) — step (a) script.
 
 ## SECRETS (do NOT push into the PUBLIC repo)
 - /home/user/secrets/github_pat.txt · /home/user/.pexels_key
