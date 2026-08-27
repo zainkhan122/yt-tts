@@ -142,8 +142,8 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
 - metadata_packs_R26.zip delivered to user (42 packs).
 
 ## NEXT ACTIONS (in order)
-1. **v17 render chunks 1–6** (this turn) — refetch `/tmp/stock17` before each chunk if git_push freed it.
-2. Then render chunk 0 (first-chunk gate) → remaining chunks → assemble → finalize.
+1. **v17 assemble** chunks 0–6 this turn (workspace cleaned; parts → `parts/video_017-KK`).
+2. Then finalize (captions + pad + push final).
 3. Optional: v13–v16 Shorts refresh under R24.
 
 ## SECRETS (do NOT push into the PUBLIC repo)
