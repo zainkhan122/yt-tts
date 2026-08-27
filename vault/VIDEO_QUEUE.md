@@ -17,6 +17,7 @@
 14. The Psychology of People Who Apologize for Existing — thumb: "SORRY IS SURRENDER" (bowed figure, right) — 6:38
 15. Why INFJs Push People Away When They Need Them Most — thumb: "THE LOCKED DOOR" (padlocked door, right) — 6:30
 16. Why You're Exhausted as a Deep Thinker — thumb: "NOT LAZY. DEPLETED." (burnt-match macro, ember right, text bottom-left) — 10:57
+17. The Psychology of the Friend Everyone Confides In — thumb: "ONE-WAY VALVE." (empty armchair / waiting room) — 8:01
 
 ## 🧠 TITLE + PAIN-POINT + MECHANISM REGISTER (R23 — dedup master; check BEFORE approving ANY new topic/Short)
 Every shipped video/short gets registered here the same day it's finalized.
@@ -41,6 +42,7 @@ mechanism already registered — even if the title is worded differently.
 | 14 | People Who Apologize for Existing | over-apologizing / self-erasure | Extraverted Feeling dom + weak Introverted Feeling |
 | 15 | INFJs Push People Away When They Need Them Most | refusing help while hurting | Fe–Ti loop under stress |
 | 16 | Exhausted as a Deep Thinker | cognitive drain / invisible labor of depth | psychic-energy economics (Ni/Ti; directed vs fantasy thinking) |
+| 17 | The Friend Everyone Confides In | always the listener / nobody to call | Helper persona + Fe one-way valve |
 
 ## 🎬 SHORTS REGISTER (R23 — track every Short's hook so we never re-use one)
 > 2026-08-20 decision: Shorts = **HOOK + best self-contained PAYOFF** (no midpoint),
@@ -82,7 +84,7 @@ mechanism already registered — even if the title is worded differently.
 ## ⛔ USED THUMBNAIL LINES (R8.6 — never repeat these concepts)
 YOURS / OS / FROZEN / MASKED / UNLIVED / LOOP / SHADOW (used 2× — banned forever) /
 BECAME THEM / PRICE OF SELF / SAW IT FIRST / OTHER THREE / ARRIVED EARLY /
-SORRY IS SURRENDER / THE LOCKED DOOR / NOT LAZY. DEPLETED.
+SORRY IS SURRENDER / THE LOCKED DOOR / NOT LAZY. DEPLETED. / ONE-WAY VALVE
 
 ## 🚫 RETIRED TOPICS (R23 — duplicates; NEVER revive)
 - "The Real Reason You Feel Alone in a Room Full of People" — dup of #4 + #10 (loneliness).
@@ -113,12 +115,9 @@ Why You're Drawn to Your Complete Opposite · The Psychology of People Who Read 
 Room Too Well · Why You Plan for Disasters That Never Come
 
 ## Title formula tracker (R11 — no 3 consecutive same formula)
-Last formulas: V10 "Why…" → V11 "The Psychology of People Who…" → V12 claim → V13 "Why…" → V14 "The Psychology of People Who…" → V15 "Why…".
-V16 = "Why…" would be 2 in a row (OK); V17 must NOT be "Why…".
+Last formulas: V15 "Why…" → V16 "Why…" → V17 "The Psychology of…". Next V18 must NOT be Psych (MONTH3: Why).
 
 ## ▶️ NEXT UP (in order)
-1. **USER APPROVAL of MONTH3 slate (V17-V22) — pending 2026-08-27.**
-2. **V17 "The Psychology of the Friend Everyone Confides In"** (helper
-   persona + Fe one-way valve) — step (a) on approval: script via
-   check_script.py + qa_pack gate BEFORE build, one pipeline step per turn.
-3. V18-V22 per MONTH3_PLAN.md order; 2 Shorts per video after thumbnail.
+1. User approve v17 thumbnail "ONE-WAY VALVE." then download final.mp4.
+2. V17 Shorts (hook + payoff) after thumb lock.
+3. V18 Why You Feel Like the Black Sheep of Your Family (MONTH3_PLAN).
