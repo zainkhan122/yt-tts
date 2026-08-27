@@ -27,9 +27,9 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
   Script 171 beats + storyboard_config (28 captions) ALL PASS. 10 AI images +
   stock (182 pool). **Storyboard DONE:** 171 beats, 28 captions, 171/182 assets
   (94%), max_uses 1, no consecutive reuse, no intra-chunk reuse.
-  **TTS DONE:** chunks 0–6 pushed; 28 caption timings (mid-sentence splits
-  have cap_start > 0; sentence-start caps @ 0.00s: IT'S A JOB, KNOWN.).
-  Next: render chunk 0 (first-chunk gate).
+  **TTS DONE.** **Render chunk 0 DONE + first-chunk gate PASS** (26/26:
+  1920x1080, 30fps, SAR 1:1, dur≈beat_len). video_chunk_00.zip on main
+  (~40.6MB). git_push freed /tmp/stock17 — refetch before chunks 1–6.
 - **Tools consolidated (R25.2):** ALL tools in tools/ (repo vault/tools/):
   + `render_thumb.py` (generalized R8 compositor: `render_thumb.py BASE OUT
     "LINE 1." "LINE 2." [ptsize]`), + `check_script.py` (generalized step-a
@@ -142,7 +142,7 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
 - metadata_packs_R26.zip delivered to user (42 packs).
 
 ## NEXT ACTIONS (in order)
-1. **v17 render chunk 0** (this turn, first-chunk gate R9.3) then chunks 1–6.
+1. **v17 render chunks 1–6** — refetch `/tmp/stock17` first, then one or more chunks.
 2. Then render chunk 0 (first-chunk gate) → remaining chunks → assemble → finalize.
 3. Optional: v13–v16 Shorts refresh under R24.
 
