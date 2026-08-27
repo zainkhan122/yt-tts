@@ -128,6 +128,13 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
   profile incl #Shorts). ALL PASS `tools/qa_pack.py` (R26; --shorts profile).
   Generator: tools/gen_packs.py. User pastes these into YouTube manually.
 
+- **MONTH3_PLAN.md "The Felt Wounds" slate v2 (2026-08-27):** Month-2 slate
+  failed R23 audit (#17/#18/#19 retired, #20 benched) — built replacement
+  slate V17-V22 in UNOPENED wound-families, each with felt pain + Jungian
+  mechanism + demand evidence + thumbnail direction. AWAITING USER APPROVAL.
+- **Pacing rule (user-mandated 2026-08-27): ONE thing per turn.** No mega-turns.
+- metadata_packs_R26.zip delivered to user (42 packs).
+
 ## NEXT ACTIONS (in order)
 1. **v12 Shorts** (last backfill): "There Are 4 People Living Inside You"
    (persona–shadow–anima–Self). Sources ✓ in repo. Same recipe.

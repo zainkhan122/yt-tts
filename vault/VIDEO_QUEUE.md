@@ -87,8 +87,11 @@ SORRY IS SURRENDER / THE LOCKED DOOR / NOT LAZY. DEPLETED.
 ## 🚫 RETIRED TOPICS (R23 — duplicates; NEVER revive)
 - "The Real Reason You Feel Alone in a Room Full of People" — dup of #4 + #10 (loneliness).
 - "Why Your Gut Feelings Keep Coming True" — dup of #11 (Ni foresight).
+- "#17 Can't Do Small Talk" — dup of #2 + #4 (2026-08-27).
+- "#18 Guilty for Resting" — worthiness family dup (v5/v7/v14/v16) (2026-08-27).
+- "#19 Never Feel Good Enough" — worthiness family dup (user call) (2026-08-27).
 
-## 🎬 MONTH 2 SLATE — see MONTH2_PLAN.md (cadence: 2 long-form/wk + 3 Shorts/wk)
+## 🎬 SLATE — see MONTH3_PLAN.md ("The Felt Wounds" v2, 2026-08-27; Month-2 slate failed R23 audit)
 
 | # | Title | Pain point | Jungian |
 |---|---|---|---|
@@ -114,11 +117,8 @@ Last formulas: V10 "Why…" → V11 "The Psychology of People Who…" → V12 cl
 V16 = "Why…" would be 2 in a row (OK); V17 must NOT be "Why…".
 
 ## ▶️ NEXT UP (in order)
-1. **Video 16 Shorts** — hook (in progress 2026-08-24) + payoff (pick self-contained
-   segment; candidates: Maya experiment beats ~95–109, or five-rules ~140–160).
-   Vertical via make_short.py v2; register both in the Shorts register below.
-2. **Video 17** — title formula must NOT be "Why…" (R11: V15 Why, V16 Why).
-   Slate: #17 "The Psychology of People Who Can't Do Small Talk" — ⚠️ flagged as
-   likely-dup retire (brushes #2 misunderstood + #4 loneliness of rare types).
-   Re-check R23 register before scripting; if retired, promote #18/19/20 or bench.
-   Note: #20 brushes #6 (replay/ruminate) — must center Si detail-memory.
+1. **USER APPROVAL of MONTH3 slate (V17-V22) — pending 2026-08-27.**
+2. **V17 "The Psychology of the Friend Everyone Confides In"** (helper
+   persona + Fe one-way valve) — step (a) on approval: script via
+   check_script.py + qa_pack gate BEFORE build, one pipeline step per turn.
+3. V18-V22 per MONTH3_PLAN.md order; 2 Shorts per video after thumbnail.
