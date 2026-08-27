@@ -27,9 +27,9 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
   Script 171 beats + storyboard_config (28 captions) ALL PASS. 10 AI images +
   stock (182 pool). **Storyboard DONE:** 171 beats, 28 captions, 171/182 assets
   (94%), max_uses 1, no consecutive reuse, no intra-chunk reuse.
-  **TTS DONE. RENDER ALL CHUNKS 0–6 DONE** (chunk 0 gate PASS). Chunk 4
-  push needed git_push CLONE=/home/user/.yt-tts-vault-clone because main
-  tip (video zips) overflowed 993MB /tmp. Next: assemble.
+  **TTS DONE. RENDER 0–6 DONE. ASSEMBLE 0–6 DONE** (parts on
+  `parts/video_017-00` … `-06`). Workspace cleaned (wavs/vbeats/zips gone;
+  video_017 ~1.8MB). Next: finalize.
 - **Tools consolidated (R25.2):** ALL tools in tools/ (repo vault/tools/):
   + `render_thumb.py` (generalized R8 compositor: `render_thumb.py BASE OUT
     "LINE 1." "LINE 2." [ptsize]`), + `check_script.py` (generalized step-a
@@ -142,8 +142,8 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
 - metadata_packs_R26.zip delivered to user (42 packs).
 
 ## NEXT ACTIONS (in order)
-1. **v17 assemble** chunks 0–6 this turn (workspace cleaned; parts → `parts/video_017-KK`).
-2. Then finalize (captions + pad + push final).
+1. **v17 finalize** (`pipeline.py finalize`) — captions + pad + loudnorm, push final.mp4.
+2. Thumbnail + metadata pack (R8/R26) after final.
 3. Optional: v13–v16 Shorts refresh under R24.
 
 ## SECRETS (do NOT push into the PUBLIC repo)
