@@ -988,7 +988,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.3333333333333335,
+  "beat_dur": 2.3333333333333335,
+  "v_dur": 2.33
  },
  {
   "sentence": "Carl Jung built his life's work on that kind of attention.",
@@ -1003,7 +1006,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.2,
+  "beat_dur": 3.2,
+  "v_dur": 3.2
  },
  {
   "sentence": "He believed you can only take another person as far as you have traveled yourself.",
@@ -1022,7 +1028,10 @@
    "ONLY AS FAR AS YOU'VE TRAVELED",
    "caption"
   ],
-  "cap_start": 2.531
+  "cap_start": 2.531,
+  "beat_len": 4.766666666666667,
+  "beat_dur": 4.766666666666667,
+  "v_dur": 4.77
  },
  {
   "sentence": "Which means the listening you offer others is only as deep as the care you give your own inner world.",
@@ -1037,7 +1046,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 5.7,
+  "beat_dur": 5.7,
+  "v_dur": 5.7
  },
  {
   "sentence": "You give world-class care to everyone else's.",
@@ -1052,7 +1064,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.933333333333333,
+  "beat_dur": 2.933333333333333,
+  "v_dur": 2.93
  },
  {
   "sentence": "And almost none to yours.",
@@ -1067,7 +1082,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.7666666666666666,
+  "beat_dur": 1.7666666666666666,
+  "v_dur": 1.77
  },
  {
   "sentence": "Jung gave the helper role a name.",
@@ -1082,7 +1100,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.1,
+  "beat_dur": 2.1,
+  "v_dur": 2.1
  },
  {
   "sentence": "The persona.",
@@ -1097,7 +1118,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.2666666666666666,
+  "beat_dur": 1.2666666666666666,
+  "v_dur": 1.27
  },
  {
   "sentence": "The mask that makes you useful to others.",
@@ -1112,7 +1136,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.533333333333333,
+  "beat_dur": 2.533333333333333,
+  "v_dur": 2.53
  },
  {
   "sentence": "For you, the persona is the Listener.",
@@ -1131,7 +1158,10 @@
    "THE LISTENER",
    "gold"
   ],
-  "cap_start": 1.315
+  "cap_start": 1.315,
+  "beat_len": 3.066666666666667,
+  "beat_dur": 3.066666666666667,
+  "v_dur": 3.07
  },
  {
   "sentence": "Calm.",
@@ -1146,7 +1176,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.0,
+  "beat_dur": 1.0,
+  "v_dur": 1.0
  },
  {
   "sentence": "Wise.",
@@ -1161,7 +1194,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.0666666666666667,
+  "beat_dur": 1.0666666666666667,
+  "v_dur": 1.07
  },
  {
   "sentence": "Always fine.",
@@ -1176,7 +1212,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.4,
+  "beat_dur": 1.4,
+  "v_dur": 1.4
  },
  {
   "sentence": "And personas are not lies.",
@@ -1191,7 +1230,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.1,
+  "beat_dur": 2.1,
+  "v_dur": 2.1
  },
  {
   "sentence": "Jung was clear about that.",
@@ -1206,7 +1248,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.7666666666666666,
+  "beat_dur": 1.7666666666666666,
+  "v_dur": 1.77
  },
  {
   "sentence": "The persona is a necessary tool.",
@@ -1221,7 +1266,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.3,
+  "beat_dur": 2.3,
+  "v_dur": 2.3
  },
  {
   "sentence": "You cannot meet the world without some interface.",
@@ -1236,7 +1284,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.7666666666666666,
+  "beat_dur": 2.7666666666666666,
+  "v_dur": 2.77
  },
  {
   "sentence": "The trouble starts when the tool becomes the face.",
@@ -1255,7 +1306,10 @@
    "WHEN THE TOOL BECOMES THE FACE",
    "caption"
   ],
-  "cap_start": 1.677
+  "cap_start": 1.677,
+  "beat_len": 3.4,
+  "beat_dur": 3.4,
+  "v_dur": 3.4
  },
  {
   "sentence": "When the Listener stops being something you do and becomes something you are.",
@@ -1270,7 +1324,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.366666666666666,
+  "beat_dur": 4.366666666666666,
+  "v_dur": 4.37
  },
  {
   "sentence": "Then a rule locks in, and you never even see it happen.",
@@ -1285,7 +1342,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.533333333333333,
+  "beat_dur": 3.533333333333333,
+  "v_dur": 3.53
  },
  {
   "sentence": "Your feelings are the background noise.",
@@ -1304,7 +1364,10 @@
    "YOUR FEELINGS: BACKGROUND NOISE",
    "caption"
   ],
-  "cap_start": 1.464
+  "cap_start": 1.464,
+  "beat_len": 2.966666666666667,
+  "beat_dur": 2.966666666666667,
+  "v_dur": 2.97
  },
  {
   "sentence": "Their feelings are the news.",
@@ -1319,7 +1382,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.7666666666666666,
+  "beat_dur": 1.7666666666666666,
+  "v_dur": 1.77
  },
  {
   "sentence": "Your job in every room is to hold, never to need.",
@@ -1334,7 +1400,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.6333333333333333,
+  "beat_dur": 3.6333333333333333,
+  "v_dur": 3.63
  },
  {
   "sentence": "And the role gets reinforced, year after year.",
@@ -1349,7 +1418,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.2,
+  "beat_dur": 3.2,
+  "v_dur": 3.2
  },
  {
   "sentence": "Every you're so easy to talk to is another coin in the jar.",
@@ -1364,7 +1436,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.7666666666666666,
+  "beat_dur": 3.7666666666666666,
+  "v_dur": 3.77
  },
  {
   "sentence": "Every I don't know what I'd do without you is a reason not to change.",
@@ -1379,7 +1454,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 4.266666666666667,
+  "beat_dur": 4.266666666666667,
+  "v_dur": 4.27
  },
  {
   "sentence": "You became fluent in being needed.",
