@@ -1472,7 +1472,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.3,
+  "beat_dur": 2.3,
+  "v_dur": 2.3
  },
  {
   "sentence": "And illiterate in being known.",
@@ -1491,7 +1494,10 @@
    "ILLITERATE IN BEING KNOWN",
    "gold"
   ],
-  "cap_start": 0.76
+  "cap_start": 0.76,
+  "beat_len": 2.5,
+  "beat_dur": 2.5,
+  "v_dur": 2.5
  },
  {
   "sentence": "Because here is the fine print nobody reads.",
@@ -1506,7 +1512,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.8666666666666667,
+  "beat_dur": 2.8666666666666667,
+  "v_dur": 2.87
  },
  {
   "sentence": "People confide in the Listener.",
@@ -1521,7 +1530,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.0,
+  "beat_dur": 2.0,
+  "v_dur": 2.0
  },
  {
   "sentence": "They rarely befriend the person underneath.",
@@ -1540,7 +1552,10 @@
    "CONFIDED IN, NOT BEFRIENDED",
    "gold"
   ],
-  "cap_start": 0.739
+  "cap_start": 0.739,
+  "beat_len": 3.1,
+  "beat_dur": 3.1,
+  "v_dur": 3.1
  },
  {
   "sentence": "They love what you do.",
@@ -1559,7 +1574,10 @@
    "LOVED FOR THE FUNCTION",
    "caption"
   ],
-  "cap_start": 0.739
+  "cap_start": 0.739,
+  "beat_len": 2.2666666666666666,
+  "beat_dur": 2.2666666666666666,
+  "v_dur": 2.27
  },
  {
   "sentence": "So you're left wondering if they would love what you are.",
@@ -1574,7 +1592,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.0,
+  "beat_dur": 3.0,
+  "v_dur": 3.0
  },
  {
   "sentence": "That question is the loneliness you can't name.",
@@ -1589,7 +1610,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.966666666666667,
+  "beat_dur": 2.966666666666667,
+  "v_dur": 2.97
  },
  {
   "sentence": "I want you to do something with me right now.",
@@ -1604,7 +1628,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.3333333333333335,
+  "beat_dur": 2.3333333333333335,
+  "v_dur": 2.33
  },
  {
   "sentence": "A thirty-second inventory.",
@@ -1619,7 +1646,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.066666666666667,
+  "beat_dur": 2.066666666666667,
+  "v_dur": 2.07
  },
  {
   "sentence": "Don't skip it.",
@@ -1634,7 +1664,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.2666666666666666,
+  "beat_dur": 1.2666666666666666,
+  "v_dur": 1.27
  },
  {
   "sentence": "Think of your five closest people.",
@@ -1649,7 +1682,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.2333333333333334,
+  "beat_dur": 2.2333333333333334,
+  "v_dur": 2.23
  },
  {
   "sentence": "For each one, answer honestly.",
@@ -1664,7 +1700,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.3333333333333335,
+  "beat_dur": 2.3333333333333335,
+  "v_dur": 2.33
  },
  {
   "sentence": "Do they know what you're struggling with this month?",
@@ -1679,7 +1718,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.533333333333333,
+  "beat_dur": 2.533333333333333,
+  "v_dur": 2.53
  },
  {
   "sentence": "Not last year.",
@@ -1694,7 +1736,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.4,
+  "beat_dur": 1.4,
+  "v_dur": 1.4
  },
  {
   "sentence": "This month.",
@@ -1709,7 +1754,10 @@
    0.55
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.1,
+  "beat_dur": 1.1,
+  "v_dur": 1.1
  },
  {
   "sentence": "Could they name one thing that is weighing on you right now?",
@@ -1724,7 +1772,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 3.066666666666667,
+  "beat_dur": 3.066666666666667,
+  "v_dur": 3.07
  },
  {
   "sentence": "If the honest answer is no, no, no, no, and no, then you are not in five friendships.",
@@ -1739,7 +1790,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 5.733333333333333,
+  "beat_dur": 5.733333333333333,
+  "v_dur": 5.73
  },
  {
   "sentence": "You are in five appointments.",
@@ -1758,7 +1812,10 @@
    "FIVE APPOINTMENTS",
    "gold"
   ],
-  "cap_start": 1.037
+  "cap_start": 1.037,
+  "beat_len": 2.5,
+  "beat_dur": 2.5,
+  "v_dur": 2.5
  },
  {
   "sentence": "Some of you just felt that in your chest.",
@@ -1777,7 +1834,10 @@
    "DON'T SWALLOW IT",
    "caption"
   ],
-  "cap_start": 1.187
+  "cap_start": 1.187,
+  "beat_len": 2.933333333333333,
+  "beat_dur": 2.933333333333333,
+  "v_dur": 2.93
  },
  {
   "sentence": "Stay with the feeling.",
@@ -1792,7 +1852,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.5666666666666667,
+  "beat_dur": 1.5666666666666667,
+  "v_dur": 1.57
  },
  {
   "sentence": "Don't swallow it.",
@@ -1807,7 +1870,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.3,
+  "beat_dur": 1.3,
+  "v_dur": 1.3
  },
  {
   "sentence": "That sensation is the rest of this video.",
@@ -1822,7 +1888,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 2.933333333333333,
+  "beat_dur": 2.933333333333333,
+  "v_dur": 2.93
  },
  {
   "sentence": "The role charges rent, and it collects in three ways.",
@@ -1841,7 +1910,10 @@
    "THE ROLE CHARGES RENT",
    "gold"
   ],
-  "cap_start": 0.973
+  "cap_start": 0.973,
+  "beat_len": 4.0,
+  "beat_dur": 4.0,
+  "v_dur": 4.0
  },
  {
   "sentence": "First, the exhaustion.",
@@ -1856,7 +1928,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 1.9,
+  "beat_dur": 1.9,
+  "v_dur": 1.9
  },
  {
   "sentence": "You leave every call having given more than you received, and nobody notices the imbalance, including you.",
@@ -1871,7 +1946,10 @@
    0.5
   ],
   "caption": null,
-  "cap_start": 0.0
+  "cap_start": 0.0,
+  "beat_len": 6.666666666666667,
+  "beat_dur": 6.666666666666667,
+  "v_dur": 6.67
  },
  {
   "sentence": "Second, the slow loss of language.",
