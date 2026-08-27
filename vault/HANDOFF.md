@@ -24,8 +24,9 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
 ## CURRENT STATE (2026-08-27)
 - **v16 COMPLETE. Shorts backfill v4–v12 DONE (VIDEO_QUEUE wins).** v1–v3 blocked (no sources).
 - **v17 IN PROGRESS — The Psychology of the Friend Everyone Confides In.**
-  Script 171 beats + storyboard_config (28 captions) ALL PASS. **10 AI images
-  generated.** Stock fetched: 182 assets (10 AI + 64 video + 108 photo) in /tmp/stock17. stock_urls.json harvested. Next: storyboard.
+  Script 171 beats + storyboard_config (28 captions) ALL PASS. 10 AI images +
+  stock (182 pool). **Storyboard DONE:** 171 beats, 28 captions, 171/182 assets
+  (94%), max_uses 1, no consecutive reuse, no intra-chunk reuse. Next: TTS.
 - **Tools consolidated (R25.2):** ALL tools in tools/ (repo vault/tools/):
   + `render_thumb.py` (generalized R8 compositor: `render_thumb.py BASE OUT
     "LINE 1." "LINE 2." [ptsize]`), + `check_script.py` (generalized step-a
@@ -138,7 +139,7 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
 - metadata_packs_R26.zip delivered to user (42 packs).
 
 ## NEXT ACTIONS (in order)
-1. **v17 storyboard** (this turn) then **tts** next turn.
+1. **v17 tts** — `PIPE_VIDEO=/home/user/videos/video_017 python3 tools/pipeline.py tts`
 2. Then render chunk 0 (first-chunk gate) → remaining chunks → assemble → finalize.
 3. Optional: v13–v16 Shorts refresh under R24.
 
