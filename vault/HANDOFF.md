@@ -27,9 +27,9 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
   Script 171 beats + storyboard_config (28 captions) ALL PASS. 10 AI images +
   stock (182 pool). **Storyboard DONE:** 171 beats, 28 captions, 171/182 assets
   (94%), max_uses 1, no consecutive reuse, no intra-chunk reuse.
-  **TTS DONE.** **Render chunk 0 DONE + first-chunk gate PASS** (26/26:
-  1920x1080, 30fps, SAR 1:1, dur≈beat_len). video_chunk_00.zip on main
-  (~40.6MB). git_push freed /tmp/stock17 — refetch before chunks 1–6.
+  **TTS DONE. RENDER ALL CHUNKS 0–6 DONE** (chunk 0 gate PASS). Chunk 4
+  push needed git_push CLONE=/home/user/.yt-tts-vault-clone because main
+  tip (video zips) overflowed 993MB /tmp. Next: assemble.
 - **Tools consolidated (R25.2):** ALL tools in tools/ (repo vault/tools/):
   + `render_thumb.py` (generalized R8 compositor: `render_thumb.py BASE OUT
     "LINE 1." "LINE 2." [ptsize]`), + `check_script.py` (generalized step-a
