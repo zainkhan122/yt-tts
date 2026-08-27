@@ -139,7 +139,7 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
 - metadata_packs_R26.zip delivered to user (42 packs).
 
 ## NEXT ACTIONS (in order)
-1. **v17 tts** — `PIPE_VIDEO=/home/user/videos/video_017 python3 tools/pipeline.py tts`
+1. **v17 tts** (this turn) — then render chunk 0 (first-chunk gate).
 2. Then render chunk 0 (first-chunk gate) → remaining chunks → assemble → finalize.
 3. Optional: v13–v16 Shorts refresh under R24.
 
