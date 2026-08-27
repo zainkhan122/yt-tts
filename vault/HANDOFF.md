@@ -138,16 +138,9 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
 - metadata_packs_R26.zip delivered to user (42 packs).
 
 ## NEXT ACTIONS (in order)
-1. **v12 Shorts** (last backfill): "There Are 4 People Living Inside You"
-   (persona–shadow–anima–Self). Sources ✓ in repo. Same recipe.
-2. Optional (user's call): v13–v16 Shorts refresh under R24 (v16's payoff
-   reused its hook's 5 images; v13–15 also predate R24 but are published).
-3. **Video 17** (fresh turn, step a): title NOT "Why…" (R11). Slate #17
-   "Can't Do Small Talk" is a likely R23 dup-retire (brushes #2+#4) — check
-   register; candidates #18 Rest-Guilt / #19 Never Good Enough (⚠ differentiate
-   from v16's "stop earning worth with processing") / #20 (⚠ center Si memory
-   not rumination). MONTH2_PLAN.md + VIDEO_QUEUE.md for the slate.
-4. Keep registering every Short in the queue's Shorts register same-day.
+1. **v17 storyboard** (this turn) then **tts** next turn.
+2. Then render chunk 0 (first-chunk gate) → remaining chunks → assemble → finalize.
+3. Optional: v13–v16 Shorts refresh under R24.
 
 ## SECRETS (do NOT push into the PUBLIC repo)
 - /home/user/secrets/github_pat.txt · /home/user/.pexels_key
