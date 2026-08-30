@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Push THIS folder (deeper-mind/) to GitHub as a SINGLE commit via the Git Data API.
+"""Push THIS folder to GitHub as a SINGLE commit via the Git Data API.
 
 No clone. Preserves all other repo content (vault/, finance/, ...): it reads the
-current branch tip, adds only deeper-mind/* on top of the existing tree, and
+current branch tip, adds only this folder's files on top of the existing tree, and
 fast-forwards the branch. Excludes large/regenerable files (*.mp4) and scratch.
 
 Auth: token is read from env GITHUB_PAT (fallback: /tmp/pat). It is NEVER hardcoded
@@ -14,8 +14,8 @@ Usage:
 import os, sys, json, base64, argparse, time, urllib.request, urllib.error
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)                 # the deeper-mind/ folder
-FOLDER = os.path.basename(ROOT)              # "deeper-mind"
+ROOT = os.path.dirname(HERE)                 # this channel folder
+FOLDER = os.path.basename(ROOT)              # e.g. "the-inner-machine"
 API = "https://api.github.com"
 EXCLUDE_DIRS = {".work", "__pycache__", ".git"}
 EXCLUDE_EXT = {".mp4", ".part"}
