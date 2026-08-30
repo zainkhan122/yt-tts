@@ -1,0 +1,16 @@
+{
+ "title": "Where Do Dreams Come From?",
+ "voice": "bm_george",
+ "style": "flat 2D vector storybook animation; deep indigo/navy night palette; warm cream moonlight accents; minimalist geometric shapes; soft radial glows; subtle grain; NO text in art; vertical 9:16",
+ "format": {"w": 1080, "h": 1920, "fps": 30},
+ "gap": 0.45,
+ "voice_id": "voice-00",
+ "beats": [
+  {"kf": "k1.png", "narration": "Ever wonder where your dreams actually come from?", "caption": "WHERE DO DREAMS\nCOME FROM?", "motion": ["settle", 1.35, 1.08, 0.5, 0.62, 0.5, 0.58], "est": 4.2},
+  {"kf": "k2.png", "narration": "Not from some faraway place. From right here, your own brain.", "caption": "YOUR BRAIN\nMAKES THEM", "motion": ["diag", 1.06, 1.30, 0.42, 0.40, 0.55, 0.48], "est": 5.0},
+  {"kf": "k3.png", "narration": "In REM sleep, the brainstem fires off random sparks of activity.", "caption": "REM: RANDOM SPARKS", "motion": ["rise", 1.12, 1.34, 0.5, 0.62, 0.5, 0.34], "est": 5.0},
+  {"kf": "k4.png", "narration": "Your cortex, the storyteller, weaves those sparks into a story.", "caption": "THE CORTEX WEAVES\nA STORY", "motion": ["panlr", 1.24, 1.24, 0.28, 0.45, 0.72, 0.45], "est": 5.0},
+  {"kf": "k5.png", "narration": "It pulls from memory and emotion. Familiar faces, impossible places.", "caption": "MEMORY + EMOTION", "motion": ["reveal", 1.34, 1.10, 0.5, 0.45, 0.5, 0.5], "est": 5.6},
+  {"kf": "k6.png", "narration": "A dream is your brain's nightly cinema. Remembering, rehearsing, and making sense of you.", "caption": "YOUR NIGHTLY CINEMA", "motion": ["settle", 1.06, 1.26, 0.5, 0.5, 0.5, 0.44], "est": 6.6}
+ ]
+}
