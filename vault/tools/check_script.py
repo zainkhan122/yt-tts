@@ -63,8 +63,31 @@ for i, s in enumerate(sents):
 
 print(f"hook S1: {sents[0][:70]}")
 print(f"closer: {sents[-1][:70]}")
+
+warns = []
+# R4/R27 hook clock — only FAIL if the author opted in via hook_anchor
+anchor = cfg.get("hook_anchor")
+if anchor:
+    hit = next((i for i, s in enumerate(sents[:8]) if anchor.lower() in s.lower()), None)
+    if hit is None:
+        fails.append(f"R27 hook_anchor {anchor!r} not in beats 0-7 (mechanism must land by ~0:15)")
+    else:
+        print(f"hook_anchor {anchor!r} -> beat {hit}")
+else:
+    warns.append("no storyboard_config.hook_anchor — v18+ should set it (substring of the named mechanism)")
+qs = sum(1 for s in sents[:12] if "?" in s)
+if qs < 1:
+    warns.append("no '?' in first 12 beats — Ask YouTube likes a spoken question early")
+need = os.path.join(BASE, "beat_needs.json")
+if not os.path.exists(need):
+    warns.append("no beat_needs.json — run: python3 tools/plan_assets.py VIDEO_DIR --stub")
+if N > 170:
+    warns.append(f"{N} beats is long (R4 target ~130-160 / 7-9 min)")
+
+for w in warns:
+    print("  WARN:", w)
 if fails:
     print("\nFAILS:")
     for f in fails: print("  x", f)
     sys.exit(1)
-print("\nALL SCRIPT CHECKS PASS")
+print("\nALL SCRIPT CHECKS PASS" + (f" ({len(warns)} warnings)" if warns else ""))

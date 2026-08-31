@@ -3,16 +3,24 @@
 *Last updated: 2026-08-19*
 ---
 
-## R1. NEW ASSETS EVERY VIDEO (variety is non-negotiable)
+## R1. NEW ASSETS EVERY VIDEO (meaning first — not a stock quota)
 
-1. Every video gets **its own NEW assets**: ≥10 AI images + ≥30 fresh stock clips/photos.
-2. **NEVER reuse a previous video's assets.** No `oldNN`, no `v2img` pools. Zero exceptions.
-3. AI images must be **visually distinct** — each a *different subject* (a face, an object,
-   a place, an abstract, a scene, a symbol). NEVER 10 variants of one moody scene.
-4. Stock must span ≥5 subject categories (people/faces, objects, nature, urban, abstract).
+1. Every video gets **its own NEW assets.** NEVER reuse another video's
+   `images/`, `shorts_ai/`, or stock pool. No `oldNN`, no `v2img`. Zero exceptions.
+2. **Eye–ear sync (R27) beats type quotas.** Do not fetch ≥30 stock or generate
+   N diagrams because a number said so. Cover the beat-need list
+   (`beat_needs.json`): each spoken line gets the picture that *means* that line.
+   Diagram / Ken Burns still / stock clip are tools. Wrong type on a beat = fail.
+3. Generate stills in **waves of ≤10 per turn** until the need-list is covered.
+   Tag every asset from the **sentence** so storyboard tag-hit can land it.
+   If a beat has no tag hit, that beat is missing an asset — gen or fetch *that*;
+   never silently use leftover mood B-roll.
+4. Motion stock is **optional spice** (only when motion *is* the meaning).
+   No floor of 30 clips. No 5-category mandate.
 5. **CAP:** no single asset used more than **2×** per video.
-6. **VERIFY** (storyboard step) and print: distinct-asset count + per-asset usage.
-   FAIL the build if any asset >2× or if distinct < 80% of the pool.
+6. **VERIFY** (storyboard): distinct-asset count + per-asset usage. FAIL if any
+   asset >2×, consecutive same asset, or intra-chunk reuse. Success = coverage
+   of `beat_needs.json`, not pool size 182.
 
 ## R2. CAPTION SYNC (kinetic text — exact, never estimated)
 
@@ -44,9 +52,11 @@
 
 ## R4. QUALITY BAR (the video must hold viewers)
 
-1. Visual change every 3–5s (one beat = one sentence).
-2. 8–10 min video = 100–140 beats, 20–28 captions.
-3. Hook in the first 2 sentences; end with a comment-driving question.
+1. Visual change every 3–5s (one beat = one sentence) **and** the picture
+   matches the sentence (R27). A cut to unrelated cafe B-roll is not a change.
+2. **7–9 min** target (~130–160 beats), 20–28 captions. Do not pad to 11 min.
+3. Hook: wound + **named mechanism** by ~0:15 (≤ beat 8). End with a
+   comment-driving question. No example-list before the mechanism is named.
 4. Color grade + vignette + fades; audio loudnorm −16 LUFS.
 
 ## R5. VOICE (locked forever)
@@ -65,8 +75,8 @@
 ## R7. BUILD ORDER (follow exactly)
 
 ```
-storyboard → verify assets (R1) → tts (split timings) → render (no captions,
-stores beat_len) → assemble (per-beat pad) → finalize (absolute captions) → push
+script + beat_needs.json → asset waves (R27) → storyboard → tts → render
+→ assemble → finalize → push
 ```
 
 ## R8. THUMBNAIL STYLE (locked — "C: the cryptic diagnosis")
@@ -158,10 +168,11 @@ Every video gets a SCORED ambient bed + polished voice via `finalize` PASS 3:
 1. **2 long-form/week** (Tue + Fri), prime US/UK evening. Do NOT exceed 2 — the
    niche has finite topics and quality beats frequency.
 2. **3 Shorts/week** (Mon/Wed/Sat), all **repurposed from existing long-forms**.
-   Segments = the **HOOK (cold open) + the video's best SELF-CONTAINED payoff**
-   — NEVER the R12 midpoint (it needs long-form context and dies without it;
-   user-confirmed 2026-08-20). A Short must be a complete setup → tension →
-   payoff in 30–45s. No original-topic Shorts.
+   Segments = **(A) the best reframe sentence in the first ~2 min** (not auto
+   beats 0–N) **+ (B) the best SELF-CONTAINED mechanism payoff**. NEVER the
+   R12 midpoint and NEVER the subscribe/closer tail. Each Short is setup →
+   tension → payoff in 30–45s. Media must match **that Short's spoken beats**
+   (R27). No original-topic Shorts.
 3. **A Short uses NATIVE VERTICAL media (1080×1920)** — portrait stock clips +
    vertical AI images fetched FOR the Short (user-confirmed 2026-08-20). NOT
    blur-fill from landscape (reads amateur) and NOT a hard crop. We still reuse
@@ -209,8 +220,9 @@ productivity) or dark-psychology clickbait. Every topic must pass:
 
 1. **One step per turn.** Never chain a whole build in one turn.
 2. **The fixed cadence, one turn each:**
-   `(a) assets+script → (b) storyboard+verify → (c) tts → (d) render+verify chunks →
-    (e) assemble+verify parts → (f) FINALIZE (concatenation) in its OWN turn.
+   `(a) script + check_script + beat_needs.json → (a2) asset waves ≤10/turn
+    until needs covered → (b) storyboard+verify → (c) tts → (d) render →
+    (e) assemble → (f) FINALIZE in its OWN turn.`
 3. **Verify before moving on:**
    - after render: every vbeat must be **30fps + SAR 1:1 + duration≈beat_dur**;
    - after assemble: every part **video duration == audio duration (±0.1s)**;
@@ -228,8 +240,9 @@ Never start a step without this check. Print the numbers so the user sees them.
 
 ## R18. ASSET VARIETY — NO PATTERNS, NO UNNECESSARY REPEATS
 
-1. **Fetch enough assets:** stock + AI count should be ≥ 90% of the beat count, so a
-   5-6 min video (~110-130 beats) carries ~100+ assets and reuses are rare.
+1. **Cover the need-list, don't inflate the pool.** Enough *matching* assets that
+   max_uses=2 can fill the beats without leftover-mood filler. Giant untagged
+   Pexels dumps (100+ random clips) are a fail, not a flex.
 2. **Global pool:** asset selection spans ALL assets — never locked to a small
    section list.
 3. **Use everything before reusing:** prefer never-used assets strongly.
@@ -328,3 +341,27 @@ CTR + retention decide distribution. Hard criteria, checked by
    First visual asset must MIRROR the first spoken line (beat-match).
 7. **ENGAGEMENT:** pinned comment ready at publish (first-24h comments are
    the strongest engagement signal); community post for major videos.
+
+## R27. EYE–EAR SYNC (locked 2026-08-31 — type is free, meaning is not)
+
+For every beat: **what you hear is what you see.** A labeled diagram on a
+feeling beat is as wrong as cafe B-roll on a mechanism beat.
+
+1. **Meaning before pool.** After script lock, write `beat_needs.json`: each
+   entry is `{ "start": "<sentence stem>", "kind": "diagram|object|place|motion|face",
+   "tags": ["..."], "note": "..." }`. Counts fall out of *this* script. Do not
+   invent infographics to look "2D" or fetch 64 clips to look "produced."
+2. **Generate until the list is covered** (≤10 stills/turn, as many turns as
+   needed). Stop when every named need has a matching file, not at 10 or 182.
+3. **Storyboard tags follow the sentence.** Tag-hit assignment is the landing
+   gear. No tag hit → missing asset, not "use leftover."
+4. **Motion only when motion is the meaning.** Otherwise Ken Burns on a
+   relevant still is correct.
+5. **Shorts, same test.** Each vertical still/clip mirrors that Short's spoken
+   beat (R24 dirs stay disjoint). Do not auto-hook beats 0–N.
+
+`tools/plan_assets.py VIDEO_DIR` drafts/validates `beat_needs.json`.
+`tools/check_script.py` WARNs if the file is missing; v18+ should have it
+before the first image wave. Optional `storyboard_config.json` keys:
+`hook_anchor` (substring that must appear in beats 0–7) — FAIL if set and
+missing; skip if unset (old videos).

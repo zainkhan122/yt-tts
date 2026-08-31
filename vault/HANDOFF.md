@@ -1,5 +1,5 @@
 # 🔄 HANDOFF — The Deeper Mind (resume here)
-*Rewritten 2026-08-27 (v17 assets turn). Read this FIRST in a new chat session.
+*Rewritten 2026-08-31 (R27 eye–ear sync). Read this FIRST in a new chat session.
 If this file and VIDEO_QUEUE.md disagree, VIDEO_QUEUE.md wins on progress.*
 
 ## How to use this file
@@ -21,18 +21,15 @@ videos; `tools/make_short.py` v2 + `tools/shorts_backlog.py` produce NATIVE
 VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
 (branch main — PUBLIC, ~6.8GB history).
 
-## CURRENT STATE (2026-08-27)
-- **v16 COMPLETE. Shorts backfill v4–v12 DONE (VIDEO_QUEUE wins).** v1–v3 blocked (no sources).
-- **v17 IN PROGRESS — The Psychology of the Friend Everyone Confides In.**
-  Script 171 beats + storyboard_config (28 captions) ALL PASS. 10 AI images +
-  stock (182 pool). **Storyboard DONE:** 171 beats, 28 captions, 171/182 assets
-  (94%), max_uses 1, no consecutive reuse, no intra-chunk reuse.
-  **FINAL.mp4 SHIPPED** 8:01, 83.2MB. **Thumb candidate:** "ONE-WAY VALVE."
-  (empty armchair, R8). **metadata.md PASSES R26** (2 warns: keyword not in
-  first 5 title words / not in first ~12 sents — title is Psych formula).
-  Queue registered #17. Thumb locked (user downloaded). **Shorts DONE:**
-  `short 17 hook.mp4` 38.6s + `short 17 payoff.mp4` 33.5s (1080x1920/30).
-  Metadata: `metadata for short 17 hook.md` / `payoff.md` (R26 pass).
+## CURRENT STATE (2026-08-31)
+- **v1–v17 long-form SHIPPED.** Shorts backfill v4–v12 + v17 hook/payoff DONE.
+  User downloaded v17 final + thumb + meta; local mp4s purged.
+- **R27 LOCKED (eye–ear sync):** type is free (diagram / still / stock);
+  meaning is not. R1 no longer requires ≥30 stock. `beat_needs.json` +
+  `plan_assets.py` + `hook_anchor` (optional, FAIL if set). Storyboard
+  WARNs beats with zero tag overlap.
+- Channel audit 2026-08-31 scored v1–v5 ~75–82; v17 ~72 same bottlenecks
+  (slow hook, generic B-roll). Lessons in `V17_AUDIT_RESPONSE.md`.
 - **Tools consolidated (R25.2):** ALL tools in tools/ (repo vault/tools/):
   + `render_thumb.py` (generalized R8 compositor: `render_thumb.py BASE OUT
     "LINE 1." "LINE 2." [ptsize]`), + `check_script.py` (generalized step-a
@@ -69,8 +66,9 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
 - `git_push.py` v3 — ≤35MB → Git Data API; >35MB or `--branch X` → shallow
   FULL clone pushed to refs/heads/X (side branches keep main's tip slim)
 - `repo_update.py` — small files + deletes via API
-- `render_thumb16.py` (vault/pipeline/) — R8 thumbnail compositor (argv-list
-  labels, per-op geometry, 50% glow — fixes the corrupted-text bug)
+- `render_thumb.py` — R8 compositor
+- `plan_assets.py` — R27 beat_needs draft/validate (`--stub` from captions)
+- `check_script.py` — sections/captions + hook_anchor + beat_needs WARN
 
 ## SHORTS RECIPE (one video per turn, ~10 images = the gen cap)
 1. `python3 tools/shorts_backlog.py plan NNN` + read the storyboard beats.
@@ -88,14 +86,12 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
    queries to repo, register rows in VIDEO_QUEUE.md Shorts register,
    present payoff to user. Clean PREVIOUS video's local shorts/shorts_ai.
 
-## LOCKED RULES (full text in MASTER_RULES.md R1–R24)
-- Voice R5: Kokoro af_heart @1.0. Audio R20: pad 0.55 + sidechain 0.05:3,
-  loudnorm -16. Cadence R21: 2 long/wk + 3 Shorts/wk. Thumbnails R8: cryptic
-  2–3 word diagnosis, used-lines register in VIDEO_QUEUE.md. Titles R11:
-  **V17 must NOT be "Why…"**. Scripts R4/R12: hook ≤2 sentences, midpoint
-  interrupt ~50%, comment-driving closer; ~200 beats ≈ 11 min at 2.3s/beat.
-  Captions R2: 20–28, word-synced. Dedup R23 + retired topics in queue.
-  Niche R22. **R24: Shorts media independence (see above).**
+## LOCKED RULES (MASTER_RULES.md R1–R27)
+- Voice R5 af_heart @1.0. Audio R20 pad 0.55 / duck 0.05:3 / loudnorm -16.
+- **R27 + R1:** cover `beat_needs.json`; no stock floor; 10 gens/turn × N turns.
+- R4: 7–9 min, ~130–160 beats; mechanism by beat 8. R11 titles: V18 = Why…
+  (browse variant in the pack). R21 Shorts = reframe + mechanism payoff,
+  not auto 0–N. R24 disjoint media. R26 qa_pack.
 
 ## OPERATIONAL FACTS (hard-won)
 - Two reset flavors: (1) pip+~/.cache/kokoro+/tmp wiped → bootstrap;
@@ -145,8 +141,9 @@ VERTICAL Shorts. Everything backed up to GitHub `zainkhan122/yt-tts`
 - metadata_packs_R26.zip delivered to user (42 packs).
 
 ## NEXT ACTIONS (in order)
-1. User download `short 17 hook.mp4` + `short 17 payoff.mp4` + metadata packs. Then drop local shorts to free snapshot.
-2. **V18** Why You Feel Like the Black Sheep of Your Family (MONTH3_PLAN) — step (a) script.
+1. **V18** Why You Feel Like the Black Sheep of Your Family — step (a):
+   script with `hook_anchor` in beats 0–7 + `beat_needs.json` (kinds from
+   THIS script, not a diagram quota) → `check_script.py` → asset waves of 10.
 
 ## SECRETS (do NOT push into the PUBLIC repo)
 - /home/user/secrets/github_pat.txt · /home/user/.pexels_key

@@ -211,6 +211,19 @@ def build_storyboard():
     frac = distinct / len(ASSETS) if ASSETS else 0
     print(f"storyboard: {N} beats; captioned: {sum(1 for b in beats if b['caption'])}; "
           f"assets used: {distinct}/{len(ASSETS)} ({frac*100:.0f}%); over-cap: {over if over else 'none'}; all files present")
+    # R27: report beats whose chosen asset has ZERO tag overlap with the sentence
+    miss_tag = []
+    for i, b in enumerate(beats):
+        tags = tags_of(b["asset"])
+        low = b["sentence"].lower()
+        if tags and not any(t in low for t in tags if t not in ("stock", "photo", "video")):
+            miss_tag.append(i)
+    if miss_tag:
+        print(f"R27 WARN: {len(miss_tag)} beats with no tag overlap (eye/ear drift risk): "
+              f"{miss_tag[:12]}{'…' if len(miss_tag)>12 else ''}")
+    np = os.path.join(BASE, "beat_needs.json")
+    if not os.path.exists(np):
+        print("R27 WARN: no beat_needs.json — plan_assets.py before the next video")
 
 def chunk_range(k):
     N = len(json.load(open(SB)))
