@@ -107,13 +107,13 @@ def render_beat(kf,cap,mot,dur_s,out,W,H,FPS,last=False):
     nf=int(round(dur_s*FPS)); z,x,y=motion_fc(mot,nf)
     caption_png(cap,f"{out}.cap.png",W,H)
     fout=f",fade=t=out:st={dur_s-0.45:.2f}:d=0.45" if last else ""
-    fc=(f"[0:v]scale={int(W*1.5)}:{int(H*1.5)}:force_original_aspect_ratio=increase:flags=lanczos,"
-        f"crop={int(W*1.5)}:{int(H*1.5)},"
+    fc=(f"[0:v]scale={int(W*1.2)}:{int(H*1.2)}:force_original_aspect_ratio=increase:flags=lanczos,"
+        f"crop={int(W*1.2)}:{int(H*1.2)},"
         f"zoompan=z='{z}':x='{x}':y='{y}':d={nf}:s={W}x{H}:fps={FPS},setsar=1,"
         f"eq=saturation=1.05,vignette=PI/5,format=yuv420p,fade=t=in:st=0:d=0.3{fout}[bg];"
         f"[1:v]format=rgba,fade=t=in:st=0.25:d=0.35:alpha=1[cp];[bg][cp]overlay=0:0[v]")
     run([FF,"-y","-i",kf,"-loop","1","-framerate",str(FPS),"-t",f"{dur_s:.3f}","-i",f"{out}.cap.png",
-         "-filter_complex",fc,"-map","[v]","-c:v","libx264","-preset","veryfast","-crf","20",
+         "-filter_complex",fc,"-map","[v]","-c:v","libx264","-preset","ultrafast","-crf","21",
          "-r",str(FPS),"-t",f"{dur_s:.3f}","-an",out])
     os.remove(f"{out}.cap.png")
 
@@ -121,8 +121,8 @@ def concat(parts,out,W,H,FPS):
     lf=out+".txt"
     with open(lf,"w") as f:
         for p in parts: f.write(f"file '{p}'\n")
-    run([FF,"-y","-f","concat","-safe","0","-i",lf,"-c:v","libx264","-preset","medium",
-         "-crf","20","-pix_fmt","yuv420p","-r",str(FPS),out]); os.remove(lf)
+    run([FF,"-y","-f","concat","-safe","0","-i",lf,"-c:v","libx264","-preset","fast",
+         "-crf","21","-pix_fmt","yuv420p","-r",str(FPS),out]); os.remove(lf)
 
 # ---------- builders ----------
 def build_long(cfg,base,outdir,title,work):
@@ -162,6 +162,7 @@ def build_long(cfg,base,outdir,title,work):
     info=subprocess.run([FF,"-i",final],capture_output=True,text=True).stderr
     d=dur(final)
     ok={"dims":f"{W}x{H}" in info,"fps":f"{FPS} fps" in info,"aud":"Audio: aac" in info,"dur":abs(d-total)<1.5}
+    json.dump({"total":total,"durs":durs},open(f"{outdir}/timings.json","w"))
     print("LONG VERIFY:",ok); return ok,total,durs
 
 def build_cover(cfg,base,outdir,title):
@@ -249,11 +250,17 @@ def main():
     only=a.only
     try:
         preflight(cfg,base)
-        if only in (None,"long","meta"):
+        total=None; durs=None; tf=f"{outdir}/timings.json"
+        # SOP ORDER (enforced): 1 long video -> 2 thumbnail(cover) -> 3 metadata -> 4 shorts LAST
+        if only in (None,"long"):
             ok,total,durs=build_long(cfg,base,outdir,title,work)
             if not all(ok.values()): raise RuntimeError(f"long verify failed: {ok}")
-            build_meta(cfg,outdir,title,total,durs)
         if only in (None,"cover"): build_cover(cfg,base,outdir,title)
+        if only in (None,"meta"):
+            if total is None and os.path.exists(tf):
+                td=json.load(open(tf)); total,durs=td["total"],td["durs"]
+            if total is None: raise RuntimeError("no timings - run --only long first")
+            build_meta(cfg,outdir,title,total,durs)
         if only in (None,"shorts"):
             n=len(cfg["beats"])
             h=build_short(cfg,base,outdir,title,"hook",list(range(min(2,n))),work)

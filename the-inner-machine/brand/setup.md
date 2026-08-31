@@ -66,15 +66,20 @@ The reference is consulted for production technique only, never for strategy.*
 11. Why Your Mind Wanders (The Default Mode Network)
 12. Why Habits Are So Hard to Break
 
-## 5 · SOP (one video)
+## 5 · SOP (one video) — STRICT ORDER
+Prep
 1. **Topic** — pull from the slate; confirm pillar + hook formula.
-2. **Script** — write as beats: `narration` + `caption` + `visual` + `motion` (+ `est`).
-3. **Keyframes** — generate storybook art, palette-locked, any aspect (cropped to 9:16).
-4. **Produce** — `python3 pipeline/produce.py plan/video-NN…/project.json`
-   → `output/<Title>/` (long-form + 2 Shorts + metadata + cover), auto-verified.
-5. **Metadata** — keyword in title + first description line; 3–5 hashtags; chapters; pinned comment.
-6. **QA** — `state.json` must read `ok` (dims/fps/audio/duration verified) before upload.
-7. **Upload** — you click upload; I supply video + cover + metadata pack.
+2. **Script** — write as beats: `narration` + `caption` + `kf` + `motion`.
+3. **Keyframes** — generate storybook art (reusable across beats), palette-locked.
+Production — the tool **enforces this order; never reorder**
+4. **LONG VIDEO first** — render + verify the full long-form.
+5. **THUMBNAIL** — cover, from the long-form's art.
+6. **METADATA** — description/tags/chapters/hashtags, using the verified runtime.
+7. **SHORTS LAST** — only after 4–6, derived from the finished long-form.
+8. **QA / upload** — `state.json` must read `ok`; you click upload.
+
+`produce.py` runs 4→7 in order with no flag. `--only long|cover|meta|shorts` runs a single
+step. It refuses metadata before the long video exists, and Shorts are always last.
 
 ## 6 · Toolchain (this channel's tools — all in `pipeline/`)
 - `produce.py` — config → verified output folder (self-bootstrapping, pre-flight, crash-safe).

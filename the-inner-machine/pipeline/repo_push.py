@@ -18,7 +18,7 @@ ROOT = os.path.dirname(HERE)                 # this channel folder
 FOLDER = os.path.basename(ROOT)              # e.g. "the-inner-machine"
 API = "https://api.github.com"
 EXCLUDE_DIRS = {".work", "__pycache__", ".git"}
-EXCLUDE_EXT = {".mp4", ".part"}
+EXCLUDE_EXT = {".mp4", ".part", ".jpg", ".jpeg", ".png"}   # never push video or image assets
 
 
 def token():
@@ -65,13 +65,13 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--message", default=f"Add {FOLDER}/ standalone pipeline (separate from vault/)")
     a = ap.parse_args()
-    tok = token()
     fl = files()
     print(f"{a.repo} @ {a.branch}: {len(fl)} files under {FOLDER}/")
     for p, _ in fl:
         print("  +", p)
     if a.dry_run:
         return
+    tok = token()
     base_commit = req("GET", f"/repos/{a.repo}/git/ref/heads/{a.branch}", tok)["object"]["sha"]
     base_tree = req("GET", f"/repos/{a.repo}/git/commits/{base_commit}", tok)["tree"]["sha"]
     tree = []
