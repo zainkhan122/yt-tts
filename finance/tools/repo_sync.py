@@ -20,12 +20,12 @@ def token():
     for p in [ROOT / "secrets/github_pat.txt", Path.home() / "secrets/github_pat.txt"]:
         if p.exists() and p.stat().st_size > 0:
             return p.read_text().strip()
-    sys.exit("MISSING GitHub PAT. Paste it to finance-yt/secrets/github_pat.txt — do not commit it.")
+    sys.exit("MISSING GitHub PAT. Paste it to secrets/github_pat.txt — do not commit it.")
 
 def api(method, url, tok, data=None, timeout=120):
     req = urllib.request.Request(url, method=method)
     req.add_header("Authorization", f"Bearer {tok}")
-    req.add_header("User-Agent", "threshold-finance")
+    req.add_header("User-Agent", "public-record")
     req.add_header("Accept", "application/vnd.github+json")
     body = None
     if data is not None:
@@ -68,7 +68,7 @@ def put_file(tok, rel, data: bytes, msg):
             raise
     return api("PUT", url, tok, payload)
 
-def push(msg="threshold: sync finance/"):
+def push(msg="public-record: sync"):
     tok = token()
     files = local_files()
     print(f"pushing {len(files)} files -> {OWNER}/{REPO}/{PREFIX}/")
