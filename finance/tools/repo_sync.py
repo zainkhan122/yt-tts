@@ -7,13 +7,14 @@ Usage:
   python3 tools/repo_sync.py pull
   python3 tools/repo_sync.py status
 """
-import json, os, sys, urllib.error, urllib.request
+import json, os, sys, urllib.error, urllib.parse, urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OWNER, REPO, PREFIX = "zainkhan122", "yt-tts", "finance"
 SKIP_DIRS = {".git", "secrets", "__pycache__", "output", "previews"}
 SKIP_SUFFIX = {".pyc", ".mp4", ".mp3", ".wav"}
+SKIP_NAMES = {".pexels_ids.json"}
 TEXT_OK = {".md", ".py", ".json", ".txt", ".csv", ".svg"}
 
 def token():
@@ -37,8 +38,10 @@ def api(method, url, tok, data=None, timeout=120):
             return {}
         return json.loads(r.read().decode() or "{}")
     except urllib.error.HTTPError as e:
-        print("HTTP", e.code, e.read().decode()[:500])
-        raise
+        body = e.read().decode()[:500]
+        if e.code != 404:
+            print("HTTP", e.code, body)
+        raise urllib.error.HTTPError(e.url, e.code, e.msg, e.hdrs, None)
 
 def local_files():
     files = []
@@ -50,6 +53,8 @@ def local_files():
             continue
         if p.suffix in SKIP_SUFFIX:
             continue
+        if p.name in SKIP_NAMES:
+            continue
         if p.stat().st_size > 20_000_000:
             print("skip large", rel); continue
         files.append(p)
@@ -58,7 +63,8 @@ def local_files():
 def put_file(tok, rel, data: bytes, msg):
     import base64
     path = f"{PREFIX}/{rel}"
-    url = f"https://api.github.com/repos/{OWNER}/{REPO}/contents/{path}"
+    enc = urllib.parse.quote(path, safe="/")
+    url = f"https://api.github.com/repos/{OWNER}/{REPO}/contents/{enc}"
     payload = {"message": msg, "content": base64.b64encode(data).decode()}
     try:
         existing = api("GET", url, tok)
