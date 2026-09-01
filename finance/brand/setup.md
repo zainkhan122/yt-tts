@@ -1,11 +1,13 @@
-# Brand — THRESHOLD
+# Brand — The Public Record
 
-**Promise:** We show the rule. We do not sell a pick.
+**Promise:** One real company per video. Named in sentence one. We show the death. We do not sell a pick.
 
-**Sound-off test:** a still from any video should be recognizable as this show by navy ground + gold data + one big number + a source line.
+**Handle:** `@thepublicrecord` (confirm in YouTube Studio — if taken, stop and pick a variant).
 
-**Do not:** faces of a host, luxury flex, crypto neon, stock “business people.”
+**Sound-off test:** a still should read as charcoal + paper + a red stamp, not navy/gold charts (that was THRESHOLD, paused).
 
-**Thumbnail:** 2–4 word diagnosis, gold or paper type, chart or object hero.
+**Do not:** host face, fake trademarks, crypto neon, “business people” stock.
 
-**Voice:** unlocked. Audition before V01 TTS. Never use The Deeper Mind’s `af_heart`.
+**Thumbnail:** 2–4 word diagnosis, not the title. Object hero (card, empty room, filing). Company name lives in the title.
+
+**Voice:** Kokoro `am_michael` @ 1.0. Never `af_heart`.
