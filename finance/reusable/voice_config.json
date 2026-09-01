@@ -1,9 +1,9 @@
 {
-  "status": "AUDITIONED_NOT_LOCKED",
-  "candidates": {
-    "voice-00": "masculine / narration (user pick from battle 00)",
-    "voice-01": "masculine / educational (user pick from battle 01)",
-    "voice-02": "feminine / educational (user pick from battle 02)"
-  },
-  "notes": "Listen to previews/demo_voice00.mp4, demo_voice01.mp4, demo_voice02.mp4. Lock ONE in F5. Do not use Kokoro af_heart."
+  "status": "LOCKED",
+  "engine": "kokoro-onnx",
+  "voice": "am_michael",
+  "speed": 1.0,
+  "lang": "en-us",
+  "arena_choice": "A = voice-03 narration (user pick). Cannot long-form: 1500-char API = new take every chunk = the glitch.",
+  "method": "Same as yt-tts: ONE Kokoro() instance, sequential create() on paragraphs, concat samples. No new-process per chunk."
 }
