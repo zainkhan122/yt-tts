@@ -1,61 +1,99 @@
 #!/usr/bin/env python3
-"""check_script.py — F12 script gate for THRESHOLD.
-Usage: python3 tools/check_script.py VIDEO_DIR [prev_voiceover.txt]
-Digits ARE allowed (finance). Numbers should also appear in speakable form.
+"""Script gate. Fence + uniqueness. No required intro/outro shape.
+Usage: python3 tools/check_script.py EPISODE_DIR
 """
-import os, re, sys
+import json, re, sys
+from pathlib import Path
 
-BASE = sys.argv[1]
-prev = sys.argv[2] if len(sys.argv) > 2 else None
-path = f"{BASE}/voiceover.txt"
-text = re.sub(r"\s+", " ", open(path, encoding="utf-8").read()).strip()
+ROOT = Path(__file__).resolve().parents[1]
+BASE = Path(sys.argv[1])
+text_raw = (BASE / "voiceover.txt").read_text(encoding="utf-8")
+text = re.sub(r"\s+", " ", text_raw).strip()
 sents = [p.strip() for p in re.split(r"(?<=[.!?])\s+", text) if p.strip()]
-N = len(sents)
-fails = []
-print(f"beats: {N} | est @2.3s: {N*2.3/60:.1f} min (target 8-11)")
+fails, warns = [], []
+words = text.split()
+print(f"sentences {len(sents)} | words {len(words)} | est min {len(words)/150:.1f}")
 
-if N < 80: fails.append(f"too short ({N} beats) for 8 min")
-if N > 160: fails.append(f"too long ({N} beats)")
+LEGAL = (
+    "not investment advice", "not financial advice", "not financial, tax",
+    "this is education, not", "education, not investment", "education, not advice",
+    "education only", "not a recommendation to buy", "not tax advice",
+)
+low = text.lower()
+for d in LEGAL:
+    if d in low:
+        fails.append(f"L1: legal phrase in voiceover: {d!r} — description last block only")
 
-hook = " ".join(sents[:2])
-print(f"HOOK: {hook[:120]}")
-if len(sents) < 2: fails.append("need ≥2 sentences")
-if re.match(r"^(hey|hi|hello|welcome|what's up)", sents[0], re.I):
+first = sents[0] if sents else ""
+print("S1:", first[:110])
+if re.match(r"^(hey|hi|hello|welcome)", first, re.I):
     fails.append("hook is a greeting")
-if "not financial advice" not in " ".join(sents[:4]).lower():
-    fails.append("F28 spoken disclaimer not in first 4 sentences")
 
-joined12 = " ".join(sents[:12]).lower()
-if not re.search(r"\d|thousand|hundred|percent|dollar", joined12):
-    fails.append("no number spoken in first ~60s")
+# Company should appear early — warn, don't force sentence-one stamp
+head = " ".join(sents[:4]).lower()
+if len(words) > 80 and not re.search(r"[A-Z][a-zA-Z]{2,}", first):
+    warns.append("S1 has no proper name — check the company is identifiable in the first seconds")
 
-closer = sents[-1]
-print(f"CLOSER: {closer[:120]}")
-if "?" not in closer:
-    fails.append("closer is not a question (F12 comment-driving)")
+CANNED = (
+    "we show the death",
+    "we do not sell a pick",
+    "people did not stop",
+    "stay with that",
+    "if you want the next collapse",
+    "this is education, not",
+    "every date you hear is on the public record",
+)
+this_canned = [c for c in CANNED if c in low]
 
-if prev and os.path.exists(prev):
-    old = open(prev, encoding="utf-8").read().lower()
-    furniture = [
-        "here's the truth nobody told you",
-        "here's what's actually happening",
-        "i'll see you in the next one",
-        "let's get into it",
-    ]
-    for f in furniture:
-        if f in text.lower() and f in old:
-            fails.append(f"F12 signpost reused: {f}")
+def sibling_voiceovers():
+    out = []
+    ep = ROOT / "episodes"
+    if not ep.exists():
+        return out
+    for d in ep.iterdir():
+        if not d.is_dir() or d.resolve() == BASE.resolve():
+            continue
+        # skip shorts packs
+        if "shorts" in d.parts:
+            continue
+        vp = d / "voiceover.txt"
+        if vp.exists():
+            out.append((d.name, re.sub(r"\s+", " ", vp.read_text(encoding="utf-8")).strip().lower()))
+    return out
 
-risky = []
-for i, s in enumerate(sents):
-    if re.search(r"[;{}<>]|https?://", s):
-        risky.append(i)
-if risky:
-    fails.append(f"TTS-risky punctuation in beats {risky[:8]}")
+def norm_head(s, n=10):
+    return " ".join(re.sub(r"[^a-z0-9 ]", " ", s.lower()).split()[:n])
 
-print(f"hook S1: {sents[0][:70]}")
+sibs = sibling_voiceovers() if BASE.parent.name == "episodes" else []
+s1n = norm_head(first, 9)
+for name, body in sibs:
+    s0 = re.split(r"(?<=[.!?])\s+", body.strip())
+    if not s0:
+        continue
+    if s1n and s1n == norm_head(s0[0], 9):
+        fails.append(f"L2: S1 is the same shape as {name!r}")
+    for c in this_canned:
+        if c in body:
+            fails.append(f"L2: canned line {c!r} also in {name!r} — write a closer this film earned")
+            break
+    # last 30 words overlap
+    a = set(low.split()[-30:])
+    b = set(body.split()[-30:])
+    if a and b and len(a & b) / len(a | b) > 0.55:
+        fails.append(f"L2: closer too similar to {name!r}")
+
+# question closer is optional
+if sents and not any("?" in s for s in sents[-8:]):
+    warns.append("no question in the closer — fine if the last beat is a sourced fact")
+
+sm = json.loads((ROOT / "reusable/speak_map.json").read_text())
+print("L7 speak_map will rewrite:", [r["from"] for r in sm.get("replacements", [])])
+
 if fails:
     print("\nFAILS:")
-    for f in fails: print("  x", f)
+    for f in fails:
+        print("  x", f)
     sys.exit(1)
-print("\nALL SCRIPT CHECKS PASS")
+for w in warns:
+    print("  WARN:", w)
+print("ALL SCRIPT CHECKS PASS")
