@@ -1,0 +1,22 @@
+{
+  "_doc": "L7. Applied by tts_all.py to a COPY of the paragraph before Kokoro. voiceover.txt stays correctly spelled.",
+  "replacements": [
+    {"from": "Quibi", "to": "Kweebee"},
+    {"from": "Quibi's", "to": "Kweebee's"},
+    {"from": "Hewlett Packard", "to": "Hewlett Packard"},
+    {"from": "Helios and Matheson", "to": "Heeleeos and Mathison"},
+    {"from": "Katzenberg", "to": "Katzenberg"},
+    {"from": "Roku", "to": "Roh-koo"},
+    {"from": "Finkelstein", "to": "Finkelsteen"},
+    {"from": "JAF Communications", "to": "J A F Communications"},
+    {"from": "Comscore", "to": "Com score"},
+    {"from": "Nexstar", "to": "Nexstar"},
+    {"from": "Semafor", "to": "Semmafor"},
+    {"from": "Toys R Us", "to": "Toys Are Us"},
+    {"from": "Babies R Us", "to": "Babies Are Us"},
+    {"from": "Vornado", "to": "Vor-nah-doe"},
+    {"from": "Kohlberg Kravis Roberts", "to": "Kohlberg Kravis Roberts"},
+    {"from": "J.P. Morgan", "to": "J P Morgan"},
+    {"from": "S.E.C.", "to": "S E C"}
+  ]
+}
