@@ -1,12 +1,13 @@
-# THRESHOLD — faceless finance explainer
+# The Public Record
 
-The face of the channel is the **graphics**. Navy + gold charts, sourced numbers, no Pexels-as-look, no stock tips.
+Faceless business documentaries. One real company per video. Public record. Not a stock pick.
 
-- Rules: `MASTER_RULES.md` (F1–F30)
-- Resume: `HANDOFF.md` (read first every session)
+**Gate (L1–L8):** `python3 tools/gate.py episodes/NAME Keyword`  
+Must pass before TTS and before upload. See `MASTER_RULES.md`.
+
+- Setup: `CHANNEL_SETUP.md`
 - Queue: `VIDEO_QUEUE.md`
 - Month 1: `month1/PLAN.md`
-- Preview media: `python3 tools/preview_server.py`
-- Sync to GitHub folder `finance/`: `python3 tools/repo_sync.py push` (needs PAT)
+- Lessons: `research/AUDIT_LESSONS.md`
 
-Workspace is scratch. Repo folder `finance/` on `zainkhan122/yt-tts` is source of truth.
+Do not commit `secrets/`.
