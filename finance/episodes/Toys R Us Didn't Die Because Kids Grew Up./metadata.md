@@ -2,7 +2,7 @@
 **Toys R Us Didn't Die Because Kids Grew Up.**
 
 ## THUMBNAIL
-File: `thumbnail.jpg`. Real 2007 Toys "R" Us wordmark (Wikimedia) on a closing aisle. Wound: **THE DEBT**. Not the title. No giraffe. No sliced card. No newsroom.
+File: `thumbnail.jpg`. One 2007 wordmark, left. **THE DEBT** in the sky, right. No Babies R Us. No second logo. Not the title. No giraffe.
 
 ## DESCRIPTION
 Toys R Us did not die because children stopped wanting toys. It died on a 2005 loan.
