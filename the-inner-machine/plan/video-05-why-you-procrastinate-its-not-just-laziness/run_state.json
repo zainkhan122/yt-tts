@@ -4,9 +4,9 @@
   "sentences": 52,
   "unique_assets_required": 52,
   "renderer": "pipeline/assemble_v2.py",
-  "next_action": "generate remaining 2 unique beat assets; repository push failed: PAT lacks blob write permission",
+  "next_action": "asset generation complete; validate storyboard and selective overlays before render",
   "beat_count_policy": "natural_script_count_within_50_to_65; 52 is not a fixed system target",
   "motion_policy": "planned varied treatments; no mechanical six-motion cycle",
-  "unique_assets_generated": 50,
+  "unique_assets_generated": 52,
   "motion_variants": 8
 }

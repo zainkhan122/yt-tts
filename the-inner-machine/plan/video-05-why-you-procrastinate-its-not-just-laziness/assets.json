@@ -706,7 +706,35 @@
       "used_in_sentences": [
         "S50"
       ]
+    },
+    {
+      "id": "beat_51",
+      "path": "images/beat_51.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_51",
+      "sha256": "403011be02dabc9a958cffcf93e5040d79d4a72f6b033c84deb051808f04a0d5",
+      "used_in_sentences": [
+        "S51"
+      ]
+    },
+    {
+      "id": "beat_52",
+      "path": "images/beat_52.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_52",
+      "sha256": "f55be3b4c0ea94b24389d37683708b185c7d5806a9868a0fea6374b03c418cfa",
+      "used_in_sentences": [
+        "S52"
+      ]
     }
   ],
-  "assets_generated": 50
+  "assets_generated": 52
 }
