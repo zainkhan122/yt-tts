@@ -1,12 +1,20 @@
 {
-  "step": "scripted",
+  "step": "long_qa_pass",
   "status": "assets_and_assemble_shots_ready",
   "sentences": 52,
   "unique_assets_required": 52,
   "renderer": "pipeline/assemble_v2.py",
-  "next_action": "asset generation complete; validate storyboard and selective overlays before render",
+  "next_action": "package final MP4 and create Shorts; preserve media until download confirmation",
   "beat_count_policy": "natural_script_count_within_50_to_65; 52 is not a fixed system target",
   "motion_policy": "planned varied treatments; no mechanical six-motion cycle",
   "unique_assets_generated": 52,
-  "motion_variants": 8
+  "motion_variants": 8,
+  "render": "Why You Procrastinate - final timestamp-fixed.mp4",
+  "render_duration_s": 207.13,
+  "encoded_frame_inspection": {
+    "approved_overlay_visible": true,
+    "text_free_beat_absent": true,
+    "later_overlay_visible": true,
+    "timestamp_normalized": true
+  }
 }

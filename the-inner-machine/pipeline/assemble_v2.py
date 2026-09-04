@@ -90,7 +90,9 @@ def main():
     lf=f"{work}/list.txt"
     with open(lf,"w") as f:
         for p in parts: f.write(f"file '{p}'\n")
-    run([FF,"-y","-f","concat","-safe","0","-i",lf,"-c","copy",a.out])
+    # Re-encode the final concat to normalize timestamps. Stream-copy concat can preserve
+    # per-scene PTS discontinuities, breaking seeking and making overlays appear on the wrong beat.
+    run([FF,"-y","-f","concat","-safe","0","-i",lf,"-vf","setpts=N/(24*TB)","-af","aresample=async=1:first_pts=0","-c:v","libx264","-preset","veryfast","-crf","23","-c:a","aac","-b:a","160k",a.out])
     print("ASSEMBLED:",a.out)
 
 if __name__=="__main__": main()
