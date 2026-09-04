@@ -11,7 +11,7 @@ What is *not* the spine:
 
 ## Thumb
 Object:  
-Layout (invented for this object, not copied):  
+Layout (invented for this object, not copied; `split` only if the object would double-print the name):  
 Wound (2–4 words, true, not the title):  
 Logo file:
 
