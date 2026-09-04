@@ -24,8 +24,9 @@ One mechanism. CEO / lawsuit / relaunch are chapters, not the spine.
 No invented dialogue. `sources.md` required.  
 `artifacts/` ≥3 real files (headline, filing/docket, contemporaneous photo) + `artifacts.md`. Not a fake app UI.
 
-**Ident:** real historical logo (nominative) + one object that is **this** death + 2–4 word wound.  
+**Ident:** real historical logo (nominative, once) + one object that is **this** death + 2–4 word wound.  
 Layout follows the object. Do not stamp the last film. Do not put a scrap on every thumb.  
+Family resemblance = gold/white wound type, not a locked split. **`split` is fallback only** (object would double-print the name or sit the wound on another brand). No white-slab OS. No arc arrow on every film.  
 `tools/compose_flex_thumb.py` — add a layout when the story needs one.
 
 ## P5. NOT ADVICE (L1)
