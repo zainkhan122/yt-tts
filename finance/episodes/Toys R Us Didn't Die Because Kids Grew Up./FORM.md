@@ -13,8 +13,8 @@ One mechanism: **2005 LBO debt service (~$400 million a year) as a first lien on
 What is *not* the spine: iPads / “kids grew up”; Amazon as sole killer; Geoffrey; Tru Kids / WHP / Macy’s shops; the 2020 creditor suit; the hardship fund.
 
 ## Thumb
-Object: **closing Auburn, MA facade, 24 Jun 2018** (Commons photo). The record gave us a real going-out-of-business storefront, not a generic aisle and not a newsroom. Geoffrey is in the Times Square interior — that photo is an artifact, not the thumb.  
-Layout (invented for this object, not copied): **`aisle`** on that facade — 2007 wordmark TL on the sky; **THE DEBT** on the empty floor / GOB windows. No desk. No scrap. No sliced card. No giraffe.  
+Object: **one 2007 wordmark** (left) + Auburn sky as empty space (right). Not the full facade — that had Toys R Us twice and Babies R Us under the wound.  
+Layout: **`split`** — logo LEFT half only; **THE DEBT** RIGHT half in negative space (that store’s sky). No second logo. No Babies. No giraffe.  
 Wound (2–4 words, true, not the title): **THE DEBT**  
 Logo file: `brand/idents/toysrus.png` ← Commons `File:Toys "R" Us logo.svg`
 
