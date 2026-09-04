@@ -11,7 +11,7 @@ Last 3: Why (E01), Claim (E02), Claim (E03), Claim (E04). Never three Why in a r
 | 01 | Why MoviePass Died With 3 Million Members | paid full ticket, collected $9.95/mo | 3M; $9.95; Sep 2019; Ch.7 Jan 2020 | SUICIDE MATH | shipped (mux cleared) |
 | 02 | Quibi Raised $1.75 Billion. It Lasted Six Months. | paid snack TV the phone already gave away; didn’t own the shows | $1.75B; ~6 months; ~Dec 2020 | SIX MONTHS | shipped (mux cleared) |
 | 03 | The Messenger Spent $50 Million In 8 Months. | 2010s newsroom + Google/Meta traffic in 2023 | $50M; 8 months; ~$3M revenue | NO AUDIENCE | mux in workspace — download then delete |
-| 04 | Toys R Us Didn't Die Because Kids Grew Up. | 2005 LBO debt service vs stores | $6.6B; $400M/yr; Ch.11 18 Sep 2017; 735 US stores Jun 2018 | THE DEBT | **cut 9:01 — watch/download** |
+| 04 | Toys R Us Didn't Die Because Kids Grew Up. | 2005 LBO debt service vs stores | $6.6B; $400M/yr; Ch.11 18 Sep 2017; 735 US stores Jun 2018 | THE DEBT (split fallback) | **cut 9:01 — thumb pending approval** |
 
 ## SHORTS
 | Parent | Kind | Title | Status |
