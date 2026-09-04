@@ -1,0 +1,837 @@
+{
+  "video": "video-04-the-mechanism-behind-overthinking",
+  "requirements_locked": {
+    "one_unique_asset_per_sentence": true,
+    "expected_sentence_beats": 52,
+    "expected_unique_assets": 52,
+    "renderer": "pipeline/assemble_v2.py"
+  },
+  "assets": [
+    {
+      "id": "beat_01",
+      "path": "images/beat_01.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_01",
+      "sha256": "fb6c97f00158c66b5e87f8cd92872cf1cf24fe0bafed9b35e9db37ad63820a4c",
+      "used_in_sentences": [
+        "S01"
+      ]
+    },
+    {
+      "id": "beat_02",
+      "path": "images/beat_02.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_02",
+      "sha256": "1ec59ce1515ca646d9e6cceb6b5537ce50bf687d99de6f1abf12b3aec4138840",
+      "used_in_sentences": [
+        "S02"
+      ]
+    },
+    {
+      "id": "beat_03",
+      "path": "images/beat_03.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_03",
+      "sha256": "49ee3287dafbc820ba79e5322acb559eb71407253eb818230b8c09b7025f3709",
+      "used_in_sentences": [
+        "S03"
+      ]
+    },
+    {
+      "id": "beat_04",
+      "path": "images/beat_04.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_04",
+      "sha256": "68b4e1e6e00f547890e4c96985408abcf8ca5910edc04505041934ca64da2a9c",
+      "used_in_sentences": [
+        "S04"
+      ]
+    },
+    {
+      "id": "beat_05",
+      "path": "images/beat_05.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_05",
+      "sha256": "ffbe07c6e9c3c1a99eba840009e67ea06c4c4e7adb86e17057597ee8acb5e862",
+      "used_in_sentences": [
+        "S05"
+      ]
+    },
+    {
+      "id": "beat_06",
+      "path": "images/beat_06.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_06",
+      "sha256": "ca8b652baf2e57e0313ddacff81940ad00293c5556190a39969108b9c1d85627",
+      "used_in_sentences": [
+        "S06"
+      ]
+    },
+    {
+      "id": "beat_07",
+      "path": "images/beat_07.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_07",
+      "sha256": "814496a77758e0b70c2c60c13e1551b995da0f451b35a02bcae86dadd29c14a9",
+      "used_in_sentences": [
+        "S07"
+      ]
+    },
+    {
+      "id": "beat_08",
+      "path": "images/beat_08.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_08",
+      "sha256": "e03e62e5f351fc4c8b42a8b5263274bf986778d145c3af5914353d2df93d70f4",
+      "used_in_sentences": [
+        "S08"
+      ]
+    },
+    {
+      "id": "beat_09",
+      "path": "images/beat_09.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_09",
+      "sha256": "c3a697ce201571627eea7370c6f0b9885dbab65d85e00c8c2ed0dacce44ab5f0",
+      "used_in_sentences": [
+        "S09"
+      ]
+    },
+    {
+      "id": "beat_10",
+      "path": "images/beat_10.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_10",
+      "sha256": "36201b36f9f3cccc3eadd92ecb6712f640229a52ec50dc4a6ec7d9ec3ae74124",
+      "used_in_sentences": [
+        "S10"
+      ]
+    },
+    {
+      "id": "beat_11",
+      "path": "images/beat_11.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_11",
+      "sha256": "beb25bbe6bdc6836d3467a5df614d19eecbfe213f1dbbeac1bcbf90c0b209b01",
+      "used_in_sentences": [
+        "S11"
+      ]
+    },
+    {
+      "id": "beat_12",
+      "path": "images/beat_12.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_12",
+      "sha256": "72578e6bf9482e32e7e7dd3d92788686ddb370400906ef3593c03305d9094783",
+      "used_in_sentences": [
+        "S12"
+      ]
+    },
+    {
+      "id": "beat_13",
+      "path": "images/beat_13.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_13",
+      "sha256": "196734d60a22a9179e188936ddf9d602c8e1754ad6f0a078aef8adfd8f332211",
+      "used_in_sentences": [
+        "S13"
+      ]
+    },
+    {
+      "id": "beat_14",
+      "path": "images/beat_14.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_14",
+      "sha256": "ca81891ce166929de8b107809066a8581f6c0a4321982a9689e6b08c68b303e1",
+      "used_in_sentences": [
+        "S14"
+      ]
+    },
+    {
+      "id": "beat_15",
+      "path": "images/beat_15.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_15",
+      "sha256": "a3e26b01da416fb5be9e672c11b70d39006bee4dedd5af3baf1c7b6b5233e746",
+      "used_in_sentences": [
+        "S15"
+      ]
+    },
+    {
+      "id": "beat_16",
+      "path": "images/beat_16.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_16",
+      "sha256": "f7252a3ed33031d0e1648a91308a7248cefda6b4306b8bc2a46a38cbc3b513f6",
+      "used_in_sentences": [
+        "S16"
+      ]
+    },
+    {
+      "id": "beat_17",
+      "path": "images/beat_17.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_17",
+      "sha256": "8425b28439e2db480524d52118e96ea689c28079831ae1732c6eb16ff9188138",
+      "used_in_sentences": [
+        "S17"
+      ]
+    },
+    {
+      "id": "beat_18",
+      "path": "images/beat_18.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_18",
+      "sha256": "77a9eb1746f7584a84f0222f533f402f2e31b78f2d4734c90192d8fb779aadd3",
+      "used_in_sentences": [
+        "S18"
+      ]
+    },
+    {
+      "id": "beat_19",
+      "path": "images/beat_19.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_19",
+      "sha256": "cd66a3c60180bfaae0b057cbd61796e0a5f4f0bfe1928ba54da55fdaf4457c22",
+      "used_in_sentences": [
+        "S19"
+      ]
+    },
+    {
+      "id": "beat_20",
+      "path": "images/beat_20.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_20",
+      "sha256": "4601b04e292b43736818c1968684a50a00fa92ddfe306b9d2d903c17b295c7d7",
+      "used_in_sentences": [
+        "S20"
+      ]
+    },
+    {
+      "id": "beat_21",
+      "path": "images/beat_21.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_21",
+      "sha256": "fea7f4e2d86053650637aded9913d683a3edfde069870c984875c553863407a6",
+      "used_in_sentences": [
+        "S21"
+      ]
+    },
+    {
+      "id": "beat_22",
+      "path": "images/beat_22.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_22",
+      "sha256": "c792e564b2ebf971e2393c4a120c7db48e88754ab524d78be1ee886cc7076873",
+      "used_in_sentences": [
+        "S22"
+      ]
+    },
+    {
+      "id": "beat_23",
+      "path": "images/beat_23.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_23",
+      "sha256": "19552c2ea6160d93543f26e36a77d1cd6ed481431c1a98c2ba79d923ef72ef24",
+      "used_in_sentences": [
+        "S23"
+      ]
+    },
+    {
+      "id": "beat_24",
+      "path": "images/beat_24.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_24",
+      "sha256": "377aacb9ca72541410fdff6699a5f378caed47c911031b5544a97b4633d72066",
+      "used_in_sentences": [
+        "S24"
+      ]
+    },
+    {
+      "id": "beat_25",
+      "path": "images/beat_25.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_25",
+      "sha256": "462a93736c4edfafd19ff61afbe6e77fe084f88cba327b64f2e71313f32f9f3d",
+      "used_in_sentences": [
+        "S25"
+      ]
+    },
+    {
+      "id": "beat_26",
+      "path": "images/beat_26.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_26",
+      "sha256": "c9961e35b1a5abf9dcec563a468e80e17d6c3387fb08c550bee9eb35dc3ecf02",
+      "used_in_sentences": [
+        "S26"
+      ]
+    },
+    {
+      "id": "beat_27",
+      "path": "images/beat_27.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_27",
+      "sha256": "0f26b6ddfdcd3a608b92bc9b9fe780384e5d75b71194d38e86c02bc22ee064ac",
+      "used_in_sentences": [
+        "S27"
+      ]
+    },
+    {
+      "id": "beat_28",
+      "path": "images/beat_28.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_28",
+      "sha256": "4e5fc31469719309c48f2cf610bc44697f15d2a68571d9b831e346af23758377",
+      "used_in_sentences": [
+        "S28"
+      ]
+    },
+    {
+      "id": "beat_29",
+      "path": "images/beat_29.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_29",
+      "sha256": "8230771c4790bb087c4fef7ac3445952fde5d1593b7aaa0daff1c728ca9fd074",
+      "used_in_sentences": [
+        "S29"
+      ]
+    },
+    {
+      "id": "beat_30",
+      "path": "images/beat_30.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_30",
+      "sha256": "e6c8917e116b42129964fc2f453150cd5555b1094c62746a5ef57690736befea",
+      "used_in_sentences": [
+        "S30"
+      ]
+    },
+    {
+      "id": "beat_31",
+      "path": "images/beat_31.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_31",
+      "sha256": "ff291736543ebb416235ce6afdd49fdef661883396d89d78e8cfb95311ced5b2",
+      "used_in_sentences": [
+        "S31"
+      ]
+    },
+    {
+      "id": "beat_32",
+      "path": "images/beat_32.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_32",
+      "sha256": "a40db8043c48ab66c57eb85b7663b4acbe92d9a35e238ca508637738735def43",
+      "used_in_sentences": [
+        "S32"
+      ]
+    },
+    {
+      "id": "beat_33",
+      "path": "images/beat_33.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_33",
+      "sha256": "6fae49fe821eb530815c8f13fd2493949175105bed7ea1dbe73a3397a71f0336",
+      "used_in_sentences": [
+        "S33"
+      ]
+    },
+    {
+      "id": "beat_34",
+      "path": "images/beat_34.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_34",
+      "sha256": "f17c12cfc30379ee9b390a81d718d9f78e89ba62dc77fd20406dd7e1c7d68a98",
+      "used_in_sentences": [
+        "S34"
+      ]
+    },
+    {
+      "id": "beat_35",
+      "path": "images/beat_35.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_35",
+      "sha256": "93f992777f2afe64c144c8444a3c9e32841cde6cffb8ca3d2ffb5bdde51e1062",
+      "used_in_sentences": [
+        "S35"
+      ]
+    },
+    {
+      "id": "beat_36",
+      "path": "images/beat_36.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_36",
+      "sha256": "300d81a95b7c379e62cd48a2551c742e5ecfdb869154e5fbe8ba26d55bb484ed",
+      "used_in_sentences": [
+        "S36"
+      ]
+    },
+    {
+      "id": "beat_37",
+      "path": "images/beat_37.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_37",
+      "sha256": "e7b7a41d435f139c4ec65d3568e20bddf433e4221a3cc7cb51c81d9642952a3f",
+      "used_in_sentences": [
+        "S37"
+      ]
+    },
+    {
+      "id": "beat_38",
+      "path": "images/beat_38.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_38",
+      "sha256": "466bfc2722614397eef0766a29868ec38c9657bf3f7acdd19a8e0dcc687b3e1d",
+      "used_in_sentences": [
+        "S38"
+      ]
+    },
+    {
+      "id": "beat_39",
+      "path": "images/beat_39.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_39",
+      "sha256": "93ad1d3538953a676a6b726a5c08f1d3bc17eb60564eca05706808fdf697731f",
+      "used_in_sentences": [
+        "S39"
+      ]
+    },
+    {
+      "id": "beat_40",
+      "path": "images/beat_40.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_40",
+      "sha256": "8227b1f76b85c27a28585eb5fb741f97587447194e3896f8490e45e9fcda6581",
+      "used_in_sentences": [
+        "S40"
+      ]
+    },
+    {
+      "id": "beat_41",
+      "path": "images/beat_41.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_41",
+      "sha256": "7741e023be9ddc4b4d0093a0c6de932d322cbaa80c3c1c6f8e91cc17f0a6c607",
+      "used_in_sentences": [
+        "S41"
+      ]
+    },
+    {
+      "id": "beat_42",
+      "path": "images/beat_42.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_42",
+      "sha256": "6fca94aa96a5e456389ca7dc0a2d3941a48a116c2b5cb6e46c4d1a4d987570d3",
+      "used_in_sentences": [
+        "S42"
+      ]
+    },
+    {
+      "id": "beat_43",
+      "path": "images/beat_43.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_43",
+      "sha256": "1ef776ac1c472a9dd150f52949a8f8e76f1f7ff157698c9e401992327fc7e59f",
+      "used_in_sentences": [
+        "S43"
+      ]
+    },
+    {
+      "id": "beat_44",
+      "path": "images/beat_44.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_44",
+      "sha256": "ab7d588525ef6d3a01c720714cc793e0914b52b9d7ba796f159ec783fadaa25f",
+      "used_in_sentences": [
+        "S44"
+      ]
+    },
+    {
+      "id": "beat_45",
+      "path": "images/beat_45.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_45",
+      "sha256": "f105e749125cfd97f714d0f4421eea44074e43de7b9fdc7d438f8e6a43aa99a2",
+      "used_in_sentences": [
+        "S45"
+      ]
+    },
+    {
+      "id": "beat_46",
+      "path": "images/beat_46.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_46",
+      "sha256": "0884e648c2fe30fbf1dedf13ae71075a2c2a04f799b1fe3b74a1e56bb167137e",
+      "used_in_sentences": [
+        "S46"
+      ]
+    },
+    {
+      "id": "beat_47",
+      "path": "images/beat_47.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_47",
+      "sha256": "79541a4855f3492b133cfe26dac0a3dc64f5f20fa6806bcdf16928eade0804d6",
+      "used_in_sentences": [
+        "S47"
+      ]
+    },
+    {
+      "id": "beat_48",
+      "path": "images/beat_48.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_48",
+      "sha256": "ef3e03032d31a55be39e0f83f7916caf65a8248460632cf40e81120a2d017fc6",
+      "used_in_sentences": [
+        "S48"
+      ]
+    },
+    {
+      "id": "beat_49",
+      "path": "images/beat_49.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_49",
+      "sha256": "9e14581193c3330547fd967b23d4937f49874e0f57975cbe385e2aa8e5d4cade",
+      "used_in_sentences": [
+        "S49"
+      ]
+    },
+    {
+      "id": "beat_50",
+      "path": "images/beat_50.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_50",
+      "sha256": "23bf2a53594a934d04f14984ee5005ade389bf6a538ef87353411a322d7ad9da",
+      "used_in_sentences": [
+        "S50"
+      ]
+    },
+    {
+      "id": "beat_51",
+      "path": "images/beat_51.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_51",
+      "sha256": "8901dca1f9ecdce471175051ebc5923d31b14b01b91436b97851230150b83565",
+      "used_in_sentences": [
+        "S51"
+      ]
+    },
+    {
+      "id": "beat_52",
+      "path": "images/beat_52.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_52",
+      "sha256": "cb44709a3cf3b08014945b8e615cf458cf69f0f8dc5cbe6fc74722238b653300",
+      "used_in_sentences": [
+        "S52"
+      ]
+    },
+    {
+      "id": "portrait_01_loop",
+      "path": "shorts/hook/images/portrait_01_loop.jpg",
+      "kind": "short_portrait_ai",
+      "orientation": "portrait",
+      "width": 768,
+      "height": 1376,
+      "provider": "Arena image generation",
+      "prompt_id": "portrait_01_loop",
+      "sha256": "d3c3c83543d4fad9f66af9f71b1b1277c78d3ad058905c1d72fc9a6fed474349",
+      "used_in_sentences": []
+    },
+    {
+      "id": "portrait_02_replay",
+      "path": "shorts/hook/images/portrait_02_replay.jpg",
+      "kind": "short_portrait_ai",
+      "orientation": "portrait",
+      "width": 768,
+      "height": 1376,
+      "provider": "Arena image generation",
+      "prompt_id": "portrait_02_replay",
+      "sha256": "178908af952f4ef34577cbdebbb3c0d89d4627522fa965141b9312d19aca7f48",
+      "used_in_sentences": []
+    },
+    {
+      "id": "portrait_03_detail",
+      "path": "shorts/hook/images/portrait_03_detail.jpg",
+      "kind": "short_portrait_ai",
+      "orientation": "portrait",
+      "width": 768,
+      "height": 1376,
+      "provider": "Arena image generation",
+      "prompt_id": "portrait_03_detail",
+      "sha256": "7ae3ba771ca86f4eed85926291ff647ffec26844bddfa49e217e053e663aefec",
+      "used_in_sentences": []
+    },
+    {
+      "id": "portrait_04_progress",
+      "path": "shorts/hook/images/portrait_04_progress.jpg",
+      "kind": "short_portrait_ai",
+      "orientation": "portrait",
+      "width": 768,
+      "height": 1376,
+      "provider": "Arena image generation",
+      "prompt_id": "portrait_04_progress",
+      "sha256": "70313dde17039b32656f5a76e9fcb28370391eb58b6bff2f602c458e0c3fe9df",
+      "used_in_sentences": []
+    },
+    {
+      "id": "portrait_01_question",
+      "path": "shorts/payoff/images/portrait_01_question.jpg",
+      "kind": "short_portrait_ai",
+      "orientation": "portrait",
+      "width": 768,
+      "height": 1376,
+      "provider": "Arena image generation",
+      "prompt_id": "portrait_01_question",
+      "sha256": "96d5e970bc10d9239d8da2538603c0ced1be9f3e60a526b8330570059f9c9614",
+      "used_in_sentences": []
+    },
+    {
+      "id": "portrait_02_evidence",
+      "path": "shorts/payoff/images/portrait_02_evidence.jpg",
+      "kind": "short_portrait_ai",
+      "orientation": "portrait",
+      "width": 768,
+      "height": 1376,
+      "provider": "Arena image generation",
+      "prompt_id": "portrait_02_evidence",
+      "sha256": "cd22dc4f5ee857b1789ad1f92a988dad9c53ac54c8de3615e8c749633ac38a84",
+      "used_in_sentences": []
+    },
+    {
+      "id": "portrait_03_exit",
+      "path": "shorts/payoff/images/portrait_03_exit.jpg",
+      "kind": "short_portrait_ai",
+      "orientation": "portrait",
+      "width": 768,
+      "height": 1376,
+      "provider": "Arena image generation",
+      "prompt_id": "portrait_03_exit",
+      "sha256": "70b6573baaa0863290dbd8875e4933a4ac3c3adb16ad652228aaf38f4a19a78d",
+      "used_in_sentences": []
+    },
+    {
+      "id": "portrait_04_action",
+      "path": "shorts/payoff/images/portrait_04_action.jpg",
+      "kind": "short_portrait_ai",
+      "orientation": "portrait",
+      "width": 768,
+      "height": 1376,
+      "provider": "Arena image generation",
+      "prompt_id": "portrait_04_action",
+      "sha256": "12813b23c8cfa7df7bd428fb50c857a6a4536cade2aa9ef669bc8ff9c2beeadc",
+      "used_in_sentences": []
+    }
+  ],
+  "assets_generated": 52,
+  "short_assets_generated": 8
+}

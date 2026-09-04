@@ -18,7 +18,8 @@ ROOT = os.path.dirname(HERE)                 # this channel folder
 FOLDER = os.path.basename(ROOT)              # e.g. "the-inner-machine"
 API = "https://api.github.com"
 EXCLUDE_DIRS = {".work", "__pycache__", ".git"}
-EXCLUDE_EXT = {".mp4", ".part", ".jpg", ".jpeg", ".png"}   # never push video or image assets
+EXCLUDE_EXT = {".mp4", ".part", ".jpg", ".jpeg", ".png"}   # media is opt-in; video is never pushed
+INCLUDE_MEDIA = False
 
 
 def token():
@@ -50,7 +51,7 @@ def files():
     for dp, dns, fns in os.walk(ROOT):
         dns[:] = [d for d in dns if d not in EXCLUDE_DIRS]
         for fn in fns:
-            if os.path.splitext(fn)[1].lower() in EXCLUDE_EXT:
+            if os.path.splitext(fn)[1].lower() in EXCLUDE_EXT and not (INCLUDE_MEDIA and os.path.splitext(fn)[1].lower() in {'.jpg','.jpeg','.png'}):
                 continue
             full = os.path.join(dp, fn)
             rel = os.path.relpath(full, ROOT).replace(os.sep, "/")
@@ -63,8 +64,11 @@ def main():
     ap.add_argument("--repo", default="zainkhan122/yt-tts")
     ap.add_argument("--branch", default="main")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--include-media", action="store_true", help="include active jpg/jpeg/png assets; never include video")
     ap.add_argument("--message", default=f"Add {FOLDER}/ standalone pipeline (separate from vault/)")
     a = ap.parse_args()
+    global INCLUDE_MEDIA
+    INCLUDE_MEDIA = a.include_media
     fl = files()
     print(f"{a.repo} @ {a.branch}: {len(fl)} files under {FOLDER}/")
     for p, _ in fl:

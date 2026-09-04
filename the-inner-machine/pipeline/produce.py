@@ -8,7 +8,7 @@ verifies every output (dims/fps/audio/duration) and never ships on failure.
 Voice: Kokoro, locked via config["voice"] (default bm_george).
 Usage: python3 produce.py CONFIG [--only long|shorts|cover|meta]
 """
-import subprocess, sys, os, json, math, argparse, shutil
+import subprocess, sys, os, json, math, argparse, shutil, re
 from datetime import datetime
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -91,7 +91,7 @@ def caption_png(text,path,W,H):
         ws=[d.textlength(l,font=font) for l in lines]
         if max(ws)<=W*0.92 or size<=40: break
         size-=4; font=ImageFont.truetype(FONT,size)
-    lh=size*1.28; y=int(H*0.78)-lh*len(lines)/2
+    lh=size*1.28; y=int(H*0.16)-lh*len(lines)/2
     for l in lines:
         w=d.textlength(l,font=font); x=(W-w)/2
         for ox in(-3,0,3):
@@ -103,19 +103,23 @@ def motion_fc(mot,nf):
     z=f"{ze}+({zs}-{ze})*sqrt(max(0,1-on/{nf}))" if name=="settle" else f"{zs}+({ze}-{zs})*on/{nf}"
     x=f"(iw-iw/zoom)*({x0}+({x1}-{x0})*on/{nf})"; y=f"(ih-ih/zoom)*({y0}+({y1}-{y0})*on/{nf})"
     return z,x,y
-def render_beat(kf,cap,mot,dur_s,out,W,H,FPS,last=False):
+def render_beat(kf,cap,mot,dur_s,out,W,H,FPS,last=False,narration=None,pause_s=0.15,overlay_text=None,overlay_start_frac=0.0,overlay_end_frac=1.0,font_size=62):
     nf=int(round(dur_s*FPS)); z,x,y=motion_fc(mot,nf)
-    caption_png(cap,f"{out}.cap.png",W,H)
     fout=f",fade=t=out:st={dur_s-0.45:.2f}:d=0.45" if last else ""
-    fc=(f"[0:v]scale={int(W*1.2)}:{int(H*1.2)}:force_original_aspect_ratio=increase:flags=lanczos,"
-        f"crop={int(W*1.2)}:{int(H*1.2)},"
-        f"zoompan=z='{z}':x='{x}':y='{y}':d={nf}:s={W}x{H}:fps={FPS},setsar=1,"
-        f"eq=saturation=1.05,vignette=PI/5,format=yuv420p,fade=t=in:st=0:d=0.3{fout}[bg];"
-        f"[1:v]format=rgba,fade=t=in:st=0.25:d=0.35:alpha=1[cp];[bg][cp]overlay=0:0[v]")
-    run([FF,"-y","-i",kf,"-loop","1","-framerate",str(FPS),"-t",f"{dur_s:.3f}","-i",f"{out}.cap.png",
-         "-filter_complex",fc,"-map","[v]","-c:v","libx264","-preset","ultrafast","-crf","21",
-         "-r",str(FPS),"-t",f"{dur_s:.3f}","-an",out])
-    os.remove(f"{out}.cap.png")
+    text=overlay_text or narration or cap; words=re.findall(r"[A-Za-z0-9][A-Za-z0-9’'-]*[.,!?;:]?",text)
+    speech=max(0.1,dur_s-pause_s); weights=[max(1,len(re.sub(r'[^A-Za-z0-9]','',w)))+(0.35 if re.search(r'[.,!?;:]',w) else 0) for w in words]; total=sum(weights) or 1
+    srt=f"{out}.srt"
+    def st(t):
+        h=int(t//3600); m=int((t%3600)//60); sec=t%60; return f'{h:02d}:{m:02d}:{sec:06.3f}'.replace('.',',')
+    with open(srt,'w') as sf:
+        for n,i in enumerate(range(0,len(words),2),1):
+            j=min(i+2,len(words)); a=speech*(overlay_start_frac+(overlay_end_frac-overlay_start_frac)*sum(weights[:i])/total); b=speech*(overlay_start_frac+(overlay_end_frac-overlay_start_frac)*sum(weights[:j])/total)
+            sf.write(f'{n}\n{st(a)} --> {st(b)}\n{" ".join(words[i:j])}\n\n')
+    # SRT/libass burn-in is used instead of a separate overlay stream: it is deterministic and visible in the encoded pixels.
+    srt_filter=srt.replace('\\','/')
+    fc=f"[0:v]scale={int(W*1.2)}:{int(H*1.2)}:force_original_aspect_ratio=increase:flags=lanczos,crop={int(W*1.2)}:{int(H*1.2)},zoompan=z='{z}':x='{x}':y='{y}':d={nf}:s={W}x{H}:fps={FPS},setsar=1,eq=saturation=1.05,vignette=PI/5,format=yuv420p,fade=t=in:st=0:d=0.3{fout},subtitles='{srt_filter}':force_style='FontName=DejaVu Sans,FontSize={font_size},PrimaryColour=&H00E0F6FF,OutlineColour=&H002E1210,BorderStyle=1,Outline=4,Alignment=8,MarginV=170'[v]"
+    run([FF,"-y","-i",kf,"-filter_complex",fc,"-map","[v]","-c:v","libx264","-preset","ultrafast","-crf","21","-r",str(FPS),"-t",f"{dur_s:.3f}","-an",out])
+    os.remove(srt)
 
 def concat(parts,out,W,H,FPS):
     lf=out+".txt"
@@ -249,6 +253,15 @@ def main():
     LOGF=os.path.join(outdir,"produce.log"); state=f"{outdir}/state.json"
     only=a.only
     try:
+        # Fail closed before any dependency download or render. The validator enforces
+        # channel-level invariants that ffmpeg cannot know (orientation, beat schema,
+        # asset reuse and missing keyframes).
+        validator=os.path.join(ROOT,"tools","validate_project.py")
+        vr=subprocess.run([sys.executable,validator,a.config],capture_output=True,text=True)
+        print(vr.stdout, end="")
+        if vr.returncode:
+            print(vr.stderr, end="")
+            raise RuntimeError("project validation failed; no render started")
         preflight(cfg,base)
         total=None; durs=None; tf=f"{outdir}/timings.json"
         # SOP ORDER (enforced): 1 long video -> 2 thumbnail(cover) -> 3 metadata -> 4 shorts LAST

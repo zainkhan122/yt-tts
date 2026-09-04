@@ -49,7 +49,7 @@ brain, mind, human behavior, science explained
 | Category | Education (alt: Science & Technology) |
 | Language | English |
 | Audience | Not made for kids |
-| Upload cadence | 1 long-form / week + 4 Shorts / week |
+| Upload cadence | Pilot: 1 long-form every 10–14 days + 2 native-vertical Shorts per long-form |
 | Links | add socials/site when available |
 | Email | business@ placeholder for enquiries |
 

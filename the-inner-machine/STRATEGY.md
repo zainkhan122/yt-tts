@@ -1,54 +1,69 @@
-# THE INNER MACHINE — FINAL STRATEGY
-*The single source of truth for this channel's strategy. Production bar: see
-`PRODUCTION_STANDARD.md`. Setup/brand: `brand/setup.md`. This is ORIGINAL — not the
-reference channel's strategy.*
+# The Inner Machine — strategy v2
 
-## 1 · Positioning
-- **What:** Animated cinematic-essay explainers on *how the mind works* — the mechanism
-  behind what you think, feel, and do.
-- **Lane owned:** Aperture-style cinematic essay + aggressive retention editing
-  (density + sync + atmosphere). NOT character-animation (Psych2Go), NOT Jungian typing (reference).
-- **Promise:** "Every video shows you the actual machinery running underneath one thing
-  your mind does."
+## Positioning
+Animated, cinematic explainers that reveal the real machinery behind one ordinary mental experience at a time. Science first; human meaning and practical interpretation last.
 
-## 2 · Audience
-Curious adults 18–40; smart-curious, not academic; USA/UK; people who ask
-"why did I just do that?" They want to feel *seen* and *explained*, not lectured.
+**Promise:** Every episode lets the viewer see what their mind is doing underneath the experience.
 
-## 3 · Content pillars
-1. **The Machinery** — how your brain does X (dreams, memory, attention, déjà vu, chills).
-2. **Behavior Explained** — why you do that (habits, gut feelings, procrastination).
-3. **The Self** — who's operating the machine (consciousness, identity, mind-wandering, time).
-4. **Glitches** — when the machine misfires (overthinking, anxiety, burnout, forgetting).
+**Not:** The Deeper Mind’s Jungian rare-type content; personality typing; generic productivity/self-help; clinical diagnosis; dark-psychology clickbait; AI slideshow content.
 
-## 4 · Formats & cadence
-- Long-form **16:9**, 6–9 min, 1/week. Structure: HOOK(30s)/MECHANISM/WHY/SHIFT/CTA.
-- Shorts **9:16**, 4/week, derived LAST from the finished long-form.
-- ~150 wpm. Every topic ties to a real documented pain point.
+## Audience
+Curious adults, initially English-speaking viewers in the US, UK and other English markets. They are interested in psychology and science but do not want a lecture. They want a specific experience explained clearly and honestly.
 
-## 5 · Retention / visual bar (non-negotiable)
-- Visual change every 3–5s; 70–100 beats per video; 20–30 unique base images, each →3–4 shots.
-- Kinetic text (word-POPS + statement captions) middle/top, synced to the word.
-- Every shot moves; quick crossfades; mixed with real Pexels b-roll for motion/realism.
+## Editorial formula
+`recognizable experience → mechanism → evidence and limits → visual model → human takeaway`
 
-## 6 · Packaging
-- Titles: curiosity gap + mechanism or myth-bust ("Why your brain does X", "It's not laziness — it's <mechanism>").
-- Thumbnails: one bold idea + ≤4 words, 16:9, high contrast, face/object right, text left.
-- Metadata: keyword in first 5 title words + first description line; 3–5 hashtags; chapters; pinned comment.
+Every brief must specify:
+- the exact experience;
+- the primary mechanism;
+- a competing or limiting explanation;
+- the strongest source;
+- the viewer takeaway;
+- why this topic is different from previous episodes.
 
-## 7 · Voice
-Kokoro (offline). Own voice for this channel (demo `bm_george`); audition set available.
-NOT the reference's af_heart.
+## Content pillars
+1. **Machinery:** dreams, memory, attention, perception, déjà vu, chills.
+2. **Behavior explained:** habits, procrastination, gut feelings, social behavior.
+3. **The self:** consciousness, identity, mind-wandering, time and agency.
+4. **Glitches:** overthinking, forgetting, burnout and anxiety-related experiences, handled without diagnosis or treatment claims.
 
-## 8 · How the media gets made (answers "who creates the images?")
-- **I generate** 20–30 unique base images per video, in batches (≤10 per session), palette-locked,
-  stored compressed (JPG). Each base image yields 3–4 distinct shots (crops/zooms/pans) — no repeat framing.
-- **Pexels** (key in `~/.pexels_key`) supplies real motion b-roll (rain, crowds, fog, city) mixed in.
-- **You never source media.** I do. If an image budget runs out mid-session, I continue next session.
+## Formats
+- **Long-form:** 6–9 minutes, 16:9, 1 mechanism per episode, 3–4 chapters.
+- **Shorts:** 30–45 seconds, 9:16, two per long-form: a self-contained hook and a self-contained payoff. Shorts use native portrait media and an appended spoken/text CTA.
+- **Pilot cadence:** one long-form every 10–14 days plus two Shorts. Review production cost and analytics after four episodes before increasing frequency.
 
-## 9 · Storage & sessions
-- Workspace = workbench (≤128MB): current video only, compressed images, delete `.work` + binaries after push.
-- GitHub `the-inner-machine/` = vault. One video built across sessions; never all in one.
+## Retention design
+- First two sentences identify the experience and open a curiosity gap.
+- Promise the mechanism within 30 seconds.
+- Use a deliberate hook pause after the first vivid image or unresolved question; do not let TTS race through the opening.
+- Carry one visual metaphor through technical sections when it improves continuity, but let diagrams replace metaphor when precision matters.
+- Every sentence receives one timed, semantically matched visual beat.
+- New visual beat approximately every 3–5 seconds, but use the correct visual type: causal diagram for a causal claim, metaphor for an abstract idea, real-world footage for lived experience.
+- Re-hook at the midpoint with a question, counterexample or unresolved tension.
+- End with a concise synthesis and a question that invites an experience-based comment.
 
-## 10 · SOP order (tool-enforced)
-1 long video (16:9) → 2 thumbnail → 3 metadata → 4 shorts LAST.
+## The four quality pillars
+
+1. **Voice:** natural 135–150 WPM target, sentence-level pacing, intentional pauses, breath room and emphasis; never accept fast default TTS.
+2. **Script:** every sentence creates curiosity, grounds the experience, explains a mechanism, adds contrast or delivers payoff. No filler.
+3. **Assets:** every sentence’s visual directly supports the spoken idea. Generic atmospheric footage is used only when atmosphere itself is the point.
+4. **Animation:** every shot has purposeful motion or transformation—camera movement, parallax, reveal, diagram animation, kinetic text or a meaningful transition. Motion is planned as varied treatment families, not a repeating six-item cycle; avoid a repeated zoom-only slideshow.
+
+These are design hypotheses, not guaranteed laws. Use retention analytics to test them against the channel’s own baseline.
+
+## Packaging
+Titles identify the experience and introduce the mechanism or unresolved question. Thumbnails show a complementary diagnosis or visual metaphor, never a duplicated title. Make three variants for native YouTube testing when eligible.
+
+Description order: primary promise and keyword → concise summary → chapter list → sources → disclaimer where needed → related video/playlist → disclosure and credits. Tags are minimal; the title, thumbnail and description receive the effort.
+
+## Visual identity
+Graphite, steel, copper, cyan and cream. Flat 2D storybook forms, diagrams, subtle grain and restrained cinematic motion. Build a repeatable language, not a repeated template: each episode needs a distinct visual metaphor and at least one original explanatory diagram.
+
+## Voice
+Kokoro offline voice, selected and locked after audition. Record the exact voice ID, model checksum, speed, pronunciation overrides and date in `voice_config.json`. A warm synthetic voice is acceptable only when the writing and delivery are clearly authored and the voice is not presented as a clinician or real person.
+
+## Trust and research
+Use claim-level sources. Separate established findings, active debates and editorial metaphors. For mental-health, sleep and medical-adjacent topics, avoid diagnosis/treatment claims and add context from reputable scientific or health authorities. Keep a source list in every episode package.
+
+## Success measurement
+Do not use a universal CTR target. At 24 hours, 7 days and 28 days compare each episode with the channel’s own baseline by traffic source: impressions, CTR, first-30-second retention, average percentage viewed, average view duration, watch time, returning viewers, subscribers gained, comments and end-screen clicks. Improve the weakest stage of the funnel rather than blindly changing everything.

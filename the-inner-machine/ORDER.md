@@ -1,25 +1,18 @@
-# THE INNER MACHINE — PRODUCTION SEQUENCE (auto-continue)
+# The Inner Machine — production order
 
-One task per session, in this exact order. **No "go ahead" is ever requested.**
-`pipeline/run.py` reads `plan/<video>/run_state.json` and resumes at the next incomplete
-step automatically, so every session just continues where the last left off.
+The repository is the SSOT. The workspace is a scratch workbench. Never skip a gate or mark a failed step complete.
 
-## Sequence
-| # | Task | Session | How |
-|---|------|---------|-----|
-| 1 | **Images** — generate the unique base images (batches ≤10) + Pexels b-roll | own | `run.py` reports `AGENT_ACTION: generate_images N`; agent generates; re-run |
-| 2 | **Long video (16:9)** — rendered in CHUNKS | own | `run.py` (each call = one chunk, default 8 shots) until `LONG DONE` |
-| 3 | **Thumbnail** | own | `run.py` (single call) → `cover.jpg` |
-| 4 | **Metadata** | own | `run.py` (single call) → `metadata.md` |
-| 5 | **Shorts (9:16)** — LAST | own | dedicated 9:16 builder from the finished long |
+1. Brief and topic deduplication
+2. Research and claim register
+3. Script and Short candidates
+4. Landscape assets + provenance manifest
+5. Storyboard + project validation
+6. Measured Kokoro TTS + caption schedule
+7. Landscape long-form render in resumable chunks
+8. Final long-form QA
+9. Three thumbnail concepts + metadata pack
+10. Independent native-vertical Shorts + appended CTA
+11. Final package QA and handoff update
+12. Publish manually, disclose synthetic content when required, then log analytics
 
-## Auto-continue contract
-- State lives in `run_state.json` (`step`, `chunk`). Never deleted mid-video.
-- At session start, run `run.py`; it does the next step/chunk and saves. It prints
-  `[run] next step: X` — that is informational, NOT a question.
-- The agent never asks "should I proceed?". It executes the next step and reports.
-- One task per session: finish the current row, stop; the next session resumes at the next row.
-
-## Visual bar (applies to the long video)
-No sentence subtitles. Only KEY WORDS as kinetic text, TOP of screen, single line, synced
-to the TTS. A visual change every 3–5s; every shot moves. See PRODUCTION_STANDARD.md.
+A reset resumes from `run_state.json`, but a source/config edit invalidates all downstream reports and must reset the affected state.

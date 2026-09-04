@@ -1,22 +1,28 @@
-# the-inner-machine/ — "The Inner Machine"
+# the-inner-machine/ — The Inner Machine
 
-A standalone animated explainer channel about **how the mind works** (psychology, behavior,
-consciousness). Start with **`brand/setup.md`** — the authoritative identity, strategy & SOP.
+Standalone animated explainers about how the mind works: psychology, behavior and consciousness.
 
-> ## ⚠️ SEPARATE from the reference channel
-> The reference channel ("The Deeper Mind", in this repo's `vault/`) is consulted for
-> **production technique only**. This channel has its **own name, brand, voice, strategy, and
-> SOP** and does not follow the reference. Never merge the two.
+The Inner Machine has its own name, brand, voice, strategy and SOP. It is not a personality-typing or Jungian channel, and its identity must not be merged with another project.
 
 ## Layout
-- `brand/` — logo.png, logo_800x800.png, banner.jpg, **setup.md** (strategy/SOP), make_brand.py.
-- `pipeline/` — produce.py, tts.py, sample_voices.py, repo_push.py (the toolchain).
-- `plan/video-NN-<slug>/` — per-video source (project.json + keyframes).
-- `output/<Title>/` — deliverables (long-form + 2 Shorts + metadata + cover + state.json).
-- `handoff/HANDOFF.md` — operational resume.
+
+- `SYSTEM.md` — source-of-truth rules and production gates.
+- `STRATEGY.md` — original channel strategy.
+- `PRODUCTION_STANDARD.md` — enforceable output bar.
+- `brand/` — channel identity, metadata and brand tool.
+- `pipeline/` — TTS, rendering and repository sync tools.
+- `tools/` — project, storyboard and final-video validators.
+- `plan/` — content plan and per-video source packages.
+- `reusable/` — Kokoro voice file/configuration.
+- `handoff/` — operational resume state.
 
 ## Produce a video
+
+A project must first pass validation and have its required assets. The current three-month slate is in `plan/3_MONTH_CONTENT_PLAN.md`.
+
 ```bash
+python3 tools/validate_project.py plan/video-01-where-do-dreams-come-from/project.json
 python3 pipeline/produce.py plan/video-01-where-do-dreams-come-from/project.json
-# -> output/<Title>/  (auto-verified: dims/fps/audio/duration; state.json = ok)
 ```
+
+Do not bypass gates or render the current demo until its landscape assets and claim-level source package are complete.

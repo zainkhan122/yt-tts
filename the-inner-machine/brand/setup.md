@@ -1,100 +1,39 @@
-# THE INNER MACHINE — Channel Setup
-*The authoritative setup for this channel. This strategy & SOP are ORIGINAL — they are
-not copied from, and do not follow, the reference channel (`vault/` "The Deeper Mind").
-The reference is consulted for production technique only, never for strategy.*
+# The Inner Machine — channel setup v2
 
-## 1 · Identity
-| Field | Value |
-|---|---|
-| **Name** | The Inner Machine |
-| **Handle** | @TheInnerMachine (verify availability at launch) |
-| **One-liner** | The hidden machinery of your mind. |
-| **Niche** | Animated explainers on *how the mind works* — psychology, behavior, consciousness. |
-| **Angle** | We explain the **mechanism** (the how/why) behind what you think, feel, and do — science first, human takeaway last. Not personality typing, not self-help preaching. |
-| **Audience** | Curious adults 18–40 who want to understand themselves and others. Smart-curious, not academic. |
-| **Tone** | Clear, warm, a little wondrous. Never preachy, never jargon-dumped. |
+## Identity
 
-### Differentiation (why this isn't the reference)
-- Reference = Jungian personality/archetype content for rare types. **We are not that.**
-- We are **mechanism explainers**: every video answers "what is actually happening in your
-  brain/behavior right now?" with a real mechanism + a relatable hook.
+- **Name:** The Inner Machine
+- **One-liner:** The hidden machinery of your mind.
+- **Niche:** science-first animated explainers on psychology, behavior and consciousness.
+- **Angle:** explain the mechanism behind what people think, feel and do; human takeaway last.
+- **Audience:** curious adults who want understandable science, not a lecture or diagnosis.
+- **Tone:** clear, warm and quietly wondrous; never preachy, jargon-dumped or sensational.
 
-## 2 · Brand
-- **Logo** — `logo.png` (1024) / `logo_800x800.png` (profile): graphite head silhouette whose
-  brain is interlocking copper gears + cyan neural sparks.
-- **Banner** — `banner.jpg` (2560×1440): neural-network (left) meeting clockwork (right),
-  title in the safe area.
-- **Palette**
-  - Graphite `#14181D` (base)
-  - Steel `#2E4756` (secondary)
-  - Copper `#E0A458` (accent / titles)
-  - Cyan-spark `#6FD3E0` (neural / highlights)
-  - Cream `#F4EFE6` (body text on dark)
-- **Type** — clean geometric sans for titles/captions (Montserrat/Poppins ideal; DejaVu-Bold is the
-  offline fallback used by the pipeline).
-- **Motion/visual style** — flat 2D storybook animation, soft radial glows, subtle grain;
-  16:9 long-form, 9:16 Shorts. See `../plan/video-01…/project.json` `"style"`.
+## Explicit separation
 
-## 3 · Voice
-- Engine: **Kokoro** (offline, free). This channel picks its own voice — do not assume the
-  reference's `af_heart`.
-- Audition set in `voices/` (28 samples). Current demo voice: `bm_george`; **confirm before launch**.
+The Inner Machine is not The Deeper Mind. It does not use the reference channel’s Jungian rare-type positioning, title identity, voice lock, content pillars or visual identity. Only general production lessons such as resumable state, provenance tracking and fail-closed QA may be adapted.
 
-## 4 · Content strategy (original)
-**Pillars**
-1. **The Machinery** — how your brain does X (dreams, memory, attention, déjà vu, chills).
-2. **Behavior Explained** — why you do that (habits, gut feelings, procrastination).
-3. **The Self** — who's operating the machine (consciousness, identity, mind-wandering, time).
-4. **Glitches** — when the machine misfires (overthinking, anxiety, burnout, forgetting).
+## Brand
 
-**Formats** — 1 long-form (7–10 min)/wk + 4 Shorts/wk (hook + payoff from long-form + 2 standalones).
-**Title/hook formulas** — "Why your brain does X" · "The mechanism behind X" ·
-"What's actually happening when X" · "It's not laziness/you — it's <mechanism>."
-**Packaging** — thumbnail = one bold idea + ≤4 words; title leads with the mechanism or the myth it busts.
+Graphite `#14181D`, steel `#2E4756`, copper `#E0A458`, cyan `#6FD3E0`, cream `#F4EFE6`. Flat 2D storybook forms, explanatory diagrams, restrained cinematic motion and subtle grain. The visual language varies by mechanism so the channel does not become a repeated AI template. Thumbnail text defaults to the top-left negative-space area with a dark scrim and must never cover the main subject, face, focal object or mechanism.
 
-**Initial slate (12, own — mechanisms, not archetypes)**
-1. Where Do Dreams Come From? *(Machinery — done: video-01)*
-2. Why Your Brain Deletes Most Memories
-3. The Mechanism Behind Overthinking
-4. Why You Procrastinate (It's Not Laziness)
-5. Why You Forget Why You Walked Into a Room
-6. What Happens When You Zone Out
-7. The Science of Déjà Vu
-8. Why Music Gives You Chills
-9. Why Time Speeds Up as You Age
-10. Why You Can't Tickle Yourself
-11. Why Your Mind Wanders (The Default Mode Network)
-12. Why Habits Are So Hard to Break
+## Editorial strategy
 
-## 5 · SOP (one video) — STRICT ORDER
-Prep
-1. **Topic** — pull from the slate; confirm pillar + hook formula.
-2. **Script** — write as beats: `narration` + `caption` + `kf` + `motion`.
-3. **Keyframes** — generate storybook art (reusable across beats), palette-locked.
-Production — the tool **enforces this order; never reorder**
-4. **LONG VIDEO first** — render + verify the full long-form.
-5. **THUMBNAIL** — cover, from the long-form's art.
-6. **METADATA** — description/tags/chapters/hashtags, using the verified runtime.
-7. **SHORTS LAST** — only after 4–6, derived from the finished long-form.
-8. **QA / upload** — `state.json` must read `ok`; you click upload.
+`recognizable experience → mechanism → evidence and limits → visual model → human takeaway`
 
-`produce.py` runs 4→7 in order with no flag. `--only long|cover|meta|shorts` runs a single
-step. It refuses metadata before the long video exists, and Shorts are always last.
+Pillars: Machinery, Behavior Explained, The Self and Glitches. The pilot cadence is one 6–9 minute long-form episode every 10–14 days and two 30–45 second native-vertical Shorts per episode. Reassess after four episodes.
 
-## 6 · Toolchain (this channel's tools — all in `pipeline/`)
-- `produce.py` — config → verified output folder (self-bootstrapping, pre-flight, crash-safe).
-- `tts.py` — Kokoro wrapper, self-healing model download.
-- `sample_voices.py` — renders the 28-voice audition set.
-- `repo_push.py` — pushes THIS folder to GitHub (single commit, preserves the reference).
-- `brand/make_brand.py` — rebuilds logo/banner finals from `_raw` art.
+## Toolchain
 
-## 7 · Files
-- `brand/` — logo.png, logo_800x800.png, banner.jpg, setup.md (this),
-  **channel_metadata.md** (About text + channel/video tags + launch fields), make_brand.py (+ `_raw` sources).
-- `plan/video-NN-<slug>/` — per-video source (project.json + keyframes).
-- `output/<Title>/` — deliverables (mp4 + metadata + cover + shorts/ + state.json).
-- `handoff/HANDOFF.md` — operational resume doc.
+- `pipeline/produce.py` — config-driven renderer, with project validation before render.
+- `pipeline/tts.py` — Kokoro wrapper; model downloads lazily, voice file is cached and checksum-recorded.
+- `tools/validate_project.py` — fail-closed project/schema and asset checks.
+- `tools/qa_video.py` — machine-readable ffprobe delivery QA.
+- `brand/make_brand.py` — rebuilds brand finals from source art.
+- `repo_push.py` — text/config/state push only; secrets and media remain outside normal sync.
 
-## 8 · Separation & security
-- Independent of the reference channel (`vault/`); never merge tools, voices, plans, or strategy.
-- GitHub PAT from env only; never hardcoded/committed. `*.mp4` not committed (regenerable).
+## Workspace and repo
+
+The repo folder `the-inner-machine/` is the SSOT. Workspace contains the active package, tools, reusable Kokoro data, temporary render work and secrets only. Every session begins by syncing from the repo and ends by updating `handoff/HANDOFF.md` and pushing text/config/state changes.
+
+See `SYSTEM.md` for gates and `3_MONTH_CONTENT_PLAN.md` for the current slate.

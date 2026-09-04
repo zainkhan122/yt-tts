@@ -1,0 +1,421 @@
+{
+  "target_wpm": 142,
+  "sentences": [
+    {
+      "id": "S01",
+      "narration": "You walk into a room with a clear intention, and then the intention vanishes.",
+      "pace": 0.92,
+      "pause_after_s": 0.15,
+      "emphasis": "THE DOORWAY RESET",
+      "visual_brief": "person crosses bright doorway holding intention card"
+    },
+    {
+      "id": "S02",
+      "narration": "A second ago, you knew exactly what you needed.",
+      "pace": 0.92,
+      "pause_after_s": 0.15,
+      "emphasis": "I KNEW WHY",
+      "visual_brief": "bright goal card in hand"
+    },
+    {
+      "id": "S03",
+      "narration": "Now you are standing there, looking around as if the room changed the question.",
+      "pace": 0.92,
+      "pause_after_s": 0.15,
+      "emphasis": "WHAT WAS I DOING?",
+      "visual_brief": "person scans unfamiliar-looking room"
+    },
+    {
+      "id": "S04",
+      "narration": "Then you retrace your steps, and the thought returns like a light switching back on.",
+      "pace": 0.92,
+      "pause_after_s": 0.15,
+      "emphasis": "THE THOUGHT RETURNS",
+      "visual_brief": "path backward illuminates goal"
+    },
+    {
+      "id": "S05",
+      "narration": "Did the doorway erase your memory?",
+      "pace": 0.92,
+      "pause_after_s": 0.24,
+      "emphasis": "DID IT ERASE YOU?",
+      "visual_brief": "doorway beside fading memory card"
+    },
+    {
+      "id": "S06",
+      "narration": "Not exactly.",
+      "pace": 0.92,
+      "pause_after_s": 0.24,
+      "emphasis": "NOT EXACTLY",
+      "visual_brief": "delete symbol pauses and fades"
+    },
+    {
+      "id": "S07",
+      "narration": "The doorway may have changed the context in which your brain was holding the goal.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "THE CONTEXT CHANGED",
+      "visual_brief": "two rooms with changing context map"
+    },
+    {
+      "id": "S08",
+      "narration": "To understand that, start with what an intention actually is.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "WHAT IS AN INTENTION?",
+      "visual_brief": "intention card enters simple mind model"
+    },
+    {
+      "id": "S09",
+      "narration": "It is not always a sentence sitting safely in a mental folder.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "NOT A FOLDER",
+      "visual_brief": "folder dissolves into active signal"
+    },
+    {
+      "id": "S10",
+      "narration": "It is a temporary pattern your working memory keeps active while you act.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "WORKING MEMORY",
+      "visual_brief": "glowing goal pattern guides movement"
+    },
+    {
+      "id": "S11",
+      "narration": "Remembering to get your keys, for example, has to survive distractions, movement and time.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "SURVIVE DISTRACTIONS",
+      "visual_brief": "keys, phone and clock compete around goal card"
+    },
+    {
+      "id": "S12",
+      "narration": "The goal stays useful only while it remains available to guide the next action.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "GUIDE THE NEXT ACTION",
+      "visual_brief": "goal card guides hand toward keys"
+    },
+    {
+      "id": "S13",
+      "narration": "But working memory is limited and attention is constantly being redirected.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "ATTENTION IS LIMITED",
+      "visual_brief": "small spotlight pulled by several objects"
+    },
+    {
+      "id": "S14",
+      "narration": "A notification arrives.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "A NOTIFICATION ARRIVES",
+      "visual_brief": "phone notification glow pulls spotlight"
+    },
+    {
+      "id": "S15",
+      "narration": "You notice a sound from the hallway.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "A SOUND INTERRUPTS",
+      "visual_brief": "sound wave enters scene"
+    },
+    {
+      "id": "S16",
+      "narration": "You start thinking about what you will say later.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "ANOTHER THOUGHT",
+      "visual_brief": "future conversation bubble competes"
+    },
+    {
+      "id": "S17",
+      "narration": "The original intention can become weaker without disappearing completely.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "WEAKER, NOT GONE",
+      "visual_brief": "goal card dims but remains visible"
+    },
+    {
+      "id": "S18",
+      "narration": "Then you cross into a new room.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "A NEW CONTEXT",
+      "visual_brief": "person crosses threshold"
+    },
+    {
+      "id": "S19",
+      "narration": "The visual scene changes, and your brain updates what is relevant around you.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "SCENE UPDATED",
+      "visual_brief": "room map refreshes with new objects"
+    },
+    {
+      "id": "S20",
+      "narration": "That update is useful most of the time.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "UPDATING HELPS",
+      "visual_brief": "new room map organizes actions"
+    },
+    {
+      "id": "S21",
+      "narration": "It lets you stop treating every room as the previous room.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "THE BRAIN UPDATES",
+      "visual_brief": "old room fades, new room organized"
+    },
+    {
+      "id": "S22",
+      "narration": "But the old goal may not be the most relevant signal in the new scene.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "OLD GOAL OBSCURED",
+      "visual_brief": "old goal card moves behind new task cards"
+    },
+    {
+      "id": "S23",
+      "narration": "The doorway did not delete the goal like a file.",
+      "pace": 0.92,
+      "pause_after_s": 0.24,
+      "emphasis": "NOT A DELETE BUTTON",
+      "visual_brief": "file delete icon transforms into hidden card"
+    },
+    {
+      "id": "S24",
+      "narration": "It may have made the goal harder to retrieve from the new context.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "HARDER TO RETRIEVE",
+      "visual_brief": "goal card behind translucent wall"
+    },
+    {
+      "id": "S25",
+      "narration": "This is where attention matters.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "ATTENTION SEARCHES",
+      "visual_brief": "spotlight searches among cards"
+    },
+    {
+      "id": "S26",
+      "narration": "If the new room gives your brain many competing details, the old intention has more competition.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "MORE COMPETITION",
+      "visual_brief": "many new objects crowd doorway"
+    },
+    {
+      "id": "S27",
+      "narration": "If you were already distracted, the intention may have been weak before you crossed.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "WEAK BEFORE THE DOOR",
+      "visual_brief": "dim goal card before doorway"
+    },
+    {
+      "id": "S28",
+      "narration": "And if the intention was never strongly encoded, there may be very little to recover.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "NEVER STRONGLY HELD",
+      "visual_brief": "empty capture frame before goal"
+    },
+    {
+      "id": "S29",
+      "narration": "The famous doorway explanation is therefore only one piece of a larger memory system.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "ONE PIECE OF A SYSTEM",
+      "visual_brief": "doorway joins four-part system"
+    },
+    {
+      "id": "S30",
+      "narration": "Context changes can influence what is accessible, but the effect depends on the task and the person.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "CONTEXT DEPENDS",
+      "visual_brief": "different people cross different doors, varied outcomes"
+    },
+    {
+      "id": "S31",
+      "narration": "A simple room is not a magical memory boundary.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "NOT MAGIC",
+      "visual_brief": "doorway loses magical glow, becomes ordinary"
+    },
+    {
+      "id": "S32",
+      "narration": "It is a change in the information your brain is using to organize the moment.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "INFORMATION UPDATED",
+      "visual_brief": "information map shifts at threshold"
+    },
+    {
+      "id": "S33",
+      "narration": "That shift can be tiny.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "A TINY SHIFT",
+      "visual_brief": "small threshold ripple"
+    },
+    {
+      "id": "S34",
+      "narration": "Yet a tiny shift can be enough to interrupt a fragile goal.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "FRAGILE GOAL",
+      "visual_brief": "small ripple dims delicate goal"
+    },
+    {
+      "id": "S35",
+      "narration": "This is why retracing your steps sometimes works.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "RETRACE THE PATH",
+      "visual_brief": "person walks back through doorway"
+    },
+    {
+      "id": "S36",
+      "narration": "The old context brings back some of the cues that surrounded the intention.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "THE OLD CUES RETURN",
+      "visual_brief": "old room cues relight goal card"
+    },
+    {
+      "id": "S37",
+      "narration": "The keys are visible again.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "SEE THE KEYS",
+      "visual_brief": "keys glow in old room"
+    },
+    {
+      "id": "S38",
+      "narration": "The half-finished sentence is back in your mind.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "THE SENTENCE RETURNS",
+      "visual_brief": "sentence fragment reconnects"
+    },
+    {
+      "id": "S39",
+      "narration": "The brain did not necessarily recover a deleted file.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "NOT FILE RECOVERY",
+      "visual_brief": "archive file metaphor dissolves"
+    },
+    {
+      "id": "S40",
+      "narration": "It reconstructed the route to the goal using familiar cues.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "REBUILD THE ROUTE",
+      "visual_brief": "path diagram rebuilds from cues"
+    },
+    {
+      "id": "S41",
+      "narration": "That also explains why speaking an intention can help.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "SAY THE GOAL",
+      "visual_brief": "person says goal, waveform anchors card"
+    },
+    {
+      "id": "S42",
+      "narration": "Words create another cue that can survive a context change.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "ANOTHER ANCHOR",
+      "visual_brief": "spoken words become bright anchor"
+    },
+    {
+      "id": "S43",
+      "narration": "Writing it down creates an external cue instead of asking working memory to carry everything.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "EXTERNAL CUE",
+      "visual_brief": "note card remains across doorway"
+    },
+    {
+      "id": "S44",
+      "narration": "None of these guarantees perfect memory.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "NO GUARANTEES",
+      "visual_brief": "guarantee stamp cracks"
+    },
+    {
+      "id": "S45",
+      "narration": "They simply give the goal more routes back into attention.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "MORE ROUTES BACK",
+      "visual_brief": "multiple paths return to goal"
+    },
+    {
+      "id": "S46",
+      "narration": "So when you forget why you entered a room, do not immediately call yourself careless.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "NOT CARELESS",
+      "visual_brief": "person looks curious, not ashamed"
+    },
+    {
+      "id": "S47",
+      "narration": "Ask what changed, what competed for attention and which cue could restore the goal.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "ASK WHAT CHANGED?",
+      "visual_brief": "three questions orbit goal card"
+    },
+    {
+      "id": "S48",
+      "narration": "The doorway may have exposed a small weakness in the way the intention was being held.",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "A WEAK LINK",
+      "visual_brief": "goal card shows weak link"
+    },
+    {
+      "id": "S49",
+      "narration": "That weakness is a mechanism, not a verdict about your intelligence.",
+      "pace": 0.92,
+      "pause_after_s": 0.15,
+      "emphasis": "NOT A VERDICT",
+      "visual_brief": "mechanism diagram replaces judgment stamp"
+    },
+    {
+      "id": "S50",
+      "narration": "And sometimes the quickest way forward is simply to step back, find the cue and let the machine rebuild the route.",
+      "pace": 0.92,
+      "pause_after_s": 0.24,
+      "emphasis": "FIND THE CUE",
+      "visual_brief": "person retraces path, goal brightens"
+    },
+    {
+      "id": "S51",
+      "narration": "What were you trying to do the last time a doorway made you forget?",
+      "pace": 0.98,
+      "pause_after_s": 0.15,
+      "emphasis": "WHAT DID YOU FORGET?",
+      "visual_brief": "final doorway and glowing comment prompt"
+    },
+    {
+      "id": "S52",
+      "narration": "What cue could help you find your way back next time?",
+      "pace": 0.94,
+      "pause_after_s": 0.28,
+      "emphasis": "FIND YOUR WAY BACK",
+      "visual_brief": "glowing cue path through doorway to intention card"
+    }
+  ]
+}

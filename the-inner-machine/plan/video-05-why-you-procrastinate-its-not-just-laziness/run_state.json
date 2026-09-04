@@ -1,0 +1,12 @@
+{
+  "step": "scripted",
+  "status": "assets_and_assemble_shots_ready",
+  "sentences": 52,
+  "unique_assets_required": 52,
+  "renderer": "pipeline/assemble_v2.py",
+  "next_action": "generate remaining 2 unique beat assets; repository push failed: PAT lacks blob write permission",
+  "beat_count_policy": "natural_script_count_within_50_to_65; 52 is not a fixed system target",
+  "motion_policy": "planned varied treatments; no mechanical six-motion cycle",
+  "unique_assets_generated": 50,
+  "motion_variants": 8
+}

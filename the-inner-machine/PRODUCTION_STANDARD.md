@@ -1,38 +1,65 @@
-# THE INNER MACHINE — PRODUCTION STANDARD (v2)
-*Adopted from the reference repo's tested "visual-style analysis v2" + "stock & storage" docs.
-This is the enforced bar for every video. A video that doesn't meet it does not ship.*
+# THE INNER MACHINE — PRODUCTION STANDARD v3
 
-## The retention bar (market standard, verified)
-- **A visual change every 3–5 s.** A "change" = new image, new crop/zoom, text pop, or transition.
-  Never hold one frame > ~4 s with no motion change.
-- **Kinetic text on screen for every major claim / key phrase**, synced to the word, placed
-  **middle or top** (not buried at the bottom). Two styles: big word-POPS for emphasis +
-  statement captions for sentences.
-- **Every shot moves** — variable zoom/pan; no two shots move the same way.
-- **Quick crossfades (~0.3 s)** between shots; zoom-through on section changes.
-- **Frame-accurate sync** — synthesize each sentence separately, measure its REAL duration,
-  build visuals + captions to those exact timings. Never assume chars ∝ time.
+This is the channel’s enforceable production bar. It is deliberately original to The Inner Machine; the reference repository contributed only general operational lessons.
 
-## Asset standard per ~8-min video
-- **20–30 unique base images** (generated, palette-locked). **No shot repeats.**
-  Each base image may yield 3–4 *different shots* via distinct crops/zooms/pans — but each
-  shot is visually different; the same framing never repeats.
-- **Real b-roll (Pexels video)** mixed in for motion/realism where it fits — REQUIRES the free
-  Pexels key (`~/.pexels_key`). Without it, use generated images only.
-- **Images stored compressed** (JPG at target res, ~100–250 KB each), never 2 MB PNGs.
+## Output specifications
 
-## Script format (write it this way)
-Break the narration into **sentences**. Each sentence = one caption timing. Group sentences into
-**shots** (a shot = 1 image + motion + 1..n captions, ≤ ~5 s). Tag each shot:
-`[SHOT n] image=<base>  crop=<variant>  motion=<zoom/pan>  [TEXT OVERLAY: phrase]`.
-Structure: HOOK(30s) / THE MECHANISM / THE WHY / THE SHIFT / CTA. ~150 wpm.
+- Long-form: 16:9, 1920×1080 or 1280×720, 30 fps, 6–9 minutes initially.
+- Shorts: 9:16, 1080×1920, 30 fps, 30–45 seconds.
+- Voice: selected Kokoro voice recorded in `reusable/voice_config.json`; model/version/checksum recorded per video.
+- Audio: voice clearly dominant; loudness and true peak measured with ffmpeg/ffprobe. No synthetic pad or music is shipped without a logged source/creation record.
 
-## Storage hygiene (hard rule — workspace is a workbench, not an archive)
-- Workspace holds ONLY the current video's working set. Cap ~128 MB / 10k files.
-- Images compressed; intermediates (`.work`) deleted after each successful step.
-- After a video is confirmed/pushed to the GitHub vault, delete its binaries locally.
-- GitHub `zainkhan122/yt-tts` `the-inner-machine/` = permanent vault.
+## Editorial bar
 
-## SOP order (enforced by tooling)
-1 long video → 2 thumbnail → 3 metadata → 4 shorts LAST. Build incrementally across sessions;
-never generate an entire video's assets + render in one session.
+- One viewer experience and one primary mechanism per episode.
+- Hook in the first two sentences; mechanism promise within the first 30 seconds.
+- Add a measured opening pause after the first vivid line or unresolved question; a pause is a timing tool, not dead air.
+- Three or four chapters, one midpoint re-hook, concise synthesis and a real comment question.
+- When a technical section risks feeling abstract, carry a recurring metaphor or visual anchor through it, but never let metaphor replace a clear mechanism diagram.
+- Every sentence must do at least one job: create curiosity, evoke a concrete experience, explain mechanism, introduce contrast, answer a question or deliver payoff. Delete filler and repeated claims.
+
+## Voice and delivery bar
+
+- Target approximately 135–150 words per minute for explanatory narration; slower for a key idea, faster only for controlled escalation.
+- Each sentence may define `speed`, `pause_before`, `pause_after` and `emphasis` in the voice plan. Pause timings are inserted in audio, not guessed from punctuation alone.
+- Emphasis is produced through measured speed/pitch/volume treatment or deliberate wording—not ALL CAPS everywhere.
+- Listen to the first 30 seconds and one chapter transition before rendering the full video. Reject fast, flat, clipped or breathless TTS.
+- Record actual per-sentence durations and use them for the visual/caption timeline.
+
+## Script bar
+
+- Use a concrete cold open, a clear promise, escalating explanation, a midpoint re-hook, a counterpoint/limit and a satisfying synthesis.
+- Prefer specific human moments over abstract introductions. Avoid “in today’s video,” generic motivational language and unsupported certainty.
+- Every factual claim has a claim ID in `sources.md` and a confidence label: established, supported, debated or illustrative metaphor.
+- No diagnosis, treatment, cure, universal brain claim or sensational mental-health framing.
+
+## Visual bar
+
+- Visual change approximately every 3–5 seconds, but not as empty wallpaper: use a diagram for causal claims, visual metaphor for abstraction and real-world footage for lived context.
+- At least one original explanatory diagram per long-form.
+- Target 12–18 original landscape base illustrations plus 2–4 diagrams and 3–6 licensed b-roll clips. Fewer assets are acceptable when each shot carries meaning; artificial asset counts are not a quality metric.
+- Each Short has its own portrait pool: 4–6 AI illustrations and 2–4 portrait stock clips where appropriate. Never hard-crop landscape media or share the two Shorts’ hero assets.
+- No asset from another episode is reused except explicitly marked reusable brand elements.
+- Every sentence-level beat must have its own distinct visual asset. Asset reuse within an episode is a validation failure.
+- Beat count is selected from the script’s natural sentence structure, not forced to 52; the approved long-form range is 50–65 beats.
+- Motion must vary intentionally across the episode: use a planned mix of zoom, pan, rise, settle, reveal, diagram movement, parallax and transitions. Do not cycle one short motion list mechanically.
+
+## Caption and timing bar
+
+- Narration is split into measured sentence/keyword units.
+- `caption_schedule.json` contains absolute `start`, `end`, `sentence_id`, `keyword` and `beat_id` values.
+- Captions are generated only after measured TTS timing exists; no character-count timing estimates.
+- **Kinetic typography is selective emphasis—not captions and not a text layer on every image.** Only high-value beats receive 1–3 meaningful overlay words, timed to the exact spoken phrase. Most beats remain text-free. Use `tools/validate_kinetic.py` and the proven `pipeline/assemble_v2.py` overlay path. A caption schedule alone is not evidence that text is visible; inspect encoded frames.
+
+## Packaging bar
+
+- Three title candidates and three materially different thumbnail candidates.
+- Thumbnail is a complementary visual diagnosis, 2–4 words, never the full title. Place the text in top-left negative space by default, using a subtle dark scrim/gradient; it must never mask the main face, subject, focal object or explanatory mechanism. Move only when the top-left is not clear.
+- Metadata includes a truthful first sentence, chapters, sources, relevant disclaimer, pinned comment, related video/playlist, credits and AI disclosure decision.
+- Use tags sparingly; effort goes to title, thumbnail, opening and viewer satisfaction.
+
+## Workspace safety and fail-closed gates
+
+Run `tools/cleanup_workbench.py` before TTS, rendering or assembly. Keep the workspace under 100 MB; delete generated audio/video and render intermediates after the relevant report is captured. If a final video must be preserved, push it to an explicitly configured remote/object store first and verify the remote checksum; never rely on the workspace snapshot for large binaries.
+
+A build does not progress if any validator fails. Final QA must include: project schema, asset manifest/provenance, caption schedule, ffprobe streams/dimensions/fps/SAR, decode spot checks, audio loudness/peak, thumbnail text fit, metadata completeness and Short CTA timing. Outputs are written atomically and only renamed after QA passes.

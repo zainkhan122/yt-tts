@@ -1,0 +1,16 @@
+{
+  "engine": "kokoro-onnx",
+  "model_family": "kokoro-v1.0",
+  "voices_file": "reusable/voices-v1.0.bin",
+  "voices_sha256": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d",
+  "selected_voice": "bm_george",
+  "status": "pilot voice; confirm after listening test before first publication",
+  "speed": 1.0,
+  "language": "en-gb",
+  "alternatives_to_audition": ["bf_emma", "af_heart", "am_adam"],
+  "rules": [
+    "Never change the selected voice silently after publication.",
+    "Record model URL, model SHA256, package versions and pronunciation overrides in the video QA report.",
+    "Do not present the synthetic voice as a real person or clinician."
+  ]
+}

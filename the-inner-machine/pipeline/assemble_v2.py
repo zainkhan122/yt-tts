@@ -64,7 +64,12 @@ def scene(sc,i,work):
     if sc.get("overlay"):
         words_png(sc["overlay"],f"{work}/p{i}.png",COPPER,0.10)
         inputs+=["-loop","1","-framerate",str(FPS),"-t",f"{dur:.3f}","-i",f"{work}/p{i}.png"]
-        fc+=";[1:v]format=rgba,fade=t=in:st=0.2:d=0.2:alpha=1[pp];[bg][pp]overlay=0:0[v1]"
+        # Place important words at their spoken position, not at sentence start.
+        raw=sc["text"].lower(); phrase=sc.get("overlay","").lower().split(); pos=raw.find(' '.join(phrase)) if phrase else -1
+        if pos < 0: start_frac=0.35; end_frac=0.70
+        else:
+            start_frac=max(0.02,min(0.92,pos/max(1,len(raw)))); end_frac=min(0.99,start_frac+max(0.10,len(' '.join(phrase))/max(1,len(raw))))
+        fc+=f";[1:v]format=rgba,fade=t=in:st={dur*start_frac:.3f}:d=0.2:alpha=1[pp];[bg][pp]overlay=0:0[v1]"
         last="[v1]"
     fc+=f";{last}format=yuv420p[v]"
     run([FF,"-y"]+inputs+["-filter_complex",fc,"-map","[v]","-c:v","libx264","-preset","veryfast","-crf","24",

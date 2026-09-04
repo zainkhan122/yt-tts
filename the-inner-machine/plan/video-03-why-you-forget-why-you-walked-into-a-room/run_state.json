@@ -1,0 +1,40 @@
+{
+  "step": "rendered",
+  "status": "assemble_v2_final_render_frame_verified",
+  "sentences": 52,
+  "next_action": "download final kinetic version before any cleanup",
+  "ai_landscape_generated": 16,
+  "diagrams_generated": 4,
+  "assets_registered": 26,
+  "pexels_photos": 6,
+  "render_index": 52,
+  "render_status": "complete",
+  "output": "plan/video-03-why-you-forget-why-you-walked-into-a-room/Why You Walk Into a Room and Forget Why 1920x1080.mp4",
+  "duration_s": 241.79,
+  "resolution": "1920x1080",
+  "qa": "pass",
+  "metadata": "complete",
+  "metadata_format": "paragraph breaks preserved with blank lines",
+  "word_sync": "visible actual narration words in measured two-word chunks",
+  "long_form_cleaned": "downloaded deliverables removed; production records retained",
+  "shorts_assets_generated": 8,
+  "shorts_assets_registered": 8,
+  "shorts_word_sync": true,
+  "shorts": {
+    "hook": {
+      "duration_s": 31.9,
+      "qa": "pass"
+    },
+    "payoff": {
+      "duration_s": 31.37,
+      "qa": "pass"
+    }
+  },
+  "unique_assets_required": 52,
+  "unique_assets_generated": 50,
+  "unique_assets": 52,
+  "render_path_correction": "use pipeline/assemble_v2.py proven PNG overlay path; do not use render_timed subtitle experiment",
+  "renderer": "pipeline/assemble_v2.py",
+  "overlay_source": "shots.overlay",
+  "kinetic_overlay": "important overlay words burned into encoded pixels; frame inspected at t=1s"
+}

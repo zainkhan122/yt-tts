@@ -1,0 +1,28 @@
+{
+  "step": "scripted",
+  "status": "complete_downloaded_cleaned",
+  "sentences": 52,
+  "unique_assets_required": 52,
+  "renderer": "pipeline/assemble_v2.py",
+  "next_action": "prepare Video 05 brief and script",
+  "unique_assets_generated": 50,
+  "thumbnail": "thumbnail.jpg",
+  "thumbnail_text": "THOUGHT LOOP",
+  "thumbnail_status": "approved_locked",
+  "metadata_status": "validated",
+  "shorts_status": "qa_pass",
+  "shorts_assets_generated": 8,
+  "shorts_word_sync_verified": true,
+  "shorts": {
+    "hook": {
+      "duration_s": 32.78,
+      "qa": "pass"
+    },
+    "payoff": {
+      "duration_s": 36.54,
+      "qa": "pass"
+    }
+  },
+  "download_confirmed": true,
+  "active_media_removed": true
+}
