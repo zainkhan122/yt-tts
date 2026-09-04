@@ -5,8 +5,11 @@ Layouts:
   card   — object is the card (MoviePass): logo TL, wound BL
   phone  — object is the cracked phone (Quibi): Q TL, wound fills the empty RIGHT
   room   — object is the empty newsroom (Messenger): white wordmark TL, wound BL
-  aisle  — object is the empty / closing toy aisle (Toys R Us): wordmark TL, wound on the empty floor
-No scraps. No mandatory clipping. Do not invent a giraffe.
+  aisle  — closing store / empty aisle
+  split  — FALLBACK only: object would double-print the name or hide the wound
+           under another brand. One mark LEFT on dark. Wound RIGHT in empty space.
+           Not the channel OS. No white slab. No arc arrow.
+No scraps. No mandatory clipping. Do not invent a giraffe. No moon-arrow template.
 """
 import sys
 from pathlib import Path
@@ -67,12 +70,13 @@ def stroke(draw, xy, text, font, fill, sw=7):
 
 def wound(draw, parts, x, y, size=96, stack=True):
     f = ImageFont.truetype(FONTB, size)
+    sw = 12 if size >= 120 else 7
     if len(parts) == 1:
-        stroke(draw, (x, y), parts[0], f, WHITE)
+        stroke(draw, (x, y), parts[0], f, WHITE, sw)
         return
     if stack:
-        stroke(draw, (x, y), " ".join(parts[:-1]), f, WHITE)
-        stroke(draw, (x, y + int(size * 1.05)), parts[-1], f, GOLD)
+        stroke(draw, (x, y), " ".join(parts[:-1]), f, WHITE, sw)
+        stroke(draw, (x, y + int(size * 1.05)), parts[-1], f, GOLD, sw)
     else:
         # one line, last word gold — draw separately
         w0 = " ".join(parts[:-1]) + " "
@@ -82,7 +86,7 @@ def wound(draw, parts, x, y, size=96, stack=True):
 
 
 base = Image.open(BASE).convert("RGB").resize((W, H), Image.Resampling.LANCZOS)
-lift = {"room": 1.62, "aisle": 1.40}.get(LAYOUT, 1.14)
+lift = {"room": 1.62, "aisle": 1.40, "split": 1.04}.get(LAYOUT, 1.14)
 base = ImageEnhance.Brightness(base).enhance(lift)
 base = ImageEnhance.Contrast(base).enhance(1.10 if LAYOUT in {"room", "aisle"} else 1.08)
 im = base.convert("RGBA")
@@ -110,6 +114,26 @@ elif LAYOUT == "aisle":
     logo = knockout_dark(raw)
     im = paste_logo(im, logo, (36, 28), 480, 120)
     wound(d, parts, 40, H - 230, 108, True)
+elif LAYOUT == "split":
+    # Fallback. One mark. Wound in empty space. No second logo, no arrow, no white slab.
+    from PIL import Image as _Im
+    left = _Im.new("RGBA", (W // 2, H), (8, 10, 14, 255))
+    im.paste(left, (0, 0))
+    logo = knockout_dark(raw)
+    # vertically center the mark in the left half
+    lw, lh = logo.size
+    s = min(560 / max(lw, 1), 200 / max(lh, 1))
+    lw2, lh2 = max(1, int(lw * s)), max(1, int(lh * s))
+    lx = (W // 2 - lw2) // 2
+    ly = (H - lh2) // 2
+    im = paste_logo(im, logo, (max(16, lx), max(16, ly)), 560, 200)
+    # wound centered in the RIGHT half
+    ftmp = ImageFont.truetype(FONTB, 128)
+    longest = max(parts, key=len) if parts else ""
+    tw = d.textlength(longest, font=ftmp) if longest else 200
+    wx = W // 2 + max(24, (W // 2 - tw) // 2)
+    wy = (H - int(128 * 1.05) * min(len(parts), 2) - 20) // 2
+    wound(d, parts, wx, wy, 128, True)
 else:
     sys.exit("unknown layout")
 
