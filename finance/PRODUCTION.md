@@ -22,7 +22,7 @@ Nothing here is a script to paste. The last film is not a template.
 | **Open** | What does the record actually give you? A corpse date, a number, a quote, an object, a filing. Use that. Do not use the previous film’s sentence shape. |
 | **Spine order** | Origin first only if the origin *is* the trick. Otherwise corpse or machine first. No mandatory 8-block clock. |
 | **Closer** | A leftover the viewer can answer — or a sourced last fact. Do not end every film with the same brand slogan. Brand line lives in the description if needed. |
-| **Thumb** | One object that *is this death*. Layout follows the object (card, phone, room, aisle, lease…). Do not stamp logo-TL / clip-TR / wound-BL. No scrap because the last film had a scrap. |
+| **Thumb** | One object that *is this death* + one real mark + a 2–4 word gold/white wound (not the title). Layout follows the object. Family resemblance is the **wound type**, not the grid. **Split is a fallback** when the object would double-print the name or hide the wound under another brand (E04). Not the OS. No white-slab right half. No arc arrow. No scrap because the last film had a scrap. |
 | **Open picture** | First seconds should feel like the thumb continued *if that object is the story*. 2–4s push on the object. Not a 10s logo-assassination ritual. No on-screen disclaimer. |
 | **Metadata** | Search vs browse for *this* name. First paragraph is this film’s promise, not a clone of “Founded in… then… then dark.” Chapters exist if they help; they are not a law. |
 | **Shorts** | One unfinished why + one mechanism. Pick the two lines the long actually earned. |
