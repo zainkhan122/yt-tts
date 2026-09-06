@@ -25,7 +25,21 @@ Toys R Us — 9:01. Open = Brandon declaration / $400M year.
 Thumb **pending approval**: split fallback — one 2007 wordmark left, **THE DEBT** on that store’s sky, right. No Babies. No second logo. No arrow.  
 Mux still in workspace. Do not recut picture unless asked.
 
+## E03 SHORTS (cut 2026-09-04)
+Hook: *The Messenger Died By Email In 8 Months* (~30s).  
+Payoff: *The Messenger Hired 300 To Chase Leftover Ads* (~33s).  
+Packs E01–E04 longs/assets stripped after user download. These two muxes are the only mp4s in the workspace.
+
+## E05
+Convoy. `sources.md` and `FORM.md` filled **before** VO. Open = 18 Oct 2023 blank board, then April 2022 $3.8B. Not E01 stamp / E02 number-into-corpse / E03 died-by-email / E04 court quote.  
+Wound: **EMPTY BOARD**. $16M Flexport price stays *reported, unconfirmed*. No Ch.11 invented.  
+**Cut 7:34.** Thumb = empty dock + one orange CONVOY mark + **EMPTY BOARD** (not split). Shorts: hook *Convoy Cancelled Every Load. The Board Went Blank* (~29s); payoff *Convoy Was $3.8 Billion. Then Rates Fell* (~32s).
+
+## E06
+**Cut 6:34.** Jawbone Lost The Wrist. Open = Christmas 2014 miss (Fortune). Wound **COULDN'T SHIP** on wrists. Not a split.  
+Shorts under 30s (~25s / ~27s) — did not pad. Fitbit suits = chapter. Health Hub = not the spine.
+
+Local E06 folder cleared after download. Pack (script, thumb, shorts metadata, artifacts) is in `finance/` on the repo.
+
 ## NEXT
-1. Approve or reject the E04 thumb. If reject, say which half fails (mark vs wound).
-2. Download E04 mux + Shorts. Then delete from workspace (cap ~128MB). E03 muxes **deleted this turn** to free space.
-3. E05: `sources.md` → `FORM.md` before a word of VO. Object-thumb unless the record forces a split. Do not clone E04’s court-quote open.
+E07: `sources.md` → `FORM.md` before VO. Do not clone E06’s Christmas-miss open. Month-2 backlog leftover: Fast (research fraud first — skip if messy). Or a new mechanism, not another wearable/LBO/blank-board.
