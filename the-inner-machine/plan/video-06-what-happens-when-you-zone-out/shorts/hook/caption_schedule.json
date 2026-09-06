@@ -1,0 +1,128 @@
+{
+  "status": "built",
+  "kind": "hook",
+  "voice": "bm_george",
+  "duration_s": 22.1406,
+  "schedule": [
+    {
+      "sentence_id": "hook_01",
+      "text": "You are reading a sentence when your eyes keep moving but the meaning disappears.",
+      "start_s": 0.0,
+      "speech_end_s": 5.3966,
+      "end_s": 5.5566,
+      "pause_after_s": 0.16,
+      "is_cta": false,
+      "caption": "ZONING OUT",
+      "kf": "shorts/hook/images/01.jpg",
+      "motion": [
+        "zoom",
+        1.05,
+        1.16,
+        0.5,
+        0.5,
+        0.5,
+        0.4
+      ]
+    },
+    {
+      "sentence_id": "hook_02",
+      "text": "You look up and realize the last few minutes happened without your attention.",
+      "start_s": 5.5566,
+      "speech_end_s": 10.558,
+      "end_s": 10.718,
+      "pause_after_s": 0.16,
+      "is_cta": false,
+      "caption": "",
+      "kf": "shorts/hook/images/02.jpg",
+      "motion": [
+        "panlr",
+        1.06,
+        1.18,
+        0.25,
+        0.48,
+        0.72,
+        0.48
+      ]
+    },
+    {
+      "sentence_id": "hook_03",
+      "text": "That is zoning out.",
+      "start_s": 10.718,
+      "speech_end_s": 12.4566,
+      "end_s": 12.6166,
+      "pause_after_s": 0.16,
+      "is_cta": false,
+      "caption": "",
+      "kf": "shorts/hook/images/03.jpg",
+      "motion": [
+        "rise",
+        1.05,
+        1.16,
+        0.5,
+        0.62,
+        0.5,
+        0.35
+      ]
+    },
+    {
+      "sentence_id": "hook_04",
+      "text": "But your brain is not simply switching off.",
+      "start_s": 12.6166,
+      "speech_end_s": 15.8159,
+      "end_s": 15.9759,
+      "pause_after_s": 0.16,
+      "is_cta": false,
+      "caption": "CHANGING TARGET",
+      "kf": "shorts/hook/images/04.jpg",
+      "motion": [
+        "settle",
+        1.16,
+        1.05,
+        0.5,
+        0.5,
+        0.5,
+        0.56
+      ]
+    },
+    {
+      "sentence_id": "hook_05",
+      "text": "Attention is changing its target.",
+      "start_s": 15.9759,
+      "speech_end_s": 18.8226,
+      "end_s": 18.9826,
+      "pause_after_s": 0.16,
+      "is_cta": false,
+      "caption": "",
+      "kf": "shorts/hook/images/01.jpg",
+      "motion": [
+        "zoom",
+        1.05,
+        1.16,
+        0.5,
+        0.5,
+        0.5,
+        0.4
+      ]
+    },
+    {
+      "sentence_id": "hook_06",
+      "text": "Watch the full video on this channel.",
+      "start_s": 18.9826,
+      "speech_end_s": 21.8606,
+      "end_s": 22.1406,
+      "pause_after_s": 0.28,
+      "is_cta": true,
+      "caption": "WATCH FULL VIDEO",
+      "kf": "shorts/hook/images/02.jpg",
+      "motion": [
+        "panlr",
+        1.06,
+        1.18,
+        0.25,
+        0.48,
+        0.72,
+        0.48
+      ]
+    }
+  ]
+}
