@@ -1,0 +1,782 @@
+[
+  {
+    "img": "images/beat_01.jpg",
+    "text": "You are reading a sentence when your eyes keep moving but the meaning disappears.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.04,
+      1.13,
+      0.5,
+      0.5,
+      0.5,
+      0.42
+    ],
+    "sentence_id": "S01"
+  },
+  {
+    "img": "images/beat_02.jpg",
+    "text": "You look up and realize the last few minutes happened without your attention.",
+    "overlay": "",
+    "motion": [
+      "panlr",
+      1.05,
+      1.14,
+      0.24,
+      0.48,
+      0.72,
+      0.48
+    ],
+    "sentence_id": "S02"
+  },
+  {
+    "img": "images/beat_03.jpg",
+    "text": "That experience is usually called zoning out.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.04,
+      1.12,
+      0.5,
+      0.62,
+      0.5,
+      0.36
+    ],
+    "sentence_id": "S03"
+  },
+  {
+    "img": "images/beat_04.jpg",
+    "text": "It can feel like the mind went blank.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.13,
+      1.04,
+      0.5,
+      0.5,
+      0.5,
+      0.55
+    ],
+    "sentence_id": "S04"
+  },
+  {
+    "img": "images/beat_05.jpg",
+    "text": "But blankness is the wrong starting model.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.05,
+      1.15,
+      0.68,
+      0.5,
+      0.38,
+      0.5
+    ],
+    "sentence_id": "S05"
+  },
+  {
+    "img": "images/beat_06.jpg",
+    "text": "Your brain is not simply switching off.",
+    "overlay": "",
+    "motion": [
+      "panrl",
+      1.05,
+      1.14,
+      0.72,
+      0.48,
+      0.25,
+      0.48
+    ],
+    "sentence_id": "S06"
+  },
+  {
+    "img": "images/beat_07.jpg",
+    "text": "Attention is changing its target.",
+    "overlay": "SWITCHING",
+    "motion": [
+      "rise",
+      1.05,
+      1.13,
+      0.5,
+      0.38,
+      0.5,
+      0.62
+    ],
+    "sentence_id": "S07"
+  },
+  {
+    "img": "images/beat_08.jpg",
+    "text": "Sometimes the new target is a memory.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.14,
+      1.05,
+      0.5,
+      0.5,
+      0.5,
+      0.44
+    ],
+    "sentence_id": "S08"
+  },
+  {
+    "img": "images/beat_09.jpg",
+    "text": "Sometimes it is a future conversation.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.04,
+      1.13,
+      0.5,
+      0.5,
+      0.5,
+      0.42
+    ],
+    "sentence_id": "S09"
+  },
+  {
+    "img": "images/beat_10.jpg",
+    "text": "Sometimes it is a problem that never announced itself.",
+    "overlay": "",
+    "motion": [
+      "panlr",
+      1.05,
+      1.14,
+      0.24,
+      0.48,
+      0.72,
+      0.48
+    ],
+    "sentence_id": "S10"
+  },
+  {
+    "img": "images/beat_11.jpg",
+    "text": "The outside task keeps running in the background.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.04,
+      1.12,
+      0.5,
+      0.62,
+      0.5,
+      0.36
+    ],
+    "sentence_id": "S11"
+  },
+  {
+    "img": "images/beat_12.jpg",
+    "text": "Your internal story becomes more interesting than the page.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.13,
+      1.04,
+      0.5,
+      0.5,
+      0.5,
+      0.55
+    ],
+    "sentence_id": "S12"
+  },
+  {
+    "img": "images/beat_13.jpg",
+    "text": "This is where mind wandering enters the picture.",
+    "overlay": "MIND WANDERING",
+    "motion": [
+      "push",
+      1.05,
+      1.15,
+      0.68,
+      0.5,
+      0.38,
+      0.5
+    ],
+    "sentence_id": "S13"
+  },
+  {
+    "img": "images/beat_14.jpg",
+    "text": "Mind wandering means thought has drifted away from the task in front of you.",
+    "overlay": "",
+    "motion": [
+      "panrl",
+      1.05,
+      1.14,
+      0.72,
+      0.48,
+      0.25,
+      0.48
+    ],
+    "sentence_id": "S14"
+  },
+  {
+    "img": "images/beat_15.jpg",
+    "text": "The drift can be deliberate or completely unnoticed.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.05,
+      1.13,
+      0.5,
+      0.38,
+      0.5,
+      0.62
+    ],
+    "sentence_id": "S15"
+  },
+  {
+    "img": "images/beat_16.jpg",
+    "text": "It can begin with one word, one sensation or one unresolved question.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.14,
+      1.05,
+      0.5,
+      0.5,
+      0.5,
+      0.44
+    ],
+    "sentence_id": "S16"
+  },
+  {
+    "img": "images/beat_17.jpg",
+    "text": "The next thought does not need permission to arrive.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.04,
+      1.13,
+      0.5,
+      0.5,
+      0.5,
+      0.42
+    ],
+    "sentence_id": "S17"
+  },
+  {
+    "img": "images/beat_18.jpg",
+    "text": "Your attention follows whatever feels relevant enough.",
+    "overlay": "RELEVANT",
+    "motion": [
+      "panlr",
+      1.05,
+      1.14,
+      0.24,
+      0.48,
+      0.72,
+      0.48
+    ],
+    "sentence_id": "S18"
+  },
+  {
+    "img": "images/beat_19.jpg",
+    "text": "Relevance is not the same as importance.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.04,
+      1.12,
+      0.5,
+      0.62,
+      0.5,
+      0.36
+    ],
+    "sentence_id": "S19"
+  },
+  {
+    "img": "images/beat_20.jpg",
+    "text": "A notification can feel relevant because it is vivid and immediate.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.13,
+      1.04,
+      0.5,
+      0.5,
+      0.5,
+      0.55
+    ],
+    "sentence_id": "S20"
+  },
+  {
+    "img": "images/beat_21.jpg",
+    "text": "A deadline can be important but quiet.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.05,
+      1.15,
+      0.68,
+      0.5,
+      0.38,
+      0.5
+    ],
+    "sentence_id": "S21"
+  },
+  {
+    "img": "images/beat_22.jpg",
+    "text": "The brain is constantly negotiating between these signals.",
+    "overlay": "",
+    "motion": [
+      "panrl",
+      1.05,
+      1.14,
+      0.72,
+      0.48,
+      0.25,
+      0.48
+    ],
+    "sentence_id": "S22"
+  },
+  {
+    "img": "images/beat_23.jpg",
+    "text": "One set of processes helps you stay with the outside task.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.05,
+      1.13,
+      0.5,
+      0.38,
+      0.5,
+      0.62
+    ],
+    "sentence_id": "S23"
+  },
+  {
+    "img": "images/beat_24.jpg",
+    "text": "Another supports memories, simulations and self-related thought.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.14,
+      1.05,
+      0.5,
+      0.5,
+      0.5,
+      0.44
+    ],
+    "sentence_id": "S24"
+  },
+  {
+    "img": "images/beat_25.jpg",
+    "text": "Research often links internally oriented thought with the default mode network.",
+    "overlay": "DEFAULT MODE NETWORK",
+    "motion": [
+      "push",
+      1.04,
+      1.13,
+      0.5,
+      0.5,
+      0.5,
+      0.42
+    ],
+    "sentence_id": "S25"
+  },
+  {
+    "img": "images/beat_26.jpg",
+    "text": "But the default mode network is not a single mind-wandering button.",
+    "overlay": "",
+    "motion": [
+      "panlr",
+      1.05,
+      1.14,
+      0.24,
+      0.48,
+      0.72,
+      0.48
+    ],
+    "sentence_id": "S26"
+  },
+  {
+    "img": "images/beat_27.jpg",
+    "text": "It is a distributed system whose roles change with context.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.04,
+      1.12,
+      0.5,
+      0.62,
+      0.5,
+      0.36
+    ],
+    "sentence_id": "S27"
+  },
+  {
+    "img": "images/beat_28.jpg",
+    "text": "It can contribute to remembering the past.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.13,
+      1.04,
+      0.5,
+      0.5,
+      0.5,
+      0.55
+    ],
+    "sentence_id": "S28"
+  },
+  {
+    "img": "images/beat_29.jpg",
+    "text": "It can help imagine the future.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.05,
+      1.15,
+      0.68,
+      0.5,
+      0.38,
+      0.5
+    ],
+    "sentence_id": "S29"
+  },
+  {
+    "img": "images/beat_30.jpg",
+    "text": "It can organize a story about what is happening to you.",
+    "overlay": "",
+    "motion": [
+      "panrl",
+      1.05,
+      1.14,
+      0.72,
+      0.48,
+      0.25,
+      0.48
+    ],
+    "sentence_id": "S30"
+  },
+  {
+    "img": "images/beat_31.jpg",
+    "text": "It can even participate while you interact with the world.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.05,
+      1.13,
+      0.5,
+      0.38,
+      0.5,
+      0.62
+    ],
+    "sentence_id": "S31"
+  },
+  {
+    "img": "images/beat_32.jpg",
+    "text": "The old idea of a task-negative network is too simple.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.14,
+      1.05,
+      0.5,
+      0.5,
+      0.5,
+      0.44
+    ],
+    "sentence_id": "S32"
+  },
+  {
+    "img": "images/beat_33.jpg",
+    "text": "What matters is how networks coordinate and switch.",
+    "overlay": "COORDINATE",
+    "motion": [
+      "push",
+      1.04,
+      1.13,
+      0.5,
+      0.5,
+      0.5,
+      0.42
+    ],
+    "sentence_id": "S33"
+  },
+  {
+    "img": "images/beat_34.jpg",
+    "text": "A salient event can pull attention outward.",
+    "overlay": "",
+    "motion": [
+      "panlr",
+      1.05,
+      1.14,
+      0.24,
+      0.48,
+      0.72,
+      0.48
+    ],
+    "sentence_id": "S34"
+  },
+  {
+    "img": "images/beat_35.jpg",
+    "text": "A quiet moment can let internal thought rebound.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.04,
+      1.12,
+      0.5,
+      0.62,
+      0.5,
+      0.36
+    ],
+    "sentence_id": "S35"
+  },
+  {
+    "img": "images/beat_36.jpg",
+    "text": "A difficult task can make the switch more noticeable.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.13,
+      1.04,
+      0.5,
+      0.5,
+      0.5,
+      0.55
+    ],
+    "sentence_id": "S36"
+  },
+  {
+    "img": "images/beat_37.jpg",
+    "text": "And an interesting thought can make the task easier to leave.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.05,
+      1.15,
+      0.68,
+      0.5,
+      0.38,
+      0.5
+    ],
+    "sentence_id": "S37"
+  },
+  {
+    "img": "images/beat_38.jpg",
+    "text": "Zoning out is therefore a change in control, not an absence of activity.",
+    "overlay": "CHANGE IN CONTROL",
+    "motion": [
+      "panrl",
+      1.05,
+      1.14,
+      0.72,
+      0.48,
+      0.25,
+      0.48
+    ],
+    "sentence_id": "S38"
+  },
+  {
+    "img": "images/beat_39.jpg",
+    "text": "Sometimes that change is disruptive.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.05,
+      1.13,
+      0.5,
+      0.38,
+      0.5,
+      0.62
+    ],
+    "sentence_id": "S39"
+  },
+  {
+    "img": "images/beat_40.jpg",
+    "text": "You miss a line, lose a turn or forget what you meant to do.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.14,
+      1.05,
+      0.5,
+      0.5,
+      0.5,
+      0.44
+    ],
+    "sentence_id": "S40"
+  },
+  {
+    "img": "images/beat_41.jpg",
+    "text": "Sometimes it is useful.",
+    "overlay": "USEFUL",
+    "motion": [
+      "push",
+      1.04,
+      1.13,
+      0.5,
+      0.5,
+      0.5,
+      0.42
+    ],
+    "sentence_id": "S41"
+  },
+  {
+    "img": "images/beat_42.jpg",
+    "text": "Your mind connects two ideas while you walk.",
+    "overlay": "",
+    "motion": [
+      "panlr",
+      1.05,
+      1.14,
+      0.24,
+      0.48,
+      0.72,
+      0.48
+    ],
+    "sentence_id": "S42"
+  },
+  {
+    "img": "images/beat_43.jpg",
+    "text": "It rehearses a conversation before you have it.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.04,
+      1.12,
+      0.5,
+      0.62,
+      0.5,
+      0.36
+    ],
+    "sentence_id": "S43"
+  },
+  {
+    "img": "images/beat_44.jpg",
+    "text": "It finds a new angle after the deliberate effort stops.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.13,
+      1.04,
+      0.5,
+      0.5,
+      0.5,
+      0.55
+    ],
+    "sentence_id": "S44"
+  },
+  {
+    "img": "images/beat_45.jpg",
+    "text": "The same wandering process can help or hurt depending on the moment.",
+    "overlay": "HELP OR HURT",
+    "motion": [
+      "push",
+      1.05,
+      1.15,
+      0.68,
+      0.5,
+      0.38,
+      0.5
+    ],
+    "sentence_id": "S45"
+  },
+  {
+    "img": "images/beat_46.jpg",
+    "text": "The question is not whether your mind ever wanders.",
+    "overlay": "",
+    "motion": [
+      "panrl",
+      1.05,
+      1.14,
+      0.72,
+      0.48,
+      0.25,
+      0.48
+    ],
+    "sentence_id": "S46"
+  },
+  {
+    "img": "images/beat_47.jpg",
+    "text": "The question is whether it can return when the task needs it.",
+    "overlay": "RETURN",
+    "motion": [
+      "rise",
+      1.05,
+      1.13,
+      0.5,
+      0.38,
+      0.5,
+      0.62
+    ],
+    "sentence_id": "S47"
+  },
+  {
+    "img": "images/beat_48.jpg",
+    "text": "A clear cue can make the return easier.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.14,
+      1.05,
+      0.5,
+      0.5,
+      0.5,
+      0.44
+    ],
+    "sentence_id": "S48"
+  },
+  {
+    "img": "images/beat_49.jpg",
+    "text": "A short pause can reveal where attention went.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.04,
+      1.13,
+      0.5,
+      0.5,
+      0.5,
+      0.42
+    ],
+    "sentence_id": "S49"
+  },
+  {
+    "img": "images/beat_50.jpg",
+    "text": "And a meaningful task can give attention a reason to come back.",
+    "overlay": "COME BACK",
+    "motion": [
+      "panlr",
+      1.05,
+      1.14,
+      0.24,
+      0.48,
+      0.72,
+      0.48
+    ],
+    "sentence_id": "S50"
+  },
+  {
+    "img": "images/beat_51.jpg",
+    "text": "Your mind was not switched off.",
+    "overlay": "NOT SWITCHED OFF",
+    "motion": [
+      "rise",
+      1.04,
+      1.12,
+      0.5,
+      0.62,
+      0.5,
+      0.36
+    ],
+    "sentence_id": "S51"
+  },
+  {
+    "img": "images/beat_52.jpg",
+    "text": "It was following another thread.",
+    "overlay": "ANOTHER THREAD",
+    "motion": [
+      "settle",
+      1.13,
+      1.04,
+      0.5,
+      0.5,
+      0.5,
+      0.55
+    ],
+    "sentence_id": "S52"
+  }
+]
