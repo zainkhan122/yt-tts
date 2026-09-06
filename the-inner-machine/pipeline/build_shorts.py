@@ -34,7 +34,12 @@ def main():
    if r!=sr: raise RuntimeError('sample rate mismatch')
    pause=0.28 if sent==cta else 0.16; start=cursor; sd=len(a1)/sr; end=start+sd; audio.extend([a1,np.zeros(round(pause*sr),dtype='float32')]); cursor=end+pause
    schedule.append({'sentence_id':f'{kind}_{i+1:02d}','text':sent,'start_s':round(start,4),'speech_end_s':round(end,4),'end_s':round(cursor,4),'pause_after_s':pause,'is_cta':sent==cta})
-   cap='WATCH FULL VIDEO' if sent==cta else ' '.join(sent.split()[:4]).upper()
+   # Shorts follow the same rule: selective emphasis, never sentence captions.
+   approved = {
+    'hook': {0:'MOOD DECISION', 3:'RELIEF'},
+    'payoff': {0:'MOTIVATION', 1:'NEXT ACTION', 3:'TEN MINUTES'}
+   }
+   cap='WATCH FULL VIDEO' if sent==cta else approved.get(kind,{}).get(i,'')
    img=str(ims[i%len(ims)].relative_to(v))
    # each sentence gets portrait asset and purposeful motion
    motions=[['zoom',1.05,1.16,.5,.5,.5,.40],['panlr',1.06,1.18,.25,.48,.72,.48],['rise',1.05,1.16,.5,.62,.5,.35],['settle',1.16,1.05,.5,.5,.5,.56]]

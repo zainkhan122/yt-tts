@@ -50,6 +50,7 @@ This is the channel’s enforceable production bar. It is deliberately original 
 - `caption_schedule.json` contains absolute `start`, `end`, `sentence_id`, `keyword` and `beat_id` values.
 - Captions are generated only after measured TTS timing exists; no character-count timing estimates.
 - **Kinetic typography is selective emphasis—not captions and not a text layer on every image.** Only high-value beats receive 1–3 meaningful overlay words, timed to the exact spoken phrase. Most beats remain text-free. Use `tools/validate_kinetic.py` and the proven `pipeline/assemble_v2.py` overlay path. A caption schedule alone is not evidence that text is visible; inspect encoded frames.
+- **Diffusion Studio is an optional composition pilot.** `tools/diffusion_pilot.py` may emit JSX from a validated beat manifest. It must preserve the same selective-emphasis gate and must pass headless/export and encoded-frame checks before replacing FFmpeg production.
 
 ## Packaging bar
 

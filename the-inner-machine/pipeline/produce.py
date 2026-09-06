@@ -115,11 +115,16 @@ def render_beat(kf,cap,mot,dur_s,out,W,H,FPS,last=False,narration=None,pause_s=0
         for n,i in enumerate(range(0,len(words),2),1):
             j=min(i+2,len(words)); a=speech*(overlay_start_frac+(overlay_end_frac-overlay_start_frac)*sum(weights[:i])/total); b=speech*(overlay_start_frac+(overlay_end_frac-overlay_start_frac)*sum(weights[:j])/total)
             sf.write(f'{n}\n{st(a)} --> {st(b)}\n{" ".join(words[i:j])}\n\n')
-    # SRT/libass burn-in is used instead of a separate overlay stream: it is deterministic and visible in the encoded pixels.
-    srt_filter=srt.replace('\\','/')
-    fc=f"[0:v]scale={int(W*1.2)}:{int(H*1.2)}:force_original_aspect_ratio=increase:flags=lanczos,crop={int(W*1.2)}:{int(H*1.2)},zoompan=z='{z}':x='{x}':y='{y}':d={nf}:s={W}x{H}:fps={FPS},setsar=1,eq=saturation=1.05,vignette=PI/5,format=yuv420p,fade=t=in:st=0:d=0.3{fout},subtitles='{srt_filter}':force_style='FontName=DejaVu Sans,FontSize={font_size},PrimaryColour=&H00E0F6FF,OutlineColour=&H002E1210,BorderStyle=1,Outline=4,Alignment=8,MarginV=170'[v]"
+    # SRT/libass burn-in is used only for approved selective emphasis. Empty overlays
+    # must produce a genuinely text-free frame, not an empty subtitle dependency.
+    base_fc=f"[0:v]scale={int(W*1.2)}:{int(H*1.2)}:force_original_aspect_ratio=increase:flags=lanczos,crop={int(W*1.2)}:{int(H*1.2)},zoompan=z='{z}':x='{x}':y='{y}':d={nf}:s={W}x{H}:fps={FPS},setsar=1,eq=saturation=1.05,vignette=PI/5,format=yuv420p,fade=t=in:st=0:d=0.3{fout}"
+    if text.strip():
+        srt_filter=srt.replace('\\','/')
+        fc=base_fc+f",subtitles='{srt_filter}':force_style='FontName=DejaVu Sans,FontSize={font_size},PrimaryColour=&H00E0F6FF,OutlineColour=&H002E1210,BorderStyle=1,Outline=4,Alignment=8,MarginV=170'[v]"
+    else:
+        fc=base_fc+'[v]'
     run([FF,"-y","-i",kf,"-filter_complex",fc,"-map","[v]","-c:v","libx264","-preset","ultrafast","-crf","21","-r",str(FPS),"-t",f"{dur_s:.3f}","-an",out])
-    os.remove(srt)
+    if os.path.exists(srt): os.remove(srt)
 
 def concat(parts,out,W,H,FPS):
     lf=out+".txt"

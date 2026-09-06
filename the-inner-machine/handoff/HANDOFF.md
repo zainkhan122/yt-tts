@@ -27,3 +27,5 @@ The rendered binary was regenerated at 1280x720, downloaded by the user, then pu
 brief/research → script → unique assets and manifests → storyboard validation → selective kinetic emphasis gate → measured TTS → `assemble_v2.py` render → encoded-frame inspection → final QA → thumbnails/metadata → native-vertical Shorts → publish package.
 
 **Locked typography rule:** Kinetic typography is selective emphasis—not captions and not a text layer on every image. Only a small set of high-value beats receives 1–3 meaningful words; all other beats remain text-free. `tools/validate_kinetic.py` is a required hard gate.
+
+**Diffusion Studio pilot:** `tools/diffusion_pilot.py` emits a small JSX composition from the validated manifest. Use it to test explicit scene timing, native portrait/landscape composition and render inspection; do not promote it to the primary renderer until it passes on the current Linux/headless environment.
