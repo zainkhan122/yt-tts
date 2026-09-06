@@ -28,4 +28,4 @@ brief/research → script → unique assets and manifests → storyboard validat
 
 **Locked typography rule:** Kinetic typography is selective emphasis—not captions and not a text layer on every image. Only a small set of high-value beats receives 1–3 meaningful words; all other beats remain text-free. `tools/validate_kinetic.py` is a required hard gate.
 
-**Diffusion Studio pilot:** `tools/diffusion_pilot.py` emits a small JSX composition from the validated manifest. Use it to test explicit scene timing, native portrait/landscape composition and render inspection; do not promote it to the primary renderer until it passes on the current Linux/headless environment.
+**Diffusion Studio status:** The repository and CLI were tested, and `tools/diffusion_pilot.py` successfully emits a JSX pilot. It did not render Video 06’s final export. Treat Diffusion Studio as an optional secondary composition and QA layer. Keep FFmpeg as the production renderer until Linux/headless export, audio sync, selective overlays and encoded-frame QA pass in this environment.
