@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "file": "What Happens When You Zone Out - final timestamp-fixed.mp4",
+  "duration_s": 194.21,
+  "resolution": "1920x1080",
+  "fps": 25,
+  "beats": 52,
+  "unique_assets": 52,
+  "overlay_beats": 12,
+  "text_free_beats": 40,
+  "checks": {
+    "overlay_visible_at_approved_moment": true,
+    "text_absent_on_text_free_beat": true,
+    "later_overlay_visible": true,
+    "scene_order_timestamp_normalized": true,
+    "audio_present": true
+  }
+}

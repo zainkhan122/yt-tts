@@ -1,5 +1,14 @@
 {
-  "step": "images",
+  "step": "long_qa_pass",
   "unique_assets_generated": 52,
-  "next_action": "build validated storyboard and selective emphasis manifest"
+  "next_action": "prepare Video 06 thumbnail metadata and Shorts after download confirmation",
+  "render": "What Happens When You Zone Out - final timestamp-fixed.mp4",
+  "render_duration_s": 194.21,
+  "encoded_frame_inspection": {
+    "overlay_visible_at_approved_moment": true,
+    "text_absent_on_text_free_beat": true,
+    "later_overlay_visible": true,
+    "scene_order_timestamp_normalized": true,
+    "audio_present": true
+  }
 }
