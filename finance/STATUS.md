@@ -1,1 +1,1 @@
-E06 Jawbone pack archived to repo; local muxes/folder cleared. Workspace ~2MB. E07 next when you say go.
+E07 Katerra long 8:42 + 2 Shorts in workspace. Fast skipped. YouTube tool already on repo. Upload only after you watch and approve.
