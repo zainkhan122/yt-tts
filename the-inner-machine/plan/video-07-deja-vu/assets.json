@@ -1,5 +1,5 @@
 {
-  "assets_generated": 50,
+  "assets_generated": 52,
   "assets": [
     {
       "id": "beat_01",
@@ -699,6 +699,34 @@
       "sha256": "855cbb428e8a6b1304dbf2d8c2f9cc0a786fe25960f450a72e3c9504d59c610c",
       "used_in_sentences": [
         "S50"
+      ]
+    },
+    {
+      "id": "beat_51",
+      "path": "images/beat_51.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_51",
+      "sha256": "e558d0296365fd7b29b39b209c21b835aabe8fcc895d335c782814e6f8446462",
+      "used_in_sentences": [
+        "S51"
+      ]
+    },
+    {
+      "id": "beat_52",
+      "path": "images/beat_52.jpg",
+      "kind": "ai_landscape_unique_beat",
+      "orientation": "landscape",
+      "width": 1376,
+      "height": 768,
+      "provider": "Arena image generation",
+      "prompt_id": "beat_52",
+      "sha256": "cb64878d2673912ca964c09e30a34c9a316a5c4ef20eb02fdebc917b27fdf993",
+      "used_in_sentences": [
+        "S52"
       ]
     }
   ]

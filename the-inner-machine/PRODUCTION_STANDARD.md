@@ -40,8 +40,8 @@ This is the channel’s enforceable production bar. It is deliberately original 
 - Target 12–18 original landscape base illustrations plus 2–4 diagrams and 3–6 licensed b-roll clips. Fewer assets are acceptable when each shot carries meaning; artificial asset counts are not a quality metric.
 - Each Short has its own portrait pool: 4–6 AI illustrations and 2–4 portrait stock clips where appropriate. Never hard-crop landscape media or share the two Shorts’ hero assets.
 - No asset from another episode is reused except explicitly marked reusable brand elements.
-- Every sentence-level beat must have its own distinct visual asset. Asset reuse within an episode is a validation failure.
-- Beat count is selected from the script’s natural sentence structure, not forced to 52; the approved long-form range is 50–65 beats.
+- A one-visual-per-sentence treatment is required only when the episode brief explicitly justifies it. Otherwise, a sentence may share a visual with adjacent narration when the image remains semantically accurate and the crop, motion or context is intentional. Never reuse an asset mechanically.
+- Beat count and visual count are separate decisions. Sentence beats follow the script’s natural structure; visual assets follow comprehension, pacing and the mechanism. A fixed 52-image quota is prohibited unless explicitly approved in the brief.
 - Motion must vary intentionally across the episode: use a planned mix of zoom, pan, rise, settle, reveal, diagram movement, parallax and transitions. Do not cycle one short motion list mechanically.
 
 ## Caption and timing bar

@@ -24,7 +24,9 @@ The rendered binary was regenerated at 1280x720, downloaded by the user, then pu
 
 ## Required build order
 
-brief/research → script → unique assets and manifests → storyboard validation → selective kinetic emphasis gate → measured TTS → `assemble_v2.py` render → encoded-frame inspection → final QA → thumbnails/metadata → native-vertical Shorts → publish package.
+brief/research → script → mechanism-driven visual plan and manifests → storyboard validation → selective kinetic emphasis gate → measured TTS → `assemble_v2.py` render or approved composition pilot → encoded-frame inspection → final QA → thumbnails/metadata → native-vertical Shorts → approval-gated YouTube package.
+
+**Visual-count rule:** Do not force every episode into 52 images. Decide sentence beats and visual assets independently. Use one visual per sentence only when the brief justifies it; otherwise use purposeful diagrams, motion and semantically accurate shot reuse.
 
 **Locked typography rule:** Kinetic typography is selective emphasis—not captions and not a text layer on every image. Only a small set of high-value beats receives 1–3 meaningful words; all other beats remain text-free. `tools/validate_kinetic.py` is a required hard gate.
 
