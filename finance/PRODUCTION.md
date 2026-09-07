@@ -35,3 +35,15 @@ Before TTS, write `FORM.md` in the episode folder (see `reusable/FORM.md`). If y
 
 Fails on fence, legal, dark thumbs, looped shots, **and** on cloning a sibling’s open or closer.  
 Does **not** require a question, a stamp sentence, or “People did not stop…”.
+
+## YouTube (never auto)
+
+See `tools/YOUTUBE.md`. Pack → dry-run → you set `"approved": true` → `--upload`.
+
+```
+python3 tools/youtube_publish.py --pack EP_DIR --channel UC… -o approval.json
+python3 tools/youtube_publish.py approval.json --dry-run
+python3 tools/youtube_publish.py approval.json --upload
+```
+
+Default visibility **private**. Public is refused. Tokens live in `~/.config/the-public-record/youtube/`, not git.
