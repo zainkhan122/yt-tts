@@ -1,0 +1,834 @@
+[
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_01.jpg",
+    "text": "You walk into a new room and something feels strangely familiar.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.04,
+      1.12,
+      0.5,
+      0.5,
+      0.5,
+      0.42
+    ],
+    "sentence_id": "S01",
+    "base_asset": "beat_01"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_01.jpg",
+    "text": "You know you have never been here before.",
+    "overlay": "",
+    "motion": [
+      "panlr",
+      1.05,
+      1.14,
+      0.25,
+      0.48,
+      0.72,
+      0.48
+    ],
+    "sentence_id": "S02",
+    "base_asset": "beat_01"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_01.jpg",
+    "text": "But the feeling arrives with surprising confidence.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.04,
+      1.12,
+      0.5,
+      0.62,
+      0.5,
+      0.36
+    ],
+    "sentence_id": "S03",
+    "base_asset": "beat_01"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_04.jpg",
+    "text": "That experience is called deja vu.",
+    "overlay": "DEJA VU",
+    "motion": [
+      "settle",
+      1.12,
+      1.04,
+      0.5,
+      0.5,
+      0.5,
+      0.55
+    ],
+    "sentence_id": "S04",
+    "base_asset": "beat_04"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_04.jpg",
+    "text": "It is not proof that you lived this moment before.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.05,
+      1.14,
+      0.68,
+      0.5,
+      0.38,
+      0.5
+    ],
+    "sentence_id": "S05",
+    "base_asset": "beat_04"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_04.jpg",
+    "text": "It is a feeling about memory, not a memory itself.",
+    "overlay": "FEELING",
+    "motion": [
+      "panrl",
+      1.05,
+      1.13,
+      0.72,
+      0.48,
+      0.25,
+      0.48
+    ],
+    "sentence_id": "S06",
+    "base_asset": "beat_04"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_07.jpg",
+    "text": "To see why, separate two signals your mind usually blends.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.05,
+      1.13,
+      0.5,
+      0.38,
+      0.5,
+      0.62
+    ],
+    "sentence_id": "S07",
+    "base_asset": "beat_07"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_07.jpg",
+    "text": "One signal says this feels familiar.",
+    "overlay": "FAMILIAR",
+    "motion": [
+      "settle",
+      1.13,
+      1.05,
+      0.5,
+      0.5,
+      0.5,
+      0.44
+    ],
+    "sentence_id": "S08",
+    "base_asset": "beat_07"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_07.jpg",
+    "text": "Another asks where the memory came from.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.04,
+      1.12,
+      0.5,
+      0.5,
+      0.5,
+      0.42
+    ],
+    "sentence_id": "S09",
+    "base_asset": "beat_07"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_10.jpg",
+    "text": "When both agree, recognition feels ordinary.",
+    "overlay": "",
+    "motion": [
+      "panlr",
+      1.05,
+      1.14,
+      0.25,
+      0.48,
+      0.72,
+      0.48
+    ],
+    "sentence_id": "S10",
+    "base_asset": "beat_10"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_10.jpg",
+    "text": "You see a friend and the face brings its history with it.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.04,
+      1.12,
+      0.5,
+      0.62,
+      0.5,
+      0.36
+    ],
+    "sentence_id": "S11",
+    "base_asset": "beat_10"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_10.jpg",
+    "text": "Familiarity and recollection arrive together.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.12,
+      1.04,
+      0.5,
+      0.5,
+      0.5,
+      0.55
+    ],
+    "sentence_id": "S12",
+    "base_asset": "beat_10"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_13.jpg",
+    "text": "Deja vu is different because the feeling arrives first.",
+    "overlay": "FEELING ARRIVES FIRST",
+    "motion": [
+      "push",
+      1.05,
+      1.14,
+      0.68,
+      0.5,
+      0.38,
+      0.5
+    ],
+    "sentence_id": "S13",
+    "base_asset": "beat_13"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_13.jpg",
+    "text": "The sense of knowing appears without a usable episode.",
+    "overlay": "",
+    "motion": [
+      "panrl",
+      1.05,
+      1.13,
+      0.72,
+      0.48,
+      0.25,
+      0.48
+    ],
+    "sentence_id": "S14",
+    "base_asset": "beat_13"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_13.jpg",
+    "text": "You recognize the atmosphere but cannot retrieve the scene.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.05,
+      1.13,
+      0.5,
+      0.38,
+      0.5,
+      0.62
+    ],
+    "sentence_id": "S15",
+    "base_asset": "beat_13"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_16.jpg",
+    "text": "That gap is the important part of the experience.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.13,
+      1.05,
+      0.5,
+      0.5,
+      0.5,
+      0.44
+    ],
+    "sentence_id": "S16",
+    "base_asset": "beat_16"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_16.jpg",
+    "text": "Your memory system has made a signal.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.04,
+      1.12,
+      0.5,
+      0.5,
+      0.5,
+      0.42
+    ],
+    "sentence_id": "S17",
+    "base_asset": "beat_16"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_16.jpg",
+    "text": "Your monitoring system is checking the source.",
+    "overlay": "",
+    "motion": [
+      "panlr",
+      1.05,
+      1.14,
+      0.25,
+      0.48,
+      0.72,
+      0.48
+    ],
+    "sentence_id": "S18",
+    "base_asset": "beat_16"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_19.jpg",
+    "text": "And the source check comes back empty.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.04,
+      1.12,
+      0.5,
+      0.62,
+      0.5,
+      0.36
+    ],
+    "sentence_id": "S19",
+    "base_asset": "beat_19"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_19.jpg",
+    "text": "This is why deja vu can feel certain and impossible.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.12,
+      1.04,
+      0.5,
+      0.5,
+      0.5,
+      0.55
+    ],
+    "sentence_id": "S20",
+    "base_asset": "beat_19"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_19.jpg",
+    "text": "A familiar shape may be hiding inside a new place.",
+    "overlay": "CERTAIN",
+    "motion": [
+      "push",
+      1.05,
+      1.14,
+      0.68,
+      0.5,
+      0.38,
+      0.5
+    ],
+    "sentence_id": "S21",
+    "base_asset": "beat_19"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_22.jpg",
+    "text": "The room may share a layout with somewhere you once saw.",
+    "overlay": "",
+    "motion": [
+      "panrl",
+      1.05,
+      1.13,
+      0.72,
+      0.48,
+      0.25,
+      0.48
+    ],
+    "sentence_id": "S22",
+    "base_asset": "beat_22"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_22.jpg",
+    "text": "The lighting, angle or rhythm can overlap without matching exactly.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.05,
+      1.13,
+      0.5,
+      0.38,
+      0.5,
+      0.62
+    ],
+    "sentence_id": "S23",
+    "base_asset": "beat_22"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_22.jpg",
+    "text": "Your mind can register that overlap before you notice it consciously.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.13,
+      1.05,
+      0.5,
+      0.5,
+      0.5,
+      0.44
+    ],
+    "sentence_id": "S24",
+    "base_asset": "beat_22"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_25.jpg",
+    "text": "Familiarity then arrives without a detailed recollection.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.04,
+      1.12,
+      0.5,
+      0.5,
+      0.5,
+      0.42
+    ],
+    "sentence_id": "S25",
+    "base_asset": "beat_25"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_25.jpg",
+    "text": "That does not mean the whole scene was stored and forgotten.",
+    "overlay": "FAMILIARITY",
+    "motion": [
+      "panlr",
+      1.05,
+      1.14,
+      0.25,
+      0.48,
+      0.72,
+      0.48
+    ],
+    "sentence_id": "S26",
+    "base_asset": "beat_25"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_29.jpg",
+    "text": "It may mean a small cue activated a broad feeling.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.04,
+      1.12,
+      0.5,
+      0.62,
+      0.5,
+      0.36
+    ],
+    "sentence_id": "S27",
+    "base_asset": "beat_29"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_29.jpg",
+    "text": "Prediction adds another layer to the illusion.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.12,
+      1.04,
+      0.5,
+      0.5,
+      0.5,
+      0.55
+    ],
+    "sentence_id": "S28",
+    "base_asset": "beat_29"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_29.jpg",
+    "text": "Once a place feels familiar, the next moment can seem expected.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.05,
+      1.14,
+      0.68,
+      0.5,
+      0.38,
+      0.5
+    ],
+    "sentence_id": "S29",
+    "base_asset": "beat_29"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_32.jpg",
+    "text": "But the feeling of expectation is not evidence of foresight.",
+    "overlay": "",
+    "motion": [
+      "panrl",
+      1.05,
+      1.13,
+      0.72,
+      0.48,
+      0.25,
+      0.48
+    ],
+    "sentence_id": "S30",
+    "base_asset": "beat_32"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_32.jpg",
+    "text": "A strong signal can change how you interpret what happens next.",
+    "overlay": "NOT EVIDENCE",
+    "motion": [
+      "rise",
+      1.05,
+      1.13,
+      0.5,
+      0.38,
+      0.5,
+      0.62
+    ],
+    "sentence_id": "S31",
+    "base_asset": "beat_32"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_32.jpg",
+    "text": "You may remember the hit and forget the many times nothing matched.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.13,
+      1.05,
+      0.5,
+      0.5,
+      0.5,
+      0.44
+    ],
+    "sentence_id": "S32",
+    "base_asset": "beat_32"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_35.jpg",
+    "text": "That is a memory monitoring problem, not a supernatural forecast.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.04,
+      1.12,
+      0.5,
+      0.5,
+      0.5,
+      0.42
+    ],
+    "sentence_id": "S33",
+    "base_asset": "beat_35"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_35.jpg",
+    "text": "Research does not reduce every deja vu experience to one mechanism.",
+    "overlay": "",
+    "motion": [
+      "panlr",
+      1.05,
+      1.14,
+      0.25,
+      0.48,
+      0.72,
+      0.48
+    ],
+    "sentence_id": "S34",
+    "base_asset": "beat_35"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_35.jpg",
+    "text": "Healthy deja vu is difficult to reproduce and measure perfectly.",
+    "overlay": "ONE MECHANISM",
+    "motion": [
+      "rise",
+      1.04,
+      1.12,
+      0.5,
+      0.62,
+      0.5,
+      0.36
+    ],
+    "sentence_id": "S35",
+    "base_asset": "beat_35"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_38.jpg",
+    "text": "People also differ in how often they notice it.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.12,
+      1.04,
+      0.5,
+      0.5,
+      0.5,
+      0.55
+    ],
+    "sentence_id": "S36",
+    "base_asset": "beat_38"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_38.jpg",
+    "text": "Travel, novelty and attention can shape the opportunities for it.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.05,
+      1.14,
+      0.68,
+      0.5,
+      0.38,
+      0.5
+    ],
+    "sentence_id": "S37",
+    "base_asset": "beat_38"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_38.jpg",
+    "text": "Laboratory memory scores do not capture the whole subjective event.",
+    "overlay": "",
+    "motion": [
+      "panrl",
+      1.05,
+      1.13,
+      0.72,
+      0.48,
+      0.25,
+      0.48
+    ],
+    "sentence_id": "S38",
+    "base_asset": "beat_38"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_41.jpg",
+    "text": "The feeling is richer than a simple remember or forget test.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.05,
+      1.13,
+      0.5,
+      0.38,
+      0.5,
+      0.62
+    ],
+    "sentence_id": "S39",
+    "base_asset": "beat_41"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_41.jpg",
+    "text": "The brain is comparing present input with stored patterns.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.13,
+      1.05,
+      0.5,
+      0.5,
+      0.5,
+      0.44
+    ],
+    "sentence_id": "S40",
+    "base_asset": "beat_41"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_41.jpg",
+    "text": "It is also judging whether the feeling deserves trust.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.04,
+      1.12,
+      0.5,
+      0.5,
+      0.5,
+      0.42
+    ],
+    "sentence_id": "S41",
+    "base_asset": "beat_41"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_44.jpg",
+    "text": "Sometimes those operations briefly disagree.",
+    "overlay": "",
+    "motion": [
+      "panlr",
+      1.05,
+      1.14,
+      0.25,
+      0.48,
+      0.72,
+      0.48
+    ],
+    "sentence_id": "S42",
+    "base_asset": "beat_44"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_44.jpg",
+    "text": "You experience the familiarity without the supporting story.",
+    "overlay": "BRIEFLY DISAGREE",
+    "motion": [
+      "rise",
+      1.04,
+      1.12,
+      0.5,
+      0.62,
+      0.5,
+      0.36
+    ],
+    "sentence_id": "S43",
+    "base_asset": "beat_44"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_44.jpg",
+    "text": "That mismatch becomes conscious as deja vu.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.12,
+      1.04,
+      0.5,
+      0.5,
+      0.5,
+      0.55
+    ],
+    "sentence_id": "S44",
+    "base_asset": "beat_44"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_47.jpg",
+    "text": "The useful reframe is simple.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.05,
+      1.14,
+      0.68,
+      0.5,
+      0.38,
+      0.5
+    ],
+    "sentence_id": "S45",
+    "base_asset": "beat_47"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_47.jpg",
+    "text": "Familiar does not mean previously experienced in full.",
+    "overlay": "USEFUL REFRAME",
+    "motion": [
+      "panrl",
+      1.05,
+      1.13,
+      0.72,
+      0.48,
+      0.25,
+      0.48
+    ],
+    "sentence_id": "S46",
+    "base_asset": "beat_47"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_47.jpg",
+    "text": "Certain does not mean correct.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.05,
+      1.13,
+      0.5,
+      0.38,
+      0.5,
+      0.62
+    ],
+    "sentence_id": "S47",
+    "base_asset": "beat_47"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_50.jpg",
+    "text": "And a feeling of prediction is not a prediction.",
+    "overlay": "CORRECT",
+    "motion": [
+      "settle",
+      1.13,
+      1.05,
+      0.5,
+      0.5,
+      0.5,
+      0.44
+    ],
+    "sentence_id": "S48",
+    "base_asset": "beat_50"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_50.jpg",
+    "text": "Deja vu is your memory system noticing its own uncertainty.",
+    "overlay": "",
+    "motion": [
+      "push",
+      1.04,
+      1.12,
+      0.5,
+      0.5,
+      0.5,
+      0.42
+    ],
+    "sentence_id": "S49",
+    "base_asset": "beat_50"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_50.jpg",
+    "text": "The strange part is that the uncertainty can feel so familiar.",
+    "overlay": "MEMORY SYSTEM",
+    "motion": [
+      "panlr",
+      1.05,
+      1.14,
+      0.25,
+      0.48,
+      0.72,
+      0.48
+    ],
+    "sentence_id": "S50",
+    "base_asset": "beat_50"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_52.jpg",
+    "text": "Your mind is not replaying the past.",
+    "overlay": "",
+    "motion": [
+      "rise",
+      1.04,
+      1.12,
+      0.5,
+      0.62,
+      0.5,
+      0.36
+    ],
+    "sentence_id": "S51",
+    "base_asset": "beat_52"
+  },
+  {
+    "img": "/home/user/inner-machine-workspace/channel/the-inner-machine/plan/video-07-deja-vu/images/beat_52.jpg",
+    "text": "It is monitoring a signal in the present.",
+    "overlay": "",
+    "motion": [
+      "settle",
+      1.12,
+      1.04,
+      0.5,
+      0.5,
+      0.5,
+      0.55
+    ],
+    "sentence_id": "S52",
+    "base_asset": "beat_52"
+  }
+]

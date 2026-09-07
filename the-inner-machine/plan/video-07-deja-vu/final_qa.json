@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "file": "Deja Vu - final timestamp-fixed.mp4",
+  "duration_s": 197.78,
+  "resolution": "1920x1080",
+  "fps": 25,
+  "narration_beats": 52,
+  "base_visuals": 18,
+  "overlay_beats": 12,
+  "text_free_beats": 40,
+  "checks": {
+    "approved_overlay_visible": true,
+    "text_free_beat_absent": true,
+    "timestamp_normalized": true,
+    "audio_present": true,
+    "mechanism_driven_visual_plan": true
+  }
+}

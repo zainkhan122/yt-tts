@@ -1,5 +1,15 @@
 {
-  "step": "images",
+  "step": "long_qa_pass",
   "unique_assets_generated": 52,
-  "next_action": "create mechanism-driven visual plan; validate before render"
+  "next_action": "create thumbnail metadata and Shorts after download confirmation",
+  "render": "Deja Vu - final timestamp-fixed.mp4",
+  "render_duration_s": 197.78,
+  "base_visuals": 18,
+  "encoded_frame_inspection": {
+    "approved_overlay_visible": true,
+    "text_free_beat_absent": true,
+    "timestamp_normalized": true,
+    "audio_present": true,
+    "mechanism_driven_visual_plan": true
+  }
 }
