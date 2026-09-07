@@ -8,6 +8,7 @@ Layouts:
   aisle  — closing store / empty aisle
   dock   — empty loading dock / cancelled freight (Convoy): mark TL, wound on the empty bay
   wrist  — fitness band / dark wrist (Jawbone): mark TL, wound on the empty wrist
+  wall   — prefab wall / CLT panel (Katerra): white mark TL on a dark plate, wound on a dark plate over the panel
   split  — FALLBACK only: object would double-print the name or hide the wound
            under another brand. One mark LEFT on dark. Wound RIGHT in empty space.
            Not the channel OS. No white slab. No arc arrow.
@@ -100,7 +101,7 @@ def wound(draw, parts, x, y, size=96, stack=True):
 
 
 base = Image.open(BASE).convert("RGB").resize((W, H), Image.Resampling.LANCZOS)
-lift = {"room": 1.62, "aisle": 1.40, "split": 1.04, "dock": 1.20, "wrist": 1.18}.get(LAYOUT, 1.14)
+lift = {"room": 1.62, "aisle": 1.40, "split": 1.04, "dock": 1.20, "wrist": 1.18, "wall": 1.22}.get(LAYOUT, 1.14)
 base = ImageEnhance.Brightness(base).enhance(lift)
 base = ImageEnhance.Contrast(base).enhance(1.10 if LAYOUT in {"room", "aisle"} else 1.08)
 im = base.convert("RGBA")
@@ -136,6 +137,25 @@ elif LAYOUT == "wrist":
     logo = knockout_dark(raw)
     im = paste_logo(im, logo, (36, 28), 480, 110)
     wound(d, parts, 40, H - 230, 108, True)
+elif LAYOUT == "wall":
+    # Dark-on-white historical mark → knock out the page, invert to white type.
+    # Dark plates so the wound reads at 213×120 on timber/concrete (E06 lesson).
+    logo = knockout_light(raw, 240)
+    px = logo.load()
+    lw, lh = logo.size
+    for y in range(lh):
+        for x in range(lw):
+            r, g, b, a = px[x, y]
+            if a > 0:
+                px[x, y] = (255, 255, 255, a)
+    plate = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    pd = ImageDraw.Draw(plate)
+    pd.rounded_rectangle((18, 18, 640, 148), radius=10, fill=(8, 10, 14, 210))
+    pd.rounded_rectangle((18, H - 258, 720, H - 18), radius=10, fill=(8, 10, 14, 220))
+    im.alpha_composite(plate)
+    im = paste_logo(im, logo, (36, 36), 560, 100)
+    d = ImageDraw.Draw(im)
+    wound(d, parts, 40, H - 230, 108, True)
 elif LAYOUT == "split":
     # Fallback. One mark. Wound in empty space. No second logo, no arrow, no white slab.
     from PIL import Image as _Im
@@ -161,7 +181,7 @@ else:
 
 out = im.convert("RGB")
 # room layouts are night interiors — lift until the 120px test can pass
-if LAYOUT in {"room", "aisle", "dock"}:
+if LAYOUT in {"room", "aisle", "dock", "wall"}:
     for _ in range(6):
         small = out.copy()
         small.thumbnail((213, 120))
