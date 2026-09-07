@@ -1,0 +1,27 @@
+{
+  "_doc": "Allow-list only. Upload is blocked unless channel_id is a non-empty UC… id listed here. Fill the ids from YouTube Studio → Settings → Channel → Advanced (Channel ID). Never put OAuth tokens or client secrets in this file.",
+  "version": 1,
+  "channels": [
+    {
+      "id": "",
+      "slug": "the-public-record",
+      "name": "The Public Record",
+      "handle": "@thepublicrecord",
+      "fence": "business-documentary"
+    },
+    {
+      "id": "",
+      "slug": "channel-2",
+      "name": "Channel 2 (paste Studio channel ID)",
+      "handle": "",
+      "fence": ""
+    },
+    {
+      "id": "",
+      "slug": "channel-3",
+      "name": "Channel 3 (paste Studio channel ID)",
+      "handle": "",
+      "fence": ""
+    }
+  ]
+}
