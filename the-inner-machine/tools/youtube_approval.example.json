@@ -1,0 +1,12 @@
+{
+  "approved": false,
+  "channel_id": "UC_REPLACE_ONE",
+  "channels_file": "youtube_channels.json",
+  "title": "Example title",
+  "description": "Example description",
+  "tags": ["psychology", "neuroscience"],
+  "category_id": "27",
+  "visibility": "private",
+  "video": "/absolute/path/to/final.mp4",
+  "thumbnail": "/absolute/path/to/thumbnail.jpg"
+}

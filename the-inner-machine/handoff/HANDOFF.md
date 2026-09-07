@@ -29,3 +29,5 @@ brief/research → script → unique assets and manifests → storyboard validat
 **Locked typography rule:** Kinetic typography is selective emphasis—not captions and not a text layer on every image. Only a small set of high-value beats receives 1–3 meaningful words; all other beats remain text-free. `tools/validate_kinetic.py` is a required hard gate.
 
 **Diffusion Studio status:** The repository and CLI were tested, and `tools/diffusion_pilot.py` successfully emits a JSX pilot. It did not render Video 06’s final export. Treat Diffusion Studio as an optional secondary composition and QA layer. Keep FFmpeg as the production renderer until Linux/headless export, audio sync, selective overlays and encoded-frame QA pass in this environment.
+
+**YouTube publishing gate:** `tools/youtube_publish.py` is approval-gated. It requires `approved: true`, an allow-listed channel ID, existing video and thumbnail paths, and OAuth 2.0. Default visibility is private. Google OAuth credentials/tokens must never be committed. Use `youtube_channels.json.example` and `youtube_approval.example.json` as templates.
