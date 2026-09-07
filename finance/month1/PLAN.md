@@ -110,7 +110,8 @@ Different mechanisms, not another ticket/subscription hole:
 |---|---|---|
 | Convoy Was Worth $3.8 Billion. Then Freight Normalized. | COVID rate spike treated as a permanent company | Bezos/Gates names |
 | Jawbone Lost the Wrist | hardware squeezed by Apple/Fitbit | smaller, clean |
-| Fast Built a Checkout Button. Then the Money Stopped. | **research fraud claims before a word is drafted** — if the public record is messy, skip | risky |
+| Fast Built a Checkout Button. Then the Money Stopped. | **SKIPPED 2026-09-07.** No Wikipedia article. Contemporaneous TechCrunch/Verge/CNBC URLs 404'd. Live dispute is unadjudicated GMV. Messy. Do not draft. | skipped |
+| Katerra Built The Whole Stack. Then The Factories Stopped. | vertical integration of a jobsite (architect + mill + GC). Factories only pay if full. **E07.** | SoftBank / $2B |
 
 Still banned: WeWork, Theranos, FTX, Bird/Lime (MoviePass-shaped unit econ), Blockbuster/Kodak/Nokia as the whole channel identity.
 
