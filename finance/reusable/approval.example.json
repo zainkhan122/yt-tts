@@ -1,0 +1,21 @@
+{
+  "schema": "tpr.youtube.approval.v1",
+  "approved": false,
+  "channel_id": "UC______________________",
+  "visibility": "private",
+  "_read_me": "Example only. Build a real file with: python3 tools/youtube_publish.py --pack EP_DIR --channel UC… -o approval.json",
+  "items": [
+    {
+      "kind": "long",
+      "shorts": false,
+      "video": "/absolute/path/to/film.mp4",
+      "thumbnail": "/absolute/path/to/thumbnail.jpg",
+      "title": "Company In First Five Words Here",
+      "description": "…\n\nDISCLAIMER: This video is education only. It is not financial, tax, or investment advice. Nothing here is a recommendation to buy or sell any security.",
+      "tags": ["Company"],
+      "category_id": "27",
+      "language": "en",
+      "pinned_comment": ""
+    }
+  ]
+}
