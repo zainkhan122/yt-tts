@@ -10,4 +10,6 @@ Must pass before TTS and before upload. See `MASTER_RULES.md`.
 - Month 1: `month1/PLAN.md`
 - Lessons: `research/AUDIT_LESSONS.md`
 
-Do not commit `secrets/`.
+**YouTube (gated):** `python3 tools/youtube_publish.py --self-test` then `tools/YOUTUBE.md`. Never uploads without `--upload` and `"approved": true`.
+
+Do not commit `secrets/`. OAuth tokens are not in this repo.
