@@ -1,6 +1,9 @@
 secrets/
 __pycache__/
 *.pyc
+approval.json
+**/approval.json
+reports/
 previews/l1.png
 previews/l2.png
 previews/g1.png
