@@ -8,5 +8,8 @@ Do not pick the next open from this table. Pick it from `sources.md`, then check
 | E02 Quibi | $1.75B / six months | number-first |
 | E03 The Messenger | died by email 31 Jan 2024 | corpse-first |
 | E04 Toys R Us | Brandon declaration / $400M year | court-quote first |
+| E05 Convoy | 18 Oct 2023 blank board | empty-board then valuation |
+| E06 Jawbone | Fortune Christmas 2014 miss | Christmas-miss |
+| E07 Katerra | factory wall with windows already in it | object-first, name in S1 |
 
 Banned as copy-paste even once reused: “People did not stop…”, “Stay with that. We cash it.”, “We show the death. We do not sell a pick.” (spoken).
