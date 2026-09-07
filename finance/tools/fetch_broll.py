@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Pexels video (+ optional photos) into an outdir. Audio stripped.
 Usage: python3 tools/fetch_broll.py PROFILE OUTDIR [target_n]
-Profiles: moviepass | quibi | messenger | toysrus | vert_cinema | vert_phone | vert_news | vert_aisle
+Profiles: moviepass | quibi | messenger | toysrus | convoy | jawbone | katerra | vert_* | stills_*
 """
 import json, ssl, sys, time, urllib.parse, urllib.request, subprocess
 from pathlib import Path
@@ -293,6 +293,56 @@ PROFILES = {
             ("empty wrist hand", 4),
             ("bluetooth headset", 4),
             ("wireless speaker dark", 3),
+        ],
+    },
+    "katerra": {
+        "orientation": "landscape",
+        "kind": "video",
+        "queries": [
+            ("construction site apartment building", 6),
+            ("crane construction site", 5),
+            ("wood timber factory mill", 5),
+            ("prefabricated wall construction", 5),
+            ("lumber stacked warehouse", 4),
+            ("construction workers framing wall", 4),
+            ("truck delivering construction materials", 4),
+            ("empty factory floor industrial", 5),
+            ("robot factory assembly line", 4),
+            ("apartment building under construction", 5),
+            ("concrete foundation construction", 3),
+            ("forklift lumber yard", 3),
+            ("sawmill cutting wood", 3),
+            ("silicon valley office exterior", 3),
+            ("architects looking at blueprints", 3),
+            ("construction site dusk", 4),
+            ("windows stacked warehouse", 3),
+            ("modular building construction", 4),
+            ("empty warehouse industrial", 4),
+            ("steel rebar construction site", 3),
+        ],
+    },
+    "vert_wall": {
+        "orientation": "portrait",
+        "kind": "video",
+        "queries": [
+            ("construction site crane", 5),
+            ("wood timber mill", 4),
+            ("apartment construction", 4),
+            ("factory floor industrial", 3),
+            ("lumber stacked", 3),
+            ("framing wall construction", 3),
+        ],
+    },
+    "stills_wall": {
+        "orientation": "landscape",
+        "kind": "photo",
+        "queries": [
+            ("prefabricated wall construction", 6),
+            ("timber wood panel construction", 5),
+            ("construction crane dusk", 4),
+            ("lumber mill factory", 4),
+            ("apartment building construction", 4),
+            ("empty factory floor", 3),
         ],
     },
 }
