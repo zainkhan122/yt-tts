@@ -72,4 +72,7 @@ Synthetic = YES. Not for kids. Education.
 ## P14 / P15
 Workbench = this folder. `secrets/` never committed. HANDOFF; QUEUE wins.
 
+## P16. YOUTUBE
+Upload is a separate tool (`tools/youtube_publish.py`). It does not run from `gate.py`. Default **private**. Public refused. Channel chosen by allow-listed `UC…` id in `youtube_channels.json`. OAuth tokens outside the repo.
+
 Run: `python3 tools/gate.py episodes/NAME Keyword`
