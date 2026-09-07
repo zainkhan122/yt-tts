@@ -6,6 +6,8 @@ Layouts:
   phone  — object is the cracked phone (Quibi): Q TL, wound fills the empty RIGHT
   room   — object is the empty newsroom (Messenger): white wordmark TL, wound BL
   aisle  — closing store / empty aisle
+  dock   — empty loading dock / cancelled freight (Convoy): mark TL, wound on the empty bay
+  wrist  — fitness band / dark wrist (Jawbone): mark TL, wound on the empty wrist
   split  — FALLBACK only: object would double-print the name or hide the wound
            under another brand. One mark LEFT on dark. Wound RIGHT in empty space.
            Not the channel OS. No white slab. No arc arrow.
@@ -19,6 +21,18 @@ LAYOUT, BASE, LOGO, OUT, WOUND = sys.argv[1:6]
 W, H = 1280, 720
 GOLD, WHITE, BLACK = (244, 193, 93), (255, 255, 255), (0, 0, 0)
 FONTB = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+
+
+def knockout_light(im, t=240):
+    im = im.convert("RGBA")
+    px = im.load()
+    w, h = im.size
+    for y in range(h):
+        for x in range(w):
+            r, g, b, a = px[x, y]
+            if r > t and g > t and b > t:
+                px[x, y] = (0, 0, 0, 0)
+    return im
 
 
 def knockout_dark(im, t=32):
@@ -86,7 +100,7 @@ def wound(draw, parts, x, y, size=96, stack=True):
 
 
 base = Image.open(BASE).convert("RGB").resize((W, H), Image.Resampling.LANCZOS)
-lift = {"room": 1.62, "aisle": 1.40, "split": 1.04}.get(LAYOUT, 1.14)
+lift = {"room": 1.62, "aisle": 1.40, "split": 1.04, "dock": 1.20, "wrist": 1.18}.get(LAYOUT, 1.14)
 base = ImageEnhance.Brightness(base).enhance(lift)
 base = ImageEnhance.Contrast(base).enhance(1.10 if LAYOUT in {"room", "aisle"} else 1.08)
 im = base.convert("RGBA")
@@ -114,6 +128,14 @@ elif LAYOUT == "aisle":
     logo = knockout_dark(raw)
     im = paste_logo(im, logo, (36, 28), 480, 120)
     wound(d, parts, 40, H - 230, 108, True)
+elif LAYOUT == "dock":
+    logo = knockout_light(raw)
+    im = paste_logo(im, logo, (36, 28), 520, 120)
+    wound(d, parts, 40, H - 230, 108, True)
+elif LAYOUT == "wrist":
+    logo = knockout_dark(raw)
+    im = paste_logo(im, logo, (36, 28), 480, 110)
+    wound(d, parts, 40, H - 230, 108, True)
 elif LAYOUT == "split":
     # Fallback. One mark. Wound in empty space. No second logo, no arrow, no white slab.
     from PIL import Image as _Im
@@ -139,7 +161,7 @@ else:
 
 out = im.convert("RGB")
 # room layouts are night interiors — lift until the 120px test can pass
-if LAYOUT in {"room", "aisle"}:
+if LAYOUT in {"room", "aisle", "dock"}:
     for _ in range(6):
         small = out.copy()
         small.thumbnail((213, 120))
