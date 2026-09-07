@@ -66,7 +66,12 @@ def find_time(words, needles):
                 window = [joined[i + j][0] for j in range(len(parts))]
                 if window == parts:
                     return joined[i][1]
-                if all(p in window[k] or window[k] in p for k, p in enumerate(parts)):
+                # Require a real token. "c" in "chapter" / "in" in "bain" is not a match.
+                if all(
+                    p == window[k]
+                    or (len(p) >= 4 and len(window[k]) >= 4 and (p in window[k] or window[k] in p))
+                    for k, p in enumerate(parts)
+                ):
                     return joined[i][1]
     return None
 
