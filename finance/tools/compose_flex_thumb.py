@@ -9,6 +9,7 @@ Layouts:
   dock   — empty loading dock / cancelled freight (Convoy): mark TL, wound on the empty bay
   wrist  — fitness band / dark wrist (Jawbone): mark TL, wound on the empty wrist
   wall   — prefab wall / CLT panel (Katerra): white mark TL on a dark plate, wound on a dark plate over the panel
+  counter — electronics sales floor / TV wall (Circuit City): red circle mark TL, wound BL
   split  — FALLBACK only: object would double-print the name or hide the wound
            under another brand. One mark LEFT on dark. Wound RIGHT in empty space.
            Not the channel OS. No white slab. No arc arrow.
@@ -101,7 +102,7 @@ def wound(draw, parts, x, y, size=96, stack=True):
 
 
 base = Image.open(BASE).convert("RGB").resize((W, H), Image.Resampling.LANCZOS)
-lift = {"room": 1.62, "aisle": 1.40, "split": 1.04, "dock": 1.20, "wrist": 1.18, "wall": 1.22}.get(LAYOUT, 1.14)
+lift = {"room": 1.62, "aisle": 1.40, "split": 1.04, "dock": 1.20, "wrist": 1.18, "wall": 1.22, "counter": 1.28}.get(LAYOUT, 1.14)
 base = ImageEnhance.Brightness(base).enhance(lift)
 base = ImageEnhance.Contrast(base).enhance(1.10 if LAYOUT in {"room", "aisle"} else 1.08)
 im = base.convert("RGBA")
@@ -156,6 +157,16 @@ elif LAYOUT == "wall":
     im = paste_logo(im, logo, (36, 36), 560, 100)
     d = ImageDraw.Draw(im)
     wound(d, parts, 40, H - 230, 108, True)
+elif LAYOUT == "counter":
+    # 2001–2009 red circle. Knock out the black page. One mark.
+    logo = knockout_dark(raw, 28)
+    plate = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    pd = ImageDraw.Draw(plate)
+    pd.rounded_rectangle((18, H - 250, 780, H - 16), radius=10, fill=(8, 10, 14, 215))
+    im.alpha_composite(plate)
+    im = paste_logo(im, logo, (28, 24), 200, 200)
+    d = ImageDraw.Draw(im)
+    wound(d, parts, 40, H - 222, 100, True)
 elif LAYOUT == "split":
     # Fallback. One mark. Wound in empty space. No second logo, no arrow, no white slab.
     from PIL import Image as _Im
@@ -181,7 +192,7 @@ else:
 
 out = im.convert("RGB")
 # room layouts are night interiors — lift until the 120px test can pass
-if LAYOUT in {"room", "aisle", "dock", "wall"}:
+if LAYOUT in {"room", "aisle", "dock", "wall", "counter"}:
     for _ in range(6):
         small = out.copy()
         small.thumbnail((213, 120))
