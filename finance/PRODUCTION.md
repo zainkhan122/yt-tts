@@ -8,6 +8,8 @@ Nothing here is a script to paste. The last film is not a template.
 ## Fixed (do not “flex” these)
 
 - One real named company. One mechanism. Public record only. No fiction.
+- **Spoken voice is a stranger in the first 20 seconds.** Do not say “Wikipedia.” Do not say “keep that as a chapter.” Do not say “treat that as.” The fact is spoken. The citation lives in `sources.md` and the description. If you cannot say the rule without naming the outlet, you do not have a sentence.
+- After the closer, one line a stranger can repeat. If you cannot write it, you do not have a film.
 - No legal in speech, captions, or on-screen. Description last block, longs only.
 - Company identifiable early (name spoken; real mark on the thumb).
 - Title: company in first 5 words, not the thumb wound. Wound is true.
