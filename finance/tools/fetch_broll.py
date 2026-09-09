@@ -397,6 +397,7 @@ BAD = (
     "tiktok", "instagram", "netflix", "roku", "quibi", "youtube logo",
     "primark", "visa", "mastercard", "lingerie", "coupon", "kid",
     "pizza", "stock chart", "bitcoin", "forex",
+    "playstation", "ps5", "ps5", "tcl", "nxtpaper", "xbox",
 )
 
 
