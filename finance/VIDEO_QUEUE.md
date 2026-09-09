@@ -15,7 +15,7 @@ E01 Why, then claims. E07 is a claim. Never three Why in a row.
 | 05 | Convoy Was Worth $3.8 Billion. Then Freight Normalized. | COVID-era rates booked as a permanent brokerage | $3.8B Apr 2022; board blank 18 Oct 2023 | EMPTY BOARD | shipped (mux cleared) |
 | 06 | Jawbone Lost The Wrist | couldn't ship a quality band on time; Fitbit/Apple weather | Christmas 2014 miss; stop UP May 2016; liquidation Jul 2017 | COULDN'T SHIP | shipped (mux cleared) |
 | 07 | Katerra Built The Whole Stack. Then The Factories Stopped. | owned architect + mill + GC; factories only pay if full | $865M Jan 2018; >$2B in; Ch.11 Houston 6 Jun 2021 | NO HANDOFF | pack in repo; mux cleared |
-| 08 | Circuit City Fired The Floor. Then The Stores Died. | 2003: killed commissioned floor to book ~$130M | ~3,900 people; $130M; Ch.11 10 Nov 2008; liquidate 16 Jan 2009 | NO COMMISSION | **mux in workspace — watch then download** |
+| 08 | Circuit City Fired The Floor. Then The Stores Died. | 2003: killed commissioned floor to book ~$130M | ~3,900 people; $130M; Ch.11 10 Nov 2008; liquidate 16 Jan 2009 | NO COMMISSION | pack in repo; mux cleared |
 
 ## SHORTS
 | Parent | Kind | Title | Status |
