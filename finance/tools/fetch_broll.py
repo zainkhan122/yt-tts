@@ -345,6 +345,52 @@ PROFILES = {
             ("empty factory floor", 3),
         ],
     },
+    "circuitcity": {
+        "orientation": "landscape",
+        "kind": "video",
+        "queries": [
+            ("television wall electronics store", 6),
+            ("empty electronics store interior", 5),
+            ("sales counter retail empty", 5),
+            ("row of televisions showroom", 5),
+            ("big box store fluorescent lights", 4),
+            ("empty checkout counter store", 4),
+            ("computer monitors store shelf", 4),
+            ("going out of business retail", 3),
+            ("warehouse electronics boxes", 4),
+            ("suburban shopping center parking", 3),
+            ("store closing metal shutters", 3),
+            ("person shopping electronics", 3),
+            ("empty mall corridor fluorescent", 4),
+            ("richmond virginia downtown", 2),
+            ("name badge lanyard retail", 2),
+            ("cash register empty store", 3),
+            ("stereo speakers showroom", 3),
+            ("appliance store interior", 3),
+        ],
+    },
+    "vert_counter": {
+        "orientation": "portrait",
+        "kind": "video",
+        "queries": [
+            ("television wall store", 5),
+            ("electronics store interior", 4),
+            ("empty retail checkout", 3),
+            ("fluorescent store aisle", 3),
+            ("row of tvs", 3),
+        ],
+    },
+    "stills_counter": {
+        "orientation": "landscape",
+        "kind": "photo",
+        "queries": [
+            ("television wall electronics store", 6),
+            ("empty electronics showroom", 5),
+            ("sales counter retail", 4),
+            ("row of televisions", 4),
+            ("empty checkout store", 3),
+        ],
+    },
 }
 
 BAD = (
