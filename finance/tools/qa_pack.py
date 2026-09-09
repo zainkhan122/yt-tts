@@ -85,6 +85,11 @@ if not SHORTS:
             fails.append(f"description S1 clones {d.name!r}")
 if not SHORTS and not re.search(r"\d{1,2}:\d{2}", desc):
     warns.append("no chapters")
+for line in desc.splitlines():
+    if re.match(r"^\s*\d{1,2}:\d{2}\b", line):
+        ll = line.lower()
+        if any(x in ll for x in ("advice", "disclaimer", "not financial", "education only", "not investment")):
+            fails.append(f"L1: chapter title is legal copy: {line.strip()!r}")
 if SHORTS and "#shorts" not in desc.lower():
     fails.append("L6 Shorts description missing #Shorts")
 
@@ -103,8 +108,20 @@ if has_disc and not SHORTS:
 # legal must not appear in the first 400 chars of a long description (hook tax)
 if has_disc and not SHORTS and any(x in first150.lower() for x in LEGAL):
     fails.append("L8 disclaimer leaked into the first 150 chars")
-if not SHORTS and "subscribe" not in low and "@thepublicrecord" not in low:
-    warns.append("L8 no subscribe / @thepublicrecord in description")
+if not SHORTS and "subscribe" not in low and "@thepublicrecord-yt" not in low and "@thepublicrecord" not in low:
+    warns.append("L8 no subscribe / @thepublicrecord-yt in description")
+if "@thepublicrecord" in low and "@thepublicrecord-yt" not in low:
+    warns.append("handle is @thepublicrecord-yt — bare @thepublicrecord is a different/empty property")
+# Shorts shelf is 9:16. A 16:9 letterbox thumb is mud on mobile (E01 live).
+thumb_path = VD / "thumbnail.jpg"
+if SHORTS and thumb_path.exists():
+    try:
+        from PIL import Image
+        tw, th = Image.open(thumb_path).size
+        if tw >= th:
+            warns.append(f"Shorts thumb is landscape {tw}x{th} — shelf is 9:16")
+    except Exception:
+        pass
 
 # pinned comment: no legal
 pm = re.search(r"## PINNED COMMENT\n(.*?)(?=\n## |\Z)", md, re.S)
