@@ -10,5 +10,6 @@ Real historical logos, used only to identify the company this film is about. Not
 | `convoy.png` | Convoy | Wikimedia Commons `File:Convoy (company) logo.png` |
 | `jawbone.png` | Jawbone | Wikimedia Commons `File:Jawbone logo.svg` |
 | `katerra.png` | Katerra | Wikimedia Commons `File:Katerra Primary Logo.jpg` (CC BY-SA 4.0, Katerra.com, 2017). White knockout: `katerra_white.png`. |
+| `circuitcity.png` | Circuit City | Wikimedia Commons `File:Circuit City logo.svg` (2001–2009 circle). |
 
 Headline cards on thumbs quote a real contemporaneous line and name the outlet + date. We do **not** fake an NYT/WSJ masthead.
