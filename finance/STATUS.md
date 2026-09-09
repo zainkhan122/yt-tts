@@ -1,1 +1,1 @@
-E07 Katerra long 8:42 + 2 Shorts in workspace. Fast skipped. YouTube tool already on repo. Upload only after you watch and approve.
+Channel ID locked UCGqHrMgsra_dX9RnGylDbjQ (@thepublicrecord-yt). E07 mux cleared. E08 Circuit City script gated. See research/CHANNEL_LIVE.md.
