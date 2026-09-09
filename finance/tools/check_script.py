@@ -42,8 +42,27 @@ CANNED = (
     "if you want the next collapse",
     "this is education, not",
     "every date you hear is on the public record",
+    "that is the public record",
 )
 this_canned = [c for c in CANNED if c in low]
+
+# Spoken voice is a stranger. Citations live in sources.md + description.
+MEMO = (
+    "wikipedia says",
+    "wikipedia records",
+    "keep that as a chapter",
+    "treat that as what",
+    "treat that as a",
+    "wiki, from",
+    "wiki from the",
+    "as summarized by wikipedia",
+    "the public calendar is enough",
+    "i am not a court",
+    "i will not pretend to rule",
+)
+for d in MEMO:
+    if d in low:
+        fails.append(f"L2: research-memo in VO: {d!r} — speak the fact. Cite in sources.md / description.")
 
 def sibling_voiceovers():
     out = []
