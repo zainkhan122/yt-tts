@@ -85,6 +85,20 @@ Improvements that are not taste:
 
 ---
 
+## Cadence (locked 2026-09-09 — user confirmed)
+
+**Keep 1 long / week + 2 Shorts / week.** That is the plan. Do not go to 2 longs/week. Seven longs in the can taking ~7 weeks to become public is correct, not slow.
+
+Pairing rule: **the two Shorts of week N belong to the long that goes public that week.** Hook the day after the long (or Wednesday), payoff later that week (Saturday). Do not burn E05 Shorts while E02 is still the public long. “Full story on this channel” must hit a video that is already public.
+
+Times: **6–9pm Eastern** for the long. E01 long already hit that window. Hook Short at 3:30pm Eastern underperformed the *slot*, not the format — the hook still beat the long on views. Prefer US evening for both if Studio lets you.
+
+YPP math: 1× ~8 min / week does not manufacture 4,000 hours. Hours come from views. Cadence is a quality lock, not an hours cheat. Shorts are the discovery bet (hook 28 vs long 9 vs payoff 1 on the first week). Keep that 2/week. Do not invent original-topic Shorts to chase 10M.
+
+Stay **one film ahead of the calendar**, not eight. E08 is the next cut. After that, produce when the schedule has ~2 weeks of empty runway.
+
+Scheduled videos are invisible on the public RSS until they go live. Edit them in Studio **before** publish: no legal chapter, disclaimer last, handle `@thepublicrecord-yt`, synthetic = YES, lum ≥38 thumb with the company mark.
+
 ## What we cannot see without Studio
 
 Impressions, CTR, average view duration, traffic source, Shorts vs long graph, subs. User: if you paste a Studio analytics screenshot, we use it. Until then we do not invent a diagnosis from 9 views.
