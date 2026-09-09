@@ -1,23 +1,19 @@
 # HANDOFF
-*2026-09-07*
+*2026-09-09*
 
-## SYSTEM
-`PRODUCTION.md` is the OS. Form is research-first. The last film is not a template.
+## LIVE CHANNEL
+`UCGqHrMgsra_dX9RnGylDbjQ` · **`@thepublicrecord-yt`** · The Public Record.  
+Not `@thepublicrecord` (empty/other). Analysis: `research/CHANNEL_LIVE.md`.  
+Up: E01 long (9 views) + hook Short (28) + payoff Short (1). All Public via Studio.  
+Fix on next upload: no legal chapter, disclaimer last, 9:16 Shorts thumbs, company mark on long thumb, lum ≥38.
 
-YouTube publish: `tools/youtube_publish.py`. Pack → dry-run → `"approved": true` → `--upload`. Default **private**. Never auto. Never public. Tokens outside repo.
+## E07
+Katerra pack kept (script/sources/thumb). Muxes deleted after user said done.
 
-## E07 — Katerra (mux in workspace)
-Title: **Katerra Built The Whole Stack. Then The Factories Stopped.** (58)
-Wound: **NO HANDOFF**. Layout `wall` (timber panels + white mark on dark plates). Lum 102 at 120px.
-Runtime **8:42**. Open = factory wall with windows already in it. Not E01–E06 shapes.
-Spine: owned architect + mill + GC; a factory only gets cheap if it stays full; overruns had nowhere to go.
-Fast (checkout) **skipped** — no Wikipedia, 404s on contemporaneous URLs, unadjudicated GMV dispute.
+## E08
+Circuit City Fired The Floor. Then The Stores Died.  
+Open = 625 stores late 5 Feb 2003 (Stereophile). Wound **NO COMMISSION**.  
+VO ~6.6 min (record is that long — do not pad). Picture/TTS next.
 
-Shorts ~27s (did not pad):
-- hook *Katerra Told Staff It Was Shutting Down*
-- payoff *Katerra Built The Wall And Ate The Overrun*
-
-Do **not** upload until the user watches and says the pack is final.
-
-## NEXT
-User: watch E07. If final, fill channel UC… ids + OAuth, then pack → dry-run → approve JSON boolean → `--upload`.
+## YouTube tool
+Channel ID is now in `youtube_channels.json`. Still need OAuth client secret + `--auth` before `--upload`. Tool still refuses public.
