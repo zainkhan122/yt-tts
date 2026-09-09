@@ -25,9 +25,9 @@ Object + wound for *this* death. Layout is not the last film’s.
 
 {this film’s dates — if they weren’t already said}
 
-Subscribe / @thepublicrecord only if it fits. Not mandatory in the same slot every time.
+Subscribe / **@thepublicrecord-yt** only if it fits. That is the live handle. `@thepublicrecord` is a different/empty property.
 
-Chapters if they help a finisher. Skip if the film is a Short.
+Chapters if they help a finisher. Skip if the film is a Short. **No chapter titled advice / disclaimer / education.** Shorts thumbs are **9:16**, not a letterboxed 16:9.
 
 Sources:
 …
