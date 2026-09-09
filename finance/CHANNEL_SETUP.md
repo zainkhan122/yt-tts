@@ -1,6 +1,8 @@
 # Channel setup — business documentary (faceless)
 
-**LOCKED 2026-08-28: The Public Record** (`@thepublicrecord`).  
+**LOCKED 2026-08-28: The Public Record.**  
+**Live handle (measured 2026-09-09): `@thepublicrecord-yt`.** Channel ID `UCGqHrMgsra_dX9RnGylDbjQ`.  
+`youtube.com/@thepublicrecord` is a different/empty property. Do not put `@thepublicrecord` in descriptions. See `research/CHANNEL_LIVE.md`. 
 THRESHOLD (finance explainer) stays paused. This is a different show.
 
 ---
