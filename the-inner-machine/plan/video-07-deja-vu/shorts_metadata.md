@@ -1,25 +1,23 @@
 # Video 07 Shorts Metadata
 
-## Short 1 — Déjà Vu Is Not Proof You Were Here Before
+## 1. Déjà Vu Is Not Proof You Were Here Before
 
-**Duration:** approximately 00:24 · **Format:** 1080×1920 vertical, 30 fps
+- **Duration:** 00:23.78
+- **Format:** 1080×1920, 30 fps
+- **Description:** That sudden feeling of familiarity is powerful—but it is not proof you lived the moment before. Déjà vu is a feeling about memory, not a memory itself.
+- **Hashtags:** #dejavu #psychology #memory #neuroscience #theinnermachine
+- **Approved emphasis:** FAMILIAR · DÉJÀ VU · PROOF
 
-### Description
-That sudden feeling of familiarity is powerful—but it is not proof you lived the moment before. Déjà vu is a feeling about memory, not a memory itself.
+## 2. Familiar Does Not Mean Remembered
 
-Watch the full explanation on The Inner Machine.
+- **Duration:** 00:23.20
+- **Format:** 1080×1920, 30 fps
+- **Description:** A new place can overlap with an old pattern without bringing back a full memory. Familiar does not mean previously experienced in full. Certain does not mean correct.
+- **Hashtags:** #dejavu #memory #psychology #neuroscience #theinnermachine
+- **Approved emphasis:** FAMILIAR · EXPECTATION · CORRECT
 
-### Hashtags
-#dejavu #psychology #memory #neuroscience #theinnermachine
+## Publishing
 
-## Short 2 — Familiar Does Not Mean Remembered
-
-**Duration:** approximately 00:25 · **Format:** 1080×1920 vertical, 30 fps
-
-### Description
-A new place can overlap with an old pattern without bringing back a full memory. Familiar does not mean previously experienced in full. Certain does not mean correct.
-
-Watch the full explanation on The Inner Machine.
-
-### Hashtags
-#dejavu #memory #psychology #neuroscience #theinnermachine
+Target channel: `UC61oUVLkt_7aKzEv-HDT44Q`  
+Upload visibility: private until approved.  
+Link both Shorts to **Déjà Vu: When Familiarity Arrives Before Memory**.

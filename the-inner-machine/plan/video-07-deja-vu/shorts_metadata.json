@@ -1,0 +1,29 @@
+{
+  "source_video": "Déjà Vu: When Familiarity Arrives Before Memory",
+  "channel_id": "UC61oUVLkt_7aKzEv-HDT44Q",
+  "shorts": [
+    {
+      "kind": "hook",
+      "title": "Déjà Vu Is Not Proof You Were Here Before",
+      "filename": "Déjà Vu Is Not Proof You Were Here Before.mp4",
+      "duration_s": 23.78,
+      "format": "1080x1920",
+      "fps": 30,
+      "description": "That sudden feeling of familiarity is powerful—but it is not proof you lived the moment before. Déjà vu is a feeling about memory, not a memory itself.\n\nWatch the full explanation on The Inner Machine.",
+      "hashtags": ["#dejavu", "#psychology", "#memory", "#neuroscience", "#theinnermachine"],
+      "approved_overlays": ["FAMILIAR", "DÉJÀ VU", "PROOF"]
+    },
+    {
+      "kind": "payoff",
+      "title": "Familiar Does Not Mean Remembered",
+      "filename": "Familiar Does Not Mean Remembered.mp4",
+      "duration_s": 23.20,
+      "format": "1080x1920",
+      "fps": 30,
+      "description": "A new place can overlap with an old pattern without bringing back a full memory. Familiar does not mean previously experienced in full. Certain does not mean correct.\n\nWatch the full explanation on The Inner Machine.",
+      "hashtags": ["#dejavu", "#memory", "#psychology", "#neuroscience", "#theinnermachine"],
+      "approved_overlays": ["FAMILIAR", "EXPECTATION", "CORRECT"]
+    }
+  ],
+  "publishing_notes": "Upload only after explicit approval through tools/youtube_publish.py. Default visibility is private."
+}
