@@ -120,7 +120,7 @@ def render_beat(kf,cap,mot,dur_s,out,W,H,FPS,last=False,narration=None,pause_s=0
     base_fc=f"[0:v]scale={int(W*1.2)}:{int(H*1.2)}:force_original_aspect_ratio=increase:flags=lanczos,crop={int(W*1.2)}:{int(H*1.2)},zoompan=z='{z}':x='{x}':y='{y}':d={nf}:s={W}x{H}:fps={FPS},setsar=1,eq=saturation=1.05,vignette=PI/5,format=yuv420p,fade=t=in:st=0:d=0.3{fout}"
     if text.strip():
         srt_filter=srt.replace('\\','/')
-        fc=base_fc+f",subtitles='{srt_filter}':force_style='FontName=DejaVu Sans,FontSize={font_size},PrimaryColour=&H00E0F6FF,OutlineColour=&H002E1210,BorderStyle=1,Outline=4,Alignment=8,MarginV=170'[v]"
+        fc=base_fc+f",subtitles='{srt_filter}':force_style='FontName=DejaVu Sans,FontSize={font_size},PrimaryColour=&H00E0F6FF,OutlineColour=&H002E1210,BorderStyle=1,Outline=4,Alignment=5,MarginV=0'[v]"
     else:
         fc=base_fc+'[v]'
     run([FF,"-y","-i",kf,"-filter_complex",fc,"-map","[v]","-c:v","libx264","-preset","ultrafast","-crf","21","-r",str(FPS),"-t",f"{dur_s:.3f}","-an",out])

@@ -2,7 +2,7 @@
   "status": "built",
   "kind": "payoff",
   "voice": "bm_george",
-  "duration_s": 23.1972,
+  "duration_s": 23.1985,
   "schedule": [
     {
       "sentence_id": "payoff_01",
@@ -22,7 +22,9 @@
         0.5,
         0.5,
         0.4
-      ]
+      ],
+      "overlay_start_frac": 0.04,
+      "overlay_end_frac": 0.2
     },
     {
       "sentence_id": "payoff_02",
@@ -42,7 +44,9 @@
         0.48,
         0.72,
         0.48
-      ]
+      ],
+      "overlay_start_frac": 0.0,
+      "overlay_end_frac": 0.0
     },
     {
       "sentence_id": "payoff_03",
@@ -52,7 +56,7 @@
       "end_s": 13.3946,
       "pause_after_s": 0.16,
       "is_cta": false,
-      "caption": "",
+      "caption": "EXPECTATION",
       "kf": "shorts/payoff/images/03.jpg",
       "motion": [
         "rise",
@@ -62,7 +66,9 @@
         0.62,
         0.5,
         0.35
-      ]
+      ],
+      "overlay_start_frac": 0.29310344827586204,
+      "overlay_end_frac": 0.4827586206896552
     },
     {
       "sentence_id": "payoff_04",
@@ -72,7 +78,7 @@
       "end_s": 17.5645,
       "pause_after_s": 0.16,
       "is_cta": false,
-      "caption": "NOT EVIDENCE",
+      "caption": "",
       "kf": "shorts/payoff/images/04.jpg",
       "motion": [
         "settle",
@@ -82,7 +88,9 @@
         0.5,
         0.5,
         0.56
-      ]
+      ],
+      "overlay_start_frac": 0.0,
+      "overlay_end_frac": 0.0
     },
     {
       "sentence_id": "payoff_05",
@@ -92,7 +100,7 @@
       "end_s": 20.0392,
       "pause_after_s": 0.16,
       "is_cta": false,
-      "caption": "",
+      "caption": "CORRECT",
       "kf": "shorts/payoff/images/01.jpg",
       "motion": [
         "zoom",
@@ -102,14 +110,16 @@
         0.5,
         0.5,
         0.4
-      ]
+      ],
+      "overlay_start_frac": 0.7333333333333333,
+      "overlay_end_frac": 0.9666666666666667
     },
     {
       "sentence_id": "payoff_06",
       "text": "Watch the full video on this channel.",
       "start_s": 20.0392,
-      "speech_end_s": 22.9172,
-      "end_s": 23.1972,
+      "speech_end_s": 22.9185,
+      "end_s": 23.1985,
       "pause_after_s": 0.28,
       "is_cta": true,
       "caption": "WATCH FULL VIDEO",
@@ -122,7 +132,9 @@
         0.48,
         0.72,
         0.48
-      ]
+      ],
+      "overlay_start_frac": 0.12,
+      "overlay_end_frac": 0.48
     }
   ]
 }

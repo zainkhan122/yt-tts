@@ -38,13 +38,21 @@ def main():
    approved = cfg.get('approved_overlays', {})
    cap='WATCH FULL VIDEO' if sent==cta else approved.get(str(i), '')
    img=str(ims[i%len(ims)].relative_to(v))
+   # Locate approved emphasis in the actual spoken sentence, not a fixed beat fraction.
+   raw=sent.lower(); phrase=cap.lower(); pos=raw.find(phrase) if phrase else -1
+   if phrase and pos >= 0:
+    overlay_start_frac=pos/max(1,len(raw)); overlay_end_frac=(pos+len(phrase))/max(1,len(raw))
+   elif phrase:
+    overlay_start_frac=0.12; overlay_end_frac=0.48
+   else:
+    overlay_start_frac=0.0; overlay_end_frac=0.0
    # each sentence gets portrait asset and purposeful motion
    motions=[['zoom',1.05,1.16,.5,.5,.5,.40],['panlr',1.06,1.18,.25,.48,.72,.48],['rise',1.05,1.16,.5,.62,.5,.35],['settle',1.16,1.05,.5,.5,.5,.56]]
-   schedule[-1].update({'caption':cap,'kf':img,'motion':motions[i%4]})
+   schedule[-1].update({'caption':cap,'kf':img,'motion':motions[i%4],'overlay_start_frac':overlay_start_frac,'overlay_end_frac':overlay_end_frac})
   sf.write(work/'audio.wav',np.concatenate(audio),sr,subtype='PCM_16')
   parts=[]
   for i,t in enumerate(schedule):
-   out=work/f'v{i:02d}.mp4';produce.render_beat(str(v/t['kf']),t['caption'],t['motion'],t['end_s']-t['start_s'],str(out),1080,1920,30,last=(i==len(schedule)-1),narration=None,pause_s=t['pause_after_s'],overlay_text=t['caption'],overlay_start_frac=0.12,overlay_end_frac=0.48,font_size=16);parts.append(out)
+   out=work/f'v{i:02d}.mp4';produce.render_beat(str(v/t['kf']),t['caption'],t['motion'],t['end_s']-t['start_s'],str(out),1080,1920,30,last=(i==len(schedule)-1),narration=t['text'],pause_s=t['pause_after_s'],overlay_text=t['caption'],overlay_start_frac=t['overlay_start_frac'],overlay_end_frac=t['overlay_end_frac'],font_size=16);parts.append(out)
   lf=work/'list.txt';lf.write_text(''.join(f"file \'{x.resolve()}\'\n" for x in parts)); visual=work/'visual.mp4';run([FF,'-y','-f','concat','-safe','0','-i',str(lf),'-c:v','libx264','-preset','veryfast','-crf','28','-pix_fmt','yuv420p','-r','30',str(visual)])
   final=p/f'{cfg["title"]}.mp4';part=str(final)+'.part.mp4';run([FF,'-y','-i',str(visual),'-i',str(work/'audio.wav'),'-map','0:v','-map','1:a','-c:v','copy','-c:a','aac','-b:a','96k','-t',str(cursor),part]);shutil.copy2(part,final);os.remove(part)
   json.dump({'status':'built','kind':kind,'voice':cfg.get('voice','bm_george'),'duration_s':round(cursor,4),'schedule':schedule},open(p/'caption_schedule.json','w'),indent=2)
