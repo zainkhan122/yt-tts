@@ -1,0 +1,128 @@
+{
+  "status": "built",
+  "kind": "payoff",
+  "voice": "bm_george",
+  "duration_s": 23.1972,
+  "schedule": [
+    {
+      "sentence_id": "payoff_01",
+      "text": "A familiar shape may be hiding inside a new place.",
+      "start_s": 0.0,
+      "speech_end_s": 3.8606,
+      "end_s": 4.0206,
+      "pause_after_s": 0.16,
+      "is_cta": false,
+      "caption": "FAMILIAR",
+      "kf": "shorts/payoff/images/01.jpg",
+      "motion": [
+        "zoom",
+        1.05,
+        1.16,
+        0.5,
+        0.5,
+        0.5,
+        0.4
+      ]
+    },
+    {
+      "sentence_id": "payoff_02",
+      "text": "Your mind can register the overlap before you notice it consciously.",
+      "start_s": 4.0206,
+      "speech_end_s": 8.83,
+      "end_s": 8.99,
+      "pause_after_s": 0.16,
+      "is_cta": false,
+      "caption": "",
+      "kf": "shorts/payoff/images/02.jpg",
+      "motion": [
+        "panlr",
+        1.06,
+        1.18,
+        0.25,
+        0.48,
+        0.72,
+        0.48
+      ]
+    },
+    {
+      "sentence_id": "payoff_03",
+      "text": "But a feeling of expectation is not evidence of foresight.",
+      "start_s": 8.99,
+      "speech_end_s": 13.2346,
+      "end_s": 13.3946,
+      "pause_after_s": 0.16,
+      "is_cta": false,
+      "caption": "",
+      "kf": "shorts/payoff/images/03.jpg",
+      "motion": [
+        "rise",
+        1.05,
+        1.16,
+        0.5,
+        0.62,
+        0.5,
+        0.35
+      ]
+    },
+    {
+      "sentence_id": "payoff_04",
+      "text": "Familiar does not mean previously experienced in full.",
+      "start_s": 13.3946,
+      "speech_end_s": 17.4045,
+      "end_s": 17.5645,
+      "pause_after_s": 0.16,
+      "is_cta": false,
+      "caption": "NOT EVIDENCE",
+      "kf": "shorts/payoff/images/04.jpg",
+      "motion": [
+        "settle",
+        1.16,
+        1.05,
+        0.5,
+        0.5,
+        0.5,
+        0.56
+      ]
+    },
+    {
+      "sentence_id": "payoff_05",
+      "text": "Certain does not mean correct.",
+      "start_s": 17.5645,
+      "speech_end_s": 19.8792,
+      "end_s": 20.0392,
+      "pause_after_s": 0.16,
+      "is_cta": false,
+      "caption": "",
+      "kf": "shorts/payoff/images/01.jpg",
+      "motion": [
+        "zoom",
+        1.05,
+        1.16,
+        0.5,
+        0.5,
+        0.5,
+        0.4
+      ]
+    },
+    {
+      "sentence_id": "payoff_06",
+      "text": "Watch the full video on this channel.",
+      "start_s": 20.0392,
+      "speech_end_s": 22.9172,
+      "end_s": 23.1972,
+      "pause_after_s": 0.28,
+      "is_cta": true,
+      "caption": "WATCH FULL VIDEO",
+      "kf": "shorts/payoff/images/02.jpg",
+      "motion": [
+        "panlr",
+        1.06,
+        1.18,
+        0.25,
+        0.48,
+        0.72,
+        0.48
+      ]
+    }
+  ]
+}

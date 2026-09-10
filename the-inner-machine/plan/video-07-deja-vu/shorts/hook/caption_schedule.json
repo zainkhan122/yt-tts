@@ -1,0 +1,128 @@
+{
+  "status": "built",
+  "kind": "hook",
+  "voice": "bm_george",
+  "duration_s": 23.8033,
+  "schedule": [
+    {
+      "sentence_id": "hook_01",
+      "text": "You walk into a new room and something feels strangely familiar.",
+      "start_s": 0.0,
+      "speech_end_s": 4.404,
+      "end_s": 4.564,
+      "pause_after_s": 0.16,
+      "is_cta": false,
+      "caption": "D\u00c9J\u00c0 VU",
+      "kf": "shorts/hook/images/01.jpg",
+      "motion": [
+        "zoom",
+        1.05,
+        1.16,
+        0.5,
+        0.5,
+        0.5,
+        0.4
+      ]
+    },
+    {
+      "sentence_id": "hook_02",
+      "text": "You know you have never been here before, but the feeling arrives with surprising confidence.",
+      "start_s": 4.564,
+      "speech_end_s": 10.558,
+      "end_s": 10.718,
+      "pause_after_s": 0.16,
+      "is_cta": false,
+      "caption": "",
+      "kf": "shorts/hook/images/02.jpg",
+      "motion": [
+        "panlr",
+        1.06,
+        1.18,
+        0.25,
+        0.48,
+        0.72,
+        0.48
+      ]
+    },
+    {
+      "sentence_id": "hook_03",
+      "text": "That is d\u00e9j\u00e0 vu.",
+      "start_s": 10.718,
+      "speech_end_s": 12.7753,
+      "end_s": 12.9353,
+      "pause_after_s": 0.16,
+      "is_cta": false,
+      "caption": "",
+      "kf": "shorts/hook/images/03.jpg",
+      "motion": [
+        "rise",
+        1.05,
+        1.16,
+        0.5,
+        0.62,
+        0.5,
+        0.35
+      ]
+    },
+    {
+      "sentence_id": "hook_04",
+      "text": "It is not proof that you lived this moment before.",
+      "start_s": 12.9353,
+      "speech_end_s": 16.5286,
+      "end_s": 16.6886,
+      "pause_after_s": 0.16,
+      "is_cta": false,
+      "caption": "FEELING FIRST",
+      "kf": "shorts/hook/images/04.jpg",
+      "motion": [
+        "settle",
+        1.16,
+        1.05,
+        0.5,
+        0.5,
+        0.5,
+        0.56
+      ]
+    },
+    {
+      "sentence_id": "hook_05",
+      "text": "It is a feeling about memory, not a memory itself.",
+      "start_s": 16.6886,
+      "speech_end_s": 20.4853,
+      "end_s": 20.6453,
+      "pause_after_s": 0.16,
+      "is_cta": false,
+      "caption": "",
+      "kf": "shorts/hook/images/01.jpg",
+      "motion": [
+        "zoom",
+        1.05,
+        1.16,
+        0.5,
+        0.5,
+        0.5,
+        0.4
+      ]
+    },
+    {
+      "sentence_id": "hook_06",
+      "text": "Watch the full video on this channel.",
+      "start_s": 20.6453,
+      "speech_end_s": 23.5233,
+      "end_s": 23.8033,
+      "pause_after_s": 0.28,
+      "is_cta": true,
+      "caption": "WATCH FULL VIDEO",
+      "kf": "shorts/hook/images/02.jpg",
+      "motion": [
+        "panlr",
+        1.06,
+        1.18,
+        0.25,
+        0.48,
+        0.72,
+        0.48
+      ]
+    }
+  ]
+}
