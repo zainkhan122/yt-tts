@@ -8,7 +8,7 @@
   "accent2": "#5EEAD4"
  },
  "voice": "af_heart",
- "speed": 1.28,
+ "speed": 1.33,
  "lang": "en-us",
  "style": "midnight",
  "lexicon": {
@@ -22,7 +22,7 @@
   "UI": "U I",
   "fal": "fal"
  },
- "voice_fx": "energetic",
+ "voice_fx": "hype",
  "voice_blend": {},
- "_voice_note": "User choice: af_heart, energetic (sample B in research/voice-audition/energetic). For extra brightness set voice_blend {\"af_bella\": 0.25} (sample C)."
+ "_voice_note": "User: af_heart, MORE enthusiastic + energetic -> preset 'hype' (sample D, research/voice-audition/enthusiastic). Brighter variant: voice_blend {\"af_bella\": 0.3} (sample E). Previous 'energetic' = sample B."
 }

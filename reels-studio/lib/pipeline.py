@@ -138,9 +138,38 @@ def release_tts():
 
 # "Creator mic" presets: +0.4 semitone lift (duration kept via atempo), de-mud, presence + air, punchy compression
 VOICE_FX = {
+    # "hype" = more enthusiastic: +0.8 st lift, stronger presence/air, harder compression (+ per-line accents below)
+    "hype": ("asetrate={sr}*1.0473,aresample={sr},atempo=0.95484,equalizer=f=180:t=q:w=1:g=-2,"
+             "equalizer=f=3200:t=q:w=1.0:g=4,highshelf=f=9000:g=3,acompressor=threshold=0.08:ratio=4:attack=3:release=70:makeup=2"),
     "energetic": ("asetrate={sr}*1.0234,aresample={sr},atempo=0.97714,equalizer=f=180:t=q:w=1:g=-1.5,"
                   "equalizer=f=3200:t=q:w=1.0:g=3,highshelf=f=9000:g=2.5,acompressor=threshold=0.1:ratio=3:attack=4:release=80:makeup=1.6"),
 }
+
+
+def pitch_accent(a, sr, semitones):
+    """Duration-preserving pitch lift for ONE spoken line (enthusiasm = wider melody across lines)."""
+    if not semitones or a is None:
+        return a
+    k = 2 ** (semitones / 12)
+    tin, tout = Path("/tmp/acc-in.wav"), Path("/tmp/acc-out.wav")
+    sf.write(tin, a, sr, subtype="FLOAT")
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(tin), "-af", f"asetrate={sr}*{k:.5f},aresample={sr},atempo={1 / k:.5f}",
+                    "-ar", str(sr), "-ac", "1", str(tout)], check=True)
+    out, _ = sf.read(tout, dtype="float32")
+    return out[:len(a)] if len(out) >= len(a) else np.pad(out, (0, len(a) - len(out)))
+
+
+def hype_accents(texts):
+    """Semitone lift per spoken line: hook highest, '!' lines lifted, '?' lines rise a little, others alternate."""
+    out, n = [], 0
+    for t in texts:
+        if not t:
+            out.append(0.0)
+            continue
+        s = t.strip()
+        out.append(0.6 if n == 0 else 0.4 if s.endswith("!") else 0.2 if s.endswith("?") else (0.25 if n % 2 else 0.0))
+        n += 1
+    return out
 
 
 def apply_voice_fx(vo, sr, preset):
@@ -432,6 +461,10 @@ class Job:
                     speakers[key] = KokoroVoice(key[0], key[2], key[1], blend=b.get("voice_blend") if key[0] == voice_cfg else None)  # (voice, speed, lang)
                 clips.append(speakers[key](spoken_clean(s["text"])) if s.get("text") else (None, 24000))
             engine = " + ".join(f"kokoro {v} x{sp} ({l})" for v, l, sp in speakers)
+            if b.get("voice_fx") == "hype":  # enthusiasm: per-line melody accents (duration-preserving, timing unchanged)
+                acc = hype_accents([s.get("text") for s in segs])
+                clips = [((pitch_accent(a, rate, acc[i]) if a is not None else a), rate) for i, (a, rate) in enumerate(clips)]
+                engine += " + hype accents"
         # layout
         lead, tail = b.get("lead_in", 0.25), b.get("tail", 0.6)
         t = lead

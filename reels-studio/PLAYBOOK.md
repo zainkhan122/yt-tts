@@ -123,12 +123,14 @@ Never promise DMs we can't send.
 
 ## 5. Voice and audio
 
-- **Channel voice (user's choice): `af_heart`, energetic.** Kokoro (Apache-2.0) at ×1.28 (~190 wpm, within the 183–209 wpm range of energetic benchmark creators). The energy comes from:
-  - pace;
-  - **exclamation-led hook and payoff lines** (Kokoro emphasises them);
-  - a **"creator-mic" chain**: +0.4 semitone lift, presence and air EQ, punchy compression (`voice_fx: energetic`).
+- **Channel voice (user's choice): `af_heart`, extra enthusiastic: preset `hype`** (sample D in `research/voice-audition/enthusiastic/`). Kokoro has no emotion control, so enthusiasm is engineered:
+  1. **melody**: a per-line pitch accent (hook +0.6 st, "!" lines +0.4, "?" lines +0.2, the rest alternate) so lines don't sound flat;
+  2. **brightness**: a +0.8 semitone overall lift;
+  3. **punch**: presence/air EQ + 4:1 compression;
+  4. **pace**: ×1.33 (with pauses between lines, ~190–200 wpm in a video);
+  5. **script energy**: an exclamation-led hook and payoff, rhetorical questions ("The best part?"), short punchy lines, one "Okay, …" opener at most. Never fake hype words about the tool; the facts stay honest.
   
-  Whisper intelligibility is unchanged (95.2%). Optional extra brightness: `voice_blend: {"af_bella": 0.25}`. Samples: `research/voice-audition/energetic/`.
+  Whisper intelligibility: **100%** for all variants. Alternatives: `voice_blend: {"af_bella": 0.3}` (sample E, brighter), or `voice_fx: energetic` (sample B, calmer).
 - **Mix:** VO at −14 LUFS integrated, peak ≤ −1 dBFS. Our own generated music sits under the voice. SFX:
   - whoosh on transitions;
   - click on cursor taps;
