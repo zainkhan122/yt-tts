@@ -122,6 +122,20 @@ def trim_silence(x, sr, floor_db=40, pad_in=0.03, pad_out=0.06):
 _KOKORO = None
 
 
+def release_tts():
+    """Free the Kokoro/ONNX model (~500 MB) once the voice exists. On a 2 GB box, Chrome + FFmpeg need
+    that RAM during the render; holding it made renders crawl at ~40 MB free."""
+    global _KOKORO
+    _KOKORO = None
+    import ctypes
+    import gc
+    gc.collect()
+    try:
+        ctypes.CDLL("libc.so.6").malloc_trim(0)  # hand freed heap back to the OS (glibc)
+    except (OSError, AttributeError):
+        pass
+
+
 class KokoroVoice:
     """One shared Kokoro model; any number of (voice, lang) speakers. lang 'ur' = espeak-ng Urdu phonemizer
     (experimental: Kokoro has no Urdu voice, but a Hindi voice + Urdu phonemes measured 87% whisper char-match)."""
@@ -129,7 +143,7 @@ class KokoroVoice:
         global _KOKORO
         if not KOKORO_MODEL.exists():
             say("downloading Kokoro model via `hyperframes tts` (first run)...")
-            run(["hyperframes", "tts", "warm up", "-o", "/tmp/vvs-warmup.wav"])
+            run(["hyperframes", "tts", "warm up", "-o", "/tmp/reels-warmup.wav"])
         if _KOKORO is None:
             from kokoro_onnx import Kokoro
             _KOKORO = Kokoro(str(KOKORO_MODEL), str(KOKORO_VOICES))
@@ -625,6 +639,7 @@ class Job:
             shutil.rmtree(self.work)
         self.work.mkdir(parents=True)
         self.voice_and_layout()
+        release_tts()
         self.word_timings()
         self.audio()
         self.build()

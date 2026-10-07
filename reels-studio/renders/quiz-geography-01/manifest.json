@@ -1,0 +1,155 @@
+{
+  "id": "quiz-geography-01",
+  "template": "quiz",
+  "brief": "briefs/quiz-geography.json",
+  "stages": {
+    "voice": {
+      "engine": "kokoro af_bella x1.05 (en-us)",
+      "lines": 8,
+      "duration": "38.07s",
+      "secs": 17.7
+    },
+    "words": {
+      "method": "waveform-anchored",
+      "whisper_char_match": "100.0%",
+      "word_diffs": "twelve kilometres",
+      "secs": 18.1
+    },
+    "audio": {
+      "music": "tension/dark 100bpm key-3 seed66405",
+      "sfx": 29,
+      "loudness": "-14.1 LUFS",
+      "peak": "-1.5 dBFS"
+    },
+    "build": {
+      "project": "/var/tmp/reels/quiz-geography-01/project",
+      "html_kb": 37.0
+    },
+    "lint": {
+      "errors": 0,
+      "warnings": 5
+    },
+    "check": {
+      "ok": true,
+      "secs": 16.3,
+      "summary": "[hyperframes] browserGpuMode probe → software (WebGL renderer vendor=\"Google Inc. (Mesa)\" renderer=\"ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL ES 3.2)"
+    },
+    "render": {
+      "secs": 270.5,
+      "mb": 4.14,
+      "quality": "looks",
+      "crf": 26
+    },
+    "qa": {
+      "passed": "6/6",
+      "failed": "-",
+      "out": "reels-studio/renders/quiz-geography-01"
+    }
+  },
+  "qa": {
+    "duration": 38.067,
+    "frames": 1142,
+    "video": "h264 1080x1920 30/1",
+    "audio": "aac 48000Hz 2ch",
+    "loudness_lufs": -14.2,
+    "peak_dbfs": -1.3,
+    "size_mb": 4.14,
+    "checks": {
+      "1080x1920": true,
+      "30fps": true,
+      "h264+aac": true,
+      "duration_matches": true,
+      "loudness_-14±1": true,
+      "peak<=-1dBFS": true
+    }
+  },
+  "timing": {
+    "hook": {
+      "start": 0.25,
+      "end": 2.554,
+      "text": "Only geography nerds get all three right."
+    },
+    "q0": {
+      "start": 3.204,
+      "end": 5.074,
+      "text": "Which country has the most time zones?"
+    },
+    "think0": {
+      "start": 5.274,
+      "end": 8.274,
+      "text": ""
+    },
+    "a0": {
+      "start": 8.274,
+      "end": 12.99,
+      "text": "France! Thanks to its overseas territories, France spans twelve time zones."
+    },
+    "q1": {
+      "start": 13.59,
+      "end": 15.19,
+      "text": "What is the capital of Australia?"
+    },
+    "think1": {
+      "start": 15.39,
+      "end": 18.39,
+      "text": ""
+    },
+    "a1": {
+      "start": 18.39,
+      "end": 22.166,
+      "text": "Canberra! It was built as a compromise between Sydney and Melbourne."
+    },
+    "q2": {
+      "start": 22.766,
+      "end": 24.856,
+      "text": "Which country has the longest coastline?"
+    },
+    "think2": {
+      "start": 25.056,
+      "end": 28.056,
+      "text": ""
+    },
+    "a2": {
+      "start": 28.056,
+      "end": 33.226,
+      "text": "Canada! Its coastline is over 200,000 kilometres, the longest on Earth."
+    },
+    "cta": {
+      "start": 33.676,
+      "end": 37.266,
+      "text": "How many did you get? Comment your score, and follow for round two."
+    }
+  },
+  "music": {
+    "style": "tension",
+    "progression": "dark",
+    "bpm": 100,
+    "breaks": [
+      [
+        5.274,
+        8.274
+      ],
+      [
+        15.39,
+        18.39
+      ],
+      [
+        25.056,
+        28.056
+      ]
+    ],
+    "hits": [
+      8.214,
+      18.33,
+      27.996
+    ],
+    "seed": 66405,
+    "key": -3
+  },
+  "sources": [
+    "Time zones of France: https://en.wikipedia.org/wiki/Time_in_France",
+    "Canberra as compromise capital: https://en.wikipedia.org/wiki/Canberra",
+    "Coastline by country (Canada 202,080 km): CIA World Factbook, https://www.cia.gov/the-world-factbook/field/coastline/"
+  ],
+  "total_secs": 336.3
+}

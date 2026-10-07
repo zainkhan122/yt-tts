@@ -1,0 +1,99 @@
+{
+ "id": "trending-repos-2026-10-07",
+ "template": "ranked-list",
+ "title": "5 new AI repos everyone starred this week",
+ "niche": "tech / AI tools: weekly GitHub radar",
+ "lang": "en-us",
+ "voice": "af_heart",
+ "speed": 1.05,
+ "style": "midnight",
+ "brand": {
+  "handle": "@tested.ai",
+  "name": "Tested AI",
+  "tagline": "Trending AI tools, minus the hype",
+  "accent": "#7C9CFF",
+  "accent2": "#5EEAD4"
+ },
+ "content": {
+  "kicker": "📈 GITHUB · LAST 10 DAYS",
+  "hook": "Five AI projects, ten days old, thousands of GitHub stars. Here's what they actually do.",
+  "hook_display": "5 new AI repos everyone's starring",
+  "sub": "brand-new repos · ranked by GitHub stars",
+  "metric_label": "GitHub stars",
+  "metric_icon": "⭐",
+  "items": [
+   {
+    "rank": 5,
+    "name": "VibeWise",
+    "say": "Vibe Wise",
+    "line": "A Claude Code plugin that makes you plan first, so you learn while AI codes.",
+    "value": 2893,
+    "tag": "MIT · Claude Code",
+    "mono": "VW",
+    "color": "#a78bfa"
+   },
+   {
+    "rank": 4,
+    "name": "RemoveMacAI",
+    "say": "Remove Mac A I",
+    "line": "The twist: it turns Apple Intelligence off and deletes its models.",
+    "value": 3334,
+    "tag": "MIT · macOS",
+    "mono": "RM",
+    "color": "#f472b6"
+   },
+   {
+    "rank": 3,
+    "name": "Coucou",
+    "say": "Coo coo",
+    "line": "A tiny notch buddy that watches your coding agents and lets you approve them.",
+    "value": 3909,
+    "tag": "MIT · Mac, Windows, Linux",
+    "mono": "C",
+    "color": "#fbbf24"
+   },
+   {
+    "rank": 2,
+    "name": "OpenDots",
+    "say": "Open Dots",
+    "line": "An open-source template for AI coworkers that each get their own computer.",
+    "value": 4058,
+    "tag": "MIT · agent template",
+    "mono": "OD",
+    "color": "#34d399"
+   },
+   {
+    "rank": 1,
+    "name": "universal-modder",
+    "say": "Universal Modder",
+    "line": "Point your AI coding agent at a game you own, and it builds the mod.",
+    "value": 4886,
+    "tag": "MIT · game mods",
+    "mono": "UM",
+    "color": "#38bdf8"
+   }
+  ],
+  "cta": "Which one should I test on camera? Comment the number, and follow for next week's list."
+ },
+ "post": {
+  "titles": [
+   "5 new AI repos everyone starred this week",
+   "19,000 GitHub stars in 10 days: what these 5 AI tools do",
+   "GitHub's hottest new AI projects, minus the hype"
+  ],
+  "caption": "5 AI projects launched in the last 10 days with 19,000+ GitHub stars between them. What each one does, and the catch, in the pinned comment.",
+  "hashtags": [
+   "#AItools",
+   "#GitHub",
+   "#opensource",
+   "#ClaudeCode",
+   "#AI"
+  ],
+  "pinned_comment": "Links + catches: 1) universal-modder github.com/rehan-remade/universal-modder (art/3D/sound via fal = paid credits; check your game's EULA). 2) OpenDots github.com/CopilotKit/OpenDots (template, early dev; chats need CopilotKit Intelligence, hosted or local Docker eval). 3) Coucou github.com/Louis-CFM/coucou. 4) RemoveMacAI github.com/omlahore/RemoveMacAI. 5) VibeWise github.com/nykooi1/vibe-wise. Stars as of 7 Oct 2026."
+ },
+ "sources": [
+  "GitHub API, fetched 2026-10-07: rehan-remade/universal-modder 4,886 (created 2026-09-30), CopilotKit/OpenDots 4,058 (2026-09-29), Louis-CFM/coucou 3,909 (2026-09-27), omlahore/RemoveMacAI 3,334 (2026-09-29), nykooi1/vibe-wise 2,893 (2026-09-29); all MIT",
+  "Descriptions verified against each repo's README on 2026-10-07 (not copied from social posts)",
+  "Selection: reels.py radar (new AI repos, last 14 days, English, no risk flags), top 5 by stars"
+ ]
+}
