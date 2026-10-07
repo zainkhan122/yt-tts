@@ -8,7 +8,7 @@
     "accent2": "#5EEAD4"
   },
   "voice": "af_heart",
-  "speed": 1.33,
+  "speed": 1.1,
   "lang": "en-us",
   "style": "midnight",
   "lexicon": {
@@ -22,7 +22,7 @@
     "UI": "U I",
     "fal": "fal"
   },
-  "voice_fx": "maxhype",
+  "voice_fx": "none",
   "voice_blend": {},
-  "_voice_note": "User asked 3x: af_heart, MORE energetic + enthusiastic -> preset 'maxhype' (sample F, research/voice-audition/max-hype: melody +37%, whisper 98.5%). Fallbacks: 'hype' (sample D, previous default), 'energetic' (sample B, calmer). Brighter timbre: voice_blend {\"af_bella\": 0.3}."
+  "_voice_note": "2026-10-08: user said 'maxhype' sounds ROBOTIC (confirmed: UTMOS 3.68 vs 4.51 raw). DSP enthusiasm (pitch/melody tricks) is retired. Interim default = clean Kokoro af_heart x1.1, no processing. Pending: user picks one of research/voice-audition/free-engines/ (Chatterbox af_heart clone, Chatterbox Turbo, Edge Emma/Ava, Orpheus Tara, Chatterbox male); the chosen engine runs in GitHub Actions."
 }

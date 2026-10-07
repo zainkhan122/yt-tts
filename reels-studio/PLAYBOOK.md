@@ -123,15 +123,10 @@ Never promise DMs we can't send.
 
 ## 5. Voice and audio
 
-- **Channel voice (user's choice): `af_heart`, maximum enthusiasm: preset `maxhype`** (sample F in `research/voice-audition/max-hype/`; the user asked for "more energetic" 3 times). Kokoro has no emotion control, so enthusiasm is engineered:
-  1. **animated melody**: Praat PSOLA widens each line's pitch swings ×1.45 (`expand_melody`, duration-preserving). Measured melody range is 8.3 → 11.4 semitones (+37%). This is what makes it sound excited rather than just louder;
-  2. **line accents**: hook +1.0 st, "!" lines +0.7, "?" lines +0.44, the rest alternate, so consecutive lines don't sit on one note;
-  3. **brightness**: a +1.1 semitone overall lift;
-  4. **punch**: presence +4.5 dB, air +3.5 dB, 4.5:1 compression;
-  5. **pace**: ×1.33 (with pauses between lines, ~190–200 wpm in a video);
-  6. **script energy**: an exclamation-led hook and payoff, rhetorical questions ("The best part?"), short punchy lines, one "Okay, …" opener at most. Never fake hype words about the tool; the facts stay honest.
-
-  Whisper intelligibility: F **98.5%** (only an unstressed article was misheard), D/B/E **100%**. Fallbacks: `voice_fx: hype` (sample D, previous default, less melodic), `voice_fx: energetic` (sample B, calmer), `voice_blend: {"af_bella": 0.3}` (brighter timbre). Per-brief tuning: `"melody": 1.3` (softer) to `1.6` (max; more risks sounding sing-song).
+- **Channel voice: being re-chosen (2026-10-08).** The user found the DSP "maxhype" af_heart ROBOTIC. Measured naturalness confirms it: UTMOS 3.68 vs 4.51 for raw Kokoro. DSP enthusiasm is retired; interim default = clean Kokoro af_heart ×1.1.
+  - Free engine audition: `research/voice-audition/free-engines/` (results + 6-option comparison). Candidates: af_heart cloned into Chatterbox (MIT, emotion ≤1.0), Chatterbox Turbo (MIT, 2× realtime on 4 vCPU), Microsoft Emma/Ava (natural + lively, but the Edge endpoint is unofficial; Azure F0 is the licensed route), Orpheus Tara (Apache).
+  - Heavier engines run in GitHub Actions (the sandbox has 2 GB RAM).
+  - Script energy still matters: an exclamation-led hook and payoff, rhetorical questions ("The best part?"), short punchy lines, honest facts.
 - **Mix:** VO at −14 LUFS integrated, peak ≤ −1 dBFS. Our own generated music sits under the voice. SFX:
   - whoosh on transitions;
   - click on cursor taps;
