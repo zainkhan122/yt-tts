@@ -138,6 +138,9 @@ def release_tts():
 
 # "Creator mic" presets: +0.4 semitone lift (duration kept via atempo), de-mud, presence + air, punchy compression
 VOICE_FX = {
+    # "maxhype" = most enthusiastic: +1.1 st lift, max presence/air, 4.5:1 punch (+ stronger per-line accents)
+    "maxhype": ("asetrate={sr}*1.0656,aresample={sr},atempo=0.93844,equalizer=f=180:t=q:w=1:g=-2,"
+                "equalizer=f=3200:t=q:w=1.0:g=4.5,highshelf=f=9000:g=3.5,acompressor=threshold=0.07:ratio=4.5:attack=3:release=60:makeup=2.2"),
     # "hype" = more enthusiastic: +0.8 st lift, stronger presence/air, harder compression (+ per-line accents below)
     "hype": ("asetrate={sr}*1.0473,aresample={sr},atempo=0.95484,equalizer=f=180:t=q:w=1:g=-2,"
              "equalizer=f=3200:t=q:w=1.0:g=4,highshelf=f=9000:g=3,acompressor=threshold=0.08:ratio=4:attack=3:release=70:makeup=2"),
@@ -159,15 +162,47 @@ def pitch_accent(a, sr, semitones):
     return out[:len(a)] if len(out) >= len(a) else np.pad(out, (0, len(a) - len(out)))
 
 
-def hype_accents(texts):
-    """Semitone lift per spoken line: hook highest, '!' lines lifted, '?' lines rise a little, others alternate."""
+MELODY = {"maxhype": 1.45}  # intonation expansion per preset (1.0 = natural). Channel config may override via "melody".
+
+
+def expand_melody(a, sr, factor):
+    """Widen the pitch contour of ONE line around its median (Praat PSOLA, duration-preserving).
+    Excited presenters swing pitch more inside each sentence; factor 1.45 = 45% wider swings in semitone space."""
+    if a is None or not factor or abs(factor - 1.0) < 0.01:
+        return a
+    try:
+        import parselmouth
+        from parselmouth.praat import call
+    except ImportError:
+        print("[reels] praat-parselmouth missing: melody expansion skipped (pip install praat-parselmouth)")
+        return a
+    snd = parselmouth.Sound(np.asarray(a, dtype=np.float64), sampling_frequency=sr)
+    try:
+        pitch = snd.to_pitch(0.01, 75, 600)
+        med = call(pitch, "Get quantile", 0, 0, 0.5, "Hertz")
+        if not med or med != med:  # unvoiced line
+            return a
+        manip = call(snd, "To Manipulation", 0.01, 75, 600)
+        tier = call(manip, "Extract pitch tier")
+        call(tier, "Formula", f"{med:.3f} * (self / {med:.3f}) ^ {factor}")
+        call([tier, manip], "Replace pitch tier")
+        out = call(manip, "Get resynthesis (overlap-add)").values[0].astype(np.float32)
+    except Exception as e:  # never fail a render over styling
+        print(f"[reels] melody expansion skipped: {e}")
+        return a
+    return out[:len(a)] if len(out) >= len(a) else np.pad(out, (0, len(a) - len(out)))
+
+
+def hype_accents(texts, scale=1.0):
+    """Semitone lift per spoken line: hook highest, '!' lines lifted, '?' lines rise a little, others alternate.
+    scale 1.0 = 'hype', 1.7 = 'maxhype' (wider melody = more enthusiasm)."""
     out, n = [], 0
     for t in texts:
         if not t:
             out.append(0.0)
             continue
         s = t.strip()
-        out.append(0.6 if n == 0 else 0.4 if s.endswith("!") else 0.2 if s.endswith("?") else (0.25 if n % 2 else 0.0))
+        out.append(round(scale * (0.6 if n == 0 else 0.4 if s.endswith("!") else 0.26 if s.endswith("?") else (0.22 if n % 2 else 0.0)), 2))
         n += 1
     return out
 
@@ -461,10 +496,11 @@ class Job:
                     speakers[key] = KokoroVoice(key[0], key[2], key[1], blend=b.get("voice_blend") if key[0] == voice_cfg else None)  # (voice, speed, lang)
                 clips.append(speakers[key](spoken_clean(s["text"])) if s.get("text") else (None, 24000))
             engine = " + ".join(f"kokoro {v} x{sp} ({l})" for v, l, sp in speakers)
-            if b.get("voice_fx") == "hype":  # enthusiasm: per-line melody accents (duration-preserving, timing unchanged)
-                acc = hype_accents([s.get("text") for s in segs])
-                clips = [((pitch_accent(a, rate, acc[i]) if a is not None else a), rate) for i, (a, rate) in enumerate(clips)]
-                engine += " + hype accents"
+            if b.get("voice_fx") in ("hype", "maxhype"):  # enthusiasm: per-line melody accents (duration-preserving, timing unchanged)
+                acc = hype_accents([s.get("text") for s in segs], 1.7 if b.get("voice_fx") == "maxhype" else 1.0)
+                mel = b.get("melody", MELODY.get(b.get("voice_fx"), 1.0))
+                clips = [((pitch_accent(expand_melody(a, rate, mel), rate, acc[i]) if a is not None else a), rate) for i, (a, rate) in enumerate(clips)]
+                engine += " + hype accents" + (f" + melody x{mel}" if mel != 1.0 else "")
         # layout
         lead, tail = b.get("lead_in", 0.25), b.get("tail", 0.6)
         t = lead

@@ -48,8 +48,8 @@ main() {
 
   say "2/3 toolchain (skips what is already installed)"
   WITH_WHISPER=1 bash "$HERE/setup/setup-sandbox.sh" </dev/null
-  python3 -c "import numpy, scipy, soundfile, kokoro_onnx" 2>/dev/null || pip install -q numpy scipy soundfile kokoro-onnx 2>/dev/null \
-    || pip install -q --break-system-packages numpy scipy soundfile kokoro-onnx
+  python3 -c "import numpy, scipy, soundfile, kokoro_onnx, parselmouth" 2>/dev/null || pip install -q numpy scipy soundfile kokoro-onnx praat-parselmouth 2>/dev/null \
+    || pip install -q --break-system-packages numpy scipy soundfile kokoro-onnx praat-parselmouth
   command -v yt-dlp >/dev/null 2>&1 || pip install -q yt-dlp 2>/dev/null || pip install -q --break-system-packages yt-dlp  # social scan
   command -v tesseract >/dev/null 2>&1 || sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq tesseract-ocr >/dev/null 2>&1 || true  # OCR for channel study
 

@@ -22,18 +22,27 @@ SAMPLES = [("B-energetic", 1.28, None, "energetic", "last version: faster + crea
            ("E-hype-bright", 1.33, {"af_bella": 0.3}, "hype", "D + 30% af_bella brightness")]
 
 
-def main():
-    out = ROOT / "research/voice-audition/enthusiastic"
+SETS = {
+    "enthusiastic": (SAMPLES, "enthusiastic", "More enthusiastic af_heart: B vs D vs E"),
+    "max": ([("D-hype", 1.33, None, "hype", "current channel voice"),
+             ("F-maxhype", 1.33, None, "maxhype", "MAX enthusiasm: wider melody (hook +1 st), brighter, punchier; same pace as D")],
+            "max-hype", "Maximum enthusiasm af_heart: D vs F"),
+}
+
+
+def main(which="enthusiastic"):
+    SAMPLES_, folder, title = SETS[which]
+    out = ROOT / "research/voice-audition" / folder
     out.mkdir(parents=True, exist_ok=True)
     rows, parts = [], []
     words = sum(len(l.split()) for l in LINES)
-    for name, speed, blend, fx, note in SAMPLES:
+    for name, speed, blend, fx, note in SAMPLES_:
         spk = pipeline.KokoroVoice("af_heart", speed, "en-us", blend=blend)
-        acc = pipeline.hype_accents(LINES) if fx == "hype" else [0] * len(LINES)
+        acc = pipeline.hype_accents(LINES, 1.7 if fx == "maxhype" else 1.0) if fx in ("hype", "maxhype") else [0] * len(LINES)
         chunks = []
         for line, semis in zip(LINES, acc):
             a, sr = spk(line)
-            chunks += [pipeline.pitch_accent(np.asarray(a, dtype=np.float32), sr, semis), np.zeros(int(0.12 * sr), dtype=np.float32)]
+            chunks += [pipeline.pitch_accent(pipeline.expand_melody(np.asarray(a, dtype=np.float32), sr, pipeline.MELODY.get(fx, 1.0)), sr, semis), np.zeros(int(0.12 * sr), dtype=np.float32)]
         vo = pipeline.apply_voice_fx(np.concatenate(chunks), sr, fx)
         wav = Path(f"/var/tmp/{name}.wav")
         sf.write(wav, vo, sr)
@@ -48,12 +57,12 @@ def main():
     lst = Path("/var/tmp/hype-list.txt")
     lst.write_text("".join(f"file '{p}'\nfile '{sil}'\n" for p in parts))
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", str(lst), "-af", "loudnorm=I=-15:TP=-1.5",
-                    "-ac", "1", "-b:a", "80k", str(out / "00-B-D-E-in-order.mp3")], check=True)
-    (out / "index.md").write_text("# More enthusiastic af_heart: B vs D vs E\n\nListen to `00-B-D-E-in-order.mp3` (B, then D, then E).\n\n"
+                    "-ac", "1", "-b:a", "80k", str(out / f"00-{'-'.join(s[0].split('-')[0] for s in SAMPLES_)}-in-order.mp3")], check=True)
+    (out / "index.md").write_text(f"# {title}\n\nListen to the `00-...-in-order.mp3` file (samples in table order).\n\n"
                                   "Script lines:\n" + "\n".join(f"- {l}" for l in LINES) +
                                   "\n\n| Sample | Speed / blend | Preset | Pace | Note |\n|---|---|---|---|---|\n" + "\n".join(rows) + "\n")
-    print("-> research/voice-audition/enthusiastic/")
+    print(f"-> research/voice-audition/{folder}/")
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1] if len(sys.argv) > 1 else "enthusiastic")

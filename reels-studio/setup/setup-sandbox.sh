@@ -31,7 +31,7 @@ node --version
 echo "== HyperFrames CLI (pinned) + local TTS runtime"
 sudo rm -rf /usr/local/lib/node_modules/.hyperframes-* 2>/dev/null || true   # stale temp dir from an interrupted self-update breaks reinstall (ENOTEMPTY)
 sudo env HYPERFRAMES_NO_TELEMETRY=1 HYPERFRAMES_NO_UPDATE_CHECK=1 DO_NOT_TRACK=1 npm i -g hyperframes@0.8.137 --no-fund --no-audit >/dev/null
-pip install -q kokoro-onnx soundfile 2>/dev/null || pip install -q --break-system-packages kokoro-onnx soundfile
+pip install -q kokoro-onnx soundfile praat-parselmouth 2>/dev/null || pip install -q --break-system-packages kokoro-onnx soundfile praat-parselmouth
 
 echo "== Chrome headless shell + checks"
 export HYPERFRAMES_NO_TELEMETRY=1 HYPERFRAMES_NO_UPDATE_CHECK=1 DO_NOT_TRACK=1 CI=1
