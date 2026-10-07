@@ -61,6 +61,13 @@ def _ref_wav(tmp):
 def _threads():
     import torch
     torch.set_num_threads(os.cpu_count() or 4)
+    try:  # Chatterbox embeds an inaudible PerTh watermark; keep it, but never let a broken import kill the run
+        import perth
+        if perth.PerthImplicitWatermarker is None:
+            print("[warn] PerTh watermarker unavailable (pkg_resources missing?) -> DummyWatermarker", flush=True)
+            perth.PerthImplicitWatermarker = perth.DummyWatermarker
+    except ImportError:
+        pass
     return torch
 
 
@@ -85,7 +92,11 @@ def run_turbo(out):
     from chatterbox.tts_turbo import ChatterboxTurboTTS
     ref = _ref_wav(out)
     for nano in (False, True):
-        m = ChatterboxTurboTTS.from_pretrained(device="cpu", nano=nano)
+        try:
+            m = ChatterboxTurboTTS.from_pretrained(device="cpu", nano=nano) if nano else ChatterboxTurboTTS.from_pretrained(device="cpu")
+        except TypeError:
+            print("[skip] this chatterbox build has no Nano model", flush=True)
+            continue
         tag = "nano" if nano else "turbo"
         jobs = [(f"{tag}-default", {})] + ([] if nano else [(f"{tag}-afheart", {"audio_prompt_path": ref})])
         for name, kw in jobs:
