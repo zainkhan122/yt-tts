@@ -53,7 +53,7 @@ FONT_FILES = {
 # ------------------------------------------------------------------ utils
 def hf_env():
     env = dict(os.environ)
-    env.update(HYPERFRAMES_NO_TELEMETRY="1", DO_NOT_TRACK="1", CI="1", NO_COLOR="1")
+    env.update(HYPERFRAMES_NO_TELEMETRY="1", HYPERFRAMES_NO_UPDATE_CHECK="1", DO_NOT_TRACK="1", CI="1", NO_COLOR="1")  # no silent self-upgrade (it once jumped 0.8.137 -> 0.8.140)
     env.setdefault("HYPERFRAMES_EXTRACT_CACHE_DIR", "/var/tmp/hf/cache")
     env.setdefault("TMPDIR", "/var/tmp/hf/tmp")
     env["PATH"] = "/usr/local/bin:" + env.get("PATH", "")
@@ -358,6 +358,15 @@ class Job:
     def __init__(self, brief_path, quality="draft", crf=None, check=True, render=True, keep_work=False):
         self.brief_path = Path(brief_path).resolve()
         self.brief = json.loads(self.brief_path.read_text(encoding="utf-8"))
+        # channel defaults (config/channel.json): brand, voice, speed, lang, style. The brief wins on any key it sets
+        chan_path = ROOT / "config" / "channel.json"
+        if chan_path.exists():
+            chan = json.loads(chan_path.read_text(encoding="utf-8"))
+            for k in ("voice", "speed", "lang", "style"):
+                if k in chan and k not in self.brief:
+                    self.brief[k] = chan[k]
+            if "brand" in chan:
+                self.brief["brand"] = {**chan["brand"], **self.brief.get("brand", {})}
         self.id = self.brief["id"]
         self.tpl = load_template(self.brief["template"])
         self.quality, self.crf, self.do_check, self.do_render, self.keep_work = quality, crf, check, render, keep_work

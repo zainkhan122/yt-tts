@@ -29,11 +29,12 @@ export PATH=/usr/local/bin:$PATH
 node --version
 
 echo "== HyperFrames CLI (pinned) + local TTS runtime"
-sudo env HYPERFRAMES_NO_TELEMETRY=1 DO_NOT_TRACK=1 npm i -g hyperframes@0.8.137 --no-fund --no-audit >/dev/null
+sudo rm -rf /usr/local/lib/node_modules/.hyperframes-* 2>/dev/null || true   # stale temp dir from an interrupted self-update breaks reinstall (ENOTEMPTY)
+sudo env HYPERFRAMES_NO_TELEMETRY=1 HYPERFRAMES_NO_UPDATE_CHECK=1 DO_NOT_TRACK=1 npm i -g hyperframes@0.8.137 --no-fund --no-audit >/dev/null
 pip install -q kokoro-onnx soundfile 2>/dev/null || pip install -q --break-system-packages kokoro-onnx soundfile
 
 echo "== Chrome headless shell + checks"
-export HYPERFRAMES_NO_TELEMETRY=1 DO_NOT_TRACK=1 CI=1
+export HYPERFRAMES_NO_TELEMETRY=1 HYPERFRAMES_NO_UPDATE_CHECK=1 DO_NOT_TRACK=1 CI=1
 hyperframes telemetry disable >/dev/null 2>&1 || true
 hyperframes browser ensure 2>&1 | tail -3
 sudo mkdir -p /var/tmp/hf/cache /var/tmp/hf/tmp && sudo chown -R "$(id -u):$(id -g)" /var/tmp/hf

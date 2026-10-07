@@ -19,6 +19,7 @@
 # process (apt, npm, git) can swallow the rest of the script when it is piped in via curl | bash.
 main() {
   set -euo pipefail
+  export HYPERFRAMES_NO_UPDATE_CHECK=1 HYPERFRAMES_NO_TELEMETRY=1  # pinned CLI must never self-upgrade
   URL="https://github.com/zainkhan122/yt-tts.git"
   REPO="${REELS_REPO:-$HOME/yt-tts}"
   T0=$(date +%s)
@@ -49,6 +50,8 @@ main() {
   WITH_WHISPER=1 bash "$HERE/setup/setup-sandbox.sh" </dev/null
   python3 -c "import numpy, scipy, soundfile, kokoro_onnx" 2>/dev/null || pip install -q numpy scipy soundfile kokoro-onnx 2>/dev/null \
     || pip install -q --break-system-packages numpy scipy soundfile kokoro-onnx
+  command -v yt-dlp >/dev/null 2>&1 || pip install -q yt-dlp 2>/dev/null || pip install -q --break-system-packages yt-dlp  # social scan
+  command -v tesseract >/dev/null 2>&1 || sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq tesseract-ocr >/dev/null 2>&1 || true  # OCR for channel study
 
   say "3/3 doctor"
   rc=0; python3 "$HERE/reels.py" doctor </dev/null || rc=$?

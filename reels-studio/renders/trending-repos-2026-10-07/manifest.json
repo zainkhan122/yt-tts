@@ -1,0 +1,125 @@
+{
+  "id": "trending-repos-2026-10-07",
+  "template": "ranked-list",
+  "brief": "briefs/trending-repos-2026-10-07.json",
+  "stages": {
+    "voice": {
+      "engine": "kokoro af_heart x1.05 (en-us)",
+      "lines": 7,
+      "duration": "46.63s",
+      "secs": 44.2
+    },
+    "words": {
+      "method": "waveform-anchored",
+      "whisper_char_match": "98.6%",
+      "word_diffs": "vibe wise claude mac a i coo coo dots an opensource modder",
+      "secs": 32.4
+    },
+    "audio": {
+      "music": "pulse/minor_pop 118bpm key+0 seed91956",
+      "sfx": 30,
+      "loudness": "-14.0 LUFS",
+      "peak": "-1.5 dBFS"
+    },
+    "build": {
+      "project": "/var/tmp/reels/trending-repos-2026-10-07/project",
+      "html_kb": 38.7
+    },
+    "lint": {
+      "errors": 0,
+      "warnings": 5
+    },
+    "check": {
+      "ok": true,
+      "secs": 23.2,
+      "summary": "[hyperframes] browserGpuMode probe → software (WebGL renderer vendor=\"Google Inc. (Mesa)\" renderer=\"ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL ES 3.2)"
+    },
+    "render": {
+      "secs": 476.9,
+      "mb": 5.07,
+      "quality": "looks",
+      "crf": 26
+    },
+    "qa": {
+      "passed": "6/6",
+      "failed": "-",
+      "out": "reels-studio/renders/trending-repos-2026-10-07"
+    }
+  },
+  "qa": {
+    "duration": 46.633,
+    "frames": 1399,
+    "video": "h264 1080x1920 30/1",
+    "audio": "aac 48000Hz 2ch",
+    "loudness_lufs": -14.8,
+    "peak_dbfs": -1.7,
+    "size_mb": 5.07,
+    "checks": {
+      "1080x1920": true,
+      "30fps": true,
+      "h264+aac": true,
+      "duration_matches": true,
+      "loudness_-14±1": true,
+      "peak<=-1dBFS": true
+    }
+  },
+  "timing": {
+    "hook": {
+      "start": 0.25,
+      "end": 5.82,
+      "text": "Five AI projects, ten days old, thousands of GitHub stars. Here's what they actually do."
+    },
+    "item0": {
+      "start": 6.42,
+      "end": 12.69,
+      "text": "Number five: Vibe Wise. A Claude Code plugin that makes you plan first, so you learn while AI codes."
+    },
+    "item1": {
+      "start": 13.34,
+      "end": 19.581,
+      "text": "Number four: Remove Mac A I. The twist: it turns Apple Intelligence off and deletes its models."
+    },
+    "item2": {
+      "start": 20.231,
+      "end": 26.001,
+      "text": "Number three: Coo coo. A tiny notch buddy that watches your coding agents and lets you approve them."
+    },
+    "item3": {
+      "start": 26.651,
+      "end": 32.911,
+      "text": "Number two: Open Dots. An open-source template for AI coworkers that each get their own computer."
+    },
+    "item4": {
+      "start": 34.461,
+      "end": 40.591,
+      "text": "And number one: Universal Modder. Point your AI coding agent at a game you own, and it builds the mod."
+    },
+    "cta": {
+      "start": 41.241,
+      "end": 45.829,
+      "text": "Which one should I test on camera? Comment the number, and follow for next week's list."
+    }
+  },
+  "music": {
+    "style": "pulse",
+    "progression": "minor_pop",
+    "bpm": 118,
+    "breaks": [
+      [
+        33.411,
+        34.411
+      ]
+    ],
+    "hits": [
+      34.411
+    ],
+    "seed": 91956,
+    "key": 0
+  },
+  "sources": [
+    "GitHub API, fetched 2026-10-07: rehan-remade/universal-modder 4,886 (created 2026-09-30), CopilotKit/OpenDots 4,058 (2026-09-29), Louis-CFM/coucou 3,909 (2026-09-27), omlahore/RemoveMacAI 3,334 (2026-09-29), nykooi1/vibe-wise 2,893 (2026-09-29); all MIT",
+    "Descriptions verified against each repo's README on 2026-10-07 (not copied from social posts)",
+    "Selection: reels.py radar (new AI repos, last 14 days, English, no risk flags), top 5 by stars"
+  ],
+  "total_secs": 597.8
+}

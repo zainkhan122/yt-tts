@@ -9,3 +9,7 @@ renders/**/composition.html
 __pycache__/
 *.pyc
 .DS_Store
+# per-video capture packs live in the workspace (and in Releases with their video), not in git
+captures/
+# other creators' full transcripts: workspace-only research (public repo gets metrics + short excerpts only)
+research/social/raw/

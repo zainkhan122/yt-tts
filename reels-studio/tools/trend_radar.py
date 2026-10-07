@@ -25,12 +25,14 @@ RISK = {
     "ToS bypass / free-key abuse": r"no api key|without (an? )?api key|free (unlimited )?(gpt|claude|api)|reverse[- ]?proxy|api[- ]?key (leak|free)|keygen|crack|jailbreak|bypass",
     "bot / detection evasion": r"undetect|anti[- ]?bot|captcha|stealth|evad",
     "scraping personal data": r"scrape (instagram|linkedin|tiktok|facebook)|osint|doxx",
+    "piracy": r"repack|warez|pirat|torrent|steamrip|fitgirl|free (movies|tv|games|media|anime)\b|watch .* free|cracked",  # high views, but promotes infringement
 }
 AI = re.compile(r"\b(ai|llm|llms|agent|agents|gpt|claude|gemini|mcp|diffusion|model|rag|voice|tts|video|image)\b", re.I)
 
 
 def tok():
-    t = os.environ.get("GH_TOKEN") or (Path("/var/tmp/gh/token").read_text().strip() if Path("/var/tmp/gh/token").exists() else "")
+    import sys as _s; _s.path.insert(0, str(Path(__file__).resolve().parent.parent)); from lib.secrets import gh_token
+    t = gh_token() or ""
     return t or None
 
 

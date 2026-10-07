@@ -4,6 +4,10 @@ Reels Studio - professional vertical-video generator (HyperFrames + free tools)
 
   python3 reels.py doctor                                   # is everything installed + healthy?
   python3 reels.py radar  [--days 14] [--brief]             # trending AI repos/models/apps -> idea sheet (+ draft brief)
+  python3 reels.py capture <id> --url <site-or-repo>        # site/repo -> credited asset pack in captures/<id>/
+  python3 reels.py social --account <tiktok/yt url> --top 2  # competitors' scripts, hooks, pacing, CTAs -> research/social/
+  python3 tools/channel_study.py meta|visual|transcribe|report # deep study of benchmark accounts (20-30 videos each)
+  python3 tools/idea_feed.py --days 7                        # topics the watchlist channels are covering (consensus) -> backlog
   python3 reels.py make   briefs/x.json --quality looks --crf 26
   python3 reels.py make   briefs/x.json --no-render         # fast iteration: build + lint + check only
   python3 reels.py batch  briefs/a.json briefs/b.json ...   # a week of videos in one go
@@ -32,15 +36,15 @@ TOKEN_FILE = Path("/var/tmp/gh/token")
 
 
 def token():
-    t = os.environ.get("GH_TOKEN") or (TOKEN_FILE.read_text().strip() if TOKEN_FILE.exists() else "")
-    return t or None
+    from lib.secrets import gh_token
+    return gh_token()
 
 
 def git(*args, check=True, auth=False):
     cmd = ["git", "-C", str(REPO)]
     if auth:  # credential helper reads the token at call time; nothing is written to disk
         cmd += ["-c", "credential.helper=",
-                "-c", "credential.helper=!f() { echo username=x-access-token; echo \"password=${GH_TOKEN:-$(cat /var/tmp/gh/token 2>/dev/null)}\"; }; f"]
+                "-c", "credential.helper=!f() { echo username=x-access-token; echo \"password=${GH_TOKEN:-$(cat /var/tmp/gh/token 2>/dev/null || cat $HOME/.config/reels-studio/gh_token 2>/dev/null)}\"; }; f"]
     p = subprocess.run(cmd + list(args), capture_output=True, text=True)
     if check and p.returncode != 0:
         raise SystemExit(f"git {' '.join(args[:2])} failed: {(p.stderr or p.stdout).strip()[-400:]}")
@@ -69,6 +73,8 @@ def cmd_doctor(a):
     mods = [m for m in ("numpy", "scipy", "soundfile", "kokoro_onnx") if subprocess.run([sys.executable, "-c", f"import {m}"], capture_output=True).returncode != 0]
     row("python deps", not mods, "missing: " + ",".join(mods) if mods else "numpy scipy soundfile kokoro_onnx")
     row("(opt) Kokoro model cached", pipeline.KOKORO_MODEL.exists(), "auto-downloads on first make" if not pipeline.KOKORO_MODEL.exists() else "")
+    row("(opt) yt-dlp (social scan)", shutil.which("yt-dlp") is not None, "" if shutil.which("yt-dlp") else "pip install yt-dlp")
+    row("(opt) tesseract (on-screen text)", shutil.which("tesseract") is not None, "" if shutil.which("tesseract") else "apt-get install tesseract-ocr")
     wc = pipeline.HF_CACHE / "whisper/whisper.cpp/build/bin/whisper-cli"
     row("whisper-cli (QA)", wc.exists(), "" if wc.exists() else "run setup/setup-whisper.sh")
     row("fonts", all((pipeline.BASE_DIR / "fonts" / f).exists() for f, _ in pipeline.FONT_FILES.values()))
@@ -95,6 +101,10 @@ def cmd_doctor(a):
 
 def cmd_sync(a):
     git("add", "-A", "--", "reels-studio")
+    from lib.secrets import contains_secret
+    if contains_secret(git("diff", "--cached", check=False)):
+        git("reset", "-q", check=False)
+        raise SystemExit("ABORTED: a token-like string is in the staged changes. Nothing was committed.")
     if not git("diff", "--cached", "--name-only", check=False):
         print("nothing to sync")
         return
@@ -111,6 +121,15 @@ def cmd_publish(a):
         raise SystemExit("publish needs GH_TOKEN (or /var/tmp/gh/token)")
     files = [Path(f) for f in a.files] or sorted((ROOT / "renders").glob("*/*.mp4"))
     subprocess.run([sys.executable, str(ROOT / "tools/publish_release.py"), "--tag", a.tag, *map(str, files)], check=True)
+
+
+def cmd_capture(a):
+    args = [sys.executable, str(ROOT / "tools/capture.py"), a.id, "--url", a.url] + (["--repo", a.repo] if a.repo else [])
+    subprocess.run(args, check=True)
+
+
+def cmd_social(rest):
+    subprocess.run([sys.executable, "-u", str(ROOT / "tools/social_scan.py"), *rest], check=True)  # -u: live log
 
 
 def cmd_radar(a):
@@ -141,9 +160,15 @@ def main():
     p = sub.add_parser("publish")
     p.add_argument("files", nargs="*")
     p.add_argument("--tag", default=time.strftime("renders-%Y-%m-%d"))
+    p = sub.add_parser("capture")
+    p.add_argument("id")
+    p.add_argument("--url", required=True)
+    p.add_argument("--repo")
     p = sub.add_parser("radar")
     p.add_argument("--days", type=int, default=14)
     p.add_argument("--brief", action="store_true", help="also write a draft ranked-list brief from the top repos")
+    if len(sys.argv) > 1 and sys.argv[1] == "social":  # pass-through to tools/social_scan.py
+        return cmd_social(sys.argv[2:])
     a = ap.parse_args()
 
     if a.cmd == "doctor":
@@ -154,6 +179,8 @@ def main():
         return cmd_publish(a)
     if a.cmd == "radar":
         return cmd_radar(a)
+    if a.cmd == "capture":
+        return cmd_capture(a)
     if a.cmd == "templates":
         for name in pipeline.list_templates():
             t = pipeline.load_template(name)

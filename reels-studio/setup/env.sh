@@ -1,5 +1,6 @@
 # HyperFrames sandbox environment (source before running the CLI)
 export HYPERFRAMES_NO_TELEMETRY=1      # telemetry opt-out
+export HYPERFRAMES_NO_UPDATE_CHECK=1   # never self-upgrade: templates are validated on the pinned version
 export DO_NOT_TRACK=1
 export CI=1                            # non-interactive
 export NO_COLOR=1

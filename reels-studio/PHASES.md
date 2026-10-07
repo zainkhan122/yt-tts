@@ -1,0 +1,48 @@
+# Reels Studio: phased roadmap (ONE phase = ONE session)
+
+**Session rules** (they exist because long sessions timed out and the sandbox resets between sessions):
+1. Start with `bash bootstrap.sh`, which restores the toolchain in about 3 min. Long jobs always run in the background.
+2. At most **one heavy job** per session: a render (~10 min) or a build. Never run two memory-heavy jobs at once (2 GB RAM).
+3. End with everything saved in the workspace, `reels.py sync` (when a token is present), and this file's status updated.
+
+## Goal
+Fully-made, ready-to-share AI-tools explainer videos (YouTube Shorts, Reels, TikTok, FB, X).
+**The agent does all the work:** research, finding the tool, capturing its site and repo, collecting the makers' official demo media, script, voice, animation, render, QA and post kit.
+**The user only:** picks or approves topics (optional) and uploads.
+
+## Phases
+
+| # | Session goal | Deliverable | Status |
+|---|---|---|---|
+| 1 | Social research + **capture kit** + real assets for video #1 | `tools/capture.py`, `captures/universal-modder/`, storyboard | ✅ done |
+| 2 | **System pipeline** + social script extractor + voice audition | `PIPELINE.md`, `tools/social_scan.py`, `research/voice-audition/` | ✅ done |
+| 3 | **Deep channel study**: 9 benchmark accounts × 30 videos (stats, transcripts, visual analysis), **watchlist** (21 channels), **idea feed**, platform SEO, the end-to-end **PLAYBOOK** | `PLAYBOOK.md`, `research/social/study-*.md`, `research/watchlist.csv`, `tools/channel_study.py`, `tools/idea_feed.py` | ✅ done (transcripts resume in the background next session if unfinished) |
+| 4 | **Templates** `repo-drop` + `tool-spotlight` (scene library + winner caption style) + **`seo_pack.py`** (5 platform blocks, limits validated) | preview stills + SEO blocks | **next** |
+| 5 | **Render video #1** + full multi-platform post kit | ready-to-post MP4 | |
+| 6 | **Daily engine**: idea feed → auto briefs → capture → 1 render/session; tracker | 1 video/day | |
+| 7 | optional: official upload APIs, cloud render, Urdu/Hindi line | | |
+
+## Asset policy (what goes into our videos)
+- ✅ **Our own captures** of public pages: tool site, GitHub repo, docs. Review/commentary use, with the source credited on screen.
+- ✅ **Official demo media from the makers**: repo README/docs media, launch clips on their own site, model-card samples.
+  - Credited on screen.
+  - Licence notes are respected. Example: Coucou reserves its name, its Mochi character and its sounds.
+- ✅ **Real outputs from running the tool ourselves**, when it runs free and headless.
+- ✅ Our own motion graphics, music, SFX and voice.
+- ❌ **Clips from other creators' videos** (YouTube/TikTok/Instagram). They mean copyright claims plus "reused content" demonetization. Use them for **topic ideas only**.
+
+## Phase log
+- **Phase 1 ✅ (2026-10-07)**
+  - TikTok/IG scan: `research/ai-tools-niche.md` §5. Instagram blocks automated access, and its creators cross-post from TikTok.
+  - Capture kit: `reels.py capture`, which wraps `hyperframes capture` plus `tools/capture_extra.cjs`.
+  - Video #1 pack: `captures/universal-modder/`. It holds:
+    - 10 files: desktop/mobile full-page shots, the crisp repo header, README images, and the official teaser as MP4 (12 s, six labeled mods);
+    - a 36-element region map (Star button, About box, README sections, install code);
+    - live facts.
+  - Storyboard: `briefs/spotlight-universal-modder-01.json`, with 7 scenes (hook clip → montage → GitHub reveal with a cursor click on Star → how it works → install terminal → the catch → CTA).
+  - Fixed: HyperFrames silently self-upgraded 0.8.137 → 0.8.140. `HYPERFRAMES_NO_UPDATE_CHECK=1` is now set everywhere, and setup re-pins the version.
+- **Phase 2 acceptance:**
+  - `templates/tool-spotlight/` renders every scene type in the storyboard from the capture pack;
+  - `lint` shows 0 errors and `check` passes;
+  - `hyperframes snapshot` stills of each scene look professional (reviewed by eye);
+  - no full render yet.

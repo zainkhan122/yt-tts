@@ -15,6 +15,8 @@ radar ──► brief.json ──► voice (Kokoro TTS or YOUR recordings) ─�
       ──► QA (format, fps, loudness, peak) ──► renders/<id>/ ──► publish (GitHub Release) ──► sync (git)
 ```
 
+**Strategy (formats, hooks, SEO per platform, cadence):** [`PLAYBOOK.md`](PLAYBOOK.md). **How it works end to end:** [`PIPELINE.md`](PIPELINE.md) covers topic selection, research, voice, how videos are made, QA, publishing and the tools inventory. **Where we are:** [`PHASES.md`](PHASES.md).
+
 ## One-click restore (after any sandbox reset)
 
 ```bash
@@ -35,13 +37,19 @@ Idempotent: it repairs git (snapshots drop `.git/config`), pulls the latest SSOT
 | Finished videos | **GitHub Releases** (index: [`RENDERS.md`](RENDERS.md)) plus local `renders/<id>/` | ✅ Releases, local copy optional |
 | Toolchain (Node, HyperFrames CLI, FFmpeg, Chrome, Kokoro, whisper) | `/usr/local`, `~/.cache/hyperframes` | ❌ `bootstrap.sh` reinstalls it |
 | Intermediates (voice, mix, HTML project) | `/var/tmp/reels/<id>/` | ❌ regenerated per job |
-| GitHub token | env `GH_TOKEN` or `/var/tmp/gh/token` | ❌ session only, **never committed** |
+| GitHub token | `~/.config/reels-studio/gh_token` (chmod 600, **outside the git tree**), or env `GH_TOKEN` | ✅ persists in the private workspace; **never committed** (sync blocks token patterns) |
 
 ## Commands
 
 ```bash
 python3 reels.py doctor                                    # all green = ready
 python3 reels.py radar --days 14 --brief                   # trending AI repos/models/apps -> research/radar/ (+ draft brief)
+python3 reels.py capture <id> --url <site-or-repo>         # screenshots, official demo media, region map, facts -> captures/<id>/
+python3 reels.py social --account <tiktok/yt url> --top 2  # competitors' scripts + stats -> research/social/ (lessons digest)
+python3 tools/voice_audition.py                            # same line in 5 voices + speed test -> research/voice-audition/
+python3 tools/idea_feed.py --days 7                        # what the 21 watchlist channels cover (consensus topics) -> backlog
+python3 tools/channel_study.py report                      # benchmark-account study (stats, transcripts, visual)
+python3 tools/seo_pack.py briefs/<id>.json                 # validated copy for YouTube/TikTok/IG/FB/X -> renders/<id>/seo.md
 python3 reels.py make  briefs/quiz-geography.json --quality looks --crf 26
 python3 reels.py make  briefs/x.json --no-render           # fast iteration: build + lint + check only
 python3 reels.py batch briefs/*.json --quality looks --crf 26
@@ -52,7 +60,7 @@ python3 tools/fetch_worldbank.py NY.GDP.PCAP.CD PAK,IND,BGD 1990 2025   # real d
 python3 tools/tts_roundtrip.py --suite                     # test any voice/language with whisper
 ```
 
-**Token safety:** `sync` and `publish` read the token at call time through a one-shot git credential helper, so it is never written to `.git/config`, logs or the repo.
+**Token safety:** the token lives in `~/.config/reels-studio/gh_token` (outside the repo, chmod 600). `sync` and `publish` read it at call time through a one-shot credential helper, so it never reaches `.git/config`, logs or the repo. `sync` also **aborts if any staged change contains a token-like string**.
 Use a fine-grained token limited to this repo, with **Contents: read & write**. Rotate it if it was ever pasted somewhere public.
 
 ## Research inside the repo
@@ -136,9 +144,10 @@ The agent:
 5. hands you the MP4 and `post.md`.
 
 Limits of this sandbox:
-- about 6 minutes per 35–40 s video on 2 vCPU;
-- tools reinstall after a reset in about 2.5 min, while files persist;
-- the workspace holds about 128 MB, so download finished videos.
+- about 6–8 minutes per 35–45 s video on 2 vCPU;
+- sandboxes reset without warning. `bootstrap.sh` restores the toolchain in about 3 min (measured: 189 s after a real reset), while files persist;
+- the workspace holds about 128 MB. Videos go to GitHub Releases (`reels.py publish`), not the workspace;
+- **2 GB RAM: run one heavy job at a time.** A render (Chrome + FFmpeg) needs about 1.2 GB. Never load Kokoro or whisper in parallel; doing so once got the render OOM-killed. The pipeline frees the TTS model before rendering for this reason.
 
 ## Adding a template
 

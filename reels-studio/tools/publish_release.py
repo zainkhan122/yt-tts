@@ -21,7 +21,8 @@ API = f"https://api.github.com/repos/{OWNER_REPO}"
 
 
 def tok():
-    t = os.environ.get("GH_TOKEN") or (Path("/var/tmp/gh/token").read_text().strip() if Path("/var/tmp/gh/token").exists() else "")
+    import sys as _s; _s.path.insert(0, str(Path(__file__).resolve().parent.parent)); from lib.secrets import gh_token
+    t = gh_token() or ""
     if not t:
         raise SystemExit("no token: export GH_TOKEN or write /var/tmp/gh/token")
     return t
