@@ -28,7 +28,7 @@ main() {
   say "1/3 git working copy ($REPO, sparse: /reels-studio/)"
   if [ ! -d "$REPO/.git" ]; then
     git clone -q --filter=blob:none --no-checkout --depth 1 "$URL" "$REPO"
-    git -C "$REPO" sparse-checkout set --no-cone '/reels-studio/'
+    git -C "$REPO" sparse-checkout set --no-cone '/reels-studio/' '/.github/'
     git -C "$REPO" checkout -q main
     echo "   cloned (only reels-studio/ is downloaded)"
   else
@@ -36,7 +36,7 @@ main() {
       echo "   .git/config missing (snapshots exclude it): restoring from template"
       grep -v '^#' "$REPO/reels-studio/setup/git-config.template" > "$REPO/.git/config"
     fi
-    git -C "$REPO" sparse-checkout set --no-cone '/reels-studio/' >/dev/null 2>&1 || true
+    git -C "$REPO" sparse-checkout set --no-cone '/reels-studio/' '/.github/' >/dev/null 2>&1 || true
     if git -C "$REPO" fetch -q --depth 1 origin main 2>/dev/null; then
       if git -C "$REPO" merge -q --ff-only origin/main 2>/dev/null; then echo "   up to date with GitHub"
       else echo "   NOTE: local commits/changes not on GitHub yet - run: python3 reels.py sync"; fi

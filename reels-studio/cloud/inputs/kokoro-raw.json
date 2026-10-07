@@ -1,0 +1,11 @@
+{
+ "name": "kokoro-raw",
+ "engine": "kokoro",
+ "license": "Apache-2.0",
+ "params": {
+  "voice": "af_heart",
+  "speed": 1.1,
+  "fx": "none"
+ },
+ "gen_seconds": null
+}

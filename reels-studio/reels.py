@@ -100,7 +100,7 @@ def cmd_doctor(a):
 
 
 def cmd_sync(a):
-    git("add", "-A", "--", "reels-studio")
+    git("add", "-A", "--", "reels-studio", *([".github"] if (ROOT.parent / ".github").exists() else []))
     from lib.secrets import contains_secret
     if contains_secret(git("diff", "--cached", check=False)):
         git("reset", "-q", check=False)

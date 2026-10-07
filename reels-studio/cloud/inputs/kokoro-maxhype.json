@@ -1,0 +1,11 @@
+{
+ "name": "kokoro-maxhype",
+ "engine": "kokoro",
+ "license": "Apache-2.0",
+ "params": {
+  "voice": "af_heart",
+  "speed": 1.33,
+  "fx": "maxhype"
+ },
+ "gen_seconds": null
+}
