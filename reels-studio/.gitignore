@@ -1,0 +1,8 @@
+# renders live in GitHub Releases (see RENDERS.md) + locally in renders/ - never in git history
+renders/
+*.mp4
+*.wav
+*.mov
+__pycache__/
+*.pyc
+.DS_Store

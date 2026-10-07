@@ -1,0 +1,200 @@
+{
+ "id": "data-gdp-south-asia-01",
+ "template": "data-race",
+ "title": "Pakistan vs India vs Bangladesh: income per person, 1990 to 2025",
+ "niche": "data / economics explainer",
+ "lang": "en-us",
+ "voice": "am_michael",
+ "speed": 1.0,
+ "style": "neon",
+ "brand": {
+  "handle": "@data.desi",
+  "name": "Data Desi",
+  "tagline": "South Asia in charts",
+  "accent": "#C8FF2E",
+  "accent2": "#7C5CFF"
+ },
+ "content": {
+  "kicker": "📊 DATA STORY",
+  "hook": "In 1990 they were almost equal. Who's richest today?",
+  "hook_display": "1990: almost equal. Who's richest today?",
+  "hook_sub": "1990: all under $400",
+  "title": "GDP per person, 1990 → 2025",
+  "subtitle": "current US$ · not inflation-adjusted",
+  "source_note": "Source: World Bank (CC BY 4.0) · PAK series has a statistical break in 2000",
+  "series": [
+   {
+    "name": "Pakistan",
+    "iso": "PAK",
+    "flag": "🇵🇰",
+    "color": "#22c55e",
+    "values": {
+     "1990": 344,
+     "1991": 380,
+     "1992": 396,
+     "1993": 408,
+     "1994": 400,
+     "1995": 451,
+     "1996": 457,
+     "1997": 438,
+     "1998": 424,
+     "1999": 418,
+     "2000": 642,
+     "2001": 610,
+     "2002": 600,
+     "2003": 672,
+     "2004": 772,
+     "2005": 828,
+     "2006": 901,
+     "2007": 998,
+     "2008": 1067,
+     "2009": 964,
+     "2010": 987,
+     "2011": 1132,
+     "2012": 1204,
+     "2013": 1225,
+     "2014": 1267,
+     "2015": 1380,
+     "2016": 1425,
+     "2017": 1519,
+     "2018": 1569,
+     "2019": 1390,
+     "2020": 1278,
+     "2021": 1455,
+     "2022": 1538,
+     "2023": 1360,
+     "2024": 1479,
+     "2025": 1596
+    }
+   },
+   {
+    "name": "India",
+    "iso": "IND",
+    "flag": "🇮🇳",
+    "color": "#f97316",
+    "values": {
+     "1990": 371,
+     "1991": 306,
+     "1992": 319,
+     "1993": 303,
+     "1994": 348,
+     "1995": 375,
+     "1996": 401,
+     "1997": 416,
+     "1998": 414,
+     "1999": 442,
+     "2000": 443,
+     "2001": 450,
+     "2002": 469,
+     "2003": 544,
+     "2004": 624,
+     "2005": 710,
+     "2006": 802,
+     "2007": 1022,
+     "2008": 993,
+     "2009": 1095,
+     "2010": 1348,
+     "2011": 1445,
+     "2012": 1429,
+     "2013": 1433,
+     "2014": 1554,
+     "2015": 1584,
+     "2016": 1708,
+     "2017": 1950,
+     "2018": 1966,
+     "2019": 2041,
+     "2020": 1907,
+     "2021": 2240,
+     "2022": 2280,
+     "2023": 2434,
+     "2024": 2592,
+     "2025": 2702
+    }
+   },
+   {
+    "name": "Bangladesh",
+    "iso": "BGD",
+    "flag": "🇧🇩",
+    "color": "#38bdf8",
+    "values": {
+     "1990": 283,
+     "1991": 272,
+     "1992": 273,
+     "1993": 281,
+     "1994": 281,
+     "1995": 309,
+     "1996": 372,
+     "1997": 379,
+     "1998": 386,
+     "1999": 388,
+     "2000": 397,
+     "2001": 395,
+     "2002": 394,
+     "2003": 427,
+     "2004": 456,
+     "2005": 480,
+     "2006": 490,
+     "2007": 538,
+     "2008": 613,
+     "2009": 679,
+     "2010": 757,
+     "2011": 837,
+     "2012": 860,
+     "2013": 958,
+     "2014": 1094,
+     "2015": 1224,
+     "2016": 1649,
+     "2017": 1811,
+     "2018": 1965,
+     "2019": 2130,
+     "2020": 2249,
+     "2021": 2483,
+     "2022": 2716,
+     "2023": 2551,
+     "2024": 2593,
+     "2025": 2597
+    }
+   }
+  ],
+  "beats": [
+   {
+    "year": 1990,
+    "text": "In 1990, all three were under 400 dollars per person."
+   },
+   {
+    "year": 2008,
+    "text": "Through the two thousands, Pakistan and India stayed neck and neck."
+   },
+   {
+    "year": 2019,
+    "text": "Then Bangladesh, the poorest of the three in 1990, overtook both by 2019."
+   },
+   {
+    "year": 2025,
+    "text": "In 2025, India is at about 2,700 dollars, Bangladesh 2,600, and Pakistan 1,600."
+   }
+  ],
+  "takeaway": "Same starting line. Very different paths.",
+  "rank_title": "2025 · GDP PER PERSON",
+  "cta": "Which number surprised you? Follow for more data stories."
+ },
+ "post": {
+  "titles": [
+   "1990: almost equal. 2025: not even close 📊",
+   "Bangladesh overtook both. Here's when.",
+   "Pakistan vs India vs Bangladesh in 35 seconds"
+  ],
+  "caption": "GDP per person (current US$), World Bank data, 1990 to 2025. Bangladesh started poorest and passed both by 2019. Which number surprised you?",
+  "hashtags": [
+   "#dataviz",
+   "#economy",
+   "#southasia",
+   "#worldbank"
+  ],
+  "pinned_comment": "Data: World Bank NY.GDP.PCAP.CD (current US$, not inflation-adjusted). Note: Pakistan's series jumps in 2000 because of a statistical revision (nominal GDP +75% vs real +4% that year), not a real boom."
+ },
+ "sources": [
+  "World Bank Open Data, GDP per capita (current US$), NY.GDP.PCAP.CD, CC BY 4.0: https://data.worldbank.org/indicator/NY.GDP.PCAP.CD (fetched 2026-10-07; last updated 2026-07-13)",
+  "Series-break check: Pakistan NY.GDP.MKTP.CN +75% vs NY.GDP.MKTP.KN +4% in 2000 (World Bank API)"
+ ]
+}

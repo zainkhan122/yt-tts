@@ -1,0 +1,36 @@
+{
+  "id": "ranked-free-tools-01",
+  "template": "ranked-list",
+  "title": "This video cost $0: the 5 free tools behind it",
+  "niche": "tech / AI tools (high-RPM)",
+  "lang": "en-us",
+  "voice": "af_heart",
+  "speed": 1.05,
+  "style": "sunset",
+  "brand": {"handle": "@build.free", "name": "Build Free", "tagline": "Free tools that actually work", "accent": "#FF7A59", "accent2": "#FFC857"},
+  "content": {
+    "kicker": "🛠️ OPEN SOURCE",
+    "hook": "This video cost zero dollars. Here are the five free tools behind it.",
+    "hook_display": "This video cost $0 to make",
+    "sub": "5 free tools · ranked by GitHub stars",
+    "metric_label": "GitHub stars",
+    "metric_icon": "⭐",
+    "items": [
+      {"rank": 5, "name": "Kokoro", "line": "A free voice model small enough to run on a laptop.", "value": 9191, "tag": "Apache-2.0 · voice", "mono": "K", "color": "#a78bfa"},
+      {"rank": 4, "name": "GSAP", "line": "The animation engine. Free, even for commercial work.", "value": 28861, "tag": "Free license · motion", "mono": "G", "color": "#34d399"},
+      {"rank": 3, "name": "whisper.cpp", "say": "whisper dot C P P", "line": "It listens back and checks every word.", "value": 54188, "tag": "MIT · speech-to-text", "mono": "W", "color": "#38bdf8"},
+      {"rank": 2, "name": "HyperFrames", "line": "It turns plain HTML into real video.", "value": 58191, "tag": "Apache-2.0 · render", "mono": "HF", "color": "#f472b6"},
+      {"rank": 1, "name": "FFmpeg", "say": "F F M Peg", "line": "It mixes the audio and encodes every frame.", "value": 64821, "tag": "LGPL/GPL · audio + video", "mono": "FF", "color": "#facc15"}
+    ],
+    "cta": "Which one are you trying first? Follow for the full setup."
+  },
+  "post": {
+    "titles": ["This video cost $0 to make. Here's how 👇", "5 free tools that replaced my video editor", "No subscriptions. Just these 5 tools."],
+    "caption": "Every frame, voice, caption and sound in this video came from free, open-source tools. Ranked by GitHub stars (checked Oct 7, 2026). Which one are you trying first?",
+    "hashtags": ["#opensource", "#aitools", "#videoediting", "#coding"],
+    "pinned_comment": "Links: github.com/FFmpeg/FFmpeg · github.com/heygen-com/hyperframes · github.com/ggml-org/whisper.cpp · github.com/greensock/GSAP · github.com/hexgrad/kokoro (stars as of 2026-10-07)"
+  },
+  "sources": [
+    "GitHub API stargazers_count, fetched 2026-10-07: FFmpeg/FFmpeg 64,821; heygen-com/hyperframes 58,191; ggml-org/whisper.cpp 54,188; greensock/GSAP 28,861; hexgrad/kokoro 9,191"
+  ]
+}

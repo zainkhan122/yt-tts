@@ -1,0 +1,32 @@
+/* quiz — layout in px on the 1080x1920 canvas; critical content inside x 90-990, y 220-1600 */
+.fitbox { position: absolute; display: flex; align-items: center; justify-content: center; }
+#hook-kicker { position: absolute; top: 380px; left: 0; right: 0; width: max-content; margin: 0 auto; opacity: 0; }
+#hook-box { left: 90px; right: 90px; top: 500px; height: 640px; }
+#hook-text { width: 100%; text-align: center; color: var(--fg); font-size: 150px; }
+#hook-sub { position: absolute; top: 1210px; left: 0; right: 0; width: max-content; margin: 0 auto; opacity: 0; }
+
+.qhead { position: absolute; top: 310px; left: 90px; right: 90px; display: flex; align-items: center; justify-content: space-between; }
+.dots { display: flex; gap: 14px; }
+.dots i { display: block; width: 24px; height: 24px; border-radius: 50%; background: rgba(127, 127, 127, 0.35); }
+.dots i.on { background: var(--acc); }
+.dots i.done { background: var(--ok); }
+.qcard { position: absolute; top: 425px; left: 90px; right: 90px; height: 390px; display: flex; align-items: center; justify-content: center; padding: 36px 48px; }
+.qtext { width: 100%; text-align: center; font-weight: 800; line-height: 1.18; color: var(--fg); }
+
+.opts { position: absolute; top: 868px; left: 110px; right: 110px; }
+.opt { position: relative; height: 128px; margin-bottom: 26px; display: flex; align-items: center; padding: 0 34px 0 24px; border-radius: 30px; overflow: hidden; opacity: 0; }
+.opt .okl { position: absolute; left: 0; top: 0; right: 0; bottom: 0; background: var(--okbg); opacity: 0; }
+.opt .badge { position: relative; flex: none; width: 80px; height: 80px; margin-right: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--acc2); color: var(--onacc2); font: 900 40px "Inter"; }
+.opt .otext { position: relative; flex: 1; min-width: 0; font-weight: 800; font-size: 52px; color: var(--fg); white-space: nowrap; overflow: hidden; }
+.opt .mark { position: relative; flex: none; width: 60px; text-align: center; font: 900 56px "Inter"; color: #ffffff; opacity: 0; }
+
+.timer { position: absolute; top: 1335px; left: 445px; width: 190px; height: 190px; opacity: 0; }
+.timer svg { position: absolute; left: 0; top: 0; width: 190px; height: 190px; }
+.tr-bg { fill: rgba(0, 0, 0, 0.28); stroke: rgba(127, 127, 127, 0.3); stroke-width: 12; }
+.tr-fg { fill: none; stroke: var(--acc); stroke-width: 12; stroke-linecap: round; }
+.tnum { position: absolute; left: 0; top: 0; width: 190px; height: 190px; display: flex; align-items: center; justify-content: center; font: 400 104px "Anton"; color: var(--fg); }
+.fact { position: absolute; top: 1312px; left: 100px; right: 100px; text-align: center; font-weight: 700; line-height: 1.24; color: var(--fg); opacity: 0; }
+
+#cta-title { position: absolute; top: 300px; left: 90px; right: 90px; text-align: center; color: var(--fg); font-size: 120px; }
+#cta-scores { position: absolute; top: 560px; left: 0; right: 0; display: flex; justify-content: center; gap: 20px; }
+#cta-scores .chip { opacity: 0; font-size: 36px; }

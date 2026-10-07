@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="{{LANG}}" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>{{TITLE}}</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+{{FONTS_CSS}}
+{{BASE_CSS}}
+{{SCENE_CSS}}
+    </style>
+  </head>
+  <body>
+    <div id="root" class="{{PRESET}}" data-composition-id="main" data-start="0" data-duration="{{D}}" data-fps="30" data-width="1080" data-height="1920">
+      <div id="bg" class="clip" data-start="0" data-duration="{{D}}" data-track-index="0">
+        <div id="bg-base"></div>
+        <div id="bg-grid" data-layout-allow-overflow></div>
+        <div id="glowA" class="glow" data-layout-allow-overflow></div>
+        <div id="glowB" class="glow" data-layout-allow-overflow></div>
+        <div id="vignette"></div>
+      </div>
+      <div id="stage" class="clip" data-start="0" data-duration="{{D}}" data-track-index="1">
+{{SCENE_HTML}}
+      </div>
+      <div id="cap" class="clip" data-start="0" data-duration="{{D}}" data-track-index="2">
+        <div id="cap-zone"></div>
+      </div>
+      <div id="hud" class="clip" data-start="0" data-duration="{{D}}" data-track-index="3">
+        <div id="prog"><div id="prog-fill"></div></div>
+        <div id="wm"><span class="wm-dot"></span><span id="wm-handle"></span></div>
+        <div id="flash"></div>
+      </div>
+      <audio id="mix" src="assets/mix.wav" data-start="0" data-duration="{{D}}" data-track-index="10" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      (async function () {
+        const DATA = {{DATA_JSON}};
+{{BASE_JS}}
+{{SCENE_JS}}
+        await VVS.boot(DATA, buildScene);
+      })();
+    </script>
+  </body>
+</html>

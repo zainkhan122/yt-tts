@@ -1,0 +1,108 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+
+/* ---------- presets: palette + caption colours (brand accent overrides --acc / --acc2) ---------- */
+#root {
+  position: relative; width: 100%; height: 100%; overflow: hidden;
+  font-family: "Inter", "Noto Color Emoji", sans-serif;
+  --bg: #07070c; --bg2: #11112a; --fg: #ffffff; --muted: rgba(255, 255, 255, 0.62);
+  --card: #11131c; --cardb: rgba(255, 255, 255, 0.10); --grid: rgba(255, 255, 255, 0.045);
+  --acc: #c8ff2e; --acc2: #7c5cff; --ok: #22c55e; --okbg: #15803d; --bad: #ef4444; --onacc: #0b0b10; --onacc2: #ffffff;
+  --cap-fg: #ffffff; --cap-stroke: rgba(0, 0, 0, 0.92); --cap-y: 1330px;
+  color: var(--fg); background: var(--bg);
+}
+#root.editorial {
+  --bg: #f3efe6; --bg2: #e9e2d3; --fg: #121316; --muted: #5b5c61;
+  --card: #ffffff; --cardb: rgba(0, 0, 0, 0.09); --grid: rgba(0, 0, 0, 0.05);
+  --acc: #e63946; --acc2: #1d3557; --onacc: #ffffff;
+  --cap-fg: #121316; --cap-stroke: rgba(255, 255, 255, 0.95);
+}
+#root.midnight {
+  --bg: #050b1f; --bg2: #0d2147; --fg: #ffffff; --muted: rgba(220, 232, 255, 0.66);
+  --card: #0f1c38; --cardb: rgba(140, 180, 255, 0.16); --grid: rgba(140, 180, 255, 0.06);
+  --acc: #38bdf8; --acc2: #fbbf24; --onacc: #04101f;
+}
+#root.sunset {
+  --bg: #170a17; --bg2: #3a1230; --fg: #fff7f0; --muted: rgba(255, 236, 225, 0.66);
+  --card: #2a1328; --cardb: rgba(255, 190, 160, 0.16); --grid: rgba(255, 200, 170, 0.05);
+  --acc: #ff7a59; --acc2: #ffc857; --onacc: #1a0a10;
+}
+
+.clip { position: absolute; inset: 0; }
+.abs { position: absolute; }
+.center-x { left: 0; right: 0; margin: 0 auto; }
+.display { font-family: "Anton", "Inter", sans-serif; font-weight: 400; letter-spacing: 0.01em; line-height: 0.98; text-transform: uppercase; }
+.mono { font-family: "JetBrains Mono", monospace; }
+.urdu { font-family: "Noto Nastaliq Urdu", "Inter", serif; direction: rtl; line-height: 2.05; }
+
+/* ---------- background ---------- */
+#bg-base { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 0%, var(--bg2) 0%, var(--bg) 62%); }
+#bg-grid {
+  position: absolute; left: -10%; top: -10%; width: 120%; height: 140%;
+  background-image: linear-gradient(var(--grid) 2px, transparent 2px), linear-gradient(90deg, var(--grid) 2px, transparent 2px);
+  background-size: 90px 90px;
+}
+.glow { position: absolute; width: 900px; height: 900px; border-radius: 50%; filter: blur(120px); opacity: 0.28; }
+#glowA { left: -320px; top: -160px; background: var(--acc2); }
+#glowB { right: -360px; bottom: -220px; background: var(--acc); opacity: 0.16; }
+#vignette { position: absolute; inset: 0; background: radial-gradient(110% 75% at 50% 45%, transparent 55%, rgba(0, 0, 0, 0.45) 100%); }
+#root.editorial #vignette { background: radial-gradient(110% 75% at 50% 45%, transparent 60%, rgba(60, 40, 10, 0.12) 100%); }
+
+/* ---------- HUD ---------- */
+#prog { position: absolute; left: 0; right: 0; top: 0; height: 12px; background: rgba(127, 127, 127, 0.18); }
+#prog-fill { width: 100%; height: 100%; background: linear-gradient(90deg, var(--acc2), var(--acc)); transform-origin: 0 50%; transform: scaleX(0); }
+#wm {
+  position: absolute; left: 60px; top: 132px; display: flex; align-items: center; gap: 12px;
+  padding: 12px 22px; border-radius: 999px; background: rgba(0, 0, 0, 0.32); border: 2px solid rgba(255, 255, 255, 0.12);
+  font: 700 28px "Inter"; color: #fff; opacity: 0;
+}
+#root.editorial #wm { background: rgba(255, 255, 255, 0.75); color: #121316; border-color: rgba(0, 0, 0, 0.08); }
+.wm-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--acc); display: block; }
+#flash { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; }
+
+/* ---------- karaoke captions ---------- */
+/* no CSS transforms on animated nodes (GSAP owns transform); centre with flexbox instead */
+#cap-zone { position: absolute; left: 80px; right: 80px; top: calc(var(--cap-y) - 170px); height: 340px; }
+.cg {
+  position: absolute; inset: 0;
+  display: flex; flex-wrap: wrap; justify-content: center; align-content: center; gap: 0 22px; opacity: 0;
+  font: 900 76px/1.08 "Inter", "Noto Color Emoji"; text-align: center;
+}
+.cw { position: relative; display: inline-block; color: var(--cap-fg); }
+.cw .b, .cw .hl {
+  text-shadow: 0 0 2px var(--cap-stroke), 0 0 8px var(--cap-stroke), 0 6px 0 var(--cap-stroke), 4px 4px 0 var(--cap-stroke), -4px -4px 0 var(--cap-stroke), 4px -4px 0 var(--cap-stroke), -4px 4px 0 var(--cap-stroke);
+}
+.cw .hl { position: absolute; left: 0; top: 0; color: var(--acc); opacity: 0; }
+
+/* ---------- reusable bits ---------- */
+.card { background: var(--card); border: 2px solid var(--cardb); border-radius: 36px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35); }
+#root.editorial .card { box-shadow: 0 24px 60px rgba(40, 30, 10, 0.14); }
+.chip {
+  display: inline-flex; align-items: center; gap: 12px; padding: 14px 28px; border-radius: 999px;
+  font: 800 30px "Inter"; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--acc); color: var(--onacc);
+}
+.chip.ghost { background: transparent; color: var(--fg); border: 3px solid var(--cardb); }
+.karaoke .kw { opacity: 0.3; }
+.scene { position: absolute; inset: 0; opacity: 0; visibility: hidden; }
+
+/* ---------- follow end-card ---------- */
+#endcard { position: absolute; left: 110px; right: 110px; top: 760px; padding: 64px 56px 56px; text-align: center; opacity: 0; }
+#ec-avatar {
+  width: 196px; height: 196px; margin: -150px auto 26px; border-radius: 50%; padding: 9px;
+  background: conic-gradient(var(--acc), var(--acc2), var(--acc));
+}
+#ec-avatar span {
+  display: flex; width: 100%; height: 100%; border-radius: 50%; align-items: center; justify-content: center;
+  background: var(--card); font: 900 76px "Inter"; color: var(--acc);
+}
+#ec-name { font: 900 62px "Inter"; display: flex; justify-content: center; align-items: center; gap: 14px; white-space: nowrap; }
+#ec-badge { width: 46px; height: 46px; border-radius: 50%; background: #3b9bff; display: inline-flex; align-items: center; justify-content: center; }
+#ec-handle { margin-top: 10px; font: 600 36px "Inter"; color: var(--muted); }
+#ec-tag { margin-top: 12px; font: 500 30px "Inter"; color: var(--muted); }
+#ec-btn {
+  position: relative; margin: 38px auto 0; width: 520px; height: 112px; border-radius: 999px;
+  background: var(--acc); color: var(--onacc); font: 900 46px/112px "Inter"; overflow: hidden;
+}
+#ec-btn .done { position: absolute; inset: 0; border-radius: 999px; background: var(--card); color: var(--fg); border: 3px solid var(--cardb); opacity: 0; }
+#ec-cursor { position: absolute; width: 74px; height: 74px; left: 640px; top: 1180px; opacity: 0; }
