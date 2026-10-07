@@ -10,8 +10,8 @@ HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"   # resolve before any cd
 export DEBIAN_FRONTEND=noninteractive
 
 echo "== apt: ffmpeg, fonts, Chrome shared libraries"
-sudo apt-get update -qq
-sudo apt-get install -y -qq ffmpeg fonts-noto-color-emoji fonts-liberation fonts-dejavu-core \
+sudo DEBIAN_FRONTEND=noninteractive apt-get update -qq
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg fonts-noto-color-emoji fonts-liberation fonts-dejavu-core \
   libnss3 libnspr4 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 libxkbcommon0 libatspi2.0-0 \
   libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 libpango-1.0-0 libcairo2 libasound2 >/dev/null
 
