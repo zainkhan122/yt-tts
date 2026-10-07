@@ -53,7 +53,7 @@ def _ref_wav(tmp):
     """Chatterbox wants a WAV reference; the repo stores FLAC (smaller)."""
     import soundfile as sf
     a, sr = sf.read(INPUTS / "af_heart_ref.flac", dtype="float32")
-    p = Path(tmp) / "af_heart_ref.wav"
+    p = Path("/tmp") / "af_heart_ref.wav"
     sf.write(p, a, sr)
     return str(p)
 
@@ -84,6 +84,21 @@ def run_chatterbox(out):
         wav = m.generate(SCRIPT, **kw)
         _save(out, name, wav.cpu().numpy(), m.sr, time.time() - t, "chatterbox",
               {k: (v if k != "audio_prompt_path" else "af_heart_ref") for k, v in kw.items()})
+    os.remove(ref)
+
+
+def run_chatterbox_sweep(out):
+    """af_heart timbre with stronger Chatterbox emotion (exaggeration) to add energy WITHOUT DSP artifacts."""
+    torch = _threads()
+    from chatterbox.tts import ChatterboxTTS
+    m = ChatterboxTTS.from_pretrained(device="cpu")
+    ref = _ref_wav(out)
+    for name, kw in [("chatterbox-afheart-exag1.0", dict(exaggeration=1.0, cfg_weight=0.3)),
+                     ("chatterbox-afheart-exag1.3", dict(exaggeration=1.3, cfg_weight=0.25))]:
+        t = time.time()
+        torch.manual_seed(7)
+        wav = m.generate(SCRIPT, audio_prompt_path=ref, **kw)
+        _save(out, name, wav.cpu().numpy(), m.sr, time.time() - t, "chatterbox", {**kw, "voice": "af_heart_ref"})
     os.remove(ref)
 
 
@@ -261,7 +276,7 @@ def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     r = sub.add_parser("run")
-    r.add_argument("engine", choices=["chatterbox", "turbo", "qwen3", "orpheus", "edge"])
+    r.add_argument("engine", choices=["chatterbox", "chatterbox_sweep", "turbo", "qwen3", "orpheus", "edge"])
     r.add_argument("--out", default="out")
     s = sub.add_parser("score")
     s.add_argument("--in", dest="indir", default="samples")

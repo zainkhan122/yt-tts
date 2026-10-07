@@ -12,7 +12,7 @@ free_disk() {  # runners ship ~14 GB free; drop unused toolchains (+~25 GB) befo
   df -h / | tail -1
 }
 case "$E" in
-  chatterbox|turbo) $PIP $CPU "chatterbox-tts @ git+https://github.com/resemble-ai/chatterbox.git" soundfile "setuptools<80" ;;  # master has Nano
+  chatterbox|chatterbox_sweep|turbo) $PIP $CPU "chatterbox-tts @ git+https://github.com/resemble-ai/chatterbox.git" soundfile "setuptools<80" ;;  # master has Nano
   qwen3)   free_disk; $PIP $CPU qwen-tts soundfile ;;
   orpheus) $PIP orpheus-cpp soundfile scipy
            $PIP llama-cpp-python --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu ;;
