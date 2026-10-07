@@ -14,3 +14,7 @@
 | `smoke-vignelli.mp4` | 1.2 MB | `renders-2026-10-07` | [download](https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-07/smoke-vignelli.mp4) |
 | `viral-short-contact.jpg` | 0.1 MB | `renders-2026-10-07` | [download](https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-07/viral-short-contact.jpg) |
 | `smoke-vignelli-contact.png` | 0.1 MB | `renders-2026-10-07` | [download](https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-07/smoke-vignelli-contact.png) |
+| `spotlight-universal-modder-01.mp4` | 14.8 MB | `renders-2026-10-08` | [download](https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-08/spotlight-universal-modder-01.mp4) |
+| `cover.jpg` | 0.2 MB | `renders-2026-10-08` | [download](https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-08/cover.jpg) |
+| `contact.jpg` | 0.2 MB | `renders-2026-10-08` | [download](https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-08/contact.jpg) |
+| `captures-universal-modder-2026-10-07.tar` | 12.0 MB | `renders-2026-10-08` | [download](https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-08/captures-universal-modder-2026-10-07.tar) |

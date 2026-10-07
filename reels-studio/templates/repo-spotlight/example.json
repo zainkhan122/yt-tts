@@ -1,0 +1,100 @@
+{
+ "id": "my-repo-spotlight",
+ "template": "repo-spotlight",
+ "capture": "captures/universal-modder",
+ "title": "This free repo lets AI mod PC games",
+ "lang": "en-us",
+ "_how": "F1 Repo Drop (22-35 s): hook -> name + stars (page) -> 2-3 features (scroll with highlight boxes) -> install -> CTA.",
+ "keywords": [
+  "Claude",
+  "agents"
+ ],
+ "facts": {
+  "stars": 5142,
+  "checked": "2026-10-08"
+ },
+ "credits_on_screen": "Screens & media: github.com/rehan-remade/universal-modder (MIT)",
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "clip",
+   "src": "mods-teaser.mp4",
+   "in": 0.0,
+   "out": 3.0,
+   "headline": "AI MODS *ANY* GAME",
+   "sub": "Free GitHub repo",
+   "say": "This free GitHub repo lets AI mod almost any PC game you own!"
+  },
+  {
+   "id": "name",
+   "type": "page",
+   "image": "desktop-top.jpg",
+   "camera": [
+    {
+     "region": "repo_title",
+     "zoom": 1.6,
+     "at": "universal"
+    },
+    {
+     "region": "about",
+     "zoom": 1.35,
+     "at": "skills|tools"
+    }
+   ],
+   "stat": {
+    "from": "facts.stars",
+    "format": "full",
+    "label": "GitHub stars",
+    "at": "5000"
+   },
+   "say": "It's called Universal Modder: skills and tools for AI coding agents, with over {5,000|five thousand} stars."
+  },
+  {
+   "id": "features",
+   "type": "scroll",
+   "image": "desktop-full.jpg",
+   "heading": "WHAT'S *INSIDE*",
+   "stops": [
+    {
+     "region": "img_5_six-mods-made-by-ai-coding-agent",
+     "label": "6 mods made by AI agents",
+     "zoom": 1.5,
+     "at": "six"
+    },
+    {
+     "region": "code_0",
+     "label": "Install in one line",
+     "zoom": 1.4,
+     "at": "install"
+    },
+    {
+     "region": "h_a-knowledge-base-that-ais-write-",
+     "label": "A knowledge base AIs write",
+     "zoom": 1.3,
+     "at": "knowledge"
+    }
+   ],
+   "say": "Inside: six mods built by AI agents, a quick install, and a knowledge base the agents write themselves."
+  },
+  {
+   "id": "install",
+   "type": "terminal",
+   "title": "Claude Code",
+   "lines": [
+    "/plugin marketplace add rehan-remade/universal-modder",
+    "/plugin install universal-modder@universal-modder"
+   ],
+   "outputs": [
+    "added",
+    "installed"
+   ],
+   "say": "Two commands and you're in."
+  },
+  {
+   "id": "cta",
+   "type": "endcard",
+   "keyword": "REPO",
+   "say": "Want the link? Comment {REPO|repo} and follow for a new AI tool every day."
+  }
+ ]
+}

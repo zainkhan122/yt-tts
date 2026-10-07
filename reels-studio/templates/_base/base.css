@@ -73,6 +73,7 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; 
   text-shadow: 0 0 2px var(--cap-stroke), 0 0 8px var(--cap-stroke), 0 6px 0 var(--cap-stroke), 4px 4px 0 var(--cap-stroke), -4px -4px 0 var(--cap-stroke), 4px -4px 0 var(--cap-stroke), -4px 4px 0 var(--cap-stroke);
 }
 .cw .hl { position: absolute; left: 0; top: 0; color: var(--acc); opacity: 0; }
+.cw.key .b { color: var(--cap-key, var(--acc)); }
 
 /* ---------- reusable bits ---------- */
 .card { background: var(--card); border: 2px solid var(--cardb); border-radius: 36px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35); }

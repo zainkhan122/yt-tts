@@ -136,6 +136,9 @@
               if (s.caption && s.words) s.words.forEach((w) => all.push({ w: w[0], s: w[1], e: w[2], seg: id }));
             });
             const maxW = cfg.maxWords || 3;
+            const nk = (w) => String(w).toLowerCase().replace(/[^a-z0-9]/g, "");
+            const keys = new Set((cfg.keywords || []).map(nk));  // caption keywords -> .key (yellow); numbers too
+            const isKey = (w) => keys.has(nk(w)) || (cfg.numberKeys !== false && keys.size > 0 && /\d/.test(w));
             const groups = [];
             let cur = [];
             all.forEach((x, i) => {
@@ -149,7 +152,7 @@
             groups.forEach((g, gi) => {
               const div = mk("div", "cg", zone);
               const spans = g.map((x) => {
-                const w = mk("span", "cw", div);
+                const w = mk("span", isKey(x.w) ? "cw key" : "cw", div);
                 mk("span", "b", w, x.w);
                 const hl = mk("span", "hl", w, x.w);
                 hl.setAttribute("data-layout-allow-overlap", "");

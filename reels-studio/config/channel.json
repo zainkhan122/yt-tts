@@ -1,14 +1,16 @@
 {
-  "_note": "Channel defaults (SSOT for brand + voice). Briefs inherit these unless they override. Handle is a placeholder until the user provides theirs.",
+  "_note": "Channel defaults (SSOT for brand + voice). Briefs inherit these unless they override.",
   "brand": {
-    "handle": "@tested.ai",
-    "name": "Tested AI",
-    "tagline": "Trending AI tools, minus the hype",
-    "accent": "#7C9CFF",
-    "accent2": "#5EEAD4"
+    "handle": "@hypeless",
+    "name": "Hypeless",
+    "tagline": "AI tools, minus the hype",
+    "accent": "#FFD60A",
+    "accent2": "#38BDF8",
+    "cta_button": "Follow",
+    "_approved": "2026-10-08 by user (free on YouTube + TikTok when checked; check IG/X/FB at sign-up)"
   },
   "voice": "af_heart",
-  "speed": 1.1,
+  "speed": 1.33,
   "lang": "en-us",
   "style": "midnight",
   "lexicon": {
@@ -22,7 +24,7 @@
     "UI": "U I",
     "fal": "fal"
   },
-  "voice_fx": "none",
+  "voice_fx": "hype",
   "voice_blend": {},
-  "_voice_note": "2026-10-08: user said 'maxhype' sounds ROBOTIC (confirmed: UTMOS 3.68 vs 4.51 raw). DSP enthusiasm (pitch/melody tricks) is retired. Interim default = clean Kokoro af_heart x1.1, no processing. Pending: user picks one of research/voice-audition/free-engines/ (Chatterbox af_heart clone, Chatterbox Turbo, Edge Emma/Ava, Orpheus Tara, Chatterbox male); the chosen engine runs in GitHub Actions."
+  "_voice_note": "2026-10-08: user APPROVED sample D-hype (research/voice-audition/max-hype/D-hype.mp3): af_heart x1.33, preset 'hype' (per-line accents, +0.8 st lift, presence/air EQ, 4:1 compression). 'maxhype' (F) rejected as robotic. Free-engine audition kept for later: research/voice-audition/free-engines/."
 }

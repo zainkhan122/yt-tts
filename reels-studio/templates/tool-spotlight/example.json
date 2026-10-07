@@ -1,23 +1,36 @@
 {
- "id": "spotlight-universal-modder-01",
+ "id": "my-tool-spotlight",
+ "_how": "Copy, then edit: capture pack (python3 reels.py capture <id> --url ...), facts (re-check same day), scenes (types: clip, clip-montage, page, scroll, steps, terminal, verdict, stat, image, endcard; see templates/_spotlight/spotcore.py). Display vs spoken: {GTA V|GTA Five}. *word* in headings = yellow.",
  "template": "tool-spotlight",
- "status": "v3 2026-10-08: facts re-verified (stars 5,142; README rules changed: any game you own incl. multiplayer/servers you host, refuses online anti-cheat games); rendered with tool-spotlight",
  "capture": "captures/universal-modder",
  "title": "AI just put Minecraft inside GTA V",
- "niche": "tech / AI tools: trending GitHub repo spotlight",
  "lang": "en-us",
- "style": "midnight",
+ "keywords": [
+  "Minecraft",
+  "Warthog",
+  "flamethrower",
+  "fal",
+  "anti-cheat",
+  "Claude",
+  "Codex",
+  "Gemini"
+ ],
+ "facts": {
+  "stars": 5142,
+  "forks": 468,
+  "checked": "2026-10-08"
+ },
  "scenes": [
   {
    "id": "hook",
    "type": "clip",
    "src": "mods-teaser.mp4",
    "in": 0.0,
-   "out": 3.4,
+   "out": 3.0,
    "fit": "fill-blur",
    "headline": "AI BUILT *THIS*",
    "sub": "Minecraft inside GTA V",
-   "say": "An AI agent built this! Minecraft, inside {GTA V|GTA Five}."
+   "say": "An AI coding agent built this! Real Minecraft, running inside {GTA V|GTA Five}."
   },
   {
    "id": "montage",
@@ -25,19 +38,19 @@
    "src": "mods-teaser.mp4",
    "cuts": [
     {
-     "in": 3.47,
-     "out": 5.15,
+     "in": 3.3,
+     "out": 5.0,
      "label": "Mobs vs the LSPD"
     },
     {
-     "in": 5.2,
-     "out": 7.15,
+     "in": 5.0,
+     "out": 7.0,
      "label": "Halo's Warthog",
      "at": "halos"
     },
     {
-     "in": 7.2,
-     "out": 9.2,
+     "in": 7.0,
+     "out": 9.0,
      "label": "World at War flamethrower",
      "at": "even|world"
     }
@@ -137,12 +150,9 @@
   }
  ],
  "credits_on_screen": "Footage & images: github.com/rehan-remade/universal-modder (MIT). Screens: own capture.",
- "verify_before_render": [
-  "DONE 2026-10-08: GitHub API stars 5,142 / forks 468 / MIT; README install commands unchanged; 'Rules it follows' now = any game you own (single-player, multiplayer, servers you host), refuses online anti-cheat games -> script corrected; fal.ai/pricing = pay-per-use"
- ],
  "post": {
   "titles": [
-   "Minecraft inside GTA V, built by an AI agent",
+   "AI just put Minecraft inside GTA V",
    "This free AI mods almost any PC game you own",
    "5,000 GitHub stars in 8 days: AI game modding"
   ],
@@ -161,84 +171,5 @@
   "README of rehan-remade/universal-modder, read 2026-10-08: install commands; 'Rules it follows': any game you own (single-player, multiplayer, servers you host); refuses online games with anti-cheat; never ships game files",
   "fal.ai/pricing 2026-10-08: pay-per-use model APIs",
   "Official teaser docs/media/mods-teaser.gif (labels: elytra, the nether, mobs vs lspd, the warthog, flamethrower, zombies)"
- ],
- "seo": {
-  "keyword": "Minecraft inside GTA V",
-  "aliases": [
-   "AI game modding",
-   "AI mods PC games",
-   "Universal Modder",
-   "mod PC games with AI"
-  ],
-  "onscreen_first3s": "AI BUILT THIS / Minecraft inside GTA V",
-  "youtube": {
-   "title": "Minecraft Inside GTA V, Built by an AI Agent 🤯",
-   "description": "Minecraft inside GTA V, built by an AI coding agent. Universal Modder is a free, open-source plugin that lets Claude Code, Codex or Gemini mod almost any PC game you own: it reads the real game code, builds the mod, makes art and sound, and tests it in-game.\nThe catch: art, 3D and sound use fal (pay-per-use), and it refuses online games with anti-cheat.\nRepo: github.com/rehan-remade/universal-modder (MIT). Footage: the repo's official teaser.",
-   "hashtags": [
-    "#Shorts",
-    "#AItools",
-    "#gaming",
-    "#modding"
-   ],
-   "tags": [
-    "AI game modding",
-    "Universal Modder",
-    "Claude Code plugin",
-    "mod PC games with AI",
-    "Minecraft GTA V mod",
-    "AI coding agent",
-    "open source AI tools"
-   ]
-  },
-  "tiktok": {
-   "caption": "Minecraft inside GTA V, built by an AI agent 🎮 Universal Modder is free + open source and mods almost any PC game you own, but there's one catch. Which game would you mod first?",
-   "hashtags": [
-    "#AItools",
-    "#gaming",
-    "#modding",
-    "#ClaudeCode",
-    "#opensource"
-   ]
-  },
-  "instagram": {
-   "caption": "Minecraft inside GTA V, built by an AI agent 🎮 Universal Modder is a free, open-source plugin for Claude Code, Codex and Gemini: Halo's Warthog in Minecraft, a World at War flamethrower… Save this for later. Comment MOD and I'll pin the link.",
-   "hashtags": [
-    "#AItools",
-    "#gaming",
-    "#modding",
-    "#opensource",
-    "#ClaudeCode"
-   ]
-  },
-  "facebook": {
-   "caption": "Minecraft inside GTA V, built by an AI agent: Universal Modder (free, open source) lets AI coding agents build real mods for games you own. Which game would you mod first?",
-   "hashtags": [
-    "#AItools",
-    "#gaming",
-    "#modding"
-   ]
-  },
-  "x": {
-   "text": "Minecraft inside GTA V, built by an AI coding agent. Universal Modder is free + MIT 👇 github.com/rehan-remade/universal-modder",
-   "hashtags": [
-    "#AI"
-   ]
-  }
- },
- "facts": {
-  "stars": 5142,
-  "forks": 468,
-  "checked": "2026-10-08"
- },
- "keywords": [
-  "Minecraft",
-  "Warthog",
-  "flamethrower",
-  "fal",
-  "anti-cheat",
-  "Claude",
-  "Codex",
-  "Gemini"
- ],
- "teaser_shots": "scene-detect 2026-10-08: elytra 0-1.77, nether 1.77-3.43, mobs vs lspd 3.43-5.17, warthog 5.17-7.17, flamethrower 7.17-~9.2, zombies ~9.2+"
+ ]
 }

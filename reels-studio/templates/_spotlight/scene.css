@@ -1,0 +1,122 @@
+/* ================= Spotlight scene library (repo-spotlight + tool-spotlight) =================
+   Canvas 1080x1920. Safe zones: top 220, bottom 380, right 120 kept free of key text.
+   Layout bands: heading 240-420 | media stage 430-1160 | captions centred at 1330 | bottom safe 1540+.
+   GSAP owns transforms: never set CSS transform on animated nodes (centre with left/right/margins). */
+#root { --cap-key: #ffd60a; --ink: #0b0e14; --amber: #fbbf24; --green: #22c55e; }
+
+/* captions: ALL CAPS, white + dark stroke, keyword yellow, spoken word pops (no colour flash) */
+.cg { text-transform: uppercase; font: 900 74px/1.06 "Inter", "Noto Color Emoji"; letter-spacing: 0.005em; }
+.cw .hl { color: var(--cap-fg); }
+.cw.key .b, .cw.key .hl { color: var(--cap-key); }
+
+/* ---------- media sets (static <video> clips; wrappers are animated, never the timed video) ---------- */
+.sp-vset { position: absolute; inset: 0; opacity: 0; visibility: hidden; }
+.sp-vfill { position: absolute; left: -90px; top: -160px; width: 1260px; height: 2240px; }  /* pre-blurred source (spotcore._blurred) */
+.sp-vfill video { width: 100%; height: 100%; object-fit: cover; }
+.sp-vcard { position: absolute; left: 60px; top: 560px; width: 960px; height: 540px; }
+.sp-vclip { position: absolute; inset: 0; overflow: hidden; border-radius: 34px; border: 3px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.55), 0 0 0 10px rgba(255, 255, 255, 0.04); background: #000; }
+.sp-vclip video { width: 100%; height: 100%; object-fit: cover; }
+.sp-vcard.bleed .sp-vclip { border-radius: 0; border-left: 0; border-right: 0; }
+
+/* ---------- headings ---------- */
+.sp-headline { position: absolute; left: 60px; right: 60px; top: 236px; height: 380px; display: flex; align-items: center;
+  justify-content: center; text-align: center; color: #fff; font-size: 170px;
+  text-shadow: 0 8px 0 rgba(0, 0, 0, 0.55), 0 0 40px rgba(0, 0, 0, 0.45); }
+.sp-sub { position: absolute; left: 60px; right: 60px; top: 616px; text-align: center; font: 900 54px/1.1 "Inter";
+  color: #fff; text-shadow: 0 4px 0 rgba(0, 0, 0, 0.6), 0 0 18px rgba(0, 0, 0, 0.6); opacity: 0; }
+.sp-heading { position: absolute; left: 60px; right: 60px; top: 240px; height: 180px; display: flex; align-items: center;
+  justify-content: center; text-align: center; color: #fff; font-size: 128px; opacity: 0;
+  text-shadow: 0 6px 0 rgba(0, 0, 0, 0.5); }
+.sp-heading .y, .sp-headline .y, .sp-question .y { color: var(--cap-key); }
+.rt { display: inline; }
+.sp-scrim { position: absolute; left: 0; right: 0; top: 0; height: 760px;
+  background: linear-gradient(180deg, rgba(3, 6, 14, 0.82) 0%, rgba(3, 6, 14, 0.62) 60%, rgba(3, 6, 14, 0) 100%); }
+.sp-kicker { position: absolute; left: 0; right: 0; top: 214px; text-align: center; font: 800 30px "JetBrains Mono", monospace;
+  letter-spacing: 0.08em; color: var(--muted); opacity: 0; }
+
+/* ---------- chips + credits ---------- */
+.sp-chip { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; max-width: 900px; padding: 16px 34px;
+  border-radius: 999px; background: var(--cap-key); color: var(--ink); font: 900 40px/1.1 "Inter"; text-transform: uppercase;
+  letter-spacing: 0.03em; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45); opacity: 0; white-space: nowrap; }
+.sp-chip.dark { background: rgba(8, 12, 22, 0.86); color: #fff; border: 2px solid rgba(255, 255, 255, 0.18); }
+.sp-credit { position: absolute; left: 70px; right: 70px; text-align: center; font: 600 24px "Inter"; color: rgba(255, 255, 255, 0.62); opacity: 0; }
+
+/* ---------- browser frame ---------- */
+.sp-browser { position: absolute; left: 40px; width: 1000px; border-radius: 28px; overflow: hidden; background: #0d1117;
+  border: 2px solid rgba(255, 255, 255, 0.14); box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6); }
+.sp-bar { position: absolute; left: 0; right: 0; top: 0; height: 64px; background: #161b22; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.sp-dots { position: absolute; left: 26px; top: 24px; display: flex; gap: 12px; }
+.sp-dots span { width: 16px; height: 16px; border-radius: 50%; display: block; }
+.sp-url { position: absolute; left: 130px; right: 30px; top: 13px; height: 38px; border-radius: 999px; background: #0d1117;
+  border: 1px solid rgba(255, 255, 255, 0.10); font: 500 22px/38px "JetBrains Mono", monospace; color: rgba(230, 237, 243, 0.85);
+  padding-left: 52px; white-space: nowrap; overflow: hidden; }
+.sp-lock { position: absolute; left: 18px; top: 9px; width: 20px; height: 20px; }
+.sp-vp { position: absolute; left: 0; right: 0; top: 64px; bottom: 0; overflow: hidden; background: #fff; }
+.sp-page { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+.sp-page img { display: block; width: 100%; height: 100%; }
+.sp-dim { position: absolute; inset: 0; background: rgba(5, 9, 20, 0.62); opacity: 0; }
+.sp-hlbox { position: absolute; border: 5px solid var(--cap-key); border-radius: 14px; box-shadow: 0 0 0 9999px rgba(5, 9, 20, 0.28), 0 0 28px rgba(255, 214, 10, 0.6); opacity: 0; }
+.sp-starred { position: absolute; display: flex; align-items: center; justify-content: center; gap: 6px; border-radius: 8px;
+  background: #fff8c5; border: 1px solid #d4a72c; color: #24292f; font: 700 15px "Inter"; opacity: 0; }
+.sp-fig { position: absolute; inset: 0; background: #0d1117; opacity: 0; display: flex; align-items: center; justify-content: center; }
+.sp-fig img { max-width: 96%; max-height: 92%; border-radius: 12px; }
+
+/* ---------- cursor + ripple ---------- */
+.sp-cursor { position: absolute; left: 0; top: 0; width: 70px; height: 70px; opacity: 0; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.55)); }
+.sp-ripple { position: absolute; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%;
+  border: 6px solid var(--cap-key); opacity: 0; }
+
+/* ---------- stat badge ---------- */
+.sp-stat { position: absolute; left: 110px; right: 110px; top: 880px; height: 262px; border-radius: 34px;
+  background: rgba(8, 12, 24, 0.9); border: 3px solid rgba(255, 214, 10, 0.55); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; }
+.sp-stat .n { font: 400 140px/1.16 "Anton"; color: var(--cap-key); letter-spacing: 0.01em; display: flex; align-items: center; gap: 18px; }
+.sp-stat .n svg { width: 96px; height: 96px; }
+.sp-stat .l { margin-top: 16px; font: 800 36px/1.1 "Inter"; color: #fff; text-transform: uppercase; letter-spacing: 0.04em; }
+.sp-bigstat { top: 620px; height: 460px; }
+.sp-bigstat .n { font-size: 230px; }
+
+/* ---------- steps ---------- */
+.sp-steps { position: absolute; left: 60px; right: 60px; top: 900px; height: 340px; display: flex; flex-direction: column; gap: 6px;
+  padding: 16px 24px; border-radius: 30px; background: rgba(8, 12, 24, 0.92); border: 2px solid rgba(255, 255, 255, 0.12); opacity: 0; }
+.sp-step { position: relative; display: flex; align-items: center; gap: 22px; height: 56px; padding: 0 16px; border-radius: 16px;
+  font: 800 36px "Inter"; color: #fff; opacity: 0; }
+.sp-step .num { flex: 0 0 auto; width: 48px; height: 48px; border-radius: 50%; background: var(--cap-key); color: var(--ink);
+  font: 900 28px/48px "Inter"; text-align: center; }
+.sp-step .on { position: absolute; inset: 0; border-radius: 16px; background: rgba(255, 214, 10, 0.14); border: 2px solid rgba(255, 214, 10, 0.6); opacity: 0; }
+
+/* ---------- terminal ---------- */
+.sp-term { position: absolute; left: 50px; right: 50px; top: 480px; height: 560px; border-radius: 28px; overflow: hidden;
+  background: #0a0e14; border: 2px solid rgba(255, 255, 255, 0.14); box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6); opacity: 0; }
+.sp-term .sp-bar { background: #151a22; }
+.sp-term-title { position: absolute; left: 0; right: 0; top: 0; height: 64px; text-align: center; font: 700 24px/64px "Inter"; color: rgba(255, 255, 255, 0.7); }
+.sp-term-body { position: absolute; left: 40px; right: 40px; top: 100px; bottom: 30px; font: 500 33px/1.45 "JetBrains Mono", monospace; color: #e6edf3; }
+.sp-tl { position: relative; min-height: 48px; margin-bottom: 18px; white-space: pre-wrap; word-break: break-all; }
+.sp-tl .p { color: var(--cap-key); }
+.sp-out { color: var(--green); font-weight: 700; margin: -6px 0 26px; opacity: 0; }
+.sp-caret { display: inline-block; width: 18px; height: 38px; margin-left: 4px; vertical-align: -6px; background: var(--cap-key); }
+
+/* ---------- verdict ---------- */
+.sp-vcardx { position: absolute; left: 60px; right: 60px; border-radius: 30px; padding: 26px 34px; background: rgba(8, 12, 24, 0.93);
+  border: 3px solid rgba(255, 255, 255, 0.14); box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5); opacity: 0; }
+.sp-vcardx.cons { border-color: rgba(251, 191, 36, 0.7); }
+.sp-vcardx.pros { border-color: rgba(34, 197, 94, 0.7); }
+.sp-vt { font: 900 34px "Inter"; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px; }
+.sp-vcardx.cons .sp-vt { color: var(--amber); }
+.sp-vcardx.pros .sp-vt { color: var(--green); }
+.sp-vi { display: flex; align-items: flex-start; gap: 18px; font: 800 36px/1.25 "Inter"; color: #fff; margin: 12px 0; opacity: 0; }
+.sp-vi .ic { flex: 0 0 auto; width: 46px; text-align: center; font-family: "Noto Color Emoji", "Inter"; }
+
+/* ---------- image scene ---------- */
+.sp-imgcard { position: absolute; left: 60px; width: 960px; top: 470px; height: 640px; border-radius: 30px; overflow: hidden;
+  background: #0b0f17; border: 2px solid rgba(255, 255, 255, 0.14); box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6); opacity: 0; }
+.sp-imgcard .in { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.sp-imgcard img { max-width: 100%; max-height: 100%; }
+
+/* ---------- end card ---------- */
+.sp-question { position: absolute; left: 70px; right: 70px; top: 250px; height: 330px; display: flex; align-items: center;
+  justify-content: center; text-align: center; font-size: 112px; color: #fff; opacity: 0; text-shadow: 0 6px 0 rgba(0, 0, 0, 0.5); }
+.sp-kw { top: 610px; font-size: 58px; padding: 22px 48px; }
+#endcard { top: 930px; }
+#ec-cursor { top: 1360px; }

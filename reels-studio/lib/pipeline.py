@@ -103,6 +103,64 @@ def spoken_clean(text):
     return re.sub(r"\s+", " ", text).strip()
 
 
+# ---- display vs spoken text: "{GTA V|GTA Five}" is SHOWN as "GTA V" (captions/SRT) but SPOKEN as "GTA Five" ----
+MARKUP = re.compile(r"\{([^{}|]+)\|([^{}]+)\}")
+
+
+def _glue_markup(text):
+    """Punctuation touching a markup group belongs to both halves: '{GTA V|GTA Five},' -> '{GTA V,|GTA Five,}'."""
+    text = re.sub(r"\{([^{}|]+)\|([^{}]+)\}([^\s{}]+)", lambda m: "{" + m[1] + m[3] + "|" + m[2] + m[3] + "}", text)
+    return re.sub(r"([^\s{}]+)\{([^{}|]+)\|([^{}]+)\}", lambda m: "{" + m[1] + m[2] + "|" + m[1] + m[3] + "}", text)
+
+
+def apply_lexicon(text, lex):
+    """Channel lexicon (display word -> pronunciation) becomes markup, whole words only, never inside existing markup."""
+    lex = {k: v for k, v in (lex or {}).items() if k and v and k != v and not k.startswith("_")}
+    if not lex:
+        return text
+    pat = re.compile(r"(?<![\w])(" + "|".join(re.escape(k) for k in sorted(lex, key=len, reverse=True)) + r")(?![\w])")
+    return "".join(part if part.startswith("{") else pat.sub(lambda m: "{" + m[1] + "|" + lex[m[1]] + "}", part)
+                   for part in re.split(r"(\{[^{}]*\})", text))
+
+
+def parse_markup(text):
+    """-> (display_text, spoken_text, groups) ; groups = [(display_words, n_spoken_words)] in reading order."""
+    text = _glue_markup(text)
+    groups, disp, spk, pos = [], [], [], 0
+    for m in MARKUP.finditer(text):
+        pre = text[pos:m.start()]
+        groups += [([w], len(spoken_clean(w).split())) for w in pre.split()]
+        d, s = m[1].strip(), m[2].strip()
+        groups.append((d.split(), len(spoken_clean(s).split())))
+        disp.append(pre + d)
+        spk.append(pre + s)
+        pos = m.end()
+    tail = text[pos:]
+    groups += [([w], len(spoken_clean(w).split())) for w in tail.split()]
+    disp.append(tail)
+    spk.append(tail)
+    return re.sub(r"\s+", " ", "".join(disp)).strip(), re.sub(r"\s+", " ", "".join(spk)).strip(), groups
+
+
+def map_display_words(groups, spoken_words):
+    """Spread spoken-word timings onto display words ('five thousand' -> '5,000' spans both)."""
+    out, i = [], 0
+    for disp, n in groups:
+        if n == 0:  # emoji-only token: not spoken, not captioned
+            continue
+        span = spoken_words[i:i + n]
+        i += n
+        if not span:
+            break
+        if len(disp) == len(span):
+            out += [[d, w[1], w[2]] for d, w in zip(disp, span)]
+        else:
+            t0, t1 = span[0][1], span[-1][2]
+            step = (t1 - t0) / max(1, len(disp))
+            out += [[d, round(t0 + k * step, 3), round(t0 + (k + 1) * step, 3)] for k, d in enumerate(disp)]
+    return out
+
+
 # ------------------------------------------------------------------ voice
 def trim_silence(x, sr, floor_db=40, pad_in=0.03, pad_out=0.06):
     hop = max(1, int(sr * 0.01))
@@ -120,6 +178,17 @@ def trim_silence(x, sr, floor_db=40, pad_in=0.03, pad_out=0.06):
 
 
 _KOKORO = None
+
+
+def _trim_memory():
+    """Return freed heap pages (Kokoro/onnxruntime arenas) to the OS so the renderer's Chrome gets the RAM."""
+    import gc
+    gc.collect()
+    try:
+        import ctypes
+        ctypes.CDLL("libc.so.6").malloc_trim(0)
+    except Exception:
+        pass
 
 
 def release_tts():
@@ -348,7 +417,8 @@ def whisper_intelligibility(vo_path, timing, order, log):
                      cwd=vo_path.parent, log=log)
     tr = json.loads((vo_path.parent / "transcript.json").read_text())
     heard = [norm_word(w["text"]) for w in tr if w.get("text", "").strip()]
-    script = [norm_word(w[0]) for sid in order if timing[sid].get("lang", "en").startswith("en") for w in timing[sid]["words"]]
+    script = [norm_word(w[0]) for sid in order if timing[sid].get("lang", "en").startswith("en")
+              for w in (timing[sid].get("spoken_words") or timing[sid]["words"])]
     # character-level comparison: "whisper dot C P P" vs "whisper.cpp", "twelve" vs "12" etc. should not count as misses
     num = {"zero": "0", "one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6", "seven": "7", "eight": "8",
            "nine": "9", "ten": "10", "eleven": "11", "twelve": "12", "dot": "", "kilometres": "kilometers", "neighbours": "neighbors"}
@@ -455,6 +525,8 @@ class Job:
                     self.brief[k] = chan[k]
             if "brand" in chan:
                 self.brief["brand"] = {**chan["brand"], **self.brief.get("brand", {})}
+            if "lexicon" in chan:
+                self.brief["lexicon"] = {**chan["lexicon"], **self.brief.get("lexicon", {})}
         self.id = self.brief["id"]
         self.tpl = load_template(self.brief["template"])
         self.quality, self.crf, self.do_check, self.do_render, self.keep_work = quality, crf, check, render, keep_work
@@ -472,6 +544,10 @@ class Job:
     def voice_and_layout(self):
         b = self.brief
         segs = self.tpl.segments(b)
+        lex = b.get("lexicon", {})
+        for s in segs:  # display vs spoken (markup + channel lexicon); TTS only ever sees the spoken form
+            if s.get("text"):
+                s["display"], s["spoken"], s["_groups"] = parse_markup(apply_lexicon(s["text"], lex if s.get("lang", b.get("lang", "en-us")).startswith("en") else {}))
         lang = b.get("lang", "en-us")
         voice_cfg = b.get("voice", self.tpl.DEFAULTS.get("voice", "af_heart"))
         speed = float(b.get("speed", self.tpl.DEFAULTS.get("speed", 1.0)))
@@ -494,10 +570,10 @@ class Job:
                 key = (s.get("voice", voice_cfg), s.get("lang", lang), float(s.get("speed", speed)))
                 if key not in speakers:
                     speakers[key] = KokoroVoice(key[0], key[2], key[1], blend=b.get("voice_blend") if key[0] == voice_cfg else None)  # (voice, speed, lang)
-                clips.append(speakers[key](spoken_clean(s["text"])) if s.get("text") else (None, 24000))
+                clips.append(speakers[key](spoken_clean(s["spoken"])) if s.get("text") else (None, 24000))
             engine = " + ".join(f"kokoro {v} x{sp} ({l})" for v, l, sp in speakers)
             if b.get("voice_fx") in ("hype", "maxhype"):  # enthusiasm: per-line melody accents (duration-preserving, timing unchanged)
-                acc = hype_accents([s.get("text") for s in segs], 1.7 if b.get("voice_fx") == "maxhype" else 1.0)
+                acc = hype_accents([s.get("display") for s in segs], 1.7 if b.get("voice_fx") == "maxhype" else 1.0)
                 mel = b.get("melody", MELODY.get(b.get("voice_fx"), 1.0))
                 clips = [((pitch_accent(expand_melody(a, rate, mel), rate, acc[i]) if a is not None else a), rate) for i, (a, rate) in enumerate(clips)]
                 engine += " + hype accents" + (f" + melody x{mel}" if mel != 1.0 else "")
@@ -518,7 +594,8 @@ class Job:
                 dur = len(audio) / sr
                 pieces.append((t, audio))
                 seg_audio[s["id"]] = audio
-            timing[s["id"]] = {"start": round(t, 3), "end": round(t + dur, 3), "text": s.get("text", ""),
+            timing[s["id"]] = {"start": round(t, 3), "end": round(t + dur, 3), "text": s.get("display", s.get("text", "")),
+                               "spoken": s.get("spoken", ""), "_groups": s.get("_groups", []),
                                "caption": bool(s.get("caption", False)) and bool(s.get("text")), "words": [],
                                "lang": s.get("lang", lang)}
             order.append(s["id"])
@@ -535,8 +612,10 @@ class Job:
         sf.write(self.vo_path, vo, sr, subtype="PCM_16")
         for sid in order:
             s = timing[sid]
-            if s["text"]:
-                s["words"] = words_waveform(spoken_clean(s["text"]), seg_audio[sid], sr, s["start"])
+            groups = s.pop("_groups", [])
+            if s["text"] and sid in seg_audio:
+                s["spoken_words"] = words_waveform(spoken_clean(s["spoken"] or s["text"]), seg_audio[sid], sr, s["start"])
+                s["words"] = map_display_words(groups, s["spoken_words"]) if groups else s["spoken_words"]
         self.timing, self.order, self.D, self.vo = timing, order, D, vo
         self.stage("voice", engine=engine, lines=sum(1 for s in segs if s.get("text")), duration=f"{D:.2f}s", secs=round(time.time() - t0, 1))
 
@@ -619,16 +698,30 @@ class Job:
         if hasattr(self.tpl, "data"):
             data["extra"] = self.tpl.data(b, self.timing, self.D, self.events)
         rep = {
+            "{{MEDIA_HTML}}": "",
             "{{LANG}}": b.get("lang", "en")[:2], "{{TITLE}}": re.sub(r"[<>&\"]", "", b.get("title", self.id)),
             "{{PRESET}}": b.get("style", self.tpl.DEFAULTS.get("style", "neon")), "{{D}}": f"{self.D:g}",
             "{{FONTS_CSS}}": "\n".join(css),
-            "{{BASE_CSS}}": (BASE_DIR / "base.css").read_text(), "{{SCENE_CSS}}": (self.tpl.DIR / "scene.css").read_text(),
-            "{{SCENE_HTML}}": (self.tpl.DIR / "scene.html").read_text(),
-            "{{BASE_JS}}": (BASE_DIR / "base.js").read_text(), "{{SCENE_JS}}": (self.tpl.DIR / "scene.js").read_text(),
+            "{{BASE_CSS}}": (BASE_DIR / "base.css").read_text(), "{{SCENE_CSS}}": self._scene_part("scene.css"),
+            "{{SCENE_HTML}}": self._scene_part("scene.html"),
+            "{{BASE_JS}}": (BASE_DIR / "base.js").read_text(), "{{SCENE_JS}}": self._scene_part("scene.js"),
             "{{DATA_JSON}}": json.dumps(data, ensure_ascii=False).replace("</", "<\\/"),
         }
+        if hasattr(self.tpl, "assets"):  # captures / official media the template needs, copied into the project
+            n_assets = 0
+            for src, name in self.tpl.assets(b):
+                dst = self.proj / "assets" / name
+                dst.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(src, dst)
+                n_assets += 1
+            self.manifest["assets"] = n_assets
+        # timed media (<video> clips): static DOM, direct children of #root (never nested in a timed element)
+        rep["{{MEDIA_HTML}}"] = self.tpl.html(b, self.timing, self.D, self.events) if hasattr(self.tpl, "html") else ""
+        rep["{{SCENE_HTML}}"] = self._scene_part("scene.html")
+        rep["{{SCENE_CSS}}"] = self._scene_part("scene.css")
+        rep["{{SCENE_JS}}"] = self._scene_part("scene.js")
         html = (BASE_DIR / "base.html").read_text()
-        for k in ["{{FONTS_CSS}}", "{{BASE_CSS}}", "{{SCENE_CSS}}", "{{SCENE_HTML}}", "{{BASE_JS}}", "{{SCENE_JS}}", "{{DATA_JSON}}", "{{LANG}}", "{{TITLE}}", "{{PRESET}}", "{{D}}"]:
+        for k in ["{{FONTS_CSS}}", "{{BASE_CSS}}", "{{SCENE_CSS}}", "{{MEDIA_HTML}}", "{{SCENE_HTML}}", "{{BASE_JS}}", "{{SCENE_JS}}", "{{DATA_JSON}}", "{{LANG}}", "{{TITLE}}", "{{PRESET}}", "{{D}}"]:
             html = html.replace(k, rep[k])
         (self.proj / "index.html").write_text(html, encoding="utf-8")
         (self.proj / "hyperframes.json").write_text(json.dumps({
@@ -637,6 +730,15 @@ class Job:
             "media": {"autoProxy": True}}, indent=2))
         (self.proj / "meta.json").write_text(json.dumps({"id": self.id, "name": b.get("title", self.id)}, indent=2))
         self.stage("build", project=str(self.proj), html_kb=round(len(html.encode()) / 1024, 1))
+
+    def _scene_part(self, name):
+        """Template file, prefixed by its shared engine (template.SHARED = '_spotlight' -> templates/_spotlight/<name>)."""
+        parts = []
+        shared = getattr(self.tpl, "SHARED", None)
+        for d in ([TPL_DIR / shared] if shared else []) + [self.tpl.DIR]:
+            if (d / name).exists():
+                parts.append((d / name).read_text())
+        return "\n".join(parts)
 
     # 7-8 -------------------------------------------------------------
     def gates_and_render(self):
@@ -744,9 +846,11 @@ class Job:
         self.work.mkdir(parents=True)
         self.voice_and_layout()
         release_tts()
+        _trim_memory()
         self.word_timings()
         self.audio()
         self.build()
+        _trim_memory()
         mp4 = self.gates_and_render()
         if mp4:
             self.qa_and_kit(mp4)

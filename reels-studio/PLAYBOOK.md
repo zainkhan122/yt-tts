@@ -167,6 +167,13 @@ Never promise DMs we can't send.
 - **safe zones:** top 220 px, bottom 380 px, right 120 px are kept free of key text;
 - the cover frame (frame 0) shows the hook text + the most striking visual.
 
+**Built (2026-10-08): `templates/repo-spotlight` (F1) + `templates/tool-spotlight` (F2)** on one shared engine `templates/_spotlight/`:
+- **Scene types:** clip (official demo, blurred fill + card, hook headline), clip-montage (word-anchored cuts + label chips, whip), page (browser frame, camera to regions, cursor click + button state, stat count-up), scroll (README camera with highlight boxes + chips), steps (lit as spoken, optional figure), terminal (typed live), verdict (catches/pros as said), stat, image (Ken Burns), endcard (question + keyword chip + follow press).
+- **Layout bands:** heading 240–420 · media 430–1160 · captions centred at 1330 · bottom 380 px free. Captions sit *below* the media band (not upper-middle) because the media occupies the middle.
+- **Text:** `{GTA V|GTA Five}` shows "GTA V" but speaks "GTA Five" (channel lexicon applies too); `*word*` in a heading = yellow.
+- **Editing rules in code:** every event is anchored to the real voice words; montage cuts never outlive their shot; a montage continues where the previous clip of the same source stopped; frame 0 shows headline + sub (cover).
+- **Fact gate worked:** re-verifying video #1 on render day caught 2 outdated claims (stars passed 5k; the repo's rules changed from "single-player only" to "any game you own, no online anti-cheat"). Keep `verify_before_render` mandatory.
+
 **AI labels:** if a video ever uses AI-generated realistic footage, apply the platform's AI label (TikTok shows "AI-generated", as dr_cintas does). Our motion graphics + TTS narration don't require it.
 
 ## 7. Assets policy
