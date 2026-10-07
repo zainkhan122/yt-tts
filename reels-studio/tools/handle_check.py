@@ -40,7 +40,7 @@ def tiktok(h):
     m = re.search(r'"webapp\.user-detail":\{.*?"statusCode":(\d+)', html, re.S)
     if m:
         code = int(m.group(1))
-        return "TAKEN" if code == 0 else "free" if code in (10221, 10202, 10223) else f"?{code}"
+        return "TAKEN" if code in (0, 10222) else "free" if code in (10221, 10202) else f"?{code}"  # 10222 = private account (exists)
     if f'"uniqueId":"{h}"' in html.lower() or f'"uniqueid":"{h}"' in html.lower():
         return "TAKEN"
     return "?"

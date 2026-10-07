@@ -158,8 +158,16 @@ def run_edge(out):
 
 # ---------------------------------------------------------------- scoring
 
+def _ffmpeg():
+    exe = shutil.which("ffmpeg")
+    if not exe:
+        import imageio_ffmpeg
+        exe = imageio_ffmpeg.get_ffmpeg_exe()
+    return exe
+
+
 def _decode16k(p):
-    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(p), "-ac", "1", "-ar", "16000", "-f", "f32le", "-"],
+    raw = subprocess.run([_ffmpeg(), "-v", "error", "-i", str(p), "-ac", "1", "-ar", "16000", "-f", "f32le", "-"],
                          capture_output=True, check=True).stdout
     return np.frombuffer(raw, np.float32).copy()
 
@@ -196,7 +204,7 @@ def score(indir, out):
         heard = " ".join(s.text.strip() for s in segs)
         wer = jiwer.wer(ref, " ".join(_norm_words(heard)))
         dur = len(w) / 16000
-        subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(p), "-af", "loudnorm=I=-15:TP=-1.5", "-ac", "1",
+        subprocess.run([_ffmpeg(), "-y", "-v", "error", "-i", str(p), "-af", "loudnorm=I=-15:TP=-1.5", "-ac", "1",
                         "-ar", "24000", "-b:a", "96k", str(out / f"{name}.mp3")], check=True)
         rows.append({"name": name, "engine": meta.get("engine", "kokoro" if name.startswith("kokoro") else "?"),
                      "license": meta.get("license", LICENSE.get("kokoro") if name.startswith("kokoro") else "?"),

@@ -32,6 +32,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install ${{ matrix.engine }}
+        timeout-minutes: 20
         run: bash reels-studio/cloud/install.sh ${{ matrix.engine }}
       - name: Generate
         run: python reels-studio/cloud/tts_audition.py run ${{ matrix.engine }} --out out
@@ -63,6 +64,7 @@ jobs:
           path: samples
           merge-multiple: true
       - name: Install scorer
+        timeout-minutes: 12
         run: bash reels-studio/cloud/install.sh score
       - name: Score
         run: python reels-studio/cloud/tts_audition.py score --in samples --out results

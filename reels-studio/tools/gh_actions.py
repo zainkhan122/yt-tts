@@ -6,6 +6,7 @@
   gh_actions.py jobs <run_id>                                job/step status table
   gh_actions.py logs <job_id> [--tail 60] [--grep REGEX]     tail of one job's log
   gh_actions.py download <run_id> <artifact> <dest_dir>      fetch + unzip an artifact
+  gh_actions.py cancel <run_id>                              cancel a run (uploaded artifacts are kept)
 """
 import argparse
 import io
@@ -121,6 +122,7 @@ def main():
     p = sub.add_parser("jobs"); p.add_argument("run_id")
     p = sub.add_parser("logs"); p.add_argument("job_id"); p.add_argument("--tail", type=int, default=60); p.add_argument("--grep")
     p = sub.add_parser("download"); p.add_argument("run_id"); p.add_argument("artifact"); p.add_argument("dest")
+    p = sub.add_parser("cancel"); p.add_argument("run_id")
     a = ap.parse_args()
     if a.cmd == "dispatch":
         dispatch(a.workflow, dict(kv.split("=", 1) for kv in a.input))
@@ -130,6 +132,9 @@ def main():
         print(job_table(a.run_id))
     elif a.cmd == "logs":
         logs(a.job_id, a.tail, a.grep)
+    elif a.cmd == "cancel":
+        s, d = api("POST", f"/actions/runs/{a.run_id}/cancel")
+        print("cancel:", s, "(202 = accepted)")
     else:
         download(a.run_id, a.artifact, a.dest)
 

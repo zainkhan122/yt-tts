@@ -17,8 +17,9 @@ case "$E" in
   orpheus) $PIP orpheus-cpp soundfile scipy
            $PIP llama-cpp-python --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu ;;
   edge)    $PIP edge-tts soundfile ;;
-  score)   sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
-           $PIP $CPU torch torchaudio faster-whisper soundfile librosa jiwer ;;
+  score)   # no apt (apt-get on runners can stall for 10+ min); static ffmpeg comes from imageio-ffmpeg
+           $PIP --index-url https://download.pytorch.org/whl/cpu torch torchaudio
+           $PIP faster-whisper jiwer soundfile imageio-ffmpeg ;;
   *) echo "unknown engine $E"; exit 2 ;;
 esac
 python -m pip list 2>/dev/null | grep -i -E "^(torch|torchaudio|chatterbox|qwen|orpheus|llama|edge|faster)" || true
