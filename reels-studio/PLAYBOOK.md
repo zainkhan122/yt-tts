@@ -3,7 +3,7 @@
 How we go from "a new tool appeared" to "a highly professional video posted on YouTube, TikTok, Instagram, Facebook and X". Built on evidence:
 - **270 videos** (30 each) from 9 benchmark TikTok accounts, with transcripts and frame-level visual analysis;
 - an 11-video pilot scan;
-- a 21-channel watchlist;
+- a 32-source registry (TikTok, YouTube, web feeds);
 - 2026 platform SEO rules.
 
 Technical details (tools, commands) live in [`PIPELINE.md`](PIPELINE.md). Session plan: [`PHASES.md`](PHASES.md). Raw evidence:
@@ -56,7 +56,7 @@ Technical details (tools, commands) live in [`PIPELINE.md`](PIPELINE.md). Sessio
 ## 2. Content engine: where every video idea comes from
 
 ```
-watchlist (21 TikTok + YouTube channels) ──► idea_feed (daily, 2 min) ──► consensus topics (≥2 channels in 7 days)
+sources (32: TikTok, YouTube, web feeds) ──► idea_feed (daily, 2 min) ──► consensus topics (≥2 channels in 7 days)
 GitHub/HF radar (stars/day) ───────────────┘                                   │
                                                   verify on primary sources ◄──┘
                                                   score (rubric ≥ 60) ──► topics/backlog.csv ──► today's 1–2 videos
@@ -64,7 +64,7 @@ GitHub/HF radar (stars/day) ───────────────┘    
 
 - **Ride the wave (the user's rule):** when watchlist channels converge on a tool, we cover it **within 24–72 h** to sit in the same search and recommendation cluster. Our video must still be **our own research + our own angle** (the honest catch, a real demo, a comparison). Same topic, not the same video.
 - **Original picks:** the radar finds repos before the watchlist does (stars/day). Roughly 1 in 3 videos should be "first to cover".
-- **Daily:** `python3 tools/idea_feed.py`. **Weekly:** `radar` + `channel_study` on 3 new accounts. **Monthly:** re-study the benchmark accounts.
+- **Add sources any time:** `python3 tools/sources.py add <url>` (verified on add). Every scan is saved to `research/sources/posts.csv` (git-tracked history). **Daily:** `python3 tools/idea_feed.py`. **Weekly:** `radar` + `channel_study` on 3 new accounts. **Monthly:** re-study the benchmark accounts.
 
 ## 3. Formats (what we produce)
 
@@ -123,7 +123,12 @@ Never promise DMs we can't send.
 
 ## 5. Voice and audio
 
-- **Channel voice:** Kokoro (Apache-2.0, commercial-safe). Picked once by the user from `research/voice-audition/`, with speed calibrated to **~175–185 wpm** (e.g. af_heart ×1.25–1.30).
+- **Channel voice (user's choice): `af_heart`, energetic.** Kokoro (Apache-2.0) at ×1.28 (~190 wpm, within the 183–209 wpm range of energetic benchmark creators). The energy comes from:
+  - pace;
+  - **exclamation-led hook and payoff lines** (Kokoro emphasises them);
+  - a **"creator-mic" chain**: +0.4 semitone lift, presence and air EQ, punchy compression (`voice_fx: energetic`).
+  
+  Whisper intelligibility is unchanged (95.2%). Optional extra brightness: `voice_blend: {"af_bella": 0.25}`. Samples: `research/voice-audition/energetic/`.
 - **Mix:** VO at −14 LUFS integrated, peak ≤ −1 dBFS. Our own generated music sits under the voice. SFX:
   - whoosh on transitions;
   - click on cursor taps;
@@ -217,7 +222,21 @@ Each render's `post.md` will carry **one ready block per platform** (Phase 4: `t
 
 ## 10. Publishing workflow and cadence
 
-- **Cadence target:** 1 video/day (F1 Repo Drop most days, F2 3×/week, F3 weekly). Each render takes ~10 min and runs once per agent session.
+- **Cadence target: 3–5 shorts/day.** Typical mix: 2–3 × F1 Repo Drop, 1–2 × F2 Tool Spotlight, plus F3 Weekly Top 5 on Sundays.
+- **How 3–5/day is possible:**
+  - **Cloud render on GitHub Actions** renders all of the day's videos **in parallel**. It's free for this public repo; GitHub's standard runner for public repos has 4 vCPU and 16 GB.
+  - The sandbox renders only ~1 video per 10 min and resets between sessions, so it is used for drafts and previews only.
+- **Daily agent session (~45–60 min):**
+  1. bootstrap;
+  2. `idea_feed` + radar;
+  3. pick 3–5 topics (rubric);
+  4. capture packs;
+  5. write briefs + `seo_pack`;
+  6. `--no-render` gates;
+  7. push → dispatch cloud renders;
+  8. review the contact sheets;
+  9. post kits ready in Releases.
+- **Requires:** the GitHub token's **Workflows: Read and write** and **Actions: Read and write** permissions. Tested on 2026-10-07: currently missing (HTTP 403).
 - **Order:** TikTok + YouTube Shorts first (search indexing), then IG Reels (or a Trial Reel first), then FB and X. Always upload the clean MP4 natively; never repost a watermarked file.
 - **First hour:** pin the link comment, reply to early comments (engagement velocity), and log the 24 h metrics in `tracker/content-tracker.csv`.
 - **Posting times:** no data yet. Test 3 slots for 2 weeks and keep the best.
@@ -233,9 +252,10 @@ Each render's `post.md` will carry **one ready block per platform** (Phase 4: `t
 |---|---|---|
 | ✅ 1–2 | capture kit, social scan, pipeline doc, voice audition | done |
 | ✅ 3 (this) | channel study (270 videos), watchlist, idea feed, this PLAYBOOK, platform SEO research | done |
-| 4 | **templates**: `repo-drop` + `tool-spotlight` with the scene library + winner caption style; **`seo_pack.py`** | preview stills + SEO blocks |
-| 5 | **render video #1** (universal-modder) + full multi-platform post kit | ready-to-post MP4 + 5 platform blocks |
-| 6 | **daily engine**: idea feed → auto-drafted briefs → capture → render 1/session; tracker | 1 video/day pipeline |
+| ✅ 4a | token persistence, 32-source registry + post history, energetic voice, channel handles, 3–5/day design | done |
+| 4b | **templates**: `repo-drop` + `tool-spotlight` (scene library + winner caption style) | preview stills |
+| 5 | **cloud render** (GitHub Actions matrix: N briefs in parallel → Releases) + **video #1** | ready-to-post MP4 + 5 platform blocks |
+| 6 | **daily engine: 3–5 shorts/day** (idea feed → briefs → capture → cloud render → post kits); tracker | 3–5 videos/day |
 | 7 | optional: official upload APIs (YouTube Data API, IG Graph API, TikTok Content Posting), GitHub Actions cloud render, Urdu/Hindi line | |
 
 ## 13. Risk register

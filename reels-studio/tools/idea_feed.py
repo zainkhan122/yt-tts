@@ -14,6 +14,7 @@ import datetime as dt
 import json
 import re
 import subprocess
+import sys
 import time
 from pathlib import Path
 
@@ -24,8 +25,12 @@ claude code chatgpt gpt gemini cursor codex openai google meta llm agent agents 
 video videos image images api apis day week today 2026 part follow comment link bio save share
 youtube tiktok instagram facebook twitter reddit discord linkedin javascript typescript python rust golang java linux windows
 macos mac iphone android apple microsoft nvidia amazon aws chrome browser software developer developers coding programming
-webdev pcgaming gaming opensource aitools aiagents claudecode machinelearning tech technology tutorial productivity""".split())
-CAMEL = re.compile(r"\b([A-Z][a-z0-9]+(?:[A-Z][a-z0-9]+)+|[A-Z][a-z0-9]+(?:[-.][A-Z0-9][a-z0-9]+)+|[A-Z]{2,}[a-z]+[A-Za-z]*)\b")  # MeshAvatarStudio, Open-Sora, GoLive
+webdev pcgaming gaming opensource aitools aiagents claudecode machinelearning tech technology tutorial productivity
+china india usa europe japan korea pakistan america gpu gpus cpu ram laptop phone startup startups business ceo""".split())
+CAMEL = re.compile(r"\b([A-Z][a-z0-9]+(?:[A-Z][a-z0-9]+)+"            # MeshAvatarStudio, GoLive
+                   r"|[A-Z][a-z0-9]+(?:[-.][A-Z0-9][A-Za-z0-9]*)+"     # Qwen3-VL, Open-Sora (filtered unless digit/CAPS)
+                   r"|[A-Z]{2,}[-.]?\d[\w.]*(?:\s[A-Z][a-z]+)?"        # GPT-6 Astra, SD3.5, GLM-5.2
+                   r"|[A-Z]{2,}[a-z]+[A-Za-z]*)\b")                  # ComfyUI-like
 LEAD = re.compile(r"^\W*(?:meet |introducing |this is |it's called )?([A-Z][\w.+-]{2,}(?:\s[A-Z][\w.+-]{2,})?)\s*(?::|is|lets|turns|transforms|just|can|helps|makes|—|-)\s", re.I)
 
 
@@ -39,6 +44,8 @@ def topics(text):
         found.setdefault(m.group(1).lower(), m.group(1))
     for m in CAMEL.finditer(text):
         w = m.group(1)
+        if "-" in w and not re.search(r"\d|[A-Z]{2,}", w):  # "Self-Educated", "Real-Time" = words; keep "GPT-6", "Qwen3-VL"
+            continue
         if w.lower() not in STOP and len(w) > 3:
             found.setdefault(w.lower(), w)
     return found  # key -> display (or owner/repo)
@@ -50,33 +57,29 @@ def main():
     ap.add_argument("--per-channel", type=int, default=12)
     a = ap.parse_args()
     since = time.time() - a.days * 86400
-    chans = [r for r in csv.DictReader(open(ROOT / "research/watchlist.csv")) if r["status"] == "active"]
+    sys.path.insert(0, str(ROOT / "tools"))
+    import sources  # registry + persistence: every scan is also saved to research/sources/posts.csv
+    got = sources.scan_all(latest=a.per_channel)
+    reg = {s["handle"]: s for s in sources.load()}
     agg = {}
-    for c in chans:
-        p = subprocess.run(["yt-dlp", "--flat-playlist", "--playlist-end", str(a.per_channel), "-J", "--no-warnings", c["url"]],
-                           capture_output=True, text=True, timeout=180)
-        try:
-            es = json.loads(p.stdout).get("entries") or []
-        except json.JSONDecodeError:
-            print(f"  ✗ {c['handle']}")
-            continue
-        n = 0
-        for e in es:
+    for handle, posts in got.items():
+        typ = reg.get(handle, {}).get("type", "web")
+        label = f"{ {'tiktok': 'tt', 'youtube': 'yt', 'rss': 'web'}.get(typ, typ) }:{handle}"
+        for e in posts:
             ts = e.get("timestamp") or 0
             if ts and ts < since:
                 continue
             text = " ".join(x for x in (e.get("title"), e.get("description")) if x)
             for key, disp in topics(text).items():
-                t = agg.setdefault(key, {"name": disp, "channels": set(), "views": 0, "best": None, "first": ts or time.time()})
-                t["channels"].add(f"{c['platform'][:2]}:{c['handle']}")
-                t["views"] += e.get("view_count") or 0
+                tp = agg.setdefault(key, {"name": disp, "channels": set(), "views": 0, "best": None, "first": ts or time.time()})
+                tp["channels"].add(label)
+                tp["views"] += e.get("views") or 0
                 if "/" in disp:
-                    t["name"] = disp
-                if not t["best"] or (e.get("view_count") or 0) > t["best"][0]:
-                    t["best"] = ((e.get("view_count") or 0), e.get("url"))
-                t["first"] = min(t["first"], ts or t["first"])
-            n += 1
-        print(f"  ✓ {c['platform']:7s} {c['handle']:16s} {n} posts in window")
+                    tp["name"] = disp
+                if not tp["best"] or (e.get("views") or 0) > tp["best"][0]:
+                    tp["best"] = ((e.get("views") or 0), e.get("url"))
+                tp["first"] = min(tp["first"], ts or tp["first"])
+    chans = list(got)
     ranked = sorted(agg.values(), key=lambda t: (-len(t["channels"]), -t["views"]))
     today = dt.date.today().isoformat()
     L = [f"# Idea feed: {today} (last {a.days} days, {len(chans)} watchlist channels)", "",

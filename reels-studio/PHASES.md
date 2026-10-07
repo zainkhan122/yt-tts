@@ -16,10 +16,11 @@ Fully-made, ready-to-share AI-tools explainer videos (YouTube Shorts, Reels, Tik
 |---|---|---|---|
 | 1 | Social research + **capture kit** + real assets for video #1 | `tools/capture.py`, `captures/universal-modder/`, storyboard | ✅ done |
 | 2 | **System pipeline** + social script extractor + voice audition | `PIPELINE.md`, `tools/social_scan.py`, `research/voice-audition/` | ✅ done |
-| 3 | **Deep channel study**: 9 benchmark accounts × 30 videos (stats, transcripts, visual analysis), **watchlist** (21 channels), **idea feed**, platform SEO, the end-to-end **PLAYBOOK** | `PLAYBOOK.md`, `research/social/study-*.md`, `research/watchlist.csv`, `tools/channel_study.py`, `tools/idea_feed.py` | ✅ done (transcripts resume in the background next session if unfinished) |
-| 4 | **Templates** `repo-drop` + `tool-spotlight` (scene library + winner caption style) + **`seo_pack.py`** (5 platform blocks, limits validated) | preview stills + SEO blocks | **next** |
-| 5 | **Render video #1** + full multi-platform post kit | ready-to-post MP4 | |
-| 6 | **Daily engine**: idea feed → auto briefs → capture → 1 render/session; tracker | 1 video/day | |
+| 3 | **Deep channel study**: 9 benchmark accounts × 30 videos (stats, transcripts, visual analysis), **watchlist** (21 channels), **idea feed**, platform SEO, the end-to-end **PLAYBOOK** | `PLAYBOOK.md`, `research/social/study-*.md`, `research/sources.csv`, `tools/channel_study.py`, `tools/idea_feed.py` | ✅ done (transcripts resume in the background next session if unfinished) |
+| 4a | **Foundations for scale**: persistent token + commit secret-scan, **source registry** (32: TikTok/YouTube/web, `tools/sources.py`, post history in `research/sources/posts.csv`), energetic af_heart voice (`voice_fx`), handle options, `seo_pack.py`, 3–5/day architecture | all of these | ✅ done |
+| 4b | **Templates** `repo-drop` + `tool-spotlight` (scene library + winner caption style) | preview stills | **next** |
+| 5 | **Cloud render** on GitHub Actions (needs token Workflows + Actions permissions) + **video #1** | ready-to-post MP4 | |
+| 6 | **Daily engine: 3–5 shorts/day** | 3–5 videos/day | |
 | 7 | optional: official upload APIs, cloud render, Urdu/Hindi line | | |
 
 ## Asset policy (what goes into our videos)

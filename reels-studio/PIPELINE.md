@@ -17,7 +17,7 @@ The agent runs every stage. The user's only jobs are an optional veto on topics 
 |---|---|---|---|
 | GitHub: new AI repos ranked by **stars/day** | `reels.py radar` | tools, agents, MCP servers, generators that are taking off | weekly (Mon) |
 | Hugging Face trending models + Spaces | `reels.py radar` | new open models, free "try it" apps (image/video/voice) | weekly |
-| **Watchlist channels** (21 TikTok + YouTube, `research/watchlist.csv`) | `tools/idea_feed.py` (daily) | tools/repos several channels covered this week (**consensus ≥ 2 = trend**) | daily |
+| **Source registry** (32+: TikTok, YouTube Shorts/long-form, web feeds such as GitHub Trending, Product Hunt, Hugging Face, Reddit; `research/sources.csv`, add with `tools/sources.py add <url>`, history in `research/sources/posts.csv`) | `tools/idea_feed.py` (daily) | tools/repos several channels covered this week (**consensus ≥ 2 = trend**) | daily |
 | **TikTok / YouTube Shorts / Instagram** explainer accounts | `reels.py social` + `tools/channel_study.py` | which tools creators cover, **which videos got traction**, their scripts, hooks and CTAs | weekly scan of ~6 accounts, top 2 each |
 | News / launches | agent web search | big launches (models, free tiers, price drops) | as needed |
 | Official free-tier pages | agent + `reels.py capture` | legit free API quotas / free plans, verified on the day | monthly refresh |
@@ -174,6 +174,7 @@ Template = HTML/GSAP scenes rendered by HyperFrames (deterministic, frame-exact)
 | Images | Pillow | HPND | preinstalled |
 | Trend data | GitHub REST API, Hugging Face API | free | none needed |
 | Research | agent web search + page fetch | – | agent |
+| Cloud render (3–5/day) | GitHub Actions matrix (public repo = free) | free | needs token Workflows + Actions permissions |
 | Storage / SSOT | GitHub repo + Releases | free | token in `~/.config/reels-studio/` (persistent, outside git) |
 
 **Known access limits (tested 2026-10-07):**

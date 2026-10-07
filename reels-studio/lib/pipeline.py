@@ -136,10 +136,29 @@ def release_tts():
         pass
 
 
+# "Creator mic" presets: +0.4 semitone lift (duration kept via atempo), de-mud, presence + air, punchy compression
+VOICE_FX = {
+    "energetic": ("asetrate={sr}*1.0234,aresample={sr},atempo=0.97714,equalizer=f=180:t=q:w=1:g=-1.5,"
+                  "equalizer=f=3200:t=q:w=1.0:g=3,highshelf=f=9000:g=2.5,acompressor=threshold=0.1:ratio=3:attack=4:release=80:makeup=1.6"),
+}
+
+
+def apply_voice_fx(vo, sr, preset):
+    if not preset or preset not in VOICE_FX:
+        return vo
+    tin, tout = Path("/tmp/vofx-in.wav"), Path("/tmp/vofx-out.wav")
+    sf.write(tin, vo, sr, subtype="FLOAT")
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(tin), "-af", VOICE_FX[preset].format(sr=sr), "-ar", str(sr), "-ac", "1", str(tout)], check=True)
+    out, _ = sf.read(tout, dtype="float32")
+    out = out[:len(vo)] if len(out) >= len(vo) else np.pad(out, (0, len(vo) - len(out)))  # exact same length = same timing
+    peak = float(np.max(np.abs(out))) or 1.0
+    return out / peak * 0.99 if peak > 0.99 else out
+
+
 class KokoroVoice:
     """One shared Kokoro model; any number of (voice, lang) speakers. lang 'ur' = espeak-ng Urdu phonemizer
     (experimental: Kokoro has no Urdu voice, but a Hindi voice + Urdu phonemes measured 87% whisper char-match)."""
-    def __init__(self, voice, speed, lang):
+    def __init__(self, voice, speed, lang, blend=None):
         global _KOKORO
         if not KOKORO_MODEL.exists():
             say("downloading Kokoro model via `hyperframes tts` (first run)...")
@@ -149,6 +168,11 @@ class KokoroVoice:
             _KOKORO = Kokoro(str(KOKORO_MODEL), str(KOKORO_VOICES))
         self.k = _KOKORO
         self.voice, self.speed, self.lang = voice, speed, lang
+        if blend:  # e.g. {"af_bella": 0.25} -> 75% voice + 25% af_bella style vector (brighter, same identity)
+            style = (1 - sum(blend.values())) * self.k.get_voice_style(voice)
+            for name, w in blend.items():
+                style = style + w * self.k.get_voice_style(name)
+            self.voice = style.astype(np.float32)
 
     def __call__(self, text):
         samples, sr = self.k.create(text, voice=self.voice, speed=self.speed, lang=self.lang)
@@ -362,7 +386,7 @@ class Job:
         chan_path = ROOT / "config" / "channel.json"
         if chan_path.exists():
             chan = json.loads(chan_path.read_text(encoding="utf-8"))
-            for k in ("voice", "speed", "lang", "style"):
+            for k in ("voice", "speed", "lang", "style", "voice_fx", "voice_blend"):
                 if k in chan and k not in self.brief:
                     self.brief[k] = chan[k]
             if "brand" in chan:
@@ -405,7 +429,7 @@ class Job:
             for s in segs:
                 key = (s.get("voice", voice_cfg), s.get("lang", lang), float(s.get("speed", speed)))
                 if key not in speakers:
-                    speakers[key] = KokoroVoice(key[0], key[2], key[1])  # (voice, speed, lang)
+                    speakers[key] = KokoroVoice(key[0], key[2], key[1], blend=b.get("voice_blend") if key[0] == voice_cfg else None)  # (voice, speed, lang)
                 clips.append(speakers[key](spoken_clean(s["text"])) if s.get("text") else (None, 24000))
             engine = " + ".join(f"kokoro {v} x{sp} ({l})" for v, l, sp in speakers)
         # layout
@@ -436,6 +460,8 @@ class Job:
             i = int(round(at * sr))
             vo[i:i + len(a)] += a[: max(0, len(vo) - i)]
         self.work.mkdir(parents=True, exist_ok=True)
+        if voice_cfg != "files":
+            vo = apply_voice_fx(vo, sr, b.get("voice_fx"))  # e.g. "energetic" (channel default); own recordings stay untouched
         self.vo_path = self.work / "vo.wav"
         sf.write(self.vo_path, vo, sr, subtype="PCM_16")
         for sid in order:

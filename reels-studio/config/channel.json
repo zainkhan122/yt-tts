@@ -1,9 +1,28 @@
 {
  "_note": "Channel defaults (SSOT for brand + voice). Briefs inherit these unless they override. Handle is a placeholder until the user provides theirs.",
- "brand": {"handle": "@tested.ai", "name": "Tested AI", "tagline": "Trending AI tools, minus the hype", "accent": "#7C9CFF", "accent2": "#5EEAD4"},
+ "brand": {
+  "handle": "@tested.ai",
+  "name": "Tested AI",
+  "tagline": "Trending AI tools, minus the hype",
+  "accent": "#7C9CFF",
+  "accent2": "#5EEAD4"
+ },
  "voice": "af_heart",
- "speed": 1.05,
+ "speed": 1.28,
  "lang": "en-us",
  "style": "midnight",
- "lexicon": {"GitHub": "git hub", "Kokoro": "ko-ko-ro", "Claude": "clawed", "GPT": "G P T", "MCP": "M C P", "LLM": "L L M", "API": "A P I", "UI": "U I", "fal": "fal"}
+ "lexicon": {
+  "GitHub": "git hub",
+  "Kokoro": "ko-ko-ro",
+  "Claude": "clawed",
+  "GPT": "G P T",
+  "MCP": "M C P",
+  "LLM": "L L M",
+  "API": "A P I",
+  "UI": "U I",
+  "fal": "fal"
+ },
+ "voice_fx": "energetic",
+ "voice_blend": {},
+ "_voice_note": "User choice: af_heart, energetic (sample B in research/voice-audition/energetic). For extra brightness set voice_blend {\"af_bella\": 0.25} (sample C)."
 }
