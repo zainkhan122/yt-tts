@@ -1,0 +1,119 @@
+{
+  "id": "repo-removemacai-01",
+  "template": "repo-spotlight",
+  "brief": "briefs/repo-removemacai-01.json",
+  "stages": {
+    "voice": {
+      "engine": "kokoro am_michael x1.15 (en-us)",
+      "lines": 7,
+      "duration": "37.23s",
+      "secs": 23.1
+    },
+    "words": {
+      "method": "waveform-anchored",
+      "whisper_char_match": "98.9%",
+      "word_diffs": "macos gb removemacai fixes nine chatgpt the macos",
+      "secs": 24.5
+    },
+    "audio": {
+      "music": "pulse/minor_pop 112bpm key+1 seed27129",
+      "sfx": 23,
+      "loudness": "-14.2 LUFS",
+      "peak": "-1.5 dBFS"
+    },
+    "build": {
+      "project": "/var/tmp/reels/repo-removemacai-01/project",
+      "html_kb": 70.8
+    },
+    "lint": {
+      "errors": 0,
+      "warnings": 4
+    },
+    "check": {
+      "ok": true,
+      "secs": 41.3,
+      "summary": "[hyperframes] browserGpuMode probe → software (WebGL renderer vendor=\"Google Inc. (Mesa)\" renderer=\"ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL ES 3.2)"
+    },
+    "render": {
+      "secs": 1606.2,
+      "mb": 12.26,
+      "quality": "looks",
+      "crf": 23
+    },
+    "qa": {
+      "passed": "6/6",
+      "failed": "-",
+      "out": "reels-studio/renders/repo-removemacai-01"
+    }
+  },
+  "assets": 4,
+  "qa": {
+    "duration": 37.233,
+    "frames": 1117,
+    "video": "h264 1080x1920 30/1",
+    "audio": "aac 48000Hz 2ch",
+    "loudness_lufs": -14.3,
+    "peak_dbfs": -1.2,
+    "size_mb": 12.26,
+    "checks": {
+      "1080x1920": true,
+      "30fps": true,
+      "h264+aac": true,
+      "duration_matches": true,
+      "loudness_-14±1": true,
+      "peak<=-1dBFS": true
+    }
+  },
+  "timing": {
+    "hook": {
+      "start": 0.25,
+      "end": 2.7,
+      "text": "Here's how to fully turn off Apple Intelligence."
+    },
+    "problem": {
+      "start": 2.88,
+      "end": 9.58,
+      "text": "macOS 27 removed the single switch, and keeps about 12 GB of AI models on your disk."
+    },
+    "name": {
+      "start": 9.91,
+      "end": 15.32,
+      "text": "RemoveMacAI fixes it, with over 3,700 GitHub stars in nine days."
+    },
+    "features": {
+      "start": 15.6,
+      "end": 22.66,
+      "text": "It switches off Siri, Genmoji and ChatGPT, plus analytics and ads. You review every change first."
+    },
+    "install": {
+      "start": 22.92,
+      "end": 24.35,
+      "text": "Install it with one line."
+    },
+    "catch": {
+      "start": 25.28,
+      "end": 32.37,
+      "text": "The catch: Apple silicon and macOS 27 only. But it's free, open source, and you can undo everything."
+    },
+    "cta": {
+      "start": 32.75,
+      "end": 35.71,
+      "text": "Would you turn it off? Comment MAC and I'll pin the link."
+    }
+  },
+  "music": {
+    "style": "pulse",
+    "progression": "minor_pop",
+    "bpm": 112,
+    "seed": 27129,
+    "key": 1
+  },
+  "sources": [
+    "GitHub API 2026-10-08: omlahore/RemoveMacAI 3,732 stars, 100 forks, MIT, created 2026-09-29",
+    "README read 2026-10-08: turns off Siri, Writing Tools, Genmoji, Image Playground, ChatGPT, summaries; models deleted and blocked from downloading again; nothing changes until you click Apply; every change can be undone; Apple silicon, macOS 27 only",
+    "The Verge 2026-10-05 (Stevie Bonifield): the single Apple Intelligence toggle was removed in macOS 27; models stay on disk; developer says about 12 GB",
+    "Official demo docs/terminal.gif: 'Models on disk 12.2 GB' ... 'Done. Apple Intelligence is off and 12.2 GB is free.'",
+    "Also covered by Ars Technica, The Register, MacRumors, AppleInsider (README press list)"
+  ],
+  "total_secs": 1714.4
+}

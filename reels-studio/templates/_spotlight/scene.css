@@ -74,8 +74,9 @@
 .sp-stat .n { font: 400 140px/1.16 "Anton"; color: var(--cap-key); letter-spacing: 0.01em; display: flex; align-items: center; gap: 18px; }
 .sp-stat .n svg { width: 96px; height: 96px; }
 .sp-stat .l { margin-top: 16px; font: 800 36px/1.1 "Inter"; color: #fff; text-transform: uppercase; letter-spacing: 0.04em; }
-.sp-bigstat { top: 620px; height: 460px; }
-.sp-bigstat .n { font-size: 230px; }
+.sp-bigstat { top: 590px; height: 540px; }
+.sp-bigstat .n { font-size: 220px; line-height: 1.22; }
+.sp-bigstat .l { margin-top: 30px; padding: 0 30px; text-align: center; }
 
 /* ---------- steps ---------- */
 .sp-steps { position: absolute; left: 60px; right: 60px; top: 900px; height: 340px; display: flex; flex-direction: column; gap: 6px;

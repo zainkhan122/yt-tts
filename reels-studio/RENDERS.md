@@ -18,3 +18,7 @@
 | `cover.jpg` | 0.2 MB | `renders-2026-10-08` | [download](https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-08/cover.jpg) |
 | `contact.jpg` | 0.2 MB | `renders-2026-10-08` | [download](https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-08/contact.jpg) |
 | `captures-universal-modder-2026-10-07.tar` | 12.0 MB | `renders-2026-10-08` | [download](https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-08/captures-universal-modder-2026-10-07.tar) |
+| `repo-removemacai-01.mp4` | 12.3 MB | `renders-2026-10-08` | [download](https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-08/repo-removemacai-01.mp4) |
+| `repo-removemacai-01-cover.jpg` | 0.1 MB | `renders-2026-10-08` | [download](https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-08/repo-removemacai-01-cover.jpg) |
+| `repo-removemacai-01-contact.jpg` | 0.2 MB | `renders-2026-10-08` | [download](https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-08/repo-removemacai-01-contact.jpg) |
+| `captures-removemacai-2026-10-08.tar` | 5.1 MB | `renders-2026-10-08` | [download](https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-08/captures-removemacai-2026-10-08.tar) |

@@ -175,7 +175,8 @@
           }
           function statBadge(root, st, t, big) {
             const v = typeof st.value === "number" ? st.value : Number(getPath(st.from)) || 0;
-            const fmt = st.format === "compact" ? fmtCompact : fmtFull;
+            const base = st.format === "compact" ? fmtCompact : st.decimals ? (v) => Number(v).toFixed(st.decimals) : fmtFull;
+            const fmt = (v) => (st.prefix || "") + base(v) + (st.suffix || "");  // e.g. decimals:1 + suffix " GB" -> "12.2 GB"
             const card = A.mk("div", "sp-stat" + (big ? " sp-bigstat" : ""), root);
             if (st.top) card.style.top = st.top + "px";
             const n = A.mk("div", "n", card);
@@ -315,6 +316,7 @@
             const lines = s.lines || [];
             heading(root, s.heading || `SETUP: *${lines.length}* COMMANDS`, t0 + 0.05);
             const term = A.mk("div", "sp-term", root);
+            term.style.height = Math.min(560, 230 + lines.length * 150) + "px";  // fit the window to the commands
             const bar = A.mk("div", "sp-bar", term);
             dots(bar);
             A.mk("div", "sp-term-title", term, s.title || "Terminal");

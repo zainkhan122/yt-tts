@@ -1,0 +1,218 @@
+{
+ "id": "repo-removemacai-01",
+ "template": "repo-spotlight",
+ "capture": "captures/removemacai",
+ "title": "Turn off Apple Intelligence on macOS 27",
+ "lang": "en-us",
+ "status": "v1 2026-10-08: facts verified same day (GitHub API, README, The Verge, official demo)",
+ "keywords": [
+  "Siri",
+  "Genmoji",
+  "ChatGPT",
+  "RemoveMacAI",
+  "undo"
+ ],
+ "facts": {
+  "stars": 3732,
+  "checked": "2026-10-08"
+ },
+ "credits_on_screen": "App screens & demo: github.com/omlahore/RemoveMacAI (MIT). Page: own capture.",
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "clip",
+   "src": "terminal-closeup.mp4",
+   "in": 10.4,
+   "out": 13.6,
+   "fit": "fill-blur",
+   "headline": "APPLE AI: *OFF*",
+   "sub": "Fully turn off Apple Intelligence",
+   "say": "Here's how to fully turn off Apple Intelligence."
+  },
+  {
+   "id": "problem",
+   "type": "stat",
+   "heading": "NO OFF *SWITCH*",
+   "value": 12.2,
+   "decimals": 1,
+   "suffix": " GB",
+   "icon": false,
+   "label": "AI models on disk (maker's Mac)",
+   "at": "12",
+   "say": "macOS 27 removed the single switch, and keeps about {12 GB|twelve gigs} of AI models on your disk."
+  },
+  {
+   "id": "name",
+   "type": "page",
+   "image": "desktop-top.jpg",
+   "url": "github.com/omlahore/RemoveMacAI",
+   "camera": [
+    {
+     "region": "repo_title",
+     "zoom": 1.6,
+     "at": "removemacai"
+    },
+    {
+     "region": "star_button",
+     "zoom": 2.6,
+     "at": "3700"
+    }
+   ],
+   "cursor": [
+    {
+     "region": "star_button",
+     "at": "stars",
+     "state": "★ Starred 3.7k"
+    }
+   ],
+   "say": "{RemoveMacAI|Remove Mac A I} fixes it, with over {3,700|thirty-seven hundred} GitHub stars in nine days."
+  },
+  {
+   "id": "features",
+   "type": "scroll",
+   "image": "desktop-full.jpg",
+   "heading": "WHAT IT *DOES*",
+   "stops": [
+    {
+     "region": "img_0_the-removemacai-app",
+     "label": "Siri, Genmoji, ChatGPT: off",
+     "zoom": 1.1,
+     "at": "siri"
+    },
+    {
+     "region": "img_4_privacy-settings-in-removemacai",
+     "label": "Analytics & ads: off",
+     "zoom": 1.1,
+     "at": "analytics"
+    },
+    {
+     "region": "img_5_reviewing-changes-before-they-ar",
+     "label": "Review every change",
+     "zoom": 1.2,
+     "at": "review"
+    }
+   ],
+   "say": "It switches off Siri, Genmoji and ChatGPT, plus analytics and ads. You review every change first."
+  },
+  {
+   "id": "install",
+   "type": "terminal",
+   "title": "Terminal",
+   "heading": "INSTALL IN *1* LINE",
+   "lines": [
+    "brew install omlahore/tap/removemacai"
+   ],
+   "outputs": [
+    "installed"
+   ],
+   "say": "Install it with one line."
+  },
+  {
+   "id": "catch",
+   "type": "verdict",
+   "image": "desktop-top.jpg",
+   "region": "about",
+   "zoom": 1.3,
+   "cons": [
+    "Apple silicon + macOS 27 only"
+   ],
+   "pros": [
+    "Free & open source (MIT)",
+    "Undo everything, anytime"
+   ],
+   "say": "The catch: Apple silicon and macOS 27 only. But it's free, open source, and you can undo everything."
+  },
+  {
+   "id": "cta",
+   "type": "endcard",
+   "keyword": "MAC",
+   "say": "Would you turn it off? Comment {MAC|mac} and I'll pin the link."
+  }
+ ],
+ "verify_before_render": [
+  "DONE 2026-10-08: GitHub API 3,732 stars / 100 forks / MIT / created 2026-09-29; README: features, models deleted + blocked from re-downloading, review before Apply, undo everything, Apple silicon + macOS 27 only, brew install line; The Verge 2026-10-05: single toggle removed in macOS 27, models stay on disk, ~12 GB; official demo: 12.2 GB freed"
+ ],
+ "sources": [
+  "GitHub API 2026-10-08: omlahore/RemoveMacAI 3,732 stars, 100 forks, MIT, created 2026-09-29",
+  "README read 2026-10-08: turns off Siri, Writing Tools, Genmoji, Image Playground, ChatGPT, summaries; models deleted and blocked from downloading again; nothing changes until you click Apply; every change can be undone; Apple silicon, macOS 27 only",
+  "The Verge 2026-10-05 (Stevie Bonifield): the single Apple Intelligence toggle was removed in macOS 27; models stay on disk; developer says about 12 GB",
+  "Official demo docs/terminal.gif: 'Models on disk 12.2 GB' ... 'Done. Apple Intelligence is off and 12.2 GB is free.'",
+  "Also covered by Ars Technica, The Register, MacRumors, AppleInsider (README press list)"
+ ],
+ "post": {
+  "titles": [
+   "Turn off Apple Intelligence on macOS 27 (free app)",
+   "macOS 27 removed the AI off switch. This brings it back",
+   "Delete ~12 GB of Apple AI models from your Mac"
+  ],
+  "caption": "macOS 27 removed the single switch for Apple Intelligence. RemoveMacAI (free, open source) turns it off, deletes the AI models and lets you undo everything.",
+  "hashtags": [
+   "#macOS",
+   "#AppleIntelligence",
+   "#MacTips",
+   "#opensource"
+  ],
+  "pinned_comment": "🔗 github.com/omlahore/RemoveMacAI (MIT). Needs Apple silicon + macOS 27. The app isn't notarized (macOS asks once). Undo anytime: removemacai revert. Covered by The Verge, Ars Technica and MacRumors."
+ },
+ "seo": {
+  "keyword": "turn off Apple Intelligence",
+  "aliases": [
+   "RemoveMacAI",
+   "delete Apple Intelligence",
+   "disable Apple Intelligence macOS 27"
+  ],
+  "onscreen_first3s": "APPLE AI: OFF / Fully turn off Apple Intelligence",
+  "youtube": {
+   "title": "Turn Off Apple Intelligence on macOS 27 (Free App) 🍏",
+   "description": "Turn off Apple Intelligence on macOS 27: Apple removed the single switch, and about 12 GB of AI models stay on disk. RemoveMacAI (free, open source) switches off Siri, Writing Tools, Genmoji and ChatGPT, deletes the models and blocks them from coming back. You review every change and can undo everything.\nThe catch: Apple silicon and macOS 27 only.\nRepo: github.com/omlahore/RemoveMacAI (MIT). Demo & screens: the official repo.",
+   "hashtags": [
+    "#Shorts",
+    "#macOS",
+    "#AppleIntelligence",
+    "#MacTips"
+   ],
+   "tags": [
+    "turn off Apple Intelligence",
+    "RemoveMacAI",
+    "macOS 27",
+    "delete Apple Intelligence",
+    "Mac tips",
+    "free Mac apps",
+    "open source"
+   ]
+  },
+  "tiktok": {
+   "caption": "Turn off Apple Intelligence on macOS 27 and get about 12 GB back 🍏 RemoveMacAI is free + open source, but there's one catch. Would you turn it off?",
+   "hashtags": [
+    "#macOS",
+    "#AppleIntelligence",
+    "#MacTips",
+    "#opensource"
+   ]
+  },
+  "instagram": {
+   "caption": "Turn off Apple Intelligence on macOS 27 🍏 RemoveMacAI switches off Siri, Genmoji and ChatGPT and deletes about 12 GB of AI models. Save this for later. Comment MAC and I'll pin the link.",
+   "hashtags": [
+    "#macOS",
+    "#AppleIntelligence",
+    "#MacTips",
+    "#opensource",
+    "#AItools"
+   ]
+  },
+  "facebook": {
+   "caption": "Turn off Apple Intelligence on macOS 27: RemoveMacAI (free, open source) deletes about 12 GB of AI models, and you can undo it. Would you turn it off?",
+   "hashtags": [
+    "#macOS",
+    "#AppleIntelligence",
+    "#MacTips"
+   ]
+  },
+  "x": {
+   "text": "Turn off Apple Intelligence on macOS 27: RemoveMacAI deletes ~12 GB of AI models, free + MIT 👇 github.com/omlahore/RemoveMacAI",
+   "hashtags": [
+    "#macOS"
+   ]
+  }
+ }
+}

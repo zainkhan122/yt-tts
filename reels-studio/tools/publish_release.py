@@ -63,6 +63,8 @@ def main():
     rows = []
     for f in map(Path, a.files):
         name = f.name
+        if f.parent.parent.name == "renders" and not name.startswith(f.parent.name):
+            name = f"{f.parent.name}-{name}"  # renders/<id>/cover.jpg -> <id>-cover.jpg (several videos share one release)
         if name in have and a.replace:
             st, _ = call("DELETE", have[name]["url"])
             if st >= 300:

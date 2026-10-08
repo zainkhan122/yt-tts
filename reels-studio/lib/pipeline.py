@@ -438,18 +438,24 @@ def whisper_intelligibility(vo_path, timing, order, log):
                      cwd=vo_path.parent, log=log)
     tr = json.loads((vo_path.parent / "transcript.json").read_text())
     heard = [norm_word(w["text"]) for w in tr if w.get("text", "").strip()]
-    script = [norm_word(w[0]) for sid in order if timing[sid].get("lang", "en").startswith("en")
-              for w in (timing[sid].get("spoken_words") or timing[sid]["words"])]
-    # character-level comparison: "whisper dot C P P" vs "whisper.cpp", "twelve" vs "12" etc. should not count as misses
+    # character-level comparison: "whisper dot C P P" vs "whisper.cpp", "twelve" vs "12" etc. should not count as misses.
+    # Compare against BOTH the spoken form ("thirty-seven hundred", "git hub") and the display form ("3,700", "GitHub")
+    # and keep the better score: whisper writes numbers and brand names the way they are displayed.
     num = {"zero": "0", "one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6", "seven": "7", "eight": "8",
            "nine": "9", "ten": "10", "eleven": "11", "twelve": "12", "dot": "", "kilometres": "kilometers", "neighbours": "neighbors"}
-    a = "".join(num.get(w, w) for w in script)
     b = "".join(num.get(w, w) for w in heard)
-    sm = difflib.SequenceMatcher(a=a, b=b, autojunk=False)
-    matched = sum(bl.size for bl in sm.get_matching_blocks())
-    wsm = difflib.SequenceMatcher(a=script, b=heard, autojunk=False)
-    missed = [script[i] for tag, i1, i2, _, _ in wsm.get_opcodes() if tag in ("replace", "delete") for i in range(i1, i2)]
-    return matched, len(a), missed[:12], secs
+    best = None
+    for key in ("spoken_words", "words"):
+        script = [norm_word(w[0]) for sid in order if timing[sid].get("lang", "en").startswith("en")
+                  for w in (timing[sid].get(key) or timing[sid]["words"])]
+        a = "".join(num.get(w, w) for w in script)
+        sm = difflib.SequenceMatcher(a=a, b=b, autojunk=False)
+        matched = sum(bl.size for bl in sm.get_matching_blocks())
+        if best is None or matched / max(1, len(a)) > best[0] / max(1, best[1]):
+            wsm = difflib.SequenceMatcher(a=script, b=heard, autojunk=False)
+            missed = [script[i] for tag, i1, i2, _, _ in wsm.get_opcodes() if tag in ("replace", "delete") for i in range(i1, i2)]
+            best = (matched, len(a), missed[:12])
+    return best[0], best[1], best[2], secs
 
 
 def refine_with_whisper(vo_path, timing, order, log):
