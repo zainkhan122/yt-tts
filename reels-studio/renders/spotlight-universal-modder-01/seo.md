@@ -1,7 +1,7 @@
 # SEO pack: spotlight-universal-modder-01
 
 **Primary keyword:** `Minecraft inside GTA V` · aliases: AI game modding, AI mods PC games, Universal Modder, mod PC games with AI
-**Triple alignment:** spoken hook "An AI agent built this! Minecraft, inside {GTA V|GTA Five}.…" · on-screen first 3 s "AI BUILT THIS / Minecraft inside GTA V"
+**Triple alignment:** spoken hook "AI built this! Minecraft, inside {GTA V|GTA Five}.…" · on-screen first 3 s "AI BUILT THIS / Minecraft inside GTA V"
 
 ## YouTube Shorts
 

@@ -123,10 +123,10 @@ Never promise DMs we can't send.
 
 ## 5. Voice and audio
 
-- **Channel voice: being re-chosen (2026-10-08).** The user found the DSP "maxhype" af_heart ROBOTIC. Measured naturalness confirms it: UTMOS 3.68 vs 4.51 for raw Kokoro. DSP enthusiasm is retired; interim default = clean Kokoro af_heart ×1.1.
-  - Free engine audition: `research/voice-audition/free-engines/` (results + 6-option comparison). Candidates: af_heart cloned into Chatterbox (MIT, emotion ≤1.0), Chatterbox Turbo (MIT, 2× realtime on 4 vCPU), Microsoft Emma/Ava (natural + lively, but the Edge endpoint is unofficial; Azure F0 is the licensed route), Orpheus Tara (Apache).
-  - Heavier engines run in GitHub Actions (the sandbox has 2 GB RAM).
-  - Script energy still matters: an exclamation-led hook and payoff, rhetorical questions ("The best part?"), short punchy lines, honest facts.
+- **Channel voice (user's choice, 2026-10-08): Kokoro `am_michael` ×1.15, no voice FX** (`research/voice-audition/04-am_michael-x1.15.mp3`: plain Kokoro + loudness normalisation). About 150 wpm, so scripts for a 35–45 s video are about 90–105 words.
+  - History: af_heart D-hype was approved and used for the first render of video #1; the DSP "maxhype" was rejected as robotic (UTMOS 3.68).
+  - Free-engine alternatives are kept in `research/voice-audition/free-engines/`; heavier engines run in GitHub Actions.
+  - Script energy still matters: an exclamation-led hook and payoff, rhetorical questions, short punchy lines, honest facts.
 - **Mix:** VO at −14 LUFS integrated, peak ≤ −1 dBFS. Our own generated music sits under the voice. SFX:
   - whoosh on transitions;
   - click on cursor taps;
@@ -197,6 +197,14 @@ Never promise DMs we can't send.
 - fact sheet refreshed the same day;
 - risk gates clean;
 - originality vs our last 5 videos.
+
+**Automatic safeguards added 2026-10-08** (all found while making video #1):
+- **Timing aligner:** each sentence break snaps to the pause nearest its syllable-expected position, with a proportional fallback. The old "largest gaps" method squeezed a whole sentence into 0.12 s with am_michael.
+- **Caption guard:** a caption group can never stay stuck on screen.
+- **Footage caps:** a clip or montage scene ends when its footage does (the next scene's visuals lead its voice), so footage never runs into a wrong shot. Montage cuts never outlive their shot, and the first cut continues where the previous clip stopped.
+- **Montage label/voice gate:** a warning fires if a card's name is not spoken while that card is on screen.
+- **Final loudness guard:** after the render, if the MP4 is off −14 LUFS by more than 0.5 dB, the audio alone is limited and normalised with the video stream copied. The renderer had shifted am_michael from −14.3 to −15.3 LUFS.
+- **Footage truth:** shot boundaries come from frame-by-frame checks of the source (`teaser_shots` in the brief), not from scene-detect alone, which fire flicker fooled.
 
 ## 9. Packaging + SEO per platform
 

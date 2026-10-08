@@ -1,7 +1,7 @@
 {
  "id": "spotlight-universal-modder-01",
  "template": "tool-spotlight",
- "status": "v3 2026-10-08: facts re-verified (stars 5,142; README rules changed: any game you own incl. multiplayer/servers you host, refuses online anti-cheat games); rendered with tool-spotlight",
+ "status": "v4 2026-10-08: channel voice am_michael x1.15 (user choice); script tightened 117->101 words to stay ~45 s; facts as verified 2026-10-08",
  "capture": "captures/universal-modder",
  "title": "AI just put Minecraft inside GTA V",
  "niche": "tech / AI tools: trending GitHub repo spotlight",
@@ -17,7 +17,7 @@
    "fit": "fill-blur",
    "headline": "AI BUILT *THIS*",
    "sub": "Minecraft inside GTA V",
-   "say": "An AI agent built this! Minecraft, inside {GTA V|GTA Five}."
+   "say": "AI built this! Minecraft, inside {GTA V|GTA Five}."
   },
   {
    "id": "montage",
@@ -37,12 +37,18 @@
     },
     {
      "in": 7.2,
-     "out": 9.2,
+     "out": 8.45,
      "label": "World at War flamethrower",
-     "at": "even|world"
+     "at": "flamethrowers?"
+    },
+    {
+     "in": 8.6,
+     "out": 10.2,
+     "label": "World at War zombies",
+     "at": "zombies"
     }
    ],
-   "say": "Mobs versus the {LSPD|L S P D}. Halo's Warthog, in Minecraft. Even a World at War flamethrower!"
+   "say": "Mobs versus the {LSPD|L S P D}. Halo's Warthog. Flamethrowers and zombies from World at War!"
   },
   {
    "id": "reveal",
@@ -74,7 +80,7 @@
     "label": "GitHub stars in 8 days",
     "at": "5000"
    },
-   "say": "It's called Universal Modder, and it passed {5,000|five thousand} GitHub stars in just over a week!"
+   "say": "It's called Universal Modder, with over {5,000|five thousand} GitHub stars in eight days!"
   },
   {
    "id": "how",
@@ -96,7 +102,7 @@
     "Makes art, 3D & sound",
     "Tests it in the running game"
    ],
-   "say": "Point Claude Code, Codex or Gemini at a game you own. It reads the real code, builds the mod, makes the art and sound, and tests it in-game."
+   "say": "Point Claude Code, Codex or Gemini at a game you own. It reads the code, builds the mod, makes art and sound, and tests it in-game."
   },
   {
    "id": "install",
@@ -127,7 +133,7 @@
     "Free & open source (MIT)",
     "Any game you own, even servers you host"
    ],
-   "say": "The catch: the art and sound use fal, which is pay per use, and it refuses online games with anti-cheat. The plugin itself is free and open source."
+   "say": "The catch: art and sound use fal, which is pay per use, and it refuses online games with anti-cheat. The plugin is free and open source."
   },
   {
    "id": "cta",
@@ -240,5 +246,5 @@
   "Codex",
   "Gemini"
  ],
- "teaser_shots": "scene-detect 2026-10-08: elytra 0-1.77, nether 1.77-3.43, mobs vs lspd 3.43-5.17, warthog 5.17-7.17, flamethrower 7.17-~9.2, zombies ~9.2+"
+ "teaser_shots": "checked frame by frame 2026-10-08: elytra 0-1.77, nether 1.77-3.43, mobs vs lspd 3.43-5.17, warthog 5.17-7.17, flamethrower 7.17-8.5, zombies 8.55-10.3, end card 10.6-12.17"
 }

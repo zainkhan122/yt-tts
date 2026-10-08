@@ -148,9 +148,22 @@ def keywords(b):
     return sorted({_norm(k) for k in kw if len(_norm(k)) >= 2})
 
 
+def _footage(s):
+    """Seconds of usable footage for a clip / montage scene (None = unlimited)."""
+    if s["type"] == "clip" and s.get("out") is not None:
+        return float(s["out"]) - float(s.get("in", 0.0))
+    if s["type"] == "clip-montage" and s.get("cuts") and all(c.get("out") is not None for c in s["cuts"]):
+        return sum(float(c["out"]) - float(c.get("in", 0.0)) for c in s["cuts"])
+    return None
+
+
 def windows(b, T, D, lead):
     sc, out = scenes(b), {}
     starts = [0.0 if i == 0 else max(0.0, T[s["id"]]["start"] - lead) for i, s in enumerate(sc)]
+    for i, s in enumerate(sc[:-1]):  # a clip scene ends when its footage does; the next scene's visuals lead its voice
+        f = _footage(s)
+        if f is not None and starts[i + 1] - starts[i] > f + 0.15:
+            starts[i + 1] = round(starts[i] + f, 3)
     for i, s in enumerate(sc):
         out[s["id"]] = (round(starts[i], 3), round(starts[i + 1] if i + 1 < len(sc) else D, 3))
     return out
@@ -253,8 +266,28 @@ def events(b, T, D, cfg):
     return ev
 
 
+def qa_montage(b, T, D, ev):
+    """Each montage cut with an 'at' word must have that word spoken while the cut is on screen (0.3 s lead allowed)."""
+    issues = []
+    for s in scenes(b):
+        if s["type"] != "clip-montage":
+            continue
+        cuts, t1 = s.get("cuts", []), ev[f"{s['id']}_out"]
+        for k, c in enumerate(cuts):
+            if not c.get("at"):
+                continue
+            a = ev[f"{s['id']}_cut{k}"]
+            z = ev[f"{s['id']}_cut{k + 1}"] if k + 1 < len(cuts) else t1
+            w = anchor(T[s["id"]], [c["at"]], -1)
+            if w < a - 0.3 or w > z:
+                issues.append(f"{s['id']} cut {k} '{c.get('label', '')}' on screen {a:.2f}-{z:.2f}s but '{c['at']}' is said at {w:.2f}s")
+    return issues
+
+
 def html(b, T, D, ev, cfg):
     """Static <video> clips (the renderer extracts frames from DOM-declared media). JS animates the wrappers."""
+    for issue in qa_montage(b, T, D, ev):
+        print(f"[spotlight] WARNING label/voice mismatch: {issue}  (reword the line or adjust the cut)", flush=True)
     out = []
     track = 4
     for s in scenes(b):

@@ -392,12 +392,33 @@ def words_waveform(text, audio, sr, start):
     gaps = [(regs[k][1], regs[k + 1][0]) for k in range(len(regs) - 1)]
     need = len(phrases) - 1
     if need > 0 and len(gaps) >= need:
-        chosen = sorted(sorted(gaps, key=lambda g: g[1] - g[0], reverse=True)[:need])
-        spans, a = [], v0
-        for g in chosen:
-            spans.append((a, g[0]))
-            a = g[1]
-        spans.append((a, v1))
+        # each punctuation boundary takes the pause nearest to where the syllable count says it should fall
+        # (longer pauses preferred); picking the globally largest gaps can starve a phrase (seen with am_michael)
+        wts = [sum(syllables(w) + 0.35 for w in ph) for ph in phrases]
+        total, acc, chosen, after = sum(wts) or 1.0, 0.0, [], v0
+        longest = max(g[1] - g[0] for g in gaps) or 1e-3
+        for k in range(need):
+            acc += wts[k]
+            expect = v0 + (v1 - v0) * acc / total
+            cands = [g for g in gaps if g[0] > after + 0.05 and g not in chosen]
+            if len(cands) < need - k:
+                chosen = None
+                break
+            g = min(cands[:len(cands) - (need - k - 1)],
+                    key=lambda g: abs((g[0] + g[1]) / 2 - expect) - 0.35 * (v1 - v0) / len(phrases) * (g[1] - g[0]) / longest)
+            chosen.append(g)
+            after = g[1]
+        if chosen:
+            spans, a = [], v0
+            for g in chosen:
+                spans.append((a, g[0]))
+                a = g[1]
+            spans.append((a, v1))
+            # sanity: a phrase squeezed below 30% of its syllable share means the pauses lied -> proportional timing
+            if any((b_ - a_) < 0.3 * (v1 - v0) * w / total for (a_, b_), w in zip(spans, wts)):
+                chosen = None
+        if not chosen:
+            return words_proportional(text, round(start + v0, 3), round(start + v1, 3))
     else:  # not enough audible pauses: one span, punctuation gets a small share
         return words_proportional(text, round(start + v0, 3), round(start + v1, 3))
     out = []
@@ -500,6 +521,29 @@ def loudnorm(inp, out, I=-14.0, TP=-1.5, LRA=11.0):
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(inp), "-af", af, "-ar", str(MIX_SR), "-ac", "2",
                     "-c:a", "pcm_s16le", str(out)], check=True)
     return js
+
+
+def normalize_mp4_audio(mp4, I=-14.0, TP=-1.5, tol=0.5):
+    """Final loudness guard: if the rendered MP4 is off target, limit + two-pass linear loudnorm the AUDIO only
+    (video stream copied, no re-render). Returns (before, after) integrated LUFS."""
+    before, pk = measure(mp4)
+    if before is not None and abs(before - I) <= tol and (pk is None or pk <= TP + 0.4):
+        return before, before
+    lim = "alimiter=limit=0.79:attack=4:release=60:level=disabled"  # ~-2 dBFS ceiling makes room for linear gain
+    p = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(mp4), "-af",
+                        f"{lim},loudnorm=I={I}:TP={TP}:LRA=11:print_format=json", "-f", "null", "-"], capture_output=True, text=True)
+    js = json.loads(p.stderr[p.stderr.rfind("{"): p.stderr.rfind("}") + 1])
+    af = (f"{lim},loudnorm=I={I}:TP={TP}:LRA=11:measured_I={js['input_i']}:measured_TP={js['input_tp']}"
+          f":measured_LRA={js['input_lra']}:measured_thresh={js['input_thresh']}:offset={js['target_offset']}:linear=true")
+    vdur = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=duration", "-of", "csv=p=0",
+                           str(mp4)], capture_output=True, text=True).stdout.strip()
+    tmp = Path(mp4).with_name(Path(mp4).stem + ".norm.mp4")
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(mp4), "-map", "0:v:0", "-map", "0:a:0", "-c:v", "copy", "-af", af,
+                    "-ar", "48000", "-ac", "2", "-c:a", "aac", "-b:a", "192k"] + (["-t", vdur] if vdur else []) +
+                   ["-movflags", "+faststart", str(tmp)], check=True)  # -t: AAC padding must not lengthen the file
+    tmp.replace(mp4)
+    after, _ = measure(mp4)
+    return before, after
 
 
 def measure(path):
@@ -768,6 +812,9 @@ class Job:
         self.out.mkdir(parents=True, exist_ok=True)
         final = self.out / f"{self.id}.mp4"
         shutil.copy2(mp4, final)
+        lb, la = normalize_mp4_audio(final)  # renderer can shift loudness (seen: -14.3 mix -> -15.3 in MP4 with am_michael)
+        if lb != la:
+            self.stage("loudness_fix", before=f"{lb} LUFS", after=f"{la} LUFS")
         pr = json.loads(subprocess.run(["ffprobe", "-v", "error", "-print_format", "json", "-show_streams", "-show_format", str(final)],
                                        capture_output=True, text=True).stdout)
         v = next(s for s in pr["streams"] if s["codec_type"] == "video")

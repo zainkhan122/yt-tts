@@ -56,13 +56,19 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--tag", required=True)
     ap.add_argument("files", nargs="+")
+    ap.add_argument("--replace", action="store_true", help="replace assets that already exist (same name, same download link)")
     a = ap.parse_args()
     rel = release(a.tag)
     have = {x["name"]: x for x in rel.get("assets", [])}
     rows = []
     for f in map(Path, a.files):
         name = f.name
-        if name in have:
+        if name in have and a.replace:
+            st, _ = call("DELETE", have[name]["url"])
+            if st >= 300:
+                raise SystemExit(f"could not delete old {name} ({st})")
+            print(f"  - {name} (old version removed)")
+        elif name in have:
             print(f"  = {name} (already on release)")
             rows.append((name, have[name]["size"], have[name]["browser_download_url"]))
             continue
@@ -76,8 +82,11 @@ def main():
     text = idx.read_text() if idx.exists() else ("# Renders (stored in GitHub Releases, not in git)\n\n"
                                                  "| File | Size | Release | Download |\n|---|---|---|---|\n")
     for name, size, url in rows:
-        if url not in text:
-            text += f"| `{name}` | {size / 1e6:.1f} MB | `{a.tag}` | [download]({url}) |\n"
+        row = f"| `{name}` | {size / 1e6:.1f} MB | `{a.tag}` | [download]({url}) |"
+        if url in text:  # refresh the size of a replaced asset
+            text = "\n".join(row if url in line else line for line in text.split("\n"))
+        else:
+            text += row + "\n"
     idx.write_text(text)
     print(f"release: {rel.get('html_url')}  ({len(rows)} files) -> RENDERS.md updated")
 

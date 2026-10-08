@@ -4,26 +4,26 @@
   "brief": "briefs/spotlight-universal-modder-01.json",
   "stages": {
     "voice": {
-      "engine": "kokoro af_heart x1.33 (en-us) + hype accents",
+      "engine": "kokoro am_michael x1.15 (en-us)",
       "lines": 7,
-      "duration": "35.17s",
-      "secs": 27.9
+      "duration": "41.03s",
+      "secs": 33.2
     },
     "words": {
       "method": "waveform-anchored",
       "whisper_char_match": "97.4%",
-      "word_diffs": "five l s p d war flamethrower five thousand git hub clawed",
-      "secs": 29.9
+      "word_diffs": "five l s p d five thousand git hub eight clawed ingame",
+      "secs": 29.2
     },
     "audio": {
       "music": "pulse/uplift 122bpm key+1 seed41885",
-      "sfx": 32,
-      "loudness": "-14.0 LUFS",
+      "sfx": 34,
+      "loudness": "-14.3 LUFS",
       "peak": "-1.5 dBFS"
     },
     "build": {
       "project": "/var/tmp/reels/spotlight-universal-modder-01/project",
-      "html_kb": 74.2
+      "html_kb": 74.4
     },
     "lint": {
       "errors": 0,
@@ -31,12 +31,12 @@
     },
     "check": {
       "ok": true,
-      "secs": 53.8,
+      "secs": 47.0,
       "summary": "[hyperframes] browserGpuMode probe → software (WebGL renderer vendor=\"Google Inc. (Mesa)\" renderer=\"ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL ES 3.2)"
     },
     "render": {
-      "secs": 1005.8,
-      "mb": 14.81,
+      "secs": 1064.8,
+      "mb": 16.48,
       "quality": "looks",
       "crf": 23
     },
@@ -48,13 +48,13 @@
   },
   "assets": 5,
   "qa": {
-    "duration": 35.167,
-    "frames": 1055,
+    "duration": 41.033,
+    "frames": 1231,
     "video": "h264 1080x1920 30/1",
     "audio": "aac 48000Hz 2ch",
-    "loudness_lufs": -14.0,
-    "peak_dbfs": -1.5,
-    "size_mb": 14.81,
+    "loudness_lufs": -14.3,
+    "peak_dbfs": -1.3,
+    "size_mb": 16.48,
     "checks": {
       "1080x1920": true,
       "30fps": true,
@@ -67,37 +67,37 @@
   "timing": {
     "hook": {
       "start": 0.25,
-      "end": 3.64,
-      "text": "An AI agent built this! Minecraft, inside GTA V."
+      "end": 3.78,
+      "text": "AI built this! Minecraft, inside GTA V."
     },
     "montage": {
-      "start": 3.8,
-      "end": 8.7,
-      "text": "Mobs versus the LSPD. Halo's Warthog, in Minecraft. Even a World at War flamethrower!"
+      "start": 3.94,
+      "end": 10.23,
+      "text": "Mobs versus the LSPD. Halo's Warthog. Flamethrowers and zombies from World at War!"
     },
     "reveal": {
-      "start": 8.88,
-      "end": 13.1,
-      "text": "It's called Universal Modder, and it passed 5,000 GitHub stars in just over a week!"
+      "start": 10.41,
+      "end": 15.274,
+      "text": "It's called Universal Modder, with over 5,000 GitHub stars in eight days!"
     },
     "how": {
-      "start": 13.36,
-      "end": 20.64,
-      "text": "Point Claude Code, Codex or Gemini at a game you own. It reads the real code, builds the mod, makes the art and sound, and tests it in-game."
+      "start": 15.534,
+      "end": 23.864,
+      "text": "Point Claude Code, Codex or Gemini at a game you own. It reads the code, builds the mod, makes art and sound, and tests it in-game."
     },
     "install": {
-      "start": 20.86,
-      "end": 22.04,
+      "start": 24.084,
+      "end": 25.614,
       "text": "Setup is just two commands."
     },
     "catch": {
-      "start": 22.95,
-      "end": 30.545,
-      "text": "The catch: the art and sound use fal, which is pay per use, and it refuses online games with anti-cheat. The plugin itself is free and open source."
+      "start": 26.524,
+      "end": 35.504,
+      "text": "The catch: art and sound use fal, which is pay per use, and it refuses online games with anti-cheat. The plugin is free and open source."
     },
     "cta": {
-      "start": 30.905,
-      "end": 33.645,
+      "start": 35.864,
+      "end": 39.504,
       "text": "Which game would you mod first? Comment MOD and I'll pin the link."
     }
   },
@@ -114,5 +114,5 @@
     "fal.ai/pricing 2026-10-08: pay-per-use model APIs",
     "Official teaser docs/media/mods-teaser.gif (labels: elytra, the nether, mobs vs lspd, the warthog, flamethrower, zombies)"
   ],
-  "total_secs": 1139.6
+  "total_secs": 1199.4
 }

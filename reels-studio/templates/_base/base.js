@@ -160,7 +160,7 @@
               });
               const next = groups[gi + 1];
               const on = Math.max(0, g[0].s - 0.04);
-              const off = Math.min(next ? next[0].s - 0.04 : D, g[g.length - 1].e + 0.5, D);
+              const off = Math.max(on + 0.12, Math.min(next ? next[0].s - 0.04 : D, g[g.length - 1].e + 0.5, D));  // never stuck on
               tl.fromTo(div, { opacity: 0, scale: 0.84, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.2)", immediateRender: false }, on);
               tl.set(div, { opacity: 0 }, off);
               g.forEach((x, k) => {
