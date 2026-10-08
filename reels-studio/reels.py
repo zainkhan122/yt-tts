@@ -11,12 +11,15 @@ Reels Studio - professional vertical-video generator (HyperFrames + free tools)
   python3 reels.py make   briefs/x.json --quality looks --crf 26
   python3 reels.py make   briefs/x.json --no-render         # fast iteration: build + lint + check only
   python3 reels.py batch  briefs/a.json briefs/b.json ...   # a week of videos in one go
-  python3 reels.py publish [renders/<id>/<id>.mp4 ...]      # upload renders to a GitHub Release, update RENDERS.md
+  python3 reels.py cloud  <brief-id> [<brief-id> ...] [--wait]  # render on GitHub Actions, up to 5 in parallel -> Release
+  python3 reels.py renders                                   # every published video + post kit (download links)
+  python3 reels.py publish renders/<id> [renders/<id2> ...]  # upload a local render: <id>.mp4 + <id>-kit.zip
   python3 reels.py sync   -m "message"                      # commit + push reels-studio/ (the single source of truth)
   python3 reels.py templates | new <template> briefs/new.json
 
-Renders: renders/<id>/ (local, git-ignored) + GitHub Releases (permanent). Intermediates: /var/tmp/reels/.
-Token for publish/sync (session only): env GH_TOKEN or /var/tmp/gh/token. Never committed, never printed.
+Renders: GitHub Releases (permanent: <id>.mp4 + <id>-kit.zip); renders/<id>/ is a local, git-ignored scratch copy.
+Capture packs: GitHub Release "capture-packs" (tools/capture_store.py). Intermediates: /var/tmp/reels/.
+Token: ~/.config/reels-studio/gh_token (sandbox) or env GH_TOKEN (cloud). Never committed, never printed.
 """
 import argparse
 import json
@@ -116,11 +119,26 @@ def cmd_sync(a):
 
 
 def cmd_publish(a):
-    t = token()
-    if not t:
-        raise SystemExit("publish needs GH_TOKEN (or /var/tmp/gh/token)")
-    files = [Path(f) for f in a.files] or sorted((ROOT / "renders").glob("*/*.mp4"))
-    subprocess.run([sys.executable, str(ROOT / "tools/publish_release.py"), "--tag", a.tag, *map(str, files)], check=True)
+    args = [sys.executable, str(ROOT / "tools" / "publish_release.py"), "--tag", a.tag]
+    for k in a.kits:
+        args += ["--kit", k]
+    return subprocess.run(args).returncode
+
+
+def cmd_cloud(a):
+    sys.path.insert(0, str(ROOT / "tools"))
+    import gh_actions
+    ids = [Path(b).name.removesuffix(".json") for b in a.briefs]
+    missing = [i for i in ids if not (ROOT / "briefs" / f"{i}.json").exists()]
+    if missing:
+        raise SystemExit(f"no brief for: {', '.join(missing)} (briefs must be committed: python3 reels.py sync)")
+    run_id = gh_actions.dispatch("render.yml", {"briefs": " ".join(ids), "tag": a.tag, "quality": a.quality, "crf": str(a.crf)})
+    print(f"cloud render started: https://github.com/{gh_actions.REPO}/actions/runs/{run_id}  ({len(ids)} video(s))")
+    if a.wait:
+        result = gh_actions.wait(run_id, 5400)
+        print("result:", result)
+        subprocess.run([sys.executable, str(ROOT / "tools" / "publish_release.py"), "--list"])
+    return 0
 
 
 def cmd_capture(a):
@@ -158,8 +176,15 @@ def main():
     p = sub.add_parser("sync")
     p.add_argument("-m", "--message", default="reels-studio: update")
     p = sub.add_parser("publish")
-    p.add_argument("files", nargs="*")
+    p.add_argument("kits", nargs="+", help="renders/<id> folders")
     p.add_argument("--tag", default=time.strftime("renders-%Y-%m-%d"))
+    p = sub.add_parser("cloud", help="render briefs on GitHub Actions (one runner each, up to 5 in parallel)")
+    p.add_argument("briefs", nargs="+", help="brief ids or paths (briefs/<id>.json)")
+    p.add_argument("--tag", default="", help="release tag (default renders-YYYY-MM-DD)")
+    p.add_argument("--quality", default="looks")
+    p.add_argument("--crf", default="23")
+    p.add_argument("--wait", action="store_true", help="wait for the runs and print the download links")
+    sub.add_parser("renders", help="list published videos + kits")
     p = sub.add_parser("capture")
     p.add_argument("id")
     p.add_argument("--url", required=True)
@@ -177,6 +202,10 @@ def main():
         return cmd_sync(a)
     if a.cmd == "publish":
         return cmd_publish(a)
+    if a.cmd == "cloud":
+        return cmd_cloud(a)
+    if a.cmd == "renders":
+        return subprocess.run([sys.executable, str(ROOT / "tools" / "publish_release.py"), "--list"]).returncode
     if a.cmd == "radar":
         return cmd_radar(a)
     if a.cmd == "capture":

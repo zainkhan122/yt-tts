@@ -1,0 +1,91 @@
+# Cloud render: one GitHub runner (4 vCPU / 16 GB, free for this public repo) per brief, up to 5 in parallel.
+# Each job: toolchain -> capture pack -> reels.py make (voice, QA, render) -> SEO gate -> MP4 + post kit on a Release.
+# Start: python3 reels-studio/reels.py cloud <brief-id> [<brief-id> ...]   (or Actions -> render -> Run workflow)
+name: render
+on:
+  workflow_dispatch:
+    inputs:
+      briefs:
+        description: 'Brief ids (reels-studio/briefs/<id>.json), space separated'
+        required: true
+      tag:
+        description: 'Release tag for the outputs (default renders-YYYY-MM-DD)'
+        required: false
+        default: ''
+      quality:
+        description: 'draft | looks | delivery'
+        required: false
+        default: 'looks'
+      crf:
+        description: 'x264 CRF (23 = about 12-16 MB per 40 s)'
+        required: false
+        default: '23'
+permissions:
+  contents: write
+env:
+  PYTHONUNBUFFERED: "1"
+  HYPERFRAMES_NO_TELEMETRY: "1"
+  HYPERFRAMES_NO_UPDATE_CHECK: "1"
+  DO_NOT_TRACK: "1"
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      briefs: ${{ steps.p.outputs.briefs }}
+      tag: ${{ steps.p.outputs.tag }}
+    steps:
+      - id: p
+        env:
+          BRIEFS: ${{ inputs.briefs }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          python3 - >> "$GITHUB_OUTPUT" <<'PY'
+          import datetime, json, os
+          ids = [b.rsplit("/", 1)[-1].removesuffix(".json") for b in os.environ["BRIEFS"].replace(",", " ").split()]
+          tag = os.environ["TAG"].strip() or "renders-" + datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
+          print("briefs=" + json.dumps(ids))
+          print("tag=" + tag)
+          PY
+  render:
+    needs: plan
+    name: render ${{ matrix.brief }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        brief: ${{ fromJSON(needs.plan.outputs.briefs) }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BRIEF: reels-studio/briefs/${{ matrix.brief }}.json
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /reels-studio/
+          sparse-checkout-cone-mode: false
+          filter: blob:none
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/hyperframes
+            ~/.cache/puppeteer
+          key: hf-0.8.137-${{ runner.os }}-${{ hashFiles('reels-studio/setup/setup-whisper.sh', 'reels-studio/cloud/setup-render.sh') }}
+      - name: Toolchain
+        run: bash reels-studio/cloud/setup-render.sh
+      - name: Capture pack
+        run: python3 reels-studio/tools/capture_store.py pull-for "$BRIEF"
+      - name: Render (voice, QA gates, video)
+        run: python3 reels-studio/reels.py make "$BRIEF" --quality "${{ inputs.quality }}" --crf "${{ inputs.crf }}"
+      - name: SEO pack (gate)
+        run: python3 reels-studio/tools/seo_pack.py "$BRIEF"
+      - name: Publish
+        run: python3 reels-studio/tools/publish_release.py --tag "${{ needs.plan.outputs.tag }}" --kit "reels-studio/renders/${{ matrix.brief }}"
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: logs-${{ matrix.brief }}
+          path: /var/tmp/reels/${{ matrix.brief }}/build.log
+          if-no-files-found: ignore
+          retention-days: 7

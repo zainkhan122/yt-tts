@@ -1,30 +1,38 @@
 #!/usr/bin/env python3
 """
-Upload rendered videos to a GitHub Release (permanent storage outside git history and outside the
-128 MB workspace) and record them in RENDERS.md. Idempotent: assets already on the release are skipped.
+Publish finished videos to a GitHub Release (permanent storage outside git history and the workspace).
 
-  python3 tools/publish_release.py --tag renders-2026-10-07 renders/*/*.mp4
-Token: env GH_TOKEN or /var/tmp/gh/token (session only; never printed or committed).
+  python3 tools/publish_release.py --tag renders-2026-10-08 --kit renders/<id> [--kit renders/<id2>]
+      -> <id>.mp4 + <id>-kit.zip (post.md, seo.md, captions.srt, cover.jpg, contact.jpg, manifest.json)
+  python3 tools/publish_release.py --tag <tag> [--replace] file1 file2 ...     (any files)
+  python3 tools/publish_release.py --list                                       (all render releases)
+
+Assets with the same name are skipped unless --replace (kits always replace: same download link, new file).
+Token: lib/secrets.gh_token() (env GH_TOKEN in GitHub Actions); never printed or committed.
 """
 import argparse
+import io
 import json
 import mimetypes
-import os
+import sys
 import urllib.error
 import urllib.parse
 import urllib.request
+import zipfile
 from pathlib import Path
 
 OWNER_REPO = "zainkhan122/yt-tts"
 ROOT = Path(__file__).resolve().parent.parent
 API = f"https://api.github.com/repos/{OWNER_REPO}"
+KIT_FILES = ("post.md", "seo.md", "captions.srt", "cover.jpg", "contact.jpg", "manifest.json")
 
 
 def tok():
-    import sys as _s; _s.path.insert(0, str(Path(__file__).resolve().parent.parent)); from lib.secrets import gh_token
+    sys.path.insert(0, str(ROOT))
+    from lib.secrets import gh_token
     t = gh_token() or ""
     if not t:
-        raise SystemExit("no token: export GH_TOKEN or write /var/tmp/gh/token")
+        raise SystemExit("no token: export GH_TOKEN (cloud) or keep ~/.config/reels-studio/gh_token (sandbox)")
     return t
 
 
@@ -46,51 +54,79 @@ def release(tag):
     if st == 200:
         return rel
     st, rel = call("POST", f"{API}/releases", {"tag_name": tag, "target_commitish": "main", "name": f"Reels Studio renders: {tag}",
-                                               "body": "Rendered by reels-studio (HyperFrames + free tools). Index: reels-studio/RENDERS.md"})
+                                               "body": "Rendered by reels-studio. Each video = <id>.mp4 + <id>-kit.zip "
+                                                       "(titles/captions/hashtags per platform, subtitles, cover)."})
     if st >= 300:
-        raise SystemExit(f"cannot create release ({st}): {rel.get('message')}. Fine-grained tokens need Contents: Read and write.")
+        raise SystemExit(f"cannot create release ({st}): {rel.get('message')}. Token needs Contents: Read and write.")
     return rel
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--tag", required=True)
-    ap.add_argument("files", nargs="+")
-    ap.add_argument("--replace", action="store_true", help="replace assets that already exist (same name, same download link)")
-    a = ap.parse_args()
-    rel = release(a.tag)
+def upload(rel, name, payload, replace):
     have = {x["name"]: x for x in rel.get("assets", [])}
-    rows = []
+    if name in have:
+        if not replace:
+            print(f"  = {name} (already on release)")
+            return have[name]["browser_download_url"]
+        st, _ = call("DELETE", have[name]["url"])
+        if st >= 300:
+            raise SystemExit(f"could not delete old {name} ({st})")
+    up = rel["upload_url"].split("{")[0] + "?name=" + urllib.parse.quote(name)
+    st, asset = call("POST", up, raw=payload, headers={"Content-Type": mimetypes.guess_type(name)[0] or "application/octet-stream"})
+    if st >= 300:
+        raise SystemExit(f"upload failed for {name} ({st}): {asset.get('message')}")
+    print(f"  + {name} ({len(payload) / 1e6:.1f} MB)")
+    return asset["browser_download_url"]
+
+
+def kit_zip(d):
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
+        for f in KIT_FILES:
+            if (d / f).exists():
+                z.write(d / f, f"{d.name}/{f}")
+    return buf.getvalue()
+
+
+def list_renders():
+    page, rows = 1, []
+    while True:
+        st, rels = call("GET", f"{API}/releases?per_page=50&page={page}")
+        if st != 200 or not rels:
+            break
+        rows += [r for r in rels if r["tag_name"].startswith("renders-")]
+        page += 1
+    for r in sorted(rows, key=lambda r: r["tag_name"], reverse=True):
+        print(f"\n{r['tag_name']}  {r['html_url']}")
+        for a in sorted(r.get("assets", []), key=lambda a: a["name"]):
+            print(f"  {a['name']:44s} {a['size'] / 1e6:6.1f} MB  {a['browser_download_url']}")
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--tag")
+    ap.add_argument("--kit", action="append", default=[], help="renders/<id> folder -> <id>.mp4 + <id>-kit.zip")
+    ap.add_argument("--replace", action="store_true")
+    ap.add_argument("--list", action="store_true")
+    ap.add_argument("files", nargs="*")
+    a = ap.parse_args()
+    if a.list:
+        return list_renders()
+    if not a.tag:
+        raise SystemExit("--tag is required")
+    rel = release(a.tag)
+    for d in map(Path, a.kit):
+        mp4 = d / f"{d.name}.mp4"
+        if not mp4.exists():
+            raise SystemExit(f"missing {mp4}")
+        print(upload(rel, mp4.name, mp4.read_bytes(), True))
+        print(upload(rel, f"{d.name}-kit.zip", kit_zip(d), True))
+        st, rel = call("GET", f"{API}/releases/{rel['id']}")  # refresh asset list
     for f in map(Path, a.files):
         name = f.name
         if f.parent.parent.name == "renders" and not name.startswith(f.parent.name):
-            name = f"{f.parent.name}-{name}"  # renders/<id>/cover.jpg -> <id>-cover.jpg (several videos share one release)
-        if name in have and a.replace:
-            st, _ = call("DELETE", have[name]["url"])
-            if st >= 300:
-                raise SystemExit(f"could not delete old {name} ({st})")
-            print(f"  - {name} (old version removed)")
-        elif name in have:
-            print(f"  = {name} (already on release)")
-            rows.append((name, have[name]["size"], have[name]["browser_download_url"]))
-            continue
-        up = rel["upload_url"].split("{")[0] + "?name=" + urllib.parse.quote(name)
-        st, asset = call("POST", up, raw=f.read_bytes(), headers={"Content-Type": mimetypes.guess_type(name)[0] or "application/octet-stream"})
-        if st >= 300:
-            raise SystemExit(f"upload failed for {name} ({st}): {asset.get('message')}")
-        print(f"  + {name} ({f.stat().st_size / 1e6:.1f} MB)")
-        rows.append((name, asset["size"], asset["browser_download_url"]))
-    idx = ROOT / "RENDERS.md"
-    text = idx.read_text() if idx.exists() else ("# Renders (stored in GitHub Releases, not in git)\n\n"
-                                                 "| File | Size | Release | Download |\n|---|---|---|---|\n")
-    for name, size, url in rows:
-        row = f"| `{name}` | {size / 1e6:.1f} MB | `{a.tag}` | [download]({url}) |"
-        if url in text:  # refresh the size of a replaced asset
-            text = "\n".join(row if url in line else line for line in text.split("\n"))
-        else:
-            text += row + "\n"
-    idx.write_text(text)
-    print(f"release: {rel.get('html_url')}  ({len(rows)} files) -> RENDERS.md updated")
+            name = f"{f.parent.name}-{name}"  # renders/<id>/cover.jpg -> <id>-cover.jpg
+        print(upload(rel, name, f.read_bytes(), a.replace))
+    print(f"release: {rel.get('html_url')}")
 
 
 if __name__ == "__main__":
