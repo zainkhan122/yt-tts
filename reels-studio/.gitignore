@@ -1,11 +1,8 @@
-# Videos live in GitHub Releases (index: RENDERS.md), never in git history.
-# Each renders/<id>/ keeps only its small post kit in git: post.md, captions.srt, manifest.json, cover.jpg
+# Videos + post kits live in GitHub Releases, never in git history (renders/ is local scratch, ignored below).
 *.mp4
 *.wav
 *.mov
 *.m4a
-renders/**/contact.jpg
-renders/**/composition.html
 __pycache__/
 *.pyc
 .DS_Store
@@ -13,3 +10,6 @@ __pycache__/
 captures/
 # other creators' full transcripts: workspace-only research (public repo gets metrics + short excerpts only)
 research/social/raw/
+
+# finished videos live in GitHub Releases (tools/publish_release.py); local renders are scratch
+renders/

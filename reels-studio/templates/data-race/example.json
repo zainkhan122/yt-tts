@@ -1,19 +1,11 @@
 {
- "id": "data-gdp-south-asia-01",
+ "_how": "Example brief for the data-race template: python3 reels.py new data-race briefs/<id>.json, then edit.",
+ "id": "my-data-race",
  "template": "data-race",
  "title": "Pakistan vs India vs Bangladesh: income per person, 1990 to 2025",
  "niche": "data / economics explainer",
  "lang": "en-us",
- "voice": "am_michael",
- "speed": 1.0,
  "style": "neon",
- "brand": {
-  "handle": "@data.desi",
-  "name": "Data Desi",
-  "tagline": "South Asia in charts",
-  "accent": "#C8FF2E",
-  "accent2": "#7C5CFF"
- },
  "content": {
   "kicker": "📊 DATA STORY",
   "hook": "In 1990 they were almost equal. Who's richest today?",

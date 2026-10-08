@@ -1,19 +1,11 @@
 {
- "id": "trending-repos-2026-10-07",
+ "_how": "Example brief for the ranked-list template: python3 reels.py new ranked-list briefs/<id>.json, then edit.",
+ "id": "my-ranked-list",
  "template": "ranked-list",
  "title": "5 new AI repos everyone starred this week",
  "niche": "tech / AI tools: weekly GitHub radar",
  "lang": "en-us",
- "voice": "af_heart",
- "speed": 1.05,
  "style": "midnight",
- "brand": {
-  "handle": "@tested.ai",
-  "name": "Tested AI",
-  "tagline": "Trending AI tools, minus the hype",
-  "accent": "#7C9CFF",
-  "accent2": "#5EEAD4"
- },
  "content": {
   "kicker": "📈 GITHUB · LAST 10 DAYS",
   "hook": "Five AI projects, ten days old, thousands of GitHub stars. Here's what they actually do.",

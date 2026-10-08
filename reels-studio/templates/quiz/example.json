@@ -1,0 +1,70 @@
+{
+ "_how": "Example brief for the quiz template: python3 reels.py new quiz briefs/<id>.json, then edit.",
+ "id": "my-quiz",
+ "template": "quiz",
+ "title": "Only geography nerds get all 3",
+ "niche": "trivia / geography (edutainment)",
+ "lang": "en-us",
+ "style": "midnight",
+ "content": {
+  "kicker": "🌍 GEOGRAPHY QUIZ",
+  "hook": "Only geography nerds get all three right.",
+  "hook_display": "Only geography nerds get all 3 right",
+  "sub": "3 questions · 3 seconds each",
+  "think_seconds": 3,
+  "questions": [
+   {
+    "q": "Which country has the most time zones?",
+    "options": [
+     "Russia",
+     "United States",
+     "France"
+    ],
+    "answer": 2,
+    "fact": "Thanks to its overseas territories, France spans twelve time zones."
+   },
+   {
+    "q": "What is the capital of Australia?",
+    "options": [
+     "Sydney",
+     "Canberra",
+     "Melbourne"
+    ],
+    "answer": 1,
+    "fact": "It was built as a compromise between Sydney and Melbourne."
+   },
+   {
+    "q": "Which country has the longest coastline?",
+    "options": [
+     "Canada",
+     "Russia",
+     "Indonesia"
+    ],
+    "answer": 0,
+    "fact": "Its coastline is over 200,000 kilometres, the longest on Earth."
+   }
+  ],
+  "cta_title": "How many did you get?",
+  "cta": "How many did you get? Comment your score, and follow for round two."
+ },
+ "post": {
+  "titles": [
+   "Only geography nerds get all 3 🌍",
+   "3 seconds per question. Go.",
+   "Most people miss question 1"
+  ],
+  "caption": "3 questions, 3 seconds each 🌍 Comment your score (be honest 👀). Round two drops tomorrow.",
+  "hashtags": [
+   "#geography",
+   "#quiz",
+   "#trivia",
+   "#didyouknow"
+  ],
+  "pinned_comment": "Answers: 1) France: 12 time zones thanks to overseas territories  2) Canberra  3) Canada: 202,080 km of coastline (CIA World Factbook)"
+ },
+ "sources": [
+  "Time zones of France: https://en.wikipedia.org/wiki/Time_in_France",
+  "Canberra as compromise capital: https://en.wikipedia.org/wiki/Canberra",
+  "Coastline by country (Canada 202,080 km): CIA World Factbook, https://www.cia.gov/the-world-factbook/field/coastline/"
+ ]
+}

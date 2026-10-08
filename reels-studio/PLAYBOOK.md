@@ -123,9 +123,9 @@ Never promise DMs we can't send.
 
 ## 5. Voice and audio
 
-- **Channel voice (user's choice, 2026-10-08): Kokoro `am_michael` ×1.15, no voice FX** (`research/voice-audition/04-am_michael-x1.15.mp3`: plain Kokoro + loudness normalisation). About 150 wpm, so scripts for a 35–45 s video are about 90–105 words.
+- **Channel voice (user's choice, 2026-10-08): Kokoro `am_michael` ×1.15, no voice FX** (plain Kokoro + loudness normalisation; record: `research/voice-decision.md`). About 150 wpm, so scripts for a 35–45 s video are about 90–105 words.
   - History: af_heart D-hype was approved and used for the first render of video #1; the DSP "maxhype" was rejected as robotic (UTMOS 3.68).
-  - Free-engine alternatives are kept in `research/voice-audition/free-engines/`; heavier engines run in GitHub Actions.
+  - Measured free-engine alternatives (Chatterbox, Orpheus, Edge, Qwen3): `research/voice-decision.md`.
   - Script energy still matters: an exclamation-led hook and payoff, rhetorical questions, short punchy lines, honest facts.
 - **Mix:** VO at −14 LUFS integrated, peak ≤ −1 dBFS. Our own generated music sits under the voice. SFX:
   - whoosh on transitions;

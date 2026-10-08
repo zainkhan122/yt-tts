@@ -11,9 +11,13 @@ export DEBIAN_FRONTEND=noninteractive
 
 echo "== apt: ffmpeg, fonts, Chrome shared libraries"
 sudo DEBIAN_FRONTEND=noninteractive apt-get update -qq
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg fonts-noto-color-emoji fonts-liberation fonts-dejavu-core \
-  libnss3 libnspr4 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 libxkbcommon0 libatspi2.0-0 \
-  libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 libpango-1.0-0 libcairo2 libasound2 >/dev/null
+# Ubuntu 24.04+ renamed several libs in the "t64" transition (libasound2 -> libasound2t64 ...): use whichever exists
+LIBS=""
+for p in libnss3 libnspr4 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 libxkbcommon0 libatspi2.0-0 \
+         libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 libpango-1.0-0 libcairo2 libasound2; do
+  if apt-cache show "${p}t64" >/dev/null 2>&1; then LIBS="$LIBS ${p}t64"; else LIBS="$LIBS $p"; fi
+done
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg fonts-noto-color-emoji fonts-liberation fonts-dejavu-core $LIBS >/dev/null
 
 echo "== Node 22 (hyperframes requires >= 22)"
 if ! node --version 2>/dev/null | grep -q '^v2[2-9]'; then

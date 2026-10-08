@@ -81,7 +81,7 @@ Never used: other creators' clips (copyright + "reused content" demonetization).
 - **Hook** = a payoff or stakes, never context. Types that won: stakes, transformation, countdown promise, "gold mine + number". Never start mid-tutorial.
 - **Name reveal by ~7 s**, after the hook.
 - **One feature or visual change every 4–5 s.**
-- **Pace ~175–185 wpm** (benchmark norm from 194 transcripts), with speed calibrated per voice (`research/voice-audition/index.md`).
+- **Pace ~175–185 wpm** (benchmark norm from 194 transcripts), with speed calibrated per voice (`research/voice-decision.md`).
 - **Length:** spotlights 35–42 s, lists ~60 s.
 - **One honest opinion line** (our verdict / "the catch").
 - **Value close** ("free and open source") → **CTA: "Comment KEYWORD and I'll pin the link"** + follow. We pin the link ourselves; never promise DMs.
@@ -100,7 +100,7 @@ Never used: other creators' clips (copyright + "reused content" demonetization).
 - whisper character-match ≥ 95% on the script (product names excepted);
 - loudness −14 LUFS, peak ≤ −1 dBFS.
 
-The channel voice is picked once from `research/voice-audition/` (same line, 3 voices), then fixed in `config/channel.json`.
+The channel voice is fixed in `config/channel.json` (am_michael ×1.15); how it was chosen: `research/voice-decision.md`.
 
 ## 6. Assets
 
