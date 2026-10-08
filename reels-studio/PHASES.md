@@ -19,8 +19,8 @@ Fully-made, ready-to-share AI-tools explainer videos (YouTube Shorts, Reels, Tik
 | 3 | **Deep channel study**: 9 benchmark accounts × 30 videos (stats, transcripts, visual analysis), **watchlist** (21 channels), **idea feed**, platform SEO, the end-to-end **PLAYBOOK** | `PLAYBOOK.md`, `research/social/study-*.md`, `research/sources.csv`, `tools/channel_study.py`, `tools/idea_feed.py` | ✅ done (transcripts resume in the background next session if unfinished) |
 | 4a | **Foundations for scale**: persistent token + commit secret-scan, **source registry** (32: TikTok/YouTube/web, `tools/sources.py`, post history in `research/sources/posts.csv`), energetic af_heart voice (`voice_fx`), handle options, `seo_pack.py`, 3–5/day architecture | all of these | ✅ done |
 | 4b | **Templates** `repo-spotlight` (F1) + `tool-spotlight` (F2): shared scene engine `templates/_spotlight` (10 scene types), winner caption style (ALL CAPS, yellow keywords), display-vs-spoken markup, continuity editing; **video #1 rendered** (QA 6/6) | MP4 + post kit | ✅ done 2026-10-08 |
-| 5 | **Cloud render** on GitHub Actions (token has Workflows + Actions since 2026-10-08; `tools/gh_actions.py` ready): render matrix -> Releases; the sandbox needs ~35 min per video, so cloud is required for 3–5/day | workflow + 1 cloud-rendered video | **next** |
-| 6 | **Daily engine: 3–5 shorts/day** | 3–5 videos/day | |
+| 5 | **Cloud render** on GitHub Actions: `render.yml` (one 4-vCPU runner per brief, up to 5 in parallel), `cloud/setup-render.sh`, capture packs in Release `capture-packs`, MP4 + kit.zip per video, `reels.py cloud/renders`. Measured: 2 videos in parallel in ~8 min (render 3.4–4 min each vs 17–27 min in the sandbox), QA 6/6. Repo + workspace cleaned (renders out of git, demos/auditions removed) | cloud-rendered videos #1 + #2 | ✅ done 2026-10-08 |
+| 6 | **Daily engine: 3–5 shorts/day** | 3–5 videos/day | **next** |
 | 7 | optional: official upload APIs, cloud render, Urdu/Hindi line | | |
 
 ## Asset policy (what goes into our videos)
