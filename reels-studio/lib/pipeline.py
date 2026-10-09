@@ -936,6 +936,16 @@ class Job:
             m, n, missed, secs = whisper_intelligibility(self.vo_path, self.timing, self.order, self.log)
             self.stage("words", method="waveform-anchored", whisper_char_match=f"{100 * m / max(1, n):.1f}%",
                        word_diffs=" ".join(missed) or "-", secs=round(secs, 1))
+            try:  # whole-voiceover delivery reading (same method as tools/voice_study.py): approved sample = 13.6 st
+                tr = json.loads((self.vo_path.parent / "transcript.json").read_text())
+                ws = [(w.get("text", ""), float(w["start"]), float(w.get("end", w["start"]))) for w in tr if w.get("text", "").strip()]
+                if ws:
+                    mel = melody_st(self.vo.astype(np.float32), 24000, ws)
+                    wpm = round(len(ws) / max(1e-3, ws[-1][2] - ws[0][1]) * 60)
+                    self.manifest["voice_quality"] = {"melody_st": round(mel, 1), "wpm": wpm, "approved_sample_melody_st": 13.6}
+                    self.stage("voice_quality", melody_st=round(mel, 1), wpm=wpm, note="flat take? set brief voice_seed" if mel < 12 else "ok")
+            except Exception as e:
+                self.stage("voice_quality", error=str(e)[:80])
         except Exception as e:
             self.stage("words", method="waveform-anchored", whisper_qa=f"unavailable: {str(e)[:120]}")
 

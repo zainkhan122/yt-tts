@@ -51,7 +51,7 @@ Measured, not guessed: whisper.cpp word timings + Praat prosody (tools/voice_stu
 | [lab: production news-claude-free-01 (option 3, new script)](file:voiceover.mp3) |  | 192 | 16.9 | 4.54 | 33.4 | 12 | 9.6 | 3 | formatting, actually, survives, people |
 | [lab: production repo-ai-newtab-01 (option 3, new script)](file:voiceover.mp3) |  | 172 | 18.3 | 3.49 | 31.6 | 13 | 15.0 | 2 | load |
 | [lab: production repo-scm-01 (option 3, new script)](file:voiceover.mp3) |  | 160 | 9.7 | 4.62 | 33.6 | 19 | 11.3 | 2 | 6, days |
-| [lab: production spotlight-papermorph-01 (option 3, new script)](file:voiceover.mp3) |  | 162 | 11.8 | 5.26 | 31.3 | 14 | 12.8 | 1 |  |
+| [lab: production spotlight-papermorph-01 (option 3, new script)](file:voiceover.mp3) |  | 162 | 11.8 | 5.26 | 31.4 | 14 | 12.8 | 1 |  |
 | [lab: production tool-muse-01 (option 3, new script)](file:voiceover.mp3) |  | 193 | 19.2 | 5.21 | 30.8 | 14 | 10.4 | 2 | first |
 | [ours: kokoro clean (muse script)](file:ours-kokoro-clean.wav) |  | 186 | 9.5 | 5.12 | 24.8 | 17 | 22.6 | 3 | sends, asks, first |
 | [ours: tool-muse-01 final mix (separated)](file:tool-muse-01.mp4) |  | 188 | 12.5 | 4.38 | 24.7 | 9 | 15.8 | 2 | logs |
