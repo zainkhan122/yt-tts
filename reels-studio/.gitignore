@@ -10,6 +10,7 @@ __pycache__/
 captures/
 # other creators' full transcripts: workspace-only research (public repo gets metrics + short excerpts only)
 research/social/raw/
+research/voice/raw/
 
 # finished videos live in GitHub Releases (tools/publish_release.py); local renders are scratch
 renders/
