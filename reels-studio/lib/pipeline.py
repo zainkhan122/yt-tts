@@ -406,7 +406,7 @@ NUMWORDS = {"zero": "0", "one": "1", "two": "2", "three": "3", "four": "4", "fiv
             "nine": "9", "ten": "10", "point": "", "dot": ""}
 
 
-def align_chunk(x, sr, seg_texts, work, log):
+def align_chunk(x, sr, seg_texts, work, log, display_texts=None):
     """Where does each scene line start inside one flow chunk? Returns (cut sample indices between lines, char match 0-1).
     whisper word timestamps + difflib alignment to the known script; cuts land on the quietest frame between the
     previous line's last word and the next line's first word. Falls back to proportional cuts if whisper fails."""
@@ -423,9 +423,14 @@ def align_chunk(x, sr, seg_texts, work, log):
         hyp = transcribe_words(wav, log)
     except Exception:
         hyp = []
-    ra = "".join(NUMWORDS.get(w, w) for w in ref)
     hb = "".join(NUMWORDS.get(w[0], w[0]) for w in hyp)
-    match = sum(bl.size for bl in difflib.SequenceMatcher(a=ra, b=hb, autojunk=False).get_matching_blocks()) / max(1, len(ra))
+
+    def cmatch(words):  # character match; whisper writes numbers/brands as DISPLAYED ("435 MB"), so try both forms
+        ra = "".join(NUMWORDS.get(w, w) for w in words)
+        return sum(bl.size for bl in difflib.SequenceMatcher(a=ra, b=hb, autojunk=False).get_matching_blocks()) / max(1, len(ra))
+    match = cmatch(ref)
+    if display_texts:
+        match = max(match, cmatch([norm_word(w) for t in display_texts for w in t.split() if norm_word(w)]))
     sm = difflib.SequenceMatcher(a=ref, b=[w[0] for w in hyp], autojunk=False)
     m = {}
     for bl in sm.get_matching_blocks():
@@ -781,7 +786,7 @@ class Job:
         sr = 24000
         pieces = []
         for s, (audio, csr) in zip(segs, clips):
-            t += s.get("pre", 0.0)
+            t += post_override.get("pre:" + s["id"], s.get("pre", 0.0))
             if audio is None:
                 dur = float(s.get("hold", 0.0))
             else:
@@ -864,7 +869,7 @@ class Job:
                     x = np.concatenate(parts[:-1])
                 else:
                     x, _ = voice(" ".join(seg_texts), seed)
-                cuts, match = align_chunk(x, 24000, seg_texts, cdir, self.log)
+                cuts, match = align_chunk(x, 24000, seg_texts, cdir, self.log, [segs[i].get("display") or texts[i] for i in idx])
                 if best is None or match > best[2]:
                     best = (x, cuts, match)
                 if match >= min_match or self.voice_engine == "kokoro-preview":
@@ -879,6 +884,9 @@ class Job:
                 posts[segs[i]["id"]] = 0.0
             last = segs[idx[-1]]
             posts[last["id"]] = last.get("post", 0.18) if last.get("post", 0.18) >= 0.5 else gap
+        for s in segs:  # template default gaps (0.06-0.08 s before each line) would re-insert silence at every cut
+            if s.get("text") and s.get("pre", 0.0) <= 0.1:
+                posts["pre:" + s["id"]] = 0.0
         self.flow_stats = {"chunks": len(chunks), "worst_chunk_match": round(worst, 3), "retries": retried}
         return clips, posts, f"{voice.name}, flow ({len(chunks)} chunks, worst match {worst:.0%}, retries {retried})"
 
