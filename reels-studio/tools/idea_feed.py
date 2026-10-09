@@ -34,8 +34,31 @@ CAMEL = re.compile(r"\b([A-Z][a-z0-9]+(?:[A-Z][a-z0-9]+)+"            # MeshAvat
 LEAD = re.compile(r"^\W*(?:meet |introducing |this is |it's called )?([A-Z][\w.+-]{2,}(?:\s[A-Z][\w.+-]{2,})?)\s*(?::|is|lets|turns|transforms|just|can|helps|makes|—|-)\s", re.I)
 
 
+def load_lexicon():
+    """config/ai-tools.txt -> [(regex, canonical, is_platform)]: tool names matched case-insensitively."""
+    out = []
+    f = ROOT / "config/ai-tools.txt"
+    for line in (f.read_text().splitlines() if f.exists() else []):
+        line = line.split("#")[0].strip() if line.lstrip().startswith("#") else line.strip()
+        if not line:
+            continue
+        platform = "[platform]" in line
+        names = [n.strip() for n in line.replace("[platform]", "").split("|") if n.strip()]
+        pat = r"(?<![\w.-])(?:" + "|".join(re.escape(n) for n in sorted(names, key=len, reverse=True)) + r")(?![\w-])"
+        out.append((re.compile(pat, re.I), names[0], platform))
+    return out
+
+
+LEXICON = load_lexicon()
+PLATFORMS = {c.lower() for _, c, plat in LEXICON if plat}
+TOOLS = {c.lower() for _, c, plat in LEXICON if not plat}
+
+
 def topics(text):
     found = {}
+    for rx, canon, _ in LEXICON:  # known AI tools first (canonical display names)
+        if rx.search(text):
+            found[canon.lower()] = canon
     text = re.sub(r"#\w+", " ", text)  # hashtags are categories (#AIAgents), not products
     for m in re.finditer(r"github\.com/([\w.-]+)/([\w.-]+)", text):
         found[m.group(2).lower().rstrip(".")] = f"{m.group(1)}/{m.group(2).rstrip('.')}"
@@ -59,8 +82,18 @@ def main():
     since = time.time() - a.days * 86400
     sys.path.insert(0, str(ROOT / "tools"))
     import sources  # registry + persistence: every scan is also saved to research/sources/posts.csv
+    import shutil
+    if not shutil.which("yt-dlp"):  # fresh sandboxes lose pip --user installs; the social listings need it
+        print("yt-dlp missing: installing ...")
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "yt-dlp"], check=False)
+        if not shutil.which("yt-dlp"):
+            subprocess.run([sys.executable, "-m", "pip", "install", "-q", "--break-system-packages", "yt-dlp"], check=False)
     got = sources.scan_all(latest=a.per_channel)
     reg = {s["handle"]: s for s in sources.load()}
+    social = [h for h, s in reg.items() if s.get("type") in ("tiktok", "youtube")]
+    ok = [h for h in social if got.get(h)]
+    if social and len(ok) < len(social) / 2:  # never overwrite a good feed with a broken scan
+        sys.exit(f"idea feed ABORTED: only {len(ok)}/{len(social)} TikTok/YouTube channels scanned (yt-dlp missing or blocked). Nothing written.")
     agg = {}
     for handle, posts in got.items():
         typ = reg.get(handle, {}).get("type", "web")
@@ -71,7 +104,10 @@ def main():
                 continue
             text = " ".join(x for x in (e.get("title"), e.get("description")) if x)
             for key, disp in topics(text).items():
-                tp = agg.setdefault(key, {"name": disp, "channels": set(), "views": 0, "best": None, "first": ts or time.time()})
+                tp = agg.setdefault(key, {"name": disp, "channels": set(), "views": 0, "best": None, "first": ts or time.time(), "titles": []})
+                ttl = (e.get("title") or "").strip()[:90]
+                if ttl and ttl not in tp["titles"]:
+                    tp["titles"].append(ttl)
                 tp["channels"].add(label)
                 tp["views"] += e.get("views") or 0
                 if "/" in disp:
@@ -85,11 +121,22 @@ def main():
     L = [f"# Idea feed: {today} (last {a.days} days, {len(chans)} watchlist channels)", "",
          "**Consensus** = number of watchlist channels that posted about it. ≥ 2 = confirmed niche trend: cover it with our own research and angle.",
          "Topics are auto-extracted, so verify each before scoring (rubric: PIPELINE.md §2).", "",
-         "| # | Topic | Consensus | Channels | Views (sum) | Best video | Repo |", "|---|---|---|---|---|---|---|"]
-    for i, t in enumerate(ranked[:40], 1):
+         "**Daily mix rule** (PIPELINE.md §1): max 1 repo per day; at least 1 AI tool and 1 AI news topic. Shortlist goes to the owner for approval.", "",
+         "| # | Topic | Kind | Consensus | Channels | Views (sum) | Best video | Repo |", "|---|---|---|---|---|---|---|---|"]
+    def kind(t):
+        k = t["name"].split("/")[-1].lower()
+        return "repo" if "/" in t["name"] else ("platform" if k in PLATFORMS else ("tool" if k in TOOLS else "other"))
+    shown = [t for t in ranked if kind(t) != "platform"]
+    for i, t in enumerate(shown[:40], 1):
         repo = t["name"] if "/" in t["name"] else ""
-        L.append(f"| {i} | **{t['name'].split('/')[-1]}** | {len(t['channels'])} | {', '.join(sorted(t['channels']))} | {t['views']:,} | "
+        L.append(f"| {i} | **{t['name'].split('/')[-1]}** | {kind(t)} | {len(t['channels'])} | {', '.join(sorted(t['channels']))} | {t['views']:,} | "
                  f"[{t['best'][0]:,} views]({t['best'][1]}) | {('github.com/' + repo) if repo else ''} |")
+    L += ["", "## AI tools covered this week (non-repo, by consensus then views)", ""]
+    for t in [t for t in ranked if kind(t) == "tool"][:15]:
+        L.append(f"- **{t['name']}**: {len(t['channels'])} channel(s), {t['views']:,} views. " + " / ".join(f'"{x}"' for x in t["titles"][:3]))
+    L += ["", "## Platform news (ChatGPT / Claude / Gemini...): read the titles, the feature is the topic", ""]
+    for t in [t for t in ranked if kind(t) == "platform"][:6]:
+        L.append(f"- **{t['name']}** ({len(t['channels'])} channels, {t['views']:,} views): " + " / ".join(f'"{x}"' for x in t["titles"][:5]))
     out = ROOT / "research/ideas" / f"feed-{today}.md"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text("\n".join(L) + "\n")
@@ -101,7 +148,7 @@ def main():
         w = csv.writer(f)
         for t in ranked:
             key = t["name"].split("/")[-1]
-            generic = key.lower() in STOP
+            generic = key.lower() in STOP or key.lower() in PLATFORMS
             if len(t["channels"]) >= 2 and key.lower() not in have and not generic:
                 w.writerow([today, key, "from idea feed", ("https://github.com/" + t["name"]) if "/" in t["name"] else t["best"][1],
                             f"{len(t['channels'])} watchlist channels, {t['views']:,} views", "", "", ";".join(sorted(t["channels"])), "", "", "", "idea", "", "auto: verify + score"])

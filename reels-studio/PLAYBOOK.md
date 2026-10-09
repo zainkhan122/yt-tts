@@ -235,7 +235,7 @@ Each render's `post.md` will carry **one ready block per platform** (Phase 4: `t
 
 ## 10. Publishing workflow and cadence
 
-- **Cadence target: 3–5 shorts/day.** Typical mix: 2–3 × F1 Repo Drop, 1–2 × F2 Tool Spotlight, plus F3 Weekly Top 5 on Sundays.
+- **Cadence target: 3–5 shorts/day.** Daily mix rule (owner, 2026-10-09): **max 1 × F1 Repo Drop per day**; at least 1 AI tool (F2 Tool Spotlight / ranked list) and 1 AI news or paid-to-free story; F3 Weekly Top 5 on Sundays. The day's shortlist goes to the owner for approval before production.
 - **How 3–5/day is possible:**
   - **Cloud render on GitHub Actions** renders all of the day's videos **in parallel**. It's free for this public repo; GitHub's standard runner for public repos has 4 vCPU and 16 GB.
   - The sandbox renders only ~1 video per 10 min and resets between sessions, so it is used for drafts and previews only.

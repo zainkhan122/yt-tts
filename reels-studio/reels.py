@@ -152,10 +152,16 @@ def cmd_social(rest):
 
 
 def cmd_radar(a):
-    args = [sys.executable, str(ROOT / "tools/trend_radar.py"), "--days", str(a.days)]
-    if a.brief:
-        args.append("--brief")
-    subprocess.run(args, check=True)
+    """Both discovery scans: AI tools + AI news from the watchlist channels (idea feed), then GitHub/HF repos.
+    Daily mix rule (PIPELINE.md §1): max 1 repo per day; at least 1 AI tool + 1 AI news topic; owner approves."""
+    if not a.repos_only:
+        subprocess.run([sys.executable, str(ROOT / "tools/idea_feed.py"), "--days", str(min(a.days, 7)), "--per-channel", "15"], check=True)
+    if not a.tools_only:
+        args = [sys.executable, str(ROOT / "tools/trend_radar.py"), "--days", str(a.days)]
+        if a.brief:
+            args.append("--brief")
+        subprocess.run(args, check=True)
+    print("\nmix rule: max 1 repo/day, >= 1 AI tool + >= 1 AI news. Shortlist 3 -> owner approval -> briefs.")
 
 
 def main():
@@ -193,6 +199,8 @@ def main():
     p = sub.add_parser("radar")
     p.add_argument("--days", type=int, default=14)
     p.add_argument("--brief", action="store_true", help="also write a draft ranked-list brief from the top repos")
+    p.add_argument("--tools-only", action="store_true", help="only the watchlist idea feed (AI tools + news)")
+    p.add_argument("--repos-only", action="store_true", help="only the GitHub/HF repo radar")
     if len(sys.argv) > 1 and sys.argv[1] == "social":  # pass-through to tools/social_scan.py
         return cmd_social(sys.argv[2:])
     a = ap.parse_args()

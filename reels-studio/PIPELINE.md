@@ -15,7 +15,7 @@ The agent runs every stage. The user's only jobs are an optional veto on topics 
 
 | Source | Tool | What it finds | Cadence |
 |---|---|---|---|
-| GitHub: new AI repos ranked by **stars/day** | `reels.py radar` | tools, agents, MCP servers, generators that are taking off | weekly (Mon) |
+| GitHub: new AI repos ranked by **stars/day** (max 1 repo video per day) | `reels.py radar` | tools, agents, MCP servers, generators that are taking off | weekly (Mon) |
 | Hugging Face trending models + Spaces | `reels.py radar` | new open models, free "try it" apps (image/video/voice) | weekly |
 | **Source registry** (32+: TikTok, YouTube Shorts/long-form, web feeds such as GitHub Trending, Product Hunt, Hugging Face, Reddit; `research/sources.csv`, add with `tools/sources.py add <url>`, history in `research/sources/posts.csv`) | `tools/idea_feed.py` (daily) | tools/repos several channels covered this week (**consensus ≥ 2 = trend**) | daily |
 | **TikTok / YouTube Shorts / Instagram** explainer accounts | `reels.py social` + `tools/channel_study.py` | which tools creators cover, **which videos got traction**, their scripts, hooks and CTAs | weekly scan of ~6 accounts, top 2 each |
@@ -23,6 +23,11 @@ The agent runs every stage. The user's only jobs are an optional veto on topics 
 | Official free-tier pages | agent + `reels.py capture` | legit free API quotas / free plans, verified on the day | monthly refresh |
 
 Every idea goes into **`topics/backlog.csv`** (SSOT for topics) with its signals and status.
+
+**Daily mix rule (owner, 2026-10-09): the channel is AI tools + AI news + repos, not a repo channel.**
+- `reels.py radar` runs the watchlist idea feed (AI tools + AI news, tool lexicon in `config/ai-tools.txt`) first, then the repo radar.
+- Per day: **max 1 repo**; at least **1 AI tool** (spotlight or ranked list) and **1 AI news / paid-to-free** story.
+- Shortlist 3 topics with facts checked on official pages → **owner approves** → briefs → cloud render.
 
 ## 2. Select: the scoring rubric (0–100, produce at ≥ 60)
 
