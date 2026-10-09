@@ -426,6 +426,8 @@ def data(b, T, D, ev, cfg):
             x["img"] = image_dims(b, "desktop-full.jpg")
         for k in ("headline", "sub", "heading", "label"):
             if isinstance(x.get(k), str):
+                if x[k].count("*") % 2:  # *highlight* markers must pair up, or they render as literal asterisks
+                    raise SystemExit(f"[spotlight] scene '{x.get('id')}' {k}: unbalanced * in {x[k]!r}")
                 x[k] = _display(x[k])
         sc.append(x)
     facts = dict(m.get("facts") or {})

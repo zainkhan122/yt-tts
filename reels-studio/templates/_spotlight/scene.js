@@ -44,14 +44,19 @@
             else tl.set(vs, { visibility: "visible", opacity: 1 }, a);
             if (z < A.D - 0.01) tl.set(vs, { visibility: "hidden", opacity: 0 }, z);
           }
-          function richText(el, text) {  // *word* = yellow; otherwise caption keywords are yellow
+          function richText(el, text) {  // *word* or *several words* = yellow; otherwise caption keywords are yellow
             const explicit = /\*[^*]+\*/.test(text);
             const parts = String(text).split(/\s+/).filter(Boolean);
             const box = A.mk("span", "rt", el);  // single inline flex item: whitespace between words survives
+            let inside = false;  // a highlight span may cover several words: "*FIND IT.*"
             parts.forEach((w, i) => {
-              const m = w.match(/^\*(.+?)\*(\S*)$/);
-              const word = m ? m[1] + m[2] : w;
-              A.mk("span", (explicit ? !!m : KEYS.has(norm(word))) ? "y" : "", box, word);
+              let word = w, on = inside;
+              if (explicit) {
+                if (word.startsWith("*")) { word = word.slice(1); on = inside = true; }
+                const close = inside ? word.match(/^(.*?)\*(\W*)$/) : null;  // "IT.*", "AI*", "WORKS*,"
+                if (close) { word = close[1] + close[2]; inside = false; }
+              }
+              A.mk("span", (explicit ? on : KEYS.has(norm(word))) ? "y" : "", box, word);
               if (i < parts.length - 1) box.appendChild(document.createTextNode(" "));
             });
           }
@@ -204,15 +209,8 @@
           // ---------------------------------------------------------------- scenes
           function sClip(s, root, t0, t1) {
             const vs = A.$("#vs-" + s.id);
-            if (vs) {
-              showSet(vs, t0, t1, s.id === FIRST);
-              const card = vs.querySelector(".sp-vcard");
-              if (s.headline) {
-                card.classList.add("bleed");
-                Object.assign(card.style, { left: "0px", top: "700px", width: "1080px", height: "608px" });
-              }
-              tl.fromTo(card, { scale: 1 }, { scale: 1.045, duration: Math.max(0.1, t1 - t0), ease: "none", immediateRender: false }, t0);
-            }
+            const card = vs ? vs.querySelector(".sp-vcard") : null;
+            let cardTop = 700;  // hook layout: headline box 236-616, sub from 616, card below the sub (never under it)
             if (s.headline) {
               A.mk("div", "sp-scrim", root);
               const h = A.mk("div", "sp-headline display", root);
@@ -222,11 +220,22 @@
               else tl.fromTo(h, { opacity: 0, scale: 1.15 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, t0);
               if (s.sub) {
                 const sub = A.mk("div", "sp-sub", root, s.sub);
+                A.fit(sub, { max: 54, min: 42, maxH: 66 });                                   // one line if it fits at >= 42 px
+                if (sub.scrollHeight > 66) A.fit(sub, { max: 54, min: 40, maxH: 124 });      // else two lines
+                cardTop = Math.max(700, Math.ceil(616 + sub.scrollHeight + 26));
                 if (s.id === FIRST) sub.style.opacity = "1";  // the cover frame shows headline + sub
                 else tl.fromTo(sub, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.28, immediateRender: false }, t0 + 0.3);
               }
             }
-            credit(root, s.headline ? 1338 : 1118, t0 + 0.4);
+            if (vs) {
+              showSet(vs, t0, t1, s.id === FIRST);
+              if (s.headline) {
+                card.classList.add("bleed");
+                Object.assign(card.style, { left: "0px", top: cardTop + "px", width: "1080px", height: "608px" });
+              }
+              tl.fromTo(card, { scale: 1 }, { scale: 1.045, duration: Math.max(0.1, t1 - t0), ease: "none", immediateRender: false }, t0);
+            }
+            credit(root, s.headline ? cardTop + 638 : 1118, t0 + 0.4);
           }
           function sMontage(s, root, t0, t1) {
             const cuts = s.cuts || [];
