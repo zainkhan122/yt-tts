@@ -2,25 +2,25 @@
 
 Measured, not guessed: whisper.cpp word timings + Praat prosody (tools/voice_study.py). Audio deleted after analysis.
 
-## Creators (12 videos) vs our current voice (2 videos)
+## Creators (21 videos) vs our current voice (2 videos)
 
 | Metric | Creators (median) | Creators (range) | Ours (median) |
 |---|---|---|---|
-| pitch range (semitones) | 13.4 | 4.1–20.2 | 11.0 |
-| pitch variation SD (st) | 5.0 | 3.19–8.19 | 4.7 |
-| pitch movement (st / 100 ms) | 4.2 | 3.53–5.96 | 4.8 |
-| loudness range (dB) | 24.0 | 13.5–32.9 | 24.8 |
-| words per minute | 184.5 | 120–234 | 187.0 |
-| speed change between phrases (%) | 17 | 11–34 | 13.0 |
-| pauses per minute (>=150 ms) | 1.5 | 0.0–24.1 | 19.2 |
-| average pause (s) | 0.2 | 0–0.48 | 0.3 |
-| stressed words (%) | 3.5 | 1–18 | 2.5 |
-| phrases ending with a pitch fall (%) | 100.0 | 50–100 | 100.0 |
+| pitch range (semitones) | 13.1 | 4.1–20.2 | 11.0 |
+| pitch variation SD (st) | 4.9 | 3.18–8.19 | 4.7 |
+| pitch movement (st / 100 ms) | 4.7 | 3.53–7.19 | 4.8 |
+| loudness range (dB) | 24.7 | 13.5–33.9 | 24.8 |
+| words per minute | 185 | 120–234 | 187.0 |
+| speed change between phrases (%) | 17.0 | 5–34 | 13.0 |
+| pauses per minute (>=150 ms) | 11.8 | 0.0–25.9 | 19.2 |
+| average pause (s) | 0.3 | 0–0.48 | 0.3 |
+| stressed words (%) | 3 | 0–18 | 2.5 |
+| phrases ending with a pitch fall (%) | 100.0 | 0–100 | 100.0 |
 | phrases ending with a pitch rise (%) | 0.0 | 0–25 | 0.0 |
-| words per sentence | 15.6 | 4.1–164 | 12.8 |
-| questions per 100 words | 0.0 | 0.0–2.2 | 0.9 |
-| 'you' per 100 words | 3.0 | 0.0–9.5 | 5.2 |
-| contractions per 100 words | 1.6 | 0.0–7.2 | 4.7 |
+| words per sentence | 14.3 | 4.1–164 | 12.8 |
+| questions per 100 words | 0.9 | 0.0–2.2 | 0.9 |
+| 'you' per 100 words | 6.0 | 0.0–9.5 | 5.2 |
+| contractions per 100 words | 2.7 | 0.0–7.2 | 4.7 |
 
 ## Per video
 
@@ -38,6 +38,15 @@ Measured, not guessed: whisper.cpp word timings + Praat prosody (tools/voice_stu
 | [github.signals (TikTok)](https://www.tiktok.com/@github.signals/video/7693953373057453333) | 117200 | 169 | 12.1 | 4.16 | 23.6 | 11 | 11.8 | 7 | graphics, card, performance, much, windows |
 | [zaindevx_ (TikTok)](https://www.tiktok.com/@zaindevx_/video/7685703638597111060) | 24900 | 184 | 15.2 | 4.51 | 20.2 | None | 0.0 | 18 | github, has, ai, devops, agent, cursor, codex, i'll |
 | [ai_vanta_ai (TikTok)](https://www.tiktok.com/@ai_vanta_ai/video/7688103789248728353) | 255700 | 202 | 7.4 | 4.1 | 13.5 | None | 0.0 | 3 | tool, first, explore |
+| [lab: 1-kokoro-current](file:1-kokoro-current.mp3) |  | 190 | 9.6 | 5.05 | 24.7 | 21 | 23.1 | 4 | sends, asks, first, logs |
+| [lab: 2-kokoro-ear-script](file:2-kokoro-ear-script.mp3) |  | 183 | 11.0 | 5.11 | 25.8 | 25 | 25.9 | 3 | before |
+| [lab: 3-chatterbox-michael-neutral](file:3-chatterbox-michael-neutral.mp3) |  | 166 | 10.7 | 7.19 | 29.1 | 19 | 25.1 | 1 | asks |
+| [lab: 4-chatterbox-michael-energetic](file:4-chatterbox-michael-energetic.mp3) |  | 165 | 14.6 | 5.34 | 33.9 | 11 | 19.7 | 2 | asks |
+| [lab: 5-chatterbox-default-energetic](file:5-chatterbox-default-energetic.mp3) |  | 163 | 16.0 | 6.23 | 32.7 | 22 | 21.4 | 2 | first |
+| [lab: 6-kokoro-current-onepass](file:6-kokoro-current-onepass.mp3) |  | 188 | 7.6 | 4.28 | 24.0 | 14 | 17.6 | 3 | sends, first |
+| [lab: 7-kokoro-flow-script](file:7-kokoro-flow-script.mp3) |  | 199 | 13.0 | 5.21 | 23.6 | 17 | 19.7 | 3 | before, buys |
+| [lab: 8-chatterbox-michael-flow](file:8-chatterbox-michael-flow.mp3) |  | 205 | 14.4 | 5.38 | 31.4 | 5 | 7.5 | 5 | own |
+| [lab: 9-chatterbox-michael-flow-hype](file:9-chatterbox-michael-flow-hype.mp3) |  | 205 | 13.2 | 5.54 | 33.0 | 9 | 5.5 | 0 |  |
 | [ours: kokoro clean (muse script)](file:ours-kokoro-clean.wav) |  | 186 | 9.5 | 5.12 | 24.8 | 17 | 22.6 | 3 | sends, asks, first |
 | [ours: tool-muse-01 final mix (separated)](file:tool-muse-01.mp4) |  | 188 | 12.5 | 4.38 | 24.7 | 9 | 15.8 | 2 | logs |
 
@@ -55,3 +64,12 @@ Measured, not guessed: whisper.cpp word timings + Praat prosody (tools/voice_stu
 - **github.signals (TikTok)**: "Run PS5 games directly on your own computer without any emulation or fake hardware layers. Any PS5 takes the actual"
 - **zaindevx_ (TikTok)**: "This GitHub repo is a goldmine for AI developers. It has 230+ specialized AI agents for different jobs. Frontend, backend,"
 - **ai_vanta_ai (TikTok)**: "A geography professor just built a free, open-source GIS tool that does what Quantum GIS and Google Earth Pro charge"
+- **lab: 1-kokoro-current**: "Meta's new AI agent Muse doesn't just chat. It fills in forms, shops, and books trips for you. Here it"
+- **lab: 2-kokoro-ear-script**: "Meta just dropped an AI that actually does your chores. It's called Muse. You text it and it fills out"
+- **lab: 3-chatterbox-michael-neutral**: "Meta just dropped an AI that actually does your chores. It's called Muse. You text it and it fills out"
+- **lab: 4-chatterbox-michael-energetic**: "Meta just dropped an AI that actually does your chores. It's called Muse. You text it and it fills out"
+- **lab: 5-chatterbox-default-energetic**: "Metagis dropped an AI that actually does your chores. It's called Muse. You text it and it fills out forms,"
+- **lab: 6-kokoro-current-onepass**: "Meta's new AI agent muse doesn't just chat. It fills in forms, shops, and books trips for you. Here it"
+- **lab: 7-kokoro-flow-script**: "Meta just dropped an AI that actually does your chores and it's called Muse. You text it like a friend,"
+- **lab: 8-chatterbox-michael-flow**: "Metagis dropped an AI that actually does your chores and it's called Muse. You text it like a friend and"
+- **lab: 9-chatterbox-michael-flow-hype**: "Meta just dropped an AI that actually does your chores and it's called Muse. You text it like a friend"

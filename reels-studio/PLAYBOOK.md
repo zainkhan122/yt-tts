@@ -123,6 +123,24 @@ Never promise DMs we can't send.
 
 ## 5. Voice and audio
 
+### 5.0 How the reference creators actually deliver (measured 2026-10-09, `tools/voice_study.py`, report `research/voice/voice-study.md`)
+12 top videos (Fireship 5.2M, vaibhavsisinty 1.1M, remy_engineering 709K, sabrina_ramonov 460K, ai_vanta_ai 256K, malvaAI 211K,
+github.signals 117K, ...): audio-only, vocals separated from music (UVR MDX-Net), whisper word timings, Praat pitch/loudness, Silero VAD pauses.
+- **Flow beats stop-start.** 7 of 12 speak continuously (≤ 1.6 pauses ≥ 150 ms per minute; median 1.5). Our line-by-line synthesis
+  with gaps measured **19–23 pauses/min**: a list-like rhythm that reads as robotic. Rule: synthesize the script as one continuous
+  passage (chunk only for engine limits, ~60 ms joins); allow ONE deliberate beat, before the catch or the payoff.
+- **Pace:** median 185 wpm (momentum style 160–234). Slow storytelling (120–130 wpm) only works with big melody (vaibhavsisinty 18.8 st)
+  or big tempo changes (remy_engineering, 34 % between phrases).
+- **Melody:** creators' pitch range median 13.4 semitones (4.1–20.2); our Kokoro read 9.5. Energy has to come from the engine or the
+  script, never from DSP (the 2026-10-08 "maxhype" melody stretch was rejected as robotic).
+- **They stress the selling words:** numbers, product names, "free", "everything", "full production", "right now". Write so the key word
+  lands LAST in its phrase (where English puts the main stress), and give each sentence one such word.
+- **Spoken hook formulas that worked:** "I just found an open-source AI that ..." / "This GitHub repo is a goldmine for ..." /
+  "Never <do X> ..." / "Just look. Think it's real? It's not." / "<underdog> did what <giants> couldn't."
+- **Sentences flow:** ~12–16 words joined with "and / so / which means", not a full stop every 6 words. Questions are rare
+  (median 0 per 100 words): use one rhetorical Q→A beat ("Google? OpenAI? Nope.") as a pattern interrupt, not more.
+- Keep what we already do well: contractions (4.7 per 100 words) and direct "you" (5.2 per 100 words), at or above the creators.
+
 - **Channel voice (user's choice, 2026-10-08): Kokoro `am_michael` ×1.15, no voice FX** (plain Kokoro + loudness normalisation; record: `research/voice-decision.md`). About 150 wpm, so scripts for a 35–45 s video are about 90–105 words.
   - History: af_heart D-hype was approved and used for the first render of video #1; the DSP "maxhype" was rejected as robotic (UTMOS 3.68).
   - Measured free-engine alternatives (Chatterbox, Orpheus, Edge, Qwen3): `research/voice-decision.md`.
