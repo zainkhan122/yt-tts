@@ -44,6 +44,10 @@ jobs:
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
           pip install -q torch==2.6.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cpu
           pip install -q -r reels-studio/voice-lab/requirements.txt
+          # kokoro-onnx 0.6.1 = production version; its numpy>=2 pin conflicts with Chatterbox (numpy<2 on py3.12) but runs fine
+          pip install -q --no-deps kokoro-onnx==0.6.1
+          pip install -q "espeakng-loader>=0.2.4" "phonemizer>=3.4.0" "onnxruntime>=1.20.1"
+          python3 -c "import kokoro_onnx, chatterbox, numpy; print('kokoro-onnx ok, numpy', numpy.__version__)"
       - name: Render samples
         run: python3 reels-studio/voice-lab/lab.py "${{ inputs.script }}" --out /tmp/lab ${{ inputs.only != '' && format('--only {0}', inputs.only) || '' }}
       - name: Publish to release

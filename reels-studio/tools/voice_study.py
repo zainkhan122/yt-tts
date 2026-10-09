@@ -386,7 +386,8 @@ def main():
     for who, u in jobs:
         try:
             wav, info = fetch(u)
-            label = f"{who or info.get('uploader_id') or info.get('channel') or 'video'} {info.get('id', '')}".strip()
+            handle = who or info.get("uploader") or info.get("channel") or info.get("uploader_id") or "video"
+            label = f"{str(handle).lstrip('@')} {info.get('id', '')}".strip()
             r = study(label, wav, info, u, sep=not a.no_separate)
             print(f"  ✓ {label}: wpm {r['wpm']}, pitch range {r['range_st']} st, stressed {r['stress_pct']}%, speed var {r['speed_var_pct']}%")
         except Exception as ex:
