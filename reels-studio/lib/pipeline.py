@@ -328,8 +328,17 @@ class ChatterboxVoice:
             _CHATTERBOX = ChatterboxTTS.from_pretrained(device="cpu")
         self.m, self.torch, self.cfg = _CHATTERBOX, torch, cfg
         ref = ROOT / cfg["ref_wav"]
-        if not ref.exists():
-            raise SystemExit(f"approved voice reference missing: {ref}")
+        if not ref.exists():  # rebuild it exactly like the approved voice-lab take (Kokoro 0.6.1, same text, same trim)
+            ref.parent.mkdir(parents=True, exist_ok=True)
+            rk = cfg.get("ref_kokoro", {"voice": "am_michael", "speed": 1.0, "lang": "en-us"})
+            kv = KokoroVoice(rk["voice"], rk["speed"], rk["lang"])
+            x, sr = kv.k.create(cfg["ref_text"], voice=rk["voice"], speed=rk["speed"], lang=rk["lang"])
+            x = np.asarray(x, dtype=np.float32)
+            idx = np.where(np.abs(x) > 0.01)[0]
+            if len(idx):
+                x = x[max(0, idx[0] - int(0.02 * sr)): min(len(x), idx[-1] + int(0.06 * sr))]
+            sf.write(ref, x, sr, subtype="PCM_16")
+            say(f"approved voice reference was missing: rebuilt {ref.name} from Kokoro ({len(x) / sr:.1f}s)")
         self.exag, self.cfgw = float(cfg.get("exaggeration", 0.7)), float(cfg.get("cfg", 0.4))
         self.m.prepare_conditionals(str(ref), exaggeration=self.exag)
         self.name = f"chatterbox exag{self.exag} cfg{self.cfgw} ref {Path(cfg['ref_wav']).name}"

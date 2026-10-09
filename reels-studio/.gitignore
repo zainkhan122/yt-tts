@@ -1,6 +1,7 @@
 # Videos + post kits live in GitHub Releases, never in git history (renders/ is local scratch, ignored below).
 *.mp4
 *.wav
+!brand/voice/*.wav
 *.mov
 *.m4a
 __pycache__/
