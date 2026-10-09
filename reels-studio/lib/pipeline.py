@@ -1048,6 +1048,9 @@ class Job:
                         "-frames:v", "1", "-q:v", "4", str(self.out / "contact.jpg")], check=True)
         self.write_srt()
         self.write_post(D)
+        if getattr(self, "vo_path", None) and Path(self.vo_path).exists():  # clean voice track (QA, remixes, voice studies)
+            subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(self.vo_path), "-c:a", "libmp3lame", "-b:a", "96k",
+                            str(self.out / "voiceover.mp3")], check=False)
         shutil.copy2(self.proj / "index.html", self.out / "composition.html")
         self.manifest["qa"] = {"duration": round(D, 3), "frames": int(v.get("nb_frames", 0) or 0), "video": f"{v['codec_name']} {v['width']}x{v['height']} {v.get('r_frame_rate')}",
                                "audio": f"{a['codec_name']} {a.get('sample_rate')}Hz {a.get('channels')}ch" if a else None,

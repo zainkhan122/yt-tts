@@ -3,7 +3,7 @@
 Publish finished videos to a GitHub Release (permanent storage outside git history and the workspace).
 
   python3 tools/publish_release.py --tag renders-2026-10-08 --kit renders/<id> [--kit renders/<id2>]
-      -> <id>.mp4 + <id>-kit.zip (post.md, seo.md, captions.srt, cover.jpg, contact.jpg, manifest.json)
+      -> <id>.mp4 + <id>-kit.zip (post.md, seo.md, captions.srt, cover.jpg, contact.jpg, manifest.json, voiceover.mp3)
   python3 tools/publish_release.py --tag <tag> [--replace] file1 file2 ...     (any files)
   python3 tools/publish_release.py --list                                       (all render releases)
 
@@ -24,7 +24,7 @@ from pathlib import Path
 OWNER_REPO = "zainkhan122/yt-tts"
 ROOT = Path(__file__).resolve().parent.parent
 API = f"https://api.github.com/repos/{OWNER_REPO}"
-KIT_FILES = ("post.md", "seo.md", "captions.srt", "cover.jpg", "contact.jpg", "manifest.json")
+KIT_FILES = ("post.md", "seo.md", "captions.srt", "cover.jpg", "contact.jpg", "manifest.json", "voiceover.mp3")
 
 
 def tok():

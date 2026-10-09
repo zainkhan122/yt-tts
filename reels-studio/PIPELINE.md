@@ -97,7 +97,8 @@ Never used: other creators' clips (copyright + "reused content" demonetization).
 
 | Option | When | Licence / cost |
 |---|---|---|
-| **Kokoro TTS** (default): one fixed **channel voice** | all English videos | Apache-2.0: commercial-safe, free, runs offline |
+| **Chatterbox (APPROVED channel voice, 2026-10-09)**: clone of the Kokoro am_michael reference, exaggeration 0.7, cfg 0.4, flow reading | every English video (QA gate `approved_voice`) | MIT (inaudible PerTh watermark), free, CPU in the cloud render |
+| Kokoro TTS | makes the reference clip; local layout previews only (`REELS_VOICE_PREVIEW=kokoro`) | Apache-2.0 |
 | Your own voice recordings (`"voice": "files"`) | best for trust and monetisation; needed for real Urdu narration | yours |
 | Kokoro Hindi voice + Urdu phonemes | experimental Urdu/Hindi versions (88% whisper-intelligible) | Apache-2.0 |
 
@@ -105,7 +106,8 @@ Never used: other creators' clips (copyright + "reused content" demonetization).
 - whisper character-match ≥ 95% on the script (product names excepted);
 - loudness −14 LUFS, peak ≤ −1 dBFS.
 
-The channel voice is fixed in `config/channel.json` (am_michael ×1.15); how it was chosen: `research/voice-decision.md`.
+The channel voice is fixed in `config/channel.json` → `tts` (Chatterbox, option 3); how it was chosen: `research/voice-decision.md`.
+- whisper character-match per flow chunk ≥ 92%, else the chunk is re-generated with another seed (max 2 retries).
 
 ## 6. Assets
 

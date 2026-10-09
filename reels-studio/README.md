@@ -3,13 +3,13 @@
 Lives in **github.com/zainkhan122/yt-tts → `reels-studio/`**, the single source of truth (SSOT).
 It turns a small **brief (JSON)** into an **upload-ready 1080×1920 video** plus a post kit, using only free tools:
 - HyperFrames for rendering;
-- Kokoro for TTS;
+- Chatterbox (approved channel voice, cloned from a Kokoro reference) for TTS; Kokoro for previews;
 - whisper.cpp for QA;
 - FFmpeg;
 - numpy-generated music.
 
 ```
-radar ──► brief.json ──► voice (Kokoro TTS or YOUR recordings) ──► exact line timing ──► word timings
+radar ──► brief.json ──► voice (Chatterbox channel voice or YOUR recordings) ──► exact line timing ──► word timings
       ──► whisper.cpp intelligibility QA ──► music + SFX (seeded, royalty-free), loudnorm −14 LUFS
       ──► HyperFrames project (template) ──► lint ──► check (layout/contrast/runtime) ──► render
       ──► QA (format, fps, loudness, peak) ──► renders/<id>/ ──► publish (GitHub Release) ──► sync (git)

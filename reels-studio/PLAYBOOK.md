@@ -141,7 +141,7 @@ github.signals 117K, ...): audio-only, vocals separated from music (UVR MDX-Net)
   (median 0 per 100 words): use one rhetorical Q→A beat ("Google? OpenAI? Nope.") as a pattern interrupt, not more.
 - Keep what we already do well: contractions (4.7 per 100 words) and direct "you" (5.2 per 100 words), at or above the creators.
 
-- **Channel voice (user's choice, 2026-10-08): Kokoro `am_michael` ×1.15, no voice FX** (plain Kokoro + loudness normalisation; record: `research/voice-decision.md`). About 150 wpm, so scripts for a 35–45 s video are about 90–105 words.
+- **Channel voice (owner-approved 2026-10-09, voice-lab option 3): Chatterbox cloning the Kokoro am_michael reference, exaggeration 0.7, cfg 0.4, flow reading.** It is the default for every video; the `approved_voice` QA gate refuses anything else (record: `research/voice-decision.md`). It reads about 190–205 wpm, so scripts for a 35–45 s video are about 110–130 words.
   - History: af_heart D-hype was approved and used for the first render of video #1; the DSP "maxhype" was rejected as robotic (UTMOS 3.68).
   - Measured free-engine alternatives (Chatterbox, Orpheus, Edge, Qwen3): `research/voice-decision.md`.
   - Script energy still matters: an exclamation-led hook and payoff, rhetorical questions, short punchy lines, honest facts.

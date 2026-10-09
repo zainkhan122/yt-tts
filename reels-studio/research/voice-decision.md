@@ -1,6 +1,19 @@
 # Channel voice: decision record
 
-**Chosen (user, 2026-10-08): Kokoro `am_michael` ×1.15, no voice FX**, set in `config/channel.json`.
+**APPROVED (owner, 2026-10-09): voice-lab option 3 = Chatterbox (Resemble AI, MIT) cloning our Kokoro `am_michael` reference clip
+(`brand/voice/michael-ref.wav`), exaggeration 0.7, cfg 0.4, FLOW reading** (consecutive scene lines spoken in one chunk, cut back
+into scenes at the quietest point between lines). Set in `config/channel.json` → `tts`. **Default for every video from now on**:
+the QA gate `approved_voice` fails any render that is not this engine, and the pipeline refuses to fall back to Kokoro.
+- Why: owner said the Kokoro voice felt robotic (no emphasis, emotion, enthusiasm). `tools/voice_study.py` measured 12 top creator
+  videos vs ours: creators speak in flow (median 1.5 pauses/min vs our 19–23 from line-by-line synthesis) with a 13.4-semitone
+  melody (ours 9.6). Option 3 measured 14.4 st and 7.5 pauses/min at 205 wpm, the closest match (`research/voice/voice-study.md`).
+- Samples heard by the owner: release `voice-lab` (`00-compare-all-5.mp3`, options 1–5).
+- Cost: ~6 min of CPU per video in the cloud render (Kokoro: 15 s). Local sandboxes (2 GB) cannot run it:
+  `REELS_VOICE_PREVIEW=kokoro REELS_WHISPER_MODEL=base.en python3 reels.py make <brief> --no-render` checks layout only
+  (preview builds can never pass the QA gate, so they can't ship).
+
+## Previous decision (2026-10-08, superseded)
+Kokoro `am_michael` ×1.15, no voice FX (chosen 2026-10-08), set in `config/channel.json`.
 Speech runs at about 150–165 wpm, so a 35–45 s video needs about 90–105 words.
 
 ## History (all auditions were done with the same script; audio files deleted 2026-10-08 to keep the repo lean)
