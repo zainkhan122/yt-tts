@@ -2,24 +2,24 @@
 
 Measured, not guessed: whisper.cpp word timings + Praat prosody (tools/voice_study.py). Audio deleted after analysis.
 
-## Creators (22 videos) vs our current voice (2 videos)
+## Creators (24 videos) vs our current voice (2 videos)
 
 | Metric | Creators (median) | Creators (range) | Ours (median) |
 |---|---|---|---|
 | pitch range (semitones) | 13.1 | 4.1–20.2 | 11.0 |
 | pitch variation SD (st) | 4.7 | 3.12–8.19 | 4.7 |
-| pitch movement (st / 100 ms) | 4.7 | 3.53–7.19 | 4.8 |
-| loudness range (dB) | 25.1 | 13.5–33.9 | 24.8 |
+| pitch movement (st / 100 ms) | 4.6 | 3.53–7.19 | 4.8 |
+| loudness range (dB) | 25.7 | 13.5–33.9 | 24.8 |
 | words per minute | 184.5 | 120–234 | 187.0 |
 | speed change between phrases (%) | 17 | 5–34 | 13.0 |
-| pauses per minute (>=150 ms) | 13.2 | 0.0–25.9 | 19.2 |
+| pauses per minute (>=150 ms) | 11.6 | 0.0–25.9 | 19.2 |
 | average pause (s) | 0.3 | 0–0.48 | 0.3 |
 | stressed words (%) | 3.0 | 0–18 | 2.5 |
 | phrases ending with a pitch fall (%) | 100 | 0–100 | 100.0 |
 | phrases ending with a pitch rise (%) | 0 | 0–25 | 0.0 |
-| words per sentence | 13.9 | 4.1–164 | 12.8 |
+| words per sentence | 13.1 | 4.1–164 | 12.8 |
 | questions per 100 words | 0.9 | 0.0–2.2 | 0.9 |
-| 'you' per 100 words | 5.3 | 0.0–9.5 | 5.2 |
+| 'you' per 100 words | 5.2 | 0.0–9.5 | 5.2 |
 | contractions per 100 words | 2.7 | 0.0–7.2 | 4.7 |
 
 ## Per video
@@ -47,6 +47,8 @@ Measured, not guessed: whisper.cpp word timings + Praat prosody (tools/voice_stu
 | [lab: 7-kokoro-flow-script](file:7-kokoro-flow-script.mp3) |  | 199 | 13.0 | 5.21 | 23.6 | 17 | 19.7 | 3 | before, buys |
 | [lab: 8-chatterbox-michael-flow](file:8-chatterbox-michael-flow.mp3) |  | 205 | 14.4 | 5.38 | 31.4 | 5 | 7.5 | 5 | own |
 | [lab: 9-chatterbox-michael-flow-hype](file:9-chatterbox-michael-flow-hype.mp3) |  | 205 | 13.2 | 5.54 | 33.0 | 9 | 5.5 | 0 |  |
+| [lab: production news-claude-free-01 (option 3, new script)](file:voiceover.mp3) |  | 192 | 16.9 | 4.54 | 33.4 | 12 | 9.6 | 3 | formatting, actually, survives, people |
+| [lab: production repo-scm-01 (option 3, new script)](file:voiceover.mp3) |  | 160 | 9.7 | 4.62 | 33.6 | 19 | 11.3 | 2 | 6, days |
 | [lab: production tool-muse-01 (option 3)](file:voiceover.mp3) |  | 181 | 7.2 | 3.73 | 31.2 | 20 | 15.4 | 4 | step, number |
 | [ours: kokoro clean (muse script)](file:ours-kokoro-clean.wav) |  | 186 | 9.5 | 5.12 | 24.8 | 17 | 22.6 | 3 | sends, asks, first |
 | [ours: tool-muse-01 final mix (separated)](file:tool-muse-01.mp4) |  | 188 | 12.5 | 4.38 | 24.7 | 9 | 15.8 | 2 | logs |
@@ -74,4 +76,6 @@ Measured, not guessed: whisper.cpp word timings + Praat prosody (tools/voice_stu
 - **lab: 7-kokoro-flow-script**: "Meta just dropped an AI that actually does your chores and it's called Muse. You text it like a friend,"
 - **lab: 8-chatterbox-michael-flow**: "Metagis dropped an AI that actually does your chores and it's called Muse. You text it like a friend and"
 - **lab: 9-chatterbox-michael-flow-hype**: "Meta just dropped an AI that actually does your chores and it's called Muse. You text it like a friend"
+- **lab: production news-claude-free-01 (option 3, new script)**: "Okay, this is a big one. Clawed slides. Docs in design just left beta and they're now on the free"
+- **lab: production repo-scm-01 (option 3, new script)**: "Okay, imagine describing a memory, and this AI photo search finds the exact shot. You just type something like "Happy"
 - **lab: production tool-muse-01 (option 3)**: "Meta's new AI agent, Muse, doesn't just chat. It fills in forms, shops, and books trips for you. Heret found"

@@ -77,6 +77,17 @@ GitHub/HF radar (stars/day) ───────────────┘    
 
 ## 4. Script system
 
+**Write for the approved voice (measured 2026-10-09; the voice reads flat text flatly).** The same Chatterbox voice read the old
+declarative Muse script at 7.2 semitones of melody and the conversational flow script at 14.4 (Kokoro: 7.6 vs 13.0). So every
+`say` line follows this checklist (rules + data: §5.0):
+1. Open like a person talking: "Okay, ...", "I just found ...", "Imagine ...", "Someone at X just built ...".
+2. Let it flow: 12–16-word sentences joined with "and / so / which / then"; no full stop every 6 words.
+3. One question-and-answer beat ("The catch? ...", "The good news? ...") plus the CTA question; no more questions than that.
+4. End each phrase on its selling word ("... it actually does your *chores*", "... in just twelve *hours*").
+5. Numbers in spoken form via markup (`{6.6|six point six}`); every word a visual is anchored to (`at`, `item_at`, `step_at`,
+   montage `at`, camera/cursor `at`) must appear in that scene's line.
+6. Length: 115–140 words for 38–43 s (the voice runs ~185–205 wpm).
+
 **Story spine** (from the 774K-view benchmark; copy the structure, never the words):
 1. impossible claim with a number;
 2. who did it;

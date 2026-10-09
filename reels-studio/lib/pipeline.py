@@ -406,7 +406,7 @@ NUMWORDS = {"zero": "0", "one": "1", "two": "2", "three": "3", "four": "4", "fiv
             "nine": "9", "ten": "10", "point": "", "dot": ""}
 
 
-def melody_st(x, sr):
+def melody_st(x, sr, words=None):
     """Pitch range (semitones, p10-p90 of voiced frames, speaker-adaptive bounds): the 'liveliness' of a take.
     Approved option-3 sample measured 14.4 st; flat Kokoro 7.6-9.6 (research/voice/voice-study.md)."""
     try:
@@ -418,8 +418,16 @@ def melody_st(x, sr):
         if len(v) < 30:
             return 0.0
         lo, hi = max(50.0, 0.75 * np.percentile(v, 25)), min(600.0, 1.5 * np.percentile(v, 75))
-        f = call(snd.to_pitch_ac(time_step=0.01, pitch_floor=lo, pitch_ceiling=hi), "Kill octave jumps").selected_array["frequency"]
-        v = f[(f >= lo * 0.9) & (f <= hi * 1.1)]
+        pt = call(snd.to_pitch_ac(time_step=0.01, pitch_floor=lo, pitch_ceiling=hi), "Kill octave jumps")
+        f, ft = pt.selected_array["frequency"], pt.xs()
+        ok = (f >= lo * 0.9) & (f <= hi * 1.1)
+        if words:  # only inside spoken words (breaths/creaks between words inflate the range)
+            inw = np.zeros_like(ok)
+            for _, a, b in words:
+                inw |= (ft >= a) & (ft <= b)
+            if (ok & inw).sum() >= 30:
+                ok &= inw
+        v = f[ok]
         if len(v) < 30:
             return 0.0
         st = 12 * np.log2(v / np.median(v))
@@ -476,7 +484,7 @@ def align_chunk(x, sr, seg_texts, work, log, display_texts=None):
             a, b = max(0.0, prop - 0.3), min(total, prop + 0.3)
         cuts.append(quietest_cut(x, sr, a, b))
     cuts = sorted(max(1, min(len(x) - 1, c)) for c in cuts)
-    return cuts, match
+    return cuts, match, hyp
 
 
 def load_recording(path):
@@ -892,8 +900,8 @@ class Job:
                     x = np.concatenate(parts[:-1])
                 else:
                     x, _ = voice(" ".join(seg_texts), seed)
-                cuts, match = align_chunk(x, 24000, seg_texts, cdir, self.log, [segs[i].get("display") or texts[i] for i in idx])
-                mel = melody_st(x, 24000)
+                cuts, match, heard = align_chunk(x, 24000, seg_texts, cdir, self.log, [segs[i].get("display") or texts[i] for i in idx])
+                mel = melody_st(x, 24000, heard)
                 score = (match >= min_match, mel if match >= min_match else match)
                 if best is None or score > best[3]:
                     best = (x, cuts, match, score, mel)
