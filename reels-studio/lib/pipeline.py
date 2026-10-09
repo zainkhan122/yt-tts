@@ -312,6 +312,137 @@ class KokoroVoice:
         return trim_silence(np.asarray(samples, dtype=np.float32), sr), sr
 
 
+_CHATTERBOX = None
+
+
+class ChatterboxVoice:
+    """APPROVED CHANNEL VOICE (owner, 2026-10-09: voice-lab option 3 = sample 8-chatterbox-michael-flow).
+    Resemble AI Chatterbox (MIT) cloning our Kokoro am_michael reference clip (brand/voice/michael-ref.wav) with
+    exaggeration 0.7 / cfg 0.4, read in long chunks (flow). CPU torch; installed by cloud/setup-render.sh.
+    Seeded per chunk, so the same brief renders the same take."""
+    def __init__(self, cfg):
+        global _CHATTERBOX
+        import torch
+        from chatterbox.tts import ChatterboxTTS
+        if _CHATTERBOX is None:
+            _CHATTERBOX = ChatterboxTTS.from_pretrained(device="cpu")
+        self.m, self.torch, self.cfg = _CHATTERBOX, torch, cfg
+        ref = ROOT / cfg["ref_wav"]
+        if not ref.exists():
+            raise SystemExit(f"approved voice reference missing: {ref}")
+        self.exag, self.cfgw = float(cfg.get("exaggeration", 0.7)), float(cfg.get("cfg", 0.4))
+        self.m.prepare_conditionals(str(ref), exaggeration=self.exag)
+        self.name = f"chatterbox exag{self.exag} cfg{self.cfgw} ref {Path(cfg['ref_wav']).name}"
+
+    def __call__(self, text, seed=0):
+        self.torch.manual_seed(int(seed))
+        wav = self.m.generate(text, exaggeration=self.exag, cfg_weight=self.cfgw)
+        x = wav.squeeze().detach().cpu().numpy().astype(np.float32)
+        sr = int(getattr(self.m, "sr", 24000))
+        if sr != 24000:
+            x = resample_poly(x, 24000, sr).astype(np.float32)
+        return trim_silence(x, 24000), 24000
+
+
+class PreviewVoice:
+    """LOCAL LAYOUT PREVIEW ONLY (REELS_VOICE_PREVIEW=kokoro): Kokoro reads the same flow chunks so timing/lint can be
+    checked in a small sandbox. Never publishable: the approved-voice QA gate fails on it."""
+    def __init__(self, voice, speed, lang):
+        self.k = KokoroVoice(voice, speed, lang)
+        self.name = f"PREVIEW kokoro {voice} x{speed}"
+
+    def __call__(self, text, seed=0):
+        return self.k(text)
+
+
+def split_sentences(text, limit):
+    sents = re.split(r"(?<=[.!?])\s+", text.strip())
+    out, cur = [], ""
+    for snt in sents:
+        if cur and len(cur) + 1 + len(snt) > limit:
+            out.append(cur)
+            cur = snt
+        else:
+            cur = (cur + " " + snt).strip()
+    if cur:
+        out.append(cur)
+    return out
+
+
+def _rms_frames(x, sr, hop=0.01):
+    h = max(1, int(sr * hop))
+    n = len(x) // h
+    return np.sqrt(np.mean(x[: n * h].reshape(n, h) ** 2, axis=1) + 1e-12) if n else np.zeros(1), h
+
+
+def quietest_cut(x, sr, a, b):
+    """Sample index of the quietest 10 ms frame between times a and b (a scene boundary inside a flow chunk)."""
+    rms, h = _rms_frames(x, sr)
+    i0, i1 = max(0, int(a * sr) // h), min(len(rms) - 1, int(b * sr) // h)
+    if i1 <= i0:
+        return int(round(b * sr))
+    k = i0 + int(np.argmin(rms[i0:i1 + 1]))
+    return k * h + h // 2
+
+
+def transcribe_words(wav_path, log):
+    """[(norm_word, start, end)] via hyperframes transcribe (whisper.cpp small.en, word timestamps)."""
+    run(["hyperframes", "transcribe", wav_path.name, "--model", os.environ.get("REELS_WHISPER_MODEL", "small.en"), "--no-runtime-install"], cwd=wav_path.parent, log=log)
+    tr = json.loads((wav_path.parent / "transcript.json").read_text())
+    return [(norm_word(w["text"]), float(w.get("start", 0)), float(w.get("end", w.get("start", 0)))) for w in tr
+            if w.get("text", "").strip() and norm_word(w["text"])]
+
+
+NUMWORDS = {"zero": "0", "one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6", "seven": "7", "eight": "8",
+            "nine": "9", "ten": "10", "point": "", "dot": ""}
+
+
+def align_chunk(x, sr, seg_texts, work, log):
+    """Where does each scene line start inside one flow chunk? Returns (cut sample indices between lines, char match 0-1).
+    whisper word timestamps + difflib alignment to the known script; cuts land on the quietest frame between the
+    previous line's last word and the next line's first word. Falls back to proportional cuts if whisper fails."""
+    total = len(x) / sr
+    ref, owner = [], []
+    for k, t in enumerate(seg_texts):
+        for w in t.split():
+            if norm_word(w):
+                ref.append(norm_word(w))
+                owner.append(k)
+    try:
+        wav = work / "flow-chunk.wav"
+        sf.write(wav, x, sr, subtype="PCM_16")
+        hyp = transcribe_words(wav, log)
+    except Exception:
+        hyp = []
+    ra = "".join(NUMWORDS.get(w, w) for w in ref)
+    hb = "".join(NUMWORDS.get(w[0], w[0]) for w in hyp)
+    match = sum(bl.size for bl in difflib.SequenceMatcher(a=ra, b=hb, autojunk=False).get_matching_blocks()) / max(1, len(ra))
+    sm = difflib.SequenceMatcher(a=ref, b=[w[0] for w in hyp], autojunk=False)
+    m = {}
+    for bl in sm.get_matching_blocks():
+        for i in range(bl.size):
+            m[bl.a + i] = bl.b + i
+    cuts = []
+    chars = [len(t) for t in seg_texts]
+    for k in range(1, len(seg_texts)):
+        first = owner.index(k)
+        prev_last = first - 1
+        nxt = next((i for i in range(first, len(ref)) if i in m), None)
+        prv = next((i for i in range(prev_last, -1, -1) if i in m), None)
+        prop = sum(chars[:k]) / max(1, sum(chars)) * total
+        if nxt is not None and prv is not None and hyp:
+            a, b = hyp[m[prv]][2], hyp[m[nxt]][1]
+            if nxt != first:  # first word of the line not heard: back off proportionally
+                b = max(a, b - 0.25 * (nxt - first))
+            if b - a < 0.02:
+                a, b = max(0.0, b - 0.12), b + 0.05
+        else:
+            a, b = max(0.0, prop - 0.3), min(total, prop + 0.3)
+        cuts.append(quietest_cut(x, sr, a, b))
+    cuts = sorted(max(1, min(len(x) - 1, c)) for c in cuts)
+    return cuts, match
+
+
 def load_recording(path):
     """Your own voice: any format ffmpeg reads -> 24 kHz mono float, trimmed."""
     tmp = Path("/tmp") / (path.stem + "-24k.wav")
@@ -434,7 +565,7 @@ def words_waveform(text, audio, sr, start):
 
 def whisper_intelligibility(vo_path, timing, order, log):
     """QA, not timing: does whisper.cpp hear the words the script intended? (catches TTS slips)"""
-    _, _, secs = run(["hyperframes", "transcribe", vo_path.name, "--model", "small.en", "--no-runtime-install"],
+    _, _, secs = run(["hyperframes", "transcribe", vo_path.name, "--model", os.environ.get("REELS_WHISPER_MODEL", "small.en"), "--no-runtime-install"],
                      cwd=vo_path.parent, log=log)
     tr = json.loads((vo_path.parent / "transcript.json").read_text())
     heard = [norm_word(w["text"]) for w in tr if w.get("text", "").strip()]
@@ -460,7 +591,7 @@ def whisper_intelligibility(vo_path, timing, order, log):
 
 def refine_with_whisper(vo_path, timing, order, log):
     """Snap word times to whisper.cpp word timestamps (English only)."""
-    _, _, secs = run(["hyperframes", "transcribe", vo_path.name, "--model", "small.en", "--no-runtime-install"],
+    _, _, secs = run(["hyperframes", "transcribe", vo_path.name, "--model", os.environ.get("REELS_WHISPER_MODEL", "small.en"), "--no-runtime-install"],
                      cwd=vo_path.parent, log=log)
     tr_path = vo_path.parent / "transcript.json"
     tr = json.loads(tr_path.read_text())
@@ -570,7 +701,7 @@ class Job:
         chan_path = ROOT / "config" / "channel.json"
         if chan_path.exists():
             chan = json.loads(chan_path.read_text(encoding="utf-8"))
-            for k in ("voice", "speed", "lang", "style", "voice_fx", "voice_blend"):
+            for k in ("voice", "speed", "lang", "style", "voice_fx", "voice_blend", "tts"):
                 if k in chan and k not in self.brief:
                     self.brief[k] = chan[k]
             if "brand" in chan:
@@ -603,7 +734,12 @@ class Job:
         speed = float(b.get("speed", self.tpl.DEFAULTS.get("speed", 1.0)))
         t0 = time.time()
         clips = []
-        if voice_cfg == "files":  # own-voice mode: brief_dir/vo/<segment-id>.(wav|mp3|m4a)
+        post_override = {}
+        tts = b.get("tts") or {}
+        self.voice_engine = "kokoro"
+        if voice_cfg != "files" and tts.get("engine") == "chatterbox":
+            clips, post_override, engine = self.flow_voice(segs, tts, lang, voice_cfg, speed)
+        elif voice_cfg == "files":  # own-voice mode: brief_dir/vo/<segment-id>.(wav|mp3|m4a)
             vo_dir = self.brief_path.parent / b.get("vo_dir", "vo")
             for s in segs:
                 if not s.get("text"):
@@ -614,6 +750,7 @@ class Job:
                     raise SystemExit(f"own-voice mode: missing recording {vo_dir}/{s['id']}.wav")
                 clips.append(load_recording(f))
             engine = "own recordings"
+            self.voice_engine = "own recordings"
         else:
             speakers = {}
             for s in segs:
@@ -649,7 +786,7 @@ class Job:
                                "caption": bool(s.get("caption", False)) and bool(s.get("text")), "words": [],
                                "lang": s.get("lang", lang)}
             order.append(s["id"])
-            t += dur + s.get("post", 0.18)
+            t += dur + post_override.get(s["id"], s.get("post", 0.18))
         D = math.ceil((t + tail) * FPS) / FPS
         vo = np.zeros(int(round(D * sr)) + 1, dtype=np.float32)
         for at, a in pieces:
@@ -668,6 +805,73 @@ class Job:
                 s["words"] = map_display_words(groups, s["spoken_words"]) if groups else s["spoken_words"]
         self.timing, self.order, self.D, self.vo = timing, order, D, vo
         self.stage("voice", engine=engine, lines=sum(1 for s in segs if s.get("text")), duration=f"{D:.2f}s", secs=round(time.time() - t0, 1))
+
+    def flow_voice(self, segs, tts, lang, voice_cfg, speed):
+        """Approved voice, read in FLOW: consecutive scene lines are spoken in one chunk (<= chunk_chars), then cut back into
+        scenes at the quietest point between lines, so every scene still has its own audio + word timings.
+        Measured 2026-10-09: creators ~1.5 pauses/min vs 19-23 for line-by-line synthesis."""
+        try:
+            voice = ChatterboxVoice(tts)
+            self.voice_engine = "chatterbox"
+        except ImportError:
+            if os.environ.get("REELS_VOICE_PREVIEW") != "kokoro":
+                raise SystemExit("The approved channel voice is Chatterbox (voice-lab option 3) but chatterbox-tts is not installed. "
+                                 "Cloud renders install it (cloud/setup-render.sh). Local layout check only: REELS_VOICE_PREVIEW=kokoro")
+            voice = PreviewVoice(voice_cfg, speed, lang)
+            self.voice_engine = "kokoro-preview"
+        limit, gap = int(tts.get("chunk_chars", 280)), float(tts.get("join_gap", 0.06))
+        base_seed = int(tts.get("seed", 7)) + int(hashlib.md5(self.id.encode()).hexdigest()[:6], 16) % 10000
+        tries, min_match = 1 + int(tts.get("max_retries", 2)), float(tts.get("min_match", 0.92))
+        texts = [spoken_clean(s["spoken"]) if s.get("text") else None for s in segs]
+        chunks, cur = [], []
+        for i, s in enumerate(segs):
+            if texts[i] is None:
+                if cur:
+                    chunks.append(cur)
+                    cur = []
+                continue
+            prev = segs[cur[-1]] if cur else None
+            joined = " ".join(texts[j] for j in cur + [i])
+            if cur and (len(joined) > limit or s.get("pre", 0.0) > 0.15 or (prev is not None and prev.get("post", 0.18) >= 0.5)):
+                chunks.append(cur)
+                cur = []
+            cur.append(i)
+        if cur:
+            chunks.append(cur)
+        clips = [(None, 24000)] * len(segs)
+        posts, worst, retried = {}, 1.0, 0
+        cdir = self.work / "flow"
+        cdir.mkdir(parents=True, exist_ok=True)
+        for ci, idx in enumerate(chunks):
+            seg_texts = [texts[i] for i in idx]
+            best = None
+            for attempt in range(tries):
+                seed = base_seed + 1000 * ci + 97 * attempt
+                if len(idx) == 1 and len(seg_texts[0]) > limit:  # one long line: sentence sub-chunks, tiny joins
+                    parts = []
+                    for sub in split_sentences(seg_texts[0], limit):
+                        a, _ = voice(sub, seed)
+                        parts += [a, np.zeros(int(gap * 24000), np.float32)]
+                    x = np.concatenate(parts[:-1])
+                else:
+                    x, _ = voice(" ".join(seg_texts), seed)
+                cuts, match = align_chunk(x, 24000, seg_texts, cdir, self.log)
+                if best is None or match > best[2]:
+                    best = (x, cuts, match)
+                if match >= min_match or self.voice_engine == "kokoro-preview":
+                    break
+                retried += 1
+            x, cuts, match = best
+            worst = min(worst, match)
+            bounds = [0] + cuts + [len(x)]
+            for j, i in enumerate(idx):
+                piece = x[bounds[j]:bounds[j + 1]]
+                clips[i] = (piece if len(piece) else np.zeros(240, np.float32), 24000)
+                posts[segs[i]["id"]] = 0.0
+            last = segs[idx[-1]]
+            posts[last["id"]] = last.get("post", 0.18) if last.get("post", 0.18) >= 0.5 else gap
+        self.flow_stats = {"chunks": len(chunks), "worst_chunk_match": round(worst, 3), "retries": retried}
+        return clips, posts, f"{voice.name}, flow ({len(chunks)} chunks, worst match {worst:.0%}, retries {retried})"
 
     # 4 ---------------------------------------------------------------
     def word_timings(self):
@@ -835,6 +1039,9 @@ class Job:
             "loudness_-14±1": I is not None and abs(I + 14) <= 1.0,
             "peak<=-1dBFS": pk is not None and pk <= -1.0,
         }
+        need = (self.brief.get("tts") or {}).get("engine")
+        if need and self.brief.get("voice") != "files":  # owner rule 2026-10-09: every published video uses the approved voice
+            checks["approved_voice"] = getattr(self, "voice_engine", None) == need
         cover_t = self.events.get("cover", 1.0)
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-ss", f"{cover_t:.2f}", "-i", str(final), "-frames:v", "1", "-q:v", "3", str(self.out / "cover.jpg")], check=True)
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(final), "-vf", f"fps=12/{D:.3f},scale=270:-2,tile=6x2:margin=6:padding=6:color=0x111111",
@@ -851,6 +1058,8 @@ class Job:
         (self.out / "manifest.json").write_text(json.dumps(self.manifest, indent=2, ensure_ascii=False))
         bad = [k for k, ok in checks.items() if not ok]
         self.stage("qa", passed=f"{len(checks) - len(bad)}/{len(checks)}", failed=",".join(bad) or "-", out=str(self.out.relative_to(ROOT.parent)))
+        if "approved_voice" in bad:
+            raise SystemExit(f"QA: not the approved channel voice (got {getattr(self, 'voice_engine', None)}, need {need}): refusing to ship")
 
     def write_srt(self):
         def ts(t):

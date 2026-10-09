@@ -71,7 +71,9 @@ jobs:
           path: |
             ~/.cache/hyperframes
             ~/.cache/puppeteer
-          key: hf-0.8.137-${{ runner.os }}-${{ hashFiles('reels-studio/setup/setup-whisper.sh', 'reels-studio/cloud/setup-render.sh') }}
+            ~/.cache/huggingface
+            ~/.cache/pip
+          key: hf-0.8.137-cbx-${{ runner.os }}-${{ hashFiles('reels-studio/setup/setup-whisper.sh', 'reels-studio/cloud/setup-render.sh') }}
       - name: Toolchain
         run: bash reels-studio/cloud/setup-render.sh
       - name: Capture pack

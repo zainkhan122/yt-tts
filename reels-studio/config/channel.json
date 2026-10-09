@@ -26,5 +26,24 @@
   },
   "voice_fx": "none",
   "voice_blend": {},
-  "_voice_note": "Kokoro am_michael x1.15, no FX (user choice 2026-10-08). Decision record + measured alternatives: research/voice-decision.md"
+  "_voice_note": "APPROVED VOICE (2026-10-09): Chatterbox (MIT) cloning the Kokoro am_michael reference clip, exaggeration 0.7, cfg 0.4, flow reading (tts block). 'voice'/'speed' below are only the Kokoro settings for the reference clip and local previews (REELS_VOICE_PREVIEW=kokoro). Decision record: research/voice-decision.md",
+  "tts": {
+    "engine": "chatterbox",
+    "ref_wav": "brand/voice/michael-ref.wav",
+    "ref_text": "Okay, this one genuinely surprised me. Meta just shipped an AI that does your chores, and honestly? It's kind of wild. Let me show you how it works.",
+    "ref_kokoro": {
+      "voice": "am_michael",
+      "speed": 1.0,
+      "lang": "en-us"
+    },
+    "exaggeration": 0.7,
+    "cfg": 0.4,
+    "flow": true,
+    "chunk_chars": 280,
+    "join_gap": 0.06,
+    "seed": 7,
+    "max_retries": 2,
+    "min_match": 0.92,
+    "_approved": "2026-10-09 by owner: voice-lab option 3 (8-chatterbox-michael-flow). Default for every video from now on; the QA gate 'approved_voice' refuses to ship anything else."
+  }
 }
