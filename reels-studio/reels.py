@@ -114,6 +114,7 @@ def cmd_sync(a):
     git("commit", "-q", "-m", a.message)
     if not token():
         raise SystemExit("committed locally; set GH_TOKEN (or /var/tmp/gh/token) to push")
+    git("pull", "-q", "--rebase", "origin", "main", auth=True)  # cloud jobs (github-actions[bot]) also commit
     git("push", "-q", "origin", "HEAD:main", auth=True)
     print("pushed:", git("log", "--oneline", "-1"))
 

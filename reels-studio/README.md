@@ -41,6 +41,9 @@ Idempotent: it repairs git (snapshots drop `.git/config`), pulls the latest SSOT
 | Intermediates (voice, mix, HTML project) | `/var/tmp/reels/<id>/` | ❌ regenerated per job |
 | GitHub token | `~/.config/reels-studio/gh_token` (chmod 600, **outside the git tree**), or env `GH_TOKEN` | ✅ persists in the private workspace; **never committed** (sync blocks token patterns) |
 
+## Brand + accounts
+`brand/` holds the logo (vector + PNG), avatar, banners and copy-paste profile text for every platform. Open `brand/brand-kit.html`, or download the zip from Release `brand`. Rebuild after editing `brand/profiles.json`: `python3 tools/brand_kit.py --publish`.
+
 ## Commands
 
 ```bash

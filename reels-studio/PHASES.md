@@ -20,8 +20,44 @@ Fully-made, ready-to-share AI-tools explainer videos (YouTube Shorts, Reels, Tik
 | 4a | **Foundations for scale**: persistent token + commit secret-scan, **source registry** (32: TikTok/YouTube/web, `tools/sources.py`, post history in `research/sources/posts.csv`), energetic af_heart voice (`voice_fx`), handle options, `seo_pack.py`, 3–5/day architecture | all of these | ✅ done |
 | 4b | **Templates** `repo-spotlight` (F1) + `tool-spotlight` (F2): shared scene engine `templates/_spotlight` (10 scene types), winner caption style (ALL CAPS, yellow keywords), display-vs-spoken markup, continuity editing; **video #1 rendered** (QA 6/6) | MP4 + post kit | ✅ done 2026-10-08 |
 | 5 | **Cloud render** on GitHub Actions: `render.yml` (one 4-vCPU runner per brief, up to 5 in parallel), `cloud/setup-render.sh`, capture packs in Release `capture-packs`, MP4 + kit.zip per video, `reels.py cloud/renders`. Measured: 2 videos in parallel in ~8 min (render 3.4–4 min each vs 17–27 min in the sandbox), QA 6/6. Repo + workspace cleaned (renders out of git, demos/auditions removed) | cloud-rendered videos #1 + #2 | ✅ done 2026-10-08 |
-| 6 | **Daily engine: 3–5 shorts/day** | 3–5 videos/day | **next** |
-| 7 | optional: official upload APIs, cloud render, Urdu/Hindi line | | |
+| 5b | **Brand kit + account profiles**: logo (user-picked, rebuilt as exact vector), avatar, YouTube banner, X header, FB cover, watermark; copy-paste profile text for YouTube/Instagram/TikTok/X/Facebook checked against each platform's limits (`tools/brand_kit.py`, `brand/`) | `brand/brand-kit.html`, Release `brand` | ✅ done 2026-10-09 |
+| 6 | **Auto-post + daily engine**: render queue on a schedule → auto-post to IG/FB Reels, YouTube Shorts, TikTok, X (plan below) | 3–5 videos/day posted with no manual steps | **next** (after the user creates the accounts) |
+| 7 | optional: long-form versions, Urdu/Hindi line, analytics loop (views → topic picks) | | |
+
+## Auto-posting plan (Phase 6). Facts checked 2026-10-09
+**Flow:**
+1. `queue/` briefs.
+2. Scheduled `render.yml` on GitHub's free runners builds MP4 + kit into a Release.
+3. `post.yml` posts each video at its time slot and logs the post links in `tracker/`.
+
+No PC is needed. Logins are stored as encrypted GitHub Actions secrets (never in the repo).
+
+| Platform | Official method | Cost | One-time step by the user | Catch |
+|---|---|---|---|---|
+| Instagram Reels | Instagram Graph API: create container from the Release video URL, then publish | free | Meta developer app in development mode with our own account (no App Review), log in once | 100 API posts / 24 h per account; needs a Professional (Creator/Business) account |
+| Facebook Reels | Graph API Page `video_reels` | free | same Meta app + the Page | — |
+| YouTube Shorts | YouTube Data API `videos.insert` (resumable) | free | Google Cloud project + OAuth, log in once, **submit the YouTube API audit form** | Until Google approves the audit, API uploads are locked **private**. Upload bucket: 100/day since 2026-06-01 |
+| TikTok | Content Posting API | free | TikTok developer app, log in once | Unaudited app: videos land in the TikTok inbox as drafts, then the user taps Post (at most 5 pending drafts / 24 h). Public direct posting needs TikTok's audit |
+| X | X API v2 + chunked media upload | pay-per-use: about $0.015 per post plus small media-call fees (≈ $2–7/month at 3–5/day); no free tier since 2026-02-06 | developer console, card, credits | A post containing a URL costs $0.20, so never put links in posts |
+
+**Paid shortcut:** Upload-Post.
+- One API key covers every platform.
+- Free plan: 10 uploads/month, no TikTok.
+- Basic: $16/month billed yearly, or $24 monthly. Unlimited uploads, TikTok included.
+
+**Needed by the developer apps:** a privacy-policy + terms URL. Plan: a free GitHub Pages page that also serves as the link-in-bio hub.
+
+**Build (Phase 6):**
+- `tools/post/` with `youtube.py`, `meta.py`, `tiktok.py`, `x.py`; captions come from the existing `seo_pack` output.
+- `.github/workflows/post.yml`: time slots plus a retry.
+- Queue and schedule in `render.yml`.
+- `reels.py post <id> --dry-run`.
+- Live test: 1 video per platform, then go daily.
+
+AI labels:
+- YouTube: none for a generic narrator over real footage.
+- TikTok: none for generic TTS (guidelines updated 2026-09-24).
+- Instagram/Facebook: switch on "AI info" (Meta's wording covers realistic-sounding synthetic audio).
 
 ## Asset policy (what goes into our videos)
 - ✅ **Our own captures** of public pages: tool site, GitHub repo, docs. Review/commentary use, with the source credited on screen.

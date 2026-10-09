@@ -53,7 +53,7 @@ def release(tag):
     st, rel = call("GET", f"{API}/releases/tags/{urllib.parse.quote(tag)}")
     if st == 200:
         return rel
-    st, rel = call("POST", f"{API}/releases", {"tag_name": tag, "target_commitish": "main", "name": f"Reels Studio renders: {tag}",
+    st, rel = call("POST", f"{API}/releases", {"tag_name": tag, "target_commitish": "main", "name": (f"Reels Studio renders: {tag}" if tag.startswith("renders-") else f"Reels Studio: {tag}"),
                                                "body": "Rendered by reels-studio. Each video = <id>.mp4 + <id>-kit.zip "
                                                        "(titles/captions/hashtags per platform, subtitles, cover)."})
     if st >= 300:
