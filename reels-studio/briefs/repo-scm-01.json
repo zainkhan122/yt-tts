@@ -6,7 +6,7 @@
  "niche": "tech / AI tools: trending GitHub repo spotlight",
  "lang": "en-us",
  "style": "midnight",
- "status": "v1 2026-10-09: facts verified same day (GitHub API, README)",
+ "status": "v1 2026-10-09: facts verified same day (GitHub API, README) | v2 2026-10-09: narration rewritten for the approved voice (flow style, PLAYBOOK 5.0)",
  "keywords": [
   "memory",
   "Screen Memories",
@@ -29,7 +29,7 @@
    "fit": "fill-blur",
    "headline": "DESCRIBE IT. *FIND IT.*",
    "sub": "AI search for every photo & video on your Mac",
-   "say": "Describe a memory, and this AI photo search finds the exact shot."
+   "say": "Okay, imagine describing a memory, and this AI photo search finds the exact shot."
   },
   {
    "id": "demo",
@@ -54,7 +54,7 @@
      "at": "apple"
     }
    ],
-   "say": "Type happy partying, human robot, or apple device, and it finds every match."
+   "say": "You just type something like happy partying, human robot, or apple device, and it instantly pulls up every match."
   },
   {
    "id": "name",
@@ -80,7 +80,7 @@
      "state": "★ Starred 446"
     }
    ],
-   "say": "It's called {SCM|S C M}, Screen Memories: free, open source, with {446|four hundred forty-six} stars in six days."
+   "say": "It's called {SCM|S C M}, Screen Memories, and it's free and open source, with {446|four hundred forty-six} stars in six days."
   },
   {
    "id": "modes",
@@ -93,7 +93,7 @@
     "Text on screen",
     "Spoken lines"
    ],
-   "say": "It searches whole photos, scenes inside videos, text on screen, even spoken lines."
+   "say": "And it doesn't just search photos: it finds scenes inside videos, text on your screen, even spoken lines."
   },
   {
    "id": "install",
@@ -110,7 +110,7 @@
     "tap trusted",
     "scm was successfully installed!"
    ],
-   "say": "Install it with Homebrew in three lines."
+   "say": "Installing it takes three lines of Homebrew."
   },
   {
    "id": "catch",
@@ -125,13 +125,18 @@
    "pros": [
     "No account, no cloud, no uploads"
    ],
-   "say": "The catch: it's Mac only, with a {435 MB|four hundred thirty-five megabyte} model download first. After that: no account, no cloud, no uploads."
+   "say": "The catch? It's Mac only, and there's a {435 MB|four hundred thirty-five megabyte} model to download first. But after that, there's no account, no cloud, and no uploads.",
+   "item_at": [
+    "mac",
+    "download",
+    "account"
+   ]
   },
   {
    "id": "cta",
    "type": "endcard",
    "keyword": "FIND",
-   "say": "What would you search for first? Comment {FIND|find} and I'll pin the link."
+   "say": "So what would you search for first? Comment {FIND|find} and I'll pin the link."
   }
  ],
  "verify_before_render": [

@@ -44,6 +44,8 @@
     "seed": 7,
     "max_retries": 2,
     "min_match": 0.92,
-    "_approved": "2026-10-09 by owner: voice-lab option 3 (8-chatterbox-michael-flow). Default for every video from now on; the QA gate 'approved_voice' refuses to ship anything else."
+    "_approved": "2026-10-09 by owner: voice-lab option 3 (8-chatterbox-michael-flow). Default for every video from now on; the QA gate 'approved_voice' refuses to ship anything else.",
+    "min_melody_st": 12.0,
+    "_liveliness": "Each flow chunk is re-generated (other seed, max_retries) if whisper match < min_match or melody < min_melody_st; the clearest, liveliest take wins."
   }
 }

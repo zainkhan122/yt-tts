@@ -6,7 +6,7 @@
  "niche": "tech / AI tools: AI tool spotlight",
  "lang": "en-us",
  "style": "midnight",
- "status": "v1 2026-10-09: facts verified same day (Meta newsroom, muse.ai, TechCrunch, 9to5Mac, WIRED via IBTimes/Futurism)",
+ "status": "v1 2026-10-09: facts verified same day (Meta newsroom, muse.ai, TechCrunch, 9to5Mac, WIRED via IBTimes/Futurism) | v2 2026-10-09: narration rewritten for the approved voice (flow style, PLAYBOOK 5.0)",
  "keywords": [
   "Muse",
   "Meta",
@@ -30,7 +30,7 @@
    "fit": "fill-blur",
    "headline": "META'S AI *DOES YOUR CHORES*",
    "sub": "Muse: a personal AI agent that acts for you",
-   "say": "Meta's new AI agent, Muse, doesn't just chat. It fills in forms, shops and books trips for you."
+   "say": "Okay, Meta just dropped an AI agent called Muse, and it doesn't just chat, it actually does your chores."
   },
   {
    "id": "demo",
@@ -39,7 +39,7 @@
    "in": 4.6,
    "out": 18.5,
    "fit": "card",
-   "say": "Here it found a field trip form in an email and filled it out for you."
+   "say": "You text it like a friend, and it handles forms, shopping and trips, like this school form it found in your email and filled out by itself."
   },
   {
    "id": "asks",
@@ -50,7 +50,7 @@
     "Allow or Deny",
     "Logs every step"
    ],
-   "say": "It can shop too, but before it buys or sends anything, it asks first and logs every step."
+   "say": "And before it buys anything or sends an email, it asks you first, and it logs every single step."
   },
   {
    "id": "proof",
@@ -62,7 +62,7 @@
    "label": "installs in its first month",
    "icon": false,
    "at": "6.6",
-   "say": "It shot to number one on the App Store, with about {6.6|six point six} million installs in its first month."
+   "say": "Which is probably why it shot to number one on the App Store, with {6.6|six point six} million installs in its first month."
   },
   {
    "id": "catch",
@@ -79,13 +79,13 @@
     "page",
     "free"
    ],
-   "say": "The catch: it's US and Canada only, and WIRED reports it keeps a page on every person in your life. It's free to start, with weekly limits."
+   "say": "But here's the catch: it only works in the US and Canada, and WIRED reports it keeps a page on every person in your life. It's free to start, though, with weekly limits."
   },
   {
    "id": "cta",
    "type": "endcard",
    "keyword": "AGENT",
-   "say": "Would you let an AI run your inbox? Comment {AGENT|agent}."
+   "say": "So, would you let an AI run your inbox? Comment {AGENT|agent}."
   }
  ],
  "verify_before_render": [

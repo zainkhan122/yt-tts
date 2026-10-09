@@ -6,7 +6,7 @@
  "niche": "tech / AI tools: AI tool spotlight",
  "lang": "en-us",
  "style": "midnight",
- "status": "v1 2026-10-09: facts verified same day (GitHub API, README, live bookshelf)",
+ "status": "v1 2026-10-09: facts verified same day (GitHub API, README, live bookshelf) | v2 2026-10-09: narration rewritten for the approved voice (flow style, PLAYBOOK 5.0)",
  "keywords": [
   "Papermorph",
   "Claude Code",
@@ -29,7 +29,7 @@
    "fit": "fill-blur",
    "headline": "PDF IN, *ANIMATED BOOK* OUT",
    "sub": "AI turns textbooks into narrated lessons",
-   "say": "This AI turns a boring {PDF|P D F} into a narrated, animated book."
+   "say": "Okay, this AI turns a boring {PDF|P D F} into a narrated, animated book, and it's kind of amazing."
   },
   {
    "id": "demo",
@@ -54,7 +54,7 @@
      "at": "quizzes"
     }
    ],
-   "say": "This algebra book has {68|sixty-eight} narrated chapters, with animated lessons and quizzes that check you."
+   "say": "This algebra book has {68|sixty-eight} narrated chapters, full of animated lessons, plus quizzes that actually check you."
   },
   {
    "id": "how",
@@ -73,7 +73,13 @@
     "Writes narration",
     "Animates + adds quizzes"
    ],
-   "say": "It plans the book, storyboards it, writes the narration, then animates it with quizzes."
+   "say": "Here's how: it plans the book, storyboards every page, writes the narration, and then animates it all with quizzes.",
+   "step_at": [
+    "plans",
+    "storyboards",
+    "narration",
+    "animates"
+   ]
   },
   {
    "id": "name",
@@ -99,7 +105,7 @@
      "state": "★ Starred 590"
     }
    ],
-   "say": "It's called Papermorph, a free Claude Code skill with {590|five hundred ninety} stars in six days."
+   "say": "It's called Papermorph, a free Claude Code skill that's hit {590|five hundred ninety} stars in six days."
   },
   {
    "id": "install",
@@ -114,7 +120,7 @@
     "skill added to Claude Code",
     "planning the book…"
    ],
-   "say": "Add it with one command, then hand Claude your {PDF|P D F}."
+   "say": "You add it with one command, then just hand Claude your {PDF|P D F}."
   },
   {
    "id": "catch",
@@ -129,13 +135,18 @@
    "pros": [
     "Bookshelf free to try"
    ],
-   "say": "The catch: it needs Opus 5.5, which isn't free, and it's not multilingual yet. But the bookshelf is free to try."
+   "say": "The catch? It needs Opus 5.5, which isn't free, and it's not multilingual yet. But the bookshelf? That's free to try.",
+   "item_at": [
+    "opus",
+    "multilingual",
+    "bookshelf"
+   ]
   },
   {
    "id": "cta",
    "type": "endcard",
    "keyword": "BOOK",
-   "say": "Which textbook would you turn into one? Comment {BOOK|book} and I'll pin the link."
+   "say": "So which textbook would you turn into one? Comment {BOOK|book} and I'll pin the link."
   }
  ],
  "verify_before_render": [

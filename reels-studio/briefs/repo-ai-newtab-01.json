@@ -6,7 +6,7 @@
  "niche": "tech / AI tools: trending GitHub repo spotlight",
  "lang": "en-us",
  "style": "midnight",
- "status": "v1 2026-10-09: facts verified same day (GitHub API, README, author profile)",
+ "status": "v1 2026-10-09: facts verified same day (GitHub API, README, author profile) | v2 2026-10-09: narration rewritten for the approved voice (flow style, PLAYBOOK 5.0)",
  "keywords": [
   "history",
   "newspaper",
@@ -29,7 +29,7 @@
    "fit": "fill-blur",
    "headline": "NEW TAB, *WRITTEN BY AI*",
    "sub": "An AI homepage rebuilt from your browsing",
-   "say": "Someone at {Anthropic|Anthropic} built an AI homepage that writes itself."
+   "say": "Okay, someone at {Anthropic|Anthropic} just built an AI homepage that literally writes itself."
   },
   {
    "id": "how",
@@ -47,7 +47,12 @@
     "Opens up to 8 sites you follow",
     "Writes a fresh front page"
    ],
-   "say": "It reads your history, opens up to {8|eight} sites you follow, and writes a fresh front page."
+   "say": "It reads your browsing history, opens up to {8|eight} sites you follow, and then writes you a fresh front page.",
+   "step_at": [
+    "reads",
+    "opens",
+    "writes"
+   ]
   },
   {
    "id": "name",
@@ -73,7 +78,7 @@
      "state": "★ Starred 301"
     }
    ],
-   "say": "It's his own open-source project, with {300|three hundred} stars in its first twelve hours."
+   "say": "And it's his own open-source project, which hit {300|three hundred} stars in just twelve hours."
   },
   {
    "id": "looks",
@@ -85,7 +90,7 @@
     "Or a dashboard",
     "Or a green terminal"
    ],
-   "say": "Pick any look: a newspaper, a dashboard, or a green terminal."
+   "say": "You can make it look like a morning newspaper, a dashboard, or even a green hacker terminal."
   },
   {
    "id": "install",
@@ -102,7 +107,7 @@
     "installed",
     "built: load it in Chrome"
    ],
-   "say": "Load it in Chrome with your own {Anthropic|Anthropic} {API|A P I} key."
+   "say": "Setup is quick: you load it in Chrome with your own {Anthropic|Anthropic} {API|A P I} key."
   },
   {
    "id": "catch",
@@ -117,13 +122,18 @@
    "pros": [
     "Uploads deleted after each build"
    ],
-   "say": "The catch: it sends your history and up to {8|eight} signed-in pages to {Anthropic|Anthropic}. Every build costs credits, but uploads get deleted after."
+   "say": "But here's the catch: it sends your history and up to {8|eight} signed-in pages to {Anthropic|Anthropic}, and every build costs you credits. The good news? Uploads get deleted after each build.",
+   "item_at": [
+    "sends",
+    "costs",
+    "deleted"
+   ]
   },
   {
    "id": "cta",
    "type": "endcard",
    "keyword": "TAB",
-   "say": "Would you let AI write your homepage? Comment {TAB|tab} and I'll pin the link."
+   "say": "So, would you let AI write your homepage? Comment {TAB|tab} and I'll pin the link."
   }
  ],
  "verify_before_render": [

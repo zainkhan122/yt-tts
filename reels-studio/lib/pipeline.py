@@ -406,6 +406,28 @@ NUMWORDS = {"zero": "0", "one": "1", "two": "2", "three": "3", "four": "4", "fiv
             "nine": "9", "ten": "10", "point": "", "dot": ""}
 
 
+def melody_st(x, sr):
+    """Pitch range (semitones, p10-p90 of voiced frames, speaker-adaptive bounds): the 'liveliness' of a take.
+    Approved option-3 sample measured 14.4 st; flat Kokoro 7.6-9.6 (research/voice/voice-study.md)."""
+    try:
+        import parselmouth
+        from parselmouth.praat import call
+        snd = parselmouth.Sound(x.astype(np.float64), sampling_frequency=sr)
+        f = snd.to_pitch_ac(time_step=0.01, pitch_floor=60, pitch_ceiling=500).selected_array["frequency"]
+        v = f[f > 0]
+        if len(v) < 30:
+            return 0.0
+        lo, hi = max(50.0, 0.75 * np.percentile(v, 25)), min(600.0, 1.5 * np.percentile(v, 75))
+        f = call(snd.to_pitch_ac(time_step=0.01, pitch_floor=lo, pitch_ceiling=hi), "Kill octave jumps").selected_array["frequency"]
+        v = f[(f >= lo * 0.9) & (f <= hi * 1.1)]
+        if len(v) < 30:
+            return 0.0
+        st = 12 * np.log2(v / np.median(v))
+        return float(np.percentile(st, 90) - np.percentile(st, 10))
+    except Exception:
+        return 99.0  # no Praat: never block on it
+
+
 def align_chunk(x, sr, seg_texts, work, log, display_texts=None):
     """Where does each scene line start inside one flow chunk? Returns (cut sample indices between lines, char match 0-1).
     whisper word timestamps + difflib alignment to the known script; cuts land on the quietest frame between the
@@ -836,6 +858,7 @@ class Job:
         limit, gap = int(tts.get("chunk_chars", 280)), float(tts.get("join_gap", 0.06))
         base_seed = int(tts.get("seed", 7)) + int(hashlib.md5(self.id.encode()).hexdigest()[:6], 16) % 10000
         tries, min_match = 1 + int(tts.get("max_retries", 2)), float(tts.get("min_match", 0.92))
+        min_mel, mels = float(tts.get("min_melody_st", 10.0)), []
         texts = [spoken_clean(s["spoken"]) if s.get("text") else None for s in segs]
         chunks, cur = [], []
         for i, s in enumerate(segs):
@@ -870,13 +893,16 @@ class Job:
                 else:
                     x, _ = voice(" ".join(seg_texts), seed)
                 cuts, match = align_chunk(x, 24000, seg_texts, cdir, self.log, [segs[i].get("display") or texts[i] for i in idx])
-                if best is None or match > best[2]:
-                    best = (x, cuts, match)
-                if match >= min_match or self.voice_engine == "kokoro-preview":
+                mel = melody_st(x, 24000)
+                score = (match >= min_match, mel if match >= min_match else match)
+                if best is None or score > best[3]:
+                    best = (x, cuts, match, score, mel)
+                if self.voice_engine == "kokoro-preview" or (match >= min_match and mel >= min_mel):
                     break
                 retried += 1
-            x, cuts, match = best
+            x, cuts, match, _, mel = best
             worst = min(worst, match)
+            mels.append(round(mel, 1))
             bounds = [0] + cuts + [len(x)]
             for j, i in enumerate(idx):
                 piece = x[bounds[j]:bounds[j + 1]]
@@ -887,8 +913,8 @@ class Job:
         for s in segs:  # template default gaps (0.06-0.08 s before each line) would re-insert silence at every cut
             if s.get("text") and s.get("pre", 0.0) <= 0.1:
                 posts["pre:" + s["id"]] = 0.0
-        self.flow_stats = {"chunks": len(chunks), "worst_chunk_match": round(worst, 3), "retries": retried}
-        return clips, posts, f"{voice.name}, flow ({len(chunks)} chunks, worst match {worst:.0%}, retries {retried})"
+        self.flow_stats = {"chunks": len(chunks), "worst_chunk_match": round(worst, 3), "retries": retried, "melody_st": mels}
+        return clips, posts, f"{voice.name}, flow ({len(chunks)} chunks, worst match {worst:.0%}, melody {mels} st, retries {retried})"
 
     # 4 ---------------------------------------------------------------
     def word_timings(self):

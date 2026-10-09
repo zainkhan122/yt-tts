@@ -6,7 +6,7 @@
  "niche": "tech / AI tools: ranked list",
  "lang": "en-us",
  "style": "midnight",
- "status": "v1 2026-10-09: free tiers verified same day on official pages (Google Flow Help, Dreamina Seedance 2.0 page, Wan2.2 README + GitHub API)",
+ "status": "v1 2026-10-09: free tiers verified same day on official pages (Google Flow Help, Dreamina Seedance 2.0 page, Wan2.2 README + GitHub API) | v2 2026-10-09: narration rewritten for the approved voice (flow style, PLAYBOOK 5.0)",
  "keywords": [
   "Seedance",
   "Dreamina",
@@ -34,7 +34,7 @@
    "fit": "fill-blur",
    "headline": "3 AI VIDEO TOOLS, *ACTUALLY FREE*",
    "sub": "We checked the real daily limits",
-   "say": "These three AI video generators are actually free. Here's the real catch for each."
+   "say": "Okay, three AI video generators that are actually free, and I checked the real limits so you don't get burned."
   },
   {
    "id": "seedance",
@@ -45,7 +45,7 @@
    "fit": "fill-blur",
    "headline": "#3 *SEEDANCE 2.0*",
    "sub": "Free daily credits on Dreamina",
-   "say": "Number three: Seedance 2.0 on Dreamina. Free daily credits, but downloads get a watermark."
+   "say": "Number three is Seedance 2.0 on Dreamina, which gives you free credits every day, but your downloads come with a watermark."
   },
   {
    "id": "flow",
@@ -56,7 +56,7 @@
    "fit": "fill-blur",
    "headline": "#2 *GOOGLE FLOW*",
    "sub": "50 free credits every day",
-   "say": "Number two: Google Flow. Fifty free credits a day, about five short Veo clips."
+   "say": "Number two, Google Flow: you get fifty free credits a day, and that's about five short Veo clips."
   },
   {
    "id": "proof",
@@ -75,7 +75,7 @@
      "at": "peak"
     }
    ],
-   "say": "That's from Google's help page, but at peak hours free users may get no videos."
+   "say": "That's straight from Google's help page, and at peak hours, free users might not get any videos at all."
   },
   {
    "id": "wan",
@@ -86,7 +86,7 @@
    "fit": "fill-blur",
    "headline": "#1 *WAN 2.2*",
    "sub": "Open source: no credits at all",
-   "say": "Number one: Wan 2.2. It's open source, so no credits at all, if you own a {24|twenty-four} gigabyte GPU."
+   "say": "And number one is Wan 2.2: it's open source, so no credits at all, as long as you've got a {24|twenty-four} gigabyte GPU."
   },
   {
    "id": "catch",
@@ -103,13 +103,13 @@
     "upscale",
     "unlimited"
    ],
-   "say": "The catch: free credits never roll over, and free Flow can't upscale to {1080p|ten-eighty p}. Only Wan is truly unlimited."
+   "say": "The catch? Free credits never roll over, and free Flow can't upscale to {1080p|ten-eighty p}, so only Wan is truly unlimited."
   },
   {
    "id": "cta",
    "type": "endcard",
    "keyword": "FREE",
-   "say": "Which one are you trying first? Comment {FREE|free}."
+   "say": "So which one are you trying first? Comment {FREE|free}."
   }
  ],
  "verify_before_render": [

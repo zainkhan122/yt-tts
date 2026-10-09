@@ -6,7 +6,7 @@
  "niche": "tech / AI tools: AI news, paid to free",
  "lang": "en-us",
  "style": "midnight",
- "status": "v1 2026-10-09: facts verified same day (claude.com announcement 2026-10-08 + 'Cowork is now Claude' 2026-09-16)",
+ "status": "v1 2026-10-09: facts verified same day (claude.com announcement 2026-10-08 + 'Cowork is now Claude' 2026-09-16) | v2 2026-10-09: narration rewritten for the approved voice (flow style, PLAYBOOK 5.0)",
  "keywords": [
   "Claude",
   "Slides",
@@ -31,7 +31,7 @@
    "fit": "fill-blur",
    "headline": "CLAUDE SLIDES & DOCS *NOW FREE*",
    "sub": "Docs, Slides and Design on the free plan",
-   "say": "Claude Slides, Docs and Design just left beta, and now they're on the free plan."
+   "say": "Okay, this is a big one: Claude Slides, Docs and Design just left beta, and they're now on the free plan."
   },
   {
    "id": "deck",
@@ -40,7 +40,7 @@
    "in": 11.0,
    "out": 19.5,
    "fit": "card",
-   "say": "Ask for a launch deck, and it builds every slide right in the chat."
+   "say": "You just ask for a launch deck, and it builds every single slide for you, right there in the chat."
   },
   {
    "id": "design",
@@ -49,7 +49,7 @@
    "in": 38.5,
    "out": 47.0,
    "fit": "card",
-   "say": "Then it turns a slide into social posts in four sizes."
+   "say": "Then you tell it to turn a slide into social posts, and just like that, you get all four sizes."
   },
   {
    "id": "docs",
@@ -58,7 +58,7 @@
    "in": 68.0,
    "out": 81.0,
    "fit": "card",
-   "say": "Docs too, and exports keep your formatting in PowerPoint, {PDF|P D F} or Google Slides."
+   "say": "It writes docs too, and when you export to PowerPoint, {PDF|P D F} or Google Slides, your formatting actually survives."
   },
   {
    "id": "proof",
@@ -69,7 +69,7 @@
    "label": "docs, decks & designs in Claude",
    "icon": false,
    "at": "45",
-   "say": "People have already made over {45|forty-five} million of them."
+   "say": "People have already made over {45|forty-five} million of these."
   },
   {
    "id": "motion",
@@ -78,7 +78,7 @@
    "in": 47.5,
    "out": 55.5,
    "fit": "fill-blur",
-   "say": "And new Claude Motion turns a report into an animated video you can download."
+   "say": "And the brand new Claude Motion can even turn a boring report into an animated video you can download."
   },
   {
    "id": "catch",
@@ -99,13 +99,13 @@
     "Dashboards",
     "free"
    ],
-   "say": "The catch: Motion is Team and Enterprise only, and Dashboards need a paid plan. But Docs, Slides and Design are free for everyone."
+   "say": "But here's the catch: Motion is only for Team and Enterprise, and Dashboards need a paid plan. Docs, Slides and Design, though? Free for everyone."
   },
   {
    "id": "cta",
    "type": "endcard",
    "keyword": "DECK",
-   "say": "What would you make first? Comment {DECK|deck}."
+   "say": "So what would you make first? Comment {DECK|deck}."
   }
  ],
  "verify_before_render": [
