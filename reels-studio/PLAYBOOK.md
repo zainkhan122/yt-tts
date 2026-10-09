@@ -148,7 +148,8 @@ github.signals 117K, ...): audio-only, vocals separated from music (UVR MDX-Net)
   lands LAST in its phrase (where English puts the main stress), and give each sentence one such word.
 - **Spoken hook formulas that worked:** "I just found an open-source AI that ..." / "This GitHub repo is a goldmine for ..." /
   "Never <do X> ..." / "Just look. Think it's real? It's not." / "<underdog> did what <giants> couldn't."
-- **Sentences flow:** ~12–16 words joined with "and / so / which means", not a full stop every 6 words. Questions are rare
+- **Sentences flow:** aim for ~15 words per sentence (the approved sample: 15.9), joined with "and / so / which means", not a
+  full stop every 6 words. First published batch averaged 12.1 words → 13.8 pauses/min vs 7.5 in the approved sample. Questions are rare
   (median 0 per 100 words): use one rhetorical Q→A beat ("Google? OpenAI? Nope.") as a pattern interrupt, not more.
 - Keep what we already do well: contractions (4.7 per 100 words) and direct "you" (5.2 per 100 words), at or above the creators.
 

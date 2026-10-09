@@ -1,28 +1,29 @@
 # Voice study: how the reference creators deliver their scripts (2026-10-09)
 
-Measured, not guessed: whisper.cpp word timings + Praat prosody (tools/voice_study.py). Audio deleted after analysis.
+Measured, not guessed: whisper.cpp word timings + Praat prosody + Silero VAD; creators' voices separated from music
+(UVR MDX-Net) first (tools/voice_study.py). Audio deleted after analysis.
 
-## Creators (27 videos) vs our current voice (2 videos)
+## Creators (12 videos) vs our old voice vs the approved voice (voice-lab option 3) vs published videos (6)
 
-| Metric | Creators (median) | Creators (range) | Ours (median) |
-|---|---|---|---|
-| pitch range (semitones) | 13.2 | 4.1–20.2 | 11.0 |
-| pitch variation SD (st) | 5.2 | 3.18–8.19 | 4.7 |
-| pitch movement (st / 100 ms) | 4.7 | 3.49–7.19 | 4.8 |
-| loudness range (dB) | 29.1 | 13.5–33.9 | 24.8 |
-| words per minute | 184 | 120–234 | 187.0 |
-| speed change between phrases (%) | 14.0 | 5–34 | 13.0 |
-| pauses per minute (>=150 ms) | 11.8 | 0.0–25.9 | 19.2 |
-| average pause (s) | 0.3 | 0–0.48 | 0.3 |
-| stressed words (%) | 3 | 0–18 | 2.5 |
-| phrases ending with a pitch fall (%) | 100.0 | 0–100 | 100.0 |
-| phrases ending with a pitch rise (%) | 0.0 | 0–25 | 0.0 |
-| words per sentence | 12.7 | 4.1–164 | 12.8 |
-| questions per 100 words | 0.9 | 0.0–2.6 | 0.9 |
-| 'you' per 100 words | 5.4 | 0.0–9.5 | 5.2 |
-| contractions per 100 words | 2.7 | 0.0–7.2 | 4.7 |
+| Metric | Creators (median) | Creators (range) | Old Kokoro voice | Approved sample (option 3) | Published videos (median) |
+|---|---|---|---|---|---|
+| pitch range (semitones) | 13.4 | 4.1–20.2 | 11.0 | 14.4 | 17.9 |
+| pitch variation SD (st) | 5.0 | 3.19–8.19 | 4.7 | 5.3 | 6.9 |
+| pitch movement (st / 100 ms) | 4.2 | 3.53–5.96 | 4.8 | 5.4 | 4.8 |
+| loudness range (dB) | 24.0 | 13.5–32.9 | 24.8 | 31.4 | 31.8 |
+| words per minute | 184.5 | 120–234 | 187.0 | 205 | 174.0 |
+| speed change between phrases (%) | 17 | 11–34 | 13.0 | 5 | 13.0 |
+| pauses per minute (>=150 ms) | 1.5 | 0.0–24.1 | 19.2 | 7.5 | 13.8 |
+| average pause (s) | 0.2 | 0–0.48 | 0.3 | 0.3 | 0.3 |
+| stressed words (%) | 3.5 | 1–18 | 2.5 | 5 | 2.0 |
+| phrases ending with a pitch fall (%) | 100.0 | 50–100 | 100.0 | 0 | 100.0 |
+| phrases ending with a pitch rise (%) | 0.0 | 0–25 | 0.0 | 0 | 0.0 |
+| words per sentence | 15.6 | 4.1–164 | 12.8 | 15.9 | 12.1 |
+| questions per 100 words | 0.0 | 0.0–2.2 | 0.9 | 0.9 | 1.6 |
+| 'you' per 100 words | 3.0 | 0.0–9.5 | 5.2 | 7.3 | 5.1 |
+| contractions per 100 words | 1.6 | 0.0–7.2 | 4.7 | 2.7 | 4.3 |
 
-## Per video
+## Creators, per video
 
 | Video | Views | wpm | pitch range | movement | loud range | speed var | pauses/min | stressed % | stressed words (sample) |
 |---|---|---|---|---|---|---|---|---|---|
@@ -38,23 +39,38 @@ Measured, not guessed: whisper.cpp word timings + Praat prosody (tools/voice_stu
 | [github.signals (TikTok)](https://www.tiktok.com/@github.signals/video/7693953373057453333) | 117200 | 169 | 12.1 | 4.16 | 23.6 | 11 | 11.8 | 7 | graphics, card, performance, much, windows |
 | [zaindevx_ (TikTok)](https://www.tiktok.com/@zaindevx_/video/7685703638597111060) | 24900 | 184 | 15.2 | 4.51 | 20.2 | None | 0.0 | 18 | github, has, ai, devops, agent, cursor, codex, i'll |
 | [ai_vanta_ai (TikTok)](https://www.tiktok.com/@ai_vanta_ai/video/7688103789248728353) | 255700 | 202 | 7.4 | 4.1 | 13.5 | None | 0.0 | 3 | tool, first, explore |
-| [lab: 1-kokoro-current](file:1-kokoro-current.mp3) |  | 190 | 9.6 | 5.05 | 24.7 | 21 | 23.1 | 4 | sends, asks, first, logs |
-| [lab: 2-kokoro-ear-script](file:2-kokoro-ear-script.mp3) |  | 183 | 11.0 | 5.11 | 25.8 | 25 | 25.9 | 3 | before |
-| [lab: 3-chatterbox-michael-neutral](file:3-chatterbox-michael-neutral.mp3) |  | 166 | 10.7 | 7.19 | 29.1 | 19 | 25.1 | 1 | asks |
-| [lab: 4-chatterbox-michael-energetic](file:4-chatterbox-michael-energetic.mp3) |  | 165 | 14.6 | 5.34 | 33.9 | 11 | 19.7 | 2 | asks |
-| [lab: 5-chatterbox-default-energetic](file:5-chatterbox-default-energetic.mp3) |  | 163 | 16.0 | 6.23 | 32.7 | 22 | 21.4 | 2 | first |
-| [lab: 6-kokoro-current-onepass](file:6-kokoro-current-onepass.mp3) |  | 188 | 7.6 | 4.28 | 24.0 | 14 | 17.6 | 3 | sends, first |
-| [lab: 7-kokoro-flow-script](file:7-kokoro-flow-script.mp3) |  | 199 | 13.0 | 5.21 | 23.6 | 17 | 19.7 | 3 | before, buys |
-| [lab: 8-chatterbox-michael-flow](file:8-chatterbox-michael-flow.mp3) |  | 205 | 14.4 | 5.38 | 31.4 | 5 | 7.5 | 5 | own |
-| [lab: 9-chatterbox-michael-flow-hype](file:9-chatterbox-michael-flow-hype.mp3) |  | 205 | 13.2 | 5.54 | 33.0 | 9 | 5.5 | 0 |  |
-| [lab: production list-free-video-ai-01 (option 3, new script)](file:voiceover.mp3) |  | 176 | 17.4 | 4.96 | 30.4 | 13 | 18.0 | 2 | five, short, vel |
-| [lab: production news-claude-free-01 (option 3, new script)](file:voiceover.mp3) |  | 192 | 16.9 | 4.54 | 33.4 | 12 | 9.6 | 3 | formatting, actually, survives, people |
-| [lab: production repo-ai-newtab-01 (option 3, new script)](file:voiceover.mp3) |  | 172 | 18.3 | 3.49 | 31.6 | 13 | 15.0 | 2 | load |
-| [lab: production repo-scm-01 (option 3, new script)](file:voiceover.mp3) |  | 160 | 9.7 | 4.62 | 33.6 | 19 | 11.3 | 2 | 6, days |
-| [lab: production spotlight-papermorph-01 (option 3, new script)](file:voiceover.mp3) |  | 162 | 11.8 | 5.26 | 31.4 | 14 | 12.8 | 1 |  |
-| [lab: production tool-muse-01 (option 3, new script)](file:voiceover.mp3) |  | 193 | 19.2 | 5.21 | 30.8 | 14 | 10.4 | 2 | first |
-| [ours: kokoro clean (muse script)](file:ours-kokoro-clean.wav) |  | 186 | 9.5 | 5.12 | 24.8 | 17 | 22.6 | 3 | sends, asks, first |
-| [ours: tool-muse-01 final mix (separated)](file:tool-muse-01.mp4) |  | 188 | 12.5 | 4.38 | 24.7 | 9 | 15.8 | 2 | logs |
+
+## Our old voice
+
+| Sample | wpm | pitch range | pauses/min | average pause | speed var | stressed % |
+|---|---|---|---|---|---|---|
+| ours: kokoro clean (muse script) | 186 | 9.5 | 22.6 | 0.32 | 17 | 3 |
+| ours: tool-muse-01 final mix (separated) | 188 | 12.5 | 15.8 | 0.28 | 9 | 2 |
+
+## Voice lab samples (2026-10-09)
+
+| Sample | wpm | pitch range | pauses/min | average pause | speed var | stressed % |
+|---|---|---|---|---|---|---|
+| lab: 1-kokoro-current | 190 | 9.6 | 23.1 | 0.26 | 21 | 4 |
+| lab: 2-kokoro-ear-script | 183 | 11.0 | 25.9 | 0.3 | 25 | 3 |
+| lab: 3-chatterbox-michael-neutral | 166 | 10.7 | 25.1 | 0.33 | 19 | 1 |
+| lab: 4-chatterbox-michael-energetic | 165 | 14.6 | 19.7 | 0.31 | 11 | 2 |
+| lab: 5-chatterbox-default-energetic | 163 | 16.0 | 21.4 | 0.4 | 22 | 2 |
+| lab: 6-kokoro-current-onepass | 188 | 7.6 | 17.6 | 0.37 | 14 | 3 |
+| lab: 7-kokoro-flow-script | 199 | 13.0 | 19.7 | 0.31 | 17 | 3 |
+| lab: 8-chatterbox-michael-flow | 205 | 14.4 | 7.5 | 0.29 | 5 | 5 |
+| lab: 9-chatterbox-michael-flow-hype | 205 | 13.2 | 5.5 | 0.31 | 9 | 0 |
+
+## Published videos (approved voice, clean voiceover.mp3)
+
+| Sample | wpm | pitch range | pauses/min | average pause | speed var | stressed % |
+|---|---|---|---|---|---|---|
+| prod: list-free-video-ai-01 | 176 | 17.4 | 18.0 | 0.27 | 13 | 2 |
+| prod: news-claude-free-01 | 192 | 16.9 | 9.6 | 0.26 | 12 | 3 |
+| prod: repo-ai-newtab-01 | 172 | 18.3 | 15.0 | 0.33 | 13 | 2 |
+| prod: repo-scm-01 | 157 | 13.5 | 12.5 | 0.34 | 13 | 1 |
+| prod: spotlight-papermorph-01 | 161 | 19.7 | 15.6 | 0.31 | 14 | 3 |
+| prod: tool-muse-01 | 193 | 19.2 | 10.4 | 0.27 | 14 | 2 |
 
 ## Hook excerpts (first 20 words)
 
@@ -70,18 +86,3 @@ Measured, not guessed: whisper.cpp word timings + Praat prosody (tools/voice_stu
 - **github.signals (TikTok)**: "Run PS5 games directly on your own computer without any emulation or fake hardware layers. Any PS5 takes the actual"
 - **zaindevx_ (TikTok)**: "This GitHub repo is a goldmine for AI developers. It has 230+ specialized AI agents for different jobs. Frontend, backend,"
 - **ai_vanta_ai (TikTok)**: "A geography professor just built a free, open-source GIS tool that does what Quantum GIS and Google Earth Pro charge"
-- **lab: 1-kokoro-current**: "Meta's new AI agent Muse doesn't just chat. It fills in forms, shops, and books trips for you. Here it"
-- **lab: 2-kokoro-ear-script**: "Meta just dropped an AI that actually does your chores. It's called Muse. You text it and it fills out"
-- **lab: 3-chatterbox-michael-neutral**: "Meta just dropped an AI that actually does your chores. It's called Muse. You text it and it fills out"
-- **lab: 4-chatterbox-michael-energetic**: "Meta just dropped an AI that actually does your chores. It's called Muse. You text it and it fills out"
-- **lab: 5-chatterbox-default-energetic**: "Metagis dropped an AI that actually does your chores. It's called Muse. You text it and it fills out forms,"
-- **lab: 6-kokoro-current-onepass**: "Meta's new AI agent muse doesn't just chat. It fills in forms, shops, and books trips for you. Here it"
-- **lab: 7-kokoro-flow-script**: "Meta just dropped an AI that actually does your chores and it's called Muse. You text it like a friend,"
-- **lab: 8-chatterbox-michael-flow**: "Metagis dropped an AI that actually does your chores and it's called Muse. You text it like a friend and"
-- **lab: 9-chatterbox-michael-flow-hype**: "Meta just dropped an AI that actually does your chores and it's called Muse. You text it like a friend"
-- **lab: production list-free-video-ai-01 (option 3, new script)**: "Okay, three AI video generators that are actually free, and I checked the real limits so you don't get burned."
-- **lab: production news-claude-free-01 (option 3, new script)**: "Okay, this is a big one. Clawed slides. Docs in design just left beta and they're now on the free"
-- **lab: production repo-ai-newtab-01 (option 3, new script)**: "Okay, someone at Anthropic just built an AI homepage that literally writes itself. It reads your browsing history, opens up"
-- **lab: production repo-scm-01 (option 3, new script)**: "Okay, imagine describing a memory, and this AI photo search finds the exact shot. You just type something like "Happy"
-- **lab: production spotlight-papermorph-01 (option 3, new script)**: "Okay, this AI turns a boring PDF into a narrated, animated book, and it's kind of amazing. This algebra book"
-- **lab: production tool-muse-01 (option 3, new script)**: "Okay, meta just dropped an AI agent called Muse, and it doesn't just chat, it actually does your chores. You"

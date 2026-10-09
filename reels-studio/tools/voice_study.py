@@ -337,30 +337,44 @@ METRICS = [("range_st", "pitch range (semitones)"), ("sd_st", "pitch variation S
 
 
 def report():
+    """Four groups, never mixed: creators (benchmark) / ours-old (Kokoro, before 2026-10-09) / lab: voice-lab samples /
+    prod: clean voiceover.mp3 of published videos. Labels decide the group (prefixes "ours:", "lab:", "prod:")."""
     rows = [json.loads(f.read_text())["row"] for f in sorted(RAW.glob("*.json"))]
-    ours = [r for r in rows if r["label"].startswith("ours")]
-    them = [r for r in rows if not r["label"].startswith("ours")]
+    grp = lambda r: next((g for g in ("ours", "lab", "prod") if r["label"].startswith(g)), "creators")
+    them = [r for r in rows if grp(r) == "creators"]
+    old = [r for r in rows if grp(r) == "ours"]
+    approved = [r for r in rows if grp(r) == "lab" and "8-chatterbox-michael-flow" in r["label"]]
+    prod = [r for r in rows if grp(r) == "prod"]
+    lab = [r for r in rows if grp(r) == "lab"]
 
     def med(rs, k):
         v = [r.get(k) for r in rs if isinstance(r.get(k), (int, float))]
-        return round(stats.median(v), 1) if v else None
+        return round(stats.median(v), 1) if v else ""
     L = [f"# Voice study: how the reference creators deliver their scripts ({dt.date.today().isoformat()})", "",
-         "Measured, not guessed: whisper.cpp word timings + Praat prosody (tools/voice_study.py). Audio deleted after analysis.", "",
-         f"## Creators ({len(them)} videos) vs our current voice ({len(ours)} videos)", "",
-         "| Metric | Creators (median) | Creators (range) | Ours (median) |", "|---|---|---|---|"]
+         "Measured, not guessed: whisper.cpp word timings + Praat prosody + Silero VAD; creators' voices separated from music",
+         "(UVR MDX-Net) first (tools/voice_study.py). Audio deleted after analysis.", "",
+         f"## Creators ({len(them)} videos) vs our old voice vs the approved voice (voice-lab option 3) vs published videos ({len(prod)})", "",
+         "| Metric | Creators (median) | Creators (range) | Old Kokoro voice | Approved sample (option 3) | Published videos (median) |",
+         "|---|---|---|---|---|---|"]
     for k, name in METRICS:
         v = [r.get(k) for r in them if isinstance(r.get(k), (int, float))]
         rng = f"{min(v)}–{max(v)}" if v else ""
-        L.append(f"| {name} | {med(them, k)} | {rng} | {med(ours, k)} |")
-    L += ["", "## Per video", "", "| Video | Views | wpm | pitch range | movement | loud range | speed var | pauses/min | stressed % | stressed words (sample) |",
+        L.append(f"| {name} | {med(them, k)} | {rng} | {med(old, k)} | {med(approved, k)} | {med(prod, k)} |")
+    L += ["", "## Creators, per video", "", "| Video | Views | wpm | pitch range | movement | loud range | speed var | pauses/min | stressed % | stressed words (sample) |",
           "|---|---|---|---|---|---|---|---|---|---|"]
-    for r in them + ours:
+    for r in them:
         L.append(f"| [{r['label']}]({r['url']}) | {r.get('views') or ''} | {r['wpm']} | {r['range_st']} | {r['move_st_100ms']} | {r['loud_range_db']} | "
                  f"{r.get('speed_var_pct')} | {r['pauses_per_min']} | {r['stress_pct']} | {', '.join(r['stressed_words'][:8])} |")
+    for title, rs in (("Our old voice", old), ("Voice lab samples (2026-10-09)", lab), ("Published videos (approved voice, clean voiceover.mp3)", prod)):
+        if not rs:
+            continue
+        L += ["", f"## {title}", "", "| Sample | wpm | pitch range | pauses/min | average pause | speed var | stressed % |", "|---|---|---|---|---|---|---|"]
+        for r in rs:
+            L.append(f"| {r['label']} | {r['wpm']} | {r['range_st']} | {r['pauses_per_min']} | {r['pause_mean_s']} | {r.get('speed_var_pct')} | {r['stress_pct']} |")
     L += ["", "## Hook excerpts (first 20 words)", ""] + [f"- **{r['label']}**: \"{r['excerpt']}\"" for r in them]
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "voice-study.md").write_text("\n".join(L) + "\n")
-    print(f"-> research/voice/voice-study.md ({len(them)} creator videos, {len(ours)} ours)")
+    print(f"-> research/voice/voice-study.md ({len(them)} creators, {len(old)} old voice, {len(lab)} lab, {len(prod)} published)")
 
 
 def main():
