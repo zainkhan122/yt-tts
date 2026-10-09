@@ -1,0 +1,217 @@
+{
+ "id": "repo-ai-newtab-01",
+ "template": "repo-spotlight",
+ "capture": "captures/ai-newtab",
+ "title": "An AI homepage that writes itself",
+ "niche": "tech / AI tools: trending GitHub repo spotlight",
+ "lang": "en-us",
+ "style": "midnight",
+ "status": "v1 2026-10-09: facts verified same day (GitHub API, README, author profile)",
+ "keywords": [
+  "history",
+  "newspaper",
+  "Anthropic",
+  "credits",
+  "homepage"
+ ],
+ "facts": {
+  "stars": 301,
+  "checked": "2026-10-09 05:50 UTC"
+ },
+ "credits_on_screen": "Illustration & repo: github.com/ThariqS/ai-newtab (MIT). Page: own capture.",
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "clip",
+   "src": "morning-tab-pan.mp4",
+   "in": 0.0,
+   "out": 4.2,
+   "fit": "fill-blur",
+   "headline": "NEW TAB, *WRITTEN BY AI*",
+   "sub": "An AI homepage rebuilt from your browsing",
+   "say": "Someone at {Anthropic|Anthropic} built an AI homepage that writes itself."
+  },
+  {
+   "id": "how",
+   "type": "steps",
+   "heading": "HOW IT *WORKS*",
+   "background": {
+    "image": "desktop-full.jpg",
+    "scroll_regions": [
+     "img_0_an-example-homepage-in-a-morning",
+     "h_how-it-works"
+    ]
+   },
+   "steps": [
+    "Reads your history",
+    "Opens up to 8 sites you follow",
+    "Writes a fresh front page"
+   ],
+   "say": "It reads your history, opens up to {8|eight} sites you follow, and writes a fresh front page."
+  },
+  {
+   "id": "name",
+   "type": "page",
+   "image": "desktop-top.jpg",
+   "url": "github.com/ThariqS/ai-newtab",
+   "camera": [
+    {
+     "region": "repo_title",
+     "zoom": 1.6,
+     "at": "project"
+    },
+    {
+     "region": "star_button",
+     "zoom": 2.6,
+     "at": "300"
+    }
+   ],
+   "cursor": [
+    {
+     "region": "star_button",
+     "at": "stars",
+     "state": "★ Starred 301"
+    }
+   ],
+   "say": "It's his own open-source project, with {300|three hundred} stars in its first twelve hours."
+  },
+  {
+   "id": "looks",
+   "type": "image",
+   "image": "an-example-homepage-in-a-morning-newspap.png",
+   "heading": "ANY *LOOK* YOU WANT",
+   "chips": [
+    "Example: morning paper",
+    "Or a dashboard",
+    "Or a green terminal"
+   ],
+   "say": "Pick any look: a newspaper, a dashboard, or a green terminal."
+  },
+  {
+   "id": "install",
+   "type": "terminal",
+   "title": "Terminal",
+   "heading": "CHROME + *YOUR* API KEY",
+   "lines": [
+    "git clone github.com/ThariqS/ai-newtab",
+    "npx pnpm@10.11.1 install",
+    "npx pnpm@10.11.1 build"
+   ],
+   "outputs": [
+    "cloned",
+    "installed",
+    "built: load it in Chrome"
+   ],
+   "say": "Load it in Chrome with your own {Anthropic|Anthropic} {API|A P I} key."
+  },
+  {
+   "id": "catch",
+   "type": "verdict",
+   "image": "desktop-top.jpg",
+   "region": "about",
+   "zoom": 1.3,
+   "cons": [
+    "Sends history + up to 8 pages",
+    "Every build costs API credits"
+   ],
+   "pros": [
+    "Uploads deleted after each build"
+   ],
+   "say": "The catch: it sends your history and up to {8|eight} signed-in pages to {Anthropic|Anthropic}. Every build costs credits, but uploads get deleted after."
+  },
+  {
+   "id": "cta",
+   "type": "endcard",
+   "keyword": "TAB",
+   "say": "Would you let AI write your homepage? Comment {TAB|tab} and I'll pin the link."
+  }
+ ],
+ "verify_before_render": [
+  "DONE 2026-10-09 05:50 UTC: GitHub API 301 stars, MIT, created 2026-10-08T17:44Z (~12 h); author profile 'Thariq Shihipar, Claude Code @anthropics'; README: privacy box (history summary + cleaned HTML of up to 8 pages sent to the Anthropic API with your key; session + uploads deleted after each build), install (Chrome, Node 20+, Anthropic API key), looks (newspaper, digest, dashboard, terminal, zine), cost per build; the README image is an illustration"
+ ],
+ "sources": [
+  "GitHub API 2026-10-09 05:50 UTC: ThariqS/ai-newtab, 301 stars, 20 forks, MIT, created 2026-10-08T17:44:43Z",
+  "GitHub profile ThariqS: 'Thariq Shihipar', bio 'Claude Code @anthropics'. Personal repo, not an Anthropic product",
+  "README read 2026-10-09: replaces Chrome's new-tab page; an agent looks at your browsing, opens the pages you follow (signed in as you) and writes a fresh homepage; rebuilds in the background (6/12/24/48 h); any look (morning newspaper, one-column digest, dense dashboard, green-on-black terminal, zine)",
+  "README privacy: sends a summary of browsing history (top domains, visit counts, a few page titles) and the cleaned-up HTML of up to 8 pages to the Anthropic API using your own key; pages can include private content; session and uploads deleted when each build ends; key in local storage",
+  "README install + cost: Chrome/Chromium, Node.js 20+, Anthropic API key; models Sonnet 5.5 (default), Haiku 5.5 (cheapest), Opus 5.5; each build billed to your API key",
+  "README image 'An example homepage in a morning newspaper look' is labelled as an illustration"
+ ],
+ "post": {
+  "titles": [
+   "An AI homepage that writes itself (Claude extension)",
+   "Your new tab, rewritten by AI every morning",
+   "Someone at Anthropic built a self-writing homepage"
+  ],
+  "caption": "AI Homepage replaces Chrome's new tab with a front page Claude writes from your own browsing. Free and open source, with one privacy catch.",
+  "hashtags": [
+   "#AI",
+   "#Claude",
+   "#Chrome",
+   "#opensource"
+  ],
+  "pinned_comment": "🔗 github.com/ThariqS/ai-newtab (MIT, personal project by Thariq from the Claude Code team). Needs Chrome, Node 20+ and your own Anthropic API key. Tip: choose Haiku 5.5 in Settings to keep builds cheap. Privacy: each build sends a history summary + up to 8 pages to the Anthropic API; uploads are deleted after the build."
+ },
+ "seo": {
+  "keyword": "AI homepage",
+  "aliases": [
+   "AI new tab",
+   "Claude Chrome extension",
+   "ai-newtab",
+   "AI start page"
+  ],
+  "onscreen_first3s": "NEW TAB, WRITTEN BY AI / An AI homepage rebuilt from your browsing",
+  "youtube": {
+   "title": "AI Homepage That Writes Itself (Claude Chrome Extension)",
+   "description": "AI Homepage replaces Chrome's new tab with a front page that Claude writes from your own browsing: it reads your history, opens up to 8 sites you follow and writes a fresh page in any look (newspaper, dashboard, terminal). It rebuilds itself in the background.\nThe catch: each build sends your history summary and up to 8 signed-in pages to the Anthropic API, and costs API credits. Uploads are deleted after each build.\nRepo: github.com/ThariqS/ai-newtab (MIT). The newspaper image is the README's illustration.",
+   "hashtags": [
+    "#Shorts",
+    "#AI",
+    "#Claude",
+    "#Chrome"
+   ],
+   "tags": [
+    "AI homepage",
+    "AI new tab",
+    "Claude",
+    "Chrome extension",
+    "Anthropic",
+    "AI tools",
+    "open source"
+   ]
+  },
+  "tiktok": {
+   "caption": "Someone at Anthropic built an AI homepage that writes itself 📰 It reads your history and rewrites your new tab daily. Would you let AI do this?",
+   "hashtags": [
+    "#AItools",
+    "#Claude",
+    "#Chrome",
+    "#productivity"
+   ]
+  },
+  "instagram": {
+   "caption": "An AI homepage that writes itself 📰 It reads your browsing and builds a fresh front page every day. Save this for later. Comment TAB and I'll pin the link.",
+   "hashtags": [
+    "#aitools",
+    "#claude",
+    "#chrome",
+    "#productivity",
+    "#opensource"
+   ]
+  },
+  "facebook": {
+   "caption": "An AI homepage that writes itself: it reads your browsing and rewrites your Chrome new tab daily. Free and open source, with one privacy catch. Would you use it?",
+   "hashtags": [
+    "#AItools",
+    "#Claude",
+    "#Chrome"
+   ]
+  },
+  "x": {
+   "text": "Someone at Anthropic built an AI homepage that writes itself: it reads your history and rewrites your new tab daily. One privacy catch 👇",
+   "hashtags": [
+    "#AI"
+   ]
+  }
+ }
+}

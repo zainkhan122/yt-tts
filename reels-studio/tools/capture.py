@@ -16,6 +16,7 @@ Steps (heavy files stay in /var/tmp/reels/captures/<id>/, the curated pack goes 
 Asset policy: PHASES.md (own captures + makers' official media, credited; never other creators' clips).
 """
 import argparse
+import time
 import datetime as dt
 import json
 import os
@@ -101,6 +102,8 @@ def main():
     ap.add_argument("--reuse-extra", help="existing capture_extra output dir (skip step 2)")
     a = ap.parse_args()
     repo = a.repo or (re.match(r"https://github\.com/([^/]+/[^/#?]+)", a.url).group(1) if "github.com/" in a.url else None)
+    if repo and repo.startswith("http"):  # accept a full URL for --repo too
+        repo = re.match(r"https?://github\.com/([^/]+/[^/#?]+)", repo).group(1)
     heavy = Path("/var/tmp/reels/captures") / a.id
     heavy.mkdir(parents=True, exist_ok=True)
     pack = ROOT / "captures" / a.id
@@ -112,10 +115,29 @@ def main():
         run(["hyperframes", "capture", a.url, "-o", str(site), "--skip-vision", "--max-screenshots", "12", "--json"],
             stdout=subprocess.DEVNULL, cwd=str(heavy))
     extra = Path(a.reuse_extra) if a.reuse_extra else heavy / "extra"
-    if not a.reuse_extra:
+    def grab_extra():  # one capture_extra pass; a crash/timeout counts as a failed attempt
+        try:
+            run(["node", str(ROOT / "tools/capture_extra.cjs"), a.url, str(extra)], stdout=subprocess.DEVNULL)
+            return json.loads((extra / "extra.json").read_text())
+        except (subprocess.CalledProcessError, FileNotFoundError, json.JSONDecodeError) as e:
+            print(f"   capture_extra failed: {type(e).__name__}")
+            return {}
+
+    if a.reuse_extra:
+        ex = json.loads((extra / "extra.json").read_text())
+    else:
         print("2/5 mobile + desktop full-page + region map")
-        run(["node", str(ROOT / "tools/capture_extra.cjs"), a.url, str(extra)], stdout=subprocess.DEVNULL)
-    ex = json.loads((extra / "extra.json").read_text())
+        is_gh = "github.com/" in a.url
+        ok = lambda e: bool(e) and (not is_gh or e.get("regions", {}).get("repo_title"))
+        ex = grab_extra()
+        for attempt in (1, 2, 3):  # GitHub sometimes serves a 504/429 page or times out: never ship it
+            if ok(ex):
+                break
+            print(f"   bad capture (error page / timeout); retry {attempt}/3 in 20 s")
+            time.sleep(20)
+            ex = grab_extra()
+        if not ok(ex):
+            raise SystemExit("capture failed: page kept erroring/timing out. Nothing saved; try later.")
 
     print("3/5 curate images + official media")
     files, credits = {}, []

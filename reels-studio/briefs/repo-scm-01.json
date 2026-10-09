@@ -1,0 +1,225 @@
+{
+ "id": "repo-scm-01",
+ "template": "repo-spotlight",
+ "capture": "captures/scm",
+ "title": "Search every photo and video on your Mac by describing it",
+ "niche": "tech / AI tools: trending GitHub repo spotlight",
+ "lang": "en-us",
+ "style": "midnight",
+ "status": "v1 2026-10-09: facts verified same day (GitHub API, README)",
+ "keywords": [
+  "memory",
+  "Screen Memories",
+  "Homebrew",
+  "uploads",
+  "megabyte"
+ ],
+ "facts": {
+  "stars": 446,
+  "checked": "2026-10-09 05:50 UTC"
+ },
+ "credits_on_screen": "Demo & repo: github.com/allenv0/SCM (MIT). Page: own capture.",
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "clip",
+   "src": "scm-library.mp4",
+   "in": 5.3,
+   "out": 9.25,
+   "fit": "fill-blur",
+   "headline": "DESCRIBE IT. *FIND IT.*",
+   "sub": "AI search for every photo & video on your Mac",
+   "say": "Describe a memory, and this AI photo search finds the exact shot."
+  },
+  {
+   "id": "demo",
+   "type": "clip-montage",
+   "src": "scm-library.mp4",
+   "cuts": [
+    {
+     "in": 9.3,
+     "out": 11.25,
+     "label": "“happy partying”"
+    },
+    {
+     "in": 11.35,
+     "out": 12.9,
+     "label": "“human robot”",
+     "at": "human"
+    },
+    {
+     "in": 15.3,
+     "out": 17.9,
+     "label": "“apple device”",
+     "at": "apple"
+    }
+   ],
+   "say": "Type happy partying, human robot, or apple device, and it finds every match."
+  },
+  {
+   "id": "name",
+   "type": "page",
+   "image": "desktop-top.jpg",
+   "url": "github.com/allenv0/SCM",
+   "camera": [
+    {
+     "region": "repo_title",
+     "zoom": 1.6,
+     "at": "called"
+    },
+    {
+     "region": "star_button",
+     "zoom": 2.6,
+     "at": "446"
+    }
+   ],
+   "cursor": [
+    {
+     "region": "star_button",
+     "at": "stars",
+     "state": "★ Starred 446"
+    }
+   ],
+   "say": "It's called {SCM|S C M}, Screen Memories: free, open source, with {446|four hundred forty-six} stars in six days."
+  },
+  {
+   "id": "modes",
+   "type": "image",
+   "image": "search-modes.png",
+   "heading": "WHAT IT *SEARCHES*",
+   "chips": [
+    "Whole photos",
+    "Scenes in videos",
+    "Text on screen",
+    "Spoken lines"
+   ],
+   "say": "It searches whole photos, scenes inside videos, text on screen, even spoken lines."
+  },
+  {
+   "id": "install",
+   "type": "terminal",
+   "title": "Terminal",
+   "heading": "INSTALL WITH *HOMEBREW*",
+   "lines": [
+    "brew tap allenv0/scm",
+    "brew trust allenv0/scm",
+    "brew install --cask allenv0/scm/scm"
+   ],
+   "outputs": [
+    "tapped allenv0/scm",
+    "tap trusted",
+    "scm was successfully installed!"
+   ],
+   "say": "Install it with Homebrew in three lines."
+  },
+  {
+   "id": "catch",
+   "type": "verdict",
+   "image": "desktop-top.jpg",
+   "region": "about",
+   "zoom": 1.3,
+   "cons": [
+    "Mac only",
+    "435 MB model download first"
+   ],
+   "pros": [
+    "No account, no cloud, no uploads"
+   ],
+   "say": "The catch: it's Mac only, with a {435 MB|four hundred thirty-five megabyte} model download first. After that: no account, no cloud, no uploads."
+  },
+  {
+   "id": "cta",
+   "type": "endcard",
+   "keyword": "FIND",
+   "say": "What would you search for first? Comment {FIND|find} and I'll pin the link."
+  }
+ ],
+ "verify_before_render": [
+  "DONE 2026-10-09 05:50 UTC: GitHub API 446 stars, 30 forks, MIT, created 2026-10-03T16:11:55Z (6 days); README: local-first (no accounts, no cloud, no uploads; inference runs on your Mac), search modes Files / Scenes / Dialogue / OCR / LLMs, requirements macOS, Homebrew install (Apple Silicon, macOS 12+) via brew tap / brew trust / brew install --cask, first model download ~435MB then fully offline; demo Asset/0.gif = maker's library-grid demo (queries retro, music, happy partying, human robot, apple device). Asset/1.gif not used (violent query + celebrity-likeness footage)"
+ ],
+ "sources": [
+  "GitHub API 2026-10-09 05:50 UTC: allenv0/SCM, 446 stars, 30 forks, MIT, created 2026-10-03T16:11:55Z",
+  "README: 'Local-first — no accounts, no cloud, no uploads. Inference runs on your Mac.'; five search modes (Files, Scenes, Dialogue, OCR, LLMs)",
+  "README Requirements: macOS; first use of a model downloads its weights (~435MB for the default CLIP); after that, fully offline",
+  "README Download: easiest install via Homebrew (Apple Silicon, macOS 12+): brew tap allenv0/scm; brew trust allenv0/scm; brew install --cask allenv0/scm/scm",
+  "Footage: official demo GIF Asset/0.gif (library grid) from the repo, converted to MP4; search-modes.png = README image Asset/tabs.png"
+ ],
+ "post": {
+  "titles": [
+   "Search every photo on your Mac by describing it",
+   "Your Mac can now find any moment in your videos",
+   "Describe a memory, find the exact photo"
+  ],
+  "caption": "SCM (Screen Memories) searches your Mac's photos and videos by description, fully offline. Free and open source.",
+  "hashtags": [
+   "#AI",
+   "#Mac",
+   "#opensource",
+   "#productivity"
+  ],
+  "pinned_comment": "🔗 github.com/allenv0/SCM (MIT). Install: brew tap allenv0/scm → brew trust allenv0/scm → brew install --cask allenv0/scm/scm (Homebrew build: Apple Silicon, macOS 12+). First run downloads a ~435 MB model, then it works fully offline. No account, no cloud, no uploads."
+ },
+ "seo": {
+  "keyword": "AI photo search",
+  "aliases": [
+   "search photos by description",
+   "Mac photo search",
+   "SCM Screen Memories",
+   "local AI search",
+   "search videos by text"
+  ],
+  "onscreen_first3s": "DESCRIBE IT. FIND IT. / AI search for every photo & video on your Mac",
+  "youtube": {
+   "title": "AI Photo Search for Mac: Describe It, Find It (Free)",
+   "description": "SCM (Screen Memories) is a free, open-source AI photo search for Mac: describe a memory and it finds the matching photos, or the exact scene inside a video. It also searches text on screen (OCR) and spoken lines (Whisper). Local-first: no account, no cloud, no uploads; the AI runs on your Mac.\nThe catch: macOS only (Homebrew build: Apple Silicon, macOS 12+), and the first model download is ~435 MB. After that it's fully offline.\nRepo: github.com/allenv0/SCM (MIT). Demo footage from the repo.",
+   "hashtags": [
+    "#Shorts",
+    "#AI",
+    "#Mac",
+    "#opensource"
+   ],
+   "tags": [
+    "AI photo search",
+    "search photos by description",
+    "Mac apps",
+    "local AI",
+    "open source",
+    "AI tools",
+    "SCM Screen Memories"
+   ]
+  },
+  "tiktok": {
+   "caption": "AI photo search for your Mac 🔎 Describe a memory and it finds the exact photo or video scene. Free, open source, runs offline. What would you search first?",
+   "hashtags": [
+    "#AItools",
+    "#mac",
+    "#macapps",
+    "#productivity"
+   ]
+  },
+  "instagram": {
+   "caption": "AI photo search for your Mac 🔎 Describe a memory and it finds the exact photo or video scene. Free, open source, fully offline. Save this for later. Comment FIND and I'll pin the link.",
+   "hashtags": [
+    "#aitools",
+    "#mac",
+    "#macapps",
+    "#productivity",
+    "#opensource"
+   ]
+  },
+  "facebook": {
+   "caption": "AI photo search for your Mac: describe a memory and this free app finds the exact photo, or the exact scene inside a video. No account, no cloud, no uploads. What would you search for first?",
+   "hashtags": [
+    "#AItools",
+    "#Mac",
+    "#opensource"
+   ]
+  },
+  "x": {
+   "text": "AI photo search for your Mac: describe a memory and it finds the exact photo or video scene. Free, open source, fully offline. One catch 👇",
+   "hashtags": [
+    "#AI"
+   ]
+  }
+ }
+}
