@@ -40,6 +40,30 @@ No PC is needed. Logins are stored as encrypted GitHub Actions secrets (never in
 | TikTok | Content Posting API | free | TikTok developer app, log in once | Unaudited app: videos land in the TikTok inbox as drafts, then the user taps Post (at most 5 pending drafts / 24 h). Public direct posting needs TikTok's audit |
 | X | X API v2 + chunked media upload | pay-per-use: about $0.015 per post plus small media-call fees (≈ $2–7/month at 3–5/day); no free tier since 2026-02-06 | developer console, card, credits | A post containing a URL costs $0.20, so never put links in posts |
 
+**Route proposed by the user 2026-10-09: Buffer, 2 free accounts × 3 channels.** Recommended; it skips the YouTube and TikTok audits.
+
+Accounts:
+- Buffer #1: YouTube, Instagram, TikTok.
+- Buffer #2: Facebook Page, X, plus Threads or LinkedIn.
+
+Facts checked 2026-10-09:
+- **Free plan:** 3 channels, 10 scheduled posts per channel at a time, 1 personal API key, 3,000 requests / 30 days (250 / 24 h).
+- **API:** GraphQL `https://api.buffer.com`, `createPost` with `schedulingType: automatic`, `mode: customScheduled` + `dueAt`, and `assets: [{video: {url}}]`.
+- **YouTube posts need** `metadata.youtube.title` + `categoryId` (28).
+- **Media URL rules:** public, direct (no redirect), stable until publish time. GitHub Release links 302-redirect to expiring URLs, so videos are served from **GitHub Pages**: not used in this repo yet; deploy from an Actions artifact, so nothing goes into git.
+- **Do not create a Buffer Start Page:** it uses a channel slot.
+- **Terms:** they don't explicitly forbid a second free account, but Buffer may close any account at its discretion. Fallback: direct APIs (table above) or Essentials at $5/channel.
+
+**User to-do:**
+1. Create both Buffer accounts and connect the channels.
+2. Send both API keys (Settings > API).
+3. Add **Secrets: R/W** and **Pages: R/W** to the GitHub token.
+
+**Build:**
+- `tools/post/buffer.py`, with captions from the kit.
+- `post.yml`: Pages deploy of pending videos, then schedule ≤ 2 days ahead (queue cap), then log post ids.
+- Daily `render.yml` schedule + `queue/`.
+
 **Paid shortcut:** Upload-Post.
 - One API key covers every platform.
 - Free plan: 10 uploads/month, no TikTok.
