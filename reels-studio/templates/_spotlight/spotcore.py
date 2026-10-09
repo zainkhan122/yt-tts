@@ -433,7 +433,7 @@ def data(b, T, D, ev, cfg):
     facts = dict(m.get("facts") or {})
     facts.update(b.get("facts") or {})
     return {"scenes": sc, "facts": facts, "regions": m.get("regions_css", {}), "url": m.get("url", ""),
-            "credits": b.get("credits_on_screen", ""), "cut": cfg["cut"], "flavor": cfg["flavor"]}
+            "credits": "",  # never on screen (owner rule 2026-10-09); credits_on_screen is printed in post.md + YouTube description "cut": cfg["cut"], "flavor": cfg["flavor"]}
 
 
 def music(b, T, D, ev, cfg):

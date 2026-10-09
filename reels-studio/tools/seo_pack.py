@@ -101,7 +101,12 @@ def main():
     for plat, p, text, tags in blocks:
         L += [f"## {names[plat]}", ""]
         if plat == "youtube":
-            L += ["**Title**", "```", text, "```", "**Description**", "```", p.get("description", "").strip() + "\n\n" + " ".join(tags), "```",
+            desc_txt = p.get("description", "").strip()
+            cr = (b.get("credits_on_screen") or "").strip()
+            links = re.findall(r"[\w-]+(?:\.[\w-]+)+/[\w./-]+|[\w-]+\.(?:com|ai|org|io|dev|app|video)\b", cr)
+            if cr and not (links and all(l.lower() in desc_txt.lower() for l in links)):
+                desc_txt += "\n\nCredits: " + cr
+            L += ["**Title**", "```", text, "```", "**Description**", "```", desc_txt + "\n\n" + " ".join(tags), "```",
                   "**Tags (backend)**", "```", ", ".join(p.get("tags", [])), "```", ""]
         else:
             L += ["```", text.strip() + ("\n\n" + " ".join(tags) if tags else ""), "```", ""]

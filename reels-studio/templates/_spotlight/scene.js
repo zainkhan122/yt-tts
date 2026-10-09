@@ -70,6 +70,7 @@
             return h;
           }
           function credit(root, y, t) {
+            return;  // owner rule 2026-10-09: no credit captions on screen; credits go in the post text + descriptions
             if (!X.credits) return;
             const c = A.mk("div", "sp-credit", root, X.credits);
             c.style.top = y + "px";
