@@ -39,6 +39,17 @@ def _norm(w):
     return re.sub(r"[^a-z0-9]", "", str(w).lower())
 
 
+def _pm(p, n):
+    """Brief anchor pattern vs a normalised spoken word: case-insensitive regex, or the normalised pattern itself
+    ("Canada" -> canada, "6.6" -> 66). Before 2026-10-09 capitalised/dotted patterns silently never matched."""
+    try:
+        if re.fullmatch(p, n, re.I):
+            return True
+    except re.error:
+        pass
+    return bool(n) and _norm(p) == n
+
+
 def _display(text):
     """Display form of a markup string ('{GTA V|GTA Five}' -> 'GTA V')."""
     return re.sub(r"\{([^{}|]+)\|[^{}]+\}", r"\1", text or "")
@@ -70,6 +81,19 @@ def video_len(b, name):
         return 9999.0
 
 
+def video_ar(b, name):
+    """height/width of a clip (0.5625 = 16:9). Tall/phone footage (> 0.62) gets a matching tall card, never a crop."""
+    import subprocess
+    d, _ = capture(b)
+    try:
+        out = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height",
+                              "-of", "csv=p=0", str(d / name)], capture_output=True, text=True, timeout=30).stdout
+        w, h = [int(x) for x in out.strip().split(",")[:2]]
+        return h / w
+    except Exception:
+        return 0.5625
+
+
 # ------------------------------------------------------------------ anchors
 def anchor(seg, pats, frac=0.5, after=None):
     """Time of the first spoken word (at/after `after`) whose normalised form fully matches a regex in pats."""
@@ -78,7 +102,7 @@ def anchor(seg, pats, frac=0.5, after=None):
             if after is not None and w[1] < after - 1e-6:
                 continue
             n = _norm(w[0])
-            if n and any(re.fullmatch(p, n) for p in pats):
+            if n and any(_pm(p, n) for p in pats):
                 return w[1]
     return seg["start"] + frac * max(0.01, seg["end"] - seg["start"])
 
@@ -103,7 +127,7 @@ def seq_anchors(seg, items, t0, t1, explicit=None):
             if w[1] < after - 1e-6:
                 continue
             n = _norm(w[0])
-            if n and any(re.fullmatch(p, n) for p in pats):
+            if n and any(_pm(p, n) for p in pats):
                 t = w[1]
                 break
         times.append(t)
@@ -301,7 +325,7 @@ def html(b, T, D, ev, cfg):
             if s.get("out") is not None and mstart + dur > float(s["out"]):
                 mstart = max(0.0, mstart - 0.2, float(s["out"]) - dur)
             mstart = max(0.0, min(mstart, vlen - dur)) if vlen < 9000 else mstart
-            out.append(_vset(f"{sid}", src, t0, dur, mstart, track, fill=s.get("fit", "fill-blur") == "fill-blur"))
+            out.append(_vset(f"{sid}", src, t0, dur, mstart, track, fill=s.get("fit", "fill-blur") == "fill-blur", ar=video_ar(b, src)))
             track += 2
         elif s["type"] == "clip-montage":
             cuts = s.get("cuts", [])
@@ -323,12 +347,12 @@ def blur_name(src):
     return Path(src).stem + "-blurfill.mp4"
 
 
-def _vset(key, src, start, dur, mstart, track, fill=True):
+def _vset(key, src, start, dur, mstart, track, fill=True, ar=0.5625):
     v = (lambda vid, file, tr: f'<video id="{vid}" class="sp-v" src="assets/{file}" data-start="{start:.3f}" data-duration="{dur:.3f}" '
                                f'data-media-start="{mstart:.3f}" data-track-index="{tr}" muted playsinline></video>')
     fill_html = f'<div class="sp-vfill">{v(f"vf-{key}", blur_name(src), track)}</div>' if fill else ""
     return (f'<div class="sp-vset" id="vs-{key}" data-layout-allow-overflow>{fill_html}'
-            f'<div class="sp-vcard"><div class="sp-vclip">{v(f"vc-{key}", src, track + 1)}</div></div></div>')
+            f'<div class="sp-vcard" data-ar="{ar:.4f}"><div class="sp-vclip">{v(f"vc-{key}", src, track + 1)}</div></div></div>')
 
 
 def _blurred(src_path):

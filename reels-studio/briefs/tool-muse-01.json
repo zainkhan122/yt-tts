@@ -1,0 +1,185 @@
+{
+ "id": "tool-muse-01",
+ "template": "tool-spotlight",
+ "capture": "captures/muse",
+ "title": "Meta Muse: the AI agent that does your chores (and the catch)",
+ "niche": "tech / AI tools: AI tool spotlight",
+ "lang": "en-us",
+ "style": "midnight",
+ "status": "v1 2026-10-09: facts verified same day (Meta newsroom, muse.ai, TechCrunch, 9to5Mac, WIRED via IBTimes/Futurism)",
+ "keywords": [
+  "Muse",
+  "Meta",
+  "AI agent",
+  "Canada",
+  "WIRED",
+  "free"
+ ],
+ "facts": {
+  "installs": "6.6M (Sensor Tower estimate, TechCrunch 2026-10-07)",
+  "checked": "2026-10-09"
+ },
+ "credits_on_screen": "Footage & images: Meta (about.fb.com, muse.ai).",
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "clip",
+   "src": "muse-sizzle.mp4",
+   "in": 41.9,
+   "out": 48.3,
+   "fit": "fill-blur",
+   "headline": "META'S AI *DOES YOUR CHORES*",
+   "sub": "Muse: a personal AI agent that acts for you",
+   "say": "Meta's new AI agent, Muse, doesn't just chat. It fills in forms, shops and books trips for you."
+  },
+  {
+   "id": "demo",
+   "type": "clip",
+   "src": "muse-fieldtrip.mp4",
+   "in": 4.6,
+   "out": 18.5,
+   "fit": "card",
+   "say": "Here it found a field trip form in an email and filled it out for you."
+  },
+  {
+   "id": "asks",
+   "type": "image",
+   "image": "approvals-dark-2x.webp",
+   "heading": "IT *ASKS FIRST*",
+   "chips": [
+    "Allow or Deny",
+    "Logs every step"
+   ],
+   "say": "It can shop too, but before it buys or sends anything, it asks first and logs every step."
+  },
+  {
+   "id": "proof",
+   "type": "stat",
+   "heading": "#1 *FREE APP* IN THE US",
+   "value": 6.6,
+   "decimals": 1,
+   "suffix": "M",
+   "label": "installs in its first month",
+   "icon": false,
+   "at": "6.6",
+   "say": "It shot to number one on the App Store, with about {6.6|six point six} million installs in its first month."
+  },
+  {
+   "id": "catch",
+   "type": "verdict",
+   "cons": [
+    "US & Canada only",
+    "Keeps a page on people you know"
+   ],
+   "pros": [
+    "Free to start (weekly limits)"
+   ],
+   "item_at": [
+    "Canada",
+    "page",
+    "free"
+   ],
+   "say": "The catch: it's US and Canada only, and WIRED reports it keeps a page on every person in your life. It's free to start, with weekly limits."
+  },
+  {
+   "id": "cta",
+   "type": "endcard",
+   "keyword": "AGENT",
+   "say": "Would you let an AI run your inbox? Comment {AGENT|agent}."
+  }
+ ],
+ "verify_before_render": [
+  "DONE 2026-10-09: Meta newsroom 'Introducing Muse' (2026-09-08): personal AI agent on Muse Secure VM with its own browser; fills out forms, books travel, sends email; checks with the person before sensitive actions like sending an email or making a purchase; complete audit trail; no visibility into passwords or payment methods.",
+  "DONE 2026-10-09: availability US + Canada (Canada from 2026-09-18), 18+ (aiagentslibrary, usecarly); iPad app 2026-10-07 (TechCrunch).",
+  "DONE 2026-10-09: #1 free iPhone app on the US App Store for weeks (9to5Mac 2026-10-07; CNBC via almcorp: bumped ChatGPT within days); ~6.6M installs since 2026-09-08 (Sensor Tower estimate, TechCrunch 2026-10-07).",
+  "DONE 2026-10-09: pricing free tier with weekly limits; Power $20/mo; Maximum $100/mo (TechCrunch via codersera/usecarly; Meta help: free for most of what people need).",
+  "DONE 2026-10-09: WIRED (reported via IBTimes 2026-10-07, Futurism 2026-10-06): internal instructions call for 'a page for every person in the user's life', incl. non-users; TIME: updated roughly hourly. Meta: Muse remembers info 'that you choose to share'."
+ ],
+ "sources": [
+  "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+  "https://www.muse.ai",
+  "https://techcrunch.com/2026/10/07/metas-muse-launches-on-ipad-just-a-month-after-its-mobile-debut/",
+  "https://9to5mac.com/2026/10/07/meta-launches-muse-for-ipad-following-weeks-as-the-top-iphone-app/",
+  "https://www.ibtimes.co.uk/meta-muse-ai-profiles-users-social-circles-1824205",
+  "https://futurism.com/future-society/meta-muse-surveillance-privacy-friends-family",
+  "https://www.aiagentslibrary.com/blog/meta-muse-ai/"
+ ],
+ "post": {
+  "titles": [
+   "Meta Muse: the AI agent that does your chores",
+   "Meta's AI now fills forms and shops for you",
+   "Would you let Meta's AI run your inbox?"
+  ],
+  "caption": "Meta Muse is a personal AI agent that fills in forms, shops and books trips, and asks before it buys. #1 free app in the US, but it's US and Canada only, and WIRED reports it keeps a page on everyone in your life.",
+  "hashtags": [
+   "#AI",
+   "#Meta",
+   "#AIagent",
+   "#tech"
+  ],
+  "pinned_comment": "🔗 muse.ai (US + Canada, 18+). Free tier with weekly limits; Power $20/mo, Maximum $100/mo. It asks before purchases/sending email; you can disconnect apps and opt out of training in settings. Privacy report: WIRED, Oct 2026."
+ },
+ "seo": {
+  "keyword": "Meta Muse",
+  "aliases": [
+   "Muse",
+   "AI agent",
+   "personal AI agent",
+   "Meta AI agent",
+   "Muse from Meta"
+  ],
+  "onscreen_first3s": "META'S AI DOES YOUR CHORES / Muse: a personal AI agent that acts for you",
+  "youtube": {
+   "title": "Meta Muse: The AI Agent That Does Your Chores",
+   "description": "Meta Muse is a personal AI agent: it fills in forms, shops and books trips for you, and asks before it buys or sends anything. It hit #1 on the US App Store with about 6.6 million installs in its first month (Sensor Tower estimate).\nThe catch: it's US and Canada only (18+), and WIRED reports its internal instructions keep a page on every person in your life. Free to start with weekly limits; paid plans are $20 and $100 a month.\nFootage & images: Meta (about.fb.com, muse.ai).",
+   "hashtags": [
+    "#Shorts",
+    "#AI",
+    "#Meta",
+    "#AIagent"
+   ],
+   "tags": [
+    "Meta Muse",
+    "Muse app",
+    "AI agent",
+    "personal AI agent",
+    "Meta AI",
+    "AI assistant",
+    "AI tools",
+    "AI privacy"
+   ]
+  },
+  "tiktok": {
+   "caption": "Meta Muse is an AI agent that does your chores 🤖 It fills forms, shops and books trips. Read the catch before you sign up. Would you use it?",
+   "hashtags": [
+    "#AItools",
+    "#Meta",
+    "#AIagent",
+    "#tech"
+   ]
+  },
+  "instagram": {
+   "caption": "Meta Muse: an AI agent that fills forms, shops and books trips for you, and asks before it buys. The catch is in the video. Save this. Comment AGENT and I'll pin the link.",
+   "hashtags": [
+    "#aitools",
+    "#meta",
+    "#aiagent",
+    "#tech"
+   ]
+  },
+  "facebook": {
+   "caption": "Meta Muse is Meta's new AI agent that does chores for you: forms, shopping, trips. It's the #1 free app in the US, but read the catch first. Would you let it run your inbox?",
+   "hashtags": [
+    "#AItools",
+    "#Meta",
+    "#AIagent"
+   ]
+  },
+  "x": {
+   "text": "Meta Muse, Meta's new AI agent, fills forms, shops and books trips for you. #1 free app in the US. The catch 👇",
+   "hashtags": [
+    "#AI"
+   ]
+  }
+ }
+}

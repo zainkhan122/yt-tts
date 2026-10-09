@@ -1,0 +1,202 @@
+{
+ "id": "news-claude-free-01",
+ "template": "tool-spotlight",
+ "capture": "captures/claude-free",
+ "title": "Claude Slides, Docs and Design are now on the free plan (plus Claude Motion)",
+ "niche": "tech / AI tools: AI news, paid to free",
+ "lang": "en-us",
+ "style": "midnight",
+ "status": "v1 2026-10-09: facts verified same day (claude.com announcement 2026-10-08 + 'Cowork is now Claude' 2026-09-16)",
+ "keywords": [
+  "Claude",
+  "Slides",
+  "Docs",
+  "Design",
+  "free",
+  "Motion",
+  "Dashboards"
+ ],
+ "facts": {
+  "made": "45M+ docs, decks and designs (claude.com 2026-10-08)",
+  "checked": "2026-10-09"
+ },
+ "credits_on_screen": "Footage: Anthropic official videos (Claude). Page: claude.com, own capture.",
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "clip",
+   "src": "claude-docs.mp4",
+   "in": 21.0,
+   "out": 27.5,
+   "fit": "fill-blur",
+   "headline": "CLAUDE SLIDES & DOCS *NOW FREE*",
+   "sub": "Docs, Slides and Design on the free plan",
+   "say": "Claude Slides, Docs and Design just left beta, and now they're on the free plan."
+  },
+  {
+   "id": "deck",
+   "type": "clip",
+   "src": "claude-docs.mp4",
+   "in": 11.0,
+   "out": 19.5,
+   "fit": "card",
+   "say": "Ask for a launch deck, and it builds every slide right in the chat."
+  },
+  {
+   "id": "design",
+   "type": "clip",
+   "src": "claude-docs.mp4",
+   "in": 38.5,
+   "out": 47.0,
+   "fit": "card",
+   "say": "Then it turns a slide into social posts in four sizes."
+  },
+  {
+   "id": "docs",
+   "type": "clip",
+   "src": "claude-docs.mp4",
+   "in": 68.0,
+   "out": 81.0,
+   "fit": "card",
+   "say": "Docs too, and exports keep your formatting in PowerPoint, {PDF|P D F} or Google Slides."
+  },
+  {
+   "id": "proof",
+   "type": "stat",
+   "heading": "ALREADY *MADE*",
+   "value": 45,
+   "suffix": "M+",
+   "label": "docs, decks & designs in Claude",
+   "icon": false,
+   "at": "45",
+   "say": "People have already made over {45|forty-five} million of them."
+  },
+  {
+   "id": "motion",
+   "type": "clip",
+   "src": "claude-motion.mp4",
+   "in": 47.5,
+   "out": 55.5,
+   "fit": "fill-blur",
+   "say": "And new Claude Motion turns a report into an animated video you can download."
+  },
+  {
+   "id": "catch",
+   "type": "verdict",
+   "image": "desktop-full.jpg",
+   "region": "h_docs-slides-and-design-are-ready",
+   "zoom": 1.2,
+   "url": "claude.com",
+   "cons": [
+    "Motion: Team & Enterprise only",
+    "Dashboards: paid plans only"
+   ],
+   "pros": [
+    "Docs, Slides & Design: every plan"
+   ],
+   "item_at": [
+    "Motion",
+    "Dashboards",
+    "free"
+   ],
+   "say": "The catch: Motion is Team and Enterprise only, and Dashboards need a paid plan. But Docs, Slides and Design are free for everyone."
+  },
+  {
+   "id": "cta",
+   "type": "endcard",
+   "keyword": "DECK",
+   "say": "What would you make first? Comment {DECK|deck}."
+  }
+ ],
+ "verify_before_render": [
+  "DONE 2026-10-09: claude.com/resources/articles/dashboards-and-motion (2026-10-08): 'Claude Docs, Slides, and Design are out of beta and available on every plan, including Free'; 'more than 45 million docs, decks, and designs'; PowerPoint and PDF downloads keep formatting, decks go to Google Slides as editable files; edit on phone.",
+  "DONE 2026-10-09: same article: Claude Dashboards beta on paid plans; Claude Motion beta on Team and Enterprise; Motion builds the animation as code, download as MP4, no video generation model.",
+  "DONE 2026-10-09: claude.com/blog/cowork-is-now-claude (2026-09-16): Docs and Slides new that day, 'All three are in beta on paid plans' -> Oct 8 is when they reached the Free plan.",
+  "DONE 2026-10-09: footage = Anthropic official YouTube videos To5nrYqvR44 (Docs/Slides/Design demo) and en0GuyhieQk (Introducing Claude Dashboards and Claude Motion)."
+ ],
+ "sources": [
+  "https://claude.com/resources/articles/dashboards-and-motion",
+  "https://claude.com/blog/cowork-is-now-claude",
+  "https://www.youtube.com/watch?v=To5nrYqvR44",
+  "https://www.youtube.com/watch?v=en0GuyhieQk"
+ ],
+ "post": {
+  "titles": [
+   "Claude Slides, Docs & Design are now free",
+   "Claude now makes your slides for free",
+   "Free AI slides, docs and designs in Claude"
+  ],
+  "caption": "Claude Slides, Docs and Design left beta on Oct 8 and are now on every plan, including Free. Motion (animated explainers) is Team/Enterprise only; Dashboards need a paid plan.",
+  "hashtags": [
+   "#AI",
+   "#Claude",
+   "#productivity",
+   "#AItools"
+  ],
+  "pinned_comment": "🔗 claude.ai: ask for a deck, doc or design in any chat. Free plan includes Docs, Slides and Design. Motion = Team/Enterprise beta, Dashboards = paid plans (beta). Source: claude.com, Oct 8 2026."
+ },
+ "seo": {
+  "keyword": "Claude Slides",
+  "aliases": [
+   "Claude Docs",
+   "Claude Design",
+   "Claude free",
+   "Claude Motion",
+   "free AI slides",
+   "AI presentation maker"
+  ],
+  "onscreen_first3s": "CLAUDE SLIDES & DOCS NOW FREE / Docs, Slides and Design on the free plan",
+  "youtube": {
+   "title": "Claude Slides, Docs & Design Are Now Free",
+   "description": "Claude Slides, Docs and Design left beta on October 8 and are now on every Claude plan, including Free. Ask for a deck and Claude builds the slides in the chat, turns a slide into social posts in four sizes, and writes docs; PowerPoint and PDF exports keep your formatting, and decks go to Google Slides.\nAlso new: Claude Motion turns a report into an animated MP4 (Team and Enterprise beta), and Claude Dashboards (paid plans, beta).\nFootage: Anthropic official videos. Source: claude.com.",
+   "hashtags": [
+    "#Shorts",
+    "#AI",
+    "#Claude",
+    "#productivity"
+   ],
+   "tags": [
+    "Claude Slides",
+    "Claude Docs",
+    "Claude Design",
+    "Claude free",
+    "Claude Motion",
+    "AI presentation maker",
+    "free AI slides",
+    "AI tools"
+   ]
+  },
+  "tiktok": {
+   "caption": "Claude Slides, Docs and Design are now free 🎉 It builds decks, social posts and docs in one chat. One catch in the video.",
+   "hashtags": [
+    "#AItools",
+    "#Claude",
+    "#productivity",
+    "#studytok"
+   ]
+  },
+  "instagram": {
+   "caption": "Claude Slides, Docs and Design are now on the free plan: decks, social posts and docs from one chat, with PowerPoint/PDF exports. Save this. Comment DECK and I'll pin the link.",
+   "hashtags": [
+    "#aitools",
+    "#claude",
+    "#productivity",
+    "#ai"
+   ]
+  },
+  "facebook": {
+   "caption": "Claude Slides, Docs and Design are now on the free plan. It builds slide decks, social posts and docs right in the chat. Motion and Dashboards stay paid. What would you make first?",
+   "hashtags": [
+    "#AItools",
+    "#Claude",
+    "#productivity"
+   ]
+  },
+  "x": {
+   "text": "Claude Slides, Docs and Design just left beta and are now on the free plan. Motion and Dashboards stay paid 👇",
+   "hashtags": [
+    "#AI"
+   ]
+  }
+ }
+}

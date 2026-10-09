@@ -233,6 +233,14 @@
               if (s.headline) {
                 card.classList.add("bleed");
                 Object.assign(card.style, { left: "0px", top: cardTop + "px", width: "1080px", height: "608px" });
+              } else {
+                const ar = parseFloat(card.getAttribute("data-ar") || "0.5625");
+                if (ar > 0.62) {  // tall / phone footage: card follows the source aspect inside 180-1220 (captions at 1330), no crop
+                  let W = 960, H = W * ar;
+                  if (H > 1040) { H = 1040; W = H / ar; }
+                  Object.assign(card.style, { left: Math.round((1080 - W) / 2) + "px", top: Math.round(180 + (1040 - H) / 2) + "px",
+                                              width: Math.round(W) + "px", height: Math.round(H) + "px" });
+                }
               }
               tl.fromTo(card, { scale: 1 }, { scale: 1.045, duration: Math.max(0.1, t1 - t0), ease: "none", immediateRender: false }, t0);
             }

@@ -1,0 +1,205 @@
+{
+ "id": "list-free-video-ai-01",
+ "template": "tool-spotlight",
+ "capture": "captures/free-video-ai",
+ "title": "3 AI video generators that are actually free (real daily limits)",
+ "niche": "tech / AI tools: ranked list",
+ "lang": "en-us",
+ "style": "midnight",
+ "status": "v1 2026-10-09: free tiers verified same day on official pages (Google Flow Help, Dreamina Seedance 2.0 page, Wan2.2 README + GitHub API)",
+ "keywords": [
+  "Seedance",
+  "Dreamina",
+  "Flow",
+  "Veo",
+  "Wan",
+  "free",
+  "watermark",
+  "GPU"
+ ],
+ "facts": {
+  "flow_daily_credits": 50,
+  "veo_lite_cost": 10,
+  "wan_vram_gb": 24,
+  "checked": "2026-10-09"
+ },
+ "credits_on_screen": "Footage: Google DeepMind (Veo samples), ByteDance Dreamina (Seedance 2.0 samples), Wan-Video/Wan2.2 demo (Apache-2.0). Page: Google Flow Help, own capture.",
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "clip",
+   "src": "veo-montage.mp4",
+   "in": 0.0,
+   "out": 6.2,
+   "fit": "fill-blur",
+   "headline": "3 AI VIDEO TOOLS, *ACTUALLY FREE*",
+   "sub": "We checked the real daily limits",
+   "say": "These three AI video generators are actually free. Here's the real catch for each."
+  },
+  {
+   "id": "seedance",
+   "type": "clip",
+   "src": "seedance-worlds.mp4",
+   "in": 0.0,
+   "out": 10.0,
+   "fit": "fill-blur",
+   "headline": "#3 *SEEDANCE 2.0*",
+   "sub": "Free daily credits on Dreamina",
+   "say": "Number three: Seedance 2.0 on Dreamina. Free daily credits, but downloads get a watermark."
+  },
+  {
+   "id": "flow",
+   "type": "clip",
+   "src": "veo-montage.mp4",
+   "in": 6.2,
+   "out": 12.0,
+   "fit": "fill-blur",
+   "headline": "#2 *GOOGLE FLOW*",
+   "sub": "50 free credits every day",
+   "say": "Number two: Google Flow. Fifty free credits a day, about five short Veo clips."
+  },
+  {
+   "id": "proof",
+   "type": "page",
+   "image": "desktop-top.jpg",
+   "url": "support.google.com/flow",
+   "camera": [
+    {
+     "region": "h_number-of-google-flow-credits-re",
+     "zoom": 1.7,
+     "at": "help"
+    },
+    {
+     "region": "h_generation-limits-for-non-subscr",
+     "zoom": 1.7,
+     "at": "peak"
+    }
+   ],
+   "say": "That's from Google's help page, but at peak hours free users may get no videos."
+  },
+  {
+   "id": "wan",
+   "type": "clip",
+   "src": "wan-samples.mp4",
+   "in": 4.5,
+   "out": 13.0,
+   "fit": "fill-blur",
+   "headline": "#1 *WAN 2.2*",
+   "sub": "Open source: no credits at all",
+   "say": "Number one: Wan 2.2. It's open source, so no credits at all, if you own a {24|twenty-four} gigabyte GPU."
+  },
+  {
+   "id": "catch",
+   "type": "verdict",
+   "cons": [
+    "Credits don't roll over",
+    "No 1080p on free Flow"
+   ],
+   "pros": [
+    "Wan 2.2: truly unlimited"
+   ],
+   "item_at": [
+    "roll",
+    "upscale",
+    "unlimited"
+   ],
+   "say": "The catch: free credits never roll over, and free Flow can't upscale to {1080p|ten-eighty p}. Only Wan is truly unlimited."
+  },
+  {
+   "id": "cta",
+   "type": "endcard",
+   "keyword": "FREE",
+   "say": "Which one are you trying first? Comment {FREE|free}."
+  }
+ ],
+ "verify_before_render": [
+  "DONE 2026-10-09: support.google.com/flow/answer/16526234: 'With or without a subscription, you receive 50 Google Flow credits per day'; unused daily credits don't roll over; Veo 3.1 Lite = 10 credits per generation for non-Ultra users (4/6/8 s); 1080p upscaling not available to non-subscribers; 'During peak hours, roughly 2 PM to 5 PM UTC, you may not be able to generate videos without a subscription.'",
+  "DONE 2026-10-09: dreamina.capcut.com/tools/seedance-2-0 (ByteDance, official): 'You can try Dreamina Seedance 2.0 using free daily credits'; every paid plan lists 'Remove the Dreamina watermark in downloads' (free downloads are watermarked). Daily amount not published on the page.",
+  "DONE 2026-10-09: github.com/Wan-Video/Wan2.2: Apache-2.0 (GitHub API), 17,806 stars; README: TI2V-5B 720P at 24 FPS, 'can run on a GPU with at least 24GB VRAM (e.g, RTX 4090 GPU)'.",
+  "DONE 2026-10-09: footage = official samples: Google DeepMind Veo page covers (storage.googleapis.com), Dreamina Seedance 2.0 page videos (capcutcdn), Wan2.2 README demo. Avoided Dreamina samples with third-party IP (Stranger Things, Encanto-like)."
+ ],
+ "sources": [
+  "https://support.google.com/flow/answer/16526234?hl=en",
+  "https://dreamina.capcut.com/tools/seedance-2-0",
+  "https://github.com/Wan-Video/Wan2.2",
+  "https://deepmind.google/models/veo/"
+ ],
+ "post": {
+  "titles": [
+   "3 AI video generators that are actually free",
+   "Free AI video: the real daily limits",
+   "Stop paying for AI video (3 free tools)"
+  ],
+  "caption": "3 free AI video generators and their real limits: Seedance 2.0 on Dreamina (free daily credits, watermark), Google Flow (50 credits a day, about 5 Veo clips), Wan 2.2 (open source, unlimited on a 24 GB GPU).",
+  "hashtags": [
+   "#AI",
+   "#AIvideo",
+   "#AItools",
+   "#veo3"
+  ],
+  "pinned_comment": "🔗 Dreamina (Seedance 2.0): dreamina.capcut.com | Google Flow: labs.google/flow (50 credits/day, Veo 3.1 Lite = 10) | Wan 2.2: github.com/Wan-Video/Wan2.2 (Apache-2.0, 24 GB GPU for the 5B model). Limits checked on official pages Oct 9, 2026."
+ },
+ "seo": {
+  "keyword": "free AI video generator",
+  "aliases": [
+   "free AI video",
+   "AI video generator",
+   "AI video",
+   "Google Flow",
+   "Seedance 2.0",
+   "Wan 2.2"
+  ],
+  "onscreen_first3s": "3 AI VIDEO TOOLS, ACTUALLY FREE / We checked the real daily limits",
+  "youtube": {
+   "title": "3 Free AI Video Generators (Real Daily Limits)",
+   "description": "3 free AI video generators and what free really means. #3 Seedance 2.0 on Dreamina: free daily credits, but downloads are watermarked. #2 Google Flow: 50 credits a day (Veo 3.1 Lite = 10 credits, so about 5 clips); free users can't upscale to 1080p and may be blocked at peak hours (2-5 PM UTC). #1 Wan 2.2: open source (Apache-2.0), no credits, but the 5B model needs a 24 GB GPU.\nLimits checked on the official pages on Oct 9, 2026.\nFootage: Google DeepMind (Veo samples), ByteDance Dreamina (Seedance 2.0 samples), Wan2.2 demo.",
+   "hashtags": [
+    "#Shorts",
+    "#AI",
+    "#AIvideo",
+    "#AItools"
+   ],
+   "tags": [
+    "free AI video generator",
+    "AI video generator",
+    "Google Flow",
+    "Veo 3.1",
+    "Seedance 2.0",
+    "Dreamina",
+    "Wan 2.2",
+    "free AI tools"
+   ]
+  },
+  "tiktok": {
+   "caption": "3 free AI video generators and the real limits 🎬 One is truly unlimited, if your PC can handle it. Which are you trying?",
+   "hashtags": [
+    "#AItools",
+    "#AIvideo",
+    "#veo3",
+    "#contentcreator"
+   ]
+  },
+  "instagram": {
+   "caption": "3 free AI video generators, with the real daily limits we checked on the official pages. Save this before you pay for one. Comment FREE and I'll pin the links.",
+   "hashtags": [
+    "#aitools",
+    "#aivideo",
+    "#contentcreator",
+    "#veo3"
+   ]
+  },
+  "facebook": {
+   "caption": "3 free AI video generators and their real daily limits: Seedance 2.0, Google Flow and Wan 2.2. Only one is truly unlimited. Which would you try first?",
+   "hashtags": [
+    "#AItools",
+    "#AIvideo"
+   ]
+  },
+  "x": {
+   "text": "3 free AI video generators, real limits checked on the official pages: Seedance 2.0, Google Flow, Wan 2.2 👇",
+   "hashtags": [
+    "#AI"
+   ]
+  }
+ }
+}
