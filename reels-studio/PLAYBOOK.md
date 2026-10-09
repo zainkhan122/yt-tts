@@ -86,7 +86,7 @@ declarative Muse script at 7.2 semitones of melody and the conversational flow s
 4. End each phrase on its selling word ("... it actually does your *chores*", "... in just twelve *hours*").
 5. Numbers in spoken form via markup (`{6.6|six point six}`); every word a visual is anchored to (`at`, `item_at`, `step_at`,
    montage `at`, camera/cursor `at`) must appear in that scene's line.
-6. Length: 115–140 words for 38–43 s (the voice runs ~185–205 wpm).
+6. Length: 110–125 words for 38–43 s (measured in production: 160–193 wpm; 130–140 words ran 42–46 s).
 
 **Story spine** (from the 774K-view benchmark; copy the structure, never the words):
 1. impossible claim with a number;
@@ -152,7 +152,7 @@ github.signals 117K, ...): audio-only, vocals separated from music (UVR MDX-Net)
   (median 0 per 100 words): use one rhetorical Q→A beat ("Google? OpenAI? Nope.") as a pattern interrupt, not more.
 - Keep what we already do well: contractions (4.7 per 100 words) and direct "you" (5.2 per 100 words), at or above the creators.
 
-- **Channel voice (owner-approved 2026-10-09, voice-lab option 3): Chatterbox cloning the Kokoro am_michael reference, exaggeration 0.7, cfg 0.4, flow reading.** It is the default for every video; the `approved_voice` QA gate refuses anything else (record: `research/voice-decision.md`). It reads about 190–205 wpm, so scripts for a 35–45 s video are about 110–130 words.
+- **Channel voice (owner-approved 2026-10-09, voice-lab option 3): Chatterbox cloning the Kokoro am_michael reference, exaggeration 0.7, cfg 0.4, flow reading.** It is the default for every video; the `approved_voice` QA gate refuses anything else (record: `research/voice-decision.md`). Measured in production at 160–193 wpm, so scripts for a 38–43 s video are about 110–125 words.
   - History: af_heart D-hype was approved and used for the first render of video #1; the DSP "maxhype" was rejected as robotic (UTMOS 3.68).
   - Measured free-engine alternatives (Chatterbox, Orpheus, Edge, Qwen3): `research/voice-decision.md`.
   - Script energy still matters: an exclamation-led hook and payoff, rhetorical questions, short punchy lines, honest facts.

@@ -864,7 +864,8 @@ class Job:
             voice = PreviewVoice(voice_cfg, speed, lang)
             self.voice_engine = "kokoro-preview"
         limit, gap = int(tts.get("chunk_chars", 280)), float(tts.get("join_gap", 0.06))
-        base_seed = int(tts.get("seed", 7)) + int(hashlib.md5(self.id.encode()).hexdigest()[:6], 16) % 10000
+        base_seed = int(tts.get("seed", 7)) + int(hashlib.md5(self.id.encode()).hexdigest()[:6], 16) % 10000 \
+            + 10007 * int(self.brief.get("voice_seed", 0))  # brief "voice_seed": N picks a different (still seeded) take
         tries, min_match = 1 + int(tts.get("max_retries", 2)), float(tts.get("min_match", 0.92))
         min_mel, mels = float(tts.get("min_melody_st", 10.0)), []
         texts = [spoken_clean(s["spoken"]) if s.get("text") else None for s in segs]
