@@ -116,6 +116,20 @@ def main():
             ref = refs[rv]
         t0 = time.time()
         parts = []
+        if v.get("flow"):  # one continuous read (creators: ~1.5 pauses/min): whole script, chunked only for engine limits
+            text = " ".join(spoken(ln["text"] if isinstance(ln, dict) else ln) for ln in lines)
+            sents = re.split(r"(?<=[.!?])\s+", text)
+            limit = v.get("chunk_chars", 280 if v["engine"] == "chatterbox" else 1000)
+            chunks, cur = [], ""
+            for snt in sents:
+                if cur and len(cur) + 1 + len(snt) > limit:
+                    chunks.append(cur)
+                    cur = snt
+                else:
+                    cur = (cur + " " + snt).strip()
+            if cur:
+                chunks.append(cur)
+            lines = [{"text": c, "pause": v.get("join_gap", 0.06)} for c in chunks]
         for ln in lines:
             text = spoken(ln["text"] if isinstance(ln, dict) else ln)
             gap = (ln.get("pause", 0.22) if isinstance(ln, dict) else 0.22)

@@ -1,0 +1,27 @@
+{
+ "about": "Voice lab v2 (2026-10-09): measured finding = creators speak in continuous flow (median 1.5 pauses/min) while our line-by-line synthesis gives 19-23. Same content written to flow, read in one pass.",
+ "reference_text": "Okay, this one genuinely surprised me. Meta just shipped an AI that does your chores, and honestly? It's kind of wild. Let me show you how it works.",
+ "scripts": {
+  "current": [
+   "Meta's new AI agent, Muse, doesn't just chat. It fills in forms, shops and books trips for you.",
+   "Here it found a field trip form in an email and filled it out for you.",
+   "It can shop too, but before it buys or sends anything, it asks first and logs every step.",
+   "It shot to number one on the App Store, with about {6.6|six point six} million installs in its first month.",
+   "The catch: it's US and Canada only, and WIRED reports it keeps a page on every person in your life. It's free to start, with weekly limits.",
+   "Would you let an AI run your inbox? Comment {AGENT|agent}."
+  ],
+  "flow": [
+   "Meta just dropped an AI that actually does your chores, and it's called Muse.",
+   "You text it like a friend, and it fills out forms, shops for you, and even books your trips, like this school form it found in an email and filled out on its own.",
+   "Before it buys anything, it asks you first, which is probably why it shot to number one on the App Store with six point six million installs in a month.",
+   "But here's the catch: it only works in the US and Canada, and WIRED says it keeps a file on everyone in your life.",
+   "So, would you let an AI run your inbox? Comment agent."
+  ]
+ },
+ "variants": [
+  {"name": "6-kokoro-current-onepass", "engine": "kokoro", "voice": "am_michael", "speed": 1.15, "script": "current", "flow": true},
+  {"name": "7-kokoro-flow-script", "engine": "kokoro", "voice": "am_michael", "speed": 1.15, "script": "flow", "flow": true},
+  {"name": "8-chatterbox-michael-flow", "engine": "chatterbox", "ref": "kokoro:am_michael", "exaggeration": 0.7, "cfg": 0.4, "script": "flow", "flow": true},
+  {"name": "9-chatterbox-michael-flow-hype", "engine": "chatterbox", "ref": "kokoro:am_michael", "exaggeration": 0.95, "cfg": 0.3, "script": "flow", "flow": true}
+ ]
+}
