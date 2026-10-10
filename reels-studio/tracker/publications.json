@@ -1,6 +1,31 @@
 {
   "cooldown_until": null,
   "records": {
+    "list-free-video-ai-01:instagram": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-10T15:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:448b296e0a2974f892fbbbb69859390f9865bafa64f157ead302cb73330ea445",
+        "asset_id": 627853401,
+        "asset_size": 24637796,
+        "kit_asset_id": 627853442,
+        "kit_digest": "sha256:ca001931ded35c6da90009e207ffd4a862a2360bfc45a37616ad08bb39367503",
+        "media_path": "media/627853401/list-free-video-ai-01.mp4",
+        "release_tag": "renders-2026-10-10-refresh",
+        "video_id": "list-free-video-ai-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/627853401/list-free-video-ai-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "8b813a89bd0a01ad7b7385fc98d2585c2c323a7fe0dc0d82b0793ce251b04754",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "3 AI video generators you can try without a subscription: Dreamina Seedance 2.0, Google Flow and self-hosted Wan2.2. Daily credits, watermarks, peak-time access and GPU costs are the real catches. Flow currently gives 50 credits/day; Veo 3.1 Lite uses 10 per generation. Save this comparison.\n\nCredits: Footage: Google DeepMind (Veo samples), ByteDance Dreamina (Seedance 2.0 samples), Wan-Video/Wan2.2 demo (Apache-2.0). Page: Google Flow Help, own capture.\n\n#aitools #aivideo #contentcreator #veo3",
+      "title": "3 Free AI Video Generators (Real Daily Limits)",
+      "updated_at": "2026-10-10T12:01:39Z",
+      "video_id": "list-free-video-ai-01"
+    },
     "news-claude-free-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6aca1f2ff91f772d458f58c9",
