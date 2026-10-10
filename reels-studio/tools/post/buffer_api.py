@@ -19,7 +19,7 @@ ENDPOINT = "https://api.buffer.com"
 POST_FIELDS = """id channelId status dueAt sentAt createdAt externalLink text schedulingType
  assets { source mimeType }
  error { message supportUrl }
- metadata { __typename ... on YoutubePostMetadata { title } }"""
+ metadata { __typename ... on YoutubePostMetadata { title notifySubscribers type } }"""
 CREATE = """mutation HypelessCreate($input: CreatePostInput!) {
  createPost(input: $input) {
   __typename
@@ -32,6 +32,7 @@ CHANNEL_FIELDS = """id name service serviceId externalLink type timezone isDisco
  ... on YoutubeMetadata { defaultToReminders } }"""
 STATE_QUERY = """query HypelessState($org: OrganizationId!, $input: PostsInput!, $recent: PostsInput!) {
  channels(input: { organizationId: $org }) { """ + CHANNEL_FIELDS + """ }
+ facebookInput: __type(name: "FacebookPostMetadataInput") { inputFields { name type { kind name } } }
  posts(first: 100, input: $input) {
   edges { node { """ + POST_FIELDS + """ } }
   pageInfo { hasNextPage endCursor }
@@ -100,6 +101,7 @@ class BufferClient:
         self.policies = []
         self.policy_time = 0
         self.request_count = 0
+        self.capabilities = {"facebook_ai_generated": False}
 
     def _pace(self):
         now = self.clock()
@@ -196,6 +198,8 @@ class BufferClient:
                   "dueAt": {"start": (now_utc() - dt.timedelta(days=14)).isoformat()}},
                   "sort": [{"field": "createdAt", "direction": "desc"}]}
         result = self.request(STATE_QUERY, {"org": org, "input": inp, "recent": recent})
+        fields = (result.get("facebookInput") or {}).get("inputFields") or []
+        self.capabilities["facebook_ai_generated"] = any(f["name"] == "isAiGenerated" and f.get("type", {}).get("name") == "Boolean" for f in fields)
         posts, seen, count = [], set(), 1
         for name, filters in (("posts", inp), ("recent", recent)):
             page = result[name]

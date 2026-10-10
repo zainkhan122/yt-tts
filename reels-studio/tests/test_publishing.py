@@ -235,7 +235,7 @@ class PlannerTests(unittest.TestCase):
 
     def test_existing_queue_consumes_capacity(self):
         posts = [{"id": f"{p}-{i}", "channelId": c["buffer_id"], "status": "scheduled", "dueAt": iso(NOW + dt.timedelta(days=5+i))}
-                 for p, c in self.cfg["buffer"]["channels"].items() for i in range(6)]
+                 for p, c in self.cfg["buffer"]["channels"].items() for i in range(self.cfg["buffer"]["queue_target_per_channel"])]
         rows, _ = self.planned(posts=posts)
         self.assertEqual(rows, [])
 

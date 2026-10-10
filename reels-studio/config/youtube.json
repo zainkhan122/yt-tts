@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "enabled": false,
+  "live_pilot_passed": false,
+  "channel_id": "UCcWh9OdX3rbfHOtDZ6neyrA",
+  "oauth_secret": "YOUTUBE_OAUTH_JSON",
+  "session_key_secret": "YOUTUBE_STATE_KEY",
+  "timezone": "America/New_York",
+  "max_uploads_per_run": 1,
+  "max_upload_starts_per_day": 2,
+  "general_quota_budget_per_day": 2000,
+  "max_api_requests_per_run": 100,
+  "request_spacing_seconds": 1.0,
+  "max_attempts": 4,
+  "max_inline_wait_seconds": 60,
+  "upload_chunk_bytes": 67108864,
+  "max_video_bytes": 1800000000,
+  "minimum_disk_free_bytes": 4000000000,
+  "minimum_publish_lead_minutes": 180,
+  "upload_ahead_hours": 72,
+  "lookahead_days": 14,
+  "max_long_videos_per_week": 3,
+  "weekly_slots": [
+    {
+      "day": "tue",
+      "time": "09:00",
+      "category": "repo"
+    },
+    {
+      "day": "fri",
+      "time": "12:00",
+      "category": "news"
+    },
+    {
+      "day": "sun",
+      "time": "10:00",
+      "category": "tool"
+    }
+  ],
+  "short_long_gap_minutes": 120,
+  "manual_upload_scan_pages": 6,
+  "require_mobile_thumbnail_review": true,
+  "thumbnail": {
+    "width": 1280,
+    "height": 720,
+    "preview_width": 250,
+    "minimum_text_height_at_250": 16,
+    "max_words": 6,
+    "max_lines": 3,
+    "contrast_min": 7,
+    "max_bytes": 1800000
+  },
+  "metadata_enrichment": {
+    "enabled": true,
+    "include_manual_uploads": false,
+    "max_videos_per_run": 5,
+    "preserve_existing_public_copy": true
+  },
+  "playlists": {
+    "tool": {
+      "id": null,
+      "title": "AI Tools \u2014 Honest Demos | Hypeless",
+      "description": "Practical AI tools, real demonstrations, pricing and limitations. AI tools, minus the hype."
+    },
+    "news": {
+      "id": null,
+      "title": "AI News \u2014 What Actually Changed | Hypeless",
+      "description": "AI launches, feature changes and paid-to-free updates, with sources and clear caveats."
+    },
+    "repo": {
+      "id": null,
+      "title": "AI Repos \u2014 Open-Source Projects | Hypeless",
+      "description": "Useful AI repositories: what they do, how to use them, and the real setup requirements."
+    },
+    "shorts": {
+      "id": null,
+      "title": "AI in Under a Minute | Hypeless Shorts",
+      "description": "Quick AI tool demos, news and useful open-source discoveries."
+    },
+    "long": {
+      "id": null,
+      "title": "AI Deep Dives | Hypeless",
+      "description": "Long-form AI tool tests, repo walkthroughs and weekly AI news explainers."
+    }
+  },
+  "note": "Private-first resumable uploads. Persist encrypted upload session URLs, never raw URLs or OAuth secrets in git. Schedule only after processing, metadata, thumbnail and playlist checks pass. No long videos have been rendered/queued/uploaded yet; OAuth is not connected."
+}

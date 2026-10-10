@@ -121,6 +121,11 @@ def build(dest, cfg, items, records):
         print(f"media ready: {item['video_id']} · QA 7/7 · {size / 1e6:.1f} MB", flush=True)
     save_json(dest / "media-index.json", index)
     (dest / ".nojekyll").touch()
+    callback = ROOT / "cloud/pages/oauth-callback.html"
+    if callback.exists():
+        callback_dir = dest / "oauth/callback"
+        callback_dir.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(callback, callback_dir / "index.html")
     links = "".join(f'<a href="{html.escape(c["url"], quote=True)}" rel="noopener">{html.escape(p.title())} ↗</a>' for p, c in cfg["buffer"]["channels"].items())
     page = '''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hypeless — AI tools, minus the hype.</title><meta name="description" content="AI tools, news and useful open-source projects. Honest demos. Real limits."><style>*{box-sizing:border-box}body{margin:0;min-height:100vh;background:#050b1f;color:#f5f7ff;font:18px/1.6 system-ui;display:grid;place-items:center;padding:30px}main{width:min(720px,100%)}small{color:#38bdf8;text-transform:uppercase;letter-spacing:.2em}h1{font-size:clamp(60px,12vw,112px);line-height:1;letter-spacing:-.07em;margin:24px 0;color:#ffd60a}p{max-width:520px;color:#bbc7df}nav{display:flex;flex-wrap:wrap;gap:14px;margin:40px 0}a{color:#fff;text-decoration:none;padding:12px 24px;border:1px solid #34415e;border-radius:8px}a:hover{border-color:#38bdf8;color:#38bdf8}footer{font-size:13px;color:#8392b0}</style></head><body><main><small>Practical AI. Honest takes.</small><h1>Hypeless.</h1><p>AI tools, minus the hype.<br>Useful demos, AI news and open-source discoveries—with the catches left in.</p><nav>''' + links + '''</nav><footer>AI-generated narration. Sources and media credits accompany each video.</footer></main></body></html>'''
     (dest / "index.html").write_text(page, encoding="utf-8")

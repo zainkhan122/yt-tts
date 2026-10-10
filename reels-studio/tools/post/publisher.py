@@ -131,6 +131,7 @@ def deliver(rows, items, journal, client, cfg, clock=now_utc):
                   "media_url": row["media_url"], "media_ref": {n: item.get(n) for n in MEDIA_KEYS},
                   "text": row["payload"]["text"], "title": item["title"],
                   "payload_sha256": fingerprint(row["payload"]), "attempts": previous.get("attempts", 0) + 1,
+                  "notify_subscribers": row["payload"].get("metadata", {}).get("youtube", {}).get("notifySubscribers", False),
                   "updated_at": iso(clock())}
         journal.records[k] = record
         journal.save("reserve " + k)  # If persistence fails, createPost is never called.
@@ -168,7 +169,7 @@ def summary(report):
     lines += ["", "## Notes"] + ["- " + n for n in report.get("notes", [])]
     lines += ["", "## Delivery issues"] + [f"- {r['key']}: {r['state']} — {r.get('error', '')}" for r in report.get("issues", [])]
     lines += ["", "Dry-run schedules are proposals only. Scheduled is NOT the same as successfully published.",
-              "Instagram native AI disclosure is supported; Facebook auto-posting is policy-held because Buffer lacks its native AI-info flag."]
+              "Facebook is included per owner instruction; its caption disclosure does not assert that a native AI label was applied."]
     return "\n".join(lines) + "\n"
 
 
@@ -214,6 +215,8 @@ def main():
         client = BufferClient(cfg["buffer"])
         try:
             channels, posts = client.state()
+            cfg["buffer"]["capabilities"] = client.capabilities
+            report["capabilities"] = client.capabilities
             reconcile(journal.records, all_items, posts, cfg, now)
             if not dry:
                 journal.data["cooldown_until"] = None

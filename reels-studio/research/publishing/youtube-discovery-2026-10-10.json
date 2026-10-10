@@ -1,0 +1,1306 @@
+{
+  "id": "youtube:v3",
+  "revision": "20261006",
+  "rootUrl": "https://youtube.googleapis.com/",
+  "schemas": {
+    "Video": {
+      "type": "object",
+      "id": "Video",
+      "description": "A *video* resource represents a YouTube video.",
+      "properties": {
+        "snippet": {
+          "description": "The snippet object contains basic details about the video, such as its title, description, and category.",
+          "$ref": "VideoSnippet"
+        },
+        "paidProductPlacementDetails": {
+          "$ref": "VideoPaidProductPlacementDetails"
+        },
+        "suggestions": {
+          "$ref": "VideoSuggestions",
+          "description": "The suggestions object encapsulates suggestions that identify opportunities to improve the video quality or the metadata for the uploaded video. This data can only be retrieved by the video owner."
+        },
+        "localizations": {
+          "additionalProperties": {
+            "$ref": "VideoLocalization"
+          },
+          "description": "The localizations object contains localized versions of the basic details about the video, such as its title and description.",
+          "type": "object"
+        },
+        "ageGating": {
+          "$ref": "VideoAgeGating",
+          "description": "Age restriction details related to a video. This data can only be retrieved by the video owner."
+        },
+        "id": {
+          "type": "string",
+          "description": "The ID that YouTube uses to uniquely identify the video.",
+          "annotations": {
+            "required": [
+              "youtube.videos.update"
+            ]
+          }
+        },
+        "processingDetails": {
+          "$ref": "VideoProcessingDetails",
+          "description": "The processingDetails object encapsulates information about YouTube's progress in processing the uploaded video file. The properties in the object identify the current processing status and an estimate of the time remaining until YouTube finishes processing the video. This part also indicates whether different types of data or content, such as file details or thumbnail images, are available for the video. The processingProgress object is designed to be polled so that the video uploaded can track the progress that YouTube has made in processing the uploaded video file. This data can only be retrieved by the video owner."
+        },
+        "kind": {
+          "default": "youtube#video",
+          "type": "string",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"youtube#video\"."
+        },
+        "topicDetails": {
+          "description": "The topicDetails object encapsulates information about Freebase topics associated with the video.",
+          "$ref": "VideoTopicDetails"
+        },
+        "status": {
+          "description": "The status object contains information about the video's uploading, processing, and privacy statuses.",
+          "$ref": "VideoStatus"
+        },
+        "contentDetails": {
+          "description": "The contentDetails object contains information about the video content, including the length of the video and its aspect ratio.",
+          "$ref": "VideoContentDetails"
+        },
+        "recordingDetails": {
+          "description": "The recordingDetails object encapsulates information about the location, date and address where the video was recorded.",
+          "$ref": "VideoRecordingDetails"
+        },
+        "brandPartner": {
+          "$ref": "BrandPartner"
+        },
+        "projectDetails": {
+          "deprecated": true,
+          "$ref": "VideoProjectDetails",
+          "description": "The projectDetails object contains information about the project specific video metadata. b/157517979: This part was never populated after it was added. However, it sees non-zero traffic because there is generated client code in the wild that refers to it [1]. We keep this field and do NOT remove it because otherwise V3 would return an error when this part gets requested [2]. [1] https://developers.google.com/resources/api-libraries/documentation/youtube/v3/csharp/latest/classGoogle_1_1Apis_1_1YouTube_1_1v3_1_1Data_1_1VideoProjectDetails.html [2] http://google3/video/youtube/src/python/servers/data_api/common.py?l=1565-1569&rcl=344141677"
+        },
+        "player": {
+          "description": "The player object contains information that you would use to play the video in an embedded player.",
+          "$ref": "VideoPlayer"
+        },
+        "liveStreamingDetails": {
+          "$ref": "VideoLiveStreamingDetails",
+          "description": "The liveStreamingDetails object contains metadata about a live video broadcast. The object will only be present in a video resource if the video is an upcoming, live, or completed live broadcast."
+        },
+        "fileDetails": {
+          "$ref": "VideoFileDetails",
+          "description": "The fileDetails object encapsulates information about the video file that was uploaded to YouTube, including the file's resolution, duration, audio and video codecs, stream bitrates, and more. This data can only be retrieved by the video owner."
+        },
+        "statistics": {
+          "description": "The statistics object contains statistics about the video.",
+          "$ref": "VideoStatistics"
+        },
+        "etag": {
+          "description": "Etag of this resource.",
+          "type": "string"
+        },
+        "monetizationDetails": {
+          "description": "The monetizationDetails object encapsulates information about the monetization status of the video.",
+          "$ref": "VideoMonetizationDetails"
+        }
+      }
+    },
+    "VideoSnippet": {
+      "id": "VideoSnippet",
+      "properties": {
+        "localized": {
+          "description": "Localized snippet selected with the hl parameter. If no such localization exists, this field is populated with the default snippet. (Read-only)",
+          "$ref": "VideoLocalization"
+        },
+        "tags": {
+          "type": "array",
+          "description": "A list of keyword tags associated with the video. Tags may contain spaces.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "description": {
+          "type": "string",
+          "description": "The video's description. @mutable youtube.videos.insert youtube.videos.update"
+        },
+        "publishedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the video was uploaded."
+        },
+        "liveBroadcastContent": {
+          "description": "Indicates if the video is an upcoming/active live broadcast. Or it's \"none\" if the video is not an upcoming/active live broadcast.",
+          "type": "string",
+          "enum": [
+            "none",
+            "upcoming",
+            "live",
+            "completed"
+          ],
+          "enumDescriptions": [
+            "The resource does not have live broadcast content.",
+            "The live broadcast is upcoming.",
+            "The live broadcast is active.",
+            "The live broadcast has been completed."
+          ]
+        },
+        "title": {
+          "type": "string",
+          "description": "The video's title. @mutable youtube.videos.insert youtube.videos.update"
+        },
+        "categoryId": {
+          "type": "string",
+          "description": "The YouTube video category associated with the video."
+        },
+        "channelId": {
+          "description": "The ID that YouTube uses to uniquely identify the channel that the video was uploaded to.",
+          "type": "string"
+        },
+        "channelTitle": {
+          "description": "Channel title for the channel that the video belongs to.",
+          "type": "string"
+        },
+        "defaultLanguage": {
+          "type": "string",
+          "description": "The language of the videos's default snippet."
+        },
+        "defaultAudioLanguage": {
+          "type": "string",
+          "description": "The default_audio_language property specifies the language spoken in the video's default audio track."
+        },
+        "thumbnails": {
+          "description": "A map of thumbnail images associated with the video. For each object in the map, the key is the name of the thumbnail image, and the value is an object that contains other information about the thumbnail.",
+          "$ref": "ThumbnailDetails"
+        }
+      },
+      "type": "object",
+      "description": "Basic details about a video, including title, description, uploader, thumbnails and category."
+    },
+    "VideoStatus": {
+      "description": "Basic details about a video category, such as its localized title. Next Id: 20",
+      "type": "object",
+      "id": "VideoStatus",
+      "properties": {
+        "selfDeclaredMadeForKids": {
+          "type": "boolean"
+        },
+        "license": {
+          "type": "string",
+          "enum": [
+            "youtube",
+            "creativeCommon"
+          ],
+          "enumDescriptions": [
+            "Standard YouTube license.",
+            "Creative Commons license."
+          ],
+          "description": "The video's license. @mutable youtube.videos.insert youtube.videos.update"
+        },
+        "containsSyntheticMedia": {
+          "type": "boolean",
+          "description": "Indicates if the video contains altered or synthetic media."
+        },
+        "rejectionReason": {
+          "enumDescriptions": [
+            "Copyright infringement.",
+            "Inappropriate video content.",
+            "Duplicate upload in the same channel.",
+            "Terms of use violation.",
+            "Uploader account was suspended.",
+            "Video duration was too long.",
+            "Blocked by content owner.",
+            "Uploader closed his/her account.",
+            "Trademark infringement.",
+            "An unspecified legal reason."
+          ],
+          "enum": [
+            "copyright",
+            "inappropriate",
+            "duplicate",
+            "termsOfUse",
+            "uploaderAccountSuspended",
+            "length",
+            "claim",
+            "uploaderAccountClosed",
+            "trademark",
+            "legal"
+          ],
+          "description": "This value explains why YouTube rejected an uploaded video. This property is only present if the uploadStatus property indicates that the upload was rejected.",
+          "type": "string"
+        },
+        "publicStatsViewable": {
+          "description": "This value indicates if the extended video statistics on the watch page can be viewed by everyone. Note that the view count, likes, etc will still be visible if this is disabled. @mutable youtube.videos.insert youtube.videos.update",
+          "type": "boolean"
+        },
+        "publishAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the video is scheduled to publish. It can be set only if the privacy status of the video is private.."
+        },
+        "uploadStatus": {
+          "description": "The status of the uploaded video.",
+          "enum": [
+            "uploaded",
+            "processed",
+            "failed",
+            "rejected",
+            "deleted"
+          ],
+          "type": "string",
+          "enumDescriptions": [
+            "Video has been uploaded but not processed yet.",
+            "Video has been successfully processed.",
+            "Processing has failed. See FailureReason.",
+            "Video has been rejected. See RejectionReason.",
+            "Video has been deleted."
+          ]
+        },
+        "embeddable": {
+          "type": "boolean",
+          "description": "This value indicates if the video can be embedded on another website. @mutable youtube.videos.insert youtube.videos.update"
+        },
+        "privacyStatus": {
+          "description": "The video's privacy status.",
+          "type": "string",
+          "enumDescriptions": [
+            "",
+            "",
+            ""
+          ],
+          "enum": [
+            "public",
+            "unlisted",
+            "private"
+          ]
+        },
+        "madeForKids": {
+          "type": "boolean"
+        },
+        "failureReason": {
+          "enum": [
+            "conversion",
+            "invalidFile",
+            "emptyFile",
+            "tooSmall",
+            "codec",
+            "uploadAborted"
+          ],
+          "description": "This value explains why a video failed to upload. This property is only present if the uploadStatus property indicates that the upload failed.",
+          "type": "string",
+          "enumDescriptions": [
+            "Unable to convert video content.",
+            "Invalid file format.",
+            "Empty file.",
+            "File was too small.",
+            "Unsupported codec.",
+            "Upload wasn't finished."
+          ]
+        }
+      }
+    },
+    "Playlist": {
+      "properties": {
+        "snippet": {
+          "$ref": "PlaylistSnippet",
+          "description": "The snippet object contains basic details about the playlist, such as its title and description."
+        },
+        "kind": {
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"youtube#playlist\".",
+          "default": "youtube#playlist",
+          "type": "string"
+        },
+        "id": {
+          "description": "The ID that YouTube uses to uniquely identify the playlist.",
+          "type": "string"
+        },
+        "etag": {
+          "type": "string",
+          "description": "Etag of this resource."
+        },
+        "contentDetails": {
+          "description": "The contentDetails object contains information like video count.",
+          "$ref": "PlaylistContentDetails"
+        },
+        "localizations": {
+          "description": "Localizations for different languages",
+          "additionalProperties": {
+            "$ref": "PlaylistLocalization"
+          },
+          "type": "object"
+        },
+        "player": {
+          "description": "The player object contains information that you would use to play the playlist in an embedded player.",
+          "$ref": "PlaylistPlayer"
+        },
+        "status": {
+          "description": "The status object contains status information for the playlist.",
+          "$ref": "PlaylistStatus"
+        }
+      },
+      "description": "A *playlist* resource represents a YouTube playlist. A playlist is a collection of videos that can be viewed sequentially and shared with other users. A playlist can contain up to 200 videos, and YouTube does not limit the number of playlists that each user creates. By default, playlists are publicly visible to other users, but playlists can be public or private. YouTube also uses playlists to identify special collections of videos for a channel, such as: - uploaded videos - favorite videos - positively rated (liked) videos - watch history - watch later To be more specific, these lists are associated with a channel, which is a collection of a person, group, or company's videos, playlists, and other YouTube information. You can retrieve the playlist IDs for each of these lists from the channel resource for a given channel. You can then use the playlistItems.list method to retrieve any of those lists. You can also add or remove items from those lists by calling the playlistItems.insert and playlistItems.delete methods.",
+      "type": "object",
+      "id": "Playlist"
+    },
+    "PlaylistItem": {
+      "properties": {
+        "status": {
+          "$ref": "PlaylistItemStatus",
+          "description": "The status object contains information about the playlist item's privacy status."
+        },
+        "kind": {
+          "type": "string",
+          "default": "youtube#playlistItem",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"youtube#playlistItem\"."
+        },
+        "snippet": {
+          "description": "The snippet object contains basic details about the playlist item, such as its title and position in the playlist.",
+          "$ref": "PlaylistItemSnippet"
+        },
+        "contentDetails": {
+          "description": "The contentDetails object is included in the resource if the included item is a YouTube video. The object contains additional information about the video.",
+          "$ref": "PlaylistItemContentDetails"
+        },
+        "id": {
+          "type": "string",
+          "description": "The ID that YouTube uses to uniquely identify the playlist item."
+        },
+        "etag": {
+          "description": "Etag of this resource.",
+          "type": "string"
+        }
+      },
+      "id": "PlaylistItem",
+      "type": "object",
+      "description": "A *playlistItem* resource identifies another resource, such as a video, that is included in a playlist. In addition, the playlistItem resource contains details about the included resource that pertain specifically to how that resource is used in that playlist. YouTube uses playlists to identify special collections of videos for a channel, such as: - uploaded videos - favorite videos - positively rated (liked) videos - watch history - watch later To be more specific, these lists are associated with a channel, which is a collection of a person, group, or company's videos, playlists, and other YouTube information. You can retrieve the playlist IDs for each of these lists from the channel resource for a given channel. You can then use the playlistItems.list method to retrieve any of those lists. You can also add or remove items from those lists by calling the playlistItems.insert and playlistItems.delete methods. For example, if a user gives a positive rating to a video, you would insert that video into the liked videos playlist for that user's channel."
+    },
+    "ThumbnailSetResponse": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"youtube#thumbnailSetResponse\".",
+          "default": "youtube#thumbnailSetResponse",
+          "type": "string"
+        },
+        "eventId": {
+          "deprecated": true,
+          "description": "Serialized EventId of the request which produced this response.",
+          "type": "string"
+        },
+        "visitorId": {
+          "deprecated": true,
+          "type": "string",
+          "description": "The visitorId identifies the visitor."
+        },
+        "etag": {
+          "type": "string",
+          "description": "Etag of this resource."
+        },
+        "items": {
+          "items": {
+            "$ref": "ThumbnailDetails"
+          },
+          "type": "array",
+          "description": "A list of thumbnails."
+        }
+      },
+      "id": "ThumbnailSetResponse"
+    }
+  },
+  "methods": {
+    "videos": {
+      "reportAbuse": {
+        "description": "Report abuse for a video.",
+        "flatPath": "youtube/v3/videos/reportAbuse",
+        "path": "youtube/v3/videos/reportAbuse",
+        "httpMethod": "POST",
+        "parameters": {
+          "onBehalfOfContentOwner": {
+            "type": "string",
+            "location": "query",
+            "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
+          }
+        },
+        "id": "youtube.videos.reportAbuse",
+        "parameterOrder": [],
+        "request": {
+          "$ref": "VideoAbuseReport"
+        },
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtubepartner"
+        ]
+      },
+      "delete": {
+        "flatPath": "youtube/v3/videos",
+        "parameterOrder": [
+          "id"
+        ],
+        "path": "youtube/v3/videos",
+        "httpMethod": "DELETE",
+        "parameters": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "location": "query"
+          },
+          "onBehalfOfContentOwner": {
+            "type": "string",
+            "location": "query",
+            "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner."
+          }
+        },
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtubepartner"
+        ],
+        "description": "Deletes a resource.",
+        "id": "youtube.videos.delete"
+      },
+      "update": {
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtubepartner"
+        ],
+        "description": "Updates an existing resource.",
+        "flatPath": "youtube/v3/videos",
+        "path": "youtube/v3/videos",
+        "request": {
+          "$ref": "Video"
+        },
+        "httpMethod": "PUT",
+        "parameters": {
+          "part": {
+            "required": true,
+            "description": "The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. Note that this method will override the existing values for all of the mutable properties that are contained in any parts that the parameter value specifies. For example, a video's privacy setting is contained in the status part. As such, if your request is updating a private video, and the request's part parameter value includes the status part, the video's privacy setting will be updated to whatever value the request body specifies. If the request body does not specify a value, the existing privacy setting will be removed and the video will revert to the default privacy setting. In addition, not all parts contain properties that can be set when inserting or updating a video. For example, the statistics object encapsulates statistics that YouTube calculates for a video and does not contain values that you can set or modify. If the parameter value specifies a part that does not contain mutable values, that part will still be included in the API response.",
+            "type": "string",
+            "repeated": true,
+            "location": "query"
+          },
+          "onBehalfOfContentOwner": {
+            "location": "query",
+            "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
+            "type": "string"
+          }
+        },
+        "id": "youtube.videos.update",
+        "parameterOrder": [
+          "part"
+        ],
+        "response": {
+          "$ref": "Video"
+        }
+      },
+      "getRating": {
+        "parameterOrder": [
+          "id"
+        ],
+        "id": "youtube.videos.getRating",
+        "flatPath": "youtube/v3/videos/getRating",
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtube.readonly",
+          "https://www.googleapis.com/auth/youtubepartner"
+        ],
+        "description": "Retrieves the ratings that the authorized user gave to a list of specified videos.",
+        "httpMethod": "GET",
+        "parameters": {
+          "id": {
+            "repeated": true,
+            "location": "query",
+            "required": true,
+            "type": "string"
+          },
+          "onBehalfOfContentOwner": {
+            "type": "string",
+            "location": "query",
+            "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
+          }
+        },
+        "path": "youtube/v3/videos/getRating",
+        "response": {
+          "$ref": "VideoGetRatingResponse"
+        }
+      },
+      "list": {
+        "path": "youtube/v3/videos",
+        "description": "Retrieves a list of resources, possibly filtered.",
+        "response": {
+          "$ref": "VideoListResponse"
+        },
+        "id": "youtube.videos.list",
+        "httpMethod": "GET",
+        "parameters": {
+          "pageToken": {
+            "description": "The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved. *Note:* This parameter is supported for use in conjunction with the myRating and chart parameters, but it is not supported for use in conjunction with the id parameter.",
+            "type": "string",
+            "location": "query"
+          },
+          "hl": {
+            "description": "Stands for \"host language\". Specifies the localization language of the metadata to be filled into snippet.localized. The field is filled with the default metadata if there is no localization in the specified language. The parameter value must be a language code included in the list returned by the i18nLanguages.list method (e.g. en_US, es_MX).",
+            "location": "query",
+            "type": "string"
+          },
+          "part": {
+            "location": "query",
+            "repeated": true,
+            "required": true,
+            "type": "string",
+            "description": "The *part* parameter specifies a comma-separated list of one or more video resource properties that the API response will include. If the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a video resource, the snippet property contains the channelId, title, description, tags, and categoryId properties. As such, if you set *part=snippet*, the API response will contain all of those properties."
+          },
+          "chart": {
+            "enum": [
+              "chartUnspecified",
+              "mostPopular"
+            ],
+            "enumDescriptions": [
+              "",
+              "Return the most popular videos for the specified content region and video category."
+            ],
+            "type": "string",
+            "description": "Return the videos that are in the specified chart.",
+            "location": "query"
+          },
+          "onBehalfOfContentOwner": {
+            "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
+            "location": "query",
+            "type": "string"
+          },
+          "locale": {
+            "type": "string",
+            "deprecated": true,
+            "location": "query"
+          },
+          "myRating": {
+            "type": "string",
+            "enumDescriptions": [
+              "The entity has not been rated.",
+              "The entity is liked.",
+              "The entity is disliked."
+            ],
+            "enum": [
+              "none",
+              "like",
+              "dislike"
+            ],
+            "location": "query",
+            "description": "Return videos liked/disliked by the authenticated user. Does not support RateType.RATED_TYPE_NONE."
+          },
+          "id": {
+            "location": "query",
+            "repeated": true,
+            "type": "string",
+            "description": "Return videos with the given ids."
+          },
+          "maxWidth": {
+            "maximum": "8192",
+            "location": "query",
+            "minimum": "72",
+            "format": "int32",
+            "description": "Return the player with maximum height specified in",
+            "type": "integer"
+          },
+          "maxHeight": {
+            "location": "query",
+            "type": "integer",
+            "format": "int32",
+            "maximum": "8192",
+            "minimum": "72"
+          },
+          "maxResults": {
+            "location": "query",
+            "description": "The *maxResults* parameter specifies the maximum number of items that should be returned in the result set. *Note:* This parameter is supported for use in conjunction with the myRating and chart parameters, but it is not supported for use in conjunction with the id parameter.",
+            "type": "integer",
+            "default": "5",
+            "format": "uint32",
+            "minimum": "1",
+            "maximum": "50"
+          },
+          "videoCategoryId": {
+            "default": "0",
+            "type": "string",
+            "location": "query",
+            "description": "Use chart that is specific to the specified video category"
+          },
+          "regionCode": {
+            "location": "query",
+            "description": "Use a chart that is specific to the specified region",
+            "type": "string"
+          }
+        },
+        "parameterOrder": [
+          "part"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtube.readonly",
+          "https://www.googleapis.com/auth/youtubepartner"
+        ],
+        "flatPath": "youtube/v3/videos"
+      },
+      "batchGetStats": {
+        "path": "youtube/v3/videos:batchGetStats",
+        "id": "youtube.videos.batchGetStats",
+        "response": {
+          "$ref": "BatchGetStatsResponse"
+        },
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtube.readonly",
+          "https://www.googleapis.com/auth/youtubepartner"
+        ],
+        "parameterOrder": [],
+        "httpMethod": "GET",
+        "parameters": {
+          "id": {
+            "location": "query",
+            "repeated": true,
+            "description": "Required. Return videos with the given ids. The number of IDs specified cannot exceed 50.",
+            "type": "string"
+          },
+          "part": {
+            "description": "Required. The `**part**` parameter specifies a comma-separated list of one or more `videoStat` resource properties that the API response will include. If the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a `videoStat` resource, the `statistics` property contains `view_count` and `like_count`. As such, if you set `**part=snippet**`, the API response will contain all of those properties.",
+            "type": "string",
+            "location": "query",
+            "repeated": true
+          },
+          "onBehalfOfContentOwner": {
+            "location": "query",
+            "description": "Optional. **Note:** This parameter is intended exclusively for YouTube content partners. The `onBehalfOfContentOwner` parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
+            "type": "string"
+          }
+        },
+        "description": "Retrieves a batch of VideoStat resources, possibly filtered. BatchGetStats is intentionally not atomic to provide a better user experience.",
+        "flatPath": "youtube/v3/videos:batchGetStats"
+      },
+      "insert": {
+        "path": "youtube/v3/videos",
+        "flatPath": "youtube/v3/videos",
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtube.upload",
+          "https://www.googleapis.com/auth/youtubepartner"
+        ],
+        "mediaUpload": {
+          "protocols": {
+            "simple": {
+              "path": "/upload/youtube/v3/videos",
+              "multipart": true
+            },
+            "resumable": {
+              "path": "/resumable/upload/youtube/v3/videos",
+              "multipart": true
+            }
+          },
+          "maxSize": "274877906944",
+          "accept": [
+            "video/*",
+            "application/octet-stream"
+          ]
+        },
+        "description": "Inserts a new resource into this collection.",
+        "supportsMediaUpload": true,
+        "id": "youtube.videos.insert",
+        "httpMethod": "POST",
+        "parameters": {
+          "notifySubscribers": {
+            "location": "query",
+            "default": "true",
+            "description": "Notify the channel subscribers about the new video. As default, the notification is enabled.",
+            "type": "boolean"
+          },
+          "part": {
+            "type": "string",
+            "description": "The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. Note that not all parts contain properties that can be set when inserting or updating a video. For example, the statistics object encapsulates statistics that YouTube calculates for a video and does not contain values that you can set or modify. If the parameter value specifies a part that does not contain mutable values, that part will still be included in the API response.",
+            "required": true,
+            "location": "query",
+            "repeated": true
+          },
+          "onBehalfOfContentOwnerChannel": {
+            "location": "query",
+            "description": "This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.",
+            "type": "string"
+          },
+          "stabilize": {
+            "description": "Should stabilize be applied to the upload.",
+            "type": "boolean",
+            "location": "query"
+          },
+          "onBehalfOfContentOwner": {
+            "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
+            "type": "string",
+            "location": "query"
+          },
+          "autoLevels": {
+            "location": "query",
+            "description": "Should auto-levels be applied to the upload.",
+            "type": "boolean"
+          }
+        },
+        "parameterOrder": [
+          "part"
+        ],
+        "response": {
+          "$ref": "Video"
+        },
+        "request": {
+          "$ref": "Video"
+        }
+      },
+      "rate": {
+        "httpMethod": "POST",
+        "parameters": {
+          "rating": {
+            "type": "string",
+            "enum": [
+              "none",
+              "like",
+              "dislike"
+            ],
+            "location": "query",
+            "required": true,
+            "enumDescriptions": [
+              "The entity has not been rated.",
+              "The entity is liked.",
+              "The entity is disliked."
+            ]
+          },
+          "id": {
+            "required": true,
+            "location": "query",
+            "type": "string"
+          }
+        },
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtubepartner"
+        ],
+        "description": "Adds a like or dislike rating to a video or removes a rating from a video.",
+        "parameterOrder": [
+          "id",
+          "rating"
+        ],
+        "id": "youtube.videos.rate",
+        "flatPath": "youtube/v3/videos/rate",
+        "path": "youtube/v3/videos/rate"
+      }
+    },
+    "thumbnails": {
+      "set": {
+        "response": {
+          "$ref": "ThumbnailSetResponse"
+        },
+        "id": "youtube.thumbnails.set",
+        "path": "youtube/v3/thumbnails/set",
+        "mediaUpload": {
+          "maxSize": "52428800",
+          "protocols": {
+            "resumable": {
+              "path": "/resumable/upload/youtube/v3/thumbnails/set",
+              "multipart": true
+            },
+            "simple": {
+              "path": "/upload/youtube/v3/thumbnails/set",
+              "multipart": true
+            }
+          },
+          "accept": [
+            "image/jpeg",
+            "image/png",
+            "application/octet-stream"
+          ]
+        },
+        "description": "As this is not an insert in a strict sense (it supports uploading/setting of a thumbnail for multiple videos, which doesn't result in creation of a single resource), I use a custom verb here.",
+        "parameterOrder": [
+          "videoId"
+        ],
+        "flatPath": "youtube/v3/thumbnails/set",
+        "httpMethod": "POST",
+        "parameters": {
+          "videoId": {
+            "required": true,
+            "type": "string",
+            "location": "query",
+            "description": "Returns the Thumbnail with the given video IDs for Stubby or Apiary."
+          },
+          "onBehalfOfContentOwner": {
+            "location": "query",
+            "type": "string",
+            "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner."
+          }
+        },
+        "supportsMediaUpload": true,
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtube.upload",
+          "https://www.googleapis.com/auth/youtubepartner"
+        ]
+      }
+    },
+    "playlistItems": {
+      "list": {
+        "parameterOrder": [
+          "part"
+        ],
+        "flatPath": "youtube/v3/playlistItems",
+        "path": "youtube/v3/playlistItems",
+        "httpMethod": "GET",
+        "parameters": {
+          "id": {
+            "type": "string",
+            "repeated": true,
+            "location": "query"
+          },
+          "playlistId": {
+            "location": "query",
+            "description": "Return the playlist items within the given playlist.",
+            "type": "string"
+          },
+          "maxResults": {
+            "location": "query",
+            "type": "integer",
+            "minimum": "0",
+            "description": "The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.",
+            "default": "5",
+            "maximum": "50",
+            "format": "uint32"
+          },
+          "pageToken": {
+            "description": "The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.",
+            "type": "string",
+            "location": "query"
+          },
+          "videoId": {
+            "location": "query",
+            "description": "Return the playlist items associated with the given video ID.",
+            "type": "string"
+          },
+          "part": {
+            "description": "The *part* parameter specifies a comma-separated list of one or more playlistItem resource properties that the API response will include. If the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a playlistItem resource, the snippet property contains numerous fields, including the title, description, position, and resourceId properties. As such, if you set *part=snippet*, the API response will contain all of those properties.",
+            "type": "string",
+            "required": true,
+            "repeated": true,
+            "location": "query"
+          },
+          "onBehalfOfContentOwner": {
+            "location": "query",
+            "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
+            "type": "string"
+          }
+        },
+        "response": {
+          "$ref": "PlaylistItemListResponse"
+        },
+        "id": "youtube.playlistItems.list",
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtube.readonly",
+          "https://www.googleapis.com/auth/youtubepartner"
+        ],
+        "description": "Retrieves a list of resources, possibly filtered."
+      },
+      "insert": {
+        "flatPath": "youtube/v3/playlistItems",
+        "description": "Inserts a new resource into this collection.",
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtubepartner"
+        ],
+        "response": {
+          "$ref": "PlaylistItem"
+        },
+        "path": "youtube/v3/playlistItems",
+        "httpMethod": "POST",
+        "parameters": {
+          "part": {
+            "required": true,
+            "description": "The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.",
+            "type": "string",
+            "repeated": true,
+            "location": "query"
+          },
+          "onBehalfOfContentOwner": {
+            "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
+            "location": "query",
+            "type": "string"
+          }
+        },
+        "id": "youtube.playlistItems.insert",
+        "parameterOrder": [
+          "part"
+        ],
+        "request": {
+          "$ref": "PlaylistItem"
+        }
+      },
+      "update": {
+        "parameterOrder": [
+          "part"
+        ],
+        "description": "Updates an existing resource.",
+        "httpMethod": "PUT",
+        "parameters": {
+          "part": {
+            "location": "query",
+            "description": "The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. Note that this method will override the existing values for all of the mutable properties that are contained in any parts that the parameter value specifies. For example, a playlist item can specify a start time and end time, which identify the times portion of the video that should play when users watch the video in the playlist. If your request is updating a playlist item that sets these values, and the request's part parameter value includes the contentDetails part, the playlist item's start and end times will be updated to whatever value the request body specifies. If the request body does not specify values, the existing start and end times will be removed and replaced with the default settings.",
+            "repeated": true,
+            "type": "string",
+            "required": true
+          },
+          "onBehalfOfContentOwner": {
+            "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
+            "location": "query",
+            "type": "string"
+          }
+        },
+        "id": "youtube.playlistItems.update",
+        "response": {
+          "$ref": "PlaylistItem"
+        },
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtubepartner"
+        ],
+        "flatPath": "youtube/v3/playlistItems",
+        "request": {
+          "$ref": "PlaylistItem"
+        },
+        "path": "youtube/v3/playlistItems"
+      },
+      "delete": {
+        "path": "youtube/v3/playlistItems",
+        "id": "youtube.playlistItems.delete",
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtubepartner"
+        ],
+        "flatPath": "youtube/v3/playlistItems",
+        "httpMethod": "DELETE",
+        "parameters": {
+          "id": {
+            "location": "query",
+            "type": "string",
+            "required": true
+          },
+          "onBehalfOfContentOwner": {
+            "type": "string",
+            "location": "query",
+            "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
+          }
+        },
+        "description": "Deletes a resource.",
+        "parameterOrder": [
+          "id"
+        ]
+      }
+    },
+    "playlists": {
+      "insert": {
+        "httpMethod": "POST",
+        "parameters": {
+          "part": {
+            "location": "query",
+            "repeated": true,
+            "type": "string",
+            "description": "The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.",
+            "required": true
+          },
+          "onBehalfOfContentOwner": {
+            "type": "string",
+            "location": "query",
+            "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
+          },
+          "onBehalfOfContentOwnerChannel": {
+            "location": "query",
+            "description": "This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.",
+            "type": "string"
+          }
+        },
+        "response": {
+          "$ref": "Playlist"
+        },
+        "id": "youtube.playlists.insert",
+        "path": "youtube/v3/playlists",
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtubepartner"
+        ],
+        "request": {
+          "$ref": "Playlist"
+        },
+        "flatPath": "youtube/v3/playlists",
+        "parameterOrder": [
+          "part"
+        ],
+        "description": "Inserts a new resource into this collection."
+      },
+      "update": {
+        "description": "Updates an existing resource.",
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtubepartner"
+        ],
+        "request": {
+          "$ref": "Playlist"
+        },
+        "parameterOrder": [
+          "part"
+        ],
+        "response": {
+          "$ref": "Playlist"
+        },
+        "id": "youtube.playlists.update",
+        "path": "youtube/v3/playlists",
+        "httpMethod": "PUT",
+        "parameters": {
+          "part": {
+            "required": true,
+            "type": "string",
+            "location": "query",
+            "description": "The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. Note that this method will override the existing values for mutable properties that are contained in any parts that the request body specifies. For example, a playlist's description is contained in the snippet part, which must be included in the request body. If the request does not specify a value for the snippet.description property, the playlist's existing description will be deleted.",
+            "repeated": true
+          },
+          "onBehalfOfContentOwner": {
+            "type": "string",
+            "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
+            "location": "query"
+          }
+        },
+        "flatPath": "youtube/v3/playlists"
+      },
+      "list": {
+        "id": "youtube.playlists.list",
+        "response": {
+          "$ref": "PlaylistListResponse"
+        },
+        "description": "Retrieves a list of resources, possibly filtered.",
+        "path": "youtube/v3/playlists",
+        "httpMethod": "GET",
+        "parameters": {
+          "onBehalfOfContentOwner": {
+            "type": "string",
+            "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
+            "location": "query"
+          },
+          "mine": {
+            "description": "Return the playlists owned by the authenticated user.",
+            "type": "boolean",
+            "location": "query"
+          },
+          "part": {
+            "type": "string",
+            "required": true,
+            "description": "The *part* parameter specifies a comma-separated list of one or more playlist resource properties that the API response will include. If the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a playlist resource, the snippet property contains properties like author, title, description, tags, and timeCreated. As such, if you set *part=snippet*, the API response will contain all of those properties.",
+            "location": "query",
+            "repeated": true
+          },
+          "channelId": {
+            "location": "query",
+            "description": "Return the playlists owned by the specified channel ID.",
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Return the playlists with the given IDs for Stubby or Apiary.",
+            "repeated": true,
+            "location": "query"
+          },
+          "onBehalfOfContentOwnerChannel": {
+            "type": "string",
+            "location": "query",
+            "description": "This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel."
+          },
+          "maxResults": {
+            "description": "The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.",
+            "maximum": "50",
+            "format": "uint32",
+            "default": "5",
+            "minimum": "0",
+            "location": "query",
+            "type": "integer"
+          },
+          "pageToken": {
+            "location": "query",
+            "type": "string",
+            "description": "The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved."
+          },
+          "hl": {
+            "type": "string",
+            "description": "Return content in specified language",
+            "location": "query"
+          }
+        },
+        "parameterOrder": [
+          "part"
+        ],
+        "flatPath": "youtube/v3/playlists",
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtube.readonly",
+          "https://www.googleapis.com/auth/youtubepartner"
+        ]
+      },
+      "delete": {
+        "id": "youtube.playlists.delete",
+        "flatPath": "youtube/v3/playlists",
+        "description": "Deletes a resource.",
+        "parameterOrder": [
+          "id"
+        ],
+        "httpMethod": "DELETE",
+        "parameters": {
+          "id": {
+            "required": true,
+            "type": "string",
+            "location": "query"
+          },
+          "onBehalfOfContentOwner": {
+            "location": "query",
+            "type": "string",
+            "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
+          }
+        },
+        "path": "youtube/v3/playlists",
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtubepartner"
+        ]
+      }
+    },
+    "channels": {
+      "list": {
+        "description": "Retrieves a list of resources, possibly filtered.",
+        "response": {
+          "$ref": "ChannelListResponse"
+        },
+        "parameterOrder": [
+          "part"
+        ],
+        "id": "youtube.channels.list",
+        "httpMethod": "GET",
+        "parameters": {
+          "forHandle": {
+            "location": "query",
+            "description": "Return the channel associated with a YouTube handle.",
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Return the channels with the specified IDs.",
+            "repeated": true,
+            "location": "query"
+          },
+          "forUsername": {
+            "type": "string",
+            "description": "Return the channel associated with a YouTube username.",
+            "location": "query"
+          },
+          "mine": {
+            "location": "query",
+            "description": "Return the ids of channels owned by the authenticated user.",
+            "type": "boolean"
+          },
+          "part": {
+            "required": true,
+            "type": "string",
+            "description": "The *part* parameter specifies a comma-separated list of one or more channel resource properties that the API response will include. If the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a channel resource, the contentDetails property contains other properties, such as the uploads properties. As such, if you set *part=contentDetails*, the API response will also contain all of those nested properties.",
+            "location": "query",
+            "repeated": true
+          },
+          "managedByMe": {
+            "location": "query",
+            "type": "boolean",
+            "description": "Return the channels managed by the authenticated user."
+          },
+          "maxResults": {
+            "format": "uint32",
+            "maximum": "50",
+            "description": "The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.",
+            "location": "query",
+            "default": "5",
+            "type": "integer",
+            "minimum": "0"
+          },
+          "pageToken": {
+            "description": "The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.",
+            "type": "string",
+            "location": "query"
+          },
+          "onBehalfOfContentOwner": {
+            "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
+            "type": "string",
+            "location": "query"
+          },
+          "hl": {
+            "type": "string",
+            "location": "query",
+            "description": "Stands for \"host language\". Specifies the localization language of the metadata to be filled into snippet.localized. The field is filled with the default metadata if there is no localization in the specified language. The parameter value must be a language code included in the list returned by the i18nLanguages.list method (e.g. en_US, es_MX)."
+          },
+          "categoryId": {
+            "type": "string",
+            "description": "Return the channels within the specified guide category ID.",
+            "location": "query"
+          },
+          "mySubscribers": {
+            "description": "Return the channels subscribed to the authenticated user",
+            "type": "boolean",
+            "location": "query"
+          }
+        },
+        "flatPath": "youtube/v3/channels",
+        "path": "youtube/v3/channels",
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtube.readonly",
+          "https://www.googleapis.com/auth/youtubepartner",
+          "https://www.googleapis.com/auth/youtubepartner-channel-audit"
+        ]
+      },
+      "update": {
+        "request": {
+          "$ref": "Channel"
+        },
+        "flatPath": "youtube/v3/channels",
+        "id": "youtube.channels.update",
+        "httpMethod": "PUT",
+        "parameters": {
+          "part": {
+            "location": "query",
+            "description": "The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. The API currently only allows the parameter value to be set to either brandingSettings or invideoPromotion. (You cannot update both of those parts with a single request.) Note that this method overrides the existing values for all of the mutable properties that are contained in any parts that the parameter value specifies.",
+            "repeated": true,
+            "type": "string",
+            "required": true
+          },
+          "onBehalfOfContentOwner": {
+            "location": "query",
+            "description": "The *onBehalfOfContentOwner* parameter indicates that the authenticated user is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with needs to be linked to the specified YouTube content owner. This parameter must be provided if the request is authenticated with credentials for a CMS content owner user acting on a managed channel. If omitted, the request executes under the authenticated user's direct context and returns an HTTP 403 Forbidden error.",
+            "type": "string"
+          }
+        },
+        "parameterOrder": [
+          "part"
+        ],
+        "response": {
+          "$ref": "Channel"
+        },
+        "scopes": [
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/youtubepartner"
+        ],
+        "path": "youtube/v3/channels",
+        "description": "Updates an existing resource."
+      }
+    }
+  }
+}

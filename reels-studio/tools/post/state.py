@@ -17,7 +17,7 @@ PATH = "reels-studio/tracker/publications.json"
 
 
 class Journal:
-    def __init__(self, cfg, remote=False, path=None, session=None):
+    def __init__(self, cfg, remote=False, path=None, session=None, remote_path=PATH):
         self.path = path or ROOT / "tracker/publications.json"
         self.remote = remote
         self.cfg = cfg
@@ -28,7 +28,9 @@ class Journal:
             if not token:
                 raise RuntimeError("GitHub token missing; cannot persist a write-ahead journal")
             self.headers = {"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"}
-            self.url = f"https://api.github.com/repos/{cfg['repository']}/contents/{PATH}"
+            if not remote_path.startswith("reels-studio/tracker/") or ".." in remote_path:
+                raise ValueError("Journal path must remain under reels-studio/tracker")
+            self.url = f"https://api.github.com/repos/{cfg['repository']}/contents/{remote_path}"
             r = self.session.get(self.url, headers=self.headers, params={"ref": cfg.get("branch", "main")}, timeout=(10, 30))
             if r.status_code != 200:
                 raise RuntimeError(f"Cannot read durable journal (HTTP {r.status_code})")

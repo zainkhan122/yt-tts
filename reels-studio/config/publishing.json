@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "enabled": false,
   "repository": "zainkhan122/yt-tts",
   "branch": "main",
@@ -20,8 +20,7 @@
         "name": "Hypeless Ai",
         "url": "https://facebook.com/1323320354206601",
         "enabled": true,
-        "owner_supplied_url": "https://www.facebook.com/profile.php?id=61595198762966",
-        "posting_hold": "Native AI-info disclosure required for realistic synthetic narration; Buffer Facebook API has no disclosure flag. Keep held pending a supported labeling path."
+        "owner_supplied_url": "https://www.facebook.com/profile.php?id=61595198762966"
       },
       "instagram": {
         "buffer_id": "6ac8fe316a5c39ccb66231cb",
@@ -32,35 +31,242 @@
       }
     },
     "queue_limit_per_channel": 10,
-    "queue_target_per_channel": 6,
+    "queue_target_per_channel": 8,
     "request_spacing_seconds": 3.0,
     "max_attempts": 4,
     "max_inline_wait_seconds": 60,
     "quota_reserve": 5,
-    "max_pages": 10
+    "max_pages": 10,
+    "facebook_ai_disclosure_policy": "Owner 2026-10-10: include Facebook despite missing native API flag. Always add AI-narration caption disclosure; detect native flag support and use it if available. This does not assert native-label compliance or promise a Buffer rollout."
   },
   "schedule": {
-    "timezone": "Asia/Karachi",
-    "slots": [
-      "12:30",
-      "17:30",
-      "21:30"
-    ],
-    "platform_offset_minutes": {
-      "youtube": 0,
-      "instagram": 5,
-      "facebook": 10
-    },
+    "timezone": "America/New_York",
     "lookahead_hours": 48,
     "minimum_lead_minutes": 60,
     "minimum_gap_minutes": 180,
     "max_posts_per_run": 9,
     "max_repo_videos_per_day": 1,
-    "max_videos_per_day": 3,
+    "max_videos_per_day": 5,
     "required_daily_categories": [
       "news",
       "tool"
-    ]
+    ],
+    "strategy": "explicit_utc",
+    "daily_target": 3,
+    "youtube_short_notifications_per_24h": 2,
+    "short_long_gap_minutes": 120,
+    "profiles": {
+      "youtube": {
+        "timezone": "America/New_York",
+        "weekly_slots": {
+          "mon": [
+            "13:00",
+            "17:00",
+            "20:00"
+          ],
+          "tue": [
+            "14:00",
+            "18:00",
+            "21:00"
+          ],
+          "wed": [
+            "13:00",
+            "17:00",
+            "20:00"
+          ],
+          "thu": [
+            "13:00",
+            "17:00",
+            "20:00"
+          ],
+          "fri": [
+            "16:00",
+            "19:00",
+            "22:00"
+          ],
+          "sat": [
+            "11:00",
+            "15:00",
+            "19:00"
+          ],
+          "sun": [
+            "13:00",
+            "17:00",
+            "20:00"
+          ]
+        },
+        "optional_slots": {
+          "mon": [
+            "09:00",
+            "23:00"
+          ],
+          "tue": [
+            "08:00",
+            "11:00"
+          ],
+          "wed": [
+            "09:00",
+            "23:00"
+          ],
+          "thu": [
+            "09:00",
+            "23:00"
+          ],
+          "fri": [
+            "08:00",
+            "12:00"
+          ],
+          "sat": [
+            "07:00",
+            "23:00"
+          ],
+          "sun": [
+            "09:00",
+            "23:00"
+          ]
+        }
+      },
+      "instagram": {
+        "timezone": "America/New_York",
+        "weekly_slots": {
+          "mon": [
+            "12:00",
+            "18:00",
+            "21:00"
+          ],
+          "tue": [
+            "12:00",
+            "18:00",
+            "21:00"
+          ],
+          "wed": [
+            "12:00",
+            "18:00",
+            "21:00"
+          ],
+          "thu": [
+            "09:00",
+            "15:00",
+            "19:00"
+          ],
+          "fri": [
+            "12:00",
+            "18:00",
+            "21:00"
+          ],
+          "sat": [
+            "11:00",
+            "16:00",
+            "20:00"
+          ],
+          "sun": [
+            "11:00",
+            "16:00",
+            "20:00"
+          ]
+        },
+        "optional_slots": {
+          "mon": [
+            "08:00",
+            "15:00"
+          ],
+          "tue": [
+            "08:00",
+            "15:00"
+          ],
+          "wed": [
+            "08:00",
+            "15:00"
+          ],
+          "thu": [
+            "06:00",
+            "12:00"
+          ],
+          "fri": [
+            "08:00",
+            "15:00"
+          ],
+          "sat": [
+            "07:00",
+            "23:00"
+          ],
+          "sun": [
+            "07:00",
+            "23:00"
+          ]
+        }
+      },
+      "facebook": {
+        "timezone": "America/New_York",
+        "weekly_slots": {
+          "mon": [
+            "09:00",
+            "12:00",
+            "18:00"
+          ],
+          "tue": [
+            "09:00",
+            "12:00",
+            "18:00"
+          ],
+          "wed": [
+            "09:00",
+            "12:00",
+            "18:00"
+          ],
+          "thu": [
+            "09:00",
+            "12:00",
+            "18:00"
+          ],
+          "fri": [
+            "09:00",
+            "12:00",
+            "18:00"
+          ],
+          "sat": [
+            "10:00",
+            "14:00",
+            "19:00"
+          ],
+          "sun": [
+            "10:00",
+            "14:00",
+            "19:00"
+          ]
+        },
+        "optional_slots": {
+          "mon": [
+            "06:00",
+            "15:00"
+          ],
+          "tue": [
+            "06:00",
+            "15:00"
+          ],
+          "wed": [
+            "06:00",
+            "15:00"
+          ],
+          "thu": [
+            "06:00",
+            "15:00"
+          ],
+          "fri": [
+            "06:00",
+            "15:00"
+          ],
+          "sat": [
+            "07:00",
+            "22:00"
+          ],
+          "sun": [
+            "07:00",
+            "22:00"
+          ]
+        }
+      }
+    }
   },
   "media": {
     "base_url": "https://zainkhan122.github.io/yt-tts",
@@ -74,6 +280,6 @@
     "note": "Instagram has a native isAiGenerated flag. Facebook currently exposes no native AI-info field through Buffer; add a caption disclosure, do not claim the native label was set. YouTube default false is for generic narration over real demos; override per video for realistic synthetic depictions.",
     "facebook_native_label_required": true
   },
-  "activation_note": "Setup is dry-run only. Enable only after owner approves posting and the first live pilot. Three daily PKT slots are a conservative starting schedule, not claimed optimal times.",
+  "activation_note": "US-led global audience, explicit UTC dueAt from America/New_York calendars with DST. Three shorts/day baseline; 4\u20135 only after a cadence review. Facebook included by explicit owner instruction. Live switch remains off pending end-to-end pilot; Buffer UI slots/timezones are not modified.",
   "live_pilot_passed": false
 }

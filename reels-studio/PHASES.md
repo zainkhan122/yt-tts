@@ -21,7 +21,7 @@ Fully-made, ready-to-share AI-tools explainer videos (YouTube Shorts, Reels, Tik
 | 4b | **Templates** `repo-spotlight` (F1) + `tool-spotlight` (F2): shared scene engine `templates/_spotlight` (10 scene types), winner caption style (ALL CAPS, yellow keywords), display-vs-spoken markup, continuity editing; **video #1 rendered** (QA 6/6) | MP4 + post kit | ✅ done 2026-10-08 |
 | 5 | **Cloud render** on GitHub Actions: `render.yml` (one 4-vCPU runner per brief, up to 5 in parallel), `cloud/setup-render.sh`, capture packs in Release `capture-packs`, MP4 + kit.zip per video, `reels.py cloud/renders`. Measured: 2 videos in parallel in ~8 min (render 3.4–4 min each vs 17–27 min in the sandbox), QA 6/6. Repo + workspace cleaned (renders out of git, demos/auditions removed) | cloud-rendered videos #1 + #2 | ✅ done 2026-10-08 |
 | 5b | **Brand kit + account profiles**: logo (user-picked, rebuilt as exact vector), avatar, YouTube banner, X header, FB cover, watermark; copy-paste profile text for YouTube/Instagram/TikTok/X/Facebook checked against each platform's limits (`tools/brand_kit.py`, `brand/`) | `brand/brand-kit.html`, Release `brand` | ✅ done 2026-10-09 |
-| 6 | **Paced delivery + daily engine**: Buffer queue for YouTube / Instagram / Facebook, stable media hosting, durable dedupe and retries | `tools/post/`, `post.yml`, queue + journal | **6a built + cloud dry-run passed** (2026-10-10, 47 tests, run 38039786831). Live pilot/activation and automated production still pending; no TikTok/X accounts yet. |
+| 6 | **Paced delivery + daily engine**: Buffer queue for YouTube / Instagram / Facebook, stable media hosting, durable dedupe and retries | `tools/post/`, `post.yml`, queue + journal | **6a expanded** (2026-10-10): audience-specific Buffer calendars incl. FB, direct YouTube long uploader, Shorts tags/playlists enrichment, thumbnail QA and storage guards. Google OAuth + live pilots pending; actual long production/daily autonomous research not claimed. See publishing strategy. |
 | 7 | optional: long-form versions, Urdu/Hindi line, analytics loop (views → topic picks) | | |
 
 ## Auto-posting plan (Phase 6). Facts checked 2026-10-09
@@ -36,7 +36,7 @@ No PC is needed. Logins are stored as encrypted GitHub Actions secrets (never in
 |---|---|---|---|---|
 | Instagram Reels | Instagram Graph API: create container from the Release video URL, then publish | free | Meta developer app in development mode with our own account (no App Review), log in once | 100 API posts / 24 h per account; needs a Professional (Creator/Business) account |
 | Facebook Reels | Graph API Page `video_reels` | free | same Meta app + the Page | — |
-| YouTube Shorts | YouTube Data API `videos.insert` (resumable) | free | Google Cloud project + OAuth, log in once, **submit the YouTube API audit form** | Until Google approves the audit, API uploads are locked **private**. Upload bucket: 100/day since 2026-06-01 |
+| YouTube Shorts | YouTube Data API `videos.insert` (resumable) | free | Google Cloud project + OAuth, log in once, **verify actual public publishing with an approved pilot** | Current insert-method docs say unverified projects are not private-only, while an older generated summary conflicts; verify the actual project via a pilot rather than assume. Separate upload quota bucket; source: current official API docs |
 | TikTok | Content Posting API | free | TikTok developer app, log in once | Unaudited app: videos land in the TikTok inbox as drafts, then the user taps Post (at most 5 pending drafts / 24 h). Public direct posting needs TikTok's audit |
 | X | X API v2 + chunked media upload | pay-per-use: about $0.015 per post plus small media-call fees (≈ $2–7/month at 3–5/day); no free tier since 2026-02-06 | developer console, card, credits | A post containing a URL costs $0.20, so never put links in posts |
 
@@ -44,7 +44,7 @@ No PC is needed. Logins are stored as encrypted GitHub Actions secrets (never in
 
 Implemented in `tools/post/README.md` (operations + official sources):
 - GraphQL `https://api.buffer.com`, personal key in encrypted `BUFFER_API_KEY` Actions secret.
-- `config/publishing.json`: conservative 3/day slots at 12:30, 17:30, 21:30 Asia/Karachi; platform staggering, two-day horizon, target <= 6 pending/channel against Free plan cap 10; maximum 9 create operations/run.
+- `config/publishing.json`: global English / US-led audience: America/New_York, separate platform-specific calendars; 3/day baseline, opt-in 4–5; two-day horizon, target <= 8 pending/channel against Free plan cap 10; maximum 9 create operations/run.
 - `queue/publish.json`: approved, reviewed, pinned renders only. Rendering/topic approval does not authorize posting; initial entries are held.
 - `tracker/publications.json`: per-platform write-ahead journal persisted before every Buffer mutation. Three verified manual YouTube uploads are locked against duplicates; Instagram/Facebook remain separate.
 - Read actual RateLimit headers, preserve quota reserve, honor Retry-After, bounded backoff; persist long cooldowns. Never blindly retry an ambiguous create response. Delivery errors are reported against the existing post ID, not re-created.
@@ -54,7 +54,7 @@ Implemented in `tools/post/README.md` (operations + official sources):
 
 **Owner setup received/completed:** all three account URLs, one working Buffer API key, Secrets/Pages permissions, Pages enabled. First-time Pages creation additionally needs Administration: write; that temporary permission can be removed once enabled. Daily workflows use short-lived `GITHUB_TOKEN`, not the personal PAT.
 
-**Still pending:** first live posting approval/pilot; daily production automation beyond approved rendered backlog. Do not claim 3–5 new researched/rendered videos are autonomously generated each day yet.
+**Still pending:** Google OAuth for direct long uploads and Shorts tags/playlists, first live posting pilots; daily production automation beyond approved rendered backlog. Do not claim 3–5 new researched/rendered videos are autonomously generated each day yet.
 
 **Paid shortcut:** Upload-Post.
 - One API key covers every platform.
@@ -73,7 +73,7 @@ Implemented in `tools/post/README.md` (operations + official sources):
 AI labels:
 - YouTube: none for a generic narrator over real footage.
 - TikTok: none for generic TTS (guidelines updated 2026-09-24).
-- Instagram: native `isAiGenerated` supported. Facebook: Buffer currently exposes no native AI-info input; these realistic AI-narrated videos have a publishing policy hold until a supported native-label path is available. See `tools/post/README.md` for the limitation and hold/review rule.
+- Instagram: native `isAiGenerated` supported. Facebook: the owner explicitly removed the hold on 2026-10-10. Include FB with AI-narration caption disclosure; capability discovery enables a native flag if supported. Do not claim caption disclosure is a native label or promise a Buffer rollout. See `tools/post/README.md` for the limitation and hold/review rule.
 
 ## Asset policy (what goes into our videos)
 - ✅ **Our own captures** of public pages: tool site, GitHub repo, docs. Review/commentary use, with the source credited in descriptions/post kits (owner: no on-screen credit captions).
@@ -99,3 +99,11 @@ AI labels:
   - `lint` shows 0 errors and `check` passes;
   - `hyperframes snapshot` stills of each scene look professional (reviewed by eye);
   - no full render yet.
+
+## 2026-10-10 expansion decision
+
+Owner selected global English / US-led viewers and has no Google OAuth client yet. Use explicit UTC timestamps from America/New_York calendars, not blindly addToQueue. Target 3–5 shorts/day (3 baseline) and 2–3 long/week (Tue repo, Fri news, Sun tools). FB is INCLUDED by owner instruction.
+
+New source: `tools/youtube/`, `.github/workflows/youtube.yml`, `config/youtube.json`, `queue/youtube-long.json`, `tracker/youtube-publications.json`, mobile thumbnail QA, encrypted resumable checkpoints and playlist duplicate protection. Both delivery workflows share concurrency; no live writes during setup. See `research/publishing/strategy-2026-10-10.md` and `google-connection.md`.
+
+Cleanup verified 36 Muse files against the existing Release tar before deleting their local duplicates (28.55 MB). Finished render releases are immutable; revisions use fresh tags. Other projects/history remain untouched.

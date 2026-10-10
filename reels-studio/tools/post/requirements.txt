@@ -1,3 +1,7 @@
 requests>=2.32.3,<3
 # Used only by tests to validate GraphQL operations/input against the pinned public schema.
 graphql-core>=3.2.6,<3.3
+
+# Shared safety suite also exercises encrypted YouTube checkpoints and mobile thumbnails.
+PyNaCl>=1.5,<2
+Pillow>=10.4,<13

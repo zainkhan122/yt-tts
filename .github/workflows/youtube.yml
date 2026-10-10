@@ -1,0 +1,102 @@
+# Direct long-form YouTube upload + backend tags/playlists for Buffer Shorts.
+# No live request until OAuth is connected and explicit owner activation/pilot gates pass.
+name: Hypeless YouTube delivery
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'dry-run sends no YouTube request; private-pilot uploads one private video'
+        type: choice
+        options: [dry-run, private-pilot, schedule, enrich, reconcile]
+        default: dry-run
+      video_ids:
+        description: 'Optional approved long-video IDs; required for a pilot'
+        required: false
+        default: ''
+      pilot:
+        description: 'Permit one explicitly selected first public pilot'
+        type: boolean
+        default: false
+  schedule:
+    - cron: '43 0,6,12,18 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: hypeless-publishing
+  cancel-in-progress: false
+jobs:
+  deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          filter: blob:none
+          sparse-checkout: |
+            /reels-studio/
+          sparse-checkout-cone-mode: false
+      - name: Live kill switch / OAuth gate
+        id: gate
+        env:
+          EVENT: ${{ github.event_name }}
+          MODE: ${{ inputs.mode }}
+          OAUTH_CONFIGURED: ${{ secrets.YOUTUBE_OAUTH_JSON != '' }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          cfg = json.load(open('reels-studio/config/youtube.json'))
+          mode = os.environ['MODE'] or 'schedule'
+          if os.environ['EVENT'] == 'schedule' and (not cfg['enabled'] or os.environ['OAUTH_CONFIGURED'] != 'true'):
+              mode = 'off'
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write('mode=' + mode + '\n')
+          print('YouTube delivery mode:', mode)
+          PY
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.mode != 'off'
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: reels-studio/tools/youtube/requirements.txt
+      - name: Lightweight upload / image / test dependencies
+        if: steps.gate.outputs.mode != 'off'
+        run: python3 -m pip install -r reels-studio/tools/youtube/requirements.txt
+      - name: Safety suite (mock YouTube network, no real uploads)
+        if: steps.gate.outputs.mode != 'off'
+        run: python3 -m unittest discover -s reels-studio/tests -v
+      - name: Source / workspace budget guard
+        if: steps.gate.outputs.mode != 'off'
+        run: python3 reels-studio/tools/maintenance/storage.py audit
+      - name: Private-first, paced YouTube delivery
+        if: steps.gate.outputs.mode != 'off'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          YOUTUBE_OAUTH_JSON: ${{ secrets.YOUTUBE_OAUTH_JSON }}
+          YOUTUBE_STATE_KEY: ${{ secrets.YOUTUBE_STATE_KEY }}
+          MODE: ${{ steps.gate.outputs.mode }}
+          VIDEO_IDS: ${{ inputs.video_ids }}
+          PILOT: ${{ inputs.pilot }}
+          ALLOW_YOUTUBE_MUTATIONS: ${{ steps.gate.outputs.mode != 'dry-run' && steps.gate.outputs.mode != 'reconcile' && 'true' || 'false' }}
+          PYTHONUNBUFFERED: '1'
+        run: |
+          python3 - <<'PY'
+          import os, subprocess, sys
+          args = [sys.executable, 'reels-studio/tools/youtube/runner.py', *os.environ['VIDEO_IDS'].replace(',', ' ').split(), '--mode', os.environ['MODE']]
+          if os.environ.get('PILOT') == 'true':
+              args.append('--pilot')
+          args += ['--report', os.environ['RUNNER_TEMP'] + '/youtube-report/report.json']
+          raise SystemExit(subprocess.call(args))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.gate.outputs.mode != 'off'
+        with:
+          name: hypeless-youtube-report
+          path: ${{ runner.temp }}/youtube-report/
+          retention-days: 14
+          if-no-files-found: warn
+      - name: Remove runner-only media, including after errors
+        if: always()
+        run: rm -rf -- "$RUNNER_TEMP/hypeless-youtube"

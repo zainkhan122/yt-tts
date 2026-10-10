@@ -168,6 +168,8 @@ def cmd_radar(a):
 def main():
     if len(sys.argv) > 1 and sys.argv[1] == "post":
         return subprocess.call([sys.executable, str(ROOT / "tools/post/publisher.py"), *sys.argv[2:]])
+    if len(sys.argv) > 1 and sys.argv[1] == "youtube":
+        return subprocess.call([sys.executable, str(ROOT / "tools/youtube/runner.py"), *sys.argv[2:]])
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     for name in ("make", "batch"):

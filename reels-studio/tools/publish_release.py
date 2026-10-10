@@ -11,6 +11,7 @@ Assets with the same name are skipped unless --replace (kits always replace: sam
 Token: lib/secrets.gh_token() (env GH_TOKEN in GitHub Actions); never printed or committed.
 """
 import argparse
+import hashlib
 import io
 import json
 import mimetypes
@@ -56,6 +57,11 @@ def release(tag):
     st, rel = call("POST", f"{API}/releases", {"tag_name": tag, "target_commitish": "main", "name": (f"Reels Studio renders: {tag}" if tag.startswith("renders-") else f"Reels Studio: {tag}"),
                                                "body": "Rendered by reels-studio. Each video = <id>.mp4 + <id>-kit.zip "
                                                        "(titles/captions/hashtags per platform, subtitles, cover)."})
+    if st in (409, 422):
+        # Parallel cloud renders can race to create the same dated Release.
+        retry_status, existing = call("GET", f"{API}/releases/tags/{urllib.parse.quote(tag)}")
+        if retry_status == 200:
+            return existing
     if st >= 300:
         raise SystemExit(f"cannot create release ({st}): {rel.get('message')}. Token needs Contents: Read and write.")
     return rel
@@ -67,6 +73,14 @@ def upload(rel, name, payload, replace):
         if not replace:
             print(f"  = {name} (already on release)")
             return have[name]["browser_download_url"]
+        # Finished render assets are immutable: queues pin their IDs/digests.
+        # Re-render into a fresh date/revision tag instead of breaking in-flight media.
+        if rel.get("tag_name", "").startswith(("renders-", "long-renders-")):
+            digest = "sha256:" + hashlib.sha256(payload).hexdigest()
+            if have[name].get("digest") == digest:
+                print(f"  = {name} (identical immutable asset)")
+                return have[name]["browser_download_url"]
+            raise SystemExit(f"Refusing to replace immutable render asset {name}. Use a fresh release tag, e.g. {rel['tag_name']}-r2. Existing queued URLs/QA pins must stay valid.")
         st, _ = call("DELETE", have[name]["url"])
         if st >= 300:
             raise SystemExit(f"could not delete old {name} ({st})")

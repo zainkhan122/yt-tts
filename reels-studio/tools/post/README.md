@@ -1,136 +1,116 @@
-# Hypeless delivery — Buffer + GitHub Actions
+# Hypeless Buffer delivery — current operating guide
 
-## Current state (2026-10-10)
+## Current decisions (owner, 10 Oct 2026)
 
-**Connected:** one Buffer account, with YouTube, Instagram and a Facebook Page. A second key/account is **not** needed for these three platforms. `BUFFER_API_KEY` is an encrypted repository Actions secret, not source code. The local recovery copy is outside git at `~/.config/reels-studio/buffer_token`, mode 600. Do not print either credential.
+- One Buffer account/key covers **YouTube Shorts, Instagram Reels and Facebook Reels**. No second key is needed for this scope; TikTok/X are not connected.
+- **Facebook is included.** The earlier native-AI-label hold was explicitly removed by the owner. Its caption always discloses AI narration; capability discovery uses a native flag if Buffer later exposes it. Caption disclosure is not claimed equivalent to a native label, and no rollout date is promised.
+- Audience: **global English, US-led**. All scheduling calendars use **America/New_York**, with DST-aware UTC conversion. Buffer's existing UI timezone/weekly slots remain unmodified.
+- Prefer explicit `mode: customScheduled` + `dueAt`, not `shareNow` or blindly filling the existing queue.
+- **Three shorts/day baseline**, optional fourth/fifth slots only after a cadence review. Separate calendar per platform; daily mix includes tools/news, max one repo short/day.
+- Live publishing is still OFF until an owner-approved end-to-end pilot succeeds. All current render queue entries remain held. No social posts were created during setup.
 
-**Setup remains dry-run-only.** `config/publishing.json.enabled = false` and `live_pilot_passed = false`. Every existing render in `queue/publish.json` is held. No Buffer draft, scheduled post or live post is created during setup. GitHub Pages media hosting is separate from social publishing.
+Full researched schedule: `research/publishing/strategy-2026-10-10.md`.
 
-**Facebook is connected but auto-posting has an additional policy hold:** these videos use realistic AI narration, Meta requires the native disclosure/label tool, and Buffer does not expose that flag for Facebook. A caption disclaimer is not a substitute. YouTube/Instagram can enter a pilot; Facebook waits for a supported native-label path. [1](https://support.buffer.com/en-us/articles/flagging-posts-as-ai-generated-in-buffer-V7jAnzYJ5n) [3](https://about.fb.com/news/2026/02/meta-prepares-for-2026-us-midterms/)
+## What happens to a ten-video batch?
 
-Owner-reported YouTube uploads are permanently locked against re-upload, independently of render/voice revisions:
+Rendering does not publish. The queue pins exact Release asset IDs, sizes/digests and the approved brief hash. After posting approval and fresh fact/copy review:
 
-| Brief | Verified public upload |
+1. Select eligible platform-specific slots in the next **48 hours**.
+2. Respect existing Buffer/manual posts, spacing, expiry, daily caps and the content mix.
+3. Keep **at most 8 pending/channel** operationally, below the configured Free-plan cap of 10. Extra videos remain in our backlog, never a bulk dump.
+4. **At most 9 creates/run**, at least 3 seconds between API calls; four small cron checks/day replenish the queue.
+5. A missing story/category, expired review, disconnected account or full queue is a hold, not permission to publish filler or re-upload an older video.
+
+The three initial slots are a test schedule, not claimed optimal times. Your Buffer API snapshot currently reports Asia/Karachi and many daily slots; we bypass those slots using explicit timestamps. Changing the UI display timezone is useful for manual operation, but is not required for correct UTC delivery.
+
+## Credentials and identities
+
+`BUFFER_API_KEY` is an encrypted GitHub Actions secret. Local recovery file: `~/.config/reels-studio/buffer_token` (600, outside git). Never print/commit it. Fixed Buffer channel IDs and social service IDs are checked before posting; reconnecting a different account must not silently redirect content.
+
+Google OAuth is a **separate** connection for YouTube long uploads AND Shorts backend tags/playlists. Buffer's current YouTube input exposes title/description/hashtags, not backend tags or playlist insertion. The direct worker enriches confirmed sent Shorts without altering their public copy/privacy. See `tools/youtube/README.md`.
+
+## Duplicate protection / receipts
+
+`tracker/publications.json` is authoritative by **video ID + platform**, independent of render/voice revisions.
+
+Verified manual uploads locked against YouTube re-upload:
+
+| Brief | Existing video |
 |---|---|
 | `repo-removemacai-01` | https://www.youtube.com/shorts/lzXGzOsidCg |
 | `tool-muse-01` | https://www.youtube.com/shorts/6OAa4KofxvQ |
 | `spotlight-papermorph-01` | https://www.youtube.com/shorts/Mt8Yn9ShBmM |
 
-Verified against the channel's public feed and Buffer's sent history. These locks apply to **YouTube only**, not Instagram/Facebook. The first Apple Intelligence video is not among the six Option-3-audited queued renders; do not cross-post an old voice version without an approved-voice render/kit.
+These locks do not suppress IG/FB. RemoveMacAI still needs an approved Option 3 render/kit before being newly distributed elsewhere; do not use an old voice version merely because it already exists on YouTube.
 
-## What happens if 10 videos are rendered?
+Flow:
 
-Rendering does **not** immediately send them to Buffer. Enqueue pins the exact Release asset IDs and leaves the videos **held**. After owner posting approval and a fresh fact/copy review:
+1. Read Buffer account status, pending counts, active posts and recent sent history.
+2. Reconcile known IDs, exact immutable asset URLs, matching copy/YouTube titles. Multiple matches are a conflict, not an invitation to create again.
+3. Persist `submitting` through GitHub Contents API compare-and-swap **before** calling Buffer.
+4. Send one paced request; persist the returned post ID immediately.
+5. If a response is lost, find the unique receipt. If uncertain, hold for agent review. Never assume “not found yet” means safe to send again.
 
-1. Start with **3 videos/day**, at **12:30, 17:30, 21:30 Asia/Karachi**. These are conservative starting slots, **not claimed analytics-derived optimal times**.
-2. Instagram is offset by 5 minutes and Facebook by 10. Each channel has at least 3 hours between posts. Existing Buffer/manual posts consume the same calendar capacity.
-3. Fill only the next **48 hours**, with a target of **6 pending posts/channel** against the configured Free-plan cap of 10. Excess videos stay in our durable backlog, not in Buffer. A ten-video balanced fixture yields six videos in the two-day horizon and four still waiting (18 platform posts with three fully eligible channels; Facebook is currently policy-held).
-4. **At most 9 create operations/run**, 3 seconds between API calls. Four small cron checks/day replenish the queue; they do not publish everything simultaneously. A full video has three platform posts, so the usual per-run batch is three videos.
-5. Max **one repo video/day**, prioritizing at least one tool and one news item. If the remaining backlog cannot supply the required mix, **hold and request fresh topics**, rather than fill the calendar with repos.
-6. Scheduled timestamps use explicit UTC `dueAt` with `customScheduled`, never `shareNow` or unbounded `addToQueue`.
+Buffer exposes no server idempotency key; we do not promise magical exactly-once delivery. A held post is preferable to a duplicate. A GitHub journal write failure or conflict stops before further provider writes.
 
-The pipeline serves **approved, rendered content**. It does not invent/research/approve new daily stories unattended. Daily topic discovery and production still follow the existing owner-approved radar/render workflow. If there is insufficient approved content, the queue stays empty rather than publishing stale material.
+## Rate limits / errors
 
-## Buffer policy / API handling
+Official published Free-plan quotas: 100 requests/15 min, 250/24 h and 3,000/30 days. The client reads actual `RateLimit` headers, keeps a five-request reserve and honors `Retry-After` rather than assuming the plan never changes.
 
-Use the official API only: `POST https://api.buffer.com`, Bearer key, GraphQL. No scraping of private interfaces or quota bypass. The public schema was saved from Buffer introspection on 2026-10-10 and is used for offline query/input tests.
+- Queries: up to four attempts, exponential backoff + jitter for transient failures.
+- Create: an explicit 429/rate rejection may be safely retried. A timeout/5xx/unknown mutation result may have succeeded: reconcile first, never blindly recreate.
+- Short safe waits: within the job, up to 60 seconds. Longer/daily/monthly limits persist a cooldown; later runs make no Buffer request before it expires.
+- Check HTTP status **and** GraphQL errors/typed mutation unions. HTTP 200 alone is not success.
+- Fully paginate active/draft/error history; scan recent sent posts for 14 days. Permanent duplicate locks remain beyond that window. Incomplete scans fail closed.
+- Permanent input/permission/identity errors stop and report. No silent downgrade to reminder publishing.
 
-- Published Free-plan API quotas: 100 requests/15 min, 250/24 h, 3,000/30 days. The code **reads actual `RateLimit` headers** instead of assuming those quotas are fixed.
-- Reserve 5 requests for recovery. Honor `Retry-After` (seconds or HTTP date), add jitter and bound attempts to 4.
-- For a short safe rate-limit rejection, wait within the run (maximum 60 seconds). For daily/monthly exhaustion or a longer delay, persist `cooldown_until`; subsequent cron runs make **no Buffer request** until then.
-- Queries: bounded exponential backoff for transport/5xx/transient errors.
-- Mutation: only an **explicit rejection**, such as 429, is automatically retried. Timeout, lost response, 5xx, ambiguous proxy errors or unknown GraphQL mutation outcomes become `uncertain`, not a blind second create.
-- Check both HTTP status **and** GraphQL `errors`/typed mutation-error unions. `200 OK` is not sufficient.
-- Invalid input or disconnected/changed/locked/paused/reminder-only channel: block, report, do not hammer the endpoint. Never downgrade automatically to a manual reminder.
-- Sent-history scans are bounded to 14 days; active/draft/error history is fully paginated. Permanent manual/sent locks remain in our journal beyond that window. Incomplete pagination fails closed.
-
-## Durable duplicate protection
-
-`tracker/publications.json` is the authoritative per-**video + platform** journal in `main`.
-
-1. Read Buffer state, account identities, pending counts and existing posts.
-2. Reconcile known post IDs, exact immutable media URLs, matching text, or matching YouTube titles. Multiple matches are a conflict, not permission to create another post.
-3. Commit `submitting` to GitHub via a Contents API SHA compare-and-swap **before** calling Buffer.
-4. Send one request. Persist its returned ID/status immediately.
-5. If the runner dies after Buffer accepted a post, the next run finds the receipt. If no unique receipt can be established, leave it held for agent review. Never assume 'not found yet' means safe to recreate.
-6. If the GitHub journal is unavailable/conflicted, do **not** call Buffer. The workflow concurrency group serializes all posting/deployment runs; no force pushes.
-
-There is no claim of server-side exactly-once delivery: Buffer exposes no idempotency key. The integration prefers a held post over a possible duplicate. A partial multi-platform success reuses its reserved slot for remaining platforms when that time is still viable.
-
-### Error states and recovery
-
-| State | Action |
+| State | Meaning / next action |
 |---|---|
-| `retry_wait` | Explicit rejection only; wait for `retry_at`, check quota/capacity again, choose a future valid slot. Four attempts maximum. |
-| `uncertain` / `submitting` | Reconcile first. Without a unique receipt, agent investigates Buffer before any change. No automatic recreate. |
-| `blocked` | Correct/review copy, authorization or account configuration. No automatic repeated create. |
-| `dead_letter` | Retry budget exhausted. Agent resolves explicitly. |
-| `delivery_error` | Buffer accepted the post but the social network rejected delivery. Keep its ID and surface the error/help URL. Do not duplicate it as a new post. Agent resolves/retries that existing post after investigation. |
-| `approval_required` / `notification_required` | Not automatic delivery. Agent resolves Buffer's channel/publishing policy; never pretend it was posted. |
-| `scheduled` / `sending` | Wait; keep media live. |
-| `sent` | Only claim published after Buffer reports sent; capture the external post URL. |
-| `published_manual` | Owner-reported and verified upload, never auto-create again. |
+| `retry_wait` | Explicit rejection, persist retry time and recheck capacity; bounded attempts. |
+| `uncertain` / `submitting` | Reconcile receipt; without a unique match, agent investigates before any repeat. |
+| `blocked` / `dead_letter` | Fix input/authorization or review exhausted retries. |
+| `delivery_error` | Provider accepted the post but delivery failed. Keep its ID; resolve the existing post, never duplicate it. |
+| `approval_required` / `notification_required` | Not automatic publishing; surface it rather than claiming success. |
+| `scheduled` / `sending` | Retain media and wait. Not published yet. |
+| `sent` / `published_manual` | Confirmed post or verified manual upload; no automatic re-upload. |
 
-Permanent/ambiguous/delivery issues fail the delivery job and appear in the Actions summary and the report artifact. GitHub notification delivery itself depends on the owner's notification settings; no email/SMS integration is claimed.
+Permanent/ambiguous delivery issues fail the Actions job and appear in its summary/artifact. Email delivery depends on GitHub notification settings; no separate email/SMS alert service is claimed.
 
-## Stable video hosting / quality gates
+## Media / voice / disclosure
 
-- Pages: https://zainkhan122.github.io/yt-tts/
-- Each asset has an immutable path: `media/<github-release-asset-id>/<video-id>.mp4`.
-- Never give Buffer the redirecting/expiring GitHub Release CDN URL. Those URLs are used only for unauthenticated downloads during the hosting build; PAT headers are never forwarded to the CDN.
-- Verify Release IDs, file sizes/digests, all seven render QA checks, and the exact approved voice audit: **Chatterbox cloning Michael, exag 0.7, cfg 0.4, flow**.
-- Keep every pending/ambiguous/error asset, plus seven days after successful delivery. A new Pages deploy includes the old pending media, not just this batch.
-- A 750 MB site guard fails rather than evicts a needed asset. Finished videos remain archived in Releases after Pages retention ends.
-- Before scheduling, validate public HTTPS, **no redirect**, `video/mp4`, expected length and MP4 header.
-- Existing on-screen credit captions remain removed. Credits are appended to platform descriptions/captions instead.
+- Short media uses stable public HTTPS Pages URLs: `media/<release-asset-id>/<video-id>.mp4`. Never pass expiring redirected Release URLs to Buffer.
+- Release downloads follow CDN redirects **without** forwarding GitHub credentials. Check digest, size, seven QA gates and the exact **Option 3 Chatterbox Michael flow** voice audit.
+- Preserve every pending/ambiguous/error asset and seven days after completed publication. The 750 MB Pages guard fails rather than evicts a needed file. Releases remain the permanent archive.
+- Validate direct public response, MIME, length and MP4 header before scheduling.
+- Render release assets are immutable; use a new revision tag for a changed render. Do not delete an asset pinned by a queue.
+- No on-screen credit captions were restored. Credits are in post descriptions/captions.
+- Instagram uses its native `isAiGenerated` field. Facebook is included with caption disclosure until native support is detected. YouTube disclosure is set according to the content, not guessed from a generic narrator alone.
+- Backend tags/playlist enrichment needs Google OAuth. No automatic first/pinned comments, custom YouTube Shorts thumbnails, or unsupported IG/FB backend fields are claimed.
 
-## Platform details / limitations
-
-- YouTube: required title + category 28, explicit public privacy, not made for kids. Generic synthetic narration over real demos defaults to no realistic-synthetic-content flag; set per-video `youtube_ai_generated` if the content needs it. The uploaded render, not just its voice, determines this disclosure.
-- Instagram: Reel + share to feed + native `isAiGenerated: true`; thumbnail selected by time offset. Buffer does not accept a custom video thumbnail URL.
-- Facebook: Reel + explicit **“AI-generated narration.”** in the caption. The current Buffer Facebook input schema has **no native AI-info field**. Do not claim the native label is set. These realistic AI-narrated videos are **policy-held** for Facebook until a supported native-label path is available. Caption text does not release this hold.
-- No automatic pinned/first comments or backend YouTube tags are claimed; free-plan/endpoint support varies. Existing full SEO/post kits remain available.
-- TikTok and X are **not connected or scheduled** in this integration.
-
-## Operations (the agent does these; owner does not install anything)
+## Agent operations
 
 ```bash
-# No render/TTS bootstrap is needed for these commands.
 python3 -m pip install -r tools/post/requirements.txt
 python3 -m unittest discover -s tests -v
 python3 reels.py post --dry-run
 python3 tools/post/queue_ctl.py enqueue <id> --tag renders-YYYY-MM-DD --category tool
-# After owner posting approval AND actual same-day fact/copy review:
-python3 tools/post/queue_ctl.py approve <id> --platforms youtube instagram --reviewed-until <timezone-aware-ISO-date>
+# After owner approval and actual fresh source/copy review:
+python3 tools/post/queue_ctl.py approve <id> --reviewed-until <ISO-date> --platforms youtube instagram facebook
 python3 tools/post/queue_ctl.py enable --confirm OWNER_APPROVED_LIVE_POSTING
-python3 reels.py sync -m 'Approve one Buffer delivery pilot'
+python3 reels.py sync -m 'Approve one three-platform pilot'
 python3 tools/gh_actions.py dispatch post.yml -i mode=schedule -i video_ids=<id> -i pilot=true
-# Reconcile after its scheduled time and verify actual external posts.
+# After due time, reconcile and verify all three actual external posts:
 python3 tools/gh_actions.py dispatch post.yml -i mode=reconcile
-# Pull the new journal; only after every pilot platform is SENT:
+# Pull latest journal before recording the pilot result.
 python3 tools/post/queue_ctl.py pilot-passed <id>
-python3 reels.py sync -m 'Verified live pilot; activate paced daily delivery'
 ```
 
-**Kill switch:** cancel any in-progress `Hypeless delivery` run, then disable the workflow to stop new triggers, set `enabled: false` and hold queue entries. Merely disabling the workflow does not stop a run already in progress. Already scheduled Buffer posts **remain scheduled**; pause/cancel them in Buffer as appropriate. Disabling our cron does not cancel Buffer's own queue.
+A pilot is not complete merely because Buffer accepted a schedule. `pilot-passed` requires every selected platform to be sent with an external URL. Routine scheduling needs both `enabled` and `live_pilot_passed`.
 
-Source files: `config/publishing.json`, `queue/publish.json`, `tracker/publications.json`, `tools/post/`, `.github/workflows/post.yml`. Reports are Actions artifacts (30 days), not credentials/source. Finished MP4s remain in GitHub Releases; heavy files are never committed.
+**Kill switch:** cancel in-progress runs, disable both delivery workflows, then set enabled flags false and hold queue entries. Existing Buffer schedules and already armed YouTube schedules continue independently; pause/cancel them at the provider if required. Merely disabling a workflow does not cancel its in-progress run or the provider queue.
 
-The personal GitHub token's extra **Administration: write** permission is only needed to create Pages the first time, not for routine posting. The workflow uses its short-lived `GITHUB_TOKEN` and least-privilege job permissions.
+Files: `config/publishing.json`, `queue/publish.json`, `tracker/publications.json`, `tools/post/`, `.github/workflows/post.yml`. Budget/pruning tool: `tools/maintenance/storage.py`. Heavy media stays outside source/snapshots; other projects and remote git history are untouched.
 
-## Official references checked 2026-10-10
+Official references: [API limits](https://developers.buffer.com/guides/api-limits.md), [error handling](https://developers.buffer.com/guides/error-handling.md), [scheduling](https://developers.buffer.com/guides/posts-and-scheduling.md), [media hosting](https://developers.buffer.com/guides/hosting-media.md), [YouTube metadata schema](https://developers.buffer.com/types/YoutubePostMetadataInput.md).
 
-- https://support.buffer.com/en-us/articles/flagging-posts-as-ai-generated-in-buffer-V7jAnzYJ5n
-- https://about.fb.com/news/2026/02/meta-prepares-for-2026-us-midterms/
-- https://developers.buffer.com/guides/api-limits.md
-- https://developers.buffer.com/guides/error-handling.md
-- https://developers.buffer.com/guides/posts-and-scheduling.md
-- https://developers.buffer.com/guides/hosting-media.md
-- https://developers.buffer.com/types/CreatePostInput.md
-- https://developers.buffer.com/types/PostInputMetaData.md
-- https://developers.buffer.com/types/FacebookPostMetadataInput.md
-- https://developers.buffer.com/types/InstagramPostMetadataInput.md
-- https://developers.buffer.com/types/YoutubePostMetadataInput.md
-- https://docs.github.com/en/rest/pages/pages#create-a-github-pages-site
-
-Current integration status/proof is also recorded in `research/publishing/setup-report.md`. A passing dry-run is **not** an end-to-end public publishing test; the live pilot remains an explicit next step.
+The earlier `setup-report.md` / first cloud run are historical evidence of the initial setup (including its now-superseded Facebook hold). Current decisions and latest cloud evidence are in the 10 Oct strategy/expansion records.

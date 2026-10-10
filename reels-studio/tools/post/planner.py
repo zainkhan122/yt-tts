@@ -55,6 +55,8 @@ def payload_for(item, platform, due, cfg):
                 "isAiGenerated": cfg["disclosure"]["instagram_ai_generated"]}
     else:
         meta = {"type": "reel"}
+        if cfg["buffer"].get("capabilities", {}).get("facebook_ai_generated"):
+            meta["isAiGenerated"] = True
     video = {"url": media_url(item, cfg)}
     if platform == "instagram":
         video["metadata"] = {"thumbnailOffset": 1000}
@@ -64,7 +66,7 @@ def payload_for(item, platform, due, cfg):
             "assets": [{"video": video}], "metadata": {platform: meta}}
 
 
-def plan(items, records, channels, remote_posts, cfg, now, preview=False, pilot=False):
+def legacy_plan(items, records, channels, remote_posts, cfg, now, preview=False, pilot=False):
     settings = cfg["schedule"]
     zone = ZoneInfo(settings["timezone"])
     earliest = now + dt.timedelta(minutes=settings["minimum_lead_minutes"])
@@ -199,3 +201,10 @@ def plan(items, records, channels, remote_posts, cfg, now, preview=False, pilot=
                 break
         day += dt.timedelta(days=1)
     return result, sorted(set(notes))
+
+
+def plan(items, records, channels, remote_posts, cfg, now, preview=False, pilot=False):
+    if cfg["schedule"].get("profiles"):
+        from tools.post.cadence import plan as audience_plan
+        return audience_plan(items, records, channels, remote_posts, cfg, now, preview=preview, pilot=pilot)
+    return legacy_plan(items, records, channels, remote_posts, cfg, now, preview=preview, pilot=pilot)
