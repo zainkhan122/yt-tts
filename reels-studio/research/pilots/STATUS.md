@@ -43,4 +43,4 @@ If model, provider, prompt/harness policy or inputs change, create a new explici
 ## Recovery verification
 The complete latest blocked checkpoint was restored from its immutable Release archive and **all 156 files matched byte-for-byte**. Critic-resume validation passed without sending inference. Use `checkpoint_source=archived-free-p5` in `agent-resume-critic.yml` if the transient Actions artifact is gone. No producer call needs replaying.
 
-Cloud safety regression at run `38088895004` passed its 192-test revision without model/social credentials; the latest local revision adds archive-recovery tests (194 total).
+Final cloud safety regression **38089170017** passed **194 tests**, with zero failures/errors, no model/social credentials, and production files unchanged.

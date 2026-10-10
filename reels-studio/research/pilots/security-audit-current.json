@@ -1,6 +1,10 @@
 {
-  "checked_at": "2026-10-10T21:27:11Z",
+  "checked_at": "2026-10-10T21:52:41Z",
   "checks": {
+    "agent-audio-probe.yml": {
+      "credential_persistence_disabled": true,
+      "forbidden_publishing_capabilities": []
+    },
     "agent-pilot.yml": {
       "credential_persistence_disabled": true,
       "forbidden_publishing_capabilities": []
@@ -10,6 +14,10 @@
       "forbidden_publishing_capabilities": []
     },
     "agent-resume-critic.yml": {
+      "credential_persistence_disabled": true,
+      "forbidden_publishing_capabilities": []
+    },
+    "agent-safety.yml": {
       "credential_persistence_disabled": true,
       "forbidden_publishing_capabilities": []
     },
@@ -23,7 +31,7 @@
     "private_file_permission_issues": [],
     "remote_has_embedded_credentials": false,
     "restored_vault_permission_repairs": [],
-    "source_files_scanned": 253,
+    "source_files_scanned": 270,
     "vault_directory_mode": "0o700"
   },
   "issues": [],

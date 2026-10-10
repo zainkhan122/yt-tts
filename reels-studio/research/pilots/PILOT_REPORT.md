@@ -57,7 +57,7 @@ A continuation attempt using the wrong artifact name failed **before inference**
 
 ## Tools and safety testing
 
-The full local regression suite now passes **194 tests**. Coverage includes fake quotes, unread/tampered sources, fabricated testing, unbound metrics, illustration-as-evidence, missing/unsafe assets, HTML/path/SSRF targets, archive traversal, voice overrides, attempts to publish, secret-bearing prompts, model/provider drift, nonzero prices, unknown costs, quota limits, lost responses, corrupted candidates, constrained repairs and safe critic-only continuation.
+The full local and [cloud regression suite](https://github.com/zainkhan122/yt-tts/actions/runs/38089170017) passes **194 tests**, with production files unchanged. Coverage includes fake quotes, unread/tampered sources, fabricated testing, unbound metrics, illustration-as-evidence, missing/unsafe assets, HTML/path/SSRF targets, archive traversal, voice overrides, attempts to publish, secret-bearing prompts, model/provider drift, nonzero prices, unknown costs, quota limits, lost responses, corrupted candidates, constrained repairs and safe critic-only continuation.
 
 Additional fixes stop all further model calls after ambiguous/persistent provider errors, reject a changed model/provider after preflight, and recheck the zero-price ceiling before each inference request.
 
