@@ -173,7 +173,11 @@ class OpenRouter:
                     record['provider_error']={'code':error.get('code'),'message':detail}
                 except (ValueError,AttributeError):
                     detail='Unparseable provider error'
-                record['state']='blocked' if r.status_code<500 else 'uncertain';self._persist()
+                record['state']='blocked' if r.status_code<500 else 'uncertain'
+                # Persistent auth/policy/input errors and ambiguous provider failures
+                # must not turn into a cascade of calls on the remaining cases.
+                self.state['halted']=True
+                self._persist()
                 raise PilotBlocked(f'Pinned free inference failed (HTTP {r.status_code}): {detail}; model unchanged')
             try:
                 result=r.json()

@@ -1,0 +1,35 @@
+name: Hypeless optional agent — audio capability only
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: hypeless-optional-agent-pilot
+  cancel-in-progress: false
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          filter: blob:none
+          persist-credentials: false
+          sparse-checkout: /reels-studio/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m pip install -r reels-studio/tools/agent/requirements.txt
+      - name: Real public baseline audio — no transcript, candidate or publishing capability
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python3 reels-studio/tools/agent/audio_probe.py --work "$RUNNER_TEMP/audio-probe"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: optional-audio-capability
+          path: ${{ runner.temp }}/audio-probe/
+          retention-days: 1
+          if-no-files-found: warn

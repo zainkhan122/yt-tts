@@ -94,6 +94,19 @@ class FreeOnlyClientTests(unittest.TestCase):
   with self.assertRaises(PilotBlocked):self.client.chat('producer',[{'role':'user','content':'Public data'}])
   self.assertEqual(self.session.post.call_count,1)
 
+ def test_ambiguous_500_halts_subsequent_cases_until_review(self):
+  self.session.post.return_value=response(500)
+  with self.assertRaises(PilotBlocked):self.client.chat('producer',[{'role':'user','content':'Public data'}])
+  with self.assertRaises(PilotBlocked):self.client.chat('producer',[{'role':'user','content':'Different case, still halted'}])
+  self.assertEqual(self.session.post.call_count,1)
+  self.assertTrue(self.client.state['halted'])
+
+ def test_persistent_auth_error_does_not_hammer_other_cases(self):
+  self.session.post.return_value=response(401,{'error':{'message':'Authentication rejected'}})
+  with self.assertRaises(PilotBlocked):self.client.chat('producer',[{'role':'user','content':'Public data'}])
+  with self.assertRaises(PilotBlocked):self.client.chat('producer',[{'role':'user','content':'Another case'}])
+  self.assertEqual(self.session.post.call_count,1)
+
  def test_long_429_defers_without_model_change(self):
   self.session.post.return_value=response(429,headers={'Retry-After':'120'})
   with self.assertRaises(FreeQuotaDeferred):self.client.chat('producer',[{'role':'user','content':'Public data'}])
