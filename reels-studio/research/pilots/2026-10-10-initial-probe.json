@@ -1,0 +1,84 @@
+{
+  "checks": {},
+  "generated_at": "2026-10-10T17:07:02Z",
+  "issues": [
+    "PilotBlocked: Pinned free inference failed (HTTP 404): No endpoints found matching your data policy (Free model training). Configure: https://openrouter.ai/settings/privacy; model unchanged"
+  ],
+  "mode": "capability_smoke_only",
+  "models": {
+    "critic": {
+      "allowed_response_models": [
+        "thinkingmachines/inkling",
+        "thinkingmachines/inkling-20260715",
+        "thinkingmachines/inkling-20260715:free",
+        "thinkingmachines/inkling:free"
+      ],
+      "endpoint_name": "Thinking Machines | thinkingmachines/inkling-20260715:free",
+      "modalities": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "model": "thinkingmachines/inkling:free",
+      "parameters": [
+        "reasoning",
+        "include_reasoning",
+        "temperature",
+        "top_p",
+        "max_tokens",
+        "stop",
+        "frequency_penalty",
+        "presence_penalty",
+        "seed",
+        "tools",
+        "reasoning_effort"
+      ],
+      "pricing": {
+        "completion": "0",
+        "discount": 0,
+        "prompt": "0"
+      },
+      "provider": "thinkingmachines/nvfp4",
+      "provider_name": "Thinking Machines"
+    },
+    "producer": {
+      "allowed_response_models": [
+        "nvidia/nemotron-3-ultra-550b-a55b",
+        "nvidia/nemotron-3-ultra-550b-a55b-20260604",
+        "nvidia/nemotron-3-ultra-550b-a55b-20260604:free",
+        "nvidia/nemotron-3-ultra-550b-a55b:free"
+      ],
+      "endpoint_name": "Nvidia | nvidia/nemotron-3-ultra-550b-a55b-20260604:free",
+      "modalities": [
+        "text"
+      ],
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "parameters": [
+        "reasoning",
+        "include_reasoning",
+        "temperature",
+        "max_tokens",
+        "seed",
+        "top_p",
+        "tools",
+        "tool_choice",
+        "reasoning_effort"
+      ],
+      "pricing": {
+        "completion": "0",
+        "discount": 0,
+        "prompt": "0"
+      },
+      "provider": "nvidia",
+      "provider_name": "Nvidia"
+    }
+  },
+  "paid_inference_allowed": false,
+  "publishing_allowed": false,
+  "qualification": "not_evaluated",
+  "success": false,
+  "authentication_verified": true,
+  "paid_inference_authorized": false,
+  "provider_training_consent": "not_yet_granted",
+  "run": "https://github.com/zainkhan122/yt-tts/actions/runs/38070412627"
+}
