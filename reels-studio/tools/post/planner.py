@@ -30,7 +30,7 @@ def copy_for(item, platform, cfg):
     if credits and credits.casefold() not in text.casefold():
         text += "\n\nCredits: " + credits
     if platform == "facebook":
-        text += "\n\n" + cfg["disclosure"]["facebook_caption"]
+        text += "\n\n" + item.get("facebook_disclosure", cfg["disclosure"]["facebook_caption"])
     tags = seo.get("hashtags", [])
     if tags:
         text += "\n\n" + " ".join(tags)

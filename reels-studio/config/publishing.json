@@ -1,102 +1,226 @@
 {
-  "schema_version": 2,
-  "enabled": true,
-  "repository": "zainkhan122/yt-tts",
+  "activation_note": "Owner authorised today's publication across YT/IG/FB on 2026-10-10. One controlled immediate Claude pilot first; subsequent videos follow the researched paced calendar. Daily publishing still waits for verified sent pilot receipts.",
   "branch": "main",
   "buffer": {
-    "organization_id": "6ac8fdc70ed969c7deb8ca1d",
-    "secret_name": "BUFFER_API_KEY",
     "channels": {
-      "youtube": {
-        "buffer_id": "6ac904af6a5c39ccb662a01f",
-        "service_id": "UCcWh9OdX3rbfHOtDZ6neyrA",
-        "name": "Hypeless Ai",
-        "url": "https://www.youtube.com/channel/UCcWh9OdX3rbfHOtDZ6neyrA",
-        "enabled": true
-      },
       "facebook": {
         "buffer_id": "6ac8fe8d6a5c39ccb6623485",
-        "service_id": "1323320354206601",
-        "name": "Hypeless Ai",
-        "url": "https://facebook.com/1323320354206601",
         "enabled": true,
-        "owner_supplied_url": "https://www.facebook.com/profile.php?id=61595198762966"
+        "name": "Hypeless Ai",
+        "owner_supplied_url": "https://www.facebook.com/profile.php?id=61595198762966",
+        "service_id": "1323320354206601",
+        "url": "https://facebook.com/1323320354206601"
       },
       "instagram": {
         "buffer_id": "6ac8fe316a5c39ccb66231cb",
-        "service_id": "17841413107297846",
+        "enabled": true,
         "name": "hypelessai.ai",
-        "url": "https://instagram.com/hypelessai.ai",
-        "enabled": true
+        "service_id": "17841413107297846",
+        "url": "https://instagram.com/hypelessai.ai"
+      },
+      "youtube": {
+        "buffer_id": "6ac904af6a5c39ccb662a01f",
+        "enabled": true,
+        "name": "Hypeless Ai",
+        "service_id": "UCcWh9OdX3rbfHOtDZ6neyrA",
+        "url": "https://www.youtube.com/channel/UCcWh9OdX3rbfHOtDZ6neyrA"
       }
     },
-    "queue_limit_per_channel": 10,
-    "queue_target_per_channel": 8,
-    "request_spacing_seconds": 3.0,
+    "facebook_ai_disclosure_policy": "Owner 2026-10-10: include Facebook despite missing native API flag. Always add AI-narration caption disclosure; detect native flag support and use it if available. This does not assert native-label compliance or promise a Buffer rollout.",
     "max_attempts": 4,
     "max_inline_wait_seconds": 60,
-    "quota_reserve": 5,
     "max_pages": 10,
-    "facebook_ai_disclosure_policy": "Owner 2026-10-10: include Facebook despite missing native API flag. Always add AI-narration caption disclosure; detect native flag support and use it if available. This does not assert native-label compliance or promise a Buffer rollout."
+    "organization_id": "6ac8fdc70ed969c7deb8ca1d",
+    "queue_limit_per_channel": 10,
+    "queue_target_per_channel": 8,
+    "quota_reserve": 5,
+    "request_spacing_seconds": 3.0,
+    "secret_name": "BUFFER_API_KEY"
   },
+  "disclosure": {
+    "facebook_caption": "AI-generated narration.",
+    "facebook_native_label_required": true,
+    "instagram_ai_generated": true,
+    "note": "Instagram has a native isAiGenerated flag. Facebook currently exposes no native AI-info field through Buffer; add a caption disclosure, do not claim the native label was set. YouTube default false is for generic narration over real demos; override per video for realistic synthetic depictions.",
+    "youtube_ai_generated": false
+  },
+  "enabled": true,
+  "live_pilot_passed": true,
+  "live_pilot_video": "news-claude-free-01",
+  "media": {
+    "base_url": "https://zainkhan122.github.io/yt-tts",
+    "max_site_bytes": 750000000,
+    "retention_days": 7
+  },
+  "repository": "zainkhan122/yt-tts",
   "schedule": {
-    "timezone": "America/New_York",
+    "daily_target": 3,
     "lookahead_hours": 48,
-    "minimum_lead_minutes": 60,
-    "minimum_gap_minutes": 180,
     "max_posts_per_run": 9,
     "max_repo_videos_per_day": 1,
     "max_videos_per_day": 5,
-    "required_daily_categories": [
-      "news",
-      "tool"
-    ],
-    "strategy": "explicit_utc",
-    "daily_target": 3,
-    "youtube_short_notifications_per_24h": 2,
-    "short_long_gap_minutes": 120,
+    "minimum_gap_minutes": 180,
+    "minimum_lead_minutes": 60,
     "profiles": {
-      "youtube": {
-        "timezone": "America/New_York",
-        "weekly_slots": {
+      "facebook": {
+        "optional_slots": {
+          "fri": [
+            "06:00",
+            "15:00"
+          ],
           "mon": [
-            "13:00",
-            "17:00",
-            "20:00"
+            "06:00",
+            "15:00"
+          ],
+          "sat": [
+            "07:00",
+            "22:00"
+          ],
+          "sun": [
+            "07:00",
+            "22:00"
+          ],
+          "thu": [
+            "06:00",
+            "15:00"
           ],
           "tue": [
+            "06:00",
+            "15:00"
+          ],
+          "wed": [
+            "06:00",
+            "15:00"
+          ]
+        },
+        "timezone": "America/New_York",
+        "weekly_slots": {
+          "fri": [
+            "09:00",
+            "12:00",
+            "18:00"
+          ],
+          "mon": [
+            "09:00",
+            "12:00",
+            "18:00"
+          ],
+          "sat": [
+            "10:00",
             "14:00",
+            "19:00"
+          ],
+          "sun": [
+            "10:00",
+            "14:00",
+            "19:00"
+          ],
+          "thu": [
+            "09:00",
+            "12:00",
+            "18:00"
+          ],
+          "tue": [
+            "09:00",
+            "12:00",
+            "18:00"
+          ],
+          "wed": [
+            "09:00",
+            "12:00",
+            "18:00"
+          ]
+        }
+      },
+      "instagram": {
+        "optional_slots": {
+          "fri": [
+            "08:00",
+            "15:00"
+          ],
+          "mon": [
+            "08:00",
+            "15:00"
+          ],
+          "sat": [
+            "07:00",
+            "23:00"
+          ],
+          "sun": [
+            "07:00",
+            "23:00"
+          ],
+          "thu": [
+            "06:00",
+            "12:00"
+          ],
+          "tue": [
+            "08:00",
+            "15:00"
+          ],
+          "wed": [
+            "08:00",
+            "15:00"
+          ]
+        },
+        "timezone": "America/New_York",
+        "weekly_slots": {
+          "fri": [
+            "12:00",
+            "18:00",
+            "21:00"
+          ],
+          "mon": [
+            "12:00",
+            "18:00",
+            "21:00"
+          ],
+          "sat": [
+            "11:00",
+            "16:00",
+            "20:00"
+          ],
+          "sun": [
+            "11:00",
+            "16:00",
+            "20:00"
+          ],
+          "thu": [
+            "09:00",
+            "15:00",
+            "19:00"
+          ],
+          "tue": [
+            "12:00",
             "18:00",
             "21:00"
           ],
           "wed": [
-            "13:00",
-            "17:00",
-            "20:00"
-          ],
-          "thu": [
-            "13:00",
-            "17:00",
-            "20:00"
-          ],
+            "12:00",
+            "18:00",
+            "21:00"
+          ]
+        }
+      },
+      "youtube": {
+        "optional_slots": {
           "fri": [
-            "16:00",
-            "19:00",
-            "22:00"
+            "08:00",
+            "12:00"
+          ],
+          "mon": [
+            "09:00",
+            "23:00"
           ],
           "sat": [
-            "11:00",
-            "15:00",
-            "19:00"
+            "07:00",
+            "23:00"
           ],
           "sun": [
-            "13:00",
-            "17:00",
-            "20:00"
-          ]
-        },
-        "optional_slots": {
-          "mon": [
+            "09:00",
+            "23:00"
+          ],
+          "thu": [
             "09:00",
             "23:00"
           ],
@@ -107,179 +231,56 @@
           "wed": [
             "09:00",
             "23:00"
-          ],
-          "thu": [
-            "09:00",
-            "23:00"
-          ],
-          "fri": [
-            "08:00",
-            "12:00"
-          ],
-          "sat": [
-            "07:00",
-            "23:00"
-          ],
-          "sun": [
-            "09:00",
-            "23:00"
           ]
-        }
-      },
-      "instagram": {
+        },
         "timezone": "America/New_York",
         "weekly_slots": {
+          "fri": [
+            "16:00",
+            "19:00",
+            "22:00"
+          ],
           "mon": [
-            "12:00",
-            "18:00",
-            "21:00"
+            "13:00",
+            "17:00",
+            "20:00"
           ],
-          "tue": [
-            "12:00",
-            "18:00",
-            "21:00"
-          ],
-          "wed": [
-            "12:00",
-            "18:00",
-            "21:00"
-          ],
-          "thu": [
-            "09:00",
+          "sat": [
+            "11:00",
             "15:00",
             "19:00"
           ],
-          "fri": [
-            "12:00",
+          "sun": [
+            "13:00",
+            "17:00",
+            "20:00"
+          ],
+          "thu": [
+            "13:00",
+            "17:00",
+            "20:00"
+          ],
+          "tue": [
+            "14:00",
             "18:00",
             "21:00"
           ],
-          "sat": [
-            "11:00",
-            "16:00",
+          "wed": [
+            "13:00",
+            "17:00",
             "20:00"
-          ],
-          "sun": [
-            "11:00",
-            "16:00",
-            "20:00"
-          ]
-        },
-        "optional_slots": {
-          "mon": [
-            "08:00",
-            "15:00"
-          ],
-          "tue": [
-            "08:00",
-            "15:00"
-          ],
-          "wed": [
-            "08:00",
-            "15:00"
-          ],
-          "thu": [
-            "06:00",
-            "12:00"
-          ],
-          "fri": [
-            "08:00",
-            "15:00"
-          ],
-          "sat": [
-            "07:00",
-            "23:00"
-          ],
-          "sun": [
-            "07:00",
-            "23:00"
-          ]
-        }
-      },
-      "facebook": {
-        "timezone": "America/New_York",
-        "weekly_slots": {
-          "mon": [
-            "09:00",
-            "12:00",
-            "18:00"
-          ],
-          "tue": [
-            "09:00",
-            "12:00",
-            "18:00"
-          ],
-          "wed": [
-            "09:00",
-            "12:00",
-            "18:00"
-          ],
-          "thu": [
-            "09:00",
-            "12:00",
-            "18:00"
-          ],
-          "fri": [
-            "09:00",
-            "12:00",
-            "18:00"
-          ],
-          "sat": [
-            "10:00",
-            "14:00",
-            "19:00"
-          ],
-          "sun": [
-            "10:00",
-            "14:00",
-            "19:00"
-          ]
-        },
-        "optional_slots": {
-          "mon": [
-            "06:00",
-            "15:00"
-          ],
-          "tue": [
-            "06:00",
-            "15:00"
-          ],
-          "wed": [
-            "06:00",
-            "15:00"
-          ],
-          "thu": [
-            "06:00",
-            "15:00"
-          ],
-          "fri": [
-            "06:00",
-            "15:00"
-          ],
-          "sat": [
-            "07:00",
-            "22:00"
-          ],
-          "sun": [
-            "07:00",
-            "22:00"
           ]
         }
       }
-    }
+    },
+    "required_daily_categories": [
+      "news",
+      "tool"
+    ],
+    "short_long_gap_minutes": 120,
+    "strategy": "explicit_utc",
+    "timezone": "America/New_York",
+    "youtube_short_notifications_per_24h": 2
   },
-  "media": {
-    "base_url": "https://zainkhan122.github.io/yt-tts",
-    "retention_days": 7,
-    "max_site_bytes": 750000000
-  },
-  "disclosure": {
-    "instagram_ai_generated": true,
-    "youtube_ai_generated": false,
-    "facebook_caption": "AI-generated narration.",
-    "note": "Instagram has a native isAiGenerated flag. Facebook currently exposes no native AI-info field through Buffer; add a caption disclosure, do not claim the native label was set. YouTube default false is for generic narration over real demos; override per video for realistic synthetic depictions.",
-    "facebook_native_label_required": true
-  },
-  "activation_note": "Owner authorised today's publication across YT/IG/FB on 2026-10-10. One controlled immediate Claude pilot first; subsequent videos follow the researched paced calendar. Daily publishing still waits for verified sent pilot receipts.",
-  "live_pilot_passed": false
+  "schema_version": 2
 }

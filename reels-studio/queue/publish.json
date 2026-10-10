@@ -44,16 +44,18 @@
       "media_path": "media/625692057/list-free-video-ai-01.mp4",
       "title": "3 Free AI Video Generators (Real Daily Limits)",
       "added_at": "2026-10-10T00:00:00Z",
-      "reviewed_at": null,
-      "expires_at": null,
-      "note": "Ready render; posting not approved. Option 3 / QA 7 of 7 verified on 2026-10-10.",
-      "brief_sha256": "049ba08ff87a0674f8d554f1619cc8855fe63a9a9ebefe4236165540de7b9643"
+      "reviewed_at": "2026-10-10T11:25:24Z",
+      "expires_at": "2026-10-11T23:25:24Z",
+      "note": "Hold only until corrected Oct 10 render is QA-passed and repinned. Owner posting approval remains; watermark caveat changed in spoken audio, so old MP4 must not be sent.",
+      "brief_sha256": "dee1f3d904624549e30f2e0f2154c70a026bc1792c99ea165db178691ab013a6",
+      "youtube_ai_generated": true,
+      "facebook_disclosure": "AI-generated narration and example video footage."
     },
     {
       "video_id": "repo-ai-newtab-01",
       "category": "repo",
       "priority": 30,
-      "approval": "held",
+      "approval": "approved",
       "platforms": [
         "youtube",
         "instagram",
@@ -68,10 +70,10 @@
       "media_path": "media/625694400/repo-ai-newtab-01.mp4",
       "title": "AI Homepage That Writes Itself (Claude Chrome Extension)",
       "added_at": "2026-10-10T00:00:00Z",
-      "reviewed_at": null,
-      "expires_at": null,
-      "note": "Ready render; posting not approved. Option 3 / QA 7 of 7 verified on 2026-10-10.",
-      "brief_sha256": "91875751cacad0dbaf4996039803745a93be019c9313ac976918006cba0debea"
+      "reviewed_at": "2026-10-10T11:25:24Z",
+      "expires_at": "2026-10-11T23:25:24Z",
+      "note": "Owner authorised today's live publication 2026-10-10. Sources rechecked; copy clarified, render unchanged; all three platforms included.",
+      "brief_sha256": "aed7da709007f45a36e4bcd3438b997dca837f8eec1362a47c7075db314ecf7d"
     },
     {
       "video_id": "tool-muse-01",

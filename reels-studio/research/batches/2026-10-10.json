@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-10",
+  "owner_request": "Publish today's ready videos to YouTube/Instagram/Facebook through Buffer; then research and produce five new shorts.",
+  "voice": "Option 3: Chatterbox Michael flow",
+  "no_onscreen_credits": true,
+  "topics": [
+    {
+      "id": "news-haiku-55-01",
+      "category": "news",
+      "title": "Claude Haiku 5.5: Cheap API, One Price Catch",
+      "sources": [
+        "https://www.anthropic.com/claude-haiku-5-5"
+      ],
+      "angle": "Two-tier pricing, adjustable effort; provider benchmarks and savings attributed, not claimed independently measured."
+    },
+    {
+      "id": "news-gemini-agent-01",
+      "category": "news",
+      "title": "Google Gemini Agent Keeps Working After You Close Your Laptop",
+      "sources": [
+        "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026"
+      ],
+      "angle": "Persistent cloud execution and business tools; enterprise access/governance, not a free consumer feature."
+    },
+    {
+      "id": "tool-mosa-01",
+      "category": "tool",
+      "title": "Mosa Connects Your AI Tools in One Visual Workflow",
+      "sources": [
+        "https://getmosa.ai/",
+        "https://getmosa.ai/pricing"
+      ],
+      "angle": "Reusable creative workflows; €5 starting credit, card/bank verification, metered generation."
+    },
+    {
+      "id": "tool-pomelli-01",
+      "category": "tool",
+      "title": "Google Pomelli Turns Product Photos into Branded Ads",
+      "sources": [
+        "https://blog.google/innovation-and-ai/models-and-research/google-labs/pomelli-photoshoot/",
+        "https://blog.google/innovation-and-ai/models-and-research/google-labs/pomelli-agentic-capabilities/",
+        "https://blog.google/innovation-and-ai/models-and-research/google-labs/pomelli-in-europe/"
+      ],
+      "angle": "Current useful tool spotlight, not falsely described as an October launch; product fidelity/region/language caveats."
+    },
+    {
+      "id": "repo-whistle-01",
+      "category": "repo",
+      "title": "Whistle: Offline Speech-to-Text in a 16.9 MB Model",
+      "sources": [
+        "https://github.com/cactus-compute/needle",
+        "https://cactuscompute.com/blog/whistle"
+      ],
+      "angle": "CPU/local demo, seven languages and 30-second input limit. Published M4 timing not presented as our measurement."
+    }
+  ]
+}
