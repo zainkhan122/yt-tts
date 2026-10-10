@@ -37,7 +37,10 @@ jobs:
         with:
           python-version: '3.11'
       - name: Lightweight research / gate dependencies
-        run: python3 -m pip install -r reels-studio/tools/agent/requirements.txt -r reels-studio/tools/youtube/requirements.txt playwright
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python3 -m pip install -r reels-studio/tools/agent/requirements.txt -r reels-studio/tools/youtube/requirements.txt playwright
       - name: Offline safety tests — not model quality evidence
         run: python3 -m unittest discover -s reels-studio/tests -v
       - name: Pin baselines, public sources and media

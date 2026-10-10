@@ -171,13 +171,18 @@ class OpenRouter:
                 raise PilotBlocked(f'Pinned free inference failed (HTTP {r.status_code}): {detail}; model unchanged')
             try:
                 result=r.json()
-                if not isinstance(result,dict) or result.get('error'):raise ValueError()
+                if not isinstance(result,dict):raise ValueError()
+                if result.get('error'):
+                    error=result['error'];detail=redact(str(error.get('message','Provider rejected the completion')))[:700]
+                    record['provider_error']={'code':error.get('code'),'message':detail}
+                    record['generation_id']=result.get('id')
+                    raise PilotBlocked('Provider returned an error inside HTTP 200: '+detail)
                 usage=self._receipt(result,role)
                 message=result['choices'][0]['message']
                 if contains_secret(json.dumps(message,ensure_ascii=False)):
                     raise PilotBlocked('Credential-like content in model output; quarantined')
             except (ValueError,KeyError,IndexError,TypeError):
-                record['state']='uncertain';self._persist();raise PilotBlocked('Malformed inference receipt; hold')
+                record['state']='uncertain';self.state['halted']=True;self._persist();raise PilotBlocked('Malformed inference receipt; hold')
             except PilotBlocked as exc:
                 record.update(state='policy_blocked',error=redact(str(exc)));self.state['halted']=True;self._persist();raise
             # Do not persist raw reasoning/chain-of-thought. Keep final structured output and auditable receipts.
