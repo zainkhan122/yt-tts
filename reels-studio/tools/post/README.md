@@ -7,7 +7,7 @@
 - Audience: **global English, US-led**. All scheduling calendars use **America/New_York**, with DST-aware UTC conversion. Buffer's existing UI timezone/weekly slots remain unmodified.
 - Prefer explicit `mode: customScheduled` + `dueAt`, not `shareNow` or blindly filling the existing queue.
 - **Three shorts/day baseline**, optional fourth/fifth slots only after a cadence review. Separate calendar per platform; daily mix includes tools/news, max one repo short/day.
-- Live publishing is still OFF until an owner-approved end-to-end pilot succeeds. All current render queue entries remain held. No social posts were created during setup.
+- **Buffer publishing is ACTIVE**, explicitly authorised 2026-10-10. The Claude pilot was confirmed sent on YT/IG/FB; two further videos were scheduled at spaced same-day Eastern slots. Five new productions are ready but held for their next posting approval/batch. Setup dry-runs did not publish; this live activation is a later owner-authorised step.
 
 Full researched schedule: `research/publishing/strategy-2026-10-10.md`.
 

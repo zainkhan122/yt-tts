@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "enabled": false,
+  "enabled": true,
   "live_pilot_passed": false,
   "channel_id": "UCcWh9OdX3rbfHOtDZ6neyrA",
   "oauth_secret": "YOUTUBE_OAUTH_JSON",
@@ -83,5 +83,5 @@
       "description": "Long-form AI tool tests, repo walkthroughs and weekly AI news explainers."
     }
   },
-  "note": "Private-first resumable uploads. Persist encrypted upload session URLs, never raw URLs or OAuth secrets in git. Schedule only after processing, metadata, thumbnail and playlist checks pass. No long videos have been rendered/queued/uploaded yet; OAuth is not connected."
+  "note": "Owner authorised YouTube metadata integration 2026-10-10; OAuth client supplied but channel consent pending. Once connected, cron enriches sent Shorts. Long uploads still require approved assets and a verified public pilot; none exist yet."
 }

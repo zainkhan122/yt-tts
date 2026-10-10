@@ -186,8 +186,16 @@ Rules that keep renders deterministic:
 - Global English / US-led audience: America/New_York calendars, explicit UTC scheduled timestamps. Baseline 3 shorts/day, optional 4–5; max 8 pending/channel, quota/backoff and durable duplicate protection. Existing Buffer UI slots are not overwritten.
 - Direct long-form YouTube uploader: private-first resumable uploads, encrypted checkpoints, thumbnail/metadata/playlist gates, max one upload/run and three weekly publication lanes. Also enriches Buffer Shorts with backend tags/playlists.
 - Bold thumbnail generator + actual 250px preview, automatic readability/contrast checks and mandatory agent visual review.
-- **Google OAuth is not yet connected; both live switches remain off. No long video has been uploaded or claimed rendered.**
+- **Buffer is now live:** Claude pilot sent on all three; remaining two scheduled. Five new Oct 10 Shorts completed. Google OAuth client received but channel consent is pending; long uploads remain pilot-gated.
 - Read-only: `python3 reels.py post --dry-run` and `python3 reels.py youtube --mode dry-run`. No heavy TTS bootstrap needed.
 - Timing research + full calendar: [`strategy-2026-10-10.md`](research/publishing/strategy-2026-10-10.md). One-time connection: [`google-connection.md`](research/publishing/google-connection.md).
 - Operations: [`tools/post/README.md`](tools/post/README.md), [`tools/youtube/README.md`](tools/youtube/README.md). Storage: [`tools/maintenance/README.md`](tools/maintenance/README.md).
 
+
+### 10 Oct production / first live delivery
+
+- First live post: Claude free Docs/Slides/Design, verified sent on YT/IG/FB.
+- Corrected video-tools list + ai-newtab accepted into today's spaced Buffer schedule (six platform posts, not a bulk immediate publish).
+- Five NEW Option-3 Shorts, all QA 7/7: Haiku 5.5, Gemini agent, Mosa, Pomelli and Whistle. Release: https://github.com/zainkhan122/yt-tts/releases/tag/renders-2026-10-10
+- New batch is enqueued HELD, not secretly added to the already-full daily calendar.
+- Evidence / delivery index: `research/batches/2026-10-10-delivery.json`, `research/publishing/first-live-pilot-2026-10-10.json`, `research/publishing/today-schedules-2026-10-10.json`.

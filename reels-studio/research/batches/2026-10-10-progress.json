@@ -31,5 +31,20 @@
   "correction_reason": "Dreamina watermark/export policy is conditional; changed spoken script and rerendering before publication. Correction is additional to the five new videos.",
   "google_oauth_client_received": true,
   "google_channel_consent_complete": false,
-  "state": "Five renders plus one factual refresh running in GitHub Actions; actual public pilot sent on all three."
+  "state": "Complete: first video sent on YT/IG/FB, remaining two earlier videos scheduled (6 accepted posts). Five NEW videos completed QA 7/7 and visual review, packaged, and enqueued held for the next paced batch.",
+  "gemini_visual_fix_run": 38050359569,
+  "today_schedule_run": 38050422157,
+  "pomelli_redundant_run": 38050829829,
+  "pomelli_redundant_run_status": "cancel requested: original passed full QA and visual review",
+  "completed_new_videos": [
+    "news-haiku-55-01",
+    "news-gemini-agent-01",
+    "tool-mosa-01",
+    "tool-pomelli-01",
+    "repo-whistle-01"
+  ],
+  "awaiting_new_videos": [],
+  "gemini_visual_fix_result": "success",
+  "new_batch_published": false,
+  "bundle": "deliverables/hypeless-2026-10-10/hypeless-five-shorts-and-post-kits.zip"
 }

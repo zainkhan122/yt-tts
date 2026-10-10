@@ -107,3 +107,13 @@ Owner selected global English / US-led viewers and has no Google OAuth client ye
 New source: `tools/youtube/`, `.github/workflows/youtube.yml`, `config/youtube.json`, `queue/youtube-long.json`, `tracker/youtube-publications.json`, mobile thumbnail QA, encrypted resumable checkpoints and playlist duplicate protection. Both delivery workflows share concurrency; no live writes during setup. See `research/publishing/strategy-2026-10-10.md` and `google-connection.md`.
 
 Cleanup verified 36 Muse files against the existing Release tar before deleting their local duplicates (28.55 MB). Finished render releases are immutable; revisions use fresh tags. Other projects/history remain untouched.
+
+## 2026-10-10 — owner authorised live Buffer publishing + five new Shorts
+
+**Live pilot PASSED on all 3 channels** (`news-claude-free-01`). Video-tools list was re-rendered with a conditional watermark caveat before scheduling; it and ai-newtab have six accepted, spaced platform schedules. Original three manual YouTube uploads remain permanently locked.
+
+Five new scripts/capture packs rendered in Actions: Haiku 5.5, Gemini agent, Mosa, Pomelli, Whistle (2 news / 2 tools / 1 repo). All QA 7/7 + visual review; Gemini's first pass failed a clipped URL and was fixed/re-rendered without bypassing checks. These five are queued held for the next batch; no extra same-day dump.
+
+Google Web OAuth client JSON received, moved outside git with mode 600. Expected callback is correct. Channel consent/refresh token is still missing; the private preloaded connector is available. YouTube metadata worker is prepared, but no direct Google API upload/enrichment is claimed. Long-form remains gated on its own live pilot.
+
+Five source capture packs (58 files) archived and byte-verified before local pruning. Current downloadable batch bundle + one MP4 preview are the only large saved deliverables; finished masters and kits remain in Releases. Other projects untouched.

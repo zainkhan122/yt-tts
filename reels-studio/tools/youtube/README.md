@@ -1,6 +1,6 @@
 # Direct YouTube publishing + Shorts enrichment
 
-**Implemented; not live-connected yet.** `config/youtube.json.enabled=false`, `live_pilot_passed=false`, queue empty. Google OAuth is missing. The encrypted upload-session key is installed. Mock failure tests are not evidence of a live Google upload; complete the connection and pilot first.
+**Client JSON received; Google channel consent is still pending.** `enabled=true` prepares the authorised Shorts metadata worker, while `live_pilot_passed=false` and the empty long queue keep routine long uploads gated. Cron uses enrichment-only mode until a long-form pilot passes, and makes no requests without OAuth. The encrypted upload-session key is installed. No direct Google upload/enrichment is claimed completed yet.
 
 ## Scope
 

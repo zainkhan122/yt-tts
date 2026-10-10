@@ -51,6 +51,8 @@ jobs:
           mode = os.environ['MODE'] or 'schedule'
           if os.environ['EVENT'] == 'schedule' and (not cfg['enabled'] or os.environ['OAUTH_CONFIGURED'] != 'true'):
               mode = 'off'
+          elif os.environ['EVENT'] == 'schedule' and not cfg.get('live_pilot_passed'):
+              mode = 'enrich'  # Shorts metadata is independent of the long-form upload pilot.
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
               f.write('mode=' + mode + '\n')
           print('YouTube delivery mode:', mode)
