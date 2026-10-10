@@ -3,9 +3,11 @@
   "records": {
     "news-claude-free-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6aca1f1ec4de2d2b12255238",
       "category": "news",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-10T11:18:51Z",
+      "due_at": "2026-10-10T11:18:54.857Z",
+      "external_url": "https://www.youtube.com/watch?v=F9Ng59LJ1bo",
       "media_ref": {
         "asset_digest": "sha256:8f76f72616ce6d34ef9430a605ccf6be3e619c2142728c254a0a5012162b5bfa",
         "asset_id": 625686728,
@@ -20,10 +22,11 @@
       "notify_subscribers": true,
       "payload_sha256": "5c10fcd5dbad4fb29600111f9477177f6a7f835004207ab7f10b94a02c7d1b08",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": "2026-10-10T11:18:56.211Z",
+      "state": "sent",
       "text": "Claude Slides, Docs and Design left beta on October 8 and are now on every Claude plan, including Free. Ask for a deck and Claude builds the slides in the chat, turns a slide into social posts in four sizes, and writes docs; PowerPoint and PDF exports keep your formatting, and decks go to Google Slides.\nAlso new: Claude Motion turns a report into an animated MP4 (Team and Enterprise beta), and Claude Dashboards (paid plans, beta).\nFootage: Anthropic official videos. Source: claude.com.\n\nCredits: Footage: Anthropic official videos (Claude). Page: claude.com, own capture.\n\n#Shorts #AI #Claude #productivity",
       "title": "Claude Slides, Docs & Design Are Now Free",
-      "updated_at": "2026-10-10T11:18:53Z",
+      "updated_at": "2026-10-10T11:18:56Z",
       "video_id": "news-claude-free-01"
     },
     "repo-removemacai-01:youtube": {
