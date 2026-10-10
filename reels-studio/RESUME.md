@@ -71,3 +71,15 @@ A completely blank workspace can restore the public project via `bootstrap.sh`; 
 ## Storage
 
 Snapshot budget is approximately 128 MB / 10,000 files; warning at 100 MB. Do not save new heavy baselines/candidates under `/home/user` when the existing delivery ZIP already consumes space. Use runner scratch or `/var/tmp`, retain small evidence/state, and verify archives before pruning. Do not delete unique user data or pending media.
+
+## Current blocked critic / immutable archive
+
+Latest inspected continuation: `38087458049` (three explicit free-provider 429 responses; no render). Full checkpoint reference: `research/pilots/free-p5/full-checkpoint-archive.json`. Restore was tested byte-for-byte across 156 files; source/call state and hashes remain intact.
+
+After confirming the provider is available and policy/config is unchanged, an explicit continuation can use:
+
+```bash
+python3 tools/gh_actions.py dispatch agent-resume-critic.yml -i checkpoint_source=archived-free-p5 -i source_run=38087458049 -i source_artifact=resumed-pilot-evidence -i case_id=news-gemini-agent-01
+```
+
+This is not permission to retry now or repeatedly hammer a limited endpoint. Inspect `research/pilots/PILOT_REPORT.md` and the latest Actions runs first. No automatic cron, fallback or promotion exists. The audio specialist is also unproven under $0 balance: plain-JSON audio was rejected with a minimum-balance requirement; do not fund the account or relax limits without the owner.

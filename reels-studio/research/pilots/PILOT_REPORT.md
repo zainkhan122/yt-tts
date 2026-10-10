@@ -57,7 +57,7 @@ A continuation attempt using the wrong artifact name failed **before inference**
 
 ## Tools and safety testing
 
-The full local regression suite now passes **192 tests**. Coverage includes fake quotes, unread/tampered sources, fabricated testing, unbound metrics, illustration-as-evidence, missing/unsafe assets, HTML/path/SSRF targets, archive traversal, voice overrides, attempts to publish, secret-bearing prompts, model/provider drift, nonzero prices, unknown costs, quota limits, lost responses, corrupted candidates, constrained repairs and safe critic-only continuation.
+The full local regression suite now passes **194 tests**. Coverage includes fake quotes, unread/tampered sources, fabricated testing, unbound metrics, illustration-as-evidence, missing/unsafe assets, HTML/path/SSRF targets, archive traversal, voice overrides, attempts to publish, secret-bearing prompts, model/provider drift, nonzero prices, unknown costs, quota limits, lost responses, corrupted candidates, constrained repairs and safe critic-only continuation.
 
 Additional fixes stop all further model calls after ambiguous/persistent provider errors, reject a changed model/provider after preflight, and recheck the zero-price ceiling before each inference request.
 
@@ -82,6 +82,7 @@ Audio capability diagnostics are separate from these content-trial totals: two e
 - `free-p3/ASSESSMENT.md` and `free-p4/ASSESSMENT.md` separate content weaknesses from controller defects.
 - `free-p5/audit-evidence.tar.gz` preserves sanitized text/source/draft/receipt evidence and is byte-verified.
 - `free-p5/full-checkpoint-archive.json` pins the complete working checkpoint by immutable Release asset ID/digest. It was archived by the trusted operator; **the model/pilot workflows have no Release-write permission**. It contains registered baseline media and checkpoint data, no secrets or candidate videos.
+- Archive recovery was actually exercised: **all 156 restored files matched byte-for-byte**, and unchanged critic-resume validation passed without inference. The continuation workflow can restore this registered archive after transient Actions artifacts expire.
 - A new session must inspect the current run/checkpoint before retrying. Resume only the explicitly rejected critic operation, never replay an uncertain producer call or overwrite a posted-video receipt.
 
 ## What would justify a later attempt?

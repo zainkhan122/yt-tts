@@ -1,3 +1,5 @@
+> **Resume / current authority:** read [`CURRENT_STATE.md`](CURRENT_STATE.md) and [`RESUME.md`](RESUME.md) before running commands. Historical phase notes are not current activation flags.
+
 # Reels Studio: professional vertical-video generator (HyperFrames + free tools)
 
 > **Resume / authority:** start with [`RESUME.md`](RESUME.md) and [`CURRENT_STATE.md`](CURRENT_STATE.md). The OPTIONAL free-model producer/critic is a non-publishing lab, not an active daily production engine. See [`agent/ACCEPTANCE.md`](agent/ACCEPTANCE.md) and [`research/pilots/STATUS.md`](research/pilots/STATUS.md).
@@ -201,3 +203,9 @@ Rules that keep renders deterministic:
 - Five NEW Option-3 Shorts, all QA 7/7: Haiku 5.5, Gemini agent, Mosa, Pomelli and Whistle. Release: https://github.com/zainkhan122/yt-tts/releases/tag/renders-2026-10-10
 - New batch is enqueued HELD, not secretly added to the already-full daily calendar.
 - Evidence / delivery index: `research/batches/2026-10-10-delivery.json`, `research/publishing/first-live-pilot-2026-10-10.json`, `research/publishing/today-schedules-2026-10-10.json`.
+
+## OPTIONAL producer–critic lab — not activated
+
+The optional free-only OpenRouter system is a **shadow comparison lab**, not the daily production engine. It has versioned evidence/tools/prompts, an independent critic, locked Option-3 rendering and hard gates. Current measured outcome is **OFF / UNQUALIFIED**: drafts have factual/editorial weaknesses, the critic is rate-limited, and audio access has an unmet balance requirement. No candidate reached full paired video/audio comparison or social publication.
+
+Read [`research/pilots/PILOT_REPORT.md`](research/pilots/PILOT_REPORT.md), [`agent/ACCEPTANCE.md`](agent/ACCEPTANCE.md) and [`docs/SECURITY-BOUNDARIES.md`](docs/SECURITY-BOUNDARIES.md). Source/checkpoints are preserved for exact operational resumption; model scores never enable publishing.

@@ -287,3 +287,19 @@ class ResumeArtifactSelectionTests(unittest.TestCase):
   steps=data['jobs']['resume']['steps']
   downloader=next(s for s in steps if s.get('uses')=='actions/download-artifact@v4')
   self.assertEqual(downloader['with']['name'],'${{ inputs.source_artifact }}')
+
+
+class CheckpointArchiveTests(unittest.TestCase):
+ def test_restore_reference_is_digest_and_size_bound(self):
+  from tools.agent.restore_checkpoint import validate_reference
+  ref={'operator_archive':True,'not_a_social_publication':True,'asset_id':123,'name':'agent-free-p5-checkpoint-abc123.tar.gz','sha256':'sha256:'+'a'*64,'size_bytes':100}
+  self.assertEqual(validate_reference(ref),ref)
+  for field,value in [('asset_id',-1),('name','../../credentials.tar.gz'),('sha256','missing'),('size_bytes',999999999)]:
+   with self.assertRaises(PilotBlocked):validate_reference({**ref,field:value})
+
+ def test_resume_archive_is_an_explicit_choice_not_a_secret_model_fallback(self):
+  import yaml
+  d=yaml.safe_load((ROOT.parent/'.github/workflows/agent-resume-critic.yml').read_text())
+  on=d.get('on') or d[True]
+  self.assertEqual(set(on['workflow_dispatch']['inputs']['checkpoint_source']['options']),{'actions-artifact','archived-free-p5'})
+  self.assertEqual(d['permissions']['contents'],'read')

@@ -3,7 +3,7 @@
 > The **strategy** (formats, hooks, SEO per platform, cadence, roadmap) is in [`PLAYBOOK.md`](PLAYBOOK.md). This file is the **technical system**.
 
 One page that answers: **how topics are chosen, how research is done, which voice, how a video is made, how it is checked, and which tools do each job.**
-The agent runs every stage. The user's only jobs are an optional veto on topics and uploading (until publishing is automated).
+The interactive agent runs research/production; approved-render Buffer delivery and YouTube metadata have cloud automation. The optional producer/critic lab is OFF and unqualified, not an activated daily content engine. Current state and safe recovery are in CURRENT_STATE.md / RESUME.md.
 
 ```
  1 DISCOVER ──► 2 SELECT ──► 3 RESEARCH ──► 4 SCRIPT ──► 5 VOICE ──► 6 ASSETS ──► 7 ASSEMBLE ──► 8 QA ──► 9 PUBLISH ──► 10 LEARN

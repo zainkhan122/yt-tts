@@ -2,6 +2,12 @@ name: Hypeless optional pilot — resume quota-rejected critic
 on:
   workflow_dispatch:
     inputs:
+      checkpoint_source:
+        description: 'Use the immutable archive if the source Actions artifact has expired'
+        type: choice
+        options: [actions-artifact, archived-free-p5]
+        default: actions-artifact
+        required: true
       source_run:
         description: 'Inspected pilot run with an explicitly rate-rejected critic call'
         required: true
@@ -40,11 +46,17 @@ jobs:
           python-version: '3.11'
       - run: python3 -m pip install -r reels-studio/tools/agent/requirements.txt -r reels-studio/tools/youtube/requirements.txt
       - uses: actions/download-artifact@v4
+        if: inputs.checkpoint_source == 'actions-artifact'
         with:
           github-token: ${{ github.token }}
           run-id: ${{ inputs.source_run }}
           name: ${{ inputs.source_artifact }}
           path: ${{ runner.temp }}/pilot
+      - name: Restore the registered immutable checkpoint without inference
+        if: inputs.checkpoint_source == 'archived-free-p5'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 reels-studio/tools/agent/restore_checkpoint.py --dest "$RUNNER_TEMP/pilot"
       - name: Resume only the known rejected critic operation
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
