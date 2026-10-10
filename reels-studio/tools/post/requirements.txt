@@ -5,3 +5,6 @@ graphql-core>=3.2.6,<3.3
 # Shared safety suite also exercises encrypted YouTube checkpoints and mobile thumbnails.
 PyNaCl>=1.5,<2
 Pillow>=10.4,<13
+
+# Shared regression suite includes isolated optional-agent safety gates.
+-r ../agent/requirements.txt

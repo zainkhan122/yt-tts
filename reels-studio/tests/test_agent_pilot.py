@@ -53,6 +53,13 @@ class FreeOnlyClientTests(unittest.TestCase):
   self.assertNotIn('models',payload)
   self.assertFalse(self.session.post.call_args.kwargs['allow_redirects'])
 
+ def test_http_200_provider_error_is_recorded_and_halts(self):
+  self.session.post.return_value=response(body={'error':{'code':400,'message':'Provider rejected tool response'}})
+  with self.assertRaises(PilotBlocked):self.client.chat('producer',[{'role':'user','content':'Public data'}])
+  self.assertIn('Provider rejected',self.client.state['calls'][-1]['provider_error']['message'])
+  with self.assertRaises(PilotBlocked):self.client.chat('producer',[{'role':'user','content':'No silent replay'}])
+  self.assertEqual(self.session.post.call_count,1)
+
  def test_returned_model_drift_is_blocked(self):
   self.session.post.return_value=response(body=self.good(model='different/model'))
   with self.assertRaises(PilotBlocked):self.client.chat('producer',[{'role':'user','content':'Public data'}])

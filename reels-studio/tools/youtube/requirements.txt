@@ -2,3 +2,6 @@ requests>=2.32.3,<3
 PyNaCl>=1.5,<2
 Pillow>=10.4,<13
 graphql-core>=3.2.6,<3.3
+
+# Shared regression suite includes isolated optional-agent safety gates.
+-r ../agent/requirements.txt
