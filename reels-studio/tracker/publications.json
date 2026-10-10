@@ -171,9 +171,11 @@
     },
     "repo-ai-newtab-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6aca2932f91f772d459137cb",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-10T20:00:00Z",
+      "due_at": "2026-10-10T20:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:704f6c98e83923006a2d70062bfcd15717507ed867d859a2e720b2e386c1f599",
         "asset_id": 625694400,
@@ -188,10 +190,11 @@
       "notify_subscribers": false,
       "payload_sha256": "c037817dab0aee1b9df34d8bd0430ba0308ccf9d011f5e28d1172f80aa7225d7",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "An AI homepage built from your browsing: ai-newtab rewrites Chrome's new tab with Claude. The MIT code is free; Claude API usage is paid. A history summary and selected signed-in pages go to the API, so review the privacy settings first. Repo: github.com/ThariqS/ai-newtab.\n\nCredits: Illustration & repo: github.com/ThariqS/ai-newtab (MIT). Page: own capture.\n\n#aitools #claude #chrome #productivity #opensource",
       "title": "AI Homepage That Writes Itself (Claude Chrome Extension)",
-      "updated_at": "2026-10-10T12:01:53Z",
+      "updated_at": "2026-10-10T12:01:54Z",
       "video_id": "repo-ai-newtab-01"
     },
     "repo-ai-newtab-01:youtube": {
