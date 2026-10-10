@@ -158,8 +158,14 @@ class OpenRouter:
                     raise FreeQuotaDeferred('Free inference rate limit; no paid fallback')
                 self.sleep(max(wait,1)+1);self.state['cooldown_until']=None;continue
             if r.status_code!=200:
+                try:
+                    error=r.json().get('error',{})
+                    detail=redact(str(error.get('message','Request rejected')))[:700]
+                    record['provider_error']={'code':error.get('code'),'message':detail}
+                except (ValueError,AttributeError):
+                    detail='Unparseable provider error'
                 record['state']='blocked' if r.status_code<500 else 'uncertain';self._persist()
-                raise PilotBlocked(f'Pinned free inference failed (HTTP {r.status_code}); model unchanged')
+                raise PilotBlocked(f'Pinned free inference failed (HTTP {r.status_code}): {detail}; model unchanged')
             try:
                 result=r.json()
                 if not isinstance(result,dict) or result.get('error'):raise ValueError()
