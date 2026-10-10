@@ -27,7 +27,12 @@ def numbers(text):
 def validate_draft(draft,evidence,assets):
     errors=[];bindings={}
     for e in Draft202012Validator(DRAFT_SCHEMA).iter_errors(draft):
-        errors.append('schema '+'.'.join(str(x) for x in e.path)+': '+e.message[:180])
+        path='.'.join(str(x) for x in e.path)
+        if e.validator in {'maxLength','minLength','maxItems','minItems'}:
+            detail=f'{e.validator}={e.validator_value}; actual length={len(e.instance)}'
+        elif e.validator=='const':detail=f'protocol value must equal {e.validator_value!r}, not {e.instance!r}'
+        else:detail=e.message[:220]
+        errors.append('schema '+path+': '+detail)
     if errors:return {'passed':False,'errors':errors,'bindings':{}}
     encoded=json.dumps(draft,ensure_ascii=False)
     if contains_secret(encoded):errors.append('credential-like content')

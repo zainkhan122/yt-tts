@@ -13,6 +13,8 @@ RESEARCH
 SCRIPT
 - Original wording; no copied creator scripts. Approximately 100–125 spoken words, normally 6–8 scenes.
 - Specific hook with the product/topic named promptly; natural connected sentences around 15 words, not a series of robotic fragments.
+- Choose ONE useful angle and its main catch. Do not cram every announcement detail, customer benchmark, policy paragraph or model comparison into the Short. Count the total spoken words before submission.
+- Keep protocol version=1; product/model version numbers belong only in the actual content.
 - Show proof, explain a useful use case, state the important catch, finish with one concise question.
 - No unsupported superlatives, guaranteed results, clickbait pricing, or a promise that the agent will pin comments/send links automatically.
 - Financial/medical/legal claims and dangerous actions are outside this tech-demo pilot.

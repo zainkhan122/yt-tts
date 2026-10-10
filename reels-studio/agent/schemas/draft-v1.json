@@ -2,7 +2,8 @@
   "type": "object",
   "properties": {
     "version": {
-      "const": 1
+      "const": 1,
+      "description": "Protocol schema version: the INTEGER 1. This is NOT the AI model/product version."
     },
     "topic": {
       "type": "string",
@@ -17,7 +18,8 @@
     "angle": {
       "type": "string",
       "maxLength": 250,
-      "minLength": 20
+      "minLength": 20,
+      "description": "One focused editorial angle, maximum 250 characters. Do not summarize the entire announcement."
     },
     "claims": {
       "type": "array",
@@ -106,7 +108,8 @@
           "say": {
             "type": "string",
             "maxLength": 280,
-            "minLength": 10
+            "minLength": 10,
+            "description": "One or two natural spoken sentences. Budget about 12\u201320 words for this scene; the ENTIRE video must stay under 140 words."
           },
           "claim_ids": {
             "type": "array",
@@ -232,7 +235,8 @@
         "additionalProperties": false
       },
       "minItems": 6,
-      "maxItems": 8
+      "maxItems": 8,
+      "description": "Six to eight short scenes. TOTAL spoken narration across all scenes must be 90\u2013140 words, ideally 100\u2013125."
     },
     "metadata": {
       "type": "object",
