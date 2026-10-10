@@ -1,0 +1,15 @@
+{
+  "events_seconds": {
+    "start_click": 3.353125111000054,
+    "recording": 3.767687654000156,
+    "stop_click": 12.975668235000057,
+    "result": 28.00063597799999
+  },
+  "source": "https://cactuscompute.com/blog/whistle",
+  "input": "8-second excerpt of our approved Option-3 Claude voiceover; fake-audio capture, not a user microphone",
+  "sandbox_text": "Whistle sandbox\nSpeak, and Whistle transcribes it on your device\nen \u00b7 first token 2130 ms \u00b7 24 tok/s \u00b7 4.4 s total",
+  "raw_video": "/var/tmp/hypeless-whistle-demo/page@d27b935830d1629143decd1f55493331.webm",
+  "visual_transcript": "Okay, this is a big one. Cloud slides. Docs and designs just left beta, and they're now on the free plan. You just ask for a launch deck, and okay, this is a...",
+  "observed_name_error": "Claude \u2192 Cloud",
+  "note": "Input is a looped 8-second fake-microphone excerpt; repeat at the end is input repetition. Browser WASM timing on sandbox CPU is not the author's native M4 Pro benchmark."
+}

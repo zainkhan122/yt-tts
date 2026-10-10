@@ -1,0 +1,164 @@
+{
+  "id": "news-gemini-agent-01",
+  "template": "tool-spotlight",
+  "capture": "captures/news-gemini-agent-01",
+  "title": "Gemini Agent Works After You Close Your Laptop",
+  "niche": "tech / AI news",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "2026-10-10: original script based on checked primary sources; approved Option 3 flow voice; no on-screen credits.",
+  "keywords": [
+    "Gemini",
+    "agent",
+    "cloud",
+    "context",
+    "permissions",
+    "enterprise"
+  ],
+  "facts": {
+    "checked": "2026-10-10"
+  },
+  "credits_on_screen": "Own explanatory motion graphic; page captures and official product imagery from Google Cloud's October 8 Gemini at Work announcement.",
+  "sources": [
+    "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-at-work/",
+    "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026"
+  ],
+  "verify_before_render": [
+    "Primary source claims/pricing checked 2026-10-10. Promotional/provider benchmarks attributed, not represented as our independent test.",
+    "No on-screen credit captions. Option 3 Chatterbox Michael continuous-flow voice required."
+  ],
+  "production_category": "news",
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "clip",
+      "src": "cloud-board.mp4",
+      "in": 0,
+      "out": 7,
+      "fit": "fill-blur",
+      "headline": "GEMINI KEEPS *WORKING*",
+      "sub": "Even after you close your laptop",
+      "say": "Google says its new Gemini agent can keep working after you close your laptop."
+    },
+    {
+      "id": "job",
+      "type": "image",
+      "image": "official-1.jpg",
+      "heading": "GIVE IT AN *OUTCOME*",
+      "say": "Instead of just answering questions, it plans a job and uses your company's connected tools."
+    },
+    {
+      "id": "skills",
+      "type": "steps",
+      "heading": "ONE AGENT, *MANY JOBS*",
+      "background": {
+        "image": "desktop-top.jpg"
+      },
+      "steps": [
+        "Research and answer",
+        "Write docs and create media",
+        "Run code and use tools"
+      ],
+      "say": "The idea is one agent that researches, writes documents, creates media and runs code from the same conversation."
+    },
+    {
+      "id": "memory",
+      "type": "image",
+      "image": "section-agent.jpg",
+      "heading": "CONTEXT THAT *STAYS*",
+      "say": "It keeps context in the cloud and delegates pieces to specialized sub-agents, instead of restarting in every app."
+    },
+    {
+      "id": "choice",
+      "type": "image",
+      "image": "model-choice.jpg",
+      "heading": "NOT JUST ONE *MODEL*",
+      "say": "Google also describes automatic model choice, including Gemini and Claude, with controls for spending."
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "cons": [
+        "Enterprise product, not a free Gmail upgrade",
+        "Company permissions and connectors still matter"
+      ],
+      "pros": [
+        "Persistent cloud work across connected tools"
+      ],
+      "say": "But this is enterprise AI, not a free upgrade to personal Gmail. Your company's permissions still decide what it can do."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "AGENT",
+      "say": "Review what it produces before letting it act for you. What would you delegate first? Comment agent."
+    }
+  ],
+  "seo": {
+    "keyword": "Gemini Agent",
+    "aliases": [
+      "Gemini"
+    ],
+    "onscreen_first3s": "GEMINI AGENT",
+    "youtube": {
+      "title": "Gemini Agent Works After You Close Your Laptop",
+      "description": "Google's new Gemini agent, announced October 8, 2026 at Gemini at Work, is positioned as a persistent cloud agent for business work: questions, research, documents, media and code. Google describes memory, sub-agents, business connectors, model choice including Claude, and spending controls. This is Google Cloud enterprise functionality—not a promise of a free consumer Gemini/Gmail upgrade. Access depends on enterprise setup and permissions.\nSource: https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026",
+      "hashtags": [
+        "#Shorts",
+        "#Gemini",
+        "#AInews",
+        "#AIagents"
+      ],
+      "tags": [
+        "Gemini agent",
+        "Google Gemini agent",
+        "Gemini at Work 2026",
+        "Google Cloud AI",
+        "enterprise AI agents",
+        "AI news"
+      ]
+    },
+    "tiktok": {
+      "caption": "Gemini Agent can keep working in the cloud after your laptop closes, according to Google's new announcement. The catch: enterprise access, company connectors and permissions—not free personal Gmail.",
+      "hashtags": [
+        "#Gemini",
+        "#AInews",
+        "#AIagents"
+      ]
+    },
+    "instagram": {
+      "caption": "Gemini Agent can keep working in the cloud after your laptop closes, according to Google's new announcement. The catch: enterprise access, company connectors and permissions—not free personal Gmail. Save this for later.",
+      "hashtags": [
+        "#Gemini",
+        "#AInews",
+        "#AIagents"
+      ]
+    },
+    "facebook": {
+      "caption": "Gemini Agent can keep working in the cloud after your laptop closes, according to Google's new announcement. The catch: enterprise access, company connectors and permissions—not free personal Gmail.",
+      "hashtags": [
+        "#Gemini",
+        "#AInews",
+        "#AIagents"
+      ]
+    },
+    "x": {
+      "text": "Gemini Agent: Google's new cloud agent keeps context and works across company tools. Enterprise access and permissions matter; this is not a free Gmail upgrade.",
+      "hashtags": [
+        "#AI"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "Gemini Agent Works After You Close Your Laptop"
+    ],
+    "caption": "Gemini Agent can keep working in the cloud after your laptop closes, according to Google's new announcement. The catch: enterprise access, company connectors and permissions—not free personal Gmail.",
+    "hashtags": [
+      "#Gemini",
+      "#AInews",
+      "#AIagents"
+    ],
+    "pinned_comment": "Sources and access notes: https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-at-work/"
+  }
+}

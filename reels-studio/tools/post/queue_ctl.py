@@ -58,7 +58,10 @@ def main():
                 "release_tag": args.tag, "asset_id": a["id"], "asset_size": a["size"], "asset_digest": a.get("digest"),
                 "kit_asset_id": kit["id"], "kit_digest": kit.get("digest"),
                 "media_path": f"media/{a['id']}/{args.video_id}.mp4", "title": b["seo"]["youtube"]["title"],
-                "brief_sha256": fingerprint(b), "added_at": iso(now), "reviewed_at": None, "expires_at": None}
+                "brief_sha256": fingerprint(b), "added_at": iso(now), "reviewed_at": None, "expires_at": None,
+                "youtube_ai_generated": bool(b.get("contains_synthetic_media", False))}
+        if b.get("contains_synthetic_media"):
+            item["facebook_disclosure"] = "AI-generated narration and example imagery."
         read_kit(cfg, item)
         data["items"].append(item)
     elif args.cmd in {"approve", "hold"}:

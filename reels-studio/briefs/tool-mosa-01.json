@@ -1,0 +1,171 @@
+{
+  "id": "tool-mosa-01",
+  "template": "tool-spotlight",
+  "capture": "captures/tool-mosa-01",
+  "title": "Mosa: Your AI Tools in One Visual Workflow",
+  "niche": "tech / AI tool",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "2026-10-10: original script based on checked primary sources; approved Option 3 flow voice; no on-screen credits.",
+  "keywords": [
+    "Mosa",
+    "workflow",
+    "credits",
+    "budget",
+    "canvas",
+    "models"
+  ],
+  "facts": {
+    "checked": "2026-10-10"
+  },
+  "credits_on_screen": "Footage and product image: Mosa / Ambassadors official site. Screens: own capture of getmosa.ai. No claim of paid-account hands-on testing.",
+  "sources": [
+    "https://getmosa.ai/",
+    "https://getmosa.ai/pricing"
+  ],
+  "verify_before_render": [
+    "Primary source claims/pricing checked 2026-10-10. Promotional/provider benchmarks attributed, not represented as our independent test.",
+    "No on-screen credit captions. Option 3 Chatterbox Michael continuous-flow voice required."
+  ],
+  "production_category": "tool",
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "clip",
+      "src": "mosa-demo.mp4",
+      "in": 0.5,
+      "out": 6.5,
+      "fit": "fill-blur",
+      "headline": "MOSA: ONE *AI WORKFLOW*",
+      "sub": "Stop moving prompts between five apps",
+      "say": "Mosa puts your scattered AI tools onto one visual canvas, so a single workflow can make a whole campaign."
+    },
+    {
+      "id": "connect",
+      "type": "clip",
+      "src": "mosa-demo.mp4",
+      "in": 7,
+      "out": 13.5,
+      "fit": "card",
+      "say": "Connect text, image, video and voice nodes, instead of moving prompts and files between separate apps."
+    },
+    {
+      "id": "logic",
+      "type": "steps",
+      "heading": "BUILD IT, THEN *REUSE IT*",
+      "background": {
+        "image": "official-0.jpg"
+      },
+      "steps": [
+        "Connect the models",
+        "Add branches and quality checks",
+        "Reuse for another product or format"
+      ],
+      "say": "You can branch the flow, add quality checks, and reuse it for another product or format."
+    },
+    {
+      "id": "agent",
+      "type": "image",
+      "image": "section-costs.jpg",
+      "heading": "SEE THE *COST*",
+      "say": "An agent helps build and debug the workflow, while cost tracking shows what each step spends."
+    },
+    {
+      "id": "credit",
+      "type": "stat",
+      "heading": "THE FREE *START*",
+      "value": 5,
+      "prefix": "€",
+      "label": "starting credit · once, not every month",
+      "icon": false,
+      "at": "five",
+      "say": "But free does not mean unlimited. New accounts get five euros in starting credit, once."
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "cons": [
+        "Card or bank verification to start",
+        "AI generation spends the balance"
+      ],
+      "pros": [
+        "Basic: €19/month includes €19 budget (excl. VAT)"
+      ],
+      "say": "You verify a card or bank account, and generations spend that balance. Basic is nineteen euros monthly, including nineteen euros of model budget, before tax."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "FLOW",
+      "say": "So, metered AI in one workflow, not free access to every model. Would you use it? Comment flow."
+    }
+  ],
+  "contains_synthetic_media": true,
+  "seo": {
+    "keyword": "Mosa",
+    "aliases": [
+      "Mosa AI"
+    ],
+    "onscreen_first3s": "MOSA",
+    "youtube": {
+      "title": "Mosa: Your AI Tools in One Visual Workflow",
+      "description": "Mosa, from Ambassadors, connects AI models and creative production steps on a visual canvas: text, image, video and voice generation, conditions, quality checks and reusable workflows. The free workspace includes €5 once and requires card/bank verification. Model/provider calls spend the balance. Basic is €19/month excluding VAT, with €19 in model budget; plan features and costs vary. Not unlimited free generation. Official product media is shown, not a claim of independent paid-account testing.\nSources: https://getmosa.ai/ and https://getmosa.ai/pricing",
+      "hashtags": [
+        "#Shorts",
+        "#AItools",
+        "#AIworkflow",
+        "#ContentCreation"
+      ],
+      "tags": [
+        "Mosa AI",
+        "Mosa workflow",
+        "AI workflow builder",
+        "visual AI workflow",
+        "Ambassadors Mosa",
+        "AI creative tools"
+      ]
+    },
+    "tiktok": {
+      "caption": "Mosa connects AI models in one visual workflow. Start with €5 credit once; payment-method verification is required and generation spends your budget. Useful automation, not unlimited free AI.",
+      "hashtags": [
+        "#AItools",
+        "#AIworkflow",
+        "#ContentCreation"
+      ]
+    },
+    "instagram": {
+      "caption": "Mosa connects AI models in one visual workflow. Start with €5 credit once; payment-method verification is required and generation spends your budget. Useful automation, not unlimited free AI. Save this for later.",
+      "hashtags": [
+        "#AItools",
+        "#AIworkflow",
+        "#ContentCreation"
+      ]
+    },
+    "facebook": {
+      "caption": "Mosa connects AI models in one visual workflow. Start with €5 credit once; payment-method verification is required and generation spends your budget. Useful automation, not unlimited free AI.",
+      "hashtags": [
+        "#AItools",
+        "#AIworkflow",
+        "#ContentCreation"
+      ]
+    },
+    "x": {
+      "text": "Mosa: connects AI models in one visual workflow. Start with €5 credit once; payment-method verification is required and generation spends your budget. Useful automation, not unlimited free AI.",
+      "hashtags": [
+        "#AI"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "Mosa: Your AI Tools in One Visual Workflow"
+    ],
+    "caption": "Mosa connects AI models in one visual workflow. Start with €5 credit once; payment-method verification is required and generation spends your budget. Useful automation, not unlimited free AI.",
+    "hashtags": [
+      "#AItools",
+      "#AIworkflow",
+      "#ContentCreation"
+    ],
+    "pinned_comment": "Sources and access notes: https://getmosa.ai/"
+  }
+}

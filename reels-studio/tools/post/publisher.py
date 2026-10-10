@@ -236,7 +236,7 @@ def main():
                     rows, notes = plan(items, journal.records, channels, posts, cfg, now, preview=dry, pilot=args.pilot)
                 report["plan"], report["notes"] = rows, notes
                 if dry:
-                    report["notes"].insert(0, "Posting disabled during setup; held videos are included only for preview")
+                    report["notes"].insert(0, "Read-only preview: no provider writes; held videos may be included for planning")
                 selected = {r["video_id"] for r in rows}
                 if args.verify_media or args.live:
                     verify_site(cfg, [i for i in items if i["video_id"] in selected])

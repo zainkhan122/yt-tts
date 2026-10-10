@@ -1,0 +1,173 @@
+{
+  "id": "repo-whistle-01",
+  "template": "tool-spotlight",
+  "capture": "captures/repo-whistle-01",
+  "title": "Whistle: Offline Speech-to-Text in 16.9 MB",
+  "niche": "tech / AI repo",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "2026-10-10: original script based on checked primary sources; approved Option 3 flow voice; no on-screen credits.",
+  "keywords": [
+    "Whistle",
+    "offline",
+    "speech",
+    "CPU",
+    "privacy",
+    "languages"
+  ],
+  "facts": {
+    "checked": "2026-10-10"
+  },
+  "credits_on_screen": "Own capture and demo using the Whistle browser sandbox; documentation and engine by Cactus Compute (Apache-2.0). Published benchmark claims belong to the authors.",
+  "sources": [
+    "https://cactuscompute.com/blog/whistle",
+    "https://github.com/cactus-compute/needle",
+    "https://huggingface.co/Cactus-Compute/whistle"
+  ],
+  "verify_before_render": [
+    "Primary source claims/pricing checked 2026-10-10. Promotional/provider benchmarks attributed, not represented as our independent test.",
+    "No on-screen credit captions. Option 3 Chatterbox Michael continuous-flow voice required."
+  ],
+  "production_category": "repo",
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "clip",
+      "src": "whistle-demo.mp4",
+      "in": 0,
+      "out": 6,
+      "fit": "fill-blur",
+      "headline": "WHISTLE: *OFFLINE VOICE*",
+      "sub": "A speech model in just 16.9 MB",
+      "say": "Whistle transcribes speech locally, with a model file smaller than some app updates."
+    },
+    {
+      "id": "size",
+      "type": "stat",
+      "heading": "THE MODEL *FILE*",
+      "value": 16.9,
+      "decimals": 1,
+      "suffix": " MB",
+      "label": "CPU speech recognition · Apache-2.0",
+      "icon": false,
+      "at": "sixteen",
+      "say": "It is {16.9|sixteen point nine} megabytes, runs on your CPU, and does not need to send your audio away."
+    },
+    {
+      "id": "demo",
+      "type": "clip",
+      "src": "whistle-demo.mp4",
+      "in": 6,
+      "out": 14,
+      "fit": "card",
+      "say": "The browser demo downloads the model once, then transcribes right on your own device."
+    },
+    {
+      "id": "extra",
+      "type": "steps",
+      "heading": "MORE THAN JUST *TEXT*",
+      "background": {
+        "image": "section-start.jpg"
+      },
+      "steps": [
+        "Local transcription",
+        "Word timestamps",
+        "Keyword bias for tricky names"
+      ],
+      "say": "You can also get word timestamps, or bias it toward tricky names and product words."
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "cons": [
+        "Seven supported languages",
+        "30 seconds per input"
+      ],
+      "pros": [
+        "Local CPU processing; open-source engine"
+      ],
+      "say": "The catch? It supports seven languages, and each input is limited to thirty seconds."
+    },
+    {
+      "id": "bench",
+      "type": "image",
+      "image": "demo-result.jpg",
+      "heading": "CHECK THE *NAMES*",
+      "say": "It even heard Claude as Cloud in our demo, so check names before you trust the transcript."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "WHISTLE",
+      "say": "For small, private voice features, that size is interesting. Where would you use offline voice? Comment Whistle."
+    }
+  ],
+  "seo": {
+    "keyword": "Whistle",
+    "aliases": [
+      "Whistle speech to text"
+    ],
+    "onscreen_first3s": "WHISTLE",
+    "youtube": {
+      "title": "Whistle: Offline Speech-to-Text in 16.9 MB",
+      "description": "Whistle by Cactus Compute is an open speech-to-text model with a 16.9 MB file and a local CPU runtime shared with Needle. It takes 16 kHz mono audio, up to 30 seconds per call, and supports English, German, French, Spanish, Italian, Dutch and Polish. The browser sandbox runs on-device after the initial model download. Word timestamps and keyword biasing are supported. Author-published benchmarks show wins and losses versus Whisper base; this video does not claim a universal speed or accuracy win.\nSources: https://cactuscompute.com/blog/whistle and https://github.com/cactus-compute/needle\nOur actual browser demo misheard Claude as Cloud; inspect important names. The sandbox run is not a native M4 Pro performance test.",
+      "hashtags": [
+        "#Shorts",
+        "#OpenSource",
+        "#AItools",
+        "#SpeechToText"
+      ],
+      "tags": [
+        "Whistle speech to text",
+        "Cactus Whistle",
+        "offline speech recognition",
+        "local speech to text",
+        "CPU speech recognition",
+        "open source AI",
+        "Whisper alternative"
+      ]
+    },
+    "tiktok": {
+      "caption": "Whistle is a 16.9 MB speech-to-text model running locally on a CPU. Seven languages, 30 seconds per input, no universal accuracy-win claim. Useful for small, private voice features.",
+      "hashtags": [
+        "#OpenSource",
+        "#AItools",
+        "#SpeechToText"
+      ]
+    },
+    "instagram": {
+      "caption": "Whistle is a 16.9 MB speech-to-text model running locally on a CPU. Seven languages, 30 seconds per input, no universal accuracy-win claim. Useful for small, private voice features. Save this for later.",
+      "hashtags": [
+        "#OpenSource",
+        "#AItools",
+        "#SpeechToText"
+      ]
+    },
+    "facebook": {
+      "caption": "Whistle is a 16.9 MB speech-to-text model running locally on a CPU. Seven languages, 30 seconds per input, no universal accuracy-win claim. Useful for small, private voice features.",
+      "hashtags": [
+        "#OpenSource",
+        "#AItools",
+        "#SpeechToText"
+      ]
+    },
+    "x": {
+      "text": "Whistle: is a 16.9 MB speech-to-text model running locally on a CPU. Seven languages, 30 seconds per input, no universal accuracy-win claim. Useful for small, private voice features.",
+      "hashtags": [
+        "#AI"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "Whistle: Offline Speech-to-Text in 16.9 MB"
+    ],
+    "caption": "Whistle is a 16.9 MB speech-to-text model running locally on a CPU. Seven languages, 30 seconds per input, no universal accuracy-win claim. Useful for small, private voice features.",
+    "hashtags": [
+      "#OpenSource",
+      "#AItools",
+      "#SpeechToText"
+    ],
+    "pinned_comment": "Sources and access notes: https://cactuscompute.com/blog/whistle"
+  }
+}

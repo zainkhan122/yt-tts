@@ -286,14 +286,14 @@ class PlannerTests(unittest.TestCase):
         self.assertEqual(self.planned(items)[0], [])
 
     def test_disconnected_channel_does_not_block_healthy_channels(self):
-        self.channels[0]["isDisconnected"] = True
+        next(c for c in self.channels if c["id"] == self.cfg["buffer"]["channels"]["youtube"]["buffer_id"])["isDisconnected"] = True
         rows, notes = self.planned()
         self.assertTrue(rows)
         self.assertFalse(any(r["platform"] == "youtube" for r in rows))
         self.assertTrue(any("isDisconnected" in n for n in notes))
 
     def test_social_account_identity_mismatch_blocks(self):
-        self.channels[0]["serviceId"] = "wrong-account"
+        next(c for c in self.channels if c["id"] == self.cfg["buffer"]["channels"]["youtube"]["buffer_id"])["serviceId"] = "wrong-account"
         rows, _ = self.planned()
         self.assertFalse(any(r["platform"] == "youtube" for r in rows))
 
@@ -304,7 +304,7 @@ class PlannerTests(unittest.TestCase):
         self.assertTrue(any("policy hold" in n for n in notes))
 
     def test_notification_only_channel_blocks(self):
-        self.channels[0]["metadata"]["defaultToReminders"] = True
+        next(c for c in self.channels if c["id"] == self.cfg["buffer"]["channels"]["youtube"]["buffer_id"])["metadata"]["defaultToReminders"] = True
         rows, _ = self.planned()
         self.assertFalse(any(r["platform"] == "youtube" for r in rows))
 

@@ -1,0 +1,177 @@
+{
+  "id": "news-haiku-55-01",
+  "template": "tool-spotlight",
+  "capture": "captures/news-haiku-55-01",
+  "title": "Claude Haiku 5.5: Cheap API, One Price Catch",
+  "niche": "tech / AI news",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "2026-10-10: original script based on checked primary sources; approved Option 3 flow voice; no on-screen credits.",
+  "keywords": [
+    "Claude",
+    "Haiku",
+    "tokens",
+    "pricing",
+    "effort",
+    "subagents"
+  ],
+  "facts": {
+    "checked": "2026-10-10"
+  },
+  "credits_on_screen": "Own motion graphic and captures of Anthropic's Haiku 5.5 announcement; provider pricing/benchmarks, not independently measured.",
+  "sources": [
+    "https://www.anthropic.com/claude-haiku-5-5",
+    "https://www.anthropic.com/claude-haiku-5-5-system-card"
+  ],
+  "verify_before_render": [
+    "Primary source claims/pricing checked 2026-10-10. Promotional/provider benchmarks attributed, not represented as our independent test.",
+    "No on-screen credit captions. Option 3 Chatterbox Michael continuous-flow voice required."
+  ],
+  "production_category": "news",
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "clip",
+      "src": "price-board.mp4",
+      "in": 0,
+      "out": 7,
+      "fit": "fill-blur",
+      "headline": "CLAUDE HAIKU *GOT CHEAPER*",
+      "sub": "5.5 pricing has one important catch",
+      "say": "Claude Haiku {5.5|five point five} just got dramatically cheaper, but the headline price has one important limit."
+    },
+    {
+      "id": "price",
+      "type": "stat",
+      "heading": "SMALL PROMPTS, *SMALL PRICE*",
+      "value": 0.1,
+      "decimals": 2,
+      "prefix": "$",
+      "label": "per 1M input tokens · prompts up to 100k",
+      "icon": false,
+      "at": "ten",
+      "say": "Small prompts cost ten cents per million input tokens, and fifty cents per million output tokens."
+    },
+    {
+      "id": "uses",
+      "type": "steps",
+      "heading": "USE THE *SMALL* MODEL",
+      "background": {
+        "image": "desktop-top.jpg"
+      },
+      "steps": [
+        "Quick lookups",
+        "Short summaries",
+        "Focused sub-agents"
+      ],
+      "say": "That is for tasks like summaries, lookups and sub-agents, where a bigger model might just waste money."
+    },
+    {
+      "id": "effort",
+      "type": "image",
+      "image": "section-performance.jpg",
+      "heading": "CHOOSE THE *EFFORT*",
+      "say": "You also get adjustable effort, so you can trade cost and speed for deeper reasoning."
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE *PRICE CATCH*",
+      "cons": [
+        "Over 100k prompt tokens: rates rise 5×",
+        "New tokenizer affects token counts"
+      ],
+      "pros": [
+        "Lower cost for focused, high-volume work"
+      ],
+      "item_at": [
+        "over",
+        "tokenizer",
+        "focused"
+      ],
+      "say": "But go over a hundred thousand prompt tokens, and both prices jump fivefold. The new tokenizer also affects your bill."
+    },
+    {
+      "id": "proof",
+      "type": "image",
+      "image": "table-1.jpg",
+      "heading": "MATCH MODEL TO *TASK*",
+      "say": "For hard coding tasks, Anthropic's own benchmarks still favor larger models. So test your workload, not just the cheapest sticker price."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "HAIKU",
+      "say": "Would you try cheap sub-agents? Comment Haiku."
+    }
+  ],
+  "seo": {
+    "keyword": "Claude Haiku 5.5",
+    "aliases": [
+      "Haiku",
+      "Claude Haiku"
+    ],
+    "onscreen_first3s": "CLAUDE HAIKU 5.5",
+    "youtube": {
+      "title": "Claude Haiku 5.5: Cheap API, One Price Catch",
+      "description": "Claude Haiku 5.5 pricing starts at $0.10 per million input tokens and $0.50 per million output tokens for prompts up to 100,000 tokens. Above that threshold, the rates are $0.50 and $2.50 respectively. Adjustable effort helps balance cost and quality; the new tokenizer can change tokens consumed. Anthropic's own evaluation still favors larger models for complex coding. Announcement: October 7, 2026; verified October 10.\nSource: https://www.anthropic.com/claude-haiku-5-5",
+      "hashtags": [
+        "#Shorts",
+        "#Claude",
+        "#AItools",
+        "#AInews"
+      ],
+      "tags": [
+        "Claude Haiku 5.5",
+        "Haiku API pricing",
+        "Claude pricing",
+        "AI model costs",
+        "AI agents",
+        "Anthropic",
+        "small language models"
+      ]
+    },
+    "tiktok": {
+      "caption": "Claude Haiku 5.5 is cheaper for small AI jobs—but prompts over 100k tokens move to a higher price tier. Check the full bill, not just the headline rate.",
+      "hashtags": [
+        "#Claude",
+        "#AItools",
+        "#AInews"
+      ]
+    },
+    "instagram": {
+      "caption": "Claude Haiku 5.5 is cheaper for small AI jobs—but prompts over 100k tokens move to a higher price tier. Check the full bill, not just the headline rate. Save this for later.",
+      "hashtags": [
+        "#Claude",
+        "#AItools",
+        "#AInews"
+      ]
+    },
+    "facebook": {
+      "caption": "Claude Haiku 5.5 is cheaper for small AI jobs—but prompts over 100k tokens move to a higher price tier. Check the full bill, not just the headline rate.",
+      "hashtags": [
+        "#Claude",
+        "#AItools",
+        "#AInews"
+      ]
+    },
+    "x": {
+      "text": "Claude Haiku 5.5: is cheaper for small AI jobs—but prompts over 100k tokens move to a higher price tier. Check the full bill, not just the headline rate.",
+      "hashtags": [
+        "#AI"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "Claude Haiku 5.5: Cheap API, One Price Catch"
+    ],
+    "caption": "Claude Haiku 5.5 is cheaper for small AI jobs—but prompts over 100k tokens move to a higher price tier. Check the full bill, not just the headline rate.",
+    "hashtags": [
+      "#Claude",
+      "#AItools",
+      "#AInews"
+    ],
+    "pinned_comment": "Sources and access notes: https://www.anthropic.com/claude-haiku-5-5"
+  }
+}

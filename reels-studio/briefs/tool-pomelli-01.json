@@ -1,0 +1,173 @@
+{
+  "id": "tool-pomelli-01",
+  "template": "tool-spotlight",
+  "capture": "captures/tool-pomelli-01",
+  "title": "Pomelli: Free AI Product Photos—with a Catch",
+  "niche": "tech / AI tool",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "2026-10-10: original script based on checked primary sources; approved Option 3 flow voice; no on-screen credits.",
+  "keywords": [
+    "Pomelli",
+    "product",
+    "brand",
+    "Photoshoot",
+    "Google",
+    "accuracy"
+  ],
+  "facts": {
+    "checked": "2026-10-10"
+  },
+  "credits_on_screen": "Footage: Google Labs official Pomelli demonstrations. Screens: own captures of Google's product announcements. AI-generated example product imagery.",
+  "sources": [
+    "https://blog.google/innovation-and-ai/models-and-research/google-labs/pomelli-photoshoot/",
+    "https://blog.google/innovation-and-ai/models-and-research/google-labs/pomelli-agentic-capabilities/",
+    "https://blog.google/innovation-and-ai/models-and-research/google-labs/pomelli-in-europe/",
+    "https://labs.google.com/pomelli/about/"
+  ],
+  "verify_before_render": [
+    "Primary source claims/pricing checked 2026-10-10. Promotional/provider benchmarks attributed, not represented as our independent test.",
+    "No on-screen credit captions. Option 3 Chatterbox Michael continuous-flow voice required.",
+    "Evergreen tool spotlight: Photoshoot announced February 19 and agent features May 19, 2026. Do not describe it as a new October launch. Europe/UK expansion announced April 21; access is regional."
+  ],
+  "production_category": "tool",
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "clip",
+      "src": "pomelli-edit.mp4",
+      "in": 0.3,
+      "out": 6.8,
+      "fit": "fill-blur",
+      "headline": "POMELLI: PRODUCT *PHOTOS*",
+      "sub": "Brand-ready images without a studio",
+      "say": "Pomelli can turn a plain product photo into branded marketing images, without booking a studio."
+    },
+    {
+      "id": "brand",
+      "type": "clip",
+      "src": "pomelli-agent.mp4",
+      "in": 1,
+      "out": 7.5,
+      "fit": "card",
+      "say": "You give Google's tool your website or brand materials, so it learns your colors, type and visual style."
+    },
+    {
+      "id": "photoshoot",
+      "type": "clip",
+      "src": "pomelli-edit.mp4",
+      "in": 9,
+      "out": 17,
+      "fit": "card",
+      "say": "Then Photoshoot creates studio or lifestyle variations, which you can refine and download."
+    },
+    {
+      "id": "more",
+      "type": "steps",
+      "heading": "ONE BRAND, *MORE ASSETS*",
+      "background": {
+        "image": "desktop-top.jpg"
+      },
+      "steps": [
+        "Product images",
+        "Campaign assets",
+        "Brand books and websites"
+      ],
+      "say": "It also makes campaign assets, while its agent features can build brand books and websites from that context."
+    },
+    {
+      "id": "accuracy",
+      "type": "verdict",
+      "cons": [
+        "AI can change labels, colors or shapes",
+        "Review every product detail before running an ad"
+      ],
+      "pros": [
+        "Fast ideas and on-brand variations"
+      ],
+      "say": "But these are not real photoshoots. AI can change product details, so check labels, colors and shapes before using an image in an ad."
+    },
+    {
+      "id": "access",
+      "type": "image",
+      "image": "section-how.jpg",
+      "heading": "CHECK YOUR *ACCESS*",
+      "say": "Google calls this a free Labs experiment, with availability and languages depending on your region. Useful, but not a reason to skip accuracy."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "BRAND",
+      "say": "What product would you shoot first? Comment brand."
+    }
+  ],
+  "contains_synthetic_media": true,
+  "seo": {
+    "keyword": "Pomelli",
+    "aliases": [
+      "Google Pomelli"
+    ],
+    "onscreen_first3s": "POMELLI",
+    "youtube": {
+      "title": "Pomelli: Free AI Product Photos—with a Catch",
+      "description": "Pomelli is Google Labs' AI marketing experiment. Photoshoot turns a product image into brand-aware studio/lifestyle variations using Business DNA, and lets you edit/download results. Agent features also support brand books and websites. Google describes it as free; regional/language availability and experiment limits apply. AI may alter your actual product, so check labels, proportions, colors and claims before using an output commercially. This is a current tool spotlight, not a claim of an October launch.\nOfficial sources: https://blog.google/innovation-and-ai/models-and-research/google-labs/pomelli-photoshoot/ and https://blog.google/innovation-and-ai/models-and-research/google-labs/pomelli-agentic-capabilities/",
+      "hashtags": [
+        "#Shorts",
+        "#Pomelli",
+        "#AItools",
+        "#SmallBusiness"
+      ],
+      "tags": [
+        "Pomelli",
+        "Google Pomelli",
+        "Pomelli Photoshoot",
+        "AI product photography",
+        "AI marketing tools",
+        "Google Labs",
+        "AI product photos"
+      ]
+    },
+    "tiktok": {
+      "caption": "Pomelli turns product photos into branded campaign images. Google calls it a free Labs experiment, but check regional access—and every product detail before using AI imagery in an ad.",
+      "hashtags": [
+        "#Pomelli",
+        "#AItools",
+        "#SmallBusiness"
+      ]
+    },
+    "instagram": {
+      "caption": "Pomelli turns product photos into branded campaign images. Google calls it a free Labs experiment, but check regional access—and every product detail before using AI imagery in an ad. Save this for later.",
+      "hashtags": [
+        "#Pomelli",
+        "#AItools",
+        "#SmallBusiness"
+      ]
+    },
+    "facebook": {
+      "caption": "Pomelli turns product photos into branded campaign images. Google calls it a free Labs experiment, but check regional access—and every product detail before using AI imagery in an ad.",
+      "hashtags": [
+        "#Pomelli",
+        "#AItools",
+        "#SmallBusiness"
+      ]
+    },
+    "x": {
+      "text": "Pomelli: turns product photos into branded campaign images. Google calls it a free Labs experiment, but check regional access—and every product detail before using AI imagery in an ad.",
+      "hashtags": [
+        "#AI"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "Pomelli: Free AI Product Photos—with a Catch"
+    ],
+    "caption": "Pomelli turns product photos into branded campaign images. Google calls it a free Labs experiment, but check regional access—and every product detail before using AI imagery in an ad.",
+    "hashtags": [
+      "#Pomelli",
+      "#AItools",
+      "#SmallBusiness"
+    ],
+    "pinned_comment": "Sources and access notes: https://blog.google/innovation-and-ai/models-and-research/google-labs/pomelli-photoshoot/"
+  }
+}
