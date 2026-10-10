@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-10-10T18:38:44.976642+00:00",
+  "source_commit": "8c4e3631b83a44e26f21d69ddf33f39c106e3c49",
+  "repository": "zainkhan122/yt-tts",
+  "scope": "reels-studio + .github/workflows only",
+  "buffer": {
+    "enabled": true,
+    "pilot_passed": true,
+    "timezone": "America/New_York",
+    "daily_target": 3,
+    "queue_approvals": {
+      "approved": 3,
+      "held": 8
+    },
+    "platform_receipt_states": {
+      "scheduled": 6,
+      "sent": 3,
+      "published_manual": 3
+    }
+  },
+  "youtube": {
+    "enabled": true,
+    "long_pilot_passed": false,
+    "long_queue_count": 0,
+    "metadata_completed": 1,
+    "recorded_refresh_grant_expiry_utc": "2026-10-17T13:42:00+00:00"
+  },
+  "optional_agent": {
+    "production_enabled": false,
+    "publishing_enabled": false,
+    "qualification": "unqualified",
+    "paid_inference_limit_usd": 0,
+    "models": {
+      "producer": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "critic": "google/gemma-4-31b-it:free",
+      "audio_critic": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
+    },
+    "model_selection_revision": 2
+  },
+  "local_credentials_present": {
+    "gh_token": true,
+    "buffer_token": true,
+    "google_client.json": true,
+    "youtube_oauth.json": true,
+    "youtube_state_key": true,
+    "openrouter_token": false
+  },
+  "important": [
+    "A missing local OpenRouter key is expected when it is stored ONLY in Actions Secrets; do not ask for it again without checking secret metadata.",
+    "Never re-upload a video with an existing platform receipt/reservation.",
+    "The optional producer/critic cannot publish or activate itself. Model scores are not parity certification.",
+    "A fresh conversation can restore operational state from git, not private chat reasoning. A completely new workspace still needs authorized GitHub access for writes; existing cloud jobs keep their encrypted secrets."
+  ]
+}

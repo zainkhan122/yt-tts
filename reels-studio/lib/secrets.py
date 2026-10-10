@@ -12,6 +12,28 @@ YOUTUBE_PATH = Path.home() / ".config/reels-studio/youtube_oauth.json"
 YOUTUBE_KEY_PATH = Path.home() / ".config/reels-studio/youtube_state_key"
 OPENROUTER_PATH = Path.home() / ".config/reels-studio/openrouter_token"
 _RUNTIME = set()
+VAULT_PERMISSION_REPAIRS = []
+
+
+def secure_vault():
+    # Workspace restoration may normalize modes. Reassert restrictions before
+    # reading any private file, even when a particular call uses an env override.
+    vault = Path.home() / ".config/reels-studio"
+    if vault.is_symlink():
+        raise RuntimeError("Private credential vault must not be a symlink")
+    if vault.exists():
+        if (vault.stat().st_mode & 0o777) != 0o700:
+            vault.chmod(0o700)
+            VAULT_PERMISSION_REPAIRS.append("vault-directory")
+        for path in vault.iterdir():
+            if path.is_symlink():
+                raise RuntimeError("Symlink found in private credential vault; refusing secret access")
+            if path.is_file() and (path.stat().st_mode & 0o777) != 0o600:
+                path.chmod(0o600)
+                VAULT_PERMISSION_REPAIRS.append(path.name)
+
+
+secure_vault()
 PATTERN = re.compile(r"github_pat_[A-Za-z0-9_]{20,}|gh[pousr]_[A-Za-z0-9]{30,}|sk-or-v1-[A-Za-z0-9_-]{20,}|GOCSPX-[A-Za-z0-9_-]{15,}")
 
 
@@ -20,8 +42,12 @@ def gh_token():
     if t:
         return t
     for p in PATHS:
-        if p.exists() and p.read_text().strip():
-            return p.read_text().strip()
+        if p.exists():
+            if p.is_symlink():
+                raise RuntimeError("Credential path must not be a symlink")
+            p.chmod(0o600)
+            if p.read_text().strip():
+                return p.read_text().strip()
     return None
 
 

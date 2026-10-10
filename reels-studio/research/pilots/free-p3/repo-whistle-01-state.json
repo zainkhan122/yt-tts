@@ -1,0 +1,53 @@
+{
+  "asset_acquisition": "controlled reused capture pool",
+  "baseline_script_exposed": false,
+  "case": "repo-whistle-01",
+  "configuration_sha256": "042edd96cf7f545d9e6270765ecc23545402b98775191c6b64bb135be9ac3f8d",
+  "finished_at": "2026-10-10T18:30:13Z",
+  "pilot": "free-p3",
+  "publishing_allowed": false,
+  "repairs": [
+    {
+      "issues": {
+        "critic": null,
+        "hard_gate_errors": [
+          "schema version: protocol value must equal 1, not '1'"
+        ]
+      },
+      "revision": 0
+    },
+    {
+      "issues": {
+        "critic": null,
+        "hard_gate_errors": [
+          "c1: Evidence quote does not occur verbatim in the fetched source",
+          "c4: Evidence quote does not occur verbatim in the fetched source",
+          "c4: invented test/observation attribution",
+          "c5: Evidence quote does not occur verbatim in the fetched source",
+          "hook: metric attached to a non-metric scene",
+          "proof-bench: metric attached to a non-metric scene",
+          "proof-demo: metric attached to a non-metric scene",
+          "cta: numeric assertions cannot be hidden in editorial/CTA text"
+        ]
+      },
+      "revision": 1
+    },
+    {
+      "issues": {
+        "critic": null,
+        "hard_gate_errors": [
+          "c5: Evidence quote does not occur verbatim in the fetched source"
+        ]
+      },
+      "revision": 2
+    }
+  ],
+  "revision": 2,
+  "sources_read": [
+    "observation1",
+    "s1",
+    "s2"
+  ],
+  "started_at": "2026-10-10T18:25:56Z",
+  "status": "blocked_quality"
+}

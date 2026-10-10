@@ -3,7 +3,11 @@
   "properties": {
     "version": {
       "const": 1,
-      "description": "Protocol schema version: the INTEGER 1. This is NOT the AI model/product version."
+      "description": "Protocol schema version: the INTEGER 1. This is NOT the AI model/product version.",
+      "type": "integer",
+      "enum": [
+        1
+      ]
     },
     "topic": {
       "type": "string",

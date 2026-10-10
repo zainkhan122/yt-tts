@@ -1,0 +1,220 @@
+{
+  "activation_allowed": false,
+  "baseline_arena_monetary_cost": "unknown",
+  "calls": 17,
+  "cases": [
+    {
+      "asset_acquisition": "controlled reused capture pool",
+      "baseline_script_exposed": false,
+      "case": "news-gemini-agent-01",
+      "configuration_sha256": "042edd96cf7f545d9e6270765ecc23545402b98775191c6b64bb135be9ac3f8d",
+      "finished_at": "2026-10-10T18:19:03Z",
+      "pilot": "free-p3",
+      "publishing_allowed": false,
+      "repairs": [
+        {
+          "issues": {
+            "critic": null,
+            "hard_gate_errors": [
+              "schema version: protocol value must equal 1, not '1'",
+              "schema metadata.facebook_caption: maxLength=600; actual length=666"
+            ]
+          },
+          "revision": 0
+        },
+        {
+          "issues": {
+            "critic": null,
+            "hard_gate_errors": [
+              "c4: Evidence quote does not occur verbatim in the fetched source",
+              "c5: Evidence quote does not occur verbatim in the fetched source",
+              "c6: Evidence quote does not occur verbatim in the fetched source",
+              "c7: Evidence quote does not occur verbatim in the fetched source",
+              "s5: metric number absent from its evidence quote",
+              "narration word count 194 outside 90\u2013140"
+            ]
+          },
+          "revision": 1
+        },
+        {
+          "issues": {
+            "critic": null,
+            "hard_gate_errors": [
+              "c7: Evidence quote does not occur verbatim in the fetched source",
+              "s5: metric number absent from its evidence quote"
+            ]
+          },
+          "revision": 2
+        }
+      ],
+      "revision": 2,
+      "sources_read": [
+        "s1"
+      ],
+      "started_at": "2026-10-10T18:15:18Z",
+      "status": "blocked_quality"
+    },
+    {
+      "asset_acquisition": "controlled reused capture pool",
+      "baseline_script_exposed": false,
+      "case": "news-haiku-55-01",
+      "configuration_sha256": "042edd96cf7f545d9e6270765ecc23545402b98775191c6b64bb135be9ac3f8d",
+      "finished_at": "2026-10-10T18:25:56Z",
+      "pilot": "free-p3",
+      "publishing_allowed": false,
+      "repairs": [
+        {
+          "issues": {
+            "critic": null,
+            "hard_gate_errors": [
+              "schema version: protocol value must equal 1, not '1'",
+              "schema metadata.facebook_caption: maxLength=600; actual length=620"
+            ]
+          },
+          "revision": 0
+        },
+        {
+          "issues": {
+            "critic": null,
+            "hard_gate_errors": [
+              "c4: Evidence quote does not occur verbatim in the fetched source",
+              "c6: Evidence quote does not occur verbatim in the fetched source",
+              "c8: Evidence quote does not occur verbatim in the fetched source",
+              "c9: Evidence quote does not occur verbatim in the fetched source",
+              "bench: metric number absent from its evidence quote",
+              "narration word count 145 outside 90\u2013140",
+              "primary keyword absent from the hook"
+            ]
+          },
+          "revision": 1
+        },
+        {
+          "issues": {
+            "critic": null,
+            "hard_gate_errors": [
+              "c4: Evidence quote does not occur verbatim in the fetched source",
+              "c6: Evidence quote does not occur verbatim in the fetched source",
+              "c8: Evidence quote does not occur verbatim in the fetched source",
+              "c9: Evidence quote does not occur verbatim in the fetched source",
+              "bench: metric number absent from its evidence quote",
+              "narration word count 143 outside 90\u2013140"
+            ]
+          },
+          "revision": 2
+        }
+      ],
+      "revision": 2,
+      "sources_read": [
+        "s1"
+      ],
+      "started_at": "2026-10-10T18:19:03Z",
+      "status": "blocked_quality"
+    },
+    {
+      "asset_acquisition": "controlled reused capture pool",
+      "baseline_script_exposed": false,
+      "case": "repo-whistle-01",
+      "configuration_sha256": "042edd96cf7f545d9e6270765ecc23545402b98775191c6b64bb135be9ac3f8d",
+      "finished_at": "2026-10-10T18:30:13Z",
+      "pilot": "free-p3",
+      "publishing_allowed": false,
+      "repairs": [
+        {
+          "issues": {
+            "critic": null,
+            "hard_gate_errors": [
+              "schema version: protocol value must equal 1, not '1'"
+            ]
+          },
+          "revision": 0
+        },
+        {
+          "issues": {
+            "critic": null,
+            "hard_gate_errors": [
+              "c1: Evidence quote does not occur verbatim in the fetched source",
+              "c4: Evidence quote does not occur verbatim in the fetched source",
+              "c4: invented test/observation attribution",
+              "c5: Evidence quote does not occur verbatim in the fetched source",
+              "hook: metric attached to a non-metric scene",
+              "proof-bench: metric attached to a non-metric scene",
+              "proof-demo: metric attached to a non-metric scene",
+              "cta: numeric assertions cannot be hidden in editorial/CTA text"
+            ]
+          },
+          "revision": 1
+        },
+        {
+          "issues": {
+            "critic": null,
+            "hard_gate_errors": [
+              "c5: Evidence quote does not occur verbatim in the fetched source"
+            ]
+          },
+          "revision": 2
+        }
+      ],
+      "revision": 2,
+      "sources_read": [
+        "observation1",
+        "s1",
+        "s2"
+      ],
+      "started_at": "2026-10-10T18:25:56Z",
+      "status": "blocked_quality"
+    },
+    {
+      "asset_acquisition": "controlled reused capture pool",
+      "baseline_script_exposed": false,
+      "case": "tool-mosa-01",
+      "configuration_sha256": "042edd96cf7f545d9e6270765ecc23545402b98775191c6b64bb135be9ac3f8d",
+      "error": "PilotBlocked: Provider returned an error inside HTTP 200: Upstream idle timeout exceeded",
+      "finished_at": "2026-10-10T18:35:20Z",
+      "pilot": "free-p3",
+      "publishing_allowed": false,
+      "repairs": [
+        {
+          "issues": {
+            "critic": null,
+            "hard_gate_errors": [
+              "schema version: protocol value must equal 1, not '1'"
+            ]
+          },
+          "revision": 0
+        }
+      ],
+      "revision": 0,
+      "sources_read": [
+        "s1",
+        "s2"
+      ],
+      "started_at": "2026-10-10T18:30:13Z",
+      "status": "blocked"
+    },
+    {
+      "asset_acquisition": "controlled reused capture pool",
+      "baseline_script_exposed": false,
+      "case": "tool-pomelli-01",
+      "configuration_sha256": "042edd96cf7f545d9e6270765ecc23545402b98775191c6b64bb135be9ac3f8d",
+      "error": "PilotBlocked: Pilot inference halted after an uncertain/policy-invalid result; inspect receipts",
+      "finished_at": "2026-10-10T18:35:20Z",
+      "pilot": "free-p3",
+      "publishing_allowed": false,
+      "repairs": [],
+      "started_at": "2026-10-10T18:35:20Z",
+      "status": "blocked"
+    }
+  ],
+  "configuration_sha256": "ac4188196f98853f7af78252018f754db6968e49bb0311a88c7c707509d4accc",
+  "created_at": "2026-10-10T18:15:18Z",
+  "issues": [],
+  "mode": "shadow_nonpublishing",
+  "pilot_id": "free-p3",
+  "production_state_unchanged": true,
+  "publishing_writes": 0,
+  "qualification": "unqualified",
+  "ready_case_ids": [],
+  "reported_model_cost_usd": 0.0,
+  "status": "authoring_partial_or_blocked",
+  "unknown_outcome_calls": 0
+}

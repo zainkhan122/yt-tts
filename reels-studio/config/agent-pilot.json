@@ -56,7 +56,7 @@
     "minimum_request_interval_seconds": 4,
     "max_safe_attempts": 3,
     "max_inline_wait_seconds": 60,
-    "max_tool_rounds": 4,
+    "max_tool_rounds": 5,
     "max_draft_repairs": 2,
     "max_visual_repairs": 1,
     "max_source_bytes": 2000000,
@@ -101,5 +101,10 @@
       "model": "thinkingmachines/inkling:free",
       "reason": "HTTP 403: free access only through approved agentic harnesses; free-endpoint restrictions on personal voice/face data. Not used or spoofed."
     }
-  ]
+  ],
+  "prompt_files": {
+    "producer": "producer-v2.md",
+    "critic": "critic-v1.md"
+  },
+  "harness_revision": 2
 }

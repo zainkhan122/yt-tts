@@ -68,6 +68,21 @@ class EvidenceAndDraftTests(unittest.TestCase):
  def test_unread_source_cannot_be_cited(self):
   self.ev.read_ids.clear();self.assertFalse(self.gate()['passed'])
 
+ def test_typography_variation_does_not_change_evidence_words(self):
+  text="The maker’s free plan includes 50 credits — the allowance is not unlimited."
+  self.ev.records['s1']['text']=text
+  self.ev.records['s1']['text_sha256']=hashlib.sha256(text.encode()).hexdigest()
+  ref={'source_id':'s1','quote':"The maker's free plan includes 50 credits - the allowance is not unlimited."}
+  self.assertEqual(self.ev.citation(ref)['source_id'],'s1')
+  ref['quote']=ref['quote'].replace('not unlimited','unlimited')
+  with self.assertRaises(PilotBlocked):self.ev.citation(ref)
+
+ def test_protocol_integer_is_explicit_and_still_strict(self):
+  from tools.agent.gates import DRAFT_SCHEMA
+  self.assertEqual(DRAFT_SCHEMA['properties']['version']['type'],'integer')
+  self.draft['version']='1'
+  self.assertFalse(self.gate()['passed'])
+
  def test_tampered_snapshot_hash_is_blocked(self):
   self.ev.records['s1']['text']+=' fabricated addendum'
   self.assertFalse(self.gate()['passed'])

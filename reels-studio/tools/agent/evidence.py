@@ -19,7 +19,10 @@ from tools.agent.openrouter_client import PilotBlocked
 
 
 def normalized(value):
-    return ' '.join(unicodedata.normalize('NFKC',value or '').split())
+    text=unicodedata.normalize('NFKC',value or '')
+    # Typography normalization only; words/numbers/negation are never changed.
+    text=text.translate(str.maketrans({'’':"'",'‘':"'",'“':'"','”':'"','–':'-','—':'-','−':'-'}))
+    return ' '.join(text.split())
 
 
 def safe_url(url,hosts,resolver=socket.getaddrinfo):
