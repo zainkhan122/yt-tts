@@ -221,6 +221,14 @@ def reconcile_known(api, journal):
                 verify_publication(r, by_id[r["youtube_id"]], journal)
 
 
+def oauth_expiry_notice(credentials):
+    expiry = (credentials or {}).get("refresh_token_expires_at")
+    if not expiry:
+        return None
+    stamp = iso(dt.datetime.fromtimestamp(expiry, dt.timezone.utc))
+    return "Google offline authorization expires at " + stamp + "; ordinary access-token refresh does not extend this grant. Check the OAuth app publishing status and renew consent before expiry."
+
+
 def report_text(report):
     lines = ["# Hypeless YouTube delivery", "", f"**Mode:** {report['mode']} · OAuth configured: **{report['oauth_configured']}** · Verified this run: **{report['oauth_connected']}**", "",
              "| Long video | Category | Planned local publish time |", "|---|---|---|"]
@@ -266,6 +274,9 @@ def main():
         raise SystemExit("A pilot requires exactly one selected long video")
     journal = Journal(root_cfg, remote=not dry, path=ROOT/"tracker/youtube-publications.json", remote_path=REMOTE_PATH)
     report = {"mode": args.mode, "generated_at": iso(now_utc()), "oauth_configured": bool(youtube_credentials()), "oauth_connected": False, "plan": [], "notes": [], "issues": [], "api_requests": 0}
+    expiry_notice = oauth_expiry_notice(youtube_credentials())
+    if expiry_notice:
+        report["notes"].append(expiry_notice)
     if not report["oauth_configured"]:
         report["notes"].append("Google OAuth not connected. Uploader/enrichment code is installed; live API behavior is not yet verified.")
         if not dry:

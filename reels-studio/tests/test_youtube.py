@@ -410,6 +410,13 @@ class PublicationTests(unittest.TestCase):
         self.assertEqual(r["state"],"scheduled")
         self.assertNotEqual(r["state"],"sent")
 
+    def test_refresh_grant_expiry_is_visible_without_exposing_tokens(self):
+        notice=runner.oauth_expiry_notice({"refresh_token_expires_at":1792244520,"refresh_token":"private-test-value"})
+        self.assertIn("2026-10-17T13:42:00Z",notice)
+        self.assertNotIn("private-test-value",notice)
+        self.assertIn("does not extend",notice)
+        self.assertIsNone(runner.oauth_expiry_notice({}))
+
     def test_report_distinguishes_private_processing_from_published(self):
         text=runner.report_text({"mode":"private-pilot","oauth_configured":True,"oauth_connected":True,"receipts":[{"video_id":"long-demo","state":"processing","youtube_id":VIDEO_ID}]})
         self.assertIn("| long-demo | processing |",text)

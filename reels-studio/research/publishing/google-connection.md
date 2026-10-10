@@ -2,11 +2,15 @@
 
 ## Your client JSON is already received
 
-The Google Web OAuth client is secured outside git. Its registered callback is correct. **Do not recreate the client or resend its secret.** The remaining step is Google channel consent.
+The Google Web OAuth client is secured outside git. Its registered callback is correct. **Do not recreate the client or resend its secret.** Channel consent was completed and verified on 2026-10-10. The instructions below now serve for renewal.
 
 The old `e2b.app/setup/...` link expired when its sandbox disappeared. It has been replaced by a direct Google sign-in link and the existing, permanent GitHub Pages callback.
 
-## What you do now
+## Current status
+
+YouTube is connected, its encrypted Actions secret is installed, and the first Shorts tags/playlists update was verified. Google supplied a seven-day refresh grant expiring 2026-10-17 at 18:42 Pakistan time. Check the app's publishing status; if still Testing, move it to In production and then obtain a fresh consent link from the agent. The original client JSON does not need to be recreated.
+
+## How to authorize or renew
 
 1. Open the **fresh Google sign-in link supplied by the agent**. Sign in on Google and choose **Hypeless Ai**, granting the requested YouTube permission.
 2. Google returns you to:

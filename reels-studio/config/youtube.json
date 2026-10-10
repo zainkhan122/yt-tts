@@ -83,5 +83,5 @@
       "description": "Long-form AI tool tests, repo walkthroughs and weekly AI news explainers."
     }
   },
-  "note": "Owner authorised YouTube metadata integration 2026-10-10; OAuth client supplied but channel consent pending. Once connected, cron enriches sent Shorts. Long uploads still require approved assets and a verified public pilot; none exist yet."
+  "note": "Google channel connected and encrypted Actions secret installed on 2026-10-10. First live Shorts tag/playlist enrichment verified with Google read-back; no re-upload. Current offline grant expires 2026-10-17T13:42:00Z: check OAuth app publishing status and obtain fresh consent for ongoing automation. Long-form uploads still require their own approved assets and verified public pilot."
 }

@@ -1,0 +1,43 @@
+{
+  "connected": true,
+  "verified_channel_id": "UCcWh9OdX3rbfHOtDZ6neyrA",
+  "oauth_secret_stored": "YOUTUBE_OAUTH_JSON",
+  "connection_flow": "stable Pages + private one-time response attachment + signed state and PKCE",
+  "connected_at_utc": "2026-10-10T13:42:01+00:00",
+  "refresh_grant_expires_at_utc": "2026-10-17T13:42:00+00:00",
+  "refresh_grant_days": 6.999988425925926,
+  "renewal_action": "Check OAuth app Audience publishing status; move to In production and obtain fresh consent to avoid Testing-mode seven-day grants. Do not recreate client.",
+  "enrichment_run": "https://github.com/zainkhan122/yt-tts/actions/runs/38056797324",
+  "enrichment_result": "success",
+  "video_id": "F9Ng59LJ1bo",
+  "tags_verified": [
+    "Claude Slides",
+    "Claude Docs",
+    "Claude Design",
+    "Claude free",
+    "Claude Motion",
+    "AI presentation maker",
+    "free AI slides",
+    "AI tools"
+  ],
+  "playlists_verified": [
+    {
+      "key": "news",
+      "id": "PLAzrfp4w4AFo",
+      "title": "AI News \u2014 What Actually Changed | Hypeless",
+      "matching_entries": 1
+    },
+    {
+      "key": "shorts",
+      "id": "PLb3ejrNbPznk",
+      "title": "AI in Under a Minute | Hypeless Shorts",
+      "matching_entries": 1
+    }
+  ],
+  "privacy_preserved": "public",
+  "new_video_uploads": 0,
+  "used_code_attachment_removed": true,
+  "long_upload_pilot_passed": false,
+  "tests_passed": 124,
+  "expiry_warning_in_delivery_reports": true
+}

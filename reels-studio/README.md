@@ -186,7 +186,7 @@ Rules that keep renders deterministic:
 - Global English / US-led audience: America/New_York calendars, explicit UTC scheduled timestamps. Baseline 3 shorts/day, optional 4–5; max 8 pending/channel, quota/backoff and durable duplicate protection. Existing Buffer UI slots are not overwritten.
 - Direct long-form YouTube uploader: private-first resumable uploads, encrypted checkpoints, thumbnail/metadata/playlist gates, max one upload/run and three weekly publication lanes. Also enriches Buffer Shorts with backend tags/playlists.
 - Bold thumbnail generator + actual 250px preview, automatic readability/contrast checks and mandatory agent visual review.
-- **Buffer is now live:** Claude pilot sent on all three; remaining two scheduled. Five new Oct 10 Shorts completed. Google OAuth client received but channel consent is pending; long uploads remain pilot-gated.
+- **Buffer is now live:** Claude pilot sent on all three; remaining two scheduled. Five new Oct 10 Shorts completed. Google OAuth is connected and Shorts tags/playlists are live-verified; the seven-day grant needs renewal after checking app publishing status. Long uploads remain pilot-gated.
 - Read-only: `python3 reels.py post --dry-run` and `python3 reels.py youtube --mode dry-run`. No heavy TTS bootstrap needed.
 - Timing research + full calendar: [`strategy-2026-10-10.md`](research/publishing/strategy-2026-10-10.md). One-time connection: [`google-connection.md`](research/publishing/google-connection.md).
 - Operations: [`tools/post/README.md`](tools/post/README.md), [`tools/youtube/README.md`](tools/youtube/README.md). Storage: [`tools/maintenance/README.md`](tools/maintenance/README.md).

@@ -1,6 +1,8 @@
 # Direct YouTube publishing + Shorts enrichment
 
-**Client JSON received; Google channel consent is still pending.** `enabled=true` prepares the authorised Shorts metadata worker, while `live_pilot_passed=false` and the empty long queue keep routine long uploads gated. Cron uses enrichment-only mode until a long-form pilot passes, and makes no requests without OAuth. The encrypted upload-session key is installed. No direct Google upload/enrichment is claimed completed yet.
+**Google channel CONNECTED; Shorts enrichment LIVE-VERIFIED (2026-10-10).** The Claude Short has all eight expected tags and exactly one membership in the AI News and Shorts playlists, confirmed by direct Google read-back. Encrypted secret `YOUTUBE_OAUTH_JSON` is installed; no video was re-uploaded. Long uploads remain gated (`live_pilot_passed=false`, empty queue).
+
+**Renewal attention:** Google issued a seven-day offline refresh grant, expiring **2026-10-17 13:42 UTC / 18:42 Asia/Karachi**. Check Google Auth Platform → Audience → Publishing status; Testing grants normally last seven days. After moving the app to In production (following any required verification), obtain fresh consent with the existing client. Do not recreate the client or assume access-token refresh can extend the current grant. Delivery reports now surface its expiry.
 
 ## Scope
 

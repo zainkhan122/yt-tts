@@ -117,3 +117,9 @@ Five new scripts/capture packs rendered in Actions: Haiku 5.5, Gemini agent, Mos
 Google Web OAuth client JSON received, moved outside git with mode 600. Expected callback is correct. Channel consent/refresh token is still missing; the private preloaded connector is available. YouTube metadata worker is prepared, but no direct Google API upload/enrichment is claimed. Long-form remains gated on its own live pilot.
 
 Five source capture packs (58 files) archived and byte-verified before local pruning. Current downloadable batch bundle + one MP4 preview are the only large saved deliverables; finished masters and kits remain in Releases. Other projects untouched.
+
+## 2026-10-10 — Google OAuth connected / enrichment verified
+
+Stable callback file handoff completed. Expected Hypeless YouTube channel verified; refresh credentials encrypted into `YOUTUBE_OAUTH_JSON`. Live enrichment run 38056797324 succeeded: all eight Claude Short tags and exactly one membership each in AI News + Shorts playlists confirmed by direct Google read-back. No re-upload and public copy/privacy preserved.
+
+Google issued a seven-day refresh grant, ending 2026-10-17 13:42 UTC (18:42 Pakistan). Owner must check Audience publishing status and re-authorize after switching to In production if still Testing. Access-token refresh does not extend this grant. Expiry warning added to reports. Long-form pilot remains pending; five new Oct 10 videos remain held.
