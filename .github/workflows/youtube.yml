@@ -37,6 +37,7 @@ jobs:
           filter: blob:none
           sparse-checkout: |
             /reels-studio/
+            /.github/workflows/
           sparse-checkout-cone-mode: false
       - name: Live kill switch / OAuth gate
         id: gate

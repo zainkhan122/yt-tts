@@ -64,6 +64,7 @@ jobs:
         with:
           sparse-checkout: |
             /reels-studio/
+            /.github/workflows/
           sparse-checkout-cone-mode: false
           filter: blob:none
       - uses: actions/cache@v4

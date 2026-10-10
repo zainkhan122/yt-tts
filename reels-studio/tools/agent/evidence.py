@@ -105,6 +105,8 @@ class EvidenceStore:
         if sid not in self.read_ids:raise PilotBlocked('Citation refers to a source the producer did not read')
         if not 25<=len(quote)<=900:raise PilotBlocked('Evidence quote is too short/long')
         record=self.records[sid]
+        if hashlib.sha256(record['text'].encode()).hexdigest()!=record['text_sha256']:
+            raise PilotBlocked('Evidence snapshot changed after collection')
         index=normalized(record['text']).find(quote)
         if index<0:raise PilotBlocked('Evidence quote does not occur verbatim in the fetched source')
         return {'source_id':sid,'url':record['url'],'quote':quote,'start':index,'end':index+len(quote),'text_sha256':record['text_sha256'],'retrieved_at':record['retrieved_at'],'kind':record['kind']}

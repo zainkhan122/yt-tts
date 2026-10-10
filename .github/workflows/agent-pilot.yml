@@ -1,0 +1,184 @@
+# OPTIONAL / NON-PUBLISHING. No schedule, no release upload, no production queue mutation.
+name: Hypeless optional producer–critic comparison
+on:
+  workflow_dispatch:
+    inputs:
+      pilot_id:
+        description: 'New audit ID; do not replay an interrupted run blindly'
+        default: 'free-p1'
+        required: true
+      cases:
+        description: 'Space-separated baseline IDs, or empty for the five-case comparison'
+        default: ''
+        required: false
+permissions:
+  contents: read
+concurrency:
+  group: hypeless-optional-agent-pilot
+  cancel-in-progress: false
+jobs:
+  author:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    outputs:
+      ready: ${{ steps.result.outputs.ready }}
+      matrix: ${{ steps.result.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          filter: blob:none
+          persist-credentials: false
+          sparse-checkout: |
+            /reels-studio/
+            /.github/workflows/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Lightweight research / gate dependencies
+        run: python3 -m pip install -r reels-studio/tools/agent/requirements.txt -r reels-studio/tools/youtube/requirements.txt playwright
+      - name: Offline safety tests — not model quality evidence
+        run: python3 -m unittest discover -s reels-studio/tests -v
+      - name: Pin baselines, public sources and media
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CASES: ${{ inputs.cases }}
+        run: |
+          python3 - <<'PY'
+          import os,subprocess,sys
+          args=[sys.executable,'reels-studio/tools/agent/prepare.py','--work',os.environ['RUNNER_TEMP']+'/pilot']
+          if os.environ['CASES'].strip():args+=['--cases',*os.environ['CASES'].split()]
+          raise SystemExit(subprocess.call(args))
+          PY
+      - name: Browser tool — no model/social keys
+        run: |
+          python3 -m playwright install --with-deps chromium
+          python3 reels-studio/tools/agent/capture_public.py --work "$RUNNER_TEMP/pilot"
+      - name: Producer, independent critic and hard gates
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          PILOT_ID: ${{ inputs.pilot_id }}
+          CASES: ${{ inputs.cases }}
+          PYTHONUNBUFFERED: '1'
+        run: |
+          python3 - <<'PY'
+          import os,subprocess,sys
+          args=[sys.executable,'reels-studio/tools/agent/run.py','--work',os.environ['RUNNER_TEMP']+'/pilot','--pilot-id',os.environ['PILOT_ID']]
+          if os.environ['CASES'].strip():args+=['--cases',*os.environ['CASES'].split()]
+          raise SystemExit(subprocess.call(args))
+          PY
+      - id: result
+        if: always()
+        name: Controller-approved render matrix only
+        run: |
+          python3 - <<'PY'
+          import json,os,re
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'pilot/authoring-report.json'
+          r=json.loads(p.read_text()) if p.exists() else {}
+          ids=r.get('ready_case_ids',[])
+          known={c['id'] for c in json.load(open('reels-studio/agent/cases/baseline-v1.json'))['cases']}
+          if not all(i in known and re.fullmatch(r'[a-z0-9-]+',i) for i in ids):raise SystemExit('Unsafe render matrix')
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              f.write('ready='+str(bool(ids)).lower()+'\n')
+              f.write('matrix='+json.dumps(ids)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pilot-evidence
+          path: ${{ runner.temp }}/pilot/
+          retention-days: 1
+          if-no-files-found: warn
+  render:
+    needs: author
+    if: needs.author.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        case: ${{ fromJSON(needs.author.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          filter: blob:none
+          persist-credentials: false
+          sparse-checkout: |
+            /reels-studio/
+            /.github/workflows/
+          sparse-checkout-cone-mode: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: pilot-evidence
+          path: ${{ runner.temp }}/pilot
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/hyperframes
+            ~/.cache/puppeteer
+            ~/.cache/huggingface
+            ~/.cache/pip
+          key: hf-0.8.137-cbx-${{ runner.os }}-${{ hashFiles('reels-studio/setup/setup-whisper.sh', 'reels-studio/cloud/setup-render.sh') }}
+      - name: Approved render toolchain — no publishing/model credentials
+        run: |
+          bash reels-studio/cloud/setup-render.sh
+          python3 -m pip install -r reels-studio/tools/agent/requirements.txt
+      - name: Quarantined candidate render
+        env:
+          CASE_ID: ${{ matrix.case }}
+          PYTHONUNBUFFERED: '1'
+        run: python3 reels-studio/tools/agent/render_case.py --case-dir "$RUNNER_TEMP/pilot/$CASE_ID" --output "$RUNNER_TEMP/candidate/$CASE_ID"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pilot-candidate-${{ matrix.case }}
+          path: |
+            ${{ runner.temp }}/candidate/
+            /var/tmp/reels/shadow-*/build.log
+          retention-days: 1
+          if-no-files-found: warn
+  compare:
+    needs: [author, render]
+    if: always() && needs.author.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          filter: blob:none
+          persist-credentials: false
+          sparse-checkout: |
+            /reels-studio/
+            /.github/workflows/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m pip install -r reels-studio/tools/agent/requirements.txt -r reels-studio/tools/youtube/requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: pilot-evidence
+          path: ${{ runner.temp }}/pilot
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: pilot-candidate-*
+          path: ${{ runner.temp }}/candidates
+      - name: Independent paired visual/audio comparison — no social keys
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          PYTHONUNBUFFERED: '1'
+        run: python3 reels-studio/tools/agent/compare.py --work "$RUNNER_TEMP/pilot" --renders "$RUNNER_TEMP/candidates"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pilot-comparison-report
+          path: |
+            ${{ runner.temp }}/pilot/comparison/
+            ${{ runner.temp }}/pilot/inference/
+          retention-days: 1
+          if-no-files-found: warn

@@ -52,7 +52,7 @@
     }
   },
   "limits": {
-    "max_calls_per_run": 40,
+    "max_calls_per_run": 60,
     "minimum_request_interval_seconds": 4,
     "max_safe_attempts": 3,
     "max_inline_wait_seconds": 60,

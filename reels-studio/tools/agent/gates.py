@@ -70,6 +70,7 @@ def validate_draft(draft,evidence,assets):
                 errors.append(sid+': fabricated demo provenance')
             if asset['kind'] in {'screenshot','maker_demo','recorded_demo'}:proof_assets.add(scene['asset_id'])
             if asset['file'].endswith('.mp4'):
+                if scene['kind'] not in {'hook','proof'}:errors.append(sid+': video cannot be used as a still-image background')
                 duration=asset.get('duration_seconds',0)
                 if scene['clip_start']>=duration:errors.append(sid+': clip starts beyond real media')
                 if duration-scene['clip_start'] < len(scene['say'].split())/3:

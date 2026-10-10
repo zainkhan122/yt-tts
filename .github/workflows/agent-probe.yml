@@ -13,11 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.sha }}
           filter: blob:none
           persist-credentials: false
           sparse-checkout: |
             /reels-studio/
+            /.github/workflows/
           sparse-checkout-cone-mode: false
       - uses: actions/setup-python@v5
         with:

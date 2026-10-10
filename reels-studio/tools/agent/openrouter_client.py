@@ -49,6 +49,8 @@ class OpenRouter:
             raise PilotBlocked('This pilot is authorized for free-only inference')
         if config.get('publishing_enabled') or config.get('production_enabled'):
             raise PilotBlocked('Shadow pilot cannot run with production/publishing enabled')
+        if config.get('routing',{}).get('data_collection')=='allow' and not config.get('provider_training_consent',{}).get('approved'):
+            raise PilotBlocked('Provider training/retention requires explicit owner consent')
         self.path=self.work/'calls.json'
         self.state=json.loads(self.path.read_text()) if self.path.exists() else {'version':1,'calls':[],'reported_cost_usd':'0','cooldown_until':None}
         self.checked={}
@@ -119,6 +121,7 @@ class OpenRouter:
         return {k:usage.get(k) for k in ['prompt_tokens','completion_tokens','total_tokens','cost','cost_details','completion_tokens_details']}
 
     def chat(self,role,messages,*,tools=None,tool_choice=None,max_tokens=None,label='call'):
+        if self.state.get('halted'):raise PilotBlocked('Pilot inference halted after an uncertain/policy-invalid result; inspect receipts')
         if role not in self.checked:raise PilotBlocked('Model/account preflight must pass first')
         spec=self.config['roles'][role];lock=self.checked[role];limits=self.config['limits']
         if contains_secret(json.dumps(messages,ensure_ascii=False)):
@@ -147,7 +150,7 @@ class OpenRouter:
             try:
                 r=self.session.post(BASE+'/chat/completions',headers=headers,json=body,timeout=(15,300),allow_redirects=False)
             except (requests.Timeout,requests.ConnectionError):
-                record['state']='uncertain';self._persist()
+                record['state']='uncertain';self.state['halted']=True;self._persist()
                 raise PilotBlocked('Inference response lost; hold instead of silently repeating or changing models')
             record['http_status']=r.status_code
             if r.status_code==429:
@@ -176,7 +179,7 @@ class OpenRouter:
             except (ValueError,KeyError,IndexError,TypeError):
                 record['state']='uncertain';self._persist();raise PilotBlocked('Malformed inference receipt; hold')
             except PilotBlocked as exc:
-                record.update(state='policy_blocked',error=redact(str(exc)));self._persist();raise
+                record.update(state='policy_blocked',error=redact(str(exc)));self.state['halted']=True;self._persist();raise
             # Do not persist raw reasoning/chain-of-thought. Keep final structured output and auditable receipts.
             public_message={k:message[k] for k in ['role','content','tool_calls'] if k in message}
             record.update(state='received',generation_id=result.get('id'),returned_model=result.get('model'),serving_provider=lock['provider_name'],usage=usage)
