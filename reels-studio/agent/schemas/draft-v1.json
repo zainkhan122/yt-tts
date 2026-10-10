@@ -1,0 +1,318 @@
+{
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "topic": {
+      "type": "string",
+      "maxLength": 150,
+      "minLength": 10
+    },
+    "keyword": {
+      "type": "string",
+      "maxLength": 60,
+      "minLength": 2
+    },
+    "angle": {
+      "type": "string",
+      "maxLength": 250,
+      "minLength": 20
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^c[0-9]{1,2}$"
+          },
+          "statement": {
+            "type": "string",
+            "maxLength": 450,
+            "minLength": 15
+          },
+          "attribution": {
+            "enum": [
+              "source_fact",
+              "maker_claim",
+              "recorded_observation"
+            ]
+          },
+          "supports": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source_id": {
+                  "type": "string",
+                  "maxLength": 50,
+                  "minLength": 1
+                },
+                "quote": {
+                  "type": "string",
+                  "maxLength": 900,
+                  "minLength": 25
+                }
+              },
+              "required": [
+                "source_id",
+                "quote"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 3
+          }
+        },
+        "required": [
+          "id",
+          "statement",
+          "attribution",
+          "supports"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 3,
+      "maxItems": 12
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,20}$"
+          },
+          "kind": {
+            "enum": [
+              "hook",
+              "proof",
+              "steps",
+              "metric",
+              "catch",
+              "cta"
+            ]
+          },
+          "statement_type": {
+            "enum": [
+              "factual",
+              "editorial",
+              "cta"
+            ]
+          },
+          "say": {
+            "type": "string",
+            "maxLength": 280,
+            "minLength": 10
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 5,
+              "minLength": 1
+            },
+            "minItems": 0,
+            "maxItems": 5
+          },
+          "asset_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 80,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "asset_usage": {
+            "enum": [
+              "none",
+              "evidence",
+              "illustration",
+              "recorded_demo"
+            ]
+          },
+          "headline": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 0
+          },
+          "subtext": {
+            "type": "string",
+            "maxLength": 60,
+            "minLength": 0
+          },
+          "bullets": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 80,
+              "minLength": 1
+            },
+            "minItems": 0,
+            "maxItems": 4
+          },
+          "metric": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1000000000000.0
+                  },
+                  "prefix": {
+                    "type": "string",
+                    "maxLength": 6,
+                    "minLength": 0
+                  },
+                  "suffix": {
+                    "type": "string",
+                    "maxLength": 12,
+                    "minLength": 0
+                  },
+                  "label": {
+                    "type": "string",
+                    "maxLength": 85,
+                    "minLength": 1
+                  },
+                  "claim_id": {
+                    "type": "string",
+                    "maxLength": 5,
+                    "minLength": 1
+                  },
+                  "decimals": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 3
+                  }
+                },
+                "required": [
+                  "value",
+                  "prefix",
+                  "suffix",
+                  "label",
+                  "claim_id",
+                  "decimals"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clip_start": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 600
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "statement_type",
+          "say",
+          "claim_ids",
+          "asset_id",
+          "asset_usage",
+          "headline",
+          "subtext",
+          "bullets",
+          "metric",
+          "clip_start"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 6,
+      "maxItems": 8
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "maxLength": 100,
+          "minLength": 8
+        },
+        "youtube_description": {
+          "type": "string",
+          "maxLength": 2600,
+          "minLength": 80
+        },
+        "instagram_caption": {
+          "type": "string",
+          "maxLength": 500,
+          "minLength": 35
+        },
+        "facebook_caption": {
+          "type": "string",
+          "maxLength": 600,
+          "minLength": 35
+        },
+        "hashtags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^#[A-Za-z0-9_]+$"
+          },
+          "minItems": 3,
+          "maxItems": 5
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 45,
+            "minLength": 1
+          },
+          "minItems": 4,
+          "maxItems": 12
+        },
+        "cta_keyword": {
+          "type": "string",
+          "pattern": "^[A-Z0-9]{2,12}$"
+        }
+      },
+      "required": [
+        "title",
+        "youtube_description",
+        "instagram_caption",
+        "facebook_caption",
+        "hashtags",
+        "tags",
+        "cta_keyword"
+      ],
+      "additionalProperties": false
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 200,
+        "minLength": 10
+      },
+      "minItems": 1,
+      "maxItems": 5
+    }
+  },
+  "required": [
+    "version",
+    "topic",
+    "keyword",
+    "angle",
+    "claims",
+    "scenes",
+    "metadata",
+    "limitations"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

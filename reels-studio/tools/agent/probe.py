@@ -32,8 +32,14 @@ def main():
         font=ImageFont.truetype(str(ROOT/'templates/_base/fonts/Anton.ttf'),140)
         d.text((220,80),'50',font=font,fill='#FFD60A')
         buf=io.BytesIO();im.save(buf,format='PNG');uri='data:image/png;base64,'+base64.b64encode(buf.getvalue()).decode()
-        msg=client.chat('critic',[{'role':'system','content':'Inspect the actual image independently. Return a JSON object, no markdown, with visible_number (integer) and claim_100_supported (boolean). Never claim to see something unavailable.'},{'role':'user','content':[{'type':'text','text':'What number is visible? Is the claim that the image shows 100 supported?'},{'type':'image_url','image_url':{'url':uri}}]}],max_tokens=1500,label='critic_image_smoke')
-        answer=json_content(msg)
+        report_tool={'type':'function','function':{'name':'report_visual_findings','description':'Submit the independent result of the image inspection to the pilot controller.','parameters':{'type':'object','properties':{'visible_number':{'type':'integer'},'claim_100_supported':{'type':'boolean'}},'required':['visible_number','claim_100_supported'],'additionalProperties':False}}}
+        msg=client.chat('critic',[{'role':'system','content':'You are an independent critic agent with a reporting tool. Inspect the actual image, then call report_visual_findings. Never claim to see something unavailable.'},{'role':'user','content':[{'type':'text','text':'What number is visible? Is the claim that the image shows 100 supported? Submit your findings with the reporting tool.'},{'type':'image_url','image_url':{'url':uri}}]}],tools=[report_tool],max_tokens=1500,label='critic_agent_image_smoke')
+        calls=msg.get('tool_calls') or []
+        if calls:
+            if len(calls)!=1 or calls[0].get('function',{}).get('name')!='report_visual_findings':raise PilotBlocked('Unexpected critic tool request')
+            answer=json.loads(calls[0]['function']['arguments'])
+        else:
+            answer=json_content(msg)
         report['checks']['critic_reads_image']=answer.get('visible_number')==50 and answer.get('claim_100_supported') is False
         report['reported_cost_usd']=str(sum(float((c.get('usage') or {}).get('cost') or 0) for c in client.state['calls']))
         report['checks']['zero_reported_inference_cost']=float(report['reported_cost_usd'])==0
