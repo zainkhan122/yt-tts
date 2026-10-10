@@ -156,6 +156,10 @@ class OpenRouter:
             record['completed_at']=iso(now_utc())
             record['elapsed_seconds']=round(max(0,self.clock()-self.last_call),3)
             if r.status_code==429:
+                try:
+                    error=r.json().get('error',{})
+                    record['provider_error']={'code':error.get('code'),'message':redact(str(error.get('message','Rate limited')))[:700]}
+                except (ValueError,AttributeError):pass
                 wait=retry_after(r.headers)
                 record.update(state='rejected_rate_limit',retry_after_seconds=wait)
                 self.state['cooldown_until']=iso(now_utc()+dt.timedelta(seconds=max(wait,1)));self._persist()

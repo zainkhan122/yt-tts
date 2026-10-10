@@ -46,7 +46,7 @@ def run(cloud=False):
         checks['remote_has_embedded_credentials']='@' in remote.split('://',1)[-1].split('/',1)[0]
         if checks['remote_has_embedded_credentials']:issues.append('Git remote URL contains embedded credentials')
     except Exception:checks['remote_has_embedded_credentials']='unknown'
-    for name in ['agent-probe.yml','agent-pilot.yml']:
+    for name in sorted(p.name for p in (ROOT.parent/'.github/workflows').glob('agent-*.yml')):
         p=ROOT.parent/'.github/workflows'/name
         if not p.exists():continue
         text=p.read_text()

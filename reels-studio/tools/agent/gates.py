@@ -1,6 +1,7 @@
 """Deterministic gates. Model opinions cannot override these results."""
 import hashlib
 import json
+import math
 from pathlib import Path
 import re
 from decimal import Decimal,InvalidOperation
@@ -53,6 +54,7 @@ def validate_draft(draft,evidence,assets):
     scene_ids=set();proof_assets=set();words=[]
     for scene in draft['scenes']:
         sid=scene['id']
+        if not math.isfinite(scene['clip_start']):errors.append(sid+': non-finite media start')
         if sid in scene_ids:errors.append('duplicate scene ID '+sid)
         scene_ids.add(sid);words.extend(scene['say'].split())
         refs=scene['claim_ids']
@@ -88,6 +90,7 @@ def validate_draft(draft,evidence,assets):
             if not metric:errors.append(sid+': metric scene has no bound metric')
             else:
                 cid=metric['claim_id']
+                if not math.isfinite(metric['value']):errors.append(sid+': non-finite metric value');continue
                 if cid not in refs:errors.append(sid+': metric claim not linked to narration')
                 raw=' '.join(r['quote'] for r in bindings.get(cid,[]))
                 if Decimal(str(metric['value'])).normalize() not in numbers(raw):errors.append(sid+': metric number absent from its evidence quote')

@@ -1,0 +1,137 @@
+name: Hypeless optional pilot — resume quota-rejected critic
+on:
+  workflow_dispatch:
+    inputs:
+      source_run:
+        description: 'Inspected pilot run with an explicitly rate-rejected critic call'
+        required: true
+      case_id:
+        description: 'Exact registered case ID; no producer replay'
+        required: true
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: hypeless-optional-agent-pilot
+  cancel-in-progress: false
+jobs:
+  resume:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      ready: ${{ steps.result.outputs.ready }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          persist-credentials: false
+          sparse-checkout: |
+            /reels-studio/
+            /.github/workflows/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m pip install -r reels-studio/tools/agent/requirements.txt -r reels-studio/tools/youtube/requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.source_run }}
+          name: pilot-evidence
+          path: ${{ runner.temp }}/pilot
+      - name: Resume only the known rejected critic operation
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          CASE_ID: ${{ inputs.case_id }}
+        run: python3 reels-studio/tools/agent/resume_critic.py --work "$RUNNER_TEMP/pilot" --case "$CASE_ID"
+      - id: result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,os
+          p=Path(os.environ['RUNNER_TEMP'])/'pilot/critic-resume-report.json'
+          ready=p.exists() and json.loads(p.read_text()).get('ready') is True
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('ready='+str(ready).lower()+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: resumed-pilot-evidence
+          path: ${{ runner.temp }}/pilot/
+          retention-days: 1
+  render:
+    needs: resume
+    if: needs.resume.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          persist-credentials: false
+          sparse-checkout: /reels-studio/
+          sparse-checkout-cone-mode: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: resumed-pilot-evidence
+          path: ${{ runner.temp }}/pilot
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/hyperframes
+            ~/.cache/puppeteer
+            ~/.cache/huggingface
+            ~/.cache/pip
+          key: hf-0.8.137-cbx-${{ runner.os }}-${{ hashFiles('reels-studio/setup/setup-whisper.sh', 'reels-studio/cloud/setup-render.sh') }}
+      - run: |
+          bash reels-studio/cloud/setup-render.sh
+          python3 -m pip install -r reels-studio/tools/agent/requirements.txt
+      - name: Shadow render only — no publishing or model keys
+        env:
+          CASE_ID: ${{ inputs.case_id }}
+        run: python3 reels-studio/tools/agent/render_case.py --case-dir "$RUNNER_TEMP/pilot/$CASE_ID" --output "$RUNNER_TEMP/candidate/$CASE_ID"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: resumed-pilot-candidate
+          path: |
+            ${{ runner.temp }}/candidate/
+            /var/tmp/reels/shadow-*/build.log
+          retention-days: 1
+  compare:
+    needs: [resume,render]
+    if: always() && needs.resume.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          persist-credentials: false
+          sparse-checkout: /reels-studio/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m pip install -r reels-studio/tools/agent/requirements.txt -r reels-studio/tools/youtube/requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: resumed-pilot-evidence
+          path: ${{ runner.temp }}/pilot
+      - uses: actions/download-artifact@v4
+        with:
+          name: resumed-pilot-candidate
+          path: ${{ runner.temp }}/candidates
+      - name: Independent paired comparison — not activation
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python3 reels-studio/tools/agent/compare.py --work "$RUNNER_TEMP/pilot" --renders "$RUNNER_TEMP/candidates"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: resumed-pilot-comparison
+          path: |
+            ${{ runner.temp }}/pilot/comparison/
+            ${{ runner.temp }}/pilot/inference/
+          retention-days: 1

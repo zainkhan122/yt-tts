@@ -30,3 +30,10 @@ The repository is the authority. Inspect current Actions runs before restarting 
 Complete the live canary, inspect draft/critic/repair artifacts, render only accepted candidates, perform actual paired visual/audio assessment, and compare several baseline cases. Persist an honest report, including missing stages, quota/provider failures and unknown costs. Owner review plus unseen-topic validation remains necessary even if model comparisons look favorable.
 
 The initial implementation includes source/evidence checks, bounded draft repairs and quarantined render/comparison jobs. Do not claim every proposed repair scenario has been exercised end-to-end merely because a unit test exists.
+
+## Further measured trials
+- `free-p3` / run 38074907568: 3 quality-blocked cases, 1 provider timeout and 1 cascade-held case. No render accepted. Detailed evidence and independent inspection are in `free-p3/ASSESSMENT.md`.
+- `free-p4` / run 38076909677: controller research-loop budget ended before submission; this was a harness issue, not a content-quality measurement. Fixed by reserving the final tool round for a draft after sources were read.
+- `free-p5` / run 38077608119: Gemini reached a hard-gate-passed revision after one draft repair; the independent critic returned 429 three times, honoring 60-second Retry-After. Remaining cases were held under the persisted cooldown. No render/publication. Cost receipts: 6 successful calls reported $0, 3 explicit rate rejections.
+- An explicit critic-only resume path is now available for that unchanged, already gate-passed draft, after cooldown. It refuses unknown/uncertain outcomes, changed configs and failed gates. It does not replay the producer.
+- A bounded visual-only repair tool is implemented and unit-tested; live post-render repair is NOT claimed demonstrated.

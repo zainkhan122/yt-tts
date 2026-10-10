@@ -218,3 +218,60 @@ class ComparisonEvidenceTests(unittest.TestCase):
   self.assertTrue(excerpt_matches('runs locally on your own computer',b))
   self.assertFalse(excerpt_matches('It sounded very natural and clear to me',b))
   self.assertFalse(excerpt_matches('locally',b))
+
+
+class VisualRepairBoundaryTests(unittest.TestCase):
+ def setUp(self):
+  self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
+  self.case,self.evidence,self.assets,self.draft=setup_data(self.temp.name)
+
+ def test_visual_patch_preserves_narration_facts_and_metadata(self):
+  from tools.agent.repair_visual import apply_patch
+  patch={'diagnosis':'The headline is too long for the safe text area.','patches':[{'scene_id':'hook','field':'headline','value':'EXAMPLE TOOL'}]}
+  after=apply_patch(self.draft,patch,self.assets)
+  self.assertEqual(after['claims'],self.draft['claims']);self.assertEqual(after['metadata'],self.draft['metadata'])
+  self.assertEqual([s['say'] for s in after['scenes']],[s['say'] for s in self.draft['scenes']])
+
+ def test_visual_repair_cannot_change_voice_or_narration(self):
+  from tools.agent.repair_visual import apply_patch
+  for field in ['say','voice','tts','claims','metadata','url']:
+   with self.assertRaises(PilotBlocked):apply_patch(self.draft,{'diagnosis':'Attempt an unauthorized bypass of the checks.','patches':[{'scene_id':'hook','field':field,'value':'replacement'}]},self.assets)
+
+ def test_visual_repair_cannot_invent_assets(self):
+  from tools.agent.repair_visual import apply_patch
+  with self.assertRaises(PilotBlocked):apply_patch(self.draft,{'diagnosis':'Replace media with an invented, unverified file.','patches':[{'scene_id':'hook','field':'asset_id','value':'fake-asset'}]},self.assets)
+
+ def test_visual_repair_rejects_nonfinite_media_position(self):
+  from tools.agent.repair_visual import apply_patch
+  with self.assertRaises(PilotBlocked):apply_patch(self.draft,{'diagnosis':'Position must be a finite point in real media.','patches':[{'scene_id':'proof','field':'clip_start','value':float('nan')}]},self.assets)
+
+ def test_nonfinite_metric_cannot_enter_renderer(self):
+  self.draft['scenes'][3]['metric']['value']=float('inf')
+  self.assertFalse(validate_draft(self.draft,self.evidence,self.assets)['passed'])
+
+class CriticResumeBoundaryTests(unittest.TestCase):
+ def fixtures(self):
+  cfg=json.loads((ROOT/'config/agent-pilot.json').read_text())
+  state={'configuration_sha256':fingerprint(cfg),'status':'blocked','error':'FreeQuotaDeferred: rate limited','revision':1}
+  calls=[{'label':'test:critic:1','state':'rejected_rate_limit','http_status':429}]
+  return cfg,state,calls
+
+ def test_only_explicitly_rejected_critic_can_resume(self):
+  from tools.agent.resume_critic import validate_resume
+  cfg,state,calls=self.fixtures();validate_resume(state,{'passed':True},calls,cfg,'test')
+  calls[0]['state']='uncertain'
+  with self.assertRaises(PilotBlocked):validate_resume(state,{'passed':True},calls,cfg,'test')
+
+ def test_resume_cannot_bypass_failed_gate_or_changed_model(self):
+  from tools.agent.resume_critic import validate_resume
+  cfg,state,calls=self.fixtures()
+  with self.assertRaises(PilotBlocked):validate_resume(state,{'passed':False},calls,cfg,'test')
+  cfg['roles']['critic']['model']='other/model:free'
+  with self.assertRaises(PilotBlocked):validate_resume(state,{'passed':True},calls,cfg,'test')
+
+ def test_resume_workflow_is_read_only_and_nonscheduled(self):
+  import yaml
+  w=yaml.safe_load((ROOT.parent/'.github/workflows/agent-resume-critic.yml').read_text())
+  self.assertEqual(w['permissions'],{'contents':'read','actions':'read'})
+  self.assertNotIn('schedule',w.get('on') or w.get(True))
+  text=json.dumps(w);self.assertNotIn('BUFFER_API_KEY',text);self.assertNotIn('YOUTUBE_OAUTH_JSON',text)

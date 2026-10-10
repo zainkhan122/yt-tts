@@ -1,5 +1,7 @@
 # Reels Studio: professional vertical-video generator (HyperFrames + free tools)
 
+> **Resume / authority:** start with [`RESUME.md`](RESUME.md) and [`CURRENT_STATE.md`](CURRENT_STATE.md). The OPTIONAL free-model producer/critic is a non-publishing lab, not an active daily production engine. See [`agent/ACCEPTANCE.md`](agent/ACCEPTANCE.md) and [`research/pilots/STATUS.md`](research/pilots/STATUS.md).
+
 Lives in **github.com/zainkhan122/yt-tts → `reels-studio/`**, the single source of truth (SSOT).
 It turns a small **brief (JSON)** into an **upload-ready 1080×1920 video** plus a post kit, using only free tools:
 - HyperFrames for rendering;
