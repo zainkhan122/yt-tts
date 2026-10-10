@@ -8,6 +8,8 @@
     "gen-1791657196-JwJErTYwYPiZfxnjFbew"
   ],
   "measured_request_seconds": 108.517,
+  "requests_with_latency_measurement": 15,
+  "requests_missing_latency_measurement": 42,
   "baseline_arena_cost": "unknown",
-  "note": "A successful-generation cost of zero does not imply missing receipts were measured; provider-side zero-dollar key cap and zero-price routing remain enforced."
+  "note": "Successful-generation cost and measured request time are partial observed totals, not invented values for missing receipts. Provider-side zero-dollar key cap and zero-price routing remain enforced."
 }
