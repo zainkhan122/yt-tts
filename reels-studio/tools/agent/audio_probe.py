@@ -16,7 +16,7 @@ import zipfile
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT))
 from tools.agent.compare import excerpt_matches
-from tools.agent.openrouter_client import OpenRouter,PilotBlocked,usage_summary
+from tools.agent.openrouter_client import OpenRouter,PilotBlocked,usage_summary,json_content
 from tools.agent.producer import tool,args_for
 from tools.post.common import load_json,save_json,iso,now_utc
 from tools.post.media import asset_metadata,public_download
@@ -47,11 +47,9 @@ def main():
   request=[{'type':'text','text':'Listen to the attached synthetic narration. Return a verbatim excerpt of at least eight consecutive words that you actually heard, plus brief observations about intelligibility and delivery. No transcript is provided. If audio is unavailable, say so honestly.'},
            {'type':'input_audio','input_audio':{'data':base64.b64encode(audio).decode(),'format':'mp3'}}]
   name='submit_audio_observation'
-  response=client.chat('audio_critic',[{'role':'system','content':'You are an audio reviewer of a public synthetic studio narration clip. Do not guess a transcript. Use the reporting tool; no hidden chain-of-thought is needed.'},{'role':'user','content':request}],
-   tools=[tool(name,'Report actual listening evidence, not a claimed quality pass.',SCHEMA)],tool_choice='auto',max_tokens=2200,label='baseline_audio_modality_check')
-  calls=response.get('tool_calls') or []
-  if len(calls)!=1:raise PilotBlocked('Audio reviewer did not return one reporting tool call')
-  result=args_for(calls[0],name)
+  response=client.chat('audio_critic',[{'role':'system','content':'You are an audio reviewer of a public synthetic studio narration clip. Do not guess a transcript. Return a JSON object only, conforming to this schema. No markdown or hidden chain-of-thought is needed. The controller independently validates structure and listening evidence.\n'+json.dumps(SCHEMA)},{'role':'user','content':request}],
+   max_tokens=2200,label='baseline_audio_modality_check_json')
+  result=json_content(response)
   from jsonschema import Draft202012Validator
   errs=list(Draft202012Validator(SCHEMA).iter_errors(result))
   if errs:raise PilotBlocked('Audio response schema failed')

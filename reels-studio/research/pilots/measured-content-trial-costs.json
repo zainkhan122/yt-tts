@@ -1,0 +1,13 @@
+{
+  "attempted_calls": 57,
+  "successful_cost_receipts": 47,
+  "reported_successful_cost_usd": "0",
+  "explicitly_rejected_requests": 9,
+  "missing_or_uncertain_cost_receipts": 1,
+  "unknown_generation_ids": [
+    "gen-1791657196-JwJErTYwYPiZfxnjFbew"
+  ],
+  "measured_request_seconds": 108.517,
+  "baseline_arena_cost": "unknown",
+  "note": "A successful-generation cost of zero does not imply missing receipts were measured; provider-side zero-dollar key cap and zero-price routing remain enforced."
+}
