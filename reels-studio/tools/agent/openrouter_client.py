@@ -49,6 +49,10 @@ class OpenRouter:
             raise PilotBlocked('This pilot is authorized for free-only inference')
         if config.get('publishing_enabled') or config.get('production_enabled'):
             raise PilotBlocked('Shadow pilot cannot run with production/publishing enabled')
+        route=config.get('routing',{})
+        if route.get('allow_fallbacks') is not False or route.get('require_parameters') is not True:
+            raise PilotBlocked('Shadow routing must disable fallbacks and require parameter support')
+        require_free(route.get('max_price'))
         if config.get('routing',{}).get('data_collection')=='allow' and not config.get('provider_training_consent',{}).get('approved'):
             raise PilotBlocked('Provider training/retention requires explicit owner consent')
         self.path=self.work/'calls.json'
@@ -124,6 +128,9 @@ class OpenRouter:
         if self.state.get('halted'):raise PilotBlocked('Pilot inference halted after an uncertain/policy-invalid result; inspect receipts')
         if role not in self.checked:raise PilotBlocked('Model/account preflight must pass first')
         spec=self.config['roles'][role];lock=self.checked[role];limits=self.config['limits']
+        if spec['model']!=lock['model'] or spec['provider']!=lock['provider']:
+            raise PilotBlocked('Model/provider changed after preflight; fresh explicit evaluation required')
+        require_free(self.config['routing'].get('max_price'))
         if contains_secret(json.dumps(messages,ensure_ascii=False)):
             raise PilotBlocked('Credential-like content rejected before sending a prompt')
         route={**self.config['routing'],'only':[spec['provider']],'order':[spec['provider']]}

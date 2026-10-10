@@ -48,7 +48,7 @@ def main():
            {'type':'input_audio','input_audio':{'data':base64.b64encode(audio).decode(),'format':'mp3'}}]
   name='submit_audio_observation'
   response=client.chat('audio_critic',[{'role':'system','content':'You are an audio reviewer of a public synthetic studio narration clip. Do not guess a transcript. Use the reporting tool; no hidden chain-of-thought is needed.'},{'role':'user','content':request}],
-   tools=[tool(name,'Report actual listening evidence, not a claimed quality pass.',SCHEMA)],tool_choice={'type':'function','function':{'name':name}},max_tokens=2200,label='baseline_audio_modality_check')
+   tools=[tool(name,'Report actual listening evidence, not a claimed quality pass.',SCHEMA)],tool_choice='auto',max_tokens=2200,label='baseline_audio_modality_check')
   calls=response.get('tool_calls') or []
   if len(calls)!=1:raise PilotBlocked('Audio reviewer did not return one reporting tool call')
   result=args_for(calls[0],name)

@@ -34,6 +34,21 @@ class FreeOnlyClientTests(unittest.TestCase):
    with self.assertRaises(PilotBlocked):require_free(p)
   require_free({'prompt':'0','completion':'0','discount':0})
 
+ def test_nonzero_route_price_ceiling_rejected_before_inference(self):
+  c=cfg();c['routing']['max_price']['completion']=1
+  with self.assertRaises(PilotBlocked):OpenRouter(c,self.temp.name,token='test',session=self.session)
+  self.session.post.assert_not_called()
+
+ def test_paid_route_ceiling_cannot_change_after_preflight(self):
+  self.client.config['routing']['max_price']['prompt']=.01
+  with self.assertRaises(PilotBlocked):self.client.chat('producer',[{'role':'user','content':'Public data'}])
+  self.session.post.assert_not_called()
+
+ def test_model_lock_cannot_change_after_preflight(self):
+  self.client.config['roles']['producer']['model']='different/free-model:free'
+  with self.assertRaises(PilotBlocked):self.client.chat('producer',[{'role':'user','content':'Public data'}])
+  self.session.post.assert_not_called()
+
  def test_production_switch_cannot_run_pilot(self):
   c=cfg();c['production_enabled']=True
   with self.assertRaises(PilotBlocked):OpenRouter(c,self.temp.name,token='test',session=self.session)
