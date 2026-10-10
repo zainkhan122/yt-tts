@@ -106,6 +106,9 @@ def deliver(rows, items, journal, client, cfg, clock=now_utc):
     """Write-ahead per post, persist result immediately. Never bulk-fire mutations."""
     outcomes = []
     by_video = {i["video_id"]: i for i in items}
+    immediate = [r for r in rows if r["payload"].get("mode") == "shareNow"]
+    if immediate and (not cfg.get("_authorised_immediate_pilot") or len({r["video_id"] for r in rows}) != 1 or len({r["platform"] for r in rows}) != len(rows)):
+        raise ValueError("Immediate publication requires an explicitly authorised single-video pilot")
     for row in rows:
         k = key(row["video_id"], row["platform"])
         if cfg["buffer"]["channels"][row["platform"]].get("posting_hold"):
@@ -122,7 +125,7 @@ def deliver(rows, items, journal, client, cfg, clock=now_utc):
             outcomes.append({"key": k, "state": "dead_letter"})
             continue
         # Long-running batches must not accidentally turn old timestamps into 'post now'.
-        if parse_time(row["due_at"]) < clock() + dt.timedelta(minutes=15):
+        if row["payload"].get("mode") != "shareNow" and parse_time(row["due_at"]) < clock() + dt.timedelta(minutes=15):
             outcomes.append({"key": k, "state": "deferred_stale_slot"})
             continue
         item = by_video[row["video_id"]]
@@ -181,6 +184,7 @@ def main():
     modes.add_argument("--live", action="store_true")
     modes.add_argument("--reconcile-only", action="store_true")
     ap.add_argument("--pilot", action="store_true", help="one explicitly selected video; bypass daily mix only for this pilot")
+    ap.add_argument("--pilot-now", action="store_true", help="Owner-authorised single immediate pilot only; never a bulk posting mode")
     ap.add_argument("--verify-media", action="store_true")
     ap.add_argument("--report", default=str(ROOT / "renders/publishing/report.json"))
     args = ap.parse_args()
@@ -192,6 +196,8 @@ def main():
         if unknown:
             raise SystemExit("Unknown queued video IDs: " + ", ".join(sorted(unknown)))
         items = [i for i in all_items if i["video_id"] in args.video_ids]
+    if args.pilot_now and not args.pilot:
+        raise SystemExit("--pilot-now requires --pilot and exactly one selected video")
     if args.pilot and len(items) != 1:
         raise SystemExit("Pilot mode requires exactly one video ID")
     dry = not (args.live or args.reconcile_only)
@@ -222,7 +228,12 @@ def main():
                 journal.data["cooldown_until"] = None
                 journal.save("reconcile delivery status")
             if not args.reconcile_only:
-                rows, notes = plan(items, journal.records, channels, posts, cfg, now, preview=dry, pilot=args.pilot)
+                if args.pilot_now:
+                    from tools.post.pilot import immediate_plan
+                    cfg["_authorised_immediate_pilot"] = True
+                    rows, notes = immediate_plan(items, journal.records, channels, posts, cfg, now, preview=dry)
+                else:
+                    rows, notes = plan(items, journal.records, channels, posts, cfg, now, preview=dry, pilot=args.pilot)
                 report["plan"], report["notes"] = rows, notes
                 if dry:
                     report["notes"].insert(0, "Posting disabled during setup; held videos are included only for preview")
@@ -242,6 +253,7 @@ def main():
                 problem = channel_problem(next((c for c in channels if c["id"] == expected["buffer_id"]), None), expected)
                 if problem:
                     report["issues"].append({"key": platform, "state": "channel_blocked", "error": problem})
+            report["receipts"] = [{"key": k, **{f:r.get(f) for f in ("state","buffer_post_id","external_url","sent_at","due_at")}} for k,r in journal.records.items()]
             if report["issues"]:
                 exit_code = 1
         except Deferred as exc:

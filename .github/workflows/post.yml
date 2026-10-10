@@ -17,6 +17,10 @@ on:
         description: 'One selected video only; first live pilot before enabling daily delivery'
         type: boolean
         default: false
+      pilot_now:
+        description: 'Explicitly authorised first immediate pilot only; requires pilot=true and one video'
+        type: boolean
+        default: false
   schedule:
     # Four small checks/day. Slots and timezone live in config/publishing.json.
     - cron: '23 0,6,12,18 * * *'
@@ -51,6 +55,8 @@ jobs:
           mode = os.environ['MODE'] or 'schedule'
           if os.environ['EVENT'] == 'schedule' and not cfg['enabled']:
               mode = 'off'
+          if os.environ['EVENT'] == 'schedule' and cfg['enabled'] and not cfg.get('live_pilot_passed'):
+              mode = 'reconcile'
           if mode == 'schedule' and not cfg['enabled']:
               raise SystemExit('Publishing disabled. Obtain owner approval and enable the config first.')
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
@@ -124,6 +130,7 @@ jobs:
           MODE: ${{ needs.prepare.outputs.mode }}
           VIDEO_IDS: ${{ inputs.video_ids }}
           PILOT: ${{ inputs.pilot }}
+          PILOT_NOW: ${{ inputs.pilot_now }}
           ALLOW_BUFFER_MUTATIONS: ${{ needs.prepare.outputs.mode == 'schedule' && 'true' || 'false' }}
           PYTHONUNBUFFERED: '1'
         run: |
@@ -134,6 +141,8 @@ jobs:
           args += [{'dry-run':'--dry-run', 'schedule':'--live', 'reconcile':'--reconcile-only'}[mode]]
           if os.environ.get('PILOT') == 'true':
               args += ['--pilot']
+          if os.environ.get('PILOT_NOW') == 'true':
+              args += ['--pilot-now']
           if mode != 'reconcile':
               args += ['--verify-media']
           args += ['--report', os.environ['RUNNER_TEMP'] + '/publishing/report.json']

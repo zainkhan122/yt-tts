@@ -5,7 +5,7 @@
       "video_id": "news-claude-free-01",
       "category": "news",
       "priority": 10,
-      "approval": "held",
+      "approval": "approved",
       "platforms": [
         "youtube",
         "instagram",
@@ -20,10 +20,10 @@
       "media_path": "media/625686728/news-claude-free-01.mp4",
       "title": "Claude Slides, Docs & Design Are Now Free",
       "added_at": "2026-10-10T00:00:00Z",
-      "reviewed_at": null,
-      "expires_at": null,
-      "note": "Ready render; posting not approved. Option 3 / QA 7 of 7 verified on 2026-10-10.",
-      "brief_sha256": "e5aefd5f841f338e65dc1b681a3c716b749db5a7e56ca9e6cb535a91511c33ce"
+      "reviewed_at": "2026-10-10T11:16:02Z",
+      "expires_at": "2026-10-12T11:16:02Z",
+      "note": "Owner authorised live publication on all three platforms 2026-10-10. Official claude.com article rechecked; IG unsupported pinned-link promise removed. Narration/render unchanged.",
+      "brief_sha256": "88cd5b70c60d3ad432a40510a2b5b438f4f4ec9949e5013b4c34482967305fda"
     },
     {
       "video_id": "list-free-video-ai-01",

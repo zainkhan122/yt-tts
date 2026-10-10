@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "enabled": false,
+  "enabled": true,
   "repository": "zainkhan122/yt-tts",
   "branch": "main",
   "buffer": {
@@ -280,6 +280,6 @@
     "note": "Instagram has a native isAiGenerated flag. Facebook currently exposes no native AI-info field through Buffer; add a caption disclosure, do not claim the native label was set. YouTube default false is for generic narration over real demos; override per video for realistic synthetic depictions.",
     "facebook_native_label_required": true
   },
-  "activation_note": "US-led global audience, explicit UTC dueAt from America/New_York calendars with DST. Three shorts/day baseline; 4\u20135 only after a cadence review. Facebook included by explicit owner instruction. Live switch remains off pending end-to-end pilot; Buffer UI slots/timezones are not modified.",
+  "activation_note": "Owner authorised today's publication across YT/IG/FB on 2026-10-10. One controlled immediate Claude pilot first; subsequent videos follow the researched paced calendar. Daily publishing still waits for verified sent pilot receipts.",
   "live_pilot_passed": false
 }

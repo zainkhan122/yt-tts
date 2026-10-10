@@ -150,6 +150,7 @@ STYLE = "body{background:#050b1f;color:#eaf0ff;font:17px/1.6 system-ui;margin:0;
 
 class Handler(BaseHTTPRequestHandler):
     setup_key = ""
+    preloaded_client = None
 
     def log_message(self, fmt, *args):
         # Never log query strings, authorization codes, state, or uploaded credentials.
@@ -179,7 +180,7 @@ class Handler(BaseHTTPRequestHandler):
                 self.respond('<!doctype html><style>'+STYLE+'</style><main><h1>Connection not completed.</h1><p>Return to the setup tab and reconnect. Check that you chose the Hypeless channel and allowed the requested permission. No video was published.</p><script>history.replaceState(null,"","/connection-error")</script></main>', status=400, content_type="text/html")
             return
         if parsed.path.startswith("/setup/") and hmac.compare_digest(parsed.path.removeprefix("/setup/"), self.setup_key):
-            page = '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>Connect Hypeless YouTube</title><style>'''+STYLE+'''</style><main><small>HYPELESS / SECURE ONE-TIME CONNECTION</small><h1>Connect YouTube.<br>No passwords. No publishing.</h1><p>Use an OAuth <b>Web application</b> client owned by your Google Cloud project. The agent handles refresh tokens and encrypted cloud storage.</p><section><b>Authorized redirect URI</b><p><code>'''+CALLBACK+'''</code></p><small>Enable YouTube Data API v3. For persistent automation, use an In-production OAuth app; Testing tokens generally expire after seven days. Google may show an unverified-app warning for a personal app. Only proceed for the app you created.</small></section><section><label>Google OAuth client JSON<br><input id="file" type="file" accept="application/json,.json"></label><br><button id="start">Prepare Google sign-in</button><p id="status"></p><a id="connect" class="button" style="display:none" target="_blank" rel="noopener noreferrer">Open Google consent in a new tab ↗</a></section><p><small>Permission: YouTube account management required for uploads, metadata and playlists. This integration never uses deletion/comment endpoints. Only channel <code>'''+load_json(ROOT/"config/youtube.json")["channel_id"]+'''</code> is accepted.</small></p></main><script>const KEY='''+json.dumps(self.setup_key)+''';history.replaceState(null,'','/setup');document.querySelector('#start').onclick=async()=>{const status=document.querySelector('#status');try{const f=document.querySelector('#file').files[0];if(!f)throw Error('Select your downloaded Web OAuth client JSON.');const client=JSON.parse(await f.text());const r=await fetch('/api/start',{method:'POST',headers:{'Content-Type':'application/json','X-Setup-Key':KEY},body:JSON.stringify({client})});const d=await r.json();if(!r.ok)throw Error(d.error);const a=document.querySelector('#connect');a.href=d.authorization_url;a.style.display='inline-block';status.textContent='Ready. Open Google consent, choose Hypeless, then return to the agent.';}catch(e){status.textContent=e.message;status.className='error';}};</script></html>'''
+            page = '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>Connect Hypeless YouTube</title><style>'''+STYLE+'''</style><main><small>HYPELESS / SECURE ONE-TIME CONNECTION</small><h1>Connect YouTube.<br>No passwords. No publishing.</h1><p>Use an OAuth <b>Web application</b> client owned by your Google Cloud project. The agent handles refresh tokens and encrypted cloud storage.</p><section><b>Authorized redirect URI</b><p><code>'''+CALLBACK+'''</code></p><small>Enable YouTube Data API v3. For persistent automation, use an In-production OAuth app; Testing tokens generally expire after seven days. Google may show an unverified-app warning for a personal app. Only proceed for the app you created.</small></section><section><label>Google OAuth client JSON (already supplied files are preloaded; no re-upload needed)<br><input id="file" type="file" accept="application/json,.json"></label><br><button id="start">Prepare Google sign-in</button><p id="status"></p><a id="connect" class="button" style="display:none" target="_blank" rel="noopener noreferrer">Open Google consent in a new tab ↗</a></section><p><small>Permission: YouTube account management required for uploads, metadata and playlists. This integration never uses deletion/comment endpoints. Only channel <code>'''+load_json(ROOT/"config/youtube.json")["channel_id"]+'''</code> is accepted.</small></p></main><script>const KEY='''+json.dumps(self.setup_key)+''';history.replaceState(null,'','/setup');document.querySelector('#start').onclick=async()=>{const status=document.querySelector('#status');try{const f=document.querySelector('#file').files[0];const client=f?JSON.parse(await f.text()):null;const r=await fetch('/api/start',{method:'POST',headers:{'Content-Type':'application/json','X-Setup-Key':KEY},body:JSON.stringify({client})});const d=await r.json();if(!r.ok)throw Error(d.error);const a=document.querySelector('#connect');a.href=d.authorization_url;a.style.display='inline-block';status.textContent='Ready. Open Google consent, choose Hypeless, then return to the agent.';}catch(e){status.textContent=e.message;status.className='error';}};</script></html>'''
             self.respond(page, content_type="text/html")
         else:
             self.respond('<!doctype html><style>'+STYLE+'</style><main><h1>Hypeless YouTube connection</h1><p>Open the private setup link supplied by the agent. No credentials are displayed here.</p></main>', content_type="text/html")
@@ -197,7 +198,9 @@ class Handler(BaseHTTPRequestHandler):
             origin = valid_origin("https://"+host)
             if self.headers.get("Origin") and self.headers["Origin"] != origin:
                 raise ValueError("Unexpected setup origin")
-            client = parse_client(body["client"])
+            client = parse_client(body["client"]) if body.get("client") else self.preloaded_client
+            if not client:
+                raise ValueError("Select your downloaded Web OAuth client JSON")
             pending, authorization = make_flow(client, origin)
             secure_write(PENDING, pending)
             self.respond({"authorization_url": authorization})
@@ -208,8 +211,11 @@ class Handler(BaseHTTPRequestHandler):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--port", type=int, default=8765)
+    ap.add_argument("--client-file", help="Private, already supplied Web OAuth JSON; never printed")
     args = ap.parse_args()
     Handler.setup_key = random_secrets.token_urlsafe(24)
+    if args.client_file:
+        Handler.preloaded_client = parse_client(load_json(args.client_file))
     print("Open this path on the HTTPS live-preview host: /setup/"+Handler.setup_key, flush=True)
     print("Registered Google callback:", CALLBACK, flush=True)
     ThreadingHTTPServer(("0.0.0.0", args.port), Handler).serve_forever()

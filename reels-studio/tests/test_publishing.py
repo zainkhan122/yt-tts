@@ -467,3 +467,36 @@ class SchemaAndMediaTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ImmediatePilotTests(unittest.TestCase):
+    def setUp(self):
+        self.cfg = config()
+        self.items = fixture_items(1)
+        self.items[0].update(approval="approved", reviewed_at=iso(NOW), expires_at=iso(NOW + dt.timedelta(days=1)))
+        self.channels = channels(self.cfg)
+
+    def call_plan(self, records=None, posts=None, items=None):
+        from tools.post.pilot import immediate_plan
+        with patch("tools.post.pilot.payload_for", side_effect=lambda i,p,d,c: fake_payload(i,p,d,c)):
+            return immediate_plan(items or self.items, records or {}, self.channels, posts or [], self.cfg, NOW)
+
+    def test_immediate_pilot_has_no_scheduled_due_at(self):
+        rows, _ = self.call_plan()
+        self.assertEqual(len(rows), 3)
+        for r in rows:
+            self.assertEqual(r["payload"]["mode"], "shareNow")
+            self.assertNotIn("dueAt", r["payload"])
+
+    def test_immediate_batch_is_refused(self):
+        with self.assertRaises(ValueError): self.call_plan(items=fixture_items(2))
+
+    def test_recent_post_blocks_immediate_pilot(self):
+        post={"id":"recent", "channelId":self.cfg["buffer"]["channels"]["youtube"]["buffer_id"], "status":"sent", "sentAt":iso(NOW-dt.timedelta(minutes=20))}
+        with self.assertRaises(ValueError): self.call_plan(posts=[post])
+
+    def test_manual_duplicate_is_not_recreated_by_pilot(self):
+        i=self.items[0]
+        records={i["video_id"]+":youtube":{"video_id":i["video_id"],"platform":"youtube","state":"published_manual","sent_at":iso(NOW-dt.timedelta(days=2))}}
+        rows,_=self.call_plan(records=records)
+        self.assertEqual({r["platform"] for r in rows},{"facebook","instagram"})
