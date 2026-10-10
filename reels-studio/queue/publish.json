@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "video_id": "news-claude-free-01",
+      "category": "news",
+      "priority": 10,
+      "approval": "held",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "release_tag": "renders-2026-10-09",
+      "asset_id": 625686728,
+      "asset_size": 14069906,
+      "asset_digest": "sha256:8f76f72616ce6d34ef9430a605ccf6be3e619c2142728c254a0a5012162b5bfa",
+      "kit_asset_id": 625686795,
+      "kit_digest": "sha256:48dd18c72c1a12ea121eaec4b0a56bc2a9bf62b1be96f2ceb6282335b6f9de33",
+      "media_path": "media/625686728/news-claude-free-01.mp4",
+      "title": "Claude Slides, Docs & Design Are Now Free",
+      "added_at": "2026-10-10T00:00:00Z",
+      "reviewed_at": null,
+      "expires_at": null,
+      "note": "Ready render; posting not approved. Option 3 / QA 7 of 7 verified on 2026-10-10.",
+      "brief_sha256": "e5aefd5f841f338e65dc1b681a3c716b749db5a7e56ca9e6cb535a91511c33ce"
+    },
+    {
+      "video_id": "list-free-video-ai-01",
+      "category": "tool",
+      "priority": 20,
+      "approval": "held",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "release_tag": "renders-2026-10-09",
+      "asset_id": 625692057,
+      "asset_size": 23764860,
+      "asset_digest": "sha256:b8a97acaa9e989994c85f9743eb83d08c724b2caf8431c622f358ac849ce9be7",
+      "kit_asset_id": 625692130,
+      "kit_digest": "sha256:a252de031dd498aa00806db471bd9193ff9d253066d7f7e314a4695ef47ce2a5",
+      "media_path": "media/625692057/list-free-video-ai-01.mp4",
+      "title": "3 Free AI Video Generators (Real Daily Limits)",
+      "added_at": "2026-10-10T00:00:00Z",
+      "reviewed_at": null,
+      "expires_at": null,
+      "note": "Ready render; posting not approved. Option 3 / QA 7 of 7 verified on 2026-10-10.",
+      "brief_sha256": "049ba08ff87a0674f8d554f1619cc8855fe63a9a9ebefe4236165540de7b9643"
+    },
+    {
+      "video_id": "repo-ai-newtab-01",
+      "category": "repo",
+      "priority": 30,
+      "approval": "held",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "release_tag": "renders-2026-10-09",
+      "asset_id": 625694400,
+      "asset_size": 16714599,
+      "asset_digest": "sha256:704f6c98e83923006a2d70062bfcd15717507ed867d859a2e720b2e386c1f599",
+      "kit_asset_id": 625694499,
+      "kit_digest": "sha256:67f97ef8dbc071551c143d6ba8470a3c67ac1e531011d8c09a3ef27bbc6bc7ee",
+      "media_path": "media/625694400/repo-ai-newtab-01.mp4",
+      "title": "AI Homepage That Writes Itself (Claude Chrome Extension)",
+      "added_at": "2026-10-10T00:00:00Z",
+      "reviewed_at": null,
+      "expires_at": null,
+      "note": "Ready render; posting not approved. Option 3 / QA 7 of 7 verified on 2026-10-10.",
+      "brief_sha256": "91875751cacad0dbaf4996039803745a93be019c9313ac976918006cba0debea"
+    },
+    {
+      "video_id": "tool-muse-01",
+      "category": "tool",
+      "priority": 40,
+      "approval": "held",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "release_tag": "renders-2026-10-09",
+      "asset_id": 625698243,
+      "asset_size": 9620502,
+      "asset_digest": "sha256:03e0ce0d5a06404c8d760575742acfa76ea4c4f056312fcddb6d0b57ebfd887e",
+      "kit_asset_id": 625698301,
+      "kit_digest": "sha256:71309f1f5d2eb49a784d46811ed88e95e33af11578448123055117ecf2a14dad",
+      "media_path": "media/625698243/tool-muse-01.mp4",
+      "title": "Meta Muse: The AI Agent That Does Your Chores",
+      "added_at": "2026-10-10T00:00:00Z",
+      "reviewed_at": null,
+      "expires_at": null,
+      "note": "Ready render; posting not approved. Option 3 / QA 7 of 7 verified on 2026-10-10.",
+      "brief_sha256": "34317bc37f9d9f6e4fa5a769cad93f438e023e2c56724f2982a18813d05d46b6"
+    },
+    {
+      "video_id": "repo-scm-01",
+      "category": "repo",
+      "priority": 50,
+      "approval": "held",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "release_tag": "renders-2026-10-09",
+      "asset_id": 625784298,
+      "asset_size": 13592847,
+      "asset_digest": "sha256:b407391b0253d3fe08c78ee34831292f1e307d5c5412670d30f8df470ee61bc1",
+      "kit_asset_id": 625784366,
+      "kit_digest": "sha256:464c9a22ddc517391547d94813568e1a6ee8dbb8d25eab993c2408a91ce25a1d",
+      "media_path": "media/625784298/repo-scm-01.mp4",
+      "title": "AI Photo Search for Mac: Describe It, Find It (Free)",
+      "added_at": "2026-10-10T00:00:00Z",
+      "reviewed_at": null,
+      "expires_at": null,
+      "note": "Ready render; posting not approved. Option 3 / QA 7 of 7 verified on 2026-10-10.",
+      "brief_sha256": "400eb8a9b7f0f8acb1abdc13e0ff76639b38357eb0e925489eabb19f1434e804"
+    },
+    {
+      "video_id": "spotlight-papermorph-01",
+      "category": "repo",
+      "priority": 60,
+      "approval": "held",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "release_tag": "renders-2026-10-09",
+      "asset_id": 625789855,
+      "asset_size": 13329679,
+      "asset_digest": "sha256:804e7e88cd230970280c6caf6b7687b006f6fb3e91e20b6b7d513e3c439e4db5",
+      "kit_asset_id": 625789926,
+      "kit_digest": "sha256:3634ff90137a47384cad61cc0d158b3c0591e5cd0f0537ebdfd9af61c15d2336",
+      "media_path": "media/625789855/spotlight-papermorph-01.mp4",
+      "title": "PDF to Animated Book With AI (Claude Code Skill)",
+      "added_at": "2026-10-10T00:00:00Z",
+      "reviewed_at": null,
+      "expires_at": null,
+      "note": "Ready render; posting not approved. Option 3 / QA 7 of 7 verified on 2026-10-10.",
+      "brief_sha256": "e2b55d000c64eec0d67c3a4b977654867e42c2c2627cd83e2b916573af690619"
+    }
+  ]
+}

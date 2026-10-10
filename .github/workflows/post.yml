@@ -1,0 +1,144 @@
+# Buffer delivery is OFF until publishing.json is enabled and a live pilot passes.
+# Dry-run publishes only the media hosting bundle; it makes ZERO Buffer mutations.
+name: Hypeless delivery
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'dry-run = preview only; schedule = approved posts; reconcile = delivery receipts only'
+        type: choice
+        options: [dry-run, schedule, reconcile]
+        default: dry-run
+      video_ids:
+        description: 'Optional space-separated queued video IDs (empty = eligible backlog)'
+        required: false
+        default: ''
+      pilot:
+        description: 'One selected video only; first live pilot before enabling daily delivery'
+        type: boolean
+        default: false
+  schedule:
+    # Four small checks/day. Slots and timezone live in config/publishing.json.
+    - cron: '23 0,6,12,18 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: hypeless-buffer-delivery
+  cancel-in-progress: false
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      mode: ${{ steps.gate.outputs.mode }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            /reels-studio/
+          sparse-checkout-cone-mode: false
+      - id: gate
+        name: Approval / kill switch
+        env:
+          EVENT: ${{ github.event_name }}
+          MODE: ${{ inputs.mode }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          cfg = json.load(open('reels-studio/config/publishing.json'))
+          mode = os.environ['MODE'] or 'schedule'
+          if os.environ['EVENT'] == 'schedule' and not cfg['enabled']:
+              mode = 'off'
+          if mode == 'schedule' and not cfg['enabled']:
+              raise SystemExit('Publishing disabled. Obtain owner approval and enable the config first.')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write('mode=' + mode + '\n')
+          print('Mode:', mode, '(no social publishing during dry-run)')
+          PY
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.mode != 'off'
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: reels-studio/tools/post/requirements.txt
+      - name: Install lightweight posting dependencies
+        if: steps.gate.outputs.mode != 'off'
+        run: python3 -m pip install -r reels-studio/tools/post/requirements.txt
+      - name: Safety / retry / queue tests
+        if: steps.gate.outputs.mode != 'off'
+        run: python3 -m unittest discover -s reels-studio/tests -v
+      - name: Build pinned, QA-checked media (no social posting)
+        if: steps.gate.outputs.mode != 'off' && steps.gate.outputs.mode != 'reconcile'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 reels-studio/tools/post/media.py build --dest "$RUNNER_TEMP/hypeless-pages"
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.gate.outputs.mode != 'off' && steps.gate.outputs.mode != 'reconcile'
+        with:
+          path: ${{ runner.temp }}/hypeless-pages
+  hosting:
+    needs: prepare
+    if: needs.prepare.outputs.mode != 'off' && needs.prepare.outputs.mode != 'reconcile'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy stable media URLs
+        id: deployment
+        uses: actions/deploy-pages@v4
+  delivery:
+    needs: [prepare, hosting]
+    if: always() && needs.prepare.result == 'success' && needs.prepare.outputs.mode != 'off' && (needs.prepare.outputs.mode == 'reconcile' || needs.hosting.result == 'success')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            /reels-studio/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: reels-studio/tools/post/requirements.txt
+      - run: python3 -m pip install -r reels-studio/tools/post/requirements.txt
+      - name: Paced delivery / read-only validation
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          MODE: ${{ needs.prepare.outputs.mode }}
+          VIDEO_IDS: ${{ inputs.video_ids }}
+          PILOT: ${{ inputs.pilot }}
+          ALLOW_BUFFER_MUTATIONS: ${{ needs.prepare.outputs.mode == 'schedule' && 'true' || 'false' }}
+          PYTHONUNBUFFERED: '1'
+        run: |
+          python3 - <<'PY'
+          import os, subprocess, sys
+          mode = os.environ['MODE']
+          args = [sys.executable, 'reels-studio/tools/post/publisher.py', *os.environ['VIDEO_IDS'].replace(',', ' ').split()]
+          args += [{'dry-run':'--dry-run', 'schedule':'--live', 'reconcile':'--reconcile-only'}[mode]]
+          if os.environ.get('PILOT') == 'true':
+              args += ['--pilot']
+          if mode != 'reconcile':
+              args += ['--verify-media']
+          args += ['--report', os.environ['RUNNER_TEMP'] + '/publishing/report.json']
+          raise SystemExit(subprocess.call(args))
+          PY
+      - name: Delivery report (also available if validation fails)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hypeless-delivery-report
+          path: ${{ runner.temp }}/publishing/
+          retention-days: 30
+          if-no-files-found: warn

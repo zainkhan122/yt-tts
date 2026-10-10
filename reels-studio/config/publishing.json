@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "enabled": false,
+  "repository": "zainkhan122/yt-tts",
+  "branch": "main",
+  "buffer": {
+    "organization_id": "6ac8fdc70ed969c7deb8ca1d",
+    "secret_name": "BUFFER_API_KEY",
+    "channels": {
+      "youtube": {
+        "buffer_id": "6ac904af6a5c39ccb662a01f",
+        "service_id": "UCcWh9OdX3rbfHOtDZ6neyrA",
+        "name": "Hypeless Ai",
+        "url": "https://www.youtube.com/channel/UCcWh9OdX3rbfHOtDZ6neyrA",
+        "enabled": true
+      },
+      "facebook": {
+        "buffer_id": "6ac8fe8d6a5c39ccb6623485",
+        "service_id": "1323320354206601",
+        "name": "Hypeless Ai",
+        "url": "https://facebook.com/1323320354206601",
+        "enabled": true,
+        "owner_supplied_url": "https://www.facebook.com/profile.php?id=61595198762966",
+        "posting_hold": "Native AI-info disclosure required for realistic synthetic narration; Buffer Facebook API has no disclosure flag. Keep held pending a supported labeling path."
+      },
+      "instagram": {
+        "buffer_id": "6ac8fe316a5c39ccb66231cb",
+        "service_id": "17841413107297846",
+        "name": "hypelessai.ai",
+        "url": "https://instagram.com/hypelessai.ai",
+        "enabled": true
+      }
+    },
+    "queue_limit_per_channel": 10,
+    "queue_target_per_channel": 6,
+    "request_spacing_seconds": 3.0,
+    "max_attempts": 4,
+    "max_inline_wait_seconds": 60,
+    "quota_reserve": 5,
+    "max_pages": 10
+  },
+  "schedule": {
+    "timezone": "Asia/Karachi",
+    "slots": [
+      "12:30",
+      "17:30",
+      "21:30"
+    ],
+    "platform_offset_minutes": {
+      "youtube": 0,
+      "instagram": 5,
+      "facebook": 10
+    },
+    "lookahead_hours": 48,
+    "minimum_lead_minutes": 60,
+    "minimum_gap_minutes": 180,
+    "max_posts_per_run": 9,
+    "max_repo_videos_per_day": 1,
+    "max_videos_per_day": 3,
+    "required_daily_categories": [
+      "news",
+      "tool"
+    ]
+  },
+  "media": {
+    "base_url": "https://zainkhan122.github.io/yt-tts",
+    "retention_days": 7,
+    "max_site_bytes": 750000000
+  },
+  "disclosure": {
+    "instagram_ai_generated": true,
+    "youtube_ai_generated": false,
+    "facebook_caption": "AI-generated narration.",
+    "note": "Instagram has a native isAiGenerated flag. Facebook currently exposes no native AI-info field through Buffer; add a caption disclosure, do not claim the native label was set. YouTube default false is for generic narration over real demos; override per video for realistic synthetic depictions.",
+    "facebook_native_label_required": true
+  },
+  "activation_note": "Setup is dry-run only. Enable only after owner approves posting and the first live pilot. Three daily PKT slots are a conservative starting schedule, not claimed optimal times.",
+  "live_pilot_passed": false
+}

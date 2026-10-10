@@ -21,7 +21,7 @@ Fully-made, ready-to-share AI-tools explainer videos (YouTube Shorts, Reels, Tik
 | 4b | **Templates** `repo-spotlight` (F1) + `tool-spotlight` (F2): shared scene engine `templates/_spotlight` (10 scene types), winner caption style (ALL CAPS, yellow keywords), display-vs-spoken markup, continuity editing; **video #1 rendered** (QA 6/6) | MP4 + post kit | ✅ done 2026-10-08 |
 | 5 | **Cloud render** on GitHub Actions: `render.yml` (one 4-vCPU runner per brief, up to 5 in parallel), `cloud/setup-render.sh`, capture packs in Release `capture-packs`, MP4 + kit.zip per video, `reels.py cloud/renders`. Measured: 2 videos in parallel in ~8 min (render 3.4–4 min each vs 17–27 min in the sandbox), QA 6/6. Repo + workspace cleaned (renders out of git, demos/auditions removed) | cloud-rendered videos #1 + #2 | ✅ done 2026-10-08 |
 | 5b | **Brand kit + account profiles**: logo (user-picked, rebuilt as exact vector), avatar, YouTube banner, X header, FB cover, watermark; copy-paste profile text for YouTube/Instagram/TikTok/X/Facebook checked against each platform's limits (`tools/brand_kit.py`, `brand/`) | `brand/brand-kit.html`, Release `brand` | ✅ done 2026-10-09 |
-| 6 | **Auto-post + daily engine**: render queue on a schedule → auto-post to IG/FB Reels, YouTube Shorts, TikTok, X (plan below) | 3–5 videos/day posted with no manual steps | **next** (after the user creates the accounts) |
+| 6 | **Paced delivery + daily engine**: Buffer queue for YouTube / Instagram / Facebook, stable media hosting, durable dedupe and retries | `tools/post/`, `post.yml`, queue + journal | **6a built, dry-run verification** (2026-10-10). Live pilot/activation and automated production still pending; no TikTok/X accounts yet. |
 | 7 | optional: long-form versions, Urdu/Hindi line, analytics loop (views → topic picks) | | |
 
 ## Auto-posting plan (Phase 6). Facts checked 2026-10-09
@@ -40,29 +40,21 @@ No PC is needed. Logins are stored as encrypted GitHub Actions secrets (never in
 | TikTok | Content Posting API | free | TikTok developer app, log in once | Unaudited app: videos land in the TikTok inbox as drafts, then the user taps Post (at most 5 pending drafts / 24 h). Public direct posting needs TikTok's audit |
 | X | X API v2 + chunked media upload | pay-per-use: about $0.015 per post plus small media-call fees (≈ $2–7/month at 3–5/day); no free tier since 2026-02-06 | developer console, card, credits | A post containing a URL costs $0.20, so never put links in posts |
 
-**Route proposed by the user 2026-10-09: Buffer, 2 free accounts × 3 channels.** Recommended; it skips the YouTube and TikTok audits.
+**Current route (owner 2026-10-10): one Buffer account, three channels: YouTube, Instagram, Facebook.** No second key is needed for this scope. TikTok/X are not connected.
 
-Accounts:
-- Buffer #1: YouTube, Instagram, TikTok.
-- Buffer #2: Facebook Page, X, plus Threads or LinkedIn.
+Implemented in `tools/post/README.md` (operations + official sources):
+- GraphQL `https://api.buffer.com`, personal key in encrypted `BUFFER_API_KEY` Actions secret.
+- `config/publishing.json`: conservative 3/day slots at 12:30, 17:30, 21:30 Asia/Karachi; platform staggering, two-day horizon, target <= 6 pending/channel against Free plan cap 10; maximum 9 create operations/run.
+- `queue/publish.json`: approved, reviewed, pinned renders only. Rendering/topic approval does not authorize posting; initial entries are held.
+- `tracker/publications.json`: per-platform write-ahead journal persisted before every Buffer mutation. Three verified manual YouTube uploads are locked against duplicates; Instagram/Facebook remain separate.
+- Read actual RateLimit headers, preserve quota reserve, honor Retry-After, bounded backoff; persist long cooldowns. Never blindly retry an ambiguous create response. Delivery errors are reported against the existing post ID, not re-created.
+- `.github/workflows/post.yml`: disabled-by-config cron, serialized media deploy + delivery, explicit dry-run/schedule/reconcile modes, reports and failures in Actions.
+- Stable pinned MP4s hosted via Actions-based **GitHub Pages**; all pending assets retained, QA 7/7 and approved Option 3 voice required. No expiring redirect URLs given to Buffer.
+- `enabled: false` and `live_pilot_passed: false` until an owner-approved live pilot is actually sent and checked. A dry-run is not claimed as a live publishing test.
 
-Facts checked 2026-10-09:
-- **Free plan:** 3 channels, 10 scheduled posts per channel at a time, 1 personal API key, 3,000 requests / 30 days (250 / 24 h).
-- **API:** GraphQL `https://api.buffer.com`, `createPost` with `schedulingType: automatic`, `mode: customScheduled` + `dueAt`, and `assets: [{video: {url}}]`.
-- **YouTube posts need** `metadata.youtube.title` + `categoryId` (28).
-- **Media URL rules:** public, direct (no redirect), stable until publish time. GitHub Release links 302-redirect to expiring URLs, so videos are served from **GitHub Pages**: not used in this repo yet; deploy from an Actions artifact, so nothing goes into git.
-- **Do not create a Buffer Start Page:** it uses a channel slot.
-- **Terms:** they don't explicitly forbid a second free account, but Buffer may close any account at its discretion. Fallback: direct APIs (table above) or Essentials at $5/channel.
+**Owner setup received/completed:** all three account URLs, one working Buffer API key, Secrets/Pages permissions, Pages enabled. First-time Pages creation additionally needs Administration: write; that temporary permission can be removed once enabled. Daily workflows use short-lived `GITHUB_TOKEN`, not the personal PAT.
 
-**User to-do:**
-1. Create both Buffer accounts and connect the channels.
-2. Send both API keys (Settings > API).
-3. Add **Secrets: R/W** and **Pages: R/W** to the GitHub token.
-
-**Build:**
-- `tools/post/buffer.py`, with captions from the kit.
-- `post.yml`: Pages deploy of pending videos, then schedule ≤ 2 days ahead (queue cap), then log post ids.
-- Daily `render.yml` schedule + `queue/`.
+**Still pending:** first live posting approval/pilot; daily production automation beyond approved rendered backlog. Do not claim 3–5 new researched/rendered videos are autonomously generated each day yet.
 
 **Paid shortcut:** Upload-Post.
 - One API key covers every platform.
@@ -81,12 +73,12 @@ Facts checked 2026-10-09:
 AI labels:
 - YouTube: none for a generic narrator over real footage.
 - TikTok: none for generic TTS (guidelines updated 2026-09-24).
-- Instagram/Facebook: switch on "AI info" (Meta's wording covers realistic-sounding synthetic audio).
+- Instagram: native `isAiGenerated` supported. Facebook: Buffer currently exposes no native AI-info input; these realistic AI-narrated videos have a publishing policy hold until a supported native-label path is available. See `tools/post/README.md` for the limitation and hold/review rule.
 
 ## Asset policy (what goes into our videos)
-- ✅ **Our own captures** of public pages: tool site, GitHub repo, docs. Review/commentary use, with the source credited on screen.
+- ✅ **Our own captures** of public pages: tool site, GitHub repo, docs. Review/commentary use, with the source credited in descriptions/post kits (owner: no on-screen credit captions).
 - ✅ **Official demo media from the makers**: repo README/docs media, launch clips on their own site, model-card samples.
-  - Credited on screen.
+  - Credited in descriptions/post kits, never under the on-screen video.
   - Licence notes are respected. Example: Coucou reserves its name, its Mochi character and its sounds.
 - ✅ **Real outputs from running the tool ourselves**, when it runs free and headless.
 - ✅ Our own motion graphics, music, SFX and voice.

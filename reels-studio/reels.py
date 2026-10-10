@@ -12,6 +12,7 @@ Reels Studio - professional vertical-video generator (HyperFrames + free tools)
   python3 reels.py make   briefs/x.json --no-render         # fast iteration: build + lint + check only
   python3 reels.py batch  briefs/a.json briefs/b.json ...   # a week of videos in one go
   python3 reels.py cloud  <brief-id> [<brief-id> ...] [--wait]  # render on GitHub Actions, up to 5 in parallel -> Release
+  python3 reels.py post [<id>] --dry-run                    # read-only Buffer queue / pacing preview
   python3 reels.py renders                                   # every published video + post kit (download links)
   python3 reels.py publish renders/<id> [renders/<id2> ...]  # upload a local render: <id>.mp4 + <id>-kit.zip
   python3 reels.py sync   -m "message"                      # commit + push reels-studio/ (the single source of truth)
@@ -32,7 +33,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
-from lib import pipeline  # noqa: E402
 
 REPO = ROOT.parent
 TOKEN_FILE = Path("/var/tmp/gh/token")
@@ -55,6 +55,7 @@ def git(*args, check=True, auth=False):
 
 
 def cmd_doctor(a):
+    from lib import pipeline
     ok_all = True
 
     def row(name, ok, info=""):
@@ -165,6 +166,8 @@ def cmd_radar(a):
 
 
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] == "post":
+        return subprocess.call([sys.executable, str(ROOT / "tools/post/publisher.py"), *sys.argv[2:]])
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     for name in ("make", "batch"):
@@ -219,6 +222,7 @@ def main():
         return cmd_radar(a)
     if a.cmd == "capture":
         return cmd_capture(a)
+    from lib import pipeline  # only render/template commands need the heavy voice dependencies
     if a.cmd == "templates":
         for name in pipeline.list_templates():
             t = pipeline.load_template(name)
@@ -250,4 +254,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

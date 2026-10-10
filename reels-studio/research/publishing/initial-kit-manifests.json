@@ -1,0 +1,738 @@
+{
+  "list-free-video-ai-01": {
+    "id": "list-free-video-ai-01",
+    "template": "tool-spotlight",
+    "brief": "briefs/list-free-video-ai-01.json",
+    "stages": {
+      "voice": {
+        "engine": "chatterbox exag0.7 cfg0.4 ref michael-ref.wav, flow (4 chunks, worst match 93%, melody [16.4, 16.2, 17.8, 13.6] st, retries 0)",
+        "lines": 7,
+        "duration": "45.13s",
+        "secs": 320.1
+      },
+      "words": {
+        "method": "waveform-anchored",
+        "whisper_char_match": "98.9%",
+        "word_diffs": "seedance 20 fifty veo wan 22",
+        "secs": 24.7
+      },
+      "audio": {
+        "music": "pulse/uplift 122bpm key-1 seed81378",
+        "sfx": 14,
+        "loudness": "-14.0 LUFS",
+        "peak": "-1.5 dBFS"
+      },
+      "build": {
+        "project": "/var/tmp/reels/list-free-video-ai-01/project",
+        "html_kb": 74.5
+      },
+      "lint": {
+        "errors": 0,
+        "warnings": 4
+      },
+      "check": {
+        "ok": true,
+        "secs": 68.3,
+        "summary": "[hyperframes] browserGpuMode probe \u2192 software (WebGL unavailable)"
+      },
+      "render": {
+        "secs": 275.1,
+        "mb": 23.76,
+        "quality": "looks",
+        "crf": 23
+      },
+      "qa": {
+        "passed": "7/7",
+        "failed": "-",
+        "out": "reels-studio/renders/list-free-video-ai-01"
+      }
+    },
+    "assets": 7,
+    "qa": {
+      "duration": 45.133,
+      "frames": 1354,
+      "video": "h264 1080x1920 30/1",
+      "audio": "aac 48000Hz 2ch",
+      "loudness_lufs": -14.1,
+      "peak_dbfs": -1.1,
+      "size_mb": 23.76,
+      "checks": {
+        "1080x1920": true,
+        "30fps": true,
+        "h264+aac": true,
+        "duration_matches": true,
+        "loudness_-14\u00b11": true,
+        "peak<=-1dBFS": true,
+        "approved_voice": true
+      }
+    },
+    "timing": {
+      "hook": {
+        "start": 0.25,
+        "end": 6.755,
+        "text": "Okay, three AI video generators that are actually free, and I checked the real limits so you don't get burned."
+      },
+      "seedance": {
+        "start": 6.755,
+        "end": 14.03,
+        "text": "Number three is Seedance 2.0 on Dreamina, which gives you free credits every day, but your downloads come with a watermark."
+      },
+      "flow": {
+        "start": 14.09,
+        "end": 21.075,
+        "text": "Number two, Google Flow: you get fifty free credits a day, and that's about five short Veo clips."
+      },
+      "proof": {
+        "start": 21.075,
+        "end": 26.36,
+        "text": "That's straight from Google's help page, and at peak hours, free users might not get any videos at all."
+      },
+      "wan": {
+        "start": 26.42,
+        "end": 33.745,
+        "text": "And number one is Wan 2.2: it's open source, so no credits at all, as long as you've got a 24 gigabyte GPU."
+      },
+      "catch": {
+        "start": 33.745,
+        "end": 40.88,
+        "text": "The catch? Free credits never roll over, and free Flow can't upscale to 1080p, so only Wan is truly unlimited."
+      },
+      "cta": {
+        "start": 40.94,
+        "end": 43.63,
+        "text": "So which one are you trying first? Comment FREE."
+      }
+    },
+    "music": {
+      "style": "pulse",
+      "progression": "uplift",
+      "bpm": 122,
+      "seed": 81378,
+      "key": -1
+    },
+    "sources": [
+      "https://support.google.com/flow/answer/16526234?hl=en",
+      "https://dreamina.capcut.com/tools/seedance-2-0",
+      "https://github.com/Wan-Video/Wan2.2",
+      "https://deepmind.google/models/veo/"
+    ],
+    "total_secs": 718.6
+  },
+  "news-claude-free-01": {
+    "id": "news-claude-free-01",
+    "template": "tool-spotlight",
+    "brief": "briefs/news-claude-free-01.json",
+    "stages": {
+      "voice": {
+        "engine": "chatterbox exag0.7 cfg0.4 ref michael-ref.wav, flow (4 chunks, worst match 100%, melody [13.2, 20.1, 16.4, 15.6] st, retries 0)",
+        "lines": 8,
+        "duration": "45.63s",
+        "secs": 330.0
+      },
+      "words": {
+        "method": "waveform-anchored",
+        "whisper_char_match": "99.0%",
+        "word_diffs": "okay and four and",
+        "secs": 11.8
+      },
+      "audio": {
+        "music": "pulse/uplift 122bpm key+3 seed75334",
+        "sfx": 17,
+        "loudness": "-14.0 LUFS",
+        "peak": "-1.5 dBFS"
+      },
+      "build": {
+        "project": "/var/tmp/reels/news-claude-free-01/project",
+        "html_kb": 75.2
+      },
+      "lint": {
+        "errors": 0,
+        "warnings": 4
+      },
+      "check": {
+        "ok": true,
+        "secs": 46.0,
+        "summary": "[hyperframes] browserGpuMode probe \u2192 software (WebGL unavailable)"
+      },
+      "render": {
+        "secs": 172.9,
+        "mb": 14.07,
+        "quality": "looks",
+        "crf": 23
+      },
+      "qa": {
+        "passed": "7/7",
+        "failed": "-",
+        "out": "reels-studio/renders/news-claude-free-01"
+      }
+    },
+    "assets": 5,
+    "qa": {
+      "duration": 45.633,
+      "frames": 1369,
+      "video": "h264 1080x1920 30/1",
+      "audio": "aac 48000Hz 2ch",
+      "loudness_lufs": -14.1,
+      "peak_dbfs": -1.3,
+      "size_mb": 14.07,
+      "checks": {
+        "1080x1920": true,
+        "30fps": true,
+        "h264+aac": true,
+        "duration_matches": true,
+        "loudness_-14\u00b11": true,
+        "peak<=-1dBFS": true,
+        "approved_voice": true
+      }
+    },
+    "timing": {
+      "hook": {
+        "start": 0.25,
+        "end": 6.145,
+        "text": "Okay, this is a big one: Claude Slides, Docs and Design just left beta, and they're now on the free plan."
+      },
+      "deck": {
+        "start": 6.145,
+        "end": 11.08,
+        "text": "You just ask for a launch deck, and it builds every single slide for you, right there in the chat."
+      },
+      "design": {
+        "start": 11.14,
+        "end": 16.425,
+        "text": "Then you tell it to turn a slide into social posts, and just like that, you get all four sizes."
+      },
+      "docs": {
+        "start": 16.425,
+        "end": 23.085,
+        "text": "It writes docs too, and when you export to PowerPoint, PDF or Google Slides, your formatting actually survives."
+      },
+      "proof": {
+        "start": 23.085,
+        "end": 25.62,
+        "text": "People have already made over 45 million of these."
+      },
+      "motion": {
+        "start": 25.68,
+        "end": 32.015,
+        "text": "And the brand new Claude Motion can even turn a boring report into an animated video you can download."
+      },
+      "catch": {
+        "start": 32.015,
+        "end": 41.48,
+        "text": "But here's the catch: Motion is only for Team and Enterprise, and Dashboards need a paid plan. Docs, Slides and Design, though? Free for everyone."
+      },
+      "cta": {
+        "start": 41.54,
+        "end": 44.13,
+        "text": "So what would you make first? Comment DECK."
+      }
+    },
+    "music": {
+      "style": "pulse",
+      "progression": "uplift",
+      "bpm": 122,
+      "seed": 75334,
+      "key": 3
+    },
+    "sources": [
+      "https://claude.com/resources/articles/dashboards-and-motion",
+      "https://claude.com/blog/cowork-is-now-claude",
+      "https://www.youtube.com/watch?v=To5nrYqvR44",
+      "https://www.youtube.com/watch?v=en0GuyhieQk"
+    ],
+    "total_secs": 583.7
+  },
+  "repo-ai-newtab-01": {
+    "id": "repo-ai-newtab-01",
+    "template": "repo-spotlight",
+    "brief": "briefs/repo-ai-newtab-01.json",
+    "stages": {
+      "voice": {
+        "engine": "chatterbox exag0.7 cfg0.4 ref michael-ref.wav, flow (3 chunks, worst match 96%, melody [14.9, 13.8, 16.2] st, retries 0)",
+        "lines": 7,
+        "duration": "45.77s",
+        "secs": 419.5
+      },
+      "words": {
+        "method": "waveform-anchored",
+        "whisper_char_match": "100.0%",
+        "word_diffs": "opensource twelve",
+        "secs": 19.3
+      },
+      "audio": {
+        "music": "pulse/minor_pop 112bpm key-3 seed5639",
+        "sfx": 26,
+        "loudness": "-14.1 LUFS",
+        "peak": "-1.5 dBFS"
+      },
+      "build": {
+        "project": "/var/tmp/reels/repo-ai-newtab-01/project",
+        "html_kb": 73.9
+      },
+      "lint": {
+        "errors": 0,
+        "warnings": 4
+      },
+      "check": {
+        "ok": true,
+        "secs": 58.1,
+        "summary": "[hyperframes] browserGpuMode probe \u2192 software (WebGL unavailable)"
+      },
+      "render": {
+        "secs": 245.5,
+        "mb": 16.71,
+        "quality": "looks",
+        "crf": 23
+      },
+      "qa": {
+        "passed": "7/7",
+        "failed": "-",
+        "out": "reels-studio/renders/repo-ai-newtab-01"
+      }
+    },
+    "assets": 5,
+    "qa": {
+      "duration": 45.767,
+      "frames": 1373,
+      "video": "h264 1080x1920 30/1",
+      "audio": "aac 48000Hz 2ch",
+      "loudness_lufs": -14.2,
+      "peak_dbfs": -1.2,
+      "size_mb": 16.71,
+      "checks": {
+        "1080x1920": true,
+        "30fps": true,
+        "h264+aac": true,
+        "duration_matches": true,
+        "loudness_-14\u00b11": true,
+        "peak<=-1dBFS": true,
+        "approved_voice": true
+      }
+    },
+    "timing": {
+      "hook": {
+        "start": 0.25,
+        "end": 6.275,
+        "text": "Okay, someone at Anthropic just built an AI homepage that literally writes itself."
+      },
+      "how": {
+        "start": 6.275,
+        "end": 12.535,
+        "text": "It reads your browsing history, opens up to 8 sites you follow, and then writes you a fresh front page."
+      },
+      "name": {
+        "start": 12.535,
+        "end": 16.96,
+        "text": "And it's his own open-source project, which hit 300 stars in just twelve hours."
+      },
+      "looks": {
+        "start": 17.02,
+        "end": 22.565,
+        "text": "You can make it look like a morning newspaper, a dashboard, or even a green hacker terminal."
+      },
+      "install": {
+        "start": 22.565,
+        "end": 27.16,
+        "text": "Setup is quick: you load it in Chrome with your own Anthropic API key."
+      },
+      "catch": {
+        "start": 28.01,
+        "end": 39.025,
+        "text": "But here's the catch: it sends your history and up to 8 signed-in pages to Anthropic, and every build costs you credits. The good news? Uploads get deleted after each build."
+      },
+      "cta": {
+        "start": 39.025,
+        "end": 44.26,
+        "text": "So, would you let AI write your homepage? Comment TAB and I'll pin the link."
+      }
+    },
+    "music": {
+      "style": "pulse",
+      "progression": "minor_pop",
+      "bpm": 112,
+      "seed": 5639,
+      "key": -3
+    },
+    "sources": [
+      "GitHub API 2026-10-09 05:50 UTC: ThariqS/ai-newtab, 301 stars, 20 forks, MIT, created 2026-10-08T17:44:43Z",
+      "GitHub profile ThariqS: 'Thariq Shihipar', bio 'Claude Code @anthropics'. Personal repo, not an Anthropic product",
+      "README read 2026-10-09: replaces Chrome's new-tab page; an agent looks at your browsing, opens the pages you follow (signed in as you) and writes a fresh homepage; rebuilds in the background (6/12/24/48 h); any look (morning newspaper, one-column digest, dense dashboard, green-on-black terminal, zine)",
+      "README privacy: sends a summary of browsing history (top domains, visit counts, a few page titles) and the cleaned-up HTML of up to 8 pages to the Anthropic API using your own key; pages can include private content; session and uploads deleted when each build ends; key in local storage",
+      "README install + cost: Chrome/Chromium, Node.js 20+, Anthropic API key; models Sonnet 5.5 (default), Haiku 5.5 (cheapest), Opus 5.5; each build billed to your API key",
+      "README image 'An example homepage in a morning newspaper look' is labelled as an illustration"
+    ],
+    "total_secs": 767.7
+  },
+  "repo-scm-01": {
+    "id": "repo-scm-01",
+    "template": "repo-spotlight",
+    "brief": "briefs/repo-scm-01.json",
+    "stages": {
+      "voice": {
+        "engine": "chatterbox exag0.7 cfg0.4 ref michael-ref.wav, flow (3 chunks, worst match 99%, melody [18.1, 19.8, 17.1] st, retries 0)",
+        "lines": 7,
+        "duration": "45.13s",
+        "secs": 426.0
+      },
+      "words": {
+        "method": "waveform-anchored",
+        "whisper_char_match": "98.8%",
+        "word_diffs": "installing",
+        "secs": 19.1
+      },
+      "audio": {
+        "music": "pulse/minor_pop 112bpm key+0 seed11631",
+        "sfx": 26,
+        "loudness": "-14.0 LUFS",
+        "peak": "-1.5 dBFS"
+      },
+      "build": {
+        "project": "/var/tmp/reels/repo-scm-01/project",
+        "html_kb": 76.1
+      },
+      "lint": {
+        "errors": 0,
+        "warnings": 4
+      },
+      "check": {
+        "ok": true,
+        "secs": 59.7,
+        "summary": "[hyperframes] browserGpuMode probe \u2192 software (WebGL unavailable)"
+      },
+      "render": {
+        "secs": 255.4,
+        "mb": 13.59,
+        "quality": "looks",
+        "crf": 23
+      },
+      "qa": {
+        "passed": "7/7",
+        "failed": "-",
+        "out": "reels-studio/renders/repo-scm-01"
+      }
+    },
+    "assets": 4,
+    "qa": {
+      "duration": 45.133,
+      "frames": 1354,
+      "video": "h264 1080x1920 30/1",
+      "audio": "aac 48000Hz 2ch",
+      "loudness_lufs": -14.1,
+      "peak_dbfs": -1.2,
+      "size_mb": 13.59,
+      "checks": {
+        "1080x1920": true,
+        "30fps": true,
+        "h264+aac": true,
+        "duration_matches": true,
+        "loudness_-14\u00b11": true,
+        "peak<=-1dBFS": true,
+        "approved_voice": true
+      }
+    },
+    "timing": {
+      "hook": {
+        "start": 0.25,
+        "end": 6.115,
+        "text": "Okay, imagine describing a memory, and this AI photo search finds the exact shot."
+      },
+      "demo": {
+        "start": 6.115,
+        "end": 12.9,
+        "text": "You just type something like happy partying, human robot, or apple device, and it instantly pulls up every match."
+      },
+      "name": {
+        "start": 12.96,
+        "end": 21.015,
+        "text": "It's called SCM, Screen Memories, and it's free and open source, with 446 stars in six days."
+      },
+      "modes": {
+        "start": 21.015,
+        "end": 28.005,
+        "text": "And it doesn't just search photos: it finds scenes inside videos, text on your screen, even spoken lines."
+      },
+      "install": {
+        "start": 28.005,
+        "end": 29.77,
+        "text": "Installing it takes three lines of Homebrew."
+      },
+      "catch": {
+        "start": 30.62,
+        "end": 39.905,
+        "text": "The catch? It's Mac only, and there's a 435 MB model to download first. But after that, there's no account, no cloud, and no uploads."
+      },
+      "cta": {
+        "start": 39.905,
+        "end": 43.62,
+        "text": "So what would you search for first? Comment FIND and I'll pin the link."
+      }
+    },
+    "music": {
+      "style": "pulse",
+      "progression": "minor_pop",
+      "bpm": 112,
+      "seed": 11631,
+      "key": 0
+    },
+    "sources": [
+      "GitHub API 2026-10-09 05:50 UTC: allenv0/SCM, 446 stars, 30 forks, MIT, created 2026-10-03T16:11:55Z",
+      "README: 'Local-first \u2014 no accounts, no cloud, no uploads. Inference runs on your Mac.'; five search modes (Files, Scenes, Dialogue, OCR, LLMs)",
+      "README Requirements: macOS; first use of a model downloads its weights (~435MB for the default CLIP); after that, fully offline",
+      "README Download: easiest install via Homebrew (Apple Silicon, macOS 12+): brew tap allenv0/scm; brew trust allenv0/scm; brew install --cask allenv0/scm/scm",
+      "Footage: official demo GIF Asset/0.gif (library grid) from the repo, converted to MP4; search-modes.png = README image Asset/tabs.png"
+    ],
+    "total_secs": 786.0
+  },
+  "spotlight-papermorph-01": {
+    "id": "spotlight-papermorph-01",
+    "template": "tool-spotlight",
+    "brief": "briefs/spotlight-papermorph-01.json",
+    "stages": {
+      "voice": {
+        "engine": "chatterbox exag0.7 cfg0.4 ref michael-ref.wav, flow (3 chunks, worst match 98%, melody [16.3, 14.8, 18.2] st, retries 1)",
+        "lines": 7,
+        "duration": "44.23s",
+        "secs": 296.4
+      },
+      "words": {
+        "method": "waveform-anchored",
+        "whisper_char_match": "99.2%",
+        "word_diffs": "free claude six hand claude",
+        "secs": 21.1
+      },
+      "voice_quality": {
+        "melody_st": 18.6,
+        "wpm": 162,
+        "note": "ok"
+      },
+      "audio": {
+        "music": "pulse/uplift 122bpm key+1 seed32092",
+        "sfx": 30,
+        "loudness": "-14.1 LUFS",
+        "peak": "-1.5 dBFS"
+      },
+      "build": {
+        "project": "/var/tmp/reels/spotlight-papermorph-01/project",
+        "html_kb": 74.8
+      },
+      "lint": {
+        "errors": 0,
+        "warnings": 4
+      },
+      "check": {
+        "ok": true,
+        "secs": 53.9,
+        "summary": "[hyperframes] browserGpuMode probe \u2192 software (WebGL unavailable)"
+      },
+      "render": {
+        "secs": 200.1,
+        "mb": 13.32,
+        "quality": "looks",
+        "crf": 23
+      },
+      "loudness_fix": {
+        "before": "-16.0 LUFS",
+        "after": "-14.0 LUFS"
+      },
+      "qa": {
+        "passed": "7/7",
+        "failed": "-",
+        "out": "reels-studio/renders/spotlight-papermorph-01"
+      }
+    },
+    "voice_quality": {
+      "melody_st": 18.6,
+      "wpm": 162,
+      "approved_sample_melody_st": 13.6
+    },
+    "assets": 6,
+    "qa": {
+      "duration": 44.233,
+      "frames": 1327,
+      "video": "h264 1080x1920 30/1",
+      "audio": "aac 48000Hz 2ch",
+      "loudness_lufs": -14.0,
+      "peak_dbfs": -1.1,
+      "size_mb": 13.33,
+      "checks": {
+        "1080x1920": true,
+        "30fps": true,
+        "h264+aac": true,
+        "duration_matches": true,
+        "loudness_-14\u00b11": true,
+        "peak<=-1dBFS": true,
+        "approved_voice": true
+      }
+    },
+    "timing": {
+      "hook": {
+        "start": 0.25,
+        "end": 7.505,
+        "text": "Okay, this AI turns a boring PDF into a narrated, animated book, and it's kind of amazing."
+      },
+      "demo": {
+        "start": 7.505,
+        "end": 14.32,
+        "text": "This algebra book has 68 narrated chapters, full of animated lessons, plus quizzes that actually check you."
+      },
+      "how": {
+        "start": 14.38,
+        "end": 21.715,
+        "text": "Here's how: it plans the book, storyboards every page, writes the narration, and then animates it all with quizzes."
+      },
+      "name": {
+        "start": 21.715,
+        "end": 27.695,
+        "text": "It's called Papermorph, a free Claude Code skill that's hit 590 stars in six days."
+      },
+      "install": {
+        "start": 27.695,
+        "end": 30.85,
+        "text": "You add it with one command, then just hand Claude your PDF."
+      },
+      "catch": {
+        "start": 31.7,
+        "end": 39.135,
+        "text": "The catch? It needs Opus 5.5, which isn't free, and it's not multilingual yet. But the bookshelf? That's free to try."
+      },
+      "cta": {
+        "start": 39.135,
+        "end": 42.71,
+        "text": "So which textbook would you turn into one? Comment BOOK and I'll pin the link."
+      }
+    },
+    "music": {
+      "style": "pulse",
+      "progression": "uplift",
+      "bpm": 122,
+      "seed": 32092,
+      "key": 1
+    },
+    "sources": [
+      "GitHub API 2026-10-09 05:50 UTC: DozenTwelve/Papermorph, 590 stars, 78 forks, MIT, created 2026-10-03T01:38:22Z",
+      "README: 'A Skill that turns PDFs into animated interactive web books'; 'books you can explore, listen to, and interact with'; pipeline PDF -> Book plan -> Storyboards -> Narration -> Animation & quizzes -> Web book",
+      "README: 'Today: Opus 5.5 only. No image models, multilingual support, or BGM yet.'",
+      "README Get started: npx skills add DozenTwelve/Papermorph --skill papermorph --agent claude-code; in Claude Code with Opus 5.5 run /papermorph Turn /path/to/book.pdf into an animated interactive web book",
+      "Live bookshelf https://papermorph.diamonddoge.org/ (own capture 2026-10-09): Elementary Algebra 68 narrated chapters; Elementary Mathematics 22 narrated chapters; Physics coming soon",
+      "Footage: official 75-second demo img/readme/papermorph-preview.mp4 (audio removed); hook = own push-in on the bookshelf capture"
+    ],
+    "total_secs": 601.5
+  },
+  "tool-muse-01": {
+    "id": "tool-muse-01",
+    "template": "tool-spotlight",
+    "brief": "briefs/tool-muse-01.json",
+    "stages": {
+      "voice": {
+        "engine": "chatterbox exag0.7 cfg0.4 ref michael-ref.wav, flow (3 chunks, worst match 99%, melody [18.9, 16.2, 12.8] st, retries 2)",
+        "lines": 6,
+        "duration": "42.23s",
+        "secs": 602.7
+      },
+      "words": {
+        "method": "waveform-anchored",
+        "whisper_char_match": "99.6%",
+        "word_diffs": "it comment",
+        "secs": 16.3
+      },
+      "audio": {
+        "music": "pulse/uplift 122bpm key+3 seed10905",
+        "sfx": 15,
+        "loudness": "-14.0 LUFS",
+        "peak": "-1.5 dBFS"
+      },
+      "build": {
+        "project": "/var/tmp/reels/tool-muse-01/project",
+        "html_kb": 73.0
+      },
+      "lint": {
+        "errors": 0,
+        "warnings": 4
+      },
+      "check": {
+        "ok": true,
+        "secs": 46.9,
+        "summary": "[hyperframes] browserGpuMode probe \u2192 software (WebGL unavailable)"
+      },
+      "render": {
+        "secs": 192.3,
+        "mb": 9.62,
+        "quality": "looks",
+        "crf": 23
+      },
+      "qa": {
+        "passed": "7/7",
+        "failed": "-",
+        "out": "reels-studio/renders/tool-muse-01"
+      }
+    },
+    "assets": 5,
+    "qa": {
+      "duration": 42.233,
+      "frames": 1267,
+      "video": "h264 1080x1920 30/1",
+      "audio": "aac 48000Hz 2ch",
+      "loudness_lufs": -14.1,
+      "peak_dbfs": -1.3,
+      "size_mb": 9.62,
+      "checks": {
+        "1080x1920": true,
+        "30fps": true,
+        "h264+aac": true,
+        "duration_matches": true,
+        "loudness_-14\u00b11": true,
+        "peak<=-1dBFS": true,
+        "approved_voice": true
+      }
+    },
+    "timing": {
+      "hook": {
+        "start": 0.25,
+        "end": 7.015,
+        "text": "Okay, Meta just dropped an AI agent called Muse, and it doesn't just chat, it actually does your chores."
+      },
+      "demo": {
+        "start": 7.015,
+        "end": 14.82,
+        "text": "You text it like a friend, and it handles forms, shopping and trips, like this school form it found in your email and filled out by itself."
+      },
+      "asks": {
+        "start": 14.88,
+        "end": 21.205,
+        "text": "And before it buys anything or sends an email, it asks you first, and it logs every single step."
+      },
+      "proof": {
+        "start": 21.205,
+        "end": 27.4,
+        "text": "Which is probably why it shot to number one on the App Store, with 6.6 million installs in its first month."
+      },
+      "catch": {
+        "start": 27.46,
+        "end": 36.825,
+        "text": "But here's the catch: it only works in the US and Canada, and WIRED reports it keeps a page on every person in your life. It's free to start, though, with weekly limits."
+      },
+      "cta": {
+        "start": 36.825,
+        "end": 40.72,
+        "text": "So, would you let an AI run your inbox? Comment AGENT."
+      }
+    },
+    "music": {
+      "style": "pulse",
+      "progression": "uplift",
+      "bpm": 122,
+      "seed": 10905,
+      "key": 3
+    },
+    "sources": [
+      "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+      "https://www.muse.ai",
+      "https://techcrunch.com/2026/10/07/metas-muse-launches-on-ipad-just-a-month-after-its-mobile-debut/",
+      "https://9to5mac.com/2026/10/07/meta-launches-muse-for-ipad-following-weeks-as-the-top-iphone-app/",
+      "https://www.ibtimes.co.uk/meta-muse-ai-profiles-users-social-circles-1824205",
+      "https://futurism.com/future-society/meta-muse-surveillance-privacy-friends-family",
+      "https://www.aiagentslibrary.com/blog/meta-muse-ai/"
+    ],
+    "total_secs": 883.3
+  }
+}

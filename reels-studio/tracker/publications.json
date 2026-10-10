@@ -1,0 +1,42 @@
+{
+  "cooldown_until": null,
+  "records": {
+    "repo-removemacai-01:youtube": {
+      "buffer_post_id": "6ac904b32f26cc482c22c524",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/lzXGzOsidCg",
+      "platform": "youtube",
+      "sent_at": "2026-10-09T05:32:44.000Z",
+      "source": "Owner report, verified against public YouTube feed and Buffer sent history on 2026-10-10",
+      "state": "published_manual",
+      "title": "Turn off Apple Intelligence on macOS 27 (free app)",
+      "updated_at": "2026-10-10T00:00:00Z",
+      "video_id": "repo-removemacai-01"
+    },
+    "spotlight-papermorph-01:youtube": {
+      "buffer_post_id": "6ac904b32f26cc482c22c526",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/Mt8Yn9ShBmM",
+      "platform": "youtube",
+      "sent_at": "2026-10-09T14:42:21.000Z",
+      "source": "Owner report, verified against public YouTube feed and Buffer sent history on 2026-10-10",
+      "state": "published_manual",
+      "title": "PDF to Animated Book With AI (Claude Code Skill)",
+      "updated_at": "2026-10-10T00:00:00Z",
+      "video_id": "spotlight-papermorph-01"
+    },
+    "tool-muse-01:youtube": {
+      "buffer_post_id": "6ac904b32f26cc482c22c528",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/6OAa4KofxvQ",
+      "platform": "youtube",
+      "sent_at": "2026-10-09T14:35:37.000Z",
+      "source": "Owner report, verified against public YouTube feed and Buffer sent history on 2026-10-10",
+      "state": "published_manual",
+      "title": "Meta Muse: The AI Agent That Does Your Chores",
+      "updated_at": "2026-10-10T00:00:00Z",
+      "video_id": "tool-muse-01"
+    }
+  },
+  "schema_version": 1
+}

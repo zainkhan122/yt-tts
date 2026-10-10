@@ -1,0 +1,3 @@
+requests>=2.32.3,<3
+# Used only by tests to validate GraphQL operations/input against the pinned public schema.
+graphql-core>=3.2.6,<3.3

@@ -15,3 +15,9 @@ research/voice/raw/
 
 # finished videos live in GitHub Releases (tools/publish_release.py); local renders are scratch
 renders/
+
+# Posting reports contain operational receipts, not source files
+.env
+.env.*
+*.token
+publishing-report.*
