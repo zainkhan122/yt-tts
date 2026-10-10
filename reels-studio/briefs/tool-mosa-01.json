@@ -6,7 +6,7 @@
   "niche": "tech / AI tool",
   "lang": "en-us",
   "style": "midnight",
-  "status": "2026-10-10: original script based on checked primary sources; approved Option 3 flow voice; no on-screen credits.",
+  "status": "2026-10-10: original script based on checked primary sources; approved Option 3 flow voice; no on-screen credits. | On-screen browser chrome shows a concise source domain; full source URLs stay in descriptions.",
   "keywords": [
     "Mosa",
     "workflow",
@@ -38,7 +38,8 @@
       "fit": "fill-blur",
       "headline": "MOSA: ONE *AI WORKFLOW*",
       "sub": "Stop moving prompts between five apps",
-      "say": "Mosa puts your scattered AI tools onto one visual canvas, so a single workflow can make a whole campaign."
+      "say": "Mosa puts your scattered AI tools onto one visual canvas, so a single workflow can make a whole campaign.",
+      "url": "getmosa.ai"
     },
     {
       "id": "connect",
@@ -47,7 +48,8 @@
       "in": 7,
       "out": 13.5,
       "fit": "card",
-      "say": "Connect text, image, video and voice nodes, instead of moving prompts and files between separate apps."
+      "say": "Connect text, image, video and voice nodes, instead of moving prompts and files between separate apps.",
+      "url": "getmosa.ai"
     },
     {
       "id": "logic",
@@ -61,14 +63,16 @@
         "Add branches and quality checks",
         "Reuse for another product or format"
       ],
-      "say": "You can branch the flow, add quality checks, and reuse it for another product or format."
+      "say": "You can branch the flow, add quality checks, and reuse it for another product or format.",
+      "url": "getmosa.ai"
     },
     {
       "id": "agent",
       "type": "image",
       "image": "section-costs.jpg",
       "heading": "SEE THE *COST*",
-      "say": "An agent helps build and debug the workflow, while cost tracking shows what each step spends."
+      "say": "An agent helps build and debug the workflow, while cost tracking shows what each step spends.",
+      "url": "getmosa.ai"
     },
     {
       "id": "credit",
@@ -79,7 +83,8 @@
       "label": "starting credit · once, not every month",
       "icon": false,
       "at": "five",
-      "say": "But free does not mean unlimited. New accounts get five euros in starting credit, once."
+      "say": "But free does not mean unlimited. New accounts get five euros in starting credit, once.",
+      "url": "getmosa.ai"
     },
     {
       "id": "catch",
@@ -91,13 +96,15 @@
       "pros": [
         "Basic: €19/month includes €19 budget (excl. VAT)"
       ],
-      "say": "You verify a card or bank account, and generations spend that balance. Basic is nineteen euros monthly, including nineteen euros of model budget, before tax."
+      "say": "You verify a card or bank account, and generations spend that balance. Basic is nineteen euros monthly, including nineteen euros of model budget, before tax.",
+      "url": "getmosa.ai"
     },
     {
       "id": "cta",
       "type": "endcard",
       "keyword": "FLOW",
-      "say": "So, metered AI in one workflow, not free access to every model. Would you use it? Comment flow."
+      "say": "So, metered AI in one workflow, not free access to every model. Would you use it? Comment flow.",
+      "url": "getmosa.ai"
     }
   ],
   "contains_synthetic_media": true,

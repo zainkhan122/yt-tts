@@ -6,7 +6,7 @@
   "niche": "tech / AI repo",
   "lang": "en-us",
   "style": "midnight",
-  "status": "2026-10-10: original script based on checked primary sources; approved Option 3 flow voice; no on-screen credits.",
+  "status": "2026-10-10: original script based on checked primary sources; approved Option 3 flow voice; no on-screen credits. | On-screen browser chrome shows a concise source domain; full source URLs stay in descriptions.",
   "keywords": [
     "Whistle",
     "offline",
@@ -39,7 +39,8 @@
       "fit": "fill-blur",
       "headline": "WHISTLE: *OFFLINE VOICE*",
       "sub": "A speech model in just 16.9 MB",
-      "say": "Whistle transcribes speech locally, with a model file smaller than some app updates."
+      "say": "Whistle transcribes speech locally, with a model file smaller than some app updates.",
+      "url": "cactuscompute.com"
     },
     {
       "id": "size",
@@ -51,7 +52,8 @@
       "label": "CPU speech recognition · Apache-2.0",
       "icon": false,
       "at": "sixteen",
-      "say": "It is {16.9|sixteen point nine} megabytes, runs on your CPU, and does not need to send your audio away."
+      "say": "It is {16.9|sixteen point nine} megabytes, runs on your CPU, and does not need to send your audio away.",
+      "url": "cactuscompute.com"
     },
     {
       "id": "demo",
@@ -60,7 +62,8 @@
       "in": 6,
       "out": 14,
       "fit": "card",
-      "say": "The browser demo downloads the model once, then transcribes right on your own device."
+      "say": "The browser demo downloads the model once, then transcribes right on your own device.",
+      "url": "cactuscompute.com"
     },
     {
       "id": "extra",
@@ -74,7 +77,8 @@
         "Word timestamps",
         "Keyword bias for tricky names"
       ],
-      "say": "You can also get word timestamps, or bias it toward tricky names and product words."
+      "say": "You can also get word timestamps, or bias it toward tricky names and product words.",
+      "url": "cactuscompute.com"
     },
     {
       "id": "catch",
@@ -86,20 +90,23 @@
       "pros": [
         "Local CPU processing; open-source engine"
       ],
-      "say": "The catch? It supports seven languages, and each input is limited to thirty seconds."
+      "say": "The catch? It supports seven languages, and each input is limited to thirty seconds.",
+      "url": "cactuscompute.com"
     },
     {
       "id": "bench",
       "type": "image",
       "image": "demo-result.jpg",
       "heading": "CHECK THE *NAMES*",
-      "say": "It even heard Claude as Cloud in our demo, so check names before you trust the transcript."
+      "say": "It even heard Claude as Cloud in our demo, so check names before you trust the transcript.",
+      "url": "cactuscompute.com"
     },
     {
       "id": "cta",
       "type": "endcard",
       "keyword": "WHISTLE",
-      "say": "For small, private voice features, that size is interesting. Where would you use offline voice? Comment Whistle."
+      "say": "For small, private voice features, that size is interesting. Where would you use offline voice? Comment Whistle.",
+      "url": "cactuscompute.com"
     }
   ],
   "seo": {

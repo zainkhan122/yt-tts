@@ -6,7 +6,7 @@
   "niche": "tech / AI tool",
   "lang": "en-us",
   "style": "midnight",
-  "status": "2026-10-10: original script based on checked primary sources; approved Option 3 flow voice; no on-screen credits.",
+  "status": "2026-10-10: original script based on checked primary sources; approved Option 3 flow voice; no on-screen credits. | On-screen browser chrome shows a concise source domain; full source URLs stay in descriptions.",
   "keywords": [
     "Pomelli",
     "product",
@@ -41,7 +41,8 @@
       "fit": "fill-blur",
       "headline": "POMELLI: PRODUCT *PHOTOS*",
       "sub": "Brand-ready images without a studio",
-      "say": "Pomelli can turn a plain product photo into branded marketing images, without booking a studio."
+      "say": "Pomelli can turn a plain product photo into branded marketing images, without booking a studio.",
+      "url": "blog.google"
     },
     {
       "id": "brand",
@@ -50,7 +51,8 @@
       "in": 1,
       "out": 7.5,
       "fit": "card",
-      "say": "You give Google's tool your website or brand materials, so it learns your colors, type and visual style."
+      "say": "You give Google's tool your website or brand materials, so it learns your colors, type and visual style.",
+      "url": "blog.google"
     },
     {
       "id": "photoshoot",
@@ -59,7 +61,8 @@
       "in": 9,
       "out": 17,
       "fit": "card",
-      "say": "Then Photoshoot creates studio or lifestyle variations, which you can refine and download."
+      "say": "Then Photoshoot creates studio or lifestyle variations, which you can refine and download.",
+      "url": "blog.google"
     },
     {
       "id": "more",
@@ -73,7 +76,8 @@
         "Campaign assets",
         "Brand books and websites"
       ],
-      "say": "It also makes campaign assets, while its agent features can build brand books and websites from that context."
+      "say": "It also makes campaign assets, while its agent features can build brand books and websites from that context.",
+      "url": "blog.google"
     },
     {
       "id": "accuracy",
@@ -85,20 +89,23 @@
       "pros": [
         "Fast ideas and on-brand variations"
       ],
-      "say": "But these are not real photoshoots. AI can change product details, so check labels, colors and shapes before using an image in an ad."
+      "say": "But these are not real photoshoots. AI can change product details, so check labels, colors and shapes before using an image in an ad.",
+      "url": "blog.google"
     },
     {
       "id": "access",
       "type": "image",
       "image": "section-how.jpg",
       "heading": "CHECK YOUR *ACCESS*",
-      "say": "Google calls this a free Labs experiment, with availability and languages depending on your region. Useful, but not a reason to skip accuracy."
+      "say": "Google calls this a free Labs experiment, with availability and languages depending on your region. Useful, but not a reason to skip accuracy.",
+      "url": "blog.google"
     },
     {
       "id": "cta",
       "type": "endcard",
       "keyword": "BRAND",
-      "say": "What product would you shoot first? Comment brand."
+      "say": "What product would you shoot first? Comment brand.",
+      "url": "blog.google"
     }
   ],
   "contains_synthetic_media": true,

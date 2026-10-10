@@ -6,7 +6,7 @@
   "niche": "tech / AI news",
   "lang": "en-us",
   "style": "midnight",
-  "status": "2026-10-10: original script based on checked primary sources; approved Option 3 flow voice; no on-screen credits.",
+  "status": "2026-10-10: original script based on checked primary sources; approved Option 3 flow voice; no on-screen credits. | On-screen browser chrome shows a concise source domain; full source URLs stay in descriptions.",
   "keywords": [
     "Claude",
     "Haiku",
@@ -38,7 +38,8 @@
       "fit": "fill-blur",
       "headline": "CLAUDE HAIKU *GOT CHEAPER*",
       "sub": "5.5 pricing has one important catch",
-      "say": "Claude Haiku {5.5|five point five} just got dramatically cheaper, but the headline price has one important limit."
+      "say": "Claude Haiku {5.5|five point five} just got dramatically cheaper, but the headline price has one important limit.",
+      "url": "anthropic.com"
     },
     {
       "id": "price",
@@ -50,7 +51,8 @@
       "label": "per 1M input tokens · prompts up to 100k",
       "icon": false,
       "at": "ten",
-      "say": "Small prompts cost ten cents per million input tokens, and fifty cents per million output tokens."
+      "say": "Small prompts cost ten cents per million input tokens, and fifty cents per million output tokens.",
+      "url": "anthropic.com"
     },
     {
       "id": "uses",
@@ -64,14 +66,16 @@
         "Short summaries",
         "Focused sub-agents"
       ],
-      "say": "That is for tasks like summaries, lookups and sub-agents, where a bigger model might just waste money."
+      "say": "That is for tasks like summaries, lookups and sub-agents, where a bigger model might just waste money.",
+      "url": "anthropic.com"
     },
     {
       "id": "effort",
       "type": "image",
       "image": "section-performance.jpg",
       "heading": "CHOOSE THE *EFFORT*",
-      "say": "You also get adjustable effort, so you can trade cost and speed for deeper reasoning."
+      "say": "You also get adjustable effort, so you can trade cost and speed for deeper reasoning.",
+      "url": "anthropic.com"
     },
     {
       "id": "catch",
@@ -89,20 +93,23 @@
         "tokenizer",
         "focused"
       ],
-      "say": "But go over a hundred thousand prompt tokens, and both prices jump fivefold. The new tokenizer also affects your bill."
+      "say": "But go over a hundred thousand prompt tokens, and both prices jump fivefold. The new tokenizer also affects your bill.",
+      "url": "anthropic.com"
     },
     {
       "id": "proof",
       "type": "image",
       "image": "table-1.jpg",
       "heading": "MATCH MODEL TO *TASK*",
-      "say": "For hard coding tasks, Anthropic's own benchmarks still favor larger models. So test your workload, not just the cheapest sticker price."
+      "say": "For hard coding tasks, Anthropic's own benchmarks still favor larger models. So test your workload, not just the cheapest sticker price.",
+      "url": "anthropic.com"
     },
     {
       "id": "cta",
       "type": "endcard",
       "keyword": "HAIKU",
-      "say": "Would you try cheap sub-agents? Comment Haiku."
+      "say": "Would you try cheap sub-agents? Comment Haiku.",
+      "url": "anthropic.com"
     }
   ],
   "seo": {

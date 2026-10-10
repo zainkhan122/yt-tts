@@ -6,7 +6,7 @@
   "niche": "tech / AI news",
   "lang": "en-us",
   "style": "midnight",
-  "status": "2026-10-10: original script based on checked primary sources; approved Option 3 flow voice; no on-screen credits.",
+  "status": "2026-10-10: original script based on checked primary sources; approved Option 3 flow voice; no on-screen credits. | On-screen browser chrome shows a concise source domain; full source URLs stay in descriptions.",
   "keywords": [
     "Gemini",
     "agent",
@@ -36,16 +36,18 @@
       "in": 0,
       "out": 7,
       "fit": "fill-blur",
-      "headline": "GEMINI KEEPS *WORKING*",
-      "sub": "Even after you close your laptop",
-      "say": "Google says its new Gemini agent can keep working after you close your laptop."
+      "headline": "GEMINI *KEEPS GOING*",
+      "sub": "Cloud work. Laptop optional.",
+      "say": "Google says its new Gemini agent can keep working after you close your laptop.",
+      "url": "cloud.google.com"
     },
     {
       "id": "job",
       "type": "image",
       "image": "official-1.jpg",
       "heading": "GIVE IT AN *OUTCOME*",
-      "say": "Instead of just answering questions, it plans a job and uses your company's connected tools."
+      "say": "Instead of just answering questions, it plans a job and uses your company's connected tools.",
+      "url": "cloud.google.com"
     },
     {
       "id": "skills",
@@ -59,21 +61,24 @@
         "Write docs and create media",
         "Run code and use tools"
       ],
-      "say": "The idea is one agent that researches, writes documents, creates media and runs code from the same conversation."
+      "say": "The idea is one agent that researches, writes documents, creates media and runs code from the same conversation.",
+      "url": "cloud.google.com"
     },
     {
       "id": "memory",
       "type": "image",
       "image": "section-agent.jpg",
       "heading": "CONTEXT THAT *STAYS*",
-      "say": "It keeps context in the cloud and delegates pieces to specialized sub-agents, instead of restarting in every app."
+      "say": "It keeps context in the cloud and delegates pieces to specialized sub-agents, instead of restarting in every app.",
+      "url": "cloud.google.com"
     },
     {
       "id": "choice",
       "type": "image",
       "image": "model-choice.jpg",
       "heading": "NOT JUST ONE *MODEL*",
-      "say": "Google also describes automatic model choice, including Gemini and Claude, with controls for spending."
+      "say": "Google also describes automatic model choice, including Gemini and Claude, with controls for spending.",
+      "url": "cloud.google.com"
     },
     {
       "id": "catch",
@@ -85,13 +90,15 @@
       "pros": [
         "Persistent cloud work across connected tools"
       ],
-      "say": "But this is enterprise AI, not a free upgrade to personal Gmail. Your company's permissions still decide what it can do."
+      "say": "But this is enterprise AI, not a free upgrade to personal Gmail. Your company's permissions still decide what it can do.",
+      "url": "cloud.google.com"
     },
     {
       "id": "cta",
       "type": "endcard",
       "keyword": "AGENT",
-      "say": "Review what it produces before letting it act for you. What would you delegate first? Comment agent."
+      "say": "Review what it produces before letting it act for you. What would you delegate first? Comment agent.",
+      "url": "cloud.google.com"
     }
   ],
   "seo": {
