@@ -52,7 +52,7 @@ def snapshot():
 def markdown(info):
     b,y,a=info['buffer'],info['youtube'],info['optional_agent']
     lines=['# Hypeless — current operational state','',f"Generated: {info['generated_at']} · source commit: `{info['source_commit'][:12]}`",'',
-      '| System | Actual state |','|---|---|',
+      '| System | Recorded state |','|---|---|',
       f"| Buffer delivery | enabled={b['enabled']}; verified pilot={b['pilot_passed']}; {b['daily_target']}/day in {b['timezone']} |",
       f"| Buffer queue | {b['queue_approvals']} |",f"| Platform receipts | {b['platform_receipt_states']} |",
       f"| YouTube metadata | enabled={y['enabled']}; completed receipts={y['metadata_completed']} |",

@@ -2,7 +2,7 @@
 
 Generated: 2026-10-10T21:52:42.054369+00:00 · source commit: `3c60ea51ef00`
 
-| System | Actual state |
+| System | Recorded state |
 |---|---|
 | Buffer delivery | enabled=True; verified pilot=True; 3/day in America/New_York |
 | Buffer queue | {'approved': 3, 'held': 8} |
@@ -38,3 +38,5 @@ Generated: 2026-10-10T21:52:42.054369+00:00 · source commit: `3c60ea51ef00`
 - Final credential-free cloud regression `38089170017`: 194 tests passed; production files unchanged.
 - Full checkpoint restore tested: 156/156 files byte-identical. Reference `research/pilots/free-p5/full-checkpoint-archive.json`; continuation supports `checkpoint_source=archived-free-p5`.
 - Existing Buffer/YouTube publishing state is independent; pilot workflows cannot activate or publish.
+
+Provider receipt counts above are from durable journals, not a fresh live-provider query. Reconcile past-due entries before drawing conclusions; do not re-submit them.
