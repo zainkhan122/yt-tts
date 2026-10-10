@@ -153,6 +153,8 @@ class OpenRouter:
                 record['state']='uncertain';self.state['halted']=True;self._persist()
                 raise PilotBlocked('Inference response lost; hold instead of silently repeating or changing models')
             record['http_status']=r.status_code
+            record['completed_at']=iso(now_utc())
+            record['elapsed_seconds']=round(max(0,self.clock()-self.last_call),3)
             if r.status_code==429:
                 wait=retry_after(r.headers)
                 record.update(state='rejected_rate_limit',retry_after_seconds=wait)
@@ -203,3 +205,16 @@ def json_content(message):
         if not isinstance(result,dict):raise ValueError()
         return result
     except ValueError:raise PilotBlocked('Model answer is not a valid JSON object')
+
+
+def usage_summary(calls):
+    """Do not turn missing/failed provider receipts into fabricated $0 costs."""
+    received=[c for c in calls if c.get('state')=='received' and (c.get('usage') or {}).get('cost') is not None]
+    rejected=[c for c in calls if c.get('http_status') in {400,401,402,403,404,422,429} and c.get('state')!='received']
+    unknown=[c for c in calls if c not in received and c not in rejected]
+    return {'attempted_calls':len(calls),'successful_cost_receipts':len(received),
+            'reported_successful_cost_usd':str(sum(Decimal(str(c['usage']['cost'])) for c in received)),
+            'explicitly_rejected_requests':len(rejected),'missing_or_uncertain_cost_receipts':len(unknown),
+            'unknown_generation_ids':[c.get('generation_id') for c in unknown if c.get('generation_id')],
+            'measured_request_seconds':sum(c.get('elapsed_seconds',0) for c in calls),
+            'baseline_arena_cost':'unknown','note':'A successful-generation cost of zero does not imply missing receipts were measured; provider-side zero-dollar key cap and zero-price routing remain enforced.'}

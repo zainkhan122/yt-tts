@@ -40,3 +40,5 @@ EVIDENCE TOOLING / PROTOCOL CLARIFICATION (v2)
 - Target 110–125 spoken words. A useful Short does not need every benchmark, customer statistic, cloud platform or policy paragraph from the announcement.
 - Use normal spoken product names, not invented labels such as HAIKU55 to satisfy a keyword check.
 - Previously recorded experiments must stay explicitly attributed as recorded studio evidence. Do not extrapolate that they prove all devices or workloads behave the same way.
+
+- Source-tool calls are bounded. The controller reserves the final research round for a complete draft once all mandatory sources have been read. Do not mistake the existence of a search tool for permission to search indefinitely.

@@ -10,7 +10,7 @@ import sys
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT))
 from tools.agent.gates import frozen_production_state,assert_production_unchanged
-from tools.agent.openrouter_client import OpenRouter,PilotBlocked
+from tools.agent.openrouter_client import OpenRouter,PilotBlocked,usage_summary
 from tools.agent.producer import produce_case
 from tools.post.common import iso,now_utc,save_json,fingerprint
 
@@ -52,7 +52,8 @@ def main():
         report['calls']=len(client.state['calls'])
         known=[r for r in client.state['calls'] if r['state']=='received']
         report['reported_model_cost_usd']=sum(float((r.get('usage') or {}).get('cost') or 0) for r in known)
-        report['unknown_outcome_calls']=sum(r['state']=='uncertain' for r in client.state['calls'])
+        report['cost_accounting']=usage_summary(client.state['calls'])
+        report['unknown_outcome_calls']=report['cost_accounting']['missing_or_uncertain_cost_receipts']
         report['ready_case_ids']=[r['case'] for r in report['cases'] if r['status']=='ready_for_shadow_render']
         report['status']='authoring_complete' if len(report['ready_case_ids'])==len(report['cases']) and report['cases'] else 'authoring_partial_or_blocked'
     except Exception as exc:

@@ -101,7 +101,15 @@ def produce_case(client,case,work,pilot_id):
     try:
         for round_no in range(client.config['limits']['max_tool_rounds']):
             visible_sources=set(evidence.read_ids)
-            message=client.chat('producer',messages,tools=[READ_TOOL,SEARCH_TOOL,DRAFT_TOOL],label=case['id']+f':research:{round_no}')
+            last_round=round_no==client.config['limits']['max_tool_rounds']-1
+            if last_round:
+                required={s['id'] for s in case['sources'] if s['id'] in index}
+                if not required.issubset(visible_sources):
+                    raise PilotBlocked('Research budget ended before all required sources were read')
+                messages.append({'role':'user','content':'The bounded research phase is complete. Use ONLY the evidence already returned. Submit a focused 110–125-word narration and its exact supporting quotes now; do not start another search or add unsupported details.'})
+                message=client.chat('producer',messages,tools=[DRAFT_TOOL],tool_choice={'type':'function','function':{'name':'submit_draft'}},label=case['id']+':bounded_final_draft')
+            else:
+                message=client.chat('producer',messages,tools=[READ_TOOL,SEARCH_TOOL,DRAFT_TOOL],label=case['id']+f':research:{round_no}')
             messages.append(message);calls=message.get('tool_calls') or []
             if not calls:raise PilotBlocked('Producer must use registered evidence/submission tools')
             for call in calls:

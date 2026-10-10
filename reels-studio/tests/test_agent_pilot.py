@@ -136,3 +136,13 @@ class FreeOnlyClientTests(unittest.TestCase):
 
 
 if __name__=='__main__':unittest.main()
+
+
+class CostReceiptTests(unittest.TestCase):
+ def test_http200_provider_failure_is_not_reported_as_measured_zero(self):
+  from tools.agent.openrouter_client import usage_summary
+  report=usage_summary([{'state':'received','http_status':200,'usage':{'cost':0}}, {'state':'policy_blocked','http_status':200,'generation_id':'unknown-cost-generation'}])
+  self.assertEqual(report['successful_cost_receipts'],1)
+  self.assertEqual(report['missing_or_uncertain_cost_receipts'],1)
+  self.assertEqual(report['reported_successful_cost_usd'],'0')
+  self.assertEqual(report['baseline_arena_cost'],'unknown')

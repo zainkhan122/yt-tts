@@ -14,7 +14,7 @@ import sys
 from jsonschema import Draft202012Validator
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT))
-from tools.agent.openrouter_client import OpenRouter,PilotBlocked,json_content
+from tools.agent.openrouter_client import OpenRouter,PilotBlocked,json_content,usage_summary
 from tools.agent.producer import tool,args_for
 from tools.post.common import check_manifest,iso,now_utc,save_json
 
@@ -37,9 +37,31 @@ def parse_review(message,name,schema):
     return result
 
 
+def spoken_only(value):
+    return re.sub(r"\{[^{}|]+\|([^{}]+)\}",r"\1",value or '')
+
+
 def visible_brief(brief):
-    return {'title':brief['seo']['youtube']['title'],'description':brief['seo']['youtube']['description'],
-            'scenes':[{k:s.get(k) for k in ['id','say','headline','heading','sub','type']} for s in brief['scenes']]}
+    # Hide implementation IDs and trailing provenance labels that would reveal
+    # which side is the shadow candidate; retain the substantive public copy.
+    description=re.split(r"\n\s*(?:Sources?|Credits|Media|Footage):",brief['seo']['youtube']['description'],maxsplit=1,flags=re.I)[0]
+    scenes=[]
+    for n,scene in enumerate(brief['scenes'],1):
+        row={k:scene.get(k) for k in ['headline','heading','sub','type']}
+        row.update(scene_number=n,say=spoken_only(scene.get('say','')))
+        scenes.append(row)
+    return {'title':brief['seo']['youtube']['title'],'description':description,'scenes':scenes}
+
+
+def excerpt_matches(excerpt,brief):
+    # Audio reviewer receives no transcript. Require a recognizable phrase from
+    # the actual script, not merely its own boolean claim that it listened.
+    def words(s):return re.findall(r"[a-z]+",spoken_only(s).lower())
+    said=words(' '.join(s.get('say','') for s in brief['scenes']))
+    heard=words(excerpt)
+    if len(heard)<5:return False
+    source={' '.join(said[n:n+5]) for n in range(max(0,len(said)-4))}
+    return any(' '.join(heard[n:n+5]) in source for n in range(len(heard)-4))
 
 
 def image_part(path):
@@ -76,6 +98,9 @@ def compare_case(client,case_dir,candidate_dir,pilot_id):
         message=client.chat('audio_critic',[{'role':'system','content':'You are a separate audio critic. Evaluate actual clips, not filenames. Report uncertainty. Return findings with the reporting tool.'},{'role':'user','content':parts}],tools=[t],tool_choice={'type':'function','function':{'name':name}},label=case['id']+':paired_audio')
         audio=parse_review(message,name,AUDIO_SCHEMA)
         if not audio['audio_actually_assessed']:audio_issue='Audio modality not actually assessed'
+        elif not all(excerpt_matches(audio[label]['heard_excerpt'],brief) for label,(brief,_) in zip(['A','B'],choices)):
+            audio_issue='Listening evidence is insufficient: the quoted audio excerpts do not match the supplied narration'
+
     except Exception as exc:audio_issue=type(exc).__name__+': '+str(exc)
     candidate='A' if candidate_is_A else 'B';base='B' if candidate_is_A else 'A'
     noninferior=not visual['material_issues'] and all(visual[candidate][k]>=visual[base][k] for k in ['facts','authenticity','script','visuals'])
@@ -108,6 +133,7 @@ def main():
             except Exception as exc:report['cases'].append({'case':cid,'qualification':'not_qualified','reason':type(exc).__name__+': '+str(exc)})
         report['reported_model_cost_usd']=sum(float((c.get('usage') or {}).get('cost') or 0) for c in client.state['calls'] if c['state']=='received')
         report['inference_calls']=len(client.state['calls'])
+        report['cost_accounting']=usage_summary(client.state['calls'])
         if len(report['cases'])==len(cfg['baseline_cases']) and all(c['qualification']=='owner_review_required' for c in report['cases']):
             report['qualification']='comparison_signal_only_pending_owner_and_unseen_cases'
     except Exception as exc:report['issues'].append(type(exc).__name__+': '+str(exc))

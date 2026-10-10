@@ -202,3 +202,19 @@ class URLArchiveAndRenderTests(unittest.TestCase):
 
 
 if __name__=='__main__':unittest.main()
+
+
+class ComparisonEvidenceTests(unittest.TestCase):
+ def test_comparison_hides_candidate_implementation_ids(self):
+  from tools.agent.compare import visible_brief
+  b={'id':'shadow-private-label','seo':{'youtube':{'title':'Example','description':'Substantive copy.\n\nMedia: shadow pilot provenance'}},'scenes':[{'id':'secret-role-label','say':'These are {5|five} words in a source example.','type':'image'}]}
+  out=visible_brief(b)
+  self.assertNotIn('shadow',json.dumps(out));self.assertNotIn('secret-role-label',json.dumps(out))
+  self.assertEqual(out['scenes'][0]['scene_number'],1)
+
+ def test_audio_self_claim_needs_a_matching_heard_phrase(self):
+  from tools.agent.compare import excerpt_matches
+  b={'scenes':[{'say':'This tool runs locally on your own computer without sending the audio away.'}]}
+  self.assertTrue(excerpt_matches('runs locally on your own computer',b))
+  self.assertFalse(excerpt_matches('It sounded very natural and clear to me',b))
+  self.assertFalse(excerpt_matches('locally',b))
