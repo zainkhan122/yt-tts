@@ -1,7 +1,7 @@
 {
   "buffer_run": "https://github.com/zainkhan122/yt-tts/actions/runs/38044990215",
-  "youtube_run": "https://github.com/zainkhan122/yt-tts/actions/runs/38045053335",
-  "tests_passed": 109,
+  "youtube_run": "https://github.com/zainkhan122/yt-tts/actions/runs/38045438696",
+  "tests_passed": 110,
   "buffer_created": 0,
   "buffer_plan_platforms": [
     "facebook",
@@ -16,5 +16,6 @@
   "youtube_api_requests": 0,
   "youtube_oauth_configured": false,
   "callback_http": 200,
-  "live_upload_verified": false
+  "live_upload_verified": false,
+  "youtube_initial_run": "https://github.com/zainkhan122/yt-tts/actions/runs/38045053335"
 }
