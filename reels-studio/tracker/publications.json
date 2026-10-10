@@ -3,9 +3,11 @@
   "records": {
     "news-claude-free-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6aca1f23b07d37ac976e341a",
       "category": "news",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-10T11:18:51Z",
+      "due_at": "2026-10-10T11:18:59.240Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:8f76f72616ce6d34ef9430a605ccf6be3e619c2142728c254a0a5012162b5bfa",
         "asset_id": 625686728,
@@ -20,10 +22,11 @@
       "notify_subscribers": false,
       "payload_sha256": "9e36a4da2a6ece935bb896a9e040af3b23f5ef7cdc631a2fa408eb031c79248c",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "sending",
       "text": "Claude Slides, Docs and Design are now on the free plan: decks, social posts and docs from one chat, with PowerPoint/PDF exports. Motion is Team/Enterprise beta; Dashboards need a paid plan. Try it at claude.ai. Save this for later.\n\nCredits: Footage: Anthropic official videos (Claude). Page: claude.com, own capture.\n\n#aitools #claude #productivity #ai",
       "title": "Claude Slides, Docs & Design Are Now Free",
-      "updated_at": "2026-10-10T11:18:57Z",
+      "updated_at": "2026-10-10T11:19:09Z",
       "video_id": "news-claude-free-01"
     },
     "news-claude-free-01:youtube": {
