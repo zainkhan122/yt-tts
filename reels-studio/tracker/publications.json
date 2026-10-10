@@ -3,9 +3,11 @@
   "records": {
     "list-free-video-ai-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6aca292cf91f772d459136b5",
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-10T18:00:00Z",
+      "due_at": "2026-10-10T18:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:448b296e0a2974f892fbbbb69859390f9865bafa64f157ead302cb73330ea445",
         "asset_id": 627853401,
@@ -20,10 +22,11 @@
       "notify_subscribers": false,
       "payload_sha256": "900b53e6b59029fcc0d6c1a5d63341adfae9ee301f0b54d58fe303094f56149c",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "3 AI video generators and the real limits: Dreamina Seedance 2.0 offers daily credits; Google Flow gives 50 credits/day; Wan2.2 has no service-credit limit when self-hosted, but requires suitable hardware and electricity. Which would you try?\n\nCredits: Footage: Google DeepMind (Veo samples), ByteDance Dreamina (Seedance 2.0 samples), Wan-Video/Wan2.2 demo (Apache-2.0). Page: Google Flow Help, own capture.\n\nAI-generated narration and example video footage.\n\n#AItools #AIvideo",
       "title": "3 Free AI Video Generators (Real Daily Limits)",
-      "updated_at": "2026-10-10T12:01:46Z",
+      "updated_at": "2026-10-10T12:01:48Z",
       "video_id": "list-free-video-ai-01"
     },
     "list-free-video-ai-01:instagram": {
