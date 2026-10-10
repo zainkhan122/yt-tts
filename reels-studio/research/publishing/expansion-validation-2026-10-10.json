@@ -1,0 +1,20 @@
+{
+  "buffer_run": "https://github.com/zainkhan122/yt-tts/actions/runs/38044990215",
+  "youtube_run": "https://github.com/zainkhan122/yt-tts/actions/runs/38045053335",
+  "tests_passed": 109,
+  "buffer_created": 0,
+  "buffer_plan_platforms": [
+    "facebook",
+    "instagram",
+    "youtube"
+  ],
+  "buffer_plan_count": 9,
+  "buffer_capabilities": {
+    "facebook_ai_generated": false
+  },
+  "buffer_requests": 1,
+  "youtube_api_requests": 0,
+  "youtube_oauth_configured": false,
+  "callback_http": 200,
+  "live_upload_verified": false
+}

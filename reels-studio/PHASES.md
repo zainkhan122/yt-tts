@@ -73,7 +73,7 @@ Implemented in `tools/post/README.md` (operations + official sources):
 AI labels:
 - YouTube: none for a generic narrator over real footage.
 - TikTok: none for generic TTS (guidelines updated 2026-09-24).
-- Instagram: native `isAiGenerated` supported. Facebook: the owner explicitly removed the hold on 2026-10-10. Include FB with AI-narration caption disclosure; capability discovery enables a native flag if supported. Do not claim caption disclosure is a native label or promise a Buffer rollout. See `tools/post/README.md` for the limitation and hold/review rule.
+- Instagram: native `isAiGenerated` supported. Facebook: the owner explicitly removed the hold on 2026-10-10. Include FB with AI-narration caption disclosure; capability discovery enables a native flag if supported. Do not claim caption disclosure is a native label or promise a Buffer rollout. See `tools/post/README.md` for the current disclosure handling and recovery rules.
 
 ## Asset policy (what goes into our videos)
 - ✅ **Our own captures** of public pages: tool site, GitHub repo, docs. Review/commentary use, with the source credited in descriptions/post kits (owner: no on-screen credit captions).

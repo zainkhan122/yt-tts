@@ -410,6 +410,11 @@ class PublicationTests(unittest.TestCase):
         self.assertEqual(r["state"],"scheduled")
         self.assertNotEqual(r["state"],"sent")
 
+    def test_report_distinguishes_private_processing_from_published(self):
+        text=runner.report_text({"mode":"private-pilot","oauth_configured":True,"oauth_connected":True,"receipts":[{"video_id":"long-demo","state":"processing","youtube_id":VIDEO_ID}]})
+        self.assertIn("| long-demo | processing |",text)
+        self.assertIn("Scheduled/private/processing is not published",text)
+
     def test_private_pilot_does_not_arm_a_public_schedule(self):
         i,r,v,a,j,m=self.make()
         with patch.object(runner,"get_video",return_value=v),patch.object(runner,"set_thumbnail"),patch.object(runner,"playlists_for"):

@@ -227,6 +227,10 @@ def report_text(report):
     lines += [f"| {r['video_id']} | {r['category']} | {r['publish_local']} |" for r in report.get("plan", [])]
     if not report.get("plan"):
         lines += ["| No eligible long renders queued | — | — |"]
+    lines += ["", "## Receipts", "", "| Video | Actual state | YouTube ID |", "|---|---|---|"]
+    lines += [f"| {r['video_id']} | {r['state']} | {r.get('youtube_id') or '—'} |" for r in report.get("receipts", [])]
+    if not report.get("receipts"):
+        lines += ["| No upload receipts | — | — |"]
     lines += ["", "## Notes"] + ["- "+s for s in report.get("notes", [])]
     lines += ["", "## Issues"] + ["- "+s for s in report.get("issues", [])]
     lines += ["", "Scheduled/private/processing is not published. Only a confirmed public receipt is marked sent."]
@@ -305,6 +309,9 @@ def main():
     finally:
         if api:
             report["api_requests"] = api.request_count
+        public_receipt_fields = ("video_id", "state", "youtube_id", "external_url", "publish_at", "sent_at", "retry_at", "error_code", "last_error", "metadata_ready")
+        report["receipts"] = [{k: r[k] for k in public_receipt_fields if k in r} for r in journal.records.values()]
+        # Session ciphertext, OAuth material and raw provider capabilities are never in reports.
         save_json(args.report, report)
         text = report_text(report)
         Path(args.report).with_suffix(".md").write_text(text)

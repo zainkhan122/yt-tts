@@ -21,6 +21,8 @@ The Buffer key cannot grant direct YouTube access. This connection enables:
 
 If Google shows an unverified-app warning, only proceed for the personal app you created and understand. If your account policy blocks it, stop and resolve Google's verification requirements rather than bypassing account restrictions.
 
+Before the first long episode, also check YouTube Studio → Settings → Channel → Feature eligibility for custom thumbnails. OAuth does not itself enable channel features. If YouTube refuses a thumbnail, the worker keeps the video private and reports the problem.
+
 ## What the agent/system does
 
 - Runs the connector on an HTTPS live-preview host (no localhost connection from your browser).
