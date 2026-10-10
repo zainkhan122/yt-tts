@@ -29,6 +29,31 @@
       "updated_at": "2026-10-10T12:01:42Z",
       "video_id": "list-free-video-ai-01"
     },
+    "list-free-video-ai-01:youtube": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-10-10T15:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:448b296e0a2974f892fbbbb69859390f9865bafa64f157ead302cb73330ea445",
+        "asset_id": 627853401,
+        "asset_size": 24637796,
+        "kit_asset_id": 627853442,
+        "kit_digest": "sha256:ca001931ded35c6da90009e207ffd4a862a2360bfc45a37616ad08bb39367503",
+        "media_path": "media/627853401/list-free-video-ai-01.mp4",
+        "release_tag": "renders-2026-10-10-refresh",
+        "video_id": "list-free-video-ai-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/627853401/list-free-video-ai-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "5659716cc669756c5f43573e106d0cba13431c7a633f52c66c769710684c5eb8",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "3 AI video generators you can try without a subscription, with the actual trade-offs. Dreamina Seedance 2.0 gives free daily credits; watermark/export rules vary by plan, model and settings. Google Flow gives 50 credits/day; Veo 3.1 Lite costs 10 per generation, so about five clips if access is available. Free generation may be unavailable at peak hours, credits do not roll over, and free accounts cannot upscale to 1080p. Wan2.2 has no hosted-service credit cap when self-hosted, but its 5B model targets a 24 GB GPU and hardware/electricity are not free.\nChecked October 10, 2026; limits can change.\nSources: support.google.com/flow, dreamina.capcut.com, github.com/Wan-Video/Wan2.2. AI-generated demo footage from the official makers.\n\nCredits: Footage: Google DeepMind (Veo samples), ByteDance Dreamina (Seedance 2.0 samples), Wan-Video/Wan2.2 demo (Apache-2.0). Page: Google Flow Help, own capture.\n\n#Shorts #AI #AIvideo #AItools",
+      "title": "3 Free AI Video Generators (Real Daily Limits)",
+      "updated_at": "2026-10-10T12:01:44Z",
+      "video_id": "list-free-video-ai-01"
+    },
     "news-claude-free-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6aca1f2ff91f772d458f58c9",
