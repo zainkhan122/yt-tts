@@ -1,0 +1,38 @@
+name: Hypeless optional agent — free capability probe
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: hypeless-optional-agent-pilot
+  cancel-in-progress: false
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          filter: blob:none
+          persist-credentials: false
+          sparse-checkout: |
+            /reels-studio/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Lightweight pilot dependencies
+        run: python3 -m pip install -r reels-studio/tools/agent/requirements.txt
+      - name: Fixed free-model capability checks — NO publishing credentials
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          PYTHONUNBUFFERED: '1'
+        run: python3 reels-studio/tools/agent/probe.py --work "$RUNNER_TEMP/agent-probe"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hypeless-agent-probe
+          path: ${{ runner.temp }}/agent-probe/
+          retention-days: 7
+          if-no-files-found: warn

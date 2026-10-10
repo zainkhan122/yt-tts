@@ -10,8 +10,9 @@ PATHS = [Path("/var/tmp/gh/token"), Path.home() / ".config/reels-studio/gh_token
 BUFFER_PATH = Path.home() / ".config/reels-studio/buffer_token"
 YOUTUBE_PATH = Path.home() / ".config/reels-studio/youtube_oauth.json"
 YOUTUBE_KEY_PATH = Path.home() / ".config/reels-studio/youtube_state_key"
+OPENROUTER_PATH = Path.home() / ".config/reels-studio/openrouter_token"
 _RUNTIME = set()
-PATTERN = re.compile(r"github_pat_[A-Za-z0-9_]{20,}|gh[pousr]_[A-Za-z0-9]{30,}")
+PATTERN = re.compile(r"github_pat_[A-Za-z0-9_]{20,}|gh[pousr]_[A-Za-z0-9]{30,}|sk-or-v1-[A-Za-z0-9_-]{20,}|GOCSPX-[A-Za-z0-9_-]{15,}")
 
 
 def gh_token():
@@ -31,6 +32,11 @@ def buffer_token():
     if BUFFER_PATH.exists():
         return BUFFER_PATH.read_text().strip() or None
     return None
+
+
+def openrouter_token():
+    value = os.environ.get("OPENROUTER_API_KEY", "").strip()
+    return value or (OPENROUTER_PATH.read_text().strip() if OPENROUTER_PATH.exists() else None)
 
 
 def youtube_credentials():
@@ -54,13 +60,13 @@ def register_sensitive(value):
 
 
 def _known_values():
-    values = [gh_token(), buffer_token(), youtube_state_key(), *_RUNTIME]
+    values = [gh_token(), buffer_token(), youtube_state_key(), openrouter_token(), *_RUNTIME]
     try:
         creds = youtube_credentials() or {}
         values += [creds.get(k) for k in ("client_secret", "refresh_token", "access_token")]
     except (ValueError, OSError):
         pass
-    for path in [*PATHS, BUFFER_PATH]:
+    for path in [*PATHS, BUFFER_PATH, OPENROUTER_PATH]:
         if path.exists():
             values.append(path.read_text().strip())
     return [v for v in set(values) if v and len(v) >= 12]

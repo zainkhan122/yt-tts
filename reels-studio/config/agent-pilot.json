@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "optional": true,
+  "production_enabled": false,
+  "publishing_enabled": false,
+  "qualification": "unqualified",
+  "owner_activation_approval": null,
+  "pilot_mode": "shadow_only",
+  "inference_policy": "free_only",
+  "max_paid_inference_usd": 0,
+  "roles": {
+    "producer": {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "provider": "nvidia",
+      "expected_endpoint_name": "Nvidia | nvidia/nemotron-3-ultra-550b-a55b-20260604:free",
+      "input_modalities": [
+        "text"
+      ],
+      "native_json_schema": false,
+      "max_tokens": 7500
+    },
+    "critic": {
+      "model": "thinkingmachines/inkling:free",
+      "provider": "thinkingmachines/nvfp4",
+      "expected_endpoint_name": "Thinking Machines | thinkingmachines/inkling-20260715:free",
+      "input_modalities": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "native_json_schema": false,
+      "max_tokens": 6500
+    }
+  },
+  "routing": {
+    "allow_fallbacks": false,
+    "require_parameters": true,
+    "data_collection": "deny",
+    "max_price": {
+      "prompt": 0,
+      "completion": 0
+    }
+  },
+  "limits": {
+    "max_calls_per_run": 40,
+    "minimum_request_interval_seconds": 4,
+    "max_safe_attempts": 3,
+    "max_inline_wait_seconds": 60,
+    "max_tool_rounds": 4,
+    "max_draft_repairs": 2,
+    "max_visual_repairs": 1,
+    "max_source_bytes": 2000000,
+    "max_source_text_chars": 42000,
+    "source_timeout_seconds": 30
+  },
+  "voice": {
+    "engine": "chatterbox",
+    "reference": "brand/voice/michael-ref.wav",
+    "exaggeration": 0.7,
+    "cfg_weight": 0.4,
+    "flow": true
+  },
+  "gates": {
+    "requires_primary_evidence": true,
+    "all_material_claims_supported": true,
+    "no_fabricated_testing": true,
+    "asset_provenance_required": true,
+    "approved_voice_required": true,
+    "technical_qa_required": true,
+    "visual_critic_required": true,
+    "owner_comparison_review_required": true,
+    "no_queue_mutation": true
+  },
+  "baseline_cases": [
+    "news-haiku-55-01",
+    "news-gemini-agent-01",
+    "tool-mosa-01",
+    "tool-pomelli-01",
+    "repo-whistle-01"
+  ],
+  "note": "Free-only IDs/provider/version metadata are pinned. Unavailable capability, quota exhaustion, drift or failed gate means hold, never a paid or weaker fallback. No cron, production-queue edits, Pages deployment or social publishing in this optional pilot."
+}
