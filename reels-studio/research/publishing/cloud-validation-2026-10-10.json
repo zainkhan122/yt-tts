@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-10-10T09:00:07Z",
+  "mode": "dry-run",
+  "created": 0,
+  "request_count": 1,
+  "issues": [],
+  "notes": [
+    "Posting disabled during setup; held videos are included only for preview",
+    "2026-10-11: backlog needs news; hold rather than publish a repo-only day",
+    "2026-10-12: backlog needs news; hold rather than publish a repo-only day",
+    "facebook: policy hold \u2014 Native AI-info disclosure required for realistic synthetic narration; Buffer Facebook API has no disclosure flag. Keep held pending a supported labeling path."
+  ],
+  "workflow_run": "https://github.com/zainkhan122/yt-tts/actions/runs/38039786831",
+  "cloud_result": "success",
+  "safety_tests": 47,
+  "public_media_verified": 6,
+  "platforms_connected": [
+    "youtube",
+    "instagram",
+    "facebook"
+  ],
+  "pilot_eligible_platforms": [
+    "youtube",
+    "instagram"
+  ],
+  "facebook": "policy-held for native AI disclosure",
+  "enabled": false,
+  "live_pilot_passed": false
+}

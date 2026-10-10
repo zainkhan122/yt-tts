@@ -44,13 +44,13 @@ def matches(post, record):
 
 
 def adopt(record, post, now):
+    before = {k: v for k, v in record.items() if k != "updated_at"}
     # Preserve the explicit manual-upload provenance even if Buffer backfills it.
     state = "published_manual" if record.get("state") == "published_manual" and post["status"] == "sent" else post["status"]
     if state == "error":
         state = "delivery_error"
     record.update(state=state, buffer_post_id=post["id"], external_url=post.get("externalLink"),
-                  due_at=post.get("dueAt"), sent_at=post.get("sentAt") or record.get("sent_at"),
-                  updated_at=iso(now))
+                  due_at=post.get("dueAt"), sent_at=post.get("sentAt") or record.get("sent_at"))
     if state in {"draft", "needs_approval"}:
         record["state"] = "approval_required"
         record["last_error"] = "Buffer did not schedule this post automatically; review draft/approval policy"
@@ -60,6 +60,8 @@ def adopt(record, post, now):
     if post.get("schedulingType") == "notification" and state not in TERMINAL:
         record["state"] = "notification_required"
         record["last_error"] = "Buffer returned reminder publishing; automatic posting was requested"
+    if before != {k: v for k, v in record.items() if k != "updated_at"}:
+        record["updated_at"] = iso(now)
     return record
 
 
@@ -166,7 +168,7 @@ def summary(report):
     lines += ["", "## Notes"] + ["- " + n for n in report.get("notes", [])]
     lines += ["", "## Delivery issues"] + [f"- {r['key']}: {r['state']} — {r.get('error', '')}" for r in report.get("issues", [])]
     lines += ["", "Dry-run schedules are proposals only. Scheduled is NOT the same as successfully published.",
-              "Instagram native AI disclosure is supported; Facebook currently gets a caption disclosure, not a native AI-info flag."]
+              "Instagram native AI disclosure is supported; Facebook auto-posting is policy-held because Buffer lacks its native AI-info flag."]
     return "\n".join(lines) + "\n"
 
 

@@ -12,9 +12,17 @@
 - Local safety suite: 47 tests pass, including ten-video batching, quotas, Retry-After, query backoff, permanent errors, partial platform success, lost-response reconciliation, write-ahead journal failure and voice gating.
 - Local live-API **read-only** dry-run: successful, **zero Buffer mutations**. Existing sent history remains intact.
 
-## Pending cloud evidence
+## Cloud evidence — passed
 
-Cloud Pages deployment, direct-MP4 verification and the authenticated workflow dry-run are being validated. This section will be updated with the completed run URL/result.
+- Run: https://github.com/zainkhan122/yt-tts/actions/runs/38039786831
+- `prepare`: success (47 tests, six pinned asset/kit audits, Pages bundle).
+- `hosting`: success (Actions-based Pages deploy).
+- `delivery`: success (encrypted Buffer secret works in Actions; authenticated read-only preflight).
+- Result recorded at **2026-10-10 09:00:07 UTC / 14:00:07 Asia/Karachi**: `mode=dry-run`, `created=0`, **one Buffer read query**, no delivery issues.
+- Four hypothetical platform rows: Claude + free-video-tools, each on YouTube/Instagram. Facebook was correctly excluded by its native-disclosure policy hold.
+- All **six hosted MP4 URLs** separately checked: direct public HTTPS, `video/mp4`, exact pinned size, valid MP4 header. Hosting includes retained assets, not only the proposed posts.
+- Sanitized evidence: `cloud-validation-2026-10-10.json`. Full dry-run plan is the workflow artifact `hypeless-delivery-report` (30-day retention).
+- No files outside `reels-studio/` and `.github/workflows/` changed in the repository.
 
 ## Not activated / not claimed
 

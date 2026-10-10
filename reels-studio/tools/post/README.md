@@ -6,7 +6,7 @@
 
 **Setup remains dry-run-only.** `config/publishing.json.enabled = false` and `live_pilot_passed = false`. Every existing render in `queue/publish.json` is held. No Buffer draft, scheduled post or live post is created during setup. GitHub Pages media hosting is separate from social publishing.
 
-**Facebook is connected but auto-posting has an additional policy hold:** these videos use realistic AI narration, Meta requires the native disclosure/label tool, and Buffer does not expose that flag for Facebook. A caption disclaimer is not a substitute. YouTube/Instagram can enter a pilot; Facebook waits for a supported native-label path.
+**Facebook is connected but auto-posting has an additional policy hold:** these videos use realistic AI narration, Meta requires the native disclosure/label tool, and Buffer does not expose that flag for Facebook. A caption disclaimer is not a substitute. YouTube/Instagram can enter a pilot; Facebook waits for a supported native-label path. [1](https://support.buffer.com/en-us/articles/flagging-posts-as-ai-generated-in-buffer-V7jAnzYJ5n) [3](https://about.fb.com/news/2026/02/meta-prepares-for-2026-us-midterms/)
 
 Owner-reported YouTube uploads are permanently locked against re-upload, independently of render/voice revisions:
 
@@ -112,7 +112,7 @@ python3 tools/post/queue_ctl.py pilot-passed <id>
 python3 reels.py sync -m 'Verified live pilot; activate paced daily delivery'
 ```
 
-**Kill switch:** disable the `Hypeless delivery` workflow immediately to stop future API writes, then set `enabled: false` and hold queue entries. Already scheduled Buffer posts **remain scheduled**; pause/cancel them in Buffer as appropriate. Disabling our cron does not cancel Buffer's own queue.
+**Kill switch:** cancel any in-progress `Hypeless delivery` run, then disable the workflow to stop new triggers, set `enabled: false` and hold queue entries. Merely disabling the workflow does not stop a run already in progress. Already scheduled Buffer posts **remain scheduled**; pause/cancel them in Buffer as appropriate. Disabling our cron does not cancel Buffer's own queue.
 
 Source files: `config/publishing.json`, `queue/publish.json`, `tracker/publications.json`, `tools/post/`, `.github/workflows/post.yml`. Reports are Actions artifacts (30 days), not credentials/source. Finished MP4s remain in GitHub Releases; heavy files are never committed.
 
