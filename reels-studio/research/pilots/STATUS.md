@@ -1,6 +1,6 @@
 # Optional agent pilot — current state
 
-**Decision: OFF / UNQUALIFIED.** Read `PILOT_REPORT.md` for the measured comparison and its limitations. Unit tests and capability smoke checks are not parity certification.
+**Decision: PAUSED BY OWNER / OFF / UNQUALIFIED (2026-10-11).** Read `PILOT_REPORT.md` for the measured comparison and its limitations. Unit tests and capability smoke checks are not parity certification.
 
 ## Policy / model lock
 
@@ -36,9 +36,9 @@ Stale-config probe `38087078914` and earlier redundant probes were cancelled and
 
 ## Exact next safe action
 
-Do not activate or blindly regenerate the producer. If the fixed critic becomes usable, resume only its explicitly rejected operation on the saved Gemini revision. Use the `source_artifact=resumed-pilot-evidence` selector when continuing run `38087458049`; preserve its prior receipt ledger. If the Actions artifact has expired, `free-p5/full-checkpoint-archive.json` points to a verified complete archive.
+**Leave this optional system paused.** The owner selected the interactive Arena agent as the main creative brain. No quota-based retry, new model trial or activation is authorized. All optional Actions workflows are disabled, and `lifecycle_status=paused_by_owner` blocks the inference client before credential lookup/network access.
 
-If model, provider, prompt/harness policy or inputs change, create a new explicit evaluation revision/pilot and disclose the change. Never call a weaker/paid substitute merely because a free endpoint is unavailable. Any later promotion still requires all five paired evaluations, owner review and unseen-topic canaries.
+Keep the evidence and immutable checkpoint for possible future review. A new owner request is required before reevaluation; the earlier recovery command/archived configuration is not authorization to resume. The existing publishing/rendering system is independent and unchanged.
 
 ## Recovery verification
 The complete latest blocked checkpoint was restored from its immutable Release archive and **all 156 files matched byte-for-byte**. Critic-resume validation passed without sending inference. Use `checkpoint_source=archived-free-p5` in `agent-resume-critic.yml` if the transient Actions artifact is gone. No producer call needs replaying.

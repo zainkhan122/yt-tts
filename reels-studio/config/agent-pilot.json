@@ -106,5 +106,11 @@
     "producer": "producer-v2.md",
     "critic": "critic-v1.md"
   },
-  "harness_revision": 3
+  "harness_revision": 3,
+  "lifecycle_status": "paused_by_owner",
+  "owner_requested_pause": {
+    "date": "2026-10-11",
+    "resume_requires_explicit_approval": true,
+    "instruction": "Do not resume experiments or activate this unqualified system. The interactive Arena agent remains the main brain."
+  }
 }

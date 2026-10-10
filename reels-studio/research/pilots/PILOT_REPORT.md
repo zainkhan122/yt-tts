@@ -1,5 +1,7 @@
 # Hypeless optional producer–critic pilot
 
+> **Owner decision, 2026-10-11:** leave the system paused and not qualified. The interactive Arena agent remains the main brain. This report is retained as evidence, not a request to continue testing.
+
 ## Decision: NOT QUALIFIED — remains OFF
 
 The optional system has **not demonstrated the quality/reliability of our Arena-assisted production workflow**. It must not be activated. No candidate was permitted to bypass an evidence/critic gate, no pilot video entered the production queue, and no pilot content was posted to social platforms.

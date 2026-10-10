@@ -13,7 +13,12 @@ sys.path.insert(0,str(ROOT))
 from tools.agent.openrouter_client import OpenRouter,PilotBlocked,FreeQuotaDeferred,require_free,json_content
 
 
-def cfg():return json.loads((ROOT/'config/agent-pilot.json').read_text())
+def cfg():
+ # Exercise the client's existing safety behavior using an isolated MOCK config;
+ # never unpause the actual owner configuration or make real model requests.
+ value=json.loads((ROOT/'config/agent-pilot.json').read_text())
+ value.pop('lifecycle_status',None)
+ return value
 
 def response(status=200,body=None,headers=None):
  r=Mock();r.status_code=status;r.headers=headers or {};r.json.return_value=body or {};return r
@@ -28,6 +33,16 @@ class FreeOnlyClientTests(unittest.TestCase):
 
  def good(self,**extra):
   return {'id':'test-generation','model':self.config['roles']['producer']['model'],'provider':'Nvidia','usage':{'cost':0,'prompt_tokens':10,'completion_tokens':5},'choices':[{'message':{'role':'assistant','content':'{"ok":true}'}}],**extra}
+
+ def test_owner_pause_blocks_before_key_lookup_network_or_workspace_creation(self):
+  settings=cfg();settings['lifecycle_status']='paused_by_owner'
+  path=Path(self.temp.name)/'must-not-be-created'
+  with patch('tools.agent.openrouter_client.openrouter_token') as key:
+   with self.assertRaisesRegex(PilotBlocked,'paused by the owner'):
+    OpenRouter(settings,path,session=self.session)
+   key.assert_not_called()
+  self.assertFalse(path.exists())
+  self.session.get.assert_not_called();self.session.post.assert_not_called()
 
  def test_nonzero_prices_blocked(self):
   for p in [{'prompt':'0.000001','completion':'0'},{'prompt':'0','completion':'0','image':'0.01'},{}]:

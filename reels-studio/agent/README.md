@@ -1,6 +1,8 @@
-# Optional producer/critic lab — OFF for production
+# Optional producer/critic lab — PAUSED / NOT QUALIFIED
 
-**Owner authorization:** build an optional producer + separate critic + hard-gate system, test it deeply against our existing work, and do not activate unattended publishing without demonstrated quality and explicit approval.
+**Latest owner decision (2026-10-11):** leave this lab paused. The interactive Arena agent is the main brain. No further model calls/evaluation or activation without a new explicit owner request. Disabled Actions workflows and an early inference-client guard enforce the pause. Existing evidence is retained.
+
+**Historical pilot authorization:** build an optional producer + separate critic + hard-gate system, test it deeply against our existing work, and do not activate unattended publishing without demonstrated quality and explicit approval.
 
 **Updated constraint:** use **free OpenRouter variants only**, $0 paid inference. `OPENROUTER_API_KEY` is an encrypted Actions secret. Do not ask for it again or copy it into the workspace/source. No paid fallback, no `openrouter/free` automatic router, no silent model substitution.
 

@@ -23,6 +23,7 @@ def read(path,default=None):
 
 def snapshot():
     pub=read('config/publishing.json',{});yt=read('config/youtube.json',{});agent=read('config/agent-pilot.json',{})
+    policy=read('config/operating-policy.json',{})
     q=read('queue/publish.json',{'items':[]})['items'];journal=read('tracker/publications.json',{'records':{}})['records']
     yj=read('tracker/youtube-publications.json',{})
     private=Path.home()/'.config/reels-studio'
@@ -36,9 +37,11 @@ def snapshot():
                      'metadata_completed':sum(r.get('state')=='done' for r in yj.get('enrichment',{}).values())},
           'optional_agent':{'production_enabled':agent.get('production_enabled'),'publishing_enabled':agent.get('publishing_enabled'),'qualification':agent.get('qualification'),
                             'paid_inference_limit_usd':agent.get('max_paid_inference_usd'),'models':{k:v.get('model') for k,v in agent.get('roles',{}).items()},
-                            'model_selection_revision':agent.get('model_selection_revision',1)},
+                            'model_selection_revision':agent.get('model_selection_revision',1),'lifecycle_status':agent.get('lifecycle_status'),'requires_owner_approval_to_reconsider':agent.get('owner_requested_pause',{}).get('resume_requires_explicit_approval',False)},
+          'operating_policy':policy,
           'local_credentials_present':{name:(private/name).is_file() for name in ['gh_token','buffer_token','google_client.json','youtube_oauth.json','youtube_state_key','openrouter_token']},
-          'important':['A missing local OpenRouter key is expected when it is stored ONLY in Actions Secrets; do not ask for it again without checking secret metadata.',
+          'important':['The interactive Arena agent remains the main creative brain. The optional producer/critic is paused by owner instruction; do not restart it without explicit approval.',
+                       'A missing local OpenRouter key is expected when it is stored ONLY in Actions Secrets; do not ask for it again without checking secret metadata.',
                        'Never re-upload a video with an existing platform receipt/reservation.',
                        'The optional producer/critic cannot publish or activate itself. Model scores are not parity certification.',
                        'A fresh conversation can restore operational state from git, not private chat reasoning. A completely new workspace still needs authorized GitHub access for writes; existing cloud jobs keep their encrypted secrets.']}
@@ -57,12 +60,15 @@ def markdown(info):
       f"| Buffer queue | {b['queue_approvals']} |",f"| Platform receipts | {b['platform_receipt_states']} |",
       f"| YouTube metadata | enabled={y['enabled']}; completed receipts={y['metadata_completed']} |",
       f"| Long-form uploads | pilot passed={y['long_pilot_passed']}; queued={y['long_queue_count']} |",
-      f"| OPTIONAL producer/critic | production={a['production_enabled']}; publishing={a['publishing_enabled']}; qualification={a['qualification']} |",'',
-      '## Optional pilot model lock','']
+      f"| OPTIONAL producer/critic | production={a['production_enabled']}; publishing={a['publishing_enabled']}; qualification={a['qualification']}; lifecycle={a.get('lifecycle_status')} |",'',
+      '## Current owner decision','Interactive Arena agent leads research, scripts, asset selection, editing and QA. Existing deterministic rendering and approved posting tools are retained.',
+      'The optional producer/critic is PAUSED BY OWNER / UNQUALIFIED. Its Actions workflows are disabled, and its inference client fails closed while paused.','',
+      '## Optional pilot model lock (historical / inactive)','']
     lines += [f'- {k}: `{v}`' for k,v in a['models'].items()]
     if y.get('recorded_refresh_grant_expiry_utc'):lines += ['', '**Recorded Google grant expiry:** '+y['recorded_refresh_grant_expiry_utc']]
     lines += ['', '## Resume rules']+['- '+v for v in info['important']]
-    lines += ['', '## Start here','1. Read `RESUME.md` and `agent/ACCEPTANCE.md`.','2. Read the latest pilot report; inspect existing Actions runs before starting another.','3. Read `tracker/publications.json` and `tracker/youtube-publications.json` before any provider operation.','4. Never infer missing results. Preserve unknown/uncertain receipts and resolve them first.']
+    lines += ['', '## Start here','1. Read `RESUME.md` and `agent/ACCEPTANCE.md`.','2. Read the latest pilot report; inspect existing Actions runs before starting another.','3. Read `tracker/publications.json` and `tracker/youtube-publications.json` before any provider operation.','4. Never infer missing results. Preserve unknown/uncertain receipts and resolve them first.',
+      '', 'Receipt counts are recorded journal state, not fresh live-provider verification. Old local delivery MP4/ZIP copies were cleaned after archive verification; use the immutable Release links instead of regenerating or re-uploading videos.']
     return '\n'.join(lines)+'\n'
 
 

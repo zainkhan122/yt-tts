@@ -1,0 +1,39 @@
+{
+  "at_utc": "2026-10-10T22:07:34.104552+00:00",
+  "owner_decision_date": "2026-10-11",
+  "reason": "Owner paused the unqualified optional agent; interactive Arena agent remains the main creative brain.",
+  "workflows": [
+    {
+      "name": "Hypeless optional agent \u2014 audio capability only",
+      "path": ".github/workflows/agent-audio-probe.yml",
+      "id": 380836728,
+      "state": "disabled_manually"
+    },
+    {
+      "name": "Hypeless optional producer\u2013critic comparison",
+      "path": ".github/workflows/agent-pilot.yml",
+      "id": 380713251,
+      "state": "disabled_manually"
+    },
+    {
+      "name": "Hypeless optional agent \u2014 free capability probe",
+      "path": ".github/workflows/agent-probe.yml",
+      "id": 380678553,
+      "state": "disabled_manually"
+    },
+    {
+      "name": "Hypeless optional pilot \u2014 resume quota-rejected critic",
+      "path": ".github/workflows/agent-resume-critic.yml",
+      "id": 380753537,
+      "state": "disabled_manually"
+    },
+    {
+      "name": "Hypeless optional agent \u2014 offline safety regression",
+      "path": ".github/workflows/agent-safety.yml",
+      "id": 380841162,
+      "state": "disabled_manually"
+    }
+  ],
+  "cancel_requests": [],
+  "core_delivery_workflows_touched": false
+}

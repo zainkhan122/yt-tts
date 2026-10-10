@@ -1,5 +1,13 @@
 # Resume Hypeless safely — read this before doing work
 
+## Latest owner decision — 2026-10-11
+
+**The interactive Arena agent remains the main brain** for research, scripts, asset selection, editing and QA. The optional producer/critic is **PAUSED BY OWNER and NOT QUALIFIED FOR ACTIVATION**. All five `agent-*` Actions workflows are disabled, and the inference client fails before reading a key or making a request while the pause flag is set.
+
+Do not retry experiments merely because quota resets or a checkpoint exists. Resuming evaluation requires a new explicit owner request; activation would still require qualification and separate approval. Existing deterministic rendering, approved Buffer delivery and YouTube metadata tools remain unchanged.
+
+The old local five-video ZIP and Mosa preview were removed only after all ten archived MP4/kit files were verified. Original masters, post kits and source captures remain in GitHub Releases. See `research/maintenance/2026-10-11-deliverable-cleanup.json`; use the archived files, not a re-upload or fresh render.
+
 ## Authority / boundaries
 
 SSOT: **https://github.com/zainkhan122/yt-tts**, folders **`reels-studio/` and `.github/workflows/` only**. Do not touch another project or rewrite shared history. `CURRENT_STATE.md` is a sanitized, dated snapshot; live config, queues, journals and Actions receipts are authoritative if newer.
@@ -76,10 +84,6 @@ Snapshot budget is approximately 128 MB / 10,000 files; warning at 100 MB. Do no
 
 Latest inspected continuation: `38087458049` (three explicit free-provider 429 responses; no render). Full checkpoint reference: `research/pilots/free-p5/full-checkpoint-archive.json`. Restore was tested byte-for-byte across 156 files; source/call state and hashes remain intact.
 
-After confirming the provider is available and policy/config is unchanged, an explicit continuation can use:
-
-```bash
-python3 tools/gh_actions.py dispatch agent-resume-critic.yml -i checkpoint_source=archived-free-p5 -i source_run=38087458049 -i source_artifact=resumed-pilot-evidence -i case_id=news-gemini-agent-01
-```
+This checkpoint is retained for historical recovery only. **Do not execute a continuation now.** Any future owner-approved reevaluation must inspect the recorded configuration and pause decision; the old frozen configuration cannot silently override the current owner pause.
 
 This is not permission to retry now or repeatedly hammer a limited endpoint. Inspect `research/pilots/PILOT_REPORT.md` and the latest Actions runs first. No automatic cron, fallback or promotion exists. The audio specialist is also unproven under $0 balance: plain-JSON audio was rejected with a minimum-balance requirement; do not fund the account or relax limits without the owner.

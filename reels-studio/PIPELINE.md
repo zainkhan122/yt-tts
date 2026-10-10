@@ -1,3 +1,5 @@
+> **Current control:** interactive Arena-agent-led production. The optional OpenRouter producer/critic is paused by owner instruction (2026-10-11), not qualified, and must not restart without explicit permission. This does not disable approved cloud rendering or existing delivery safeguards.
+
 # Reels Studio: the production pipeline
 
 > The **strategy** (formats, hooks, SEO per platform, cadence, roadmap) is in [`PLAYBOOK.md`](PLAYBOOK.md). This file is the **technical system**.

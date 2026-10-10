@@ -40,6 +40,8 @@ def require_free(pricing):
 
 class OpenRouter:
     def __init__(self, config, work, *, token=None, session=None, sleep=time.sleep, clock=time.monotonic):
+        if config.get('lifecycle_status') == 'paused_by_owner':
+            raise PilotBlocked('Optional agent is paused by the owner and not qualified. Explicit owner approval is required before any further inference.')
         self.config=config;self.work=Path(work);self.work.mkdir(parents=True,exist_ok=True)
         self.session=session or requests.Session();self.sleep=sleep;self.clock=clock;self.last_call=None
         self.token=token or openrouter_token()

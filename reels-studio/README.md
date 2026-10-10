@@ -1,3 +1,5 @@
+> **Operating decision — 2026-10-11:** the interactive Arena agent leads research, writing, assets, editing and QA. Optional producer/critic automation is **paused by the owner and NOT qualified for activation**. Existing deterministic rendering, approved-queue posting, metadata and duplicate protections remain intact. See `config/operating-policy.json` and `RESUME.md`.
+
 > **Resume / current authority:** read [`CURRENT_STATE.md`](CURRENT_STATE.md) and [`RESUME.md`](RESUME.md) before running commands. Historical phase notes are not current activation flags.
 
 # Reels Studio: professional vertical-video generator (HyperFrames + free tools)

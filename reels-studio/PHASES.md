@@ -123,3 +123,9 @@ Five source capture packs (58 files) archived and byte-verified before local pru
 Stable callback file handoff completed. Expected Hypeless YouTube channel verified; refresh credentials encrypted into `YOUTUBE_OAUTH_JSON`. Live enrichment run 38056797324 succeeded: all eight Claude Short tags and exactly one membership each in AI News + Shorts playlists confirmed by direct Google read-back. No re-upload and public copy/privacy preserved.
 
 Google issued a seven-day refresh grant, ending 2026-10-17 13:42 UTC (18:42 Pakistan). Owner must check Audience publishing status and re-authorize after switching to In production if still Testing. Access-token refresh does not extend this grant. Expiry warning added to reports. Long-form pilot remains pending; five new Oct 10 videos remain held.
+
+## 2026-10-11 — optional agent parked; verified local delivery cleanup
+
+Owner chose the interactive Arena agent as the main brain. The optional producer/critic remains OFF / NOT QUALIFIED and is now explicitly paused; all five experimental Actions workflows are disabled. No further evaluation/activation without a new owner request. A fail-closed client guard prevents inference while paused.
+
+Verified all five MP4s and five kits against their live immutable Release assets, then removed only the old local delivery ZIP and Mosa preview (74,184,935 bytes). Original package notes, archive links, scripts, source evidence, masters, private credentials, queues and publication receipts are preserved. Core render/posting workflows were not disabled or changed.

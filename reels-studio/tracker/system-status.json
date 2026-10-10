@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-10T21:52:42.054369+00:00",
-  "source_commit": "3c60ea51ef00949d65b76f99de7f0e3ef957212e",
+  "generated_at": "2026-10-10T22:10:00.455279+00:00",
+  "source_commit": "c151f831b7d4a2e3133f97264790e3cd20b8beca",
   "repository": "zainkhan122/yt-tts",
   "scope": "reels-studio + .github/workflows only",
   "buffer": {
@@ -13,8 +13,8 @@
       "held": 8
     },
     "platform_receipt_states": {
-      "scheduled": 6,
-      "sent": 3,
+      "sent": 8,
+      "scheduled": 1,
       "published_manual": 3
     }
   },
@@ -22,7 +22,7 @@
     "enabled": true,
     "long_pilot_passed": false,
     "long_queue_count": 0,
-    "metadata_completed": 1,
+    "metadata_completed": 3,
     "recorded_refresh_grant_expiry_utc": "2026-10-17T13:42:00+00:00"
   },
   "optional_agent": {
@@ -35,7 +35,29 @@
       "critic": "google/gemma-4-31b-it:free",
       "audio_critic": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
     },
-    "model_selection_revision": 2
+    "model_selection_revision": 2,
+    "lifecycle_status": "paused_by_owner",
+    "requires_owner_approval_to_reconsider": true
+  },
+  "operating_policy": {
+    "schema_version": 1,
+    "decided_on": "2026-10-11",
+    "primary_brain": "interactive_arena_agent",
+    "creative_control": "Agent-led research, scripting, asset selection, editing and QA with owner direction. Not an unattended OpenRouter replacement.",
+    "existing_deterministic_tools": "Retain cloud rendering, approved-queue Buffer delivery, YouTube metadata, quality gates and duplicate journals.",
+    "optional_agent": {
+      "state": "paused_by_owner",
+      "qualification": "unqualified",
+      "production_enabled": false,
+      "publishing_enabled": false,
+      "requires_owner_approval_to_reconsider": true
+    },
+    "do_not": [
+      "Automatically restart optional-agent experiments",
+      "Activate on model self-scores or quota recovery",
+      "Re-upload already posted/reserved videos",
+      "Delete archived masters, source evidence, credentials or publication journals"
+    ]
   },
   "local_credentials_present": {
     "gh_token": true,
@@ -46,6 +68,7 @@
     "openrouter_token": false
   },
   "important": [
+    "The interactive Arena agent remains the main creative brain. The optional producer/critic is paused by owner instruction; do not restart it without explicit approval.",
     "A missing local OpenRouter key is expected when it is stored ONLY in Actions Secrets; do not ask for it again without checking secret metadata.",
     "Never re-upload a video with an existing platform receipt/reservation.",
     "The optional producer/critic cannot publish or activate itself. Model scores are not parity certification.",
