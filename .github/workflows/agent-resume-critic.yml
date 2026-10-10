@@ -5,6 +5,12 @@ on:
       source_run:
         description: 'Inspected pilot run with an explicitly rate-rejected critic call'
         required: true
+      source_artifact:
+        description: 'Use resumed-pilot-evidence when continuing a previous critic-only attempt'
+        type: choice
+        options: [pilot-evidence, resumed-pilot-evidence]
+        default: pilot-evidence
+        required: true
       case_id:
         description: 'Exact registered case ID; no producer replay'
         required: true
@@ -37,7 +43,7 @@ jobs:
         with:
           github-token: ${{ github.token }}
           run-id: ${{ inputs.source_run }}
-          name: pilot-evidence
+          name: ${{ inputs.source_artifact }}
           path: ${{ runner.temp }}/pilot
       - name: Resume only the known rejected critic operation
         env:

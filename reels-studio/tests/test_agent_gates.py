@@ -275,3 +275,15 @@ class CriticResumeBoundaryTests(unittest.TestCase):
   self.assertEqual(w['permissions'],{'contents':'read','actions':'read'})
   self.assertNotIn('schedule',w.get('on') or w.get(True))
   text=json.dumps(w);self.assertNotIn('BUFFER_API_KEY',text);self.assertNotIn('YOUTUBE_OAUTH_JSON',text)
+
+
+class ResumeArtifactSelectionTests(unittest.TestCase):
+ def test_resuming_a_resume_uses_explicit_allowlisted_artifact_name(self):
+  import yaml
+  data=yaml.safe_load((ROOT.parent/'.github/workflows/agent-resume-critic.yml').read_text())
+  on=data.get('on') or data[True]
+  option=on['workflow_dispatch']['inputs']['source_artifact']
+  self.assertEqual(set(option['options']),{'pilot-evidence','resumed-pilot-evidence'})
+  steps=data['jobs']['resume']['steps']
+  downloader=next(s for s in steps if s.get('uses')=='actions/download-artifact@v4')
+  self.assertEqual(downloader['with']['name'],'${{ inputs.source_artifact }}')
