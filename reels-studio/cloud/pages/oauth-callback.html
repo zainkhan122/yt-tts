@@ -1,1 +1,64 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Hypeless — Complete YouTube connection</title><style>body{background:#050b1f;color:#edf4ff;font:18px/1.6 system-ui;padding:40px}main{max-width:640px;margin:auto}h1{color:#ffd60a}p{color:#c2d4ed}</style></head><body><main><h1>Completing your connection…</h1><p id="status">Returning to your private setup session. No publishing occurs here.</p></main><script>(()=>{const q=new URLSearchParams(location.search);history.replaceState(null,'',location.pathname);try{const state=q.get('state');if(!state)throw Error('Missing session.');const raw=state.split('.')[0].replace(/-/g,'+').replace(/_/g,'/');const data=JSON.parse(atob(raw.padEnd(Math.ceil(raw.length/4)*4,'=')));const origin=new URL(data.origin);if(origin.protocol!=='https:'||!origin.hostname.endsWith('.e2b.app')||origin.username||origin.password||origin.port||origin.pathname!=='/'||origin.search||origin.hash||data.expires*1000<Date.now())throw Error('Invalid or expired setup session.');const next=new URL('/oauth/complete',origin.origin);if(q.has('code'))next.searchParams.set('code',q.get('code'));if(q.has('error'))next.searchParams.set('error',q.get('error'));next.searchParams.set('state',state);location.replace(next.toString());}catch(e){document.getElementById('status').textContent='Connection not completed. Return to the agent and start a fresh setup session. No credentials or videos were published.';}})();</script></body></html>
+<!doctype html>
+<html lang="en" data-flow="file-handoff-v1">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<link rel="icon" href="data:,">
+<title>Hypeless — Finish YouTube connection</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#050b1f;color:#edf4ff;font:17px/1.65 system-ui,-apple-system,sans-serif;padding:44px 22px}main{max-width:680px;margin:auto}.eyebrow{font-size:12px;letter-spacing:.18em;color:#38bdf8;font-weight:800}h1{font-size:clamp(34px,7vw,52px);line-height:1.1;letter-spacing:-.04em;margin:24px 0;color:#ffd60a}p{color:#bed0e9}.panel{padding:24px;background:#101e36;border:1px solid #213855;border-radius:18px;margin:24px 0}.steps{padding-left:24px}.steps li{padding:5px 0}button{border:0;border-radius:10px;background:#ffd60a;color:#050b1f;padding:16px 22px;font:800 16px system-ui;cursor:pointer;width:100%}button:disabled{opacity:.4;cursor:default}.hint{font-size:14px;color:#9eb2ce}.good{color:#93dfb5}.error{color:#ffb7a9}code{overflow-wrap:anywhere;color:#e0eaff}details{margin-top:22px}summary{cursor:pointer;color:#a4d9fa}textarea{width:100%;min-height:150px;background:#050b1f;color:#d8e8ff;border:1px solid #36506f;border-radius:8px;padding:12px;margin:12px 0;font:12px/1.5 monospace;resize:vertical}[hidden]{display:none!important}footer{font-size:13px;color:#7f94b2;margin-top:30px}
+</style>
+</head>
+<body><main>
+<div class="eyebrow">HYPELESS / YOUTUBE CONNECTION</div>
+<h1 id="heading">Finish connecting YouTube.</h1>
+<p id="status">Open the fresh Google sign-in link supplied by your agent. After consent, Google will return you here.</p>
+<section id="success" class="panel" hidden>
+<ol class="steps"><li><strong>Download the connection response</strong> below.</li><li>Return to your private Arena conversation.</li><li>Attach <code>hypeless-youtube-connection.json</code> <strong>immediately</strong>.</li></ol>
+<button id="download" type="button">Download connection response</button>
+<p class="hint">This file contains a short-lived, one-time authorization code—not your Google password. The agent will verify the Hypeless channel and store the refresh credential securely.</p>
+<details><summary>If your browser cannot download the file</summary><p class="hint">Copy this response into your private agent conversation only. Never post it in a GitHub issue or source file.</p><textarea id="response" readonly aria-label="One-time OAuth response"></textarea><button id="copy" type="button">Copy private response</button></details>
+</section>
+<section class="panel"><strong>No temporary server required.</strong><p class="hint">This callback is hosted on GitHub Pages and does not redirect to a sandbox. Completing consent does not itself upload or publish a video. The account connection is only finished after the agent exchanges the one-time response.</p></section>
+<footer>No analytics, external scripts, cookies or third-party requests are used on this page.</footer>
+</main>
+<script>
+(()=>{
+  const query=new URLSearchParams(location.search);
+  history.replaceState(null,'',location.pathname); // remove code/state from visible URL/history
+  const status=document.getElementById('status');
+  if(query.has('error')){
+    status.className='error';status.textContent='Google consent was cancelled or blocked. Return to the agent for help. No account connection was stored.';return;
+  }
+  if(!query.has('code')&&!query.has('state'))return;
+  try{
+    const code=query.get('code'),state=query.get('state');
+    if(!code||code.length>8192||!state||state.length>4096)throw Error('Invalid response');
+    const part=state.split('.')[0].replace(/-/g,'+').replace(/_/g,'/');
+    const data=JSON.parse(atob(part.padEnd(Math.ceil(part.length/4)*4,'=')));
+    if(data.handoff!=='file'||typeof data.nonce!=='string'||data.nonce.length<20||typeof data.expires!=='number'||data.expires*1000<Date.now())throw Error('Expired/old request');
+    // This is only a browser usability check. The agent independently verifies
+    // exact signed state and PKCE using secrets never present on this page.
+    const payload=JSON.stringify({kind:'hypeless-youtube-oauth-response',version:1,code,state,received_at:new Date().toISOString()},null,2);
+    document.getElementById('heading').textContent='One small file. Then you’re connected.';
+    status.className='good';status.textContent='Google returned an authorization code. Download and attach the response now—codes expire quickly.';
+    document.getElementById('success').hidden=false;
+    document.getElementById('response').value=payload;
+    document.getElementById('download').onclick=()=>{
+      const blob=new Blob([payload+'\n'],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+      a.href=url;a.download='hypeless-youtube-connection.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),15000);
+    };
+    document.getElementById('copy').onclick=async()=>{
+      const box=document.getElementById('response');box.focus();box.select();
+      try{await navigator.clipboard.writeText(payload);document.getElementById('copy').textContent='Copied — return to the agent';}
+      catch(e){document.execCommand('copy');}
+    };
+  }catch(e){
+    status.className='error';status.textContent='This sign-in request is old, incomplete or expired. Return to the agent for a fresh direct-Google link. Do not use the old sandbox link.';
+  }
+})();
+</script>
+</body></html>

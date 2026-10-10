@@ -1,52 +1,65 @@
-# One-time YouTube connection — no installation needed
+# Connect YouTube — stable sign-in, no sandbox server required
 
-The Buffer key cannot grant direct YouTube access. This connection enables:
+## Your client JSON is already received
 
-- Long-form uploads, custom thumbnails and scheduled publishing.
-- Backend tags and category/format playlists for YouTube Shorts already posted through Buffer.
+The Google Web OAuth client is secured outside git. Its registered callback is correct. **Do not recreate the client or resend its secret.** The remaining step is Google channel consent.
 
-**You never give the agent your Google password.** Sign-in/consent happens on Google.
+The old `e2b.app/setup/...` link expired when its sandbox disappeared. It has been replaced by a direct Google sign-in link and the existing, permanent GitHub Pages callback.
 
-## What you do once
+## What you do now
 
-1. Open [Google Cloud Console](https://console.cloud.google.com/) and create/select a project, for example **Hypeless Publishing**. Enable **YouTube Data API v3** in its API Library.
-2. Open **Google Auth Platform** (or APIs & Services → OAuth consent screen). Set the app name and your support/contact email. Use **External** audience for a normal Gmail account. While testing, add your Google account as a test user. For ongoing unattended access, move the OAuth app to **In production** before the final connection; Testing-mode refresh tokens generally expire after seven days. This app setting does **not** publish any videos. [4](https://developers.google.com/identity/protocols/oauth2)
-3. Create an OAuth client of type **Web application**, not Desktop, service account or API key. Add this exact **Authorized redirect URI**, including the trailing slash:
+1. Open the **fresh Google sign-in link supplied by the agent**. Sign in on Google and choose **Hypeless Ai**, granting the requested YouTube permission.
+2. Google returns you to:
 
    ```text
    https://zainkhan122.github.io/yt-tts/oauth/callback/
    ```
 
-4. Download that client's JSON. Tell the agent it is ready. The agent will open the private **YouTube connection** page; upload the JSON there, then click Google consent and select the **Hypeless Ai** channel. Do not paste the secret into public chat, a GitHub issue or a source file.
+   Click **Download connection response**.
+3. **Immediately attach `hypeless-youtube-connection.json` in your private conversation with the agent.** Google authorization codes expire quickly. Do not upload this file to GitHub or paste it publicly.
 
-If Google shows an unverified-app warning, only proceed for the personal app you created and understand. If your account policy blocks it, stop and resolve Google's verification requirements rather than bypassing account restrictions.
+The agent will exchange the one-time code, verify the exact channel and store the refresh credentials as encrypted GitHub Actions secret `YOUTUBE_OAUTH_JSON`. No passwords, installations or command-line work are needed from you.
 
-Before the first long episode, also check YouTube Studio → Settings → Channel → Feature eligibility for custom thumbnails. OAuth does not itself enable channel features. If YouTube refuses a thumbnail, the worker keeps the video private and reports the problem.
+If the response code has expired, ask for a fresh Google link. You do **not** need a new OAuth client. The sign-in request link lasts up to 24 hours; the code Google issues after consent is much shorter-lived, so return the response immediately.
 
-## What the agent/system does
+## Why this survives a reset
 
-- Runs the connector on an HTTPS live-preview host (no localhost connection from your browser).
-- Uses OAuth state validation, a 30-minute session and PKCE.
-- Requests the `youtube.force-ssl` scope needed for uploading, metadata and playlists. Google's consent wording is broader than our actual operations; this integration does not use deletion/comment endpoints.
-- Verifies the authorized channel is exactly **UCcWh9OdX3rbfHOtDZ6neyrA** before saving credentials.
-- Stores the refresh token/client secret as encrypted GitHub Actions secret **YOUTUBE_OAUTH_JSON**. No credentials are committed.
-- Keeps private recovery files outside git, mode 600. The separate upload-session encryption key is already provisioned as **YOUTUBE_STATE_KEY**.
-- Leaves publishing disabled after connection. First run a private pilot, check the actual video/thumbnail/metadata, then explicitly approve a public pilot.
+- Google redirects only to the registered HTTPS GitHub Pages callback, not to a temporary sandbox.
+- The page has no analytics, external scripts, cookies, token exchange or network requests. It removes the authorization code/state from the visible URL and lets you download the response locally.
+- The client secret, PKCE verifier and state-signing key never appear in the page, response file or repository.
+- PKCE and signed state are saved privately with mode 600 and survive a workspace restoration. The agent validates both before exchanging the code over Google's HTTPS token endpoint.
+- This is the regular Web-application OAuth flow with a real registered HTTPS callback, **not** Google's deprecated out-of-band redirect URI flow.
+- The connection is not complete until the agent verifies the returned account. Only channel **UCcWh9OdX3rbfHOtDZ6neyrA** is accepted.
 
-## Important distinctions
+## What it enables
 
-- **OAuth app production** ≠ **video publication**.
-- **Uploading successfully** ≠ **processing successfully** ≠ **publicly published**.
-- Current `videos.insert` documentation says unverified API projects are not restricted to private viewing, while a generated summary on the video-resource page still repeats the older audit warning. We will verify the actual project's public-publishing behavior with a pilot, not promise access from documentation alone. The uploader holds and reports permission/privacy failures rather than retrying new uploads. [1](https://developers.google.com/youtube/v3/docs/videos/insert)
-- Google access tokens are short-lived and refreshed automatically. Revoked/expired refresh tokens produce a reconnect alert, not endless retries.
-- “Private-first” means private on YouTube. This repository/its existing Release archive are public; do not use this storage design for confidential embargoed media without changing the storage backend first.
+- YouTube backend tags and category/format playlists for Shorts already sent through Buffer.
+- The separate long-form uploader, after its own media approvals and live pilot. Consent alone does not upload or publish a video.
 
-## Agent commands (not user installation steps)
+Buffer publishing already works independently. Its existing posts/schedules and duplicate locks are not changed by this OAuth repair. The configured YouTube cron stays inactive without OAuth, then uses enrichment-only mode until the long-form pilot passes.
+
+## If creating a client in future
+
+- Enable **YouTube Data API v3** in your Google Cloud project.
+- Use an OAuth **Web application** client, not Desktop, API key or service account.
+- Keep the exact callback URL above, including its trailing slash.
+- A normal Gmail project generally uses External audience. For unattended operation, avoid leaving the OAuth app in Testing: refresh tokens with this scope generally expire after seven days in Testing. “In production” is an app setting, not video publication. [4](https://developers.google.com/identity/protocols/oauth2)
+- Only approve a personal unverified app you created and understand. If Google/account policy blocks it, resolve those requirements rather than bypassing the account's restrictions.
+- Custom thumbnail eligibility is a separate YouTube channel feature. OAuth does not automatically enable it.
+
+## Agent operations
 
 ```bash
 python3 -m pip install -r tools/youtube/requirements.txt
-# Start with the start_process tool, not a blocking bash call:
-python3 -u tools/youtube/oauth_connect.py --port 8765
+python3 tools/youtube/oauth_handoff.py start
+# Read the private youtube_authorization_url file to give the owner the direct Google link.
+# Do not commit the link or pending state; never echo the client secret.
+python3 tools/youtube/oauth_handoff.py finish /home/user/uploads/hypeless-youtube-connection.json
+# If token exchange succeeded but GitHub secret storage failed:
+python3 tools/youtube/oauth_handoff.py retry-secret-upload
 ```
 
-Open the private `/setup/<one-time-key>` path printed by the connector on its HTTPS preview host. The stable Pages callback routes only to a valid HTTPS `.e2b.app` session; the connector independently checks signed state and PKCE before exchanging the code. Stop the connector after successful setup.
+Private state: `~/.config/reels-studio/youtube_oauth_pending.json`.
+Client config: `~/.config/reels-studio/google_client.json`.
+Completed refresh credentials: `~/.config/reels-studio/youtube_oauth.json`.
+Do not use an expired sandbox hostname again.

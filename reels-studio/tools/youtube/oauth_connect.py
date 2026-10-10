@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """One-time, owner-only Google OAuth connector. Never asks for a Google password.
 
-Run on 0.0.0.0 via start_process. Open the printed /setup/<one-time-key> path on
-its HTTPS preview host. Upload a Web-application OAuth JSON, then sign in to Google.
-The registered redirect stays stable on our Pages site across sandbox resets.
+The preferred flow is tools/youtube/oauth_handoff.py: a direct Google URL and
+stable Pages callback, with a one-time private response-file handoff. It survives
+sandbox replacement. The optional HTTP connector below is legacy/session-local.
 """
 import argparse
 import base64
@@ -68,14 +68,22 @@ def parse_client(value):
     return {"client_id": client["client_id"], "client_secret": client["client_secret"]}
 
 
-def make_flow(client, origin, now=None):
+def make_flow(client, origin=None, now=None):
     now = int(now if now is not None else time.time())
-    origin = valid_origin(origin)
+    # Request link can survive a sandbox replacement. The authorization code that
+    # Google later issues is STILL short-lived and must be exchanged promptly.
+    manual = origin is None
+    if not manual:
+        origin = valid_origin(origin)
+    expires = now + (86400 if manual else 1800)
     signing = random_secrets.token_bytes(32)
     verifier = random_secrets.token_urlsafe(48)
-    payload = b64(json.dumps({"nonce": random_secrets.token_urlsafe(24), "origin": origin, "expires": now+1800}, separators=(",", ":")).encode())
+    fields = {"nonce": random_secrets.token_urlsafe(24), "expires": expires}
+    fields.update({"handoff": "file"} if manual else {"origin": origin})
+    payload = b64(json.dumps(fields, separators=(",", ":")).encode())
     state = payload + "." + b64(hmac.new(signing, payload.encode(), hashlib.sha256).digest())
-    pending = {"client": client, "origin": origin, "verifier": verifier, "state": state, "signing": b64(signing), "expires": now+1800}
+    pending = {"client": client, "verifier": verifier, "state": state, "signing": b64(signing), "expires": expires}
+    pending.update({"handoff": "file"} if manual else {"origin": origin})
     query = {"client_id": client["client_id"], "redirect_uri": CALLBACK, "response_type": "code", "scope": " ".join(SCOPES),
              "access_type": "offline", "prompt": "consent", "include_granted_scopes": "true", "state": state,
              "code_challenge": b64(hashlib.sha256(verifier.encode()).digest()), "code_challenge_method": "S256"}
@@ -92,7 +100,12 @@ def verify_state(pending, state, now=None):
         if not hmac.compare_digest(signature, expected):
             raise ValueError()
         decoded = json.loads(unb64(payload))
-        if valid_origin(decoded["origin"]) != pending["origin"]:
+        if decoded.get("expires") != pending["expires"]:
+            raise ValueError()
+        if pending.get("handoff") == "file":
+            if decoded.get("handoff") != "file" or "origin" in decoded:
+                raise ValueError()
+        elif valid_origin(decoded["origin"]) != pending["origin"]:
             raise ValueError()
     except (ValueError, KeyError):
         raise ValueError("Invalid OAuth state")
@@ -117,8 +130,9 @@ def store_github_secret(bundle):
 
 def complete(pending, code, state, session=requests):
     verify_state(pending, state)
-    if not code:
-        raise ValueError("Google authorization was cancelled or did not return a code")
+    if not isinstance(code, str) or not code or len(code) > 8192:
+        raise ValueError("Google authorization was cancelled or did not return a valid code")
+    register_sensitive(code)
     r = session.post(TOKEN_ENDPOINT, data={**pending["client"], "code": code, "grant_type": "authorization_code",
                      "redirect_uri": CALLBACK, "code_verifier": pending["verifier"]}, timeout=(10,30), allow_redirects=False)
     if r.status_code != 200:

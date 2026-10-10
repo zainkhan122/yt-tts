@@ -65,7 +65,7 @@ python3 tools/gh_actions.py dispatch youtube.yml -i mode=reconcile
 python3 tools/youtube/queue_ctl.py pilot-passed <id>
 ```
 
-OAuth connection steps: `research/publishing/google-connection.md`. Never paste credentials into source or issue comments.
+OAuth connection steps: `research/publishing/google-connection.md`. Use `oauth_handoff.py`, not an ephemeral sandbox setup link: Google → stable Pages callback → private one-time response-file attachment → secure token exchange. Never paste credentials into source or issue comments.
 
 ## Failure states / kill switch
 
