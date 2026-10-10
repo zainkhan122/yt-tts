@@ -3,7 +3,7 @@ Reels Studio pipeline: brief.json -> upload-ready vertical video (HyperFrames re
 
 Stages (each one is visible in renders/<id>/manifest.json):
   1. segments   template.segments(brief) -> spoken lines (+ silent holds) with ids
-  2. voice      Kokoro TTS per line (Apache-2.0, local)  OR  your own recordings (vo/<id>.wav)
+  2. voice      Approved channel voice: Chatterbox Michael flow (Option 3); Kokoro is reference/local-preview only
   3. layout     exact start/end per line -> composition duration
   4. words      word timings: proportional estimate, refined with whisper.cpp
                 (`hyperframes transcribe`) for English

@@ -232,4 +232,6 @@ def usage_summary(calls):
             'explicitly_rejected_requests':len(rejected),'missing_or_uncertain_cost_receipts':len(unknown),
             'unknown_generation_ids':[c.get('generation_id') for c in unknown if c.get('generation_id')],
             'measured_request_seconds':sum(c.get('elapsed_seconds',0) for c in calls),
-            'baseline_arena_cost':'unknown','note':'A successful-generation cost of zero does not imply missing receipts were measured; provider-side zero-dollar key cap and zero-price routing remain enforced.'}
+            'requests_with_latency_measurement':sum(c.get('elapsed_seconds') is not None for c in calls),
+            'requests_missing_latency_measurement':sum(c.get('elapsed_seconds') is None for c in calls),
+            'baseline_arena_cost':'unknown','note':'Successful-generation cost and measured request time are partial observed totals, not invented values for missing receipts. Provider-side zero-dollar key cap and zero-price routing remain enforced.'}

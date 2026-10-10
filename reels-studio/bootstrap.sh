@@ -12,8 +12,9 @@
 #  2. toolchain: Node 22, FFmpeg, Chrome libs, HyperFrames CLI (pinned), Kokoro TTS, whisper.cpp (-j1)
 #  3. doctor: every check green = ready to render
 #
-#  Pushing / publishing needs a GitHub token for THIS session only:
-#     export GH_TOKEN=...   (or write it to /var/tmp/gh/token)  - never commit it, never put it in ~/
+#  Agent writes use GH_TOKEN or the persistent chmod-600 vault file:
+#     ~/.config/reels-studio/gh_token (outside git; never print or commit it).
+#  Existing cloud jobs keep their encrypted Actions secrets independently of this workspace.
 # =====================================================================================
 # Whole script is one function: bash parses it completely before running anything, so no child
 # process (apt, npm, git) can swallow the rest of the script when it is piped in via curl | bash.
