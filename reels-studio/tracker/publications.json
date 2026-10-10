@@ -7,7 +7,7 @@
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-10T18:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.facebook.com/reel/1097928109678208/",
       "media_ref": {
         "asset_digest": "sha256:448b296e0a2974f892fbbbb69859390f9865bafa64f157ead302cb73330ea445",
         "asset_id": 627853401,
@@ -22,11 +22,11 @@
       "notify_subscribers": false,
       "payload_sha256": "900b53e6b59029fcc0d6c1a5d63341adfae9ee301f0b54d58fe303094f56149c",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-10T18:00:29.400Z",
+      "state": "sent",
       "text": "3 AI video generators and the real limits: Dreamina Seedance 2.0 offers daily credits; Google Flow gives 50 credits/day; Wan2.2 has no service-credit limit when self-hosted, but requires suitable hardware and electricity. Which would you try?\n\nCredits: Footage: Google DeepMind (Veo samples), ByteDance Dreamina (Seedance 2.0 samples), Wan-Video/Wan2.2 demo (Apache-2.0). Page: Google Flow Help, own capture.\n\nAI-generated narration and example video footage.\n\n#AItools #AIvideo",
       "title": "3 Free AI Video Generators (Real Daily Limits)",
-      "updated_at": "2026-10-10T12:01:48Z",
+      "updated_at": "2026-10-10T21:53:05Z",
       "video_id": "list-free-video-ai-01"
     },
     "list-free-video-ai-01:instagram": {
@@ -35,7 +35,7 @@
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-10T15:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/DeUWyn1D-Bn/",
       "media_ref": {
         "asset_digest": "sha256:448b296e0a2974f892fbbbb69859390f9865bafa64f157ead302cb73330ea445",
         "asset_id": 627853401,
@@ -50,11 +50,11 @@
       "notify_subscribers": false,
       "payload_sha256": "8b813a89bd0a01ad7b7385fc98d2585c2c323a7fe0dc0d82b0793ce251b04754",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-10T15:01:17.193Z",
+      "state": "sent",
       "text": "3 AI video generators you can try without a subscription: Dreamina Seedance 2.0, Google Flow and self-hosted Wan2.2. Daily credits, watermarks, peak-time access and GPU costs are the real catches. Flow currently gives 50 credits/day; Veo 3.1 Lite uses 10 per generation. Save this comparison.\n\nCredits: Footage: Google DeepMind (Veo samples), ByteDance Dreamina (Seedance 2.0 samples), Wan-Video/Wan2.2 demo (Apache-2.0). Page: Google Flow Help, own capture.\n\n#aitools #aivideo #contentcreator #veo3",
       "title": "3 Free AI Video Generators (Real Daily Limits)",
-      "updated_at": "2026-10-10T12:01:42Z",
+      "updated_at": "2026-10-10T21:53:05Z",
       "video_id": "list-free-video-ai-01"
     },
     "list-free-video-ai-01:youtube": {
@@ -63,7 +63,7 @@
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-10T15:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.youtube.com/shorts/nA0SBClidO4",
       "media_ref": {
         "asset_digest": "sha256:448b296e0a2974f892fbbbb69859390f9865bafa64f157ead302cb73330ea445",
         "asset_id": 627853401,
@@ -78,11 +78,11 @@
       "notify_subscribers": true,
       "payload_sha256": "5659716cc669756c5f43573e106d0cba13431c7a633f52c66c769710684c5eb8",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-10T15:00:24.203Z",
+      "state": "sent",
       "text": "3 AI video generators you can try without a subscription, with the actual trade-offs. Dreamina Seedance 2.0 gives free daily credits; watermark/export rules vary by plan, model and settings. Google Flow gives 50 credits/day; Veo 3.1 Lite costs 10 per generation, so about five clips if access is available. Free generation may be unavailable at peak hours, credits do not roll over, and free accounts cannot upscale to 1080p. Wan2.2 has no hosted-service credit cap when self-hosted, but its 5B model targets a 24 GB GPU and hardware/electricity are not free.\nChecked October 10, 2026; limits can change.\nSources: support.google.com/flow, dreamina.capcut.com, github.com/Wan-Video/Wan2.2. AI-generated demo footage from the official makers.\n\nCredits: Footage: Google DeepMind (Veo samples), ByteDance Dreamina (Seedance 2.0 samples), Wan-Video/Wan2.2 demo (Apache-2.0). Page: Google Flow Help, own capture.\n\n#Shorts #AI #AIvideo #AItools",
       "title": "3 Free AI Video Generators (Real Daily Limits)",
-      "updated_at": "2026-10-10T12:01:45Z",
+      "updated_at": "2026-10-10T21:53:05Z",
       "video_id": "list-free-video-ai-01"
     },
     "news-claude-free-01:facebook": {
@@ -203,7 +203,7 @@
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-10T20:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/DeU5GCfla2G/",
       "media_ref": {
         "asset_digest": "sha256:704f6c98e83923006a2d70062bfcd15717507ed867d859a2e720b2e386c1f599",
         "asset_id": 625694400,
@@ -218,11 +218,11 @@
       "notify_subscribers": false,
       "payload_sha256": "c037817dab0aee1b9df34d8bd0430ba0308ccf9d011f5e28d1172f80aa7225d7",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-10T20:01:13.587Z",
+      "state": "sent",
       "text": "An AI homepage built from your browsing: ai-newtab rewrites Chrome's new tab with Claude. The MIT code is free; Claude API usage is paid. A history summary and selected signed-in pages go to the API, so review the privacy settings first. Repo: github.com/ThariqS/ai-newtab.\n\nCredits: Illustration & repo: github.com/ThariqS/ai-newtab (MIT). Page: own capture.\n\n#aitools #claude #chrome #productivity #opensource",
       "title": "AI Homepage That Writes Itself (Claude Chrome Extension)",
-      "updated_at": "2026-10-10T12:01:54Z",
+      "updated_at": "2026-10-10T21:53:05Z",
       "video_id": "repo-ai-newtab-01"
     },
     "repo-ai-newtab-01:youtube": {
@@ -231,7 +231,7 @@
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-10T19:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.youtube.com/shorts/IP70g5d8_Qc",
       "media_ref": {
         "asset_digest": "sha256:704f6c98e83923006a2d70062bfcd15717507ed867d859a2e720b2e386c1f599",
         "asset_id": 625694400,
@@ -246,11 +246,11 @@
       "notify_subscribers": false,
       "payload_sha256": "f585e0037d66c5369cf2206c03b24a3488f1fd6d973c10c2e4795c5c45388fe8",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-10T19:00:34.830Z",
+      "state": "sent",
       "text": "AI Homepage replaces Chrome's new tab with a front page that Claude writes from your own browsing: it reads your history, opens up to 8 sites you follow and writes a fresh page in any look (newspaper, dashboard, terminal). It rebuilds itself in the background.\nThe catch: each build sends your history summary and up to 8 signed-in pages to the Anthropic API, and costs API credits. Uploads are deleted after each build.\nRepo: github.com/ThariqS/ai-newtab (MIT). The newspaper image is the README's illustration.\n\nCredits: Illustration & repo: github.com/ThariqS/ai-newtab (MIT). Page: own capture.\n\n#Shorts #AI #Claude #Chrome",
       "title": "AI Homepage That Writes Itself (Claude Chrome Extension)",
-      "updated_at": "2026-10-10T12:01:51Z",
+      "updated_at": "2026-10-10T21:53:05Z",
       "video_id": "repo-ai-newtab-01"
     },
     "repo-removemacai-01:youtube": {
