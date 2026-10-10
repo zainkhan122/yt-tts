@@ -1,6 +1,31 @@
 {
   "cooldown_until": null,
   "records": {
+    "news-claude-free-01:facebook": {
+      "attempts": 1,
+      "category": "news",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-10-10T11:18:51Z",
+      "media_ref": {
+        "asset_digest": "sha256:8f76f72616ce6d34ef9430a605ccf6be3e619c2142728c254a0a5012162b5bfa",
+        "asset_id": 625686728,
+        "asset_size": 14069906,
+        "kit_asset_id": 625686795,
+        "kit_digest": "sha256:48dd18c72c1a12ea121eaec4b0a56bc2a9bf62b1be96f2ceb6282335b6f9de33",
+        "media_path": "media/625686728/news-claude-free-01.mp4",
+        "release_tag": "renders-2026-10-09",
+        "video_id": "news-claude-free-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/625686728/news-claude-free-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "38426f1a6b1b2f70709ee35e84c9580affa5783d046278080612d58a499e46f6",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "Claude Slides, Docs and Design are now on the free plan. It builds slide decks, social posts and docs right in the chat. Motion and Dashboards stay paid. What would you make first?\n\nCredits: Footage: Anthropic official videos (Claude). Page: claude.com, own capture.\n\nAI-generated narration.\n\n#AItools #Claude #productivity",
+      "title": "Claude Slides, Docs & Design Are Now Free",
+      "updated_at": "2026-10-10T11:19:10Z",
+      "video_id": "news-claude-free-01"
+    },
     "news-claude-free-01:instagram": {
       "attempts": 1,
       "buffer_post_id": "6aca1f23b07d37ac976e341a",
