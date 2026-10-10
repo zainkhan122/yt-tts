@@ -44,7 +44,10 @@
     "repo-whistle-01"
   ],
   "awaiting_new_videos": [],
-  "gemini_visual_fix_result": "success",
+  "gemini_visual_fix_result": "success, QA 7/7 and contact sheet inspected",
   "new_batch_published": false,
-  "bundle": "deliverables/hypeless-2026-10-10/hypeless-five-shorts-and-post-kits.zip"
+  "bundle": "deliverables/hypeless-2026-10-10/hypeless-five-shorts-and-post-kits.zip",
+  "metadata_workflow_dry_run": 38051560192,
+  "metadata_workflow_dry_run_result": "success; no Google requests because channel consent not completed",
+  "tests_passed": 114
 }
