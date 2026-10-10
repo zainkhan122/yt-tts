@@ -31,9 +31,11 @@
     },
     "list-free-video-ai-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6aca2929d9cab260a7c269d7",
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-10T15:00:00Z",
+      "due_at": "2026-10-10T15:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:448b296e0a2974f892fbbbb69859390f9865bafa64f157ead302cb73330ea445",
         "asset_id": 627853401,
@@ -48,10 +50,11 @@
       "notify_subscribers": true,
       "payload_sha256": "5659716cc669756c5f43573e106d0cba13431c7a633f52c66c769710684c5eb8",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "3 AI video generators you can try without a subscription, with the actual trade-offs. Dreamina Seedance 2.0 gives free daily credits; watermark/export rules vary by plan, model and settings. Google Flow gives 50 credits/day; Veo 3.1 Lite costs 10 per generation, so about five clips if access is available. Free generation may be unavailable at peak hours, credits do not roll over, and free accounts cannot upscale to 1080p. Wan2.2 has no hosted-service credit cap when self-hosted, but its 5B model targets a 24 GB GPU and hardware/electricity are not free.\nChecked October 10, 2026; limits can change.\nSources: support.google.com/flow, dreamina.capcut.com, github.com/Wan-Video/Wan2.2. AI-generated demo footage from the official makers.\n\nCredits: Footage: Google DeepMind (Veo samples), ByteDance Dreamina (Seedance 2.0 samples), Wan-Video/Wan2.2 demo (Apache-2.0). Page: Google Flow Help, own capture.\n\n#Shorts #AI #AIvideo #AItools",
       "title": "3 Free AI Video Generators (Real Daily Limits)",
-      "updated_at": "2026-10-10T12:01:44Z",
+      "updated_at": "2026-10-10T12:01:45Z",
       "video_id": "list-free-video-ai-01"
     },
     "news-claude-free-01:facebook": {
