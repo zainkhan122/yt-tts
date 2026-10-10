@@ -8,7 +8,7 @@ Pinned initial roles (subject to their actual measured performance, NOT an asser
 - Producer: `nvidia/nemotron-3-ultra-550b-a55b:free`, provider `nvidia`.
 - Separate critic: `thinkingmachines/inkling:free`, provider `thinkingmachines/nvfp4`, for text/image/audio review.
 
-Endpoint-version names, modalities and zero prices are rechecked before inference. Changed/unavailable providers or models block the pilot. Provider fallbacks are off; parameter support is required; provider data collection is denied. No confidentiality rule is relaxed merely to make a free endpoint work.
+Endpoint-version names, modalities and zero prices are rechecked before inference. Changed/unavailable providers or models block the pilot. Provider fallbacks are off; parameter support is required; provider data collection is allowed ONLY for public sources and owned pilot drafts, with explicit owner consent dated 2026-10-10. Secrets/private account data remain excluded from prompts. OpenRouter account-level free-model training settings can still block access.
 
 ## Trust boundaries
 

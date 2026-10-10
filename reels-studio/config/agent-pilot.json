@@ -35,7 +35,7 @@
   "routing": {
     "allow_fallbacks": false,
     "require_parameters": true,
-    "data_collection": "deny",
+    "data_collection": "allow",
     "max_price": {
       "prompt": 0,
       "completion": 0
@@ -78,5 +78,10 @@
     "tool-pomelli-01",
     "repo-whistle-01"
   ],
-  "note": "Free-only IDs/provider/version metadata are pinned. Unavailable capability, quota exhaustion, drift or failed gate means hold, never a paid or weaker fallback. No cron, production-queue edits, Pages deployment or social publishing in this optional pilot."
+  "note": "Free-only IDs/provider/version metadata are pinned. Unavailable capability, quota exhaustion, drift or failed gate means hold, never a paid or weaker fallback. No cron, production-queue edits, Pages deployment or social publishing in this optional pilot.",
+  "provider_training_consent": {
+    "approved": true,
+    "date": "2026-10-10",
+    "scope": "Public primary-source material, existing public baseline media and owned pilot drafts only. Never secrets, private account data, raw environment variables or private customer content."
+  }
 }
