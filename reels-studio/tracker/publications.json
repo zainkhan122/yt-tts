@@ -169,6 +169,31 @@
       "updated_at": "2026-10-10T11:22:45Z",
       "video_id": "news-claude-free-01"
     },
+    "repo-ai-newtab-01:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-10-10T19:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:704f6c98e83923006a2d70062bfcd15717507ed867d859a2e720b2e386c1f599",
+        "asset_id": 625694400,
+        "asset_size": 16714599,
+        "kit_asset_id": 625694499,
+        "kit_digest": "sha256:67f97ef8dbc071551c143d6ba8470a3c67ac1e531011d8c09a3ef27bbc6bc7ee",
+        "media_path": "media/625694400/repo-ai-newtab-01.mp4",
+        "release_tag": "renders-2026-10-09",
+        "video_id": "repo-ai-newtab-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/625694400/repo-ai-newtab-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "f585e0037d66c5369cf2206c03b24a3488f1fd6d973c10c2e4795c5c45388fe8",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "AI Homepage replaces Chrome's new tab with a front page that Claude writes from your own browsing: it reads your history, opens up to 8 sites you follow and writes a fresh page in any look (newspaper, dashboard, terminal). It rebuilds itself in the background.\nThe catch: each build sends your history summary and up to 8 signed-in pages to the Anthropic API, and costs API credits. Uploads are deleted after each build.\nRepo: github.com/ThariqS/ai-newtab (MIT). The newspaper image is the README's illustration.\n\nCredits: Illustration & repo: github.com/ThariqS/ai-newtab (MIT). Page: own capture.\n\n#Shorts #AI #Claude #Chrome",
+      "title": "AI Homepage That Writes Itself (Claude Chrome Extension)",
+      "updated_at": "2026-10-10T12:01:49Z",
+      "video_id": "repo-ai-newtab-01"
+    },
     "repo-removemacai-01:youtube": {
       "buffer_post_id": "6ac904b32f26cc482c22c524",
       "channel_id": "6ac904af6a5c39ccb662a01f",
