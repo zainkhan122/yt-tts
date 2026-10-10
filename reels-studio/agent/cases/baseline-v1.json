@@ -1,0 +1,206 @@
+{
+  "version": 1,
+  "comparison_type": "controlled source-and-asset-pool trial",
+  "producer_must_not_read_baseline_scripts": true,
+  "cases": [
+    {
+      "id": "news-haiku-55-01",
+      "category": "news",
+      "task": "Explain Claude Haiku 5.5 pricing and where the small model is useful, with the important caveats.",
+      "as_of": "2026-10-10",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://www.anthropic.com/claude-haiku-5-5",
+          "kind": "primary_source",
+          "source_class": "maker_statement"
+        }
+      ],
+      "source_hosts": [
+        "www.anthropic.com"
+      ],
+      "baseline": {
+        "asset_id": 627874680,
+        "asset_size": 11135231,
+        "asset_digest": "sha256:803f7320ea670d9a558f51392080a40263e91fd77451092237862ffaef46677d",
+        "kit_asset_id": 627874715,
+        "kit_digest": "sha256:322a90ea3e1fac54e1bfab5789bb42ae8f50d76a81dcb8564cc6a7143ae340b4",
+        "release_tag": "renders-2026-10-10"
+      },
+      "capture_pack": {
+        "id": 627828594,
+        "name": "news-haiku-55-01.tar",
+        "size": 2631680,
+        "digest": "sha256:315e3a2b74334d79c8276c865c764306df7cc08fab413d6f797be135cbf31877"
+      },
+      "baseline_brief": "briefs/news-haiku-55-01.json",
+      "asset_policy": "Existing channel-reviewed public-source capture pack, used only for a controlled non-publishing comparison. This is not an automatic licence grant for independently discovered material."
+    },
+    {
+      "id": "news-gemini-agent-01",
+      "category": "news",
+      "task": "Explain the Google Cloud Gemini agent announcement and its practical scope and access limitations.",
+      "as_of": "2026-10-10",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026",
+          "kind": "primary_source",
+          "source_class": "maker_statement"
+        }
+      ],
+      "source_hosts": [
+        "cloud.google.com"
+      ],
+      "baseline": {
+        "asset_id": 627887795,
+        "asset_size": 12981459,
+        "asset_digest": "sha256:dac6bdb95180d6b32f4f29c2affb95653797770c1471bd2fcd4a6ac8481dec41",
+        "kit_asset_id": 627887849,
+        "kit_digest": "sha256:3364018cb764da0891331a679a41ce22527374df9d1f018a66821571aa61ffe7",
+        "release_tag": "renders-2026-10-10"
+      },
+      "capture_pack": {
+        "id": 627828618,
+        "name": "news-gemini-agent-01.tar",
+        "size": 3276800,
+        "digest": "sha256:09a46b71e88dcd9098be3b7ec4ba09958aab84216e1bba9239533ac19a8ea6b2"
+      },
+      "baseline_brief": "briefs/news-gemini-agent-01.json",
+      "asset_policy": "Existing channel-reviewed public-source capture pack, used only for a controlled non-publishing comparison. This is not an automatic licence grant for independently discovered material."
+    },
+    {
+      "id": "tool-mosa-01",
+      "category": "tool",
+      "task": "Explain Mosa visual AI workflows, who they help and the genuine payment/credit limitations.",
+      "as_of": "2026-10-10",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://getmosa.ai/",
+          "kind": "primary_source",
+          "source_class": "maker_statement"
+        },
+        {
+          "id": "s2",
+          "url": "https://getmosa.ai/pricing",
+          "kind": "primary_source",
+          "source_class": "maker_statement"
+        }
+      ],
+      "source_hosts": [
+        "getmosa.ai"
+      ],
+      "baseline": {
+        "asset_id": 627873804,
+        "asset_size": 11422328,
+        "asset_digest": "sha256:d5977260e53138318ab06d0c5f579f1d9c0578cfc5e61fbe78731606dc824e45",
+        "kit_asset_id": 627873830,
+        "kit_digest": "sha256:f3780a7c1e418c5a51bd7d9e498b2eb8551b7c1957338f354b49a558cf4d121e",
+        "release_tag": "renders-2026-10-10"
+      },
+      "capture_pack": {
+        "id": 627828656,
+        "name": "tool-mosa-01.tar",
+        "size": 10045440,
+        "digest": "sha256:4f0277d7137eff61526cd5eea3d52cb32457483efbd78e493a06f23672f06ae1"
+      },
+      "baseline_brief": "briefs/tool-mosa-01.json",
+      "asset_policy": "Existing channel-reviewed public-source capture pack, used only for a controlled non-publishing comparison. This is not an automatic licence grant for independently discovered material."
+    },
+    {
+      "id": "tool-pomelli-01",
+      "category": "tool",
+      "task": "Show what Pomelli can do for product marketing and explain accuracy and access caveats without falsely implying a new launch.",
+      "as_of": "2026-10-10",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/pomelli-photoshoot/",
+          "kind": "primary_source",
+          "source_class": "maker_statement"
+        },
+        {
+          "id": "s2",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/pomelli-agentic-capabilities/",
+          "kind": "primary_source",
+          "source_class": "maker_statement"
+        },
+        {
+          "id": "s3",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/pomelli-in-europe/",
+          "kind": "primary_source",
+          "source_class": "maker_statement"
+        }
+      ],
+      "source_hosts": [
+        "blog.google"
+      ],
+      "baseline": {
+        "asset_id": 627874040,
+        "asset_size": 13818415,
+        "asset_digest": "sha256:f21155c4d6e97273ad7c6314dc328261ff6b8c33eebd9d11f5629632fbb87048",
+        "kit_asset_id": 627874101,
+        "kit_digest": "sha256:adeb74b4a20b5a43eb0b4dd29be4a22653c6b705446bcf717acf0e7049fa816c",
+        "release_tag": "renders-2026-10-10"
+      },
+      "capture_pack": {
+        "id": 627828707,
+        "name": "tool-pomelli-01.tar",
+        "size": 15267840,
+        "digest": "sha256:bd1cb3186ed2ea6443762593b8d649d8a3614a7eb3e75d350b943be50aeaff0f"
+      },
+      "baseline_brief": "briefs/tool-pomelli-01.json",
+      "asset_policy": "Existing channel-reviewed public-source capture pack, used only for a controlled non-publishing comparison. This is not an automatic licence grant for independently discovered material."
+    },
+    {
+      "id": "repo-whistle-01",
+      "category": "repo",
+      "task": "Explain Whistle local speech recognition, what makes the model useful and what its limitations are.",
+      "as_of": "2026-10-10",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://cactuscompute.com/blog/whistle",
+          "kind": "primary_source",
+          "source_class": "maker_statement"
+        },
+        {
+          "id": "s2",
+          "url": "https://github.com/cactus-compute/needle",
+          "kind": "primary_source",
+          "source_class": "maker_statement"
+        },
+        {
+          "id": "observation1",
+          "url": "https://github.com/zainkhan122/yt-tts/blob/main/reels-studio/research/batches/whistle-demo-2026-10-10.json",
+          "kind": "recorded_observation",
+          "title": "Previously recorded Hypeless Whistle browser test",
+          "observed_at": "2026-10-10",
+          "text": "In the studio browser recording on 2026-10-10, an 8-second excerpt of our approved synthetic narration was supplied using a fake microphone. Whistle returned English text, transcribing the product name Claude as Cloud. The recording repeats at the end because the input file loops. This browser WASM run is not the author's native M4 Pro benchmark. Its displayed timing was 2130 ms to first token and 4.4 seconds total. This evidence is an existing recorded studio test, not a new experiment performed by the optional producer agent.",
+          "provenance": "research/batches/whistle-demo-2026-10-10.json"
+        }
+      ],
+      "source_hosts": [
+        "cactuscompute.com",
+        "github.com"
+      ],
+      "baseline": {
+        "asset_id": 627860841,
+        "asset_size": 9549967,
+        "asset_digest": "sha256:d71ff007e3d3bba23a76c4b089a5c1d28bf8b3cb9a2e0d360673aa42d22104fe",
+        "kit_asset_id": 627860877,
+        "kit_digest": "sha256:3613014ebc8697a452d7e91aa4e9c7d744d42dfdd5c9d63b00f8589dfa32b66e",
+        "release_tag": "renders-2026-10-10"
+      },
+      "capture_pack": {
+        "id": 627828750,
+        "name": "repo-whistle-01.tar",
+        "size": 2160640,
+        "digest": "sha256:e6d75700de52a9fe23a8e40451c2e543e3d46b864978106cd509198a437adb0c"
+      },
+      "baseline_brief": "briefs/repo-whistle-01.json",
+      "asset_policy": "Existing channel-reviewed public-source capture pack, used only for a controlled non-publishing comparison. This is not an automatic licence grant for independently discovered material."
+    }
+  ]
+}

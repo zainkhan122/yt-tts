@@ -6,7 +6,9 @@
 
 Pinned initial roles (subject to their actual measured performance, NOT an assertion of parity):
 - Producer: `nvidia/nemotron-3-ultra-550b-a55b:free`, provider `nvidia`.
-- Separate critic: `thinkingmachines/inkling:free`, provider `thinkingmachines/nvfp4`, for text/image/audio review.
+- Separate factual/visual critic (selection revision 2): `google/gemma-4-31b-it:free`, provider `google-ai-studio`.
+- Audio specialist: `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free`, pinned Nvidia endpoint.
+- Rejected initial critic: Inkling returned an approved-harness-only 403 and has additional data restrictions. No app identity was spoofed. This explicit selection revision is NOT an automatic runtime fallback, and does not establish parity.
 
 Endpoint-version names, modalities and zero prices are rechecked before inference. Changed/unavailable providers or models block the pilot. Provider fallbacks are off; parameter support is required; provider data collection is allowed ONLY for public sources and owned pilot drafts, with explicit owner consent dated 2026-10-10. Secrets/private account data remain excluded from prompts. OpenRouter account-level free-model training settings can still block access.
 

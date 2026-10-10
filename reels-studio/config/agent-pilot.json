@@ -20,16 +20,26 @@
       "max_tokens": 7500
     },
     "critic": {
-      "model": "thinkingmachines/inkling:free",
-      "provider": "thinkingmachines/nvfp4",
-      "expected_endpoint_name": "Thinking Machines | thinkingmachines/inkling-20260715:free",
+      "model": "google/gemma-4-31b-it:free",
+      "provider": "google-ai-studio",
+      "expected_endpoint_name": "Google AI Studio | google/gemma-4-31b-it-20260402:free",
       "input_modalities": [
         "text",
-        "image",
-        "audio"
+        "image"
       ],
       "native_json_schema": false,
       "max_tokens": 6500
+    },
+    "audio_critic": {
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "provider": "nvidia",
+      "expected_endpoint_name": "Nvidia | nvidia/nemotron-3-nano-omni-30b-a3b-reasoning-20260428:free",
+      "input_modalities": [
+        "text",
+        "audio"
+      ],
+      "native_json_schema": false,
+      "max_tokens": 2500
     }
   },
   "routing": {
@@ -83,5 +93,13 @@
     "approved": true,
     "date": "2026-10-10",
     "scope": "Public primary-source material, existing public baseline media and owned pilot drafts only. Never secrets, private account data, raw environment variables or private customer content."
-  }
+  },
+  "model_selection_revision": 2,
+  "rejected_candidates": [
+    {
+      "role": "critic",
+      "model": "thinkingmachines/inkling:free",
+      "reason": "HTTP 403: free access only through approved agentic harnesses; free-endpoint restrictions on personal voice/face data. Not used or spoofed."
+    }
+  ]
 }
