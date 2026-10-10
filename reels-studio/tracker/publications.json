@@ -1,6 +1,31 @@
 {
   "cooldown_until": null,
   "records": {
+    "list-free-video-ai-01:facebook": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-10-10T18:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:448b296e0a2974f892fbbbb69859390f9865bafa64f157ead302cb73330ea445",
+        "asset_id": 627853401,
+        "asset_size": 24637796,
+        "kit_asset_id": 627853442,
+        "kit_digest": "sha256:ca001931ded35c6da90009e207ffd4a862a2360bfc45a37616ad08bb39367503",
+        "media_path": "media/627853401/list-free-video-ai-01.mp4",
+        "release_tag": "renders-2026-10-10-refresh",
+        "video_id": "list-free-video-ai-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/627853401/list-free-video-ai-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "900b53e6b59029fcc0d6c1a5d63341adfae9ee301f0b54d58fe303094f56149c",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "3 AI video generators and the real limits: Dreamina Seedance 2.0 offers daily credits; Google Flow gives 50 credits/day; Wan2.2 has no service-credit limit when self-hosted, but requires suitable hardware and electricity. Which would you try?\n\nCredits: Footage: Google DeepMind (Veo samples), ByteDance Dreamina (Seedance 2.0 samples), Wan-Video/Wan2.2 demo (Apache-2.0). Page: Google Flow Help, own capture.\n\nAI-generated narration and example video footage.\n\n#AItools #AIvideo",
+      "title": "3 Free AI Video Generators (Real Daily Limits)",
+      "updated_at": "2026-10-10T12:01:46Z",
+      "video_id": "list-free-video-ai-01"
+    },
     "list-free-video-ai-01:instagram": {
       "attempts": 1,
       "buffer_post_id": "6aca2926f91f772d459134ba",
