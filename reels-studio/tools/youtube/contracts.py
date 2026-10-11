@@ -4,10 +4,76 @@ import json
 from pathlib import Path
 import re
 import shutil
+import zipfile
+
+from PIL import Image
 
 from tools.post.common import ROOT, fingerprint, load_json
 from tools.post.media import asset_metadata, public_download
 from tools.youtube.seo import tracking_tag, validate as validate_seo
+
+# Shorts cover (custom thumbnail) limits. Google raised the documented image cap and
+# confirmed 9:16 Shorts thumbnails in 2026; the vertical Shorts-shelf picture
+# (oar2.jpg) is still provider-only and not settable through the Data API.
+SHORT_COVER_MIN_HEIGHT = 640
+SHORT_COVER_MAX_BYTES = 50_000_000
+
+
+def cover_digest(path):
+    return "sha256:" + hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def validate_short_cover(path, approved_digest):
+    """Hard gate: a Shorts cover may only be set if it matches the digest the agent
+    explicitly reviewed, and it satisfies format/minimum-size limits."""
+    p = Path(path)
+    if not p.is_file():
+        raise ValueError("Short cover image is missing")
+    size = p.stat().st_size
+    if size > SHORT_COVER_MAX_BYTES:
+        raise ValueError("Short cover exceeds the provider image limit")
+    digest = cover_digest(p)
+    if approved_digest != digest:
+        raise ValueError("Short cover does not match the agent-reviewed digest; refusing to set an unreviewed image")
+    with Image.open(p) as image:
+        fmt, (width, height) = image.format, image.size
+    if fmt not in {"JPEG", "PNG"}:
+        raise ValueError("Short cover must be JPEG or PNG")
+    if height < SHORT_COVER_MIN_HEIGHT:
+        raise ValueError("Short cover is below the minimum height for Shorts thumbnails")
+    return {"sha256": digest, "format": fmt, "width": width, "height": height, "size_bytes": size}
+
+
+def fetch_kit_cover(item, root_cfg, work):
+    """Extract cover.jpg from the immutable pinned kit Release asset, verifying the
+    kit digest and (when present) the reviewed-cover approval recorded in the queue."""
+    meta = asset_metadata(root_cfg, item["kit_asset_id"])
+    if meta["name"] != item["video_id"] + "-kit.zip":
+        raise ValueError("Kit asset name does not match the queue pin")
+    if not re.fullmatch(r"sha256:[0-9a-f]{64}", item.get("kit_digest", "")):
+        raise ValueError("A SHA-256 kit digest is required for cover extraction")
+    work = Path(work)
+    work.mkdir(parents=True, exist_ok=True)
+    zip_path = work / (item["video_id"] + "-kit.zip")
+    public_download(meta["browser_download_url"], meta["size"], item["kit_digest"], zip_path)
+    member = item["video_id"] + "/cover.jpg"
+    with zipfile.ZipFile(zip_path) as archive:
+        if member not in archive.namelist():
+            raise ValueError("Kit does not contain the expected reviewed cover")
+        data = archive.read(member)
+    cover = work / (item["video_id"] + "-cover.jpg")
+    cover.write_bytes(data)
+    if item.get("cover_sha256"):
+        validate_short_cover(cover, item["cover_sha256"])
+    return cover
+
+
+def fetch_short_cover(item, root_cfg, work):
+    """Cover for the enrichment worker: requires explicit agent approval first."""
+    if not (item.get("cover_sha256") and item.get("cover_reviewed_at")):
+        return None
+    cover = fetch_kit_cover(item, root_cfg, work)
+    return {"path": cover, "sha256": cover_digest(cover)}
 
 
 def read_brief(item):

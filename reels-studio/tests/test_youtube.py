@@ -377,6 +377,133 @@ class MetadataTests(unittest.TestCase):
             self.assertIn(name,schema["VideoStatus"]["properties"])
 
 
+class ShortCoverTests(unittest.TestCase):
+    def jpeg(self, width=1080, height=1920):
+        import io
+        buffer = io.BytesIO()
+        Image.new("RGB", (width, height), (5, 11, 31)).save(buffer, "JPEG")
+        return buffer.getvalue()
+
+    def write_cover(self, directory, name="news-demo-01-cover.jpg", data=None):
+        path = Path(directory) / name
+        path.write_bytes(data if data is not None else self.jpeg())
+        return path
+
+    def test_validator_accepts_reviewed_image_and_blocks_other_digests(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            cover = self.write_cover(tmp)
+            digest = contracts.cover_digest(cover)
+            info = contracts.validate_short_cover(cover, digest)
+            self.assertEqual((info["width"], info["height"]), (1080, 1920))
+            with self.assertRaises(ValueError):
+                contracts.validate_short_cover(cover, "sha256:" + "0"*64)
+
+    def test_validator_rejects_small_or_wrong_format_images(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            small = self.write_cover(tmp, "small.jpg", self.jpeg(360, 360))
+            with self.assertRaises(ValueError):
+                contracts.validate_short_cover(small, contracts.cover_digest(small))
+            png = Path(tmp) / "cover.png"
+            Image.new("RGB", (1080, 1920), "black").save(png, "PNG")
+            self.assertEqual(contracts.validate_short_cover(png, contracts.cover_digest(png))["format"], "PNG")
+
+    def test_fetch_kit_cover_verifies_zip_and_member(self):
+        import io, zipfile
+        with tempfile.TemporaryDirectory() as tmp:
+            data = self.jpeg()
+            buffer = io.BytesIO()
+            with zipfile.ZipFile(buffer, "w") as z:
+                z.writestr("news-demo-01/cover.jpg", data)
+            kit = buffer.getvalue()
+            kit_digest = "sha256:" + hashlib.sha256(kit).hexdigest()
+            item = {"video_id": "news-demo-01", "kit_asset_id": 42, "kit_digest": kit_digest}
+            with patch.object(contracts, "asset_metadata", return_value={"name": "news-demo-01-kit.zip", "size": len(kit),
+                                                                         "browser_download_url": "https://example.invalid/kit"}):
+                with patch.object(contracts, "public_download", side_effect=lambda url, size, digest, dest: Path(dest).write_bytes(kit)):
+                    cover = contracts.fetch_kit_cover(item, {}, tmp)
+                    self.assertEqual(cover.read_bytes(), data)
+                    # Approved digest gate applies when a queue approval exists.
+                    item["cover_sha256"], item["cover_reviewed_at"] = "sha256:" + "0"*64, "2026-10-11T00:00:00Z"
+                    with self.assertRaises(ValueError):
+                        contracts.fetch_kit_cover(item, {}, tmp)
+
+    def fake_api(self, confirm=True, existing_tags=("owner tag",)):
+        created = {"n": 0}
+        memberships = {}
+        class FakeAPI:
+            cfg = load_json(ROOT/"config/youtube.json")
+            playlist_cache = {}
+            calls = []
+            def json(self, method, path, params=None, body=None, headers=None, data=None, cost=0, idempotent=False):
+                FakeAPI.calls.append((method, path))
+                if path == "videos" and method == "GET":
+                    return {"items": [{"id": VIDEO_ID, "etag": "E1",
+                            "snippet": {"channelId": FakeAPI.cfg["channel_id"], "title": "Owner title", "categoryId": "28",
+                                        "description": "Owner description", "tags": list(existing_tags)},
+                            "contentDetails": {"hasCustomThumbnail": confirm}, "status": {"privacyStatus": "public"}}]}
+                if path == "videos" and method == "PUT":
+                    return body
+                if path == "playlists" and method == "POST":
+                    created["n"] += 1
+                    return {"id": f"PL-{created['n']}"}
+                if path == "playlists":
+                    return {"items": [{"id": params.get("id"), "snippet": {"channelId": FakeAPI.cfg["channel_id"]}}]}
+                if path == "playlistItems":
+                    created["n"] += 1
+                    key = (params.get("playlistId") or body["snippet"]["playlistId"], body["snippet"]["resourceId"]["videoId"])
+                    memberships[key] = f"pli-{created['n']}"
+                    return {"id": memberships[key]}
+                if path == "upload/thumbnails/set":
+                    return {"kind": "youtube#thumbnailSetResponse"}
+                raise AssertionError("unexpected call " + method + " " + path)
+            def pages(self, resource, params):
+                found = memberships.get((params.get("playlistId"), params.get("videoId")))
+                return iter([{"id": found}] if found else [])
+        FakeAPI.cfg = copy.deepcopy(FakeAPI.cfg)
+        return FakeAPI()
+
+    def enrich(self, api, cover=True):
+        j = Journal()
+        with tempfile.TemporaryDirectory() as tmp:
+            path = self.write_cover(tmp, "news-demo-01-cover.jpg")
+            digest = contracts.cover_digest(path)
+            cover_spec = {"path": path, "sha256": digest} if cover else None
+            row = metadata.enrich_short(api, j, {"video_id": "news-demo-01", "youtube_id": VIDEO_ID}, ["AI tools"], "news", cover=cover_spec)
+            return row, j, digest
+
+    def test_enrich_sets_approved_cover_and_confirms_readback(self):
+        api = self.fake_api(confirm=True)
+        row, j, digest = self.enrich(api)
+        self.assertTrue(row["thumbnail_confirmed"])
+        self.assertEqual(row["state"], "done")
+        self.assertIn(("POST", "upload/thumbnails/set"), api.calls)
+        self.assertEqual(row["thumbnail_digest"], digest)
+        self.assertTrue(row["public_copy_preserved"])
+
+    def test_unconfirmed_cover_retries_then_blocks_but_keeps_tags(self):
+        api = self.fake_api(confirm=False)
+        journal = Journal()  # production journals persist across enrichment runs
+        with tempfile.TemporaryDirectory() as tmp:
+            path = self.write_cover(tmp, "news-demo-01-cover.jpg")
+            spec = {"path": path, "sha256": contracts.cover_digest(path)}
+            for expected_attempt in (1, 2, 3):
+                row = metadata.enrich_short(api, journal, {"video_id": "news-demo-01", "youtube_id": VIDEO_ID}, ["AI tools"], "news", cover=spec)
+                self.assertEqual(row["state"], "cover_pending")
+                self.assertEqual(row["thumbnail_attempts"], expected_attempt)
+            row = metadata.enrich_short(api, journal, {"video_id": "news-demo-01", "youtube_id": VIDEO_ID}, ["AI tools"], "news", cover=spec)
+        self.assertTrue(row["thumbnail_blocked"])
+        self.assertEqual(row["state"], "done")  # stops retrying; surfaced for agent review
+        self.assertTrue(row["tags_done"])
+        self.assertEqual(sum(1 for m, path in api.calls if path == "upload/thumbnails/set"), 1)  # never re-uploaded
+
+    def test_cover_failure_never_removes_tags_or_playlists(self):
+        api = self.fake_api(confirm=True)
+        row, j, _ = self.enrich(api, cover=False)
+        self.assertEqual(row["state"], "done")
+        self.assertNotIn(("POST", "upload/thumbnails/set"), api.calls)
+        self.assertTrue(row["tags_done"])
+
+
 class PublicationTests(unittest.TestCase):
     def make(self,due=NOW+dt.timedelta(hours=5),custom=True):
         i=item();snippet=seo.validate(brief(),"long",seo.tracking_tag(i))

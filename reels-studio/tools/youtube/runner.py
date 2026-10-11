@@ -20,7 +20,7 @@ from lib.secrets import redact, youtube_credentials, youtube_state_key
 from tools.post.common import config as root_config, fingerprint, iso, load_json, now_utc, parse_time, save_json, valid_id
 from tools.post.state import Journal
 from tools.youtube.api import Deferred, Uncertain, YouTubeAPI, YouTubeError
-from tools.youtube.contracts import preflight, read_brief
+from tools.youtube.contracts import fetch_short_cover, preflight, read_brief
 from tools.youtube.metadata import enrich_short, get_video, playlists_for, set_thumbnail
 from tools.youtube.resumable import reconcile_upload, tracking_tag, upload
 from tools.youtube.schedule import plan
@@ -178,7 +178,7 @@ def external_id(url):
     return match[1] if match else None
 
 
-def enrich_buffer_shorts(api, journal, shorts_records, short_items):
+def enrich_buffer_shorts(api, journal, shorts_records, short_items, root_cfg):
     if not api.cfg["metadata_enrichment"]["enabled"]:
         return []
     rows, count = [], 0
@@ -198,7 +198,18 @@ def enrich_buffer_shorts(api, journal, shorts_records, short_items):
         if fingerprint(brief) != item["brief_sha256"]:
             raise ValueError("Shorts metadata changed after approval; review instead of silently overwriting")
         snippet = seo_validate(brief, "short")
-        rows.append(enrich_short(api, journal, {**source, "youtube_id": vid}, snippet["tags"], item["category"]))
+        # A cover is only fetched when the queue records explicit agent review of its digest.
+        # Fetch failures (digest mismatch / missing member) are safety issues and abort loudly.
+        cover_work = Path(os.environ.get("RUNNER_TEMP", "/var/tmp"))/"hypeless-youtube"/"covers"
+        cover = fetch_short_cover(item, root_cfg, cover_work)
+        try:
+            rows.append(enrich_short(api, journal, {**source, "youtube_id": vid}, snippet["tags"], item["category"], cover=cover))
+        except (YouTubeError, Uncertain, Deferred) as exc:
+            row = journal.data.setdefault("enrichment", {}).setdefault(vid, {"video_id": source["video_id"], "youtube_id": vid})
+            row["last_error"] = redact(str(exc)) + " (" + getattr(exc, "code", "ERROR") + ")"
+            journal.save("Shorts enrichment deferred " + source["video_id"])
+            rows.append(row)
+            continue
         count += 1
         if count >= api.cfg["metadata_enrichment"]["max_videos_per_run"]:
             break
@@ -239,6 +250,12 @@ def report_text(report):
     lines += [f"| {r['video_id']} | {r['state']} | {r.get('youtube_id') or '—'} |" for r in report.get("receipts", [])]
     if not report.get("receipts"):
         lines += ["| No upload receipts | — | — |"]
+    if report.get("enriched"):
+        lines += ["", "## Enriched Shorts", "", "| Video | Tags | Cover | Note |", "|---|---|---|---|"]
+        for r in report["enriched"]:
+            cover = "confirmed" if r.get("thumbnail_confirmed") else ("blocked" if r.get("thumbnail_blocked") else ("—" if r.get("state") == "done" else "pending"))
+            note = (r.get("thumbnail_error") or r.get("last_error") or "—")[:90]
+            lines.append(f"| {r.get('video_id','?')} | {'yes' if r.get('tags_done') else 'pending'} | {cover} | {note} |")
     lines += ["", "## Notes"] + ["- "+s for s in report.get("notes", [])]
     lines += ["", "## Issues"] + ["- "+s for s in report.get("issues", [])]
     lines += ["", "Scheduled/private/processing is not published. Only a confirmed public receipt is marked sent."]
@@ -306,7 +323,7 @@ def main():
                     work = Path(os.environ.get("RUNNER_TEMP", "/var/tmp"))/"hypeless-youtube"/item["video_id"]
                     process(item, row, api, journal, root_cfg, work, uploads, args.mode == "private-pilot")
             if args.mode in {"schedule", "enrich"}:
-                report["enriched"] = enrich_buffer_shorts(api, journal, shorts_records, load_json(ROOT/"queue/publish.json")["items"])
+                report["enriched"] = enrich_buffer_shorts(api, journal, shorts_records, load_json(ROOT/"queue/publish.json")["items"], root_cfg)
             for r in journal.records.values():
                 if r.get("state") in BLOCKED | {"session_start_uncertain", "upload_uncertain", "expired_uncertain"}:
                     report["issues"].append(r["video_id"] + ": " + r.get("last_error", r["state"]))

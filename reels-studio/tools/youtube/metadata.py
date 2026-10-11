@@ -109,7 +109,50 @@ def set_thumbnail(api, record, path, digest, journal):
     journal.save("thumbnail assigned " + record["video_id"])
 
 
-def enrich_short(api, journal, source, tags, category):
+SHORT_COVER_ATTEMPT_LIMIT = 4
+
+
+def attach_short_cover(api, journal, row, video_id, cover):
+    """Set the agent-reviewed cover image and confirm it via a read-back.
+
+    Returns "confirmed" | "pending" | "blocked". Bounded: after
+    SHORT_COVER_ATTEMPT_LIMIT unconfirmed/failed tries the row is marked
+    thumbnail_blocked for agent review (e.g. channel eligibility), not retried
+    forever. Every try is idempotent — the digest gate prevents re-uploads."""
+    from lib.secrets import redact
+    digest = cover["sha256"]
+    attempts = row.get("thumbnail_attempts", 0)
+    if row.get("thumbnail_confirmed"):
+        return "confirmed"
+    if attempts >= SHORT_COVER_ATTEMPT_LIMIT:
+        row["thumbnail_blocked"] = True
+        return "blocked"
+    try:
+        if row.get("thumbnail_digest") != digest:
+            set_thumbnail(api, row, cover["path"], digest, journal)
+        fresh = get_video(api, video_id)
+        if fresh.get("contentDetails", {}).get("hasCustomThumbnail") is True:
+            row["thumbnail_confirmed"] = True
+            row.pop("thumbnail_error", None)
+            row.pop("thumbnail_blocked", None)
+            journal.save("Shorts cover confirmed " + row["video_id"])
+            return "confirmed"
+        row["thumbnail_attempts"] = attempts + 1
+        row["thumbnail_error"] = "YouTube has not confirmed the custom thumbnail yet"
+    except (YouTubeError, Uncertain, Deferred) as exc:
+        row["thumbnail_attempts"] = attempts + 1
+        row["thumbnail_error"] = redact(str(exc)) + " (" + getattr(exc, "code", "ERROR") + ")"
+    if row["thumbnail_attempts"] >= SHORT_COVER_ATTEMPT_LIMIT:
+        row["thumbnail_blocked"] = True
+        row["thumbnail_error"] = ("Bounded cover attempts exhausted; channel eligibility or image policy may block Shorts covers. "
+                                  "Agent review required. " + row.get("thumbnail_error", "")).strip()
+        journal.save("Shorts cover blocked " + row["video_id"])
+        return "blocked"
+    journal.save("Shorts cover pending " + row["video_id"])
+    return "pending"
+
+
+def enrich_short(api, journal, source, tags, category, cover=None):
     video_id = source["youtube_id"]
     row = journal.data.setdefault("enrichment", {}).setdefault(video_id, {"video_id": source["video_id"], "youtube_id": video_id})
     video = get_video(api, video_id)
@@ -120,6 +163,12 @@ def enrich_short(api, journal, source, tags, category):
     row["tags_done"] = True
     journal.save("Shorts backend tags enriched")
     playlists_for(api, journal, video_id, category, "shorts")
+    if cover:
+        state = attach_short_cover(api, journal, row, video_id, cover)
+        if state == "pending":
+            row["state"] = "cover_pending"  # tags/playlists recorded; the cover retries next run
+            journal.save("Shorts cover pending state " + source["video_id"])
+            return row
     row.update(state="done", completed_at=iso(now_utc()), public_copy_preserved=True)
     journal.save("Shorts metadata complete " + source["video_id"])
     return row
