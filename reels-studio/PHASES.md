@@ -129,3 +129,17 @@ Google issued a seven-day refresh grant, ending 2026-10-17 13:42 UTC (18:42 Paki
 Owner chose the interactive Arena agent as the main brain. The optional producer/critic remains OFF / NOT QUALIFIED and is now explicitly paused; all five experimental Actions workflows are disabled. No further evaluation/activation without a new owner request. A fail-closed client guard prevents inference while paused.
 
 Verified all five MP4s and five kits against their live immutable Release assets, then removed only the old local delivery ZIP and Mosa preview (74,184,935 bytes). Original package notes, archive links, scripts, source evidence, masters, private credentials, queues and publication receipts are preserved. Core render/posting workflows were not disabled or changed.
+
+## 2026-10-11 — session re-entry made cheap (context discipline)
+
+A work session had ended with "conversation too long for the model"; git held everything,
+but a naive re-read of docs + state measured **153.5 KB ≈ 43.7k tokens**. New
+`tools/context/` package fixes the failure mode instead of the symptom: `ctxpack.py`
+builds a ≤8 KB always-fresh `PACK.md` from the same resume_status source (measured
+3.8 KB ≈ 1.1k tokens, **−97.5%**), `ctxgrep.py` answers from docs/state/logs as capped
+`file:line` snippets (17.7 KB file → ~0.7 KB answer), `quiet.py` bounds command output
+(21.6 KB verbose suite → 0.6 KB summary + greppable log). Rules: `CONTEXT-PROTOCOL.md`.
+Also fixed a vaultless-regeneration footgun that silently dropped the recorded Google
+grant expiry (`resume_status.carry_forward_expiry` + tests). Local safety suite:
+**209 passed** (14 new). Audit: `docs/2026-10-11-session-resume-audit.md`, receipt:
+`research/maintenance/2026-10-11-context-audit.json`.

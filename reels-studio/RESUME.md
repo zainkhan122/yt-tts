@@ -24,8 +24,18 @@ cd ~/yt-tts/reels-studio
 cp setup/git-config.template ../.git/config
 # Inspect before changing anything:
 git status --short
+# Cheap re-entry: build the ≤8 KB session context pack and read it first
+# (replaces reading the whole doc set; see CONTEXT-PROTOCOL.md)
+python3 tools/context/ctxpack.py --write && cat .context/PACK.md
+# Authoritative operational status (the pack is generated from the same source):
 python3 tools/maintenance/resume_status.py
+# Local safety suite deps — install from the pinned requirements, never ad hoc:
+python3 -m pip install -q -r tools/youtube/requirements.txt -r tools/post/requirements.txt pytest
 ```
+
+Keep the conversation small: retrieve with `tools/context/ctxgrep.py` instead of
+opening full files (never open `tracker/`/`queue/` JSONs whole), and run noisy
+commands through `tools/context/quiet.py`. Rules: `CONTEXT-PROTOCOL.md`.
 
 If clean, fetch sparse history with `git fetch --filter=blob:none --deepen=24 origin main` and fast-forward. If commits diverged or a rebase is active, inspect it; **do not force-push/reset blindly**. Read newer upstream work before reimplementing it. A cloud publisher can legitimately have committed new receipt states while the local agent was idle.
 
@@ -46,6 +56,7 @@ A completely blank workspace can restore the public project via `bootstrap.sh`; 
 | `queue/` | Explicit publication approvals; never infer approval from a completed render |
 | `templates/`, `brand/`, `lib/` | Controlled rendering and the approved Option 3 voice pipeline |
 | `tools/maintenance/` | Budget audit, archive-verified pruning and read-only resume status |
+| `tools/context/` | Bounded-context session tooling: context-pack builder, capped retrieval, quiet command runner (protocol: `CONTEXT-PROTOCOL.md`) |
 | `.github/workflows/` | Cloud workers, permissions, concurrency and manual/cron entry points |
 
 ## Credentials — NEVER echo or commit

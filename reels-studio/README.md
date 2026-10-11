@@ -155,6 +155,13 @@ The agent:
 4. looks at the contact sheet and fixes what it sees;
 5. hands you the MP4 and `post.md`.
 
+Sessions start cheap and stay small: the agent reads `.context/PACK.md`
+(≤8 KB, built by `tools/context/ctxpack.py` from the same source as
+`CURRENT_STATE.md`) instead of re-reading the whole doc set, retrieves with
+`tools/context/ctxgrep.py`, and runs noisy commands through
+`tools/context/quiet.py`. Measured re-entry cost: ~1.1k tokens instead of ~44k.
+Rules: [`CONTEXT-PROTOCOL.md`](CONTEXT-PROTOCOL.md).
+
 Limits of this sandbox:
 - about 6–8 minutes per 35–45 s video on 2 vCPU;
 - sandboxes reset without warning. `bootstrap.sh` restores the toolchain in about 3 min (measured: 189 s after a real reset), while files persist;

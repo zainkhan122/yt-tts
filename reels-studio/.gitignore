@@ -21,3 +21,6 @@ renders/
 .env.*
 *.token
 publishing-report.*
+
+# session context pack + bounded command logs are regenerable, never committed
+.context/
