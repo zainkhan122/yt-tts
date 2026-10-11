@@ -227,9 +227,11 @@
     },
     "news-gemini-agent-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6acb200cb07d37ac9797a24d",
       "category": "news",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-12T03:00:00Z",
+      "due_at": "2026-10-12T03:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:dac6bdb95180d6b32f4f29c2affb95653797770c1471bd2fcd4a6ac8481dec41",
         "asset_id": 627887795,
@@ -244,10 +246,11 @@
       "notify_subscribers": false,
       "payload_sha256": "514de2f73502332525eb3da25c904f6d75c55a87a3b5f6a27577c22f5f9e3a06",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Google's new Gemini agent, announced October 8, 2026 at Gemini at Work, is positioned as a persistent cloud agent for business work: questions, research, documents, media and code. Google describes memory, sub-agents, business connectors, model choice including Claude, and spending controls. This is Google Cloud enterprise functionality\u2014not a promise of a free consumer Gemini/Gmail upgrade. Access depends on enterprise setup and permissions.\nSource: https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026\n\nCredits: Own explanatory motion graphic; page captures and official product imagery from Google Cloud's October 8 Gemini at Work announcement.\n\n#Shorts #Gemini #AInews #AIagents",
       "title": "Gemini Agent Works After You Close Your Laptop",
-      "updated_at": "2026-10-11T05:35:06Z",
+      "updated_at": "2026-10-11T05:35:08Z",
       "video_id": "news-gemini-agent-01"
     },
     "news-haiku-55-01:facebook": {
