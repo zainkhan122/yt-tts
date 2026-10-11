@@ -150,8 +150,8 @@ Owner instruction: schedule today's five held productions (2 news, 2 tools, 1 re
 Queue approvals refreshed (expires 2026-10-12T23:59Z); `tools/post/queue_ctl.py approve` verified each kit. A date-scoped
 `daily_target_overrides` entry (2026-10-11=5, clamped by the 5/day cap, 180-min spacing, 1 repo/day; baseline stays 3)
 let the paced runs use the researched weekly+optional slots instead of a bulk dump. Live Buffer runs scheduled 9 + 6 = 15
-posts across YT/IG/FB (07:00-17:00 EDT windows; one past-due slot for news-haiku fb/ig is recorded for immediate delivery
-and must be reconciled). Reconcile before claiming anything is public.
+posts across YT/IG/FB, all future-scheduled when created (first slots 07:00 EDT news-haiku fb/ig, last 23:00 EDT
+news-gemini/pomelli; nothing was overridden to post-now). Reconcile before claiming anything is public.
 
 Shorts covers: `cover_ctl.py` extracts the reviewed `cover.jpg` from each immutable kit and records `cover_sha256` after
 agent visual review of all five previews; the enrichment worker (existing 4x/day cron, mode=enrich) sets `thumbnails.set`,

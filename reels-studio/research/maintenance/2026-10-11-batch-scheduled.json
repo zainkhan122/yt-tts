@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-11",
+  "scope": "reels-studio; owner-instructed batch scheduling + Shorts cover feature",
+  "actions_runs": {
+    "9_post_run": 38115027480,
+    "followup_6_post_run": 38115187011
+  },
+  "created_total": 15,
+  "scheduled_plan_utc": {
+    "news-haiku-55-01": {
+      "facebook": "2026-10-11T11:00",
+      "instagram": "2026-10-11T11:00",
+      "youtube": "2026-10-11T13:00"
+    },
+    "tool-mosa-01": {
+      "facebook": "2026-10-11T14:00",
+      "instagram": "2026-10-11T15:00",
+      "youtube": "2026-10-11T17:00"
+    },
+    "repo-whistle-01": {
+      "facebook": "2026-10-11T18:00",
+      "instagram": "2026-10-11T20:00",
+      "youtube": "2026-10-11T21:00"
+    },
+    "tool-pomelli-01": {
+      "facebook": "2026-10-11T23:00",
+      "instagram": "2026-10-12T00:00",
+      "youtube": "2026-10-12T00:00"
+    },
+    "news-gemini-agent-01": {
+      "facebook": "2026-10-12T02:00",
+      "instagram": "2026-10-12T03:00",
+      "youtube": "2026-10-12T03:00"
+    }
+  },
+  "queue_approvals": {
+    "reviewed_at_utc": "2026-10-11T05:29:03Z",
+    "expires_utc": "2026-10-12T23:59:00Z",
+    "note": "kits re-verified by read_kit; news window within 72h rule"
+  },
+  "cadence_change": {
+    "type": "date-scoped override",
+    "value": {
+      "2026-10-11": 5
+    },
+    "baseline_daily_target": 3,
+    "hard_caps_kept": [
+      "max_videos_per_day=5",
+      "minimum_gap_minutes=180",
+      "max_repo_videos_per_day=1"
+    ]
+  },
+  "shorts_covers": {
+    "feature": "tools/youtube/cover_ctl.py + runner enrichment (thumbnails.set with hasCustomThumbnail read-back, bounded 4 attempts)",
+    "reviewed_at_utc": "2026-10-11T05:34:17Z",
+    "digests": {
+      "news-haiku-55-01": "sha256:d5445d08d5f86a2052b0e04c1dbe5e274c21ea660e03acf54ba2af02008c1db6",
+      "news-gemini-agent-01": "sha256:dd16f0943310c7e3ed938ee88202b8d0330ef660e624c60273bb7a3e1bd5927d",
+      "tool-mosa-01": "sha256:7d89c4f3a9217bff0400872e5931d7e2a6bbec720494ce501e881a59cfed8528",
+      "tool-pomelli-01": "sha256:ce81245436d8c750c11cf1b4892189ea9375fc1ae0ca7adc40840bf4233b4dae",
+      "repo-whistle-01": "sha256:4d5f1cea5e36d0b09c62b777bf5effb77d3d64a2b2b3213dc0b1f303bc52357f"
+    },
+    "agent_visual_review": "all five previews inspected: on-brand midnight/yellow, high contrast, legible hooks",
+    "honest_limits": [
+      "thumbnails.set on Shorts may require channel eligibility (YPP rollout); failures surface as thumbnail_blocked",
+      "the Shorts-shelf vertical picture (oar2.jpg) is provider-only and cannot be set via API"
+    ]
+  },
+  "tests": {
+    "total": 217,
+    "added_this_session": [
+      7,
+      "ShortCoverTests + cover validator/kit-extraction cases"
+    ]
+  },
+  "receipt_states_after": {
+    "sent": 9,
+    "scheduled": 15,
+    "published_manual": 3
+  },
+  "next_actions": [
+    "Reconcile deliveries after their due times (post.yml cron runs reconcile receipt adoption); scheduled is not sent",
+    "youtube.yml cron runs mode=enrich at 18:43/00:43 UTC: applies covers as Shorts become sent; check hypeless-youtube-report for confirmed/pending/blocked",
+    "Renew Google consent before 2026-10-17 13:42 UTC (7-day grant)",
+    "Do not re-approve or re-upload these five; receipts are authoritative"
+  ],
+  "limits": "All states are recorded journal/receipt state, not fresh live-provider verification. Cover application is attempted only by the cloud worker with Google OAuth; local visual review was of the kit images."
+}
