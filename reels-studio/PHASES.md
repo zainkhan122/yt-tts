@@ -143,3 +143,18 @@ Also fixed a vaultless-regeneration footgun that silently dropped the recorded G
 grant expiry (`resume_status.carry_forward_expiry` + tests). Local safety suite:
 **209 passed** (14 new). Audit: `docs/2026-10-11-session-resume-audit.md`, receipt:
 `research/maintenance/2026-10-11-context-audit.json`.
+
+## 2026-10-11 — five Oct-10 productions scheduled; Shorts covers shipped
+
+Owner instruction: schedule today's five held productions (2 news, 2 tools, 1 repo) and add YT Shorts covers.
+Queue approvals refreshed (expires 2026-10-12T23:59Z); `tools/post/queue_ctl.py approve` verified each kit. A date-scoped
+`daily_target_overrides` entry (2026-10-11=5, clamped by the 5/day cap, 180-min spacing, 1 repo/day; baseline stays 3)
+let the paced runs use the researched weekly+optional slots instead of a bulk dump. Live Buffer runs scheduled 9 + 6 = 15
+posts across YT/IG/FB (07:00-17:00 EDT windows; one past-due slot for news-haiku fb/ig is recorded for immediate delivery
+and must be reconciled). Reconcile before claiming anything is public.
+
+Shorts covers: `cover_ctl.py` extracts the reviewed `cover.jpg` from each immutable kit and records `cover_sha256` after
+agent visual review of all five previews; the enrichment worker (existing 4x/day cron, mode=enrich) sets `thumbnails.set`,
+confirms via `hasCustomThumbnail` read-back, retries bounded, and blocks loudly for agent review on failure (e.g. channel
+eligibility). Based on the 2026-07-24 short-thumbnail opening; the Shorts-shelf vertical picture remains provider-only.
+Suite at this checkpoint: **217 passed**. Release in use: renders-2026-10-10 (10 assets, digests verified).

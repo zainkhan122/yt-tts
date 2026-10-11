@@ -85,7 +85,7 @@ Permanent/ambiguous delivery issues fail the Actions job and appear in its summa
 - Render release assets are immutable; use a new revision tag for a changed render. Do not delete an asset pinned by a queue.
 - No on-screen credit captions were restored. Credits are in post descriptions/captions.
 - Instagram uses its native `isAiGenerated` field. Facebook is included with caption disclosure until native support is detected. YouTube disclosure is set according to the content, not guessed from a generic narrator alone.
-- Backend tags/playlist enrichment needs Google OAuth. No automatic first/pinned comments, custom YouTube Shorts thumbnails, or unsupported IG/FB backend fields are claimed.
+- Backend tags/playlist enrichment needs Google OAuth. No automatic first/pinned comments or unsupported IG/FB backend fields are claimed. Shorts covers are supported through the YouTube enrichment worker as of 2026-10-11 — agent-reviewed digest required first; see `tools/youtube/README.md`.
 
 ## Agent operations
 

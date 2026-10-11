@@ -8,6 +8,14 @@ Do not retry experiments merely because quota resets or a checkpoint exists. Res
 
 The old local five-video ZIP and Mosa preview were removed only after all ten archived MP4/kit files were verified. Original masters, post kits and source captures remain in GitHub Releases. See `research/maintenance/2026-10-11-deliverable-cleanup.json`; use the archived files, not a re-upload or fresh render.
 
+## Current batch — 2026-10-11
+
+Five Oct-10 productions (news-haiku-55-01, news-gemini-agent-01, tool-mosa-01, tool-pomelli-01, repo-whistle-01) were
+scheduled today across YT/IG/FB by paced Buffer runs under the `hypeless-publishing` concurrency group (see
+`tracker/publications.json` receipts and the Actions runs). Reconcile before assuming anything is public — scheduled is
+not sent. All five carry agent-reviewed Shorts covers (`cover_sha256` in the queue); the enrichment worker applies and
+confirms them as each Short goes live. Google refresh grant still expires 2026-10-17 13:42 UTC — renew consent before then.
+
 ## Authority / boundaries
 
 SSOT: **https://github.com/zainkhan122/yt-tts**, folders **`reels-studio/` and `.github/workflows/` only**. Do not touch another project or rewrite shared history. `CURRENT_STATE.md` is a sanitized, dated snapshot; live config, queues, journals and Actions receipts are authoritative if newer.
