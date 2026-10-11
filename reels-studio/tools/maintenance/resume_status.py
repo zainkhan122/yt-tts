@@ -21,6 +21,15 @@ def read(path,default=None):
     return json.loads(p.read_text()) if p.exists() else default
 
 
+def carry_forward_expiry(info,previous):
+    """A vaultless workspace must not silently drop the recorded grant expiry.
+    Live vault value wins; otherwise the previously recorded value is retained."""
+    if info['youtube'].get('recorded_refresh_grant_expiry_utc') is None and previous:
+        recorded=previous.get('youtube',{}).get('recorded_refresh_grant_expiry_utc')
+        if recorded:info['youtube']['recorded_refresh_grant_expiry_utc']=recorded
+    return info
+
+
 def snapshot():
     pub=read('config/publishing.json',{});yt=read('config/youtube.json',{});agent=read('config/agent-pilot.json',{})
     policy=read('config/operating-policy.json',{})
@@ -49,7 +58,7 @@ def snapshot():
     if p.exists():
         c=json.loads(p.read_text());expiry=c.get('refresh_token_expires_at')
         if expiry:info['youtube']['recorded_refresh_grant_expiry_utc']=dt.datetime.fromtimestamp(expiry,dt.timezone.utc).isoformat()
-    return info
+    return carry_forward_expiry(info,read('tracker/system-status.json',{}))
 
 
 def markdown(info):
