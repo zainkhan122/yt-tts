@@ -171,9 +171,11 @@
     },
     "news-haiku-55-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6acb1f53b07d37ac97978eb5",
       "category": "news",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-11T11:00:00Z",
+      "due_at": "2026-10-11T11:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:803f7320ea670d9a558f51392080a40263e91fd77451092237862ffaef46677d",
         "asset_id": 627874680,
@@ -188,10 +190,11 @@
       "notify_subscribers": false,
       "payload_sha256": "a5e060485da300e58db5f28d4156c56d5067b7dbe7c146e8b214e66e290d6843",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Claude Haiku 5.5 is cheaper for small AI jobs\u2014but prompts over 100k tokens move to a higher price tier. Check the full bill, not just the headline rate.\n\nCredits: Own motion graphic and captures of Anthropic's Haiku 5.5 announcement; provider pricing/benchmarks, not independently measured.\n\nAI-generated narration.\n\n#Claude #AItools #AInews",
       "title": "Claude Haiku 5.5: Cheap API, One Price Catch",
-      "updated_at": "2026-10-11T05:32:01Z",
+      "updated_at": "2026-10-11T05:32:03Z",
       "video_id": "news-haiku-55-01"
     },
     "repo-ai-newtab-01:facebook": {
