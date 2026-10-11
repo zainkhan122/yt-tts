@@ -378,6 +378,31 @@
       "updated_at": "2026-10-11T05:32:21Z",
       "video_id": "repo-whistle-01"
     },
+    "repo-whistle-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-11T20:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:d71ff007e3d3bba23a76c4b089a5c1d28bf8b3cb9a2e0d360673aa42d22104fe",
+        "asset_id": 627860841,
+        "asset_size": 9549967,
+        "kit_asset_id": 627860877,
+        "kit_digest": "sha256:3613014ebc8697a452d7e91aa4e9c7d744d42dfdd5c9d63b00f8589dfa32b66e",
+        "media_path": "media/627860841/repo-whistle-01.mp4",
+        "release_tag": "renders-2026-10-10",
+        "video_id": "repo-whistle-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/627860841/repo-whistle-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "0d861fe03d1bfe7079179ea2a7e473c06dc132d119114fb9d15c44f141f6e209",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Whistle is a 16.9 MB speech-to-text model running locally on a CPU. Seven languages, 30 seconds per input, no universal accuracy-win claim. Useful for small, private voice features. Save this for later.\n\nCredits: Own capture and demo using the Whistle browser sandbox; documentation and engine by Cactus Compute (Apache-2.0). Published benchmark claims belong to the authors.\n\n#OpenSource #AItools #SpeechToText",
+      "title": "Whistle: Offline Speech-to-Text in 16.9 MB",
+      "updated_at": "2026-10-11T05:32:22Z",
+      "video_id": "repo-whistle-01"
+    },
     "spotlight-papermorph-01:youtube": {
       "buffer_post_id": "6ac904b32f26cc482c22c526",
       "channel_id": "6ac904af6a5c39ccb662a01f",
