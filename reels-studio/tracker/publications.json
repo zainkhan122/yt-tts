@@ -602,9 +602,11 @@
     },
     "tool-pomelli-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6acb2003d9cab260a7e95215",
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-12T00:00:00Z",
+      "due_at": "2026-10-12T00:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:f21155c4d6e97273ad7c6314dc328261ff6b8c33eebd9d11f5629632fbb87048",
         "asset_id": 627874040,
@@ -619,10 +621,11 @@
       "notify_subscribers": false,
       "payload_sha256": "54eeb9e45fc9096b8ac20513b1bf327975c41e759fe7da0c1727f645e9403824",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Pomelli is Google Labs' AI marketing experiment. Photoshoot turns a product image into brand-aware studio/lifestyle variations using Business DNA, and lets you edit/download results. Agent features also support brand books and websites. Google describes it as free; regional/language availability and experiment limits apply. AI may alter your actual product, so check labels, proportions, colors and claims before using an output commercially. This is a current tool spotlight, not a claim of an October launch.\nOfficial sources: https://blog.google/innovation-and-ai/models-and-research/google-labs/pomelli-photoshoot/ and https://blog.google/innovation-and-ai/models-and-research/google-labs/pomelli-agentic-capabilities/\n\nCredits: Footage: Google Labs official Pomelli demonstrations. Screens: own captures of Google's product announcements. AI-generated example product imagery.\n\n#Shorts #Pomelli #AItools #SmallBusiness",
       "title": "Pomelli: Free AI Product Photos\u2014with a Catch",
-      "updated_at": "2026-10-11T05:34:57Z",
+      "updated_at": "2026-10-11T05:34:59Z",
       "video_id": "tool-pomelli-01"
     }
   },
