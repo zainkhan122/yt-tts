@@ -440,7 +440,7 @@
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-11T18:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.facebook.com/reel/1083198611365545/",
       "media_ref": {
         "asset_digest": "sha256:d71ff007e3d3bba23a76c4b089a5c1d28bf8b3cb9a2e0d360673aa42d22104fe",
         "asset_id": 627860841,
@@ -455,11 +455,11 @@
       "notify_subscribers": false,
       "payload_sha256": "7cf466009a1545a000b3772bc26d33bcf59101b71f35f94cbc3969ebf9149799",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-11T18:00:50.959Z",
+      "state": "sent",
       "text": "Whistle is a 16.9 MB speech-to-text model running locally on a CPU. Seven languages, 30 seconds per input, no universal accuracy-win claim. Useful for small, private voice features.\n\nCredits: Own capture and demo using the Whistle browser sandbox; documentation and engine by Cactus Compute (Apache-2.0). Published benchmark claims belong to the authors.\n\nAI-generated narration.\n\n#OpenSource #AItools #SpeechToText",
       "title": "Whistle: Offline Speech-to-Text in 16.9 MB",
-      "updated_at": "2026-10-11T05:32:21Z",
+      "updated_at": "2026-10-11T22:08:39Z",
       "video_id": "repo-whistle-01"
     },
     "repo-whistle-01:instagram": {
@@ -468,7 +468,7 @@
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-11T20:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/DeXd7r1DZqx/",
       "media_ref": {
         "asset_digest": "sha256:d71ff007e3d3bba23a76c4b089a5c1d28bf8b3cb9a2e0d360673aa42d22104fe",
         "asset_id": 627860841,
@@ -483,11 +483,11 @@
       "notify_subscribers": false,
       "payload_sha256": "0d861fe03d1bfe7079179ea2a7e473c06dc132d119114fb9d15c44f141f6e209",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-11T20:01:45.126Z",
+      "state": "sent",
       "text": "Whistle is a 16.9 MB speech-to-text model running locally on a CPU. Seven languages, 30 seconds per input, no universal accuracy-win claim. Useful for small, private voice features. Save this for later.\n\nCredits: Own capture and demo using the Whistle browser sandbox; documentation and engine by Cactus Compute (Apache-2.0). Published benchmark claims belong to the authors.\n\n#OpenSource #AItools #SpeechToText",
       "title": "Whistle: Offline Speech-to-Text in 16.9 MB",
-      "updated_at": "2026-10-11T05:32:24Z",
+      "updated_at": "2026-10-11T22:08:39Z",
       "video_id": "repo-whistle-01"
     },
     "repo-whistle-01:youtube": {
@@ -496,7 +496,7 @@
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-11T21:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.youtube.com/shorts/i5STWnaoVaM",
       "media_ref": {
         "asset_digest": "sha256:d71ff007e3d3bba23a76c4b089a5c1d28bf8b3cb9a2e0d360673aa42d22104fe",
         "asset_id": 627860841,
@@ -511,11 +511,11 @@
       "notify_subscribers": false,
       "payload_sha256": "0b37b2311f1135b6a7c92da86c84455b50395ab7b1e3f76b05855c3060055363",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-11T21:00:29.327Z",
+      "state": "sent",
       "text": "Whistle by Cactus Compute is an open speech-to-text model with a 16.9 MB file and a local CPU runtime shared with Needle. It takes 16 kHz mono audio, up to 30 seconds per call, and supports English, German, French, Spanish, Italian, Dutch and Polish. The browser sandbox runs on-device after the initial model download. Word timestamps and keyword biasing are supported. Author-published benchmarks show wins and losses versus Whisper base; this video does not claim a universal speed or accuracy win.\nSources: https://cactuscompute.com/blog/whistle and https://github.com/cactus-compute/needle\nOur actual browser demo misheard Claude as Cloud; inspect important names. The sandbox run is not a native M4 Pro performance test.\n\nCredits: Own capture and demo using the Whistle browser sandbox; documentation and engine by Cactus Compute (Apache-2.0). Published benchmark claims belong to the authors.\n\n#Shorts #OpenSource #AItools #SpeechToText",
       "title": "Whistle: Offline Speech-to-Text in 16.9 MB",
-      "updated_at": "2026-10-11T05:32:27Z",
+      "updated_at": "2026-10-11T22:08:39Z",
       "video_id": "repo-whistle-01"
     },
     "spotlight-papermorph-01:youtube": {
@@ -537,7 +537,7 @@
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-11T14:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.facebook.com/reel/2934775213547949/",
       "media_ref": {
         "asset_digest": "sha256:d5977260e53138318ab06d0c5f579f1d9c0578cfc5e61fbe78731606dc824e45",
         "asset_id": 627873804,
@@ -552,11 +552,11 @@
       "notify_subscribers": false,
       "payload_sha256": "a30c391c9f7688c57d764fa9ee5be6863a075f4c236aa9049ccd41bd02ade20e",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-11T14:00:57.588Z",
+      "state": "sent",
       "text": "Mosa connects AI models in one visual workflow. Start with \u20ac5 credit once; payment-method verification is required and generation spends your budget. Useful automation, not unlimited free AI.\n\nCredits: Footage and product image: Mosa / Ambassadors official site. Screens: own capture of getmosa.ai. No claim of paid-account hands-on testing.\n\nAI-generated narration and example imagery.\n\n#AItools #AIworkflow #ContentCreation",
       "title": "Mosa: Your AI Tools in One Visual Workflow",
-      "updated_at": "2026-10-11T05:32:12Z",
+      "updated_at": "2026-10-11T22:08:39Z",
       "video_id": "tool-mosa-01"
     },
     "tool-mosa-01:instagram": {
@@ -565,7 +565,7 @@
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-11T15:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/DeW7ro6gEJD/",
       "media_ref": {
         "asset_digest": "sha256:d5977260e53138318ab06d0c5f579f1d9c0578cfc5e61fbe78731606dc824e45",
         "asset_id": 627873804,
@@ -580,11 +580,11 @@
       "notify_subscribers": false,
       "payload_sha256": "bf43f87ab8f155d0c7d58797df18b54b8698a10cc10d2aa47099c57302daca38",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-11T15:02:01.391Z",
+      "state": "sent",
       "text": "Mosa connects AI models in one visual workflow. Start with \u20ac5 credit once; payment-method verification is required and generation spends your budget. Useful automation, not unlimited free AI. Save this for later.\n\nCredits: Footage and product image: Mosa / Ambassadors official site. Screens: own capture of getmosa.ai. No claim of paid-account hands-on testing.\n\n#AItools #AIworkflow #ContentCreation",
       "title": "Mosa: Your AI Tools in One Visual Workflow",
-      "updated_at": "2026-10-11T05:32:15Z",
+      "updated_at": "2026-10-11T22:08:39Z",
       "video_id": "tool-mosa-01"
     },
     "tool-mosa-01:youtube": {
@@ -593,7 +593,7 @@
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-11T17:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.youtube.com/shorts/tCnRrRcfdPM",
       "media_ref": {
         "asset_digest": "sha256:d5977260e53138318ab06d0c5f579f1d9c0578cfc5e61fbe78731606dc824e45",
         "asset_id": 627873804,
@@ -608,11 +608,11 @@
       "notify_subscribers": true,
       "payload_sha256": "49bc34c5c2b9a25c2b1a24391e40d2e6a25169ec7b841c8d9c5958ef6415e776",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-11T17:00:47.297Z",
+      "state": "sent",
       "text": "Mosa, from Ambassadors, connects AI models and creative production steps on a visual canvas: text, image, video and voice generation, conditions, quality checks and reusable workflows. The free workspace includes \u20ac5 once and requires card/bank verification. Model/provider calls spend the balance. Basic is \u20ac19/month excluding VAT, with \u20ac19 in model budget; plan features and costs vary. Not unlimited free generation. Official product media is shown, not a claim of independent paid-account testing.\nSources: https://getmosa.ai/ and https://getmosa.ai/pricing\n\nCredits: Footage and product image: Mosa / Ambassadors official site. Screens: own capture of getmosa.ai. No claim of paid-account hands-on testing.\n\n#Shorts #AItools #AIworkflow #ContentCreation",
       "title": "Mosa: Your AI Tools in One Visual Workflow",
-      "updated_at": "2026-10-11T05:32:18Z",
+      "updated_at": "2026-10-11T22:08:39Z",
       "video_id": "tool-mosa-01"
     },
     "tool-muse-01:youtube": {
