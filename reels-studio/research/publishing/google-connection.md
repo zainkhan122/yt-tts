@@ -8,7 +8,7 @@ The old `e2b.app/setup/...` link expired when its sandbox disappeared. It has be
 
 ## Current status
 
-YouTube is connected, its encrypted Actions secret is installed, and the first Shorts tags/playlists update was verified. Google supplied a seven-day refresh grant expiring 2026-10-17 at 18:42 Pakistan time. Check the app's publishing status; if still Testing, move it to In production and then obtain a fresh consent link from the agent. The original client JSON does not need to be recreated.
+YouTube is connected, its encrypted Actions secret is installed, and the first Shorts tags/playlists update was verified. Google supplied a seven-day refresh grant expiring 2026-10-17 at 18:42 Pakistan time. **Root cause confirmed (2026-10-11):** the OAuth app is in Testing publishing status, and Google expires Testing-grant refresh tokens after exactly 7 days regardless of use. The permanent fix is to publish the app to **In production** (free, ~3 min, no verification needed for personal use), then re-consent once. Full instructions, guardrails and verification signals: [`google-consent-runbook.md`](google-consent-runbook.md). The original client JSON does not need to be recreated.
 
 ## How to authorize or renew
 

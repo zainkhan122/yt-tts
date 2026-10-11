@@ -14,7 +14,7 @@ Five Oct-10 productions (news-haiku-55-01, news-gemini-agent-01, tool-mosa-01, t
 scheduled today across YT/IG/FB by paced Buffer runs under the `hypeless-publishing` concurrency group (see
 `tracker/publications.json` receipts and the Actions runs). Reconcile before assuming anything is public — scheduled is
 not sent. All five carry agent-reviewed Shorts covers (`cover_sha256` in the queue); the enrichment worker applies and
-confirms them as each Short goes live. Google refresh grant still expires 2026-10-17 13:42 UTC — renew consent before then.
+confirms them as each Short goes live. Google refresh grant expires 2026-10-17 13:42 UTC (18:42 PKT). Root cause is the OAuth app's Testing publishing status (7-day cap); the permanent fix is publishing the app to In production (free, optional verification not needed) + one re-consent — playbook: `research/publishing/google-consent-runbook.md`. Do not recreate the OAuth client.
 
 ## Authority / boundaries
 
