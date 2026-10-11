@@ -148,130 +148,130 @@
     },
     {
       "added_at": "2026-10-10T12:16:49Z",
-      "approval": "held",
+      "approval": "approved",
       "asset_digest": "sha256:803f7320ea670d9a558f51392080a40263e91fd77451092237862ffaef46677d",
       "asset_id": 627874680,
       "asset_size": 11135231,
       "brief_sha256": "7843f40bec0b685da88a0b67239a8ab964a7b6a8be49b1eac264becbe5a9fc74",
       "category": "news",
-      "expires_at": null,
+      "expires_at": "2026-10-12T23:59:00Z",
       "kit_asset_id": 627874715,
       "kit_digest": "sha256:322a90ea3e1fac54e1bfab5789bb42ae8f50d76a81dcb8564cc6a7143ae340b4",
       "media_path": "media/627874680/news-haiku-55-01.mp4",
+      "note": "New Oct 10 production: QA 7/7, Option 3 voice, source/copy review and contact-sheet inspection completed. Ready for next paced publishing batch; not added to today's already-full three-video calendar.",
       "platforms": [
-        "facebook",
+        "youtube",
         "instagram",
-        "youtube"
+        "facebook"
       ],
       "priority": 70,
       "release_tag": "renders-2026-10-10",
-      "reviewed_at": null,
+      "reviewed_at": "2026-10-11T05:29:03Z",
       "title": "Claude Haiku 5.5: Cheap API, One Price Catch",
       "video_id": "news-haiku-55-01",
-      "youtube_ai_generated": false,
-      "note": "New Oct 10 production: QA 7/7, Option 3 voice, source/copy review and contact-sheet inspection completed. Ready for next paced publishing batch; not added to today's already-full three-video calendar."
+      "youtube_ai_generated": false
     },
     {
       "added_at": "2026-10-10T12:16:50Z",
-      "approval": "held",
+      "approval": "approved",
       "asset_digest": "sha256:dac6bdb95180d6b32f4f29c2affb95653797770c1471bd2fcd4a6ac8481dec41",
       "asset_id": 627887795,
       "asset_size": 12981459,
       "brief_sha256": "1aa6adef0565425716137e780ef4e3c2181d66376758ca5eb63cd535ed6a1b4b",
       "category": "news",
-      "expires_at": null,
+      "expires_at": "2026-10-12T23:59:00Z",
       "kit_asset_id": 627887849,
       "kit_digest": "sha256:3364018cb764da0891331a679a41ce22527374df9d1f018a66821571aa61ffe7",
       "media_path": "media/627887795/news-gemini-agent-01.mp4",
+      "note": "New Oct 10 production: QA 7/7, Option 3 voice, source/copy review and contact-sheet inspection completed. Ready for next paced publishing batch; not added to today's already-full three-video calendar.",
       "platforms": [
-        "facebook",
+        "youtube",
         "instagram",
-        "youtube"
+        "facebook"
       ],
       "priority": 80,
       "release_tag": "renders-2026-10-10",
-      "reviewed_at": null,
+      "reviewed_at": "2026-10-11T05:29:03Z",
       "title": "Gemini Agent Works After You Close Your Laptop",
       "video_id": "news-gemini-agent-01",
-      "youtube_ai_generated": false,
-      "note": "New Oct 10 production: QA 7/7, Option 3 voice, source/copy review and contact-sheet inspection completed. Ready for next paced publishing batch; not added to today's already-full three-video calendar."
+      "youtube_ai_generated": false
     },
     {
       "added_at": "2026-10-10T12:16:51Z",
-      "approval": "held",
+      "approval": "approved",
       "asset_digest": "sha256:d5977260e53138318ab06d0c5f579f1d9c0578cfc5e61fbe78731606dc824e45",
       "asset_id": 627873804,
       "asset_size": 11422328,
       "brief_sha256": "38cb9601676cc18d3bfc773c8f41cb16f2fb66852e520ff85172b507baaad7ce",
       "category": "tool",
-      "expires_at": null,
+      "expires_at": "2026-10-12T23:59:00Z",
       "facebook_disclosure": "AI-generated narration and example imagery.",
       "kit_asset_id": 627873830,
       "kit_digest": "sha256:f3780a7c1e418c5a51bd7d9e498b2eb8551b7c1957338f354b49a558cf4d121e",
       "media_path": "media/627873804/tool-mosa-01.mp4",
+      "note": "New Oct 10 production: QA 7/7, Option 3 voice, source/copy review and contact-sheet inspection completed. Ready for next paced publishing batch; not added to today's already-full three-video calendar.",
       "platforms": [
-        "facebook",
+        "youtube",
         "instagram",
-        "youtube"
+        "facebook"
       ],
       "priority": 90,
       "release_tag": "renders-2026-10-10",
-      "reviewed_at": null,
+      "reviewed_at": "2026-10-11T05:29:03Z",
       "title": "Mosa: Your AI Tools in One Visual Workflow",
       "video_id": "tool-mosa-01",
-      "youtube_ai_generated": true,
-      "note": "New Oct 10 production: QA 7/7, Option 3 voice, source/copy review and contact-sheet inspection completed. Ready for next paced publishing batch; not added to today's already-full three-video calendar."
+      "youtube_ai_generated": true
     },
     {
       "added_at": "2026-10-10T12:16:52Z",
-      "approval": "held",
+      "approval": "approved",
       "asset_digest": "sha256:f21155c4d6e97273ad7c6314dc328261ff6b8c33eebd9d11f5629632fbb87048",
       "asset_id": 627874040,
       "asset_size": 13818415,
       "brief_sha256": "846aaf01d81237e786b45d6d3fcdd85bc1673638a1f861b7bd88708e6c48afdc",
       "category": "tool",
-      "expires_at": null,
+      "expires_at": "2026-10-12T23:59:00Z",
       "facebook_disclosure": "AI-generated narration and example imagery.",
       "kit_asset_id": 627874101,
       "kit_digest": "sha256:adeb74b4a20b5a43eb0b4dd29be4a22653c6b705446bcf717acf0e7049fa816c",
       "media_path": "media/627874040/tool-pomelli-01.mp4",
+      "note": "New Oct 10 production: QA 7/7, Option 3 voice, source/copy review and contact-sheet inspection completed. Ready for next paced publishing batch; not added to today's already-full three-video calendar.",
       "platforms": [
-        "facebook",
+        "youtube",
         "instagram",
-        "youtube"
+        "facebook"
       ],
       "priority": 100,
       "release_tag": "renders-2026-10-10",
-      "reviewed_at": null,
+      "reviewed_at": "2026-10-11T05:29:03Z",
       "title": "Pomelli: Free AI Product Photos\u2014with a Catch",
       "video_id": "tool-pomelli-01",
-      "youtube_ai_generated": true,
-      "note": "New Oct 10 production: QA 7/7, Option 3 voice, source/copy review and contact-sheet inspection completed. Ready for next paced publishing batch; not added to today's already-full three-video calendar."
+      "youtube_ai_generated": true
     },
     {
       "added_at": "2026-10-10T12:16:53Z",
-      "approval": "held",
+      "approval": "approved",
       "asset_digest": "sha256:d71ff007e3d3bba23a76c4b089a5c1d28bf8b3cb9a2e0d360673aa42d22104fe",
       "asset_id": 627860841,
       "asset_size": 9549967,
       "brief_sha256": "8877693c2a09d52f9f7199c853492bf5df79a32c4b46aac1f07922aae9717cbc",
       "category": "repo",
-      "expires_at": null,
+      "expires_at": "2026-10-12T23:59:00Z",
       "kit_asset_id": 627860877,
       "kit_digest": "sha256:3613014ebc8697a452d7e91aa4e9c7d744d42dfdd5c9d63b00f8589dfa32b66e",
       "media_path": "media/627860841/repo-whistle-01.mp4",
+      "note": "New Oct 10 production: QA 7/7, Option 3 voice, source/copy review and contact-sheet inspection completed. Ready for next paced publishing batch; not added to today's already-full three-video calendar.",
       "platforms": [
-        "facebook",
+        "youtube",
         "instagram",
-        "youtube"
+        "facebook"
       ],
       "priority": 110,
       "release_tag": "renders-2026-10-10",
-      "reviewed_at": null,
+      "reviewed_at": "2026-10-11T05:29:03Z",
       "title": "Whistle: Offline Speech-to-Text in 16.9 MB",
       "video_id": "repo-whistle-01",
-      "youtube_ai_generated": false,
-      "note": "New Oct 10 production: QA 7/7, Option 3 voice, source/copy review and contact-sheet inspection completed. Ready for next paced publishing batch; not added to today's already-full three-video calendar."
+      "youtube_ai_generated": false
     }
   ],
   "schema_version": 1

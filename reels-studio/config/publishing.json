@@ -1,5 +1,5 @@
 {
-  "activation_note": "Owner authorised today's publication across YT/IG/FB on 2026-10-10. One controlled immediate Claude pilot first; subsequent videos follow the researched paced calendar. Daily publishing still waits for verified sent pilot receipts.",
+  "activation_note": "Owner authorised today's publication across YT/IG/FB on 2026-10-10. One controlled immediate Claude pilot first; subsequent videos follow the researched paced calendar. 2026-10-11 owner instruction: schedule today's five held Oct-10 productions (2 news, 2 tools, 1 repo) across the three platforms using the researched weekly + optional slots; daily_target raised 3->5 for this batch within the existing max_videos_per_day=5 cap, minimum 180-minute spacing and one-repo-per-day rule.",
   "branch": "main",
   "buffer": {
     "channels": {
@@ -54,7 +54,7 @@
   },
   "repository": "zainkhan122/yt-tts",
   "schedule": {
-    "daily_target": 3,
+    "daily_target": 5,
     "lookahead_hours": 48,
     "max_posts_per_run": 9,
     "max_repo_videos_per_day": 1,
