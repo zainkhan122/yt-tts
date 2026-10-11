@@ -421,9 +421,11 @@
     },
     "tool-mosa-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6acb1f62d9cab260a7e93e69",
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-11T17:00:00Z",
+      "due_at": "2026-10-11T17:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:d5977260e53138318ab06d0c5f579f1d9c0578cfc5e61fbe78731606dc824e45",
         "asset_id": 627873804,
@@ -438,10 +440,11 @@
       "notify_subscribers": true,
       "payload_sha256": "49bc34c5c2b9a25c2b1a24391e40d2e6a25169ec7b841c8d9c5958ef6415e776",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Mosa, from Ambassadors, connects AI models and creative production steps on a visual canvas: text, image, video and voice generation, conditions, quality checks and reusable workflows. The free workspace includes \u20ac5 once and requires card/bank verification. Model/provider calls spend the balance. Basic is \u20ac19/month excluding VAT, with \u20ac19 in model budget; plan features and costs vary. Not unlimited free generation. Official product media is shown, not a claim of independent paid-account testing.\nSources: https://getmosa.ai/ and https://getmosa.ai/pricing\n\nCredits: Footage and product image: Mosa / Ambassadors official site. Screens: own capture of getmosa.ai. No claim of paid-account hands-on testing.\n\n#Shorts #AItools #AIworkflow #ContentCreation",
       "title": "Mosa: Your AI Tools in One Visual Workflow",
-      "updated_at": "2026-10-11T05:32:16Z",
+      "updated_at": "2026-10-11T05:32:18Z",
       "video_id": "tool-mosa-01"
     },
     "tool-muse-01:youtube": {
