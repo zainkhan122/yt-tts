@@ -406,6 +406,31 @@
       "updated_at": "2026-10-11T05:32:24Z",
       "video_id": "repo-whistle-01"
     },
+    "repo-whistle-01:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-10-11T21:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:d71ff007e3d3bba23a76c4b089a5c1d28bf8b3cb9a2e0d360673aa42d22104fe",
+        "asset_id": 627860841,
+        "asset_size": 9549967,
+        "kit_asset_id": 627860877,
+        "kit_digest": "sha256:3613014ebc8697a452d7e91aa4e9c7d744d42dfdd5c9d63b00f8589dfa32b66e",
+        "media_path": "media/627860841/repo-whistle-01.mp4",
+        "release_tag": "renders-2026-10-10",
+        "video_id": "repo-whistle-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/627860841/repo-whistle-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "0b37b2311f1135b6a7c92da86c84455b50395ab7b1e3f76b05855c3060055363",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "Whistle by Cactus Compute is an open speech-to-text model with a 16.9 MB file and a local CPU runtime shared with Needle. It takes 16 kHz mono audio, up to 30 seconds per call, and supports English, German, French, Spanish, Italian, Dutch and Polish. The browser sandbox runs on-device after the initial model download. Word timestamps and keyword biasing are supported. Author-published benchmarks show wins and losses versus Whisper base; this video does not claim a universal speed or accuracy win.\nSources: https://cactuscompute.com/blog/whistle and https://github.com/cactus-compute/needle\nOur actual browser demo misheard Claude as Cloud; inspect important names. The sandbox run is not a native M4 Pro performance test.\n\nCredits: Own capture and demo using the Whistle browser sandbox; documentation and engine by Cactus Compute (Apache-2.0). Published benchmark claims belong to the authors.\n\n#Shorts #OpenSource #AItools #SpeechToText",
+      "title": "Whistle: Offline Speech-to-Text in 16.9 MB",
+      "updated_at": "2026-10-11T05:32:25Z",
+      "video_id": "repo-whistle-01"
+    },
     "spotlight-papermorph-01:youtube": {
       "buffer_post_id": "6ac904b32f26cc482c22c526",
       "channel_id": "6ac904af6a5c39ccb662a01f",
