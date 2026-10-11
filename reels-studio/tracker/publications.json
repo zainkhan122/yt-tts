@@ -574,9 +574,11 @@
     },
     "tool-pomelli-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6acb2000c4de2d2b124e5a9a",
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-12T00:00:00Z",
+      "due_at": "2026-10-12T00:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:f21155c4d6e97273ad7c6314dc328261ff6b8c33eebd9d11f5629632fbb87048",
         "asset_id": 627874040,
@@ -591,10 +593,11 @@
       "notify_subscribers": false,
       "payload_sha256": "b188b54e14819e2d05cf3347a188fc6f7e21ddf6887dd1c30a70efdb5c990533",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Pomelli turns product photos into branded campaign images. Google calls it a free Labs experiment, but check regional access\u2014and every product detail before using AI imagery in an ad. Save this for later.\n\nCredits: Footage: Google Labs official Pomelli demonstrations. Screens: own captures of Google's product announcements. AI-generated example product imagery.\n\n#Pomelli #AItools #SmallBusiness",
       "title": "Pomelli: Free AI Product Photos\u2014with a Catch",
-      "updated_at": "2026-10-11T05:34:54Z",
+      "updated_at": "2026-10-11T05:34:56Z",
       "video_id": "tool-pomelli-01"
     }
   },
