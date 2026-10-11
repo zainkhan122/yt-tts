@@ -158,3 +158,7 @@ agent visual review of all five previews; the enrichment worker (existing 4x/day
 confirms via `hasCustomThumbnail` read-back, retries bounded, and blocks loudly for agent review on failure (e.g. channel
 eligibility). Based on the 2026-07-24 short-thumbnail opening; the Shorts-shelf vertical picture remains provider-only.
 Suite at this checkpoint: **217 passed**. Release in use: renders-2026-10-10 (10 assets, digests verified).
+
+## 2026-10-11 — Google consent made permanent (production grant)
+
+The recurring 7-day expiry was root-caused to the OAuth app's **Testing** publishing status (Google caps Testing-grant refresh tokens at 7 days regardless of use). Owner published the app to **In production** (free; verification deliberately skipped — the unverified-warning screen is acceptable for a single-user app), then one fresh consent was completed via the durable Pages handoff: client JSON re-attached privately, PKCE link issued, response exchanged immediately, channel `UCcWh9OdX3rbfHOtDZ6neyrA` verified, encrypted `YOUTUBE_OAUTH_JSON` re-stored (updated_at 2026-10-11T05:58:34Z). The stored bundle has **no `refresh_token_expires_at`** — the production signal — and the live enrichment run 38116539585 confirmed `oauth_connected: true` with no expiry note. No renewal deadline remains. Also fixed: a present vault is now authoritative in `resume_status.carry_forward_expiry`, so a production grant no longer inherits the stale testing-mode expiry (regression test added; suite 218).

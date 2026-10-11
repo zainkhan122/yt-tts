@@ -14,7 +14,7 @@ Five Oct-10 productions (news-haiku-55-01, news-gemini-agent-01, tool-mosa-01, t
 scheduled today across YT/IG/FB by paced Buffer runs under the `hypeless-publishing` concurrency group (see
 `tracker/publications.json` receipts and the Actions runs). Reconcile before assuming anything is public — scheduled is
 not sent. All five carry agent-reviewed Shorts covers (`cover_sha256` in the queue); the enrichment worker applies and
-confirms them as each Short goes live. Google refresh grant expires 2026-10-17 13:42 UTC (18:42 PKT). Root cause is the OAuth app's Testing publishing status (7-day cap); the permanent fix is publishing the app to In production (free, optional verification not needed) + one re-consent — playbook: `research/publishing/google-consent-runbook.md`. Do not recreate the OAuth client.
+confirms them as each Short goes live. Google consent RESOLVED 2026-10-11: app moved to **In production**, one fresh consent minted an indefinite grant (no `refresh_token_expires_at`), live-verified via enrichment run 38116539585 (`oauth_connected: true`). No renewal deadline remains — the old 2026-10-17 expiry is obsolete. Guardrails: keep using the token (crons do, well under the 6-month limit), do not re-consent recreationally (50-token cap), never delete the Cloud project/client, and never recreate the client JSON. If access is ever deliberately revoked, re-consent with `tools/youtube/oauth_handoff.py` — playbook: `research/publishing/google-consent-runbook.md`.
 
 ## Authority / boundaries
 

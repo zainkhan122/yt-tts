@@ -167,15 +167,24 @@ class ResumeCarryForwardTests(unittest.TestCase):
         from tools.maintenance.resume_status import carry_forward_expiry
         info = {'youtube': {'recorded_refresh_grant_expiry_utc': None}}
         previous = {'youtube': {'recorded_refresh_grant_expiry_utc': '2026-10-17T13:42:00+00:00'}}
-        carry_forward_expiry(info, previous)
+        carry_forward_expiry(info, previous, vault_present=False)
         self.assertEqual(info['youtube']['recorded_refresh_grant_expiry_utc'], '2026-10-17T13:42:00+00:00')
 
     def test_live_vault_value_wins_over_recorded(self):
         from tools.maintenance.resume_status import carry_forward_expiry
         info = {'youtube': {'recorded_refresh_grant_expiry_utc': '2026-11-01T00:00:00+00:00'}}
         previous = {'youtube': {'recorded_refresh_grant_expiry_utc': '2026-10-17T13:42:00+00:00'}}
-        carry_forward_expiry(info, previous)
+        carry_forward_expiry(info, previous, vault_present=True)
         self.assertEqual(info['youtube']['recorded_refresh_grant_expiry_utc'], '2026-11-01T00:00:00+00:00')
+
+    def test_production_grant_does_not_resurrect_recorded_expiry(self):
+        # A production grant has no refresh_token_expires_at; a present vault is
+        # authoritative and must not inherit the old testing-mode expiry.
+        from tools.maintenance.resume_status import carry_forward_expiry
+        info = {'youtube': {'recorded_refresh_grant_expiry_utc': None}}
+        previous = {'youtube': {'recorded_refresh_grant_expiry_utc': '2026-10-17T13:42:00+00:00'}}
+        carry_forward_expiry(info, previous, vault_present=True)
+        self.assertIsNone(info['youtube']['recorded_refresh_grant_expiry_utc'])
 
 
 if __name__ == '__main__':

@@ -21,9 +21,13 @@ def read(path,default=None):
     return json.loads(p.read_text()) if p.exists() else default
 
 
-def carry_forward_expiry(info,previous):
-    """A vaultless workspace must not silently drop the recorded grant expiry.
-    Live vault value wins; otherwise the previously recorded value is retained."""
+def carry_forward_expiry(info,previous,vault_present=True):
+    """Only a VAULTLESS workspace inherits the previously recorded grant expiry.
+    When the vault is present it is authoritative: a production grant has no
+    refresh_token_expires_at, and that absence must not be masked by a stale
+    testing-mode expiry recorded earlier."""
+    if vault_present:
+        return info
     if info['youtube'].get('recorded_refresh_grant_expiry_utc') is None and previous:
         recorded=previous.get('youtube',{}).get('recorded_refresh_grant_expiry_utc')
         if recorded:info['youtube']['recorded_refresh_grant_expiry_utc']=recorded
@@ -58,7 +62,7 @@ def snapshot():
     if p.exists():
         c=json.loads(p.read_text());expiry=c.get('refresh_token_expires_at')
         if expiry:info['youtube']['recorded_refresh_grant_expiry_utc']=dt.datetime.fromtimestamp(expiry,dt.timezone.utc).isoformat()
-    return carry_forward_expiry(info,read('tracker/system-status.json',{}))
+    return carry_forward_expiry(info,read('tracker/system-status.json',{}),vault_present=p.exists())
 
 
 def markdown(info):

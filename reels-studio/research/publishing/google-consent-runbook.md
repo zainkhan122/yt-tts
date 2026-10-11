@@ -1,5 +1,7 @@
 # Google consent runbook — renewing and making it last for years
 
+> **Status 2026-10-11: COMPLETED.** The app is In production and an indefinite grant is live-verified. Keep this file for the revocation/lost-credential recovery path (§2) and the guardrails (§4).
+
 **Why the connection expires every 7 days:** our OAuth app is (or was) in **Testing**
 publishing status. Google expires refresh tokens of Testing-status apps after exactly
 7 days *regardless of how often they are used* — a fixed clock, not inactivity. Renewing
