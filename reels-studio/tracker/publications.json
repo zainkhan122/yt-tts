@@ -225,6 +225,31 @@
       "updated_at": "2026-10-11T05:35:05Z",
       "video_id": "news-gemini-agent-01"
     },
+    "news-gemini-agent-01:youtube": {
+      "attempts": 1,
+      "category": "news",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-10-12T03:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:dac6bdb95180d6b32f4f29c2affb95653797770c1471bd2fcd4a6ac8481dec41",
+        "asset_id": 627887795,
+        "asset_size": 12981459,
+        "kit_asset_id": 627887849,
+        "kit_digest": "sha256:3364018cb764da0891331a679a41ce22527374df9d1f018a66821571aa61ffe7",
+        "media_path": "media/627887795/news-gemini-agent-01.mp4",
+        "release_tag": "renders-2026-10-10",
+        "video_id": "news-gemini-agent-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/627887795/news-gemini-agent-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "514de2f73502332525eb3da25c904f6d75c55a87a3b5f6a27577c22f5f9e3a06",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "Google's new Gemini agent, announced October 8, 2026 at Gemini at Work, is positioned as a persistent cloud agent for business work: questions, research, documents, media and code. Google describes memory, sub-agents, business connectors, model choice including Claude, and spending controls. This is Google Cloud enterprise functionality\u2014not a promise of a free consumer Gemini/Gmail upgrade. Access depends on enterprise setup and permissions.\nSource: https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026\n\nCredits: Own explanatory motion graphic; page captures and official product imagery from Google Cloud's October 8 Gemini at Work announcement.\n\n#Shorts #Gemini #AInews #AIagents",
+      "title": "Gemini Agent Works After You Close Your Laptop",
+      "updated_at": "2026-10-11T05:35:06Z",
+      "video_id": "news-gemini-agent-01"
+    },
     "news-haiku-55-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6acb1f53b07d37ac97978eb5",
