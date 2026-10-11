@@ -169,6 +169,31 @@
       "updated_at": "2026-10-10T11:22:45Z",
       "video_id": "news-claude-free-01"
     },
+    "news-gemini-agent-01:facebook": {
+      "attempts": 1,
+      "category": "news",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-10-12T02:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:dac6bdb95180d6b32f4f29c2affb95653797770c1471bd2fcd4a6ac8481dec41",
+        "asset_id": 627887795,
+        "asset_size": 12981459,
+        "kit_asset_id": 627887849,
+        "kit_digest": "sha256:3364018cb764da0891331a679a41ce22527374df9d1f018a66821571aa61ffe7",
+        "media_path": "media/627887795/news-gemini-agent-01.mp4",
+        "release_tag": "renders-2026-10-10",
+        "video_id": "news-gemini-agent-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/627887795/news-gemini-agent-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "ab6e60aa80dcb8a65027b3a30d46a661a20c9fbcb43c7ca7d9d911bdc35e0a96",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "Gemini Agent can keep working in the cloud after your laptop closes, according to Google's new announcement. The catch: enterprise access, company connectors and permissions\u2014not free personal Gmail.\n\nCredits: Own explanatory motion graphic; page captures and official product imagery from Google Cloud's October 8 Gemini at Work announcement.\n\nAI-generated narration.\n\n#Gemini #AInews #AIagents",
+      "title": "Gemini Agent Works After You Close Your Laptop",
+      "updated_at": "2026-10-11T05:35:00Z",
+      "video_id": "news-gemini-agent-01"
+    },
     "news-haiku-55-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6acb1f53b07d37ac97978eb5",
