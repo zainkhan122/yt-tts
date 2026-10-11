@@ -116,13 +116,17 @@ def plan(items, records, channels, posts, cfg, now, preview=False, pilot=False, 
         used = set()
         day = earliest.astimezone(zone).date()
         while day <= end.astimezone(zone).date() and capacity > 0:
+            # A dated override can expand one calendar day (owner-instruction batches)
+            # but never beyond the hard caps below the baseline target.
+            day_target = min(settings.get("daily_target_overrides", {}).get(day.isoformat(), target),
+                             settings.get("max_videos_per_day", 5), 5)
             kinds = [cat for _, cat in known_categories[day]]
-            clocks = clocks_for(profile, day, target)
+            clocks = clocks_for(profile, day, day_target)
             slots = [at_local(day, clock, profile.get("timezone", settings["timezone"])) for clock in clocks]
             slots = [t for t in slots if t and earliest <= t <= end]
             for idx, due in enumerate(slots):
                 todays_events = [t for t in events.values() if t.astimezone(zone).date() == day]
-                if len(todays_events) >= target:
+                if len(todays_events) >= day_target:
                     break
                 if any(abs((due-t).total_seconds()) < settings["minimum_gap_minutes"]*60 for t in events.values()):
                     continue
@@ -143,7 +147,7 @@ def plan(items, records, channels, posts, cfg, now, preview=False, pilot=False, 
                 missing = set(settings.get("required_daily_categories", [])) - set(kinds)
                 available = {i["category"] for i in eligible}
                 free_slots = sum(not any(abs((t-b).total_seconds()) < settings["minimum_gap_minutes"]*60 for b in events.values()) for t in slots[idx:])
-                if not pilot and (missing - available or len(missing) > min(free_slots, target-len(todays_events))):
+                if not pilot and (missing - available or len(missing) > min(free_slots, day_target-len(todays_events))):
                     notes.append(f"{platform} {day}: await sufficient news/tool mix; no repo-only dump")
                     break
                 preferred = [cat for cat in ("news", "tool") if cat in missing] + ["repo", "tool", "news"]

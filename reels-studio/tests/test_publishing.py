@@ -206,6 +206,7 @@ class PlannerTests(unittest.TestCase):
     def setUp(self):
         self.cfg = config()
         self.cfg["buffer"]["channels"]["facebook"].pop("posting_hold", None)  # generic three-channel scheduler fixture
+        self.cfg["schedule"].pop("daily_target_overrides", None)  # dated production overrides never alter fixtures
         self.channels = channels(self.cfg)
 
     def planned(self, items=None, records=None, posts=None, **kwargs):
@@ -228,6 +229,33 @@ class PlannerTests(unittest.TestCase):
                 self.assertTrue({"news", "tool"}.issubset({r["category"] for r in day}))
             times = sorted(parse_time(r["due_at"]) for r in selected)
             self.assertTrue(all((b - a).total_seconds() >= 180*60 for a, b in zip(times, times[1:])))
+
+    def test_dated_override_expands_one_day_only(self):
+        # Owner-instruction batches may raise a single calendar day, never the 3/day baseline.
+        self.cfg["schedule"]["max_posts_per_run"] = 100
+        self.cfg["schedule"]["daily_target_overrides"] = {"2026-10-10": 5}
+        rows, _ = self.planned()
+        for platform in ("youtube", "instagram", "facebook"):
+            selected = [r for r in rows if r["platform"] == platform]
+            self.assertEqual(len(selected), 5)
+            self.assertEqual({r["due_local"][:10] for r in selected}, {"2026-10-10"})
+            times = sorted(parse_time(r["due_at"]) for r in selected)
+            self.assertTrue(all((b - a).total_seconds() >= 180*60 for a, b in zip(times, times[1:])))
+            self.assertLessEqual(sum(r["category"] == "repo" for r in selected), 1)
+        # Removing the override restores the 3/day baseline exactly.
+        self.cfg["schedule"]["daily_target_overrides"] = {}
+        base_rows, _ = self.planned()
+        self.assertEqual(len(base_rows), 18)
+
+    def test_override_cannot_exceed_hard_caps(self):
+        self.cfg["schedule"]["max_posts_per_run"] = 100
+        self.cfg["schedule"]["daily_target_overrides"] = {"2026-10-10": 99}
+        rows, _ = self.planned()
+        days = {}
+        for r in rows:
+            days.setdefault((r["platform"], r["due_local"][:10]), []).append(r)
+        self.assertTrue(days)
+        self.assertTrue(all(len(v) <= self.cfg["schedule"]["max_videos_per_day"] for v in days.values()))
 
     def test_default_run_has_at_most_nine_mutations(self):
         rows, _ = self.planned()
