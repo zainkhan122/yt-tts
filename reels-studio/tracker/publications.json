@@ -225,6 +225,31 @@
       "updated_at": "2026-10-11T05:32:06Z",
       "video_id": "news-haiku-55-01"
     },
+    "news-haiku-55-01:youtube": {
+      "attempts": 1,
+      "category": "news",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-10-11T13:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:803f7320ea670d9a558f51392080a40263e91fd77451092237862ffaef46677d",
+        "asset_id": 627874680,
+        "asset_size": 11135231,
+        "kit_asset_id": 627874715,
+        "kit_digest": "sha256:322a90ea3e1fac54e1bfab5789bb42ae8f50d76a81dcb8564cc6a7143ae340b4",
+        "media_path": "media/627874680/news-haiku-55-01.mp4",
+        "release_tag": "renders-2026-10-10",
+        "video_id": "news-haiku-55-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/627874680/news-haiku-55-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "eb6f2c5ad0f15423df2dcbcf9276bfab27dacb1640f30293a6dd09e1ffb3c50a",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "Claude Haiku 5.5 pricing starts at $0.10 per million input tokens and $0.50 per million output tokens for prompts up to 100,000 tokens. Above that threshold, the rates are $0.50 and $2.50 respectively. Adjustable effort helps balance cost and quality; the new tokenizer can change tokens consumed. Anthropic's own evaluation still favors larger models for complex coding. Announcement: October 7, 2026; verified October 10.\nSource: https://www.anthropic.com/claude-haiku-5-5\n\nCredits: Own motion graphic and captures of Anthropic's Haiku 5.5 announcement; provider pricing/benchmarks, not independently measured.\n\n#Shorts #Claude #AItools #AInews",
+      "title": "Claude Haiku 5.5: Cheap API, One Price Catch",
+      "updated_at": "2026-10-11T05:32:07Z",
+      "video_id": "news-haiku-55-01"
+    },
     "repo-ai-newtab-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6aca2935c4de2d2b12272320",
