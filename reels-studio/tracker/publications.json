@@ -393,9 +393,11 @@
     },
     "tool-mosa-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6acb1f5ff91f772d45b8ef27",
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-11T15:00:00Z",
+      "due_at": "2026-10-11T15:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:d5977260e53138318ab06d0c5f579f1d9c0578cfc5e61fbe78731606dc824e45",
         "asset_id": 627873804,
@@ -410,10 +412,11 @@
       "notify_subscribers": false,
       "payload_sha256": "bf43f87ab8f155d0c7d58797df18b54b8698a10cc10d2aa47099c57302daca38",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Mosa connects AI models in one visual workflow. Start with \u20ac5 credit once; payment-method verification is required and generation spends your budget. Useful automation, not unlimited free AI. Save this for later.\n\nCredits: Footage and product image: Mosa / Ambassadors official site. Screens: own capture of getmosa.ai. No claim of paid-account hands-on testing.\n\n#AItools #AIworkflow #ContentCreation",
       "title": "Mosa: Your AI Tools in One Visual Workflow",
-      "updated_at": "2026-10-11T05:32:13Z",
+      "updated_at": "2026-10-11T05:32:15Z",
       "video_id": "tool-mosa-01"
     },
     "tool-muse-01:youtube": {
