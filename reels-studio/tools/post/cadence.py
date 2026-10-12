@@ -150,8 +150,12 @@ def plan(items, records, channels, posts, cfg, now, preview=False, pilot=False, 
                 if not pilot and (missing - available or len(missing) > min(free_slots, day_target-len(todays_events))):
                     notes.append(f"{platform} {day}: await sufficient news/tool mix; no repo-only dump")
                     break
-                preferred = [cat for cat in ("news", "tool") if cat in missing] + ["repo", "tool", "news"]
-                eligible.sort(key=lambda i: (preferred.index(i["category"]), i.get("priority", 100)))
+                if missing:
+                    preferred = [cat for cat in ("news", "tool") if cat in missing] + ["repo", "tool", "news"]
+                    eligible.sort(key=lambda i: (preferred.index(i["category"]), i.get("priority", 100)))
+                else:
+                    # No required mix configured: the queue's editorial priority decides, not a category bias.
+                    eligible.sort(key=lambda i: (i.get("priority", 100), i["category"]))
                 if not eligible:
                     break
                 item = eligible[0]

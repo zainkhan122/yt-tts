@@ -121,7 +121,7 @@ def main():
     L = [f"# Idea feed: {today} (last {a.days} days, {len(chans)} watchlist channels)", "",
          "**Consensus** = number of watchlist channels that posted about it. ≥ 2 = confirmed niche trend: cover it with our own research and angle.",
          "Topics are auto-extracted, so verify each before scoring (rubric: PIPELINE.md §2).", "",
-         "**Daily mix rule** (PIPELINE.md §1): max 1 repo per day; at least 1 AI tool and 1 AI news topic. Shortlist goes to the owner for approval.", "",
+         "**Daily mix** (PIPELINE.md §1): not hardcoded — pick the strongest topics by consensus/views and let the queue priority order them. Pacing caps still apply (5/day, 180-minute spacing). Shortlist goes to the owner for approval.", "",
          "| # | Topic | Kind | Consensus | Channels | Views (sum) | Best video | Repo |", "|---|---|---|---|---|---|---|---|"]
     def kind(t):
         k = t["name"].split("/")[-1].lower()

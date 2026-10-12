@@ -1,5 +1,5 @@
 {
-  "activation_note": "Owner authorised today's publication across YT/IG/FB on 2026-10-10. One controlled immediate Claude pilot first; subsequent videos follow the researched paced calendar. 2026-10-11 owner instruction: schedule today's five held Oct-10 productions (2 news, 2 tools, 1 repo) across the three platforms. Expressed as a dated daily_target_overrides entry for 2026-10-11 only (baseline stays 3/day; override cannot exceed max_videos_per_day=5, and 180-minute spacing plus one-repo-per-day still apply).",
+  "activation_note": "Owner authorised today's publication across YT/IG/FB on 2026-10-10. One controlled immediate Claude pilot first; subsequent videos follow the researched paced calendar. 2026-10-11 owner instruction (later): the daily content mix must NOT be hardcoded (no fixed 2 tools / 2 news / 1 repo). required_daily_categories is empty and max_repo_videos_per_day is lifted; the batch composition follows the researched editorial ranking (queue priority) with pacing caps (5/day, 180-minute spacing, per-channel queue limits) unchanged.",
   "branch": "main",
   "buffer": {
     "channels": {
@@ -57,7 +57,7 @@
     "daily_target": 3,
     "lookahead_hours": 48,
     "max_posts_per_run": 9,
-    "max_repo_videos_per_day": 1,
+    "max_repo_videos_per_day": 5,
     "max_videos_per_day": 5,
     "minimum_gap_minutes": 180,
     "minimum_lead_minutes": 60,
@@ -273,10 +273,7 @@
         }
       }
     },
-    "required_daily_categories": [
-      "news",
-      "tool"
-    ],
+    "required_daily_categories": [],
     "short_long_gap_minutes": 120,
     "strategy": "explicit_utc",
     "timezone": "America/New_York",

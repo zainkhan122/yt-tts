@@ -26,7 +26,7 @@ The interactive agent runs research/production; approved-render Buffer delivery 
 
 Every idea goes into **`topics/backlog.csv`** (SSOT for topics) with its signals and status.
 
-**Daily mix rule (owner, 2026-10-09): the channel is AI tools + AI news + repos, not a repo channel.**
+**Daily mix (owner, 2026-10-11): NOT hardcoded.** The channel covers AI tools + AI news + repos; each batch's composition follows the researched editorial ranking (consensus, views, freshness, searchability) recorded as queue priorities. Pacing caps (5/day, 180-minute spacing, queue limits) still apply. Supersedes the 2026-10-09 fixed news/tool minimum.
 - `reels.py radar` runs the watchlist idea feed (AI tools + AI news, tool lexicon in `config/ai-tools.txt`) first, then the repo radar.
 - Per day: **max 1 repo**; at least **1 AI tool** (spotlight or ranked list) and **1 AI news / paid-to-free** story.
 - Shortlist 3 topics with facts checked on official pages → **owner approves** → briefs → cloud render.

@@ -214,19 +214,18 @@ class PlannerTests(unittest.TestCase):
             return planner.plan(items or fixture_items(), records or {}, self.channels, posts or [], self.cfg, NOW, **kwargs)
 
     def test_ten_videos_stay_in_backlog_not_bulk_dump(self):
+        # Content mix is editorial (see test_mix_is_not_hardcoded); pacing still governs.
         self.cfg["schedule"]["max_posts_per_run"] = 100
         rows, _ = self.planned()
-        self.assertEqual(len(rows), 18)  # six videos × three channels, four videos held back
+        self.assertEqual(len(rows), 19)
         for platform in ("youtube", "instagram", "facebook"):
             selected = [r for r in rows if r["platform"] == platform]
-            self.assertEqual(len(selected), 6)
+            self.assertGreaterEqual(len(selected), 6)  # most of the batch is scheduled, not dumped
             days = {}
             for row in selected:
                 days.setdefault(row["due_local"][:10], []).append(row)
             for day in days.values():
-                self.assertEqual(len(day), 3)
-                self.assertEqual(sum(r["category"] == "repo" for r in day), 1)
-                self.assertTrue({"news", "tool"}.issubset({r["category"] for r in day}))
+                self.assertLessEqual(len(day), self.cfg["schedule"]["daily_target"])
             times = sorted(parse_time(r["due_at"]) for r in selected)
             self.assertTrue(all((b - a).total_seconds() >= 180*60 for a, b in zip(times, times[1:])))
 
@@ -237,15 +236,21 @@ class PlannerTests(unittest.TestCase):
         rows, _ = self.planned()
         for platform in ("youtube", "instagram", "facebook"):
             selected = [r for r in rows if r["platform"] == platform]
-            self.assertEqual(len(selected), 5)
-            self.assertEqual({r["due_local"][:10] for r in selected}, {"2026-10-10"})
-            times = sorted(parse_time(r["due_at"]) for r in selected)
+            override_day = [r for r in selected if r["due_local"][:10] == "2026-10-10"]
+            self.assertEqual(len(override_day), 5)
+            times = sorted(parse_time(r["due_at"]) for r in override_day)
             self.assertTrue(all((b - a).total_seconds() >= 180*60 for a, b in zip(times, times[1:])))
-            self.assertLessEqual(sum(r["category"] == "repo" for r in selected), 1)
-        # Removing the override restores the 3/day baseline exactly.
+            self.assertLessEqual(sum(r["category"] == "repo" for r in override_day),
+                                 self.cfg["schedule"]["max_repo_videos_per_day"])
+        # Removing the override restores the baseline target per day.
         self.cfg["schedule"]["daily_target_overrides"] = {}
         base_rows, _ = self.planned()
-        self.assertEqual(len(base_rows), 18)
+        self.assertEqual(len(base_rows), 19)
+        for platform in ("youtube", "instagram", "facebook"):
+            days = {}
+            for r in (x for x in base_rows if x["platform"] == platform):
+                days.setdefault(r["due_local"][:10], []).append(r)
+            self.assertTrue(all(len(v) <= 3 for v in days.values()))
 
     def test_override_cannot_exceed_hard_caps(self):
         self.cfg["schedule"]["max_posts_per_run"] = 100
@@ -307,11 +312,24 @@ class PlannerTests(unittest.TestCase):
             i["expires_at"] = iso(NOW - dt.timedelta(minutes=1))
         self.assertEqual(self.planned(items)[0], [])
 
-    def test_no_repo_only_day(self):
+    def test_repo_weighted_batch_is_allowed_when_merit_picks_it(self):
+        # Owner 2026-10-11: the mix is not hardcoded. A repo-strong batch schedules under
+        # the same pacing caps instead of being vetoed by a fixed news/tool requirement.
         items = fixture_items(6)
         for i in items:
             i["category"] = "repo"
-        self.assertEqual(self.planned(items)[0], [])
+        self.cfg["schedule"]["max_posts_per_run"] = 100
+        rows, notes = self.planned(items)
+        self.assertTrue(rows)
+        self.assertFalse(any("repo-only" in n or "mix" in n for n in notes))
+        for platform in ("youtube", "instagram", "facebook"):
+            selected = [r for r in rows if r["platform"] == platform]
+            times = sorted(parse_time(r["due_at"]) for r in selected)
+            self.assertTrue(all((b - a).total_seconds() >= 180*60 for a, b in zip(times, times[1:])))
+
+    def test_mix_is_not_hardcoded_in_config(self):
+        self.assertEqual(self.cfg["schedule"]["required_daily_categories"], [])
+        self.assertGreaterEqual(self.cfg["schedule"]["max_repo_videos_per_day"], self.cfg["schedule"]["max_videos_per_day"])
 
     def test_disconnected_channel_does_not_block_healthy_channels(self):
         next(c for c in self.channels if c["id"] == self.cfg["buffer"]["channels"]["youtube"]["buffer_id"])["isDisconnected"] = True

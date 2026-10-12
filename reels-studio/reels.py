@@ -154,7 +154,7 @@ def cmd_social(rest):
 
 def cmd_radar(a):
     """Both discovery scans: AI tools + AI news from the watchlist channels (idea feed), then GitHub/HF repos.
-    Daily mix rule (PIPELINE.md §1): max 1 repo per day; at least 1 AI tool + 1 AI news topic; owner approves."""
+    Daily mix (PIPELINE.md §1): not hardcoded — strongest researched topics win; owner approves."""
     if not a.repos_only:
         subprocess.run([sys.executable, str(ROOT / "tools/idea_feed.py"), "--days", str(min(a.days, 7)), "--per-channel", "15"], check=True)
     if not a.tools_only:
@@ -162,7 +162,7 @@ def cmd_radar(a):
         if a.brief:
             args.append("--brief")
         subprocess.run(args, check=True)
-    print("\nmix rule: max 1 repo/day, >= 1 AI tool + >= 1 AI news. Shortlist 3 -> owner approval -> briefs.")
+    print("\nmix rule: editorial (no fixed split). Shortlist -> owner approval -> briefs.")
 
 
 def main():
