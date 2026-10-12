@@ -925,9 +925,11 @@
     },
     "tool-higgsfield-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6accbfbc11bee99e6c99fa6d",
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-13T16:00:00Z",
+      "due_at": "2026-10-13T16:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:a770617c7502c48342b818b29c20c9e081dd3c2d0ef05cd71a2988a9614afe5d",
         "asset_id": 633352292,
@@ -942,10 +944,11 @@
       "notify_subscribers": false,
       "payload_sha256": "f2ac96becb6c74b9b60314517b38b2a831902dba4c19ce8ceede01770ac9f74d",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Higgsfield shipped six releases in eight days, ending with Katana \u2014 an MCP server that lets Claude and other agents use its video models.\n\nCredits: Screens: own capture of higgsfield.ai/creator-hub/changelog (2026-10-12). Release names and dates are Higgsfield's own changelog entries. Run-rate and user figures are company-reported via Semafor (2026-10-07), not audited.\n\nAI-generated narration.\n\n#AIVideo #AItools",
       "title": "Higgsfield Shipped SIX AI Video Releases in Eight Days",
-      "updated_at": "2026-10-12T11:08:42Z",
+      "updated_at": "2026-10-12T11:08:44Z",
       "video_id": "tool-higgsfield-01"
     },
     "tool-mosa-01:facebook": {
