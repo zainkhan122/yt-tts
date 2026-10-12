@@ -787,9 +787,11 @@
     },
     "repo-opencr-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6accbfbf0b1f16abcb04921c",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-13T16:00:00Z",
+      "due_at": "2026-10-13T16:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:74fcaa938a0b5359939c7fd48910c42c4c74b98ef43eea175a5e46c8fc37307e",
         "asset_id": 633263455,
@@ -804,10 +806,11 @@
       "notify_subscribers": false,
       "payload_sha256": "4faeecd6c4305d55fb75f6d82c96abebfa5481036f0de9ae220b6b63f78e8e37",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Open Code Review: Alibaba ran this AI reviewer internally for two years, then open sourced it. Their benchmark reports higher precision than Claude Code with about 1/9 the tokens. Save this for your next PR.\n\nCredits: Screens: own capture of github.com/alibaba/open-code-review (2026-10-12). Project, benchmark chart and stats by the Open Code Review authors (Apache-2.0). Benchmark figures are their published results, not our own test.\n\n#AIcoding #opensource #AItools",
       "title": "Open Code Review: Alibaba's AI Code Reviewer, Free",
-      "updated_at": "2026-10-12T11:08:45Z",
+      "updated_at": "2026-10-12T11:08:47Z",
       "video_id": "repo-opencr-01"
     },
     "repo-opencr-01:youtube": {
