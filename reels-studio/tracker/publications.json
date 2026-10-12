@@ -449,6 +449,31 @@
       "updated_at": "2026-10-12T07:54:35Z",
       "video_id": "news-nano-banana-21-01"
     },
+    "news-nano-banana-21-01:instagram": {
+      "attempts": 1,
+      "category": "news",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-12T22:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:d9757c2f7cf048368502e132c8e11aca8bb4407c0de9e9ceb24022f076b0a29a",
+        "asset_id": 633045989,
+        "asset_size": 13270997,
+        "kit_asset_id": 633046063,
+        "kit_digest": "sha256:5b25334858223482b4c4ea15d25399ce149364bdc32e13d9ca0eae9514b69104",
+        "media_path": "media/633045989/news-nano-banana-21-01.mp4",
+        "release_tag": "renders-2026-10-12",
+        "video_id": "news-nano-banana-21-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/633045989/news-nano-banana-21-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "d71352300e4961413a1e9d2d960c6da131e83a35efa26001c36a1861ed8bce0d",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Nano Banana 2.1 dropped image prices in half \u2014 $0.0336 per 1K image with cleaner text and steadier characters across edits. The catch is in the token bill. Save this before you re-price your pipeline.\n\nCredits: Own capture of Google DeepMind's Nano Banana model page; demo images are Google's official media from that page. Prices and dates read from Google's Gemini API docs on 2026-10-12.\n\n#NanoBanana #AInews #AItools",
+      "title": "Nano Banana 2.1: Half-Price Images, One Catch",
+      "updated_at": "2026-10-12T07:54:40Z",
+      "video_id": "news-nano-banana-21-01"
+    },
     "repo-ai-newtab-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6aca2935c4de2d2b12272320",
