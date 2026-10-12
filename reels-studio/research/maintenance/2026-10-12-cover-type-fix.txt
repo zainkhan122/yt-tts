@@ -23,7 +23,8 @@ Fix
 Validation: frame-0 suite = 14 tests OK; full suite = **322 tests OK**; `node --check`
 `templates/_spotlight/scene.js` passes.
 
-Scope: renderer source only; no current Release, Buffer queue entry, scheduled slot or sent post has
-been changed. Previously approved wave-2 no-rebuild scope remains honored. The already scheduled
-image-hook videos will retain their small-font frames unless the owner authorizes a rebuild + in-place
-Buffer refresh; sent posts cannot be fixed by refresh.
+Scope decision (owner, 2026-10-12): **future renders only**. No current Release, Buffer queue entry,
+scheduled slot or sent post was changed. Nine currently scheduled image-hook videos (24 Buffer rows)
+retain their small-font frames. The prior no-rebuild wave-2 scope remains honored; any later rollout
+would need an explicit scope change, then re-render/re-pin/in-place Buffer refresh. Sent posts cannot
+be fixed by refresh.

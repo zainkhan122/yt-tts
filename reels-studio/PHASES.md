@@ -333,7 +333,8 @@ image subtitles/cards and page/terminal/stat/steps supporting content are moved 
 subsequent in-video headings retain their prior size and animation. Regression tests cover the real
 scene builder and no-subtitle image hooks (`tests/test_frame0_cover.py`). Full suite: **322 tests OK**.
 
-This is a renderer-pipeline change only. It does not rewrite existing immutable releases or Buffer
-posts. The prior owner decision not to rebuild wave 2 remains in force unless changed; rollout to
-already-scheduled image-hook videos requires an explicit re-render/re-pin/Buffer-refresh decision.
-Detailed comparison and scope: `research/maintenance/2026-10-12-cover-type-fix.txt`.
+Owner decision (2026-10-12): **future renders only**. Do not rebuild the nine currently scheduled
+image-hook videos or edit their 24 Buffer rows. The new code does not rewrite immutable Releases or
+existing Buffer media; the older small-font frame remains on those scheduled files. Any later rollout
+to them would require an explicit change of scope, then re-render/re-pin/in-place refresh (sent posts
+remain immutable). Detailed comparison and scope: `research/maintenance/2026-10-12-cover-type-fix.txt`.
