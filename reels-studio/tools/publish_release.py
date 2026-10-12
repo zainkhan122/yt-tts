@@ -5,6 +5,7 @@ Publish finished videos to a GitHub Release (permanent storage outside git histo
   python3 tools/publish_release.py --tag renders-2026-10-08 --kit renders/<id> [--kit renders/<id2>]
       -> <id>.mp4 + <id>-kit.zip (post.md, seo.md, captions.srt, cover.jpg, contact.jpg, manifest.json, voiceover.mp3)
   python3 tools/publish_release.py --tag <tag> [--replace] file1 file2 ...     (any files)
+  python3 tools/publish_release.py --download <tag> <asset> <dest>              (fetch one asset)
   python3 tools/publish_release.py --list                                       (all render releases)
 
 Assets with the same name are skipped unless --replace (kits always replace: same download link, new file).
@@ -115,16 +116,37 @@ def list_renders():
             print(f"  {a['name']:44s} {a['size'] / 1e6:6.1f} MB  {a['browser_download_url']}")
 
 
+def download(tag, name, dest):
+    """Fetch one release asset. The published kit/mp4 is the immutable record a rebuild starts from."""
+    st, rel = call("GET", f"{API}/releases/tags/{urllib.parse.quote(tag)}")
+    if st != 200:
+        raise SystemExit(f"release {tag} not found ({st}): {rel.get('message')}")
+    asset = next((a for a in rel.get("assets", []) if a["name"] == name), None)
+    if not asset:
+        raise SystemExit(f"asset {name!r} not in release {tag}")
+    req = urllib.request.Request(asset["url"], headers={"Authorization": f"Bearer {tok()}",
+                                                        "Accept": "application/octet-stream"}, method="GET")
+    dest = Path(dest)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    with urllib.request.urlopen(req, timeout=600) as r:
+        dest.write_bytes(r.read())
+    return dest
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--tag")
     ap.add_argument("--kit", action="append", default=[], help="renders/<id> folder -> <id>.mp4 + <id>-kit.zip")
     ap.add_argument("--replace", action="store_true")
     ap.add_argument("--list", action="store_true")
+    ap.add_argument("--download", nargs=3, metavar=("TAG", "ASSET", "DEST"))
     ap.add_argument("files", nargs="*")
     a = ap.parse_args()
     if a.list:
         return list_renders()
+    if a.download:
+        print(download(*a.download))
+        return
     if not a.tag:
         raise SystemExit("--tag is required")
     rel = release(a.tag)

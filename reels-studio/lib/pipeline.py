@@ -30,6 +30,7 @@ import numpy as np
 import soundfile as sf
 from scipy.signal import resample_poly
 
+from . import scenes as scenelib
 from . import synth
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -72,6 +73,10 @@ def run(cmd, cwd=None, timeout=3600, log=None, check=True):
     if check and p.returncode != 0:
         raise RuntimeError(f"{cmd[0]} {cmd[1] if len(cmd) > 1 else ''} failed (exit {p.returncode}):\n{out[-3000:]}")
     return p, out, time.time() - t0
+
+
+def iso_utc():
+    return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
 
 
 def say(msg):
@@ -738,7 +743,11 @@ def measure(path):
 
 # ------------------------------------------------------------------ job
 class Job:
-    def __init__(self, brief_path, quality="draft", crf=None, check=True, render=True, keep_work=False):
+    def __init__(self, brief_path, quality="draft", crf=None, check=True, render=True, keep_work=False, rebuild=None):
+        """rebuild: {scenes: [ids], reason: str, manifest: previous manifest dict,
+        mp4: previous published mp4 path, voiceover: previous kit voiceover.mp3 path,
+        from_tag: str} - re-render only the named scenes and reuse the published audio."""
+        self.rebuild = rebuild
         self.brief_path = Path(brief_path).resolve()
         self.brief = json.loads(self.brief_path.read_text(encoding="utf-8"))
         # channel defaults (config/channel.json): brand, voice, speed, lang, style. The brief wins on any key it sets
@@ -766,13 +775,23 @@ class Job:
         say(f"{name}: " + ", ".join(f"{k}={v}" for k, v in info.items() if not isinstance(v, (list, dict))))
 
     # 1-3 -------------------------------------------------------------
-    def voice_and_layout(self):
+    def prepare_texts(self):
+        """Template segments with display vs spoken text (markup + channel lexicon applied).
+
+        Split out of voice_and_layout so the rebuild path can hash the exact spoken form
+        of every line without loading TTS models.
+        """
         b = self.brief
         segs = self.tpl.segments(b)
         lex = b.get("lexicon", {})
-        for s in segs:  # display vs spoken (markup + channel lexicon); TTS only ever sees the spoken form
+        for s in segs:
             if s.get("text"):
                 s["display"], s["spoken"], s["_groups"] = parse_markup(apply_lexicon(s["text"], lex if s.get("lang", b.get("lang", "en-us")).startswith("en") else {}))
+        return segs
+
+    def voice_and_layout(self):
+        b = self.brief
+        segs = self.prepare_texts()
         lang = b.get("lang", "en-us")
         voice_cfg = b.get("voice", self.tpl.DEFAULTS.get("voice", "af_heart"))
         speed = float(b.get("speed", self.tpl.DEFAULTS.get("speed", 1.0)))
@@ -1113,6 +1132,8 @@ class Job:
         if getattr(self, "vo_path", None) and Path(self.vo_path).exists():  # clean voice track (QA, remixes, voice studies)
             subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(self.vo_path), "-c:a", "libmp3lame", "-b:a", "96k",
                             str(self.out / "voiceover.mp3")], check=False)
+        if self.rebuild and self.rebuild.get("voiceover"):  # rebuild: the published voice track, byte-for-byte
+            shutil.copy2(self.rebuild["voiceover"], self.out / "voiceover.mp3")
         shutil.copy2(self.proj / "index.html", self.out / "composition.html")
         self.manifest["qa"] = {"duration": round(D, 3), "frames": int(v.get("nb_frames", 0) or 0), "video": f"{v['codec_name']} {v['width']}x{v['height']} {v.get('r_frame_rate')}",
                                "audio": f"{a['codec_name']} {a.get('sample_rate')}Hz {a.get('channels')}ch" if a else None,
@@ -1120,6 +1141,7 @@ class Job:
         self.manifest["timing"] = {sid: {k: self.timing[sid][k] for k in ("start", "end", "text")} for sid in self.order}
         self.manifest["music"] = self.music_cfg
         self.manifest["sources"] = self.brief.get("sources", [])
+        self.record_scenes()  # per-scene manifest: windows, digests, word timings, assets
         (self.out / "manifest.json").write_text(json.dumps(self.manifest, indent=2, ensure_ascii=False))
         bad = [k for k, ok in checks.items() if not ok]
         self.stage("qa", passed=f"{len(checks) - len(bad)}/{len(checks)}", failed=",".join(bad) or "-", out=str(self.out.relative_to(ROOT.parent)))
@@ -1167,22 +1189,181 @@ class Job:
                   "- [ ] Posted natively per platform (no TikTok watermark on Reels/Shorts)."]
         (self.out / "post.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
+    # --------------------------------------------------------------- scene manifest + rebuild
+    def _scene_assets(self, spec, by_name):
+        """Asset files one scene references, by digest: what a rebuild must hold constant."""
+        found = {}
+
+        def walk(node):
+            if isinstance(node, str):
+                if node in by_name:
+                    found[node] = by_name[node]
+                elif ("/" in node or "." in node) and Path(node).name in by_name:
+                    found[Path(node).name] = by_name[Path(node).name]
+            elif isinstance(node, dict):
+                for v in node.values():
+                    walk(v)
+            elif isinstance(node, list):
+                for v in node:
+                    walk(v)
+
+        walk(spec)
+        return [{"name": name, "bytes": p.stat().st_size, "sha256": scenelib.sha_file(p)} for name, p in sorted(found.items())]
+
+    def record_scenes(self):
+        """Write the durable per-scene manifest: the repair unit for every future rebuild."""
+        by_name = {}
+        assets_dir = self.proj / "assets"
+        if assets_dir.exists():
+            for p in sorted(assets_dir.rglob("*")):
+                if p.is_file():
+                    by_name[p.name] = p
+        specs = {s.get("id"): s for s in self.brief.get("scenes", [])}
+        records = []
+        for i, sid in enumerate(self.order):
+            t = self.timing[sid]
+            spec = specs.get(sid)
+            records.append(scenelib.scene_record(
+                i, sid, (spec or {}).get("type", "unknown"), (t["start"], t["end"]),
+                spoken_clean(t.get("spoken") or ""), spec, t.get("words", []),
+                self._scene_assets(spec, by_name) if spec else [],
+                text=t.get("text", ""), caption=t.get("caption", False), spoken=t.get("spoken", "")))
+        self.manifest["scene_schema"] = 2
+        self.manifest["revision"] = self.manifest.get("revision", 0)
+        self.manifest["duration"] = self.D
+        self.manifest["brief_sha256"] = scenelib.sha_obj(self.brief)
+        self.manifest["scenes"] = records
+        vo = self.out / "voiceover.mp3"
+        if vo.exists():
+            self.manifest["audio_sha256"] = scenelib.sha_file(vo)
+
+    def restore_for_rebuild(self):
+        """Rebuild path: reuse the published timeline + audio; refuse anything that is not local.
+
+        Narration is the guard rail: the audio is reused bit-for-bit from the published
+        MP4, so a changed spoken line means a different audio timeline and a full render.
+        """
+        rb = self.rebuild
+        prev = rb["manifest"]
+        segs = self.prepare_texts()
+        new_narration = {s["id"]: spoken_clean(s.get("spoken") or "") for s in segs}
+        new_specs = {s.get("id"): s for s in self.brief.get("scenes", [])}
+        if not new_specs:
+            raise SystemExit("this template has no brief scenes[]; single-scene rebuild needs scene ids")
+        plan = scenelib.plan_rebuild(prev, new_specs, new_narration, rb["scenes"])
+        if not plan["ok"]:
+            raise SystemExit(f"rebuild refused ({plan['reason']}): {plan.get('detail') or plan.get('scenes')} "
+                             f"- run a full render: python3 reels.py cloud {self.id}")
+        self.rebuild_effective = plan["effective"]
+        self.timing, self.order = {}, []
+        for s in prev["scenes"]:
+            self.timing[s["id"]] = {"start": s["start"], "end": s["end"], "text": s.get("text", ""),
+                                    "spoken": s.get("spoken", ""), "caption": bool(s.get("caption")),
+                                    "words": s.get("words", []), "lang": self.brief.get("lang", "en-us")}
+            self.order.append(s["id"])
+        self.D = float(prev.get("duration") or prev["qa"]["duration"])
+        self.seed = int(self.brief.get("seed", int(hashlib.md5(self.id.encode()).hexdigest()[:8], 16) % 100000))
+        prev_seed = (prev.get("music") or {}).get("seed")
+        if prev_seed is not None and int(prev_seed) != self.seed:
+            raise SystemExit(f"rebuild refused: music seed changed ({prev_seed} -> {self.seed}); full render needed")
+        self.events = self.tpl.events(self.brief, self.timing, self.D) if hasattr(self.tpl, "events") else {}
+        self.music_cfg = prev.get("music", {})
+        self.manifest["revision"] = int(prev.get("revision", 0)) + 1
+        self.manifest["rebuilds"] = list(prev.get("rebuilds", []))
+        self.stage("rebuild", from_revision=prev.get("revision", 0), scenes=",".join(self.rebuild_effective),
+                   reason=rb.get("reason", ""), from_tag=rb.get("from_tag", ""), audio="reused from published MP4")
+
+    def write_silent_mix(self):
+        """The composition needs a mix asset; the published audio is muxed in afterwards."""
+        self.proj.mkdir(parents=True, exist_ok=True)
+        (self.proj / "assets").mkdir(exist_ok=True)
+        sf.write(self.proj / "assets" / "mix.wav", np.zeros(int(round(self.D * MIX_SR)), dtype=np.float32), MIX_SR, subtype="FLOAT")
+
+    def mux_previous_audio(self, mp4):
+        """Replace the freshly rendered (silent) audio with the published bitstream, stream-copied."""
+        out = mp4.with_name("video-muxed.mp4")
+        run(["ffmpeg", "-y", "-v", "error", "-i", str(mp4), "-i", str(self.rebuild["mp4"]),
+             "-map", "0:v:0", "-map", "1:a:0", "-c", "copy", "-shortest", "-movflags", "+faststart", str(out)], log=self.log)
+        out.replace(mp4)
+
+    def _frames_at(self, mp4, times, dest):
+        dest.mkdir(parents=True, exist_ok=True)
+        frames = {}
+        for t in times:
+            path = dest / f"{t:08.3f}.png"
+            run(["ffmpeg", "-y", "-v", "error", "-i", str(mp4), "-ss", f"{t:.3f}", "-frames:v", "1", str(path)], log=self.log)
+            frames[t] = path
+        return frames
+
+    def _audio_window_sha(self, mp4, t, dur=0.5):
+        out = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{t:.3f}", "-t", f"{dur}", "-i", str(mp4),
+                              "-f", "s16le", "-ac", "1", "-ar", "16000", "-"], capture_output=True)
+        return hashlib.sha256(out.stdout).hexdigest()
+
+    def verify_rebuild(self, mp4):
+        """Prove the rebuild stayed local: unchanged scenes frame-identical, audio bit-identical.
+
+        This is the honesty gate of the whole feature - if re-rendering for one scene moved
+        anything else, the rebuild fails loudly instead of shipping a quietly different video.
+        """
+        final = self.out / f"{self.id}.mp4"
+        prev_mp4, prev = self.rebuild["mp4"], self.rebuild["manifest"]
+        rebuilt = self.rebuild_effective
+        times = scenelib.sample_times(prev["scenes"], rebuilt)
+        drifts = []
+        if times:
+            new_frames = self._frames_at(final, times, self.work / "verify-new")
+            old_frames = self._frames_at(prev_mp4, times, self.work / "verify-old")
+            for t in times:
+                drifts.append({**scenelib.frame_drift(new_frames[t], old_frames[t]), "at": t})
+        frames_ok = scenelib.frames_verdict(drifts)
+        prev_dur = float(prev.get("qa", {}).get("duration") or prev.get("duration") or 0)
+        dur = scenelib.duration_verdict(prev_dur, float(self.manifest["qa"]["duration"])) if prev_dur else {"ok": True, "delta": None}
+        audio_ok = True
+        if prev_dur:
+            for t in [round(prev_dur * f, 3) for f in (0.2, 0.5, 0.8)]:
+                audio_ok = audio_ok and self._audio_window_sha(final, t) == self._audio_window_sha(prev_mp4, t)
+        ok = bool(frames_ok["ok"] and dur["ok"] and audio_ok)
+        self.manifest["rebuild"] = {
+            "revision": self.manifest["revision"], "scenes": rebuilt, "reason": self.rebuild.get("reason", ""),
+            "from_tag": self.rebuild.get("from_tag", ""), "audio_reused": True, "audio_identical": audio_ok,
+            "verification": {"ok": ok, "frames": frames_ok, "duration": dur, "samples": [{"at": d.get("at"), "mean_abs": d.get("mean_abs"), "heavy": d.get("heavy_ratio")} for d in drifts]},
+        }
+        self.manifest["rebuilds"].append({"revision": self.manifest["revision"], "scenes": rebuilt,
+                                          "reason": self.rebuild.get("reason", ""), "at": iso_utc(),
+                                          "verification_ok": ok})
+        self.stage("verify", ok=ok, samples=frames_ok["samples"], worst_mean_abs=frames_ok["worst_mean_abs"],
+                   duration_delta=dur["delta"], audio_identical=audio_ok)
+        if not ok:
+            raise SystemExit(f"rebuild verification FAILED (frames ok={frames_ok['ok']}, duration ok={dur['ok']}, "
+                             f"audio identical={audio_ok}) - refusing to publish; see {self.log}")
+
     # ---------------------------------------------------------------
     def run_all(self):
         t0 = time.time()
         if self.work.exists():
             shutil.rmtree(self.work)
         self.work.mkdir(parents=True)
-        self.voice_and_layout()
-        release_tts()
-        _trim_memory()
-        self.word_timings()
-        self.audio()
-        self.build()
-        _trim_memory()
-        mp4 = self.gates_and_render()
-        if mp4:
-            self.qa_and_kit(mp4)
+        if self.rebuild:
+            self.restore_for_rebuild()
+            self.write_silent_mix()
+            self.build()
+            mp4 = self.gates_and_render()
+            if mp4:
+                self.mux_previous_audio(mp4)
+                self.qa_and_kit(mp4)
+                self.verify_rebuild(mp4)
+        else:
+            self.voice_and_layout()
+            release_tts()
+            _trim_memory()
+            self.word_timings()
+            self.audio()
+            self.build()
+            _trim_memory()
+            mp4 = self.gates_and_render()
+            if mp4:
+                self.qa_and_kit(mp4)
         self.manifest["total_secs"] = round(time.time() - t0, 1)
         if mp4:
             (self.out / "manifest.json").write_text(json.dumps(self.manifest, indent=2, ensure_ascii=False))

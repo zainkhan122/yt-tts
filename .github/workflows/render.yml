@@ -20,6 +20,18 @@ on:
         description: 'x264 CRF (23 = about 12-16 MB per 40 s)'
         required: false
         default: '23'
+      rebuild_scenes:
+        description: 'Single-scene rebuild: scene ids to re-render (needs a previous kit with a scene manifest)'
+        required: false
+        default: ''
+      rebuild_reason:
+        description: 'Why this rebuild (recorded in the manifest rebuild history)'
+        required: false
+        default: ''
+      from_tag:
+        description: 'Rebuild: release tag holding the published kit+mp4 (default: same tag as the output)'
+        required: false
+        default: ''
 permissions:
   contents: write
 env:
@@ -80,7 +92,16 @@ jobs:
       - name: Capture pack
         run: python3 reels-studio/tools/capture_store.py pull-for "$BRIEF"
       - name: Render (voice, QA gates, video)
-        run: python3 reels-studio/reels.py make "$BRIEF" --quality "${{ inputs.quality }}" --crf "${{ inputs.crf }}"
+        env:
+          REBUILD_SCENES: ${{ inputs.rebuild_scenes }}
+          REBUILD_REASON: ${{ inputs.rebuild_reason }}
+          FROM_TAG: ${{ inputs.from_tag }}
+        run: |
+          extra=()
+          if [ -n "$REBUILD_SCENES" ]; then
+            extra=(--rebuild-scenes "$REBUILD_SCENES" --rebuild-reason "$REBUILD_REASON" --from-tag "${FROM_TAG:-${{ needs.plan.outputs.tag }}}")
+          fi
+          python3 reels-studio/reels.py make "$BRIEF" --quality "${{ inputs.quality }}" --crf "${{ inputs.crf }}" "${extra[@]}"
       - name: SEO pack (gate)
         run: python3 reels-studio/tools/seo_pack.py "$BRIEF"
       - name: Publish

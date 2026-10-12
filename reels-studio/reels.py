@@ -12,6 +12,10 @@ Reels Studio - professional vertical-video generator (HyperFrames + free tools)
   python3 reels.py make   briefs/x.json --no-render         # fast iteration: build + lint + check only
   python3 reels.py batch  briefs/a.json briefs/b.json ...   # a week of videos in one go
   python3 reels.py cloud  <brief-id> [<brief-id> ...] [--wait]  # render on GitHub Actions, up to 10 in parallel -> Release
+  python3 reels.py scenes <id> [<id> ...] [--tag T] [--json]    # per-scene manifest of a published render (window, digests, assets)
+  python3 reels.py rebuild <brief-id> --scenes <id,id> --reason "..." [--dry-run] [--local]
+      # repair scene(s) of a published video: re-render only those, reuse the published audio
+      # bit-for-bit, prove unchanged scenes stayed identical; refuses when narration changed
   python3 reels.py post [<id>] --dry-run                    # read-only Buffer queue / pacing preview
   python3 reels.py renders                                   # every published video + post kit (download links)
   python3 reels.py publish renders/<id> [renders/<id2> ...]  # upload a local render: <id>.mp4 + <id>-kit.zip
@@ -160,6 +164,105 @@ def cmd_cloud(a):
     return 0
 
 
+def _scenes_tool():
+    sys.path.insert(0, str(ROOT))
+    from lib import scenes as scenelib
+    return scenelib
+
+
+def load_rebuild(brief_arg, scenes, reason, from_tag):
+    """Fetch the published kit + mp4 a rebuild starts from (the Release is the immutable record)."""
+    sys.path.insert(0, str(ROOT / "tools"))
+    import publish_release as pr
+    import zipfile
+    brief_path = Path(brief_arg) if Path(brief_arg).exists() else ROOT / "briefs" / f"{Path(brief_arg).stem}.json"
+    brief = json.loads(brief_path.read_text(encoding="utf-8"))
+    vid = brief["id"]
+    tag = from_tag or time.strftime("renders-%Y-%m-%d")
+    work = Path(os.environ.get("REELS_WORK", "/var/tmp/reels")) / vid / "rebuild-src"
+    work.mkdir(parents=True, exist_ok=True)
+    kit = pr.download(tag, f"{vid}-kit.zip", work / f"{vid}-kit.zip")
+    mp4 = pr.download(tag, f"{vid}.mp4", work / f"{vid}.mp4")
+    with zipfile.ZipFile(kit) as z:
+        manifest = json.loads(z.read(f"{vid}/manifest.json"))
+        (work / "voiceover.mp3").write_bytes(z.read(f"{vid}/voiceover.mp3"))
+    return {"scenes": list(scenes), "reason": reason, "manifest": manifest, "mp4": mp4,
+            "voiceover": work / "voiceover.mp3", "from_tag": tag}
+
+
+def cmd_scenes(a):
+    scenelib = _scenes_tool()
+    sys.path.insert(0, str(ROOT / "tools"))
+    for target in a.targets:
+        manifest = None
+        if Path(target).suffix == ".json" and Path(target).exists():
+            manifest = json.loads(Path(target).read_text(encoding="utf-8"))
+        elif a.tag:
+            import publish_release as pr
+            import zipfile
+            work = Path(os.environ.get("REELS_WORK", "/var/tmp/reels")) / target / "scenes-src"
+            work.mkdir(parents=True, exist_ok=True)
+            kit = pr.download(a.tag, f"{target}-kit.zip", work / f"{target}-kit.zip")
+            with zipfile.ZipFile(kit) as z:
+                manifest = json.loads(z.read(f"{target}/manifest.json"))
+        else:
+            local = ROOT / "renders" / target / "manifest.json"
+            if not local.exists():
+                raise SystemExit(f"no local manifest for {target} (pass --tag to read the published kit, or a manifest.json path)")
+            manifest = json.loads(local.read_text(encoding="utf-8"))
+        if a.json:
+            print(json.dumps({k: manifest.get(k) for k in ("id", "revision", "duration", "brief_sha256", "audio_sha256", "scenes", "rebuilds", "rebuild")}, indent=2, ensure_ascii=False))
+            continue
+        sc = manifest.get("scenes")
+        if not sc:
+            raise SystemExit(f"{manifest.get('id')}: manifest has no scenes (rendered before scene manifests; run a full render)")
+        print(f"{manifest.get('id')}  revision {manifest.get('revision', 0)}  {manifest.get('duration', 0):.2f}s  {len(sc)} scenes  brief {str(manifest.get('brief_sha256'))[-12:]}")
+        for s in sc:
+            assets = ",".join(a["name"] for a in s.get("assets", [])) or "-"
+            print(f"  {s['index']} {s['id']:10s} {s['type']:8s} {s['start']:7.2f}-{s['end']:7.2f}s  "
+                  f"spec {str(s.get('spec_sha256'))[-8:]}  narr {str(s.get('narration_sha256'))[-8:]}  {assets}")
+        for r in manifest.get("rebuilds", []):
+            print(f"  rebuild rev {r.get('revision')} {r.get('scenes')} ({r.get('reason')}) verified={r.get('verification_ok')} at {r.get('at')}")
+
+
+def cmd_rebuild(a):
+    scenes = [s for chunk in a.scenes for s in chunk.replace(",", " ").split()]
+    if not scenes:
+        raise SystemExit("--scenes needs at least one scene id (see: python3 reels.py scenes <id>)")
+    brief_path = Path(a.brief) if Path(a.brief).exists() else ROOT / "briefs" / f"{Path(a.brief).stem}.json"
+    if a.dry_run:
+        # plan only: says whether the rebuild is allowed (and what it will re-render) before a runner is spent
+        from lib import pipeline, scenes as scenelib
+        rebuild = load_rebuild(a.brief, scenes, a.reason, a.from_tag)
+        job = pipeline.Job(brief_path, render=False)
+        segs = job.prepare_texts()
+        new_narration = {s["id"]: pipeline.spoken_clean(s.get("spoken") or "") for s in segs}
+        new_specs = {s.get("id"): s for s in job.brief.get("scenes", [])}
+        plan = scenelib.plan_rebuild(rebuild["manifest"], new_specs, new_narration, scenes)
+        plan["from_tag"] = rebuild["from_tag"]
+        print(json.dumps(plan, indent=2))
+        return 0 if plan["ok"] else 1
+    if a.local:
+        rebuild = load_rebuild(a.brief, scenes, a.reason, a.from_tag)
+        from lib import pipeline
+        job = pipeline.Job(brief_path, quality=a.quality, crf=a.crf, rebuild=rebuild)
+        m = job.run_all()
+        print(json.dumps({"revision": m.get("revision"), "rebuild": m.get("rebuild", {}).get("verification")}, indent=2))
+        return
+    sys.path.insert(0, str(ROOT / "tools"))
+    import gh_actions
+    brief_path = Path(a.brief)
+    brief_id = brief_path.stem if brief_path.suffix == ".json" else brief_path.name
+    inputs = {"briefs": brief_id, "tag": a.tag or time.strftime("renders-%Y-%m-%d"),
+              "quality": a.quality, "crf": str(a.crf), "rebuild_scenes": " ".join(scenes),
+              "rebuild_reason": a.reason or "scene repair", "from_tag": a.from_tag or ""}
+    run_id = gh_actions.dispatch("render.yml", inputs)
+    print(f"rebuild dispatched: https://github.com/{gh_actions.REPO}/actions/runs/{run_id}  "
+          f"({brief_id}: {', '.join(scenes)} - audio reused, unchanged scenes verified)")
+    if a.wait:
+        print("result:", gh_actions.wait(run_id, 5400))
+
+
 def cmd_capture(a):
     args = [sys.executable, str(ROOT / "tools/capture.py"), a.id, "--url", a.url] + (["--repo", a.repo] if a.repo else [])
     subprocess.run(args, check=True)
@@ -197,6 +300,9 @@ def main():
         p.add_argument("--no-check", action="store_true")
         p.add_argument("--no-render", action="store_true")
         p.add_argument("--keep-work", action="store_true")
+        p.add_argument("--rebuild-scenes", default="", help="re-render only these scene ids (cloud rebuild mode)")
+        p.add_argument("--rebuild-reason", default="", help="why this rebuild (recorded in the manifest)")
+        p.add_argument("--from-tag", default="", help="release tag holding the previous kit+mp4 for a rebuild")
     sub.add_parser("templates")
     sub.add_parser("doctor")
     p = sub.add_parser("new")
@@ -215,6 +321,21 @@ def main():
     p.add_argument("--quality", default="looks")
     p.add_argument("--crf", default="23")
     p.add_argument("--wait", action="store_true", help="wait for the runs and print the download links")
+    p = sub.add_parser("scenes", help="per-scene manifest of a published render (windows, digests, assets)")
+    p.add_argument("targets", nargs="+", help="video ids, or paths to a manifest.json")
+    p.add_argument("--tag", default="", help="read the manifest from this release's kit instead of renders/<id>/")
+    p.add_argument("--json", action="store_true")
+    p = sub.add_parser("rebuild", help="repair scene(s) of a published video (published audio reused, unchanged scenes verified)")
+    p.add_argument("brief", help="brief id or path")
+    p.add_argument("--scenes", action="append", required=True, help="scene ids (comma/space separated; repeatable)")
+    p.add_argument("--reason", default="", help="why (kept in the manifest's rebuild history)")
+    p.add_argument("--from-tag", default="", help="release tag holding the published kit+mp4 to repair")
+    p.add_argument("--tag", default="", help="release tag for the new output (default renders-YYYY-MM-DD)")
+    p.add_argument("--quality", default="looks")
+    p.add_argument("--crf", default="23")
+    p.add_argument("--dry-run", action="store_true", help="print the rebuild plan only (no runner spent)")
+    p.add_argument("--local", action="store_true", help="run here instead of dispatching (needs the render toolchain)")
+    p.add_argument("--wait", action="store_true")
     sub.add_parser("renders", help="list published videos + kits")
     p = sub.add_parser("capture")
     p.add_argument("id")
@@ -231,6 +352,10 @@ def main():
 
     if a.cmd == "doctor":
         return cmd_doctor(a)
+    if a.cmd == "scenes":
+        return cmd_scenes(a)
+    if a.cmd == "rebuild":
+        return cmd_rebuild(a)
     if a.cmd == "sync":
         return cmd_sync(a)
     if a.cmd == "publish":
@@ -260,10 +385,16 @@ def main():
         print(f"wrote {a.dest} from {src}")
         return
 
+    rebuild = None
+    if getattr(a, "rebuild_scenes", ""):
+        if len(a.briefs) != 1:
+            raise SystemExit("rebuild mode renders one video at a time: pass a single brief")
+        rebuild = load_rebuild(a.briefs[0], a.rebuild_scenes.replace(",", " ").split(), a.rebuild_reason or "scene repair", a.from_tag)
+        print(f"rebuild: {rebuild['manifest'].get('id')} revision {rebuild['manifest'].get('revision', 0)} from {rebuild['from_tag']}")
     results, t0 = [], time.time()
     for bp in a.briefs:
         try:
-            job = pipeline.Job(bp, quality=a.quality, crf=a.crf, check=not a.no_check, render=not a.no_render, keep_work=a.keep_work)
+            job = pipeline.Job(bp, quality=a.quality, crf=a.crf, check=not a.no_check, render=not a.no_render, keep_work=a.keep_work, rebuild=rebuild)
             m = job.run_all()
             results.append((bp, "ok", m.get("qa", {}).get("checks")))
         except (SystemExit, Exception) as e:
