@@ -66,7 +66,12 @@
             if (o.top) h.style.top = o.top + "px";
             richText(h, text);
             A.fit(h, { max: o.max || 128, min: 56, maxH: o.maxH || 180 });
-            tl.fromTo(h, { opacity: 0, scale: 1.12 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, t);
+            if (o.instant) {  // hook scene: visible on frame 0 (the cover frame every platform grabs)
+              h.style.opacity = "1";
+              tl.fromTo(h, { scale: 1.1 }, { scale: 1, duration: 0.4, ease: "power3.out" }, 0);
+            } else {
+              tl.fromTo(h, { opacity: 0, scale: 1.12 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, t);
+            }
             return h;
           }
           function credit(root, y, t) {
@@ -86,6 +91,7 @@
             const br = A.mk("div", "sp-browser", root);
             br.style.top = o.top + "px";
             br.style.height = o.height + "px";
+            if (o.instant) br.style.opacity = "1";  // hook scene: the frame belongs to the cover frame
             const bar = A.mk("div", "sp-bar", br);
             dots(bar);
             const url = A.mk("div", "sp-url", bar, String(o.url || "").replace(/^https?:\/\//, ""));
@@ -179,7 +185,7 @@
               tl.fromTo(b, { opacity: 0 }, { opacity: 1, duration: 0.08, immediateRender: false }, tc + 0.03);
             }
           }
-          function statBadge(root, st, t, big) {
+          function statBadge(root, st, t, big, instant) {
             const v = typeof st.value === "number" ? st.value : Number(getPath(st.from)) || 0;
             const base = st.format === "compact" ? fmtCompact : st.decimals ? (v) => Number(v).toFixed(st.decimals) : fmtFull;
             const fmt = (v) => (st.prefix || "") + base(v) + (st.suffix || "");  // e.g. decimals:1 + suffix " GB" -> "12.2 GB"
@@ -192,8 +198,13 @@
             }
             const num = A.mk("span", "", n, fmt(0));
             A.mk("div", "l", card, st.label || "");
-            tl.fromTo(card, { opacity: 0, y: 40, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
-            A.countText(tl, num, 0, v, t + 0.05, 1.2, fmt);
+            if (instant) {  // hook scene: the stat is part of the cover frame
+              card.style.opacity = "1";
+              tl.fromTo(card, { scale: 0.94 }, { scale: 1, duration: 0.36, ease: "power3.out" }, 0);
+            } else {
+              tl.fromTo(card, { opacity: 0, y: 40, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+            }
+            A.countText(tl, num, instant ? v : 0, v, instant ? 0.25 : t + 0.05, 1.2, fmt);
             return card;
           }
           function boxAt(parent, r, pad, cls) {
@@ -265,8 +276,8 @@
             credit(root, 1118, t0 + 0.2);
           }
           function sPage(s, root, t0, t1) {
-            heading(root, s.heading || prettyName(), t0 + 0.05);
-            const B = browser(root, { top: 452, height: 700, url: s.url || X.url, img: s.img });
+            heading(root, s.heading || prettyName(), t0 + 0.05, { instant: s.id === FIRST });
+            const B = browser(root, { top: 452, height: 700, url: s.url || X.url, img: s.img, instant: s.id === FIRST });
             const cams = s.camera || [];
             const states = [B.state(null, 1)].concat(cams.map((c) => B.state(c.region, c.zoom || 1.6)));
             const times = [t0].concat(cams.map((c, k) => E(`${s.id}_cam${k}`)));
@@ -276,9 +287,9 @@
             if (s.stat) statBadge(root, s.stat, E(`${s.id}_stat`));
           }
           function sScroll(s, root, t0, t1) {
-            if (s.heading) heading(root, s.heading, t0 + 0.05);
+            if (s.heading) heading(root, s.heading, t0 + 0.05, { instant: s.id === FIRST });
             const top = s.heading ? 452 : 300;
-            const B = browser(root, { top, height: 1152 - top, url: s.url || X.url, img: s.img });
+            const B = browser(root, { top, height: 1152 - top, url: s.url || X.url, img: s.img, instant: s.id === FIRST });
             const stops = s.stops || [];
             const states = [B.state(s.start_region || null, s.start_zoom || 1)].concat(stops.map((st) => B.state(st.region, st.zoom || 1.3)));
             const times = [t0].concat(stops.map((st, k) => E(`${s.id}_stop${k}`)));
@@ -300,7 +311,7 @@
             });
           }
           function sSteps(s, root, t0, t1) {
-            heading(root, s.heading || "HOW IT *WORKS*", t0 + 0.05);
+            heading(root, s.heading || "HOW IT *WORKS*", t0 + 0.05, { instant: s.id === FIRST });
             const bg = s.background || {};
             if (bg.img) {
               const B = browser(root, { top: 452, height: 430, url: s.url || X.url, img: bg.img });
@@ -316,7 +327,8 @@
               }
             }
             const list = A.mk("div", "sp-steps", root);
-            tl.fromTo(list, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t0 + 0.1);
+            if (s.id === FIRST) list.style.opacity = "1";  // hook scene: steps visible on frame 0
+            else tl.fromTo(list, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t0 + 0.1);
             const steps = s.steps || [];
             steps.forEach((txt, k) => {
               const row = A.mk("div", "sp-step", list);
@@ -332,14 +344,19 @@
           }
           function sTerminal(s, root, t0, t1) {
             const lines = s.lines || [];
-            heading(root, s.heading || `SETUP: *${lines.length}* COMMANDS`, t0 + 0.05);
+            heading(root, s.heading || `SETUP: *${lines.length}* COMMANDS`, t0 + 0.05, { instant: s.id === FIRST });
             const term = A.mk("div", "sp-term", root);
             term.style.height = Math.min(560, 230 + lines.length * 150) + "px";  // fit the window to the commands
             const bar = A.mk("div", "sp-bar", term);
             dots(bar);
             A.mk("div", "sp-term-title", term, s.title || "Terminal");
             const body = A.mk("div", "sp-term-body", term);
-            tl.fromTo(term, { opacity: 0, y: 40, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "power3.out", immediateRender: false }, t0 + 0.08);
+            if (s.id === FIRST) {  // hook scene: the window is on frame 0
+              term.style.opacity = "1";
+              tl.fromTo(term, { scale: 0.97 }, { scale: 1, duration: 0.32, ease: "power3.out" }, 0);
+            } else {
+              tl.fromTo(term, { opacity: 0, y: 40, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "power3.out", immediateRender: false }, t0 + 0.08);
+            }
             lines.forEach((line, k) => {
               const a = E(`${s.id}_type${k}`), z = E(`${s.id}_type${k}_end`);
               const row = A.mk("div", "sp-tl", body);
@@ -355,9 +372,9 @@
             });
           }
           function sVerdict(s, root, t0, t1) {
-            heading(root, s.heading || "THE *CATCH*", t0 + 0.05);
+            heading(root, s.heading || "THE *CATCH*", t0 + 0.05, { instant: s.id === FIRST });
             if (s.img && s.region) {
-              const B = browser(root, { top: 452, height: 700, url: s.url || X.url, img: s.img });
+              const B = browser(root, { top: 452, height: 700, url: s.url || X.url, img: s.img, instant: s.id === FIRST });
               const st = B.state(s.region, s.zoom || 1.15);
               tl.fromTo(B.page, st, { ...B.drift(st, 1.04), duration: Math.max(0.1, t1 - t0), ease: "none", immediateRender: false }, t0);
               const dim = A.mk("div", "sp-dim", B.vp);
@@ -381,24 +398,29 @@
             });
           }
           function sStat(s, root, t0, t1) {
-            heading(root, s.heading, t0 + 0.05);
-            statBadge(root, s, E(`${s.id}_stat`, t0 + 0.3), true);
+            heading(root, s.heading, t0 + 0.05, { instant: s.id === FIRST });
+            statBadge(root, s, E(`${s.id}_stat`, t0 + 0.3), true, s.id === FIRST);
           }
           function sImage(s, root, t0, t1) {
-            heading(root, s.heading, t0 + 0.05);
+            heading(root, s.heading, t0 + 0.05, { instant: s.id === FIRST });
             if (s.sub) {  // static cover line under the heading (karaoke captions hold until the first sentence ends)
               const sub = A.mk("div", "sp-sub", root, s.sub);
               sub.style.top = "436px";
               A.fit(sub, { max: 54, min: 42, maxH: 66 });
               if (sub.scrollHeight > 66) A.fit(sub, { max: 54, min: 40, maxH: 124 });
-              if (s.id === FIRST) tl.fromTo(sub, { opacity: 0 }, { opacity: 1, duration: 0.22, immediateRender: false, ease: "none" }, t0 + 0.12);
+              if (s.id === FIRST) sub.style.opacity = "1";  // cover frame: sub is part of the design, no fade
               else tl.fromTo(sub, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.28, immediateRender: false }, t0 + 0.3);
             }
             const card = A.mk("div", "sp-imgcard", root);
             const inn = A.mk("div", "in", card);
             const im = A.mk("img", "", inn);
             im.src = "assets/" + s.img.file;
-            tl.fromTo(card, { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(1.6)", immediateRender: false }, t0 + 0.05);
+            if (s.id === FIRST) {  // frame 0 = the cover: card present, only a scale pop
+              card.style.opacity = "1";
+              tl.fromTo(card, { scale: 0.94 }, { scale: 1, duration: 0.36, ease: "power3.out" }, 0);
+            } else {
+              tl.fromTo(card, { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(1.6)", immediateRender: false }, t0 + 0.05);
+            }
             tl.fromTo(inn, { scale: 1 }, { scale: 1.07, duration: Math.max(0.1, t1 - t0), ease: "none", immediateRender: false }, t0);
             (s.chips || []).forEach((txt, k, arr) => {
               const chip = A.mk("div", "sp-chip dark", root, txt);
