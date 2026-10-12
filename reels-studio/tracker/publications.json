@@ -421,6 +421,31 @@
       "updated_at": "2026-10-11T13:06:23Z",
       "video_id": "news-haiku-55-01"
     },
+    "news-nano-banana-21-01:facebook": {
+      "attempts": 1,
+      "category": "news",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-10-12T19:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:d9757c2f7cf048368502e132c8e11aca8bb4407c0de9e9ceb24022f076b0a29a",
+        "asset_id": 633045989,
+        "asset_size": 13270997,
+        "kit_asset_id": 633046063,
+        "kit_digest": "sha256:5b25334858223482b4c4ea15d25399ce149364bdc32e13d9ca0eae9514b69104",
+        "media_path": "media/633045989/news-nano-banana-21-01.mp4",
+        "release_tag": "renders-2026-10-12",
+        "video_id": "news-nano-banana-21-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/633045989/news-nano-banana-21-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "6911635dd031de1c6e03e76e6bf4ab8744326b0038559c79146890cd6bcdd617",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "Nano Banana 2.1 halves the price per image ($0.0336 per 1K) and sharpens text rendering, but input tokens now cost three times more. Google calls it the model for all new projects.\n\nCredits: Own capture of Google DeepMind's Nano Banana model page; demo images are Google's official media from that page. Prices and dates read from Google's Gemini API docs on 2026-10-12.\n\nAI-generated narration.\n\n#NanoBanana #AInews",
+      "title": "Nano Banana 2.1: Half-Price Images, One Catch",
+      "updated_at": "2026-10-12T07:54:33Z",
+      "video_id": "news-nano-banana-21-01"
+    },
     "repo-ai-newtab-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6aca2935c4de2d2b12272320",
