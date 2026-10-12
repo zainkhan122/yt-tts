@@ -1,0 +1,223 @@
+{
+  "id": "tool-openmontage-01",
+  "template": "tool-spotlight",
+  "capture": "captures/tool-openmontage-01",
+  "title": "OpenMontage: Turn Your AI Coder Into a Video Studio",
+  "niche": "tech / AI tools",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "2026-10-12: original script based on checked primary sources (GitHub API facts read 2026-10-12 07:12 UTC; README read the same day for setup steps, pipeline count, zero-key mode and licence); approved Option 3 flow voice; no on-screen credits. | On-screen browser chrome shows a concise source domain; full source URLs stay in descriptions.",
+  "keywords": [
+    "OpenMontage",
+    "video",
+    "open source",
+    "agent",
+    "pipelines",
+    "AGPL"
+  ],
+  "facts": {
+    "stars": 67156,
+    "forks": 8559,
+    "checked": "2026-10-12"
+  },
+  "credits_on_screen": "Screens: own capture of github.com/calesthio/OpenMontage (2026-10-12). Project, pipelines and documentation by the OpenMontage authors (AGPL-3.0). Star counts from the GitHub API, read 2026-10-12.",
+  "sources": [
+    "https://github.com/calesthio/OpenMontage",
+    "https://api.github.com/repos/calesthio/OpenMontage",
+    "https://www.openmontage.video/"
+  ],
+  "verify_before_render": [
+    "GitHub API 2026-10-12 07:12 UTC: 67,156 stars, 8,559 forks, AGPL-3.0, created 2026-03-29, pushed 2026-10-03. Repo description: '12 production pipelines, 100+ tools, 700+ agent skill and production-knowledge files'. README read 2026-10-12: prerequisites (Python 3.10+, FFmpeg, Node 18+, an AI coding assistant), install 'git clone ... && make setup', zero-key mode (Piper TTS narration; Archive.org/NASA/Wikimedia footage; Pexels/Unsplash/Pixabay stock; Remotion + HyperFrames rendering; FFmpeg), self-review (ffprobe validation, frame sampling, audio levels, subtitle checks). Star figure rises daily - on-screen number is the 2026-10-12 read.",
+    "No on-screen credit captions. Option 3 Chatterbox Michael continuous-flow voice required."
+  ],
+  "production_category": "tool",
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "desktop-top.jpg",
+      "heading": "OPENMONTAGE TURNS YOUR AI INTO A *VIDEO STUDIO*",
+      "say": "You already pay for an AI coding assistant. This open source project turns it into a full video studio.",
+      "url": "github.com"
+    },
+    {
+      "id": "stars",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "url": "github.com",
+      "camera": [
+        {
+          "region": "repo_title",
+          "zoom": 1.8,
+          "at": "openmontage"
+        },
+        {
+          "region": "star_button",
+          "zoom": 2.6,
+          "at": "sixty"
+        }
+      ],
+      "cursor": [
+        {
+          "region": "star_button",
+          "at": "stars",
+          "state": "★ Starred 67.2k"
+        }
+      ],
+      "stat": {
+        "from": "facts.stars",
+        "format": "full",
+        "label": "GitHub stars · AGPL-3.0 · created March 2026",
+        "at": "sixty"
+      },
+      "say": "{OpenMontage|Open Montage} passed sixty seven thousand stars in about six months, and the licence is AGPL."
+    },
+    {
+      "id": "inside",
+      "type": "steps",
+      "heading": "WHAT'S *INSIDE*",
+      "background": {
+        "image": "desktop-top.jpg"
+      },
+      "steps": [
+        "12 production pipelines",
+        "100+ tools wired to your agent",
+        "700+ skill and knowledge files"
+      ],
+      "say": "Inside: a dozen production pipelines, more than a hundred tools and seven hundred skill files, driven from the assistant you already use.",
+      "url": "github.com"
+    },
+    {
+      "id": "setup",
+      "type": "terminal",
+      "title": "Quick start",
+      "heading": "SETUP: *TWO* COMMANDS",
+      "lines": [
+        "git clone https://github.com/calesthio/OpenMontage.git",
+        "cd OpenMontage && make setup"
+      ],
+      "outputs": [
+        "cloned",
+        "ready"
+      ],
+      "say": "Setup is a clone and make setup. Then you just describe the video you want.",
+      "url": "github.com"
+    },
+    {
+      "id": "how",
+      "type": "page",
+      "image": "desktop-full.jpg",
+      "url": "github.com",
+      "camera": [
+        {
+          "region": "img_1_openmontage-video",
+          "zoom": 1.4,
+          "at": "researches"
+        }
+      ],
+      "say": "The agent researches your topic with live search, writes and narrates the script, finds free music, adds word level subtitles, then checks its own render with ffprobe and frame sampling."
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE *CATCH*",
+      "cons": [
+        "AGPL-3.0: check your licensing",
+        "Best models need paid API keys",
+        "Big pipeline with many parts"
+      ],
+      "pros": [
+        "Free and open source",
+        "Zero-key mode: offline voice + open footage",
+        "Runs in Claude Code, Cursor, Copilot, Codex"
+      ],
+      "item_at": [
+        "licensed",
+        "keys",
+        "parts",
+        "free",
+        "keys",
+        "assistant"
+      ],
+      "say": "The catch: it is AGPL licensed, the best models need paid keys, and there are many moving parts. But it is free, there is a zero key mode with offline narration and open footage, and it runs inside the assistant you already have.",
+      "url": "github.com"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "MONTAGE",
+      "say": "Would you make videos this way? Comment Montage and I will pin the repo.",
+      "url": "github.com"
+    }
+  ],
+  "seo": {
+    "keyword": "OpenMontage",
+    "aliases": [
+      "agentic video production",
+      "open source video studio"
+    ],
+    "onscreen_first3s": "OPENMONTAGE: VIDEO STUDIO",
+    "youtube": {
+      "title": "OpenMontage: Turn Your AI Coder Into a Video Studio",
+      "description": "OpenMontage turns Claude Code, Cursor, Copilot or Codex into an agentic video studio: 12 production pipelines, 100+ tools and 700+ skill files, with a zero-key mode that narrates offline via Piper TTS, pulls open footage from Archive.org, NASA and Wikimedia, and renders with Remotion/HyperFrames and FFmpeg. Setup is a clone and make setup. 67,156 GitHub stars as of 12 October 2026; AGPL-3.0.\nSource: https://github.com/calesthio/OpenMontage",
+      "hashtags": [
+        "#Shorts",
+        "#opensource",
+        "#AItools",
+        "#AIvideo"
+      ],
+      "tags": [
+        "OpenMontage",
+        "agentic video production",
+        "open source video tool",
+        "AI video studio",
+        "Claude Code",
+        "Cursor",
+        "Remotion",
+        "HyperFrames",
+        "AI tools"
+      ]
+    },
+    "tiktok": {
+      "caption": "OpenMontage turns your AI coding assistant into a video studio: 12 pipelines, 100+ tools, no paid keys required. 67k stars in six months, and the setup is two commands.",
+      "hashtags": [
+        "#opensource",
+        "#AItools",
+        "#AIvideo"
+      ]
+    },
+    "instagram": {
+      "caption": "OpenMontage: an open-source agentic video studio for the AI assistant you already use. 12 pipelines, 100+ tools, zero-key mode with offline narration and open footage. Save this one.",
+      "hashtags": [
+        "#opensource",
+        "#AItools",
+        "#AIvideo"
+      ]
+    },
+    "facebook": {
+      "caption": "OpenMontage turns an AI coding assistant into a video production studio: 12 pipelines, 100+ tools, and a zero-key mode with offline narration. AGPL-3.0, 67k stars.",
+      "hashtags": [
+        "#opensource",
+        "#AItools"
+      ]
+    },
+    "x": {
+      "text": "OpenMontage turns Claude Code, Cursor or Codex into an agentic video studio: 12 pipelines, 100+ tools, zero-key mode with offline TTS and open footage. 67,156 stars; AGPL-3.0. Setup: clone + make setup.",
+      "hashtags": [
+        "#opensource"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "OpenMontage: Turn Your AI Coder Into a Video Studio"
+    ],
+    "caption": "OpenMontage is an open-source agentic video studio for the AI assistant you already use: 12 production pipelines, 100+ tools, 700+ skill files, and a zero-key mode with offline narration plus open footage. 67k stars in six months; AGPL-3.0.",
+    "hashtags": [
+      "#opensource",
+      "#AItools",
+      "#AIvideo"
+    ],
+    "pinned_comment": "Repo and docs: https://github.com/calesthio/OpenMontage · https://www.openmontage.video/"
+  }
+}
