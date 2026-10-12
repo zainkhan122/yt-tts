@@ -479,9 +479,11 @@
     },
     "news-nano-banana-21-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6acc9244c5fdc4c02d0c56ea",
       "category": "news",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-13T00:00:00Z",
+      "due_at": "2026-10-13T00:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:d9757c2f7cf048368502e132c8e11aca8bb4407c0de9e9ceb24022f076b0a29a",
         "asset_id": 633045989,
@@ -496,10 +498,11 @@
       "notify_subscribers": false,
       "payload_sha256": "35164c75e1ba378a33ca7413a20371ea7006a0d31475616d298639ee578440cb",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Nano Banana 2.1 (gemini-nano-banana-2.1) arrived on October 6, 2026: $0.0336 per 1K image, about half the previous model's price, with better text rendering, stronger character consistency, search grounding and 1K/2K/4K output. The catch: input tokens cost $1.50 per 1M now, there is no free API tier, and grounding is billed per query. Google recommends 2.1 for all new projects. Prices read from Google's docs on 12 October 2026.\nSource: https://ai.google.dev/gemini-api/docs/image-generation\n\nCredits: Own capture of Google DeepMind's Nano Banana model page; demo images are Google's official media from that page. Prices and dates read from Google's Gemini API docs on 2026-10-12.\n\n#Shorts #AInews #NanoBanana #AItools",
       "title": "Nano Banana 2.1: Half-Price Images, One Catch",
-      "updated_at": "2026-10-12T07:54:43Z",
+      "updated_at": "2026-10-12T07:54:44Z",
       "video_id": "news-nano-banana-21-01"
     },
     "repo-ai-newtab-01:facebook": {
