@@ -1091,6 +1091,31 @@
       "updated_at": "2026-10-12T12:08:31Z",
       "video_id": "tool-higgsfield-01"
     },
+    "tool-ltx25-01:facebook": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-10-13T22:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:ea3e961317f09287da04b15153fa6544f1ae23405f5c2581369beec56c25824a",
+        "asset_id": 633755620,
+        "asset_size": 16364144,
+        "kit_asset_id": 633755689,
+        "kit_digest": "sha256:be1d7fb1d18e583e451772f8cf376dd0698641db9c9df9cc335b8a549284648d",
+        "media_path": "media/633755620/tool-ltx25-01.mp4",
+        "release_tag": "renders-2026-10-12-r3",
+        "video_id": "tool-ltx25-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/633755620/tool-ltx25-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "856d6cdecde58b5a22a45e82ebbede464cd81a1afe1e0a38291d948bdcb13bb7",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "LTX 2.5 is a 22B open-weights video and audio model \u2014 10-second clips in 6.8 s on 2\u00d7GB200, with multi-shot consistency and a community licence free below $10M revenue.\n\nCredits: Screens: own capture of ltx.io/model/ltx-2-5 (2026-10-12). Showcase media belongs to LTX; the page states all showcase clips are entirely synthetic and no actor has performed \u2014 we only reuse the page's own published imagery. Hardware timings are from the launch material.\n\nAI-generated narration.\n\n#AIVideo #OpenSource",
+      "title": "LTX 2.5: Open-Weights Video + Audio in One Model",
+      "updated_at": "2026-10-12T12:47:53Z",
+      "video_id": "tool-ltx25-01"
+    },
     "tool-mosa-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6acb1f5cd9cab260a7e93df0",
