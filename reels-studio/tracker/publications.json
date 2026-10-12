@@ -426,7 +426,7 @@
       "buffer_post_id": "6accbfad52632410b3dc6540",
       "category": "news",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-13T10:00:00.000Z",
+      "due_at": "2026-10-13T23:00:00.000Z",
       "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:3d32ea46f0006790dbb1e622670bd00b100af2e20de1348cec236a7a37780101",
@@ -446,7 +446,7 @@
       "state": "scheduled",
       "text": "GPT-6.1 Sol is OpenAI's newest frontier model: $2 per 1M input and $10 output, roughly a fifth of Astra's pricing, with a 1,050,000-token context window.\n\nCredits: Screens: own capture of developers.openai.com/api/docs/models/gpt-6.1-sol (2026-10-12). Model art and wallpaper are OpenAI's own published assets, credited on screen. Prices and limits are as published on the model page.\n\nAI-generated narration.\n\n#OpenAI #AInews",
       "title": "GPT-6.1 Sol: OpenAI's Cheapest Frontier Model Yet",
-      "updated_at": "2026-10-12T11:08:29Z",
+      "updated_at": "2026-10-12T19:12:38Z",
       "video_id": "news-gpt61-sol-01"
     },
     "news-gpt61-sol-01:instagram": {
@@ -482,7 +482,7 @@
       "buffer_post_id": "6accbfb3624c35d1cf1d9443",
       "category": "news",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-13T12:00:00.000Z",
+      "due_at": "2026-10-13T00:15:00.000Z",
       "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:3d32ea46f0006790dbb1e622670bd00b100af2e20de1348cec236a7a37780101",
@@ -502,7 +502,7 @@
       "state": "scheduled",
       "text": "GPT-6.1 Sol is OpenAI's new frontier model at $2 per 1M input and $10 per 1M output \u2014 about one fifth of what GPT-6.1 Astra would have cost. Cached input is $0.10/M; inputs over 272K tokens cost 2x input and 1.5x output. Context window: 1,050,000 tokens; max output 128k; reasoning effort up to max; tools include web search, computer use, code interpreter and MCP. No fine-tuning and no free tier. The Ultrafast service tier (6x speed) is live via service_tier=ultrafast.\nSource: https://developers.openai.com/api/docs/models/gpt-6.1-sol\n\nCredits: Screens: own capture of developers.openai.com/api/docs/models/gpt-6.1-sol (2026-10-12). Model art and wallpaper are OpenAI's own published assets, credited on screen. Prices and limits are as published on the model page.\n\n#Shorts #OpenAI #GPT61 #AInews",
       "title": "GPT-6.1 Sol: OpenAI's Cheapest Frontier Model Yet",
-      "updated_at": "2026-10-12T11:08:35Z",
+      "updated_at": "2026-10-12T19:12:38Z",
       "video_id": "news-gpt61-sol-01"
     },
     "news-haiku-55-01:facebook": {
@@ -595,7 +595,7 @@
       "category": "news",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-12T19:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.facebook.com/reel/1900920284403863/",
       "media_ref": {
         "asset_digest": "sha256:d9757c2f7cf048368502e132c8e11aca8bb4407c0de9e9ceb24022f076b0a29a",
         "asset_id": 633045989,
@@ -610,11 +610,11 @@
       "notify_subscribers": false,
       "payload_sha256": "6911635dd031de1c6e03e76e6bf4ab8744326b0038559c79146890cd6bcdd617",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-12T19:01:14.336Z",
+      "state": "sent",
       "text": "Nano Banana 2.1 halves the price per image ($0.0336 per 1K) and sharpens text rendering, but input tokens now cost three times more. Google calls it the model for all new projects.\n\nCredits: Own capture of Google DeepMind's Nano Banana model page; demo images are Google's official media from that page. Prices and dates read from Google's Gemini API docs on 2026-10-12.\n\nAI-generated narration.\n\n#NanoBanana #AInews",
       "title": "Nano Banana 2.1: Half-Price Images, One Catch",
-      "updated_at": "2026-10-12T07:54:35Z",
+      "updated_at": "2026-10-12T19:12:38Z",
       "video_id": "news-nano-banana-21-01"
     },
     "news-nano-banana-21-01:instagram": {
@@ -650,7 +650,7 @@
       "buffer_post_id": "6acc9244c5fdc4c02d0c56ea",
       "category": "news",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-13T00:00:00.000Z",
+      "due_at": "2026-10-12T22:30:00.000Z",
       "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:d9757c2f7cf048368502e132c8e11aca8bb4407c0de9e9ceb24022f076b0a29a",
@@ -670,7 +670,7 @@
       "state": "scheduled",
       "text": "Nano Banana 2.1 (gemini-nano-banana-2.1) arrived on October 6, 2026: $0.0336 per 1K image, about half the previous model's price, with better text rendering, stronger character consistency, search grounding and 1K/2K/4K output. The catch: input tokens cost $1.50 per 1M now, there is no free API tier, and grounding is billed per query. Google recommends 2.1 for all new projects. Prices read from Google's docs on 12 October 2026.\nSource: https://ai.google.dev/gemini-api/docs/image-generation\n\nCredits: Own capture of Google DeepMind's Nano Banana model page; demo images are Google's official media from that page. Prices and dates read from Google's Gemini API docs on 2026-10-12.\n\n#Shorts #AInews #NanoBanana #AItools",
       "title": "Nano Banana 2.1: Half-Price Images, One Catch",
-      "updated_at": "2026-10-12T07:54:44Z",
+      "updated_at": "2026-10-12T19:12:38Z",
       "video_id": "news-nano-banana-21-01"
     },
     "repo-ai-newtab-01:facebook": {
@@ -763,7 +763,7 @@
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-12T16:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.facebook.com/reel/1407956652396320/",
       "media_ref": {
         "asset_digest": "sha256:194d3b4a617351643df663c9d21284eb93f5825ec5c2f4d15271c45c3e94893b",
         "asset_id": 633071756,
@@ -778,11 +778,11 @@
       "notify_subscribers": false,
       "payload_sha256": "911d776c932c9dea306099ee53be59e010e29d3b610b4e11fd39c57873ee0b60",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-12T16:01:50.887Z",
+      "state": "sent",
       "text": "DeepSeek 4 local: ds4 is an MIT-licensed C inference engine from antirez, the creator of Redis. Macs with 96 GB+ or SSD streaming, CUDA, ROCm. 23,783 stars.\n\nCredits: Screens: own capture of github.com/antirez/ds4 (2026-10-12). Engine and documentation by antirez (MIT). Throughput and hardware figures are the project's published results, not our own test.\n\nAI-generated narration.\n\n#DeepSeek #LocalAI",
       "title": "DeepSeek 4 Local Engine: 23k Stars, MIT",
-      "updated_at": "2026-10-12T07:52:00Z",
+      "updated_at": "2026-10-12T19:12:38Z",
       "video_id": "repo-ds4-01"
     },
     "repo-ds4-01:instagram": {
@@ -791,7 +791,7 @@
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-12T19:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/DeZ8ATbiWQf/",
       "media_ref": {
         "asset_digest": "sha256:194d3b4a617351643df663c9d21284eb93f5825ec5c2f4d15271c45c3e94893b",
         "asset_id": 633071756,
@@ -806,11 +806,11 @@
       "notify_subscribers": false,
       "payload_sha256": "5fe83e891f3b19da036a39f4aebecbabc1f46bd7bd3274048034ea029ebbb915",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-12T19:03:39.315Z",
+      "state": "sent",
       "text": "DeepSeek 4 local inference from the creator of Redis: ds4 is an MIT, self-contained C engine for Metal, CUDA and ROCm, serving DeepSeek 4 Flash and PRO. Save this for your home lab.\n\nCredits: Screens: own capture of github.com/antirez/ds4 (2026-10-12). Engine and documentation by antirez (MIT). Throughput and hardware figures are the project's published results, not our own test.\n\n#DeepSeek #LocalAI #opensource",
       "title": "DeepSeek 4 Local Engine: 23k Stars, MIT",
-      "updated_at": "2026-10-12T07:52:09Z",
+      "updated_at": "2026-10-12T19:12:38Z",
       "video_id": "repo-ds4-01"
     },
     "repo-ds4-01:youtube": {
@@ -846,7 +846,7 @@
       "buffer_post_id": "6accbfb60b1f16abcb04913b",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-13T13:00:00.000Z",
+      "due_at": "2026-10-12T22:46:00.000Z",
       "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:74fcaa938a0b5359939c7fd48910c42c4c74b98ef43eea175a5e46c8fc37307e",
@@ -866,7 +866,7 @@
       "state": "scheduled",
       "text": "Open Code Review is Alibaba's AI code reviewer, now open source: it picks files deterministically and reviews with an agent, reporting higher precision than Claude Code at about 1/9 the tokens.\n\nCredits: Screens: own capture of github.com/alibaba/open-code-review (2026-10-12). Project, benchmark chart and stats by the Open Code Review authors (Apache-2.0). Benchmark figures are their published results, not our own test.\n\nAI-generated narration.\n\n#AIcoding #opensource",
       "title": "Open Code Review: Alibaba's AI Code Reviewer, Free",
-      "updated_at": "2026-10-12T11:08:38Z",
+      "updated_at": "2026-10-12T19:12:38Z",
       "video_id": "repo-opencr-01"
     },
     "repo-opencr-01:instagram": {
@@ -1040,7 +1040,7 @@
       "buffer_post_id": "6accbfbc11bee99e6c99fa6d",
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-13T16:00:00.000Z",
+      "due_at": "2026-10-12T23:30:00.000Z",
       "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:a770617c7502c48342b818b29c20c9e081dd3c2d0ef05cd71a2988a9614afe5d",
@@ -1060,7 +1060,7 @@
       "state": "scheduled",
       "text": "Higgsfield shipped six releases in eight days, ending with Katana \u2014 an MCP server that lets Claude and other agents use its video models.\n\nCredits: Screens: own capture of higgsfield.ai/creator-hub/changelog (2026-10-12). Release names and dates are Higgsfield's own changelog entries. Run-rate and user figures are company-reported via Semafor (2026-10-07), not audited.\n\nAI-generated narration.\n\n#AIVideo #AItools",
       "title": "Higgsfield Shipped SIX AI Video Releases in Eight Days",
-      "updated_at": "2026-10-12T11:08:44Z",
+      "updated_at": "2026-10-12T19:12:38Z",
       "video_id": "tool-higgsfield-01"
     },
     "tool-higgsfield-01:instagram": {
@@ -1152,8 +1152,8 @@
       "buffer_post_id": "6acce75f0728a43e978181cd",
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-13T22:00:00.000Z",
-      "external_url": null,
+      "due_at": "2026-10-12T18:45:00.000Z",
+      "external_url": "https://www.youtube.com/shorts/PYlszxIISMg",
       "media_ref": {
         "asset_digest": "sha256:ea3e961317f09287da04b15153fa6544f1ae23405f5c2581369beec56c25824a",
         "asset_id": 633755620,
@@ -1168,11 +1168,11 @@
       "notify_subscribers": false,
       "payload_sha256": "4ee5815bdc959c570a8c4c32830d2f57f973784f5771fed5893ecfdb9dcba586",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-12T18:45:15.690Z",
+      "state": "sent",
       "text": "LTX-2.5 (released 11 August 2026) is a 22B open-weights video and audio model: a 10-second image-to-video clip renders in 6.8 s on 2xGB200 (~23.7 s via API), with native multi-shot, consistent characters and voice, a diffusion decoder and a Gemma 4 12B encoder. The LTX-2.x Community Licence is free below $10M revenue but is not an OSI licence; ComfyUI support arrived day one; the model family has passed 33M downloads.\nSource: https://ltx.io/model/ltx-2-5\n\nCredits: Screens: own capture of ltx.io/model/ltx-2-5 (2026-10-12). Showcase media belongs to LTX; the page states all showcase clips are entirely synthetic and no actor has performed \u2014 we only reuse the page's own published imagery. Hardware timings are from the launch material.\n\n#Shorts #AIVideo #OpenSource #LTX",
       "title": "LTX 2.5: Open-Weights Video + Audio in One Model",
-      "updated_at": "2026-10-12T13:57:52Z",
+      "updated_at": "2026-10-12T19:12:38Z",
       "video_id": "tool-ltx25-01"
     },
     "tool-mosa-01:facebook": {
@@ -1333,7 +1333,7 @@
       "buffer_post_id": "6acc924ac5fdc4c02d0c5770",
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-13T03:00:00.000Z",
+      "due_at": "2026-10-12T22:45:00.000Z",
       "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:e68f65bd9f645956bfc4a84f772984ed04170a8a90270526ce102b1b1ab3cc27",
@@ -1353,7 +1353,7 @@
       "state": "scheduled",
       "text": "OpenMontage turns Claude Code, Cursor, Copilot or Codex into an agentic video studio: 12 production pipelines, 100+ tools and 700+ skill files, with a zero-key mode that narrates offline via Piper TTS, pulls open footage from Archive.org, NASA and Wikimedia, and renders with Remotion/HyperFrames and FFmpeg. Setup is a clone and make setup. 67,156 GitHub stars as of 12 October 2026; AGPL-3.0.\nSource: https://github.com/calesthio/OpenMontage\n\nCredits: Screens: own capture of github.com/calesthio/OpenMontage (2026-10-12). Project, pipelines and documentation by the OpenMontage authors (AGPL-3.0). Star counts from the GitHub API, read 2026-10-12.\n\n#Shorts #opensource #AItools #AIvideo",
       "title": "OpenMontage: Turn Your AI Coder Into a Video Studio",
-      "updated_at": "2026-10-12T07:54:50Z",
+      "updated_at": "2026-10-12T19:12:38Z",
       "video_id": "tool-openmontage-01"
     },
     "tool-pomelli-01:facebook": {
@@ -1474,7 +1474,7 @@
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-12T16:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/DeZncAPlYqM/",
       "media_ref": {
         "asset_digest": "sha256:19ad28ed682ad944a744f4efdd8e3a7f4631f7bf0549d8a00113be45c886a9f7",
         "asset_id": 633073096,
@@ -1489,11 +1489,11 @@
       "notify_subscribers": false,
       "payload_sha256": "93372c74013bda0e1e34af7a64a1c1bb9a37936930853b759be430b5159d87d1",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-12T16:03:58.066Z",
+      "state": "sent",
       "text": "Qwen3.8-27B, a 27.8B model, running on one used RTX 3090 at 127 tok/s single-stream in a tuned vLLM build. Stock setups report 40-75 tok/s. Save this if you have a spare GPU.\n\nCredits: Screens: own capture of the Qwen3.8-27B model page (huggingface.co). Demo frames: official media from that model card. Speed figures are HyperQwen's published benchmarks, not our own measurement.\n\n#LocalAI #Qwen #AItools",
       "title": "Qwen3.8-27B: 127 Tok/s on One RTX 3090",
-      "updated_at": "2026-10-12T07:52:03Z",
+      "updated_at": "2026-10-12T19:12:38Z",
       "video_id": "tool-qwen38-01"
     },
     "tool-qwen38-01:youtube": {
@@ -1502,7 +1502,7 @@
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-12T17:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.youtube.com/shorts/Rw3IUZoKJiI",
       "media_ref": {
         "asset_digest": "sha256:19ad28ed682ad944a744f4efdd8e3a7f4631f7bf0549d8a00113be45c886a9f7",
         "asset_id": 633073096,
@@ -1517,11 +1517,11 @@
       "notify_subscribers": true,
       "payload_sha256": "f067dfce5abc67f79a2e02ff5d1ca9a54362e03d75bdb0315cc6584703054e3d",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-12T17:01:39.896Z",
+      "state": "sent",
       "text": "Qwen3.8-27B runs on a single used RTX 3090: 127 tokens per second single-stream at 250 W in HyperQwen's published vLLM benchmark, ~1,035 tok/s aggregate across 64 concurrent requests, and up to 150k context on 24 GB. Stock setups often report 40-75 tok/s, so tuning matters. The model is Apache-2.0, ~27.8B parameters, and takes images as well as text. Facts checked 12 October 2026.\nSource: https://huggingface.co/Qwen/Qwen3.8-27B\n\nCredits: Screens: own capture of the Qwen3.8-27B model page (huggingface.co). Demo frames: official media from that model card. Speed figures are HyperQwen's published benchmarks, not our own measurement.\n\n#Shorts #LocalAI #Qwen #AItools",
       "title": "Qwen3.8-27B: 127 Tok/s on One RTX 3090",
-      "updated_at": "2026-10-12T07:52:06Z",
+      "updated_at": "2026-10-12T19:12:38Z",
       "video_id": "tool-qwen38-01"
     }
   },
