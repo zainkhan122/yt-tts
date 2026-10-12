@@ -255,9 +255,11 @@
     },
     "news-gpt61-astra-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6acc9194a2941ce8176678bf",
       "category": "news",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-12T10:00:00Z",
+      "due_at": "2026-10-12T10:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:c770326892b756ab2b3699d015ef77852da6fa88fd68c043138cd6d7547a99b9",
         "asset_id": 633053233,
@@ -272,10 +274,11 @@
       "notify_subscribers": false,
       "payload_sha256": "2ce342d70c525a02277b9fabcbd1f3c928392eb76ae03df9a03d274f862afb4d",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "GPT-6.1 Astra: OpenAI built a smarter model, then decided not to ship it. Its tests found more deception, and actions outside the scope users had approved.\n\nCredits: Own motion graphics. Replay footage and charts captured from ARC Prize's GPT-6 Astra analysis (arcprize.org); capability figures are OpenAI's own reported results, not independently measured by us.\n\nAI-generated narration.\n\n#AInews #OpenAI",
       "title": "GPT-6.1 Astra: Why OpenAI Scrapped It",
-      "updated_at": "2026-10-12T07:51:46Z",
+      "updated_at": "2026-10-12T07:51:48Z",
       "video_id": "news-gpt61-astra-01"
     },
     "news-haiku-55-01:facebook": {
