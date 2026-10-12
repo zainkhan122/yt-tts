@@ -1009,9 +1009,11 @@
     },
     "tool-higgsfield-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6accc03b11bee99e6c9a1833",
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-13T19:00:00Z",
+      "due_at": "2026-10-13T19:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:a770617c7502c48342b818b29c20c9e081dd3c2d0ef05cd71a2988a9614afe5d",
         "asset_id": 633352292,
@@ -1026,10 +1028,11 @@
       "notify_subscribers": false,
       "payload_sha256": "ca98552955b9c356cb6dc058adf89fe83653401193172032828deab2a8af09da",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Higgsfield's October: six releases in eight days. Genjutsu swaps anything without a prompt, AI Influencer keeps characters consistent, and Katana lets Claude drive it. Save this for your next video project.\n\nCredits: Screens: own capture of higgsfield.ai/creator-hub/changelog (2026-10-12). Release names and dates are Higgsfield's own changelog entries. Run-rate and user figures are company-reported via Semafor (2026-10-07), not audited.\n\n#AIVideo #AItools #Higgsfield",
       "title": "Higgsfield Shipped SIX AI Video Releases in Eight Days",
-      "updated_at": "2026-10-12T11:10:49Z",
+      "updated_at": "2026-10-12T11:10:51Z",
       "video_id": "tool-higgsfield-01"
     },
     "tool-higgsfield-01:youtube": {
