@@ -169,6 +169,31 @@
       "updated_at": "2026-10-10T11:22:45Z",
       "video_id": "news-claude-free-01"
     },
+    "news-clef-01:facebook": {
+      "attempts": 1,
+      "category": "news",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-10-13T19:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:06d557966934cd343c6b4bb446667872d3f22aed464c6f9c149a61c6ba248f1e",
+        "asset_id": 633351677,
+        "asset_size": 13205419,
+        "kit_asset_id": 633351730,
+        "kit_digest": "sha256:05af44a246af0b0863f7e10a077c437568a3feeb78a7af472dc651416e8a2986",
+        "media_path": "media/633351677/news-clef-01.mp4",
+        "release_tag": "renders-2026-10-12",
+        "video_id": "news-clef-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/633351677/news-clef-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "fb4ef779fc79ad71ba1f374db021592e221aba32091a19769bb67e499438a69c",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "Cloudflare Clef is a 27B decision model that returns probabilities instead of prose: every allowed option for every typed question, in one forward pass, with no output parsing.\n\nCredits: Screens: own capture of huggingface.co/Cloudflare/clef (2026-10-12). Model art, card images and demo media are Cloudflare's own published assets, credited on screen. The ~39 ms latency figure is community-reported, not a Cloudflare benchmark claim.\n\nAI-generated narration.\n\n#AI #OpenSource",
+      "title": "Cloudflare Clef: a 27B Model That Can't Ramble",
+      "updated_at": "2026-10-12T11:08:51Z",
+      "video_id": "news-clef-01"
+    },
     "news-gemini-agent-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6acb2006f91f772d45b9017d",
