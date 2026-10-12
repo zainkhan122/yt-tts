@@ -118,7 +118,11 @@
     }
   },
   "memberships": {
-    "PLAzrfp4w4AFo:3qjmijMrjPs": {},
+    "PLAzrfp4w4AFo:3qjmijMrjPs": {
+      "playlist_id": "PLAzrfp4w4AFo",
+      "state": "adding",
+      "video_id": "3qjmijMrjPs"
+    },
     "PLAzrfp4w4AFo:F9Ng59LJ1bo": {
       "id": "UExBenJmcDR3NEFGby41NkI0NEY2RDEwNTU3Q0M2",
       "matching_entries": 1,
