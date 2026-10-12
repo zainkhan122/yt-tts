@@ -80,6 +80,7 @@ def main():
     ap.add_argument("--release-removed", action="store_true", help="release rows whose Buffer post is already gone")
     ap.add_argument("--list", action="store_true", help="read-only overview")
     ap.add_argument("--audit", action="store_true", help="read-only: compare the media URL Buffer holds with the queue")
+    ap.add_argument("--schema", action="store_true", help="read-only: dump EditPostInput/AssetsInput field shapes")
     ap.add_argument("--confirm", default="", help="must equal " + CONFIRM)
     ap.add_argument("--journal", default=str(ROOT / "tracker/publications.json"))
     a = ap.parse_args()
@@ -96,6 +97,19 @@ def main():
         print(f"{len(rows)} pending/released rows")
         for k, r in sorted(rows.items(), key=lambda kv: kv[1].get("due_at") or ""):
             print(f"  {k:34s} {r['state']:10s} due {str(r.get('due_at'))[:16]} buffer={r.get('buffer_post_id') or '-'}")
+        if a.schema:
+            client = BufferClient(config()["buffer"])
+            q = """query S($a: String!, $b: String!) {
+ a: __type(name: $a) { inputFields { name type { kind name ofType { kind name ofType { kind name } } } } }
+ b: __type(name: $b) { inputFields { name type { kind name ofType { kind name ofType { kind name } } } } }
+}"""
+            data = client.request(q, {"a": "EditPostInput", "b": "AssetsInput"})
+            for key in ("a", "b"):
+                t = data.get(key) or {}
+                print(f"{key}:")
+                for f in t.get("inputFields") or []:
+                    print("   ", f["name"], f["type"])
+            return 0
         if a.audit:
             client = BufferClient(config()["buffer"])
             _, posts = client.state()
