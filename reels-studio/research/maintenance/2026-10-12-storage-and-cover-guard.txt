@@ -21,6 +21,7 @@
 - Verified all ten local capture packs against the digest-bearing capture-packs Release tarballs, comparing each file byte-for-byte/SHA-256, then removed the local copies with `storage.py prune-all --apply`. Freed 45.1 MB. Remote archives and other projects were not touched.
 - Removed the local `_verify` download cache and duplicate `*-kit.zip` downloads under ignored renders scratch. Kept the small reviewed cover JPEG previews.
 - contracts.fetch_kit_cover now removes each verified kit ZIP intermediate in a finally block.
-- After: storage audit = 49,393,378 bytes / 1,036 files; ok=true. Tracked studio source = 7,421,526 bytes, no tracked videos and no files >5 MB.
+- Immediately after pruning: storage audit = 49,393,378 bytes / 1,036 files; ok=true.
+- Follow-on guard/docs commit b3921d5 increased the saved tree slightly; final audit at 2026-10-12T15:06:01Z = 49,461,864 bytes / 1,057 files; ok=true. Tracked studio source = 7,428,827 bytes, no tracked videos and no files >5 MB.
 
 Validation: full repository suite after all final edits: **316 tests passed**.
