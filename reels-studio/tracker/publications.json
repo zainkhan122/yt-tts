@@ -367,9 +367,11 @@
     },
     "news-gpt61-sol-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6accbfb032da9d8379ea7743",
       "category": "news",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-13T12:00:00Z",
+      "due_at": "2026-10-13T12:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:3d32ea46f0006790dbb1e622670bd00b100af2e20de1348cec236a7a37780101",
         "asset_id": 633324280,
@@ -384,10 +386,11 @@
       "notify_subscribers": false,
       "payload_sha256": "fbe138f2b451b93c494e30331828a9c3280722d34b9c28bc71f429099aaa3b8f",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "GPT-6.1 Sol is OpenAI's cheapest frontier model yet: $2 in, $10 out, $0.10 cached, 1.05M-token context, and an ultrafast tier at 6x. Save this for your next build.\n\nCredits: Screens: own capture of developers.openai.com/api/docs/models/gpt-6.1-sol (2026-10-12). Model art and wallpaper are OpenAI's own published assets, credited on screen. Prices and limits are as published on the model page.\n\n#OpenAI #AInews #AItools",
       "title": "GPT-6.1 Sol: OpenAI's Cheapest Frontier Model Yet",
-      "updated_at": "2026-10-12T11:08:30Z",
+      "updated_at": "2026-10-12T11:08:32Z",
       "video_id": "news-gpt61-sol-01"
     },
     "news-haiku-55-01:facebook": {
