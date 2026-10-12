@@ -97,7 +97,7 @@ def main():
         for k, r in sorted(rows.items(), key=lambda kv: kv[1].get("due_at") or ""):
             print(f"  {k:34s} {r['state']:10s} due {str(r.get('due_at'))[:16]} buffer={r.get('buffer_post_id') or '-'}")
         if a.audit:
-            client = BufferClient(config()["buffer"]))
+            client = BufferClient(config()["buffer"])
             _, posts = client.state()
             queue = load_json(ROOT / "queue/publish.json")
             found = audit(rows, posts, queue, config())
@@ -108,7 +108,7 @@ def main():
             print(f"audit: {len(found)} posts, {len(stale)} not on the current media")
         return 0
 
-    client = BufferClient(config()["buffer"]))
+    client = BufferClient(config()["buffer"])
     _, posts = client.state()
     by_id = {p["id"]: p for p in posts}
     changed = 0
