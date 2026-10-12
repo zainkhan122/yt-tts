@@ -175,7 +175,7 @@
       "status": "code-complete",
       "commit": "665629c",
       "proof": "cloud run 38239546740 (tool-ltx25-01) — validation render of the manifest v2 path",
-      "validation_note": "validation render 38239546740 rendered + QA'd with the manifest-v2 path (steps: Toolchain, Capture, Render, SEO pack all green); the Publish step failed by design — the immutability guard refuses to overwrite the queued tool-ltx25-01.mp4 on renders-2026-10-12. Not a render failure; re-render proofs go to fresh tags."
+      "validation_note": "validation render 38239546740 rendered + QA'd with the manifest-v2 path (steps: Toolchain, Capture, Render, SEO pack all green); the Publish step failed by design — the immutability guard refuses to overwrite the queued tool-ltx25-01.mp4 on renders-2026-10-12. Not a render failure; re-render proofs go to fresh tags. Second validation 38242339526 rendered and published cleanly to a fresh tag, confirming re-render proofs belong on new tags."
     },
     "rule_ids_in_receipts": {
       "status": "shipped",
@@ -192,7 +192,10 @@
       "status": "shipped for future renders",
       "commit": "72e65af",
       "validation_render": "38242339526 (news-clef-01, tag renders-2026-10-12-r2) — image hook, the exact case the rule targets",
-      "opt_out": "brief: \"captions\": {\"hold_seg\": \"\"}"
+      "opt_out": "brief: \"captions\": {\"hold_seg\": \"\"}",
+      "cloud_proof": "run 38242339526 (news-clef-01 -> tag renders-2026-10-12-r2) SUCCESS: new cover frame shows the heading + card with NO mid-sentence caption; evidence research/maintenance/2026-10-12-cover-rule-proof.jpg",
+      "gate_receipt_proof": "same run: the new render.yml step printed 'news-clef-01: 0 error(s), 0 warning(s)' and 'recorded -> renders/news-clef-01/manifest.json'; the published kit's manifest.json now carries gates.current/rollup/history",
+      "scene_manifest_proof": "same kit: revision 0, 7 scenes, brief_sha256 + audio_sha256 present (manifest schema v2)"
     }
   },
   "owner_decisions_2026-10-12": {
