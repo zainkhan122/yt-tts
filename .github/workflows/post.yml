@@ -126,6 +126,15 @@ jobs:
           cache: pip
           cache-dependency-path: reels-studio/tools/post/requirements.txt
       - run: python3 -m pip install -r reels-studio/tools/post/requirements.txt
+      # Buffer ingests a video when the post is CREATED, so a post that predates a media fix keeps
+      # the old file. Re-point stale scheduled posts at the queue's current media before delivery
+      # (no-op when nothing is stale; never touches sent posts; keeps every slot).
+      - name: Media freshness guard (refresh stale scheduled posts)
+        if: needs.prepare.outputs.mode == 'schedule'
+        continue-on-error: true
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: python3 reels-studio/tools/post/release.py --refresh --confirm OWNER_APPROVED_MEDIA_REFRESH
       - name: Paced delivery / read-only validation
         env:
           GH_TOKEN: ${{ github.token }}

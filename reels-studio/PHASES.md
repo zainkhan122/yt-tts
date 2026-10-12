@@ -298,3 +298,24 @@ scheduled post still shows a plain/empty cover). Decision recorded:
 * **Open question to settle with one observation:** does Buffer refetch the media URL at publish
   time? If yes, the affected posts fix themselves and no delete is needed. Evidence so far says no
   (queue previews stay stale), but a clear answer costs one queued post.
+
+## 2026-10-12 (wave 1) — Buffer media is fixed at create time, not at publish
+
+The queue-clear question ("should I empty the Buffer queue for all channels so we can schedule
+again?") is answered by this, one audit run later:
+
+* `tools/post/release.py --audit` reads the media URL each scheduled post holds and compares it with
+  the URL the queue publishes now. Before wave 2 was re-pointed it read **9 stale of 24**; the
+  wave-1 videos were "matching" but still holding the broken renders.
+* Buffer keeps the file it ingested at `createPost`; re-pinning the queue item - and even serving
+  fixed bytes from the original URL - does not update a post already scheduled.
+* Repair is `editPost` with a replaced `assets` array (the post keeps its slot, caption and metadata
+  because we send none of them). `--refresh --confirm OWNER_APPROVED_MEDIA_REFRESH` does that for
+  every stale post; it never deletes, and it never touches a sent post. 9/9 wave-2 posts updated,
+  then 11/11 wave-1 posts after the r4 re-pin.
+* Final audit 2026-10-12T14:10Z: **24 posts, 0 not on the current media.**
+* No queue emptying was needed; the tracker rows never left `scheduled`, so no orphaned receipts and
+  nothing for `reconcile()` to mark uncertain.
+* Durable guard: post.yml schedule runs the freshness check before delivery, and `--clear`
+  (deletePost + row release) stays behind its own confirmation for the case where a delete really is
+  the right call.
