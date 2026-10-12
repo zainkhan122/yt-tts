@@ -30,7 +30,7 @@ from lib.secrets import redact, secure_vault  # noqa: E402
 secure_vault()
 from tools.post.common import config as root_config, iso, load_json, parse_time, save_json  # noqa: E402
 from tools.post.state import Journal  # noqa: E402
-from tools.youtube.api import ANALYTICS_REPORTS, YouTubeAPI  # noqa: E402
+from tools.youtube.api import ANALYTICS_REPORTS, Deferred, YouTubeAPI  # noqa: E402
 
 STORE = ROOT / "tracker/analytics.json"
 SCHEMA_VERSION = 1
@@ -93,7 +93,9 @@ def reports_metrics(api, youtube_id, published_at, now):
         body = api.json("GET", ANALYTICS_REPORTS, params={
             "ids": "channel==MINE", "startDate": str(start), "endDate": str(end),
             "metrics": ANALYTICS_METRICS, "filters": f"video=={youtube_id}"}, cost=1)
-    except Exception as exc:  # noqa: BLE001 - any failure is recorded verbatim, never guessed
+    except Deferred:
+        raise  # token/quota/network pacing is the client's business: never hide it behind "unavailable"
+    except Exception as exc:  # noqa: BLE001 - any other failure is recorded verbatim, never guessed
         return {"unavailable": redact(f"{type(exc).__name__}: {exc}")[:200]}
     rows = body.get("rows") or []
     if not rows:

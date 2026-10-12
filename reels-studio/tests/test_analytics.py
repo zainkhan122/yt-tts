@@ -8,7 +8,7 @@ from unittest.mock import patch
 
 from tools.post.state import Journal
 from tools.youtube import analytics
-from tools.youtube.api import ANALYTICS_REPORTS, YouTubeAPI, YouTubeError, validate_analytics_url
+from tools.youtube.api import ANALYTICS_REPORTS, Deferred, YouTubeAPI, YouTubeError, validate_analytics_url
 
 NOW = dt.datetime(2026, 10, 12, 12, 0, tzinfo=dt.timezone.utc)
 
@@ -86,6 +86,12 @@ class SnapshotTests(unittest.TestCase):
         self.assertEqual(entry["impressions"], 2500)
         self.assertAlmostEqual(entry["ctr"], 0.0432)
         self.assertAlmostEqual(entry["avg_view_percentage"], 61.2)
+
+    def test_quota_deferral_propagates_instead_of_masquerading_as_missing_data(self):
+        store = analytics.empty_store()
+        api = FakeAPI(stats=STATS, analytics_error=Deferred("YouTube daily quota exhausted", "QUOTA_EXCEEDED", 900))
+        with self.assertRaises(Deferred):
+            analytics.snapshot(api, records(), store, NOW)
 
     def test_empty_rows_read_as_freshness_not_zero(self):
         store = analytics.empty_store()
