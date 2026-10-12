@@ -1,6 +1,6 @@
 {
   "batch": "2026-10-12 (wave 2)",
-  "status": "wave-2: sol render still in progress (run 38225784780; clef+higgsfield FAILED at hyperframes QA with fixes now applied; opencr + ltx25 succeeded). COVERS: late-approval blind spot fixed + tested; 5 covers approved; pipeline status view added; manual-upload enrich flag added. Next: re-render clef+higgsfield; enrich run to apply the 5 covers; wave-2 covers/queue/schedule.",
+  "status": "wave-2 RENDERS COMPLETE (5/5): sol ok; clef + higgsfield re-rendered after the hyperframes layout fixes (run 38229895618) both success; opencr + ltx25 ok earlier. All 5 mp4+kits published to release renders-2026-10-12 (sol 633324280, opencr 633263455, higgsfield 633352292, clef 633351677, ltx25 633267433). Cover pipeline: late-approval reopen fix + cascade hook shipped; 9/10 existing videos covered & read back. Next: wave-2 covers -> enqueue/approve -> schedule (spills to Oct 13), with owner decisions pending on scene-rebuild + analytics loop.",
   "owner_instruction": "Continue. Fix all session issues. The 5-video cap is removed \u2014 generate any number depending on the researched factors, up to a ceiling of 10/day.",
   "context": {
     "day_total_planned": 10,
@@ -61,31 +61,36 @@
       "id": "news-gpt61-sol-01",
       "category": "news",
       "title": "TBD",
-      "capture": "captures/news-gpt61-sol-01 (developers.openai.com)"
+      "capture": "captures/news-gpt61-sol-01 (developers.openai.com)",
+      "render_asset_id": 633324280
     },
     {
       "id": "repo-opencr-01",
       "category": "repo",
       "title": "TBD",
-      "capture": "captures/repo-opencr-01 (github.com/alibaba/open-code-review)"
+      "capture": "captures/repo-opencr-01 (github.com/alibaba/open-code-review)",
+      "render_asset_id": 633263455
     },
     {
       "id": "tool-higgsfield-01",
       "category": "tool",
       "title": "TBD",
-      "capture": "captures/tool-higgsfield-01 (higgsfield.ai changelog)"
+      "capture": "captures/tool-higgsfield-01 (higgsfield.ai changelog)",
+      "render_asset_id": 633352292
     },
     {
       "id": "news-clef-01",
       "category": "news",
       "title": "TBD",
-      "capture": "captures/news-clef-01 (huggingface.co/Cloudflare/clef)"
+      "capture": "captures/news-clef-01 (huggingface.co/Cloudflare/clef)",
+      "render_asset_id": 633351677
     },
     {
       "id": "tool-ltx25-01",
       "category": "tool",
       "title": "TBD",
-      "capture": "captures/tool-ltx25-01 (ltx.studio)"
+      "capture": "captures/tool-ltx25-01 (ltx.studio)",
+      "render_asset_id": 633267433
     }
   ],
   "key_facts_verified": {
@@ -119,10 +124,9 @@
     "darkzOGx/youtube-automation-agent reviewed: validates our Uncertain+reconcile upload shape and approval gates; adopt-list ranked in research/maintenance/2026-10-12-tooling-reviews.md - (1) scene manifest + single-scene rebuild (we re-rendered 2 whole videos for one-line fixes today), (2) analytics 24h/7d snapshots vs own history + approved learnings as constraints (our biggest gap; directly serves the click-through goal), (3) scene-aware retention mapping, (4) persisted readiness probe with 24h staleness, (5) stable rule IDs persisted for lint/seo audits."
   ],
   "next_actions": [
-    "after 13:00Z send: post.yml reconcile now cascades automatically; confirm astra cover lands via cover_ctl status --live (manual reconcile dispatch if wanted sooner)",
-    "sol render -> asset ids -> wave-2 covers (extract/review/approve) for the 5",
-    "re-render clef+higgsfield done? -> verify QA -> covers for those two",
-    "queue enqueue x5 + approve; schedule via post.yml (capacity spills to Oct 13); reconcile",
-    "owner decision pending: adopt scene-level rebuild + analytics CTR/retention loop (see tooling-reviews.md)"
+    "wave-2 covers: cover_ctl extract (5) -> visual review -> approve",
+    "enqueue wave-2 x5 + approve (queue_ctl); schedule via post.yml (capacity spills to Oct 13)",
+    "13:00Z send: post.yml reconcile auto-cascades to enrich (astra cover) - verify with cover_ctl status --live",
+    "finalize receipt + PHASES/RESUME + ctxpack; owner decision on scene-level rebuild + CTR/retention analytics (see 2026-10-12-tooling-reviews.md)"
   ]
 }
