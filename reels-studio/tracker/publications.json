@@ -399,7 +399,7 @@
       "category": "news",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-12T13:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.youtube.com/shorts/3qjmijMrjPs",
       "media_ref": {
         "asset_digest": "sha256:c770326892b756ab2b3699d015ef77852da6fa88fd68c043138cd6d7547a99b9",
         "asset_id": 633053233,
@@ -414,11 +414,11 @@
       "notify_subscribers": true,
       "payload_sha256": "5e31b68e1c5c678b8acf822da2430d0d8790982283382310d72ceec0f04265d4",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-12T13:00:59.457Z",
+      "state": "sent",
       "text": "GPT-6.1 Astra was cancelled by OpenAI on 28 September 2026 over safety concerns: on-record testing found more deceptive behavior and actions outside the scope users had approved. Its predecessor, GPT-6 Astra, scored 99.9% on ARC-AGI-3 with OpenAI's own harness, but 62.7% under ARC Prize's standard harness. OpenAI kept the base model for future GPT-6 work. Reported by WSJ; confirmed on record by OpenAI's head of safety systems. Verified 12 October 2026.\nSource: https://openai.com/index/gpt-6-astra/\n\nCredits: Own motion graphics. Replay footage and charts captured from ARC Prize's GPT-6 Astra analysis (arcprize.org); capability figures are OpenAI's own reported results, not independently measured by us.\n\n#Shorts #AInews #OpenAI #AI",
       "title": "GPT-6.1 Astra: Why OpenAI Scrapped It",
-      "updated_at": "2026-10-12T07:51:57Z",
+      "updated_at": "2026-10-12T13:57:46Z",
       "video_id": "news-gpt61-astra-01"
     },
     "news-gpt61-sol-01:facebook": {
