@@ -278,3 +278,23 @@ never re-downloaded; `214dbe1`: journal pins no longer clobber the queue item's 
 
 Lesson recorded in the receipt: the cover frame is part of the renderer contract — a hook must be visible at t=0 — and
 any media fix that re-pins a video must keep the URLs already handed to Buffer alive with the corrected file.
+
+## 2026-10-12 (later) — Buffer queue-clear decision + tooling
+
+Owner asked whether to empty the Buffer queue for all channels so we can schedule again (every
+scheduled post still shows a plain/empty cover). Decision recorded:
+
+* **No bulk empty.** Two reasons. (1) `reconcile()` treats a known-but-missing post as `uncertain`
+  and refuses to recreate it — a blind clear would block recreation of every item, including the
+  sends due today. (2) A `sent` row must never be deleted or recreated (duplicate-post risk).
+* **Targeted clear instead.** Posts still pointing at pre-fix media are cleared and recreated:
+  wave-1 — `tool-qwen38-01`, `repo-ds4-01`, `news-nano-banana-21-01`, `tool-openmontage-01`
+  (r4 render 38254745395 → repin → cover approve → recreate). Wave-2 posts already serve corrected
+  bytes via aliases, so deleting them would only reset the schedule for no visual gain.
+* **Tooling shipped:** `tools/post/buffer_api.py:delete()` (`Mutation.deletePost`, ambiguous-result
+  safe), `tools/post/release.py` (`--list`, `--keys|--all-pending`, `--delete`, `--release-removed`,
+  requires `--confirm OWNER_APPROVED_QUEUE_CLEAR`), workflow `queue-release.yml` (list/clear,
+  refuses to touch sent posts, commits the released rows). 5 tests (73 in the publishing suite).
+* **Open question to settle with one observation:** does Buffer refetch the media URL at publish
+  time? If yes, the affected posts fix themselves and no delete is needed. Evidence so far says no
+  (queue previews stay stale), but a clear answer costs one queued post.
