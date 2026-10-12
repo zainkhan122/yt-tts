@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T13:58:48Z",
+  "updated_at": "2026-10-12T19:13:58Z",
   "videos": {
     "list-free-video-ai-01": {
       "snapshots": [
@@ -136,8 +136,27 @@
       "title": null,
       "youtube_id": "7v2TUM0CTCk"
     },
-    "tool-mosa-01": {
+    "tool-ltx25-01": {
       "snapshots": [],
+      "title": null,
+      "youtube_id": "PYlszxIISMg"
+    },
+    "tool-mosa-01": {
+      "snapshots": [
+        {
+          "age_hours": 26.21,
+          "analytics": {
+            "unavailable": "YouTubeError: YouTube HTTP 403: Request had insufficient authentication scopes."
+          },
+          "comments": 0,
+          "engagement_rate": 0.02222,
+          "likes": 1,
+          "published_at": "2026-10-11T17:01:15Z",
+          "taken_at": "2026-10-12T19:13:58Z",
+          "views": 45,
+          "window": "24h"
+        }
+      ],
       "title": null,
       "youtube_id": "tCnRrRcfdPM"
     },
@@ -164,6 +183,11 @@
       "snapshots": [],
       "title": null,
       "youtube_id": "k18yriXJqv4"
+    },
+    "tool-qwen38-01": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "Rw3IUZoKJiI"
     }
   }
 }
