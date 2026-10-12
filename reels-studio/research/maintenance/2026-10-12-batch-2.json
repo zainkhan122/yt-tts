@@ -111,9 +111,12 @@
     "cover regression root cause: enrichment rows finish (`done`) once tags land, so a cover approved AFTER that pass was silently never applied (3 sent Shorts kept YouTube's auto frame). runner.should_enrich() now re-opens a finished row when the queue holds an approved digest YouTube has not confirmed, closes when the digest is confirmed or the 4-attempt cap blocked it, and re-opens on a newer approval; 3 regression tests added (suite 236: 233 + 3).",
     "cover feedback surface: `cover_ctl status [--live]` now joins queue approval + tracker publish state + worker journal into one honest line per video (approved -> applied -> confirmed/blocked), with an optional live `hasCustomThumbnail` read-back; manual uploads are labelled as skipped by cron.",
     "cover gap for hand-published uploads: enrich skips `published_manual` rows by config; added explicit `--include-manual` runner flag + `include_manual` workflow input (default false, digest gate still applies) so those uploads can be covered on demand.",
-    "covers approved for 3 late sent Shorts (repo-ai-newtab-01, list-free-video-ai-01, news-claude-free-01) + 2 hand-published (spotlight-papermorph-01, tool-muse-01); previews visually reviewed from kits (renders/covers/ sheet review) before approval."
+    "covers approved for 3 late sent Shorts (repo-ai-newtab-01, list-free-video-ai-01, news-claude-free-01) + 2 hand-published (spotlight-papermorph-01, tool-muse-01); previews visually reviewed from kits (renders/covers/ sheet review) before approval.",
+    "cover coverage completed: 9 of 10 videos in the system now carry an approved cover (8 already confirmed+read back on YouTube after the enrich run; repo-scm-01 approved and will apply when it is sent); the enrich run with include_manual=true applied all 5 pending covers in one pass (run 38229808793, success).",
+    "cover latency note: a scheduled Short gets its cover after Buffer sends (tracker state sent + external_url) and the next reconcile/enrich crons run (4x/day) - worst case ~6 h on launch day. Recommended next: event-driven hook (post.yml reconcile -> repository_dispatch -> youtube.yml enrich) if near-instant coverage is wanted; today: dispatch reconcile+enrich manually right after the 13:00Z send."
   ],
   "next_actions": [
+    "after 13:00Z send: dispatch post.yml reconcile then youtube.yml enrich; confirm astra cover lands (cover_ctl status --live)",
     "dispatch enrich (include_manual) to apply the 5 newly approved covers; verify with `cover_ctl status --live`",
     "re-dispatch clef + higgsfield renders (brief fixes committed) on the same tag",
     "sol render -> asset ids -> wave-2 covers (extract/review/approve) for the 5",

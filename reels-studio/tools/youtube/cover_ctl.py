@@ -110,18 +110,19 @@ def cover_stage(item, publish_state, enrich, live=None):
         if publish_state in {"sent", "published_manual"}:
             return "!", "no cover approved — approve one and the worker re-opens this row"
         return "-", "no cover approved"
+    if enrich and enrich.get("thumbnail_confirmed"):
+        stale = enrich.get("thumbnail_digest") != item.get("cover_sha256")
+        if live is False:
+            return "?", "worker confirmed, but YouTube reports no custom thumbnail — investigate"
+        return "OK", f"confirmed on YouTube · {enrich.get('thumbnail_digest', '')[-12:]}" + (" (newer approval pending)" if stale else "")
+    if item["approval"] == "held" and publish_state is None:
+        return "...", "held in queue — cover approved, applies after it is scheduled, sent and reconciled"
     if publish_state in {None, "scheduled", "uploaded_private"}:
         return "...", "approved · waiting for Buffer send + reconcile (cover needs a video id)"
     if publish_state == "published_manual" and not manual_included():
         return "...", "approved · hand-published upload: cron skips it, dispatch enrich with include_manual to apply"
     if not enrich:
         return "...", "approved · queued for next enrichment run"
-    confirmed = bool(enrich.get("thumbnail_confirmed"))
-    stale = confirmed and enrich.get("thumbnail_digest") != item.get("cover_sha256")
-    if confirmed and live is False:
-        return "?", "worker confirmed, but YouTube reports no custom thumbnail — investigate"
-    if confirmed:
-        return "OK", f"confirmed on YouTube · {enrich.get('thumbnail_digest', '')[-12:]}" + (" (newer approval pending)" if stale else "")
     if enrich.get("state") == "cover_pending":
         return "...", f"applying · attempt {enrich.get('thumbnail_attempts', '?')} of 4"
     if enrich.get("state") == "done":
