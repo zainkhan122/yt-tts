@@ -533,6 +533,31 @@
       "updated_at": "2026-10-12T07:52:00Z",
       "video_id": "repo-ds4-01"
     },
+    "repo-ds4-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-12T19:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:194d3b4a617351643df663c9d21284eb93f5825ec5c2f4d15271c45c3e94893b",
+        "asset_id": 633071756,
+        "asset_size": 17644154,
+        "kit_asset_id": 633071817,
+        "kit_digest": "sha256:fb6e7d9bb33cbe9f70a3e86839f1cf87b57c4b7dac426d1fe0f3b91a4e0fa793",
+        "media_path": "media/633071756/repo-ds4-01.mp4",
+        "release_tag": "renders-2026-10-12",
+        "video_id": "repo-ds4-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/633071756/repo-ds4-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "5fe83e891f3b19da036a39f4aebecbabc1f46bd7bd3274048034ea029ebbb915",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "DeepSeek 4 local inference from the creator of Redis: ds4 is an MIT, self-contained C engine for Metal, CUDA and ROCm, serving DeepSeek 4 Flash and PRO. Save this for your home lab.\n\nCredits: Screens: own capture of github.com/antirez/ds4 (2026-10-12). Engine and documentation by antirez (MIT). Throughput and hardware figures are the project's published results, not our own test.\n\n#DeepSeek #LocalAI #opensource",
+      "title": "DeepSeek 4 Local Engine: 23k Stars, MIT",
+      "updated_at": "2026-10-12T07:52:07Z",
+      "video_id": "repo-ds4-01"
+    },
     "repo-removemacai-01:youtube": {
       "buffer_post_id": "6ac904b32f26cc482c22c524",
       "channel_id": "6ac904af6a5c39ccb662a01f",
