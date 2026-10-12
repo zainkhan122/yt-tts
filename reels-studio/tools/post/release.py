@@ -95,6 +95,8 @@ def refresh_input(record, item, cfg, due):
     """
     from tools.post.planner import payload_for
     platform = record["_key"].split(":")[-1]
+    if isinstance(due, str):
+        due = parse_time(due)
     payload = payload_for(item, platform, due or now_utc(), cfg)
     return {"id": record["buffer_post_id"], "assets": payload["assets"], "metadata": payload["metadata"]}
 
