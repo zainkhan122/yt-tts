@@ -120,14 +120,30 @@ def legacy_paths(item):
     return paths
 
 
+def plan_refs(refs):
+    """Split refs into the ones we download and the alias map (superseded asset path -> owner).
+
+    A journal `media_ref` keeps pinning the asset a Buffer post was created with, so after a
+    re-pin both the old and the new asset can be referenced for the same video. The old path must
+    serve the CORRECTED file, so it is built only as an alias of its owner and never downloaded
+    as an asset of its own (that download used to land after the alias copy and undo it).
+    """
+    aliases = {}
+    for item in refs:
+        for path in legacy_paths(item):
+            aliases[path] = item
+    return [i for i in refs if i["media_path"] not in aliases], aliases
+
+
 def build(dest, cfg, items, records):
     refs = references(items, records, cfg, now_utc())
     if sum(i["asset_size"] for i in refs) > cfg["media"]["max_site_bytes"]:
         raise RuntimeError("Pages media budget exceeded; no pending assets will be evicted")
+    to_build, alias_map = plan_refs(refs)
     dest = Path(dest)
     dest.mkdir(parents=True, exist_ok=True)
     index = {"generated_at": iso(now_utc()), "assets": {}}
-    for item in refs:
+    for item in to_build:
         if item["media_path"] != f"media/{int(item['asset_id'])}/{item['video_id']}.mp4":
             raise ValueError("Invalid immutable media path")
         manifest = read_kit(cfg, item)
@@ -137,15 +153,21 @@ def build(dest, cfg, items, records):
         path = dest / item["media_path"]
         path.parent.mkdir(parents=True, exist_ok=True)
         digest, size, _ = public_download(asset["browser_download_url"], asset["size"], item.get("asset_digest") or asset.get("digest"), path)
-        aliases = legacy_paths(item)
+        aliases = [a for a, owner in alias_map.items() if owner is item]
         for alias in aliases:
             target = dest / alias
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(path, target)
+        mpath = item["media_path"]
         index["assets"][str(item["asset_id"])] = {"video_id": item["video_id"], "url": media_url(item, cfg), "digest": digest,
                                                     "size": size, "qa": manifest["qa"]["checks"],
-                                                    **({"aliases": aliases} if aliases else {})}
-        print(f"media ready: {item['video_id']} · QA 7/7 · {size / 1e6:.1f} MB", flush=True)
+                                                    **({"aliases": sorted(aliases)} if aliases else {})}
+        for alias in aliases:  # the superseded asset id stays indexed, honestly reporting the corrected file
+            old_id = alias.split("/")[1]
+            index["assets"][old_id] = {"video_id": item["video_id"], "url": cfg["media"]["base_url"].rstrip("/") + "/" + alias,
+                                       "digest": digest, "size": size, "qa": manifest["qa"]["checks"],
+                                       "superseded_by": str(item["asset_id"])}
+        print(f"media ready: {item['video_id']} · QA 7/7 · {size / 1e6:.1f} MB" + (f" · {len(aliases)} legacy URL(s)" if aliases else ""), flush=True)
     save_json(dest / "media-index.json", index)
     (dest / ".nojekyll").touch()
     callback = ROOT / "cloud/pages/oauth-callback.html"
@@ -189,6 +211,14 @@ def verify_site(cfg, items):
         entry = index.get(str(item["asset_id"]))
         if not entry or entry["video_id"] != item["video_id"] or entry["url"] != media_url(item, cfg):
             raise ValueError("Pinned media absent from deployment")
+        if entry.get("superseded_by"):
+            # this URL now serves the corrected render: check it against that asset, not the old pin
+            replacement = index.get(entry["superseded_by"])
+            if not replacement or entry["digest"] != replacement["digest"] or entry["size"] != replacement["size"]:
+                raise ValueError("Superseded media URL does not serve the corrected render")
+            verify_url(entry["url"], entry["size"])
+            print("verified public media (corrected render):", item["video_id"], flush=True)
+            continue
         if item.get("asset_digest") and entry["digest"] != item["asset_digest"]:
             raise ValueError("Hosted media index digest mismatch")
         if not entry.get("qa", {}).get("approved_voice") or not all(entry["qa"].values()):

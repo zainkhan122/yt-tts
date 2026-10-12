@@ -639,3 +639,27 @@ class RepinTests(unittest.TestCase):
         item = self.item(legacy_media_paths=["media/100/news-clef-01.mp4", "media/111/news-clef-01.mp4"])
         updated, _ = self.repin.repin(item, self.assets(), "r3")
         self.assertEqual(updated["legacy_media_paths"], ["media/111/news-clef-01.mp4", "media/100/news-clef-01.mp4"])
+
+
+class PlanRefsTests(unittest.TestCase):
+    """A superseded asset (old media_ref) must be served as an alias, never downloaded again."""
+
+    def ref(self, vid, asset_id, legacy=None):
+        item = {"video_id": vid, "asset_id": asset_id, "asset_size": 1, "media_path": f"media/{asset_id}/{vid}.mp4"}
+        if legacy:
+            item["legacy_media_paths"] = legacy
+        return item
+
+    def test_superseded_ref_is_not_downloaded_and_becomes_an_alias(self):
+        new = self.ref("a-01", 200, legacy=["media/100/a-01.mp4"])
+        old_ref = self.ref("a-01", 100)
+        to_build, aliases = media.plan_refs([new, old_ref])
+        self.assertEqual([i["asset_id"] for i in to_build], [200])
+        self.assertEqual(aliases, {"media/100/a-01.mp4": new})
+
+    def test_unrelated_refs_are_untouched(self):
+        a = self.ref("a-01", 100)
+        b = self.ref("b-01", 200)
+        to_build, aliases = media.plan_refs([a, b])
+        self.assertEqual({i["asset_id"] for i in to_build}, {100, 200})
+        self.assertEqual(aliases, {})
