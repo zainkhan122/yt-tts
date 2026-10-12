@@ -741,3 +741,15 @@ class QueueReleaseTests(unittest.TestCase):
                                "c:instagram": self.row(state="released")}}
         rows = self.release.pending_rows(journal)
         self.assertEqual(sorted(rows), ["a:facebook", "c:instagram"])
+
+    def test_audit_flags_posts_still_holding_old_media(self):
+        from tools.post.release import audit
+        queue = {"items": [{"video_id": "news-clef-01", "media_path": "media/633733386/news-clef-01.mp4"}]}
+        cfg = {"media": {"base_url": "https://cdn.example/media"}}
+        rows = {"news-clef-01:facebook": {"video_id": "news-clef-01", "buffer_post_id": "bp1"}}
+        posts = [{"id": "bp1", "status": "scheduled", "dueAt": "2026-10-13T19:00:00Z",
+                  "assets": [{"source": "https://cdn.example/media/media/633071756/news-clef-01.mp4"}]}]
+        out = audit(rows, posts, queue, cfg)
+        self.assertEqual(out[0]["verdict"], "STALE")
+        posts[0]["assets"] = [{"source": "https://cdn.example/media/media/633733386/news-clef-01.mp4"}]
+        self.assertEqual(audit(rows, posts, queue, cfg)[0]["verdict"], "OK")

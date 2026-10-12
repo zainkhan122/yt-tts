@@ -7,10 +7,10 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'list = read-only overview; clear = release rows (+ delete posts when delete=yes)'
+        description: 'audit/list = read-only; clear = release rows (+ delete posts when delete=yes)'
         type: choice
-        options: [list, clear]
-        default: list
+        options: [audit, list, clear]
+        default: audit
       keys:
         description: 'space/comma separated video:platform rows; empty = all pending'
         type: string
@@ -58,6 +58,7 @@ jobs:
           cd reels-studio
           args=()
           if [ "$MODE" = "list" ]; then args+=(--list); fi
+          if [ "$MODE" = "audit" ]; then args+=(--audit); fi
           if [ "$MODE" = "clear" ]; then
             if [ -z "$KEYS" ]; then args+=(--all-pending); else args+=(--keys ${KEYS//,/ }); fi
             args+=(--confirm "$CONFIRM")

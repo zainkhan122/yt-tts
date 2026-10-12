@@ -27,7 +27,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from tools.post.buffer_api import BufferClient  # noqa: E402
-from tools.post.common import PENDING, TERMINAL, config, iso, load_json, now_utc, save_json  # noqa: E402
+from tools.post.common import PENDING, TERMINAL, config, iso, load_json, media_url, now_utc, save_json  # noqa: E402
 
 CONFIRM = "OWNER_APPROVED_QUEUE_CLEAR"
 RELEASED = "released"
@@ -50,6 +50,28 @@ def release_row(record, note, now):
     return record
 
 
+def audit(journal_rows, posts, queue, cfg):
+    """Does Buffer still hold the file we gave it when the post was created?
+
+    Buffer ingests a video when the post is created, so a post that predates a media fix keeps the
+    old URL. This compares the URL Buffer holds with the URL the queue publishes today, read-only.
+    """
+    by_id = {p["id"]: p for p in posts}
+    items = {i["video_id"]: i for i in queue["items"]}
+    rows = []
+    for key, r in sorted(journal_rows.items()):
+        post = by_id.get(r.get("buffer_post_id"))
+        if not post:
+            continue
+        item = items.get(r["video_id"])
+        expected = media_url(item, cfg) if item else None
+        held = [a.get("source") for a in (post.get("assets") or [])]
+        rows.append({"key": key, "status": post["status"], "due": post.get("dueAt"),
+                     "held": held, "expected": expected,
+                     "verdict": "OK" if held and expected in held else ("STALE" if expected else "?")})
+    return rows
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--keys", nargs="*", default=[], help="video:platform rows to clear (default: none)")
@@ -57,6 +79,7 @@ def main():
     ap.add_argument("--delete", action="store_true", help="delete those posts in Buffer first")
     ap.add_argument("--release-removed", action="store_true", help="release rows whose Buffer post is already gone")
     ap.add_argument("--list", action="store_true", help="read-only overview")
+    ap.add_argument("--audit", action="store_true", help="read-only: compare the media URL Buffer holds with the queue")
     ap.add_argument("--confirm", default="", help="must equal " + CONFIRM)
     ap.add_argument("--journal", default=str(ROOT / "tracker/publications.json"))
     a = ap.parse_args()
@@ -67,12 +90,22 @@ def main():
     writes = a.keys or a.release_removed
     if writes and a.confirm != CONFIRM:
         raise SystemExit(f"refusing to write without --confirm {CONFIRM}")
-    if not writes and not a.list:
-        raise SystemExit("nothing to do: pass --list, --keys … or --release-removed")
+    if not writes and not (a.list or a.audit):
+        raise SystemExit("nothing to do: pass --list, --audit, --keys … or --release-removed")
     if not writes:
         print(f"{len(rows)} pending/released rows")
         for k, r in sorted(rows.items(), key=lambda kv: kv[1].get("due_at") or ""):
             print(f"  {k:34s} {r['state']:10s} due {str(r.get('due_at'))[:16]} buffer={r.get('buffer_post_id') or '-'}")
+        if a.audit:
+            client = BufferClient(config())
+            _, posts = client.state()
+            queue = load_json(ROOT / "queue/publish.json")
+            found = audit(rows, posts, queue, config())
+            stale = [r for r in found if r["verdict"] != "OK"]
+            for r in found:
+                print(f"  {r['key']:34s} {r['status']:10s} due {str(r['due'])[:16]} {r['verdict']:5s} "
+                      f"held={('|'.join(r['held']) or '-')[-40:]}")
+            print(f"audit: {len(found)} posts, {len(stale)} not on the current media")
         return 0
 
     client = BufferClient(config())
