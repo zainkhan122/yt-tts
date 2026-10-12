@@ -236,3 +236,28 @@ the ceiling test genuinely places >5 on an override day, and the suite is **233 
 repo-relative paths, absolute `/repos/...` paths and full URLs, verified live against the API. The remaining
 delivery verification is time-gated by the calendar itself: first reconcile after the 10:00Z send, first cover
 read-back after the 18:43Z enrichment cron.
+
+## 2026-10-12 (later) — scene rebuild, gate receipts, analytics lane
+
+Owner approved three build items and they are now in the tree (commits `665629c`, `459d8de`):
+
+- **Scene manifest + single-scene rebuild.** `lib/scenes.py` records every scene (id, type, window, narration,
+  spec, asset/window digests) into the render manifest, and `reels.py rebuild <brief> --scenes …` re-renders a
+  repair from the *published* kit + MP4: unchanged scenes are verified by frame drift (PIL-only, MAD 2.0 /
+  heavy-pixel 0.03) and the published audio is reused bit-for-bit (`mux_previous_audio`). Narration change is a
+  hard refusal — that is a new render, not a repair. `reels.py scenes` prints the manifest; render.yml gained
+  `rebuild_scenes/rebuild_reason/from_tag` inputs; `publish_release.py --download` fetches the previous kit.
+- **Rule IDs in receipts.** `tools/brief_lint.py` (BL001–BL900) and `tools/seo_pack.py` (SP001–SP072) now return
+  structured findings; `lib/gates.py` writes them into each render's `manifest.json` ("gates": current + history
+  + changed_since_last_run), which travels inside the published kit; `reels.py gates` runs both gates and records
+  them, `reels.py cloud` writes a pre-dispatch receipt to `research/maintenance/gates/` before spending runners.
+- **Analytics lane.** `tools/youtube/analytics.py snapshot|report` records 24 h / 7 d snapshots per sent Short
+  (views/likes/comments/engagement) and judges each against the median of our own other videos (baseline needs
+  two others). Runner mode `analytics` (also folded into `schedule`/`enrich`) commits `tracker/analytics.json`
+  like the other journals. CTR/retention/impressions require `yt-analytics.readonly`, which is not in the current
+  grant: the lane records the 403 verbatim rather than inventing numbers; one deliberate owner re-consent (token
+  cap applies) unlocks it via `REELS_EXTRA_SCOPES`.
+
+Same session: wave 2 (five more videos) rendered, cover-reviewed, queued with priorities 170–210 and a
+2026-10-14T08:00Z review window, then scheduled — 10 of 15 platform slots created by runs `38240589501` /
+`38240834720`, the facebook/youtube backlog draining on the next cron. Suite: **274 tests OK**.

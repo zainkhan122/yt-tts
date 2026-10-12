@@ -1,7 +1,7 @@
 {
   "batch": "2026-10-12 (wave 2)",
   "status": "wave-2 RENDERS COMPLETE (5/5): sol ok; clef + higgsfield re-rendered after the hyperframes layout fixes (run 38229895618) both success; opencr + ltx25 ok earlier. All 5 mp4+kits published to release renders-2026-10-12 (sol 633324280, opencr 633263455, higgsfield 633352292, clef 633351677, ltx25 633267433). Cover pipeline: late-approval reopen fix + cascade hook shipped; 9/10 existing videos covered & read back. Next: wave-2 covers -> enqueue/approve -> schedule (spills to Oct 13), with owner decisions pending on scene-rebuild + analytics loop.",
-  "owner_instruction": "Continue. Fix all session issues. The 5-video cap is removed \u2014 generate any number depending on the researched factors, up to a ceiling of 10/day.",
+  "owner_instruction": "Continue. Fix all session issues. The 5-video cap is removed — generate any number depending on the researched factors, up to a ceiling of 10/day.",
   "context": {
     "day_total_planned": 10,
     "wave1": "news-gpt61-astra-01, tool-qwen38-01, news-nano-banana-21-01, tool-openmontage-01, repo-ds4-01 (produced, 15 posts scheduled)",
@@ -10,7 +10,7 @@
   },
   "selection": {
     "signals": [
-      "radar-2026-10-12.md (GitHub stars/day, HF trending, Spaces \u2014 same 14-day scan as wave 1)",
+      "radar-2026-10-12.md (GitHub stars/day, HF trending, Spaces — same 14-day scan as wave 1)",
       "GitHub REST API facts read 2026-10-12 (stars/licence/created/pushed)",
       "HF API facts read 2026-10-12 (likes/downloads/trend)",
       "YouTube autocomplete clusters for the topic terms",
@@ -49,11 +49,11 @@
       }
     ],
     "excluded": [
-      "Meta Muse / Kimi K3 \u2014 legitimate but stale (July 2026), fail the freshness factor for a news slot",
-      "HeyGen \u2014 5.3M views but promo-heavy and overlaps Higgsfield's fresher story",
-      "universal-modder \u2014 game-modding ToS grey, previously excluded, staying consistent",
-      "flagged radar items (NSFW/uncensored, bot-evasion, ToS-bypass) \u2014 never",
-      "anatomy/artcraft/shaders/OpenDots etc. \u2014 below 60 or off-beat for this channel"
+      "Meta Muse / Kimi K3 — legitimate but stale (July 2026), fail the freshness factor for a news slot",
+      "HeyGen — 5.3M views but promo-heavy and overlaps Higgsfield's fresher story",
+      "universal-modder — game-modding ToS grey, previously excluded, staying consistent",
+      "flagged radar items (NSFW/uncensored, bot-evasion, ToS-bypass) — never",
+      "anatomy/artcraft/shaders/OpenDots etc. — below 60 or off-beat for this channel"
     ]
   },
   "videos": [
@@ -97,18 +97,18 @@
     "news-gpt61-sol-01": "developers.openai.com model page read 2026-10-12: 'Near-Astra performance for complex work at a lower cost'; $2 input / $10 output per 1M; cached input $0.10 (5% of input); cache writes $2.50; >272K input tokens billed 2x input/cache + 1.5x output; Fast mode 2x, Batch/Flex 50% off, Ultrafast 6x; 1,050,000 context; 128,000 max output; Apr 30 2026 cutoff; reasoning.effort low/medium(default)/high/xhigh/max; fine-tuning NOT supported; audio/video not supported; Ultrafast mode live (service_tier ultrafast); tools include web search, computer use, code interpreter, MCP; Free tier not supported. Ships Sept 29 2026 (DevDay), one day after GPT-6.1 Astra was scrapped; positioned at one-fifth of GPT-6 Astra standard rates ($10/$50).",
     "repo-opencr-01": "GitHub API 2026-10-12: 46,340 stars, 3,367 forks, Apache-2.0, Go, created 2026-05-18, pushed 2026-10-12. README read 2026-10-12: originated as Alibaba's internal AI code-review assistant (two years, tens of thousands of developers, millions of defects); deterministic-hard-constraints + agent hybrid; precise file selection, smart file bundling (sub-agents), fine-grained rule matching, external positioning/reflection; AACR-Bench (50 repos, 200 PRs, 10 languages, 1,505 ground-truth issues, 80+ senior engineers); higher precision/F1 than Claude Code at ~1/9 tokens (deliberately lower recall); install: npm install -g @alibaba-group/open-code-review; commands: ocr config provider, ocr review, ocr scan, ocr delegate; plugins for Claude Code/Codex/Cursor/Kimi Code/OpenCode; Git >= 2.41; OpenSSF Gold.",
     "tool-higgsfield-01": "higgsfield.ai changelog read 2026-10-12 (dates in the page): Oct 1 Genjutsu (change an object/location/product/character in a video with no prompt; 30+ presets); Oct 1 Grok Imagine Video 1.5 added; Oct 2 AI Influencer (character builder, motion transfer/object swap; 5 free generations from Oct 3); Oct 5 Nano Banana 2.1 added; Oct 6 Ad Multiplier; Oct 6 Discord 200K contest; Oct 7 Film Festival audience voting; Oct 8 Katana (MCP + integrate with Claude). Semafor 2026-10-07: $1B run rate claimed, 30M users; AI-influencer characters deliberately non-human-looking. Attribute all vendor/reported numbers.",
-    "news-clef-01": "HF card read 2026-10-12: Clef turns a state + a schema of typed questions into decisions \u2014 reads text/JSON/images/video, returns a probability for every allowed option of every question in one forward pass; no free-form text, no output parsing. 27B, post-trained from Qwen/Qwen3.8-27B; joint schema head; Apache-2.0; clef-flash is the 9B variant on Qwen3.5-9B; API compatible with Jev and SystemOne; runs on Workers AI; RL fine-tuning path announced; 64k context window (per community summary \u2014 verify on card screens); downloads: clef 14.3k, flash 20.7k; likes ~2.0k; trending top-3 in the radar.",
-    "tool-ltx25-01": "Release Aug 11 2026 (Lightricks/LTX spinout): 22B open-weights video+audio 'world' model; text/image/video inputs produce picture + synchronized audio in one pass (no separate audio stage); 10s image-to-video in 6.8s on 2x GB200, ~23.7s via API; native multishot with consistent characters/voice; diffusion video decoder; Gemma 4 12B text encoder; free for orgs under $10M revenue (LTX-2.x Community License \u2014 not OSI open source); ComfyUI day-one; family >33M downloads; HF card is gated (auth required) \u2014 capture uses ltx.studio."
+    "news-clef-01": "HF card read 2026-10-12: Clef turns a state + a schema of typed questions into decisions — reads text/JSON/images/video, returns a probability for every allowed option of every question in one forward pass; no free-form text, no output parsing. 27B, post-trained from Qwen/Qwen3.8-27B; joint schema head; Apache-2.0; clef-flash is the 9B variant on Qwen3.5-9B; API compatible with Jev and SystemOne; runs on Workers AI; RL fine-tuning path announced; 64k context window (per community summary — verify on card screens); downloads: clef 14.3k, flash 20.7k; likes ~2.0k; trending top-3 in the radar.",
+    "tool-ltx25-01": "Release Aug 11 2026 (Lightricks/LTX spinout): 22B open-weights video+audio 'world' model; text/image/video inputs produce picture + synchronized audio in one pass (no separate audio stage); 10s image-to-video in 6.8s on 2x GB200, ~23.7s via API; native multishot with consistent characters/voice; diffusion video decoder; Gemma 4 12B text encoder; free for orgs under $10M revenue (LTX-2.x Community License — not OSI open source); ComfyUI day-one; family >33M downloads; HF card is gated (auth required) — capture uses ltx.studio."
   },
   "session_fixes": [
-    "sandbox recycled mid-session dropped the installed toolchain (hyperframes/Chrome/ffmpeg) \u2014 setup/setup-sandbox.sh re-run, recorded; installs do not persist across sandbox resets",
+    "sandbox recycled mid-session dropped the installed toolchain (hyperframes/Chrome/ffmpeg) — setup/setup-sandbox.sh re-run, recorded; installs do not persist across sandbox resets",
     "capture script edit hazard + openai.com/help.openai.com 403 blocks recorded in research/maintenance/capture-batch-2026-10-12-wave2.sh (developers.openai.com is the working official surface)",
     "tools/post/README.md stale 'five productions held' sentence replaced with the current 2026-10-12 state",
-    "capture tooling: consent/cookie banners polluted on-camera framing (higgsfield changelog) \u2014 tools/capture_extra.cjs now dismisses banners via a conservative exact-label allow-list (main document + child frames), logs 'consent-dismissed: <label>' into extra.json, on by default, opt-out REELS_DISMISS_CONSENT=0 (best-effort; never fails a capture)",
+    "capture tooling: consent/cookie banners polluted on-camera framing (higgsfield changelog) — tools/capture_extra.cjs now dismisses banners via a conservative exact-label allow-list (main document + child frames), logs 'consent-dismissed: <label>' into extra.json, on by default, opt-out REELS_DISMISS_CONSENT=0 (best-effort; never fails a capture)",
     "capture tooling: generic non-GitHub region harvest added (date_<mon-d-yyyy> from dated labels, title_<slug> from short h*/strong/b) so changelog/docs pages yield real camera regions; GitHub path unchanged",
-    "capture contention lesson: running two heavy captures at once on the 2 GB sandbox starves chrome (ltx core-extraction stretched to minutes; a higgsfield extra pass hit a 90 s networkidle2 timeout) \u2014 prefer one heavy capture at a time; capture.py retries a failed extra pass up to 3x automatically",
+    "capture contention lesson: running two heavy captures at once on the 2 GB sandbox starves chrome (ltx core-extraction stretched to minutes; a higgsfield extra pass hit a 90 s networkidle2 timeout) — prefer one heavy capture at a time; capture.py retries a failed extra pass up to 3x automatically",
     "capture budget note: hyperframes default --capture-budget 120 s degrades inner site phases (fonts/assets/contact-sheets) on very long SPAs; harmless for our packs because screenshots come from capture_extra, recorded for future tuning",
-    "duplicate-work hazard recorded: a side-lane capture of an id still queued in the main lane wrapper collided on the same output dirs \u2014 never start a second capture for an id the running wrapper will reach; if a lane must be side-loaded, exclude ids still ahead in the wrapper list",
+    "duplicate-work hazard recorded: a side-lane capture of an id still queued in the main lane wrapper collided on the same output dirs — never start a second capture for an id the running wrapper will reach; if a lane must be side-loaded, exclude ids still ahead in the wrapper list",
     "gh box live counts drift: open-code-review 46,340 -> 46,341 stars between the fresh-scrape receipt and the live API re-read; brief pins 46,341 (verified 2026-10-12)",
     "ltx capture technique: both ltx.io surfaces (studio app and model page) stall hyperframes' scroll loop on WebGL/looping media -> built the pack with capture_extra alone (screenshots + region map) and curated via capture.py --reuse-site <empty> --reuse-extra; 39 regions harvested; script kept at research/maintenance/capture-ltx-fallback-2026-10-12.sh",
     "consent dismissal extended with opt-in site labels: REELS_DISMISS_CONSENT_LABELS=\"ok,accept\" (ltx.io's banner button is literally 'ok'); logged '+consent-dismissed: ok' and the strip is gone from the pack",
@@ -124,9 +124,68 @@
     "darkzOGx/youtube-automation-agent reviewed: validates our Uncertain+reconcile upload shape and approval gates; adopt-list ranked in research/maintenance/2026-10-12-tooling-reviews.md - (1) scene manifest + single-scene rebuild (we re-rendered 2 whole videos for one-line fixes today), (2) analytics 24h/7d snapshots vs own history + approved learnings as constraints (our biggest gap; directly serves the click-through goal), (3) scene-aware retention mapping, (4) persisted readiness probe with 24h staleness, (5) stable rule IDs persisted for lint/seo audits."
   ],
   "next_actions": [
-    "wave-2 covers: cover_ctl extract (5) -> visual review -> approve",
-    "enqueue wave-2 x5 + approve (queue_ctl); schedule via post.yml (capacity spills to Oct 13)",
-    "13:00Z send: post.yml reconcile auto-cascades to enrich (astra cover) - verify with cover_ctl status --live",
-    "finalize receipt + PHASES/RESUME + ctxpack; owner decision on scene-level rebuild + CTR/retention analytics (see 2026-10-12-tooling-reviews.md)"
-  ]
+    "watch the 18:00Z post.yml cron drain the wave-2 backlog (clef YT/IG, ltx25 YT/IG/FB); reconcile before claiming sent",
+    "13:00Z wave-1 send: post.yml reconcile -> verify the cover cascade self-dispatches enrich -> cover_ctl status --live (expect OK:10)",
+    "wave-2 first sends 2026-10-13 ~10:00Z local slots; reconcile + live-verify each cover",
+    "owner decisions: (1) yt-analytics.readonly re-consent for CTR/retention; (2) cover settle-time for image hooks"
+  ],
+  "wave_2_delivery": {
+    "renders": {
+      "cloud_runs": [
+        "38225784780",
+        "38229895618"
+      ],
+      "release": "renders-2026-10-12"
+    },
+    "covers": {
+      "previews": "renders/covers/<id>-cover.jpg",
+      "evidence_sheet": "research/maintenance/2026-10-12-wave2-covers.jpg",
+      "approved": {
+        "news-gpt61-sol-01": "sha256:8278287444c69043fdccc34a8e209a086587481e49624e39ae0030c76f6d1b06",
+        "repo-opencr-01": "sha256:f59cfa174c448a5aae4c9e68a5498d610c8c00d8c9a6ad5c2f905245ff46de41",
+        "tool-higgsfield-01": "sha256:7177401cca4b626f8fdbc11016c03216c1939a3996b8efaed8ae59bd59bd0cd4",
+        "news-clef-01": "sha256:04c4e181327a01d2a554a7c3a0f3e30345163aa9e44ac1c2e5589e2975bdb2f4",
+        "tool-ltx25-01": "sha256:ff72a1e71d298e1d43a400adf78bcfd65c7fdc63b51ada64e1dee2f1eb885bdc"
+      },
+      "agent_review_note": "all five legible, on-brand, evidence-forward; shared artifact: image-type hooks show the spoken caption mid-sentence in the extracted 0.6 s frame (e.g. 'OPENAI SCRAPPED ITS', 'LTX 2.5 IS'). Reads as a deliberate teaser and matches the channel's caption language; frame 0 of the video itself is clean. Optional future change: settle the cover extraction after the first spoken sentence, or give image hooks a static sub — owner question open."
+    },
+    "queue": {
+      "order": {
+        "news-gpt61-sol-01": 170,
+        "repo-opencr-01": 180,
+        "tool-higgsfield-01": 190,
+        "news-clef-01": 200,
+        "tool-ltx25-01": 210
+      },
+      "review_window_closes": "2026-10-14T08:00:00Z (news ≤72 h)",
+      "config": "daily_target_overrides['2026-10-14'] = 5 added so the wave fits before its review window closes"
+    },
+    "scheduling": {
+      "runs": {
+        "38240589501": "9 posts created",
+        "38240834720": "1 post created (higgsfield IG)"
+      },
+      "placed": 10,
+      "of": 15,
+      "backlog": "facebook/youtube reported 'pending capacity reached; backlog retained' — the 6-hourly post.yml cron drains it; scheduled is not sent until reconcile confirms"
+    }
+  },
+  "features": {
+    "scene_rebuild": {
+      "status": "code-complete",
+      "commit": "665629c",
+      "proof": "cloud run 38239546740 (tool-ltx25-01) — validation render of the manifest v2 path"
+    },
+    "rule_ids_in_receipts": {
+      "status": "shipped",
+      "commit": "459d8de",
+      "what": "BL0xx/SP0xx findings persisted into render manifests (gates section) + pre-dispatch receipts in research/maintenance/gates/"
+    },
+    "analytics_lane": {
+      "status": "working without CTR/retention (scope gap reported honestly)",
+      "commit": "459d8de",
+      "first_snapshot": "6 Shorts @24 h, views vs our own median; store tracker/analytics.json",
+      "blocker": "yt-analytics.readonly not in the grant — needs one deliberate owner re-consent"
+    }
+  }
 }

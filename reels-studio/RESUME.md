@@ -22,6 +22,35 @@ claiming anything is public. Covers: all five extracted, visually reviewed and a
 `queue/publish.json`); the enrichment worker applies them as Shorts go live. Full receipt:
 `research/maintenance/2026-10-12-batch.json`.
 
+## Previous batch — 2026-10-12 wave 2 (five more videos)
+
+Same day, five more topics from the scored shortlist (`2026-10-12-batch-2.json` → GPT-6.1 Sol 88, Alibaba Open Code
+Review 74, Higgsfield 73, Cloudflare Clef 68, LTX-2.5 63). All five rendered green on cloud run **38225784780** +
+**38229895618** → kits on Release `renders-2026-10-12`; covers extracted, reviewed on
+`research/maintenance/2026-10-12-wave2-covers.jpg` and approved (`cover_sha256` in `queue/publish.json`); enqueued
+held then approved with a **2026-10-14T08:00:00Z** review window (news ≤72 h). Scheduling runs **38240589501** (9
+posts) + **38240834720** (1 post) placed 10 of the 15 wave-2 slots; facebook/youtube reported "pending capacity
+reached; backlog retained" — the 6-hourly `post.yml` cron drains the rest (scheduled is not sent; reconcile first).
+Covers note: image-type hooks show the spoken caption mid-sentence in the extracted frame (0.6 s) — legible and
+consistent with the channel's on-screen language; owner question open in the batch-2 receipt.
+
+## Build items approved 2026-10-12 ("must do these professionally")
+
+(a) **Scene manifest + single-scene rebuild** — `lib/scenes.py` + `reels.py scenes|rebuild` + `publish_release.py
+--download` + render.yml `rebuild_scenes/rebuild_reason/from_tag` inputs. ANY narration change still means a full
+render; unchanged scenes are verified by frame drift (`lib/scenes.py`, PIL-only) and the published audio is reused
+bit-for-bit (`mux_previous_audio`). Committed `665629c`; cloud proof run 38239546740.
+(b) **Analytics lane** — `tools/youtube/analytics.py snapshot|report`, store `tracker/analytics.json`; runner mode
+`analytics` (read-only on YouTube, runs in `schedule`/`enrich` too, commits the store like other journals).
+First live snapshot 2026-10-12: 6 Shorts at 24 h with views vs our own median (ppermorph ×6.62 … ai-newtab ×0.25).
+CTR/retention need `yt-analytics.readonly`, which is NOT in the current grant; the lane records the 403 verbatim
+instead of zeros. One-time remedy (owner decision, token cap applies): re-consent with
+`REELS_EXTRA_SCOPES=https://www.googleapis.com/auth/yt-analytics.readonly python3 tools/youtube/oauth_handoff.py`.
+(c) **Rule IDs in receipts** — every brief-lint and SEO-gate finding now carries a stable ID (BL0xx/SP0xx);
+`lib/gates.py` writes them into each render's `manifest.json` ("gates" section, history ≤10, change note) so the
+receipt travels inside the published kit, and `reels.py cloud` writes a pre-dispatch receipt to
+`research/maintenance/gates/`. `reels.py gates <briefs> [--json] [--no-record]`. Suite 274 OK.
+
 ## Previous batch — 2026-10-11
 
 Five Oct-10 productions (news-haiku-55-01, news-gemini-agent-01, tool-mosa-01, tool-pomelli-01, repo-whistle-01) were
