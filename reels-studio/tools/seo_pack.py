@@ -29,6 +29,24 @@ RULES = {  # platform: (main field, hard max chars, soft max chars, hashtags min
 }
 URL_X = 23  # X counts every link as 23 chars
 
+# Stable rule IDs: code -> (severity, one-line meaning). The receipt stores code + exact message.
+RULE_IDS = {
+    "SP001": ("error", "seo.keyword present"),
+    "SP010": ("warning", "keyword spoken in the first ~10 s"),
+    "SP011": ("warning", "keyword in the on-screen text of the first 3 s"),
+    "SP020": ("error", "platform block present"),
+    "SP030": ("error", "field within the platform hard character limit"),
+    "SP031": ("warning", "field within the recommended character limit"),
+    "SP040": ("error", "hashtag count within the platform maximum"),
+    "SP041": ("warning", "hashtag count within the recommended range"),
+    "SP050": ("error", "hashtags are well formed"),
+    "SP051": ("warning", "no generic tags (#fyp/#viral)"),
+    "SP060": ("warning", "keyword within the first N words of the field"),
+    "SP070": ("error", "youtube: #Shorts in the description hashtags"),
+    "SP071": ("warning", "youtube: keyword in the first 150 chars of the description"),
+    "SP072": ("error", "youtube: backend tags within 500 chars"),
+}
+
 
 def norm(s):
     return re.sub(r"[^a-z0-9 ]+", " ", (s or "").lower())
@@ -46,53 +64,69 @@ def x_len(text):
     return len(re.sub(r"https?://\S+|\b[\w.-]+\.(com|io|dev|ai|org)/\S*", "x" * URL_X, text))
 
 
-def main():
-    brief_path = Path(sys.argv[1])
-    b = json.loads(brief_path.read_text())
+def check(brief_path_or_text):
+    """Validate one brief's seo block.
+
+    -> (brief id, error strings, warning strings, findings). Strings carry a leading "[SPxxx] ";
+    findings is the structured form [{"id", "severity", "message"}] that receipts persist.
+    Reads a path (str/Path) or a raw JSON text (str starting with "{").
+    """
+    text = str(brief_path_or_text)
+    b = json.loads(text) if text.lstrip().startswith("{") else json.loads(Path(text).read_text())
+    bid = b.get("id") or "?"
     seo = b.get("seo") or {}
     kws = [seo.get("keyword", "")] + seo.get("aliases", [])
     kws = [k for k in kws if k]
-    errors, warns, blocks = [], [], []
+    errors, warns, findings, blocks = [], [], [], []
+
+    def add(code, message):
+        severity = RULE_IDS[code][0]
+        (errors if severity == "error" else warns).append(f"[{code}] {message}")
+        findings.append({"id": code, "severity": severity, "message": message})
+
     if not kws:
-        errors.append("seo.keyword missing")
+        add("SP001", "seo.keyword missing")
     # spoken + on-screen alignment from the script
     scenes = b.get("scenes") or []
     spoken5 = " ".join(s.get("say", "") for s in scenes[:1])  # hook line ≈ first 4-5 s at ~170 wpm
     onscreen = seo.get("onscreen_first3s") or (scenes[0].get("headline", "") + " " + scenes[0].get("sub", "") if scenes else "")
     if kws and not has_kw(spoken5 + " " + " ".join(s.get("say", "") for s in scenes[1:3]), kws):
-        warns.append("keyword not spoken in the first ~10 s: TikTok/YouTube index speech (say it in the hook if natural)")
+        add("SP010", "keyword not spoken in the first ~10 s: TikTok/YouTube index speech (say it in the hook if natural)")
     if kws and not has_kw(onscreen, kws + [w for k in kws for w in k.split() if len(w) > 3]):
-        warns.append(f"keyword not in on-screen text of the first 3 s ('{onscreen.strip()}')")
+        add("SP011", f"keyword not in on-screen text of the first 3 s ('{onscreen.strip()}')")
     for plat, (field, hard, soft, hmin, hmax, firstn) in RULES.items():
         p = seo.get(plat)
         if not p:
-            errors.append(f"{plat}: missing block")
+            add("SP020", f"{plat}: missing block")
             continue
         text = p.get(field, "")
         tags = p.get("hashtags", [])
         n = x_len(text + " " + " ".join(tags)) if plat == "x" else len(text)
         if n > hard:
-            errors.append(f"{plat}: {field} {n} chars > hard limit {hard}")
+            add("SP030", f"{plat}: {field} {n} chars > hard limit {hard}")
         elif n > soft:
-            warns.append(f"{plat}: {field} {n} chars > recommended {soft}")
+            add("SP031", f"{plat}: {field} {n} chars > recommended {soft}")
         if not (hmin <= len(tags) <= hmax):
-            (errors if plat in ("instagram", "x") and len(tags) > hmax else warns).append(f"{plat}: {len(tags)} hashtags (want {hmin}-{hmax})")
+            add("SP040" if plat in ("instagram", "x") and len(tags) > hmax else "SP041", f"{plat}: {len(tags)} hashtags (want {hmin}-{hmax})")
         if any(not re.fullmatch(r"#\w+", t) for t in tags):
-            errors.append(f"{plat}: malformed hashtag in {tags}")
+            add("SP050", f"{plat}: malformed hashtag in {tags}")
         if any(t.lower() in ("#fyp", "#foryou", "#foryoupage", "#viral") for t in tags):
-            warns.append(f"{plat}: generic tags (#fyp/#viral) carry no signal in 2026")
+            add("SP051", f"{plat}: generic tags (#fyp/#viral) carry no signal in 2026")
         if kws and not has_kw(text, kws, firstn):
-            warns.append(f"{plat}: keyword not within the first {firstn} words of the {field}")
+            add("SP060", f"{plat}: keyword not within the first {firstn} words of the {field}")
         if plat == "youtube":
             if "#shorts" not in [t.lower() for t in tags]:
-                errors.append("youtube: #Shorts missing from description hashtags")
+                add("SP070", "youtube: #Shorts missing from description hashtags")
             desc = p.get("description", "")
             if kws and not has_kw(desc[:150], kws):
-                warns.append("youtube: keyword not in the first 150 chars of the description")
+                add("SP071", "youtube: keyword not in the first 150 chars of the description")
             if len(",".join(p.get("tags", []))) > 500:
-                errors.append("youtube: backend tags exceed 500 chars")
+                add("SP072", "youtube: backend tags exceed 500 chars")
         blocks.append((plat, p, text, tags))
-    # render
+    return bid, errors, warns, findings, b, seo, blocks, spoken5, onscreen
+
+
+def render_report(b, seo, blocks, spoken5, onscreen, errors, warns, findings):
     out_dir = ROOT / "renders" / b["id"]
     out_dir.mkdir(parents=True, exist_ok=True)
     L = [f"# SEO pack: {b['id']}", "", f"**Primary keyword:** `{seo.get('keyword', '')}` · aliases: {', '.join(seo.get('aliases', [])) or '-'}",
@@ -112,13 +146,35 @@ def main():
             L += ["```", text.strip() + ("\n\n" + " ".join(tags) if tags else ""), "```", ""]
     L += ["## Checks", ""] + [f"- ❌ {e}" for e in errors] + [f"- ⚠ {w}" for w in warns] + (["- ✅ all platform rules pass"] if not errors and not warns else [])
     (out_dir / "seo.md").write_text("\n".join(L) + "\n", encoding="utf-8")
-    print(f"seo pack -> renders/{b['id']}/seo.md  ({len(errors)} errors, {len(warns)} warnings)")
-    for e in errors:
-        print("  ❌", e)
-    for w in warns:
-        print("  ⚠", w)
-    sys.exit(1 if errors else 0)
+    return out_dir / "seo.md", findings
+
+
+def main():
+    argv = sys.argv[1:]
+    as_json = "--json" in argv
+    args = [a for a in argv if a != "--json"]
+    if not args:
+        print(__doc__)
+        return 2
+    rc = 0
+    report = {}
+    for a in args:
+        bid, errors, warns, findings, b, seo, blocks, spoken5, onscreen = check(a)
+        path, _ = render_report(b, seo, blocks, spoken5, onscreen, errors, warns, findings)
+        report[bid] = {"errors": errors, "warnings": warns, "findings": findings}
+        if as_json:
+            rc = rc or bool(errors)
+            continue
+        print(f"seo pack -> {path.relative_to(ROOT)}  ({len(errors)} errors, {len(warns)} warnings)")
+        for e in errors:
+            print("  ❌", e)
+        for w in warns:
+            print("  ⚠", w)
+        rc = rc or bool(errors)
+    if as_json:
+        print(json.dumps(report, indent=2))
+    return 1 if rc else 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

@@ -104,6 +104,8 @@ jobs:
           python3 reels-studio/reels.py make "$BRIEF" --quality "${{ inputs.quality }}" --crf "${{ inputs.crf }}" "${extra[@]}"
       - name: SEO pack (gate)
         run: python3 reels-studio/tools/seo_pack.py "$BRIEF"
+      - name: Gate receipt (rule IDs -> manifest)
+        run: python3 reels-studio/reels.py gates "$BRIEF"
       - name: Publish
         run: python3 reels-studio/tools/publish_release.py --tag "${{ needs.plan.outputs.tag }}" --kit "reels-studio/renders/${{ matrix.brief }}"
       - uses: actions/upload-artifact@v4

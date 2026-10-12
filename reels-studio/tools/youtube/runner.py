@@ -19,6 +19,7 @@ sys.path.insert(0, str(ROOT))
 from lib.secrets import redact, youtube_credentials, youtube_state_key
 from tools.post.common import config as root_config, fingerprint, iso, load_json, now_utc, parse_time, save_json, valid_id
 from tools.post.state import Journal
+from tools.youtube import analytics as analytics_lane
 from tools.youtube.api import Deferred, Uncertain, YouTubeAPI, YouTubeError
 from tools.youtube.contracts import fetch_short_cover, preflight, read_brief
 from tools.youtube.metadata import enrich_short, get_video, playlists_for, set_thumbnail
@@ -278,6 +279,10 @@ def report_text(report):
             cover = "confirmed" if r.get("thumbnail_confirmed") else ("blocked" if r.get("thumbnail_blocked") else ("—" if r.get("state") == "done" else "pending"))
             note = (r.get("thumbnail_error") or r.get("last_error") or "—")[:90]
             lines.append(f"| {r.get('video_id','?')} | {'yes' if r.get('tags_done') else 'pending'} | {cover} | {note} |")
+    if report.get("analytics"):
+        lines += ["", "## Shorts analytics (24 h / 7 d vs our own history)", "",
+                  f"Snapshots taken this run: {', '.join(report['analytics']['changed']) or 'none due'}", "",
+                  "```", report["analytics"]["summary"], "```"]
     lines += ["", "## Notes"] + ["- "+s for s in report.get("notes", [])]
     lines += ["", "## Issues"] + ["- "+s for s in report.get("issues", [])]
     lines += ["", "Scheduled/private/processing is not published. Only a confirmed public receipt is marked sent."]
@@ -287,7 +292,7 @@ def report_text(report):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("video_ids", nargs="*", type=valid_id)
-    ap.add_argument("--mode", choices=["dry-run", "private-pilot", "schedule", "enrich", "reconcile"], default="dry-run")
+    ap.add_argument("--mode", choices=["dry-run", "private-pilot", "schedule", "enrich", "reconcile", "analytics"], default="dry-run")
     ap.add_argument("--pilot", action="store_true")
     ap.add_argument("--include-manual", action="store_true",
                     help="one explicit run may also enrich hand-published uploads (cover gate still applies)")
@@ -304,7 +309,7 @@ def main():
             raise SystemExit("Unknown long-video IDs: "+", ".join(sorted(missing)))
         items = [i for i in items if i["video_id"] in args.video_ids]
     dry = args.mode == "dry-run"
-    if not dry and os.environ.get("GITHUB_ACTIONS") != "true":
+    if not dry and os.environ.get("GITHUB_ACTIONS") != "true" and args.mode != "analytics":
         raise SystemExit("Use the YouTube Actions workflow for durable journal-changing operations")
     if args.mode in {"schedule", "private-pilot", "enrich"}:
         if os.environ.get("ALLOW_YOUTUBE_MUTATIONS") != "true":
@@ -350,6 +355,14 @@ def main():
                     process(item, row, api, journal, root_cfg, work, uploads, args.mode == "private-pilot")
             if args.mode in {"schedule", "enrich"}:
                 report["enriched"] = enrich_buffer_shorts(api, journal, shorts_records, load_json(ROOT/"queue/publish.json")["items"], root_cfg)
+            if args.mode in {"schedule", "enrich", "analytics"}:
+                # 24 h / 7 d performance snapshots; read-only on YouTube, committed like the other journals
+                store_journal = Journal(root_cfg, remote=(not dry), path=ROOT/"tracker/analytics.json",
+                                        remote_path="reels-studio/tracker/analytics.json")
+                changed = analytics_lane.snapshot(api, shorts_records, store_journal.data, now_utc())
+                if changed and not dry:
+                    store_journal.save("analytics snapshot " + ", ".join(changed[:4]) + ("…" if len(changed) > 4 else ""))
+                report["analytics"] = {"changed": changed, "summary": analytics_lane.summarize(store_journal.data)}
             for r in journal.records.values():
                 if r.get("state") in BLOCKED | {"session_start_uncertain", "upload_uncertain", "expired_uncertain"}:
                     report["issues"].append(r["video_id"] + ": " + r.get("last_error", r["state"]))

@@ -62,7 +62,31 @@ class BriefLintTests(unittest.TestCase):
         p = self.root / f"{b['id']}.json"
         p.write_text(json.dumps(b))
         with patch.object(brief_lint, "ROOT", self.root):
-            return check(p)
+            bid, errors, warns, findings = check(p)
+        self.last_findings = findings
+        return bid, errors, warns
+
+    def test_findings_carry_stable_rule_ids(self):
+        b = brief()
+        b["scenes"][0]["headline"] = "A *BROKEN HOOK"
+        b["scenes"][0]["camera"] = [{"region": "below_the_viewport"}]
+        _, errors, _ = self.lint(b)
+        ids = {f["id"] for f in self.last_findings}
+        self.assertEqual(ids, {"BL040", "BL070"})
+        self.assertTrue(all(e.startswith("[") for e in errors))
+        self.assertTrue(all(f["severity"] == "error" for f in self.last_findings))
+
+    def test_warning_rule_ids_and_clean_brief_has_no_findings(self):
+        b = brief()
+        b["scenes"][0].pop("at", None)
+        self.lint(b)
+        self.assertEqual(self.last_findings, [])
+        b2 = brief()
+        b2["scenes"] = [{"id": "s1", "type": "verdict", "say": "one two", "cons": ["a", "b"]}]
+        _, errors, warns = self.lint(b2)
+        self.assertEqual(errors, [])
+        self.assertEqual([f["id"] for f in self.last_findings], ["BL051"])
+        self.assertTrue(all(f["severity"] == "warning" for f in self.last_findings))
 
     def test_valid_brief_is_clean(self):
         bid, errors, warns = self.lint(brief())
@@ -122,7 +146,7 @@ class BriefLintTests(unittest.TestCase):
     def test_every_repo_brief_lints_without_errors(self):
         for p in sorted((ROOT / "briefs").glob("*.json")):
             with self.subTest(brief=p.name):
-                _, errors, _ = check(p)
+                _, errors, _, _ = check(p)
                 self.assertEqual(errors, [], f"{p.name}: {errors}")
 
 

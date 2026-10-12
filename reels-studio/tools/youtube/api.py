@@ -51,6 +51,21 @@ def validate_session_url(url):
     return url
 
 
+# The exact, single non-Data-API endpoint this client is allowed to call: YouTube Analytics
+# reports (read-only; needs the yt-analytics.readonly grant, which the analytics lane reports
+# honestly as unavailable until the owner adds it). Anything else is rejected like an upload URL.
+ANALYTICS_REPORTS = "https://youtubeanalytics.googleapis.com/v2/reports"
+
+
+def validate_analytics_url(url):
+    p = urlparse(url)
+    if (url != ANALYTICS_REPORTS or p.scheme != "https" or p.hostname != "youtubeanalytics.googleapis.com"
+            or p.port not in (None, 443) or p.username or p.password or p.path != "/v2/reports"
+            or p.query or p.fragment):
+        raise YouTubeError("Rejected unexpected analytics host/path", "INVALID_ANALYTICS_URL")
+    return url
+
+
 class YouTubeAPI:
     def __init__(self, cfg, journal, credentials=None, session=None, sleep=time.sleep,
                  clock=time.monotonic, wallclock=now_utc, jitter=None):
@@ -117,7 +132,7 @@ class YouTubeAPI:
     def request(self, method, resource, *, params=None, body=None, data=None, headers=None,
                 cost=1, idempotent=True, upload_start=False, timeout=(10, 90)):
         if resource.startswith("https://"):
-            url = validate_session_url(resource)
+            url = validate_analytics_url(resource) if resource.startswith(ANALYTICS_REPORTS) else validate_session_url(resource)
         elif resource.startswith("upload/"):
             url = UPLOAD + resource.removeprefix("upload/")
         else:

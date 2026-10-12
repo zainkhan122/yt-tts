@@ -7,7 +7,7 @@ on:
       mode:
         description: 'dry-run sends no YouTube request; private-pilot uploads one private video'
         type: choice
-        options: [dry-run, private-pilot, schedule, enrich, reconcile]
+        options: [dry-run, private-pilot, schedule, enrich, reconcile, analytics]
         default: dry-run
       video_ids:
         description: 'Optional approved long-video IDs; required for a pilot'
@@ -87,7 +87,7 @@ jobs:
           VIDEO_IDS: ${{ inputs.video_ids }}
           PILOT: ${{ inputs.pilot }}
           INCLUDE_MANUAL: ${{ inputs.include_manual }}
-          ALLOW_YOUTUBE_MUTATIONS: ${{ steps.gate.outputs.mode != 'dry-run' && steps.gate.outputs.mode != 'reconcile' && 'true' || 'false' }}
+          ALLOW_YOUTUBE_MUTATIONS: ${{ steps.gate.outputs.mode != 'dry-run' && steps.gate.outputs.mode != 'reconcile' && steps.gate.outputs.mode != 'analytics' && 'true' || 'false' }}
           PYTHONUNBUFFERED: '1'
         run: |
           python3 - <<'PY'

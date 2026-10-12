@@ -32,6 +32,15 @@ PENDING = PRIVATE/"youtube_oauth_pending.json"
 CALLBACK = "https://zainkhan122.github.io/yt-tts/oauth/callback/"
 AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth"
 
+# Owner opt-in for extra read-only scopes, used ONLY when a real lane needs one and the owner
+# re-consents deliberately (never recreationally - the project OAuth client has a token cap).
+# Today the only candidate: https://www.googleapis.com/auth/yt-analytics.readonly (CTR/retention).
+EXTRA_SCOPES = [s for s in os.environ.get("REELS_EXTRA_SCOPES", "").split() if s]
+
+
+def requested_scopes():
+    return [*SCOPES, *EXTRA_SCOPES]
+
 
 def b64(value):
     return base64.urlsafe_b64encode(value).decode().rstrip("=")
@@ -84,7 +93,7 @@ def make_flow(client, origin=None, now=None):
     state = payload + "." + b64(hmac.new(signing, payload.encode(), hashlib.sha256).digest())
     pending = {"client": client, "verifier": verifier, "state": state, "signing": b64(signing), "expires": expires}
     pending.update({"handoff": "file"} if manual else {"origin": origin})
-    query = {"client_id": client["client_id"], "redirect_uri": CALLBACK, "response_type": "code", "scope": " ".join(SCOPES),
+    query = {"client_id": client["client_id"], "redirect_uri": CALLBACK, "response_type": "code", "scope": " ".join(requested_scopes()),
              "access_type": "offline", "prompt": "consent", "include_granted_scopes": "true", "state": state,
              "code_challenge": b64(hashlib.sha256(verifier.encode()).digest()), "code_challenge_method": "S256"}
     return pending, AUTH_URL + "?" + urlencode(query)
@@ -142,7 +151,7 @@ def complete(pending, code, state, session=requests):
         raise ValueError("Google did not grant offline access; reconnect with consent")
     for key in ("refresh_token", "access_token"):
         register_sensitive(token[key])
-    if token.get("scope") and not set(SCOPES).issubset(set(token["scope"].split())):
+    if token.get("scope") and not set(requested_scopes()).issubset(set(token["scope"].split())):
         raise ValueError("Required YouTube permission was not granted")
     r = session.get("https://www.googleapis.com/youtube/v3/channels", params={"part": "id,snippet", "mine": "true"},
                     headers={"Authorization": "Bearer " + token["access_token"]}, timeout=30, allow_redirects=False)
@@ -150,7 +159,7 @@ def complete(pending, code, state, session=requests):
     if r.status_code != 200 or not any(c["id"] == expected for c in r.json().get("items", [])):
         raise ValueError("This authorization is not for the expected Hypeless channel. Choose the correct Google/Brand channel.")
     bundle = {**pending["client"], "refresh_token": token["refresh_token"], "channel_id": expected,
-              "scopes": SCOPES, "connected_at": int(time.time())}
+              "scopes": requested_scopes(), "connected_at": int(time.time())}
     if token.get("refresh_token_expires_in"):
         bundle["refresh_token_expires_at"] = int(time.time()) + int(token["refresh_token_expires_in"])
     secure_write(YOUTUBE_PATH, bundle)

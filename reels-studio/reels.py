@@ -137,6 +137,42 @@ def cmd_sync(a):
     print("pushed:", git("log", "--oneline", "-1"))
 
 
+def _brief_path(name):
+    p = Path(name)
+    if p.exists() and p.suffix == ".json":
+        return p
+    return ROOT / "briefs" / f"{Path(name).stem}.json"
+
+
+def cmd_gates(a):
+    """Run both gates, print findings by rule ID, and store them in the render manifests."""
+    sys.path.insert(0, str(ROOT))
+    from lib import gates
+    reports, failed = [], 0
+    for name in a.briefs:
+        bp = _brief_path(name)
+        if not bp.exists():
+            print(f"x {name}: no brief at {bp}")
+            failed += 1
+            continue
+        report = gates.run(bp)
+        report["at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        manifest = ROOT / "renders" / bp.stem / "manifest.json"
+        if not a.no_record and manifest.exists():
+            gates.record(manifest, report)
+            report["recorded_in"] = str(manifest.relative_to(ROOT))
+        reports.append(report)
+        if not a.json:
+            for line in gates.summary_lines(report):
+                print(line)
+            if report.get("recorded_in"):
+                print(f"  recorded -> {report['recorded_in']}")
+        failed += bool(report["rollup"]["errors"])
+    if a.json:
+        print(json.dumps(reports, indent=2, ensure_ascii=False))
+    return 1 if failed else 0
+
+
 def cmd_publish(a):
     args = [sys.executable, str(ROOT / "tools" / "publish_release.py"), "--tag", a.tag]
     for k in a.kits:
@@ -151,11 +187,25 @@ def cmd_cloud(a):
     missing = [i for i in ids if not (ROOT / "briefs" / f"{i}.json").exists()]
     if missing:
         raise SystemExit(f"no brief for: {', '.join(missing)} (briefs must be committed: python3 reels.py sync)")
-    lint = subprocess.run([sys.executable, str(ROOT / "tools" / "brief_lint.py"),
-                           *[str(ROOT / "briefs" / f"{i}.json") for i in ids]])
-    if lint.returncode:
-        raise SystemExit("brief lint found errors — fix them before spending cloud runners")
+    sys.path.insert(0, str(ROOT))
+    from lib import gates
+    reports, gates_failed = [], 0
+    for i in ids:
+        report = gates.run(ROOT / "briefs" / f"{i}.json")
+        report["at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        reports.append(report)
+        gates_failed += bool(report["rollup"]["errors"])
+        for line in gates.summary_lines(report):
+            print(line)
+    stamp = time.strftime("%Y-%m-%dT%H%M%SZ", time.gmtime())
+    receipt = ROOT / "research/maintenance/gates" / f"{stamp}-cloud-{len(ids)}briefs.json"
+    receipt.parent.mkdir(parents=True, exist_ok=True)
+    receipt.write_text(json.dumps({"dispatched": ids, "gates": reports}, indent=2, ensure_ascii=False) + "\n")
+    print(f"gate receipt -> {receipt.relative_to(ROOT)}")
+    if gates_failed:
+        raise SystemExit("gates found errors — fix them before spending cloud runners")
     run_id = gh_actions.dispatch("render.yml", {"briefs": " ".join(ids), "tag": a.tag, "quality": a.quality, "crf": str(a.crf)})
+    receipt.write_text(json.dumps({"dispatched": ids, "run_id": run_id, "gates": reports}, indent=2, ensure_ascii=False) + "\n")
     print(f"cloud render started: https://github.com/{gh_actions.REPO}/actions/runs/{run_id}  ({len(ids)} video(s))")
     if a.wait:
         result = gh_actions.wait(run_id, 5400)
@@ -315,6 +365,10 @@ def main():
     p.add_argument("--tag", default=time.strftime("renders-%Y-%m-%d"))
     p = sub.add_parser("lint", help="validate briefs (assets, regions, sync words, SEO) before rendering")
     p.add_argument("briefs", nargs="+", help="brief ids or paths")
+    p = sub.add_parser("gates", help="run brief lint + SEO gate with stable rule IDs and record them in each render's manifest")
+    p.add_argument("briefs", nargs="+", help="brief ids or paths")
+    p.add_argument("--json", action="store_true", help="print the receipt JSON")
+    p.add_argument("--no-record", action="store_true", help="print only; do not write manifests/<id>/manifest.json")
     p = sub.add_parser("cloud", help="render briefs on GitHub Actions (one runner each, up to 10 in parallel)")
     p.add_argument("briefs", nargs="+", help="brief ids or paths (briefs/<id>.json)")
     p.add_argument("--tag", default="", help="release tag (default renders-YYYY-MM-DD)")
@@ -364,6 +418,8 @@ def main():
         return cmd_cloud(a)
     if a.cmd == "lint":
         return subprocess.call([sys.executable, str(ROOT / "tools" / "brief_lint.py"), *a.briefs])
+    if a.cmd == "gates":
+        return cmd_gates(a)
     if a.cmd == "renders":
         return subprocess.run([sys.executable, str(ROOT / "tools" / "publish_release.py"), "--list"]).returncode
     if a.cmd == "radar":
