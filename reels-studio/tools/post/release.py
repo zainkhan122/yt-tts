@@ -37,7 +37,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from tools.post.buffer_api import BufferClient  # noqa: E402
-from tools.post.common import PENDING, TERMINAL, config, iso, load_json, media_url, now_utc, save_json  # noqa: E402
+from tools.post.common import (PENDING, TERMINAL, config, iso, load_json, media_url, now_utc,  # noqa: E402
+                               parse_time, save_json)
 
 CONFIRM = "OWNER_APPROVED_QUEUE_CLEAR"
 CONFIRM_REFRESH = "OWNER_APPROVED_MEDIA_REFRESH"
@@ -83,12 +84,19 @@ def audit(journal_rows, posts, queue, cfg):
     return rows
 
 
-def refresh_input(record, item, cfg):
-    """EditPostInput that swaps only the video asset, so the post keeps its slot and metadata."""
-    video = {"url": media_url(item, cfg)}
-    if ":instagram" in record["_key"]:
-        video["metadata"] = {"thumbnailOffset": 1000}
-    return {"id": record["buffer_post_id"], "assets": [{"video": video}]}
+def refresh_input(record, item, cfg, due):
+    """EditPostInput that swaps the video asset.
+
+    editPost validates the resulting post as a whole, and a service metadata object must carry all
+    of its required members, so we rebuild metadata+assets with the planner's own payload builder
+    (identical copy, disclosure and thumbnailOffset settings to the original create) while leaving
+    text, dueAt, mode and schedulingType out - those stay exactly as stored, so the post keeps its
+    caption and its slot without us writing a stale copy back over them.
+    """
+    from tools.post.planner import payload_for
+    platform = record["_key"].split(":")[-1]
+    payload = payload_for(item, platform, due or now_utc(), cfg)
+    return {"id": record["buffer_post_id"], "assets": payload["assets"], "metadata": payload["metadata"]}
 
 
 def main():
@@ -131,7 +139,7 @@ def main():
             if not item:
                 print(f"  skip {entry['key']}: video not in queue")
                 continue
-            payload = refresh_input(record, item, config())
+            payload = refresh_input(record, item, config(), parse_time(record.get("due_at")))
             result = client.request("""mutation HypelessEdit($input: EditPostInput!) {
  editPost(input: $input) {
   __typename

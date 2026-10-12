@@ -754,17 +754,29 @@ class QueueReleaseTests(unittest.TestCase):
         posts[0]["assets"] = [{"source": "https://cdn.example/media/media/633733386/news-clef-01.mp4"}]
         self.assertEqual(audit(rows, posts, queue, cfg)[0]["verdict"], "OK")
 
-    def test_refresh_payload_swaps_only_the_video_and_keeps_slot(self):
+    def test_refresh_payload_swaps_the_video_and_keeps_slot(self):
         from tools.post.release import refresh_input
-        cfg = {"media": {"base_url": "https://cdn.example/media"}}
+        from tools.post.common import iso, now_utc
+        cfg = self.cfg()
         item = {"video_id": "news-clef-01", "media_path": "media/633733386/news-clef-01.mp4"}
-        fb = refresh_input({"buffer_post_id": "bp1", "_key": "news-clef-01:facebook"}, item, cfg)
+        fb = refresh_input({"buffer_post_id": "bp1", "_key": "news-clef-01:facebook"}, item, cfg, iso(now_utc()))
         self.assertEqual(fb["id"], "bp1")
-        self.assertEqual(fb["assets"], [{"video": {"url": "https://cdn.example/media/media/633733386/news-clef-01.mp4"}}])
-        self.assertNotIn("dueAt", fb)      # slot preserved
-        self.assertNotIn("metadata", fb)   # service settings preserved
-        ig = refresh_input({"buffer_post_id": "bp2", "_key": "news-clef-01:instagram"}, item, cfg)
+        self.assertEqual(fb["assets"][0]["video"]["url"],
+                         "https://cdn.example/media/media/633733386/news-clef-01.mp4")
+        self.assertEqual(fb["metadata"], {"facebook": {"type": "reel"}})   # required members resent, whole post validates
+        for kept in ("dueAt", "mode", "schedulingType", "text"):          # never rewritten: slot + caption stay as stored
+            self.assertNotIn(kept, fb)
+        ig = refresh_input({"buffer_post_id": "bp2", "_key": "news-clef-01:instagram"}, item, cfg, iso(now_utc()))
         self.assertEqual(ig["assets"][0]["video"]["metadata"], {"thumbnailOffset": 1000})
+        self.assertEqual(ig["metadata"]["instagram"]["type"], "reel")
+        self.assertTrue(ig["metadata"]["instagram"]["shouldShareToFeed"])
+
+    def cfg(self):
+        import json
+        from tools.post.common import config
+        c = json.loads(json.dumps(config()))
+        c["media"] = {"base_url": "https://cdn.example/media"}
+        return c
 
     def test_refresh_requires_its_own_confirmation(self):
         import subprocess, sys
