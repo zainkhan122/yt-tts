@@ -1,6 +1,6 @@
 {
   "batch": "2026-10-12",
-  "status": "scheduled; post-batch hardening complete",
+  "status": "scheduled; hardening verified (233 passed: 230 + 3 new gh_actions tests)",
   "owner_instruction": "Make 5 videos for today and schedule them. The system must not be hardcoded to 2 tools / 2 news / 1 repo. Pick the 5 best topics by findings (search, relevance, popularity).",
   "policy_change": {
     "commit": "ee1fd2f (pushed in 820a154)",
@@ -236,6 +236,18 @@
     "gh_actions logs raised a raw 404 traceback while a job was still running -> blob-redirect failures now return a friendly message",
     ".git/config dropped by the workspace snapshot -> reels.py ensure_git_config() restores the template automatically before any git call",
     "brief near-misses caught by hand (assets below the viewport, unspoken sync words, item_at) -> reusable tools/brief_lint.py + 11 regression tests; reels.py lint + a pre-dispatch lint gate in reels.py cloud",
-    "transient GitHub API 404s observed through the helper mid-session (curl with the vault token worked); later calls succeeded - recorded, no code change beyond the logs fix"
-  ]
+    "mid-session GitHub API 404s were NOT transient: tools/gh_actions.api() prefixes the repo base onto paths, so the agent's absolute '/repos/...' calls double-prefixed and 404ed while the vault token was fine (curl proved it). FIXED: _url() now accepts repo-relative paths, absolute '/repos/...' paths and full URLs, with regression tests (tests/test_gh_actions.py). Rule: inside the helper, paths are repo-relative unless they start with /repos/ or http.",
+    "long blocking waits (gh_actions.py wait) died with the sandbox during this session - use bounded polling (short bash poll loops that print and exit) instead of multi-minute blocking waits; the runs themselves were unaffected"
+  ],
+  "hardening_verified_by_interactive_agent": {
+    "commit": "5476c56 (owner session, 08:03Z) verified at 08:2xZ: suite 230 -> 233 passed after adding the gh_actions normaliser tests (test collection initially failed only because the sandbox lost pip deps; reinstalled from the pinned requirements)",
+    "checks": [
+      "cadence.py: all three 5-clamps gone; extended grid engages only above base+optional slots; target = min(daily_target, max_videos_per_day)",
+      "config: max_videos_per_day 10, max_repo_videos_per_day 10, minimum_gap_minutes 150, extended_slots note present",
+      "brief_lint.py: the five shipped briefs pass with 0 errors / 0 warnings",
+      "receipt brief_sha256 values match the committed brief files exactly (verified by hashing)",
+      "gh_actions absolute-path 404 root-caused and fixed (see session_fixes); live-verified 200 via both path forms",
+      "crons are duplicate-safe: the cadence candidate filter skips any (video, platform) with a non-retryable journal record, so the 12:23Z/18:23Z runs propose nothing new (today is fully booked)"
+    ]
+  }
 }

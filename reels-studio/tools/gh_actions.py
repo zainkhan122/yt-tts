@@ -24,7 +24,8 @@ sys.path.insert(0, str(ROOT))
 from lib.secrets import gh_token  # noqa: E402
 
 REPO = "zainkhan122/yt-tts"
-API = f"https://api.github.com/repos/{REPO}"
+API_ROOT = "https://api.github.com"
+API = f"{API_ROOT}/repos/{REPO}"
 
 
 class _NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -37,8 +38,20 @@ def _headers():
             "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "reels-studio"}
 
 
+def _url(path):
+    """Accept repo-relative paths ('/actions/runs/1'), absolute repo paths
+    ('/repos/owner/name/releases') and full URLs. Before 2026-10-12 the helper
+    silently prefixed /repos/... too, producing a confusing 404 that cost real
+    debugging time; both forms now work (tests/test_gh_actions.py)."""
+    if path.startswith("http"):
+        return path
+    if path.startswith("/repos/"):
+        return API_ROOT + path
+    return API + path
+
+
 def api(method, path, body=None, raw=False):
-    req = urllib.request.Request(path if path.startswith("http") else API + path, method=method, headers=_headers(),
+    req = urllib.request.Request(_url(path), method=method, headers=_headers(),
                                  data=json.dumps(body).encode() if body is not None else None)
     opener = urllib.request.build_opener(_NoRedirect)
     try:

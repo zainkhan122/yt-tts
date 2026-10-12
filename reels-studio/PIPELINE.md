@@ -28,7 +28,7 @@ Every idea goes into **`topics/backlog.csv`** (SSOT for topics) with its signals
 
 **Daily mix (owner, 2026-10-11): NOT hardcoded.** The channel covers AI tools + AI news + repos; each batch's composition follows the researched editorial ranking (consensus, views, freshness, searchability) recorded as queue priorities. Pacing limits (ceiling **10/day** — owner 2026-10-12, 150-minute spacing, per-channel queue limits) still apply. Supersedes the 2026-10-09 fixed news/tool minimum.
 - `reels.py radar` runs the watchlist idea feed (AI tools + AI news, tool lexicon in `config/ai-tools.txt`) first, then the repo radar.
-- Per day: the count follows the researched factors up to a ceiling of **10/day** (owner 2026-10-12), with 150-minute spacing and per-channel queue limits; the category mix is editorial — the strongest researched topics win (owner 2026-10-11; see config `required_daily_categories`).
+- Per day: the count follows the researched factors up to a ceiling of **10/day** (owner 2026-10-12) — factors: rubric scores of available candidates, per-channel pending capacity (≤8), 150-minute spacing across the 48-hour lookahead, and review expiry. The category mix is editorial — the strongest researched topics win (owner 2026-10-11; see config `required_daily_categories`).
 - Shortlist 3 topics with facts checked on official pages → **owner approves** → briefs → cloud render.
 
 ## 2. Select: the scoring rubric (0–100, produce at ≥ 60)

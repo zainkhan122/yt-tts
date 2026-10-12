@@ -227,3 +227,12 @@ git call; (4) the brief near-misses caught by hand (assets below the captured vi
 `item_at`) are now a reusable `tools/brief_lint.py` with 11 regression tests, a `reels.py lint` command and a
 pre-dispatch gate in `reels.py cloud` so a broken brief can never spend a runner again. Details:
 `research/maintenance/2026-10-12-batch.json` → `session_fixes`.
+
+Hardening verification (interactive agent, same day): the `5476c56` package was re-checked end to end —
+all five shipped briefs pass `brief_lint` clean, the receipt's brief hashes match the committed files byte-for-byte,
+the ceiling test genuinely places >5 on an override day, and the suite is **233 passed** (230 + 3 new
+`tests/test_gh_actions.py`). One misdiagnosis was corrected: the mid-session GitHub 404s were not transient —
+`gh_actions.api()` prefixed absolute `/repos/...` paths with the repo base again; `_url()` now accepts
+repo-relative paths, absolute `/repos/...` paths and full URLs, verified live against the API. The remaining
+delivery verification is time-gated by the calendar itself: first reconcile after the 10:00Z send, first cover
+read-back after the 18:43Z enrichment cron.
