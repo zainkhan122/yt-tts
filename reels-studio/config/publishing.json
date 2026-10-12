@@ -1,5 +1,5 @@
 {
-  "activation_note": "Owner authorised today's publication across YT/IG/FB on 2026-10-10. One controlled immediate Claude pilot first; subsequent videos follow the researched paced calendar. 2026-10-11 owner instruction: the daily content mix must NOT be hardcoded (no fixed 2 tools / 2 news / 1 repo); required_daily_categories is empty. 2026-10-12 owner instruction (later): the 5/day production cap is removed \u2014 the daily count is chosen by the researched factors up to a ceiling of max_videos_per_day = 10, with minimum spacing 150 minutes and per-channel queue limits still enforced by the planner.",
+  "activation_note": "Owner authorised today's publication across YT/IG/FB on 2026-10-10. One controlled immediate Claude pilot first; subsequent videos follow the researched paced calendar. 2026-10-11 owner instruction: the daily content mix must NOT be hardcoded (no fixed 2 tools / 2 news / 1 repo); required_daily_categories is empty. 2026-10-12 owner instruction (later): the 5/day production cap is removed — the daily count is chosen by the researched factors up to a ceiling of max_videos_per_day = 10, with minimum spacing 150 minutes and per-channel queue limits still enforced by the planner.",
   "branch": "main",
   "buffer": {
     "channels": {
@@ -281,7 +281,8 @@
     "daily_target_overrides": {
       "2026-10-11": 5,
       "2026-10-12": 5,
-      "2026-10-13": 5
+      "2026-10-13": 5,
+      "2026-10-14": 5
     },
     "extended_slots": {
       "start": "00:00",
