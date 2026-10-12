@@ -29,6 +29,8 @@ SCENES = {
               "sub": "Probabilities, not text", "say": "Cloudflare Clef."},
     "stat": {"id": "hook", "type": "stat", "heading": "TWO DOLLARS *PER MILLION*",
              "stat": {"value": 2, "label": "per million tokens", "prefix": "$"}, "say": "Two dollars."},
+    "verdict": {"id": "hook", "type": "verdict", "heading": "THE *CATCH*",
+                "cons": ["One limitation"], "pros": ["One benefit"], "say": "Here is the tradeoff."},
     "page": {"id": "hook", "type": "page", "img": {"file": "desktop-top.jpg", "w": 1280, "h": 2400},
              "heading": "POST-TRAINED FROM *QWEN*", "url": "example.com", "say": "Here it is."},
     "scroll": {"id": "hook", "type": "scroll", "img": {"file": "desktop-top.jpg", "w": 1280, "h": 2400},
@@ -41,10 +43,11 @@ SCENES = {
 # class -> must be visible at frame 0 when the scene is the hook (see the CSS table check below)
 COVER_ELEMENTS = {
     "clip": ["sp-headline", "sp-sub"],
-    "image": ["sp-heading", "sp-imgcard"],
+    "image": ["sp-heading", "sp-sub", "sp-imgcard"],
     "stat": ["sp-heading", "sp-stat"],
+    "verdict": ["sp-heading"],
     "page": ["sp-heading", "sp-browser"],
-    "scroll": ["sp-browser"],
+    "scroll": ["sp-heading", "sp-browser"],
     "steps": ["sp-heading", "sp-steps"],
     "terminal": ["sp-heading", "sp-term"],
 }
@@ -82,7 +85,7 @@ const created = [];
 function mkNode(tag, cls, text) {
   const classes = String(cls || "").split(/\s+/).filter(Boolean);
   const el = {
-    tag, class: classes.join(" "), classes, text: text || "", children: [], attrs: {}, style: {},
+    tag, class: classes.join(" "), classes, text: text || "", children: [], attrs: {}, style: {}, fitOptions: null,
     cssHidden: classes.some((c) => hidden.has(c)),
     appendChild(c) { this.children.push(c); return c; },
     setAttribute(k, v) { this.attrs[k] = v; },
@@ -102,7 +105,7 @@ const A = {
   mk: (tag, cls, parent, text) => { const el = mkNode(tag, cls, text); if (parent && parent.appendChild) parent.appendChild(el); return el; },
   $: (sel) => (sel === "#stage" ? stage : null),
   ev: (k, d) => (typeof d === "number" ? d : 0.8),
-  fit: (el) => { el.scrollHeight = 40; return el; },
+  fit: (el, opts = {}) => { el.fitOptions = opts; el.scrollHeight = 40; return opts.max; },
   endCard: () => {},
   countText: () => {},
   svg: (tag, attrs, parent) => { const el = mkNode(tag, ""); if (attrs) el.attrs = { ...attrs }; if (parent && parent.appendChild) parent.appendChild(el); return el; },
@@ -112,7 +115,10 @@ const tl = { fromTo: () => {}, set: () => {}, to: () => {} };
 const buildFn = eval("(" + body + ")");
 (async () => {
   await buildFn(tl, A);
-  console.log(JSON.stringify(created.filter((e) => e.class).map((e) => ({ cls: e.class, inline: e.style.opacity === "1", hidden: e.cssHidden }))));
+  console.log(JSON.stringify(created.filter((e) => e.class).map((e) => ({
+    cls: e.class, inline: e.style.opacity === "1", hidden: e.cssHidden,
+    style: { ...e.style }, fit: e.fitOptions,
+  }))));
 })().catch((e) => { console.error(e && e.stack ? e.stack : String(e)); process.exit(1); });
 '''
 
@@ -133,7 +139,8 @@ class Frame0CoverTests(unittest.TestCase):
         scenes = [scene, {"id": "outro", "type": "endcard", "say": "Follow for more."}]
         if not first:
             scenes = [{"id": "opener", "type": "clip", "src": "d.mp4", "in": 0, "out": 2, "say": "First."}, scene]
-        data = {"extra": {"scenes": scenes, "regions": {"a": {"x": 10, "y": 10, "w": 100, "h": 50}}, "facts": {}, "url": "example.com"},
+        data = {"extra": {"scenes": scenes, "regions": {"a": {"x": 10, "y": 10, "w": 100, "h": 50}},
+                           "facts": {"name": "Example Tool", "repo": "example/tool"}, "url": "example.com"},
                 "captions": {"keywords": []}}
         payload = json.dumps({"data": data})
         out = subprocess.run(["node", str(self.harness), str(ROOT / "templates/_spotlight/scene.css"),
@@ -166,16 +173,70 @@ class Frame0CoverTests(unittest.TestCase):
                     self.assertFalse(self.forced_inline(rows, cls),
                                      f"{typ}: a non-hook scene must still fade in (found forced visibility on {cls})")
 
+    def test_every_heading_cover_uses_the_big_bold_clip_hook_font_range(self):
+        for typ, scene in SCENES.items():
+            with self.subTest(scene_type=typ):
+                rows = self.build(scene, first=True)
+                if typ == "clip":
+                    # The original reference path already uses this same big font range.
+                    heading = next((r for r in rows if "sp-headline" in r["cls"].split()), None)
+                    self.assertIsNotNone(heading, "clip: expected its original headline")
+                else:
+                    heading = next((r for r in rows if "sp-heading" in r["cls"].split()), None)
+                    self.assertIsNotNone(heading, f"{typ}: expected a cover heading")
+                    self.assertIn("cover-heading", heading["cls"].split(), f"{typ}: hook did not get cover typography")
+                self.assertEqual(heading["fit"], {"max": 200, "min": 80, "maxH": 380})
+
+    def test_cover_heading_css_matches_the_original_big_headline_band(self):
+        css = (ROOT / "templates/_spotlight/scene.css").read_text()
+        match = re.search(r"\.sp-heading\.cover-heading\s*\{([^}]*)\}", css)
+        self.assertIsNotNone(match, "missing large cover-heading rule")
+        props = dict(re.findall(r"([a-z-]+)\s*:\s*([^;]+);", match.group(1)))
+        self.assertEqual(props.get("top"), "236px")
+        self.assertEqual(props.get("height"), "380px")
+        self.assertEqual(props.get("font-size"), "170px")
+
+    def test_later_heading_keeps_the_smaller_scene_typography(self):
+        scene = {**SCENES["image"], "id": "later-image"}
+        rows = self.build(scene, first=False)
+        heading = next(r for r in rows if "sp-heading" in r["cls"].split())
+        self.assertNotIn("cover-heading", heading["cls"].split())
+        self.assertEqual(heading["fit"], {"max": 128, "min": 56, "maxH": 180})
+
+    def test_image_hook_reflows_large_title_subtitle_and_card_without_overlap(self):
+        scene = {**SCENES["image"]}
+        rows = self.build(scene, first=True)
+        sub = next(r for r in rows if "sp-sub" in r["cls"].split())
+        card = next(r for r in rows if "sp-imgcard" in r["cls"].split())
+        self.assertEqual(sub["style"].get("top"), "616px")
+        self.assertEqual(card["style"].get("top"), "700px")
+        self.assertGreaterEqual(int(card["style"]["top"].rstrip("px")),
+                                int(sub["style"]["top"].rstrip("px")) + sub.get("height", 40))
+        self.assertEqual(card["style"].get("height"), "608px")
+
+    def test_image_hook_without_subtitle_still_uses_big_title_and_lower_card(self):
+        scene = {k: v for k, v in SCENES["image"].items() if k != "sub"}
+        rows = self.build(scene, first=True)
+        heading = next(r for r in rows if "sp-heading" in r["cls"].split())
+        card = next(r for r in rows if "sp-imgcard" in r["cls"].split())
+        self.assertIn("cover-heading", heading["cls"].split())
+        self.assertEqual(card["style"].get("top"), "700px")
+
+    def test_big_title_card_layouts_move_supporting_content_below(self):
+        cases = [("page", "sp-browser", "700px"), ("terminal", "sp-term", "700px"),
+                 ("stat", "sp-stat", "700px"), ("steps", "sp-steps", "900px")]
+        for typ, cls, top in cases:
+            with self.subTest(scene_type=typ):
+                rows = self.build(SCENES[typ], first=True)
+                row = next(r for r in rows if cls in r["cls"].split())
+                self.assertEqual(row["style"].get("top"), top)
+
     def test_the_theme_still_hides_the_cover_classes(self):
         """If the CSS stops hiding these, this suite's premise changed — re-check the rule."""
         css = (ROOT / "templates/_spotlight/scene.css").read_text()
         hidden = set(re.findall(r"\.([a-z0-9-]+)\s*\{[^{}]*?opacity:\s*0\s*;", css))
         for cls in ("sp-heading", "sp-sub", "sp-imgcard", "sp-steps"):
             self.assertIn(cls, hidden, f"{cls} is no longer CSS-hidden; frame-0 rule needs review")
-
-
-if __name__ == "__main__":
-    unittest.main()
 
 
 class Frame0GuardTests(unittest.TestCase):
@@ -221,3 +282,7 @@ class Frame0GuardTests(unittest.TestCase):
         self.assertIn('checks["frame0_visible"] = f0_ok', source)
         self.assertIn('"frame0_ymax": f0_peak', source)
         self.assertIn('frame0_visible', source.split('if "approved_voice" in bad:')[1][:400])
+
+
+if __name__ == "__main__":
+    unittest.main()

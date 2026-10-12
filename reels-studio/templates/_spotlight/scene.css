@@ -28,6 +28,9 @@
 .sp-heading { position: absolute; left: 60px; right: 60px; top: 240px; height: 180px; display: flex; align-items: center;
   justify-content: center; text-align: center; color: #fff; font-size: 128px; opacity: 0;
   text-shadow: 0 6px 0 rgba(0, 0, 0, 0.5); }
+/* The first headed scene is also the platform cover. Match clip hooks: Anton, bold, two-line room. */
+.sp-heading.cover-heading { top: 236px; height: 380px; font-size: 170px;
+  text-shadow: 0 8px 0 rgba(0, 0, 0, 0.55), 0 0 40px rgba(0, 0, 0, 0.45); }
 .sp-heading .y, .sp-headline .y, .sp-question .y { color: var(--cap-key); }
 .rt { display: inline; }
 .sp-scrim { position: absolute; left: 0; right: 0; top: 0; height: 760px;

@@ -1,0 +1,29 @@
+2026-10-12 — mobile-safe cover title typography
+
+Owner report: newer video covers had too-small title type compared with the initial clips. Compared
+reference previews `renders/covers/news-claude-free-01-cover.jpg` and `tool-muse-01-cover.jpg`
+(large, bold, two-line clip hook) against image-hook previews `tool-qwen38-01-cover.jpg` and
+`repo-ds4-01-cover.jpg` (single-line title rendered much smaller).
+
+Root cause
+- Clip hooks use `.sp-headline`, `A.fit(max=200, min=80, maxH=380)` and a 380 px title band.
+- Image/page/stat/steps/terminal hooks use the general `.sp-heading`, `A.fit(max=128, min=56, maxH=180)`.
+- Long image-hook titles therefore shrink to a 56 px one-line style, much less readable on mobile.
+
+Fix
+- The shared heading builder now detects the first scene (`instant`) and gives that hook the
+  `cover-heading` class: same 200/80/380 fitting range and the same 380 px title band as the original
+  clip hooks. Later in-video headings keep the old smaller layout and fade-in.
+- Reflowed first-scene supporting visuals below the title band: image subtitle at y=616, image card
+  at y=700 (dynamically moved down for a multi-line subtitle); browser cards at y=700; terminal/stat
+  cards at y=700; first steps card at y=900.
+- `tests/test_frame0_cover.py` exercises the real scene builder in Node and asserts first-scene font
+  limits, scene/cover distinction, and image-card layout with and without subtitles.
+
+Validation: frame-0 suite = 14 tests OK; full suite = **322 tests OK**; `node --check`
+`templates/_spotlight/scene.js` passes.
+
+Scope: renderer source only; no current Release, Buffer queue entry, scheduled slot or sent post has
+been changed. Previously approved wave-2 no-rebuild scope remains honored. The already scheduled
+image-hook videos will retain their small-font frames unless the owner authorizes a rebuild + in-place
+Buffer refresh; sent posts cannot be fixed by refresh.

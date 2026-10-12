@@ -319,3 +319,21 @@ again?") is answered by this, one audit run later:
 * Durable guard: `post.yml` now runs the in-place `--refresh --confirm OWNER_APPROVED_MEDIA_REFRESH`
   before scheduled delivery and fails closed if refresh or its post-mutation read-back audit fails.
   Targeted `--delete` + row release remains owner-confirmed and is not the normal repair path.
+
+## 2026-10-12 — big, bold mobile cover typography
+
+Compared the initial clip-hook covers (`news-claude-free-01`, `tool-muse-01`) with the image-hook
+covers (`tool-qwen38-01`, `repo-ds4-01`). The older clip hook used Anton at a 200/80 px fit range in a
+380 px title band. The newer image hooks went through `.sp-heading` at 128/56 px in only 180 px,
+so long titles shrank to small single-line text.
+
+Fix: the shared `heading()` builder gives the **first scene only** a `cover-heading` class, 200 px
+maximum / 80 px minimum / 380 px fit height, matching the original clip-hook typography. First-scene
+image subtitles/cards and page/terminal/stat/steps supporting content are moved below the title band;
+subsequent in-video headings retain their prior size and animation. Regression tests cover the real
+scene builder and no-subtitle image hooks (`tests/test_frame0_cover.py`). Full suite: **322 tests OK**.
+
+This is a renderer-pipeline change only. It does not rewrite existing immutable releases or Buffer
+posts. The prior owner decision not to rebuild wave 2 remains in force unless changed; rollout to
+already-scheduled image-hook videos requires an explicit re-render/re-pin/Buffer-refresh decision.
+Detailed comparison and scope: `research/maintenance/2026-10-12-cover-type-fix.txt`.
