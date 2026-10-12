@@ -386,6 +386,14 @@
           }
           function sImage(s, root, t0, t1) {
             heading(root, s.heading, t0 + 0.05);
+            if (s.sub) {  // static cover line under the heading (karaoke captions hold until the first sentence ends)
+              const sub = A.mk("div", "sp-sub", root, s.sub);
+              sub.style.top = "436px";
+              A.fit(sub, { max: 54, min: 42, maxH: 66 });
+              if (sub.scrollHeight > 66) A.fit(sub, { max: 54, min: 40, maxH: 124 });
+              if (s.id === FIRST) tl.fromTo(sub, { opacity: 0 }, { opacity: 1, duration: 0.22, immediateRender: false, ease: "none" }, t0 + 0.12);
+              else tl.fromTo(sub, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.28, immediateRender: false }, t0 + 0.3);
+            }
             const card = A.mk("div", "sp-imgcard", root);
             const inn = A.mk("div", "in", card);
             const im = A.mk("img", "", inn);

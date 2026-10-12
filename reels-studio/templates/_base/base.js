@@ -136,6 +136,12 @@
               if (s.caption && s.words) s.words.forEach((w) => all.push({ w: w[0], s: w[1], e: w[2], seg: id }));
             });
             const maxW = cfg.maxWords || 3;
+            // Cover rule (owner 2026-10-12): the hook scene's captions stay hidden until its first
+            // spoken sentence ends, so an extracted cover frame never shows a half sentence. The
+            // hook's own static heading/sub carries the cover text. cfg.hold_seg/hold_until are
+            // computed by the pipeline from the real word timings; no config = old behaviour.
+            const holdSeg = String(cfg.hold_seg || ""), holdUntil = Number(cfg.hold_until || 0);
+            const isHeld = (g) => Boolean(holdSeg) && g.length > 0 && g[0].seg === holdSeg && holdUntil > 0 && g[0].s < holdUntil;
             const nk = (w) => String(w).toLowerCase().replace(/[^a-z0-9]/g, "");
             const keys = new Set((cfg.keywords || []).map(nk));  // caption keywords -> .key (yellow); numbers too
             const isKey = (w) => keys.has(nk(w)) || (cfg.numberKeys !== false && keys.size > 0 && /\d/.test(w));
@@ -150,6 +156,7 @@
               }
             });
             groups.forEach((g, gi) => {
+              if (isHeld(g)) return;  // held hook words: shown as the scene's static sub instead
               const div = mk("div", "cg", zone);
               const spans = g.map((x) => {
                 const w = mk("span", isKey(x.w) ? "cw key" : "cw", div);

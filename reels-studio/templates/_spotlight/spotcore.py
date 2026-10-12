@@ -147,7 +147,13 @@ POST = {"terminal": 0.85, "endcard": 0.9, "verdict": 0.3, "clip": 0.1, "clip-mon
 
 def segments(b, cfg):
     sc = scenes(b)
-    b.setdefault("captions", {}).setdefault("keywords", keywords(b))
+    caps = b.setdefault("captions", {})
+    caps.setdefault("keywords", keywords(b))
+    if sc and sc[0]["type"] == "image" and sc[0].get("say") and "hold_seg" not in caps:
+        # Owner rule 2026-10-12: an image-type hook shows its heading/sub on the cover, and the
+        # karaoke caption stays hidden until the hook's first spoken sentence ends (the pipeline
+        # fills in "hold_until" from the real word timings). Opt out with "captions": {"hold_seg": ""}.
+        caps["hold_seg"] = sc[0]["id"]
     out = []
     for i, s in enumerate(sc):
         cap = s.get("caption", not ((s["type"] == "clip" and s.get("headline")) or s["type"] == "endcard"))

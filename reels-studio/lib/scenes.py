@@ -182,3 +182,23 @@ def sample_times(scenes, rebuilt_ids, per_scene=3):
         for frac in [0.25, 0.5, 0.75][:per_scene]:
             times.append(round(scene["start"] + scene["duration"] * frac, 3))
     return times
+
+
+def sentence_end(words, fallback=None):
+    """Time the first spoken sentence of a line finishes (owner rule 2026-10-12).
+
+    Used for image hooks: the karaoke caption stays hidden until the hook's first sentence
+    is fully spoken, so the cover frame (t≈0.6 s) never shows a half-sentence caption.
+    `words` is the pipeline's [(word, start, end), ...]; falls back to the last word's end,
+    then to `fallback` (the segment end). Returns None when there is nothing to measure.
+    """
+    last = None
+    for word in words or []:
+        try:
+            text, end = str(word[0]), float(word[2])
+        except (IndexError, TypeError, ValueError):
+            continue
+        last = end
+        if text.rstrip('"\')]').rstrip().endswith((".", "!", "?", "…")):
+            return end
+    return last if last is not None else (float(fallback) if fallback is not None else None)

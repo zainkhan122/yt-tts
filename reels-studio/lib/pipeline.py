@@ -1024,10 +1024,19 @@ class Job:
                 shutil.copy2(src, fonts_dir / fn)
                 css.append(f'@font-face {{ font-family: "{fam}"; src: url("assets/fonts/{fn}") format("truetype"); font-weight: {wght}; font-style: normal; }}')
         brand = {"handle": "@yourhandle", "name": "Your Channel", "tagline": "", **b.get("brand", {})}
+        caps = {**self.tpl.DEFAULTS.get("captions", {}), **b.get("captions", {})}
+        if caps.get("hold_seg") and not caps.get("hold_until"):
+            # Owner rule 2026-10-12: an image hook holds the karaoke caption until its first spoken
+            # sentence ends, so the cover frame never shows a half-sentence caption (the scene's own
+            # static sub/heading carries the cover text instead).
+            seg = self.timing.get(caps["hold_seg"]) or {}
+            end = scenelib.sentence_end(seg.get("words") or [], seg.get("end"))
+            if end is not None:
+                caps["hold_until"] = round(float(end), 3)
         data = {
             "id": self.id, "duration": self.D, "fps": FPS, "seed": self.seed, "lang": b.get("lang", "en-us"), "urdu": urdu,
             "brand": brand, "segs": self.timing, "order": self.order, "events": self.events,
-            "captions": {**self.tpl.DEFAULTS.get("captions", {}), **b.get("captions", {})},
+            "captions": caps,
             "content": b.get("content", {}),
         }
         if hasattr(self.tpl, "data"):
