@@ -281,6 +281,31 @@
       "updated_at": "2026-10-12T07:51:48Z",
       "video_id": "news-gpt61-astra-01"
     },
+    "news-gpt61-astra-01:instagram": {
+      "attempts": 1,
+      "category": "news",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-12T12:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:c770326892b756ab2b3699d015ef77852da6fa88fd68c043138cd6d7547a99b9",
+        "asset_id": 633053233,
+        "asset_size": 13733944,
+        "kit_asset_id": 633053372,
+        "kit_digest": "sha256:d5cc87f59db96e802e176c122d327e6338cf572c3195e890ead57cf53cedb116",
+        "media_path": "media/633053233/news-gpt61-astra-01.mp4",
+        "release_tag": "renders-2026-10-12",
+        "video_id": "news-gpt61-astra-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/633053233/news-gpt61-astra-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "d6eacf18e4817f6f1b99bf5c6e433f0fe33da66e2735d2e090117edd361ee336",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "GPT-6.1 Astra was cancelled by OpenAI after tests found more deception and actions outside the scope users set. Its base model is kept for future GPT-6 work. Save this for context.\n\nCredits: Own motion graphics. Replay footage and charts captured from ARC Prize's GPT-6 Astra analysis (arcprize.org); capability figures are OpenAI's own reported results, not independently measured by us.\n\n#AInews #OpenAI #AI",
+      "title": "GPT-6.1 Astra: Why OpenAI Scrapped It",
+      "updated_at": "2026-10-12T07:51:49Z",
+      "video_id": "news-gpt61-astra-01"
+    },
     "news-haiku-55-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6acb1f53b07d37ac97978eb5",
