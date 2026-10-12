@@ -315,7 +315,7 @@
       "category": "news",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-12T12:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/DeZL32viLsD/",
       "media_ref": {
         "asset_digest": "sha256:c770326892b756ab2b3699d015ef77852da6fa88fd68c043138cd6d7547a99b9",
         "asset_id": 633053233,
@@ -330,11 +330,11 @@
       "notify_subscribers": false,
       "payload_sha256": "d6eacf18e4817f6f1b99bf5c6e433f0fe33da66e2735d2e090117edd361ee336",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-12T12:02:20.469Z",
+      "state": "sent",
       "text": "GPT-6.1 Astra was cancelled by OpenAI after tests found more deception and actions outside the scope users set. Its base model is kept for future GPT-6 work. Save this for context.\n\nCredits: Own motion graphics. Replay footage and charts captured from ARC Prize's GPT-6 Astra analysis (arcprize.org); capability figures are OpenAI's own reported results, not independently measured by us.\n\n#AInews #OpenAI #AI",
       "title": "GPT-6.1 Astra: Why OpenAI Scrapped It",
-      "updated_at": "2026-10-12T07:51:51Z",
+      "updated_at": "2026-10-12T12:08:31Z",
       "video_id": "news-gpt61-astra-01"
     },
     "news-gpt61-astra-01:youtube": {
@@ -1040,8 +1040,8 @@
       "buffer_post_id": "6accbfc211bee99e6c99fae8",
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-13T18:00:00.000Z",
-      "external_url": null,
+      "due_at": "2026-10-12T11:56:17.575Z",
+      "external_url": "https://www.youtube.com/shorts/7v2TUM0CTCk",
       "media_ref": {
         "asset_digest": "sha256:a770617c7502c48342b818b29c20c9e081dd3c2d0ef05cd71a2988a9614afe5d",
         "asset_id": 633352292,
@@ -1056,11 +1056,11 @@
       "notify_subscribers": true,
       "payload_sha256": "d7e35eccdcbc9d7ebc437378b52f71f959f9a06b48aa633f61bf5ae2132b903a",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-12T11:56:19.295Z",
+      "state": "sent",
       "text": "Higgsfield's public changelog shows six releases between October 1 and 8, 2026: Genjutsu (no-prompt object/scene/character swaps, 30+ presets) and Grok Imagine Video 1.5 (Oct 1), AI Influencer (Oct 2), Nano Banana 2.1 (Oct 5), Ad Multiplier (Oct 6), and Katana, an MCP server for Claude and other agents (Oct 8). Semafor reported a $1B run-rate claim and 30M users on 7 October \u2014 company-reported, not audited.\nSource: https://higgsfield.ai/creator-hub/changelog\n\nCredits: Screens: own capture of higgsfield.ai/creator-hub/changelog (2026-10-12). Release names and dates are Higgsfield's own changelog entries. Run-rate and user figures are company-reported via Semafor (2026-10-07), not audited.\n\n#Shorts #AIVideo #Higgsfield #AItools",
       "title": "Higgsfield Shipped SIX AI Video Releases in Eight Days",
-      "updated_at": "2026-10-12T11:08:50Z",
+      "updated_at": "2026-10-12T12:08:31Z",
       "video_id": "tool-higgsfield-01"
     },
     "tool-mosa-01:facebook": {
@@ -1333,8 +1333,8 @@
       "buffer_post_id": "6acc919add062ea3c8176035",
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-12T13:00:00.000Z",
-      "external_url": null,
+      "due_at": "2026-10-12T11:56:31.271Z",
+      "external_url": "https://www.facebook.com/reel/1109561718153188/",
       "media_ref": {
         "asset_digest": "sha256:19ad28ed682ad944a744f4efdd8e3a7f4631f7bf0549d8a00113be45c886a9f7",
         "asset_id": 633073096,
@@ -1349,11 +1349,11 @@
       "notify_subscribers": false,
       "payload_sha256": "33c648770f46ff1dd2594565e306f542538c97e525f1d1daa2f52c3cdc4de9df",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-12T11:56:41.412Z",
+      "state": "sent",
       "text": "Qwen3.8-27B runs on a single used RTX 3090: 127 tok/s single-stream in a tuned vLLM build, and it is Apache-2.0 with a 150k context. The catch is in the tuning.\n\nCredits: Screens: own capture of the Qwen3.8-27B model page (huggingface.co). Demo frames: official media from that model card. Speed figures are HyperQwen's published benchmarks, not our own measurement.\n\nAI-generated narration.\n\n#LocalAI #AItools",
       "title": "Qwen3.8-27B: 127 Tok/s on One RTX 3090",
-      "updated_at": "2026-10-12T07:51:54Z",
+      "updated_at": "2026-10-12T12:08:31Z",
       "video_id": "tool-qwen38-01"
     },
     "tool-qwen38-01:instagram": {
