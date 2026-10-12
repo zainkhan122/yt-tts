@@ -753,3 +753,22 @@ class QueueReleaseTests(unittest.TestCase):
         self.assertEqual(out[0]["verdict"], "STALE")
         posts[0]["assets"] = [{"source": "https://cdn.example/media/media/633733386/news-clef-01.mp4"}]
         self.assertEqual(audit(rows, posts, queue, cfg)[0]["verdict"], "OK")
+
+    def test_refresh_payload_swaps_only_the_video_and_keeps_slot(self):
+        from tools.post.release import refresh_input
+        cfg = {"media": {"base_url": "https://cdn.example/media"}}
+        item = {"video_id": "news-clef-01", "media_path": "media/633733386/news-clef-01.mp4"}
+        fb = refresh_input({"buffer_post_id": "bp1", "_key": "news-clef-01:facebook"}, item, cfg)
+        self.assertEqual(fb["id"], "bp1")
+        self.assertEqual(fb["assets"], [{"video": {"url": "https://cdn.example/media/media/633733386/news-clef-01.mp4"}}])
+        self.assertNotIn("dueAt", fb)      # slot preserved
+        self.assertNotIn("metadata", fb)   # service settings preserved
+        ig = refresh_input({"buffer_post_id": "bp2", "_key": "news-clef-01:instagram"}, item, cfg)
+        self.assertEqual(ig["assets"][0]["video"]["metadata"], {"thumbnailOffset": 1000})
+
+    def test_refresh_requires_its_own_confirmation(self):
+        import subprocess, sys
+        out = subprocess.run([sys.executable, str(ROOT / "tools/post/release.py"), "--refresh",
+                              "--confirm", "OWNER_APPROVED_QUEUE_CLEAR"], capture_output=True, text=True)
+        self.assertNotEqual(out.returncode, 0)
+        self.assertIn("refusing to refresh", out.stdout + out.stderr)

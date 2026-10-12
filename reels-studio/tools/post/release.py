@@ -14,6 +14,16 @@ is the only reliable repair. This tool does that in an auditable way:
   python3 tools/post/release.py --release-removed \
         --confirm OWNER_APPROVED_QUEUE_CLEAR                    # posts deleted by hand in Buffer -> release rows
 
+Preferred repair (2026-10-12): a scheduled post keeps the media Buffer ingested when it was created,
+so a post that predates a media fix must have its assets replaced in place. `editPost` does that and
+keeps the slot, the tracker row and the platform metadata:
+
+  python3 tools/post/release.py --refresh --confirm OWNER_APPROVED_MEDIA_REFRESH
+
+`--refresh` walks every pending row, compares the media URL Buffer holds with the URL the queue
+publishes now and re-points the stale ones at the current file (the same bytes every platform will
+fetch at send time). Nothing is deleted and no row changes state.
+
 Rules (all enforced, all tested):
   * a sent/published row is never deleted and never released;
   * a post is only released when it is verifiably absent for a pending row, or after an explicit delete;
@@ -30,6 +40,7 @@ from tools.post.buffer_api import BufferClient  # noqa: E402
 from tools.post.common import PENDING, TERMINAL, config, iso, load_json, media_url, now_utc, save_json  # noqa: E402
 
 CONFIRM = "OWNER_APPROVED_QUEUE_CLEAR"
+CONFIRM_REFRESH = "OWNER_APPROVED_MEDIA_REFRESH"
 RELEASED = "released"
 
 
@@ -72,6 +83,14 @@ def audit(journal_rows, posts, queue, cfg):
     return rows
 
 
+def refresh_input(record, item, cfg):
+    """EditPostInput that swaps only the video asset, so the post keeps its slot and metadata."""
+    video = {"url": media_url(item, cfg)}
+    if ":instagram" in record["_key"]:
+        video["metadata"] = {"thumbnailOffset": 1000}
+    return {"id": record["buffer_post_id"], "assets": [{"video": video}]}
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--keys", nargs="*", default=[], help="video:platform rows to clear (default: none)")
@@ -81,6 +100,7 @@ def main():
     ap.add_argument("--list", action="store_true", help="read-only overview")
     ap.add_argument("--audit", action="store_true", help="read-only: compare the media URL Buffer holds with the queue")
     ap.add_argument("--schema", action="store_true", help="read-only: dump EditPostInput/AssetsInput field shapes")
+    ap.add_argument("--refresh", action="store_true", help="re-point stale scheduled posts at the current media, in place")
     ap.add_argument("--confirm", default="", help="must equal " + CONFIRM)
     ap.add_argument("--journal", default=str(ROOT / "tracker/publications.json"))
     a = ap.parse_args()
@@ -89,10 +109,43 @@ def main():
     if a.all_pending:
         a.keys = [k for k, r in rows.items() if r["state"] != RELEASED]
     writes = a.keys or a.release_removed
+    if a.refresh and a.confirm != CONFIRM_REFRESH:
+        raise SystemExit(f"refusing to refresh without --confirm {CONFIRM_REFRESH}")
     if writes and a.confirm != CONFIRM:
         raise SystemExit(f"refusing to write without --confirm {CONFIRM}")
-    if not writes and not (a.list or a.audit or a.schema):
+    if not writes and not (a.list or a.audit or a.schema or a.refresh):
         raise SystemExit("nothing to do: pass --list, --audit, --keys … or --release-removed")
+    if a.refresh:
+        client = BufferClient(config()["buffer"])
+        _, posts = client.state()
+        queue = load_json(ROOT / "queue/publish.json")
+        items = {i["video_id"]: i for i in queue["items"]}
+        found = audit(rows, posts, queue, config())
+        todo = [r for r in found if r["verdict"] != "OK"]
+        print(f"refresh: {len(todo)} of {len(found)} scheduled posts not on the current media")
+        done = 0
+        for entry in todo:
+            record = rows[entry["key"]]
+            record["_key"] = entry["key"]
+            item = items.get(record["video_id"])
+            if not item:
+                print(f"  skip {entry['key']}: video not in queue")
+                continue
+            payload = refresh_input(record, item, config())
+            result = client.request("""mutation HypelessEdit($input: EditPostInput!) {
+ editPost(input: $input) {
+  __typename
+  ... on PostActionSuccess { post { id assets { source } } }
+  ... on MutationError { message }
+ }
+}""", {"input": payload}, mutation=True).get("editPost") or {}
+            post = result.get("post") or {}
+            ok = post.get("id") and any(a.get("source") == media_url(item, config()) for a in post.get("assets") or [])
+            print(f"  {entry['key']:34s} {'updated' if ok else 'FAILED: ' + str(result.get('message') or result.get('__typename'))}")
+            done += 1 if ok else 0
+        print(f"refresh: {done}/{len(todo)} updated; re-run --audit to confirm")
+        return 0 if done == len(todo) else 1
+
     if not writes:
         print(f"{len(rows)} pending/released rows")
         for k, r in sorted(rows.items(), key=lambda kv: kv[1].get("due_at") or ""):
