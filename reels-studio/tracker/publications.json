@@ -337,6 +337,31 @@
       "updated_at": "2026-10-12T07:51:57Z",
       "video_id": "news-gpt61-astra-01"
     },
+    "news-gpt61-sol-01:facebook": {
+      "attempts": 1,
+      "category": "news",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-10-13T10:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:3d32ea46f0006790dbb1e622670bd00b100af2e20de1348cec236a7a37780101",
+        "asset_id": 633324280,
+        "asset_size": 15514054,
+        "kit_asset_id": 633324338,
+        "kit_digest": "sha256:f554bc68486c361984843c53751f93432f1e0bbced227fecaf838a96d74afcd4",
+        "media_path": "media/633324280/news-gpt61-sol-01.mp4",
+        "release_tag": "renders-2026-10-12",
+        "video_id": "news-gpt61-sol-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/633324280/news-gpt61-sol-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "81afb72d64dc66084593e62b3c462498ea1e0dd3db2a780aa34942c7ba67b5e0",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "GPT-6.1 Sol is OpenAI's newest frontier model: $2 per 1M input and $10 output, roughly a fifth of Astra's pricing, with a 1,050,000-token context window.\n\nCredits: Screens: own capture of developers.openai.com/api/docs/models/gpt-6.1-sol (2026-10-12). Model art and wallpaper are OpenAI's own published assets, credited on screen. Prices and limits are as published on the model page.\n\nAI-generated narration.\n\n#OpenAI #AInews",
+      "title": "GPT-6.1 Sol: OpenAI's Cheapest Frontier Model Yet",
+      "updated_at": "2026-10-12T11:08:27Z",
+      "video_id": "news-gpt61-sol-01"
+    },
     "news-haiku-55-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6acb1f53b07d37ac97978eb5",
