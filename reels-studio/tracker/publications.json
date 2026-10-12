@@ -505,6 +505,31 @@
       "updated_at": "2026-10-10T21:53:05Z",
       "video_id": "repo-ai-newtab-01"
     },
+    "repo-ds4-01:facebook": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-10-12T16:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:194d3b4a617351643df663c9d21284eb93f5825ec5c2f4d15271c45c3e94893b",
+        "asset_id": 633071756,
+        "asset_size": 17644154,
+        "kit_asset_id": 633071817,
+        "kit_digest": "sha256:fb6e7d9bb33cbe9f70a3e86839f1cf87b57c4b7dac426d1fe0f3b91a4e0fa793",
+        "media_path": "media/633071756/repo-ds4-01.mp4",
+        "release_tag": "renders-2026-10-12",
+        "video_id": "repo-ds4-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/633071756/repo-ds4-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "911d776c932c9dea306099ee53be59e010e29d3b610b4e11fd39c57873ee0b60",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "DeepSeek 4 local: ds4 is an MIT-licensed C inference engine from antirez, the creator of Redis. Macs with 96 GB+ or SSD streaming, CUDA, ROCm. 23,783 stars.\n\nCredits: Screens: own capture of github.com/antirez/ds4 (2026-10-12). Engine and documentation by antirez (MIT). Throughput and hardware figures are the project's published results, not our own test.\n\nAI-generated narration.\n\n#DeepSeek #LocalAI",
+      "title": "DeepSeek 4 Local Engine: 23k Stars, MIT",
+      "updated_at": "2026-10-12T07:51:58Z",
+      "video_id": "repo-ds4-01"
+    },
     "repo-removemacai-01:youtube": {
       "buffer_post_id": "6ac904b32f26cc482c22c524",
       "channel_id": "6ac904af6a5c39ccb662a01f",
