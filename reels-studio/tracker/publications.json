@@ -936,6 +936,31 @@
       "updated_at": "2026-10-12T07:54:47Z",
       "video_id": "tool-openmontage-01"
     },
+    "tool-openmontage-01:youtube": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-10-13T03:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:e68f65bd9f645956bfc4a84f772984ed04170a8a90270526ce102b1b1ab3cc27",
+        "asset_id": 633064615,
+        "asset_size": 17518080,
+        "kit_asset_id": 633064671,
+        "kit_digest": "sha256:0578c2be91272427eaae48d110db32a117348290ce27c09d518c76aa79d5926a",
+        "media_path": "media/633064615/tool-openmontage-01.mp4",
+        "release_tag": "renders-2026-10-12",
+        "video_id": "tool-openmontage-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/633064615/tool-openmontage-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "c318589e4f04484b80f409dd704ee3b0edb6ae2bd4b0efd5016bf5e3f98d175e",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "OpenMontage turns Claude Code, Cursor, Copilot or Codex into an agentic video studio: 12 production pipelines, 100+ tools and 700+ skill files, with a zero-key mode that narrates offline via Piper TTS, pulls open footage from Archive.org, NASA and Wikimedia, and renders with Remotion/HyperFrames and FFmpeg. Setup is a clone and make setup. 67,156 GitHub stars as of 12 October 2026; AGPL-3.0.\nSource: https://github.com/calesthio/OpenMontage\n\nCredits: Screens: own capture of github.com/calesthio/OpenMontage (2026-10-12). Project, pipelines and documentation by the OpenMontage authors (AGPL-3.0). Star counts from the GitHub API, read 2026-10-12.\n\n#Shorts #opensource #AItools #AIvideo",
+      "title": "OpenMontage: Turn Your AI Coder Into a Video Studio",
+      "updated_at": "2026-10-12T07:54:48Z",
+      "video_id": "tool-openmontage-01"
+    },
     "tool-pomelli-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6acb1ffdb07d37ac97979c9c",
