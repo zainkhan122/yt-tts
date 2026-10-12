@@ -826,9 +826,11 @@
     },
     "tool-openmontage-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6acc923e712ba82086b04311",
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-12T22:00:00Z",
+      "due_at": "2026-10-12T22:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:e68f65bd9f645956bfc4a84f772984ed04170a8a90270526ce102b1b1ab3cc27",
         "asset_id": 633064615,
@@ -843,10 +845,11 @@
       "notify_subscribers": false,
       "payload_sha256": "daffd9b4c20fd3ccac14fd4505b219df20b63721ebd7ea5f8954f9b25cb99eff",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "OpenMontage turns an AI coding assistant into a video production studio: 12 pipelines, 100+ tools, and a zero-key mode with offline narration. AGPL-3.0, 67k stars.\n\nCredits: Screens: own capture of github.com/calesthio/OpenMontage (2026-10-12). Project, pipelines and documentation by the OpenMontage authors (AGPL-3.0). Star counts from the GitHub API, read 2026-10-12.\n\nAI-generated narration.\n\n#opensource #AItools",
       "title": "OpenMontage: Turn Your AI Coder Into a Video Studio",
-      "updated_at": "2026-10-12T07:54:36Z",
+      "updated_at": "2026-10-12T07:54:38Z",
       "video_id": "tool-openmontage-01"
     },
     "tool-pomelli-01:facebook": {
