@@ -1,0 +1,52 @@
+Buffer media audit (tools/post/release.py --audit) - run 38259637348, job 114846562511, 2026-10-12T13:57Z
+Every scheduled post must hold the URL of the current (frame-0-fixed) render.
+
+  repo-ds4-01:facebook               scheduled  due 2026-10-12T16:00 buffer=6acc91a0712ba82086b03116
+  tool-qwen38-01:instagram           scheduled  due 2026-10-12T16:00 buffer=6acc91a3dd062ea3c817610d
+  tool-qwen38-01:youtube             scheduled  due 2026-10-12T17:00 buffer=6acc91a65feb3462de95f295
+  news-nano-banana-21-01:facebook    scheduled  due 2026-10-12T19:00 buffer=6acc923ba2941ce817669020
+  repo-ds4-01:instagram              scheduled  due 2026-10-12T19:00 buffer=6acc91a9a2941ce817667b18
+  repo-ds4-01:youtube                scheduled  due 2026-10-12T21:00 buffer=6acc91ac5feb3462de95f38b
+  news-nano-banana-21-01:instagram   scheduled  due 2026-10-12T22:00 buffer=6acc92415feb3462de960928
+  tool-openmontage-01:facebook       scheduled  due 2026-10-12T22:00 buffer=6acc923e712ba82086b04311
+  news-nano-banana-21-01:youtube     scheduled  due 2026-10-13T00:00 buffer=6acc9244c5fdc4c02d0c56ea
+  tool-openmontage-01:instagram      scheduled  due 2026-10-13T01:00 buffer=6acc9247802e657d5c3d7239
+  tool-openmontage-01:youtube        scheduled  due 2026-10-13T03:00 buffer=6acc924ac5fdc4c02d0c5770
+  news-gpt61-sol-01:facebook         scheduled  due 2026-10-13T10:00 buffer=6accbfad52632410b3dc6540
+  news-gpt61-sol-01:instagram        scheduled  due 2026-10-13T12:00 buffer=6accbfb032da9d8379ea7743
+  news-gpt61-sol-01:youtube          scheduled  due 2026-10-13T12:00 buffer=6accbfb3624c35d1cf1d9443
+  repo-opencr-01:facebook            scheduled  due 2026-10-13T13:00 buffer=6accbfb60b1f16abcb04913b
+  repo-opencr-01:youtube             scheduled  due 2026-10-13T15:00 buffer=6accbfb952632410b3dc6657
+  repo-opencr-01:instagram           scheduled  due 2026-10-13T16:00 buffer=6accbfbf0b1f16abcb04921c
+  tool-higgsfield-01:facebook        scheduled  due 2026-10-13T16:00 buffer=6accbfbc11bee99e6c99fa6d
+  news-clef-01:youtube               scheduled  due 2026-10-13T18:00 buffer=6accd6f88aaa2e31caa56f20
+  news-clef-01:facebook              scheduled  due 2026-10-13T19:00 buffer=6accbfc50b1f16abcb049341
+  tool-higgsfield-01:instagram       scheduled  due 2026-10-13T19:00 buffer=6accc03b11bee99e6c9a1833
+  news-clef-01:instagram             scheduled  due 2026-10-13T22:00 buffer=6accd7007659eb754b6eeeba
+  tool-ltx25-01:facebook             scheduled  due 2026-10-13T22:00 buffer=6accd6fb0cc1ccfc8f759249
+  tool-ltx25-01:youtube              scheduled  due 2026-10-13T22:00 buffer=6acce75f0728a43e978181cd
+  news-clef-01:facebook              scheduled  due 2026-10-13T19:00 OK    held=/yt-tts/media/633733386/news-clef-01.mp4
+  news-clef-01:instagram             scheduled  due 2026-10-13T22:00 OK    held=/yt-tts/media/633733386/news-clef-01.mp4
+  news-clef-01:youtube               scheduled  due 2026-10-13T18:00 OK    held=/yt-tts/media/633733386/news-clef-01.mp4
+  news-gpt61-sol-01:facebook         scheduled  due 2026-10-13T10:00 OK    held=ts/media/633765089/news-gpt61-sol-01.mp4
+  news-gpt61-sol-01:instagram        scheduled  due 2026-10-13T12:00 OK    held=ts/media/633765089/news-gpt61-sol-01.mp4
+  news-gpt61-sol-01:youtube          scheduled  due 2026-10-13T12:00 OK    held=ts/media/633765089/news-gpt61-sol-01.mp4
+  news-nano-banana-21-01:facebook    scheduled  due 2026-10-12T19:00 OK    held=dia/633921510/news-nano-banana-21-01.mp4
+  news-nano-banana-21-01:instagram   scheduled  due 2026-10-12T22:00 OK    held=dia/633921510/news-nano-banana-21-01.mp4
+  news-nano-banana-21-01:youtube     scheduled  due 2026-10-13T00:00 OK    held=dia/633921510/news-nano-banana-21-01.mp4
+  repo-ds4-01:facebook               scheduled  due 2026-10-12T16:00 OK    held=o/yt-tts/media/633938187/repo-ds4-01.mp4
+  repo-ds4-01:instagram              scheduled  due 2026-10-12T19:00 OK    held=o/yt-tts/media/633938187/repo-ds4-01.mp4
+  repo-ds4-01:youtube                scheduled  due 2026-10-12T21:00 OK    held=o/yt-tts/media/633938187/repo-ds4-01.mp4
+  repo-opencr-01:facebook            scheduled  due 2026-10-13T13:00 OK    held=t-tts/media/633734567/repo-opencr-01.mp4
+  repo-opencr-01:instagram           scheduled  due 2026-10-13T16:00 OK    held=t-tts/media/633734567/repo-opencr-01.mp4
+  repo-opencr-01:youtube             scheduled  due 2026-10-13T15:00 OK    held=t-tts/media/633734567/repo-opencr-01.mp4
+  tool-higgsfield-01:facebook        scheduled  due 2026-10-13T16:00 OK    held=s/media/633730408/tool-higgsfield-01.mp4
+  tool-higgsfield-01:instagram       scheduled  due 2026-10-13T19:00 OK    held=s/media/633730408/tool-higgsfield-01.mp4
+  tool-ltx25-01:facebook             scheduled  due 2026-10-13T22:00 OK    held=yt-tts/media/633755620/tool-ltx25-01.mp4
+  tool-ltx25-01:youtube              scheduled  due 2026-10-13T22:00 OK    held=yt-tts/media/633755620/tool-ltx25-01.mp4
+  tool-openmontage-01:facebook       scheduled  due 2026-10-12T22:00 OK    held=/media/633921631/tool-openmontage-01.mp4
+  tool-openmontage-01:instagram      scheduled  due 2026-10-13T01:00 OK    held=/media/633921631/tool-openmontage-01.mp4
+  tool-openmontage-01:youtube        scheduled  due 2026-10-13T03:00 OK    held=/media/633921631/tool-openmontage-01.mp4
+  tool-qwen38-01:instagram           scheduled  due 2026-10-12T16:00 OK    held=t-tts/media/633928291/tool-qwen38-01.mp4
+  tool-qwen38-01:youtube             scheduled  due 2026-10-12T17:00 OK    held=t-tts/media/633928291/tool-qwen38-01.mp4
+audit: 24 posts, 0 not on the current media
