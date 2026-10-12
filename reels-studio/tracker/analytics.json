@@ -1,5 +1,150 @@
 {
   "schema_version": 1,
-  "updated_at": null,
-  "videos": {}
+  "updated_at": "2026-10-12T12:09:37Z",
+  "videos": {
+    "list-free-video-ai-01": {
+      "snapshots": [
+        {
+          "age_hours": 45.15,
+          "analytics": {
+            "unavailable": "YouTubeError: YouTube HTTP 403: Request had insufficient authentication scopes."
+          },
+          "comments": 2,
+          "engagement_rate": 0.02817,
+          "likes": 0,
+          "published_at": "2026-10-10T15:00:55Z",
+          "taken_at": "2026-10-12T12:09:37Z",
+          "views": 71,
+          "window": "24h"
+        }
+      ],
+      "title": null,
+      "youtube_id": "nA0SBClidO4"
+    },
+    "news-claude-free-01": {
+      "snapshots": [
+        {
+          "age_hours": 48.84,
+          "analytics": {
+            "unavailable": "YouTubeError: YouTube HTTP 403: Request had insufficient authentication scopes."
+          },
+          "comments": 0,
+          "engagement_rate": 0.0,
+          "likes": 0,
+          "published_at": "2026-10-10T11:19:28Z",
+          "taken_at": "2026-10-12T12:09:37Z",
+          "views": 155,
+          "window": "24h"
+        }
+      ],
+      "title": null,
+      "youtube_id": "F9Ng59LJ1bo"
+    },
+    "news-gemini-agent-01": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "tiNhpvU1znw"
+    },
+    "news-haiku-55-01": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "OIGcbdJMuRE"
+    },
+    "repo-ai-newtab-01": {
+      "snapshots": [
+        {
+          "age_hours": 41.15,
+          "analytics": {
+            "unavailable": "YouTubeError: YouTube HTTP 403: Request had insufficient authentication scopes."
+          },
+          "comments": 0,
+          "engagement_rate": 0.03846,
+          "likes": 1,
+          "published_at": "2026-10-10T19:00:52Z",
+          "taken_at": "2026-10-12T12:09:37Z",
+          "views": 26,
+          "window": "24h"
+        }
+      ],
+      "title": null,
+      "youtube_id": "IP70g5d8_Qc"
+    },
+    "repo-removemacai-01": {
+      "snapshots": [
+        {
+          "age_hours": 78.61,
+          "analytics": {
+            "unavailable": "YouTubeError: YouTube HTTP 403: Request had insufficient authentication scopes."
+          },
+          "comments": 0,
+          "engagement_rate": 0.0,
+          "likes": 0,
+          "published_at": "2026-10-09T05:32:44Z",
+          "taken_at": "2026-10-12T12:09:37Z",
+          "views": 104,
+          "window": "24h"
+        }
+      ],
+      "title": null,
+      "youtube_id": "lzXGzOsidCg"
+    },
+    "repo-whistle-01": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "i5STWnaoVaM"
+    },
+    "spotlight-papermorph-01": {
+      "snapshots": [
+        {
+          "age_hours": 69.45,
+          "analytics": {
+            "unavailable": "YouTubeError: YouTube HTTP 403: Request had insufficient authentication scopes."
+          },
+          "comments": 0,
+          "engagement_rate": 0.01736,
+          "likes": 10,
+          "published_at": "2026-10-09T14:42:21Z",
+          "taken_at": "2026-10-12T12:09:37Z",
+          "views": 576,
+          "window": "24h"
+        }
+      ],
+      "title": null,
+      "youtube_id": "Mt8Yn9ShBmM"
+    },
+    "tool-higgsfield-01": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "7v2TUM0CTCk"
+    },
+    "tool-mosa-01": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "tCnRrRcfdPM"
+    },
+    "tool-muse-01": {
+      "snapshots": [
+        {
+          "age_hours": 69.57,
+          "analytics": {
+            "unavailable": "YouTubeError: YouTube HTTP 403: Request had insufficient authentication scopes."
+          },
+          "comments": 0,
+          "engagement_rate": 0.01136,
+          "likes": 1,
+          "published_at": "2026-10-09T14:35:37Z",
+          "taken_at": "2026-10-12T12:09:37Z",
+          "views": 88,
+          "window": "24h"
+        }
+      ],
+      "title": null,
+      "youtube_id": "6OAa4KofxvQ"
+    },
+    "tool-pomelli-01": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "k18yriXJqv4"
+    }
+  }
 }
