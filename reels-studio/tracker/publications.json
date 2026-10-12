@@ -785,6 +785,31 @@
       "updated_at": "2026-10-12T11:08:38Z",
       "video_id": "repo-opencr-01"
     },
+    "repo-opencr-01:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-10-13T15:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:74fcaa938a0b5359939c7fd48910c42c4c74b98ef43eea175a5e46c8fc37307e",
+        "asset_id": 633263455,
+        "asset_size": 21966960,
+        "kit_asset_id": 633263502,
+        "kit_digest": "sha256:76f8bb2714b934716105ce2485c4a3be1f00ed9d36fa4a748372db59bd05fa4e",
+        "media_path": "media/633263455/repo-opencr-01.mp4",
+        "release_tag": "renders-2026-10-12",
+        "video_id": "repo-opencr-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/633263455/repo-opencr-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "ecf31414181ebb2b57c4979eb38973725cda7cbb16acc7cc2ef5f602be1cb90b",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "Open Code Review is Alibaba's internal AI code-review assistant, open sourced in May 2026 under Apache-2.0: it reads git diffs, picks and bundles files deterministically, then uses an LLM agent for line-level comments. The project's own AACR-Bench (200 real PRs, 1,505 ground-truth issues) reports higher precision and F1 than Claude Code at about 1/9 the tokens, with deliberately lower recall. Install: npm install -g @alibaba-group/open-code-review; Git 2.41+. 46,341 stars as of 12 October 2026.\nSource: https://github.com/alibaba/open-code-review\n\nCredits: Screens: own capture of github.com/alibaba/open-code-review (2026-10-12). Project, benchmark chart and stats by the Open Code Review authors (Apache-2.0). Benchmark figures are their published results, not our own test.\n\n#Shorts #opensource #AIcoding #AItools",
+      "title": "Open Code Review: Alibaba's AI Code Reviewer, Free",
+      "updated_at": "2026-10-12T11:08:39Z",
+      "video_id": "repo-opencr-01"
+    },
     "repo-removemacai-01:youtube": {
       "buffer_post_id": "6ac904b32f26cc482c22c524",
       "channel_id": "6ac904af6a5c39ccb662a01f",
