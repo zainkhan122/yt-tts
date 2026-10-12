@@ -110,6 +110,7 @@ jobs:
     timeout-minutes: 15
     permissions:
       contents: write
+      actions: write  # cascade: dispatch youtube.yml enrich after reconcile records a sent Short
     steps:
       - uses: actions/checkout@v4
         with:
@@ -158,3 +159,32 @@ jobs:
           path: ${{ runner.temp }}/publishing/
           retention-days: 30
           if-no-files-found: warn
+      # Event hook: once reconcile has recorded a sent Short, the enrichment worker is the only
+      # thing that can put the approved cover on YouTube. Dispatch it now instead of waiting up to
+      # six hours for the next youtube.yml cron. Both workflows share the 'hypeless-publishing'
+      # concurrency group, so the dispatched run queues behind this one, then runs immediately.
+      # Dispatch failures fail the job on purpose: a silent skip would leave covers unapplied.
+      - name: Cover cascade (dispatch enrich only when a sent Short still needs its cover)
+        if: needs.prepare.outputs.mode == 'reconcile' || needs.prepare.outputs.mode == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          python3 reels-studio/tools/youtube/covers_pending.py
+          rc=$?
+          set -e
+          if [ "$rc" -eq 0 ]; then
+            echo "cover cascade: nothing pending; no dispatch"
+            exit 0
+          fi
+          if [ "$rc" -ne 3 ]; then
+            echo "cover cascade: covers_pending.py exited $rc (state unreadable)" >&2
+            exit "$rc"
+          fi
+          curl -fsS -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/youtube.yml/dispatches" \
+            -d '{"ref":"main","inputs":{"mode":"enrich"}}'
+          echo "cover cascade: youtube.yml enrich dispatched"
