@@ -57,10 +57,16 @@ def fetch_kit_cover(item, root_cfg, work):
     zip_path = work / (item["video_id"] + "-kit.zip")
     public_download(meta["browser_download_url"], meta["size"], item["kit_digest"], zip_path)
     member = item["video_id"] + "/cover.jpg"
-    with zipfile.ZipFile(zip_path) as archive:
-        if member not in archive.namelist():
-            raise ValueError("Kit does not contain the expected reviewed cover")
-        data = archive.read(member)
+    try:
+        with zipfile.ZipFile(zip_path) as archive:
+            if member not in archive.namelist():
+                raise ValueError("Kit does not contain the expected reviewed cover")
+            data = archive.read(member)
+    finally:
+        # The zip is a download intermediate, not a cache: public_download verified its digest and
+        # the Release stays authoritative. Deleting it keeps the workspace under its size budget (a
+        # review pass used to leave ~12 MB of kit zips + copies behind - 2026-10-12 storage audit).
+        zip_path.unlink(missing_ok=True)
     cover = work / (item["video_id"] + "-cover.jpg")
     cover.write_bytes(data)
     if item.get("cover_sha256"):

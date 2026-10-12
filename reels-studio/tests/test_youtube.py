@@ -422,6 +422,9 @@ class ShortCoverTests(unittest.TestCase):
                 with patch.object(contracts, "public_download", side_effect=lambda url, size, digest, dest: Path(dest).write_bytes(kit)):
                     cover = contracts.fetch_kit_cover(item, {}, tmp)
                     self.assertEqual(cover.read_bytes(), data)
+                    # The downloaded kit zip is an intermediate: leaving it behind is what filled the
+                    # workspace (storage audit 2026-10-12); the Release stays authoritative.
+                    self.assertFalse((Path(tmp) / "news-demo-01-kit.zip").exists())
                     # Approved digest gate applies when a queue approval exists.
                     item["cover_sha256"], item["cover_reviewed_at"] = "sha256:" + "0"*64, "2026-10-11T00:00:00Z"
                     with self.assertRaises(ValueError):

@@ -176,3 +176,48 @@ class Frame0CoverTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Frame0GuardTests(unittest.TestCase):
+    """lib/framecheck.py - the measurable half of the cover contract (incident 2026-10-12).
+
+    Threshold evidence (ffmpeg signalstats YMAX of frame 0): the four broken hook renders measured
+    79-81, the nine fixed r3/r4 renders 248-255. The guard must fail closed on the low side and
+    never block the observed fixed range.
+    """
+
+    def test_threshold_sits_between_measured_broken_and_fixed_frames(self):
+        from lib import framecheck
+        self.assertEqual(framecheck.BRIGHT_YMAX, 160)      # documented, evidence-based
+        self.assertGreater(framecheck.BRIGHT_YMAX, 76)     # every measured blank frame fails
+        self.assertLessEqual(framecheck.BRIGHT_YMAX, 255)  # every measured fixed frame passes
+
+    def test_max_luma_comes_from_the_raw_frame_bytes(self):
+        from unittest import mock
+        from lib import framecheck
+        bright = bytes([10, 20, 255, 40])   # a headline pixel
+        dark = bytes([10, 20, 30, 40])      # background only
+        with mock.patch.object(framecheck.subprocess, "run", return_value=mock.Mock(stdout=bright)):
+            self.assertEqual(framecheck.ymax_at("whatever.mp4"), 255.0)
+            self.assertTrue(framecheck.frame0("whatever.mp4")[0])
+        with mock.patch.object(framecheck.subprocess, "run", return_value=mock.Mock(stdout=dark)):
+            self.assertEqual(framecheck.ymax_at("whatever.mp4"), 40.0)
+            self.assertFalse(framecheck.frame0("whatever.mp4")[0])
+
+    def test_fail_closed_when_the_frame_cannot_be_measured(self):
+        from lib import framecheck
+        self.assertFalse(framecheck.frame0("/nonexistent/file.mp4")[0])
+        ok, peak = framecheck.frame0("/nonexistent/file.mp4")
+        self.assertIsNone(peak)
+
+    def test_describe_reports_both_outcomes(self):
+        from lib import framecheck
+        self.assertIn("NOT VISIBLE", framecheck.describe(False, 80.0))
+        self.assertIn("visible", framecheck.describe(True, 250.0))
+
+    def test_qa_gate_records_the_check_and_refuses_to_ship_a_blank_hook(self):
+        """The pipeline must fail closed: a False frame0_visible raises, and the manifest keeps the number."""
+        source = (ROOT / "lib/pipeline.py").read_text()
+        self.assertIn('checks["frame0_visible"] = f0_ok', source)
+        self.assertIn('"frame0_ymax": f0_peak', source)
+        self.assertIn('frame0_visible', source.split('if "approved_voice" in bad:')[1][:400])

@@ -28,6 +28,8 @@ from pathlib import Path
 
 import numpy as np
 import soundfile as sf
+
+from . import framecheck
 from scipy.signal import resample_poly
 
 from . import scenes as scenelib
@@ -1129,6 +1131,9 @@ class Job:
             "loudness_-14±1": I is not None and abs(I + 14) <= 1.0,
             "peak<=-1dBFS": pk is not None and pk <= -1.0,
         }
+        # Cover contract (2026-10-12): the hook must be visible in frame 0 - see lib/framecheck.py
+        f0_ok, f0_peak = framecheck.frame0(final)
+        checks["frame0_visible"] = f0_ok
         need = (self.brief.get("tts") or {}).get("engine")
         if need and self.brief.get("voice") != "files":  # owner rule 2026-10-09: every published video uses the approved voice
             checks["approved_voice"] = getattr(self, "voice_engine", None) == need
@@ -1146,7 +1151,8 @@ class Job:
         shutil.copy2(self.proj / "index.html", self.out / "composition.html")
         self.manifest["qa"] = {"duration": round(D, 3), "frames": int(v.get("nb_frames", 0) or 0), "video": f"{v['codec_name']} {v['width']}x{v['height']} {v.get('r_frame_rate')}",
                                "audio": f"{a['codec_name']} {a.get('sample_rate')}Hz {a.get('channels')}ch" if a else None,
-                               "loudness_lufs": I, "peak_dbfs": pk, "size_mb": round(final.stat().st_size / 1e6, 2), "checks": checks}
+                               "loudness_lufs": I, "peak_dbfs": pk, "size_mb": round(final.stat().st_size / 1e6, 2),
+                               "frame0_ymax": f0_peak, "checks": checks}
         self.manifest["timing"] = {sid: {k: self.timing[sid][k] for k in ("start", "end", "text")} for sid in self.order}
         self.manifest["music"] = self.music_cfg
         self.manifest["sources"] = self.brief.get("sources", [])
@@ -1156,6 +1162,9 @@ class Job:
         self.stage("qa", passed=f"{len(checks) - len(bad)}/{len(checks)}", failed=",".join(bad) or "-", out=str(self.out.relative_to(ROOT.parent)))
         if "approved_voice" in bad:
             raise SystemExit(f"QA: not the approved channel voice (got {getattr(self, 'voice_engine', None)}, need {need}): refusing to ship")
+        if not checks.get("frame0_visible"):
+            raise SystemExit("QA: " + framecheck.describe(f0_ok, f0_peak) +
+                             " - Buffer/Facebook would show an empty cover; refusing to ship")
 
     def write_srt(self):
         def ts(t):

@@ -59,4 +59,33 @@ class StorageTests(unittest.TestCase):
             http.assert_not_called()
 
 
+class PruneAllTests(unittest.TestCase):
+    """prune-all: verified pruning in one command; one bad pack must never stop or endanger others."""
+
+    def test_skips_packs_without_a_verified_archive_and_keeps_going(self):
+        from tools.maintenance import storage as st
+        with patch.object(st, "local_packs", return_value=["a-01", "b-01", "c-01"]), \
+             patch.object(st, "archived_packs", return_value={"a-01": {"id": 1, "digest": "sha256:x"},
+                                                              "b-01": {"id": 2, "digest": "sha256:y"}}), \
+             patch.object(st, "prune_capture",
+                          side_effect=[{"pack": "a-01", "files_verified": 3, "bytes_verified": 100, "deleted": True},
+                                       ValueError("Capture archive content differs: b-01/media.bin")]):
+            out = st.prune_all(apply=True)
+        self.assertEqual(out["deleted"], 1)          # a-01 pruned
+        self.assertEqual(out["freed_bytes"], 100)
+        reasons = {s["pack"]: s["reason"] for s in out["skipped"]}
+        self.assertIn("c-01", reasons)               # no archive -> untouched
+        self.assertIn("differs", reasons["b-01"])    # verification failure -> untouched, run continued
+
+    def test_prune_all_defaults_to_read_only(self):
+        from tools.maintenance import storage as st
+        with patch.object(st, "local_packs", return_value=["a-01"]), \
+             patch.object(st, "archived_packs", return_value={"a-01": {}}), \
+             patch.object(st, "prune_capture", return_value={"pack": "a-01", "files_verified": 1,
+                                                             "bytes_verified": 10, "deleted": False}) as prune:
+            out = st.prune_all()
+        prune.assert_called_once_with("a-01", False)
+        self.assertEqual(out["deleted"], 0)
+
+
 if __name__=="__main__":unittest.main()

@@ -84,6 +84,40 @@ def verify_capture_tar(local, archive, pack):
     return checked, total
 
 
+def archived_packs():
+    """{pack name: asset} for every capture tar the capture-packs Release holds."""
+    status, release = api("GET", "/releases/tags/capture-packs")
+    if status != 200:
+        raise ValueError("Cannot list capture archives; nothing will be deleted")
+    return {a["name"][:-4]: a for a in release.get("assets", []) if a["name"].endswith(".tar")}
+
+
+def local_packs():
+    root = ROOT / "captures"
+    return sorted(p.name for p in root.iterdir() if p.is_dir()) if root.is_dir() else []
+
+
+def prune_all(apply=False):
+    """Prune every local capture pack that has a digest-bearing archive. Each pack is verified on
+    its own; a failure stops that pack (never the whole run) and is reported."""
+    have = archived_packs()
+    summary = {"packs": [], "deleted": 0, "freed_bytes": 0, "skipped": []}
+    for pack in local_packs():
+        if pack not in have:
+            summary["skipped"].append({"pack": pack, "reason": "no verified archive in capture-packs"})
+            continue
+        try:
+            result = prune_capture(pack, apply)
+        except ValueError as exc:
+            summary["skipped"].append({"pack": pack, "reason": str(exc)})
+            continue
+        summary["packs"].append(result)
+        if result.get("deleted"):
+            summary["deleted"] += 1
+            summary["freed_bytes"] += result.get("bytes_verified", 0)
+    return summary
+
+
 def prune_capture(pack, apply=False):
     valid_id(pack)
     local = ROOT/"captures"/pack
@@ -108,14 +142,19 @@ def prune_capture(pack, apply=False):
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("command",choices=["audit","prune-capture"])
+    ap.add_argument("command",choices=["audit","prune-capture","prune-all"])
     ap.add_argument("pack",nargs="?")
     ap.add_argument("--apply",action="store_true")
     ap.add_argument("--report")
     a=ap.parse_args()
-    result=audit() if a.command=="audit" else prune_capture(a.pack,a.apply)
+    result = (audit() if a.command == "audit" else
+              prune_all(a.apply) if a.command == "prune-all" else prune_capture(a.pack, a.apply))
     if a.report:save_json(a.report,result)
     print(json.dumps(result,indent=2))
+    if a.command == "prune-all":
+        print(f"prune-all: {result['deleted']} pack(s) deleted, {result['freed_bytes']/1e6:.1f} MB freed, "
+              f"{len(result['skipped'])} skipped")
+        return 0
     return 0 if result.get("ok",True) else 1
 
 
