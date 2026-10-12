@@ -197,6 +197,31 @@
       "updated_at": "2026-10-12T11:08:53Z",
       "video_id": "news-clef-01"
     },
+    "news-clef-01:instagram": {
+      "attempts": 1,
+      "category": "news",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-13T22:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:45176201e9fffaa03614632a1c89087043a88b6298b87290582d66ffb20500c8",
+        "asset_id": 633733386,
+        "asset_size": 13129188,
+        "kit_asset_id": 633733431,
+        "kit_digest": "sha256:5f53478128394ed8fbfcede131be9862f9793c556df6cd4ee094b15ce3e329d2",
+        "media_path": "media/633733386/news-clef-01.mp4",
+        "release_tag": "renders-2026-10-12-r3",
+        "video_id": "news-clef-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/633733386/news-clef-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "be858bb630e88678fe4153a3b506139b45e0af0cbb34ea02ab1049f04eb56c32",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Cloudflare Clef: a 27B decision model with no free-form text to parse \u2014 probabilities for every allowed option in a single forward pass. Apache-2.0, Workers AI, ~39 ms flash variant. Save this for your agent stack.\n\nCredits: Screens: own capture of huggingface.co/Cloudflare/clef (2026-10-12). Model art, card images and demo media are Cloudflare's own published assets, credited on screen. The ~39 ms latency figure is community-reported, not a Cloudflare benchmark claim.\n\n#AI #OpenSource #Cloudflare",
+      "title": "Cloudflare Clef: a 27B Model That Can't Ramble",
+      "updated_at": "2026-10-12T12:47:58Z",
+      "video_id": "news-clef-01"
+    },
     "news-clef-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6accd6f88aaa2e31caa56f20",
