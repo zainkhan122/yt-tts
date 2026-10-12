@@ -197,6 +197,31 @@
       "updated_at": "2026-10-12T11:08:53Z",
       "video_id": "news-clef-01"
     },
+    "news-clef-01:youtube": {
+      "attempts": 1,
+      "category": "news",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-10-13T18:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:45176201e9fffaa03614632a1c89087043a88b6298b87290582d66ffb20500c8",
+        "asset_id": 633733386,
+        "asset_size": 13129188,
+        "kit_asset_id": 633733431,
+        "kit_digest": "sha256:5f53478128394ed8fbfcede131be9862f9793c556df6cd4ee094b15ce3e329d2",
+        "media_path": "media/633733386/news-clef-01.mp4",
+        "release_tag": "renders-2026-10-12-r3",
+        "video_id": "news-clef-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/633733386/news-clef-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "3a35300378861da2e51a53cfbf9583bf66fef66b290b7afe540ee517997418c5",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "Cloudflare Clef is a 27B multimodal decision model post-trained from Qwen/Qwen3.8-27B. Instead of writing text, a joint schema head returns a probability for every allowed option of every typed question in one forward pass \u2014 no output parsing at all. Apache-2.0; clef-flash (9B) runs at ~39 ms median per community reports; Jev/SystemOne compatible; available on Workers AI.\nSource: https://huggingface.co/Cloudflare/clef\n\nCredits: Screens: own capture of huggingface.co/Cloudflare/clef (2026-10-12). Model art, card images and demo media are Cloudflare's own published assets, credited on screen. The ~39 ms latency figure is community-reported, not a Cloudflare benchmark claim.\n\n#Shorts #AI #OpenSource #Cloudflare",
+      "title": "Cloudflare Clef: a 27B Model That Can't Ramble",
+      "updated_at": "2026-10-12T12:47:49Z",
+      "video_id": "news-clef-01"
+    },
     "news-gemini-agent-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6acb2006f91f772d45b9017d",
