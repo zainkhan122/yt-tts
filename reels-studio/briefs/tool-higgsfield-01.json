@@ -1,0 +1,194 @@
+{
+  "id": "tool-higgsfield-01",
+  "template": "tool-spotlight",
+  "capture": "captures/tool-higgsfield-01",
+  "title": "Higgsfield Shipped Six Releases in Eight Days",
+  "niche": "tech / AI tools",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "2026-10-12: original script from checked primary sources (changelog read 2026-10-12; the release list matches the changelog entries Oct 1-8). Cover capture re-taken banner-free after the consent fix. Third-party figures (run-rate, users) attributed to Semafor and labelled company-reported. | On-screen browser chrome shows a concise source domain; full source URLs stay in descriptions.",
+  "keywords": [
+    "Higgsfield",
+    "changelog",
+    "Katana",
+    "Genjutsu",
+    "MCP",
+    "video"
+  ],
+  "facts": {
+    "releases_since_oct_1": 6,
+    "checked": "2026-10-12"
+  },
+  "credits_on_screen": "Screens: own capture of higgsfield.ai/creator-hub/changelog (2026-10-12). Release names and dates are Higgsfield's own changelog entries. Run-rate and user figures are company-reported via Semafor (2026-10-07), not audited.",
+  "sources": [
+    "https://higgsfield.ai/creator-hub/changelog",
+    "https://www.semafor.com/"
+  ],
+  "verify_before_render": [
+    "Changelog read 2026-10-12: Oct 1 Genjutsu (no-prompt object/scene/character swap, 30+ presets) plus Grok Imagine Video 1.5; Oct 2 AI Influencer (character builder, 5 free generations from Oct 3); Oct 5 Nano Banana 2.1; Oct 6 Ad Multiplier and a 200K-member Discord contest; Oct 7 Film Festival Audience Choice voting; Oct 8 Katana (MCP server for Claude and other agents). Semafor (2026-10-07) reported a $1B run-rate claim and 30M users — always voiced as company-reported, never as audited fact. Count 'six releases' = Genjutsu, Grok Imagine Video 1.5, AI Influencer, Nano Banana 2.1, Ad Multiplier, Katana (Film Festival vote and Discord contest are events, not releases).",
+    "Region names used here exist in captures/tool-higgsfield-01/manifest.json and sit inside the desktop-top viewport (y+h <= 900 CSS): title_katana {562,364,679,32}, readme {302,364,939,492}, date_oct-8-2026 {340,364,126,30}.",
+    "No on-screen credit captions. Option 3 Chatterbox Michael continuous-flow voice required."
+  ],
+  "production_category": "tool",
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "desktop-top.jpg",
+      "heading": "HIGGSFIELD SHIPPED *SIX* RELEASES IN EIGHT DAYS",
+      "say": "While everyone watched the big labs, Higgsfield shipped {6|six} releases in eight days. This is the changelog.",
+      "url": "higgsfield.ai"
+    },
+    {
+      "id": "katana",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "url": "higgsfield.ai",
+      "camera": [
+        {
+          "region": "title_katana",
+          "zoom": 2.0,
+          "at": "katana"
+        },
+        {
+          "region": "readme",
+          "zoom": 1.15,
+          "at": "agents"
+        }
+      ],
+      "say": "The newest is Katana, out October eighth: an MCP server that lets Claude and other agents drive Higgsfield's models directly.",
+      "heading": "OCT 8: *KATANA* FOR AGENTS"
+    },
+    {
+      "id": "dates",
+      "type": "steps",
+      "heading": "EIGHT DAYS, *SIX* LAUNCHES",
+      "background": {
+        "image": "desktop-full.jpg"
+      },
+      "steps": [
+        "Oct 1 Genjutsu: swap anything, no prompt",
+        "Oct 2 AI Influencer builder",
+        "Oct 5 Nano Banana 2.1",
+        "Oct 6 Ad Multiplier"
+      ],
+      "say": "October first brought Genjutsu: swap objects, scenes or characters with thirty plus presets and no prompt. Then an AI Influencer builder, Nano Banana two point one, and an Ad Multiplier. Katana closed the run on the eighth.",
+      "url": "higgsfield.ai"
+    },
+    {
+      "id": "claim",
+      "type": "stat",
+      "heading": "AT *$1B* RUN-RATE, THEY SAY",
+      "value": 1,
+      "decimals": 0,
+      "suffix": "B reported run-rate",
+      "label": "Semafor, 7 Oct 2026 · 30M users claimed · company-reported, not audited",
+      "icon": false,
+      "at": "reported",
+      "say": "Semafor reported a one billion dollar run rate and thirty million users this month. Company numbers, not audited.",
+      "url": "semafor.com"
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE *CATCH*",
+      "cons": [
+        "Run-rate and user numbers are company-reported",
+        "Credit pricing stacks across generations",
+        "Fast cadence can outrun the docs"
+      ],
+      "pros": [
+        "Genjutsu edits without prompts",
+        "AI Influencer keeps characters consistent",
+        "Katana opens it to Claude and other agents"
+      ],
+      "item_at": [
+        "reported",
+        "pricing",
+        "docs",
+        "genjutsu",
+        "consistent",
+        "agents"
+      ],
+      "say": "The catches: the headline numbers are reported, credit pricing stacks fast, and the docs chase the cadence. The good: Genjutsu edits without prompts, AI Influencer keeps characters consistent, and agents get in through Katana.",
+      "url": "higgsfield.ai"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "HIGGSFIELD",
+      "say": "Which release would you actually use? Comment Higgsfield and I'll pin the changelog.",
+      "url": "higgsfield.ai"
+    }
+  ],
+  "seo": {
+    "keyword": "Higgsfield",
+    "aliases": [
+      "Higgsfield changelog",
+      "Higgsfield Katana",
+      "Higgsfield Genjutsu"
+    ],
+    "onscreen_first3s": "HIGGSFIELD: SIX RELEASES",
+    "youtube": {
+      "title": "Higgsfield Shipped SIX AI Video Releases in Eight Days",
+      "description": "Higgsfield's public changelog shows six releases between October 1 and 8, 2026: Genjutsu (no-prompt object/scene/character swaps, 30+ presets) and Grok Imagine Video 1.5 (Oct 1), AI Influencer (Oct 2), Nano Banana 2.1 (Oct 5), Ad Multiplier (Oct 6), and Katana, an MCP server for Claude and other agents (Oct 8). Semafor reported a $1B run-rate claim and 30M users on 7 October — company-reported, not audited.\nSource: https://higgsfield.ai/creator-hub/changelog",
+      "hashtags": [
+        "#Shorts",
+        "#AIVideo",
+        "#Higgsfield",
+        "#AItools"
+      ],
+      "tags": [
+        "Higgsfield",
+        "Higgsfield changelog",
+        "Katana MCP",
+        "Genjutsu",
+        "AI video generator",
+        "AI influencer",
+        "Nano Banana 2.1",
+        "AI tools 2026"
+      ]
+    },
+    "tiktok": {
+      "caption": "Higgsfield shipped six AI video releases in eight days: Genjutsu, AI Influencer, Nano Banana 2.1, Ad Multiplier, and Katana — an MCP server for Claude and other agents.",
+      "hashtags": [
+        "#AIVideo",
+        "#AItools",
+        "#Higgsfield"
+      ]
+    },
+    "instagram": {
+      "caption": "Higgsfield's October: six releases in eight days. Genjutsu swaps anything without a prompt, AI Influencer keeps characters consistent, and Katana lets Claude drive it. Save this for your next video project.",
+      "hashtags": [
+        "#AIVideo",
+        "#AItools",
+        "#Higgsfield"
+      ]
+    },
+    "facebook": {
+      "caption": "Higgsfield shipped six releases in eight days, ending with Katana — an MCP server that lets Claude and other agents use its video models.",
+      "hashtags": [
+        "#AIVideo",
+        "#AItools"
+      ]
+    },
+    "x": {
+      "text": "Higgsfield's changelog: six releases in eight days — Genjutsu (no-prompt swaps), AI Influencer, Nano Banana 2.1, Ad Multiplier, and Katana, an MCP server for Claude + other agents. $1B run-rate is company-reported via Semafor.",
+      "hashtags": [
+        "#AI"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "Higgsfield Shipped SIX AI Video Releases in Eight Days"
+    ],
+    "caption": "Higgsfield shipped six AI video releases in eight days — Genjutsu swaps anything without a prompt, AI Influencer keeps characters consistent, and Katana opens it up to Claude and other agents via MCP.",
+    "hashtags": [
+      "#AIVideo",
+      "#AItools",
+      "#Higgsfield"
+    ],
+    "pinned_comment": "Changelog: https://higgsfield.ai/creator-hub/changelog · $1B run-rate and 30M users are company-reported via Semafor (7 Oct 2026)"
+  }
+}

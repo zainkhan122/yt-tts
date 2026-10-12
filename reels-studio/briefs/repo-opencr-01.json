@@ -1,0 +1,211 @@
+{
+  "id": "repo-opencr-01",
+  "template": "tool-spotlight",
+  "capture": "captures/repo-opencr-01",
+  "title": "Open Code Review: Alibaba's AI Code Reviewer, Free",
+  "niche": "tech / AI repo",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "2026-10-12: original script based on checked primary sources (GitHub API facts + README read 2026-10-12; benchmark and stats images are the project's own); approved Option 3 flow voice; no on-screen credits. | On-screen browser chrome shows a concise source domain; full source URLs stay in descriptions.",
+  "keywords": [
+    "Open Code Review",
+    "Alibaba",
+    "review",
+    "agent",
+    "tokens",
+    "Apache"
+  ],
+  "facts": {
+    "stars": 46341,
+    "forks": 3367,
+    "checked": "2026-10-12"
+  },
+  "credits_on_screen": "Screens: own capture of github.com/alibaba/open-code-review (2026-10-12). Project, benchmark chart and stats by the Open Code Review authors (Apache-2.0). Benchmark figures are their published results, not our own test.",
+  "sources": [
+    "https://github.com/alibaba/open-code-review",
+    "https://api.github.com/repos/alibaba/open-code-review",
+    "https://open-codereview.ai/docs"
+  ],
+  "verify_before_render": [
+    "GitHub API 2026-10-12: 46,341 stars, 3,367 forks, Apache-2.0, Go, created 2026-05-18, pushed 2026-10-12. README read 2026-10-12: originated as Alibaba's internal AI code-review assistant (two years, tens of thousands of developers); deterministic engineering + agent hybrid (precise file selection, smart file bundling with sub-agents, rule matching, positioning/reflection modules); AACR-Bench built from 50 repos, 200 real PRs, 10 languages, 1,505 ground-truth issues cross-validated by 80+ senior engineers; compared with Claude Code it reports higher precision and F1 at ~1/9 the tokens, with deliberately lower recall; install 'npm install -g @alibaba-group/open-code-review'; 'ocr config provider', 'ocr review', 'ocr scan', 'ocr delegate'; plugins for Claude Code, Codex, Cursor, Kimi Code and OpenCode; Git >= 2.41; OpenSSF Gold badge on the repo. All performance figures attributed to the project's own benchmark.",
+    "No on-screen credit captions. Option 3 Chatterbox Michael continuous-flow voice required."
+  ],
+  "production_category": "repo",
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "desktop-top.jpg",
+      "heading": "ALIBABA OPEN-SOURCED ITS *CODE REVIEWER*",
+      "say": "Alibaba built an AI code reviewer for its own engineers, ran it internally for two years, and just open sourced it. It is called {Open Code Review|Open Code Review}.",
+      "url": "github.com"
+    },
+    {
+      "id": "stars",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "url": "github.com",
+      "camera": [
+        {
+          "region": "star_button",
+          "zoom": 2.6,
+          "at": "forty"
+        }
+      ],
+      "cursor": [
+        {
+          "region": "star_button",
+          "at": "stars",
+          "state": "★ Starred 46.3k"
+        }
+      ],
+      "stat": {
+        "from": "facts.stars",
+        "format": "full",
+        "label": "GitHub stars · Apache-2.0 · created May 2026",
+        "at": "forty"
+      },
+      "say": "Forty six thousand stars in about five months, Apache licensed, and it reads real Git diffs."
+    },
+    {
+      "id": "bench",
+      "type": "image",
+      "image": "benchmark.png",
+      "heading": "THEIR *BENCHMARK*: 1/9 THE TOKENS",
+      "say": "On their own benchmark of two hundred real pull requests, it reports higher precision than Claude Code, using about a ninth of the tokens. Lower recall is the trade they chose.",
+      "url": "open-codereview.ai"
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "HOW IT *WORKS*",
+      "background": {
+        "image": "desktop-full.jpg"
+      },
+      "steps": [
+        "Picks exactly which files to review",
+        "Bundles related files into one unit",
+        "Rules plus an agent, then line-level comments"
+      ],
+      "say": "Instead of asking a chat model to read everything, it decides which files to review, bundles related files together, matches review rules, and only then lets the agent write precise comments.",
+      "url": "github.com"
+    },
+    {
+      "id": "setup",
+      "type": "terminal",
+      "title": "CLI",
+      "heading": "SETUP: *TWO* STEPS",
+      "lines": [
+        "npm install -g @alibaba-group/open-code-review",
+        "ocr review"
+      ],
+      "outputs": [
+        "installed",
+        "reviewing"
+      ],
+      "say": "Setup is an npm install, then ocr review in your repository. You pick any model provider you already pay for.",
+      "url": "github.com"
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE *CATCH*",
+      "cons": [
+        "Recall is lower than general agents, by design",
+        "You configure an LLM endpoint or use delegation",
+        "Needs Git 2.41 or newer"
+      ],
+      "pros": [
+        "Apache licensed, OpenSSF Gold",
+        "Plugins for Claude Code, Codex, Cursor, Kimi Code",
+        "Delegation mode needs no extra API key"
+      ],
+      "item_at": [
+        "recall",
+        "endpoint",
+        "newer",
+        "licensed",
+        "plugins",
+        "delegation"
+      ],
+      "say": "The catches: recall is lower than a general agent, by design; you need to configure an endpoint unless you use delegation; and it wants Git two point four one or newer. It is Apache licensed with an OpenSSF Gold badge, plugins exist for Claude Code, Codex, Cursor and Kimi Code, and delegation mode needs no extra API key.",
+      "url": "github.com"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "REVIEW",
+      "say": "Would you let AI review your pull requests? Comment Review and I will pin the repo.",
+      "url": "github.com"
+    }
+  ],
+  "seo": {
+    "keyword": "Open Code Review",
+    "aliases": [
+      "Alibaba code review",
+      "AI code review CLI"
+    ],
+    "onscreen_first3s": "OPEN CODE REVIEW",
+    "youtube": {
+      "title": "Open Code Review: Alibaba's AI Code Reviewer, Free",
+      "description": "Open Code Review is Alibaba's internal AI code-review assistant, open sourced in May 2026 under Apache-2.0: it reads git diffs, picks and bundles files deterministically, then uses an LLM agent for line-level comments. The project's own AACR-Bench (200 real PRs, 1,505 ground-truth issues) reports higher precision and F1 than Claude Code at about 1/9 the tokens, with deliberately lower recall. Install: npm install -g @alibaba-group/open-code-review; Git 2.41+. 46,341 stars as of 12 October 2026.\nSource: https://github.com/alibaba/open-code-review",
+      "hashtags": [
+        "#Shorts",
+        "#opensource",
+        "#AIcoding",
+        "#AItools"
+      ],
+      "tags": [
+        "Open Code Review",
+        "Alibaba AI code review",
+        "AI code review tool",
+        "Claude Code alternative",
+        "code review CLI",
+        "OCR CLI",
+        "open source AI",
+        "developer tools"
+      ]
+    },
+    "tiktok": {
+      "caption": "Open Code Review is Alibaba's internal AI code reviewer, now open source — higher precision than Claude Code at 1/9 the tokens in their own benchmark. Two commands to start.",
+      "hashtags": [
+        "#AIcoding",
+        "#opensource",
+        "#AItools"
+      ]
+    },
+    "instagram": {
+      "caption": "Open Code Review: Alibaba ran this AI reviewer internally for two years, then open sourced it. Their benchmark reports higher precision than Claude Code with about 1/9 the tokens. Save this for your next PR.",
+      "hashtags": [
+        "#AIcoding",
+        "#opensource",
+        "#AItools"
+      ]
+    },
+    "facebook": {
+      "caption": "Open Code Review is Alibaba's AI code reviewer, now open source: it picks files deterministically and reviews with an agent, reporting higher precision than Claude Code at about 1/9 the tokens.",
+      "hashtags": [
+        "#AIcoding",
+        "#opensource"
+      ]
+    },
+    "x": {
+      "text": "Alibaba open sourced Open Code Review — its internal AI PR reviewer. On their own 200-PR benchmark it beats Claude Code on precision/F1 at ~1/9 the tokens, trading away recall. Apache-2.0; npm i -g @alibaba-group/open-code-review.",
+      "hashtags": [
+        "#AI"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "Open Code Review: Alibaba's AI Code Reviewer, Free"
+    ],
+    "caption": "Alibaba ran this AI reviewer internally for two years, then open sourced it. Open Code Review reports higher precision than Claude Code at about 1/9 the tokens in its own benchmark — with deliberately lower recall. Apache-2.0, 46k stars.",
+    "hashtags": [
+      "#AIcoding",
+      "#opensource",
+      "#AItools"
+    ],
+    "pinned_comment": "Repo and docs: https://github.com/alibaba/open-code-review · https://open-codereview.ai/docs"
+  }
+}

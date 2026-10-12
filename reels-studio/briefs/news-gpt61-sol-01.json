@@ -1,0 +1,212 @@
+{
+  "id": "news-gpt61-sol-01",
+  "template": "tool-spotlight",
+  "capture": "captures/news-gpt61-sol-01",
+  "title": "GPT-6.1 Sol: a Fifth of Astra's Price",
+  "niche": "tech / AI news",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "2026-10-12: original script from checked primary sources (OpenAI model page read 2026-10-12; price/limits/tier facts from the page itself). Astra comparison attributed as pricing fact, not marketing. | On-screen browser chrome shows a concise source domain; full source URLs stay in descriptions.",
+  "keywords": [
+    "GPT-6.1 Sol",
+    "OpenAI",
+    "pricing",
+    "ultrafast",
+    "context",
+    "fine-tuning"
+  ],
+  "facts": {
+    "in_per_m": 2,
+    "out_per_m": 10,
+    "cached_per_m": 0.1,
+    "context_tokens": 1050000,
+    "checked": "2026-10-12"
+  },
+  "credits_on_screen": "Screens: own capture of developers.openai.com/api/docs/models/gpt-6.1-sol (2026-10-12). Model art and wallpaper are OpenAI's own published assets, credited on screen. Prices and limits are as published on the model page.",
+  "sources": [
+    "https://developers.openai.com/api/docs/models/gpt-6.1-sol"
+  ],
+  "verify_before_render": [
+    "OpenAI model page read 2026-10-12: $2 per 1M input, $10 per 1M output, $0.10 cached input, cache writes $2.50; input over 272K tokens costs 2x input/cache and 1.5x output; 1,050,000-token context window; 128k max output; knowledge cutoff Apr 30 2026; reasoning effort low/medium/high/xhigh/max; Fast tier 2x, Batch/Flex 50% off, Ultrafast 6x — live, service_tier=ultrafast; fine-tuning NOT supported; Free tier not supported; tools include web search, computer use, code interpreter, MCP. Page line: 'Near-Astra performance for complex work at a lower cost.' Shipped on DevDay (Sep 29), one day after GPT-6.1 Astra was scrapped; about 1/5 of Astra's $10/$50 pricing. Voice every Astra comparison as a pricing fact, not as an OpenAI claim of direct replacement.",
+    "Region names used here exist in captures/news-gpt61-sol-01/manifest.json and sit inside the desktop-top viewport (y+h <= 900 CSS): btn_compare {1006,196,96,40}, btn_try-in-playground {1111,196,144,40}.",
+    "No on-screen credit captions. Option 3 Chatterbox Michael continuous-flow voice required."
+  ],
+  "production_category": "news",
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "og-image.png",
+      "heading": "OPENAI'S *CHEAPEST* FRONTIER MODEL YET",
+      "say": "OpenAI scrapped its last flagship, then shipped this one a day later at a fifth of the price. It is called GPT-6.1 Sol.",
+      "url": "developers.openai.com"
+    },
+    {
+      "id": "price",
+      "type": "stat",
+      "heading": "TWO DOLLARS *PER MILLION*",
+      "value": 2,
+      "decimals": 0,
+      "suffix": " / 1M input",
+      "label": "output $10/M · cached $0.10/M · Astra was $10 in / $50 out",
+      "icon": false,
+      "at": "two",
+      "say": "Two dollars per million input tokens, ten dollars out, and ten cents when the input is cached. That is about one fifth of Astra's pricing.",
+      "url": "developers.openai.com"
+    },
+    {
+      "id": "page",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "url": "developers.openai.com",
+      "camera": [
+        {
+          "region": "btn_compare",
+          "zoom": 2.4,
+          "at": "compare"
+        }
+      ],
+      "cursor": [
+        {
+          "region": "btn_try-in-playground",
+          "at": "playground",
+          "state": "→ Playground"
+        }
+      ],
+      "say": "You can compare it with the rest of the family on the model page, and the playground is one click away.",
+      "heading": "ONE PAGE, *EVERYTHING*"
+    },
+    {
+      "id": "buys",
+      "type": "steps",
+      "heading": "WHAT *TWO DOLLARS* BUYS",
+      "background": {
+        "image": "desktop-full.jpg"
+      },
+      "steps": [
+        "1,050,000-token context window",
+        "128k max output tokens",
+        "Reasoning effort up to max",
+        "Web search, computer use, MCP"
+      ],
+      "say": "For that price: a context window of one point zero five million tokens, up to one hundred twenty eight thousand output tokens, reasoning effort up to max, and the tools — web search, computer use, and MCP.",
+      "url": "developers.openai.com"
+    },
+    {
+      "id": "ultrafast",
+      "type": "terminal",
+      "title": "API",
+      "heading": "SIX TIMES *FASTER*, ONE FLAG",
+      "lines": [
+        "client.responses.create(model=\"gpt-6.1-sol\", service_tier=\"ultrafast\")"
+      ],
+      "outputs": [
+        "ultrafast · 6× standard speed, live now"
+      ],
+      "say": "One flag — service tier ultrafast — and the same model answers six times faster. It is live now.",
+      "url": "developers.openai.com"
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE *TRADE-OFFS*",
+      "cons": [
+        "No fine-tuning, at all",
+        "Over 272K input tokens: 2× input, 1.5× output",
+        "No free tier"
+      ],
+      "pros": [
+        "$2 in / $10 out · cached $0.10",
+        "1.05M-token context window",
+        "Ultrafast tier is live"
+      ],
+      "item_at": [
+        "tuning",
+        "twice",
+        "free",
+        "cache",
+        "context",
+        "ultrafast"
+      ],
+      "say": "The catches: no fine-tuning, inputs over two hundred seventy two thousand tokens cost twice as much, and there is no free tier. But cache hits cost ten cents, the context window is over a million tokens, and the ultrafast lane is live today.",
+      "url": "developers.openai.com"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "SOL",
+      "say": "Would you run your agents on it? Comment Sol and I will pin the model page.",
+      "url": "developers.openai.com"
+    }
+  ],
+  "seo": {
+    "keyword": "GPT-6.1 Sol",
+    "aliases": [
+      "OpenAI Sol model",
+      "GPT 6.1 Sol pricing",
+      "Sol vs Astra"
+    ],
+    "onscreen_first3s": "GPT-6.1 SOL",
+    "youtube": {
+      "title": "GPT-6.1 Sol: OpenAI's Cheapest Frontier Model Yet",
+      "description": "GPT-6.1 Sol is OpenAI's new frontier model at $2 per 1M input and $10 per 1M output — about one fifth of what GPT-6.1 Astra would have cost. Cached input is $0.10/M; inputs over 272K tokens cost 2x input and 1.5x output. Context window: 1,050,000 tokens; max output 128k; reasoning effort up to max; tools include web search, computer use, code interpreter and MCP. No fine-tuning and no free tier. The Ultrafast service tier (6x speed) is live via service_tier=ultrafast.\nSource: https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+      "hashtags": [
+        "#Shorts",
+        "#OpenAI",
+        "#GPT61",
+        "#AInews"
+      ],
+      "tags": [
+        "GPT-6.1 Sol",
+        "OpenAI new model",
+        "AI pricing",
+        "Astra cancelled",
+        "frontier model",
+        "OpenAI API",
+        "ultrafast tier",
+        "AI news 2026"
+      ]
+    },
+    "tiktok": {
+      "caption": "GPT-6.1 Sol: $2 per million input, $10 output — about a fifth of Astra's price, with a million-token context and a 6x ultrafast tier that's live now.",
+      "hashtags": [
+        "#OpenAI",
+        "#AInews",
+        "#AItools"
+      ]
+    },
+    "instagram": {
+      "caption": "GPT-6.1 Sol is OpenAI's cheapest frontier model yet: $2 in, $10 out, $0.10 cached, 1.05M-token context, and an ultrafast tier at 6x. Save this for your next build.",
+      "hashtags": [
+        "#OpenAI",
+        "#AInews",
+        "#AItools"
+      ]
+    },
+    "facebook": {
+      "caption": "GPT-6.1 Sol is OpenAI's newest frontier model: $2 per 1M input and $10 output, roughly a fifth of Astra's pricing, with a 1,050,000-token context window.",
+      "hashtags": [
+        "#OpenAI",
+        "#AInews"
+      ]
+    },
+    "x": {
+      "text": "GPT-6.1 Sol: $2 in / $10 out per 1M, $0.10 cached — about 1/5 of Astra's pricing. 1.05M-token context, 128k output, reasoning to max, no fine-tuning, and Ultrafast (6×) is live via service_tier=ultrafast.",
+      "hashtags": [
+        "#AI"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "GPT-6.1 Sol: OpenAI's Cheapest Frontier Model Yet"
+    ],
+    "caption": "GPT-6.1 Sol is OpenAI's cheapest frontier model yet — $2 per 1M input, $10 out, ten cents cached: roughly a fifth of Astra's pricing, with a 1,050,000-token context window and a live ultrafast tier at 6x speed. No fine-tuning, no free tier.",
+    "hashtags": [
+      "#OpenAI",
+      "#AInews",
+      "#AItools"
+    ],
+    "pinned_comment": "Model page: https://developers.openai.com/api/docs/models/gpt-6.1-sol"
+  }
+}
