@@ -10,6 +10,8 @@ A spotlight brief is a list of scenes. Each scene = one voice line ("say") + a v
   verdict       catches + pros, each revealed as it is said
   stat          huge count-up number + label
   image         official image / logo / og card with a Ken Burns punch-in, optional heading + chips
+                (an image HOOK holds the karaoke caption until its first sentence ends — give it a short
+                `sub` line, which becomes the static cover text; see PLAYBOOK §6 cover caption rule)
   endcard       question + keyword CTA chip + follow card with a cursor press
 
 Every visual event is anchored to the real voice-over words (T[scene_id]["words"]); regions + facts come from
