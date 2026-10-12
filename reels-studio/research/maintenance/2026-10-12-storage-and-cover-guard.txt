@@ -1,0 +1,26 @@
+2026-10-12 — storage cleanup and fail-closed cover/media guards
+
+1. Frame-0 render QA
+
+- Added lib/framecheck.py. It decodes one frame at t=0 to raw 8-bit gray and measures its maximum luma.
+- Incident evidence: four pre-fix, blank-frame files measured 73–76; nine fixed r3/r4 files measured 255.
+- Threshold is 160: separated from both measured bands; no ffmpeg filter plugin dependency. Missing frame/decoder errors fail closed.
+- Pipeline QA records qa.frame0_ymax and qa.checks.frame0_visible, and aborts the render before publishing if the hook is not visible at frame 0.
+- Existing tests/test_frame0_cover.py exercises actual scene.js templates, and new tests cover thresholds, fail-closed behavior, and pipeline wiring.
+
+2. Buffer media repair/delivery
+
+- Removed continue-on-error from the scheduled delivery media-freshness step in .github/workflows/post.yml. If repair fails, the following delivery step is skipped.
+- release.py --refresh now excludes posts Buffer says are already sent, avoiding edits during the brief tracker/reconciliation race; publisher reconciliation records those receipts.
+- After editPost, release.py fetches Buffer state again and audits held asset URLs. A stale editable post or failed mutation exits nonzero and blocks delivery.
+- Fixed --schema introspection to query AssetInput (the verified type), not nonexistent AssetsInput.
+
+3. Workspace cleanup
+
+- Before: workspace audit = 134,249,222 bytes / 1,207 files.
+- Verified all ten local capture packs against the digest-bearing capture-packs Release tarballs, comparing each file byte-for-byte/SHA-256, then removed the local copies with `storage.py prune-all --apply`. Freed 45.1 MB. Remote archives and other projects were not touched.
+- Removed the local `_verify` download cache and duplicate `*-kit.zip` downloads under ignored renders scratch. Kept the small reviewed cover JPEG previews.
+- contracts.fetch_kit_cover now removes each verified kit ZIP intermediate in a finally block.
+- After: storage audit = 49,393,378 bytes / 1,036 files; ok=true. Tracked studio source = 7,421,526 bytes, no tracked videos and no files >5 MB.
+
+Validation: full repository suite after all final edits: **316 tests passed**.

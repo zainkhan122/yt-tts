@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Owner-authorised Buffer queue clean-up (recreate scheduled posts against corrected media).
+"""Auditable in-place Buffer media repair; owner-gated queue clear only as a last resort.
 
 Why this exists: Buffer ingests a video when the post is created. If a render is redone for a fix,
 the already-scheduled post keeps the media it ingested (its queue preview stays wrong even after
-the media URL serves corrected bytes). Clearing those posts and letting the planner recreate them
-is the only reliable repair. This tool does that in an auditable way:
+the media URL serves corrected bytes). The preferred repair is editPost with a complete payload,
+replacing assets in place while preserving the scheduled slot, caption and tracker row. A targeted,
+owner-confirmed clear exists only when in-place refresh cannot repair a specific post. This tool does:
 
   python3 tools/post/release.py --list                          # read-only: pending rows vs Buffer state
   python3 tools/post/release.py --keys a-01:youtube b-01:facebook \
@@ -84,6 +85,21 @@ def audit(journal_rows, posts, queue, cfg):
     return rows
 
 
+def sent_in_buffer(status):
+    """An API read may race behind the tracker; a sent Buffer post must never be editPost-ed."""
+    return str(status or "").strip().lower() in {"sent", "published", "published_manual"}
+
+
+def refresh_candidates(found):
+    """Only stale posts Buffer still considers editable belong in the refresh mutation batch.
+
+    A schedule can start while a post has just sent but before this repo has reconciled it. Treat
+    that send as a receipt/reconcile concern, not a media-edit target. Never make an editPost call
+    against sent media; publisher.py reconciles it immediately after this pre-delivery guard.
+    """
+    return [r for r in found if r["verdict"] != "OK" and not sent_in_buffer(r.get("status"))]
+
+
 def refresh_input(record, item, cfg, due):
     """EditPostInput that swaps the video asset.
 
@@ -109,7 +125,7 @@ def main():
     ap.add_argument("--release-removed", action="store_true", help="release rows whose Buffer post is already gone")
     ap.add_argument("--list", action="store_true", help="read-only overview")
     ap.add_argument("--audit", action="store_true", help="read-only: compare the media URL Buffer holds with the queue")
-    ap.add_argument("--schema", action="store_true", help="read-only: dump EditPostInput/AssetsInput field shapes")
+    ap.add_argument("--schema", action="store_true", help="read-only: dump EditPostInput/AssetInput field shapes")
     ap.add_argument("--refresh", action="store_true", help="re-point stale scheduled posts at the current media, in place")
     ap.add_argument("--confirm", default="", help="must equal " + CONFIRM)
     ap.add_argument("--journal", default=str(ROOT / "tracker/publications.json"))
@@ -131,8 +147,11 @@ def main():
         queue = load_json(ROOT / "queue/publish.json")
         items = {i["video_id"]: i for i in queue["items"]}
         found = audit(rows, posts, queue, config())
-        todo = [r for r in found if r["verdict"] != "OK"]
-        print(f"refresh: {len(todo)} of {len(found)} scheduled posts not on the current media")
+        todo = refresh_candidates(found)
+        sent_stale = [r for r in found if r["verdict"] != "OK" and sent_in_buffer(r.get("status"))]
+        print(f"refresh: {len(todo)} stale editable posts of {len(found)} tracked posts")
+        for entry in sent_stale:
+            print(f"  skip {entry['key']}: Buffer says sent; do not edit; publisher reconciliation will record it")
         done = 0
         for entry in todo:
             record = rows[entry["key"]]
@@ -153,8 +172,18 @@ def main():
             ok = post.get("id") and any(a.get("source") == media_url(item, config()) for a in post.get("assets") or [])
             print(f"  {entry['key']:34s} {'updated' if ok else 'FAILED: ' + str(result.get('message') or result.get('__typename'))}")
             done += 1 if ok else 0
-        print(f"refresh: {done}/{len(todo)} updated; re-run --audit to confirm")
-        return 0 if done == len(todo) else 1
+        # Read back Buffer's actual state rather than trusting mutation acknowledgements alone.
+        _, after_posts = client.state()
+        after = audit(rows, after_posts, queue, config())
+        remaining = refresh_candidates(after)
+        sent_after = [r for r in after if sent_in_buffer(r.get("status")) and r["verdict"] != "OK"]
+        ok_after = sum(r["verdict"] == "OK" for r in after)
+        print(f"refresh: {done}/{len(todo)} updated; post-refresh audit: "
+              f"{ok_after} OK, {len(remaining)} stale editable, "
+              f"{len(sent_after)} sent-stale (reconcile only)")
+        for entry in remaining:
+            print(f"  FAIL {entry['key']}: Buffer still holds stale media")
+        return 0 if done == len(todo) and not remaining else 1
 
     if not writes:
         print(f"{len(rows)} pending/released rows")
@@ -166,7 +195,7 @@ def main():
  a: __type(name: $a) { inputFields { name type { kind name ofType { kind name ofType { kind name } } } } }
  b: __type(name: $b) { inputFields { name type { kind name ofType { kind name ofType { kind name } } } } }
 }"""
-            data = client.request(q, {"a": "EditPostInput", "b": "AssetsInput"})
+            data = client.request(q, {"a": "EditPostInput", "b": "AssetInput"})
             for key in ("a", "b"):
                 t = data.get(key) or {}
                 print(f"{key}:")

@@ -316,6 +316,6 @@ again?") is answered by this, one audit run later:
 * Final audit 2026-10-12T14:10Z: **24 posts, 0 not on the current media.**
 * No queue emptying was needed; the tracker rows never left `scheduled`, so no orphaned receipts and
   nothing for `reconcile()` to mark uncertain.
-* Durable guard: post.yml schedule runs the freshness check before delivery, and `--clear`
-  (deletePost + row release) stays behind its own confirmation for the case where a delete really is
-  the right call.
+* Durable guard: `post.yml` now runs the in-place `--refresh --confirm OWNER_APPROVED_MEDIA_REFRESH`
+  before scheduled delivery and fails closed if refresh or its post-mutation read-back audit fails.
+  Targeted `--delete` + row release remains owner-confirmed and is not the normal repair path.

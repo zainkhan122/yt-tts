@@ -129,9 +129,10 @@ jobs:
       # Buffer ingests a video when the post is CREATED, so a post that predates a media fix keeps
       # the old file. Re-point stale scheduled posts at the queue's current media before delivery
       # (no-op when nothing is stale; never touches sent posts; keeps every slot).
-      - name: Media freshness guard (refresh stale scheduled posts)
+      - name: Fail-closed media freshness guard (refresh stale scheduled posts)
         if: needs.prepare.outputs.mode == 'schedule'
-        continue-on-error: true
+        # Never deliver after a failed refresh: Buffer freezes create-time media. The following
+        # delivery step must only run if every editable pending post passes the read-back audit.
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
         run: python3 reels-studio/tools/post/release.py --refresh --confirm OWNER_APPROVED_MEDIA_REFRESH

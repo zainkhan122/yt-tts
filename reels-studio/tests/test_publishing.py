@@ -742,6 +742,29 @@ class QueueReleaseTests(unittest.TestCase):
         rows = self.release.pending_rows(journal)
         self.assertEqual(sorted(rows), ["a:facebook", "c:instagram"])
 
+    def test_sent_buffer_posts_are_never_editpost_refresh_candidates(self):
+        found = [
+            {"key": "sent:facebook", "status": "sent", "verdict": "STALE"},
+            {"key": "scheduled:instagram", "status": "scheduled", "verdict": "STALE"},
+            {"key": "fresh:youtube", "status": "scheduled", "verdict": "OK"},
+            {"key": "published:facebook", "status": "published", "verdict": "STALE"},
+        ]
+        self.assertTrue(self.release.sent_in_buffer("sent"))
+        self.assertTrue(self.release.sent_in_buffer("published"))
+        self.assertFalse(self.release.sent_in_buffer("scheduled"))
+        self.assertEqual([r["key"] for r in self.release.refresh_candidates(found)], ["scheduled:instagram"])
+
+    def test_scheduled_delivery_fails_closed_if_media_refresh_fails(self):
+        workflow = (ROOT.parent / ".github/workflows/post.yml").read_text()
+        start = workflow.index("- name: Fail-closed media freshness guard")
+        end = workflow.index("- name: Paced delivery / read-only validation", start)
+        guard = workflow[start:end]
+        self.assertIn("if: needs.prepare.outputs.mode == 'schedule'", guard)
+        self.assertIn("release.py --refresh --confirm OWNER_APPROVED_MEDIA_REFRESH", guard)
+        self.assertNotIn("continue-on-error", guard)
+        # GitHub's default success() condition prevents the following createPost step after a failure.
+        self.assertLess(start, end)
+
     def test_audit_flags_posts_still_holding_old_media(self):
         from tools.post.release import audit
         queue = {"items": [{"video_id": "news-clef-01", "media_path": "media/633733386/news-clef-01.mp4"}]}
