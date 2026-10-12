@@ -261,3 +261,20 @@ Owner approved three build items and they are now in the tree (commits `665629c`
 Same session: wave 2 (five more videos) rendered, cover-reviewed, queued with priorities 170–210 and a
 2026-10-14T08:00Z review window, then scheduled — 10 of 15 platform slots created by runs `38240589501` /
 `38240834720`, the facebook/youtube backlog draining on the next cron. Suite: **274 tests OK**.
+
+## 2026-10-12 — blank frame 0 (owner-reported) and the cover contract
+
+Owner reported queued Buffer shorts showing a "plain frame 0". Root cause: wave-2 briefs open with an `image` hook, and
+the theme hides `.sp-heading`/`.sp-sub`/`.sp-imgcard` at `opacity: 0`, fading them in from 0.05 s — so frame 0 of those
+renders was empty. Clip hooks (every earlier batch) already forced their headline visible at t=0, which is why the
+regression appeared only now. Frame 0 is what Buffer previews, what Facebook Reels publish as the thumbnail, and what
+YouTube shows until a custom thumbnail is applied, so the loss was visible everywhere.
+
+Fixes: every hook scene type is now laid out and visible at 0.0 s (`6f5b7e8`, with `tests/test_frame0_cover.py` running
+the real `scene.js` in node and a CSS-hidden-class table check); the five affected videos were re-rendered
+(`renders-2026-10-12-r3`), covers re-reviewed, queues re-pinned, and the already-created Buffer posts keep their
+ORIGINAL URLs, which now serve the corrected bytes (`ebb8b2f`, `2d74088`: superseded assets are served as aliases and
+never re-downloaded; `214dbe1`: journal pins no longer clobber the queue item's legacy list). Suite 299 OK.
+
+Lesson recorded in the receipt: the cover frame is part of the renderer contract — a hook must be visible at t=0 — and
+any media fix that re-pins a video must keep the URLs already handed to Buffer alive with the corrected file.

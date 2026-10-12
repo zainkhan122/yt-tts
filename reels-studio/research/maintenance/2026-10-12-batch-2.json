@@ -124,10 +124,10 @@
     "darkzOGx/youtube-automation-agent reviewed: validates our Uncertain+reconcile upload shape and approval gates; adopt-list ranked in research/maintenance/2026-10-12-tooling-reviews.md - (1) scene manifest + single-scene rebuild (we re-rendered 2 whole videos for one-line fixes today), (2) analytics 24h/7d snapshots vs own history + approved learnings as constraints (our biggest gap; directly serves the click-through goal), (3) scene-aware retention mapping, (4) persisted readiness probe with 24h staleness, (5) stable rule IDs persisted for lint/seo audits."
   ],
   "next_actions": [
-    "watch 38242339526 (clef cover-rule + gate-receipt validation) -> download kit -> eyeball the extracted cover",
-    "13:00Z wave-1 send: post.yml reconcile -> verify the cover cascade self-dispatches enrich -> cover_ctl status --live (expect OK:10)",
-    "watch the 18:00Z post.yml cron drain the wave-2 backlog (clef YT/IG, ltx25 YT/IG/FB); reconcile before claiming sent",
-    "wave-2 first sends 2026-10-13 ~10:00Z; reconcile + live-verify each cover"
+    "18:00Z post.yml cron: drain the wave-2 backlog (clef yt/ig, ltx25 yt/ig/fb) and adopt the 13:00Z wave-1 astra send; then cover_ctl status --live",
+    "wave-2 first sends 2026-10-13 ~10:00Z local slots; each one: reconcile -> cover enrich -> live verify",
+    "higgsfield YT carries the corrected cover (re-approved after the re-render); worker re-opens it via should_enrich on the next cron",
+    "owner decision pending: none blocking; analytics still views/engagement only (no scope change)"
   ],
   "wave_2_delivery": {
     "renders": {
@@ -201,5 +201,27 @@
   "owner_decisions_2026-10-12": {
     "covers_caption_line": "KEEP wave-2 covers as approved; fix the renderer for FUTURE batches: the image-type hook holds its karaoke caption until the first spoken sentence ends, and shows a static `sub` line instead. Implemented in commit 72e65af (lib/scenes.sentence_end, pipeline caps.hold_until, spotcore hold_seg, base.js hold, scene.js sImage sub); 8 new tests (tests/test_caption_hold.py, incl. a node harness against the real base.js).",
     "analytics_scope": "NOT NOW — no yt-analytics.readonly re-consent. The analytics lane keeps recording views/likes/comments/engagement vs our own history and reports CTR/retention as unavailable with the verbatim 403."
+  },
+  "incident_frame0_blank": {
+    "reported": "2026-10-12 by owner: Buffer queued shorts (8 across 3 channels) show a plain/near-empty cover; FB + YT published Shorts show it too",
+    "root_cause": "wave-2 briefs use an `image` hook whose heading/card/sub fade in from 0.05s, and scene.css hides .sp-heading/.sp-sub/.sp-imgcard at opacity 0. Frame 0 of those videos was therefore EMPTY. Clip hooks (all earlier batches) set the headline visible at frame 0, which is why this never showed before. Everything that cannot take our uploaded cover image falls back to frame 0: the Buffer preview, Facebook Reels, and YouTube before/without a custom thumbnail.",
+    "evidence": {
+      "before_after": "research/maintenance/2026-10-12-frame0-fix-proof.jpg",
+      "live_url_frame0": "research/maintenance/2026-10-12-frame0-verified-fixed.jpg",
+      "note": "frame extracted from the public Pages URL of the fixed render and of the live YouTube Short"
+    },
+    "fix_commits": [
+      "6f5b7e8 renderer: every hook scene type visible at 0.0s",
+      "ebb8b2f media: superseded URLs served as aliases of the corrected file",
+      "2d74088 media: superseded refs not re-downloaded (they used to overwrite the alias)",
+      "214dbe1 media: journal pins no longer clobber the queue item (dropped legacy_media_paths)"
+    ],
+    "tests": "tests/test_frame0_cover.py (3, runs the real scene.js in node) + media/repin tests; suite 299 OK",
+    "remediation": {
+      "videos": "all five wave-2 videos re-rendered (run 38247023972 -> renders-2026-10-12-r3), covers re-reviewed and re-approved, queue re-pinned with legacy URLs kept",
+      "queued_posts": "the 5 already-created wave-2 posts now fetch the corrected file from their ORIGINAL URLs (verified byte-identical to the new URL for all five)",
+      "live": "tool-higgsfield-01 Short is live with its cover applied (7v2TUM0CTCk); its 11:56Z upload predates the fix, thumbnail is correct"
+    },
+    "lesson": "the cover frame is part of the renderer contract, not a post-production step: any scene that can be a hook must be laid out and visible at t=0, and every future fix that re-pins media must keep the URLs already handed to Buffer alive with the corrected bytes."
   }
 }
