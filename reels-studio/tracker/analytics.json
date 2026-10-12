@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T12:09:37Z",
+  "updated_at": "2026-10-12T13:58:48Z",
   "videos": {
     "list-free-video-ai-01": {
       "snapshots": [
@@ -45,8 +45,27 @@
       "title": null,
       "youtube_id": "tiNhpvU1znw"
     },
-    "news-haiku-55-01": {
+    "news-gpt61-astra-01": {
       "snapshots": [],
+      "title": null,
+      "youtube_id": "3qjmijMrjPs"
+    },
+    "news-haiku-55-01": {
+      "snapshots": [
+        {
+          "age_hours": 24.96,
+          "analytics": {
+            "unavailable": "YouTubeError: YouTube HTTP 403: Request had insufficient authentication scopes."
+          },
+          "comments": 0,
+          "engagement_rate": 0.0,
+          "likes": 0,
+          "published_at": "2026-10-11T13:00:56Z",
+          "taken_at": "2026-10-12T13:58:48Z",
+          "views": 22,
+          "window": "24h"
+        }
+      ],
       "title": null,
       "youtube_id": "OIGcbdJMuRE"
     },
