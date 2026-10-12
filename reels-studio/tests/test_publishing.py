@@ -697,3 +697,47 @@ class ReferenceMergeTests(unittest.TestCase):
         self.assertEqual({r["asset_id"] for r in refs}, {100, 200})
         to_build, aliases = media.plan_refs(refs)
         self.assertEqual([i["asset_id"] for i in to_build], [200])  # the old pin is aliased, not downloaded
+
+
+class QueueReleaseTests(unittest.TestCase):
+    """Owner-authorised Buffer queue clear (recreate against corrected media, 2026-10-12)."""
+
+    def setUp(self):
+        from tools.post import release
+        self.release = release
+
+    def row(self, state="scheduled", pid="bp1"):
+        return {"video_id": "news-clef-01", "platform": "facebook", "state": state,
+                "buffer_post_id": pid, "due_at": "2026-10-13T19:00:00Z", "external_url": None}
+
+    def test_release_marks_row_recreatable_and_keeps_audit(self):
+        r = self.release.release_row(self.row(), "owner clear", self.release.now_utc())
+        self.assertEqual(r["state"], "released")
+        self.assertIsNone(r["buffer_post_id"])
+        self.assertEqual(r["previous_buffer_post_id"], "bp1")
+        self.assertIn("released_at", r)
+
+    def test_published_rows_are_never_released(self):
+        with self.assertRaises(ValueError):
+            self.release.release_row(self.row(state="sent"), "x", self.release.now_utc())
+        with self.assertRaises(ValueError):
+            self.release.release_row(self.row(state="published_manual"), "x", self.release.now_utc())
+
+    def test_released_is_not_terminal_so_the_planner_can_recreate(self):
+        from tools.post.common import TERMINAL
+        self.assertNotIn(self.release.RELEASED, TERMINAL)
+        r = self.release.release_row(self.row(), "x", self.release.now_utc())
+        self.assertNotIn(r["state"], TERMINAL)
+
+    def test_writes_require_the_exact_confirmation(self):
+        import subprocess, sys
+        out = subprocess.run([sys.executable, str(ROOT / "tools/post/release.py"), "--keys", "a-01:facebook"],
+                             capture_output=True, text=True)
+        self.assertNotEqual(out.returncode, 0)
+        self.assertIn("refusing to write", out.stdout + out.stderr)
+
+    def test_pending_rows_filter(self):
+        journal = {"records": {"a:facebook": self.row(), "b:youtube": self.row(state="sent"),
+                               "c:instagram": self.row(state="released")}}
+        rows = self.release.pending_rows(journal)
+        self.assertEqual(sorted(rows), ["a:facebook", "c:instagram"])

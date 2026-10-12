@@ -1,0 +1,79 @@
+# Owner-authorised Buffer queue clear. Deletes ONLY posts that are still scheduled (never sent),
+# then releases their journal rows so the planner can recreate them against corrected media.
+#   mode=list   -> read-only overview of pending rows and their Buffer state
+#   mode=clear  -> requires confirm=OWNER_APPROVED_QUEUE_CLEAR; delete=yes also deletes in Buffer
+name: queue-release
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'list = read-only overview; clear = release rows (+ delete posts when delete=yes)'
+        type: choice
+        options: [list, clear]
+        default: list
+      keys:
+        description: 'space/comma separated video:platform rows; empty = all pending'
+        type: string
+        default: ''
+      delete:
+        description: 'delete the Buffer posts too (only scheduled/draft rows are touched)'
+        type: choice
+        options: ['no', 'yes']
+        default: 'no'
+      confirm:
+        description: 'must equal OWNER_APPROVED_QUEUE_CLEAR for mode=clear'
+        type: string
+        default: ''
+permissions:
+  contents: read
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          filter: blob:none
+          sparse-checkout: |
+            /reels-studio/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: reels-studio/tools/post/requirements.txt
+      - name: Install posting dependencies
+        run: python3 -m pip install -r reels-studio/tools/post/requirements.txt
+      - name: Safety suite (release behaviour is covered here)
+        run: python3 -m unittest discover -s reels-studio/tests -v
+      - name: Run queue release
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          MODE: ${{ inputs.mode }}
+          KEYS: ${{ inputs.keys }}
+          DELETE: ${{ inputs.delete }}
+          CONFIRM: ${{ inputs.confirm }}
+        run: |
+          cd reels-studio
+          args=()
+          if [ "$MODE" = "list" ]; then args+=(--list); fi
+          if [ "$MODE" = "clear" ]; then
+            if [ -z "$KEYS" ]; then args+=(--all-pending); else args+=(--keys ${KEYS//,/ }); fi
+            args+=(--confirm "$CONFIRM")
+            if [ "$DELETE" = "yes" ]; then args+=(--delete); else args+=(--release-removed); fi
+          fi
+          python3 tools/post/release.py "${args[@]}"
+      - name: Commit released rows
+        run: |
+          cd reels-studio
+          git status --porcelain tracker/publications.json || true
+          if ! git diff --quiet -- tracker/publications.json; then
+            git config user.name "hypeless-bot"; git config user.email "bot@users.noreply.github.com"
+            git add tracker/publications.json
+            git commit -m "publishing: owner-approved queue clear (rows released for recreation)"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          else
+            echo "no journal change"
+          fi

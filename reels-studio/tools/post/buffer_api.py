@@ -50,6 +50,15 @@ MORE_POSTS = """query HypelessPosts($input: PostsInput!, $after: String) {
 }"""
 
 
+DELETE = """mutation HypelessDelete($input: DeletePostInput!) {
+ deletePost(input: $input) {
+  __typename
+  ... on DeletePostSuccess { id }
+  ... on VoidMutationError { message }
+ }
+}"""
+
+
 class BufferError(RuntimeError):
     def __init__(self, message, code="ERROR", wait_seconds=0):
         super().__init__(redact(str(message)))
@@ -215,6 +224,20 @@ class BufferClient:
                 page = self.request(MORE_POSTS, {"input": filters, "after": page["pageInfo"]["endCursor"]})["posts"]
                 count += 1
         return result["channels"], posts
+
+    def delete(self, post_id):
+        """Remove a scheduled post the owner asked us to clear (queue clean-up, never a receipt).
+
+        Only for posts that are not yet published: the caller checks the status first. A lost
+        response is ambiguous - the post may or may not be gone - so callers must re-scan.
+        """
+        result = self.request(DELETE, {"input": {"id": post_id}}, mutation=True).get("deletePost") or {}
+        kind = result.get("__typename", "Unknown")
+        if kind == "DeletePostSuccess" and result.get("id"):
+            return result["id"]
+        if kind in {"VoidMutationError", "NotFoundError"}:
+            raise BufferError(result.get("message", kind), kind)
+        raise AmbiguousResult(result.get("message", "Unknown delete result"), kind)
 
     def create(self, payload):
         result = self.request(CREATE, {"input": payload}, mutation=True).get("createPost") or {}
