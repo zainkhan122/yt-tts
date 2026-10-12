@@ -8,7 +8,21 @@ Do not retry experiments merely because quota resets or a checkpoint exists. Res
 
 The old local five-video ZIP and Mosa preview were removed only after all ten archived MP4/kit files were verified. Original masters, post kits and source captures remain in GitHub Releases. See `research/maintenance/2026-10-11-deliverable-cleanup.json`; use the archived files, not a re-upload or fresh render.
 
-## Current batch — 2026-10-11
+## Current batch — 2026-10-12
+
+Owner instruction: five videos for today, scheduled, with the daily mix **no longer hardcoded** (no fixed 2 tools /
+2 news / 1 repo) and topics picked by findings. Done: the mix rule now lives only in config
+(`required_daily_categories: []`, `max_repo_videos_per_day: 5`; commit `ee1fd2f`), and the five topics came out of a
+scored shortlist (`research/ideas/2026-10-12-shortlist.md`) — GPT-6.1 Astra's cancellation, Qwen3.8-27B on one RTX
+3090, ds4/DwarfStar local DeepSeek 4, Nano Banana 2.1 pricing, and OpenMontage. All five rendered green on cloud run
+**38216765324** → Release `renders-2026-10-12` (10 assets; QA 7/7 each). Scheduling: two live runs (**38220006074**
+3 videos / 9 posts, **38220249522** 2 videos / 6 posts) created all **15** YT/IG/FB slots — see the slot table in
+`research/maintenance/2026-10-12-batch.json`. **Scheduled is not sent**: reconcile (`post.yml mode=reconcile`) before
+claiming anything is public. Covers: all five extracted, visually reviewed and approved (`cover_sha256` in
+`queue/publish.json`); the enrichment worker applies them as Shorts go live. Full receipt:
+`research/maintenance/2026-10-12-batch.json`.
+
+## Previous batch — 2026-10-11
 
 Five Oct-10 productions (news-haiku-55-01, news-gemini-agent-01, tool-mosa-01, tool-pomelli-01, repo-whistle-01) were
 scheduled today across YT/IG/FB by paced Buffer runs under the `hypeless-publishing` concurrency group (see

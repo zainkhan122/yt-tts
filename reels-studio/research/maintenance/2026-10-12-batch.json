@@ -1,6 +1,6 @@
 {
   "batch": "2026-10-12",
-  "status": "rendering",
+  "status": "scheduled (pending reconcile + delivery)",
   "owner_instruction": "Make 5 videos for today and schedule them. The system must not be hardcoded to 2 tools / 2 news / 1 repo. Pick the 5 best topics by findings (search, relevance, popularity).",
   "policy_change": {
     "commit": "ee1fd2f (pushed in 820a154)",
@@ -87,20 +87,131 @@
     "asterisk_pairs": "balanced (template would SystemExit otherwise)"
   },
   "render": {
-    "workflow_run": "38216765324 (render.yml)",
-    "release_tag": "renders-2026-10-12",
+    "workflow_run": "38216765324 (render.yml), created 2026-10-12T07:15:49Z, completed success 2026-10-12T07:49:39Z",
+    "release_tag": "renders-2026-10-12 (10 assets)",
     "dispatched_utc": "2026-10-12T07:57Z",
-    "result": "TBD"
+    "result": "all five jobs success; QA 7/7 each (1080x1920, 30 fps, H.264/AAC, ~-14 LUFS, approved voice)",
+    "assets": {
+      "news-gpt61-astra-01": {
+        "mp4": 633053233,
+        "kit": 633053372,
+        "size_mb": 13.73
+      },
+      "tool-qwen38-01": {
+        "mp4": 633073096,
+        "kit": 633073129,
+        "size_mb": 14.28
+      },
+      "news-nano-banana-21-01": {
+        "mp4": 633045989,
+        "kit": 633046063,
+        "size_mb": 13.27
+      },
+      "tool-openmontage-01": {
+        "mp4": 633064615,
+        "kit": 633064671,
+        "size_mb": 17.52
+      },
+      "repo-ds4-01": {
+        "mp4": 633071756,
+        "kit": 633071817,
+        "size_mb": 17.64
+      }
+    }
   },
   "scheduling": {
     "config_change": "daily_target_overrides now {2026-10-11: 5, 2026-10-12: 5} (local commit, push with final sync)",
     "plan": "after render: queue_ctl enqueue x5 -> verify kits -> approve (reviewed-until ~2026-10-14T08:00Z, platforms youtube instagram facebook) -> dispatch post.yml mode=schedule with the 5 ids -> reconcile",
     "caps": "<=9 creates/run, >=180-min spacing per platform, <=8 pending/channel, 5/day via override",
-    "note": "post.yml crons (0:23/6:23/12:23/18:23 UTC) auto-schedule approved eligible items while enabled+live_pilot_passed; expect the 12:23/18:23 crons to also act"
+    "note": "post.yml crons (0:23/6:23/12:23/18:23 UTC) auto-schedule approved eligible items while enabled+live_pilot_passed; expect the 12:23/18:23 crons to also act",
+    "queue_priorities": {
+      "news-gpt61-astra-01": 120,
+      "tool-qwen38-01": 130,
+      "repo-ds4-01": 140,
+      "news-nano-banana-21-01": 150,
+      "tool-openmontage-01": 160
+    },
+    "reviewed_until": "2026-10-14T08:00:00Z",
+    "run_a": {
+      "id": 38220006074,
+      "mode": "live",
+      "created": 9,
+      "conclusion": "success",
+      "slots_edt": {
+        "news-gpt61-astra-01": {
+          "facebook": "06:00",
+          "instagram": "08:00",
+          "youtube": "09:00"
+        },
+        "tool-qwen38-01": {
+          "facebook": "09:00",
+          "instagram": "12:00",
+          "youtube": "13:00"
+        },
+        "repo-ds4-01": {
+          "facebook": "12:00",
+          "instagram": "15:00",
+          "youtube": "17:00"
+        }
+      }
+    },
+    "run_b": {
+      "id": 38220249522,
+      "mode": "live",
+      "created": 6,
+      "conclusion": "success",
+      "slots_edt": {
+        "news-nano-banana-21-01": {
+          "facebook": "15:00",
+          "instagram": "18:00",
+          "youtube": "20:00"
+        },
+        "tool-openmontage-01": {
+          "facebook": "18:00",
+          "instagram": "21:00",
+          "youtube": "23:00"
+        }
+      }
+    },
+    "total_created": 15,
+    "slots_utc": {
+      "news-gpt61-astra-01": {
+        "facebook": "2026-10-12T10:00Z",
+        "instagram": "2026-10-12T12:00Z",
+        "youtube": "2026-10-12T13:00Z"
+      },
+      "tool-qwen38-01": {
+        "facebook": "2026-10-12T13:00Z",
+        "instagram": "2026-10-12T16:00Z",
+        "youtube": "2026-10-12T17:00Z"
+      },
+      "repo-ds4-01": {
+        "facebook": "2026-10-12T16:00Z",
+        "instagram": "2026-10-12T19:00Z",
+        "youtube": "2026-10-12T21:00Z"
+      },
+      "news-nano-banana-21-01": {
+        "facebook": "2026-10-12T19:00Z",
+        "instagram": "2026-10-12T22:00Z",
+        "youtube": "2026-10-13T00:00Z"
+      },
+      "tool-openmontage-01": {
+        "facebook": "2026-10-12T22:00Z",
+        "instagram": "2026-10-13T01:00Z",
+        "youtube": "2026-10-13T03:00Z"
+      }
+    }
   },
   "covers": {
     "plan": "cover_ctl extract x5 -> visual review -> approve x5 (records digest for the enrichment worker)",
-    "result": "TBD"
+    "result": "extracted + visually reviewed + approved x5",
+    "sha256": {
+      "news-gpt61-astra-01": "91ad2721f638d9ea9f012c6d28542a27b784269848f7d901379acc3de0c2d69c",
+      "tool-qwen38-01": "4c2fb77a27b2aca100595c86c0c99910b1566a8e271b59253349d17da969da25",
+      "news-nano-banana-21-01": "c0b5775e2d2e20d8cfeb126026e79e2637c6f06f4a332a48b7581ebb3ae14182",
+      "tool-openmontage-01": "f19c53e6cb380a8343a9c64c02e2f2c9c25fb01acb4e59b7e63e8bd7fb907d27",
+      "repo-ds4-01": "1ad2dfa5b9cd9b784ab5ec86bb2ac3384f2dcb78e7861f20077056d86c50dc47"
+    }
   },
   "next_actions": [
     "poll render run 38216765324 to success",

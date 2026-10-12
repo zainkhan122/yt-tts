@@ -191,3 +191,16 @@ Briefs: five tool-spotlight briefs (7 scenes each, ~150-172 spoken words) pass `
 manifests before dispatch. Cloud render dispatched as run **38216765324** → Release `renders-2026-10-12`
 (commit `820a154`). Scheduling follows via queue approvals + paced post.yml runs; date-scoped
 `daily_target_overrides` now carries 2026-10-12=5.
+
+### Batch outcome (2026-10-12)
+
+Renders: cloud run **38216765324** — five parallel jobs, all success in ~34 min; Release `renders-2026-10-12`
+carries 5 MP4s (13.3–17.6 MB) + 5 kits; each kit's QA block shows 7/7 checks (1080x1920, 30 fps, H.264/AAC,
+-14 LUFS, approved voice); covers reviewed from the kit previews and approved (`cover_sha256` recorded).
+
+Scheduling: queue approvals refreshed for all five (YT/IG/FB, reviewed-until 2026-10-14T08:00Z, priority
+120–160 in editorial order) and `daily_target_overrides` gained 2026-10-12=5. Two live post runs created **15
+posts**: astra 06:00/08:00/09:00 EDT, qwen 09:00/12:00/13:00, ds4 12:00/15:00/17:00, nano-banana
+15:00/18:00/20:00, openmontage 18:00/21:00/23:00 (local ET; last slots cross midnight UTC). A reconcile run
+(38220493940) follows. Scheduled is not sent — the receipt is the source of truth:
+`research/maintenance/2026-10-12-batch.json`.
