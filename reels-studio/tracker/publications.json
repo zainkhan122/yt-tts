@@ -395,9 +395,11 @@
     },
     "news-gpt61-sol-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6accbfb3624c35d1cf1d9443",
       "category": "news",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-13T12:00:00Z",
+      "due_at": "2026-10-13T12:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:3d32ea46f0006790dbb1e622670bd00b100af2e20de1348cec236a7a37780101",
         "asset_id": 633324280,
@@ -412,10 +414,11 @@
       "notify_subscribers": false,
       "payload_sha256": "66302419c8319bbb1ca64a052ae2aa2343413a652b4b60c02af5a9d8ba28c6ff",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "GPT-6.1 Sol is OpenAI's new frontier model at $2 per 1M input and $10 per 1M output \u2014 about one fifth of what GPT-6.1 Astra would have cost. Cached input is $0.10/M; inputs over 272K tokens cost 2x input and 1.5x output. Context window: 1,050,000 tokens; max output 128k; reasoning effort up to max; tools include web search, computer use, code interpreter and MCP. No fine-tuning and no free tier. The Ultrafast service tier (6x speed) is live via service_tier=ultrafast.\nSource: https://developers.openai.com/api/docs/models/gpt-6.1-sol\n\nCredits: Screens: own capture of developers.openai.com/api/docs/models/gpt-6.1-sol (2026-10-12). Model art and wallpaper are OpenAI's own published assets, credited on screen. Prices and limits are as published on the model page.\n\n#Shorts #OpenAI #GPT61 #AInews",
       "title": "GPT-6.1 Sol: OpenAI's Cheapest Frontier Model Yet",
-      "updated_at": "2026-10-12T11:08:33Z",
+      "updated_at": "2026-10-12T11:08:35Z",
       "video_id": "news-gpt61-sol-01"
     },
     "news-haiku-55-01:facebook": {
