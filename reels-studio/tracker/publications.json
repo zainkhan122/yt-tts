@@ -981,9 +981,11 @@
     },
     "tool-higgsfield-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6accbfc211bee99e6c99fae8",
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-13T18:00:00Z",
+      "due_at": "2026-10-13T18:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:a770617c7502c48342b818b29c20c9e081dd3c2d0ef05cd71a2988a9614afe5d",
         "asset_id": 633352292,
@@ -998,10 +1000,11 @@
       "notify_subscribers": true,
       "payload_sha256": "d7e35eccdcbc9d7ebc437378b52f71f959f9a06b48aa633f61bf5ae2132b903a",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Higgsfield's public changelog shows six releases between October 1 and 8, 2026: Genjutsu (no-prompt object/scene/character swaps, 30+ presets) and Grok Imagine Video 1.5 (Oct 1), AI Influencer (Oct 2), Nano Banana 2.1 (Oct 5), Ad Multiplier (Oct 6), and Katana, an MCP server for Claude and other agents (Oct 8). Semafor reported a $1B run-rate claim and 30M users on 7 October \u2014 company-reported, not audited.\nSource: https://higgsfield.ai/creator-hub/changelog\n\nCredits: Screens: own capture of higgsfield.ai/creator-hub/changelog (2026-10-12). Release names and dates are Higgsfield's own changelog entries. Run-rate and user figures are company-reported via Semafor (2026-10-07), not audited.\n\n#Shorts #AIVideo #Higgsfield #AItools",
       "title": "Higgsfield Shipped SIX AI Video Releases in Eight Days",
-      "updated_at": "2026-10-12T11:08:48Z",
+      "updated_at": "2026-10-12T11:08:50Z",
       "video_id": "tool-higgsfield-01"
     },
     "tool-mosa-01:facebook": {
