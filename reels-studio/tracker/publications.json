@@ -563,9 +563,11 @@
     },
     "repo-ds4-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6acc91ac5feb3462de95f38b",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-12T21:00:00Z",
+      "due_at": "2026-10-12T21:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:194d3b4a617351643df663c9d21284eb93f5825ec5c2f4d15271c45c3e94893b",
         "asset_id": 633071756,
@@ -580,10 +582,11 @@
       "notify_subscribers": false,
       "payload_sha256": "069efcb8dd3226f75a87b4692fdb0ecd14a0b991f6b80878420447b7a0dae039",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "DeepSeek 4 local inference, without a datacenter: antirez (the creator of Redis) ships ds4 / DwarfStar, an MIT-licensed C engine for DeepSeek 4 Flash and PRO, GLM 5.2-5.3 and Qwen3.8 Flash Next. Metal on Macs (96 GB+, SSD streaming below that), CUDA including Ada cards, ROCm on Strix Halo; the authors' eight-L40S setup hit ~126 t/s aggregate across 16 sessions. 23,783 stars as of 12 October 2026.\nSource: https://github.com/antirez/ds4\n\nCredits: Screens: own capture of github.com/antirez/ds4 (2026-10-12). Engine and documentation by antirez (MIT). Throughput and hardware figures are the project's published results, not our own test.\n\n#Shorts #DeepSeek #LocalAI #opensource",
       "title": "DeepSeek 4 Local Engine: 23k Stars, MIT",
-      "updated_at": "2026-10-12T07:52:10Z",
+      "updated_at": "2026-10-12T07:52:12Z",
       "video_id": "repo-ds4-01"
     },
     "repo-removemacai-01:youtube": {
