@@ -854,9 +854,11 @@
     },
     "tool-qwen38-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6acc91a3dd062ea3c817610d",
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-12T16:00:00Z",
+      "due_at": "2026-10-12T16:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:19ad28ed682ad944a744f4efdd8e3a7f4631f7bf0549d8a00113be45c886a9f7",
         "asset_id": 633073096,
@@ -871,10 +873,11 @@
       "notify_subscribers": false,
       "payload_sha256": "93372c74013bda0e1e34af7a64a1c1bb9a37936930853b759be430b5159d87d1",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Qwen3.8-27B, a 27.8B model, running on one used RTX 3090 at 127 tok/s single-stream in a tuned vLLM build. Stock setups report 40-75 tok/s. Save this if you have a spare GPU.\n\nCredits: Screens: own capture of the Qwen3.8-27B model page (huggingface.co). Demo frames: official media from that model card. Speed figures are HyperQwen's published benchmarks, not our own measurement.\n\n#LocalAI #Qwen #AItools",
       "title": "Qwen3.8-27B: 127 Tok/s on One RTX 3090",
-      "updated_at": "2026-10-12T07:52:01Z",
+      "updated_at": "2026-10-12T07:52:03Z",
       "video_id": "tool-qwen38-01"
     }
   },
