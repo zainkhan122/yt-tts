@@ -95,6 +95,11 @@ def references(items, records, cfg, now):
             continue
         sent = parse_time(rec.get("sent_at"))
         if rec["state"] not in TERMINAL or not sent or sent >= cutoff:
+            if item["asset_id"] in refs:
+                # The queue already describes this exact asset, with the fields a journal pin
+                # copy does not carry (legacy_media_paths). Never let the copy clobber it: that
+                # silently dropped the legacy-URL aliases after a re-pin (2026-10-12).
+                continue
             refs[item["asset_id"]] = item
     return list(refs.values())
 

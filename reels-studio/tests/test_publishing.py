@@ -663,3 +663,37 @@ class PlanRefsTests(unittest.TestCase):
         to_build, aliases = media.plan_refs([a, b])
         self.assertEqual({i["asset_id"] for i in to_build}, {100, 200})
         self.assertEqual(aliases, {})
+
+
+class ReferenceMergeTests(unittest.TestCase):
+    """Journal pins must not clobber the queue item (it carries legacy_media_paths)."""
+
+    def item(self, asset_id, legacy=None):
+        i = {"video_id": "news-clef-01", "asset_id": asset_id, "asset_size": 1, "approval": "approved",
+             "platforms": ["youtube"], "media_path": f"media/{asset_id}/news-clef-01.mp4"}
+        if legacy:
+            i["legacy_media_paths"] = legacy
+        return i
+
+    def cfg(self):
+        return {"media": {"retention_days": 7},
+                "buffer": {"channels": {"youtube": {"enabled": True}}}}
+
+    def test_journal_pin_for_the_same_asset_keeps_the_queue_metadata(self):
+        queue_item = self.item(200, legacy=["media/100/news-clef-01.mp4"])
+        records = {"news-clef-01:youtube": {"state": "scheduled", "sent_at": None, "media_ref": self.item(200)}}
+        refs = media.references([queue_item], records, self.cfg(), NOW)
+        same = [r for r in refs if r["asset_id"] == 200]
+        self.assertEqual(len(same), 1)
+        self.assertEqual(same[0].get("legacy_media_paths"), ["media/100/news-clef-01.mp4"])
+        to_build, aliases = media.plan_refs(refs)
+        self.assertEqual([i["asset_id"] for i in to_build], [200])
+        self.assertEqual(aliases, {"media/100/news-clef-01.mp4": queue_item})
+
+    def test_old_pin_is_still_kept_alive(self):
+        queue_item = self.item(200, legacy=["media/100/news-clef-01.mp4"])
+        records = {"news-clef-01:youtube": {"state": "scheduled", "sent_at": None, "media_ref": self.item(100)}}
+        refs = media.references([queue_item], records, self.cfg(), NOW)
+        self.assertEqual({r["asset_id"] for r in refs}, {100, 200})
+        to_build, aliases = media.plan_refs(refs)
+        self.assertEqual([i["asset_id"] for i in to_build], [200])  # the old pin is aliased, not downloaded
