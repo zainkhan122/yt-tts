@@ -1,5 +1,5 @@
 {
-  "activation_note": "Owner authorised today's publication across YT/IG/FB on 2026-10-10. One controlled immediate Claude pilot first; subsequent videos follow the researched paced calendar. 2026-10-11 owner instruction (later): the daily content mix must NOT be hardcoded (no fixed 2 tools / 2 news / 1 repo). required_daily_categories is empty and max_repo_videos_per_day is lifted; the batch composition follows the researched editorial ranking (queue priority) with pacing caps (5/day, 180-minute spacing, per-channel queue limits) unchanged.",
+  "activation_note": "Owner authorised today's publication across YT/IG/FB on 2026-10-10. One controlled immediate Claude pilot first; subsequent videos follow the researched paced calendar. 2026-10-11 owner instruction: the daily content mix must NOT be hardcoded (no fixed 2 tools / 2 news / 1 repo); required_daily_categories is empty. 2026-10-12 owner instruction (later): the 5/day production cap is removed \u2014 the daily count is chosen by the researched factors up to a ceiling of max_videos_per_day = 10, with minimum spacing 150 minutes and per-channel queue limits still enforced by the planner.",
   "branch": "main",
   "buffer": {
     "channels": {
@@ -57,9 +57,9 @@
     "daily_target": 3,
     "lookahead_hours": 48,
     "max_posts_per_run": 9,
-    "max_repo_videos_per_day": 5,
-    "max_videos_per_day": 5,
-    "minimum_gap_minutes": 180,
+    "max_repo_videos_per_day": 10,
+    "max_videos_per_day": 10,
+    "minimum_gap_minutes": 150,
     "minimum_lead_minutes": 60,
     "profiles": {
       "facebook": {
@@ -281,6 +281,11 @@
     "daily_target_overrides": {
       "2026-10-11": 5,
       "2026-10-12": 5
+    },
+    "extended_slots": {
+      "start": "00:00",
+      "gap_minutes": 150,
+      "note": "High-volume days above the researched windows use this evenly spaced grid; 150 min spacing keeps a 10/day ceiling placeable (9 x 150 = 1350 min < 24 h)."
     }
   },
   "schema_version": 2

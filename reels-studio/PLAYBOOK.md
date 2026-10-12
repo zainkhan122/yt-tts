@@ -265,14 +265,14 @@ Each render's `post.md` will carry **one ready block per platform** (Phase 4: `t
 
 ## 10. Publishing workflow and cadence
 
-- **Cadence target: 3–5 shorts/day.** Daily mix is **not hardcoded** (owner 2026-10-11): the batch composition follows the researched editorial ranking (consensus, views, freshness, searchability); pacing caps and format guidance (F1 Repo Drop, F2 Tool Spotlight, F3 Weekly Top 5) remain as formats, not quotas. The day's shortlist goes to the owner for approval before production.
-- **How 3–5/day is possible:**
+- **Cadence target: 3–10 shorts/day** (ceiling raised from 5 by owner 2026-10-12; the day's count follows the researched factors). Daily mix is **not hardcoded** (owner 2026-10-11): the batch composition follows the researched editorial ranking (consensus, views, freshness, searchability); pacing caps and format guidance (F1 Repo Drop, F2 Tool Spotlight, F3 Weekly Top 5) remain as formats, not quotas. The day's shortlist goes to the owner for approval before production.
+- **How 3–10/day is possible:**
   - **Cloud render on GitHub Actions** renders all of the day's videos **in parallel**. It's free for this public repo; GitHub's standard runner for public repos has 4 vCPU and 16 GB.
   - The sandbox renders only ~1 video per 10 min and resets between sessions, so it is used for drafts and previews only.
 - **Daily agent session (~45–60 min):**
   1. bootstrap;
   2. `idea_feed` + radar;
-  3. pick 3–5 topics (rubric);
+  3. pick the day's topics by rubric (baseline 3, ceiling 10 — owner 2026-10-12);
   4. capture packs;
   5. write briefs + `seo_pack`;
   6. `--no-render` gates;
@@ -295,7 +295,7 @@ Each render's `post.md` will carry **one ready block per platform** (Phase 4: `t
 |---|---|---|
 | ✅ 1–2 | capture kit, social scan, pipeline doc, voice audition | done |
 | ✅ 3 (this) | channel study (270 videos), watchlist, idea feed, this PLAYBOOK, platform SEO research | done |
-| ✅ 4a | token persistence, 32-source registry + post history, energetic voice, channel handles, 3–5/day design | done |
+| ✅ 4a | token persistence, 32-source registry + post history, energetic voice, channel handles, 3–10/day design | done |
 | 4b | **templates**: `repo-drop` + `tool-spotlight` (scene library + winner caption style) | preview stills |
 | 5 | **cloud render** (GitHub Actions matrix: N briefs in parallel → Releases) + **video #1** | ready-to-post MP4 + 5 platform blocks |
 | 6 | **daily engine: 3–5 shorts/day** (idea feed → briefs → capture → cloud render → post kits); tracker | 3–5 videos/day |

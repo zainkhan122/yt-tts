@@ -4,9 +4,9 @@ Owner instruction (2026-10-11): make 5 videos for today, scheduled; the system m
 2× tools / 2× news / 1× repo, and the five topics must come out of the research — search demand, relevance,
 popularity.
 
-That policy change is in code: `config/publishing.json` (`required_daily_categories: []`, `max_repo_videos_per_day: 5`)
+That policy change is in code: `config/publishing.json` (`required_daily_categories: []`; ceiling `max_videos_per_day: 10` since later on 2026-10-12 — the old 5/day cap is gone)
 and `tools/post/cadence.py` now orders a batch strictly by editorial priority when no mix is required.
-Suite: 219 passed (`test_mix_is_not_hardcoded_in_config`, `test_repo_weighted_batch_is_allowed_when_merit_picks_it`).
+Suite: 230 passed (`test_mix_is_not_hardcoded_in_config`, `test_repo_weighted_batch_is_allowed_when_merit_picks_it`, `test_daily_ceiling_is_ten_and_has_no_hidden_five_clamp`).
 
 Evidence base: `research/radar/radar-2026-10-12.md` (32 safe candidates from 14 days of channel scans),
 `research/ideas/feed-2026-10-12.md` (154 topic candidates), GitHub REST API (stars/created/licence verified

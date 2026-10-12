@@ -11,7 +11,7 @@ Reels Studio - professional vertical-video generator (HyperFrames + free tools)
   python3 reels.py make   briefs/x.json --quality looks --crf 26
   python3 reels.py make   briefs/x.json --no-render         # fast iteration: build + lint + check only
   python3 reels.py batch  briefs/a.json briefs/b.json ...   # a week of videos in one go
-  python3 reels.py cloud  <brief-id> [<brief-id> ...] [--wait]  # render on GitHub Actions, up to 5 in parallel -> Release
+  python3 reels.py cloud  <brief-id> [<brief-id> ...] [--wait]  # render on GitHub Actions, up to 10 in parallel -> Release
   python3 reels.py post [<id>] --dry-run                    # read-only Buffer queue / pacing preview
   python3 reels.py renders                                   # every published video + post kit (download links)
   python3 reels.py publish renders/<id> [renders/<id2> ...]  # upload a local render: <id>.mp4 + <id>-kit.zip
@@ -43,7 +43,20 @@ def token():
     return gh_token()
 
 
+def ensure_git_config():
+    """The workspace snapshot can drop .git/config (it is excluded by design). Restore the
+    public partial-clone/identity template instead of failing every git call with
+    "'origin' does not appear to be a git repository"."""
+    cfg = REPO / ".git" / "config"
+    tpl = ROOT / "setup" / "git-config.template"
+    if not cfg.exists() and tpl.exists():
+        cfg.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(tpl, cfg)
+        print("restored .git/config from setup/git-config.template")
+
+
 def git(*args, check=True, auth=False):
+    ensure_git_config()
     cmd = ["git", "-C", str(REPO)]
     if auth:  # credential helper reads the token at call time; nothing is written to disk
         cmd += ["-c", "credential.helper=",
@@ -134,6 +147,10 @@ def cmd_cloud(a):
     missing = [i for i in ids if not (ROOT / "briefs" / f"{i}.json").exists()]
     if missing:
         raise SystemExit(f"no brief for: {', '.join(missing)} (briefs must be committed: python3 reels.py sync)")
+    lint = subprocess.run([sys.executable, str(ROOT / "tools" / "brief_lint.py"),
+                           *[str(ROOT / "briefs" / f"{i}.json") for i in ids]])
+    if lint.returncode:
+        raise SystemExit("brief lint found errors — fix them before spending cloud runners")
     run_id = gh_actions.dispatch("render.yml", {"briefs": " ".join(ids), "tag": a.tag, "quality": a.quality, "crf": str(a.crf)})
     print(f"cloud render started: https://github.com/{gh_actions.REPO}/actions/runs/{run_id}  ({len(ids)} video(s))")
     if a.wait:
@@ -190,7 +207,9 @@ def main():
     p = sub.add_parser("publish")
     p.add_argument("kits", nargs="+", help="renders/<id> folders")
     p.add_argument("--tag", default=time.strftime("renders-%Y-%m-%d"))
-    p = sub.add_parser("cloud", help="render briefs on GitHub Actions (one runner each, up to 5 in parallel)")
+    p = sub.add_parser("lint", help="validate briefs (assets, regions, sync words, SEO) before rendering")
+    p.add_argument("briefs", nargs="+", help="brief ids or paths")
+    p = sub.add_parser("cloud", help="render briefs on GitHub Actions (one runner each, up to 10 in parallel)")
     p.add_argument("briefs", nargs="+", help="brief ids or paths (briefs/<id>.json)")
     p.add_argument("--tag", default="", help="release tag (default renders-YYYY-MM-DD)")
     p.add_argument("--quality", default="looks")
@@ -218,6 +237,8 @@ def main():
         return cmd_publish(a)
     if a.cmd == "cloud":
         return cmd_cloud(a)
+    if a.cmd == "lint":
+        return subprocess.call([sys.executable, str(ROOT / "tools" / "brief_lint.py"), *a.briefs])
     if a.cmd == "renders":
         return subprocess.run([sys.executable, str(ROOT / "tools" / "publish_release.py"), "--list"]).returncode
     if a.cmd == "radar":

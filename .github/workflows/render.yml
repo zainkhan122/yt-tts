@@ -1,4 +1,4 @@
-# Cloud render: one GitHub runner (4 vCPU / 16 GB, free for this public repo) per brief, up to 5 in parallel.
+# Cloud render: one GitHub runner (4 vCPU / 16 GB, free for this public repo) per brief, up to 10 in parallel (owner ceiling 2026-10-12).
 # Each job: toolchain -> capture pack -> reels.py make (voice, QA, render) -> SEO gate -> MP4 + post kit on a Release.
 # Start: python3 reels-studio/reels.py cloud <brief-id> [<brief-id> ...]   (or Actions -> render -> Run workflow)
 name: render
@@ -53,7 +53,7 @@ jobs:
     timeout-minutes: 80
     strategy:
       fail-fast: false
-      max-parallel: 5
+      max-parallel: 10
       matrix:
         brief: ${{ fromJSON(needs.plan.outputs.briefs) }}
     env:

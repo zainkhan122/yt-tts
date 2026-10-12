@@ -25,12 +25,41 @@ def at_local(day, clock, timezone):
     return utc
 
 
-def clocks_for(profile, day, target):
-    target = min(5, max(1, target))
+def _minutes(clock):
+    h, m = map(int, clock.split(":"))
+    return h * 60 + m
+
+
+def _clock(minutes):
+    return f"{minutes // 60:02d}:{minutes % 60:02d}"
+
+
+def clocks_for(profile, day, target, settings=None):
+    """Slot clocks for one day.
+
+    Up to the researched windows (base + optional slots) the calendar is unchanged. Above
+    that, an evenly spaced day grid from `extended_slots` (default 00:00, every 150 min)
+    keeps every gap >= `minimum_gap_minutes`, so a high-volume day up to the configured
+    ceiling (owner 2026-10-12: 10/day) is genuinely placeable — no hidden 5-slot clamp.
+    """
+    settings = settings or {}
+    target = min(int(settings.get("max_videos_per_day", 10)), max(1, int(target)))
     name = DAYS[day.weekday()]
     base = profile["weekly_slots"][name]
-    chosen = base[:target] + profile.get("optional_slots", {}).get(name, [])[:max(0, target-len(base))]
-    return sorted(set(chosen))
+    optional = profile.get("optional_slots", {}).get(name, [])
+    if target <= len(base) + len(optional):
+        chosen = base[:target] + optional[:max(0, target - len(base))]
+        return sorted(set(chosen))
+    ext = settings.get("extended_slots") or {}
+    gap = max(int(ext.get("gap_minutes", 150)), int(settings.get("minimum_gap_minutes", 150)))
+    start = _minutes(ext.get("start", "00:00"))
+    slots = []
+    for i in range(target):
+        m = start + i * gap
+        if m > 23 * 60 + 59:
+            break
+        slots.append(_clock(m))
+    return slots
 
 
 def can_notify(when, events, limit):
@@ -46,7 +75,7 @@ def _time(record):
 
 def plan(items, records, channels, posts, cfg, now, preview=False, pilot=False, long_records=None):
     settings = cfg["schedule"]
-    target = min(settings.get("daily_target", 3), settings.get("max_videos_per_day", 5), 5)
+    target = min(settings.get("daily_target", 3), settings.get("max_videos_per_day", 10))
     earliest = now + dt.timedelta(minutes=settings["minimum_lead_minutes"])
     end = now + dt.timedelta(hours=settings["lookahead_hours"])
     if long_records is None:
@@ -119,9 +148,9 @@ def plan(items, records, channels, posts, cfg, now, preview=False, pilot=False, 
             # A dated override can expand one calendar day (owner-instruction batches)
             # but never beyond the hard caps below the baseline target.
             day_target = min(settings.get("daily_target_overrides", {}).get(day.isoformat(), target),
-                             settings.get("max_videos_per_day", 5), 5)
+                             settings.get("max_videos_per_day", 10))
             kinds = [cat for _, cat in known_categories[day]]
-            clocks = clocks_for(profile, day, day_target)
+            clocks = clocks_for(profile, day, day_target, settings)
             slots = [at_local(day, clock, profile.get("timezone", settings["timezone"])) for clock in clocks]
             slots = [t for t in slots if t and earliest <= t <= end]
             for idx, due in enumerate(slots):

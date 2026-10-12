@@ -47,8 +47,14 @@ def api(method, path, body=None, raw=False):
             return r.status, (data if raw else json.loads(data or b"{}"))
     except urllib.error.HTTPError as e:
         if e.code in (301, 302, 307, 308):  # signed blob URL: fetch WITHOUT the GitHub token
-            with urllib.request.urlopen(e.headers["Location"], timeout=300) as r:
-                return r.status, r.read()
+            loc = e.headers.get("Location")
+            if not loc:
+                return e.code, {"message": "redirect without a Location header"}
+            try:
+                with urllib.request.urlopen(loc, timeout=300) as r:
+                    return r.status, r.read()
+            except urllib.error.HTTPError as e2:  # e.g. log blob not written yet (404)
+                return e2.code, {"message": f"redirect target failed: HTTP {e2.code}"}
         return e.code, json.loads(e.read() or b"{}")
 
 
@@ -96,7 +102,10 @@ def wait(run_id, timeout):
 
 def logs(job_id, tail, grep):
     s, data = api("GET", f"/actions/jobs/{job_id}/logs", raw=True)
-    text = data.decode("utf-8", "replace") if isinstance(data, bytes) else str(data)
+    if not isinstance(data, bytes):  # friendly path: log blob 404s while a job is still running
+        print(f"logs not available yet (HTTP {s}: {data.get('message', '')}) — the job may still be running")
+        return 2
+    text = data.decode("utf-8", "replace")
     lines = [re.sub(r"^\S+Z ", "", l) for l in text.splitlines()]
     if grep:
         lines = [l for l in lines if re.search(grep, l, re.I)]

@@ -6,7 +6,7 @@
 - **Facebook is included.** The earlier native-AI-label hold was explicitly removed by the owner. Its caption always discloses AI narration; capability discovery uses a native flag if Buffer later exposes it. Caption disclosure is not claimed equivalent to a native label, and no rollout date is promised.
 - Audience: **global English, US-led**. All scheduling calendars use **America/New_York**, with DST-aware UTC conversion. Buffer's existing UI timezone/weekly slots remain unmodified.
 - Prefer explicit `mode: customScheduled` + `dueAt`, not `shareNow` or blindly filling the existing queue.
-- **Three shorts/day baseline**, optional fourth/fifth slots only after a cadence review. Separate calendar per platform; the daily mix is editorial (owner 2026-10-11 — no hardcoded 2/2/1 split; strongest researched topics win) with pacing caps unchanged.
+- **Three shorts/day baseline**, scaling with the researched batch up to the owner ceiling of **10/day** (2026-10-12; extended slot grid keeps 150-minute spacing). Separate calendar per platform; the daily mix is editorial (owner 2026-10-11 — no hardcoded 2/2/1 split; strongest researched topics win).
 - **Buffer publishing is ACTIVE**, explicitly authorised 2026-10-10. The Claude pilot was confirmed sent on YT/IG/FB; two further videos were scheduled at spaced same-day Eastern slots. Five new productions are ready but held for their next posting approval/batch. Setup dry-runs did not publish; this live activation is a later owner-authorised step.
 
 Full researched schedule: `research/publishing/strategy-2026-10-10.md`.

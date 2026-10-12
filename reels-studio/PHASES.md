@@ -204,3 +204,26 @@ posts**: astra 06:00/08:00/09:00 EDT, qwen 09:00/12:00/13:00, ds4 12:00/15:00/17
 15:00/18:00/20:00, openmontage 18:00/21:00/23:00 (local ET; last slots cross midnight UTC). A reconcile run
 (38220493940) follows. Scheduled is not sent — the receipt is the source of truth:
 `research/maintenance/2026-10-12-batch.json`.
+
+## 2026-10-12 (later) — hardening pass; production ceiling raised 5 → 10/day
+
+Owner instruction: fix everything that went wrong this session, and remove the 5-video cap — the daily count is
+chosen by the researched factors with a ceiling of 10.
+
+Ceiling: the cap was hardcoded in *three* places in `tools/post/cadence.py` (`plan` target, `day_target`,
+`clocks_for`) on top of `max_videos_per_day: 5`, and the slot profiles only ever exposed 5 clocks/day. All three
+clamps are gone; `max_videos_per_day`/`max_repo_videos_per_day` are 10; spacing changed 180 → 150 minutes because
+10 slots/day at 180-min spacing is arithmetically impossible (9 × 150 = 1350 min < 24 h — documented in config);
+above the researched windows the calendar now uses an evenly spaced `extended_slots` grid, so a 10/day day is
+genuinely placeable. `render.yml` max-parallel 5 → 10. Per-run mutation budget (≤9), the pending-per-channel
+guardrail and Buffer plan limits still govern how fast posts appear. Suite 230 passed, including
+`test_daily_ceiling_is_ten_and_has_no_hidden_five_clamp` and `clocks_for` coverage to 10.
+
+Fixes shipped for this session's issues: (1) a capture batch died because its script was edited while running —
+the script header now mandates copy-to-/var/tmp-before-run and records the openai.com/ai.google.dev capture
+blocks; (2) `gh_actions logs` raised a raw 404 traceback for not-yet-written logs — now a friendly message;
+(3) `.git/config` dropped by the snapshot — `reels.py` now auto-restores it from the setup template before any
+git call; (4) the brief near-misses caught by hand (assets below the captured viewport, unspoken sync words,
+`item_at`) are now a reusable `tools/brief_lint.py` with 11 regression tests, a `reels.py lint` command and a
+pre-dispatch gate in `reels.py cloud` so a broken brief can never spend a runner again. Details:
+`research/maintenance/2026-10-12-batch.json` → `session_fixes`.

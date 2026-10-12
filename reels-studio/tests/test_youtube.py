@@ -588,8 +588,11 @@ class CalendarAndThumbnailTests(unittest.TestCase):
         self.assertEqual(iso(at_local(dt.date(2026,11,1),"01:30","America/New_York")),"2026-11-01T05:30:00Z")
 
     def test_fourth_fifth_slots_are_opt_in(self):
-        p=load_json(ROOT/"config/publishing.json")["schedule"]["profiles"]["youtube"]
-        for target in (3,4,5):self.assertEqual(len(clocks_for(p,dt.date(2026,10,12),target)),target)
+        sched=load_json(ROOT/"config/publishing.json")["schedule"]
+        p=sched["profiles"]["youtube"]
+        # Standard windows cover up to five slots; above that the extended grid keeps the
+        # full owner-set ceiling (10/day) placeable with no hidden 5 clamp.
+        for target in (3,4,5,8,10):self.assertEqual(len(clocks_for(p,dt.date(2026,10,12),target,sched)),target)
 
     def test_rolling_notifications_include_already_scheduled_future_posts(self):
         t=NOW

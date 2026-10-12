@@ -26,9 +26,9 @@ The interactive agent runs research/production; approved-render Buffer delivery 
 
 Every idea goes into **`topics/backlog.csv`** (SSOT for topics) with its signals and status.
 
-**Daily mix (owner, 2026-10-11): NOT hardcoded.** The channel covers AI tools + AI news + repos; each batch's composition follows the researched editorial ranking (consensus, views, freshness, searchability) recorded as queue priorities. Pacing caps (5/day, 180-minute spacing, queue limits) still apply. Supersedes the 2026-10-09 fixed news/tool minimum.
+**Daily mix (owner, 2026-10-11): NOT hardcoded.** The channel covers AI tools + AI news + repos; each batch's composition follows the researched editorial ranking (consensus, views, freshness, searchability) recorded as queue priorities. Pacing limits (ceiling **10/day** — owner 2026-10-12, 150-minute spacing, per-channel queue limits) still apply. Supersedes the 2026-10-09 fixed news/tool minimum.
 - `reels.py radar` runs the watchlist idea feed (AI tools + AI news, tool lexicon in `config/ai-tools.txt`) first, then the repo radar.
-- Per day: pacing caps (5/day, 180-minute spacing) and per-channel queue limits; the category mix is editorial — the strongest researched topics win (owner 2026-10-11; see config `required_daily_categories`).
+- Per day: the count follows the researched factors up to a ceiling of **10/day** (owner 2026-10-12), with 150-minute spacing and per-channel queue limits; the category mix is editorial — the strongest researched topics win (owner 2026-10-11; see config `required_daily_categories`).
 - Shortlist 3 topics with facts checked on official pages → **owner approves** → briefs → cloud render.
 
 ## 2. Select: the scoring rubric (0–100, produce at ≥ 60)
@@ -197,7 +197,7 @@ Template = HTML/GSAP scenes rendered by HyperFrames (deterministic, frame-exact)
 | Images | Pillow | HPND | preinstalled |
 | Trend data | GitHub REST API, Hugging Face API | free | none needed |
 | Research | agent web search + page fetch | – | agent |
-| Cloud render (3–5/day) | GitHub Actions matrix (public repo = free) | free | needs token Workflows + Actions permissions |
+| Cloud render (3–10/day) | GitHub Actions matrix (public repo = free) | free | needs token Workflows + Actions permissions |
 | Storage / SSOT | GitHub repo + Releases | free | token in `~/.config/reels-studio/` (persistent, outside git) |
 
 **Known access limits (tested 2026-10-07):**

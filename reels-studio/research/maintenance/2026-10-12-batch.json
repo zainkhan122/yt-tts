@@ -1,6 +1,6 @@
 {
   "batch": "2026-10-12",
-  "status": "scheduled (pending reconcile + delivery)",
+  "status": "scheduled; post-batch hardening complete",
   "owner_instruction": "Make 5 videos for today and schedule them. The system must not be hardcoded to 2 tools / 2 news / 1 repo. Pick the 5 best topics by findings (search, relevance, popularity).",
   "policy_change": {
     "commit": "ee1fd2f (pushed in 820a154)",
@@ -45,7 +45,7 @@
       "category": "news",
       "title": "GPT-6.1 Astra: Why OpenAI Scrapped It",
       "capture": "captures/news-gpt61-astra-01 (pushed to capture-packs Release, 8.4 MB)",
-      "brief_sha256": "TBD",
+      "brief_sha256": "bff426fd16117bcf74a874f89c0b0e05c49de8f698e7e1da1f9f5854b5a7591a",
       "render": "run 38216765324"
     },
     {
@@ -53,7 +53,7 @@
       "category": "tool",
       "title": "Qwen3.8-27B: 127 Tok/s on One RTX 3090",
       "capture": "captures/tool-qwen38-01 (pushed, 4.6 MB)",
-      "brief_sha256": "TBD",
+      "brief_sha256": "84d6f21353688ca5ff55e226ff62420577b488f50e45d3377615ebb0cff0a96b",
       "render": "run 38216765324"
     },
     {
@@ -61,7 +61,7 @@
       "category": "news",
       "title": "Nano Banana 2.1: Half-Price Images, One Catch",
       "capture": "captures/news-nano-banana-21-01 (pushed, 9.7 MB)",
-      "brief_sha256": "TBD",
+      "brief_sha256": "506ba6abc4cca6d5815651c7a8d61f24d2919da40207c3bbfe3b8695a496dcca",
       "render": "run 38216765324"
     },
     {
@@ -69,7 +69,7 @@
       "category": "tool",
       "title": "OpenMontage: Turn Your AI Coder Into a Video Studio",
       "capture": "captures/tool-openmontage-01 (pushed, 3.0 MB)",
-      "brief_sha256": "TBD",
+      "brief_sha256": "05f2eb9d61e8f84427e3dcd0b0e627f649079289e3fd3580176fb8ca9014f817",
       "render": "run 38216765324"
     },
     {
@@ -77,7 +77,7 @@
       "category": "repo",
       "title": "DeepSeek 4 Local Engine: 23k Stars, MIT",
       "capture": "captures/repo-ds4-01 (pushed, 4.3 MB)",
-      "brief_sha256": "TBD",
+      "brief_sha256": "eeba6db0bd9b0a2e260940539e2b6bf02815a027e08a5cc1ed700adab9a67351",
       "render": "run 38216765324"
     }
   ],
@@ -122,7 +122,7 @@
   "scheduling": {
     "config_change": "daily_target_overrides now {2026-10-11: 5, 2026-10-12: 5} (local commit, push with final sync)",
     "plan": "after render: queue_ctl enqueue x5 -> verify kits -> approve (reviewed-until ~2026-10-14T08:00Z, platforms youtube instagram facebook) -> dispatch post.yml mode=schedule with the 5 ids -> reconcile",
-    "caps": "<=9 creates/run, >=180-min spacing per platform, <=8 pending/channel, 5/day via override",
+    "caps": "<=9 creates/run, <=8 pending/channel guardrail, 150-min spacing, ceiling 10/day since later on 2026-10-12 (this batch ran under the then-current 5/day override)",
     "note": "post.yml crons (0:23/6:23/12:23/18:23 UTC) auto-schedule approved eligible items while enabled+live_pilot_passed; expect the 12:23/18:23 crons to also act",
     "queue_priorities": {
       "news-gpt61-astra-01": 120,
@@ -214,10 +214,28 @@
     }
   },
   "next_actions": [
-    "poll render run 38216765324 to success",
-    "queue enqueue/approve the five; dispatch scheduling",
-    "reconcile scheduled posts; record external URLs/ids",
-    "cover extract/review/approve",
-    "update PHASES/RESUME + this receipt; ctxpack --write; commit+push"
+    "after the first slots pass (first YouTube send 2026-10-12T13:00Z), run post.yml mode=reconcile and record external URLs/sent states",
+    "watch the enrichment crons (06:43/12:43/18:43Z) attach the approved covers to sent Shorts; record the hasCustomThumbnail read-back",
+    "next production window: pending-per-channel drains as today's posts send; the batch can scale up to the new 10/day ceiling"
+  ],
+  "ceiling_change": {
+    "commit": "see hardening commit (same push)",
+    "what": "Owner 2026-10-12: remove the 5/day video cap; the daily count is chosen by the researched factors up to 10.",
+    "code": [
+      "config/publishing.json max_videos_per_day 5->10, max_repo_videos_per_day 5->10, minimum_gap_minutes 180->150, new extended_slots grid (00:00 start, 150-min gap)",
+      "tools/post/cadence.py: removed three hardcoded 5 clamps (plan target, day_target, clocks_for) and added the extended-grid path so >5/day is placeable",
+      ".github/workflows/render.yml max-parallel 5->10",
+      "tests: spacing now config-driven; new test_daily_ceiling_is_ten_and_has_no_hidden_five_clamp; clocks_for covers 3/4/5/8/10 (230 passed)"
+    ],
+    "math": "10 slots/day at 150-min spacing = 9 x 150 = 1350 min < 24 h; 180-min spacing could never fit 10 in one local day"
+  },
+  "session_fixes": [
+    "capture runner died because its script was edited mid-run (bash re-reads from disk) -> retried the affected ids from a temp copy; script header now documents the copy-before-run rule",
+    "openai.com blocks headless capture (navigation: degraded, blocked) -> Astra story captures from ARC Prize's analysis page; recorded in the script header",
+    "ai.google.dev docs page crashed at core-extraction -> Nano Banana captures from DeepMind's model page; recorded",
+    "gh_actions logs raised a raw 404 traceback while a job was still running -> blob-redirect failures now return a friendly message",
+    ".git/config dropped by the workspace snapshot -> reels.py ensure_git_config() restores the template automatically before any git call",
+    "brief near-misses caught by hand (assets below the viewport, unspoken sync words, item_at) -> reusable tools/brief_lint.py + 11 regression tests; reels.py lint + a pre-dispatch lint gate in reels.py cloud",
+    "transient GitHub API 404s observed through the helper mid-session (curl with the vault token worked); later calls succeeded - recorded, no code change beyond the logs fix"
   ]
 }
