@@ -91,7 +91,7 @@ def main():
     writes = a.keys or a.release_removed
     if writes and a.confirm != CONFIRM:
         raise SystemExit(f"refusing to write without --confirm {CONFIRM}")
-    if not writes and not (a.list or a.audit):
+    if not writes and not (a.list or a.audit or a.schema):
         raise SystemExit("nothing to do: pass --list, --audit, --keys … or --release-removed")
     if not writes:
         print(f"{len(rows)} pending/released rows")
