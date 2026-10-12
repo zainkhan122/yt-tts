@@ -979,6 +979,31 @@
       "updated_at": "2026-10-12T11:08:44Z",
       "video_id": "tool-higgsfield-01"
     },
+    "tool-higgsfield-01:youtube": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-10-13T18:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:a770617c7502c48342b818b29c20c9e081dd3c2d0ef05cd71a2988a9614afe5d",
+        "asset_id": 633352292,
+        "asset_size": 16081600,
+        "kit_asset_id": 633352353,
+        "kit_digest": "sha256:2fb836022e596619a000c8cedf7a5b714adc10766fa5572fa319083c2e8bd05a",
+        "media_path": "media/633352292/tool-higgsfield-01.mp4",
+        "release_tag": "renders-2026-10-12",
+        "video_id": "tool-higgsfield-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/633352292/tool-higgsfield-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "d7e35eccdcbc9d7ebc437378b52f71f959f9a06b48aa633f61bf5ae2132b903a",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "Higgsfield's public changelog shows six releases between October 1 and 8, 2026: Genjutsu (no-prompt object/scene/character swaps, 30+ presets) and Grok Imagine Video 1.5 (Oct 1), AI Influencer (Oct 2), Nano Banana 2.1 (Oct 5), Ad Multiplier (Oct 6), and Katana, an MCP server for Claude and other agents (Oct 8). Semafor reported a $1B run-rate claim and 30M users on 7 October \u2014 company-reported, not audited.\nSource: https://higgsfield.ai/creator-hub/changelog\n\nCredits: Screens: own capture of higgsfield.ai/creator-hub/changelog (2026-10-12). Release names and dates are Higgsfield's own changelog entries. Run-rate and user figures are company-reported via Semafor (2026-10-07), not audited.\n\n#Shorts #AIVideo #Higgsfield #AItools",
+      "title": "Higgsfield Shipped SIX AI Video Releases in Eight Days",
+      "updated_at": "2026-10-12T11:08:48Z",
+      "video_id": "tool-higgsfield-01"
+    },
     "tool-mosa-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6acb1f5cd9cab260a7e93df0",
