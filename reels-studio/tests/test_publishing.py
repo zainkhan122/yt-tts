@@ -588,3 +588,54 @@ class ImmediatePilotTests(unittest.TestCase):
         records={i["video_id"]+":youtube":{"video_id":i["video_id"],"platform":"youtube","state":"published_manual","sent_at":iso(NOW-dt.timedelta(days=2))}}
         rows,_=self.call_plan(records=records)
         self.assertEqual({r["platform"] for r in rows},{"facebook","instagram"})
+
+
+class RepinTests(unittest.TestCase):
+    """Re-pinning a queued video to a corrected render (blank-first-frame fix, 2026-10-12)."""
+
+    def setUp(self):
+        from tools.post import repin
+        self.repin = repin
+
+    def item(self, **over):
+        base = {"video_id": "news-clef-01", "asset_id": 111, "asset_size": 10, "asset_digest": "sha256:old",
+                "kit_asset_id": 112, "kit_digest": "sha256:oldkit", "release_tag": "renders-2026-10-12",
+                "media_path": "media/111/news-clef-01.mp4", "cover_sha256": "sha256:cover", "cover_reviewed_at": "2026-10-12T09:00:00Z"}
+        base.update(over)
+        return base
+
+    def assets(self):
+        return {"news-clef-01.mp4": {"id": 222, "name": "news-clef-01.mp4", "size": 20, "digest": "sha256:new"},
+                "news-clef-01-kit.zip": {"id": 223, "name": "news-clef-01-kit.zip", "size": 5, "digest": "sha256:newkit"}}
+
+    def test_repin_moves_the_pin_and_keeps_the_old_url(self):
+        updated, changes = self.repin.repin(self.item(), self.assets(), "renders-2026-10-12-r3")
+        self.assertEqual(updated["asset_id"], 222)
+        self.assertEqual(updated["media_path"], "media/222/news-clef-01.mp4")
+        self.assertEqual(updated["legacy_media_paths"], ["media/111/news-clef-01.mp4"])
+        self.assertEqual(updated["kit_asset_id"], 223)
+        self.assertEqual(updated["release_tag"], "renders-2026-10-12-r3")
+
+    def test_cover_approval_is_cleared_and_must_be_redone(self):
+        updated, changes = self.repin.repin(self.item(), self.assets(), "r3")
+        self.assertIsNone(updated["cover_sha256"])
+        self.assertIsNone(updated["cover_reviewed_at"])
+        self.assertTrue(any("cover approval cleared" in c for c in changes))
+
+    def test_missing_assets_are_refused(self):
+        with self.assertRaises(ValueError):
+            self.repin.repin(self.item(), {"news-clef-01.mp4": {"id": 1, "name": "news-clef-01.mp4", "size": 1}}, "r3")
+
+    def test_already_pinned_is_a_no_op(self):
+        item = self.item()
+        assets = self.assets()
+        item.update(asset_id=222, media_path="media/222/news-clef-01.mp4", asset_size=20, asset_digest="sha256:new",
+                    kit_asset_id=223, kit_digest="sha256:newkit", release_tag="r3")
+        updated, changes = self.repin.repin(item, assets, "r3")
+        self.assertEqual(changes, [])
+        self.assertEqual(updated["cover_sha256"], "sha256:cover")  # untouched when nothing changed
+
+    def test_alias_list_is_capped_and_deduplicated(self):
+        item = self.item(legacy_media_paths=["media/100/news-clef-01.mp4", "media/111/news-clef-01.mp4"])
+        updated, _ = self.repin.repin(item, self.assets(), "r3")
+        self.assertEqual(updated["legacy_media_paths"], ["media/111/news-clef-01.mp4", "media/100/news-clef-01.mp4"])
