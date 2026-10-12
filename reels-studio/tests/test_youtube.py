@@ -503,6 +503,23 @@ class ShortCoverTests(unittest.TestCase):
         self.assertNotIn(("POST", "upload/thumbnails/set"), api.calls)
         self.assertTrue(row["tags_done"])
 
+    def test_late_approved_cover_reopens_finished_row(self):
+        # Rows finish as soon as tags are in; a cover approved AFTER that pass must still be applied,
+        # otherwise the Short keeps YouTube's auto frame forever (the 2026-10-12 regression).
+        self.assertTrue(runner.should_enrich({"state": "done", "tags_done": True}, {"cover_sha256": "sha256:a"}))
+        self.assertFalse(runner.should_enrich({"state": "done", "tags_done": True}, {"video_id": "news-x-01"}))
+        self.assertFalse(runner.should_enrich({"state": "done"}, None))
+        self.assertTrue(runner.should_enrich({"state": "cover_pending", "thumbnail_attempts": 1}, {}))
+
+    def test_confirmed_cover_closes_but_reapproval_reopens(self):
+        row = {"state": "done", "thumbnail_confirmed": True, "thumbnail_digest": "sha256:a"}
+        self.assertFalse(runner.should_enrich(row, {"cover_sha256": "sha256:a"}))
+        self.assertTrue(runner.should_enrich(row, {"cover_sha256": "sha256:b"}))  # agent approved a new digest
+
+    def test_blocked_cover_never_hammers_the_api(self):
+        row = {"state": "done", "thumbnail_blocked": True}
+        self.assertFalse(runner.should_enrich(row, {"cover_sha256": "sha256:a"}))
+
 
 class PublicationTests(unittest.TestCase):
     def make(self,due=NOW+dt.timedelta(hours=5),custom=True):

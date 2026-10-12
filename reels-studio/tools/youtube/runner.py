@@ -178,6 +178,25 @@ def external_id(url):
     return match[1] if match else None
 
 
+def should_enrich(previous, item):
+    """Decide whether an already-enriched Short needs another pass.
+
+    A row finishes (`done`) as soon as tags/playlists are in — which used to close the door on
+    covers that were approved AFTER that first pass, so `thumbnails.set` never ran and the Short
+    kept YouTube's auto frame. A finished row therefore re-opens only when the queue holds an
+    agent-approved cover that YouTube has not confirmed yet (and the row is not blocked).
+    """
+    previous = previous or {}
+    approved = (item or {}).get("cover_sha256")
+    if previous.get("state") != "done":
+        return True
+    if previous.get("thumbnail_blocked"):
+        return False  # attempt cap reached; stays surfaced for agent review instead of hammering the API
+    if previous.get("thumbnail_confirmed") and previous.get("thumbnail_digest") == approved:
+        return False  # already confirmed; nothing new to do
+    return bool(approved)
+
+
 def enrich_buffer_shorts(api, journal, shorts_records, short_items, root_cfg):
     if not api.cfg["metadata_enrichment"]["enabled"]:
         return []
@@ -189,10 +208,13 @@ def enrich_buffer_shorts(api, journal, shorts_records, short_items, root_cfg):
         if source["state"] == "published_manual" and not api.cfg["metadata_enrichment"]["include_manual_uploads"]:
             continue
         vid = external_id(source.get("external_url"))
-        if not vid or journal.data.get("enrichment", {}).get(vid, {}).get("state") == "done":
+        if not vid:
             continue
         item = queue_by_id.get(source["video_id"])
         if not item:
+            continue
+        previous = journal.data.get("enrichment", {}).get(vid, {})
+        if not should_enrich(previous, item):
             continue
         brief = load_json(ROOT/"briefs"/(source["video_id"]+".json"))
         if fingerprint(brief) != item["brief_sha256"]:
@@ -267,9 +289,13 @@ def main():
     ap.add_argument("video_ids", nargs="*", type=valid_id)
     ap.add_argument("--mode", choices=["dry-run", "private-pilot", "schedule", "enrich", "reconcile"], default="dry-run")
     ap.add_argument("--pilot", action="store_true")
+    ap.add_argument("--include-manual", action="store_true",
+                    help="one explicit run may also enrich hand-published uploads (cover gate still applies)")
     ap.add_argument("--report", default=str(ROOT/"renders/youtube-delivery/report.json"))
     args = ap.parse_args()
     cfg, root_cfg = load_json(ROOT/"config/youtube.json"), root_config()
+    if args.include_manual:
+        cfg["metadata_enrichment"]["include_manual_uploads"] = True
     items = load_json(ROOT/"queue/youtube-long.json")["items"]
     shorts_records = load_json(ROOT/"tracker/publications.json")["records"]
     if args.video_ids:

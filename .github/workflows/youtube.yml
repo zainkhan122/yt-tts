@@ -17,6 +17,10 @@ on:
         description: 'Permit one explicitly selected first public pilot'
         type: boolean
         default: false
+      include_manual:
+        description: 'Enrich mode: also cover hand-published uploads (digest gate still applies)'
+        type: boolean
+        default: false
   schedule:
     - cron: '43 0,6,12,18 * * *'
 permissions:
@@ -82,6 +86,7 @@ jobs:
           MODE: ${{ steps.gate.outputs.mode }}
           VIDEO_IDS: ${{ inputs.video_ids }}
           PILOT: ${{ inputs.pilot }}
+          INCLUDE_MANUAL: ${{ inputs.include_manual }}
           ALLOW_YOUTUBE_MUTATIONS: ${{ steps.gate.outputs.mode != 'dry-run' && steps.gate.outputs.mode != 'reconcile' && 'true' || 'false' }}
           PYTHONUNBUFFERED: '1'
         run: |
@@ -90,6 +95,8 @@ jobs:
           args = [sys.executable, 'reels-studio/tools/youtube/runner.py', *os.environ['VIDEO_IDS'].replace(',', ' ').split(), '--mode', os.environ['MODE']]
           if os.environ.get('PILOT') == 'true':
               args.append('--pilot')
+          if os.environ.get('MODE') == 'enrich' and os.environ.get('INCLUDE_MANUAL') == 'true':
+              args.append('--include-manual')
           args += ['--report', os.environ['RUNNER_TEMP'] + '/youtube-report/report.json']
           raise SystemExit(subprocess.call(args))
           PY

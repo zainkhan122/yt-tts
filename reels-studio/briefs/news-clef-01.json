@@ -63,9 +63,9 @@
         "image": "desktop-full.jpg"
       },
       "steps": [
-        "You declare the allowed options for each question",
-        "One forward pass returns a probability for every option",
-        "No free-form text, no output parsing"
+        "Declare the allowed options first",
+        "One pass scores every option",
+        "No free-form text, no parsing"
       ],
       "say": "You declare the options once. Every question, every allowed choice, gets a probability in a single forward pass. There is no free-form text, and nothing to parse.",
       "url": "huggingface.co"
