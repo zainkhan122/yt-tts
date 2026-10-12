@@ -9,7 +9,7 @@ on:
       mode:
         description: 'audit/list = read-only; clear = release rows (+ delete posts when delete=yes)'
         type: choice
-        options: [audit, list, clear]
+        options: [audit, list, clear, schema]
         default: audit
       keys:
         description: 'space/comma separated video:platform rows; empty = all pending'
@@ -60,6 +60,7 @@ jobs:
           args=()
           if [ "$MODE" = "list" ]; then args+=(--list); fi
           if [ "$MODE" = "audit" ]; then args+=(--audit); fi
+          if [ "$MODE" = "schema" ]; then args+=(--schema); fi
           if [ "$MODE" = "clear" ]; then
             if [ -z "$KEYS" ]; then args+=(--all-pending); else args+=(--keys ${KEYS//,/ }); fi
             args+=(--confirm "$CONFIRM")
