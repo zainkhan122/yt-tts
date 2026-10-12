@@ -92,7 +92,7 @@ A completely blank workspace can restore the public project via `bootstrap.sh`; 
 - Facebook remains included per the owner's explicit instruction; do not restore the old native-label hold. Caption disclosure is not claimed to set a native flag.
 - Narration: **Option 3, Chatterbox cloning pinned Michael reference, exag 0.7 / cfg 0.4 / continuous flow**. Never fall back to raw Kokoro for final media.
 - No on-screen credit captions. Attribution and access/pricing caveats belong in post copy.
-- Max one repo Short/day, with tools and news represented. Do not fill gaps with stale or invented stories.
+- Daily mix is **not hardcoded** (owner 2026-10-11): the batch follows the researched ranking; pacing caps (5/day, 180-minute spacing, queue limits) still apply. Do not fill gaps with stale or invented stories.
 - Scheduled is not sent. OAuth configured is not verified. Model self-approval is not qualification.
 
 ## Storage

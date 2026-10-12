@@ -162,3 +162,32 @@ Suite at this checkpoint: **217 passed**. Release in use: renders-2026-10-10 (10
 ## 2026-10-11 — Google consent made permanent (production grant)
 
 The recurring 7-day expiry was root-caused to the OAuth app's **Testing** publishing status (Google caps Testing-grant refresh tokens at 7 days regardless of use). Owner published the app to **In production** (free; verification deliberately skipped — the unverified-warning screen is acceptable for a single-user app), then one fresh consent was completed via the durable Pages handoff: client JSON re-attached privately, PKCE link issued, response exchanged immediately, channel `UCcWh9OdX3rbfHOtDZ6neyrA` verified, encrypted `YOUTUBE_OAUTH_JSON` re-stored (updated_at 2026-10-11T05:58:34Z). The stored bundle has **no `refresh_token_expires_at`** — the production signal — and the live enrichment run 38116539585 confirmed `oauth_connected: true` with no expiry note. No renewal deadline remains. Also fixed: a present vault is now authoritative in `resume_status.carry_forward_expiry`, so a production grant no longer inherits the stale testing-mode expiry (regression test added; suite 218).
+## 2026-10-12 — five research-picked shorts; the daily mix is no longer hardcoded
+
+Owner instruction: produce five videos for today and schedule them; the system must not be fixed to
+2 tools / 2 news / 1 repo; pick the five by findings (search, relevance, popularity).
+
+Policy first: `config/publishing.json` now ships `required_daily_categories: []` and
+`max_repo_videos_per_day: 5`, and `tools/post/cadence.py` orders batches strictly by editorial priority when
+no mix is required (the required-mix code path remains for any future config that re-enables it). Tests: the old
+"no repo-only day" veto became `test_repo_weighted_batch_is_allowed_when_merit_picks_it`, plus
+`test_mix_is_not_hardcoded_in_config`; suite **219 passed**. PIPELINE / PLAYBOOK / RESUME / tools-post README all
+updated; `reels.py radar` and the idea-feed header no longer print the old rule.
+
+Selection (`research/ideas/2026-10-12-shortlist.md`): scored radar consensus + views, GitHub stars, HF
+likes/downloads/trending, fresh primary-page reads and live YouTube autocomplete. Picks:
+`news-gpt61-astra-01` (92), `tool-qwen38-01` (92), `repo-ds4-01` (88), `news-nano-banana-21-01` (86),
+`tool-openmontage-01` (80) — which happened to land 2 news / 2 tools / 1 repo as an *outcome*, not a quota
+(HeyGen's 5.3M views lost on brand fit; universal-modder on ToS-fit).
+
+Captures (own + makers' official media only): five packs built and pushed to the capture-packs Release.
+Hurdles recorded: openai.com 403-blocks headless capture → the Astra story captures from ARC Prize's own
+analysis page (charts + replay footage) with openai.com kept as a source link; the Gemini-API docs page crashed
+at core-extraction → Nano Banana captures from DeepMind's model page; one batch runner died because its script
+was edited mid-run → re-ran the affected ids from a fresh file.
+
+Briefs: five tool-spotlight briefs (7 scenes each, ~150-172 spoken words) pass `tools/seo_pack.py` with
+**0 errors / 0 warnings**; all asset, region, sync-word and asterisk references verified against the capture
+manifests before dispatch. Cloud render dispatched as run **38216765324** → Release `renders-2026-10-12`
+(commit `820a154`). Scheduling follows via queue approvals + paced post.yml runs; date-scoped
+`daily_target_overrides` now carries 2026-10-12=5.

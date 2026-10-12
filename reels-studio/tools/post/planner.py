@@ -159,7 +159,7 @@ def legacy_plan(items, records, channels, remote_posts, cfg, now, preview=False,
             any(not records.get(key(i["video_id"], p)) or records[key(i["video_id"], p)]["state"] in RETRYABLE for p in i["platforms"])}
         missing = set(settings.get("required_daily_categories", [])) - set(kinds) - remaining_categories
         if missing and not pilot:
-            notes.append(f"{day}: backlog needs {' + '.join(sorted(missing))}; hold rather than publish a repo-only day")
+            notes.append(f"{day}: backlog needs {' + '.join(sorted(missing))}; hold rather than fill the mix with weaker topics")
             day += dt.timedelta(days=1)
             continue
         for clock in settings["slots"]:

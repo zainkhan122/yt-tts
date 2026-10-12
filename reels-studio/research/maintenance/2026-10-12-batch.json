@@ -1,0 +1,112 @@
+{
+  "batch": "2026-10-12",
+  "status": "rendering",
+  "owner_instruction": "Make 5 videos for today and schedule them. The system must not be hardcoded to 2 tools / 2 news / 1 repo. Pick the 5 best topics by findings (search, relevance, popularity).",
+  "policy_change": {
+    "commit": "ee1fd2f (pushed in 820a154)",
+    "what": "config/publishing.json required_daily_categories=[] and max_repo_videos_per_day=5; tools/post/cadence.py orders strictly by editorial priority when no mix is required; tests prove repo-weighted batches are allowed and the mix is not hardcoded (test_mix_is_not_hardcoded_in_config, test_repo_weighted_batch_is_allowed_when_merit_picks_it); PIPELINE.md / PLAYBOOK.md / RESUME.md / tools/post/README.md updated; suite 219 passed",
+    "note": "The batch still came out 2 news / 2 tool / 1 repo \u2014 as a ranking outcome, not a quota"
+  },
+  "selection": {
+    "doc": "research/ideas/2026-10-12-shortlist.md",
+    "signals": [
+      "research/radar/radar-2026-10-12.md (32 safe candidates, 14-day scan)",
+      "research/ideas/feed-2026-10-12.md (154 topics, consensus+views)",
+      "GitHub REST API (stars/licence/created per repo, read 2026-10-12)",
+      "Hugging Face API (likes/downloads/trending, read 2026-10-12)",
+      "YouTube autocomplete (suggestqueries, sampled 2026-10-12)"
+    ],
+    "scores": [
+      {
+        "topic": "GPT-6.1 Astra scrapped",
+        "total": 92
+      },
+      {
+        "topic": "Qwen3.8-27B on one RTX 3090",
+        "total": 92
+      },
+      {
+        "topic": "ds4 / DwarfStar local DeepSeek 4",
+        "total": 88
+      },
+      {
+        "topic": "Nano Banana 2.1",
+        "total": 86
+      },
+      {
+        "topic": "OpenMontage",
+        "total": 80
+      }
+    ]
+  },
+  "videos": [
+    {
+      "id": "news-gpt61-astra-01",
+      "category": "news",
+      "title": "GPT-6.1 Astra: Why OpenAI Scrapped It",
+      "capture": "captures/news-gpt61-astra-01 (pushed to capture-packs Release, 8.4 MB)",
+      "brief_sha256": "TBD",
+      "render": "run 38216765324"
+    },
+    {
+      "id": "tool-qwen38-01",
+      "category": "tool",
+      "title": "Qwen3.8-27B: 127 Tok/s on One RTX 3090",
+      "capture": "captures/tool-qwen38-01 (pushed, 4.6 MB)",
+      "brief_sha256": "TBD",
+      "render": "run 38216765324"
+    },
+    {
+      "id": "news-nano-banana-21-01",
+      "category": "news",
+      "title": "Nano Banana 2.1: Half-Price Images, One Catch",
+      "capture": "captures/news-nano-banana-21-01 (pushed, 9.7 MB)",
+      "brief_sha256": "TBD",
+      "render": "run 38216765324"
+    },
+    {
+      "id": "tool-openmontage-01",
+      "category": "tool",
+      "title": "OpenMontage: Turn Your AI Coder Into a Video Studio",
+      "capture": "captures/tool-openmontage-01 (pushed, 3.0 MB)",
+      "brief_sha256": "TBD",
+      "render": "run 38216765324"
+    },
+    {
+      "id": "repo-ds4-01",
+      "category": "repo",
+      "title": "DeepSeek 4 Local Engine: 23k Stars, MIT",
+      "capture": "captures/repo-ds4-01 (pushed, 4.3 MB)",
+      "brief_sha256": "TBD",
+      "render": "run 38216765324"
+    }
+  ],
+  "gates": {
+    "seo_pack": "all five: 0 errors / 0 warnings (tools/seo_pack.py)",
+    "asset_reference_check": "all scene src/image/background/region references verified against each capture manifest; item_at/at sync words all spoken",
+    "asterisk_pairs": "balanced (template would SystemExit otherwise)"
+  },
+  "render": {
+    "workflow_run": "38216765324 (render.yml)",
+    "release_tag": "renders-2026-10-12",
+    "dispatched_utc": "2026-10-12T07:57Z",
+    "result": "TBD"
+  },
+  "scheduling": {
+    "config_change": "daily_target_overrides now {2026-10-11: 5, 2026-10-12: 5} (local commit, push with final sync)",
+    "plan": "after render: queue_ctl enqueue x5 -> verify kits -> approve (reviewed-until ~2026-10-14T08:00Z, platforms youtube instagram facebook) -> dispatch post.yml mode=schedule with the 5 ids -> reconcile",
+    "caps": "<=9 creates/run, >=180-min spacing per platform, <=8 pending/channel, 5/day via override",
+    "note": "post.yml crons (0:23/6:23/12:23/18:23 UTC) auto-schedule approved eligible items while enabled+live_pilot_passed; expect the 12:23/18:23 crons to also act"
+  },
+  "covers": {
+    "plan": "cover_ctl extract x5 -> visual review -> approve x5 (records digest for the enrichment worker)",
+    "result": "TBD"
+  },
+  "next_actions": [
+    "poll render run 38216765324 to success",
+    "queue enqueue/approve the five; dispatch scheduling",
+    "reconcile scheduled posts; record external URLs/ids",
+    "cover extract/review/approve",
+    "update PHASES/RESUME + this receipt; ctxpack --write; commit+push"
+  ]
+}

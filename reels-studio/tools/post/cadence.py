@@ -148,7 +148,7 @@ def plan(items, records, channels, posts, cfg, now, preview=False, pilot=False, 
                 available = {i["category"] for i in eligible}
                 free_slots = sum(not any(abs((t-b).total_seconds()) < settings["minimum_gap_minutes"]*60 for b in events.values()) for t in slots[idx:])
                 if not pilot and (missing - available or len(missing) > min(free_slots, day_target-len(todays_events))):
-                    notes.append(f"{platform} {day}: await sufficient news/tool mix; no repo-only dump")
+                    notes.append(f"{platform} {day}: required mix not met; holding extra posts")
                     break
                 if missing:
                     preferred = [cat for cat in ("news", "tool") if cat in missing] + ["repo", "tool", "news"]
