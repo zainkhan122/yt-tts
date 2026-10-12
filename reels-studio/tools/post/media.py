@@ -99,6 +99,27 @@ def references(items, records, cfg, now):
     return list(refs.values())
 
 
+def legacy_paths(item):
+    """Extra paths that must keep serving this video (queued Buffer posts still point at them).
+
+    Used when a render is redone for a fix: the queue re-pins the video to the new asset, and the
+    already-created posts' old URL is served the SAME file instead of 404ing. Never a different
+    video - validated here and again in build().
+    """
+    paths = []
+    for path in item.get("legacy_media_paths") or []:
+        if str(path) == item.get("media_path"):
+            continue
+        expected = f"media/{int(item['asset_id'])}/{item['video_id']}.mp4"
+        parts = str(path).split("/")
+        if len(parts) != 3 or parts[0] != "media" or not parts[1].isdigit() or parts[2] != item["video_id"] + ".mp4":
+            raise ValueError(f"Invalid legacy media path for {item['video_id']}: {path!r}")
+        if str(path) == expected:
+            continue
+        paths.append(str(path))
+    return paths
+
+
 def build(dest, cfg, items, records):
     refs = references(items, records, cfg, now_utc())
     if sum(i["asset_size"] for i in refs) > cfg["media"]["max_site_bytes"]:
@@ -116,8 +137,14 @@ def build(dest, cfg, items, records):
         path = dest / item["media_path"]
         path.parent.mkdir(parents=True, exist_ok=True)
         digest, size, _ = public_download(asset["browser_download_url"], asset["size"], item.get("asset_digest") or asset.get("digest"), path)
+        aliases = legacy_paths(item)
+        for alias in aliases:
+            target = dest / alias
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(path, target)
         index["assets"][str(item["asset_id"])] = {"video_id": item["video_id"], "url": media_url(item, cfg), "digest": digest,
-                                                    "size": size, "qa": manifest["qa"]["checks"]}
+                                                    "size": size, "qa": manifest["qa"]["checks"],
+                                                    **({"aliases": aliases} if aliases else {})}
         print(f"media ready: {item['video_id']} · QA 7/7 · {size / 1e6:.1f} MB", flush=True)
     save_json(dest / "media-index.json", index)
     (dest / ".nojekyll").touch()

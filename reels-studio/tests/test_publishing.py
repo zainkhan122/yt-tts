@@ -529,6 +529,30 @@ class SchemaAndMediaTests(unittest.TestCase):
             self.assertEqual(secrets.redact("unit-test-buffer-credential-only"), "[REDACTED]")
 
 
+class LegacyMediaPathTests(unittest.TestCase):
+    """A re-rendered video must keep serving its already-queued URL (fix shipped after scheduling)."""
+
+    def test_alias_paths_are_served_and_indexed(self):
+        item = {"video_id": "news-clef-01", "asset_id": 999, "asset_size": 10,
+                "media_path": "media/999/news-clef-01.mp4",
+                "legacy_media_paths": ["media/633351677/news-clef-01.mp4"]}
+        self.assertEqual(media.legacy_paths(item), ["media/633351677/news-clef-01.mp4"])
+
+    def test_alias_must_be_the_same_video(self):
+        item = {"video_id": "news-clef-01", "asset_id": 999, "media_path": "media/999/news-clef-01.mp4",
+                "legacy_media_paths": ["media/123/other-video.mp4"]}
+        with self.assertRaises(ValueError):
+            media.legacy_paths(item)
+
+    def test_alias_equal_to_the_current_path_is_dropped(self):
+        item = {"video_id": "news-clef-01", "asset_id": 999, "media_path": "media/999/news-clef-01.mp4",
+                "legacy_media_paths": ["media/999/news-clef-01.mp4"]}
+        self.assertEqual(media.legacy_paths(item), [])
+
+    def test_no_legacy_paths_is_an_empty_list(self):
+        self.assertEqual(media.legacy_paths({"video_id": "x-01", "asset_id": 1, "media_path": "media/1/x-01.mp4"}), [])
+
+
 if __name__ == "__main__":
     unittest.main()
 
