@@ -21,6 +21,10 @@ on:
         description: 'Explicitly authorised first immediate pilot only; requires pilot=true and one video'
         type: boolean
         default: false
+      skip_youtube_cover_cascade:
+        description: 'Skip the repo-managed YouTube cover enrichment dispatch for this Buffer run'
+        type: boolean
+        default: false
   schedule:
     # Four small checks/day. Slots and timezone live in config/publishing.json.
     - cron: '23 0,6,12,18 * * *'
@@ -175,7 +179,7 @@ jobs:
       # concurrency group, so the dispatched run queues behind this one, then runs immediately.
       # Dispatch failures fail the job on purpose: a silent skip would leave covers unapplied.
       - name: Cover cascade (dispatch enrich only when a sent Short still needs its cover)
-        if: needs.prepare.outputs.mode == 'reconcile' || needs.prepare.outputs.mode == 'schedule'
+        if: ${{ (needs.prepare.outputs.mode == 'reconcile' || needs.prepare.outputs.mode == 'schedule') && inputs.skip_youtube_cover_cascade != true }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
