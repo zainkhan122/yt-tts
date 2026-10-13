@@ -67,7 +67,7 @@
       "label": "Parameters · 8K context · Google model card",
       "icon": false,
       "at": "seven hundred forty million",
-      "say": "Google lists seven hundred forty million parameters and an eight-thousand-token context window."
+      "say": "Google lists {740 million|seven hundred forty million} parameters and an {8,000-token|eight-thousand-token} context window."
     },
     {
       "id": "modalities",
@@ -113,7 +113,7 @@
         "chat",
         "index"
       ],
-      "say": "Google lists 740 million parameters and an eight-thousand-token context under Apache two point zero. It is not a chat model; retrieval still needs an index."
+      "say": "Google lists {740 million|seven hundred forty million} parameters and an {8,000-token|eight-thousand-token} context under {Apache-2.0|Apache two point zero}. It is not a chat model; retrieval still needs an index."
     },
     {
       "id": "cta",
