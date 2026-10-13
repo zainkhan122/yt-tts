@@ -1750,9 +1750,11 @@
     },
     "tool-qwen-image-21-turbo-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6aceba63f847f2ad9eb4db4c",
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-14T21:00:00Z",
+      "due_at": "2026-10-14T21:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:cccaa6852b2ab2638a3027c9cf99f617162b9e7c98e685994e4133e2cd7902fa",
         "asset_id": 638403576,
@@ -1767,10 +1769,11 @@
       "notify_subscribers": true,
       "payload_sha256": "991ae76294e0ce921559fba848818042e6321a8721341a1f9222628341a3bdca",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Qwen Image 2.1 Turbo is the project\u2019s 8-step checkpoint for text-to-image and image editing. Eight denoising steps are not proof of a 5\u00d7 end-to-end speedup. The weights use Qwen\u2019s Research License; check terms before commercial use. GitHub facts checked Oct 14, 2026.\nhttps://github.com/QwenLM/Qwen-Image-2.1\n\nCredits: Post/description attribution only; no on-screen credits. Qwen README assets; the 8-step graphic is an original explanation, not a benchmark or generated sample.\n\n#Shorts #QwenImage #ImageAI #OpenSource",
       "title": "Qwen Image 2.1 Turbo: The Eight-Step Checkpoint",
-      "updated_at": "2026-10-13T23:10:25Z",
+      "updated_at": "2026-10-13T23:10:27Z",
       "video_id": "tool-qwen-image-21-turbo-01"
     },
     "tool-qwen38-01:facebook": {
