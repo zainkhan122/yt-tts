@@ -139,6 +139,7 @@ The channel voice is fixed in `config/channel.json` → `tts` (Chatterbox, optio
 - **Phone / tall footage:** a `clip` scene without a headline sizes its card to the source aspect (no crop, 180–1220 px).
   Crop phone recordings to the device first. For white-UI footage set `"fit": "card"` (dark theme instead of a light
   blurred fill, so the white captions stay readable).
+- **Browser address labels** are auto-compacted to host + final path segment when too long for the fixed bar; the complete URL remains in the brief’s source list.
 - **Anchor words** (`at`, `item_at`, camera `at`) match case-insensitively and by normalised form ("6.6" = "66").
 
 ## 7. Assemble: how the video is made

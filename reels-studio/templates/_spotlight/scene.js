@@ -102,7 +102,7 @@
             if (o.instant) br.style.opacity = "1";  // hook scene: the frame belongs to the cover frame
             const bar = A.mk("div", "sp-bar", br);
             dots(bar);
-            const url = A.mk("div", "sp-url", bar, String(o.url || "").replace(/^https?:\/\//, ""));
+            const url = A.mk("div", "sp-url", bar, String(o.display_url || o.url || "").replace(/^https?:\/\//, ""));
             url.setAttribute("data-layout-allow-occlusion", "");
             const lock = A.svg("svg", { class: "sp-lock", viewBox: "0 0 24 24" }, url);
             A.svg("path", { d: "M7 10V7a5 5 0 0 1 10 0v3h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h1zm2 0h6V7a3 3 0 0 0-6 0v3z", fill: "#3fb950" }, lock);

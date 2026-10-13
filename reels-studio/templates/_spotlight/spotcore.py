@@ -33,8 +33,29 @@ def capture(b):
     return d, m
 
 
+def url_display_label(value, max_chars=54):
+    """Fit a source URL into the fixed browser address bar without hiding its host or target page."""
+    raw = re.sub(r"^https?://", "", str(value or "").strip(), flags=re.I).rstrip("/")
+    if len(raw) <= max_chars:
+        return raw
+    host, _, path = raw.partition("/")
+    tail = path.rstrip("/").split("/")[-1] if path else ""
+    if tail:
+        label = f"{host}/…/{tail}"
+        if len(label) <= max_chars:
+            return label
+        room = max_chars - len(host) - 3  # host + '/…/' + tail suffix
+        if room > 1:
+            return f"{host}/…/{tail[-room:]}"
+    return raw[:max_chars - 1].rstrip("/") + "…"
+
+
 def scenes(b):
-    return [s for s in b.get("scenes", []) if not s.get("skip")]
+    out = [s for s in b.get("scenes", []) if not s.get("skip")]
+    for s in out:
+        if s.get("type") == "page" and s.get("url"):
+            s["display_url"] = url_display_label(s["url"])
+    return out
 
 
 def _norm(w):
