@@ -163,12 +163,13 @@ Template = HTML/GSAP scenes rendered by HyperFrames (deterministic, frame-exact)
 
 ## 8. QA gates (a video ships only if all pass)
 
-1. `hyperframes lint` (0 errors) + `check` (layout overlap, contrast, runtime).
-2. whisper intelligibility ≥ 95%.
-3. Output: 1080×1920, 30 fps, H.264/AAC, −14 ±1 LUFS, peak ≤ −1.
-4. **The agent reviews the contact sheet by eye** and fixes what it sees.
-5. Fact sheet complete; numbers refreshed today; risk gates clean.
-6. Originality: it differs from our last 5 videos in format or look, and adds information the viewer can't get from the source creators.
+1. Brief/source/SEO gates: zero errors; every factual claim has a primary-source trail; dated numbers are refreshed before render.
+2. `hyperframes lint` (0 errors) + `check` (layout overlap, contrast, runtime). A missing or mistimed `clip-montage` `at` anchor is a **build failure before rendering**, not a warning.
+3. Whisper intelligibility ≥ 95%; approved Chatterbox engine; loudness −14 ±1 LUFS, peak ≤ −1 dBFS.
+4. Output: 1080×1920, 30 fps, H.264/AAC; duration inside the format target.
+5. **The agent reviews the contact sheet, cover, frame zero, mobile readability and typography by eye**; fix issues before delivery. Montage label pills share the lower-caption font size and remain clear of the media card.
+6. Fact sheet complete; license/media credits and risk gates clean.
+7. Originality: it differs from our last 5 videos in format or look, and adds information the viewer can't get from the source creators.
 
 ## 9. Package + publish
 
