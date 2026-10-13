@@ -107,19 +107,30 @@ def require_qa_checks(checks):
     return True
 
 
-def require_flow_match(match, threshold, chunk_index, attempts):
-    """Do not render spoken words/captions from a flow chunk Whisper could not align."""
+def require_flow_match(match, threshold, chunk_index, attempts, expected=None, heard=None):
+    """Do not render spoken words/captions from a flow chunk Whisper could not align.
+
+    On failure include the exact expected and Whisper-heard text. A score without this diff
+    encourages blind seed retries instead of a targeted pronunciation/script fix.
+    """
     if float(match) < float(threshold):
+        details = []
+        if expected:
+            details.append(f"expected={str(expected)[:220]!r}")
+        if heard:
+            details.append(f"Whisper heard={str(heard)[:220]!r}")
+        suffix = "; " + "; ".join(details) if details else ""
         raise SystemExit(f"TTS alignment: chunk {chunk_index + 1} matched {match:.1%} after {attempts} attempt(s); "
-                         f"minimum is {threshold:.0%}. Fix pronunciation/script or change the voice seed.")
+                         f"minimum is {threshold:.0%}. Fix pronunciation/script or change the voice seed{suffix}")
     return True
 
 
-def require_whisper_match(matched, total, threshold=0.95):
+def require_whisper_match(matched, total, threshold=0.95, diagnostics=None):
     """The final English voiceover must clear the project-wide character-match target."""
     ratio = float(matched) / max(1, int(total))
     if ratio < float(threshold):
-        raise SystemExit(f"Whisper QA: {ratio:.1%} character match is below the {threshold:.0%} final-render minimum")
+        detail = f"; {diagnostics}" if diagnostics else ""
+        raise SystemExit(f"Whisper QA: {ratio:.1%} character match is below the {threshold:.0%} final-render minimum{detail}")
     return ratio
 
 
@@ -950,6 +961,7 @@ class Job:
         for ci, idx in enumerate(chunks):
             seg_texts = [texts[i] for i in idx]
             best = None
+            best_heard = []
             for attempt in range(tries):
                 seed = base_seed + 1000 * ci + 97 * attempt
                 if len(idx) == 1 and len(seg_texts[0]) > limit:  # one long line: sentence sub-chunks, tiny joins
@@ -965,12 +977,14 @@ class Job:
                 score = (match >= min_match, mel if match >= min_match else match)
                 if best is None or score > best[3]:
                     best = (x, cuts, match, score, mel)
+                    best_heard = heard
                 if self.voice_engine == "kokoro-preview" or (match >= min_match and mel >= min_mel):
                     break
                 retried += 1
             x, cuts, match, _, mel = best
             if self.voice_engine != "kokoro-preview":
-                require_flow_match(match, min_match, ci, tries)
+                require_flow_match(match, min_match, ci, tries,
+                                   expected=" ".join(seg_texts), heard=" ".join(w[0] for w in best_heard))
             worst = min(worst, match)
             mels.append(round(mel, 1))
             bounds = [0] + cuts + [len(x)]
@@ -995,10 +1009,13 @@ class Job:
             return
         try:
             m, n, missed, secs = whisper_intelligibility(self.vo_path, self.timing, self.order, self.log)
-            if self.do_render and getattr(self, "voice_engine", None) == "chatterbox":
-                require_whisper_match(m, n, 0.95)
+            diagnostics = "script words not matched: " + (", ".join(missed) or "-")
+            # Record the measured diff before enforcing the gate so failed cloud jobs
+            # remain actionable rather than reporting only a percentage.
             self.stage("words", method="waveform-anchored", whisper_char_match=f"{100 * m / max(1, n):.1f}%",
                        word_diffs=" ".join(missed) or "-", secs=round(secs, 1))
+            if self.do_render and getattr(self, "voice_engine", None) == "chatterbox":
+                require_whisper_match(m, n, 0.95, diagnostics=diagnostics)
             try:  # whole-voiceover delivery reading (same method as tools/voice_study.py): approved sample = 13.6 st
                 tr = json.loads((self.vo_path.parent / "transcript.json").read_text())
                 ws = [(w.get("text", ""), float(w["start"]), float(w.get("end", w["start"]))) for w in tr if w.get("text", "").strip()]

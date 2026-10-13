@@ -1,0 +1,20 @@
+{
+  "dispatched": [
+    "tool-qwen-image-21-turbo-01"
+  ],
+  "run_id": 38457152681,
+  "gates": [
+    {
+      "brief": "tool-qwen-image-21-turbo-01",
+      "path": "/home/user/yt-tts/reels-studio/briefs/tool-qwen-image-21-turbo-01.json",
+      "lint": [],
+      "seo": [],
+      "rollup": {
+        "errors": 0,
+        "warnings": 0,
+        "by_id": {}
+      },
+      "at": "2026-10-13T19:43:49Z"
+    }
+  ]
+}

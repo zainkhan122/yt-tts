@@ -41,7 +41,7 @@
       "type": "image",
       "image": "og-image.png",
       "heading": "ONE MODEL. FIVE *MODALITIES*",
-      "say": "EmbeddingGemma 2 maps text, code, images, audio and video into one search space."
+      "say": "{EmbeddingGemma 2|EmbeddingGemma two} maps text, code, images, audio and video into one search space."
     },
     {
       "id": "name",
@@ -55,7 +55,7 @@
           "at": "EmbeddingGemma"
         }
       ],
-      "say": "Google calls it EmbeddingGemma two: one shared space for multimodal search."
+      "say": "Google calls it {EmbeddingGemma 2|EmbeddingGemma two}: one shared space for multimodal search."
     },
     {
       "id": "size",

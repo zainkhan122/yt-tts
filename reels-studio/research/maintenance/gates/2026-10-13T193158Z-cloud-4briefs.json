@@ -1,0 +1,59 @@
+{
+  "dispatched": [
+    "tool-qwen-image-21-turbo-01",
+    "news-gpt6-intelligent-ui-01",
+    "model-embeddinggemma2-01",
+    "repo-manimgx-01"
+  ],
+  "run_id": 38455579993,
+  "gates": [
+    {
+      "brief": "tool-qwen-image-21-turbo-01",
+      "path": "/home/user/yt-tts/reels-studio/briefs/tool-qwen-image-21-turbo-01.json",
+      "lint": [],
+      "seo": [],
+      "rollup": {
+        "errors": 0,
+        "warnings": 0,
+        "by_id": {}
+      },
+      "at": "2026-10-13T19:31:58Z"
+    },
+    {
+      "brief": "news-gpt6-intelligent-ui-01",
+      "path": "/home/user/yt-tts/reels-studio/briefs/news-gpt6-intelligent-ui-01.json",
+      "lint": [],
+      "seo": [],
+      "rollup": {
+        "errors": 0,
+        "warnings": 0,
+        "by_id": {}
+      },
+      "at": "2026-10-13T19:31:58Z"
+    },
+    {
+      "brief": "model-embeddinggemma2-01",
+      "path": "/home/user/yt-tts/reels-studio/briefs/model-embeddinggemma2-01.json",
+      "lint": [],
+      "seo": [],
+      "rollup": {
+        "errors": 0,
+        "warnings": 0,
+        "by_id": {}
+      },
+      "at": "2026-10-13T19:31:58Z"
+    },
+    {
+      "brief": "repo-manimgx-01",
+      "path": "/home/user/yt-tts/reels-studio/briefs/repo-manimgx-01.json",
+      "lint": [],
+      "seo": [],
+      "rollup": {
+        "errors": 0,
+        "warnings": 0,
+        "by_id": {}
+      },
+      "at": "2026-10-13T19:31:58Z"
+    }
+  ]
+}

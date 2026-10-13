@@ -108,6 +108,7 @@ Never used: other creators' clips (copyright + "reused content" demonetization).
 - Chatterbox is mandatory for final English media; Kokoro is reference/preview only.
 - Whisper character match must be ≥ 92% per flow chunk after at most two alternate-seed retries; a remaining mismatch blocks the final render.
 - Overall Whisper character match must be ≥ 95% for final English renders; if the QA tool is unavailable, the final render fails closed.
+- Failed voice gates log the expected and Whisper-heard chunk text, plus unmatched script words for the whole-VO check, before aborting. Keep the thresholds fixed; correct the spoken script or add `{display form|spoken form}` markup for numbers, dates, acronyms, and product names, then rerender only the affected brief.
 - Loudness −14 ±1 LUFS, peak ≤ −1 dBFS; every measured video/cover/voice check in the final QA manifest must pass or publishing is blocked.
 
 The channel voice is fixed in `config/channel.json` → `tts` (Chatterbox, option 3); how it was chosen: `research/voice-decision.md`. The pipeline records delivered WPM and pitch-range; a take below the 12-semitone liveliness advisory is surfaced for human review, not silently reported as clean.
