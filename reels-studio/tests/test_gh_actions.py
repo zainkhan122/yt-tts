@@ -6,6 +6,7 @@ base again, so legit absolute repo paths returned 404 and looked like a bad toke
 import pathlib
 import sys
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
@@ -32,6 +33,23 @@ class UrlTests(unittest.TestCase):
         ]) as api, patch("builtins.print"):
             gh_actions.delete_artifact("42", "render-demo")
         api.assert_any_call("DELETE", "/actions/artifacts/731")
+
+
+class ReleaseLinkTests(unittest.TestCase):
+    def test_returns_only_a_published_release_url(self):
+        with patch.object(gh_actions, "api", return_value=(200, {
+            "draft": False, "html_url": "https://github.com/example/release"
+        })) as api:
+            self.assertEqual(gh_actions.release_url("renders-2026-10-14"),
+                             "https://github.com/example/release")
+        self.assertIn("/releases/tags/renders-2026-10-14", api.call_args.args[1])
+
+    def test_draft_or_missing_release_is_not_reported_as_published(self):
+        for status, data in ((200, {"draft": True, "html_url": "https://example.invalid/draft"}),
+                             (404, {"message": "Not Found"})):
+            with self.subTest(status=status), patch.object(gh_actions, "api", return_value=(status, data)):
+                with self.assertRaisesRegex(SystemExit, "not found"):
+                    gh_actions.release_url("renders-2026-10-14")
 
 
 if __name__ == "__main__":

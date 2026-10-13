@@ -11,7 +11,7 @@ Reels Studio - professional vertical-video generator (HyperFrames + free tools)
   python3 reels.py make   briefs/x.json --quality looks --crf 26
   python3 reels.py make   briefs/x.json --no-render         # fast iteration: build + lint + check only
   python3 reels.py batch  briefs/a.json briefs/b.json ...   # a week of videos in one go
-  python3 reels.py cloud  <brief-id> [<brief-id> ...] [--wait]  # render on GitHub Actions -> one-day artifact, download locally
+  python3 reels.py cloud  <brief-id> [<brief-id> ...] [--wait]  # remote render -> QA-verified GitHub Release, no local MP4
   python3 reels.py scenes <id> [<id> ...] [--tag T] [--json]    # per-scene manifest of a published render (window, digests, assets)
   python3 reels.py rebuild <brief-id> --scenes <id,id> --reason "..." [--dry-run] [--local]
       # repair scene(s) of a published video: re-render only those, reuse the published audio
@@ -22,7 +22,7 @@ Reels Studio - professional vertical-video generator (HyperFrames + free tools)
   python3 reels.py sync   -m "message"                      # commit + push reels-studio/ (the single source of truth)
   python3 reels.py templates | new <template> briefs/new.json
 
-Cloud renders: one-day GitHub Actions artifacts; `reels.py cloud --wait` downloads them to renders/<id>/ and removes the temporary artifact. Permanent GitHub Releases are a separate, explicit `reels.py publish` action. Capture packs: GitHub Release "capture-packs" (tools/capture_store.py). Intermediates: /var/tmp/reels/.
+Cloud renders: one-day Actions artifacts are staging only; after the complete batch is verified, one publisher job creates a GitHub Release and deletes the temporary artifacts. `reels.py cloud --wait` returns the Release link without downloading videos locally. Capture packs: GitHub Release "capture-packs" (tools/capture_store.py). Intermediates: /var/tmp/reels/.
 Token: ~/.config/reels-studio/gh_token (sandbox) or env GH_TOKEN (cloud). Never committed, never printed.
 """
 import argparse
@@ -32,7 +32,8 @@ import shutil
 import subprocess
 import sys
 import time
-import tempfile
+from datetime import datetime
+from zoneinfo import ZoneInfo
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -188,26 +189,24 @@ def cmd_cloud(a):
     missing = [i for i in ids if not (ROOT / "briefs" / f"{i}.json").exists()]
     if missing:
         raise SystemExit(f"no brief for: {', '.join(missing)} (briefs must be committed: python3 reels.py sync)")
-    if a.wait:
-        try:
-            delivery.ensure_destinations_unused(ROOT / "renders", ids)
-            # CRF 23 is documented at ~12–16 MB/40 s; reserve 18 MB per planned short.
-            delivery.require_workspace_capacity(Path.home(), len(ids) * 18_000_000)
-        except delivery.DeliveryError as exc:
-            raise SystemExit(f"cloud delivery preflight: {exc}; free workspace space or dispatch without --wait") from exc
 
+    # Daily tags use the owner's timezone. GitHub Release assets are the only persistent video copies.
+    release_tag = a.tag or "renders-" + datetime.now(ZoneInfo("Asia/Karachi")).strftime("%Y-%m-%d")
     reports, gates_failed = [], 0
-    for i in ids:
-        report = gates.run(ROOT / "briefs" / f"{i}.json")
+    for brief_id in ids:
+        report = gates.run(ROOT / "briefs" / f"{brief_id}.json")
         report["at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
         reports.append(report)
         gates_failed += bool(report["rollup"]["errors"])
         for line in gates.summary_lines(report):
             print(line)
+
     stamp = time.strftime("%Y-%m-%dT%H%M%SZ", time.gmtime())
     receipt = ROOT / "research/maintenance/gates" / f"{stamp}-cloud-{len(ids)}briefs.json"
     receipt.parent.mkdir(parents=True, exist_ok=True)
-    receipt_doc = {"dispatched": ids, "gates": reports, "status": "preflight_passed_not_dispatched"}
+    receipt_doc = {"dispatched": ids, "release_tag": release_tag, "gates": reports,
+                   "status": "preflight_passed_not_dispatched",
+                   "delivery_policy": "publish QA-passing videos to GitHub Release; never download MP4s locally"}
     def save_receipt():
         receipt.write_text(json.dumps(receipt_doc, indent=2, ensure_ascii=False) + "\n")
     save_receipt()
@@ -217,12 +216,14 @@ def cmd_cloud(a):
         save_receipt()
         raise SystemExit("gates found errors — fix them before spending cloud runners")
 
-    run_id = gh_actions.dispatch("render.yml", {"briefs": " ".join(ids), "tag": a.tag, "quality": a.quality, "crf": str(a.crf)})
+    run_id = gh_actions.dispatch("render.yml", {
+        "briefs": " ".join(ids), "tag": release_tag, "quality": a.quality, "crf": str(a.crf)
+    })
     receipt_doc.update({"run_id": run_id, "status": "dispatched_not_verified"})
     save_receipt()
     print(f"cloud render started: https://github.com/{gh_actions.REPO}/actions/runs/{run_id}  ({len(ids)} video(s))")
     if not a.wait:
-        print("Not delivered yet: this command dispatched the run but did not wait for or verify its artifacts.")
+        print(f"Videos will publish to GitHub Release {release_tag} after all remote QA gates pass; no local MP4 download.")
         return 0
 
     result = gh_actions.wait(run_id, 5400)
@@ -234,65 +235,20 @@ def cmd_cloud(a):
         try:
             delivery.require_success(result)
         except delivery.DeliveryError as exc:
-            raise SystemExit(f"run {run_id}: {exc}") from exc
+            raise SystemExit(f"run {run_id}: {exc}; no release link is being reported") from exc
 
-    estimated_bytes = 0
     try:
-        for brief_id in ids:
-            # Artifact size is the compressed ZIP size; reserve 5 MB per short for expansion/sidecars.
-            estimated_bytes += gh_actions.artifact_size(run_id, f"render-{brief_id}") + 5_000_000
-        workspace_projection = delivery.require_workspace_capacity(Path.home(), estimated_bytes)
-    except delivery.DeliveryError as exc:
-        receipt_doc.update({"status": "workflow_passed_local_budget_blocked", "delivery_error": str(exc)})
-        save_receipt()
-        raise SystemExit(f"workflow passed, but local download was stopped before exceeding the workspace cap: {exc}; "
-                         f"Actions artifacts are retained for review") from exc
+        release_url = gh_actions.release_url(release_tag)
     except SystemExit as exc:
-        receipt_doc.update({"status": "workflow_passed_artifact_lookup_failed", "delivery_error": str(exc)})
+        receipt_doc.update({"status": "release_link_missing", "delivery_error": str(exc)})
         save_receipt()
-        raise
-
-    receipt_doc["workspace_projection"] = workspace_projection
+        raise SystemExit(f"workflow succeeded but the expected GitHub Release is not visible: {exc}") from exc
+    receipt_doc.update({"status": "published_to_github_release", "release_url": release_url,
+                        "assets": [f"{brief_id}.mp4" for brief_id in ids] + [f"{brief_id}-kit.zip" for brief_id in ids],
+                        "local_mp4_download": False, "buffer_scheduled": False})
     save_receipt()
-    render_root = ROOT / "renders"
-    render_root.mkdir(parents=True, exist_ok=True)
-    verified = []
-    voice_required = set()
-    for brief_id in ids:
-        brief = json.loads((ROOT / "briefs" / f"{brief_id}.json").read_text(encoding="utf-8"))
-        tts = brief.get("tts") or {}
-        if tts.get("engine") and brief.get("voice") != "files":
-            voice_required.add(brief_id)
-    try:
-        with tempfile.TemporaryDirectory(prefix=f".cloud-{run_id}-", dir=render_root) as tmp:
-            staging = Path(tmp)
-            for brief_id in ids:
-                gh_actions.download(run_id, f"render-{brief_id}", str(staging / brief_id))
-            verified = delivery.promote_verified_batch(staging, render_root, ids,
-                                                       require_approved_voice_ids=voice_required)
-    except SystemExit as exc:
-        receipt_doc.update({"status": "artifact_verification_failed", "delivery_error": str(exc)})
-        save_receipt()
-        raise
-    except Exception as exc:
-        receipt_doc.update({"status": "artifact_verification_failed", "delivery_error": f"{type(exc).__name__}: {exc}"})
-        save_receipt()
-        raise SystemExit(f"artifact verification failed; Actions artifacts were retained: {exc}") from exc
-
-    receipt_doc.update({"status": "rendered_qa_passed_owner_review_pending", "artifacts": verified,
-                        "owner_approved": False, "scheduled": False})
-    cleanup_pending = []
-    for brief_id in ids:
-        try:
-            gh_actions.delete_artifact(run_id, f"render-{brief_id}")
-        except SystemExit as exc:
-            cleanup_pending.append({"artifact": brief_id, "error": str(exc)})
-    if cleanup_pending:
-        receipt_doc["artifact_cleanup_pending"] = cleanup_pending
-    save_receipt()
-    print("All requested artifacts downloaded and manifest-verified. Owner review is pending; nothing was scheduled.")
-    if cleanup_pending:
-        print("Warning: verified local copies exist, but one or more temporary Actions artifacts could not be deleted.")
+    print(f"GitHub Release: {release_url}")
+    print("Videos remain in GitHub Release assets; no MP4s were downloaded to the local workspace and nothing was scheduled.")
     return 0
 
 
@@ -451,12 +407,12 @@ def main():
     p.add_argument("briefs", nargs="+", help="brief ids or paths")
     p.add_argument("--json", action="store_true", help="print the receipt JSON")
     p.add_argument("--no-record", action="store_true", help="print only; do not write manifests/<id>/manifest.json")
-    p = sub.add_parser("cloud", help="render briefs on GitHub Actions -> temporary artifacts (one runner each, up to 10 in parallel)")
+    p = sub.add_parser("cloud", help="render on GitHub Actions -> QA-verified GitHub Release, without local MP4 downloads")
     p.add_argument("briefs", nargs="+", help="brief ids or paths (briefs/<id>.json)")
-    p.add_argument("--tag", default="", help="source Release tag only for a scene rebuild; normally omit")
+    p.add_argument("--tag", default="", help="GitHub Release tag (default: renders-YYYY-MM-DD in Asia/Karachi)")
     p.add_argument("--quality", default="looks")
     p.add_argument("--crf", default="23")
-    p.add_argument("--wait", action="store_true", help="wait, download artifacts to renders/<id>/, and delete temporary artifacts")
+    p.add_argument("--wait", action="store_true", help="wait for QA and GitHub Release publication; print the Release URL (no local MP4 download)")
     p = sub.add_parser("scenes", help="per-scene manifest of a published render (windows, digests, assets)")
     p.add_argument("targets", nargs="+", help="video ids, or paths to a manifest.json")
     p.add_argument("--tag", default="", help="read the manifest from this release's kit instead of renders/<id>/")

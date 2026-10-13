@@ -1,5 +1,5 @@
-# Cloud render: one GitHub runner (4 vCPU / 16 GB, free for this public repo) per brief, up to 10 in parallel (owner ceiling 2026-10-12).
-# Each job: toolchain -> capture pack -> reels.py make (voice, QA, render) -> SEO gate -> one-day Actions artifact. No public Release by default.
+# Cloud render: one GitHub runner (4 vCPU / 16 GB) per brief, up to 10 in parallel.
+# A single finalizer validates the whole batch, publishes one public GitHub Release, then deletes staging artifacts.
 # Start: python3 reels-studio/reels.py cloud <brief-id> [<brief-id> ...]   (or Actions -> render -> Run workflow)
 name: render
 on:
@@ -9,7 +9,7 @@ on:
         description: 'Brief ids (reels-studio/briefs/<id>.json), space separated'
         required: true
       tag:
-        description: 'Source Release tag for a scene rebuild; render outputs are Actions artifacts'
+        description: 'Daily batch Release tag (default: renders-YYYY-MM-DD in Asia/Karachi; scene rebuilds remain artifacts)'
         required: false
         default: ''
       quality:
@@ -34,6 +34,7 @@ on:
         default: ''
 permissions:
   contents: read
+  actions: read
 env:
   PYTHONUNBUFFERED: "1"
   HYPERFRAMES_NO_TELEMETRY: "1"
@@ -127,3 +128,38 @@ jobs:
           path: /var/tmp/reels/${{ matrix.brief }}/build.log
           if-no-files-found: ignore
           retention-days: 7
+  publish:
+    if: ${{ success() && inputs.rebuild_scenes == '' }}
+    needs: [plan, render]
+    name: publish verified GitHub Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /reels-studio/briefs/
+            /reels-studio/lib/
+            /reels-studio/tools/
+          sparse-checkout-cone-mode: false
+          filter: blob:none
+      - name: Download temporary render artifacts on runner
+        uses: actions/download-artifact@v4
+        with:
+          pattern: render-*
+          path: release-artifacts
+          merge-multiple: false
+      - name: Verify complete batch, publish one Release, and remove staging artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRIEFS_JSON: ${{ needs.plan.outputs.briefs }}
+          RELEASE_TAG: ${{ needs.plan.outputs.tag }}
+          RUN_ID: ${{ github.run_id }}
+        run: >-
+          python3 reels-studio/tools/publish_verified_batch.py
+          --briefs-json "$BRIEFS_JSON"
+          --tag "$RELEASE_TAG"
+          --artifact-root release-artifacts
+          --run-id "$RUN_ID"

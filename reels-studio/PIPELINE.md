@@ -9,7 +9,7 @@ The interactive agent runs research/production; approved-render Buffer delivery 
 
 ```
  1 DISCOVER ──► 2 SELECT ──► 3 RESEARCH ──► 4 SCRIPT ──► 5 VOICE ──► 6 ASSETS ──► 7 ASSEMBLE ──► 8 QA ──► 9 PUBLISH ──► 10 LEARN
- radar+social    score≥60     fact sheet      brief.json    Chatterbox  capture pack   template      gates    temp artifact; permanent Release only when explicitly authorized   metrics
+ radar+social    score≥60     fact sheet      brief.json    Chatterbox  capture pack   template      gates    verified batch → GitHub Release (no local MP4)   metrics
                                                                                                                     └──────► feeds 1-2
 ```
 
@@ -179,8 +179,8 @@ Template = HTML/GSAP scenes rendered by HyperFrames (deterministic, frame-exact)
 ## 9. Package + publish
 
 - **Post kit** (`renders/<id>/post.md`): 3 titles, caption, 3–5 hashtags, pinned comment (links + catches), cover frame, SRT captions, credits.
-- **Render delivery:** cloud jobs upload a one-day Actions artifact; `reels.py cloud --wait` treats failed/timed-out workflows as failures, downloads requested artifacts into a temporary staging directory, validates required files and every manifest QA gate, then atomically installs the batch. It refuses stale-folder merges and checks the workspace snapshot budget before dispatch and again before download. Temporary Actions artifacts are deleted only after local verification; on verification/budget failure they remain available for recovery. A green technical QA result is **not owner approval** and never schedules a post.
-- **Permanent storage:** only with explicit authorization, `reels.py publish` creates a GitHub Release; `reels.py sync` is a separate git write. The render workflow itself is artifact-only and creates no permanent Release.
+- **Render delivery:** cloud jobs upload one-day Actions artifacts only as staging. A single finalizer downloads them on an ephemeral Actions runner, verifies that every requested MP4 and post kit passes manifest QA, creates a draft Release, uploads the complete batch, publishes one immutable GitHub Release (`renders-YYYY-MM-DD` in Asia/Karachi by default), and then deletes the temporary artifacts. `reels.py cloud --wait` returns the Release URL; it does not download MP4s into the local workspace. A failed or incomplete batch is not published. The Release is repository storage only; it is not owner approval of each Short for social distribution and never schedules a post.
+- **Permanent storage:** QA-passing cloud batches are placed on a GitHub Release as explicitly requested by the owner. `reels.py publish` remains the separate path for uploads that are already local; `reels.py sync` is a separate git write. Large video binaries stay out of Git history.
 - **Upload:**
   - Now: the user uploads natively to each platform (no cross-watermarks).
   - Later, optionally, via official APIs only: YouTube Data API, Instagram Graph API (Business/Creator account), TikTok Content Posting API. Each needs the user's account authorisation. No cookie bots (ban risk).
@@ -205,8 +205,8 @@ Template = HTML/GSAP scenes rendered by HyperFrames (deterministic, frame-exact)
 | Images | Pillow | HPND | preinstalled |
 | Trend data | GitHub REST API, Hugging Face API | free | none needed |
 | Research | agent web search + page fetch | – | agent |
-| Cloud render (up to 10/day) | GitHub Actions matrix; one-day artifact, downloaded and deleted after `--wait` | free | Actions read/write for dispatch, logs, and artifact cleanup |
-| Storage / SSOT | GitHub repo; permanent Release only via explicit `reels.py publish` | free | Contents read for source packs; Contents write only for explicit sync/publish |
+| Cloud render (up to 10/day) | GitHub Actions matrix; one-day staging artifact, verified on an ephemeral runner, published to one daily Release, then deleted | free | Actions read/write for dispatch, artifacts, and cleanup; Contents write for the Release finalizer |
+| Storage / SSOT | GitHub repo and Releases; video binaries live on Release assets, not Git history | free | Contents read for source packs; Contents write for authorized render Releases and explicit sync/publish |
 
 **Known access limits (tested 2026-10-07):**
 - TikTok profiles and videos work without login.

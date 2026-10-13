@@ -7,6 +7,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -87,7 +88,7 @@ def plan_dispatch(
         raise ValueError("rebuild_reason/from_tag require rebuild_scenes")
 
     if not tag:
-        day = today or datetime.datetime.now(datetime.timezone.utc).date()
+        day = today or datetime.datetime.now(ZoneInfo("Asia/Karachi")).date()
         tag = "renders-" + day.strftime("%Y-%m-%d")
     return {"briefs": ids, "tag": tag, "quality": quality, "crf": crf_value,
             "rebuild_scenes": scenes, "from_tag": from_tag}

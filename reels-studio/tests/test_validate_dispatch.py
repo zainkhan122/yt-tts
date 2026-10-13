@@ -4,6 +4,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -30,6 +31,14 @@ class DispatchPlanTests(unittest.TestCase):
         self.assertEqual(result["briefs"], ["one"])
         self.assertEqual(result["tag"], "renders-2026-10-14")
         self.assertEqual(result["crf"], 23)
+
+    def test_implicit_daily_tag_uses_asia_karachi_calendar_date(self):
+        fixed_local = datetime.datetime(2026, 10, 14, 0, 15)
+        with patch("tools.validate_dispatch.datetime.datetime") as clock:
+            clock.now.return_value = fixed_local
+            result = plan_dispatch("one", briefs_root=self.briefs)
+        self.assertEqual(result["tag"], "renders-2026-10-14")
+        self.assertEqual(clock.now.call_args.args[0].key, "Asia/Karachi")
 
     def test_unknown_or_mismatched_brief_fails_before_dispatch(self):
         with self.assertRaisesRegex(ValueError, "unknown brief"):

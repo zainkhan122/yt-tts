@@ -6,7 +6,7 @@
   gh_actions.py jobs <run_id>                                job/step status table
   gh_actions.py logs <job_id> [--tail 60] [--grep REGEX]     tail of one job's log
   gh_actions.py download <run_id> <artifact> <dest_dir>      fetch + unzip an artifact
-  gh_actions.py delete-artifact <run_id> <artifact>          delete a temporary artifact after download
+  gh_actions.py delete-artifact <run_id> <artifact>          delete a temporary artifact after Release publication
   gh_actions.py cancel <run_id>                              cancel a run (uploaded artifacts are kept)
 """
 import argparse
@@ -17,6 +17,7 @@ import stat
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 import zipfile
 from pathlib import Path, PurePosixPath
@@ -115,6 +116,14 @@ def wait(run_id, timeout):
     return None
 
 
+def release_url(tag):
+    """Return the permanent GitHub Release link after the remote batch publisher finishes."""
+    status, data = api("GET", f"/releases/tags/{urllib.parse.quote(tag, safe='')}")
+    if status != 200 or not data.get("html_url") or data.get("draft"):
+        raise SystemExit(f"published GitHub Release {tag!r} not found (HTTP {status})")
+    return data["html_url"]
+
+
 def logs(job_id, tail, grep):
     s, data = api("GET", f"/actions/jobs/{job_id}/logs", raw=True)
     if not isinstance(data, bytes):  # friendly path: log blob 404s while a job is still running
@@ -209,7 +218,7 @@ def download(run_id, name, dest):
 
 
 def delete_artifact(run_id, name):
-    """Remove the temporary render artifact after its files have been downloaded locally."""
+    """Remove a temporary render artifact after its files have been published to a GitHub Release."""
     art = _find_artifact(run_id, name)
     s, d = api("DELETE", f"/actions/artifacts/{art['id']}")
     if s != 204:
