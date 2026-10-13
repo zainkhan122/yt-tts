@@ -39,7 +39,7 @@
       "id": "hook",
       "type": "image",
       "image": "qwen-steps.png",
-      "heading": "QWEN IMAGE 2.1 TURBO: *8 STEPS ≠ 8 SECONDS*",
+      "heading": "QWEN IMAGE 2.1 TURBO: *8 STEPS, NOT 8 SECONDS*",
       "say": "Qwen Image two point one Turbo uses eight denoising steps. That is not eight seconds.",
       "url": "github.com"
     },
@@ -136,7 +136,7 @@
       "Qwen-Image Turbo",
       "Qwen 2.1 Turbo"
     ],
-    "onscreen_first3s": "QWEN IMAGE 2.1 TURBO: 8 STEPS ≠ 8 SECONDS",
+    "onscreen_first3s": "QWEN IMAGE 2.1 TURBO: 8 STEPS, NOT 8 SECONDS",
     "youtube": {
       "title": "Qwen Image Turbo: 8 Steps, Not 8 Seconds",
       "description": "Qwen-Image-2.1-Turbo is the 8-denoising-step checkpoint for text-to-image generation and image editing, using the same 7B visual-generation architecture as Qwen-Image-2.1. Eight steps do not prove an end-to-end time or speedup; the official local quick start calls for CUDA-compatible PyTorch. The weights use Qwen's non-commercial Research License; commercial model use requires a separate license. No generated Qwen sample images are used here. Facts checked 13 October 2026.\nSources: https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo · https://github.com/QwenLM/Qwen-Image-2.1 · https://qwen.ai/blog?id=qwen-image-2.1 · https://raw.githubusercontent.com/QwenLM/Qwen-Image-2.1/main/LICENSE",
