@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-13T11:32:34Z",
+  "updated_at": "2026-10-13T14:26:14Z",
   "videos": {
     "list-free-video-ai-01": {
       "snapshots": [
@@ -60,7 +60,21 @@
       "youtube_id": "tiNhpvU1znw"
     },
     "news-gpt61-astra-01": {
-      "snapshots": [],
+      "snapshots": [
+        {
+          "age_hours": 25.42,
+          "analytics": {
+            "unavailable": "YouTubeError: YouTube HTTP 403: Request had insufficient authentication scopes."
+          },
+          "comments": 0,
+          "engagement_rate": 0.0,
+          "likes": 0,
+          "published_at": "2026-10-12T13:01:18Z",
+          "taken_at": "2026-10-13T14:26:14Z",
+          "views": 191,
+          "window": "24h"
+        }
+      ],
       "title": null,
       "youtube_id": "3qjmijMrjPs"
     },
@@ -175,7 +189,21 @@
       "youtube_id": "Mt8Yn9ShBmM"
     },
     "tool-higgsfield-01": {
-      "snapshots": [],
+      "snapshots": [
+        {
+          "age_hours": 26.49,
+          "analytics": {
+            "unavailable": "YouTubeError: YouTube HTTP 403: Request had insufficient authentication scopes."
+          },
+          "comments": 0,
+          "engagement_rate": 0.0,
+          "likes": 0,
+          "published_at": "2026-10-12T11:56:49Z",
+          "taken_at": "2026-10-13T14:26:14Z",
+          "views": 34,
+          "window": "24h"
+        }
+      ],
       "title": null,
       "youtube_id": "7v2TUM0CTCk"
     },
