@@ -1149,9 +1149,11 @@
     },
     "tool-ltx25-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6acd80a45229b40e868aabaa",
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-14T01:00:00Z",
+      "due_at": "2026-10-14T01:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:ea3e961317f09287da04b15153fa6544f1ae23405f5c2581369beec56c25824a",
         "asset_id": 633755620,
@@ -1166,10 +1168,11 @@
       "notify_subscribers": false,
       "payload_sha256": "171fe03f840effe7f245bf19334b0341cc3985bbe59cc063bbd62d8400143211",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "LTX 2.5 generates video and audio in one 22B open-weights model: 10 seconds in 6.8 s on 2\u00d7GB200, native multi-shot with consistent characters, and post-production tools built in. Save this for your video stack.\n\nCredits: Screens: own capture of ltx.io/model/ltx-2-5 (2026-10-12). Showcase media belongs to LTX; the page states all showcase clips are entirely synthetic and no actor has performed \u2014 we only reuse the page's own published imagery. Hardware timings are from the launch material.\n\n#AIVideo #OpenSource #LTX",
       "title": "LTX 2.5: Open-Weights Video + Audio in One Model",
-      "updated_at": "2026-10-13T00:51:46Z",
+      "updated_at": "2026-10-13T00:51:49Z",
       "video_id": "tool-ltx25-01"
     },
     "tool-ltx25-01:youtube": {
