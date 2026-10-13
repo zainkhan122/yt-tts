@@ -32,6 +32,7 @@ import shutil
 import subprocess
 import sys
 import time
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -71,7 +72,7 @@ def git(*args, check=True, auth=False):
 
 
 def cmd_doctor(a):
-    from lib import pipeline
+    from lib import delivery, pipeline
     ok_all = True
 
     def row(name, ok, info=""):
@@ -105,16 +106,10 @@ def cmd_doctor(a):
         dirty = git("status", "--porcelain", "--", "reels-studio", check=False)
         row("(opt) SSOT synced", not dirty, f"{len(dirty.splitlines())} local change(s) -> reels.py sync" if dirty else "clean")
     row("(opt) GitHub token (session)", token() is not None, "present" if token() else "needed for cloud dispatch, sync, or publish")
-    used = 0
-    excl = {".cache", ".local", ".npm", "node_modules", "out", "build", "dist", "target", "__pycache__", ".venv", "coverage"}
-    for r, ds, fs in os.walk(Path.home()):
-        ds[:] = [d for d in ds if d not in excl]
-        for f in fs:
-            try:
-                used += os.path.getsize(os.path.join(r, f))
-            except OSError:
-                pass
-    row("(opt) workspace < 100 MB", used < 100e6, f"{used / 1e6:.1f} MB saved of ~128 MB limit" + ("" if used < 100e6 else " -> publish renders, then delete local copies"))
+    used = delivery.workspace_size_bytes(Path.home())
+    safe_limit = delivery.SNAPSHOT_LIMIT_BYTES - delivery.SNAPSHOT_RESERVE_BYTES
+    row("workspace headroom", used < safe_limit,
+        f"{used / 1e6:.1f} MB used; keep below {safe_limit / 1e6:.0f} MB to reserve snapshot margin")
     print("READY" if ok_all else "NOT READY - run: bash bootstrap.sh")
     sys.exit(0 if ok_all else 1)
 
@@ -182,12 +177,25 @@ def cmd_publish(a):
 def cmd_cloud(a):
     sys.path.insert(0, str(ROOT / "tools"))
     import gh_actions
+    sys.path.insert(0, str(ROOT))
+    from lib import delivery, gates
+
     ids = [Path(b).name.removesuffix(".json") for b in a.briefs]
+    try:
+        delivery.validate_ids(ids)
+    except delivery.DeliveryError as exc:
+        raise SystemExit(f"cloud preflight: {exc}") from exc
     missing = [i for i in ids if not (ROOT / "briefs" / f"{i}.json").exists()]
     if missing:
         raise SystemExit(f"no brief for: {', '.join(missing)} (briefs must be committed: python3 reels.py sync)")
-    sys.path.insert(0, str(ROOT))
-    from lib import gates
+    if a.wait:
+        try:
+            delivery.ensure_destinations_unused(ROOT / "renders", ids)
+            # CRF 23 is documented at ~12–16 MB/40 s; reserve 18 MB per planned short.
+            delivery.require_workspace_capacity(Path.home(), len(ids) * 18_000_000)
+        except delivery.DeliveryError as exc:
+            raise SystemExit(f"cloud delivery preflight: {exc}; free workspace space or dispatch without --wait") from exc
+
     reports, gates_failed = [], 0
     for i in ids:
         report = gates.run(ROOT / "briefs" / f"{i}.json")
@@ -199,22 +207,92 @@ def cmd_cloud(a):
     stamp = time.strftime("%Y-%m-%dT%H%M%SZ", time.gmtime())
     receipt = ROOT / "research/maintenance/gates" / f"{stamp}-cloud-{len(ids)}briefs.json"
     receipt.parent.mkdir(parents=True, exist_ok=True)
-    receipt.write_text(json.dumps({"dispatched": ids, "gates": reports}, indent=2, ensure_ascii=False) + "\n")
+    receipt_doc = {"dispatched": ids, "gates": reports, "status": "preflight_passed_not_dispatched"}
+    def save_receipt():
+        receipt.write_text(json.dumps(receipt_doc, indent=2, ensure_ascii=False) + "\n")
+    save_receipt()
     print(f"gate receipt -> {receipt.relative_to(ROOT)}")
     if gates_failed:
+        receipt_doc["status"] = "preflight_failed"
+        save_receipt()
         raise SystemExit("gates found errors — fix them before spending cloud runners")
+
     run_id = gh_actions.dispatch("render.yml", {"briefs": " ".join(ids), "tag": a.tag, "quality": a.quality, "crf": str(a.crf)})
-    receipt.write_text(json.dumps({"dispatched": ids, "run_id": run_id, "gates": reports}, indent=2, ensure_ascii=False) + "\n")
+    receipt_doc.update({"run_id": run_id, "status": "dispatched_not_verified"})
+    save_receipt()
     print(f"cloud render started: https://github.com/{gh_actions.REPO}/actions/runs/{run_id}  ({len(ids)} video(s))")
-    if a.wait:
-        result = gh_actions.wait(run_id, 5400)
-        print("result:", result)
-        if result == "success":
-            for i in ids:
-                artifact = f"render-{i}"
-                dest = ROOT / "renders" / i
-                gh_actions.download(run_id, artifact, str(dest))
-                gh_actions.delete_artifact(run_id, artifact)
+    if not a.wait:
+        print("Not delivered yet: this command dispatched the run but did not wait for or verify its artifacts.")
+        return 0
+
+    result = gh_actions.wait(run_id, 5400)
+    print("result:", result)
+    receipt_doc["workflow_result"] = result
+    if result != "success":
+        receipt_doc["status"] = "workflow_failed_or_timed_out"
+        save_receipt()
+        try:
+            delivery.require_success(result)
+        except delivery.DeliveryError as exc:
+            raise SystemExit(f"run {run_id}: {exc}") from exc
+
+    estimated_bytes = 0
+    try:
+        for brief_id in ids:
+            # Artifact size is the compressed ZIP size; reserve 5 MB per short for expansion/sidecars.
+            estimated_bytes += gh_actions.artifact_size(run_id, f"render-{brief_id}") + 5_000_000
+        workspace_projection = delivery.require_workspace_capacity(Path.home(), estimated_bytes)
+    except delivery.DeliveryError as exc:
+        receipt_doc.update({"status": "workflow_passed_local_budget_blocked", "delivery_error": str(exc)})
+        save_receipt()
+        raise SystemExit(f"workflow passed, but local download was stopped before exceeding the workspace cap: {exc}; "
+                         f"Actions artifacts are retained for review") from exc
+    except SystemExit as exc:
+        receipt_doc.update({"status": "workflow_passed_artifact_lookup_failed", "delivery_error": str(exc)})
+        save_receipt()
+        raise
+
+    receipt_doc["workspace_projection"] = workspace_projection
+    save_receipt()
+    render_root = ROOT / "renders"
+    render_root.mkdir(parents=True, exist_ok=True)
+    verified = []
+    voice_required = set()
+    for brief_id in ids:
+        brief = json.loads((ROOT / "briefs" / f"{brief_id}.json").read_text(encoding="utf-8"))
+        tts = brief.get("tts") or {}
+        if tts.get("engine") and brief.get("voice") != "files":
+            voice_required.add(brief_id)
+    try:
+        with tempfile.TemporaryDirectory(prefix=f".cloud-{run_id}-", dir=render_root) as tmp:
+            staging = Path(tmp)
+            for brief_id in ids:
+                gh_actions.download(run_id, f"render-{brief_id}", str(staging / brief_id))
+            verified = delivery.promote_verified_batch(staging, render_root, ids,
+                                                       require_approved_voice_ids=voice_required)
+    except SystemExit as exc:
+        receipt_doc.update({"status": "artifact_verification_failed", "delivery_error": str(exc)})
+        save_receipt()
+        raise
+    except Exception as exc:
+        receipt_doc.update({"status": "artifact_verification_failed", "delivery_error": f"{type(exc).__name__}: {exc}"})
+        save_receipt()
+        raise SystemExit(f"artifact verification failed; Actions artifacts were retained: {exc}") from exc
+
+    receipt_doc.update({"status": "rendered_qa_passed_owner_review_pending", "artifacts": verified,
+                        "owner_approved": False, "scheduled": False})
+    cleanup_pending = []
+    for brief_id in ids:
+        try:
+            gh_actions.delete_artifact(run_id, f"render-{brief_id}")
+        except SystemExit as exc:
+            cleanup_pending.append({"artifact": brief_id, "error": str(exc)})
+    if cleanup_pending:
+        receipt_doc["artifact_cleanup_pending"] = cleanup_pending
+    save_receipt()
+    print("All requested artifacts downloaded and manifest-verified. Owner review is pending; nothing was scheduled.")
+    if cleanup_pending:
+        print("Warning: verified local copies exist, but one or more temporary Actions artifacts could not be deleted.")
     return 0
 
 

@@ -46,18 +46,23 @@ jobs:
       briefs: ${{ steps.p.outputs.briefs }}
       tag: ${{ steps.p.outputs.tag }}
     steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /reels-studio/briefs/
+            /reels-studio/lib/
+          sparse-checkout-cone-mode: false
+          filter: blob:none
       - id: p
         env:
           BRIEFS: ${{ inputs.briefs }}
           TAG: ${{ inputs.tag }}
-        run: |
-          python3 - >> "$GITHUB_OUTPUT" <<'PY'
-          import datetime, json, os
-          ids = [b.rsplit("/", 1)[-1].removesuffix(".json") for b in os.environ["BRIEFS"].replace(",", " ").split()]
-          tag = os.environ["TAG"].strip() or "renders-" + datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
-          print("briefs=" + json.dumps(ids))
-          print("tag=" + tag)
-          PY
+          QUALITY: ${{ inputs.quality }}
+          CRF: ${{ inputs.crf }}
+          REBUILD_SCENES: ${{ inputs.rebuild_scenes }}
+          REBUILD_REASON: ${{ inputs.rebuild_reason }}
+          FROM_TAG: ${{ inputs.from_tag }}
+        run: python3 reels-studio/tools/validate_dispatch.py >> "$GITHUB_OUTPUT"
   render:
     needs: plan
     name: render ${{ matrix.brief }}

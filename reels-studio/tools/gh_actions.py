@@ -13,12 +13,13 @@ import argparse
 import io
 import json
 import re
+import stat
 import sys
 import time
 import urllib.error
 import urllib.request
 import zipfile
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
@@ -134,12 +135,77 @@ def _find_artifact(run_id, name):
     return art
 
 
+MAX_ARTIFACT_BYTES = 128_000_000
+MAX_ARTIFACT_FILES = 1000
+
+
+def safe_extract_artifact(blob, dest):
+    """Verify a bounded Actions ZIP and reject traversal, symlinks, duplicates, and CRC errors."""
+    dest = Path(dest)
+    if dest.is_symlink():
+        raise SystemExit(f"refusing symlink artifact destination: {dest}")
+    if dest.exists() and any(dest.iterdir()):
+        raise SystemExit(f"refusing to merge artifact into non-empty destination: {dest}")
+    if len(blob) > MAX_ARTIFACT_BYTES:
+        raise SystemExit(f"artifact ZIP exceeds size limit ({len(blob)} bytes)")
+    dest.mkdir(parents=True, exist_ok=True)
+    root = dest.resolve()
+    try:
+        archive = zipfile.ZipFile(io.BytesIO(blob))
+    except zipfile.BadZipFile as exc:
+        raise SystemExit(f"invalid Actions artifact ZIP: {exc}") from exc
+    with archive:
+        infos = archive.infolist()
+        if len(infos) > MAX_ARTIFACT_FILES:
+            raise SystemExit(f"artifact has too many entries ({len(infos)})")
+        total = sum(info.file_size for info in infos)
+        if total > MAX_ARTIFACT_BYTES:
+            raise SystemExit(f"artifact expands beyond size limit ({total} bytes)")
+        seen = set()
+        for info in infos:
+            name = info.filename
+            rel = PurePosixPath(name)
+            if (not name or "\\" in name or rel.is_absolute() or ".." in rel.parts
+                    or not rel.parts or ":" in rel.parts[0]):
+                raise SystemExit(f"unsafe artifact path: {name!r}")
+            mode = (info.external_attr >> 16) & 0o170000
+            if mode == stat.S_IFLNK:
+                raise SystemExit(f"refusing symlink in artifact: {name!r}")
+            target = (root / Path(*rel.parts)).resolve()
+            try:
+                target.relative_to(root)
+            except ValueError as exc:
+                raise SystemExit(f"artifact path escapes destination: {name!r}") from exc
+            norm = str(target)
+            if norm in seen:
+                raise SystemExit(f"duplicate artifact path: {name!r}")
+            seen.add(norm)
+        bad = archive.testzip()
+        if bad is not None:
+            raise SystemExit(f"artifact CRC check failed at {bad!r}")
+        archive.extractall(root)
+    return len(infos), total
+
+
+def artifact_size(run_id, name):
+    """Return the compressed byte size reported by Actions before downloading."""
+    art = _find_artifact(run_id, name)
+    try:
+        size = int(art.get("size_in_bytes", 0))
+    except (TypeError, ValueError) as exc:
+        raise SystemExit(f"artifact {name} has an invalid size in the Actions API") from exc
+    if size <= 0:
+        raise SystemExit(f"artifact {name} has no recorded bytes")
+    return size
+
+
 def download(run_id, name, dest):
     art = _find_artifact(run_id, name)
     s, blob = api("GET", art["archive_download_url"], raw=True)
-    Path(dest).mkdir(parents=True, exist_ok=True)
-    zipfile.ZipFile(io.BytesIO(blob)).extractall(dest)
-    print(f"{name}: {len(blob) / 1e6:.1f} MB -> {dest}")
+    if s != 200 or not isinstance(blob, bytes):
+        raise SystemExit(f"artifact download failed: HTTP {s}")
+    count, expanded = safe_extract_artifact(blob, dest)
+    print(f"{name}: verified ZIP {len(blob) / 1e6:.1f} MB, expanded {expanded / 1e6:.1f} MB, {count} entries -> {dest}")
 
 
 def delete_artifact(run_id, name):

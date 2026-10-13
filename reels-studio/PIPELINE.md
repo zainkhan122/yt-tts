@@ -179,8 +179,8 @@ Template = HTML/GSAP scenes rendered by HyperFrames (deterministic, frame-exact)
 ## 9. Package + publish
 
 - **Post kit** (`renders/<id>/post.md`): 3 titles, caption, 3–5 hashtags, pinned comment (links + catches), cover frame, SRT captions, credits.
-- **Render delivery:** cloud jobs upload a one-day Actions artifact; `reels.py cloud --wait` downloads it into `renders/<id>/` and deletes the temporary artifact. The render workflow creates no permanent Release.
-- **Permanent storage:** only with explicit authorization, `reels.py publish` creates a GitHub Release; `reels.py sync` is a separate git write.
+- **Render delivery:** cloud jobs upload a one-day Actions artifact; `reels.py cloud --wait` treats failed/timed-out workflows as failures, downloads requested artifacts into a temporary staging directory, validates required files and every manifest QA gate, then atomically installs the batch. It refuses stale-folder merges and checks the workspace snapshot budget before dispatch and again before download. Temporary Actions artifacts are deleted only after local verification; on verification/budget failure they remain available for recovery. A green technical QA result is **not owner approval** and never schedules a post.
+- **Permanent storage:** only with explicit authorization, `reels.py publish` creates a GitHub Release; `reels.py sync` is a separate git write. The render workflow itself is artifact-only and creates no permanent Release.
 - **Upload:**
   - Now: the user uploads natively to each platform (no cross-watermarks).
   - Later, optionally, via official APIs only: YouTube Data API, Instagram Graph API (Business/Creator account), TikTok Content Posting API. Each needs the user's account authorisation. No cookie bots (ban risk).
