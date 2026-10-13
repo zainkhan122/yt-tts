@@ -77,9 +77,15 @@ jobs:
       - name: Install lightweight posting dependencies
         if: steps.gate.outputs.mode != 'off'
         run: python3 -m pip install -r reels-studio/tools/post/requirements.txt
-      - name: Safety / retry / queue tests
+      # Keep the publishing gate focused on the Buffer/queue/release path; unrelated renderer
+      # and YouTube-worker suites require separate media/API dependencies and are not run here.
+      - name: Posting safety / retry / queue tests
         if: steps.gate.outputs.mode != 'off'
-        run: python3 -m unittest discover -s reels-studio/tests -v
+        run: |
+          set -e
+          for test in test_publishing.py test_delivery.py test_release_delivery.py test_covers_pending.py test_gh_actions.py; do
+            python3 -m unittest discover -s reels-studio/tests -p "$test" -v
+          done
       - name: Source / workspace budget guard
         if: steps.gate.outputs.mode != 'off'
         run: python3 reels-studio/tools/maintenance/storage.py audit
