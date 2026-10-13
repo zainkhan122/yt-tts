@@ -53,7 +53,7 @@ def url_display_label(value, max_chars=54):
 def scenes(b):
     out = [s for s in b.get("scenes", []) if not s.get("skip")]
     for s in out:
-        if s.get("type") == "page" and s.get("url"):
+        if s.get("url"):
             s["display_url"] = url_display_label(s["url"])
     return out
 
@@ -487,7 +487,9 @@ def data(b, T, D, ev, cfg):
         sc.append(x)
     facts = dict(m.get("facts") or {})
     facts.update(b.get("facts") or {})
-    return {"scenes": sc, "facts": facts, "regions": m.get("regions_css", {}), "url": m.get("url", ""),
+    source_url = m.get("url", "")
+    return {"scenes": sc, "facts": facts, "regions": m.get("regions_css", {}), "url": source_url,
+            "display_url": url_display_label(source_url),
             "credits": "", "cut": cfg["cut"], "flavor": cfg["flavor"]}  # credits never on screen (owner rule 2026-10-09): credits_on_screen goes to post.md + YouTube description
 
 

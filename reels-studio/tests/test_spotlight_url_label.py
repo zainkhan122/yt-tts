@@ -1,5 +1,7 @@
 """Browser address labels must fit the fixed bar without replacing source URLs."""
 import unittest
+from pathlib import Path
+from unittest.mock import patch
 
 from templates._spotlight import spotcore
 
@@ -20,6 +22,18 @@ class SpotlightUrlLabelTests(unittest.TestCase):
         out = spotcore.scenes({"scenes": [scene]})[0]
         self.assertEqual(out["url"], url)
         self.assertEqual(out["display_url"], "blog.google/…/embeddinggemma-2")
+
+    def test_capture_fallback_url_is_compacted_too(self):
+        url = "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/"
+        with patch.object(spotcore, "capture", return_value=(None, {"url": url, "facts": {}, "regions_css": {}})):
+            data = spotcore.data({"scenes": [{"id": "page", "type": "page"}]}, {}, 1.0, {},
+                                 {"cut": "glide", "flavor": "tool"})
+        self.assertEqual(data["url"], url)
+        self.assertEqual(data["display_url"], "blog.google/…/embeddinggemma-2")
+
+    def test_all_browser_scene_types_use_the_compact_url(self):
+        js = (Path(__file__).resolve().parents[1] / "templates" / "_spotlight" / "scene.js").read_text()
+        self.assertEqual(js.count("url: s.display_url || s.url || X.display_url || X.url"), 4)
 
 
 if __name__ == "__main__":

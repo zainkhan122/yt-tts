@@ -288,7 +288,7 @@
             heading(root, s.heading || prettyName(), t0 + 0.05, { instant: cover });
             const B = browser(root, { top: cover ? COVER_STAGE_TOP : 452,
                                      height: cover ? COVER_STAGE_HEIGHT : 700,
-                                     url: s.url || X.url, img: s.img, instant: cover });
+                                     url: s.display_url || s.url || X.display_url || X.url, img: s.img, instant: cover });
             const cams = s.camera || [];
             const states = [B.state(null, 1)].concat(cams.map((c) => B.state(c.region, c.zoom || 1.6)));
             const times = [t0].concat(cams.map((c, k) => E(`${s.id}_cam${k}`)));
@@ -303,7 +303,7 @@
             if (title) heading(root, title, t0 + 0.05, { instant: cover });
             const top = title ? (cover ? COVER_STAGE_TOP : 452) : 300;
             const height = title ? (cover ? COVER_STAGE_HEIGHT : 700) : 852;
-            const B = browser(root, { top, height, url: s.url || X.url, img: s.img, instant: cover });
+            const B = browser(root, { top, height, url: s.display_url || s.url || X.display_url || X.url, img: s.img, instant: cover });
             const stops = s.stops || [];
             const states = [B.state(s.start_region || null, s.start_zoom || 1)].concat(stops.map((st) => B.state(st.region, st.zoom || 1.3)));
             const times = [t0].concat(stops.map((st, k) => E(`${s.id}_stop${k}`)));
@@ -331,7 +331,7 @@
               const cover = s.id === FIRST;
               // Keep an optional screenshot below the large hook title and above the steps card.
               const B = browser(root, { top: cover ? COVER_STAGE_TOP : 452,
-                                       height: cover ? 180 : 430, url: s.url || X.url, img: bg.img });
+                                       height: cover ? 180 : 430, url: s.display_url || s.url || X.display_url || X.url, img: bg.img });
               const regs = bg.scroll_regions || [];
               const z = bg.zoom || 1.0;
               const a0 = B.state(regs[0] || null, z), a1 = regs[1] ? B.state(regs[1], z) : B.state(null, z, 0.25);
@@ -398,7 +398,7 @@
             if (s.img && s.region) {
               const B = browser(root, { top: cover ? COVER_STAGE_TOP : 452,
                                        height: cover ? COVER_STAGE_HEIGHT : 700,
-                                       url: s.url || X.url, img: s.img, instant: cover });
+                                       url: s.display_url || s.url || X.display_url || X.url, img: s.img, instant: cover });
               const st = B.state(s.region, s.zoom || 1.15);
               tl.fromTo(B.page, st, { ...B.drift(st, 1.04), duration: Math.max(0.1, t1 - t0), ease: "none", immediateRender: false }, t0);
               const dim = A.mk("div", "sp-dim", B.vp);
