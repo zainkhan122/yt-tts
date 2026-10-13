@@ -35,7 +35,7 @@
 
 ### 4. SolidCraft — visual, agent-drivable CAD project
 
-- **Discovery:** #11 on today's GitHub radar (1,314 stars; +263/day); the repository released v0.3.2 on Oct 12. [Release page](https://github.com/bherbruck/solidcraft/releases)
+- **Discovery:** #11 on the Oct 13 GitHub radar. The fresh GitHub API snapshot at 10:06 UTC on Oct 13 superseded the earlier 1,314-star count with **1,339 stars**; the project released v0.3.2 on Oct 12. [Release page](https://github.com/bherbruck/solidcraft/releases)
 - **Verified:** Its repository describes a pure-Rust parametric CAD app for desktop and browser, with agent control through MCP. The project says it is “early but usable for simple parts”; its reference-part checks do not establish full CAD compatibility. [1](https://github.com/bherbruck/solidcraft)
 - **Short angle:** “An AI agent can edit a parametric 3D model—not just produce a mesh.”
 - **Guardrail:** Do not call it a Fusion 360 replacement or imply production-grade compatibility. Show the app's actual early-stage status.
