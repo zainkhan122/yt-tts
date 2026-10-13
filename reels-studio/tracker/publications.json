@@ -175,7 +175,7 @@
       "category": "news",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-13T19:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.facebook.com/reel/1080556848282854/",
       "media_ref": {
         "asset_digest": "sha256:06d557966934cd343c6b4bb446667872d3f22aed464c6f9c149a61c6ba248f1e",
         "asset_id": 633351677,
@@ -190,11 +190,11 @@
       "notify_subscribers": false,
       "payload_sha256": "fb4ef779fc79ad71ba1f374db021592e221aba32091a19769bb67e499438a69c",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-13T19:02:02.167Z",
+      "state": "sent",
       "text": "Cloudflare Clef is a 27B decision model that returns probabilities instead of prose: every allowed option for every typed question, in one forward pass, with no output parsing.\n\nCredits: Screens: own capture of huggingface.co/Cloudflare/clef (2026-10-12). Model art, card images and demo media are Cloudflare's own published assets, credited on screen. The ~39 ms latency figure is community-reported, not a Cloudflare benchmark claim.\n\nAI-generated narration.\n\n#AI #OpenSource",
       "title": "Cloudflare Clef: a 27B Model That Can't Ramble",
-      "updated_at": "2026-10-12T11:08:53Z",
+      "updated_at": "2026-10-13T23:05:04Z",
       "video_id": "news-clef-01"
     },
     "news-clef-01:instagram": {
@@ -203,7 +203,7 @@
       "category": "news",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-13T22:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/Dec1glIAYBP/",
       "media_ref": {
         "asset_digest": "sha256:45176201e9fffaa03614632a1c89087043a88b6298b87290582d66ffb20500c8",
         "asset_id": 633733386,
@@ -218,11 +218,11 @@
       "notify_subscribers": false,
       "payload_sha256": "be858bb630e88678fe4153a3b506139b45e0af0cbb34ea02ab1049f04eb56c32",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-13T22:03:53.751Z",
+      "state": "sent",
       "text": "Cloudflare Clef: a 27B decision model with no free-form text to parse \u2014 probabilities for every allowed option in a single forward pass. Apache-2.0, Workers AI, ~39 ms flash variant. Save this for your agent stack.\n\nCredits: Screens: own capture of huggingface.co/Cloudflare/clef (2026-10-12). Model art, card images and demo media are Cloudflare's own published assets, credited on screen. The ~39 ms latency figure is community-reported, not a Cloudflare benchmark claim.\n\n#AI #OpenSource #Cloudflare",
       "title": "Cloudflare Clef: a 27B Model That Can't Ramble",
-      "updated_at": "2026-10-12T12:48:00Z",
+      "updated_at": "2026-10-13T23:05:04Z",
       "video_id": "news-clef-01"
     },
     "news-clef-01:youtube": {
@@ -231,7 +231,7 @@
       "category": "news",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-13T18:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.youtube.com/shorts/LxRgC5RCkyw",
       "media_ref": {
         "asset_digest": "sha256:45176201e9fffaa03614632a1c89087043a88b6298b87290582d66ffb20500c8",
         "asset_id": 633733386,
@@ -246,11 +246,11 @@
       "notify_subscribers": true,
       "payload_sha256": "3a35300378861da2e51a53cfbf9583bf66fef66b290b7afe540ee517997418c5",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-13T18:01:33.035Z",
+      "state": "sent",
       "text": "Cloudflare Clef is a 27B multimodal decision model post-trained from Qwen/Qwen3.8-27B. Instead of writing text, a joint schema head returns a probability for every allowed option of every typed question in one forward pass \u2014 no output parsing at all. Apache-2.0; clef-flash (9B) runs at ~39 ms median per community reports; Jev/SystemOne compatible; available on Workers AI.\nSource: https://huggingface.co/Cloudflare/clef\n\nCredits: Screens: own capture of huggingface.co/Cloudflare/clef (2026-10-12). Model art, card images and demo media are Cloudflare's own published assets, credited on screen. The ~39 ms latency figure is community-reported, not a Cloudflare benchmark claim.\n\n#Shorts #AI #OpenSource #Cloudflare",
       "title": "Cloudflare Clef: a 27B Model That Can't Ramble",
-      "updated_at": "2026-10-12T12:47:52Z",
+      "updated_at": "2026-10-13T23:05:04Z",
       "video_id": "news-clef-01"
     },
     "news-gemini-agent-01:facebook": {
@@ -427,7 +427,7 @@
       "category": "news",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-13T23:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.facebook.com/reel/1087469000837985/",
       "media_ref": {
         "asset_digest": "sha256:3d32ea46f0006790dbb1e622670bd00b100af2e20de1348cec236a7a37780101",
         "asset_id": 633324280,
@@ -442,11 +442,11 @@
       "notify_subscribers": false,
       "payload_sha256": "81afb72d64dc66084593e62b3c462498ea1e0dd3db2a780aa34942c7ba67b5e0",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-13T23:01:29.639Z",
+      "state": "sent",
       "text": "GPT-6.1 Sol is OpenAI's newest frontier model: $2 per 1M input and $10 output, roughly a fifth of Astra's pricing, with a 1,050,000-token context window.\n\nCredits: Screens: own capture of developers.openai.com/api/docs/models/gpt-6.1-sol (2026-10-12). Model art and wallpaper are OpenAI's own published assets, credited on screen. Prices and limits are as published on the model page.\n\nAI-generated narration.\n\n#OpenAI #AInews",
       "title": "GPT-6.1 Sol: OpenAI's Cheapest Frontier Model Yet",
-      "updated_at": "2026-10-12T19:12:38Z",
+      "updated_at": "2026-10-13T23:05:04Z",
       "video_id": "news-gpt61-sol-01"
     },
     "news-gpt61-sol-01:instagram": {
@@ -903,7 +903,7 @@
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-13T15:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.youtube.com/shorts/zOGSyBEO2Dc",
       "media_ref": {
         "asset_digest": "sha256:74fcaa938a0b5359939c7fd48910c42c4c74b98ef43eea175a5e46c8fc37307e",
         "asset_id": 633263455,
@@ -918,11 +918,11 @@
       "notify_subscribers": true,
       "payload_sha256": "ecf31414181ebb2b57c4979eb38973725cda7cbb16acc7cc2ef5f602be1cb90b",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-13T15:01:55.405Z",
+      "state": "sent",
       "text": "Open Code Review is Alibaba's internal AI code-review assistant, open sourced in May 2026 under Apache-2.0: it reads git diffs, picks and bundles files deterministically, then uses an LLM agent for line-level comments. The project's own AACR-Bench (200 real PRs, 1,505 ground-truth issues) reports higher precision and F1 than Claude Code at about 1/9 the tokens, with deliberately lower recall. Install: npm install -g @alibaba-group/open-code-review; Git 2.41+. 46,341 stars as of 12 October 2026.\nSource: https://github.com/alibaba/open-code-review\n\nCredits: Screens: own capture of github.com/alibaba/open-code-review (2026-10-12). Project, benchmark chart and stats by the Open Code Review authors (Apache-2.0). Benchmark figures are their published results, not our own test.\n\n#Shorts #opensource #AIcoding #AItools",
       "title": "Open Code Review: Alibaba's AI Code Reviewer, Free",
-      "updated_at": "2026-10-12T11:08:41Z",
+      "updated_at": "2026-10-13T23:05:04Z",
       "video_id": "repo-opencr-01"
     },
     "repo-removemacai-01:youtube": {
@@ -1069,7 +1069,7 @@
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-13T19:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/Decg2AyCTPu/",
       "media_ref": {
         "asset_digest": "sha256:a770617c7502c48342b818b29c20c9e081dd3c2d0ef05cd71a2988a9614afe5d",
         "asset_id": 633352292,
@@ -1084,11 +1084,11 @@
       "notify_subscribers": false,
       "payload_sha256": "ca98552955b9c356cb6dc058adf89fe83653401193172032828deab2a8af09da",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-13T19:03:24.017Z",
+      "state": "sent",
       "text": "Higgsfield's October: six releases in eight days. Genjutsu swaps anything without a prompt, AI Influencer keeps characters consistent, and Katana lets Claude drive it. Save this for your next video project.\n\nCredits: Screens: own capture of higgsfield.ai/creator-hub/changelog (2026-10-12). Release names and dates are Higgsfield's own changelog entries. Run-rate and user figures are company-reported via Semafor (2026-10-07), not audited.\n\n#AIVideo #AItools #Higgsfield",
       "title": "Higgsfield Shipped SIX AI Video Releases in Eight Days",
-      "updated_at": "2026-10-12T11:10:51Z",
+      "updated_at": "2026-10-13T23:05:04Z",
       "video_id": "tool-higgsfield-01"
     },
     "tool-higgsfield-01:youtube": {
@@ -1125,7 +1125,7 @@
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-13T22:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.facebook.com/reel/2289508841592580/",
       "media_ref": {
         "asset_digest": "sha256:ea3e961317f09287da04b15153fa6544f1ae23405f5c2581369beec56c25824a",
         "asset_id": 633755620,
@@ -1140,11 +1140,11 @@
       "notify_subscribers": false,
       "payload_sha256": "856d6cdecde58b5a22a45e82ebbede464cd81a1afe1e0a38291d948bdcb13bb7",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-13T22:01:24.275Z",
+      "state": "sent",
       "text": "LTX 2.5 is a 22B open-weights video and audio model \u2014 10-second clips in 6.8 s on 2\u00d7GB200, with multi-shot consistency and a community licence free below $10M revenue.\n\nCredits: Screens: own capture of ltx.io/model/ltx-2-5 (2026-10-12). Showcase media belongs to LTX; the page states all showcase clips are entirely synthetic and no actor has performed \u2014 we only reuse the page's own published imagery. Hardware timings are from the launch material.\n\nAI-generated narration.\n\n#AIVideo #OpenSource",
       "title": "LTX 2.5: Open-Weights Video + Audio in One Model",
-      "updated_at": "2026-10-12T12:47:55Z",
+      "updated_at": "2026-10-13T23:05:04Z",
       "video_id": "tool-ltx25-01"
     },
     "tool-ltx25-01:instagram": {
