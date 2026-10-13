@@ -759,7 +759,10 @@ class QueueReleaseTests(unittest.TestCase):
         start = workflow.index("- name: Fail-closed media freshness guard")
         end = workflow.index("- name: Paced delivery / read-only validation", start)
         guard = workflow[start:end]
-        self.assertIn("if: needs.prepare.outputs.mode == 'schedule'", guard)
+        self.assertIn("needs.prepare.outputs.mode == 'schedule'", guard)
+        self.assertIn("inputs.skip_global_media_refresh != true", guard)
+        skip_input = workflow[workflow.index("skip_global_media_refresh:"):workflow.index("skip_global_media_refresh:") + 260]
+        self.assertIn("default: false", skip_input)
         self.assertIn("release.py --refresh --confirm OWNER_APPROVED_MEDIA_REFRESH", guard)
         self.assertNotIn("continue-on-error", guard)
         # GitHub's default success() condition prevents the following createPost step after a failure.
