@@ -18,15 +18,16 @@ def rule(css, selector):
 
 
 class SpotlightMontageTypographyTests(unittest.TestCase):
-    def test_montage_pill_font_matches_bottom_caption_size_and_face(self):
+    def test_montage_pill_and_bottom_caption_share_one_size_token(self):
         css = CSS.read_text()
         captions = rule(css, ".cg")
         chip = rule(css, ".sp-chip")
-        caption_font = re.search(r'font:\s*900\s+([0-9.]+px)/([0-9.]+)\s+"Inter"', captions)
-        chip_font = re.search(r'font:\s*900\s+([0-9.]+px)/([0-9.]+)\s+"Inter"', chip)
-        self.assertIsNotNone(caption_font, "could not read bottom caption typography")
-        self.assertIsNotNone(chip_font, "could not read montage pill typography")
-        self.assertEqual(chip_font.groups(), caption_font.groups())
+        root = rule(css, "#root")
+        token = re.search(r"--sp-caption-size:\s*([0-9.]+px)", root)
+        self.assertIsNotNone(token, "missing shared caption-size token")
+        self.assertEqual(token.group(1), "74px")
+        for name, block in (("bottom caption", captions), ("montage pill", chip)):
+            self.assertRegex(block, r'font:\s*900\s+var\(--sp-caption-size\)/1\.06\s+"Inter"', name)
 
     def test_longest_pilot_label_fits_the_pill_max_width(self):
         css = CSS.read_text()
@@ -35,7 +36,8 @@ class SpotlightMontageTypographyTests(unittest.TestCase):
         padding = re.search(r"padding:\s*([0-9.]+)px\s+([0-9.]+)px", chip)
         self.assertRegex(chip, r"white-space:\s*nowrap")
         self.assertIsNotNone(padding)
-        font_size = int(float(re.search(r"font:\s*900\s+([0-9.]+)px/", chip).group(1)))
+        root = rule(css, "#root")
+        font_size = int(float(re.search(r"--sp-caption-size:\s*([0-9.]+)px", root).group(1)))
         font = ImageFont.truetype(str(ROOT / "templates/_base/fonts/Inter.ttf"), font_size)
         longest_label_width = font.getlength("PATTERN FEATURES")
         self.assertLessEqual(longest_label_width + 2 * float(padding.group(2)), max_width)
@@ -44,8 +46,9 @@ class SpotlightMontageTypographyTests(unittest.TestCase):
         css = CSS.read_text()
         chip = rule(css, ".sp-chip")
         card = rule(css, ".sp-vcard")
-        chip_font_size = float(re.search(r"font:\s*900\s+([0-9.]+)px/", chip).group(1))
-        line_height = float(re.search(r"font:\s*900\s+[0-9.]+px/([0-9.]+)", chip).group(1))
+        root = rule(css, "#root")
+        chip_font_size = float(re.search(r"--sp-caption-size:\s*([0-9.]+)px", root).group(1))
+        line_height = float(re.search(r"font:\s*900\s+var\(--sp-caption-size\)/([0-9.]+)", chip).group(1))
         pad_y = float(re.search(r"padding:\s*([0-9.]+)px", chip).group(1))
         card_top = float(re.search(r"top:\s*([0-9.]+)px", card).group(1))
         js = JS.read_text()

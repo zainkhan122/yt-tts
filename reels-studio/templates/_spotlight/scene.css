@@ -2,10 +2,10 @@
    Canvas 1080x1920. Safe zones: top 220, bottom 380, right 120 kept free of key text.
    Layout bands: heading 240-420 | media stage 430-1160 | captions centred at 1330 | bottom safe 1540+.
    GSAP owns transforms: never set CSS transform on animated nodes (centre with left/right/margins). */
-#root { --cap-key: #ffd60a; --ink: #0b0e14; --amber: #fbbf24; --green: #22c55e; }
+#root { --cap-key: #ffd60a; --ink: #0b0e14; --amber: #fbbf24; --green: #22c55e; --sp-caption-size: 74px; }
 
 /* captions: ALL CAPS, white + dark stroke, keyword yellow, spoken word pops (no colour flash) */
-.cg { text-transform: uppercase; font: 900 74px/1.06 "Inter", "Noto Color Emoji"; letter-spacing: 0.005em; }
+.cg { text-transform: uppercase; font: 900 var(--sp-caption-size)/1.06 "Inter", "Noto Color Emoji"; letter-spacing: 0.005em; }
 .cw .hl { color: var(--cap-fg); }
 .cw.key .b, .cw.key .hl { color: var(--cap-key); }
 
@@ -40,7 +40,7 @@
 
 /* ---------- chips + credits ---------- */
 .sp-chip { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; max-width: 900px; padding: 10px 30px;
-  border-radius: 999px; background: var(--cap-key); color: var(--ink); font: 900 74px/1.06 "Inter"; text-transform: uppercase;
+  border-radius: 999px; background: var(--cap-key); color: var(--ink); font: 900 var(--sp-caption-size)/1.06 "Inter"; text-transform: uppercase;
   letter-spacing: 0.005em; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45); opacity: 0; white-space: nowrap; }
 .sp-chip.dark { background: rgba(8, 12, 22, 0.86); color: #fff; border: 2px solid rgba(255, 255, 255, 0.18); }
 .sp-credit { position: absolute; left: 70px; right: 70px; text-align: center; font: 600 24px "Inter"; color: rgba(255, 255, 255, 0.62); opacity: 0; }

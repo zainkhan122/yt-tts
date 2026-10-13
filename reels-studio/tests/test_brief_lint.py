@@ -137,6 +137,19 @@ class BriefLintTests(unittest.TestCase):
         self.assertEqual(errors, [])
         self.assertTrue(any("not present in the spoken line" in w for w in warns))
 
+    def test_montage_cut_anchor_must_match_an_exact_spoken_word(self):
+        b = brief()
+        hook = b["scenes"][0]
+        hook["type"] = "clip-montage"
+        hook["say"] = "The Pi case closes ports—real quick."
+        hook["cuts"] = [{"in": 1, "out": 2, "label": "CUT SIDE PORTS", "at": "ports"}]
+        _, errors, _ = self.lint(b)
+        self.assertTrue(any(e.startswith("[BL081]") and "exact spoken word" in e for e in errors))
+
+        hook["say"] = "The Pi case closes the side ports."
+        _, errors, _ = self.lint(b)
+        self.assertFalse(any(e.startswith("[BL081]") for e in errors))
+
     def test_missing_pack_skips_asset_checks_with_a_warning(self):
         b = brief(capture="captures/never-captured")
         _, errors, warns = self.lint(b)

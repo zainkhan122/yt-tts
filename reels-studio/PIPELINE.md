@@ -9,7 +9,7 @@ The interactive agent runs research/production; approved-render Buffer delivery 
 
 ```
  1 DISCOVER ──► 2 SELECT ──► 3 RESEARCH ──► 4 SCRIPT ──► 5 VOICE ──► 6 ASSETS ──► 7 ASSEMBLE ──► 8 QA ──► 9 PUBLISH ──► 10 LEARN
- radar+social    score≥60     fact sheet      brief.json    Kokoro      capture pack   template      gates    temp artifact; explicit Release only when authorized   metrics
+ radar+social    score≥60     fact sheet      brief.json    Chatterbox  capture pack   template      gates    temp artifact; permanent Release only when explicitly authorized   metrics
                                                                                                                     └──────► feeds 1-2
 ```
 
@@ -68,7 +68,7 @@ Per video the agent writes a **fact sheet**, inside the brief as `sources` + `ve
 
 Hands-on evidence ladder (best first):
 1. Real output from running it ourselves, where possible: free, headless, legal.
-2. The makers' **official demo media** (README GIF/MP4, launch clip, model-card samples), credited on screen.
+2. The makers' **official demo media** (README GIF/MP4, launch clip, model-card samples), credited in the post copy/pinned comment; no on-screen credit captions.
 3. **Our own captures** of the site or repo: screens, smooth scroll, camera zoom, cursor clicks on real elements (`reels.py capture` region map).
 
 Never used: other creators' clips (copyright + "reused content" demonetization).
@@ -88,7 +88,7 @@ Never used: other creators' clips (copyright + "reused content" demonetization).
 - **Hook** = a payoff or stakes, never context. Types that won: stakes, transformation, countdown promise, "gold mine + number". Never start mid-tutorial.
 - **Name reveal by ~7 s**, after the hook.
 - **One feature or visual change every 4–5 s.**
-- **Pace ~175–185 wpm** (benchmark norm from 194 transcripts), with speed calibrated per voice (`research/voice-decision.md`).
+- **Pace benchmark ~175–185 wpm** (194-transcript social scan), but treat it as an editorial target, not a substitute for listening: record delivered WPM, preserve natural pauses, and keep spotlights within 35–42 s.
 - **Length:** spotlights 35–42 s, lists ~60 s.
 - **One honest opinion line** (our verdict / "the catch").
 - **Value close** ("free and open source") → **CTA: "Comment KEYWORD and I'll pin the link"** + follow. We pin the link ourselves; never promise DMs.
@@ -105,11 +105,12 @@ Never used: other creators' clips (copyright + "reused content" demonetization).
 | Kokoro Hindi voice + Urdu phonemes | experimental Urdu/Hindi versions (88% whisper-intelligible) | Apache-2.0 |
 
 **Quality gates:**
-- whisper character-match ≥ 95% on the script (product names excepted);
-- loudness −14 LUFS, peak ≤ −1 dBFS.
+- Chatterbox is mandatory for final English media; Kokoro is reference/preview only.
+- Whisper character match must be ≥ 92% per flow chunk after at most two alternate-seed retries; a remaining mismatch blocks the final render.
+- Overall Whisper character match must be ≥ 95% for final English renders; if the QA tool is unavailable, the final render fails closed.
+- Loudness −14 ±1 LUFS, peak ≤ −1 dBFS; every measured video/cover/voice check in the final QA manifest must pass or publishing is blocked.
 
-The channel voice is fixed in `config/channel.json` → `tts` (Chatterbox, option 3); how it was chosen: `research/voice-decision.md`.
-- whisper character-match per flow chunk ≥ 92%, else the chunk is re-generated with another seed (max 2 retries).
+The channel voice is fixed in `config/channel.json` → `tts` (Chatterbox, option 3); how it was chosen: `research/voice-decision.md`. The pipeline records delivered WPM and pitch-range; a take below the 12-semitone liveliness advisory is surfaced for human review, not silently reported as clean.
 
 ## 6. Assets
 
@@ -158,24 +159,26 @@ Template = HTML/GSAP scenes rendered by HyperFrames (deterministic, frame-exact)
 - camera moves are eased;
 - karaoke captions, 3 words at a time;
 - **safe zones**: keep text out of the top 220 px, bottom 380 px and right 120 px (TikTok/IG/Shorts UI).
+- Shared Spotlight karaoke captions and yellow montage-label pills use the single `--sp-caption-size` token (74 px, Inter 900); pills are measured against the bundled font and kept clear of the footage card.
+- Every `clip-montage` cut anchor is checked against an exact normalized spoken word before TTS, then checked against actual word timings after TTS. A timing mismatch is a hard render error, not a warning.
 
 **Audio:** VO on top, music ducked under the voice, SFX on cuts and clicks, then loudnorm.
 
 ## 8. QA gates (a video ships only if all pass)
 
-1. Brief/source/SEO gates: zero errors; every factual claim has a primary-source trail; dated numbers are refreshed before render.
-2. `hyperframes lint` (0 errors) + `check` (layout overlap, contrast, runtime). A missing or mistimed `clip-montage` `at` anchor is a **build failure before rendering**, not a warning.
-3. Whisper intelligibility ≥ 95%; approved Chatterbox engine; loudness −14 ±1 LUFS, peak ≤ −1 dBFS.
-4. Output: 1080×1920, 30 fps, H.264/AAC; duration inside the format target.
-5. **The agent reviews the contact sheet, cover, frame zero, mobile readability and typography by eye**; fix issues before delivery. Montage label pills share the lower-caption font size and remain clear of the media card.
-6. Fact sheet complete; license/media credits and risk gates clean.
-7. Originality: it differs from our last 5 videos in format or look, and adds information the viewer can't get from the source creators.
+1. Brief, source, and SEO gates: zero errors; claims have primary-source trails; dated numbers are refreshed before render.
+2. `hyperframes lint` (0 errors) + `check` (layout overlap, contrast, runtime). Montage anchors must be exact spoken words before TTS; label/voice timing must pass after TTS. Either failure blocks rendering.
+3. Final English voice uses approved Chatterbox flow. Whisper character match must be ≥92% per flow chunk after at most two alternate-seed retries and ≥95% overall; failed or unavailable Whisper QA blocks final media.
+4. Output: 1080×1920, 30 fps, H.264/AAC, duration within the brief target, loudness −14 ±1 LUFS, peak ≤ −1 dBFS. Every recorded QA check must pass; failed measured checks block delivery.
+5. Cover and decoded frame zero are visible. The agent reviews the contact sheet, title/label type, mobile readability, media rights/source, and animation timing by eye, then fixes issues.
+6. Fact sheet complete; license/media credits and risk gates clean. Credit goes in post copy/description, never on-screen.
+7. Originality: differs from our last 5 videos in format or look, and adds information unavailable from the source creators.
 
 ## 9. Package + publish
 
 - **Post kit** (`renders/<id>/post.md`): 3 titles, caption, 3–5 hashtags, pinned comment (links + catches), cover frame, SRT captions, credits.
-- **Render delivery:** cloud jobs upload a one-day Actions artifact; `reels.py cloud --wait` downloads it into `renders/<id>/` and deletes the temporary artifact. No permanent Release is created by the render workflow.
-- **Permanent storage:** only if explicitly authorized, `reels.py publish` creates a GitHub Release; `reels.py sync` is a separate git write.
+- **Render delivery:** cloud jobs upload a one-day Actions artifact; `reels.py cloud --wait` downloads it into `renders/<id>/` and deletes the temporary artifact. The render workflow creates no permanent Release.
+- **Permanent storage:** only with explicit authorization, `reels.py publish` creates a GitHub Release; `reels.py sync` is a separate git write.
 - **Upload:**
   - Now: the user uploads natively to each platform (no cross-watermarks).
   - Later, optionally, via official APIs only: YouTube Data API, Instagram Graph API (Business/Creator account), TikTok Content Posting API. Each needs the user's account authorisation. No cookie bots (ban risk).
@@ -192,14 +195,15 @@ Template = HTML/GSAP scenes rendered by HyperFrames (deterministic, frame-exact)
 | Render (HTML → MP4), lint/check, site capture | HyperFrames CLI **0.8.137 (pinned, self-update off)** | Apache-2.0 | `bootstrap.sh` |
 | Headless browser (captures, render) | chrome-headless-shell + puppeteer-core (bundled) | BSD/Apache | bootstrap (via CLI) |
 | Animation | GSAP | free standard licence | bundled in templates |
-| TTS | Kokoro-82M (kokoro-onnx) | Apache-2.0 | bootstrap |
+| TTS (final media) | Chatterbox flow, approved option 3 | MIT | `cloud/setup-render.sh` |
+| TTS (reference/layout preview only) | Kokoro-82M (kokoro-onnx) | Apache-2.0 | bootstrap |
 | Speech-to-text (QA + social scripts) | whisper.cpp (small.en; base for multilingual) | MIT | bootstrap (`-j1` build) |
 | Social video audio + stats | **yt-dlp** | Unlicense | bootstrap |
 | Audio/video processing | FFmpeg | LGPL/GPL | bootstrap (apt) |
 | Images | Pillow | HPND | preinstalled |
 | Trend data | GitHub REST API, Hugging Face API | free | none needed |
 | Research | agent web search + page fetch | – | agent |
-| Cloud render (3–10/day) | GitHub Actions matrix; one-day artifact, downloaded and deleted after `--wait` | free | needs Actions read/write for dispatch, logs, and artifact cleanup |
+| Cloud render (up to 10/day) | GitHub Actions matrix; one-day artifact, downloaded and deleted after `--wait` | free | Actions read/write for dispatch, logs, and artifact cleanup |
 | Storage / SSOT | GitHub repo; permanent Release only via explicit `reels.py publish` | free | Contents read for source packs; Contents write only for explicit sync/publish |
 
 **Known access limits (tested 2026-10-07):**

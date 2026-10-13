@@ -20,6 +20,7 @@ finding can be tracked across runs and compared by ID instead of by prose:
   BL060  asset references (src, image, background.image, figure) exist in the capture pack
   BL070  camera/cursor `region`s exist in the pack's region map
   BL080  `at` / `item_at` words appear in the scene's spoken line               (warning)
+  BL081  every clip-montage cut anchor is an exact spoken word                 (error)
   BL090  seo block has keyword + youtube description with #Shorts
 
 Usage:
@@ -52,6 +53,7 @@ RULES = {
     "BL060": ("error", "scene asset reference exists in the capture pack"),
     "BL070": ("error", "camera/cursor region exists in the pack region map"),
     "BL080": ("warning", "at/item_at word appears in the spoken line"),
+    "BL081": ("error", "clip-montage cut anchor is an exact spoken word"),
     "BL090": ("error", "seo block: keyword + #Shorts description"),
     "BL900": ("error", "brief file readable as JSON"),
 }
@@ -64,6 +66,21 @@ def spoken(say):
 
 def norm(s):
     return re.sub(r"[^a-z0-9 ]+", " ", (s or "").lower()).strip()
+
+
+def _spoken_anchor(say, pattern):
+    """Mirror the renderer's exact normalized-word/regex match for a montage cut anchor."""
+    if not isinstance(pattern, str) or not pattern.strip():
+        return False
+    words = [re.sub(r"[^a-z0-9]", "", word.lower()) for word in re.findall(r"\S+", spoken(say))]
+    words = [word for word in words if word]
+    try:
+        if any(re.fullmatch(pattern, word, re.I) for word in words):
+            return True
+    except re.error:
+        pass
+    normalized = re.sub(r"[^a-z0-9]", "", pattern.lower())
+    return bool(normalized and normalized in words)
 
 
 def check(brief_path):
@@ -142,6 +159,11 @@ def check(brief_path):
                 wn = norm(w)
                 if wn and wn not in say:
                     add("BL080", f"{where}: {key}={w!r} not present in the spoken line")
+        if s.get("type") == "clip-montage":
+            for k, cut in enumerate(s.get("cuts") or []):
+                anchor = cut.get("at")
+                if anchor and not _spoken_anchor(s.get("say"), anchor):
+                    add("BL081", f"{where}: cuts[{k}].at={anchor!r} is not an exact spoken word")
         if pack:
             for key in ("src", "image"):
                 if s.get(key) and s[key] not in files:

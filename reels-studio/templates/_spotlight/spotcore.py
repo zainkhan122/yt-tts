@@ -320,8 +320,8 @@ def html(b, T, D, ev, cfg):
     """Static <video> clips (the renderer extracts frames from DOM-declared media). JS animates the wrappers."""
     issues = qa_montage(b, T, D, ev)
     if issues:
-        details = "\n".join(f"  - {issue}" for issue in issues)
-        raise ValueError("[spotlight] montage label/voice timing QA failed; render blocked:\n" + details)
+        detail = "; ".join(issues)
+        raise SystemExit(f"[spotlight] montage timing QA failed: {detail} (reword the line or adjust the cut)")
     out = []
     track = 4
     for s in scenes(b):

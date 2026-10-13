@@ -99,6 +99,30 @@ def voice_disclosure(voice, engine):
             "so YouTube/TikTok AI labels are not mandatory; adding \"AI voice\" to the description is a cheap trust win.")
 
 
+def require_qa_checks(checks):
+    """Fail closed: every measured render check is a ship gate, not just the voice/cover checks."""
+    failed = [name for name, ok in checks.items() if not ok]
+    if failed:
+        raise SystemExit(f"QA: failed checks {', '.join(failed)}; refusing to ship")
+    return True
+
+
+def require_flow_match(match, threshold, chunk_index, attempts):
+    """Do not render spoken words/captions from a flow chunk Whisper could not align."""
+    if float(match) < float(threshold):
+        raise SystemExit(f"TTS alignment: chunk {chunk_index + 1} matched {match:.1%} after {attempts} attempt(s); "
+                         f"minimum is {threshold:.0%}. Fix pronunciation/script or change the voice seed.")
+    return True
+
+
+def require_whisper_match(matched, total, threshold=0.95):
+    """The final English voiceover must clear the project-wide character-match target."""
+    ratio = float(matched) / max(1, int(total))
+    if ratio < float(threshold):
+        raise SystemExit(f"Whisper QA: {ratio:.1%} character match is below the {threshold:.0%} final-render minimum")
+    return ratio
+
+
 def load_template(name):
     d = TPL_DIR / name
     if not (d / "template.py").exists():
@@ -945,6 +969,8 @@ class Job:
                     break
                 retried += 1
             x, cuts, match, _, mel = best
+            if self.voice_engine != "kokoro-preview":
+                require_flow_match(match, min_match, ci, tries)
             worst = min(worst, match)
             mels.append(round(mel, 1))
             bounds = [0] + cuts + [len(x)]
@@ -969,6 +995,8 @@ class Job:
             return
         try:
             m, n, missed, secs = whisper_intelligibility(self.vo_path, self.timing, self.order, self.log)
+            if self.do_render and getattr(self, "voice_engine", None) == "chatterbox":
+                require_whisper_match(m, n, 0.95)
             self.stage("words", method="waveform-anchored", whisper_char_match=f"{100 * m / max(1, n):.1f}%",
                        word_diffs=" ".join(missed) or "-", secs=round(secs, 1))
             try:  # whole-voiceover delivery reading (same method as tools/voice_study.py): approved sample = 13.6 st
@@ -983,6 +1011,8 @@ class Job:
                 self.stage("voice_quality", error=str(e)[:80])
         except Exception as e:
             self.stage("words", method="waveform-anchored", whisper_qa=f"unavailable: {str(e)[:120]}")
+            if self.do_render and getattr(self, "voice_engine", None) == "chatterbox":
+                raise SystemExit(f"Whisper QA is required for an English Chatterbox final render: {str(e)[:180]}")
 
     # 5 ---------------------------------------------------------------
     def audio(self):
@@ -1179,6 +1209,7 @@ class Job:
         if not checks.get("frame0_visible"):
             raise SystemExit("QA: " + framecheck.describe(f0_ok, f0_peak) +
                              " - Buffer/Facebook would show an empty cover; refusing to ship")
+        require_qa_checks(checks)
 
     def write_srt(self):
         def ts(t):
