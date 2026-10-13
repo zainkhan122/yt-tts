@@ -1037,6 +1037,31 @@
       "updated_at": "2026-10-13T23:05:23Z",
       "video_id": "repo-manimgx-01"
     },
+    "repo-manimgx-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-14T19:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:c42e9a9a148322baefa3692ae852858e21c84ad10f281d95390dec8e1baf92b0",
+        "asset_id": 638403524,
+        "asset_size": 9704598,
+        "kit_asset_id": 638403556,
+        "kit_digest": "sha256:115af72b4a67c12481f245bc8dd69408085ef030ab7fec5bd943375e3432466d",
+        "media_path": "media/638403524/repo-manimgx-01.mp4",
+        "release_tag": "renders-2026-10-14",
+        "video_id": "repo-manimgx-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/638403524/repo-manimgx-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "8583d85e869a0d264712210ac810a9250cf89dc03de0075ad973527d6f881fed",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "ManimGX pairs a Manim CE-compatible Python API with a Rust/wgpu renderer and WebGPU browser path. Its speed charts are project benchmarks; native wheels include GPL x264.\n\nCredits: Official ManimGX demo media and page captures; attribution in post/description only. No on-screen credits.\n\n#ManimGX #MathAnimation #OpenSource",
+      "title": "ManimGX: Manim-Style Python on a Rust GPU Engine",
+      "updated_at": "2026-10-13T23:10:21Z",
+      "video_id": "repo-manimgx-01"
+    },
     "repo-manimgx-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6aceb9391f3f10bcb7a33919",
