@@ -6,7 +6,7 @@
   "niche": "tech / open-source software: agent-drivable parametric CAD",
   "lang": "en-us",
   "style": "midnight",
-  "status": "2026-10-13: owner-selected single pilot only. Official repo/docs and live GitHub API capture checked 10:06 UTC. Use approved Option-3 Chatterbox flow voice. No on-screen credit captions. This does not approve a batch or posting.",
+  "status": "2026-10-13 revision 2: owner-selected single pilot, revised after first-render QA to fit the Tool Spotlight length target and correct the post-kit voice disclosure. Official repo/docs and live GitHub API capture checked 10:06 UTC. Use approved Option-3 Chatterbox flow voice. No on-screen credit captions. No batch or posting approval.",
   "production_category": "repo",
   "keywords": [
     "SolidCraft",
@@ -55,8 +55,9 @@
       "cuts": [
         {
           "in": 10.5,
-          "out": 14.6,
-          "label": "M2.5 STANDOFF"
+          "out": 14.8,
+          "label": "PI CASE",
+          "at": "case"
         },
         {
           "in": 14.9,
@@ -71,7 +72,7 @@
           "at": "ports"
         }
       ],
-      "say": "The official demo builds a Raspberry Pi case, adds a pattern, then cuts side ports—real CAD features you can still edit."
+      "say": "The Raspberry Pi case gets a pattern; the official demo cuts side ports."
     },
     {
       "id": "reveal",
@@ -126,7 +127,7 @@
         "features",
         "MCP"
       ],
-      "say": "The README lists sketches and constraints, parametric features, plus a desktop app, browser version, headless CLI, and an MCP server."
+      "say": "It supports sketches, editable features, a desktop app, browser, CLI and MCP for agents."
     },
     {
       "id": "catch",
@@ -150,13 +151,13 @@
         "cons",
         "pros"
       ],
-      "say": "The catch? The repo calls it early, but usable for simple parts; its reference checks do not prove full CAD compatibility. It is open source under Apache two point zero, with MCP for agents."
+      "say": "The catch? It's early and meant for simple parts; full CAD compatibility isn't proven. It's open source under Apache two point zero, with MCP for agents."
     },
     {
       "id": "cta",
       "type": "endcard",
       "keyword": "CAD",
-      "say": "Would you let an AI design your next part? Comment CAD, and I'll pin the SolidCraft repo."
+      "say": "Would you trust AI with your next part? Comment CAD for the repo."
     }
   ],
   "seo": {
