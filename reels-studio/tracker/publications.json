@@ -113,6 +113,31 @@
       "updated_at": "2026-10-13T23:05:11Z",
       "video_id": "model-embeddinggemma2-01"
     },
+    "model-embeddinggemma2-01:instagram": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-14T12:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:8b2a98e90eda8c286b391db321c7b6ae7dc4c6045af7e0390d1d171fb90cc1a1",
+        "asset_id": 638403316,
+        "asset_size": 11859427,
+        "kit_asset_id": 638403370,
+        "kit_digest": "sha256:9e888d2fe5185eff485c8769ed7b914528ad3b690207241e5b21189a2be8d423",
+        "media_path": "media/638403316/model-embeddinggemma2-01.mp4",
+        "release_tag": "renders-2026-10-14",
+        "video_id": "model-embeddinggemma2-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/638403316/model-embeddinggemma2-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "8c6da50471bdd2c00f4c68634a0e89c00dc0a0e8edb97faf598f3a819321552f",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "EmbeddingGemma 2 is Google\u2019s 740M multimodal embedding model for text, code, images, audio and video. It is not a chat model; search apps still need retrieval logic.\n\nCredits: Google source imagery attributed in post/description only; no on-screen credits. Shared-space diagram is original concept art, not model output.\n\n#EmbeddingGemma #MachineLearning #OpenSource",
+      "title": "EmbeddingGemma 2: One Space for 5 Modalities",
+      "updated_at": "2026-10-13T23:05:12Z",
+      "video_id": "model-embeddinggemma2-01"
+    },
     "model-embeddinggemma2-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6aceb924848c31c8094f6fac",
