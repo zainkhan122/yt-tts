@@ -451,9 +451,11 @@
     },
     "news-gpt6-intelligent-ui-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6aceb93633507eb5b0e27cf6",
       "category": "news",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-14T16:00:00Z",
+      "due_at": "2026-10-14T16:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:110c97d3948283a0b9a9aabef391472092d9280c6cf87234cb9d084e2c277c45",
         "asset_id": 638403433,
@@ -468,10 +470,11 @@
       "notify_subscribers": false,
       "payload_sha256": "504e9c2fef7cc61d137375b3f4bb5f955d73f5af0ddf998b1d0fc0574990ac34",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "GPT-6 Intelligent UI gives ChatGPT interactive visuals and tools\u2014not just paragraphs. These are illustrative mockups, not product screenshots.\n\nCredits: Original studio mockups based on the OpenAI article, visibly labeled \u201cillustrative mockup \u2014 not a screenshot.\u201d No on-screen credit captions.\n\n#ChatGPT #OpenAI #AI",
       "title": "GPT-6 Intelligent UI: ChatGPT Answers With Interactive Tools",
-      "updated_at": "2026-10-13T23:05:24Z",
+      "updated_at": "2026-10-13T23:05:26Z",
       "video_id": "news-gpt6-intelligent-ui-01"
     },
     "news-gpt6-intelligent-ui-01:youtube": {
