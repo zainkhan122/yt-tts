@@ -454,8 +454,8 @@
       "buffer_post_id": "6accbfb032da9d8379ea7743",
       "category": "news",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-13T12:00:00.000Z",
-      "external_url": null,
+      "due_at": "2026-10-13T09:25:02.718Z",
+      "external_url": "https://www.instagram.com/reel/Debe1KynNFs/",
       "media_ref": {
         "asset_digest": "sha256:3d32ea46f0006790dbb1e622670bd00b100af2e20de1348cec236a7a37780101",
         "asset_id": 633324280,
@@ -470,11 +470,11 @@
       "notify_subscribers": false,
       "payload_sha256": "fbe138f2b451b93c494e30331828a9c3280722d34b9c28bc71f429099aaa3b8f",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-13T09:25:58.940Z",
+      "state": "sent",
       "text": "GPT-6.1 Sol is OpenAI's cheapest frontier model yet: $2 in, $10 out, $0.10 cached, 1.05M-token context, and an ultrafast tier at 6x. Save this for your next build.\n\nCredits: Screens: own capture of developers.openai.com/api/docs/models/gpt-6.1-sol (2026-10-12). Model art and wallpaper are OpenAI's own published assets, credited on screen. Prices and limits are as published on the model page.\n\n#OpenAI #AInews #AItools",
       "title": "GPT-6.1 Sol: OpenAI's Cheapest Frontier Model Yet",
-      "updated_at": "2026-10-12T11:08:32Z",
+      "updated_at": "2026-10-13T11:31:04Z",
       "video_id": "news-gpt61-sol-01"
     },
     "news-gpt61-sol-01:youtube": {
@@ -874,8 +874,8 @@
       "buffer_post_id": "6accbfbf0b1f16abcb04921c",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-13T16:00:00.000Z",
-      "external_url": null,
+      "due_at": "2026-10-13T09:24:24.411Z",
+      "external_url": "https://www.instagram.com/reel/DebeuROjpih/",
       "media_ref": {
         "asset_digest": "sha256:74fcaa938a0b5359939c7fd48910c42c4c74b98ef43eea175a5e46c8fc37307e",
         "asset_id": 633263455,
@@ -890,11 +890,11 @@
       "notify_subscribers": false,
       "payload_sha256": "4faeecd6c4305d55fb75f6d82c96abebfa5481036f0de9ae220b6b63f78e8e37",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-13T09:25:22.708Z",
+      "state": "sent",
       "text": "Open Code Review: Alibaba ran this AI reviewer internally for two years, then open sourced it. Their benchmark reports higher precision than Claude Code with about 1/9 the tokens. Save this for your next PR.\n\nCredits: Screens: own capture of github.com/alibaba/open-code-review (2026-10-12). Project, benchmark chart and stats by the Open Code Review authors (Apache-2.0). Benchmark figures are their published results, not our own test.\n\n#AIcoding #opensource #AItools",
       "title": "Open Code Review: Alibaba's AI Code Reviewer, Free",
-      "updated_at": "2026-10-12T11:08:47Z",
+      "updated_at": "2026-10-13T11:31:04Z",
       "video_id": "repo-opencr-01"
     },
     "repo-opencr-01:youtube": {
@@ -1334,7 +1334,7 @@
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-13T01:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/DealDWvAeXH/",
       "media_ref": {
         "asset_digest": "sha256:e68f65bd9f645956bfc4a84f772984ed04170a8a90270526ce102b1b1ab3cc27",
         "asset_id": 633064615,
@@ -1349,11 +1349,11 @@
       "notify_subscribers": false,
       "payload_sha256": "482b4c45177374c1899ae5bac718bb12a7ebc64769331318edcc83cb921da513",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-13T01:01:25.202Z",
+      "state": "sent",
       "text": "OpenMontage: an open-source agentic video studio for the AI assistant you already use. 12 pipelines, 100+ tools, zero-key mode with offline narration and open footage. Save this one.\n\nCredits: Screens: own capture of github.com/calesthio/OpenMontage (2026-10-12). Project, pipelines and documentation by the OpenMontage authors (AGPL-3.0). Star counts from the GitHub API, read 2026-10-12.\n\n#opensource #AItools #AIvideo",
       "title": "OpenMontage: Turn Your AI Coder Into a Video Studio",
-      "updated_at": "2026-10-12T07:54:47Z",
+      "updated_at": "2026-10-13T11:31:04Z",
       "video_id": "tool-openmontage-01"
     },
     "tool-openmontage-01:youtube": {
