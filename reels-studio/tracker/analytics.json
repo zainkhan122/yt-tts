@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T19:13:58Z",
+  "updated_at": "2026-10-13T00:53:29Z",
   "videos": {
     "list-free-video-ai-01": {
       "snapshots": [
@@ -50,6 +50,11 @@
       "title": null,
       "youtube_id": "3qjmijMrjPs"
     },
+    "news-gpt61-sol-01": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "QjeGPaIb85c"
+    },
     "news-haiku-55-01": {
       "snapshots": [
         {
@@ -69,6 +74,11 @@
       "title": null,
       "youtube_id": "OIGcbdJMuRE"
     },
+    "news-nano-banana-21-01": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "3FblKta4BFQ"
+    },
     "repo-ai-newtab-01": {
       "snapshots": [
         {
@@ -87,6 +97,11 @@
       ],
       "title": null,
       "youtube_id": "IP70g5d8_Qc"
+    },
+    "repo-ds4-01": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "NPkDz4_lbqY"
     },
     "repo-removemacai-01": {
       "snapshots": [
@@ -108,7 +123,21 @@
       "youtube_id": "lzXGzOsidCg"
     },
     "repo-whistle-01": {
-      "snapshots": [],
+      "snapshots": [
+        {
+          "age_hours": 27.87,
+          "analytics": {
+            "unavailable": "YouTubeError: YouTube HTTP 403: Request had insufficient authentication scopes."
+          },
+          "comments": 0,
+          "engagement_rate": 0.0,
+          "likes": 0,
+          "published_at": "2026-10-11T21:01:02Z",
+          "taken_at": "2026-10-13T00:53:29Z",
+          "views": 15,
+          "window": "24h"
+        }
+      ],
       "title": null,
       "youtube_id": "i5STWnaoVaM"
     },
@@ -179,8 +208,27 @@
       "title": null,
       "youtube_id": "6OAa4KofxvQ"
     },
-    "tool-pomelli-01": {
+    "tool-openmontage-01": {
       "snapshots": [],
+      "title": null,
+      "youtube_id": "Rn41X54bIno"
+    },
+    "tool-pomelli-01": {
+      "snapshots": [
+        {
+          "age_hours": 24.87,
+          "analytics": {
+            "unavailable": "YouTubeError: YouTube HTTP 403: Request had insufficient authentication scopes."
+          },
+          "comments": 0,
+          "engagement_rate": 0.0,
+          "likes": 0,
+          "published_at": "2026-10-12T00:01:25Z",
+          "taken_at": "2026-10-13T00:53:29Z",
+          "views": 14,
+          "window": "24h"
+        }
+      ],
       "title": null,
       "youtube_id": "k18yriXJqv4"
     },
