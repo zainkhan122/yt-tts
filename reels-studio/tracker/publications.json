@@ -449,6 +449,31 @@
       "updated_at": "2026-10-13T23:05:17Z",
       "video_id": "news-gpt6-intelligent-ui-01"
     },
+    "news-gpt6-intelligent-ui-01:youtube": {
+      "attempts": 1,
+      "category": "news",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-10-14T13:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:110c97d3948283a0b9a9aabef391472092d9280c6cf87234cb9d084e2c277c45",
+        "asset_id": 638403433,
+        "asset_size": 10526613,
+        "kit_asset_id": 638403498,
+        "kit_digest": "sha256:67c93b33b830e80c60b4f9095be60897db3cfb044c92362cec3ef14e788d134c",
+        "media_path": "media/638403433/news-gpt6-intelligent-ui-01.mp4",
+        "release_tag": "renders-2026-10-14",
+        "video_id": "news-gpt6-intelligent-ui-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/638403433/news-gpt6-intelligent-ui-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "4c09337fa8b710728d53a24c17b7803e0aab1dd1a34366cfc217fad7b85c6025",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "OpenAI\u2019s GPT-6 Intelligent UI can combine text, visuals and interactive elements in ChatGPT responses. Official examples include an interactive bicycle breakdown, calculators, bill splitters and games. The visuals here are original concept mockups, not product screenshots.\nhttps://openai.com/index/gpt-6-for-everyone/\n\nCredits: Original studio mockups based on the OpenAI article, visibly labeled \u201cillustrative mockup \u2014 not a screenshot.\u201d No on-screen credit captions.\n\n#Shorts #ChatGPT #OpenAI #AI",
+      "title": "GPT-6 Intelligent UI: ChatGPT Answers With Interactive Tools",
+      "updated_at": "2026-10-13T23:05:18Z",
+      "video_id": "news-gpt6-intelligent-ui-01"
+    },
     "news-gpt61-astra-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6acc9194a2941ce8176678bf",
