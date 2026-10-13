@@ -1748,6 +1748,31 @@
       "updated_at": "2026-10-13T23:05:32Z",
       "video_id": "tool-qwen-image-21-turbo-01"
     },
+    "tool-qwen-image-21-turbo-01:instagram": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-14T22:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:cccaa6852b2ab2638a3027c9cf99f617162b9e7c98e685994e4133e2cd7902fa",
+        "asset_id": 638403576,
+        "asset_size": 9978195,
+        "kit_asset_id": 638403626,
+        "kit_digest": "sha256:3876f566f9ac76e4f5f46100e0dede2881de0634f6c9959939bf813b6f100a95",
+        "media_path": "media/638403576/tool-qwen-image-21-turbo-01.mp4",
+        "release_tag": "renders-2026-10-14",
+        "video_id": "tool-qwen-image-21-turbo-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/638403576/tool-qwen-image-21-turbo-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "9970c23a66d16f38bab3c98630fae8c5b3eb37238404d0451c6d814ca687da5c",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Qwen Image 2.1 Turbo adds an 8-step mode for text-to-image and editing. The step count is not a speed benchmark; check the Research License before commercial use.\n\nCredits: Post/description attribution only; no on-screen credits. Qwen README assets; the 8-step graphic is an original explanation, not a benchmark or generated sample.\n\n#QwenImage #ImageAI #OpenSource",
+      "title": "Qwen Image 2.1 Turbo: The Eight-Step Checkpoint",
+      "updated_at": "2026-10-13T23:10:28Z",
+      "video_id": "tool-qwen-image-21-turbo-01"
+    },
     "tool-qwen-image-21-turbo-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6aceba63f847f2ad9eb4db4c",
