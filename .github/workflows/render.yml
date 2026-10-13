@@ -52,6 +52,7 @@ jobs:
           sparse-checkout: |
             /reels-studio/briefs/
             /reels-studio/lib/
+            /reels-studio/tools/validate_dispatch.py
           sparse-checkout-cone-mode: false
           filter: blob:none
       - id: p
