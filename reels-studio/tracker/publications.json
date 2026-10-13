@@ -87,9 +87,11 @@
     },
     "model-embeddinggemma2-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6aceb927b610c3011f91ab1f",
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-14T10:00:00Z",
+      "due_at": "2026-10-14T10:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:8b2a98e90eda8c286b391db321c7b6ae7dc4c6045af7e0390d1d171fb90cc1a1",
         "asset_id": 638403316,
@@ -104,10 +106,11 @@
       "notify_subscribers": false,
       "payload_sha256": "ce4c661ef3a99f41ba8ae2729b5ab0f458cda34632c3c483a2d4ab678aac9b3e",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "EmbeddingGemma 2 is Google\u2019s 740M multimodal embedding model for text, code, images, audio and video. It is not a chat model; search apps still need retrieval logic.\n\nCredits: Google source imagery attributed in post/description only; no on-screen credits. Shared-space diagram is original concept art, not model output.\n\nAI-generated narration.\n\n#EmbeddingGemma #MachineLearning #OpenSource",
       "title": "EmbeddingGemma 2: One Space for 5 Modalities",
-      "updated_at": "2026-10-13T23:05:09Z",
+      "updated_at": "2026-10-13T23:05:11Z",
       "video_id": "model-embeddinggemma2-01"
     },
     "model-embeddinggemma2-01:youtube": {
