@@ -85,6 +85,31 @@
       "updated_at": "2026-10-10T21:53:05Z",
       "video_id": "list-free-video-ai-01"
     },
+    "model-embeddinggemma2-01:youtube": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-10-14T01:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:8b2a98e90eda8c286b391db321c7b6ae7dc4c6045af7e0390d1d171fb90cc1a1",
+        "asset_id": 638403316,
+        "asset_size": 11859427,
+        "kit_asset_id": 638403370,
+        "kit_digest": "sha256:9e888d2fe5185eff485c8769ed7b914528ad3b690207241e5b21189a2be8d423",
+        "media_path": "media/638403316/model-embeddinggemma2-01.mp4",
+        "release_tag": "renders-2026-10-14",
+        "video_id": "model-embeddinggemma2-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/638403316/model-embeddinggemma2-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "58f37a00b8347a30eb17d583c097e20fbbd32eefa4d500bf78881877f7093d83",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "EmbeddingGemma 2 is Google\u2019s 740-million-parameter multimodal embedding model. Google says it maps text, code, images, audio and video into a shared embedding space, with an 8K-token context and Apache-2.0 license. It is not a chat model; a search app still needs a retrieval pipeline.\nhttps://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/\n\nCredits: Google source imagery attributed in post/description only; no on-screen credits. Shared-space diagram is original concept art, not model output.\n\n#Shorts #EmbeddingGemma #MachineLearning #OpenSource",
+      "title": "EmbeddingGemma 2: One Space for 5 Modalities",
+      "updated_at": "2026-10-13T23:05:06Z",
+      "video_id": "model-embeddinggemma2-01"
+    },
     "news-claude-free-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6aca1f2ff91f772d458f58c9",
