@@ -1,0 +1,192 @@
+{
+  "id": "model-embeddinggemma2-01",
+  "template": "tool-spotlight",
+  "capture": "captures/model-embeddinggemma2-01",
+  "title": "EmbeddingGemma 2: One Space for 5 Modalities",
+  "niche": "multimodal embeddings and semantic search",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "Owner authorized batch production after the accepted SolidCraft r3 pilot (2026-10-13). Render only; no Buffer scheduling or platform posting. Approved Option-3 Chatterbox flow voice; no on-screen credit captions.",
+  "production_category": "model",
+  "keywords": [
+    "EmbeddingGemma 2",
+    "multimodal embeddings",
+    "semantic search",
+    "Apache-2.0"
+  ],
+  "facts": {
+    "parameters_m": 740,
+    "context_tokens": 8192,
+    "hf_likes": 2083,
+    "license": "Apache-2.0",
+    "checked": "2026-10-14, Google model card + Hugging Face API"
+  },
+  "credits_on_screen": "Google source imagery attributed in post/description only; no on-screen credits. Shared-space diagram is original concept art, not model output.",
+  "sources": [
+    "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/",
+    "https://ai.google.dev/gemma/docs/embeddinggemma/model_card_2",
+    "https://huggingface.co/google/embeddinggemma-2"
+  ],
+  "verify_before_render": [
+    "Google launch post (Oct 6, 2026) and model card: 740M parameters; text, code, image, audio and video embeddings; 8K-token context; Apache-2.0.",
+    "Google describes on-device inference as a design goal; attribute that claim to Google.",
+    "Not a chat or generation model; a user-facing app still needs indexing and retrieval.",
+    "Hugging Face API checked 2026-10-14: 2,083 likes. Do not use unverified benchmark claims.",
+    "No on-screen credits; concept diagram is labeled as original illustration."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "og-image.png",
+      "heading": "ONE MODEL. FIVE *MODALITIES*",
+      "say": "EmbeddingGemma 2 maps text, code, images, audio and video into one search space."
+    },
+    {
+      "id": "name",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "url": "blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/",
+      "camera": [
+        {
+          "region": "h_embeddinggemma-2-an-open-lightwe",
+          "zoom": 1.5,
+          "at": "EmbeddingGemma"
+        }
+      ],
+      "say": "Google calls it EmbeddingGemma two: one shared space for multimodal search."
+    },
+    {
+      "id": "size",
+      "type": "stat",
+      "heading": "SMALL ENOUGH FOR *LOCAL*",
+      "value": 740,
+      "decimals": 0,
+      "suffix": "M",
+      "label": "Parameters · 8K context · Google model card",
+      "icon": false,
+      "at": "seven hundred forty million",
+      "say": "Google lists seven hundred forty million parameters and an eight-thousand-token context window."
+    },
+    {
+      "id": "modalities",
+      "type": "steps",
+      "heading": "WHAT IT *EMBEDS*",
+      "background": {
+        "image": "desktop-full.jpg"
+      },
+      "steps": [
+        "Text + code",
+        "Images + audio",
+        "Video in one space"
+      ],
+      "step_at": [
+        "text",
+        "images",
+        "video"
+      ],
+      "say": "Google says it maps text, code, images, audio and video into a shared embedding space."
+    },
+    {
+      "id": "diagram",
+      "type": "image",
+      "image": "shared-space-illustration.jpg",
+      "heading": "MEANING, NOT *CHAT*",
+      "say": "This concept diagram shows retrieval, not model output: embeddings compare meaning across formats."
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE *CATCH*",
+      "pros": [
+        "740M · Apache-2.0",
+        "8K context window"
+      ],
+      "cons": [
+        "Not a chat model",
+        "Needs a retrieval app"
+      ],
+      "item_at": [
+        "parameters",
+        "context",
+        "chat",
+        "index"
+      ],
+      "say": "Google lists 740 million parameters and an eight-thousand-token context under Apache two point zero. It is not a chat model; retrieval still needs an index."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "EMBED",
+      "say": "Would you search across media this way? Comment EMBED for the model card."
+    }
+  ],
+  "seo": {
+    "keyword": "EmbeddingGemma 2",
+    "aliases": [
+      "multimodal embeddings",
+      "semantic search"
+    ],
+    "onscreen_first3s": "EMBEDDINGGEMMA 2 / ONE SHARED SEARCH SPACE",
+    "youtube": {
+      "title": "EmbeddingGemma 2: One Space for 5 Modalities",
+      "description": "EmbeddingGemma 2 is Google’s 740-million-parameter multimodal embedding model. Google says it maps text, code, images, audio and video into a shared embedding space, with an 8K-token context and Apache-2.0 license. It is not a chat model; a search app still needs a retrieval pipeline.\nhttps://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/",
+      "hashtags": [
+        "#Shorts",
+        "#EmbeddingGemma",
+        "#MachineLearning",
+        "#OpenSource"
+      ],
+      "tags": [
+        "EmbeddingGemma 2",
+        "multimodal embeddings",
+        "semantic search",
+        "740M model",
+        "Apache-2.0"
+      ]
+    },
+    "tiktok": {
+      "caption": "EmbeddingGemma 2 is Google’s 740M multimodal embedding model for text, code, images, audio and video. It is not a chat model; search apps still need retrieval logic.",
+      "hashtags": [
+        "#EmbeddingGemma",
+        "#MachineLearning",
+        "#OpenSource"
+      ]
+    },
+    "instagram": {
+      "caption": "EmbeddingGemma 2 is Google’s 740M multimodal embedding model for text, code, images, audio and video. It is not a chat model; search apps still need retrieval logic.",
+      "hashtags": [
+        "#EmbeddingGemma",
+        "#MachineLearning",
+        "#OpenSource"
+      ]
+    },
+    "facebook": {
+      "caption": "EmbeddingGemma 2 is Google’s 740M multimodal embedding model for text, code, images, audio and video. It is not a chat model; search apps still need retrieval logic.",
+      "hashtags": [
+        "#EmbeddingGemma",
+        "#MachineLearning",
+        "#OpenSource"
+      ]
+    },
+    "x": {
+      "text": "EmbeddingGemma 2 is Google’s 740M multimodal embedding model for text, code, images, audio and video. It is not a chat model; search apps still need retrieval logic. https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/",
+      "hashtags": [
+        "#EmbeddingGemma"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "EmbeddingGemma 2: One Search Space for Text, Images and Audio"
+    ],
+    "caption": "EmbeddingGemma 2 is Google’s 740M multimodal embedding model for text, code, images, audio and video. It is not a chat model; search apps still need retrieval logic.",
+    "hashtags": [
+      "#Shorts",
+      "#EmbeddingGemma",
+      "#MachineLearning",
+      "#OpenSource"
+    ],
+    "pinned_comment": "Google launch post: https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/ · Model card: https://ai.google.dev/gemma/docs/embeddinggemma/model_card_2. The vector diagram is an original concept illustration, not model output."
+  }
+}

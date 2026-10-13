@@ -1,224 +1,195 @@
 {
   "id": "repo-manimgx-01",
-  "template": "tool-spotlight",
+  "template": "repo-spotlight",
   "capture": "captures/repo-manimgx-01",
-  "title": "ManimGX: Manim Python, Rust + wgpu Core",
-  "niche": "tech / open-source software: animation and math rendering",
+  "title": "ManimGX: Manim-Style Python on a Rust GPU Engine",
+  "niche": "open-source math animation engine",
   "lang": "en-us",
   "style": "midnight",
-  "status": "2026-10-13: original script based on official README, GitHub API snapshot, and license files; official demo clips catenoid-helicoid + Lorenz attractor; benchmark chart not used as an independent claim; Option-3 Chatterbox flow required; no on-screen credits.",
+  "status": "Owner authorized batch production after the accepted SolidCraft r3 pilot (2026-10-13). Render only; no Buffer scheduling or platform posting. Approved Option-3 Chatterbox flow voice; no on-screen credit captions.",
+  "production_category": "repo",
   "keywords": [
     "ManimGX",
-    "Manim CE",
-    "Rust renderer",
-    "wgpu",
+    "Manim CE API",
+    "Rust wgpu",
+    "WebGPU",
     "math animation"
   ],
   "facts": {
-    "stars": 1077,
-    "forks": 68,
-    "license": "MIT (core repo)",
-    "pushed": "2026-10-13",
-    "checked": "2026-10-13 14:31 UTC"
+    "stars": 1108,
+    "forks": 71,
+    "code_license": "MIT",
+    "native_wheels": "GPL-3.0-or-later x264 included",
+    "checked": "2026-10-14, GitHub REST API"
   },
-  "credits_on_screen": "Own capture of https://github.com/academa-labs/manimgx. Animation clips are official ManimGX README demos (catenoid-helicoid and Lorenz attractor). No speed benchmark is presented as independently measured. Core code is MIT; native-wheel licensing differs because of bundled components. No on-screen credit captions.",
+  "credits_on_screen": "Official ManimGX demo media and page captures; attribution in post/description only. No on-screen credits.",
   "sources": [
     "https://github.com/academa-labs/manimgx",
-    "https://raw.githubusercontent.com/academa-labs/manimgx/main/README.md",
-    "https://raw.githubusercontent.com/academa-labs/manimgx/main/LICENSE",
-    "https://raw.githubusercontent.com/academa-labs/manimgx/main/LICENSE-THIRD-PARTY",
-    "https://manimgx.academa.ai/"
+    "https://manimgx.academa.ai/",
+    "https://api.github.com/repos/academa-labs/manimgx"
   ],
   "verify_before_render": [
-    "Official README: Manim CE-compatible Python API, Rust + wgpu core; browser path uses WebGPU. Do not call it a drop-in replacement without independent compatibility tests.",
-    "GitHub API snapshot 2026-10-13 14:31 UTC: 1,077 stars, 68 forks; repository pushed today. Stats are a dated snapshot.",
-    "License: repository code is MIT. Official third-party notices say FFmpeg is LGPL-2.1-or-later and x264 is GPL-2.0-or-later in every wheel except Pyodide; native wheels as a whole are GPL-3.0-or-later. Preserve that distinction; not legal advice.",
-    "README render-speed figures are project-published benchmarks, not independent measurements; omit them from spoken claims. Animation footage is official project demo media.",
-    "No on-screen credit captions. Option 3 Chatterbox Michael continuous-flow voice required."
+    "GitHub API checked 2026-10-14: 1,108 stars, 71 forks; repository license MIT.",
+    "Official README: Manim CE API compatibility; Rust+wgpu native renderer; WebGPU browser route. Do not overstate compatibility.",
+    "Official README separates MIT project code from x264 (GPL-3.0-or-later) in native wheels.",
+    "All speed comparisons are project-made, not independent benchmarks.",
+    "Use official demo media only; no on-screen credits."
   ],
-  "production_category": "repo",
   "scenes": [
     {
       "id": "hook",
       "type": "clip",
-      "src": "catenoid-helicoid.mp4",
+      "src": "linear-maps.mp4",
       "in": 0,
-      "out": 5,
+      "out": 4.2,
       "fit": "fill-blur",
-      "headline": "MANIMGX: *PYTHON IN, RUST CORE OUT*",
-      "sub": "Manim-style animation · wgpu renderer",
-      "say": "ManimGX pairs Manim-style Python with a Rust-and-wgpu renderer.",
-      "url": "github.com"
+      "headline": "MANIM-STYLE PYTHON",
+      "sub": "Rust GPU renderer · WebGPU browser path",
+      "say": "Manim-style Python, rendered through a Rust GPU engine."
     },
     {
-      "id": "showcase",
-      "type": "clip",
-      "src": "lorenz-attractor.mp4",
-      "in": 0,
-      "out": 5,
-      "fit": "fill-blur",
-      "headline": "MATH ANIMATION, *IN 3D*",
-      "sub": "Official Lorenz-attractor demo",
-      "say": "This official Lorenz demo is one of its many math and 3D scenes.",
-      "url": "github.com"
-    },
-    {
-      "id": "repo",
+      "id": "name",
       "type": "page",
       "image": "desktop-top.jpg",
-      "url": "github.com/academa-labs/manimgx",
+      "url": "manimgx.academa.ai",
       "camera": [
         {
-          "region": "repo_title",
-          "zoom": 1.7,
+          "region": "h_welcome",
+          "zoom": 1.5,
           "at": "ManimGX"
-        },
-        {
-          "region": "star_button",
-          "zoom": 2.3,
-          "at": "stars"
         }
       ],
-      "cursor": [
-        {
-          "region": "star_button",
-          "at": "stars",
-          "state": "★ Starred 1,077"
-        }
-      ],
-      "stat": {
-        "from": "facts.stars",
-        "format": "full",
-        "label": "GitHub stars · Oct 13, 2026",
-        "at": "stars"
-      },
-      "say": "The repository had {1,077|one thousand seventy seven} stars when captured today, October thirteenth."
+      "say": "ManimGX targets compatibility with Manim Community Edition’s Python API."
     },
     {
-      "id": "engine",
+      "id": "how",
       "type": "steps",
-      "heading": "FROM *PYTHON TO MP4*",
+      "heading": "PYTHON IN. *ANIMATION OUT.*",
       "background": {
         "image": "desktop-full.jpg",
         "scroll_regions": [
-          "h_get-started",
-          "h_why-manimgx",
-          "title_runs-in-the-browser"
+          "h_from-python-to-mp4",
+          "h_why-manimgx"
         ]
       },
       "steps": [
-        "Manim CE-compatible Python",
-        "Rust + wgpu render core",
-        "Browser path with WebGPU"
+        "Manim CE-style Python",
+        "Rust + wgpu renderer",
+        "WebGPU in browser"
       ],
       "step_at": [
         "Python",
         "Rust",
         "browser"
       ],
-      "say": "It keeps a Manim CE-compatible Python API, with a Rust GPU engine and a WebGPU browser path.",
-      "url": "github.com"
+      "say": "Native rendering uses Rust and wgpu; the project also describes a WebGPU browser path."
     },
     {
-      "id": "license",
+      "id": "showcase",
+      "type": "clip",
+      "src": "lorenz-attractor.mp4",
+      "in": 0,
+      "out": 4.2,
+      "fit": "fill-blur",
+      "headline": "OFFICIAL PROJECT DEMO",
+      "sub": "Lorenz attractor · not a benchmark",
+      "say": "Official samples include linear maps and a 3D Lorenz attractor."
+    },
+    {
+      "id": "catch",
       "type": "verdict",
-      "heading": "A *LICENSE* DETAIL",
+      "heading": "CHECK THE *LICENSE*",
+      "pros": [
+        "MIT project code",
+        "Native + browser renderers"
+      ],
       "cons": [
-        "Native wheels include x264",
-        "Whole native wheel: GPL-3.0-or-later",
+        "Native wheels include GPL x264",
         "Speed charts are project benchmarks"
       ],
-      "pros": [
-        "Core repository code is MIT"
-      ],
       "item_at": [
-        "x264",
+        "MIT",
         "GPL",
-        "benchmarks",
-        "MIT"
+        "speed",
+        "benchmarks"
       ],
-      "say": "Catch: native wheels include x264, so the whole native wheel is GPL-3.0-or-later. Speed benchmarks are the project's own; core code is MIT.",
-      "url": "github.com"
+      "say": "The project code is MIT; native wheels include GPL-licensed x264. Its speed charts are project benchmarks, not independent tests."
     },
     {
       "id": "cta",
       "type": "endcard",
       "keyword": "MANIM",
-      "say": "Would you animate math in Python and render it with Rust? Comment ManimGX.",
-      "url": "github.com"
+      "say": "Would you build math videos with this? Comment MANIM for the repository."
     }
   ],
   "seo": {
     "keyword": "ManimGX",
     "aliases": [
-      "Manim GX",
-      "Manim Rust renderer",
-      "Manim animation engine"
+      "Manim CE compatible",
+      "Rust GPU animation",
+      "math animation"
     ],
-    "onscreen_first3s": "MANIMGX: PYTHON IN, RUST CORE OUT",
+    "onscreen_first3s": "MANIMGX / PYTHON FRONT-END · RUST GPU CORE",
     "youtube": {
-      "title": "ManimGX: Manim Python, Rust + wgpu Core",
-      "description": "ManimGX is an animation engine with a Manim CE-compatible Python API and a Rust + wgpu rendering core; the project also offers a browser path using WebGPU. The clips shown are official repository demos. Licensing detail: core repository code is MIT, while native wheels bundle x264 and are GPL-3.0-or-later as a whole. The repository's speed benchmarks are its own, not an independent test. GitHub snapshot: 1,077 stars on Oct 13, 2026.\nRepo: https://github.com/academa-labs/manimgx · License notes: https://raw.githubusercontent.com/academa-labs/manimgx/main/LICENSE-THIRD-PARTY",
+      "title": "ManimGX: Manim-Style Python on a Rust GPU Engine",
+      "description": "ManimGX is an animation engine with a Manim CE-compatible Python API and a Rust/wgpu renderer; its website also describes a WebGPU browser path. Project speed comparisons are not independent benchmarks. Its code is MIT-licensed, while native wheels include GPL-licensed x264.\nhttps://github.com/academa-labs/manimgx",
       "hashtags": [
         "#Shorts",
         "#ManimGX",
-        "#Python",
-        "#Rust"
+        "#MathAnimation",
+        "#OpenSource"
       ],
       "tags": [
         "ManimGX",
         "Manim CE",
-        "Manim Python",
-        "Rust animation engine",
-        "wgpu",
-        "WebGPU",
+        "Rust wgpu",
         "math animation",
-        "3D animation",
-        "open source rendering"
+        "WebGPU",
+        "x264 license"
       ]
     },
     "tiktok": {
-      "caption": "ManimGX pairs a Manim CE-compatible Python API with a Rust + wgpu renderer. Core code is MIT; native wheels have a separate GPL license detail.",
+      "caption": "ManimGX pairs a Manim CE-compatible Python API with a Rust/wgpu renderer and WebGPU browser path. Its speed charts are project benchmarks; native wheels include GPL x264.",
       "hashtags": [
         "#ManimGX",
-        "#Python",
-        "#Rust"
+        "#MathAnimation",
+        "#OpenSource"
       ]
     },
     "instagram": {
-      "caption": "ManimGX: Manim-style Python, rendered through a Rust + wgpu core, with a browser path using WebGPU. Core code is MIT; native wheels bundle x264 and carry GPL terms. Project benchmarks are not independent tests.",
+      "caption": "ManimGX pairs a Manim CE-compatible Python API with a Rust/wgpu renderer and WebGPU browser path. Its speed charts are project benchmarks; native wheels include GPL x264.",
       "hashtags": [
         "#ManimGX",
-        "#Python",
-        "#Rust"
+        "#MathAnimation",
+        "#OpenSource"
       ]
     },
     "facebook": {
-      "caption": "ManimGX offers a Manim CE-compatible Python API with a Rust + wgpu renderer. The repo shows math and 3D demos; its speed comparisons are the project's own. Check native-wheel license terms separately from the MIT core.",
+      "caption": "ManimGX pairs a Manim CE-compatible Python API with a Rust/wgpu renderer and WebGPU browser path. Its speed charts are project benchmarks; native wheels include GPL x264.",
       "hashtags": [
         "#ManimGX",
-        "#Python"
+        "#MathAnimation",
+        "#OpenSource"
       ]
     },
     "x": {
-      "text": "ManimGX: Manim CE-compatible Python API, Rust + wgpu renderer, browser path via WebGPU. Core code is MIT; native wheels bundle x264 and are GPL-3.0-or-later as a whole. Benchmarks are project-published.",
+      "text": "ManimGX pairs a Manim CE-compatible Python API with a Rust/wgpu renderer and WebGPU browser path. Its speed charts are project benchmarks; native wheels include GPL x264. https://github.com/academa-labs/manimgx",
       "hashtags": [
-        "#Rust"
+        "#ManimGX"
       ]
     }
   },
   "post": {
     "titles": [
-      "ManimGX: Manim Python, Rust + wgpu Core",
-      "ManimGX Turns Python Math into 3D Animation",
-      "What ManimGX's License Actually Covers"
+      "ManimGX: Manim-Style Python on a Rust GPU Engine"
     ],
-    "caption": "ManimGX pairs a Manim CE-compatible Python API with a Rust + wgpu renderer and a WebGPU browser path. Core code is MIT; native wheels bundle x264 and carry GPL-3.0-or-later terms. Project speed benchmarks are not independent tests.",
+    "caption": "ManimGX pairs a Manim CE-compatible Python API with a Rust/wgpu renderer and WebGPU browser path. Its speed charts are project benchmarks; native wheels include GPL x264.",
     "hashtags": [
+      "#Shorts",
       "#ManimGX",
-      "#Python",
-      "#Rust"
+      "#MathAnimation",
+      "#OpenSource"
     ],
-    "pinned_comment": "Repo + docs: https://github.com/academa-labs/manimgx · https://manimgx.academa.ai/. License notes: https://raw.githubusercontent.com/academa-labs/manimgx/main/LICENSE-THIRD-PARTY. Core repo is MIT; native wheels include x264 and are GPL-3.0-or-later as a whole. Demo clips are official project media."
+    "pinned_comment": "Official repo and docs: https://github.com/academa-labs/manimgx · https://manimgx.academa.ai/. Project benchmarks are not independent; native wheels include GPL x264."
   }
 }

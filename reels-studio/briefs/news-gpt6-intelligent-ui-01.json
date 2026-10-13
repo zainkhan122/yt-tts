@@ -2,173 +2,167 @@
   "id": "news-gpt6-intelligent-ui-01",
   "template": "tool-spotlight",
   "capture": "captures/news-gpt6-intelligent-ui-01",
-  "title": "GPT-6 Intelligent UI: Answers You Can Tap",
-  "niche": "tech / AI news",
+  "title": "GPT-6 Intelligent UI: ChatGPT Answers With Interactive Tools",
+  "niche": "AI product feature",
   "lang": "en-us",
   "style": "midnight",
-  "status": "2026-10-13: factual claims checked against OpenAI's Oct 7 product article. Automated browser capture returned a Cloudflare challenge and was discarded; visuals are clearly labelled original UI mockups, not screenshots. Option-3 Chatterbox flow required; no on-screen credits.",
+  "status": "Owner authorized batch production after the accepted SolidCraft r3 pilot (2026-10-13). Render only; no Buffer scheduling or platform posting. Approved Option-3 Chatterbox flow voice; no on-screen credit captions.",
+  "production_category": "news",
   "keywords": [
-    "GPT-6 Intelligent UI",
-    "interactive ChatGPT",
-    "AI interface"
+    "GPT-6",
+    "Intelligent UI",
+    "interactive answers",
+    "ChatGPT tools"
   ],
   "facts": {
-    "announcement_date": "2026-10-07",
+    "announced": "2026-10-07",
     "paid_rollout": "2026-10-07",
     "free_go_rollout": "2026-10-08",
-    "checked": "2026-10-13"
+    "source": "OpenAI announcement"
   },
-  "credits_on_screen": "All visual elements are original Reels Studio illustrations. The bicycle interface is explicitly labelled as an illustrative mockup, not a ChatGPT screenshot. Claims and rollout dates come from OpenAI's product article; full URL in post copy.",
+  "credits_on_screen": "Original studio mockups based on the OpenAI article, visibly labeled “illustrative mockup — not a screenshot.” No on-screen credit captions.",
   "sources": [
     "https://openai.com/index/gpt-6-for-everyone/"
   ],
   "verify_before_render": [
-    "OpenAI's 2026-10-07 release says GPT-6 Intelligent UI can combine text, visuals, graphics, tappable buttons, forms, charts, and interactive experiences; the format depends on the question and simple text can be the best response.",
-    "OpenAI announced a global rollout to Plus, Pro, Business, and Enterprise on Oct 7, then expansion to Free and Go starting Oct 8. Say 'rollout began/was announced', not that every account has it immediately.",
-    "The bicycle mockup is a conceptual illustration, not a captured ChatGPT session. Option 3 Chatterbox Michael continuous-flow voice required."
+    "OpenAI announcement dated Oct 7, 2026: Intelligent UI combines text, visuals and interactive elements; official examples include a bicycle breakdown, calculators, bill splitters and games.",
+    "Availability began with paid tiers; Free/Go expansion began the following day. Phrase rollout as gradual, not guaranteed for every account.",
+    "Bike and calculator visuals are original concept mockups, not product screenshots. Keep the disclosure visible.",
+    "No on-screen credits; link official source in post/description."
   ],
-  "production_category": "news",
   "scenes": [
     {
       "id": "hook",
       "type": "image",
-      "image": "intelligent-ui-mock.png",
-      "heading": "GPT-6 INTELLIGENT UI: *ANSWERS YOU CAN TAP*",
-      "say": "GPT-6 Intelligent UI can turn a question into an explorable diagram—not just a paragraph.",
-      "url": "openai.com"
+      "image": "concept-bicycle.jpg",
+      "heading": "A TOOL, NOT JUST *TEXT*",
+      "say": "GPT-6 Intelligent UI lets ChatGPT answer with a tool, not just a paragraph."
     },
     {
-      "id": "formats",
-      "type": "steps",
-      "heading": "MORE THAN *CHAT BUBBLES*",
-      "background": {
-        "image": "intelligent-ui-mock.png"
-      },
-      "steps": [
-        "Text + visuals",
-        "Forms + charts",
-        "Tappable controls"
-      ],
-      "step_at": [
-        "text",
-        "forms",
-        "tappable"
-      ],
-      "say": "OpenAI says answers can mix text, visuals, forms, charts, and tappable controls.",
-      "url": "openai.com"
+      "id": "feature",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "url": "openai.com/index/gpt-6-for-everyone/",
+      "say": "OpenAI calls it Intelligent UI: text, visuals and interactive controls in one response."
     },
     {
       "id": "example",
-      "type": "image",
-      "image": "intelligent-ui-mock.png",
-      "heading": "A QUESTION BECOMES A *TOOL*",
-      "say": "Its launch page shows a seven-speed bicycle split into five connected systems, plus examples like a bill splitter.",
-      "url": "openai.com"
+      "type": "steps",
+      "heading": "THE OFFICIAL *EXAMPLE*",
+      "background": {
+        "image": "desktop-full.jpg"
+      },
+      "steps": [
+        "Ask about a bicycle",
+        "Tap through its systems",
+        "See visuals with the answer"
+      ],
+      "step_at": [
+        "ask",
+        "tap",
+        "visuals"
+      ],
+      "say": "Its official example turns a seven-speed bicycle question into a visual breakdown with selectable systems."
     },
     {
-      "id": "rollout",
+      "id": "tools",
       "type": "image",
-      "image": "rollout-timeline.png",
-      "heading": "ROLLOUT BEGAN *OCTOBER 7*",
-      "say": "Paid plans began rolling out October seventh; OpenAI said Free and Go were next on October eighth.",
-      "url": "openai.com"
+      "image": "concept-calculator.jpg",
+      "heading": "TOOLS INSIDE *CHAT*",
+      "say": "OpenAI also names calculators, bill splitters and small games created for the task."
     },
     {
       "id": "catch",
       "type": "verdict",
-      "heading": "THE *USEFUL* CAVEAT",
-      "cons": [
-        "Availability may take time to reach accounts",
-        "Some questions work best as plain text"
-      ],
+      "heading": "THE *CATCH*",
       "pros": [
-        "Interactive charts and controls when useful"
+        "Text + visuals + controls",
+        "Gradual rollout"
+      ],
+      "cons": [
+        "Not every answer is interactive",
+        "Availability varies by account"
       ],
       "item_at": [
+        "controls",
+        "every",
         "rollout",
-        "plain text",
-        "interactive controls"
+        "availability"
       ],
-      "say": "The rollout may take time to reach accounts. OpenAI says some questions work best as plain text, but when useful it can add interactive controls.",
-      "url": "openai.com"
+      "say": "Controls and visuals make the answer usable, but not every prompt becomes an app. Rollout is gradual, and availability varies by account."
     },
     {
       "id": "cta",
       "type": "endcard",
       "keyword": "UI",
-      "say": "Would you click through a diagram, or just read the answer? Comment UI.",
-      "url": "openai.com"
+      "say": "Would you use an interactive answer? Comment UI for the official article."
     }
   ],
   "seo": {
     "keyword": "GPT-6 Intelligent UI",
     "aliases": [
-      "ChatGPT Intelligent UI",
       "interactive ChatGPT",
-      "GPT-6 UI"
+      "ChatGPT visual answers"
     ],
-    "onscreen_first3s": "GPT-6 INTELLIGENT UI: ANSWERS YOU CAN TAP",
+    "onscreen_first3s": "GPT-6 INTELLIGENT UI / ANSWERS YOU CAN USE",
     "youtube": {
-      "title": "GPT-6 Intelligent UI: Answers You Can Tap",
-      "description": "GPT-6 Intelligent UI lets ChatGPT compose answers using text, visuals, and interactive elements such as diagrams, forms, charts, and tappable controls. OpenAI's launch example explores a seven-speed bicycle; other examples include a bill splitter and calculator. The global rollout began with Plus, Pro, Business, and Enterprise on October 7, 2026, with Free and Go expansion announced for October 8. Availability can vary during a rollout. The interface in this video is an original illustration, not a ChatGPT screenshot.\nSource: https://openai.com/index/gpt-6-for-everyone/",
+      "title": "GPT-6 Intelligent UI: ChatGPT Answers With Interactive Tools",
+      "description": "OpenAI’s GPT-6 Intelligent UI can combine text, visuals and interactive elements in ChatGPT responses. Official examples include an interactive bicycle breakdown, calculators, bill splitters and games. The visuals here are original concept mockups, not product screenshots.\nhttps://openai.com/index/gpt-6-for-everyone/",
       "hashtags": [
         "#Shorts",
-        "#OpenAI",
         "#ChatGPT",
+        "#OpenAI",
         "#AI"
       ],
       "tags": [
         "GPT-6 Intelligent UI",
-        "ChatGPT Intelligent UI",
-        "interactive ChatGPT",
-        "AI interface",
-        "OpenAI GPT-6",
-        "AI tools",
-        "interactive answers"
+        "ChatGPT interactive UI",
+        "GPT-6",
+        "AI tools"
       ]
     },
     "tiktok": {
-      "caption": "GPT-6 Intelligent UI turns some ChatGPT answers into diagrams and tappable tools. OpenAI announced a staged rollout; availability can vary by account.",
+      "caption": "GPT-6 Intelligent UI gives ChatGPT interactive visuals and tools—not just paragraphs. These are illustrative mockups, not product screenshots.",
       "hashtags": [
-        "#OpenAI",
         "#ChatGPT",
-        "#AItools"
+        "#OpenAI",
+        "#AI"
       ]
     },
     "instagram": {
-      "caption": "GPT-6 Intelligent UI can combine text, visuals, charts, forms, and controls in one answer. OpenAI announced a staged rollout starting Oct 7; not every response needs a widget. The visual shown here is an illustration, not a ChatGPT screenshot.",
+      "caption": "GPT-6 Intelligent UI gives ChatGPT interactive visuals and tools—not just paragraphs. These are illustrative mockups, not product screenshots.",
       "hashtags": [
-        "#OpenAI",
         "#ChatGPT",
-        "#AItools"
+        "#OpenAI",
+        "#AI"
       ]
     },
     "facebook": {
-      "caption": "GPT-6 Intelligent UI: some ChatGPT answers can be interactive, with diagrams, forms, charts, and tappable controls. OpenAI announced a phased rollout beginning Oct 7; availability may vary by account.",
+      "caption": "GPT-6 Intelligent UI gives ChatGPT interactive visuals and tools—not just paragraphs. These are illustrative mockups, not product screenshots.",
       "hashtags": [
+        "#ChatGPT",
         "#OpenAI",
-        "#ChatGPT"
+        "#AI"
       ]
     },
     "x": {
-      "text": "GPT-6 Intelligent UI lets ChatGPT answer with text, visuals, forms, charts, and tappable controls. OpenAI announced a staged rollout from Oct 7; the mockup shown is illustrative, not a screenshot.",
+      "text": "GPT-6 Intelligent UI gives ChatGPT interactive visuals and tools—not just paragraphs. These are illustrative mockups, not product screenshots. https://openai.com/index/gpt-6-for-everyone/",
       "hashtags": [
-        "#AI"
+        "#ChatGPT"
       ]
     }
   },
   "post": {
     "titles": [
-      "GPT-6 Intelligent UI: Answers You Can Tap",
-      "ChatGPT Answers You Can Explore",
-      "GPT-6 Turns Some Answers into Interactive Tools"
+      "GPT-6 Intelligent UI: ChatGPT Answers With Interactive Tools"
     ],
-    "caption": "GPT-6 Intelligent UI can combine text, visuals, charts, forms, and tappable controls. OpenAI announced a phased rollout beginning Oct 7; availability may vary by account. This video uses an original illustrative mockup, not a ChatGPT screenshot.",
+    "caption": "GPT-6 Intelligent UI gives ChatGPT interactive visuals and tools—not just paragraphs. These are illustrative mockups, not product screenshots.",
     "hashtags": [
-      "#OpenAI",
+      "#Shorts",
       "#ChatGPT",
-      "#AItools"
+      "#OpenAI",
+      "#AI"
     ],
-    "pinned_comment": "OpenAI's product announcement: https://openai.com/index/gpt-6-for-everyone/ · The bicycle interface shown is an original conceptual mockup, not a screenshot or recording of ChatGPT."
+    "pinned_comment": "Official announcement: https://openai.com/index/gpt-6-for-everyone/. Bike and bill-splitter visuals are original illustrative mockups, not ChatGPT screenshots."
   }
 }
