@@ -1,0 +1,203 @@
+{
+  "id": "tool-qwen-image21-turbo-01",
+  "template": "tool-spotlight",
+  "capture": "captures/tool-qwen-image21-turbo-01",
+  "title": "Qwen Image Turbo: 8 Steps, Not 8 Seconds",
+  "niche": "tech / AI tools",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "2026-10-13: original script based on Qwen official repo, Turbo model card, launch post, and license; own page capture + original diagram only (Qwen-generated example outputs excluded from media pack); Option-3 Chatterbox flow required; no on-screen credits.",
+  "keywords": [
+    "Qwen-Image-2.1-Turbo",
+    "8 denoising steps",
+    "image editing",
+    "Qwen Research License",
+    "CUDA"
+  ],
+  "facts": {
+    "stars": 1916,
+    "forks": 124,
+    "turbo_likes": 680,
+    "turbo_downloads": 9665,
+    "checked": "2026-10-13 14:16 UTC"
+  },
+  "credits_on_screen": "Own capture of the official Qwen repository and an original Reels Studio diagram. No Qwen-generated sample outputs are used. Source URLs are in post copy; the Qwen Research License is non-commercial.",
+  "sources": [
+    "https://github.com/QwenLM/Qwen-Image-2.1",
+    "https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo",
+    "https://qwen.ai/blog?id=qwen-image-2.1",
+    "https://raw.githubusercontent.com/QwenLM/Qwen-Image-2.1/main/LICENSE"
+  ],
+  "verify_before_render": [
+    "Checked 2026-10-13: official HF card says Qwen-Image-2.1-Turbo is an accelerated checkpoint for text-to-image and image editing with 8 denoising steps, same 7B visual-generation architecture; local quick start calls for CUDA-compatible PyTorch. Qwen's official 2.1 post says the base model supports up to 10 reference images and prefix/KV-cache context reuse.",
+    "Official LICENSE is Qwen RESEARCH LICENSE: model materials are licensed for non-commercial research/evaluation; commercial use of the materials requires a separate license. Do not imply 8 steps equal a time-based speedup. No model-generated sample outputs in the video.",
+    "No on-screen credit captions. Option 3 Chatterbox Michael continuous-flow voice required."
+  ],
+  "production_category": "tool",
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "qwen-steps.png",
+      "heading": "QWEN IMAGE 2.1 TURBO: *8 STEPS ≠ 8 SECONDS*",
+      "say": "Qwen Image two point one Turbo uses eight denoising steps. That is not eight seconds.",
+      "url": "github.com"
+    },
+    {
+      "id": "use",
+      "type": "steps",
+      "heading": "ONE MODEL, *TWO JOBS*",
+      "background": {
+        "image": "desktop-top.jpg"
+      },
+      "steps": [
+        "Text-to-image generation",
+        "Edit existing images",
+        "7B visual-generation component"
+      ],
+      "step_at": [
+        "text-to-image",
+        "edits",
+        "seven-billion"
+      ],
+      "say": "Its new checkpoint handles text-to-image and edits with the same {7B|seven-billion-parameter} visual generator.",
+      "url": "huggingface.co"
+    },
+    {
+      "id": "stat",
+      "type": "stat",
+      "heading": "THE *TURBO* CHANGE",
+      "value": 8,
+      "suffix": " steps",
+      "label": "denoising · generation + editing",
+      "icon": false,
+      "at": "eight",
+      "say": "The change is the eight-step denoising schedule—not a claim of eight-second output.",
+      "url": "huggingface.co"
+    },
+    {
+      "id": "cache",
+      "type": "image",
+      "image": "qwen-steps.png",
+      "heading": "LESS REPEATED *CONTEXT*",
+      "say": "Qwen says it reuses cached text and image context; the base model can take up to ten reference images.",
+      "url": "qwen.ai"
+    },
+    {
+      "id": "source",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "url": "github.com/QwenLM/Qwen-Image-2.1",
+      "camera": [
+        {
+          "region": "repo_title",
+          "zoom": 1.65,
+          "at": "October ninth"
+        }
+      ],
+      "say": "The Turbo checkpoint launched October ninth. Actual wall time still depends on your hardware and setup."
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "CHECK THE *FINE PRINT*",
+      "cons": [
+        "CUDA-compatible setup for local inference",
+        "Research license: non-commercial",
+        "Separate license required for commercial model use"
+      ],
+      "pros": [
+        "8-step Turbo checkpoint",
+        "Text-to-image + editing"
+      ],
+      "item_at": [
+        "CUDA-compatible",
+        "non-commercial",
+        "commercial",
+        "eight-step",
+        "editing"
+      ],
+      "say": "The local quick start calls for CUDA-compatible PyTorch; the weights are non-commercial research only. Business use needs a separate license. Still, this eight-step checkpoint handles text-to-image and editing.",
+      "url": "github.com"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "TURBO",
+      "say": "Eight steps—not a speed guarantee or a business-use free pass. Would you test it? Comment Turbo.",
+      "url": "huggingface.co"
+    }
+  ],
+  "seo": {
+    "keyword": "Qwen Image",
+    "aliases": [
+      "Qwen-Image-2.1-Turbo",
+      "Qwen Image Turbo",
+      "Qwen-Image Turbo",
+      "Qwen 2.1 Turbo"
+    ],
+    "onscreen_first3s": "QWEN IMAGE 2.1 TURBO: 8 STEPS ≠ 8 SECONDS",
+    "youtube": {
+      "title": "Qwen Image Turbo: 8 Steps, Not 8 Seconds",
+      "description": "Qwen-Image-2.1-Turbo is the 8-denoising-step checkpoint for text-to-image generation and image editing, using the same 7B visual-generation architecture as Qwen-Image-2.1. Eight steps do not prove an end-to-end time or speedup; the official local quick start calls for CUDA-compatible PyTorch. The weights use Qwen's non-commercial Research License; commercial model use requires a separate license. No generated Qwen sample images are used here. Facts checked 13 October 2026.\nSources: https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo · https://github.com/QwenLM/Qwen-Image-2.1 · https://qwen.ai/blog?id=qwen-image-2.1 · https://raw.githubusercontent.com/QwenLM/Qwen-Image-2.1/main/LICENSE",
+      "hashtags": [
+        "#Shorts",
+        "#Qwen",
+        "#AItools",
+        "#ImageGeneration"
+      ],
+      "tags": [
+        "Qwen-Image-2.1-Turbo",
+        "Qwen Image Turbo",
+        "8 denoising steps",
+        "AI image editing",
+        "text to image",
+        "Qwen Research License",
+        "local AI image generation"
+      ]
+    },
+    "tiktok": {
+      "caption": "Qwen Image Turbo: eight denoising steps—not eight seconds. The local quick start uses CUDA-compatible PyTorch; the weights are under a non-commercial research license.",
+      "hashtags": [
+        "#Qwen",
+        "#AItools",
+        "#ImageGeneration"
+      ]
+    },
+    "instagram": {
+      "caption": "Qwen Image Turbo uses an 8-step denoising schedule for image generation and edits. That is not an end-to-end speed guarantee. Note: the weights are under Qwen’s non-commercial Research License; commercial model use needs a separate license.",
+      "hashtags": [
+        "#Qwen",
+        "#AItools",
+        "#ImageGeneration"
+      ]
+    },
+    "facebook": {
+      "caption": "Qwen Image Turbo: 8 denoising steps for text-to-image and editing, not an eight-second promise. The official local quick start uses CUDA-compatible PyTorch, and the weights are licensed for non-commercial research/evaluation only.",
+      "hashtags": [
+        "#Qwen",
+        "#AItools"
+      ]
+    },
+    "x": {
+      "text": "Qwen-Image-2.1-Turbo uses 8 denoising steps for generation + editing. Not an end-to-end time guarantee; local quick start calls for CUDA PyTorch. The weights use a non-commercial Research License.",
+      "hashtags": [
+        "#AI"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "Qwen Image Turbo: 8 Steps, Not 8 Seconds",
+      "Qwen-Image-2.1-Turbo: What 8 Steps Actually Mean",
+      "Qwen Image Turbo Has an Important License Catch"
+    ],
+    "caption": "Qwen Image Turbo uses 8 denoising steps for image generation and edits—but that isn’t an eight-second or universal speed claim. The weights are under Qwen’s non-commercial Research License; commercial model use requires a separate license.",
+    "hashtags": [
+      "#Qwen",
+      "#AItools",
+      "#ImageGeneration"
+    ],
+    "pinned_comment": "Sources: https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo · https://github.com/QwenLM/Qwen-Image-2.1 · https://qwen.ai/blog?id=qwen-image-2.1 · https://raw.githubusercontent.com/QwenLM/Qwen-Image-2.1/main/LICENSE. The source model examples are intentionally not used in this video."
+  }
+}

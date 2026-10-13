@@ -1,0 +1,205 @@
+{
+  "id": "tool-embeddinggemma2-01",
+  "template": "tool-spotlight",
+  "capture": "captures/tool-embeddinggemma2-01",
+  "title": "EmbeddingGemma 2: Search Media by Meaning",
+  "niche": "tech / AI tools",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "2026-10-13: facts checked against Google's Oct 6 launch post and model card; official Google AI Edge Gallery demo clip cropped from the launch post; no independent benchmark claim; Option-3 Chatterbox flow required; no on-screen credits.",
+  "keywords": [
+    "EmbeddingGemma 2",
+    "multimodal embeddings",
+    "on-device search",
+    "semantic media search"
+  ],
+  "facts": {
+    "parameters_full_model": 740000000,
+    "likes": 2040,
+    "downloads": 124930,
+    "license": "Apache-2.0",
+    "checked": "2026-10-13 ~14:12 UTC"
+  },
+  "credits_on_screen": "Own capture of Google's launch article and official Google AI Edge Gallery demo video (4-second vertical crop); official Google launch banner. This is Google's demonstration, not our independent model benchmark. Source URLs in post copy; no on-screen credit captions.",
+  "sources": [
+    "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/",
+    "https://ai.google.dev/gemma/docs/embeddinggemma/model_card_2",
+    "https://huggingface.co/google/embeddinggemma-2",
+    "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_videos/google-ai-edge-gallery-instant-media-search_eRLOpvE.mp4"
+  ],
+  "verify_before_render": [
+    "Google's Oct 6, 2026 announcement: EmbeddingGemma 2 is a 740M-parameter multimodal embedding model mapping text/code, images, audio, and video to a unified embedding space; model card states Apache 2.0.",
+    "The Google AI Edge Gallery clip is official product-demo media. The video shows a text query retrieving sample photos; don't present it as our test or imply the model is itself a complete search app.",
+    "Google says the model is optimized for on-device inference and describes modular text-only and multimodal encoders; attribute performance/privacy statements to Google. No unqualified 'best-in-class' claim.",
+    "No on-screen credit captions. Option 3 Chatterbox Michael continuous-flow voice required."
+  ],
+  "production_category": "tool",
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "clip",
+      "src": "instant-media-search.mp4",
+      "in": 0,
+      "out": 4,
+      "fit": "fill-blur",
+      "headline": "EMBEDDINGGEMMA 2: SEARCH BY *MEANING*",
+      "sub": "Google AI Edge Gallery · official demo",
+      "say": "EmbeddingGemma 2 targets a different kind of search: describe the photo, not its filename.",
+      "url": "blog.google"
+    },
+    {
+      "id": "demo",
+      "type": "image",
+      "image": "embeddinggemma2-banner-169-width-2200-fo.webp",
+      "heading": "A PHONE DEMO, *NOT A BENCHMARK*",
+      "say": "Google's official phone demo types cat and retrieves matching photos.",
+      "url": "blog.google"
+    },
+    {
+      "id": "stat",
+      "type": "stat",
+      "heading": "THE *FULL MODEL*",
+      "value": 740,
+      "suffix": "M",
+      "label": "parameters · multimodal model · Apache 2.0",
+      "icon": false,
+      "at": "seven hundred forty",
+      "say": "The full multimodal model totals seven hundred forty million parameters.",
+      "url": "ai.google.dev"
+    },
+    {
+      "id": "modalities",
+      "type": "steps",
+      "heading": "ONE *EMBEDDING SPACE*",
+      "background": {
+        "image": "embeddinggemma2-banner-169-width-2200-fo.webp"
+      },
+      "steps": [
+        "Text + code",
+        "Images",
+        "Audio + video"
+      ],
+      "step_at": [
+        "text",
+        "images",
+        "audio"
+      ],
+      "say": "Google maps text, code, images, audio, and video into one shared vector space.",
+      "url": "blog.google"
+    },
+    {
+      "id": "source",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "url": "blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/",
+      "camera": [
+        {
+          "region": "date_oct-06-2026",
+          "zoom": 1.6,
+          "at": "October sixth"
+        }
+      ],
+      "say": "It launched October sixth, targeting on-device retrieval."
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE *APP* STILL MATTERS",
+      "cons": [
+        "Not a chatbot or media generator",
+        "Your app still needs indexing and ranking"
+      ],
+      "pros": [
+        "Apache 2.0",
+        "Designed for on-device retrieval"
+      ],
+      "item_at": [
+        "chatbot",
+        "indexing",
+        "Apache",
+        "on-device"
+      ],
+      "say": "It isn't a chatbot: your app still needs indexing and ranking. Google says it's Apache 2.0 and designed for on-device use.",
+      "url": "ai.google.dev"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "SEARCH",
+      "say": "Would you search your camera roll by meaning? Comment search.",
+      "url": "blog.google"
+    }
+  ],
+  "seo": {
+    "keyword": "EmbeddingGemma 2",
+    "aliases": [
+      "EmbeddingGemma2",
+      "multimodal embedding model",
+      "Gemma embeddings"
+    ],
+    "onscreen_first3s": "EMBEDDINGGEMMA 2: SEARCH BY MEANING",
+    "youtube": {
+      "title": "EmbeddingGemma 2: Search Media by Meaning",
+      "description": "EmbeddingGemma 2 is Google's 740M-parameter multimodal embedding model for mapping text, code, images, audio, and video into a shared vector space. That can help a search app retrieve media from a text query; it is not a chatbot or a complete search product. Google released it under Apache 2.0 and targets on-device inference. The phone clip is Google's own AI Edge Gallery demo, not our independent benchmark. Facts checked 13 October 2026.\nSources: https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/ · https://ai.google.dev/gemma/docs/embeddinggemma/model_card_2 · https://huggingface.co/google/embeddinggemma-2",
+      "hashtags": [
+        "#Shorts",
+        "#EmbeddingGemma",
+        "#AI",
+        "#Search"
+      ],
+      "tags": [
+        "EmbeddingGemma 2",
+        "multimodal embeddings",
+        "semantic search",
+        "on-device AI",
+        "Google DeepMind",
+        "media search",
+        "AI Edge Gallery",
+        "vector embeddings"
+      ]
+    },
+    "tiktok": {
+      "caption": "EmbeddingGemma 2 maps text, images, audio, and video into one embedding space. A search app can use that—but the model isn't a chatbot or a full app.",
+      "hashtags": [
+        "#EmbeddingGemma",
+        "#AItools",
+        "#Search"
+      ]
+    },
+    "instagram": {
+      "caption": "EmbeddingGemma 2: one multimodal embedding model for text, code, images, audio, and video. Google's phone demo searches sample photos; developers still need an app to index and rank results. Apache 2.0.",
+      "hashtags": [
+        "#EmbeddingGemma",
+        "#AItools",
+        "#Search"
+      ]
+    },
+    "facebook": {
+      "caption": "EmbeddingGemma 2 is a 740M-parameter model for multimodal embeddings—not a chatbot. It can help an app connect a text query to images, audio, or video. Google says it's designed for on-device use and released under Apache 2.0.",
+      "hashtags": [
+        "#EmbeddingGemma",
+        "#AItools"
+      ]
+    },
+    "x": {
+      "text": "EmbeddingGemma 2 maps text, code, images, audio + video into one vector space. Useful for semantic search, but it's not a chat app; your software still indexes and ranks the results.",
+      "hashtags": [
+        "#AI"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "EmbeddingGemma 2: Search Media by Meaning",
+      "Google's EmbeddingGemma 2 Is Not a Chatbot",
+      "One Model to Search Text, Photos, Audio and Video"
+    ],
+    "caption": "EmbeddingGemma 2 maps text, code, images, audio, and video into one vector space. A search app can use that to find media by meaning—but the model itself isn't a chatbot or a complete app. Apache 2.0; Google demo shown.",
+    "hashtags": [
+      "#EmbeddingGemma",
+      "#AItools",
+      "#Search"
+    ],
+    "pinned_comment": "Sources: Google's launch post https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/ · model card https://ai.google.dev/gemma/docs/embeddinggemma/model_card_2 · HF model https://huggingface.co/google/embeddinggemma-2. Phone footage is Google's AI Edge Gallery demo, not our benchmark."
+  }
+}
