@@ -1,5 +1,5 @@
 # Cloud render: one GitHub runner (4 vCPU / 16 GB, free for this public repo) per brief, up to 10 in parallel (owner ceiling 2026-10-12).
-# Each job: toolchain -> capture pack -> reels.py make (voice, QA, render) -> SEO gate -> MP4 + post kit on a Release.
+# Each job: toolchain -> capture pack -> reels.py make (voice, QA, render) -> SEO gate -> one-day Actions artifact. No public Release by default.
 # Start: python3 reels-studio/reels.py cloud <brief-id> [<brief-id> ...]   (or Actions -> render -> Run workflow)
 name: render
 on:
@@ -9,7 +9,7 @@ on:
         description: 'Brief ids (reels-studio/briefs/<id>.json), space separated'
         required: true
       tag:
-        description: 'Release tag for the outputs (default renders-YYYY-MM-DD)'
+        description: 'Source Release tag for a scene rebuild; render outputs are Actions artifacts'
         required: false
         default: ''
       quality:
@@ -33,7 +33,7 @@ on:
         required: false
         default: ''
 permissions:
-  contents: write
+  contents: read
 env:
   PYTHONUNBUFFERED: "1"
   HYPERFRAMES_NO_TELEMETRY: "1"
@@ -106,10 +106,17 @@ jobs:
         run: python3 reels-studio/tools/seo_pack.py "$BRIEF"
       - name: Gate receipt (rule IDs -> manifest)
         run: python3 reels-studio/reels.py gates "$BRIEF"
-      - name: Publish
-        run: python3 reels-studio/tools/publish_release.py --tag "${{ needs.plan.outputs.tag }}" --kit "reels-studio/renders/${{ matrix.brief }}"
-      - uses: actions/upload-artifact@v4
+      - name: Upload render artifact
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: render-${{ matrix.brief }}
+          path: reels-studio/renders/${{ matrix.brief }}/
+          if-no-files-found: error
+          retention-days: 1
+      - name: Upload failure log
         if: failure()
+        uses: actions/upload-artifact@v4
         with:
           name: logs-${{ matrix.brief }}
           path: /var/tmp/reels/${{ matrix.brief }}/build.log

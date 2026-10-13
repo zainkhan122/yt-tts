@@ -24,6 +24,15 @@ class UrlTests(unittest.TestCase):
     def test_full_url_passes_through(self):
         self.assertEqual(gh_actions._url("https://example.com/x"), "https://example.com/x")
 
+    def test_delete_artifact_uses_discovered_artifact_id(self):
+        from unittest.mock import patch
+        with patch.object(gh_actions, "api", side_effect=[
+            (200, {"artifacts": [{"id": 731, "name": "render-demo"}]}),
+            (204, {})
+        ]) as api, patch("builtins.print"):
+            gh_actions.delete_artifact("42", "render-demo")
+        api.assert_any_call("DELETE", "/actions/artifacts/731")
+
 
 if __name__ == "__main__":
     unittest.main()

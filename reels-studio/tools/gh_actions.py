@@ -6,6 +6,7 @@
   gh_actions.py jobs <run_id>                                job/step status table
   gh_actions.py logs <job_id> [--tail 60] [--grep REGEX]     tail of one job's log
   gh_actions.py download <run_id> <artifact> <dest_dir>      fetch + unzip an artifact
+  gh_actions.py delete-artifact <run_id> <artifact>          delete a temporary artifact after download
   gh_actions.py cancel <run_id>                              cancel a run (uploaded artifacts are kept)
 """
 import argparse
@@ -125,15 +126,29 @@ def logs(job_id, tail, grep):
     print("\n".join(lines[-tail:]))
 
 
-def download(run_id, name, dest):
+def _find_artifact(run_id, name):
     s, d = api("GET", f"/actions/runs/{run_id}/artifacts?per_page=100")
     art = next((a for a in d.get("artifacts", []) if a["name"] == name), None)
     if not art:
         raise SystemExit(f"artifact {name} not found: {[a['name'] for a in d.get('artifacts', [])]}")
+    return art
+
+
+def download(run_id, name, dest):
+    art = _find_artifact(run_id, name)
     s, blob = api("GET", art["archive_download_url"], raw=True)
     Path(dest).mkdir(parents=True, exist_ok=True)
     zipfile.ZipFile(io.BytesIO(blob)).extractall(dest)
     print(f"{name}: {len(blob) / 1e6:.1f} MB -> {dest}")
+
+
+def delete_artifact(run_id, name):
+    """Remove the temporary render artifact after its files have been downloaded locally."""
+    art = _find_artifact(run_id, name)
+    s, d = api("DELETE", f"/actions/artifacts/{art['id']}")
+    if s != 204:
+        raise SystemExit(f"artifact delete failed: HTTP {s} {d.get('message', '')}")
+    print(f"{name}: temporary Actions artifact deleted")
 
 
 def main():
@@ -144,6 +159,7 @@ def main():
     p = sub.add_parser("jobs"); p.add_argument("run_id")
     p = sub.add_parser("logs"); p.add_argument("job_id"); p.add_argument("--tail", type=int, default=60); p.add_argument("--grep")
     p = sub.add_parser("download"); p.add_argument("run_id"); p.add_argument("artifact"); p.add_argument("dest")
+    p = sub.add_parser("delete-artifact"); p.add_argument("run_id"); p.add_argument("artifact")
     p = sub.add_parser("cancel"); p.add_argument("run_id")
     a = ap.parse_args()
     if a.cmd == "dispatch":
@@ -157,8 +173,10 @@ def main():
     elif a.cmd == "cancel":
         s, d = api("POST", f"/actions/runs/{a.run_id}/cancel")
         print("cancel:", s, "(202 = accepted)")
-    else:
+    elif a.cmd == "download":
         download(a.run_id, a.artifact, a.dest)
+    else:
+        delete_artifact(a.run_id, a.artifact)
 
 
 if __name__ == "__main__":

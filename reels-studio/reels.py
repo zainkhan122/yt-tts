@@ -11,7 +11,7 @@ Reels Studio - professional vertical-video generator (HyperFrames + free tools)
   python3 reels.py make   briefs/x.json --quality looks --crf 26
   python3 reels.py make   briefs/x.json --no-render         # fast iteration: build + lint + check only
   python3 reels.py batch  briefs/a.json briefs/b.json ...   # a week of videos in one go
-  python3 reels.py cloud  <brief-id> [<brief-id> ...] [--wait]  # render on GitHub Actions, up to 10 in parallel -> Release
+  python3 reels.py cloud  <brief-id> [<brief-id> ...] [--wait]  # render on GitHub Actions -> one-day artifact, download locally
   python3 reels.py scenes <id> [<id> ...] [--tag T] [--json]    # per-scene manifest of a published render (window, digests, assets)
   python3 reels.py rebuild <brief-id> --scenes <id,id> --reason "..." [--dry-run] [--local]
       # repair scene(s) of a published video: re-render only those, reuse the published audio
@@ -22,8 +22,7 @@ Reels Studio - professional vertical-video generator (HyperFrames + free tools)
   python3 reels.py sync   -m "message"                      # commit + push reels-studio/ (the single source of truth)
   python3 reels.py templates | new <template> briefs/new.json
 
-Renders: GitHub Releases (permanent: <id>.mp4 + <id>-kit.zip); renders/<id>/ is a local, git-ignored scratch copy.
-Capture packs: GitHub Release "capture-packs" (tools/capture_store.py). Intermediates: /var/tmp/reels/.
+Cloud renders: one-day GitHub Actions artifacts; `reels.py cloud --wait` downloads them to renders/<id>/ and removes the temporary artifact. Permanent GitHub Releases are a separate, explicit `reels.py publish` action. Capture packs: GitHub Release "capture-packs" (tools/capture_store.py). Intermediates: /var/tmp/reels/.
 Token: ~/.config/reels-studio/gh_token (sandbox) or env GH_TOKEN (cloud). Never committed, never printed.
 """
 import argparse
@@ -105,7 +104,7 @@ def cmd_doctor(a):
     if remote:
         dirty = git("status", "--porcelain", "--", "reels-studio", check=False)
         row("(opt) SSOT synced", not dirty, f"{len(dirty.splitlines())} local change(s) -> reels.py sync" if dirty else "clean")
-    row("(opt) GitHub token (session)", token() is not None, "present" if token() else "needed only for publish/sync")
+    row("(opt) GitHub token (session)", token() is not None, "present" if token() else "needed for cloud dispatch, sync, or publish")
     used = 0
     excl = {".cache", ".local", ".npm", "node_modules", "out", "build", "dist", "target", "__pycache__", ".venv", "coverage"}
     for r, ds, fs in os.walk(Path.home()):
@@ -210,7 +209,12 @@ def cmd_cloud(a):
     if a.wait:
         result = gh_actions.wait(run_id, 5400)
         print("result:", result)
-        subprocess.run([sys.executable, str(ROOT / "tools" / "publish_release.py"), "--list"])
+        if result == "success":
+            for i in ids:
+                artifact = f"render-{i}"
+                dest = ROOT / "renders" / i
+                gh_actions.download(run_id, artifact, str(dest))
+                gh_actions.delete_artifact(run_id, artifact)
     return 0
 
 
@@ -369,12 +373,12 @@ def main():
     p.add_argument("briefs", nargs="+", help="brief ids or paths")
     p.add_argument("--json", action="store_true", help="print the receipt JSON")
     p.add_argument("--no-record", action="store_true", help="print only; do not write manifests/<id>/manifest.json")
-    p = sub.add_parser("cloud", help="render briefs on GitHub Actions (one runner each, up to 10 in parallel)")
+    p = sub.add_parser("cloud", help="render briefs on GitHub Actions -> temporary artifacts (one runner each, up to 10 in parallel)")
     p.add_argument("briefs", nargs="+", help="brief ids or paths (briefs/<id>.json)")
-    p.add_argument("--tag", default="", help="release tag (default renders-YYYY-MM-DD)")
+    p.add_argument("--tag", default="", help="source Release tag only for a scene rebuild; normally omit")
     p.add_argument("--quality", default="looks")
     p.add_argument("--crf", default="23")
-    p.add_argument("--wait", action="store_true", help="wait for the runs and print the download links")
+    p.add_argument("--wait", action="store_true", help="wait, download artifacts to renders/<id>/, and delete temporary artifacts")
     p = sub.add_parser("scenes", help="per-scene manifest of a published render (windows, digests, assets)")
     p.add_argument("targets", nargs="+", help="video ids, or paths to a manifest.json")
     p.add_argument("--tag", default="", help="read the manifest from this release's kit instead of renders/<id>/")

@@ -18,7 +18,8 @@ It turns a small **brief (JSON)** into an **upload-ready 1080×1920 video** plus
 radar ──► brief.json ──► voice (Chatterbox channel voice or YOUR recordings) ──► exact line timing ──► word timings
       ──► whisper.cpp intelligibility QA ──► music + SFX (seeded, royalty-free), loudnorm −14 LUFS
       ──► HyperFrames project (template) ──► lint ──► check (layout/contrast/runtime) ──► render
-      ──► QA (format, fps, loudness, peak) ──► renders/<id>/ ──► publish (GitHub Release) ──► sync (git)
+      ──► QA (format, fps, loudness, peak) ──► one-day Actions artifact ──► download to renders/<id>/
+      ──► optional, explicit publish (GitHub Release) ──► sync (git)
 ```
 
 **Strategy (formats, hooks, SEO per platform, cadence):** [`PLAYBOOK.md`](PLAYBOOK.md). **How it works end to end:** [`PIPELINE.md`](PIPELINE.md) covers topic selection, research, voice, how videos are made, QA, publishing and the tools inventory. **Where we are:** [`PHASES.md`](PHASES.md).
@@ -40,9 +41,9 @@ Idempotent: it repairs git (snapshots drop `.git/config`), pulls the latest SSOT
 | What | Where | Survives reset? |
 |---|---|---|
 | Code, templates, briefs, research, tracker | git: `reels-studio/` | ✅ GitHub = SSOT |
-| Finished videos | **GitHub Releases**: `<id>.mp4` + `<id>-kit.zip` per video (`python3 reels.py renders` lists them) | ✅ Releases; local `renders/` is scratch (git-ignored) |
+| Finished videos | Cloud renders are one-day **GitHub Actions artifacts**, downloaded into `renders/<id>/` by `reels.py cloud --wait`; permanent `<id>.mp4` + `<id>-kit.zip` Releases require the separate explicit `reels.py publish` command | ✅ local workspace; optional explicit Release |
 | Capture packs (screens, official clips, region map) | GitHub Release `capture-packs` (`tools/capture_store.py`) | ✅ pulled on demand by cloud jobs |
-| Rendering | **GitHub Actions** `render.yml`: one 4-vCPU runner per video, up to 5 in parallel (free for this public repo) | ✅ |
+| Rendering | **GitHub Actions** `render.yml`: one runner per video, up to 10 in parallel; uploads a one-day artifact (no Release) | ✅; artifact deleted after local download with `--wait` |
 | Toolchain (Node, HyperFrames CLI, FFmpeg, Chrome, Kokoro, whisper) | `/usr/local`, `~/.cache/hyperframes` | ❌ `bootstrap.sh` reinstalls it |
 | Intermediates (voice, mix, HTML project) | `/var/tmp/reels/<id>/` | ❌ regenerated per job |
 | GitHub token | `~/.config/reels-studio/gh_token` (chmod 600, **outside the git tree**), or env `GH_TOKEN` | ✅ persists in the private workspace; **never committed** (sync blocks token patterns) |
@@ -60,8 +61,8 @@ python3 reels.py social --account <tiktok/yt url> --top 2  # competitors' script
 python3 tools/idea_feed.py --days 7                        # what the 21 watchlist channels cover (consensus topics) -> backlog
 python3 tools/channel_study.py report                      # benchmark-account study (stats, transcripts, visual)
 python3 tools/seo_pack.py briefs/<id>.json                 # validated copy for YouTube/TikTok/IG/FB/X -> renders/<id>/seo.md
-python3 reels.py cloud <id> [<id> ...] --wait               # RENDER IN THE CLOUD: up to 5 videos in parallel -> Release
-python3 reels.py renders                                   # all published videos + post kits (download links)
+python3 reels.py cloud <id> [<id> ...] --wait               # RENDER in cloud -> download artifact locally, delete temp artifact; no Release
+python3 reels.py renders                                   # list permanently published videos + post kits (Release links)
 python3 reels.py make  briefs/<id>.json --quality looks --crf 23   # local render (sandbox: ~17-27 min per video)
 python3 reels.py make  briefs/x.json --no-render           # fast iteration: build + lint + check only
 python3 reels.py publish renders/<id>                      # upload a LOCAL render: <id>.mp4 + <id>-kit.zip
@@ -73,7 +74,7 @@ python3 tools/tts_roundtrip.py --suite                     # test any voice/lang
 ```
 
 **Token safety:** the token lives in `~/.config/reels-studio/gh_token` (outside the repo, chmod 600). `sync` and `publish` read it at call time through a one-shot credential helper, so it never reaches `.git/config`, logs or the repo. `sync` also **aborts if any staged change contains a token-like string**.
-Use a fine-grained token limited to this repo, with **Contents, Workflows and Actions: read & write** (cloud render). Rotate it if it was ever pasted somewhere public.
+Use a fine-grained token limited to this repo: **Actions read/write** for dispatch, logs, and temporary-artifact cleanup; **Contents read** for capture-pack downloads; add **Contents write** only if you explicitly sync or publish a Release. The workflow's own token is restricted to `contents: read`. Rotate the token if it was ever pasted somewhere public.
 
 ## Research inside the repo
 
@@ -165,7 +166,7 @@ Rules: [`CONTEXT-PROTOCOL.md`](CONTEXT-PROTOCOL.md).
 Limits of this sandbox:
 - about 6–8 minutes per 35–45 s video on 2 vCPU;
 - sandboxes reset without warning. `bootstrap.sh` restores the toolchain in about 3 min (measured: 189 s after a real reset), while files persist;
-- the workspace holds about 128 MB. Videos go to GitHub Releases (`reels.py publish`), not the workspace;
+- the workspace holds about 128 MB. Cloud render artifacts are downloaded into `renders/<id>/` and deleted remotely after `--wait`; use `reels.py publish` only when a permanent Release is explicitly requested;
 - **2 GB RAM: run one heavy job at a time.** A render (Chrome + FFmpeg) needs about 1.2 GB. Never load Kokoro or whisper in parallel; doing so once got the render OOM-killed. The pipeline frees the TTS model before rendering for this reason.
 
 ## Adding a template

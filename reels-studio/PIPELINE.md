@@ -9,7 +9,7 @@ The interactive agent runs research/production; approved-render Buffer delivery 
 
 ```
  1 DISCOVER ──► 2 SELECT ──► 3 RESEARCH ──► 4 SCRIPT ──► 5 VOICE ──► 6 ASSETS ──► 7 ASSEMBLE ──► 8 QA ──► 9 PUBLISH ──► 10 LEARN
- radar+social    score≥60     fact sheet      brief.json    Kokoro      capture pack   template      gates    Release+kit   metrics
+ radar+social    score≥60     fact sheet      brief.json    Kokoro      capture pack   template      gates    temp artifact; explicit Release only when authorized   metrics
                                                                                                                     └──────► feeds 1-2
 ```
 
@@ -174,7 +174,8 @@ Template = HTML/GSAP scenes rendered by HyperFrames (deterministic, frame-exact)
 ## 9. Package + publish
 
 - **Post kit** (`renders/<id>/post.md`): 3 titles, caption, 3–5 hashtags, pinned comment (links + catches), cover frame, SRT captions, credits.
-- **Storage:** GitHub Release (`reels.py publish`) + post kit in git (`reels.py sync`).
+- **Render delivery:** cloud jobs upload a one-day Actions artifact; `reels.py cloud --wait` downloads it into `renders/<id>/` and deletes the temporary artifact. No permanent Release is created by the render workflow.
+- **Permanent storage:** only if explicitly authorized, `reels.py publish` creates a GitHub Release; `reels.py sync` is a separate git write.
 - **Upload:**
   - Now: the user uploads natively to each platform (no cross-watermarks).
   - Later, optionally, via official APIs only: YouTube Data API, Instagram Graph API (Business/Creator account), TikTok Content Posting API. Each needs the user's account authorisation. No cookie bots (ban risk).
@@ -198,8 +199,8 @@ Template = HTML/GSAP scenes rendered by HyperFrames (deterministic, frame-exact)
 | Images | Pillow | HPND | preinstalled |
 | Trend data | GitHub REST API, Hugging Face API | free | none needed |
 | Research | agent web search + page fetch | – | agent |
-| Cloud render (3–10/day) | GitHub Actions matrix (public repo = free) | free | needs token Workflows + Actions permissions |
-| Storage / SSOT | GitHub repo + Releases | free | token in `~/.config/reels-studio/` (persistent, outside git) |
+| Cloud render (3–10/day) | GitHub Actions matrix; one-day artifact, downloaded and deleted after `--wait` | free | needs Actions read/write for dispatch, logs, and artifact cleanup |
+| Storage / SSOT | GitHub repo; permanent Release only via explicit `reels.py publish` | free | Contents read for source packs; Contents write only for explicit sync/publish |
 
 **Known access limits (tested 2026-10-07):**
 - TikTok profiles and videos work without login.
