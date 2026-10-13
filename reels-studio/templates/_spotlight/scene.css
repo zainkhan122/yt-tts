@@ -39,9 +39,9 @@
   letter-spacing: 0.08em; color: var(--muted); opacity: 0; }
 
 /* ---------- chips + credits ---------- */
-.sp-chip { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; max-width: 900px; padding: 16px 34px;
-  border-radius: 999px; background: var(--cap-key); color: var(--ink); font: 900 40px/1.1 "Inter"; text-transform: uppercase;
-  letter-spacing: 0.03em; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45); opacity: 0; white-space: nowrap; }
+.sp-chip { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; max-width: 900px; padding: 10px 30px;
+  border-radius: 999px; background: var(--cap-key); color: var(--ink); font: 900 74px/1.06 "Inter"; text-transform: uppercase;
+  letter-spacing: 0.005em; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45); opacity: 0; white-space: nowrap; }
 .sp-chip.dark { background: rgba(8, 12, 22, 0.86); color: #fff; border: 2px solid rgba(255, 255, 255, 0.18); }
 .sp-credit { position: absolute; left: 70px; right: 70px; text-align: center; font: 600 24px "Inter"; color: rgba(255, 255, 255, 0.62); opacity: 0; }
 

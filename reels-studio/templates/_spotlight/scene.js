@@ -277,7 +277,7 @@
                 tl.fromTo(card, { scale: 1 }, { scale: 1.05, duration: Math.max(0.1, z - a), ease: "none", immediateRender: false }, a);
               }
               const chip = A.mk("div", "sp-chip", root, c.label || "");
-              chip.style.top = "452px";
+              chip.style.top = "430px";
               tl.fromTo(chip, { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2.5)", immediateRender: false }, a + 0.08);
               if (k + 1 < cuts.length) tl.set(chip, { opacity: 0 }, z);
             });
