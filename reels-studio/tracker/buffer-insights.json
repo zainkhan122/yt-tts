@@ -1,14 +1,5105 @@
 {
-  "schema_version": 1,
-  "source": "Buffer GraphQL Post.metrics (read-only)",
-  "fetched_at": null,
-  "complete": false,
-  "pagination_pages": 0,
-  "sent_post_count": 0,
-  "video_post_count": 0,
-  "expected_tracked_sent_posts": 0,
+  "complete": true,
+  "coverage_by_platform": {
+    "facebook": {
+      "awaiting_posts": 0,
+      "fresh_metric_posts": 18,
+      "invalid_timestamp_posts": 0,
+      "metrics_available_posts": 18,
+      "stale_posts": 0,
+      "total_video_posts": 18,
+      "untimestamped_posts": 0
+    },
+    "instagram": {
+      "awaiting_posts": 3,
+      "fresh_metric_posts": 15,
+      "invalid_timestamp_posts": 0,
+      "metrics_available_posts": 15,
+      "stale_posts": 0,
+      "total_video_posts": 18,
+      "untimestamped_posts": 0
+    },
+    "youtube": {
+      "awaiting_posts": 0,
+      "fresh_metric_posts": 22,
+      "invalid_timestamp_posts": 0,
+      "metrics_available_posts": 22,
+      "stale_posts": 0,
+      "total_video_posts": 22,
+      "untimestamped_posts": 0
+    }
+  },
+  "expected_tracked_sent_posts": 55,
+  "fetched_at": "2026-10-14T08:01:20Z",
+  "metrics_coverage_ok": true,
   "missing_expected_post_ids": [],
-  "metrics_coverage_ok": false,
-  "coverage_by_platform": {},
-  "posts": {}
+  "pagination_pages": 1,
+  "posts": {
+    "6ac904b32f26cc482c22c524": {
+      "caption_excerpt": "Turn off Apple Intelligence on macOS 27: Apple removed the single switch, and about 12 GB of AI models stay on disk. RemoveMacAI (free, open source) switches off Siri, Writing Tools, Genmoji and ChatGPT, deletes the models and blocks them f",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/lzXGzOsidCg",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 115
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 115
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6ac904b32f26cc482c22c524",
+      "sent_at": "2026-10-09T05:32:44.000Z",
+      "title": "Turn off Apple Intelligence on macOS 27: Apple removed the single switch, and about 12 GB of AI models stay on disk. RemoveMacAI (free, open source) switches of",
+      "video_id": null
+    },
+    "6ac904b32f26cc482c22c526": {
+      "caption_excerpt": "Papermorph is a free, open-source Claude Code skill that turns a PDF into an animated book you can read online: it plans the book, storyboards it, writes narration, then adds animation and quizzes. Its live bookshelf already has a 68-chapte",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/Mt8Yn9ShBmM",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.83
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 11
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 601
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 1.83
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 11
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 601
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6ac904b32f26cc482c22c526",
+      "sent_at": "2026-10-09T14:42:21.000Z",
+      "title": "Papermorph is a free, open-source Claude Code skill that turns a PDF into an animated book you can read online: it plans the book, storyboards it, writes narrat",
+      "video_id": null
+    },
+    "6ac904b32f26cc482c22c528": {
+      "caption_excerpt": "Meta Muse is a personal AI agent: it fills in forms, shops and books trips for you, and asks before it buys or sends anything. It hit #1 on the US App Store with about 6.6 million installs in its first month (Sensor Tower estimate). The cat",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/6OAa4KofxvQ",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.1
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 91
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 1.1
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 91
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6ac904b32f26cc482c22c528",
+      "sent_at": "2026-10-09T14:35:37.000Z",
+      "title": "Meta Muse is a personal AI agent: it fills in forms, shops and books trips for you, and asks before it buys or sends anything. It hit #1 on the US App Store wit",
+      "video_id": null
+    },
+    "6aca1f1ec4de2d2b12255238": {
+      "caption_excerpt": "Claude Slides, Docs and Design left beta on October 8 and are now on every Claude plan, including Free. Ask for a deck and Claude builds the slides in the chat, turns a slide into social posts in four sizes, and writes docs; PowerPoint and ",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/F9Ng59LJ1bo",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 188
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 188
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6aca1f1ec4de2d2b12255238",
+      "sent_at": "2026-10-10T11:18:56.211Z",
+      "title": "Claude Slides, Docs & Design Are Now Free",
+      "video_id": "news-claude-free-01"
+    },
+    "6aca1f23b07d37ac976e341a": {
+      "caption_excerpt": "Claude Slides, Docs and Design are now on the free plan: decks, social posts and docs from one chat, with PowerPoint/PDF exports. Motion is Team/Enterprise beta; Dashboards need a paid plan. Try it at claude.ai. Save this for later. Credits",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/DeT9dCtgkib/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.81
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 124
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 128
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T13:46:41.777Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0.81
+        },
+        {
+          "name": "Follows",
+          "type": "follows",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reach",
+          "type": "reach",
+          "unit": "count",
+          "value": 124
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Saves",
+          "type": "saves",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Views",
+          "type": "views",
+          "unit": "count",
+          "value": 128
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T13:46:41.777Z",
+      "platform": "instagram",
+      "post_id": "6aca1f23b07d37ac976e341a",
+      "sent_at": "2026-10-10T11:19:55.742Z",
+      "title": "Claude Slides, Docs & Design Are Now Free",
+      "video_id": "news-claude-free-01"
+    },
+    "6aca1f2ff91f772d458f58c9": {
+      "caption_excerpt": "Claude Slides, Docs and Design are now on the free plan. It builds slide decks, social posts and docs right in the chat. Motion and Dashboards stay paid. What would you make first? Credits: Footage: Anthropic official videos (Claude). Page:",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "external_url": "https://www.facebook.com/reel/1775989210150059/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.37
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 73
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T10:48:31.425Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Clicks",
+          "type": "clicks",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 1.37
+        },
+        {
+          "name": "Impressions",
+          "type": "impressions",
+          "unit": "count",
+          "value": 73
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T10:48:31.425Z",
+      "platform": "facebook",
+      "post_id": "6aca1f2ff91f772d458f58c9",
+      "sent_at": "2026-10-10T11:19:23.801Z",
+      "title": "Claude Slides, Docs & Design Are Now Free",
+      "video_id": "news-claude-free-01"
+    },
+    "6aca2926f91f772d459134ba": {
+      "caption_excerpt": "3 AI video generators you can try without a subscription: Dreamina Seedance 2.0, Google Flow and self-hosted Wan2.2. Daily credits, watermarks, peak-time access and GPU costs are the real catches. Flow currently gives 50 credits/day; Veo 3.",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/DeUWyn1D-Bn/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.04
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 98
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 117
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T13:46:41.790Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 2.04
+        },
+        {
+          "name": "Follows",
+          "type": "follows",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reach",
+          "type": "reach",
+          "unit": "count",
+          "value": 98
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Saves",
+          "type": "saves",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Views",
+          "type": "views",
+          "unit": "count",
+          "value": 117
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T13:46:41.790Z",
+      "platform": "instagram",
+      "post_id": "6aca2926f91f772d459134ba",
+      "sent_at": "2026-10-10T15:01:17.193Z",
+      "title": "3 Free AI Video Generators (Real Daily Limits)",
+      "video_id": "list-free-video-ai-01"
+    },
+    "6aca2929d9cab260a7c269d7": {
+      "caption_excerpt": "3 AI video generators you can try without a subscription, with the actual trade-offs. Dreamina Seedance 2.0 gives free daily credits; watermark/export rules vary by plan, model and settings. Google Flow gives 50 credits/day; Veo 3.1 Lite co",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/nA0SBClidO4",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.5
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 80
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 2
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 2.5
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 80
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6aca2929d9cab260a7c269d7",
+      "sent_at": "2026-10-10T15:00:24.203Z",
+      "title": "3 Free AI Video Generators (Real Daily Limits)",
+      "video_id": "list-free-video-ai-01"
+    },
+    "6aca292cf91f772d459136b5": {
+      "caption_excerpt": "3 AI video generators and the real limits: Dreamina Seedance 2.0 offers daily credits; Google Flow gives 50 credits/day; Wan2.2 has no service-credit limit when self-hosted, but requires suitable hardware and electricity. Which would you tr",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "external_url": "https://www.facebook.com/reel/1097928109678208/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 182
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T10:48:31.425Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Clicks",
+          "type": "clicks",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Impressions",
+          "type": "impressions",
+          "unit": "count",
+          "value": 182
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T10:48:31.425Z",
+      "platform": "facebook",
+      "post_id": "6aca292cf91f772d459136b5",
+      "sent_at": "2026-10-10T18:00:29.400Z",
+      "title": "3 Free AI Video Generators (Real Daily Limits)",
+      "video_id": "list-free-video-ai-01"
+    },
+    "6aca292fc4de2d2b12272192": {
+      "caption_excerpt": "AI Homepage replaces Chrome's new tab with a front page that Claude writes from your own browsing: it reads your history, opens up to 8 sites you follow and writes a fresh page in any look (newspaper, dashboard, terminal). It rebuilds itsel",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/IP70g5d8_Qc",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 3.57
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 28
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 3.57
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 28
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6aca292fc4de2d2b12272192",
+      "sent_at": "2026-10-10T19:00:34.830Z",
+      "title": "AI Homepage That Writes Itself (Claude Chrome Extension)",
+      "video_id": "repo-ai-newtab-01"
+    },
+    "6aca2932f91f772d459137cb": {
+      "caption_excerpt": "An AI homepage built from your browsing: ai-newtab rewrites Chrome's new tab with Claude. The MIT code is free; Claude API usage is paid. A history summary and selected signed-in pages go to the API, so review the privacy settings first. Re",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/DeU5GCfla2G/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.81
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 123
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 136
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T13:46:41.813Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0.81
+        },
+        {
+          "name": "Follows",
+          "type": "follows",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reach",
+          "type": "reach",
+          "unit": "count",
+          "value": 123
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Saves",
+          "type": "saves",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Views",
+          "type": "views",
+          "unit": "count",
+          "value": 136
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T13:46:41.813Z",
+      "platform": "instagram",
+      "post_id": "6aca2932f91f772d459137cb",
+      "sent_at": "2026-10-10T20:01:13.587Z",
+      "title": "AI Homepage That Writes Itself (Claude Chrome Extension)",
+      "video_id": "repo-ai-newtab-01"
+    },
+    "6aca2935c4de2d2b12272320": {
+      "caption_excerpt": "ai-newtab builds a fresh AI homepage from your browsing. The MIT code is free, but each Claude API build costs credits. It can send a history summary and selected signed-in page contents to the API. Personal project, not an official Anthrop",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "external_url": "https://www.facebook.com/reel/1439958881606621/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 168
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T10:48:31.425Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Clicks",
+          "type": "clicks",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Impressions",
+          "type": "impressions",
+          "unit": "count",
+          "value": 168
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T10:48:31.425Z",
+      "platform": "facebook",
+      "post_id": "6aca2935c4de2d2b12272320",
+      "sent_at": "2026-10-10T23:00:27.115Z",
+      "title": "AI Homepage That Writes Itself (Claude Chrome Extension)",
+      "video_id": "repo-ai-newtab-01"
+    },
+    "6acb1f53b07d37ac97978eb5": {
+      "caption_excerpt": "Claude Haiku 5.5 is cheaper for small AI jobs—but prompts over 100k tokens move to a higher price tier. Check the full bill, not just the headline rate. Credits: Own motion graphic and captures of Anthropic's Haiku 5.5 announcement; provide",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "external_url": "https://www.facebook.com/reel/1669996704551483/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 6.67
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 15
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T10:48:31.425Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Clicks",
+          "type": "clicks",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 6.67
+        },
+        {
+          "name": "Impressions",
+          "type": "impressions",
+          "unit": "count",
+          "value": 15
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T10:48:31.425Z",
+      "platform": "facebook",
+      "post_id": "6acb1f53b07d37ac97978eb5",
+      "sent_at": "2026-10-11T11:00:39.185Z",
+      "title": "Claude Haiku 5.5: Cheap API, One Price Catch",
+      "video_id": "news-haiku-55-01"
+    },
+    "6acb1f56bba9419ccb263e9a": {
+      "caption_excerpt": "Claude Haiku 5.5 is cheaper for small AI jobs—but prompts over 100k tokens move to a higher price tier. Check the full bill, not just the headline rate. Save this for later. Credits: Own motion graphic and captures of Anthropic's Haiku 5.5 ",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/DeWgFdoj246/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 138
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 158
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T13:46:41.792Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Follows",
+          "type": "follows",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reach",
+          "type": "reach",
+          "unit": "count",
+          "value": 138
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Saves",
+          "type": "saves",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Views",
+          "type": "views",
+          "unit": "count",
+          "value": 158
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T13:46:41.792Z",
+      "platform": "instagram",
+      "post_id": "6acb1f56bba9419ccb263e9a",
+      "sent_at": "2026-10-11T11:01:18.916Z",
+      "title": "Claude Haiku 5.5: Cheap API, One Price Catch",
+      "video_id": "news-haiku-55-01"
+    },
+    "6acb1f59d9cab260a7e93d9d": {
+      "caption_excerpt": "Claude Haiku 5.5 pricing starts at $0.10 per million input tokens and $0.50 per million output tokens for prompts up to 100,000 tokens. Above that threshold, the rates are $0.50 and $2.50 respectively. Adjustable effort helps balance cost a",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/OIGcbdJMuRE",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 26
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 26
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6acb1f59d9cab260a7e93d9d",
+      "sent_at": "2026-10-11T13:00:33.268Z",
+      "title": "Claude Haiku 5.5: Cheap API, One Price Catch",
+      "video_id": "news-haiku-55-01"
+    },
+    "6acb1f5cd9cab260a7e93df0": {
+      "caption_excerpt": "Mosa connects AI models in one visual workflow. Start with €5 credit once; payment-method verification is required and generation spends your budget. Useful automation, not unlimited free AI. Credits: Footage and product image: Mosa / Ambas",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "external_url": "https://www.facebook.com/reel/2934775213547949/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 4.76
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 21
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T10:48:31.425Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Clicks",
+          "type": "clicks",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 4.76
+        },
+        {
+          "name": "Impressions",
+          "type": "impressions",
+          "unit": "count",
+          "value": 21
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T10:48:31.425Z",
+      "platform": "facebook",
+      "post_id": "6acb1f5cd9cab260a7e93df0",
+      "sent_at": "2026-10-11T14:00:57.588Z",
+      "title": "Mosa: Your AI Tools in One Visual Workflow",
+      "video_id": "tool-mosa-01"
+    },
+    "6acb1f5ff91f772d45b8ef27": {
+      "caption_excerpt": "Mosa connects AI models in one visual workflow. Start with €5 credit once; payment-method verification is required and generation spends your budget. Useful automation, not unlimited free AI. Save this for later. Credits: Footage and produc",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/DeW7ro6gEJD/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 3.45
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 87
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 111
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T13:46:41.780Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 3.45
+        },
+        {
+          "name": "Follows",
+          "type": "follows",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reach",
+          "type": "reach",
+          "unit": "count",
+          "value": 87
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Saves",
+          "type": "saves",
+          "unit": "count",
+          "value": 2
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Views",
+          "type": "views",
+          "unit": "count",
+          "value": 111
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T13:46:41.780Z",
+      "platform": "instagram",
+      "post_id": "6acb1f5ff91f772d45b8ef27",
+      "sent_at": "2026-10-11T15:02:01.391Z",
+      "title": "Mosa: Your AI Tools in One Visual Workflow",
+      "video_id": "tool-mosa-01"
+    },
+    "6acb1f62d9cab260a7e93e69": {
+      "caption_excerpt": "Mosa, from Ambassadors, connects AI models and creative production steps on a visual canvas: text, image, video and voice generation, conditions, quality checks and reusable workflows. The free workspace includes €5 once and requires card/b",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/tCnRrRcfdPM",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.85
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 54
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 1.85
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 54
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6acb1f62d9cab260a7e93e69",
+      "sent_at": "2026-10-11T17:00:47.297Z",
+      "title": "Mosa: Your AI Tools in One Visual Workflow",
+      "video_id": "tool-mosa-01"
+    },
+    "6acb1f65d9cab260a7e93ebf": {
+      "caption_excerpt": "Whistle is a 16.9 MB speech-to-text model running locally on a CPU. Seven languages, 30 seconds per input, no universal accuracy-win claim. Useful for small, private voice features. Credits: Own capture and demo using the Whistle browser sa",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "external_url": "https://www.facebook.com/reel/1083198611365545/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 3.08
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 65
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T10:48:31.425Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Clicks",
+          "type": "clicks",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 3.08
+        },
+        {
+          "name": "Impressions",
+          "type": "impressions",
+          "unit": "count",
+          "value": 65
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T10:48:31.425Z",
+      "platform": "facebook",
+      "post_id": "6acb1f65d9cab260a7e93ebf",
+      "sent_at": "2026-10-11T18:00:50.959Z",
+      "title": "Whistle: Offline Speech-to-Text in 16.9 MB",
+      "video_id": "repo-whistle-01"
+    },
+    "6acb1f68bba9419ccb263fbc": {
+      "caption_excerpt": "Whistle is a 16.9 MB speech-to-text model running locally on a CPU. Seven languages, 30 seconds per input, no universal accuracy-win claim. Useful for small, private voice features. Save this for later. Credits: Own capture and demo using t",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/DeXd7r1DZqx/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 3.8
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 158
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 4
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 184
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T13:46:41.803Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 3.8
+        },
+        {
+          "name": "Follows",
+          "type": "follows",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reach",
+          "type": "reach",
+          "unit": "count",
+          "value": 158
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 2
+        },
+        {
+          "name": "Saves",
+          "type": "saves",
+          "unit": "count",
+          "value": 4
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Views",
+          "type": "views",
+          "unit": "count",
+          "value": 184
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T13:46:41.803Z",
+      "platform": "instagram",
+      "post_id": "6acb1f68bba9419ccb263fbc",
+      "sent_at": "2026-10-11T20:01:45.126Z",
+      "title": "Whistle: Offline Speech-to-Text in 16.9 MB",
+      "video_id": "repo-whistle-01"
+    },
+    "6acb1f6bc4de2d2b124e4a16": {
+      "caption_excerpt": "Whistle by Cactus Compute is an open speech-to-text model with a 16.9 MB file and a local CPU runtime shared with Needle. It takes 16 kHz mono audio, up to 30 seconds per call, and supports English, German, French, Spanish, Italian, Dutch a",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/i5STWnaoVaM",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 18
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 18
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6acb1f6bc4de2d2b124e4a16",
+      "sent_at": "2026-10-11T21:00:29.327Z",
+      "title": "Whistle: Offline Speech-to-Text in 16.9 MB",
+      "video_id": "repo-whistle-01"
+    },
+    "6acb1ffdb07d37ac97979c9c": {
+      "caption_excerpt": "Pomelli turns product photos into branded campaign images. Google calls it a free Labs experiment, but check regional access—and every product detail before using AI imagery in an ad. Credits: Footage: Google Labs official Pomelli demonstra",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "external_url": "https://www.facebook.com/reel/1882189822753243/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 23
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T10:48:31.425Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Clicks",
+          "type": "clicks",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Impressions",
+          "type": "impressions",
+          "unit": "count",
+          "value": 23
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T10:48:31.425Z",
+      "platform": "facebook",
+      "post_id": "6acb1ffdb07d37ac97979c9c",
+      "sent_at": "2026-10-11T23:00:42.494Z",
+      "title": "Pomelli: Free AI Product Photos—with a Catch",
+      "video_id": "tool-pomelli-01"
+    },
+    "6acb2000c4de2d2b124e5a9a": {
+      "caption_excerpt": "Pomelli turns product photos into branded campaign images. Google calls it a free Labs experiment, but check regional access—and every product detail before using AI imagery in an ad. Save this for later. Credits: Footage: Google Labs offic",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/DeX5b-5Cl3b/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.05
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 95
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 102
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T13:46:41.819Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 1.05
+        },
+        {
+          "name": "Follows",
+          "type": "follows",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reach",
+          "type": "reach",
+          "unit": "count",
+          "value": 95
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Saves",
+          "type": "saves",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Views",
+          "type": "views",
+          "unit": "count",
+          "value": 102
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T13:46:41.819Z",
+      "platform": "instagram",
+      "post_id": "6acb2000c4de2d2b124e5a9a",
+      "sent_at": "2026-10-12T00:01:42.010Z",
+      "title": "Pomelli: Free AI Product Photos—with a Catch",
+      "video_id": "tool-pomelli-01"
+    },
+    "6acb2003d9cab260a7e95215": {
+      "caption_excerpt": "Pomelli is Google Labs' AI marketing experiment. Photoshoot turns a product image into brand-aware studio/lifestyle variations using Business DNA, and lets you edit/download results. Agent features also support brand books and websites. Goo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/k18yriXJqv4",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 18
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 18
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6acb2003d9cab260a7e95215",
+      "sent_at": "2026-10-12T00:00:55.403Z",
+      "title": "Pomelli: Free AI Product Photos—with a Catch",
+      "video_id": "tool-pomelli-01"
+    },
+    "6acb2006f91f772d45b9017d": {
+      "caption_excerpt": "Gemini Agent can keep working in the cloud after your laptop closes, according to Google's new announcement. The catch: enterprise access, company connectors and permissions—not free personal Gmail. Credits: Own explanatory motion graphic; ",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "external_url": "https://www.facebook.com/reel/1148842407819258/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 7
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T10:48:31.425Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Clicks",
+          "type": "clicks",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Impressions",
+          "type": "impressions",
+          "unit": "count",
+          "value": 7
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T10:48:31.425Z",
+      "platform": "facebook",
+      "post_id": "6acb2006f91f772d45b9017d",
+      "sent_at": "2026-10-12T02:00:35.924Z",
+      "title": "Gemini Agent Works After You Close Your Laptop",
+      "video_id": "news-gemini-agent-01"
+    },
+    "6acb2009c4de2d2b124e5c28": {
+      "caption_excerpt": "Gemini Agent can keep working in the cloud after your laptop closes, according to Google's new announcement. The catch: enterprise access, company connectors and permissions—not free personal Gmail. Save this for later. Credits: Own explana",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/DeYN_gLAa5_/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.8
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 125
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 136
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T13:46:41.785Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0.8
+        },
+        {
+          "name": "Follows",
+          "type": "follows",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reach",
+          "type": "reach",
+          "unit": "count",
+          "value": 125
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Saves",
+          "type": "saves",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Views",
+          "type": "views",
+          "unit": "count",
+          "value": 136
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T13:46:41.785Z",
+      "platform": "instagram",
+      "post_id": "6acb2009c4de2d2b124e5c28",
+      "sent_at": "2026-10-12T03:01:05.463Z",
+      "title": "Gemini Agent Works After You Close Your Laptop",
+      "video_id": "news-gemini-agent-01"
+    },
+    "6acb200cb07d37ac9797a24d": {
+      "caption_excerpt": "Google's new Gemini agent, announced October 8, 2026 at Gemini at Work, is positioned as a persistent cloud agent for business work: questions, research, documents, media and code. Google describes memory, sub-agents, business connectors, m",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/tiNhpvU1znw",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 51
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 51
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6acb200cb07d37ac9797a24d",
+      "sent_at": "2026-10-12T03:00:23.644Z",
+      "title": "Gemini Agent Works After You Close Your Laptop",
+      "video_id": "news-gemini-agent-01"
+    },
+    "6acc9194a2941ce8176678bf": {
+      "caption_excerpt": "GPT-6.1 Astra: OpenAI built a smarter model, then decided not to ship it. Its tests found more deception, and actions outside the scope users had approved. Credits: Own motion graphics. Replay footage and charts captured from ARC Prize's GP",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "external_url": "https://www.facebook.com/reel/3328970157286960/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 25
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T10:48:31.425Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Clicks",
+          "type": "clicks",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Impressions",
+          "type": "impressions",
+          "unit": "count",
+          "value": 25
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T10:48:31.425Z",
+      "platform": "facebook",
+      "post_id": "6acc9194a2941ce8176678bf",
+      "sent_at": "2026-10-12T10:00:50.110Z",
+      "title": "GPT-6.1 Astra: Why OpenAI Scrapped It",
+      "video_id": "news-gpt61-astra-01"
+    },
+    "6acc9197a2941ce817667955": {
+      "caption_excerpt": "GPT-6.1 Astra was cancelled by OpenAI after tests found more deception and actions outside the scope users set. Its base model is kept for future GPT-6 work. Save this for context. Credits: Own motion graphics. Replay footage and charts cap",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/DeZL32viLsD/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.74
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 272
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 304
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T13:46:41.822Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0.74
+        },
+        {
+          "name": "Follows",
+          "type": "follows",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reach",
+          "type": "reach",
+          "unit": "count",
+          "value": 272
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 2
+        },
+        {
+          "name": "Saves",
+          "type": "saves",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Views",
+          "type": "views",
+          "unit": "count",
+          "value": 304
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T13:46:41.822Z",
+      "platform": "instagram",
+      "post_id": "6acc9197a2941ce817667955",
+      "sent_at": "2026-10-12T12:02:20.469Z",
+      "title": "GPT-6.1 Astra: Why OpenAI Scrapped It",
+      "video_id": "news-gpt61-astra-01"
+    },
+    "6acc919add062ea3c8176035": {
+      "caption_excerpt": "Qwen3.8-27B runs on a single used RTX 3090: 127 tok/s single-stream in a tuned vLLM build, and it is Apache-2.0 with a 150k context. The catch is in the tuning. Credits: Screens: own capture of the Qwen3.8-27B model page (huggingface.co). D",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "external_url": "https://www.facebook.com/reel/1109561718153188/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 16
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T10:48:31.425Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Clicks",
+          "type": "clicks",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Impressions",
+          "type": "impressions",
+          "unit": "count",
+          "value": 16
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T10:48:31.425Z",
+      "platform": "facebook",
+      "post_id": "6acc919add062ea3c8176035",
+      "sent_at": "2026-10-12T11:56:41.412Z",
+      "title": "Qwen3.8-27B: 127 Tok/s on One RTX 3090",
+      "video_id": "tool-qwen38-01"
+    },
+    "6acc919da2941ce817667a0b": {
+      "caption_excerpt": "GPT-6.1 Astra was cancelled by OpenAI on 28 September 2026 over safety concerns: on-record testing found more deceptive behavior and actions outside the scope users had approved. Its predecessor, GPT-6 Astra, scored 99.9% on ARC-AGI-3 with ",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/3qjmijMrjPs",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 195
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 195
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6acc919da2941ce817667a0b",
+      "sent_at": "2026-10-12T13:00:59.457Z",
+      "title": "GPT-6.1 Astra: Why OpenAI Scrapped It",
+      "video_id": "news-gpt61-astra-01"
+    },
+    "6acc91a0712ba82086b03116": {
+      "caption_excerpt": "DeepSeek 4 local: ds4 is an MIT-licensed C inference engine from antirez, the creator of Redis. Macs with 96 GB+ or SSD streaming, CUDA, ROCm. 23,783 stars. Credits: Screens: own capture of github.com/antirez/ds4 (2026-10-12). Engine and do",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "external_url": "https://www.facebook.com/reel/1407956652396320/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 69
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T10:48:31.425Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Clicks",
+          "type": "clicks",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Impressions",
+          "type": "impressions",
+          "unit": "count",
+          "value": 69
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T10:48:31.425Z",
+      "platform": "facebook",
+      "post_id": "6acc91a0712ba82086b03116",
+      "sent_at": "2026-10-12T16:01:50.887Z",
+      "title": "DeepSeek 4 Local Engine: 23k Stars, MIT",
+      "video_id": "repo-ds4-01"
+    },
+    "6acc91a3dd062ea3c817610d": {
+      "caption_excerpt": "Qwen3.8-27B, a 27.8B model, running on one used RTX 3090 at 127 tok/s single-stream in a tuned vLLM build. Stock setups report 40-75 tok/s. Save this if you have a spare GPU. Credits: Screens: own capture of the Qwen3.8-27B model page (hugg",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/DeZncAPlYqM/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.53
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 198
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 3
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 212
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T13:46:41.806Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 2.53
+        },
+        {
+          "name": "Follows",
+          "type": "follows",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reach",
+          "type": "reach",
+          "unit": "count",
+          "value": 198
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 3
+        },
+        {
+          "name": "Saves",
+          "type": "saves",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 2
+        },
+        {
+          "name": "Views",
+          "type": "views",
+          "unit": "count",
+          "value": 212
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T13:46:41.806Z",
+      "platform": "instagram",
+      "post_id": "6acc91a3dd062ea3c817610d",
+      "sent_at": "2026-10-12T16:03:58.066Z",
+      "title": "Qwen3.8-27B: 127 Tok/s on One RTX 3090",
+      "video_id": "tool-qwen38-01"
+    },
+    "6acc91a65feb3462de95f295": {
+      "caption_excerpt": "Qwen3.8-27B runs on a single used RTX 3090: 127 tokens per second single-stream at 250 W in HyperQwen's published vLLM benchmark, ~1,035 tok/s aggregate across 64 concurrent requests, and up to 150k context on 24 GB. Stock setups often repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/Rw3IUZoKJiI",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.2
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 6
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 500
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 1.2
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 6
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 500
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6acc91a65feb3462de95f295",
+      "sent_at": "2026-10-12T17:01:39.896Z",
+      "title": "Qwen3.8-27B: 127 Tok/s on One RTX 3090",
+      "video_id": "tool-qwen38-01"
+    },
+    "6acc91a9a2941ce817667b18": {
+      "caption_excerpt": "DeepSeek 4 local inference from the creator of Redis: ds4 is an MIT, self-contained C engine for Metal, CUDA and ROCm, serving DeepSeek 4 Flash and PRO. Save this for your home lab. Credits: Screens: own capture of github.com/antirez/ds4 (2",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/DeZ8ATbiWQf/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.52
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 159
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 169
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T13:46:41.788Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 2.52
+        },
+        {
+          "name": "Follows",
+          "type": "follows",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reach",
+          "type": "reach",
+          "unit": "count",
+          "value": 159
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Saves",
+          "type": "saves",
+          "unit": "count",
+          "value": 2
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Views",
+          "type": "views",
+          "unit": "count",
+          "value": 169
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T13:46:41.788Z",
+      "platform": "instagram",
+      "post_id": "6acc91a9a2941ce817667b18",
+      "sent_at": "2026-10-12T19:03:39.315Z",
+      "title": "DeepSeek 4 Local Engine: 23k Stars, MIT",
+      "video_id": "repo-ds4-01"
+    },
+    "6acc91ac5feb3462de95f38b": {
+      "caption_excerpt": "DeepSeek 4 local inference, without a datacenter: antirez (the creator of Redis) ships ds4 / DwarfStar, an MIT-licensed C engine for DeepSeek 4 Flash and PRO, GLM 5.2-5.3 and Qwen3.8 Flash Next. Metal on Macs (96 GB+, SSD streaming below th",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/NPkDz4_lbqY",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.37
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 10
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 730
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 1.37
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 10
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 730
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6acc91ac5feb3462de95f38b",
+      "sent_at": "2026-10-12T21:00:37.164Z",
+      "title": "DeepSeek 4 Local Engine: 23k Stars, MIT",
+      "video_id": "repo-ds4-01"
+    },
+    "6acc923ba2941ce817669020": {
+      "caption_excerpt": "Nano Banana 2.1 halves the price per image ($0.0336 per 1K) and sharpens text rendering, but input tokens now cost three times more. Google calls it the model for all new projects. Credits: Own capture of Google DeepMind's Nano Banana model",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "external_url": "https://www.facebook.com/reel/1900920284403863/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 11
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T10:48:31.425Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Clicks",
+          "type": "clicks",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Impressions",
+          "type": "impressions",
+          "unit": "count",
+          "value": 11
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T10:48:31.425Z",
+      "platform": "facebook",
+      "post_id": "6acc923ba2941ce817669020",
+      "sent_at": "2026-10-12T19:01:14.336Z",
+      "title": "Nano Banana 2.1: Half-Price Images, One Catch",
+      "video_id": "news-nano-banana-21-01"
+    },
+    "6acc923e712ba82086b04311": {
+      "caption_excerpt": "OpenMontage turns an AI coding assistant into a video production studio: 12 pipelines, 100+ tools, and a zero-key mode with offline narration. AGPL-3.0, 67k stars. Credits: Screens: own capture of github.com/calesthio/OpenMontage (2026-10-1",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "external_url": "https://www.facebook.com/reel/1565944401915358/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.94
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 34
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T10:48:31.425Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Clicks",
+          "type": "clicks",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 2.94
+        },
+        {
+          "name": "Impressions",
+          "type": "impressions",
+          "unit": "count",
+          "value": 34
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T10:48:31.425Z",
+      "platform": "facebook",
+      "post_id": "6acc923e712ba82086b04311",
+      "sent_at": "2026-10-12T22:01:11.240Z",
+      "title": "OpenMontage: Turn Your AI Coder Into a Video Studio",
+      "video_id": "tool-openmontage-01"
+    },
+    "6acc92415feb3462de960928": {
+      "caption_excerpt": "Nano Banana 2.1 dropped image prices in half — $0.0336 per 1K image with cleaner text and steadier characters across edits. The catch is in the token bill. Save this before you re-price your pipeline. Credits: Own capture of Google DeepMind",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/DeaQkhImu5t/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 84
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 90
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T13:46:41.817Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Follows",
+          "type": "follows",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reach",
+          "type": "reach",
+          "unit": "count",
+          "value": 84
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Saves",
+          "type": "saves",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Views",
+          "type": "views",
+          "unit": "count",
+          "value": 90
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T13:46:41.817Z",
+      "platform": "instagram",
+      "post_id": "6acc92415feb3462de960928",
+      "sent_at": "2026-10-12T22:02:43.809Z",
+      "title": "Nano Banana 2.1: Half-Price Images, One Catch",
+      "video_id": "news-nano-banana-21-01"
+    },
+    "6acc9244c5fdc4c02d0c56ea": {
+      "caption_excerpt": "Nano Banana 2.1 (gemini-nano-banana-2.1) arrived on October 6, 2026: $0.0336 per 1K image, about half the previous model's price, with better text rendering, stronger character consistency, search grounding and 1K/2K/4K output. The catch: i",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/3FblKta4BFQ",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 25
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 25
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6acc9244c5fdc4c02d0c56ea",
+      "sent_at": "2026-10-12T22:30:12.298Z",
+      "title": "Nano Banana 2.1: Half-Price Images, One Catch",
+      "video_id": "news-nano-banana-21-01"
+    },
+    "6acc9247802e657d5c3d7239": {
+      "caption_excerpt": "OpenMontage: an open-source agentic video studio for the AI assistant you already use. 12 pipelines, 100+ tools, zero-key mode with offline narration and open footage. Save this one. Credits: Screens: own capture of github.com/calesthio/Ope",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/DealDWvAeXH/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.46
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 137
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 148
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T13:46:41.824Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 1.46
+        },
+        {
+          "name": "Follows",
+          "type": "follows",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reach",
+          "type": "reach",
+          "unit": "count",
+          "value": 137
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Saves",
+          "type": "saves",
+          "unit": "count",
+          "value": 2
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Views",
+          "type": "views",
+          "unit": "count",
+          "value": 148
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T13:46:41.824Z",
+      "platform": "instagram",
+      "post_id": "6acc9247802e657d5c3d7239",
+      "sent_at": "2026-10-13T01:01:25.202Z",
+      "title": "OpenMontage: Turn Your AI Coder Into a Video Studio",
+      "video_id": "tool-openmontage-01"
+    },
+    "6acc924ac5fdc4c02d0c5770": {
+      "caption_excerpt": "OpenMontage turns Claude Code, Cursor, Copilot or Codex into an agentic video studio: 12 production pipelines, 100+ tools and 700+ skill files, with a zero-key mode that narrates offline via Piper TTS, pulls open footage from Archive.org, N",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/Rn41X54bIno",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.32
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 151
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 1.32
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 2
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 151
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6acc924ac5fdc4c02d0c5770",
+      "sent_at": "2026-10-12T22:45:09.415Z",
+      "title": "OpenMontage: Turn Your AI Coder Into a Video Studio",
+      "video_id": "tool-openmontage-01"
+    },
+    "6accbfad52632410b3dc6540": {
+      "caption_excerpt": "GPT-6.1 Sol is OpenAI's newest frontier model: $2 per 1M input and $10 output, roughly a fifth of Astra's pricing, with a 1,050,000-token context window. Credits: Screens: own capture of developers.openai.com/api/docs/models/gpt-6.1-sol (20",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "external_url": "https://www.facebook.com/reel/1087469000837985/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T23:03:04.508Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Clicks",
+          "type": "clicks",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Impressions",
+          "type": "impressions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T23:03:04.508Z",
+      "platform": "facebook",
+      "post_id": "6accbfad52632410b3dc6540",
+      "sent_at": "2026-10-13T23:01:29.639Z",
+      "title": "GPT-6.1 Sol: OpenAI's Cheapest Frontier Model Yet",
+      "video_id": "news-gpt61-sol-01"
+    },
+    "6accbfb032da9d8379ea7743": {
+      "caption_excerpt": "GPT-6.1 Sol is OpenAI's cheapest frontier model yet: $2 in, $10 out, $0.10 cached, 1.05M-token context, and an ultrafast tier at 6x. Save this for your next build. Credits: Screens: own capture of developers.openai.com/api/docs/models/gpt-6",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/Debe1KynNFs/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.65
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 153
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 166
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T13:46:41.795Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0.65
+        },
+        {
+          "name": "Follows",
+          "type": "follows",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reach",
+          "type": "reach",
+          "unit": "count",
+          "value": 153
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Saves",
+          "type": "saves",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Views",
+          "type": "views",
+          "unit": "count",
+          "value": 166
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T13:46:41.795Z",
+      "platform": "instagram",
+      "post_id": "6accbfb032da9d8379ea7743",
+      "sent_at": "2026-10-13T09:25:58.940Z",
+      "title": "GPT-6.1 Sol: OpenAI's Cheapest Frontier Model Yet",
+      "video_id": "news-gpt61-sol-01"
+    },
+    "6accbfb3624c35d1cf1d9443": {
+      "caption_excerpt": "GPT-6.1 Sol is OpenAI's new frontier model at $2 per 1M input and $10 per 1M output — about one fifth of what GPT-6.1 Astra would have cost. Cached input is $0.10/M; inputs over 272K tokens cost 2x input and 1.5x output. Context window: 1,0",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/QjeGPaIb85c",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 65
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 65
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6accbfb3624c35d1cf1d9443",
+      "sent_at": "2026-10-13T00:15:04.107Z",
+      "title": "GPT-6.1 Sol: OpenAI's Cheapest Frontier Model Yet",
+      "video_id": "news-gpt61-sol-01"
+    },
+    "6accbfb60b1f16abcb04913b": {
+      "caption_excerpt": "Open Code Review is Alibaba's AI code reviewer, now open source: it picks files deterministically and reviews with an agent, reporting higher precision than Claude Code at about 1/9 the tokens. Credits: Screens: own capture of github.com/al",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "external_url": "https://www.facebook.com/reel/880538425052135/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 41
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T10:48:31.424Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Clicks",
+          "type": "clicks",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Impressions",
+          "type": "impressions",
+          "unit": "count",
+          "value": 41
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T10:48:31.424Z",
+      "platform": "facebook",
+      "post_id": "6accbfb60b1f16abcb04913b",
+      "sent_at": "2026-10-12T22:46:15.191Z",
+      "title": "Open Code Review: Alibaba's AI Code Reviewer, Free",
+      "video_id": "repo-opencr-01"
+    },
+    "6accbfb952632410b3dc6657": {
+      "caption_excerpt": "Open Code Review is Alibaba's internal AI code-review assistant, open sourced in May 2026 under Apache-2.0: it reads git diffs, picks and bundles files deterministically, then uses an LLM agent for line-level comments. The project's own AAC",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/zOGSyBEO2Dc",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 50
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 2
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.129Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 50
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 2
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.129Z",
+      "platform": "youtube",
+      "post_id": "6accbfb952632410b3dc6657",
+      "sent_at": "2026-10-13T15:01:55.405Z",
+      "title": "Open Code Review: Alibaba's AI Code Reviewer, Free",
+      "video_id": "repo-opencr-01"
+    },
+    "6accbfbc11bee99e6c99fa6d": {
+      "caption_excerpt": "Higgsfield shipped six releases in eight days, ending with Katana — an MCP server that lets Claude and other agents use its video models. Credits: Screens: own capture of higgsfield.ai/creator-hub/changelog (2026-10-12). Release names and d",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "external_url": "https://www.facebook.com/reel/1480920917192644/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T10:48:31.424Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Clicks",
+          "type": "clicks",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Impressions",
+          "type": "impressions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T10:48:31.424Z",
+      "platform": "facebook",
+      "post_id": "6accbfbc11bee99e6c99fa6d",
+      "sent_at": "2026-10-12T23:30:44.498Z",
+      "title": "Higgsfield Shipped SIX AI Video Releases in Eight Days",
+      "video_id": "tool-higgsfield-01"
+    },
+    "6accbfbf0b1f16abcb04921c": {
+      "caption_excerpt": "Open Code Review: Alibaba ran this AI reviewer internally for two years, then open sourced it. Their benchmark reports higher precision than Claude Code with about 1/9 the tokens. Save this for your next PR. Credits: Screens: own capture of",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/DebeuROjpih/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.56
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 192
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 220
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T13:46:41.783Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 1.56
+        },
+        {
+          "name": "Follows",
+          "type": "follows",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reach",
+          "type": "reach",
+          "unit": "count",
+          "value": 192
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Saves",
+          "type": "saves",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 2
+        },
+        {
+          "name": "Views",
+          "type": "views",
+          "unit": "count",
+          "value": 220
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T13:46:41.783Z",
+      "platform": "instagram",
+      "post_id": "6accbfbf0b1f16abcb04921c",
+      "sent_at": "2026-10-13T09:25:22.708Z",
+      "title": "Open Code Review: Alibaba's AI Code Reviewer, Free",
+      "video_id": "repo-opencr-01"
+    },
+    "6accbfc211bee99e6c99fae8": {
+      "caption_excerpt": "Higgsfield's public changelog shows six releases between October 1 and 8, 2026: Genjutsu (no-prompt object/scene/character swaps, 30+ presets) and Grok Imagine Video 1.5 (Oct 1), AI Influencer (Oct 2), Nano Banana 2.1 (Oct 5), Ad Multiplier",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/7v2TUM0CTCk",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 35
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 35
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6accbfc211bee99e6c99fae8",
+      "sent_at": "2026-10-12T11:56:19.295Z",
+      "title": "Higgsfield Shipped SIX AI Video Releases in Eight Days",
+      "video_id": "tool-higgsfield-01"
+    },
+    "6accbfc50b1f16abcb049341": {
+      "caption_excerpt": "Cloudflare Clef is a 27B decision model that returns probabilities instead of prose: every allowed option for every typed question, in one forward pass, with no output parsing. Credits: Screens: own capture of huggingface.co/Cloudflare/clef",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "external_url": "https://www.facebook.com/reel/1080556848282854/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T19:03:55.288Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Clicks",
+          "type": "clicks",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Impressions",
+          "type": "impressions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T19:03:55.288Z",
+      "platform": "facebook",
+      "post_id": "6accbfc50b1f16abcb049341",
+      "sent_at": "2026-10-13T19:02:02.167Z",
+      "title": "Cloudflare Clef: a 27B Model That Can't Ramble",
+      "video_id": "news-clef-01"
+    },
+    "6accc03b11bee99e6c9a1833": {
+      "caption_excerpt": "Higgsfield's October: six releases in eight days. Genjutsu swaps anything without a prompt, AI Influencer keeps characters consistent, and Katana lets Claude drive it. Save this for your next video project. Credits: Screens: own capture of ",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/Decg2AyCTPu/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [],
+          "metrics_updated_at": "2026-10-12T11:10:51.750Z"
+        }
+      ],
+      "metrics": [],
+      "metrics_status": "awaiting_buffer_refresh",
+      "metrics_updated_at": "2026-10-12T11:10:51.750Z",
+      "platform": "instagram",
+      "post_id": "6accc03b11bee99e6c9a1833",
+      "sent_at": "2026-10-13T19:03:24.017Z",
+      "title": "Higgsfield Shipped SIX AI Video Releases in Eight Days",
+      "video_id": "tool-higgsfield-01"
+    },
+    "6accd6f88aaa2e31caa56f20": {
+      "caption_excerpt": "Cloudflare Clef is a 27B multimodal decision model post-trained from Qwen/Qwen3.8-27B. Instead of writing text, a joint schema head returns a probability for every allowed option of every typed question in one forward pass — no output parsi",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/LxRgC5RCkyw",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:24.247Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:24.247Z",
+      "platform": "youtube",
+      "post_id": "6accd6f88aaa2e31caa56f20",
+      "sent_at": "2026-10-13T18:01:33.035Z",
+      "title": "Cloudflare Clef: a 27B Model That Can't Ramble",
+      "video_id": "news-clef-01"
+    },
+    "6accd6fb0cc1ccfc8f759249": {
+      "caption_excerpt": "LTX 2.5 is a 22B open-weights video and audio model — 10-second clips in 6.8 s on 2×GB200, with multi-shot consistency and a community licence free below $10M revenue. Credits: Screens: own capture of ltx.io/model/ltx-2-5 (2026-10-12). Show",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "external_url": "https://www.facebook.com/reel/2289508841592580/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T22:02:53.433Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Clicks",
+          "type": "clicks",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Impressions",
+          "type": "impressions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T22:02:53.433Z",
+      "platform": "facebook",
+      "post_id": "6accd6fb0cc1ccfc8f759249",
+      "sent_at": "2026-10-13T22:01:24.275Z",
+      "title": "LTX 2.5: Open-Weights Video + Audio in One Model",
+      "video_id": "tool-ltx25-01"
+    },
+    "6accd7007659eb754b6eeeba": {
+      "caption_excerpt": "Cloudflare Clef: a 27B decision model with no free-form text to parse — probabilities for every allowed option in a single forward pass. Apache-2.0, Workers AI, ~39 ms flash variant. Save this for your agent stack. Credits: Screens: own cap",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/Dec1glIAYBP/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [],
+          "metrics_updated_at": "2026-10-12T12:48:00.217Z"
+        }
+      ],
+      "metrics": [],
+      "metrics_status": "awaiting_buffer_refresh",
+      "metrics_updated_at": "2026-10-12T12:48:00.217Z",
+      "platform": "instagram",
+      "post_id": "6accd7007659eb754b6eeeba",
+      "sent_at": "2026-10-13T22:03:53.751Z",
+      "title": "Cloudflare Clef: a 27B Model That Can't Ramble",
+      "video_id": "news-clef-01"
+    },
+    "6acce75f0728a43e978181cd": {
+      "caption_excerpt": "LTX-2.5 (released 11 August 2026) is a 22B open-weights video and audio model: a 10-second image-to-video clip renders in 6.8 s on 2xGB200 (~23.7 s via API), with native multi-shot, consistent characters and voice, a diffusion decoder and a",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/PYlszxIISMg",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.93
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 108
+            }
+          ],
+          "metrics_updated_at": "2026-10-13T18:04:05.130Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0.93
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 108
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-13T18:04:05.130Z",
+      "platform": "youtube",
+      "post_id": "6acce75f0728a43e978181cd",
+      "sent_at": "2026-10-12T18:45:15.690Z",
+      "title": "LTX 2.5: Open-Weights Video + Audio in One Model",
+      "video_id": "tool-ltx25-01"
+    },
+    "6acd80a45229b40e868aabaa": {
+      "caption_excerpt": "LTX 2.5 generates video and audio in one 22B open-weights model: 10 seconds in 6.8 s on 2×GB200, native multi-shot with consistent characters, and post-production tools built in. Save this for your video stack. Credits: Screens: own capture",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/DedJ5CvDokv/",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [],
+          "metrics_updated_at": "2026-10-13T00:51:48.979Z"
+        }
+      ],
+      "metrics": [],
+      "metrics_status": "awaiting_buffer_refresh",
+      "metrics_updated_at": "2026-10-13T00:51:48.979Z",
+      "platform": "instagram",
+      "post_id": "6acd80a45229b40e868aabaa",
+      "sent_at": "2026-10-14T01:02:10.161Z",
+      "title": "LTX 2.5: Open-Weights Video + Audio in One Model",
+      "video_id": "tool-ltx25-01"
+    },
+    "6aceb924848c31c8094f6fac": {
+      "caption_excerpt": "EmbeddingGemma 2 is Google’s 740-million-parameter multimodal embedding model. Google says it maps text, code, images, audio and video into a shared embedding space, with an 8K-token context and Apache-2.0 license. It is not a chat model; a",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/JmXvnjaiilA",
+      "history": [
+        {
+          "fetched_at": "2026-10-14T08:01:20Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-14T01:03:26.743Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-14T01:03:26.743Z",
+      "platform": "youtube",
+      "post_id": "6aceb924848c31c8094f6fac",
+      "sent_at": "2026-10-14T01:00:30.648Z",
+      "title": "EmbeddingGemma 2: One Space for 5 Modalities",
+      "video_id": "model-embeddinggemma2-01"
+    }
+  },
+  "schema_version": 1,
+  "sent_post_count": 59,
+  "source": "Buffer GraphQL Post.metrics (read-only)",
+  "video_post_count": 58
 }
