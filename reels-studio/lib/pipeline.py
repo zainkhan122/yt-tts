@@ -43,6 +43,16 @@ WORK_ROOT = Path(os.environ.get("REELS_WORK", "/var/tmp/reels"))  # outside the 
 HF_CACHE = Path.home() / ".cache" / "hyperframes"
 KOKORO_MODEL = HF_CACHE / "tts" / "models" / "kokoro-v1.0.onnx"
 KOKORO_VOICES = HF_CACHE / "tts" / "voices" / "voices-v1.0.bin"
+CHATTERBOX_MODEL_REPO = "ResembleAI/chatterbox"
+CHATTERBOX_MODEL_REVISION = "5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18"
+CHATTERBOX_MODEL_FILE_HASHES = {
+    "ve.safetensors": {"size": 5_695_784, "sha256": "f0921cab452fa278bc25cd23ffd59d36f816d7dc5181dd1bef9751a7fb61f63c"},
+    "t3_cfg.safetensors": {"size": 2_129_653_744, "sha256": "914cb1696f47527fe8852ca8f1fe1fa63cb34f76f9c715e84e067b744dd0da81"},
+    "s3gen.safetensors": {"size": 1_056_484_620, "sha256": "2b78103c654207393955e4900aac14a12de8ef25f4b09424f1ef91941f161d4e"},
+    "tokenizer.json": {"size": 25_470, "sha256": "d71e3a44eabb1784df9a68e9f95b251ecbf1a7af6a9f50835856b2ca9d8c14a5"},
+    "conds.pt": {"size": 107_374, "sha256": "6552d70568833628ba019c6b03459e77fe71ca197d5c560cef9411bee9d87f4e"},
+}
+CHATTERBOX_MODEL_FILES = tuple(CHATTERBOX_MODEL_FILE_HASHES)
 FPS = 30
 MIX_SR = 48000
 FONT_FILES = {
@@ -51,6 +61,28 @@ FONT_FILES = {
     "JetBrains Mono": ("JetBrainsMono.ttf", "100 800"),
     "Noto Nastaliq Urdu": ("NotoNastaliqUrdu.ttf", "400 700"),
 }
+
+
+def verify_chatterbox_snapshot(model_dir):
+    """Verify exact size and SHA-256 for every pinned Chatterbox model file."""
+    root = Path(model_dir)
+    verified = {}
+    for name, expected in CHATTERBOX_MODEL_FILE_HASHES.items():
+        path = root / name
+        if not path.is_file():
+            raise SystemExit(f"pinned Chatterbox model file is missing: {name}")
+        size = path.stat().st_size
+        if size != expected["size"]:
+            raise SystemExit(f"pinned Chatterbox model size mismatch for {name}: expected {expected['size']}, got {size}")
+        digest = hashlib.sha256()
+        with path.open("rb") as stream:
+            for block in iter(lambda: stream.read(1024 * 1024), b""):
+                digest.update(block)
+        actual = digest.hexdigest()
+        if actual != expected["sha256"]:
+            raise SystemExit(f"pinned Chatterbox model checksum mismatch for {name}")
+        verified[name] = actual
+    return verified
 
 
 # ------------------------------------------------------------------ utils
@@ -97,6 +129,67 @@ def voice_disclosure(voice, engine):
         return f"- Voice: Kokoro TTS `{voice}` (local preview only; not approved for final media)."
     return (f"- Voice: synthetic narration (Kokoro TTS `{voice}`). Generic TTS narration of animated graphics is not a 'realistic' depiction, "
             "so YouTube/TikTok AI labels are not mandatory; adding \"AI voice\" to the description is a cheap trust win.")
+
+
+def require_lint_gate(exit_code, errors):
+    """Require a successful HyperFrames lint exit and an explicit zero-error report."""
+    if (isinstance(exit_code, bool) or not isinstance(exit_code, int)
+            or isinstance(errors, bool) or not isinstance(errors, int)):
+        raise SystemExit("HyperFrames lint: missing or invalid exit/error count; refusing to render")
+    if exit_code != 0 or errors != 0:
+        raise SystemExit(f"HyperFrames lint: exit={exit_code}, errors={errors}; refusing to render")
+    return True
+
+
+def require_qa_checks(checks):
+    """Fail closed: every measured render check is a ship gate."""
+    if not isinstance(checks, dict) or not checks:
+        raise SystemExit("QA: no render checks were recorded; refusing to ship")
+    failed = [name for name, ok in checks.items() if ok is not True]
+    if failed:
+        raise SystemExit(f"QA: failed checks {', '.join(failed)}; refusing to ship")
+    return True
+
+
+def require_flow_match(match, threshold, chunk_index, attempts, *, expected="", heard=""):
+    """Do not render spoken words/captions from a flow chunk Whisper could not align."""
+    if isinstance(match, bool) or isinstance(threshold, bool):
+        raise SystemExit("TTS alignment: match and threshold must be numeric ratios, not booleans")
+    try:
+        observed = float(match)
+        configured = float(threshold)
+    except (TypeError, ValueError) as exc:
+        raise SystemExit("TTS alignment: match and threshold must be numeric") from exc
+    if not math.isfinite(observed) or not 0.0 <= observed <= 1.0 or not math.isfinite(configured) or configured > 1.0:
+        raise SystemExit("TTS alignment: match and threshold must be finite ratios from 0 through 1")
+    floor = max(0.92, configured)
+    if observed < floor:
+        detail = ""
+        if expected or heard:
+            detail = f" Expected {expected[:160]!r}; Whisper heard={heard[:160]!r}."
+        raise SystemExit(f"TTS alignment: chunk {chunk_index + 1} matched {observed:.1%} after {attempts} distinct-seed attempt(s); "
+                         f"minimum is {floor:.0%}. Fix pronunciation/script or change the approved voice seed.{detail}")
+    return True
+
+
+def require_whisper_match(matched, total, threshold=0.95, *, diagnostics=""):
+    """The final English voiceover must clear the project-wide character-match target."""
+    if (isinstance(matched, bool) or isinstance(total, bool) or not isinstance(matched, int)
+            or not isinstance(total, int) or isinstance(threshold, bool)):
+        raise SystemExit("Whisper QA: invalid match counts or threshold")
+    try:
+        matched_count, total_count, configured = matched, total, float(threshold)
+    except (TypeError, ValueError) as exc:
+        raise SystemExit("Whisper QA: match counts and threshold must be numeric") from exc
+    if (matched_count < 0 or total_count < 0 or matched_count > total_count
+            or not math.isfinite(configured) or configured > 1.0):
+        raise SystemExit("Whisper QA: invalid match counts or threshold")
+    floor = max(0.95, configured)
+    ratio = matched_count / max(1, total_count)
+    if ratio < floor:
+        note = f"; {diagnostics[:240]}" if isinstance(diagnostics, str) and diagnostics else ""
+        raise SystemExit(f"Whisper QA: {ratio:.1%} character match is below the {floor:.0%} final-render minimum{note}")
+    return ratio
 
 
 def load_template(name):
@@ -338,16 +431,25 @@ _CHATTERBOX = None
 
 class ChatterboxVoice:
     """APPROVED CHANNEL VOICE (owner, 2026-10-09: voice-lab option 3 = sample 8-chatterbox-michael-flow).
-    Resemble AI Chatterbox (MIT) cloning our Kokoro am_michael reference clip (brand/voice/michael-ref.wav) with
-    exaggeration 0.7 / cfg 0.4, read in long chunks (flow). CPU torch; installed by cloud/setup-render.sh.
-    Seeded per chunk, so the same brief renders the same take."""
+    Resemble AI Chatterbox (MIT), pinned to CHATTERBOX_MODEL_REVISION, cloning our Kokoro am_michael reference
+    clip (brand/voice/michael-ref.wav), with exaggeration 0.7 / cfg 0.4, read in long chunks (flow). CPU torch;
+    weights are prefetched by cloud/setup-render.sh. Seeded per chunk, so the same brief renders the same take."""
     def __init__(self, cfg):
         global _CHATTERBOX
         import torch
         from chatterbox.tts import ChatterboxTTS
+        from huggingface_hub import snapshot_download
         if _CHATTERBOX is None:
-            _CHATTERBOX = ChatterboxTTS.from_pretrained(device="cpu")
+            model_dir = Path(snapshot_download(
+                repo_id=CHATTERBOX_MODEL_REPO,
+                revision=CHATTERBOX_MODEL_REVISION,
+                allow_patterns=list(CHATTERBOX_MODEL_FILES),
+                local_files_only=True,
+            ))
+            verify_chatterbox_snapshot(model_dir)
+            _CHATTERBOX = ChatterboxTTS.from_local(model_dir, device="cpu")
         self.m, self.torch, self.cfg = _CHATTERBOX, torch, cfg
+        self.model_revision = CHATTERBOX_MODEL_REVISION
         ref = ROOT / cfg["ref_wav"]
         if not ref.exists():  # rebuild it exactly like the approved voice-lab take (Kokoro 0.6.1, same text, same trim)
             ref.parent.mkdir(parents=True, exist_ok=True)
@@ -773,6 +875,12 @@ class Job:
             for k in ("voice", "speed", "lang", "style", "voice_fx", "voice_blend", "tts"):
                 if k in chan and k not in self.brief:
                     self.brief[k] = chan[k]
+            if "tts" in chan:
+                channel_tts = chan["tts"]
+                brief_tts = self.brief.get("tts") or {}
+                if not isinstance(channel_tts, dict) or not isinstance(brief_tts, dict):
+                    raise SystemExit("channel/brief TTS configuration must be an object")
+                self.brief["tts"] = {**channel_tts, **brief_tts}
             if "brand" in chan:
                 self.brief["brand"] = {**chan["brand"], **self.brief.get("brand", {})}
             if "lexicon" in chan:
@@ -815,6 +923,11 @@ class Job:
         clips = []
         post_override = {}
         tts = b.get("tts") or {}
+        if not isinstance(tts, dict):
+            raise SystemExit("TTS configuration must be an object")
+        if self.do_render and str(lang).strip().lower().startswith("en"):
+            if tts.get("engine") != "chatterbox" or voice_cfg == "files":
+                raise SystemExit("English final renders require the approved Chatterbox Option-3 voice")
         self.voice_engine = "kokoro"
         if voice_cfg != "files" and tts.get("engine") == "chatterbox":
             clips, post_override, engine = self.flow_voice(segs, tts, lang, voice_cfg, speed)
@@ -883,17 +996,24 @@ class Job:
                 s["spoken_words"] = words_waveform(spoken_clean(s["spoken"] or s["text"]), seg_audio[sid], sr, s["start"])
                 s["words"] = map_display_words(groups, s["spoken_words"]) if groups else s["spoken_words"]
         self.timing, self.order, self.D, self.vo = timing, order, D, vo
-        self.stage("voice", engine=engine, lines=sum(1 for s in segs if s.get("text")), duration=f"{D:.2f}s", secs=round(time.time() - t0, 1))
+        voice_stage = {"engine": engine, "lines": sum(1 for s in segs if s.get("text")),
+                       "duration": f"{D:.2f}s", "secs": round(time.time() - t0, 1)}
+        if getattr(self, "voice_model_revision", None):
+            voice_stage["model_revision"] = self.voice_model_revision
+        self.stage("voice", **voice_stage)
 
     def flow_voice(self, segs, tts, lang, voice_cfg, speed):
         """Approved voice, read in FLOW: consecutive scene lines are spoken in one chunk (<= chunk_chars), then cut back into
         scenes at the quietest point between lines, so every scene still has its own audio + word timings.
         Measured 2026-10-09: creators ~1.5 pauses/min vs 19-23 for line-by-line synthesis."""
+        if not isinstance(tts, dict):
+            raise SystemExit("TTS configuration must be an object")
         try:
             voice = ChatterboxVoice(tts)
             self.voice_engine = "chatterbox"
+            self.voice_model_revision = voice.model_revision
         except ImportError:
-            if os.environ.get("REELS_VOICE_PREVIEW") != "kokoro":
+            if self.do_render or os.environ.get("REELS_VOICE_PREVIEW") != "kokoro":
                 raise SystemExit("The approved channel voice is Chatterbox (voice-lab option 3) but chatterbox-tts is not installed. "
                                  "Cloud renders install it (cloud/setup-render.sh). Local layout check only: REELS_VOICE_PREVIEW=kokoro")
             voice = PreviewVoice(voice_cfg, speed, lang)
@@ -901,8 +1021,22 @@ class Job:
         limit, gap = int(tts.get("chunk_chars", 280)), float(tts.get("join_gap", 0.06))
         base_seed = int(tts.get("seed", 7)) + int(hashlib.md5(self.id.encode()).hexdigest()[:6], 16) % 10000 \
             + 10007 * int(self.brief.get("voice_seed", 0))  # brief "voice_seed": N picks a different (still seeded) take
-        tries, min_match = 1 + int(tts.get("max_retries", 2)), float(tts.get("min_match", 0.92))
-        min_mel, mels = float(tts.get("min_melody_st", 10.0)), []
+        if not isinstance(tts, dict):
+            raise SystemExit("TTS configuration must be an object")
+        raw_retries = tts.get("max_retries", 2)
+        if isinstance(raw_retries, bool) or not isinstance(raw_retries, int) or not 0 <= raw_retries <= 4:
+            raise SystemExit("TTS max_retries must be an integer from 0 through 4")
+        try:
+            configured_match = float(tts.get("min_match", 0.92))
+            min_mel = float(tts.get("min_melody_st", 10.0))
+        except (TypeError, ValueError) as exc:
+            raise SystemExit("TTS alignment and melody thresholds must be numeric") from exc
+        if not math.isfinite(configured_match) or configured_match > 1.0:
+            raise SystemExit("TTS min_match must be a finite ratio no greater than 1.0")
+        if not math.isfinite(min_mel):
+            raise SystemExit("TTS min_melody_st must be finite")
+        tries, min_match = 1 + raw_retries, max(0.92, configured_match)
+        mels = []
         texts = [spoken_clean(s["spoken"]) if s.get("text") else None for s in segs]
         chunks, cur = [], []
         for i, s in enumerate(segs):
@@ -945,6 +1079,8 @@ class Job:
                     break
                 retried += 1
             x, cuts, match, _, mel = best
+            if self.voice_engine != "kokoro-preview":
+                require_flow_match(match, min_match, ci, tries, expected=" ".join(seg_texts), heard=heard)
             worst = min(worst, match)
             mels.append(round(mel, 1))
             bounds = [0] + cuts + [len(x)]
@@ -963,12 +1099,19 @@ class Job:
     # 4 ---------------------------------------------------------------
     def word_timings(self):
         self.stage_note = "timings anchored to each line's waveform pauses"
-        lang = self.brief.get("lang", "en-us")
-        if not lang.startswith("en") or self.brief.get("whisper_qa", True) is False:
-            self.stage("words", method="waveform-anchored", whisper_qa="skipped (non-English or disabled)")
+        lang = str(self.brief.get("lang") or "en-us").strip().lower()
+        if not lang.startswith("en"):
+            self.stage("words", method="waveform-anchored", whisper_qa="skipped (non-English)")
+            return
+        if self.brief.get("whisper_qa", True) is False:
+            if self.do_render and getattr(self, "voice_engine", None) == "chatterbox":
+                raise SystemExit("Whisper QA cannot be disabled for an English Chatterbox final render")
+            self.stage("words", method="waveform-anchored", whisper_qa="skipped (non-final preview)")
             return
         try:
             m, n, missed, secs = whisper_intelligibility(self.vo_path, self.timing, self.order, self.log)
+            if self.do_render and getattr(self, "voice_engine", None) == "chatterbox":
+                require_whisper_match(m, n, 0.95, diagnostics="script words not matched: " + ", ".join(missed))
             self.stage("words", method="waveform-anchored", whisper_char_match=f"{100 * m / max(1, n):.1f}%",
                        word_diffs=" ".join(missed) or "-", secs=round(secs, 1))
             try:  # whole-voiceover delivery reading (same method as tools/voice_study.py): approved sample = 13.6 st
@@ -983,6 +1126,8 @@ class Job:
                 self.stage("voice_quality", error=str(e)[:80])
         except Exception as e:
             self.stage("words", method="waveform-anchored", whisper_qa=f"unavailable: {str(e)[:120]}")
+            if self.do_render and getattr(self, "voice_engine", None) == "chatterbox":
+                raise SystemExit(f"Whisper QA is required for an English Chatterbox final render: {str(e)[:180]}") from e
 
     # 5 ---------------------------------------------------------------
     def audio(self):
@@ -1102,12 +1247,11 @@ class Job:
 
     # 7-8 -------------------------------------------------------------
     def gates_and_render(self):
-        _, out, secs = run(["hyperframes", "lint", "."], cwd=self.proj, log=self.log, check=False)
+        lint_process, out, secs = run(["hyperframes", "lint", "."], cwd=self.proj, log=self.log, check=False)
         m = re.search(r"(\d+)\s+error\(s\),\s+(\d+)\s+warning\(s\)", out)
         errs, warns = (int(m.group(1)), int(m.group(2))) if m else (None, None)
-        self.stage("lint", errors=errs, warnings=warns)
-        if errs:
-            raise SystemExit(f"lint errors - see {self.log}")
+        self.stage("lint", exit_code=lint_process.returncode, errors=errs, warnings=warns)
+        require_lint_gate(lint_process.returncode, errs)
         if self.do_check:
             p, out, secs = run(["hyperframes", "check", "."], cwd=self.proj, log=self.log, check=False)
             self.stage("check", ok=p.returncode == 0, secs=round(secs, 1), summary=out.strip().splitlines()[-1][:160] if out.strip() else "")
@@ -1149,7 +1293,10 @@ class Job:
         f0_ok, f0_peak = framecheck.frame0(final)
         checks["frame0_visible"] = f0_ok
         need = (self.brief.get("tts") or {}).get("engine")
-        if need and self.brief.get("voice") != "files":  # owner rule 2026-10-09: every published video uses the approved voice
+        if self.do_render and not self.rebuild and str(self.brief.get("lang") or "en-us").strip().lower().startswith("en"):
+            need = "chatterbox"
+            checks["approved_voice"] = getattr(self, "voice_engine", None) == need
+        elif need and self.brief.get("voice") != "files":  # owner rule 2026-10-09: final videos use the approved voice
             checks["approved_voice"] = getattr(self, "voice_engine", None) == need
         cover_t = self.events.get("cover", 1.0)
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-ss", f"{cover_t:.2f}", "-i", str(final), "-frames:v", "1", "-q:v", "3", str(self.out / "cover.jpg")], check=True)
@@ -1179,6 +1326,7 @@ class Job:
         if not checks.get("frame0_visible"):
             raise SystemExit("QA: " + framecheck.describe(f0_ok, f0_peak) +
                              " - Buffer/Facebook would show an empty cover; refusing to ship")
+        require_qa_checks(checks)
 
     def write_srt(self):
         def ts(t):

@@ -1,68 +1,177 @@
-# Cloud render: one GitHub runner (4 vCPU / 16 GB, free for this public repo) per brief, up to 10 in parallel (owner ceiling 2026-10-12).
-# Each job: toolchain -> capture pack -> reels.py make (voice, QA, render) -> SEO gate -> one-day Actions artifact. No public Release by default.
-# Start: python3 reels-studio/reels.py cloud <brief-id> [<brief-id> ...]   (or Actions -> render -> Run workflow)
+# Full renders are gated by a fresh six-stage receipt, downloaded capture bytes, and a
+# compare-and-swap attempt ledger. The workflow publishes only short-lived Actions artifacts.
 name: render
 on:
   workflow_dispatch:
     inputs:
       briefs:
-        description: 'Brief ids (reels-studio/briefs/<id>.json), space separated'
+        description: 'Brief IDs or reels-studio/briefs/<id>.json paths, space separated (maximum 10)'
         required: true
-      tag:
-        description: 'Source Release tag for a scene rebuild; render outputs are Actions artifacts'
+        type: string
+      production_receipt:
+        description: 'Committed six-stage receipt under reels-studio/research/production/receipts/'
         required: false
+        type: string
+        default: ''
+      tag:
+        description: 'Internal output label; does not create a public Release'
+        required: false
+        type: string
         default: ''
       quality:
-        description: 'draft | looks | delivery'
+        description: 'Render quality profile'
         required: false
-        default: 'looks'
+        type: choice
+        options:
+          - draft
+          - looks
+          - delivery
+          - standard
+          - high
+        default: looks
       crf:
-        description: 'x264 CRF (23 = about 12-16 MB per 40 s)'
+        description: 'x264 CRF (0-51)'
         required: false
+        type: string
         default: '23'
       rebuild_scenes:
-        description: 'Single-scene rebuild: scene ids to re-render (needs a previous kit with a scene manifest)'
+        description: 'Scene-rebuild path only: scene IDs (one brief; uses the prior published kit)'
         required: false
+        type: string
         default: ''
       rebuild_reason:
-        description: 'Why this rebuild (recorded in the manifest rebuild history)'
+        description: 'Scene-rebuild path only: concise reason recorded in the manifest'
         required: false
+        type: string
         default: ''
       from_tag:
-        description: 'Rebuild: release tag holding the published kit+mp4 (default: same tag as the output)'
+        description: 'Scene-rebuild path only: source Release tag (defaults to the daily output tag)'
         required: false
+        type: string
         default: ''
-permissions:
-  contents: read
+permissions: {}
 env:
-  PYTHONUNBUFFERED: "1"
-  HYPERFRAMES_NO_TELEMETRY: "1"
-  HYPERFRAMES_NO_UPDATE_CHECK: "1"
-  DO_NOT_TRACK: "1"
+  PYTHONUNBUFFERED: '1'
+  HYPERFRAMES_NO_TELEMETRY: '1'
+  HYPERFRAMES_NO_UPDATE_CHECK: '1'
+  DO_NOT_TRACK: '1'
 jobs:
   plan:
-    runs-on: ubuntu-latest
+    name: Validate batch and reserve attempts
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      actions: read
     outputs:
-      briefs: ${{ steps.p.outputs.briefs }}
-      tag: ${{ steps.p.outputs.tag }}
+      briefs: ${{ steps.validate.outputs.briefs }}
+      tag: ${{ steps.validate.outputs.tag }}
+      quality: ${{ steps.validate.outputs.quality }}
+      crf: ${{ steps.validate.outputs.crf }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BRIEFS: ${{ inputs.briefs }}
+      PRODUCTION_RECEIPT: ${{ inputs.production_receipt }}
+      TAG: ${{ inputs.tag }}
+      QUALITY: ${{ inputs.quality }}
+      CRF: ${{ inputs.crf }}
+      REBUILD_SCENES: ${{ inputs.rebuild_scenes }}
+      REBUILD_REASON: ${{ inputs.rebuild_reason }}
+      FROM_TAG: ${{ inputs.from_tag }}
     steps:
-      - id: p
-        env:
-          BRIEFS: ${{ inputs.briefs }}
-          TAG: ${{ inputs.tag }}
+      - name: Checkout the exact dispatch commit
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: |
+            /.github/workflows/
+            /reels-studio/briefs/
+            /reels-studio/reels.py
+            /reels-studio/brand/voice/michael-ref.wav
+            /reels-studio/config/channel.json
+            /reels-studio/lib/
+            /reels-studio/tools/
+            /reels-studio/tests/
+            /reels-studio/templates/
+            /reels-studio/topics/
+            /reels-studio/tracker/
+            /reels-studio/research/ideas/
+            /reels-studio/research/radar/
+            /reels-studio/research/social/
+            /reels-studio/research/production/receipts/
+            /reels-studio/cloud/setup-render.sh
+            /reels-studio/setup/setup-whisper.sh
+            /reels-studio/setup/setup-sandbox.sh
+          sparse-checkout-cone-mode: false
+          filter: blob:none
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.12'
+      - name: Syntax and preflight regression checks
         run: |
-          python3 - >> "$GITHUB_OUTPUT" <<'PY'
-          import datetime, json, os
-          ids = [b.rsplit("/", 1)[-1].removesuffix(".json") for b in os.environ["BRIEFS"].replace(",", " ").split()]
-          tag = os.environ["TAG"].strip() or "renders-" + datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
-          print("briefs=" + json.dumps(ids))
-          print("tag=" + tag)
+          set -euo pipefail
+          python3 -m py_compile \
+            reels-studio/reels.py \
+            reels-studio/lib/pipeline.py \
+            reels-studio/tools/capture_store.py \
+            reels-studio/tools/production_gate.py \
+            reels-studio/tools/validate_dispatch.py \
+            reels-studio/tools/render_attempts.py
+          cd reels-studio
+          for test_file in test_capture_store.py test_production_gate.py test_render_attempts.py test_validate_dispatch.py; do
+            python3 -m unittest discover -s tests -p "$test_file"
+          done
+      - name: Validate plan and production receipt
+        id: validate
+        run: python3 reels-studio/tools/validate_dispatch.py >> "$GITHUB_OUTPUT"
+      - name: Download and verify every batch capture pack
+        env:
+          BRIEFS_JSON: ${{ steps.validate.outputs.briefs }}
+          RECEIPT: ${{ inputs.production_receipt }}
+          REBUILD_SCENES: ${{ inputs.rebuild_scenes }}
+        run: |
+          set -euo pipefail
+          if [ -n "$REBUILD_SCENES" ]; then
+            echo 'Scene rebuild: full-render capture preflight is intentionally not used.'
+            exit 0
+          fi
+          python3 - <<'PY'
+          import json
+          import os
+          import subprocess
+          import sys
+
+          ids = json.loads(os.environ['BRIEFS_JSON'])
+          for brief_id in ids:
+              print(f'Pulling capture pack for {brief_id}', flush=True)
+              subprocess.run([
+                  sys.executable,
+                  'reels-studio/tools/capture_store.py',
+                  'pull-for',
+                  f'reels-studio/briefs/{brief_id}.json',
+              ], check=True)
+          subprocess.run([
+              sys.executable,
+              'reels-studio/tools/production_gate.py',
+              'assets',
+              os.environ['RECEIPT'],
+              *ids,
+          ], check=True)
           PY
+      - name: Reserve render fingerprints (fail closed on duplicate or write conflict)
+        env:
+          RECORD_ATTEMPT: 'true'
+        run: python3 reels-studio/tools/validate_dispatch.py
+
   render:
     needs: plan
-    name: render ${{ matrix.brief }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 80
+    name: Render ${{ matrix.brief }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    permissions:
+      contents: read
     strategy:
       fail-fast: false
       max-parallel: 10
@@ -71,44 +180,66 @@ jobs:
     env:
       GH_TOKEN: ${{ github.token }}
       BRIEF: reels-studio/briefs/${{ matrix.brief }}.json
+      BRIEF_ID: ${{ matrix.brief }}
+      PRODUCTION_RECEIPT: ${{ inputs.production_receipt }}
+      BATCH_BRIEFS_JSON: ${{ needs.plan.outputs.briefs }}
+      QUALITY: ${{ needs.plan.outputs.quality }}
+      CRF: ${{ needs.plan.outputs.crf }}
+      OUTPUT_TAG: ${{ needs.plan.outputs.tag }}
+      REBUILD_SCENES: ${{ inputs.rebuild_scenes }}
+      REBUILD_REASON: ${{ inputs.rebuild_reason }}
+      FROM_TAG: ${{ inputs.from_tag }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout the exact dispatch commit
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
           sparse-checkout: |
-            /reels-studio/
             /.github/workflows/
+            /reels-studio/
           sparse-checkout-cone-mode: false
           filter: blob:none
-      - uses: actions/cache@v4
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.12'
+      - name: Restore pinned-toolchain cache
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: |
             ~/.cache/hyperframes
             ~/.cache/puppeteer
             ~/.cache/huggingface
             ~/.cache/pip
-          key: hf-0.8.137-cbx-${{ runner.os }}-${{ hashFiles('reels-studio/setup/setup-whisper.sh', 'reels-studio/cloud/setup-render.sh') }}
-      - name: Toolchain
-        run: bash reels-studio/cloud/setup-render.sh
-      - name: Capture pack
+          key: reels-render-v2-${{ runner.os }}-py312-${{ hashFiles('reels-studio/setup/setup-whisper.sh', 'reels-studio/cloud/setup-render.sh', 'reels-studio/setup/setup-sandbox.sh') }}
+      - name: Pull verified capture pack
+        if: ${{ inputs.rebuild_scenes == '' }}
         run: python3 reels-studio/tools/capture_store.py pull-for "$BRIEF"
-      - name: Render (voice, QA gates, video)
-        env:
-          REBUILD_SCENES: ${{ inputs.rebuild_scenes }}
-          REBUILD_REASON: ${{ inputs.rebuild_reason }}
-          FROM_TAG: ${{ inputs.from_tag }}
+      - name: Verify full-batch receipt and this runner's capture bytes
+        if: ${{ inputs.rebuild_scenes == '' }}
+        run: python3 reels-studio/tools/production_gate.py assets-for "$PRODUCTION_RECEIPT" "$BATCH_BRIEFS_JSON" "$BRIEF_ID"
+      - name: Install renderer toolchain
+        run: bash reels-studio/cloud/setup-render.sh
+      - name: Render with TTS and Whisper QA gates
         run: |
-          extra=()
+          set -euo pipefail
+          args=("$BRIEF" --quality "$QUALITY" --crf "$CRF")
           if [ -n "$REBUILD_SCENES" ]; then
-            extra=(--rebuild-scenes "$REBUILD_SCENES" --rebuild-reason "$REBUILD_REASON" --from-tag "${FROM_TAG:-${{ needs.plan.outputs.tag }}}")
+            args+=(--rebuild-scenes "$REBUILD_SCENES" --rebuild-reason "$REBUILD_REASON")
+            args+=(--from-tag "${FROM_TAG:-$OUTPUT_TAG}")
+          else
+            args+=(--production-receipt "$PRODUCTION_RECEIPT")
+            args+=(--production-batch-briefs "$BATCH_BRIEFS_JSON")
           fi
-          python3 reels-studio/reels.py make "$BRIEF" --quality "${{ inputs.quality }}" --crf "${{ inputs.crf }}" "${extra[@]}"
+          python3 reels-studio/reels.py make "${args[@]}"
       - name: SEO pack (gate)
         run: python3 reels-studio/tools/seo_pack.py "$BRIEF"
-      - name: Gate receipt (rule IDs -> manifest)
+      - name: Gate receipt (rule IDs -> render manifest)
         run: python3 reels-studio/reels.py gates "$BRIEF"
-      - name: Upload render artifact
+      - name: Upload short-lived render artifact
         if: success()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: render-${{ matrix.brief }}
           path: reels-studio/renders/${{ matrix.brief }}/
@@ -116,9 +247,52 @@ jobs:
           retention-days: 1
       - name: Upload failure log
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: logs-${{ matrix.brief }}
           path: /var/tmp/reels/${{ matrix.brief }}/build.log
           if-no-files-found: ignore
           retention-days: 7
+
+  finalize_attempts:
+    name: Finalize attempt ledger
+    if: ${{ always() && needs.plan.result == 'success' }}
+    needs:
+      - plan
+      - render
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: read
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RUN_ID: ${{ github.run_id }}
+      RENDER_RESULT: ${{ needs.render.result }}
+      REBUILD_SCENES: ${{ inputs.rebuild_scenes }}
+    steps:
+      - name: Checkout attempt-ledger client
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: |
+            /reels-studio/lib/secrets.py
+            /reels-studio/tools/gh_actions.py
+            /reels-studio/tools/render_attempts.py
+          sparse-checkout-cone-mode: false
+          filter: blob:none
+      - name: Record terminal status (never publish a Release)
+        run: |
+          set -euo pipefail
+          if [ "$RENDER_RESULT" = 'success' ]; then
+            if [ -n "$REBUILD_SCENES" ]; then STATUS=scene_rebuild_success
+            else STATUS=render_only_success
+            fi
+          elif [ "$RENDER_RESULT" = 'cancelled' ]; then
+            STATUS=cancelled
+          else
+            STATUS=failed
+          fi
+          python3 reels-studio/tools/render_attempts.py finish \
+            --run-id "$RUN_ID" --status "$STATUS" --conclusion "$RENDER_RESULT"

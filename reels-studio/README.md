@@ -41,10 +41,10 @@ Idempotent: it repairs git (snapshots drop `.git/config`), pulls the latest SSOT
 | What | Where | Survives reset? |
 |---|---|---|
 | Code, templates, briefs, research, tracker | git: `reels-studio/` | ✅ GitHub = SSOT |
-| Finished videos | Cloud renders are one-day **GitHub Actions artifacts**, downloaded into `renders/<id>/` by `reels.py cloud --wait`; permanent `<id>.mp4` + `<id>-kit.zip` Releases require the separate explicit `reels.py publish` command | ✅ local workspace; optional explicit Release |
-| Capture packs (screens, official clips, region map) | GitHub Release `capture-packs` (`tools/capture_store.py`) | ✅ pulled on demand by cloud jobs |
-| Rendering | **GitHub Actions** `render.yml`: one runner per video, up to 10 in parallel; uploads a one-day artifact (no Release) | ✅; artifact deleted after local download with `--wait` |
-| Toolchain (Node, HyperFrames CLI, FFmpeg, Chrome, Kokoro, whisper) | `/usr/local`, `~/.cache/hyperframes` | ❌ `bootstrap.sh` reinstalls it |
+| Finished videos | Cloud renders are one-day **GitHub Actions artifacts**, downloaded into `renders/<id>/` by `reels.py cloud --wait`; the render workflow never creates a video Release | ✅ local workspace; permanent Release is a separate owner action |
+| Capture packs (screens, official clips, region map) | GitHub Release `capture-packs` (`tools/capture_store.py`); render pulls are read-only and hash-verified | ✅ pulled on demand by plan/render jobs |
+| Rendering | **GitHub Actions** `render.yml`: owner-selected matrix size, one Ubuntu 24.04 runner (4 vCPU / 16 GiB) per brief, hard maximum 10; reserve/finalize attempt ledger | ✅ one-day artifact only; no scheduled or automatic batch |
+| Toolchain (Node, HyperFrames CLI, FFmpeg, Chrome, pinned Chatterbox model `5bb1f6e`, pinned Whisper) | `/usr/local`, `~/.cache/hyperframes`, `~/.cache/huggingface` | ❌ `bootstrap.sh` restores the sandbox subset; `cloud/setup-render.sh` adds the production voice/QA stack |
 | Intermediates (voice, mix, HTML project) | `/var/tmp/reels/<id>/` | ❌ regenerated per job |
 | GitHub token | `~/.config/reels-studio/gh_token` (chmod 600, **outside the git tree**), or env `GH_TOKEN` | ✅ persists in the private workspace; **never committed** (sync blocks token patterns) |
 
@@ -61,20 +61,22 @@ python3 reels.py social --account <tiktok/yt url> --top 2  # competitors' script
 python3 tools/idea_feed.py --days 7                        # what the 21 watchlist channels cover (consensus topics) -> backlog
 python3 tools/channel_study.py report                      # benchmark-account study (stats, transcripts, visual)
 python3 tools/seo_pack.py briefs/<id>.json                 # validated copy for YouTube/TikTok/IG/FB/X -> renders/<id>/seo.md
-python3 reels.py cloud <id> [<id> ...] --wait               # RENDER in cloud -> download artifact locally, delete temp artifact; no Release
-python3 reels.py renders                                   # list permanently published videos + post kits (Release links)
-python3 reels.py make  briefs/<id>.json --quality looks --crf 23   # local render (sandbox: ~17-27 min per video)
-python3 reels.py make  briefs/x.json --no-render           # fast iteration: build + lint + check only
-python3 reels.py publish renders/<id>                      # upload a LOCAL render: <id>.mp4 + <id>-kit.zip
-python3 tools/capture_store.py push <id> | pull <id>       # capture packs <-> Release 'capture-packs'
-python3 reels.py sync -m "new briefs"                      # commit + push reels-studio/ (SSOT)
+REELS_VOICE_PREVIEW=kokoro python3 reels.py make briefs/<id>.json --no-render  # sandbox: Kokoro layout/lint/check preview; no final video
+python3 reels.py cloud <id> [<id2> ...] \
+  --production-receipt reels-studio/research/production/receipts/<batch>.json \
+  --quality looks --crf 23 --wait                          # manual GitHub render -> download one-day artifacts; no Release
+python3 reels.py renders                                    # list permanently published videos + post kits (Release links)
+python3 reels.py publish renders/<id>                       # separate permanent Release action; only when explicitly authorized
+python3 tools/capture_store.py pull <id>                    # read-only pull; does not create the capture-packs Release
+python3 tools/capture_store.py push <id>                    # explicit capture-pack Release write
+python3 reels.py sync -m "new briefs"                       # commit + push reels-studio/; explicit write
 python3 reels.py templates | new tool-spotlight briefs/<id>.json
 python3 tools/fetch_worldbank.py NY.GDP.PCAP.CD PAK,IND,BGD 1990 2025   # real data + editor fact sheet
 python3 tools/tts_roundtrip.py --suite                     # test any voice/language with whisper
 ```
 
 **Token safety:** the token lives in `~/.config/reels-studio/gh_token` (outside the repo, chmod 600). `sync` and `publish` read it at call time through a one-shot credential helper, so it never reaches `.git/config`, logs or the repo. `sync` also **aborts if any staged change contains a token-like string**.
-Use a fine-grained token limited to this repo: **Actions read/write** for dispatch, logs, and temporary-artifact cleanup; **Contents read** for capture-pack downloads; add **Contents write** only if you explicitly sync or publish a Release. The workflow's own token is restricted to `contents: read`. Rotate the token if it was ever pasted somewhere public.
+Use a fine-grained local CLI token limited to this repo: **Actions read/write** for manual dispatch, logs and artifact cleanup; **Contents read** for capture-pack downloads; add **Contents write** only for explicitly authorized sync/publish actions. In `render.yml`, permissions are per job: matrix renderers get `contents: read`; plan/finalizer get `contents: write` only to reserve/finalize the attempt registry. That workflow never calls Buffer or creates a video Release. Rotate the token if it was ever pasted somewhere public.
 
 ## Research inside the repo
 
@@ -127,19 +129,19 @@ Any segment can override `voice`, `lang` and `speed`. `say-this` uses this when 
 Urdu uses espeak-ng's `ur` phonemizer with a Hindi Kokoro voice. whisper heard 88% of the demo's Urdu correctly, with an audible accent.
 Check any voice and language yourself with `python3 tools/tts_roundtrip.py --suite`.
 
-### Own-voice mode (recommended for monetized channels and for Urdu narration)
+### Own-voice mode (where the active production profile permits it)
 
 Set `"voice": "files"` and record one file per spoken line into `briefs/vo/<segment-id>.wav` (or `.mp3` or `.m4a`).
 Segment ids are printed in `renders/<id>/manifest.json` → `timing`.
 Phone recordings are fine: silence is trimmed automatically and loudness is normalised.
-Everything else stays automatic, including timing, captions, music ducking and the render.
+The current English final-render receipt gate specifically approves Chatterbox Option-3; own recordings cannot bypass that VOICE gate. The pipeline's file-recording mode remains available for local/layout use and any separately approved profile.
 
 ## Quality gates (a video ships only if all pass)
 
 1. `hyperframes lint`: 0 errors.
 2. `hyperframes check`: runtime, layout overlap, motion and contrast. It caught real bugs while building these templates: colliding chart labels, 2:1 contrast on the answer badges, and invisible outline text.
-3. whisper.cpp intelligibility: the character-level match of what whisper heard vs the script. It catches TTS mispronunciations.
-4. Output QA: 1080×1920, 30 fps, H.264 + AAC, duration matches, −14 ±1 LUFS, peak ≤ −1 dBFS.
+3. Whisper/TTS QA: every spoken chunk must match at ≥92%; retries use distinct seeds and are bounded to four (channel default: two). English final voiceover must reach ≥95% overall Whisper character match. Missing/disabled Whisper QA or a low score aborts the final render.
+4. Output QA: 1080×1920, 30 fps, H.264 + AAC, duration matches, −14 ±1 LUFS, peak ≤ −1 dBFS; every measured check must pass.
 5. **The human checklist in `post.md`**: facts against sources, sound-off hook, and "is this different from my last 5 uploads?". The pipeline renders; you edit.
 
 ## Using it inside this AI agent (Arena)
@@ -147,14 +149,14 @@ Everything else stays automatic, including timing, captions, music ducking and t
 Ask in plain language. For example:
 - "Make a quiz video about world capitals for @quiz.minute, 3 questions, midnight style."
 - "Make a data race of internet users (% of population) for Pakistan, India and Bangladesh since 2000."
-- "Plan 7 videos for an English-learning channel this week and render them."
+- "Research a proposed batch, prepare the briefs and receipt, and wait for my approval before rendering."
 
 The agent:
-1. researches and verifies the facts with sources;
-2. writes the brief;
-3. runs `reels.py make`;
-4. looks at the contact sheet and fixes what it sees;
-5. hands you the MP4 and `post.md`.
+1. discovers and scores topics; researches the claims and records sources;
+2. prepares the brief, exact spoken script, approved voice plan, assets and fresh Buffer Insights evidence;
+3. runs local syntax/tests and optional `--no-render` layout checks in the sandbox;
+4. proposes the batch size; only after owner approval does the manual GitHub workflow render one matrix job per brief;
+5. downloads the short-lived artifacts for contact-sheet/cover review and hands over the approved MP4 and `post.md`.
 
 Sessions start cheap and stay small: the agent reads `.context/PACK.md`
 (≤8 KB, built by `tools/context/ctxpack.py` from the same source as
@@ -163,11 +165,11 @@ Sessions start cheap and stay small: the agent reads `.context/PACK.md`
 `tools/context/quiet.py`. Measured re-entry cost: ~1.1k tokens instead of ~44k.
 Rules: [`CONTEXT-PROTOCOL.md`](CONTEXT-PROTOCOL.md).
 
-Limits of this sandbox:
-- about 6–8 minutes per 35–45 s video on 2 vCPU;
-- sandboxes reset without warning. `bootstrap.sh` restores the toolchain in about 3 min (measured: 189 s after a real reset), while files persist;
-- the workspace holds about 128 MB. Cloud render artifacts are downloaded into `renders/<id>/` and deleted remotely after `--wait`; use `reels.py publish` only when a permanent Release is explicitly requested;
-- **2 GB RAM: run one heavy job at a time.** A render (Chrome + FFmpeg) needs about 1.2 GB. Never load Kokoro or whisper in parallel; doing so once got the render OOM-killed. The pipeline frees the TTS model before rendering for this reason.
+Execution limits and handoff:
+- **Sandbox (control plane):** use for research/briefs, production-receipt preparation, code review, syntax/unit tests, checksum checks, and optional `--no-render` layout/lint checks. Do not spend this constrained workspace on the approved Chatterbox + Whisper + HyperFrames final batch.
+- **GitHub render plane:** the manual `render.yml` workflow runs one Ubuntu 24.04 matrix job per owner-approved brief (4 vCPU / 16 GiB each, hard maximum 10), performs the final TTS/Whisper/MP4 work, and stores each result as a one-day artifact.
+- No render is dispatched until the batch size is explicitly confirmed and the committed receipt passes DISCOVER → SELECT ≥60 → RESEARCH → SCRIPT → VOICE → ASSETS, fresh Buffer Insights, exact word count, and capture-byte verification.
+- Sandboxes can reset without warning; `bootstrap.sh` restores the toolchain. The workspace snapshot is capped near 128 MB. `reels.py cloud --wait` downloads artifacts for review; a permanent Release, git push, Buffer schedule/post, or platform upload is a separate owner-authorized action.
 
 ## Adding a template
 

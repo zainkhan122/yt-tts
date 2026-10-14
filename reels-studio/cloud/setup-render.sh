@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Render toolchain on a GitHub Actions ubuntu runner (4 vCPU / 16 GB, passwordless sudo).
-# Same pinned stack as the sandbox (setup/setup-sandbox.sh): apt fonts + ffmpeg, Node 22 in /usr/local,
-# hyperframes 0.8.137, Kokoro, Chrome headless shell; plus whisper-cli (QA gate) built with all cores.
-# ~/.cache/hyperframes (Kokoro model, whisper build + model, browser) is restored by actions/cache.
+# Render-only stack: setup-sandbox supplies Node/FFmpeg/Chrome/HyperFrames/Kokoro reference support;
+# this script adds approved Chatterbox flow TTS with a pinned Hugging Face model commit plus the pinned whisper.cpp/small.en QA gate.
+# ~/.cache/hyperframes (Kokoro, whisper build + verified model, browser) is restored by actions/cache.
 set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 RS="$(dirname "$HERE")"
@@ -18,8 +18,20 @@ pipi chatterbox-tts==0.1.7
 pipi scipy soundfile pillow praat-parselmouth "espeakng-loader>=0.2.4" "phonemizer>=3.4.0" "onnxruntime>=1.20.1"
 pipi --no-deps kokoro-onnx==0.6.1
 python3 -c "import chatterbox, kokoro_onnx, numpy, torch; print('voice stack ok: torch', torch.__version__, 'numpy', numpy.__version__)"
-echo "== Chatterbox weights (Hugging Face cache, restored by actions/cache after the first run)"
-python3 -c "from chatterbox.tts import ChatterboxTTS; ChatterboxTTS.from_pretrained(device='cpu'); print('chatterbox weights ready')"
+echo "== Chatterbox weights pinned to the approved model revision (Hugging Face cache)"
+PYTHONPATH="$RS" python3 - <<'PY'
+from pathlib import Path
+from huggingface_hub import snapshot_download
+from lib.pipeline import CHATTERBOX_MODEL_FILES, CHATTERBOX_MODEL_REPO, CHATTERBOX_MODEL_REVISION, verify_chatterbox_snapshot
+
+model_dir = Path(snapshot_download(
+    repo_id=CHATTERBOX_MODEL_REPO,
+    revision=CHATTERBOX_MODEL_REVISION,
+    allow_patterns=list(CHATTERBOX_MODEL_FILES),
+))
+verified = verify_chatterbox_snapshot(model_dir)
+print(f"verified {len(verified)} Chatterbox model files: {CHATTERBOX_MODEL_REPO}@{CHATTERBOX_MODEL_REVISION}")
+PY
 echo "== whisper-cli for the intelligibility gate (all cores)"
 JOBS="$(nproc)" bash "$RS/setup/setup-whisper.sh"
 echo "== Kokoro model (first run only; cached afterwards)"

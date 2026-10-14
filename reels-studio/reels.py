@@ -8,10 +8,10 @@ Reels Studio - professional vertical-video generator (HyperFrames + free tools)
   python3 reels.py social --account <tiktok/yt url> --top 2  # competitors' scripts, hooks, pacing, CTAs -> research/social/
   python3 tools/channel_study.py meta|visual|transcribe|report # deep study of benchmark accounts (20-30 videos each)
   python3 tools/idea_feed.py --days 7                        # topics the watchlist channels are covering (consensus) -> backlog
-  python3 reels.py make   briefs/x.json --quality looks --crf 26
-  python3 reels.py make   briefs/x.json --no-render         # fast iteration: build + lint + check only
-  python3 reels.py batch  briefs/a.json briefs/b.json ...   # a week of videos in one go
-  python3 reels.py cloud  <brief-id> [<brief-id> ...] [--wait]  # render on GitHub Actions -> one-day artifact, download locally
+  python3 reels.py make   briefs/x.json --quality looks --crf 26 --production-receipt reels-studio/research/production/receipts/<batch>.json
+  python3 reels.py make   briefs/x.json --no-render         # layout iteration: build + lint + check only; receipt exempt
+  python3 reels.py batch  briefs/a.json briefs/b.json ... --production-receipt reels-studio/research/production/receipts/<batch>.json
+  python3 reels.py cloud  <brief-id> [...] --production-receipt reels-studio/research/production/receipts/<batch>.json [--wait]  # one-day artifact
   python3 reels.py scenes <id> [<id> ...] [--tag T] [--json]    # per-scene manifest of a published render (window, digests, assets)
   python3 reels.py rebuild <brief-id> --scenes <id,id> --reason "..." [--dry-run] [--local]
       # repair scene(s) of a published video: re-render only those, reuse the published audio
@@ -28,11 +28,12 @@ Token: ~/.config/reels-studio/gh_token (sandbox) or env GH_TOKEN (cloud). Never 
 import argparse
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
 import time
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
@@ -179,13 +180,99 @@ def cmd_publish(a):
     return subprocess.run(args).returncode
 
 
+def preflight_local_render(briefs, receipt_path, *, no_render=False, scene_rebuild=False,
+                          repo_root=None, batch_briefs=None):
+    """Require a current six-stage receipt before any full render; previews/scene repairs are exempt."""
+    if no_render or scene_rebuild:
+        return None
+    if not isinstance(receipt_path, str) or not receipt_path.strip():
+        raise SystemExit("a full render requires --production-receipt <repo-relative JSON path>")
+    root = Path(repo_root or REPO).resolve()
+    brief_root = root / "reels-studio/briefs"
+
+    def normalize(token):
+        raw = str(token)
+        if (not raw or raw != raw.strip() or "\\" in raw
+                or any(ord(char) < 32 or ord(char) == 127 for char in raw)):
+            raise SystemExit(f"unsafe brief path for production preflight: {token!r}")
+        if raw.endswith(".json"):
+            path = PurePosixPath(raw)
+            if path.is_absolute() or ".." in path.parts or not path.parts or ":" in path.parts[0]:
+                raise SystemExit(f"unsafe brief path for production preflight: {token!r}")
+            allowed = len(path.parts) == 1
+            allowed |= len(path.parts) == 2 and path.parts[0] == "briefs"
+            allowed |= len(path.parts) == 3 and path.parts[:2] == ("reels-studio", "briefs")
+            if not allowed:
+                raise SystemExit(f"brief path must be an ID or canonical briefs/<id>.json path: {token!r}")
+            brief_id = path.name[:-5]
+        else:
+            if "/" in raw or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", raw):
+                raise SystemExit(f"unsafe brief ID for production preflight: {token!r}")
+            brief_id = raw
+        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", brief_id):
+            raise SystemExit(f"unsafe brief ID for production preflight: {token!r}")
+        canonical = brief_root / f"{brief_id}.json"
+        if canonical.is_symlink() or not canonical.is_file():
+            raise SystemExit(f"brief is missing or unsafe for production preflight: {brief_id}")
+        if not canonical.resolve(strict=True).is_relative_to(brief_root.resolve()):
+            raise SystemExit(f"brief path escapes the canonical briefs directory: {brief_id}")
+        return brief_id
+
+    actual_ids = [normalize(value) for value in briefs]
+    if not actual_ids or len(actual_ids) > 10 or len(actual_ids) != len(set(actual_ids)):
+        raise SystemExit("production preflight needs 1-10 unique brief IDs")
+    if batch_briefs is None or batch_briefs == "":
+        batch_ids = actual_ids
+    elif isinstance(batch_briefs, str):
+        try:
+            parsed = json.loads(batch_briefs) if batch_briefs.lstrip().startswith("[") else batch_briefs.split()
+        except json.JSONDecodeError as exc:
+            raise SystemExit("--production-batch-briefs must be a JSON array or a whitespace-separated list") from exc
+        if not isinstance(parsed, list):
+            raise SystemExit("--production-batch-briefs must be a JSON array or a whitespace-separated list")
+        batch_ids = [normalize(value) for value in parsed]
+    elif isinstance(batch_briefs, list):
+        batch_ids = [normalize(value) for value in batch_briefs]
+    else:
+        raise SystemExit("--production-batch-briefs must be a JSON array or a whitespace-separated list")
+    if (not batch_ids or len(batch_ids) > 10 or len(batch_ids) != len(set(batch_ids))
+            or not set(actual_ids) <= set(batch_ids)):
+        raise SystemExit("production receipt batch IDs must be unique (maximum 10) and contain every render brief")
+
+    sys.path.insert(0, str(ROOT))
+    from tools.production_gate import ProductionGateError, sha256_bytes, validate_receipt, verify_capture_assets
+    try:
+        clean_receipt_path = receipt_path.strip()
+        result = validate_receipt(root, clean_receipt_path, batch_ids, verify_assets=False)
+        receipt_file = root / clean_receipt_path
+        receipt_raw = receipt_file.read_bytes()
+        if sha256_bytes(receipt_raw) != result.get("receipt_sha256"):
+            raise ProductionGateError("production receipt changed during local preflight")
+        receipt_data = json.loads(receipt_raw.decode("utf-8"))
+        for brief_id in actual_ids:
+            brief_file = brief_root / f"{brief_id}.json"
+            brief_raw = brief_file.read_bytes()
+            if sha256_bytes(brief_raw) != result["briefs"][brief_id]["brief_sha256"]:
+                raise ProductionGateError(f"{brief_id}: brief changed during local preflight")
+            brief_data = json.loads(brief_raw.decode("utf-8"))
+            stage = receipt_data["briefs"][brief_id]["stages"]["assets"]
+            verify_capture_assets(root, brief_id, brief_data, stage)
+    except (ProductionGateError, OSError, UnicodeDecodeError, json.JSONDecodeError, KeyError) as exc:
+        raise SystemExit(f"production preflight rejected: {exc}") from exc
+    return result
+
+
 def cmd_cloud(a):
     sys.path.insert(0, str(ROOT / "tools"))
     import gh_actions
-    ids = [Path(b).name.removesuffix(".json") for b in a.briefs]
-    missing = [i for i in ids if not (ROOT / "briefs" / f"{i}.json").exists()]
-    if missing:
-        raise SystemExit(f"no brief for: {', '.join(missing)} (briefs must be committed: python3 reels.py sync)")
+    sys.path.insert(0, str(ROOT))
+    from tools.validate_dispatch import plan_dispatch
+    try:
+        plan = plan_dispatch(" ".join(a.briefs), tag=a.tag, quality=a.quality, crf=a.crf,
+                             production_receipt=a.production_receipt, repo_root=REPO)
+    except (ValueError, RuntimeError, OSError) as exc:
+        raise SystemExit(f"cloud render preflight rejected: {exc}") from exc
+    ids = plan["briefs"]
     sys.path.insert(0, str(ROOT))
     from lib import gates
     reports, gates_failed = [], 0
@@ -203,7 +290,10 @@ def cmd_cloud(a):
     print(f"gate receipt -> {receipt.relative_to(ROOT)}")
     if gates_failed:
         raise SystemExit("gates found errors — fix them before spending cloud runners")
-    run_id = gh_actions.dispatch("render.yml", {"briefs": " ".join(ids), "tag": a.tag, "quality": a.quality, "crf": str(a.crf)})
+    run_id = gh_actions.dispatch("render.yml", {
+        "briefs": " ".join(ids), "tag": plan["tag"], "quality": plan["quality"], "crf": str(plan["crf"]),
+        "production_receipt": a.production_receipt,
+    })
     receipt.write_text(json.dumps({"dispatched": ids, "run_id": run_id, "gates": reports}, indent=2, ensure_ascii=False) + "\n")
     print(f"cloud render started: https://github.com/{gh_actions.REPO}/actions/runs/{run_id}  ({len(ids)} video(s))")
     if a.wait:
@@ -357,6 +447,8 @@ def main():
         p.add_argument("--rebuild-scenes", default="", help="re-render only these scene ids (cloud rebuild mode)")
         p.add_argument("--rebuild-reason", default="", help="why this rebuild (recorded in the manifest)")
         p.add_argument("--from-tag", default="", help="release tag holding the previous kit+mp4 for a rebuild")
+        p.add_argument("--production-receipt", default="", help="six-stage receipt required for a full render")
+        p.add_argument("--production-batch-briefs", default="", help=argparse.SUPPRESS)
     sub.add_parser("templates")
     sub.add_parser("doctor")
     p = sub.add_parser("new")
@@ -374,8 +466,9 @@ def main():
     p.add_argument("--json", action="store_true", help="print the receipt JSON")
     p.add_argument("--no-record", action="store_true", help="print only; do not write manifests/<id>/manifest.json")
     p = sub.add_parser("cloud", help="render briefs on GitHub Actions -> temporary artifacts (one runner each, up to 10 in parallel)")
-    p.add_argument("briefs", nargs="+", help="brief ids or paths (briefs/<id>.json)")
-    p.add_argument("--tag", default="", help="source Release tag only for a scene rebuild; normally omit")
+    p.add_argument("briefs", nargs="+", help="brief IDs or paths (briefs/<id>.json)")
+    p.add_argument("--tag", default="", help="validated output tag (no public Release is created)")
+    p.add_argument("--production-receipt", required=True, help="fresh receipt at reels-studio/research/production/receipts/<batch>.json")
     p.add_argument("--quality", default="looks")
     p.add_argument("--crf", default="23")
     p.add_argument("--wait", action="store_true", help="wait, download artifacts to renders/<id>/, and delete temporary artifacts")
@@ -430,6 +523,15 @@ def main():
         return cmd_radar(a)
     if a.cmd == "capture":
         return cmd_capture(a)
+    if a.cmd in ("make", "batch"):
+        preflight_local_render(
+            a.briefs,
+            a.production_receipt,
+            no_render=a.no_render,
+            scene_rebuild=bool(a.rebuild_scenes),
+            repo_root=REPO,
+            batch_briefs=a.production_batch_briefs or None,
+        )
     from lib import pipeline  # only render/template commands need the heavy voice dependencies
     if a.cmd == "templates":
         for name in pipeline.list_templates():
