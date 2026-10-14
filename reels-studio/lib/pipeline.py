@@ -107,6 +107,50 @@ def require_qa_checks(checks):
     return True
 
 
+def hyperframes_failure_message(stage, output, log_path, *, reason=None, max_lines=80, max_chars=8000):
+    """Surface bounded browser/lint diagnostics in Actions logs while preserving the full build log."""
+    newline = chr(10)
+    lines = str(output or "").strip().splitlines()
+    if len(lines) > max_lines:
+        lines = lines[-max_lines:]
+    detail = newline.join(lines) if lines else "(HyperFrames produced no stdout/stderr)"
+    if len(detail) > max_chars:
+        marker = "...[diagnostics truncated]..." + newline
+        detail = marker + detail[-max(0, max_chars - len(marker)):]
+    suffix = f" ({reason})" if reason else ""
+    header = f"hyperframes {stage} failed{suffix}; full log: {log_path}"
+    return header + newline + "Last diagnostics:" + newline + detail
+
+
+def hyperframes_lint_summary(output):
+    """Parse the pinned CLI's explicit error/warning count; None means unknown, not success."""
+    for line in str(output or "").splitlines():
+        tokens = line.replace(",", "").split()
+        for index in range(1, len(tokens) - 2):
+            if tokens[index].casefold() != "error(s)" or tokens[index + 2].casefold() != "warning(s)":
+                continue
+            try:
+                return int(tokens[index - 1]), int(tokens[index + 1])
+            except ValueError:
+                continue
+    return None
+
+
+def require_hyperframes_lint(exit_code, output, log_path):
+    """Fail closed on lint errors, CLI crashes, or an unrecognized/missing lint summary."""
+    summary = hyperframes_lint_summary(output)
+    if exit_code != 0:
+        raise SystemExit(hyperframes_failure_message("lint", output, log_path, reason=f"exit status {exit_code}"))
+    if summary is None:
+        raise SystemExit(hyperframes_failure_message(
+            "lint", output, log_path, reason="could not parse error/warning summary"))
+    errors, warnings = summary
+    if errors:
+        raise SystemExit(hyperframes_failure_message(
+            "lint", output, log_path, reason=f"{errors} error(s), {warnings} warning(s)"))
+    return summary
+
+
 MIN_FLOW_MATCH = 0.92
 MIN_ENGLISH_WHISPER_MATCH = 0.95
 
@@ -1307,17 +1351,16 @@ class Job:
 
     # 7-8 -------------------------------------------------------------
     def gates_and_render(self):
-        _, out, secs = run(["hyperframes", "lint", "."], cwd=self.proj, log=self.log, check=False)
-        m = re.search(r"(\d+)\s+error\(s\),\s+(\d+)\s+warning\(s\)", out)
-        errs, warns = (int(m.group(1)), int(m.group(2))) if m else (None, None)
+        lint, out, secs = run(["hyperframes", "lint", "."], cwd=self.proj, log=self.log, check=False)
+        summary = hyperframes_lint_summary(out)
+        errs, warns = summary if summary is not None else (None, None)
         self.stage("lint", errors=errs, warnings=warns)
-        if errs:
-            raise SystemExit(f"lint errors - see {self.log}")
+        require_hyperframes_lint(lint.returncode, out, self.log)
         if self.do_check:
             p, out, secs = run(["hyperframes", "check", "."], cwd=self.proj, log=self.log, check=False)
             self.stage("check", ok=p.returncode == 0, secs=round(secs, 1), summary=out.strip().splitlines()[-1][:160] if out.strip() else "")
             if p.returncode != 0:
-                raise SystemExit(f"hyperframes check failed - see {self.log}")
+                raise SystemExit(hyperframes_failure_message("check", out, self.log, reason=f"exit status {p.returncode}"))
         if not self.do_render:
             return None
         mp4 = self.work / "video.mp4"

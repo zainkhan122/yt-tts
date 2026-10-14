@@ -13,6 +13,7 @@ from reels import preflight_local_render  # noqa: E402
 from tools.production_gate import (  # noqa: E402
     ProductionGateError,
     script_sha256,
+    script_word_count,
     sha256_bytes,
     validate_receipt,
     verify_capture_assets,
@@ -71,7 +72,8 @@ class ProductionGateTests(unittest.TestCase):
         }
         asset_hash = "a" * 64
         stage = {
-            "discover": {"status": "complete", "evidence": ["reels-studio/research/ideas/feed.md", "reels-studio/research/radar/radar.md"]},
+            "discover": {"status": "complete", "checked_at": self.now,
+                         "evidence": ["reels-studio/research/ideas/feed.md", "reels-studio/research/radar/radar.md"]},
             "select": {"status": "complete", "selection_status": "selected", "topic": "Test topic",
                        "score": 75, "score_breakdown": score_breakdown,
                        "metrics_snapshot_sha256": sha256_bytes(self.snapshot_raw), "basis_post_ids": ["post-one"],
@@ -79,7 +81,7 @@ class ProductionGateTests(unittest.TestCase):
             "research": {"status": "complete", "evidence": ["reels-studio/briefs/one.json"],
                          "dynamic_facts_checked_at": self.now,
                          "primary_sources": [{"url": "https://example.com/official", "checked_at": self.now, "claim": "The official model capability."}]},
-            "script": {"status": "complete", "script_sha256": script_sha, "word_count": 9},
+            "script": {"status": "complete", "script_sha256": script_sha, "word_count": 6},
             "voice": {"status": "complete", "engine": "chatterbox", "profile": "option-3", "qa_thresholds": {"per_chunk": 0.92, "overall": 0.95}},
             "assets": {"status": "complete", "capture_id": "cap-one", "manifest_sha256": asset_hash,
                        "files": [{"path": "screen.jpg", "sha256": "b" * 64}],
@@ -114,6 +116,34 @@ class ProductionGateTests(unittest.TestCase):
         result = self.validate()
         self.assertEqual(result["briefs"]["one"]["topic_score"], 75)
         self.assertEqual(result["briefs"]["one"]["script_sha256"], script_sha256(self.brief))
+        self.assertEqual(script_word_count(self.brief), 6)
+
+    def test_discovery_must_have_a_fresh_timezone_aware_timestamp(self):
+        discover = self.receipt["briefs"]["one"]["stages"]["discover"]
+        del discover["checked_at"]
+        self.receipt_path.write_text(json.dumps(self.receipt), encoding="utf-8")
+        with self.assertRaisesRegex(ProductionGateError, "DISCOVER evidence timestamp is missing"):
+            self.validate()
+        discover["checked_at"] = "2026-10-12T23:59:59Z"  # just over the 36-hour limit
+        self.receipt_path.write_text(json.dumps(self.receipt), encoding="utf-8")
+        with self.assertRaisesRegex(ProductionGateError, "DISCOVER evidence is stale"):
+            self.validate()
+        discover["checked_at"] = "not-a-timezone"
+        self.receipt_path.write_text(json.dumps(self.receipt), encoding="utf-8")
+        with self.assertRaisesRegex(ProductionGateError, "timestamp is invalid"):
+            self.validate()
+
+    def test_script_word_count_must_match_spoken_form_not_display_markup(self):
+        brief = {"scenes": [{"id": "hook", "say": "A {8,000|eight thousand} token window. 🚀"}]}
+        self.assertEqual(script_word_count(brief), 5)
+        self.receipt["briefs"]["one"]["stages"]["script"]["word_count"] = 9
+        self.receipt_path.write_text(json.dumps(self.receipt), encoding="utf-8")
+        with self.assertRaisesRegex(ProductionGateError, "word_count must equal the 6 spoken words"):
+            self.validate()
+        self.receipt["briefs"]["one"]["stages"]["script"]["word_count"] = True
+        self.receipt_path.write_text(json.dumps(self.receipt), encoding="utf-8")
+        with self.assertRaisesRegex(ProductionGateError, "word_count must equal the 6 spoken words"):
+            self.validate()
 
     def test_local_full_render_requires_receipt_while_preview_does_not(self):
         with self.assertRaisesRegex(SystemExit, "require --receipt"):

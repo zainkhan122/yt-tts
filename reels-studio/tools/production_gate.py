@@ -25,6 +25,7 @@ MIN_TOPIC_SCORE = 60
 MIN_CHUNK_MATCH = 0.92
 MIN_ENGLISH_OVERALL_MATCH = 0.95
 MAX_INSIGHTS_AGE = dt.timedelta(hours=36)
+MAX_DISCOVER_AGE = dt.timedelta(hours=36)
 MAX_FACT_AGE = dt.timedelta(hours=24)
 MAX_SOURCE_AGE = dt.timedelta(hours=72)
 SCORE_WEIGHTS = {
@@ -108,8 +109,12 @@ def require_fresh(value: str, label: str, max_age: dt.timedelta, now: dt.datetim
     return stamp
 
 
-def script_sha256(brief: dict) -> str:
-    """Hash the exact spoken forms in scene order (including explicit display|spoken markup)."""
+SCRIPT_MARKUP_RE = re.compile(r"\{([^{}|]+)\|([^{}]+)\}")
+SCRIPT_SYMBOL_RE = re.compile(r"[\U0001F000-\U0001FAFF\u2600-\u27BF\uFE0F]")
+
+
+def _spoken_script_lines(brief: dict) -> list[dict[str, str]]:
+    """Return the same ordered scene text used by SCRIPT hashing and word-count validation."""
     scenes = brief.get("scenes")
     if not isinstance(scenes, list) or not scenes:
         raise ProductionGateError("brief has no scenes for SCRIPT hash")
@@ -125,8 +130,25 @@ def script_sha256(brief: dict) -> str:
         lines.append({"id": str(scene.get("id", index)), "text": text})
     if not lines:
         raise ProductionGateError("brief has no spoken text for SCRIPT hash")
-    raw = json.dumps(lines, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    return lines
+
+
+def script_sha256(brief: dict) -> str:
+    """Hash the exact spoken forms in scene order (including explicit display|spoken markup)."""
+    raw = json.dumps(_spoken_script_lines(brief), ensure_ascii=False, separators=(",", ":")).encode("utf-8")
     return sha256_bytes(raw)
+
+
+def script_word_count(brief: dict) -> int:
+    """Count spoken tokens exactly as the renderer does after display|spoken markup and emoji removal."""
+    count = 0
+    for line in _spoken_script_lines(brief):
+        text = SCRIPT_MARKUP_RE.sub(lambda match: match.group(2).strip(), line["text"])
+        text = SCRIPT_SYMBOL_RE.sub("", text)
+        count += len(text.split())
+    if count <= 0:
+        raise ProductionGateError("brief has no spoken words for SCRIPT word_count")
+    return count
 
 
 def _source_urls(brief: dict) -> set[str]:
@@ -173,12 +195,6 @@ def _load_backlog(repo_root: Path) -> list[dict]:
             return list(csv.DictReader(f))
     except OSError as exc:
         raise ProductionGateError("topics/backlog.csv is unreadable") from exc
-
-
-def _positive_int(value, label: str) -> int:
-    if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
-        raise ProductionGateError(f"{label} must be a positive integer")
-    return value
 
 
 def _validate_buffer_snapshot(repo_root: Path, receipt: dict, now: dt.datetime) -> tuple[dict, str]:
@@ -290,6 +306,7 @@ def validate_receipt(
                 raise ProductionGateError(f"{brief_id}: {stage_name.upper()} is not complete")
 
         discover = stages["discover"]
+        require_fresh(discover.get("checked_at"), f"{brief_id} DISCOVER evidence", MAX_DISCOVER_AGE, now)
         discover_evidence = _require_evidence(root, discover.get("evidence"), f"{brief_id} DISCOVER")
         if not any(needle in path for path in discover_evidence for needle in
                    ("reels-studio/research/ideas/", "reels-studio/research/radar/", "reels-studio/research/social/")):
@@ -354,7 +371,13 @@ def validate_receipt(
         exact_script_sha = script_sha256(brief)
         if script.get("script_sha256") != exact_script_sha:
             raise ProductionGateError(f"{brief_id}: SCRIPT hash does not match the brief's spoken lines")
-        _positive_int(script.get("word_count"), f"{brief_id} SCRIPT word_count")
+        exact_word_count = script_word_count(brief)
+        receipt_word_count = script.get("word_count")
+        if (isinstance(receipt_word_count, bool) or not isinstance(receipt_word_count, int)
+                or receipt_word_count != exact_word_count):
+            raise ProductionGateError(
+                f"{brief_id}: SCRIPT word_count must equal the {exact_word_count} spoken words in the current brief"
+            )
 
         voice = stages["voice"]
         thresholds = voice.get("qa_thresholds")

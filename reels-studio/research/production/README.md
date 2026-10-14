@@ -10,9 +10,10 @@ render policy. Owner approvals and platform-delivery permissions remain separate
    queries for every sent video on the configured Buffer channels and commits `tracker/buffer-insights.json`.
    It makes no Buffer mutations. The render gate requires a complete snapshot fetched within 36 hours and at
    least one fresh metric-bearing post per active channel.
-2. Discover topics from the current feed/radar/social evidence. Score every selected candidate with the rubric in
-   `PIPELINE.md` §2. Add the exact topic title, integer score, and `video_id=<brief-id>` to `topics/backlog.csv`,
-   setting its status to `selected` before production.
+2. Discover topics from current feed/radar/social evidence and record the timezone-aware `discover.checked_at`
+   timestamp. Discovery evidence must be no older than 36 hours when the receipt is checked. Score every selected
+   candidate with the rubric in `PIPELINE.md` §2. Add the exact topic title, integer score, and
+   `video_id=<brief-id>` to `topics/backlog.csv`, setting its status to `selected` before production.
 3. Verify research and dynamic facts, write the brief/script, choose the approved voice, and review the capture
    pack. Do not start the render until the receipt passes.
 
@@ -25,11 +26,14 @@ render policy. Owner approvals and platform-delivery permissions remain separate
   sample post IDs, concrete findings, and four explicit decisions: `topic`, `script`, `voice`, `visual`.
 - `briefs`: exactly the brief IDs in the planned batch. Each entry pins the exact brief SHA and has exactly
   `discover`, `select`, `research`, `script`, `voice`, and `assets` stage records, all `status: complete`.
+- `discover`: a timezone-aware `checked_at` within 36 hours plus an evidence path under the idea-feed, radar, or
+  social-scan directories.
 - `select`: `selection_status: selected`, exact backlog topic title, six PIPELINE §2 category values, their sum (≥60),
   Buffer post IDs used as evidence, and all hard gates set true. The backlog row score and status must also match.
 - `research`: primary HTTPS URLs that also appear in `brief.sources`, claim mapping, timestamps, and a dynamic-fact
   refresh within 24 hours.
-- `script`: SHA-256 of ordered spoken lines and a positive word count.
+- `script`: SHA-256 of ordered spoken lines and a word count that exactly matches the current brief's spoken
+  forms; display|spoken markup and emoji handling follow the renderer.
 - `voice`: `engine: chatterbox`, `profile: option-3` for English; `qa_thresholds.per_chunk >= 0.92` and
   `qa_thresholds.overall >= 0.95`. These are minimums, not a claim that the actual audio has passed. The render
   pipeline transcribes the generated audio and blocks before video rendering on any QA failure.

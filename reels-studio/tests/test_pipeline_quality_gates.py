@@ -1,11 +1,32 @@
 """Fail-closed contracts for final render QA and voice intelligibility."""
 import unittest
 
-from lib.pipeline import (normalized_match_text, normalize_match_words, parse_markup, require_flow_match,
+from lib.pipeline import (hyperframes_failure_message, hyperframes_lint_summary, normalized_match_text,
+                          normalize_match_words, parse_markup, require_flow_match, require_hyperframes_lint,
                           require_qa_checks, require_whisper_match, should_run_whisper_qa)
 
 
 class PipelineQualityGateTests(unittest.TestCase):
+    def test_hyperframes_lint_fails_closed_and_exposes_the_diagnostic(self):
+        self.assertEqual(hyperframes_lint_summary("0 error(s), 4 warning(s)"), (0, 4))
+        self.assertEqual(require_hyperframes_lint(0, "0 error(s), 4 warning(s)", "/tmp/build.log"), (0, 4))
+        with self.assertRaises(SystemExit) as caught:
+            require_hyperframes_lint(0, "1 error(s), 0 warning(s)" + chr(10) + "layout overflow", "/tmp/build.log")
+        self.assertIn("1 error(s), 0 warning(s)", str(caught.exception))
+        self.assertIn("layout overflow", str(caught.exception))
+        with self.assertRaisesRegex(SystemExit, "exit status 1"):
+            require_hyperframes_lint(1, "0 error(s), 0 warning(s)", "/tmp/build.log")
+        with self.assertRaisesRegex(SystemExit, "could not parse error/warning summary"):
+            require_hyperframes_lint(0, "Unexpected HyperFrames output", "/tmp/build.log")
+
+    def test_browser_check_failure_includes_a_bounded_log_tail(self):
+        output = chr(10).join(f"diagnostic {i}" for i in range(100))
+        message = hyperframes_failure_message("check", output, "/tmp/build.log", reason="exit status 1", max_lines=3)
+        self.assertIn("diagnostic 99", message)
+        self.assertIn("diagnostic 98", message)
+        self.assertNotIn("diagnostic 0", message)
+        self.assertIn("full log: /tmp/build.log", message)
+
     def test_numeric_pronunciation_alternates_keep_display_and_speech_forms(self):
         display, spoken, _ = parse_markup("{8,000-token|eight-thousand-token}")
         self.assertEqual(display, "8,000-token")

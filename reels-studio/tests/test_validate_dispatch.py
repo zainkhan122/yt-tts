@@ -87,7 +87,8 @@ class DispatchPlanTests(unittest.TestCase):
                      "voice": "Retain approved voice; metrics do not isolate voice effects.",
                      "visual": "Keep proof visible in the first frame and cover."}
         stages = {
-            "discover": {"status": stage_status, "evidence": ["reels-studio/research/ideas/feed.md", "reels-studio/research/radar/radar.md"]},
+            "discover": {"status": stage_status, "checked_at": self.now.isoformat(),
+                         "evidence": ["reels-studio/research/ideas/feed.md", "reels-studio/research/radar/radar.md"]},
             "select": {"status": stage_status, "selection_status": "selected", "topic": "Test topic",
                        "score": score, "score_breakdown": breakdown,
                        "metrics_snapshot_sha256": sha256_bytes(snapshot_raw), "basis_post_ids": ["post-1"],
@@ -199,6 +200,17 @@ class DispatchPlanTests(unittest.TestCase):
         self.assertEqual(code, 2)
         self.assertIn("protected main branch", stderr.getvalue())
         check.assert_not_called()
+
+    def test_render_plan_sparse_checkout_includes_validator_and_its_imports(self):
+        workflow = (ROOT.parent / ".github/workflows/render.yml").read_text(encoding="utf-8")
+        plan_checkout = workflow.split("name: Six-stage / score / Insights / duplicate-render plan", 1)[0]
+        for path in ("/reels-studio/tools/validate_dispatch.py",
+                     "/reels-studio/tools/production_gate.py",
+                     "/reels-studio/tools/render_attempts.py",
+                     "/reels-studio/tools/gh_actions.py",
+                     "/reels-studio/lib/"):
+            with self.subTest(path=path):
+                self.assertIn(path, plan_checkout)
 
     def test_workflow_entry_checks_and_reserves_only_when_requested(self):
         fake_plan = {"briefs": ["one"], "tag": "renders-2026-10-14", "attempts": [{"fingerprint": "a" * 64}]}
