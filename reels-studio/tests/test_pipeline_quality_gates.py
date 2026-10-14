@@ -1,12 +1,34 @@
 """Fail-closed contracts for final render QA and voice intelligibility."""
+import hashlib
+import tempfile
 import unittest
+from pathlib import Path
+from unittest.mock import patch
 
 from lib.pipeline import (hyperframes_failure_message, hyperframes_lint_summary, normalized_match_text,
                           normalize_match_words, parse_markup, require_flow_match, require_hyperframes_lint,
-                          require_qa_checks, require_whisper_match, should_run_whisper_qa)
+                          require_qa_checks, require_whisper_match, should_run_whisper_qa,
+                          verify_chatterbox_snapshot)
 
 
 class PipelineQualityGateTests(unittest.TestCase):
+    def test_pinned_chatterbox_snapshot_verifies_file_size_and_sha256(self):
+        data = b"fixture model bytes"
+        expected = {"fixture.safetensors": {"size": len(data), "sha256": hashlib.sha256(data).hexdigest()}}
+        with tempfile.TemporaryDirectory() as temp:
+            model_dir = Path(temp)
+            model_file = model_dir / "fixture.safetensors"
+            model_file.write_bytes(data)
+            with patch("lib.pipeline.CHATTERBOX_MODEL_FILE_HASHES", expected):
+                self.assertEqual(verify_chatterbox_snapshot(model_dir), {"fixture.safetensors": expected["fixture.safetensors"]["sha256"]})
+                model_file.write_bytes(b"altered")
+                with self.assertRaisesRegex(SystemExit, "size mismatch"):
+                    verify_chatterbox_snapshot(model_dir)
+                model_file.write_bytes(b"altered bytes!!!!")
+                expected["fixture.safetensors"]["size"] = model_file.stat().st_size
+                with self.assertRaisesRegex(SystemExit, "checksum mismatch"):
+                    verify_chatterbox_snapshot(model_dir)
+
     def test_hyperframes_lint_fails_closed_and_exposes_the_diagnostic(self):
         self.assertEqual(hyperframes_lint_summary("0 error(s), 4 warning(s)"), (0, 4))
         self.assertEqual(require_hyperframes_lint(0, "0 error(s), 4 warning(s)", "/tmp/build.log"), (0, 4))

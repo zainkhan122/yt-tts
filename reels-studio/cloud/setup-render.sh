@@ -18,8 +18,20 @@ pipi chatterbox-tts==0.1.7
 pipi scipy soundfile pillow praat-parselmouth "espeakng-loader>=0.2.4" "phonemizer>=3.4.0" "onnxruntime>=1.20.1"
 pipi --no-deps kokoro-onnx==0.6.1
 python3 -c "import chatterbox, kokoro_onnx, numpy, torch; print('voice stack ok: torch', torch.__version__, 'numpy', numpy.__version__)"
-echo "== Chatterbox weights (Hugging Face cache, restored by actions/cache after the first run)"
-python3 -c "from chatterbox.tts import ChatterboxTTS; ChatterboxTTS.from_pretrained(device='cpu'); print('chatterbox weights ready')"
+echo "== Chatterbox weights pinned to the approved model revision (Hugging Face cache)"
+PYTHONPATH="$RS" python3 - <<'PY'
+from pathlib import Path
+from huggingface_hub import snapshot_download
+from lib.pipeline import CHATTERBOX_MODEL_FILES, CHATTERBOX_MODEL_REPO, CHATTERBOX_MODEL_REVISION, verify_chatterbox_snapshot
+
+model_dir = Path(snapshot_download(
+    repo_id=CHATTERBOX_MODEL_REPO,
+    revision=CHATTERBOX_MODEL_REVISION,
+    allow_patterns=list(CHATTERBOX_MODEL_FILES),
+))
+verified = verify_chatterbox_snapshot(model_dir)
+print(f"verified {len(verified)} Chatterbox model files: {CHATTERBOX_MODEL_REPO}@{CHATTERBOX_MODEL_REVISION}")
+PY
 echo "== whisper-cli for the intelligibility gate (all cores)"
 JOBS="$(nproc)" bash "$RS/setup/setup-whisper.sh"
 echo "== Kokoro model (first run only; cached afterwards)"

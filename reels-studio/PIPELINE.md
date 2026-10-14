@@ -9,7 +9,7 @@ The interactive agent runs research/production; approved-render Buffer delivery 
 
 ```
  1 DISCOVER ──► 2 SELECT ──► 3 RESEARCH ──► 4 SCRIPT ──► 5 VOICE ──► 6 ASSETS ──► 7 ASSEMBLE ──► 8 QA ──► 9 PUBLISH ──► 10 LEARN
- radar+social    score≥60     fact sheet      brief.json    Chatterbox  capture pack   template      gates    verified batch → GitHub Release (no local MP4)   metrics
+ radar+social    score≥60     fact sheet      brief.json    Chatterbox  capture pack   template      gates    one-day Actions artifact (Release opt-in)   metrics
                                                                                                                     └──────► feeds 1-2
 ```
 
@@ -133,7 +133,7 @@ Never used: other creators' clips (copyright + "reused content" demonetization).
 |---|---|---|
 | **Chatterbox (APPROVED channel voice, 2026-10-09)**: clone of the Kokoro am_michael reference, exaggeration 0.7, cfg 0.4, flow reading | every English video (QA gate `approved_voice`) | MIT (inaudible PerTh watermark), free, CPU in the cloud render |
 | Kokoro TTS | makes the reference clip; local layout previews only (`REELS_VOICE_PREVIEW=kokoro`) | Apache-2.0 |
-| Your own voice recordings (`"voice": "files"`) | best for trust and monetisation; needed for real Urdu narration | yours |
+| Your own voice recordings (`"voice": "files"`) | local/layout use and separately approved profiles; current English final gate requires Chatterbox, and Urdu needs an explicitly approved profile | yours |
 | Kokoro Hindi voice + Urdu phonemes | experimental Urdu/Hindi versions (88% whisper-intelligible) | Apache-2.0 |
 
 **Quality gates:**
@@ -211,11 +211,22 @@ Template = HTML/GSAP scenes rendered by HyperFrames (deterministic, frame-exact)
 ## 9. Package + publish
 
 - **Post kit** (`renders/<id>/post.md`): 3 titles, caption, 3–5 hashtags, pinned comment (links + catches), cover frame, SRT captions, credits.
-- **Render delivery:** cloud jobs upload one-day Actions artifacts only as staging. A single finalizer downloads them on an ephemeral Actions runner, verifies that every requested MP4 and post kit passes manifest QA, creates a draft Release, uploads the complete batch, publishes one immutable GitHub Release (`renders-YYYY-MM-DD` in Asia/Karachi by default), and then deletes the temporary artifacts. `reels.py cloud --wait` returns the Release URL; it does not download MP4s into the local workspace. A failed or incomplete batch is not published. The Release is repository storage only; it is not owner approval of each Short for social distribution and never schedules a post.
-- **Permanent storage:** QA-passing cloud batches are placed on a GitHub Release as explicitly requested by the owner. `reels.py publish` remains the separate path for uploads that are already local; `reels.py sync` is a separate git write. Large video binaries stay out of Git history.
+- **Render delivery:** cloud jobs upload one-day Actions artifacts. `reels.py cloud --wait` downloads them into `renders/<id>/` for review and deletes the temporary artifacts. The render workflow is artifact-only by default; a failed or incomplete batch is not delivered.
+- **Permanent storage:** a public GitHub Release is created only if the owner separately authorizes and explicitly enables `publish_release` / `--publish-release`. `reels.py publish` is also a separate explicit action for local renders; `reels.py sync` is a separate git write. Large video binaries stay out of Git history. None of these actions schedules or posts to Buffer.
 - **Upload:**
   - Now: the user uploads natively to each platform (no cross-watermarks).
   - Later, optionally, via official APIs only: YouTube Data API, Instagram Graph API (Business/Creator account), TikTok Content Posting API. Each needs the user's account authorisation. No cookie bots (ban risk).
+
+## Execution allocation: sandbox control plane vs GitHub render plane
+
+| Work | Arena/developer sandbox | GitHub Actions (`ubuntu-24.04`, 4 vCPU / 16 GiB per render runner) |
+|---|---|---|
+| DISCOVER → SELECT → RESEARCH → SCRIPT → VOICE → ASSETS | Prepare and review briefs, score ≥60, exact current spoken-word counts, verified capture assets, and a fresh read-only Buffer Insights snapshot. No credentials in chat. | The main-only plan job validates the committed six-stage receipt, freshness, batch IDs, asset bytes, and attempt ledger before allocating render runners. |
+| Code hardening / dry-run validation | Static review, shell/Python syntax, unit tests, checksums, and optional `--no-render` layout checks. | `render-validation.yml` runs pinned lightweight dependencies, focused regressions, workflow/shell syntax, and all-brief spoken-script parity; no TTS/Whisper weights, attempt reservation, video render, Release, or Buffer action. |
+| Final video generation | Do not use the sandbox for the new production batch. | Manual `render.yml`; one runner per approved brief, hard maximum 10, final Chatterbox/Whisper/MP4 gates; one-day artifact by default. |
+| Delivery | Review downloaded artifacts; request changes if needed. | No public Release, Buffer schedule/post, or platform upload unless separately authorized. |
+
+**Handoff:** do not dispatch until the owner confirms batch size and the committed receipt passes DISCOVER → SELECT ≥60 → RESEARCH → SCRIPT → VOICE → ASSETS, fresh Buffer Insights, exact spoken-word count, and capture-byte verification. The renderer is artifact-only by default.
 
 ## 10. Learn
 
@@ -229,16 +240,16 @@ Template = HTML/GSAP scenes rendered by HyperFrames (deterministic, frame-exact)
 | Render (HTML → MP4), lint/check, site capture | HyperFrames CLI **0.8.137 (pinned, self-update off)** | Apache-2.0 | `bootstrap.sh` |
 | Headless browser (captures, render) | chrome-headless-shell + puppeteer-core (bundled) | BSD/Apache | bootstrap (via CLI) |
 | Animation | GSAP | free standard licence | bundled in templates |
-| TTS (final media) | Chatterbox flow, approved option 3 | MIT | `cloud/setup-render.sh` |
+| TTS (final media) | Chatterbox flow, approved option 3; model revision `5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18`; all five model files size/SHA-256 verified before and during load | MIT | `cloud/setup-render.sh` |
 | TTS (reference/layout preview only) | Kokoro-82M (kokoro-onnx) | Apache-2.0 | bootstrap |
-| Speech-to-text (QA + social scripts) | whisper.cpp (small.en; base for multilingual) | MIT | bootstrap (`-j1` build) |
+| Speech-to-text (English QA) | whisper.cpp v1.9.5 commit `d1be6fde11ac6e0407606b4e42fe72d34add8037`; `small.en` model revision `5359861c739e955e79d9a303bcbc70fb988958b1`, SHA-256 verified | MIT | `setup/setup-whisper.sh` (bounded build) |
 | Social video audio + stats | **yt-dlp** | Unlicense | bootstrap |
 | Audio/video processing | FFmpeg | LGPL/GPL | bootstrap (apt) |
 | Images | Pillow | HPND | preinstalled |
 | Trend data | GitHub REST API, Hugging Face API | free | none needed |
 | Research | agent web search + page fetch | – | agent |
-| Cloud render (up to 10/day) | GitHub Actions matrix; one-day staging artifact, verified on an ephemeral runner, published to one daily Release, then deleted | free | Actions read/write for dispatch, artifacts, and cleanup; Contents write for the Release finalizer |
-| Storage / SSOT | GitHub repo and Releases; video binaries live on Release assets, not Git history | free | Contents read for source packs; Contents write for authorized render Releases and explicit sync/publish |
+| Cloud render (owner-selected, hard maximum 10 per run) | GitHub Actions matrix; one Ubuntu 24.04 runner (4 vCPU / 16 GiB) per brief; one-day artifact by default; public Release is an explicit opt-in | free | Actions read/write for dispatch, logs, and cleanup; render jobs use Contents read; plan/finalizer use Contents write only for the attempt ledger |
+| Storage / SSOT | GitHub repo; capture packs are read-only during render; video artifacts expire in one day unless an owner separately authorizes Release publication | free | Contents read for source packs; explicit sync/publish actions need Contents write |
 
 **Known access limits (tested 2026-10-07):**
 - TikTok profiles and videos work without login.
@@ -253,8 +264,10 @@ python3 reels.py radar --brief                                     # 1 discover
 python3 reels.py social --account https://www.tiktok.com/@x --top 2   # 1 discover / 10 learn
 python3 reels.py capture <id> --url <repo-or-site>                 # 6 assets
 #   agent: score topic (2), write fact sheet + brief (3-5)
-python3 reels.py make briefs/<id>.json --no-render                 # 8 gates without rendering (~2 min)
-python3 reels.py make briefs/<id>.json --quality looks --crf 26    # 7 render (~10 min, one per session)
-python3 tools/seo_pack.py briefs/<id>.json                         # 9 per-platform SEO copy, validated (limits, hashtag caps, keyword alignment)
-python3 reels.py publish && python3 reels.py sync -m "<id>"        # 9 publish (needs token)
+REELS_VOICE_PREVIEW=kokoro python3 reels.py make briefs/<id>.json --no-render  # sandbox layout/lint preview only
+python3 tools/seo_pack.py briefs/<id>.json                         # validated per-platform SEO copy
+# After explicit batch-size approval and a committed, passing six-stage receipt:
+python3 reels.py cloud <id> [<id2> ...] --receipt reels-studio/research/production/receipts/<batch>.json \
+  --quality looks --crf 23 --wait                                  # GitHub render -> one-day artifacts; no Release by default
+# A permanent Release, git push, Buffer schedule/post, or platform upload is a separate owner-authorized action.
 ```

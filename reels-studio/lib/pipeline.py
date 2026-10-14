@@ -43,6 +43,16 @@ WORK_ROOT = Path(os.environ.get("REELS_WORK", "/var/tmp/reels"))  # outside the 
 HF_CACHE = Path.home() / ".cache" / "hyperframes"
 KOKORO_MODEL = HF_CACHE / "tts" / "models" / "kokoro-v1.0.onnx"
 KOKORO_VOICES = HF_CACHE / "tts" / "voices" / "voices-v1.0.bin"
+CHATTERBOX_MODEL_REPO = "ResembleAI/chatterbox"
+CHATTERBOX_MODEL_REVISION = "5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18"
+CHATTERBOX_MODEL_FILE_HASHES = {
+    "ve.safetensors": {"size": 5_695_784, "sha256": "f0921cab452fa278bc25cd23ffd59d36f816d7dc5181dd1bef9751a7fb61f63c"},
+    "t3_cfg.safetensors": {"size": 2_129_653_744, "sha256": "914cb1696f47527fe8852ca8f1fe1fa63cb34f76f9c715e84e067b744dd0da81"},
+    "s3gen.safetensors": {"size": 1_056_484_620, "sha256": "2b78103c654207393955e4900aac14a12de8ef25f4b09424f1ef91941f161d4e"},
+    "tokenizer.json": {"size": 25_470, "sha256": "d71e3a44eabb1784df9a68e9f95b251ecbf1a7af6a9f50835856b2ca9d8c14a5"},
+    "conds.pt": {"size": 107_374, "sha256": "6552d70568833628ba019c6b03459e77fe71ca197d5c560cef9411bee9d87f4e"},
+}
+CHATTERBOX_MODEL_FILES = tuple(CHATTERBOX_MODEL_FILE_HASHES)
 FPS = 30
 MIX_SR = 48000
 FONT_FILES = {
@@ -51,6 +61,28 @@ FONT_FILES = {
     "JetBrains Mono": ("JetBrainsMono.ttf", "100 800"),
     "Noto Nastaliq Urdu": ("NotoNastaliqUrdu.ttf", "400 700"),
 }
+
+
+def verify_chatterbox_snapshot(model_dir):
+    """Verify exact size and SHA-256 for every pinned Chatterbox model file."""
+    root = Path(model_dir)
+    verified = {}
+    for name, expected in CHATTERBOX_MODEL_FILE_HASHES.items():
+        path = root / name
+        if not path.is_file():
+            raise SystemExit(f"pinned Chatterbox model file is missing: {name}")
+        size = path.stat().st_size
+        if size != expected["size"]:
+            raise SystemExit(f"pinned Chatterbox model size mismatch for {name}: expected {expected['size']}, got {size}")
+        digest = hashlib.sha256()
+        with path.open("rb") as stream:
+            for block in iter(lambda: stream.read(1024 * 1024), b""):
+                digest.update(block)
+        actual = digest.hexdigest()
+        if actual != expected["sha256"]:
+            raise SystemExit(f"pinned Chatterbox model checksum mismatch for {name}")
+        verified[name] = actual
+    return verified
 
 
 # ------------------------------------------------------------------ utils
@@ -469,9 +501,18 @@ class ChatterboxVoice:
         global _CHATTERBOX
         import torch
         from chatterbox.tts import ChatterboxTTS
+        from huggingface_hub import snapshot_download
         if _CHATTERBOX is None:
-            _CHATTERBOX = ChatterboxTTS.from_pretrained(device="cpu")
+            model_dir = Path(snapshot_download(
+                repo_id=CHATTERBOX_MODEL_REPO,
+                revision=CHATTERBOX_MODEL_REVISION,
+                allow_patterns=list(CHATTERBOX_MODEL_FILES),
+                local_files_only=True,
+            ))
+            verify_chatterbox_snapshot(model_dir)
+            _CHATTERBOX = ChatterboxTTS.from_local(model_dir, device="cpu")
         self.m, self.torch, self.cfg = _CHATTERBOX, torch, cfg
+        self.model_revision = CHATTERBOX_MODEL_REVISION
         ref = ROOT / cfg["ref_wav"]
         if not ref.exists():  # rebuild it exactly like the approved voice-lab take (Kokoro 0.6.1, same text, same trim)
             ref.parent.mkdir(parents=True, exist_ok=True)

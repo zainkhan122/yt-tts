@@ -1,0 +1,123 @@
+name: render-validation
+on:
+  push:
+    branches:
+      - 'github-render-hardening*'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/render.yml
+      - .github/workflows/render-validation.yml
+      - reels-studio/**
+permissions:
+  contents: read
+jobs:
+  validate:
+    name: Non-render pipeline validation
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout tested commit
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: |
+            /.github/workflows/
+            /reels-studio/
+          sparse-checkout-cone-mode: false
+          filter: blob:none
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.12'
+      - name: Install pinned lightweight validation dependencies
+        run: python3 -m pip install --disable-pip-version-check --no-input numpy==2.2.6 scipy==1.15.3 soundfile==0.13.1 PyYAML==6.0.2
+      - name: Compile pipeline and regression tests
+        run: |
+          set -euo pipefail
+          python3 -m py_compile \
+            reels-studio/reels.py \
+            reels-studio/lib/pipeline.py \
+            reels-studio/tools/production_gate.py \
+            reels-studio/tools/validate_dispatch.py \
+            reels-studio/tools/render_attempts.py \
+            reels-studio/tests/test_pipeline_quality_gates.py \
+            reels-studio/tests/test_production_gate.py \
+            reels-studio/tests/test_render_attempts.py \
+            reels-studio/tests/test_validate_dispatch.py
+      - name: Check setup scripts and render workflow shell syntax
+        run: |
+          set -euo pipefail
+          bash -n reels-studio/cloud/setup-render.sh reels-studio/setup/setup-whisper.sh
+          python3 - <<'PY'
+          import subprocess
+          from pathlib import Path
+          import yaml
+
+          paths = [Path('.github/workflows/render.yml'), Path('.github/workflows/render-validation.yml')]
+          run_blocks = 0
+          for path in paths:
+              workflow = yaml.load(path.read_text(encoding='utf-8'), Loader=yaml.BaseLoader)
+              for job_name, job in workflow.get('jobs', {}).items():
+                  for index, step in enumerate(job.get('steps', [])):
+                      script = step.get('run')
+                      if script:
+                          result = subprocess.run(['bash', '-n'], input=script, text=True, capture_output=True)
+                          if result.returncode:
+                              raise SystemExit(f'{path}:{job_name} step {index} failed bash -n: {result.stderr}')
+                          run_blocks += 1
+          print(f'Parsed {len(paths)} workflow files; {run_blocks} run blocks passed bash -n.')
+          PY
+      - name: Run focused non-render regression suites
+        working-directory: reels-studio
+        run: |
+          set -euo pipefail
+          for test_file in \
+            test_production_gate.py \
+            test_render_attempts.py \
+            test_validate_dispatch.py \
+            test_pipeline_quality_gates.py; do
+            python3 -m unittest discover -s tests -p "$test_file"
+          done
+      - name: Verify spoken scripts against every brief
+        working-directory: reels-studio
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from lib.pipeline import Job, apply_lexicon, parse_markup, spoken_clean
+          from tools.production_gate import _spoken_script_lines
+
+          root = Path.cwd()
+          briefs = sorted((root / 'briefs').glob('*.json'))
+          mismatches, errors = [], []
+          for path in briefs:
+              try:
+                  job = Job(path, render=False)
+                  brief = job.brief  # includes the active channel lexicon/defaults used by the renderer
+                  scenes = {str(scene.get('id', i)): scene for i, scene in enumerate(brief.get('scenes', [])) if isinstance(scene, dict)}
+                  expected = []
+                  for line in _spoken_script_lines(brief):
+                      scene = scenes.get(line['id'], {})
+                      lang = scene.get('lang', brief.get('lang', 'en-us'))
+                      lexicon = brief.get('lexicon', {}) if str(lang).startswith('en') else {}
+                      _, spoken, _ = parse_markup(apply_lexicon(line['text'], lexicon))
+                      expected.append({'id': line['id'], 'text': spoken_clean(spoken)})
+                  actual = []
+                  for segment in job.prepare_texts():
+                      if segment.get('text'):
+                          text = spoken_clean(segment.get('spoken', ''))
+                          if text:
+                              actual.append({'id': str(segment.get('id', '')), 'text': text})
+                  if expected != actual:
+                      mismatches.append(path.name)
+              except Exception as exc:
+                  errors.append((path.name, f'{type(exc).__name__}: {exc}'))
+          print(f'briefs={len(briefs)} mismatches={len(mismatches)} errors={len(errors)}')
+          if mismatches or errors:
+              print('mismatches:', mismatches)
+              print('errors:', errors)
+              raise SystemExit(1)
+          PY
