@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "source": "Buffer GraphQL Post.metrics (read-only)",
+  "fetched_at": null,
+  "complete": false,
+  "pagination_pages": 0,
+  "sent_post_count": 0,
+  "video_post_count": 0,
+  "expected_tracked_sent_posts": 0,
+  "missing_expected_post_ids": [],
+  "metrics_coverage_ok": false,
+  "coverage_by_platform": {},
+  "posts": {}
+}

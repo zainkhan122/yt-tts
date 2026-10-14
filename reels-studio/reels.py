@@ -8,10 +8,10 @@ Reels Studio - professional vertical-video generator (HyperFrames + free tools)
   python3 reels.py social --account <tiktok/yt url> --top 2  # competitors' scripts, hooks, pacing, CTAs -> research/social/
   python3 tools/channel_study.py meta|visual|transcribe|report # deep study of benchmark accounts (20-30 videos each)
   python3 tools/idea_feed.py --days 7                        # topics the watchlist channels are covering (consensus) -> backlog
-  python3 reels.py make   briefs/x.json --quality looks --crf 26
-  python3 reels.py make   briefs/x.json --no-render         # fast iteration: build + lint + check only
-  python3 reels.py batch  briefs/a.json briefs/b.json ...   # a week of videos in one go
-  python3 reels.py cloud  <brief-id> [<brief-id> ...] [--wait]  # remote render -> QA-verified GitHub Release, no local MP4
+  python3 reels.py make   briefs/x.json --receipt research/production/receipts/<batch>.json --quality looks --crf 26
+  python3 reels.py make   briefs/x.json --no-render         # fast iteration: build + lint + check only; receipt not required
+  python3 reels.py batch  briefs/a.json briefs/b.json ... --receipt research/production/receipts/<batch>.json
+  python3 reels.py cloud  <brief-id> [<brief-id> ...] [--wait] [--publish-release]  # artifact only by default; public Release requires explicit opt-in
   python3 reels.py scenes <id> [<id> ...] [--tag T] [--json]    # per-scene manifest of a published render (window, digests, assets)
   python3 reels.py rebuild <brief-id> --scenes <id,id> --reason "..." [--dry-run] [--local]
       # repair scene(s) of a published video: re-render only those, reuse the published audio
@@ -180,6 +180,7 @@ def cmd_cloud(a):
     import gh_actions
     sys.path.insert(0, str(ROOT))
     from lib import delivery, gates
+    from tools.validate_dispatch import plan_dispatch
 
     ids = [Path(b).name.removesuffix(".json") for b in a.briefs]
     try:
@@ -190,8 +191,14 @@ def cmd_cloud(a):
     if missing:
         raise SystemExit(f"no brief for: {', '.join(missing)} (briefs must be committed: python3 reels.py sync)")
 
-    # Daily tags use the owner's timezone. GitHub Release assets are the only persistent video copies.
+    # Daily tags use the owner's timezone. Public Release publication is opt-in; default is a short-lived Actions artifact.
     release_tag = a.tag or "renders-" + datetime.now(ZoneInfo("Asia/Karachi")).strftime("%Y-%m-%d")
+    try:
+        plan_dispatch(" ".join(ids), tag=release_tag, quality=a.quality, crf=a.crf,
+                      production_receipt=a.receipt, briefs_root=ROOT / "briefs", repo_root=ROOT.parent)
+    except ValueError as exc:
+        raise SystemExit(f"cloud preflight: {exc}") from exc
+
     reports, gates_failed = [], 0
     for brief_id in ids:
         report = gates.run(ROOT / "briefs" / f"{brief_id}.json")
@@ -205,8 +212,9 @@ def cmd_cloud(a):
     receipt = ROOT / "research/maintenance/gates" / f"{stamp}-cloud-{len(ids)}briefs.json"
     receipt.parent.mkdir(parents=True, exist_ok=True)
     receipt_doc = {"dispatched": ids, "release_tag": release_tag, "gates": reports,
+                   "production_receipt": a.receipt, "publish_release_requested": bool(a.publish_release),
                    "status": "preflight_passed_not_dispatched",
-                   "delivery_policy": "publish QA-passing videos to GitHub Release; never download MP4s locally"}
+                   "delivery_policy": "Actions artifact only by default; public GitHub Release requires explicit --publish-release"}
     def save_receipt():
         receipt.write_text(json.dumps(receipt_doc, indent=2, ensure_ascii=False) + "\n")
     save_receipt()
@@ -217,13 +225,17 @@ def cmd_cloud(a):
         raise SystemExit("gates found errors — fix them before spending cloud runners")
 
     run_id = gh_actions.dispatch("render.yml", {
-        "briefs": " ".join(ids), "tag": release_tag, "quality": a.quality, "crf": str(a.crf)
+        "briefs": " ".join(ids), "tag": release_tag, "quality": a.quality, "crf": str(a.crf),
+        "production_receipt": a.receipt, "publish_release": "true" if a.publish_release else "false"
     })
     receipt_doc.update({"run_id": run_id, "status": "dispatched_not_verified"})
     save_receipt()
     print(f"cloud render started: https://github.com/{gh_actions.REPO}/actions/runs/{run_id}  ({len(ids)} video(s))")
     if not a.wait:
-        print(f"Videos will publish to GitHub Release {release_tag} after all remote QA gates pass; no local MP4 download.")
+        if a.publish_release:
+            print(f"After QA, the workflow will publish a GitHub Release {release_tag}; no local MP4 download.")
+        else:
+            print("Public publication is off; the render is kept only as a one-day Actions artifact after QA. Nothing is scheduled or posted.")
         return 0
 
     result = gh_actions.wait(run_id, 5400)
@@ -237,12 +249,19 @@ def cmd_cloud(a):
         except delivery.DeliveryError as exc:
             raise SystemExit(f"run {run_id}: {exc}; no release link is being reported") from exc
 
+    if not a.publish_release:
+        receipt_doc.update({"status": "rendered_artifact_only", "buffer_scheduled": False,
+                            "public_release_created": False, "local_mp4_download": False})
+        save_receipt()
+        print(f"Render QA succeeded; no public Release was created. Retrieve the short-lived artifact from Actions run {run_id}.")
+        return 0
+
     try:
         release_url = gh_actions.release_url(release_tag)
     except SystemExit as exc:
         receipt_doc.update({"status": "release_link_missing", "delivery_error": str(exc)})
         save_receipt()
-        raise SystemExit(f"workflow succeeded but the expected GitHub Release is not visible: {exc}") from exc
+        raise SystemExit(f"workflow succeeded but the explicitly requested GitHub Release is not visible: {exc}") from exc
     receipt_doc.update({"status": "published_to_github_release", "release_url": release_url,
                         "assets": [f"{brief_id}.mp4" for brief_id in ids] + [f"{brief_id}-kit.zip" for brief_id in ids],
                         "local_mp4_download": False, "buffer_scheduled": False})
@@ -250,6 +269,24 @@ def cmd_cloud(a):
     print(f"GitHub Release: {release_url}")
     print("Videos remain in GitHub Release assets; no MP4s were downloaded to the local workspace and nothing was scheduled.")
     return 0
+
+
+def preflight_local_render(briefs, receipt, *, no_render=False, rebuild_scenes="", repo_root=REPO):
+    """Enforce the same six-stage/score/Insights/asset contract on local full renders."""
+    if no_render or rebuild_scenes:
+        return None
+    if not receipt:
+        raise SystemExit("local full renders require --receipt with all six completed stages; use --no-render for layout-only iteration")
+    sys.path.insert(0, str(ROOT))
+    from lib.delivery import DeliveryError, validate_ids
+    from tools.production_gate import validate_receipt
+    ids = [Path(name).name.removesuffix(".json") for name in briefs]
+    try:
+        validate_ids(ids, max_batch=10)
+        result = validate_receipt(Path(repo_root), receipt, ids, verify_assets=True)
+    except (DeliveryError, ValueError) as exc:
+        raise SystemExit(f"local production gate rejected the render: {exc}") from exc
+    return result
 
 
 def _scenes_tool():
@@ -391,6 +428,7 @@ def main():
         p.add_argument("--rebuild-scenes", default="", help="re-render only these scene ids (cloud rebuild mode)")
         p.add_argument("--rebuild-reason", default="", help="why this rebuild (recorded in the manifest)")
         p.add_argument("--from-tag", default="", help="release tag holding the previous kit+mp4 for a rebuild")
+        p.add_argument("--receipt", default="", help="six-stage production receipt; required for any non-rebuild video render")
     sub.add_parser("templates")
     sub.add_parser("doctor")
     p = sub.add_parser("new")
@@ -407,12 +445,14 @@ def main():
     p.add_argument("briefs", nargs="+", help="brief ids or paths")
     p.add_argument("--json", action="store_true", help="print the receipt JSON")
     p.add_argument("--no-record", action="store_true", help="print only; do not write manifests/<id>/manifest.json")
-    p = sub.add_parser("cloud", help="render on GitHub Actions -> QA-verified GitHub Release, without local MP4 downloads")
+    p = sub.add_parser("cloud", help="render on GitHub Actions; keep a short-lived artifact by default, public Release is opt-in")
     p.add_argument("briefs", nargs="+", help="brief ids or paths (briefs/<id>.json)")
     p.add_argument("--tag", default="", help="GitHub Release tag (default: renders-YYYY-MM-DD in Asia/Karachi)")
     p.add_argument("--quality", default="looks")
     p.add_argument("--crf", default="23")
-    p.add_argument("--wait", action="store_true", help="wait for QA and GitHub Release publication; print the Release URL (no local MP4 download)")
+    p.add_argument("--receipt", default="", help="six-stage receipt path under research/production/receipts/")
+    p.add_argument("--publish-release", action="store_true", help="explicitly authorize public GitHub Release publication after QA")
+    p.add_argument("--wait", action="store_true", help="wait for QA; print Release URL only when --publish-release was set")
     p = sub.add_parser("scenes", help="per-scene manifest of a published render (windows, digests, assets)")
     p.add_argument("targets", nargs="+", help="video ids, or paths to a manifest.json")
     p.add_argument("--tag", default="", help="read the manifest from this release's kit instead of renders/<id>/")
@@ -464,6 +504,9 @@ def main():
         return cmd_radar(a)
     if a.cmd == "capture":
         return cmd_capture(a)
+    if a.cmd in {"make", "batch"}:
+        preflight_local_render(a.briefs, a.receipt, no_render=a.no_render,
+                               rebuild_scenes=a.rebuild_scenes, repo_root=REPO)
     from lib import pipeline  # only render/template commands need the heavy voice dependencies
     if a.cmd == "templates":
         for name in pipeline.list_templates():

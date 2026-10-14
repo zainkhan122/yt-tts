@@ -1,0 +1,44 @@
+# Read-only Buffer Insights for every sent video on the configured Facebook/Instagram/YouTube channels.
+# The workflow only queries Buffer; it commits a bounded analytics snapshot to the repo for future topic gates.
+name: Buffer Insights (read-only)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: hypeless-buffer-insights
+  cancel-in-progress: false
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            /reels-studio/config/publishing.json
+            /reels-studio/tools/post/
+            /reels-studio/tools/gh_actions.py
+            /reels-studio/lib/secrets.py
+            /reels-studio/lib/__init__.py
+            /reels-studio/tracker/publications.json
+            /reels-studio/tracker/buffer-insights.json
+          sparse-checkout-cone-mode: false
+          filter: blob:none
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the read-only client dependency
+        run: python3 -m pip install 'requests>=2.32.3,<3'
+      - name: Fetch all sent-post metrics and commit one bounded snapshot
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+          PYTHONUNBUFFERED: '1'
+        run: >-
+          python3 reels-studio/tools/post/buffer_insights.py
+          --commit
+          --summary "$GITHUB_STEP_SUMMARY"

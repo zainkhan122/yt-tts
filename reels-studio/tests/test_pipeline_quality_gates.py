@@ -1,7 +1,8 @@
 """Fail-closed contracts for final render QA and voice intelligibility."""
 import unittest
 
-from lib.pipeline import parse_markup, require_flow_match, require_qa_checks, require_whisper_match
+from lib.pipeline import (normalized_match_text, normalize_match_words, parse_markup, require_flow_match,
+                          require_qa_checks, require_whisper_match, should_run_whisper_qa)
 
 
 class PipelineQualityGateTests(unittest.TestCase):
@@ -29,6 +30,38 @@ class PipelineQualityGateTests(unittest.TestCase):
             require_whisper_match(949, 1000, diagnostics="script words not matched: Qwen, fourteenth")
         with self.assertRaisesRegex(SystemExit, "0.0%"):
             require_whisper_match(0, 0)
+
+
+    def test_tts_threshold_cannot_be_weakened_and_retries_are_bounded(self):
+        from lib.pipeline import tts_retry_policy
+        self.assertEqual(tts_retry_policy({"min_match": 0.92, "max_retries": 2}), (3, 0.92))
+        with self.assertRaisesRegex(SystemExit, "cannot be lowered below 92%"):
+            tts_retry_policy({"min_match": 0.91, "max_retries": 2})
+        with self.assertRaisesRegex(SystemExit, "at most two alternate-seed retries"):
+            tts_retry_policy({"min_match": 0.92, "max_retries": 3})
+        with self.assertRaisesRegex(SystemExit, "cannot be lowered below 92%"):
+            tts_retry_policy({"min_match": float("nan"), "max_retries": 2})
+        with self.assertRaisesRegex(SystemExit, "max_retries must be an integer"):
+            tts_retry_policy({"min_match": 0.92, "max_retries": 2.5})
+        with self.assertRaisesRegex(SystemExit, "cannot be lowered below 92%"):
+            require_flow_match(0.99, 0.80, 0, 1)
+        with self.assertRaisesRegex(SystemExit, "cannot be lowered below 95%"):
+            require_whisper_match(100, 100, threshold=0.90)
+
+    def test_english_whisper_qa_cannot_be_disabled_by_brief(self):
+        self.assertTrue(should_run_whisper_qa("en-us", True))
+        self.assertFalse(should_run_whisper_qa("es-es", False))
+        with self.assertRaisesRegex(SystemExit, "cannot be disabled"):
+            should_run_whisper_qa("en-us", False)
+
+    def test_whisper_aligns_spoken_cardinals_ordinals_and_display_numbers_equivalently(self):
+        self.assertEqual(normalize_match_words(["October", "fourteenth"]),
+                         normalize_match_words(["October", "14th"]))
+        self.assertEqual(normalized_match_text(["eight-thousand-token"]),
+                         normalized_match_text(["8,000-token"]))
+        self.assertEqual(normalized_match_text(["two", "point", "one"]),
+                         normalized_match_text(["2.1"]))
+        self.assertEqual(normalize_match_words(["twenty-first"]), ["21"])
 
 
 if __name__ == "__main__":

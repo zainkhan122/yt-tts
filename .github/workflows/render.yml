@@ -1,6 +1,7 @@
 # Cloud render: one GitHub runner (4 vCPU / 16 GB) per brief, up to 10 in parallel.
-# A single finalizer validates the whole batch, publishes one public GitHub Release, then deletes staging artifacts.
-# Start: python3 reels-studio/reels.py cloud <brief-id> [<brief-id> ...]   (or Actions -> render -> Run workflow)
+# Public Release publication is opt-in; otherwise QA-passing files remain short-lived Actions artifacts.
+# Start: python3 reels-studio/reels.py cloud <brief-id> [<brief-id> ...] --receipt reels-studio/research/production/receipts/<batch>.json
+# A fresh Buffer Insights snapshot + all six production stages are mandatory before new video renders.
 name: render
 on:
   workflow_dispatch:
@@ -9,9 +10,18 @@ on:
         description: 'Brief ids (reels-studio/briefs/<id>.json), space separated'
         required: true
       tag:
-        description: 'Daily batch Release tag (default: renders-YYYY-MM-DD in Asia/Karachi; scene rebuilds remain artifacts)'
+        description: 'Public Release tag when publish_release is enabled (default: renders-YYYY-MM-DD in Asia/Karachi)'
         required: false
         default: ''
+      production_receipt:
+        description: 'Six-stage receipt path under reels-studio/research/production/receipts/ (required for new videos; not needed for scene rebuilds)'
+        required: false
+        default: ''
+      publish_release:
+        description: 'Create a public GitHub Release after QA; requires explicit publish approval (default: render artifact only)'
+        required: false
+        type: boolean
+        default: false
       quality:
         description: 'draft | looks | delivery'
         required: false
@@ -35,6 +45,9 @@ on:
 permissions:
   contents: read
   actions: read
+concurrency:
+  group: hypeless-render-production
+  cancel-in-progress: false
 env:
   PYTHONUNBUFFERED: "1"
   HYPERFRAMES_NO_TELEMETRY: "1"
@@ -43,20 +56,47 @@ env:
 jobs:
   plan:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      actions: read
     outputs:
       briefs: ${{ steps.p.outputs.briefs }}
       tag: ${{ steps.p.outputs.tag }}
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.sha }}
           sparse-checkout: |
+            /.github/workflows/render.yml
             /reels-studio/briefs/
             /reels-studio/lib/
             /reels-studio/tools/validate_dispatch.py
+            /reels-studio/tools/production_gate.py
+            /reels-studio/tools/seo_pack.py
+            /reels-studio/tools/publish_verified_batch.py
+            /reels-studio/tools/render_attempts.py
+            /reels-studio/tools/gh_actions.py
+            /reels-studio/tools/capture_store.py
+            /reels-studio/topics/backlog.csv
+            /reels-studio/tracker/buffer-insights.json
+            /reels-studio/config/channel.json
+            /reels-studio/brand/voice/michael-ref.wav
+            /reels-studio/cloud/setup-render.sh
+            /reels-studio/setup/setup-whisper.sh
+            /reels-studio/setup/setup-sandbox.sh
+            /reels-studio/reels.py
+            /reels-studio/templates/
+            /reels-studio/research/ideas/
+            /reels-studio/research/production/receipts/
+            /reels-studio/research/radar/
+            /reels-studio/research/social/
           sparse-checkout-cone-mode: false
           filter: blob:none
       - id: p
+        name: Six-stage / score / Insights / duplicate-render plan
         env:
+          GH_TOKEN: ${{ github.token }}
           BRIEFS: ${{ inputs.briefs }}
           TAG: ${{ inputs.tag }}
           QUALITY: ${{ inputs.quality }}
@@ -64,6 +104,37 @@ jobs:
           REBUILD_SCENES: ${{ inputs.rebuild_scenes }}
           REBUILD_REASON: ${{ inputs.rebuild_reason }}
           FROM_TAG: ${{ inputs.from_tag }}
+          PRODUCTION_RECEIPT: ${{ inputs.production_receipt }}
+        run: python3 reels-studio/tools/validate_dispatch.py >> "$GITHUB_OUTPUT"
+      - name: Download and verify every capture pack before reserving a render
+        if: ${{ inputs.rebuild_scenes == '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRIEFS_JSON: ${{ steps.p.outputs.briefs }}
+          PRODUCTION_RECEIPT: ${{ inputs.production_receipt }}
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess, sys
+          ids = json.loads(os.environ['BRIEFS_JSON'])
+          receipt = os.environ['PRODUCTION_RECEIPT']
+          for brief_id in ids:
+              brief = f"reels-studio/briefs/{brief_id}.json"
+              subprocess.run([sys.executable, 'reels-studio/tools/capture_store.py', 'pull-for', brief], check=True)
+          subprocess.run([sys.executable, 'reels-studio/tools/production_gate.py', 'assets', receipt, *ids], check=True)
+          PY
+      - name: Reserve unique input fingerprints (write-ahead idempotency lock)
+        id: reserve
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRIEFS: ${{ inputs.briefs }}
+          TAG: ${{ inputs.tag }}
+          QUALITY: ${{ inputs.quality }}
+          CRF: ${{ inputs.crf }}
+          REBUILD_SCENES: ${{ inputs.rebuild_scenes }}
+          REBUILD_REASON: ${{ inputs.rebuild_reason }}
+          FROM_TAG: ${{ inputs.from_tag }}
+          PRODUCTION_RECEIPT: ${{ inputs.production_receipt }}
+          RECORD_ATTEMPT: 'true'
         run: python3 reels-studio/tools/validate_dispatch.py >> "$GITHUB_OUTPUT"
   render:
     needs: plan
@@ -93,7 +164,7 @@ jobs:
             ~/.cache/puppeteer
             ~/.cache/huggingface
             ~/.cache/pip
-          key: hf-0.8.137-cbx-${{ runner.os }}-${{ hashFiles('reels-studio/setup/setup-whisper.sh', 'reels-studio/cloud/setup-render.sh') }}
+          key: hf-0.8.137-cbx-${{ runner.os }}-${{ hashFiles('reels-studio/setup/setup-whisper.sh', 'reels-studio/setup/setup-sandbox.sh', 'reels-studio/cloud/setup-render.sh') }}
       - name: Toolchain
         run: bash reels-studio/cloud/setup-render.sh
       - name: Capture pack
@@ -130,7 +201,7 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
   publish:
-    if: ${{ success() && inputs.rebuild_scenes == '' }}
+    if: ${{ success() && inputs.rebuild_scenes == '' && inputs.publish_release == true }}
     needs: [plan, render]
     name: publish verified GitHub Release
     runs-on: ubuntu-latest
@@ -164,3 +235,44 @@ jobs:
           --tag "$RELEASE_TAG"
           --artifact-root release-artifacts
           --run-id "$RUN_ID"
+
+  finalize-attempt:
+    if: ${{ always() && needs.plan.result == 'success' }}
+    needs: [plan, render, publish]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            /reels-studio/tools/render_attempts.py
+            /reels-studio/tools/gh_actions.py
+            /reels-studio/lib/secrets.py
+          sparse-checkout-cone-mode: false
+          filter: blob:none
+      - name: Finalize write-ahead attempt receipt
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.run_id }}
+          RENDER_RESULT: ${{ needs.render.result }}
+          PUBLISH_RESULT: ${{ needs.publish.result }}
+          REBUILD_SCENES: ${{ inputs.rebuild_scenes }}
+          PUBLISH_RELEASE: ${{ inputs.publish_release }}
+        run: |
+          if [ "$RENDER_RESULT" = "success" ] && [ -n "$REBUILD_SCENES" ]; then
+            status=scene_rebuild_success
+          elif [ "$RENDER_RESULT" = "success" ] && [ "$PUBLISH_RESULT" = "success" ]; then
+            status=success
+          elif [ "$RENDER_RESULT" = "success" ] && [ "$PUBLISH_RELEASE" != "true" ]; then
+            status=render_only_success
+          elif [ "$RENDER_RESULT" = "success" ]; then
+            status=render_succeeded_publish_failed
+          elif [ "$RENDER_RESULT" = "cancelled" ]; then
+            status=cancelled
+          else
+            status=failed
+          fi
+          python3 reels-studio/tools/render_attempts.py finish --run-id "$RUN_ID" --status "$status" --conclusion "render=$RENDER_RESULT publish=$PUBLISH_RESULT"

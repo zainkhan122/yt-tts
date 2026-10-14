@@ -48,6 +48,38 @@ Every idea goes into **`topics/backlog.csv`** (SSOT for topics) with its signals
 - unclear licence for the media we'd show;
 - we can't verify the core claim.
 
+### Executable pre-render contract (added 2026-10-14)
+
+A new full video render cannot start from the Actions UI, `reels.py cloud`, or local `reels.py make/batch`
+unless the batch has a fresh `research/production/receipts/<batch-id>.json` receipt. Local `--no-render`
+layout iterations and reasoned scene rebuilds of a previously published video are exempt. `tools/validate_dispatch.py`
+enforces cloud dispatch; `reels.py` applies the same six-stage/score/Insights/asset preflight to local renders.
+The receipt is not a substitute for owner approval or publishing permission.
+
+A cloud render creates a short-lived Actions artifact by default. A public GitHub Release is created only when the
+operator explicitly selects `publish_release: true` in Actions or passes `--publish-release`; this does not authorize
+Buffer scheduling or posting.
+
+- `DISCOVER`: dated idea-feed/radar/social evidence paths.
+- `SELECT`: the exact PIPELINE §2 scorecard, explicit `selection_status: selected`, the backlog row status `selected`,
+  matching topic title and score, all category values within their weights, total **≥60**, and cleared automatic risk/licence/claim gates.
+- `RESEARCH`: primary HTTPS sources in the brief, source-check times, and dynamic facts refreshed within 24 h.
+- `SCRIPT`: hash of the ordered spoken lines must match the committed brief.
+- `VOICE`: English uses the approved Chatterbox Option-3 profile. Per-chunk Whisper stays **≥92%** and
+  final English voiceover stays **≥95%**; the config cannot lower either floor. At most two alternate-seed
+  retries are allowed inside a render. A failed deterministic seed sequence is not dispatched again unchanged.
+- `ASSETS`: rights and approval constraints acknowledged; capture manifest and every file digest are checked
+  in a lightweight preflight before any render runner starts.
+- `Buffer Insights`: the receipt pins a complete snapshot fetched within 36 h, cites all sent video posts,
+  and records concrete findings plus explicit topic/script/voice/visual decisions. Missing expected posts or
+  a channel with no fresh usable metrics blocks production. Buffer's daily refresh may lag the network by a day.
+
+`tracker/render-attempts.json` is a write-ahead idempotency ledger. A SHA-256 fingerprint binds brief bytes,
+voice seed, capture manifest and file digests, quality/CRF, and renderer inputs. The workflow reserves it before starting a render;
+failed, interrupted, and successful exact repeats are blocked. Fix the source, choose a reviewed voice seed,
+update the asset pack, or correct the renderer before a new full dispatch. The scene-rebuild path remains separate
+and reuses the published audio. See `research/production/README.md` for the receipt schema.
+
 **Weekly mix** (one person + agent):
 - 1 × "repos exploding this week" (ranked-list);
 - 2 × tool spotlight;
@@ -170,7 +202,7 @@ Template = HTML/GSAP scenes rendered by HyperFrames (deterministic, frame-exact)
 
 1. Brief, source, and SEO gates: zero errors; claims have primary-source trails; dated numbers are refreshed before render.
 2. `hyperframes lint` (0 errors) + `check` (layout overlap, contrast, runtime). Montage anchors must be exact spoken words before TTS; label/voice timing must pass after TTS. Either failure blocks rendering.
-3. Final English voice uses approved Chatterbox flow. Whisper character match must be ≥92% per flow chunk after at most two alternate-seed retries and ≥95% overall; failed or unavailable Whisper QA blocks final media.
+3. Final English voice uses approved Chatterbox flow. Whisper character match must be ≥92% per flow chunk after at most two alternate-seed retries and ≥95% overall; failed or unavailable Whisper QA blocks final media. `tts.min_match` cannot be configured below 92%. QA canonicalizes equivalent spoken/display numerals (including ordinals such as “fourteenth” vs “14th”); it does not forgive unmatched brand words. Failures retain expected/heard diagnostics, and a repeated identical render fingerprint is blocked.
 4. Output: 1080×1920, 30 fps, H.264/AAC, duration within the brief target, loudness −14 ±1 LUFS, peak ≤ −1 dBFS. Every recorded QA check must pass; failed measured checks block delivery.
 5. Cover and decoded frame zero are visible. The agent reviews the contact sheet, title/label type, mobile readability, media rights/source, and animation timing by eye, then fixes issues.
 6. Fact sheet complete; license/media credits and risk gates clean. Credit goes in post copy/description, never on-screen.

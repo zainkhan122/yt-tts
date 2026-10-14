@@ -76,6 +76,31 @@ Official published Free-plan quotas: 100 requests/15 min, 250/24 h and 3,000/30 
 
 Permanent/ambiguous delivery issues fail the Actions job and appear in its summary/artifact. Email delivery depends on GitHub notification settings; no separate email/SMS alert service is claimed.
 
+## Read-only Buffer Insights (pre-production)
+
+`buffer_insights.py` queries paginated `sent` posts for every configured channel, collects per-post `metrics` and
+`metricsUpdatedAt`, and stores every Buffer-detected video plus tracked publication records in
+`tracker/buffer-insights.json`. It also records platform-by-platform coverage, missing tracked post IDs, metric
+freshness, and up to seven changed metric snapshots per post. A complete scan is required; pagination/permission
+errors produce no accepted snapshot. The manual Actions workflow is read-only against Buffer and only commits the
+analytics JSON and a Markdown report to GitHub. It does not create, edit, schedule, or publish posts.
+
+The Buffer metrics taxonomy keeps `reactions` distinct from Facebook `likes` and keeps `shares` distinct from
+`reposts`; percentage values are already in Buffer's 0–100 scale. Metrics are ranked **within** each channel, not
+compared as equivalent counts across networks. Views, retention/watch time, engagement, comments, shares, saves,
+clicks, follows, and other supported network-specific measures are kept where Buffer exposes them. Metrics refresh
+daily and may lag the network by about a day; `metricsUpdatedAt` is recorded per post. Metric correlation does not
+identify which creative change caused a result.
+
+Post-level metrics require Buffer's **personal API key** / `insightsRead` access. If this read-only workflow gets a
+permission error, stop and fix that authorization; do not fall back to mutations or claim that analytics were read.
+Before a new video, run or verify **Actions → Buffer Insights (read-only)**, then include the fresh snapshot hash,
+all shared-video coverage, findings, and explicit topic/script/voice/visual decisions in the six-stage receipt. The
+pre-render gate rejects a missing, incomplete, stale, or channel-uncovered snapshot.
+
+Official metric references: [paginated posts with metrics](https://developers.buffer.com/examples/get-posts-with-metrics.html)
+and [metric names/freshness/units](https://developers.buffer.com/guides/post-metrics.html).
+
 ## Media / voice / disclosure
 
 - Short media uses stable public HTTPS Pages URLs: `media/<release-asset-id>/<video-id>.mp4`. Never pass expiring redirected Release URLs to Buffer.

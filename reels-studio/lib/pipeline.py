@@ -107,13 +107,45 @@ def require_qa_checks(checks):
     return True
 
 
+MIN_FLOW_MATCH = 0.92
+MIN_ENGLISH_WHISPER_MATCH = 0.95
+
+
+def tts_retry_policy(tts):
+    """Return (attempts, per-chunk floor); the quality bar is not a tunable workaround."""
+    raw_threshold = tts.get("min_match", MIN_FLOW_MATCH)
+    raw_retries = tts.get("max_retries", 2)
+    if isinstance(raw_threshold, bool) or isinstance(raw_retries, bool):
+        raise SystemExit("TTS min_match/max_retries must be numeric, not booleans")
+    try:
+        threshold = float(raw_threshold)
+    except (TypeError, ValueError) as exc:
+        raise SystemExit("TTS min_match/max_retries must be numeric") from exc
+    if not math.isfinite(threshold) or threshold < MIN_FLOW_MATCH:
+        raise SystemExit("TTS per-chunk QA cannot be lowered below 92%; fix the spoken text or approved voice seed")
+    if threshold > 1.0:
+        raise SystemExit("TTS per-chunk QA threshold cannot exceed 100%")
+    if not isinstance(raw_retries, int) and not (isinstance(raw_retries, str) and re.fullmatch(r"[0-9]+", raw_retries.strip())):
+        raise SystemExit("TTS max_retries must be an integer")
+    alternate_seeds = int(raw_retries)
+    if not 0 <= alternate_seeds <= 2:
+        raise SystemExit("TTS permits at most two alternate-seed retries; do not loop identical failed takes")
+    return 1 + alternate_seeds, threshold
+
+
 def require_flow_match(match, threshold, chunk_index, attempts, expected=None, heard=None):
     """Do not render spoken words/captions from a flow chunk Whisper could not align.
 
     On failure include the exact expected and Whisper-heard text. A score without this diff
     encourages blind seed retries instead of a targeted pronunciation/script fix.
     """
-    if float(match) < float(threshold):
+    threshold = float(threshold)
+    match = float(match)
+    if not math.isfinite(threshold) or threshold < MIN_FLOW_MATCH:
+        raise SystemExit("TTS per-chunk QA threshold cannot be lowered below 92%")
+    if threshold > 1.0 or not math.isfinite(match) or not 0.0 <= match <= 1.0:
+        raise SystemExit("TTS alignment returned an invalid score/threshold")
+    if match < threshold:
         details = []
         if expected:
             details.append(f"expected={str(expected)[:220]!r}")
@@ -125,10 +157,23 @@ def require_flow_match(match, threshold, chunk_index, attempts, expected=None, h
     return True
 
 
-def require_whisper_match(matched, total, threshold=0.95, diagnostics=None):
+def should_run_whisper_qa(lang, enabled=True):
+    """English final TTS QA is mandatory; a brief flag cannot disable the project gate."""
+    english = str(lang or "").lower().startswith("en")
+    if english and enabled is False:
+        raise SystemExit("English Whisper TTS QA cannot be disabled; keep the 95% final-match gate active")
+    return english
+
+
+def require_whisper_match(matched, total, threshold=MIN_ENGLISH_WHISPER_MATCH, diagnostics=None):
     """The final English voiceover must clear the project-wide character-match target."""
+    threshold = float(threshold)
+    if not math.isfinite(threshold) or threshold < MIN_ENGLISH_WHISPER_MATCH:
+        raise SystemExit("English final Whisper QA threshold cannot be lowered below 95%")
+    if threshold > 1.0:
+        raise SystemExit("English final Whisper QA threshold cannot exceed 100%")
     ratio = float(matched) / max(1, int(total))
-    if ratio < float(threshold):
+    if not math.isfinite(ratio) or ratio < threshold:
         detail = f"; {diagnostics}" if diagnostics else ""
         raise SystemExit(f"Whisper QA: {ratio:.1%} character match is below the {threshold:.0%} final-render minimum{detail}")
     return ratio
@@ -458,8 +503,119 @@ def transcribe_words(wav_path, log):
             if w.get("text", "").strip() and norm_word(w["text"])]
 
 
-NUMWORDS = {"zero": "0", "one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6", "seven": "7", "eight": "8",
-            "nine": "9", "ten": "10", "point": "", "dot": ""}
+# Whisper alternates between spoken number words and displayed numerals (including ordinals).
+# Canonicalize equivalent numeric forms for alignment; the QA percentages and source text are unchanged.
+_NUMBER_UNITS = {"zero": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
+                  "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12,
+                  "thirteen": 13, "fourteen": 14, "fifteen": 15, "sixteen": 16, "seventeen": 17,
+                  "eighteen": 18, "nineteen": 19}
+_NUMBER_TENS = {"twenty": 20, "thirty": 30, "forty": 40, "fifty": 50, "sixty": 60,
+                "seventy": 70, "eighty": 80, "ninety": 90}
+_ORDINALS = {"zeroth": 0, "first": 1, "second": 2, "third": 3, "fourth": 4, "fifth": 5,
+             "sixth": 6, "seventh": 7, "eighth": 8, "ninth": 9, "tenth": 10, "eleventh": 11,
+             "twelfth": 12, "thirteenth": 13, "fourteenth": 14, "fifteenth": 15, "sixteenth": 16,
+             "seventeenth": 17, "eighteenth": 18, "nineteenth": 19, "twentieth": 20,
+             "thirtieth": 30, "fortieth": 40, "fiftieth": 50, "sixtieth": 60,
+             "seventieth": 70, "eightieth": 80, "ninetieth": 90}
+_NUMBER_SCALES = {"hundred": 100, "thousand": 1_000, "million": 1_000_000, "billion": 1_000_000_000}
+_NUMBER_TOKEN_RE = re.compile(r"\d+(?:,\d{3})*(?:\.\d+)?(?:st|nd|rd|th)?|[a-z]+", re.I)
+_NUMBER_SUFFIX_RE = re.compile(r"(?:st|nd|rd|th)$", re.I)
+_MATCH_WORD_ALIASES = {"kilometres": "kilometers", "neighbours": "neighbors"}
+
+
+def _number_literal(token):
+    if not re.fullmatch(r"\d[\d,]*(?:\.\d+)?(?:st|nd|rd|th)?", token, re.I):
+        return None
+    value = _NUMBER_SUFFIX_RE.sub("", token).replace(",", "")
+    if "." in value:
+        whole, fraction = value.split(".", 1)
+        return f"{int(whole or 0)}.{fraction}"
+    return str(int(value or 0))
+
+
+def _number_word(token):
+    return token in _NUMBER_UNITS or token in _NUMBER_TENS or token in _ORDINALS or token in _NUMBER_SCALES
+
+
+def _parse_number_words(tokens, start):
+    total = current = 0
+    saw = False
+    i = start
+    while i < len(tokens):
+        word = tokens[i]
+        if word == "and":
+            if saw and i + 1 < len(tokens) and _number_word(tokens[i + 1]):
+                i += 1
+                continue
+            break
+        if word in _NUMBER_UNITS:
+            current += _NUMBER_UNITS[word]
+            saw = True
+        elif word in _NUMBER_TENS:
+            current += _NUMBER_TENS[word]
+            saw = True
+        elif word in _ORDINALS:
+            value = _ORDINALS[word]
+            if value >= 100:
+                current = max(current, 1) * value
+            else:
+                current += value
+            saw = True
+        elif word in _NUMBER_SCALES:
+            scale = _NUMBER_SCALES[word]
+            if scale == 100:
+                current = max(current, 1) * scale
+            else:
+                total += max(current, 1) * scale
+                current = 0
+            saw = True
+        else:
+            break
+        i += 1
+    return (total + current, i) if saw else (None, start)
+
+
+def normalize_match_words(words):
+    """Canonical word tokens for Whisper QA (e.g. 'October fourteenth' == 'October 14th')."""
+    tokens = []
+    for raw in words:
+        # Splitting hyphenated compounds lets 'twenty-first' normalize like '21st'; commas in
+        # grouped numerals remain part of a token and are removed by _number_literal.
+        tokens.extend(_NUMBER_TOKEN_RE.findall(str(raw).lower().replace("–", "-").replace("—", "-")))
+    out = []
+    i = 0
+    while i < len(tokens):
+        literal = _number_literal(tokens[i])
+        if literal is not None:
+            out.append(literal)
+            i += 1
+            continue
+        if _number_word(tokens[i]):
+            value, end = _parse_number_words(tokens, i)
+            if value is not None:
+                out.append(str(value))
+                i = end
+                continue
+        if tokens[i] == "point" and out and re.fullmatch(r"\d+", out[-1]) and i + 1 < len(tokens):
+            next_literal = _number_literal(tokens[i + 1])
+            if next_literal is None and _number_word(tokens[i + 1]):
+                value, end = _parse_number_words(tokens, i + 1)
+                next_literal = str(value) if value is not None else None
+            else:
+                end = i + 2
+            if next_literal is not None and re.fullmatch(r"\d+", next_literal):
+                out[-1] += "." + next_literal
+                i = end
+                continue
+        # 'dot/point' can be a spoken punctuation artifact: it is removed only outside numbers.
+        if tokens[i] not in {"dot", "point"}:
+            out.append(_MATCH_WORD_ALIASES.get(tokens[i], tokens[i]))
+        i += 1
+    return out
+
+
+def normalized_match_text(words):
+    return "".join(normalize_match_words(words))
 
 
 def melody_st(x, sr, words=None):
@@ -509,11 +665,12 @@ def align_chunk(x, sr, seg_texts, work, log, display_texts=None):
         hyp = transcribe_words(wav, log)
     except Exception:
         hyp = []
-    hb = "".join(NUMWORDS.get(w[0], w[0]) for w in hyp)
+    heard_words = [w[0] for w in hyp]
+    heard_text = normalized_match_text(heard_words)
 
-    def cmatch(words):  # character match; whisper writes numbers/brands as DISPLAYED ("435 MB"), so try both forms
-        ra = "".join(NUMWORDS.get(w, w) for w in words)
-        return sum(bl.size for bl in difflib.SequenceMatcher(a=ra, b=hb, autojunk=False).get_matching_blocks()) / max(1, len(ra))
+    def cmatch(words):  # character match after normalizing equivalent spoken/display number forms
+        ra = normalized_match_text(words)
+        return sum(bl.size for bl in difflib.SequenceMatcher(a=ra, b=heard_text, autojunk=False).get_matching_blocks()) / max(1, len(ra))
     match = cmatch(ref)
     if display_texts:
         match = max(match, cmatch([norm_word(w) for t in display_texts for w in t.split() if norm_word(w)]))
@@ -668,23 +825,23 @@ def whisper_intelligibility(vo_path, timing, order, log):
     _, _, secs = run(["hyperframes", "transcribe", vo_path.name, "--model", os.environ.get("REELS_WHISPER_MODEL", "small.en"), "--no-runtime-install"],
                      cwd=vo_path.parent, log=log)
     tr = json.loads((vo_path.parent / "transcript.json").read_text())
-    heard = [norm_word(w["text"]) for w in tr if w.get("text", "").strip()]
-    # character-level comparison: "whisper dot C P P" vs "whisper.cpp", "twelve" vs "12" etc. should not count as misses.
-    # Compare against BOTH the spoken form ("thirty-seven hundred", "git hub") and the display form ("3,700", "GitHub")
-    # and keep the better score: whisper writes numbers and brand names the way they are displayed.
-    num = {"zero": "0", "one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6", "seven": "7", "eight": "8",
-           "nine": "9", "ten": "10", "eleven": "11", "twelve": "12", "dot": "", "kilometres": "kilometers", "neighbours": "neighbors"}
-    b = "".join(num.get(w, w) for w in heard)
+    heard = [w["text"] for w in tr if w.get("text", "").strip()]
+    # Character-level comparison canonicalizes number words/ordinals against numerals (e.g.
+    # "October fourteenth" == "October 14th") and ignores spoken punctuation artifacts.
+    # Both the spoken and display forms are compared; the stricter QA floors remain unchanged.
     best = None
     for key in ("spoken_words", "words"):
-        script = [norm_word(w[0]) for sid in order if timing[sid].get("lang", "en").startswith("en")
+        script = [w[0] for sid in order if timing[sid].get("lang", "en").startswith("en")
                   for w in (timing[sid].get(key) or timing[sid]["words"])]
-        a = "".join(num.get(w, w) for w in script)
+        a = normalized_match_text(script)
+        b = normalized_match_text(heard)
         sm = difflib.SequenceMatcher(a=a, b=b, autojunk=False)
         matched = sum(bl.size for bl in sm.get_matching_blocks())
         if best is None or matched / max(1, len(a)) > best[0] / max(1, best[1]):
-            wsm = difflib.SequenceMatcher(a=script, b=heard, autojunk=False)
-            missed = [script[i] for tag, i1, i2, _, _ in wsm.get_opcodes() if tag in ("replace", "delete") for i in range(i1, i2)]
+            script_words = normalize_match_words(script)
+            heard_words = normalize_match_words(heard)
+            wsm = difflib.SequenceMatcher(a=script_words, b=heard_words, autojunk=False)
+            missed = [script_words[i] for tag, i1, i2, _, _ in wsm.get_opcodes() if tag in ("replace", "delete") for i in range(i1, i2)]
             best = (matched, len(a), missed[:12])
     return best[0], best[1], best[2], secs
 
@@ -924,6 +1081,8 @@ class Job:
         """Approved voice, read in FLOW: consecutive scene lines are spoken in one chunk (<= chunk_chars), then cut back into
         scenes at the quietest point between lines, so every scene still has its own audio + word timings.
         Measured 2026-10-09: creators ~1.5 pauses/min vs 19-23 for line-by-line synthesis."""
+        # Reject unsafe thresholds/retry counts before loading the TTS model or spending GPU time.
+        tries, min_match = tts_retry_policy(tts)
         try:
             voice = ChatterboxVoice(tts)
             self.voice_engine = "chatterbox"
@@ -936,7 +1095,6 @@ class Job:
         limit, gap = int(tts.get("chunk_chars", 280)), float(tts.get("join_gap", 0.06))
         base_seed = int(tts.get("seed", 7)) + int(hashlib.md5(self.id.encode()).hexdigest()[:6], 16) % 10000 \
             + 10007 * int(self.brief.get("voice_seed", 0))  # brief "voice_seed": N picks a different (still seeded) take
-        tries, min_match = 1 + int(tts.get("max_retries", 2)), float(tts.get("min_match", 0.92))
         min_mel, mels = float(tts.get("min_melody_st", 10.0)), []
         texts = [spoken_clean(s["spoken"]) if s.get("text") else None for s in segs]
         chunks, cur = [], []
@@ -1004,8 +1162,8 @@ class Job:
     def word_timings(self):
         self.stage_note = "timings anchored to each line's waveform pauses"
         lang = self.brief.get("lang", "en-us")
-        if not lang.startswith("en") or self.brief.get("whisper_qa", True) is False:
-            self.stage("words", method="waveform-anchored", whisper_qa="skipped (non-English or disabled)")
+        if not should_run_whisper_qa(lang, self.brief.get("whisper_qa", True)):
+            self.stage("words", method="waveform-anchored", whisper_qa="skipped (non-English)")
             return
         try:
             m, n, missed, secs = whisper_intelligibility(self.vo_path, self.timing, self.order, self.log)
