@@ -1045,7 +1045,7 @@
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-14T19:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/DefFkFRDC9i/",
       "media_ref": {
         "asset_digest": "sha256:c42e9a9a148322baefa3692ae852858e21c84ad10f281d95390dec8e1baf92b0",
         "asset_id": 638403524,
@@ -1060,11 +1060,11 @@
       "notify_subscribers": false,
       "payload_sha256": "8583d85e869a0d264712210ac810a9250cf89dc03de0075ad973527d6f881fed",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-14T19:02:17.657Z",
+      "state": "sent",
       "text": "ManimGX pairs a Manim CE-compatible Python API with a Rust/wgpu renderer and WebGPU browser path. Its speed charts are project benchmarks; native wheels include GPL x264.\n\nCredits: Official ManimGX demo media and page captures; attribution in post/description only. No on-screen credits.\n\n#ManimGX #MathAnimation #OpenSource",
       "title": "ManimGX: Manim-Style Python on a Rust GPU Engine",
-      "updated_at": "2026-10-13T23:10:23Z",
+      "updated_at": "2026-10-14T21:50:02Z",
       "video_id": "repo-manimgx-01"
     },
     "repo-manimgx-01:youtube": {
@@ -1728,7 +1728,7 @@
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-14T19:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.facebook.com/reel/1455350499936390/",
       "media_ref": {
         "asset_digest": "sha256:cccaa6852b2ab2638a3027c9cf99f617162b9e7c98e685994e4133e2cd7902fa",
         "asset_id": 638403576,
@@ -1743,11 +1743,11 @@
       "notify_subscribers": false,
       "payload_sha256": "51c403d97bd5f41cb2dc262441e51e4d223c1718cf63c5acc20b283529ee3f12",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-14T19:01:35.376Z",
+      "state": "sent",
       "text": "Qwen Image 2.1 Turbo adds an 8-step mode for text-to-image and editing. The step count is not a speed benchmark; check the Research License before commercial use.\n\nCredits: Post/description attribution only; no on-screen credits. Qwen README assets; the 8-step graphic is an original explanation, not a benchmark or generated sample.\n\nAI-generated narration.\n\n#QwenImage #ImageAI #OpenSource",
       "title": "Qwen Image 2.1 Turbo: The Eight-Step Checkpoint",
-      "updated_at": "2026-10-13T23:05:32Z",
+      "updated_at": "2026-10-14T21:50:02Z",
       "video_id": "tool-qwen-image-21-turbo-01"
     },
     "tool-qwen-image-21-turbo-01:instagram": {
@@ -1784,7 +1784,7 @@
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-14T21:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.youtube.com/shorts/OlYJFMp0ARw",
       "media_ref": {
         "asset_digest": "sha256:cccaa6852b2ab2638a3027c9cf99f617162b9e7c98e685994e4133e2cd7902fa",
         "asset_id": 638403576,
@@ -1799,11 +1799,11 @@
       "notify_subscribers": true,
       "payload_sha256": "991ae76294e0ce921559fba848818042e6321a8721341a1f9222628341a3bdca",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-14T21:00:54.459Z",
+      "state": "sent",
       "text": "Qwen Image 2.1 Turbo is the project\u2019s 8-step checkpoint for text-to-image and image editing. Eight denoising steps are not proof of a 5\u00d7 end-to-end speedup. The weights use Qwen\u2019s Research License; check terms before commercial use. GitHub facts checked Oct 14, 2026.\nhttps://github.com/QwenLM/Qwen-Image-2.1\n\nCredits: Post/description attribution only; no on-screen credits. Qwen README assets; the 8-step graphic is an original explanation, not a benchmark or generated sample.\n\n#Shorts #QwenImage #ImageAI #OpenSource",
       "title": "Qwen Image 2.1 Turbo: The Eight-Step Checkpoint",
-      "updated_at": "2026-10-13T23:10:27Z",
+      "updated_at": "2026-10-14T21:50:02Z",
       "video_id": "tool-qwen-image-21-turbo-01"
     },
     "tool-qwen38-01:facebook": {
