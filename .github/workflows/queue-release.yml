@@ -46,8 +46,13 @@ jobs:
           cache-dependency-path: reels-studio/tools/post/requirements.txt
       - name: Install posting dependencies
         run: python3 -m pip install -r reels-studio/tools/post/requirements.txt
+      # Keep this gate focused on the Buffer/queue/release path (same convention as post.yml);
+      # unrelated renderer suites need media dependencies this workflow does not install.
+      # The full suite still runs in agent-safety.yml with its full dependency set.
       - name: Safety suite (release behaviour is covered here)
-        run: python3 -m unittest discover -s reels-studio/tests -v
+        run: |
+          export PYTHONPATH="$GITHUB_WORKSPACE/reels-studio${PYTHONPATH:+:$PYTHONPATH}"
+          python3 -m unittest discover -s reels-studio/tests -p "test_publishing.py" -v
       - name: Run queue release
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
