@@ -173,9 +173,11 @@
     },
     "model-lfm25-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6ad0cb8e5d6d63b3aef8477f",
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-15T22:00:00Z",
+      "due_at": "2026-10-15T22:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:9b74cd3e51e80565b7ab09aac73709af2b6f23cb00571f188d6f1aeeb9932f66",
         "asset_id": 643833486,
@@ -190,10 +192,11 @@
       "notify_subscribers": false,
       "payload_sha256": "c6f5555caeb631ca4613144ad7776c46218cdafbcc8d6727ee03cca43d8baf99",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Liquid AI's LFM2.5: 24B total parameters, roughly 2B active per token, built for on-device agents. Weights under the LFM 1.0 licence; GGUF, MLX, ONNX and FP8 builds available.\n\nCredits: Own spec and formats cards created for this video. Source links in post/description only. No on-screen credits.\n\nAI-generated narration.\n\n#LocalAI #LLM",
       "title": "LFM2.5: 24B Brain, 2B at Work \u2014 a Local Agent Model",
-      "updated_at": "2026-10-15T12:48:12Z",
+      "updated_at": "2026-10-15T12:48:14Z",
       "video_id": "model-lfm25-01"
     },
     "model-lfm25-01:youtube": {
