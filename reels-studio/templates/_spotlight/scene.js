@@ -206,6 +206,16 @@
             }
             const num = A.mk("span", "", n, fmt(0));
             A.mk("div", "l", card, st.label || "");
+            // Auto-fit: measure the FINAL string and shrink the number until number + label
+            // fit inside the card. A long suffix ("49.4 pages/s") must never overflow the box.
+            num.textContent = fmt(v);
+            let statFs = big ? 220 : 140;
+            n.style.fontSize = statFs + "px";
+            while (statFs > 56 && (card.scrollHeight > card.clientHeight || n.scrollWidth > card.clientWidth + 4)) {
+              statFs -= 8;
+              n.style.fontSize = statFs + "px";
+            }
+            num.textContent = fmt(0);
             if (instant) {  // hook scene: the stat is part of the cover frame
               card.style.opacity = "1";
               tl.fromTo(card, { scale: 0.94 }, { scale: 1, duration: 0.36, ease: "power3.out" }, 0);
@@ -430,7 +440,7 @@
           function sImage(s, root, t0, t1) {
             const cover = s.id === FIRST;
             heading(root, s.heading, t0 + 0.05, { instant: cover });
-            let cardTop = COVER_STAGE_TOP;
+            let cardTop = cover ? COVER_STAGE_TOP : 470;  // 470 = .sp-imgcard default top
             if (s.sub) {  // static cover line under the heading (karaoke captions hold until the first sentence ends)
               const sub = A.mk("div", "sp-sub", root, s.sub);
               sub.style.top = cover ? "616px" : "436px";
@@ -439,9 +449,15 @@
               if (cover) {
                 cardTop = Math.max(COVER_STAGE_TOP, Math.ceil(616 + sub.scrollHeight + 26));
                 sub.style.opacity = "1";  // cover frame: sub is part of the design, no fade
-              } else tl.fromTo(sub, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.28, immediateRender: false }, t0 + 0.3);
+              } else {
+                // Non-cover: the card must start BELOW the sub. The fixed 470px card top
+                // overlapped any sub taller than ~8px (sub at 436 + up to 124px tall).
+                cardTop = Math.max(470, Math.ceil(436 + sub.scrollHeight + 26));
+                tl.fromTo(sub, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.28, immediateRender: false }, t0 + 0.3);
+              }
             }
             const card = A.mk("div", "sp-imgcard", root);
+            if (cover || s.sub) card.style.top = cardTop + "px";
             if (cover) Object.assign(card.style, { top: cardTop + "px", height: Math.max(430, 1308 - cardTop) + "px" });
             const inn = A.mk("div", "in", card);
             const im = A.mk("img", "", inn);
