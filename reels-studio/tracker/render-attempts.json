@@ -37,6 +37,25 @@
       "started_at": "2026-10-15T08:13:03Z",
       "status": "started",
       "voice_seed": 0
+    },
+    "c182fd5dafd076768be78dde720bd1e36c8dbbfa7eee3ae2339a184bd2237dc8": {
+      "asset_files_sha256": "ed8fb86a11fee5521c69dadda65603115f1b46257f8de027aae12b275e52ef92",
+      "asset_manifest_sha256": "a774ce561457c285a3f896ca3fb81133b47bc75adec0b620f8379b1c5d5a55f8",
+      "brief_id": "repo-indra-01",
+      "brief_sha256": "4bfa91b1cdce12062f70bdb69b35a7b46bf7a3724248c3e2da79e4af3d34b7a4",
+      "capture_id": "repo-indra-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "c182fd5dafd076768be78dde720bd1e36c8dbbfa7eee3ae2339a184bd2237dc8",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "aae6db68b5689b6e794cbee5542153779a4327c428d9fabe6dfa37d3e6616b1a",
+      "run_id": "38706247290",
+      "started_at": "2026-10-15T08:31:25Z",
+      "status": "started",
+      "voice_seed": 0
     }
   },
   "legacy_completed_briefs": [
