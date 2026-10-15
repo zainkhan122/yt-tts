@@ -264,7 +264,7 @@
       "priority": 100,
       "release_tag": "renders-2026-10-10",
       "reviewed_at": "2026-10-11T05:29:03Z",
-      "title": "Pomelli: Free AI Product Photos—with a Catch",
+      "title": "Pomelli: Free AI Product Photos\u2014with a Catch",
       "video_id": "tool-pomelli-01",
       "youtube_ai_generated": true
     },
@@ -685,6 +685,78 @@
       "reviewed_at": "2026-10-13T23:03:01Z",
       "title": "Qwen Image 2.1 Turbo: The Eight-Step Checkpoint",
       "video_id": "tool-qwen-image-21-turbo-01",
+      "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-10-15T12:41:53Z",
+      "approval": "approved",
+      "asset_digest": "sha256:8fd7e86356c45c5c66abdce9c9affa02461e2ce7ea69f871f91a02d54872750c",
+      "asset_id": 643833407,
+      "asset_size": 9393888,
+      "brief_sha256": "220f3867dec0827a921652ba0a57dd4463454dfb65ce322827e057f4c504ea86",
+      "category": "repo",
+      "expires_at": "2026-10-18T12:00:00Z",
+      "kit_asset_id": 643833451,
+      "kit_digest": "sha256:7a6bcd0e60acf8be484be39b2418db5cede941d89dbb5a5c21957489c09d0f8c",
+      "media_path": "media/643833407/repo-indra-01.mp4",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "priority": 10,
+      "release_tag": "renders-2026-10-15",
+      "reviewed_at": "2026-10-15T12:42:11Z",
+      "title": "Indra OCR: 18 MB Local OCR, 49 Pages a Second on CPU",
+      "video_id": "repo-indra-01",
+      "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-10-15T12:41:54Z",
+      "approval": "approved",
+      "asset_digest": "sha256:e5eadc0e14c986e58762bf71ccf404ec4de62c3f45818282df261db3bca81533",
+      "asset_id": 643833549,
+      "asset_size": 10769501,
+      "brief_sha256": "b0d8eba48b9cef87b4dbc5d4fd75f0fd8586a6079dda64ec4997996d21cfb869",
+      "category": "repo",
+      "expires_at": "2026-10-18T12:00:00Z",
+      "kit_asset_id": 643833595,
+      "kit_digest": "sha256:26cc4e6297ac11eba96ecc20534dbb61f7a16c2781ad5751f0fd94b5650b84f0",
+      "media_path": "media/643833549/repo-solidglass-01.mp4",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "priority": 20,
+      "release_tag": "renders-2026-10-15",
+      "reviewed_at": "2026-10-15T12:42:11Z",
+      "title": "Solid Glass: the Glass UI You Can Actually Read",
+      "video_id": "repo-solidglass-01",
+      "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-10-15T12:41:55Z",
+      "approval": "approved",
+      "asset_digest": "sha256:9b74cd3e51e80565b7ab09aac73709af2b6f23cb00571f188d6f1aeeb9932f66",
+      "asset_id": 643833486,
+      "asset_size": 10269142,
+      "brief_sha256": "081b10eebb18d1aa2bb34ac9063695eee3fab5c9898e34a5b94d93bb4dd9f118",
+      "category": "tool",
+      "expires_at": "2026-10-18T12:00:00Z",
+      "kit_asset_id": 643833519,
+      "kit_digest": "sha256:a8fd9eb70d7ce7bcb3210e7c64f9e0768f5d8eda4456c7ab1b3cfc1f4940a8ac",
+      "media_path": "media/643833486/model-lfm25-01.mp4",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "priority": 15,
+      "release_tag": "renders-2026-10-15",
+      "reviewed_at": "2026-10-15T12:42:11Z",
+      "title": "LFM2.5: 24B Brain, 2B at Work \u2014 a Local Agent Model",
+      "video_id": "model-lfm25-01",
       "youtube_ai_generated": false
     }
   ],
