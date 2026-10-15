@@ -1,0 +1,188 @@
+{
+  "id": "repo-solidglass-01",
+  "template": "repo-spotlight",
+  "capture": "captures/repo-solidglass-01",
+  "title": "Solid Glass: the Glass UI You Can Actually Read",
+  "niche": "open-source design systems / AI app UI",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "Owner approved runners-up batch on 2026-10-15 for artifact-only videos. No public Release, no Buffer scheduling or posting. Approved Option-3 Chatterbox flow voice; no on-screen credit captions.",
+  "production_category": "repo",
+  "keywords": [
+    "Solid Glass",
+    "shadcn",
+    "design system",
+    "AI UI",
+    "glassmorphism"
+  ],
+  "facts": {
+    "stars": 904,
+    "forks": 12,
+    "license": "MIT",
+    "registry_items": 13,
+    "checked": "2026-10-15, GitHub REST API + README"
+  },
+  "credits_on_screen": "Own recreation and components card created for this video. Source links in post/description only. No on-screen credits.",
+  "sources": [
+    "https://github.com/deeplethe/solid-glass",
+    "https://api.github.com/repos/deeplethe/solid-glass"
+  ],
+  "verify_before_render": [
+    "GitHub API checked 2026-10-15 10:31 UTC: 904 stars, 12 forks, created 2026-10-12, MIT license. 'Nine hundred stars in three days' is accurate at check time.",
+    "README: one stylesheet that restyles existing shadcn/ui components via data-slot/classes; components need no changes. Requires a shadcn/ui project (React 19, Tailwind CSS 4) \u2014 mandatory catch.",
+    "Registry badge states 13 items; agent-focused components include status-glyph, tool-steps, ask-card, context-ring, diff-view and composer. Install command shown is the README's own command.",
+    "Mandatory catch: the project is days old, so expect breaking changes; matures fast (pushed 2026-10-15).",
+    "Demo visual is our own recreation of the flat / solid glass / liquid glass idea; no repo screenshots copied. No on-screen credit captions."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "glass-demo.png",
+      "heading": "GLASS YOU CAN *READ*",
+      "sub": "A design system for AI apps",
+      "say": "This is a glass interface you can actually read. No squinting through the blur."
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "image": "components-card.png",
+      "heading": "MEET *SOLID GLASS*",
+      "sub": "Open-source design system \u00b7 MIT",
+      "say": "It is Solid Glass, a new open-source design system for AI apps, built by DeepLethe."
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "ONE *STYLESHEET*",
+      "steps": [
+        "Drop in one CSS file",
+        "shadcn parts unchanged",
+        "Light and dark modes"
+      ],
+      "step_at": [
+        "stylesheet",
+        "unchanged",
+        "dark"
+      ],
+      "say": "It is one stylesheet. Your existing {shadcn|shad CN} components stay unchanged, in light and dark modes."
+    },
+    {
+      "id": "stars",
+      "type": "stat",
+      "heading": "DEVS *NOTICED*",
+      "value": 904,
+      "decimals": 0,
+      "suffix": " stars",
+      "label": "GitHub \u00b7 first three days",
+      "at": "hundred",
+      "say": "It pulled in nine hundred GitHub stars in its first three days."
+    },
+    {
+      "id": "install",
+      "type": "terminal",
+      "heading": "ONE *COMMAND*",
+      "lines": [
+        "npx shadcn@latest add deeplethe/solid-glass/solid-glass"
+      ],
+      "say": "Install it with one {shadcn|shad CN} command. The registry has thirteen ready-made items."
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "BEFORE YOU *ADOPT IT*",
+      "cons": [
+        "Needs the shadcn stack",
+        "Days old: expect changes"
+      ],
+      "pros": [
+        "MIT licensed",
+        "Components untouched"
+      ],
+      "item_at": [
+        "stack",
+        "days",
+        "licensed",
+        "untouched"
+      ],
+      "say": "The catches: you need the {shadcn|shad CN} stack with React and Tailwind, and the project is days old, so expect changes. On the plus side, it is {MIT|M I T} licensed, and your components stay untouched."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "GLASS",
+      "say": "Building an AI app? Comment GLASS and I will pin the repo."
+    }
+  ],
+  "seo": {
+    "keyword": "Solid Glass",
+    "aliases": [
+      "shadcn design system",
+      "glass UI",
+      "AI app UI"
+    ],
+    "onscreen_first3s": "GLASS YOU CAN READ",
+    "youtube": {
+      "title": "Solid Glass: the Glass UI You Can Actually Read",
+      "description": "Solid Glass is an MIT-licensed design system for AI applications: one stylesheet that restyles your existing shadcn/ui components, sitting between flat design and liquid glass so text stays readable. It gained 904 GitHub stars in its first three days. Catches: you need the shadcn/React/Tailwind stack, and the project is days old. Demo visual is our own recreation.\nSource: https://github.com/deeplethe/solid-glass",
+      "hashtags": [
+        "#Shorts",
+        "#UI",
+        "#WebDev",
+        "#OpenSource"
+      ],
+      "tags": [
+        "Solid Glass",
+        "shadcn",
+        "design system",
+        "glass UI",
+        "AI app UI",
+        "Tailwind CSS",
+        "React"
+      ]
+    },
+    "tiktok": {
+      "caption": "Glass you can read: Solid Glass is one stylesheet that restyles shadcn/ui components without changing them. 904 GitHub stars in three days. Catches: needs the shadcn stack, and it is brand new.",
+      "hashtags": [
+        "#UI",
+        "#WebDev",
+        "#OpenSource"
+      ]
+    },
+    "instagram": {
+      "caption": "Solid Glass sits between flat and liquid glass: enough outline to feel like glass, not enough to fight your text. One stylesheet over shadcn/ui, MIT licensed. Save this if you build AI apps.",
+      "hashtags": [
+        "#UI",
+        "#WebDev",
+        "#OpenSource"
+      ]
+    },
+    "facebook": {
+      "caption": "Solid Glass: an MIT design system for AI apps. One stylesheet restyles existing shadcn/ui components in light and dark modes. Needs React and Tailwind; the project is days old.",
+      "hashtags": [
+        "#UI",
+        "#WebDev"
+      ]
+    },
+    "x": {
+      "text": "Glass you can read: Solid Glass restyles shadcn/ui with one stylesheet \u2014 MIT, 904 stars in 3 days. Needs the shadcn/React/Tailwind stack. https://github.com/deeplethe/solid-glass",
+      "hashtags": [
+        "#UI",
+        "#WebDev"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "Solid Glass: the Glass UI You Can Actually Read"
+    ],
+    "caption": "Solid Glass is a design system for AI applications: one stylesheet that restyles existing shadcn/ui components, between flat design and liquid glass, so text stays readable. It gained 904 GitHub stars in its first three days and ships 13 registry items including agent-focused pieces like tool-steps and ask-card. Catches: you need the shadcn/React/Tailwind stack, and the project is days old.",
+    "hashtags": [
+      "#Shorts",
+      "#UI",
+      "#WebDev",
+      "#OpenSource"
+    ],
+    "pinned_comment": "Repo: https://github.com/deeplethe/solid-glass \u2014 the three-panel visual is our own recreation, not a repo screenshot."
+  }
+}

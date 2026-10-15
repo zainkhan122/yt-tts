@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-15-model-lfm25-01",
+  "created_at": "2026-10-15T10:33:21Z",
+  "buffer_insights": {
+    "path": "reels-studio/tracker/buffer-insights.json",
+    "sha256": "6ac6cf303bba3d2741b77b9ad8eb1a78ab9c42d7952f5a53215ccdebdc121057"
+  },
+  "metrics_review": {
+    "snapshot_sha256": "6ac6cf303bba3d2741b77b9ad8eb1a78ab9c42d7952f5a53215ccdebdc121057",
+    "reviewed_video_count": 69,
+    "sample_post_ids": [
+      "6acc91ac5feb3462de95f38b",
+      "6acc91a65feb3462de95f295",
+      "6ac904b32f26cc482c22c526",
+      "6accbfbf0b1f16abcb04921c"
+    ],
+    "findings": [
+      "Fresh snapshot fetched 2026-10-15T07:49:07Z: 69 shared video records, 65 expected tracked sent posts, complete coverage; YouTube median 56 views across 25 fresh posts.",
+      "Top YouTube posts are practical local-AI demos: repo-ds4-01 at 972 views and tool-qwen38-01 at 807 views, supporting hands-on local-AI topics.",
+      "spotlight-papermorph-01 reached 608 YouTube views with a concrete transformation demo, supporting a visible before-and-after angle.",
+      "Instagram fresh median was 151 views; repo-opencr-01 reached 266 views, supporting open-source tool spotlights with a clear payoff."
+    ],
+    "decisions": {
+      "topic": "Local-AI demos lead our Buffer history (DeepSeek local 972 YouTube views; Qwen local 807), so LFM2.5 leads with the concrete 24B/2B efficiency story, with vendor figures attributed.",
+      "script": "Hook states the 24B/2B contrast in sentence one, names LFM2.5 in scene two, attributes the 184 tok/s figure to Liquid AI with its M5 Max condition, and keeps the always-thinks, retrieval and licence caveats in the spoken catch.",
+      "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% Whisper match per chunk and 95% overall; no alternate voice or lowered threshold.",
+      "visual": "Original spec and formats cards created for this video; no third-party clips, no copied benchmark charts, no fake local run, and no on-screen credit captions."
+    }
+  },
+  "briefs": {
+    "model-lfm25-01": {
+      "brief_sha256": "4a695a05d9c6f7c16978976da8ca44d9c2feb03ed443f03e30e1eb3fc6544a08",
+      "metrics_decisions": {
+        "topic": "Local-AI demos lead our Buffer history (DeepSeek local 972 YouTube views; Qwen local 807), so LFM2.5 leads with the concrete 24B/2B efficiency story, with vendor figures attributed.",
+        "script": "Hook states the 24B/2B contrast in sentence one, names LFM2.5 in scene two, attributes the 184 tok/s figure to Liquid AI with its M5 Max condition, and keeps the always-thinks, retrieval and licence caveats in the spoken catch.",
+        "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% Whisper match per chunk and 95% overall; no alternate voice or lowered threshold.",
+        "visual": "Original spec and formats cards created for this video; no third-party clips, no copied benchmark charts, no fake local run, and no on-screen credit captions."
+      },
+      "stages": {
+        "discover": {
+          "status": "complete",
+          "checked_at": "2026-10-15T10:33:21Z",
+          "evidence": [
+            "reels-studio/research/ideas/feed-2026-10-15.md",
+            "reels-studio/research/radar/radar-2026-10-15.md"
+          ]
+        },
+        "select": {
+          "status": "complete",
+          "selection_status": "selected",
+          "topic": "LFM2.5-24B-A2B: 24B model, 2B active, on-device agents",
+          "score": 77,
+          "score_breakdown": {
+            "trend_velocity": 18,
+            "demo_ability": 17,
+            "audience_breadth": 13,
+            "social_proof_gap": 7,
+            "free_value": 8,
+            "freshness_angle": 14
+          },
+          "metrics_snapshot_sha256": "6ac6cf303bba3d2741b77b9ad8eb1a78ab9c42d7952f5a53215ccdebdc121057",
+          "basis_post_ids": [
+            "6acc91ac5feb3462de95f38b",
+            "6acc91a65feb3462de95f295",
+            "6ac904b32f26cc482c22c526"
+          ],
+          "hard_gates": {
+            "risk_flags_clear": true,
+            "claim_verifiable": true,
+            "license_clear": true
+          }
+        },
+        "research": {
+          "status": "complete",
+          "evidence": [
+            "reels-studio/research/ideas/feed-2026-10-15.md",
+            "reels-studio/research/radar/radar-2026-10-15.md"
+          ],
+          "dynamic_facts_checked_at": "2026-10-15T10:33:21Z",
+          "primary_sources": [
+            {
+              "url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
+              "checked_at": "2026-10-15T10:33:21Z",
+              "claim": "Model card documents 24B total / ~2.45B active MoE, 131K context, vendor on-device speeds, formats, always-thinks behaviour and the retrieval recommendation."
+            },
+            {
+              "url": "https://huggingface.co/api/models/LiquidAI/LFM2.5-24B-A2B",
+              "checked_at": "2026-10-15T10:33:21Z",
+              "claim": "Live metadata: 6,286 downloads, 341 likes, created 2026-10-12, weights license_name lfm1.0."
+            }
+          ]
+        },
+        "script": {
+          "status": "complete",
+          "script_sha256": "475a8d270a6d7cef349869e709bf073542bb85f04fe10ce59e31bb5f092b7217",
+          "word_count": 153
+        },
+        "voice": {
+          "status": "complete",
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "per_chunk": 0.92,
+            "overall": 0.95
+          }
+        },
+        "assets": {
+          "status": "complete",
+          "rights_checked": true,
+          "approval_constraints_checked": true,
+          "capture_id": "model-lfm25-01",
+          "manifest_sha256": "8dea4f4cc199d2686e0a4ce63e36b016c70883728a082162f0c0969a98a67a44",
+          "files": [
+            {
+              "path": "spec-card.png",
+              "sha256": "a251fef343fce587a265714142ff25060e7f398f43eec435a29c876c67098d22"
+            },
+            {
+              "path": "formats-card.png",
+              "sha256": "001112326c08ebffbed06b7e37d88dc73188e6ca06cf33a92fd73a12edeea0f7"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
