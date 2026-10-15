@@ -1039,6 +1039,31 @@
       "updated_at": "2026-10-15T12:47:59Z",
       "video_id": "repo-indra-01"
     },
+    "repo-indra-01:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-10-15T17:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:8fd7e86356c45c5c66abdce9c9affa02461e2ce7ea69f871f91a02d54872750c",
+        "asset_id": 643833407,
+        "asset_size": 9393888,
+        "kit_asset_id": 643833451,
+        "kit_digest": "sha256:7a6bcd0e60acf8be484be39b2418db5cede941d89dbb5a5c21957489c09d0f8c",
+        "media_path": "media/643833407/repo-indra-01.mp4",
+        "release_tag": "renders-2026-10-15",
+        "video_id": "repo-indra-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/643833407/repo-indra-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "842f6a02e1324312001a522937c9885b1f11eb7e25f0f632ca0204fb68a5ad45",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "Indra OCR turns PDFs and images into Markdown, plain text or JSON with boxes and reading order, locally on CPU. In the project authors' benchmark it reached 49.4 pages/s on 32 CPU cores (OCR mode); our own OCR-only test on a synthetic invoice recovered both item rows and the total. The catches: it is built for clean print, handwriting is unsupported, faded scans score poorly, and while the code is Apache-2.0 the model weights use a restricted modified OpenRAIL-M license.\nSource: https://github.com/datalab-to/indra\n\nCredits: Own synthetic invoice, own local OCR output and own proof-card visual. Source links in post/description only. No on-screen credits.\n\n#Shorts #OCR #LocalAI #OpenSource",
+      "title": "Indra OCR: 18 MB Local OCR, 49 Pages a Second on CPU",
+      "updated_at": "2026-10-15T12:48:01Z",
+      "video_id": "repo-indra-01"
+    },
     "repo-manimgx-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6aceb933848c31c8094f7381",
