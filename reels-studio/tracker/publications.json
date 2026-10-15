@@ -1041,9 +1041,11 @@
     },
     "repo-indra-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6ad0cb86e8416cbf0cfadc2f",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-15T19:00:00Z",
+      "due_at": "2026-10-15T19:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:8fd7e86356c45c5c66abdce9c9affa02461e2ce7ea69f871f91a02d54872750c",
         "asset_id": 643833407,
@@ -1058,10 +1060,11 @@
       "notify_subscribers": false,
       "payload_sha256": "b91506ba8853fb393e6c3e4e8d85df5e488e6608d52a1aec78611516820d69b3",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Indra OCR turns a scanned page into Markdown or JSON on your own CPU \u2014 no GPU, no upload. Authors' test: 49.4 pages/s on 32 cores. Our synthetic-invoice test recovered the total. Save this if you process documents.\n\nCredits: Own synthetic invoice, own local OCR output and own proof-card visual. Source links in post/description only. No on-screen credits.\n\n#OCR #LocalAI #OpenSource",
       "title": "Indra OCR: 18 MB Local OCR, 49 Pages a Second on CPU",
-      "updated_at": "2026-10-15T12:48:04Z",
+      "updated_at": "2026-10-15T12:48:06Z",
       "video_id": "repo-indra-01"
     },
     "repo-indra-01:youtube": {
