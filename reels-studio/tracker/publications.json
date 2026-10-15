@@ -1013,9 +1013,11 @@
     },
     "repo-indra-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6ad0cb7fe8416cbf0cfadadf",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-15T16:00:00Z",
+      "due_at": "2026-10-15T16:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:8fd7e86356c45c5c66abdce9c9affa02461e2ce7ea69f871f91a02d54872750c",
         "asset_id": 643833407,
@@ -1030,10 +1032,11 @@
       "notify_subscribers": false,
       "payload_sha256": "ff0f59e878616507b1362abf63a02fc190467b55e6ead7e18330a4c5f4ac83b8",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Indra OCR: local CPU OCR that turns PDFs and images into Markdown, text or JSON. Code is Apache-2.0; the model weights use restricted modified OpenRAIL-M terms. Built for clean print \u2014 handwriting and faded scans are out.\n\nCredits: Own synthetic invoice, own local OCR output and own proof-card visual. Source links in post/description only. No on-screen credits.\n\nAI-generated narration.\n\n#OCR #LocalAI",
       "title": "Indra OCR: 18 MB Local OCR, 49 Pages a Second on CPU",
-      "updated_at": "2026-10-15T12:47:56Z",
+      "updated_at": "2026-10-15T12:47:59Z",
       "video_id": "repo-indra-01"
     },
     "repo-manimgx-01:facebook": {
