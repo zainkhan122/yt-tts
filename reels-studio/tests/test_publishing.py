@@ -742,6 +742,29 @@ class QueueReleaseTests(unittest.TestCase):
         rows = self.release.pending_rows(journal)
         self.assertEqual(sorted(rows), ["a:facebook", "c:instagram"])
 
+    def test_delete_row_is_terminal_and_keeps_audit(self):
+        from tools.post.common import TERMINAL
+        r = self.row(state="delivery_error")
+        r["last_error"] = "unknown error"
+        out = self.release.delete_row(r, "owner delete", self.release.now_utc())
+        self.assertEqual(out["state"], "deleted")
+        self.assertIn(out["state"], TERMINAL)
+        self.assertIsNone(out["buffer_post_id"])
+        self.assertEqual(out["previous_buffer_post_id"], "bp1")
+        self.assertIn("deleted_at", out)
+        self.assertNotIn("last_error", out)
+
+    def test_delete_row_refuses_published(self):
+        with self.assertRaises(ValueError):
+            self.release.delete_row(self.row(state="sent"), "x", self.release.now_utc())
+
+    def test_deletable_rows_include_delivery_error_only(self):
+        journal = {"records": {"a:facebook": self.row(), "b:youtube": self.row(state="sent"),
+                               "c:instagram": self.row(state="delivery_error"),
+                               "d:youtube": self.row(state="uncertain")}}
+        rows = self.release.deletable_rows(journal)
+        self.assertEqual(sorted(rows), ["a:facebook", "c:instagram"])
+
     def test_sent_buffer_posts_are_never_editpost_refresh_candidates(self):
         found = [
             {"key": "sent:facebook", "status": "sent", "verdict": "STALE"},

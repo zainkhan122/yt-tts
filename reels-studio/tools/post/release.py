@@ -44,6 +44,7 @@ from tools.post.common import (PENDING, TERMINAL, config, iso, load_json, media_
 CONFIRM = "OWNER_APPROVED_QUEUE_CLEAR"
 CONFIRM_REFRESH = "OWNER_APPROVED_MEDIA_REFRESH"
 RELEASED = "released"
+DELETED = "deleted"
 
 
 def pending_rows(journal):
@@ -61,6 +62,34 @@ def release_row(record, note, now):
     record["release_note"] = note
     record["released_at"] = iso(now)
     return record
+
+
+def delete_row(record, note, now):
+    """Owner-deleted row: terminal, never recreated, never flagged as an issue.
+
+    Only for rows that never published (e.g. a delivery_error the owner asked to remove).
+    Keeps the old Buffer post id for audit, like release_row, but the planner must not
+    recreate it: DELETED is in common.TERMINAL, unlike RELEASED.
+    """
+    if record.get("state") in {"sent", "published_manual"}:
+        raise ValueError("refusing to delete a published row: " + str(record.get("video_id")))
+    record["previous_buffer_post_id"] = record.get("buffer_post_id")
+    record["buffer_post_id"] = None
+    record["external_url"] = None
+    record["state"] = DELETED
+    record["release_note"] = note
+    record["deleted_at"] = iso(now)
+    record.pop("last_error", None)
+    return record
+
+
+def deletable_rows(journal):
+    """Rows an owner --delete may target: pending/released plus never-published errors."""
+    rows = pending_rows(journal)
+    for k, r in journal["records"].items():
+        if r.get("state") == "delivery_error":
+            rows[k] = r
+    return rows
 
 
 def audit(journal_rows, posts, queue, cfg):
@@ -217,27 +246,38 @@ def main():
     client = BufferClient(config()["buffer"])
     _, posts = client.state()
     by_id = {p["id"]: p for p in posts}
+    key_rows = deletable_rows(journal) if a.delete else rows
     changed = 0
     for k in a.keys:
-        if k not in rows:
+        if k not in key_rows:
             print(f"skip {k}: not a pending row")
             continue
-        r = rows[k]
+        r = key_rows[k]
         post = by_id.get(r.get("buffer_post_id"))
         if post and post["status"] == "sent":
             print(f"skip {k}: Buffer says sent - reconcile it, do not clear")
             continue
         if a.delete:
+            owner_delete = r.get("state") == "delivery_error"
             if not post:
+                if owner_delete:
+                    delete_row(r, "owner-approved delete; Buffer post already absent", now_utc())
+                    changed += 1
+                    print(f"deleted (already absent) {k}")
+                    continue
                 print(f"skip {k}: already absent from Buffer (use --release-removed)")
                 continue
             client.delete(post["id"])
             _, after = client.state()
             if post["id"] in {p["id"] for p in after}:
                 raise SystemExit(f"{k}: post still present after deletePost; stopping (nothing else touched)")
-            release_row(r, "owner-approved queue clear; recreated against corrected media", now_utc())
+            if owner_delete:
+                delete_row(r, "owner-approved delete of a never-published post", now_utc())
+                print(f"deleted {k}")
+            else:
+                release_row(r, "owner-approved queue clear; recreated against corrected media", now_utc())
+                print(f"deleted + released {k}")
             changed += 1
-            print(f"deleted + released {k}")
     if a.release_removed:
         for k, r in rows.items():
             if r["state"] == RELEASED:

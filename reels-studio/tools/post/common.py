@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 UTC = dt.timezone.utc
-TERMINAL = {"sent", "published_manual"}
+TERMINAL = {"sent", "published_manual", "deleted"}
 # Anything except an explicitly rejected/deferred request blocks another createPost.
 RETRYABLE = {"retry_wait"}
 PENDING = {"scheduled", "sending", "draft", "needs_approval"}
