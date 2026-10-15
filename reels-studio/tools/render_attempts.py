@@ -230,7 +230,7 @@ def main(argv=None) -> int:
     sub = parser.add_subparsers(dest="command", required=True)
     p = sub.add_parser("finish", help="finalize reserved attempt fingerprints from a completed render workflow")
     p.add_argument("--run-id", required=True)
-    p.add_argument("--status", required=True, choices=["success", "failed", "render_succeeded_publish_failed", "scene_rebuild_success", "cancelled"])
+    p.add_argument("--status", required=True, choices=["success", "render_only_success", "failed", "render_succeeded_publish_failed", "scene_rebuild_success", "cancelled"])
     p.add_argument("--conclusion", default="")
     args = parser.parse_args(argv)
     try:
