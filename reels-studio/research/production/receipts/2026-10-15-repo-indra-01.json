@@ -30,7 +30,7 @@
   },
   "briefs": {
     "repo-indra-01": {
-      "brief_sha256": "d19731dbb6d33c50ad097772aa3b6c41cbcfda9e11ce0fb1c877e0ef422926db",
+      "brief_sha256": "4bfa91b1cdce12062f70bdb69b35a7b46bf7a3724248c3e2da79e4af3d34b7a4",
       "metrics_decisions": {
         "topic": "Local, hands-on open-source tools lead our Buffer history (DeepSeek local 972 YouTube views; Qwen local 807), so Indra leads with a real local test, not a feature list.",
         "script": "Hook states the proven result in sentence one, names Indra by the second scene, attributes the 49.4 pages/s figure to the authors with its 32-core condition, and keeps licence and scan limits in the spoken catch.",
@@ -103,8 +103,8 @@
         },
         "script": {
           "status": "complete",
-          "script_sha256": "071459dca8b9412a59f1c1b1601d35dcb111b9b871b51feec4bda8fdb97cc4f8",
-          "word_count": 117
+          "script_sha256": "2cbca457b0d912aa5039a03651135f0cc8b88c9cffd86e7ce260c907ab8c1e10",
+          "word_count": 116
         },
         "voice": {
           "status": "complete",
