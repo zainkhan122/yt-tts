@@ -83,6 +83,15 @@ def delete_row(record, note, now):
     return record
 
 
+def is_published(post):
+    """Buffer marks an attempted-but-failed delivery as 'sent' with an error attached.
+
+    Such a post never published, so an owner-approved delete of its delivery_error row
+    may proceed; a clean 'sent' post is published and must never be deleted here.
+    """
+    return bool(post) and post.get("status") == "sent" and not post.get("error")
+
+
 def deletable_rows(journal):
     """Rows an owner --delete may target: pending/released plus never-published errors."""
     rows = pending_rows(journal)
