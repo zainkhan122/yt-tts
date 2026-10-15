@@ -30,7 +30,7 @@
   },
   "briefs": {
     "model-lfm25-01": {
-      "brief_sha256": "4a695a05d9c6f7c16978976da8ca44d9c2feb03ed443f03e30e1eb3fc6544a08",
+      "brief_sha256": "94ead9363599af875e129a77d85bc9b500430eaded5bfa19ab91188c512f8984",
       "metrics_decisions": {
         "topic": "Local-AI demos lead our Buffer history (DeepSeek local 972 YouTube views; Qwen local 807), so LFM2.5 leads with the concrete 24B/2B efficiency story, with vendor figures attributed.",
         "script": "Hook states the 24B/2B contrast in sentence one, names LFM2.5 in scene two, attributes the 184 tok/s figure to Liquid AI with its M5 Max condition, and keeps the always-thinks, retrieval and licence caveats in the spoken catch.",
@@ -93,8 +93,8 @@
         },
         "script": {
           "status": "complete",
-          "script_sha256": "475a8d270a6d7cef349869e709bf073542bb85f04fe10ce59e31bb5f092b7217",
-          "word_count": 153
+          "script_sha256": "ee6cc92b461cb0c3ad7320c4df8dd1606495681075e2dcbba0283e85e8af90f4",
+          "word_count": 149
         },
         "voice": {
           "status": "complete",
