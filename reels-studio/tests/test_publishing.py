@@ -758,6 +758,12 @@ class QueueReleaseTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.release.delete_row(self.row(state="sent"), "x", self.release.now_utc())
 
+    def test_is_published_distinguishes_failed_delivery(self):
+        self.assertTrue(self.release.is_published({"status": "sent"}))
+        self.assertFalse(self.release.is_published({"status": "sent", "error": {"message": "x"}}))
+        self.assertFalse(self.release.is_published({"status": "error", "error": {"message": "x"}}))
+        self.assertFalse(self.release.is_published(None))
+
     def test_deletable_rows_include_delivery_error_only(self):
         journal = {"records": {"a:facebook": self.row(), "b:youtube": self.row(state="sent"),
                                "c:instagram": self.row(state="delivery_error"),

@@ -254,11 +254,11 @@ def main():
             continue
         r = key_rows[k]
         post = by_id.get(r.get("buffer_post_id"))
-        if post and post["status"] == "sent":
+        owner_delete = a.delete and r.get("state") == "delivery_error"
+        if is_published(post) or (post and post["status"] == "sent" and not owner_delete):
             print(f"skip {k}: Buffer says sent - reconcile it, do not clear")
             continue
         if a.delete:
-            owner_delete = r.get("state") == "delivery_error"
             if not post:
                 if owner_delete:
                     delete_row(r, "owner-approved delete; Buffer post already absent", now_utc())
