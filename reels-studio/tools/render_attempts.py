@@ -12,6 +12,7 @@ import datetime as dt
 import hashlib
 import json
 import re
+import sys
 from pathlib import Path
 
 REGISTRY_PATH = "reels-studio/tracker/render-attempts.json"
@@ -181,6 +182,9 @@ def finish_in_registry(registry: dict, run_id: str, status: str, *, conclusion: 
 
 
 def _remote_registry(branch="main"):
+    parent = str(Path(__file__).resolve().parents[1])  # reels-studio/: makes `tools` importable when run as a script
+    if parent not in sys.path:
+        sys.path.insert(0, parent)
     from tools import gh_actions
     status, body = gh_actions.api("GET", f"/contents/{REGISTRY_PATH}?ref={branch}")
     if status != 200:
