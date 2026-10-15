@@ -1362,9 +1362,11 @@
     },
     "repo-solidglass-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6ad0cb988445da123d70b6cd",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-16T13:00:00Z",
+      "due_at": "2026-10-16T13:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:e5eadc0e14c986e58762bf71ccf404ec4de62c3f45818282df261db3bca81533",
         "asset_id": 643833549,
@@ -1379,10 +1381,11 @@
       "notify_subscribers": false,
       "payload_sha256": "102113d57f3f745eaaeb229b0467ae934ba5167de7234f06e4a56adb0dffa8a4",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Solid Glass: an MIT design system for AI apps. One stylesheet restyles existing shadcn/ui components in light and dark modes. Needs React and Tailwind; the project is days old.\n\nCredits: Own recreation and components card created for this video. Source links in post/description only. No on-screen credits.\n\nAI-generated narration.\n\n#UI #WebDev",
       "title": "Solid Glass: the Glass UI You Can Actually Read",
-      "updated_at": "2026-10-15T12:48:23Z",
+      "updated_at": "2026-10-15T12:48:24Z",
       "video_id": "repo-solidglass-01"
     },
     "repo-solidglass-01:youtube": {
