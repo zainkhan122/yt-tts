@@ -2,6 +2,8 @@
 
 ## Current decisions (owner, 10 Oct 2026)
 
+- **Default finishing step (owner, 15 Oct 2026):** for an approved video, *render passes QA → send to Buffer on scheduled slots* (YouTube/Instagram/Facebook) is the default end of the pipeline. Artifact-only delivery now requires an explicit owner hold for that video.
+
 - One Buffer account/key covers **YouTube Shorts, Instagram Reels and Facebook Reels**. No second key is needed for this scope; TikTok/X are not connected.
 - **Facebook is included.** The earlier native-AI-label hold was explicitly removed by the owner. Its caption always discloses AI narration; capability discovery uses a native flag if Buffer later exposes it. Caption disclosure is not claimed equivalent to a native label, and no rollout date is promised.
 - Audience: **global English, US-led**. All scheduling calendars use **America/New_York**, with DST-aware UTC conversion. Buffer's existing UI timezone/weekly slots remain unmodified.
