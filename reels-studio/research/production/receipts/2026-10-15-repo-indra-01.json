@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-15-repo-indra-01",
+  "created_at": "2026-10-15T08:11:03Z",
+  "buffer_insights": {
+    "path": "reels-studio/tracker/buffer-insights.json",
+    "sha256": "6ac6cf303bba3d2741b77b9ad8eb1a78ab9c42d7952f5a53215ccdebdc121057"
+  },
+  "metrics_review": {
+    "snapshot_sha256": "6ac6cf303bba3d2741b77b9ad8eb1a78ab9c42d7952f5a53215ccdebdc121057",
+    "reviewed_video_count": 69,
+    "sample_post_ids": [
+      "6acc91ac5feb3462de95f38b",
+      "6acc91a65feb3462de95f295",
+      "6ac904b32f26cc482c22c526",
+      "6accbfbf0b1f16abcb04921c"
+    ],
+    "findings": [
+      "Fresh snapshot fetched 2026-10-15T07:49:07Z: 69 shared video records, 65 expected tracked sent posts, complete coverage; YouTube median 56 views across 25 fresh posts.",
+      "Top YouTube posts are practical local-AI demos: repo-ds4-01 at 972 views and tool-qwen38-01 at 807 views, supporting a hands-on local-tool angle.",
+      "spotlight-papermorph-01 reached 608 YouTube views with a concrete document-transformation demo, supporting a visible before-and-after document workflow.",
+      "Instagram fresh median was 151 views; repo-opencr-01 reached 266 views, supporting an open-source tool spotlight with a clear, testable payoff."
+    ],
+    "decisions": {
+      "topic": "Local, hands-on open-source tools lead our Buffer history (DeepSeek local 972 YouTube views; Qwen local 807), so Indra leads with a real local test, not a feature list.",
+      "script": "Hook states the proven result in sentence one, names Indra by the second scene, attributes the 49.4 pages/s figure to the authors with its 32-core condition, and keeps licence and scan limits in the spoken catch.",
+      "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% Whisper match per chunk and 95% overall; no alternate voice or lowered threshold.",
+      "visual": "Original synthetic invoice and its actual OCR output open the video; no third-party clips, no personal documents, and no on-screen credit captions."
+    }
+  },
+  "briefs": {
+    "repo-indra-01": {
+      "brief_sha256": "d19731dbb6d33c50ad097772aa3b6c41cbcfda9e11ce0fb1c877e0ef422926db",
+      "metrics_decisions": {
+        "topic": "Local, hands-on open-source tools lead our Buffer history (DeepSeek local 972 YouTube views; Qwen local 807), so Indra leads with a real local test, not a feature list.",
+        "script": "Hook states the proven result in sentence one, names Indra by the second scene, attributes the 49.4 pages/s figure to the authors with its 32-core condition, and keeps licence and scan limits in the spoken catch.",
+        "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% Whisper match per chunk and 95% overall; no alternate voice or lowered threshold.",
+        "visual": "Original synthetic invoice and its actual OCR output open the video; no third-party clips, no personal documents, and no on-screen credit captions."
+      },
+      "stages": {
+        "discover": {
+          "status": "complete",
+          "checked_at": "2026-10-15T08:11:03Z",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-15.md",
+            "reels-studio/research/ideas/feed-2026-10-15.md"
+          ]
+        },
+        "select": {
+          "status": "complete",
+          "selection_status": "selected",
+          "topic": "Indra OCR: 18 MB local OCR reads 49 pages/s on CPU",
+          "score": 80,
+          "score_breakdown": {
+            "trend_velocity": 19,
+            "demo_ability": 20,
+            "audience_breadth": 12,
+            "social_proof_gap": 6,
+            "free_value": 8,
+            "freshness_angle": 15
+          },
+          "metrics_snapshot_sha256": "6ac6cf303bba3d2741b77b9ad8eb1a78ab9c42d7952f5a53215ccdebdc121057",
+          "basis_post_ids": [
+            "6acc91ac5feb3462de95f38b",
+            "6acc91a65feb3462de95f295",
+            "6ac904b32f26cc482c22c526"
+          ],
+          "hard_gates": {
+            "risk_flags_clear": true,
+            "claim_verifiable": true,
+            "license_clear": true
+          }
+        },
+        "research": {
+          "status": "complete",
+          "evidence": [
+            "reels-studio/research/production/2026-10-15-indra-ocr-fact-sheet.md"
+          ],
+          "dynamic_facts_checked_at": "2026-10-15T08:11:03Z",
+          "primary_sources": [
+            {
+              "url": "https://github.com/datalab-to/indra",
+              "checked_at": "2026-10-15T08:11:03Z",
+              "claim": "Repository README documents local CPU OCR, outputs, install, authors' benchmarks and limitations."
+            },
+            {
+              "url": "https://api.github.com/repos/datalab-to/indra",
+              "checked_at": "2026-10-15T08:11:03Z",
+              "claim": "Live metadata: 282 stars, 24 forks, created 2026-10-13, Apache-2.0 code license."
+            },
+            {
+              "url": "https://huggingface.co/datalab-to/indra-ocr",
+              "checked_at": "2026-10-15T08:11:03Z",
+              "claim": "Model card states about 18 MB of models, a roughly 1M-parameter recognizer, and the code-versus-weights license split."
+            },
+            {
+              "url": "https://huggingface.co/datalab-to/indra-ocr/blob/main/LICENSE",
+              "checked_at": "2026-10-15T08:11:03Z",
+              "claim": "Model weights are under a modified OpenRAIL-M license with use restrictions."
+            }
+          ]
+        },
+        "script": {
+          "status": "complete",
+          "script_sha256": "071459dca8b9412a59f1c1b1601d35dcb111b9b871b51feec4bda8fdb97cc4f8",
+          "word_count": 117
+        },
+        "voice": {
+          "status": "complete",
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "per_chunk": 0.92,
+            "overall": 0.95
+          }
+        },
+        "assets": {
+          "status": "complete",
+          "rights_checked": true,
+          "approval_constraints_checked": true,
+          "capture_id": "repo-indra-01",
+          "manifest_sha256": "a774ce561457c285a3f896ca3fb81133b47bc75adec0b620f8379b1c5d5a55f8",
+          "files": [
+            {
+              "path": "sample-scan.png",
+              "sha256": "37f8569fceec203c9ad8435831446de840fb92e25fd96d1521014581e1608149"
+            },
+            {
+              "path": "sample-scan.pdf",
+              "sha256": "d2c88a5c480e5011c0d1402e25ff9247050165f5b1b1b20f26e440b120f2004c"
+            },
+            {
+              "path": "ocr-output.md",
+              "sha256": "c66f8d5d6960ab77b889ee5652a1a53e5a551f2296492300a71cc7022b5b8c98"
+            },
+            {
+              "path": "local-test.json",
+              "sha256": "7ec2c8675cd68587eaf3545fecdf88ae2689e15f4ac29cdc5ff7c25735b6dff4"
+            },
+            {
+              "path": "proof-card.png",
+              "sha256": "d4ddb31259e1cedd64198717912141a737d3e0e7c22e64170a61c0977e60e284"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
