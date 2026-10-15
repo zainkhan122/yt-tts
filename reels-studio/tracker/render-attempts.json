@@ -1,5 +1,24 @@
 {
   "attempts": {
+    "0cf2355d7c91b6e951db589b53f153e11f9778c8a2a595bd5a77bbc205aea149": {
+      "asset_files_sha256": "c8947953570c5e18fc719243daa3e9e6ca1780d5418a9bdba0db568295f66f04",
+      "asset_manifest_sha256": "8dea4f4cc199d2686e0a4ce63e36b016c70883728a082162f0c0969a98a67a44",
+      "brief_id": "model-lfm25-01",
+      "brief_sha256": "4a695a05d9c6f7c16978976da8ca44d9c2feb03ed443f03e30e1eb3fc6544a08",
+      "capture_id": "model-lfm25-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "0cf2355d7c91b6e951db589b53f153e11f9778c8a2a595bd5a77bbc205aea149",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "db5b9f4b4520300b1ce45589126c21037a5c4cd42b775627df5c7fbb610cb0b0",
+      "run_id": "38721150808",
+      "started_at": "2026-10-15T10:33:55Z",
+      "status": "started",
+      "voice_seed": 0
+    },
     "26c78147be8b5f39d2342caf03aaf242d58a0dedf8316f00d1b888ca8d059c1c": {
       "asset_files_sha256": "ed8fb86a11fee5521c69dadda65603115f1b46257f8de027aae12b275e52ef92",
       "asset_manifest_sha256": "a774ce561457c285a3f896ca3fb81133b47bc75adec0b620f8379b1c5d5a55f8",
