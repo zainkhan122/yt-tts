@@ -201,9 +201,11 @@
     },
     "model-lfm25-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6ad0cb928913aa90c397647f",
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-15T23:00:00Z",
+      "due_at": "2026-10-15T23:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:9b74cd3e51e80565b7ab09aac73709af2b6f23cb00571f188d6f1aeeb9932f66",
         "asset_id": 643833486,
@@ -218,10 +220,11 @@
       "notify_subscribers": false,
       "payload_sha256": "9aca63b72d94012b87f22aa0f4cb80f40f13ac63e6d96f0a95491a4f75ed15e3",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "LFM2.5-24B-A2B: a 24B model that only wakes about 2B parameters per token, built for private on-device agents. Vendor-reported 184 tok/s on an Apple M5 Max. Save this if you run local models.\n\nCredits: Own spec and formats cards created for this video. Source links in post/description only. No on-screen credits.\n\n#LocalAI #LLM #AIAgents",
       "title": "LFM2.5: 24B Brain, 2B at Work \u2014 a Local Agent Model",
-      "updated_at": "2026-10-15T12:48:16Z",
+      "updated_at": "2026-10-15T12:48:18Z",
       "video_id": "model-lfm25-01"
     },
     "model-lfm25-01:youtube": {
