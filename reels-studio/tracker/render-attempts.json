@@ -94,6 +94,25 @@
       "started_at": "2026-10-15T08:31:25Z",
       "status": "render_only_success",
       "voice_seed": 0
+    },
+    "c7e4dffd9294d9b1bd5785aef0324c6b0663e5219f00c4f1700878bcf2d64a36": {
+      "asset_files_sha256": "39d0bbe676416ebb06a419b68e83c5b05816cfd3f6801c0d55da00d5a3c62234",
+      "asset_manifest_sha256": "0b943eb5aebe5665eeec8e999a431809e5dd0d24624387ccb209750c04b465b0",
+      "brief_id": "repo-solidglass-01",
+      "brief_sha256": "59e47bc2f72db523c37f6676a18358296123672a0120fde79c6e016684391bc5",
+      "capture_id": "repo-solidglass-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "c7e4dffd9294d9b1bd5785aef0324c6b0663e5219f00c4f1700878bcf2d64a36",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "db5b9f4b4520300b1ce45589126c21037a5c4cd42b775627df5c7fbb610cb0b0",
+      "run_id": "38721173063",
+      "started_at": "2026-10-15T10:45:32Z",
+      "status": "started",
+      "voice_seed": 0
     }
   },
   "legacy_completed_briefs": [
