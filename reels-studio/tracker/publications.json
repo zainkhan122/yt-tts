@@ -1388,6 +1388,31 @@
       "updated_at": "2026-10-15T12:48:24Z",
       "video_id": "repo-solidglass-01"
     },
+    "repo-solidglass-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-16T16:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:e5eadc0e14c986e58762bf71ccf404ec4de62c3f45818282df261db3bca81533",
+        "asset_id": 643833549,
+        "asset_size": 10769501,
+        "kit_asset_id": 643833595,
+        "kit_digest": "sha256:26cc4e6297ac11eba96ecc20534dbb61f7a16c2781ad5751f0fd94b5650b84f0",
+        "media_path": "media/643833549/repo-solidglass-01.mp4",
+        "release_tag": "renders-2026-10-15",
+        "video_id": "repo-solidglass-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/643833549/repo-solidglass-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "f6f66f1d04db3a7797e0f14ed0806c960d9c09621d6e1c78079e27859de42801",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Solid Glass sits between flat and liquid glass: enough outline to feel like glass, not enough to fight your text. One stylesheet over shadcn/ui, MIT licensed. Save this if you build AI apps.\n\nCredits: Own recreation and components card created for this video. Source links in post/description only. No on-screen credits.\n\n#UI #WebDev #OpenSource",
+      "title": "Solid Glass: the Glass UI You Can Actually Read",
+      "updated_at": "2026-10-15T12:48:26Z",
+      "video_id": "repo-solidglass-01"
+    },
     "repo-solidglass-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6ad0cb95f76aea2cf7a79b15",
