@@ -1,42 +1,62 @@
 {
-  "schema_version": 1,
-  "attempts": {},
+  "attempts": {
+    "b6adc162c4201496907ac0e96206b9f8a991c370be10248768d92f88d26c3c7d": {
+      "asset_files_sha256": "ed8fb86a11fee5521c69dadda65603115f1b46257f8de027aae12b275e52ef92",
+      "asset_manifest_sha256": "a774ce561457c285a3f896ca3fb81133b47bc75adec0b620f8379b1c5d5a55f8",
+      "brief_id": "repo-indra-01",
+      "brief_sha256": "d19731dbb6d33c50ad097772aa3b6c41cbcfda9e11ce0fb1c877e0ef422926db",
+      "capture_id": "repo-indra-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "b6adc162c4201496907ac0e96206b9f8a991c370be10248768d92f88d26c3c7d",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "fc8f3ee2cc56bc42506ce19b8471c7afd8b588608cedb3c7103a6232c6ceafae",
+      "run_id": "38704070469",
+      "started_at": "2026-10-15T08:13:03Z",
+      "status": "started",
+      "voice_seed": 0
+    }
+  },
   "legacy_completed_briefs": [
     {
       "brief_id": "model-embeddinggemma2-01",
       "brief_sha256": "716b467825e81952544c407f7af231b4478565810674d99009d07fd6e0656296",
-      "voice_seed": 1,
-      "status": "verified_success",
-      "run_id": "38474350682",
       "release_tag": "renders-2026-10-14",
-      "rendered_at": "2026-10-13T22:15:05Z"
+      "rendered_at": "2026-10-13T22:15:05Z",
+      "run_id": "38474350682",
+      "status": "verified_success",
+      "voice_seed": 1
     },
     {
       "brief_id": "news-gpt6-intelligent-ui-01",
       "brief_sha256": "56ac24ce2bc11fe88b44ac581115c43f6ca351bb2072a728511dbeb8ca9bda60",
-      "voice_seed": 0,
-      "status": "verified_success",
-      "run_id": "38474350682",
       "release_tag": "renders-2026-10-14",
-      "rendered_at": "2026-10-13T22:15:05Z"
+      "rendered_at": "2026-10-13T22:15:05Z",
+      "run_id": "38474350682",
+      "status": "verified_success",
+      "voice_seed": 0
     },
     {
       "brief_id": "repo-manimgx-01",
       "brief_sha256": "f85455acb8a4c515ea2f67826bd8a105f5864183f0a8a27a8f2bab90b79725c3",
-      "voice_seed": 0,
-      "status": "verified_success",
-      "run_id": "38474350682",
       "release_tag": "renders-2026-10-14",
-      "rendered_at": "2026-10-13T22:15:05Z"
+      "rendered_at": "2026-10-13T22:15:05Z",
+      "run_id": "38474350682",
+      "status": "verified_success",
+      "voice_seed": 0
     },
     {
       "brief_id": "tool-qwen-image-21-turbo-01",
       "brief_sha256": "9b5254bc0b9ab802668a98d622037be6fc18795b294e46998dac64b6b741d795",
-      "voice_seed": 1,
-      "status": "verified_success",
-      "run_id": "38474350682",
       "release_tag": "renders-2026-10-14",
-      "rendered_at": "2026-10-13T22:15:05Z"
+      "rendered_at": "2026-10-13T22:15:05Z",
+      "run_id": "38474350682",
+      "status": "verified_success",
+      "voice_seed": 1
     }
-  ]
+  ],
+  "schema_version": 1
 }
