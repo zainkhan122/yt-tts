@@ -171,6 +171,31 @@
       "updated_at": "2026-10-14T05:05:00Z",
       "video_id": "model-embeddinggemma2-01"
     },
+    "model-lfm25-01:facebook": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-10-15T22:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:9b74cd3e51e80565b7ab09aac73709af2b6f23cb00571f188d6f1aeeb9932f66",
+        "asset_id": 643833486,
+        "asset_size": 10269142,
+        "kit_asset_id": 643833519,
+        "kit_digest": "sha256:a8fd9eb70d7ce7bcb3210e7c64f9e0768f5d8eda4456c7ab1b3cfc1f4940a8ac",
+        "media_path": "media/643833486/model-lfm25-01.mp4",
+        "release_tag": "renders-2026-10-15",
+        "video_id": "model-lfm25-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/643833486/model-lfm25-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "c6f5555caeb631ca4613144ad7776c46218cdafbcc8d6727ee03cca43d8baf99",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "Liquid AI's LFM2.5: 24B total parameters, roughly 2B active per token, built for on-device agents. Weights under the LFM 1.0 licence; GGUF, MLX, ONNX and FP8 builds available.\n\nCredits: Own spec and formats cards created for this video. Source links in post/description only. No on-screen credits.\n\nAI-generated narration.\n\n#LocalAI #LLM",
+      "title": "LFM2.5: 24B Brain, 2B at Work \u2014 a Local Agent Model",
+      "updated_at": "2026-10-15T12:48:12Z",
+      "video_id": "model-lfm25-01"
+    },
     "model-lfm25-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6ad0cb8a5d6d63b3aef84728",
