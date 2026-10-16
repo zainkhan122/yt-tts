@@ -113,6 +113,31 @@
       "updated_at": "2026-10-16T10:40:40Z",
       "video_id": "model-drama3-01"
     },
+    "model-drama3-01:instagram": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-17T15:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:4b750854b7a8fbac5e2e1a49e5fdce7f6926d2ad8f0723475dc63be0a006ab2b",
+        "asset_id": 646976885,
+        "asset_size": 10034550,
+        "kit_asset_id": 646976935,
+        "kit_digest": "sha256:e694514dd372ebb40d3d7ad8f825b0d13c6d42e55204a7693968af98bfc247c4",
+        "media_path": "media/646976885/model-drama3-01.mp4",
+        "release_tag": "renders-2026-10-16",
+        "video_id": "model-drama3-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/646976885/model-drama3-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "89c85de0f74be4f2336ce85d4b74a4f800f2e1b9b77603511eed8ca802529574",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Sixteen characters, one script, each with a cloned voice: Drama 3 is TTS built for scenes, not narration. Save this if you make audio content.\n\nCredits: Own cast and skills cards created for this video. Source links in post/description only. No on-screen credits.\n\n#AI #TTS #VoiceAI",
+      "title": "Drama 3: Sixteen Voices in One Script",
+      "updated_at": "2026-10-16T10:40:41Z",
+      "video_id": "model-drama3-01"
+    },
     "model-embeddinggemma2-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6aceb927b610c3011f91ab1f",
