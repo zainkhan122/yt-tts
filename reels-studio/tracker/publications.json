@@ -257,9 +257,11 @@
     },
     "model-minicpmv47-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6ad1fe5caa117851c0f259db",
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-16T13:00:00Z",
+      "due_at": "2026-10-16T13:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:6faaf899c91bcabb9c47130f4385ebd18826add15ed81568ecacadf458434a8c",
         "asset_id": 646976630,
@@ -274,10 +276,11 @@
       "notify_subscribers": false,
       "payload_sha256": "bb4055154a0275872ef00e670ebb771210cfe3d4a6c8c01dbd8a683279ebf1d9",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "MiniCPM-V 4.7 (OpenBMB): 35B vision MoE, 3B active, Apache-2.0. Vendor reports iPhone inference at 13+ tok/s with ~3 GB memory.\n\nCredits: Own spec and device cards created for this video. Source links in post/description only. No on-screen credits.\n\nAI-generated narration.\n\n#AI #LocalAI",
       "title": "MiniCPM-V 4.7: a Vision Model That Runs on Your Phone",
-      "updated_at": "2026-10-16T10:37:14Z",
+      "updated_at": "2026-10-16T10:37:16Z",
       "video_id": "model-minicpmv47-01"
     },
     "news-claude-free-01:facebook": {
