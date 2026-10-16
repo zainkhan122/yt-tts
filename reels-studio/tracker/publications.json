@@ -345,7 +345,7 @@
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-16T13:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.facebook.com/reel/1091055740394432/",
       "media_ref": {
         "asset_digest": "sha256:6faaf899c91bcabb9c47130f4385ebd18826add15ed81568ecacadf458434a8c",
         "asset_id": 646976630,
@@ -360,11 +360,11 @@
       "notify_subscribers": false,
       "payload_sha256": "bb4055154a0275872ef00e670ebb771210cfe3d4a6c8c01dbd8a683279ebf1d9",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-16T13:00:43.728Z",
+      "state": "sent",
       "text": "MiniCPM-V 4.7 (OpenBMB): 35B vision MoE, 3B active, Apache-2.0. Vendor reports iPhone inference at 13+ tok/s with ~3 GB memory.\n\nCredits: Own spec and device cards created for this video. Source links in post/description only. No on-screen credits.\n\nAI-generated narration.\n\n#AI #LocalAI",
       "title": "MiniCPM-V 4.7: a Vision Model That Runs on Your Phone",
-      "updated_at": "2026-10-16T10:37:16Z",
+      "updated_at": "2026-10-16T16:48:48Z",
       "video_id": "model-minicpmv47-01"
     },
     "model-minicpmv47-01:instagram": {
@@ -373,7 +373,7 @@
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-16T16:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/Dej6gKhFX_a/",
       "media_ref": {
         "asset_digest": "sha256:6faaf899c91bcabb9c47130f4385ebd18826add15ed81568ecacadf458434a8c",
         "asset_id": 646976630,
@@ -388,11 +388,11 @@
       "notify_subscribers": false,
       "payload_sha256": "d7d9dfe7630cb84b9cbdf8225c7170852236f8e1b45ab4ed0082631fe3361604",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-16T16:02:16.478Z",
+      "state": "sent",
       "text": "MiniCPM-V 4.7 sees images and video and is built to run on phones \u2014 OpenBMB reports 13+ tok/s on an iPhone 17 Pro Max at ~3 GB memory. Apache-2.0. Save this for on-device AI.\n\nCredits: Own spec and device cards created for this video. Source links in post/description only. No on-screen credits.\n\n#AI #LocalAI #VisionAI",
       "title": "MiniCPM-V 4.7: a Vision Model That Runs on Your Phone",
-      "updated_at": "2026-10-16T10:37:22Z",
+      "updated_at": "2026-10-16T16:48:48Z",
       "video_id": "model-minicpmv47-01"
     },
     "model-minicpmv47-01:youtube": {
@@ -1017,7 +1017,7 @@
       "category": "news",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-16T16:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.facebook.com/reel/2310833176384338/",
       "media_ref": {
         "asset_digest": "sha256:537f540e4cb0ed1cf115ae975d759104c0cd0374001d847f6b3261e281259272",
         "asset_id": 646976713,
@@ -1032,11 +1032,11 @@
       "notify_subscribers": false,
       "payload_sha256": "4a4bd7cced4bc2302dd0975bc1d5024537640ec84b15650a190a174cc4cc4c4c",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-16T16:01:17.940Z",
+      "state": "sent",
       "text": "Meta Muse Spark Open: 816B total / 42B active, 1M-token context, multimodal. Muse Model License; local runs need ~1 TB RAM per press reports.\n\nCredits: Own spec and skills cards created for this video. Source links in post/description only. No on-screen credits.\n\nAI-generated narration.\n\n#AI #MetaAI",
       "title": "Muse Spark Open: Meta's 816B Giant Needs 1 TB of RAM",
-      "updated_at": "2026-10-16T10:37:20Z",
+      "updated_at": "2026-10-16T16:48:48Z",
       "video_id": "news-muse-spark-01"
     },
     "news-muse-spark-01:instagram": {
