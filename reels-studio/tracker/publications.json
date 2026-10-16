@@ -1472,6 +1472,31 @@
       "updated_at": "2026-10-10T11:18:51Z",
       "video_id": "repo-removemacai-01"
     },
+    "repo-scout-01:facebook": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-10-16T22:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:3d6d78999f66ef978fbc09d3501b85adf8a4d0f1ba1947fe0b2ceab9f28aa7e8",
+        "asset_id": 646976790,
+        "asset_size": 8948060,
+        "kit_asset_id": 646976846,
+        "kit_digest": "sha256:345b8ef9d5fa06e0df6c7a0f053c172b9fcbbf14e0dadec7f3a2f73864064c08",
+        "media_path": "media/646976790/repo-scout-01.mp4",
+        "release_tag": "renders-2026-10-16",
+        "video_id": "repo-scout-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/646976790/repo-scout-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "6587f89a91d25d7133c166581c264fc70894c5d8a66b969766a384afec314f87",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "Scout (Outcrawl): open-source browser agent, npm install, bring your own model key. Apache-2.0.\n\nCredits: Own flow and steps cards created for this video. Source links in post/description only. No on-screen credits.\n\nAI-generated narration.\n\n#AI #Agents",
+      "title": "Scout: Tell It the Task, It Browses for You",
+      "updated_at": "2026-10-16T10:37:27Z",
+      "video_id": "repo-scout-01"
+    },
     "repo-solidglass-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6ad0cb988445da123d70b6cd",
