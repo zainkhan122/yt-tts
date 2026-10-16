@@ -313,9 +313,11 @@
     },
     "model-minicpmv47-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6ad1fe6558fcf4d767e1c236",
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-16T20:00:00Z",
+      "due_at": "2026-10-16T20:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:6faaf899c91bcabb9c47130f4385ebd18826add15ed81568ecacadf458434a8c",
         "asset_id": 646976630,
@@ -330,10 +332,11 @@
       "notify_subscribers": true,
       "payload_sha256": "bb7122444de0cd0b8c269ddf2735ed109f1632e235373409abd791c42fdb57ba",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "OpenBMB's MiniCPM-V 4.7 is a 35B vision-language MoE with only 3B active parameters. OpenBMB reports 13+ tok/s at about 3 GB of memory on an iPhone 17 Pro Max (vendor test; we did not run it). Apache-2.0, with GGUF, Ollama, vLLM and SGLang support.\nSource: https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B\n\nCredits: Own spec and device cards created for this video. Source links in post/description only. No on-screen credits.\n\n#Shorts #AI #LocalAI #VisionAI",
       "title": "MiniCPM-V 4.7: a Vision Model That Runs on Your Phone",
-      "updated_at": "2026-10-16T10:37:24Z",
+      "updated_at": "2026-10-16T10:37:25Z",
       "video_id": "model-minicpmv47-01"
     },
     "news-claude-free-01:facebook": {
