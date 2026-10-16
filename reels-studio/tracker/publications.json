@@ -1375,6 +1375,31 @@
       "updated_at": "2026-10-16T10:40:49Z",
       "video_id": "repo-graphicle-01"
     },
+    "repo-graphicle-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-17T20:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:af4adb6e36f22c3390a062588d51456217ad19dcac0b1286e4f0240538e44dbb",
+        "asset_id": 646976965,
+        "asset_size": 9798311,
+        "kit_asset_id": 646977011,
+        "kit_digest": "sha256:87def65849c4954759cc6233e682a556e5276e5d3799084ff333e3abebfd5ace",
+        "media_path": "media/646976965/repo-graphicle-01.mp4",
+        "release_tag": "renders-2026-10-16",
+        "video_id": "repo-graphicle-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/646976965/repo-graphicle-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "3208172297b74973c32980aff7d729dc435848852b70a7addf110e86db881caf",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Your coding agent, but with a map and a memory: Graphicle indexes your repo and answers with exact files and lines. Local-first, Apache-2.0. Save this if you live in Claude Code or Cursor.\n\nCredits: Own stack and agent cards created for this video. Source links in post/description only. No on-screen credits.\n\n#AI #Coding #DevTools",
+      "title": "Graphicle: a Map and Memory for Your Coding Agent",
+      "updated_at": "2026-10-16T10:40:54Z",
+      "video_id": "repo-graphicle-01"
+    },
     "repo-graphicle-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6ad1ff35aecfd112ce6f38fd",
