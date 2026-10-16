@@ -3,6 +3,9 @@
 name: Buffer Insights (read-only)
 on:
   workflow_dispatch:
+  schedule:
+    # Daily 05:17 UTC: fresh metrics land before the Performance report (chained via workflow_run).
+    - cron: '17 5 * * *'
 permissions:
   contents: read
 concurrency:

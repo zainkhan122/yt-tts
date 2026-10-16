@@ -94,6 +94,15 @@ clicks, follows, and other supported network-specific measures are kept where Bu
 daily and may lag the network by about a day; `metricsUpdatedAt` is recorded per post. Metric correlation does not
 identify which creative change caused a result.
 
+## Performance loop — analytics → changes → trending topics
+
+Fetching metrics is only step one. The closed loop that turns them into decisions:
+
+1. **Fetch (daily).** `Buffer Insights (read-only)` runs on a daily cron (05:17 UTC) plus manual dispatch, and commits a fresh `tracker/buffer-insights.json`. The production gate already refuses stale/incomplete snapshots, so every batch starts from current numbers.
+2. **Analyse (automatic).** The `Performance (analytics + topic advice)` workflow runs after every successful Insights run (weekly fallback cron). It executes `tools/post/performance.py`, which joins Buffer metrics to briefs (hook, template, niche), queue category and the backlog, then writes `tracker/performance.json` and `research/performance/performance-<date>.md`. Rules: metrics are ranked only **within** a platform (Facebook's primary metric is impressions; YouTube/Instagram use views); posts under 2 days old are listed as *too early* and never judged; winners/losers use mature (≥7-day) videos only; no dimension finding becomes a recommendation below n = 4 judged videos (slots n = 3), and every recommendation cites its n and medians. Correlation is never dressed up as causation — before changing voice or format, inspect the actual winners' hooks, first frames and audio QA.
+3. **Act (next batch).** SELECT reads `tracker/performance.json` before scoring topics: follow its `recommendations` (which category/hook-style/slot to prioritise or rework) and start from `topic_advice.top_candidates`. The same workflow refreshes `tools/trend_radar.py` (GitHub/Hugging Face, risk-flagged items excluded), and the advisor re-ranks backlog candidates: base score × category performance (0.8–1.2×), × 0.5 when a candidate overlaps a video already published, risk-flagged candidates blocked outright. Record what was followed or deliberately overridden in the six-stage receipt's `metrics_review.decisions`.
+4. **Verify.** The following days' reports show whether the change moved the percentile of the next batch — that before/after comparison is the only honest evidence a change worked.
+
 Post-level metrics require Buffer's **personal API key** / `insightsRead` access. If this read-only workflow gets a
 permission error, stop and fix that authorization; do not fall back to mutations or claim that analytics were read.
 Before a new video, run or verify **Actions → Buffer Insights (read-only)**, then include the fresh snapshot hash,
