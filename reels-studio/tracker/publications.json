@@ -143,9 +143,11 @@
     },
     "model-drama3-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6ad1ff2ebbb9ce09f66cb14c",
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-17T15:00:00Z",
+      "due_at": "2026-10-17T15:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:4b750854b7a8fbac5e2e1a49e5fdce7f6926d2ad8f0723475dc63be0a006ab2b",
         "asset_id": 646976885,
@@ -160,10 +162,11 @@
       "notify_subscribers": false,
       "payload_sha256": "e92246f9729b0faece24cf1b04e9f4ae2c168a21e6aae9bae8389bd6974b6adc",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Fish Audio's Drama 3 is a 35B (3B active) text-to-speech model built for multi-character scenes: speaker tags carry up to 16 characters in one text, with voice cloning and in-line direction tags like [sighs] and [laughs]. Fish Audio Community License. Catches: self-hosting needs a serious GPU; vendor streaming figures were measured on an H200.\nSource: https://huggingface.co/fishaudio/drama-3\n\nCredits: Own cast and skills cards created for this video. Source links in post/description only. No on-screen credits.\n\n#Shorts #AI #TTS #VoiceAI",
       "title": "Drama 3: Sixteen Voices in One Script",
-      "updated_at": "2026-10-16T10:40:44Z",
+      "updated_at": "2026-10-16T10:40:46Z",
       "video_id": "model-drama3-01"
     },
     "model-embeddinggemma2-01:facebook": {
