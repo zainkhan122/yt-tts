@@ -115,9 +115,11 @@
     },
     "model-drama3-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6ad1ff2bc0accac7daca5073",
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-17T15:00:00Z",
+      "due_at": "2026-10-17T15:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:4b750854b7a8fbac5e2e1a49e5fdce7f6926d2ad8f0723475dc63be0a006ab2b",
         "asset_id": 646976885,
@@ -132,10 +134,11 @@
       "notify_subscribers": false,
       "payload_sha256": "89c85de0f74be4f2336ce85d4b74a4f800f2e1b9b77603511eed8ca802529574",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Sixteen characters, one script, each with a cloned voice: Drama 3 is TTS built for scenes, not narration. Save this if you make audio content.\n\nCredits: Own cast and skills cards created for this video. Source links in post/description only. No on-screen credits.\n\n#AI #TTS #VoiceAI",
       "title": "Drama 3: Sixteen Voices in One Script",
-      "updated_at": "2026-10-16T10:40:41Z",
+      "updated_at": "2026-10-16T10:40:43Z",
       "video_id": "model-drama3-01"
     },
     "model-embeddinggemma2-01:facebook": {
