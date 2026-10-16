@@ -57,6 +57,25 @@
       "status": "failed",
       "voice_seed": 0
     },
+    "31beea0e3f252d584cb57e0e0792e20fa6c7ef83a42ce827c7d58a8f876d2bfe": {
+      "asset_files_sha256": "9891f89c7f99741724a2685fb7bd97ed92a9512dc7d19d15cf6c9167609c3e92",
+      "asset_manifest_sha256": "7efe7b5c467d253d63046bd2bd309373d41bda3e14944e21ea9b83b16acf854b",
+      "brief_id": "model-minicpmv47-01",
+      "brief_sha256": "e6bc40f0f06c8561f003a51c6c0c7312520bf9d32d771844e2d7aeddf65bfefd",
+      "capture_id": "model-minicpmv47-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "31beea0e3f252d584cb57e0e0792e20fa6c7ef83a42ce827c7d58a8f876d2bfe",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "db5b9f4b4520300b1ce45589126c21037a5c4cd42b775627df5c7fbb610cb0b0",
+      "run_id": "38877361183",
+      "started_at": "2026-10-16T08:59:29Z",
+      "status": "started",
+      "voice_seed": 0
+    },
     "b6adc162c4201496907ac0e96206b9f8a991c370be10248768d92f88d26c3c7d": {
       "asset_files_sha256": "ed8fb86a11fee5521c69dadda65603115f1b46257f8de027aae12b275e52ef92",
       "asset_manifest_sha256": "a774ce561457c285a3f896ca3fb81133b47bc75adec0b620f8379b1c5d5a55f8",
