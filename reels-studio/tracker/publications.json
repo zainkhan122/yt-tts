@@ -1377,9 +1377,11 @@
     },
     "repo-graphicle-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6ad1ff35aecfd112ce6f38fd",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-17T19:00:00Z",
+      "due_at": "2026-10-17T19:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:af4adb6e36f22c3390a062588d51456217ad19dcac0b1286e4f0240538e44dbb",
         "asset_id": 646976965,
@@ -1394,10 +1396,11 @@
       "notify_subscribers": false,
       "payload_sha256": "ad9531ccb6fe46be0c5c995674fb5bb2cae44d9dff25b2e5fc3e7f81c92758ee",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Graphicle is a single Rust program (Apache-2.0) that maps your codebase into a code graph, remembers docs, decisions and past agent sessions, and serves cited excerpts with exact files and lines to Claude Code, Codex, Cursor or any MCP client. Local-first: no account, no API key, no telemetry. Vendor tests report up to 22.7x faster indexing than Graphify (pre-release builds). Catches: v0.1, days old; Windows preview is unsigned.\nSource: https://github.com/Graphicle-AI/graphicle\n\nCredits: Own stack and agent cards created for this video. Source links in post/description only. No on-screen credits.\n\n#Shorts #AI #Coding #DevTools",
       "title": "Graphicle: a Map and Memory for Your Coding Agent",
-      "updated_at": "2026-10-16T10:40:50Z",
+      "updated_at": "2026-10-16T10:40:53Z",
       "video_id": "repo-graphicle-01"
     },
     "repo-indra-01:facebook": {
