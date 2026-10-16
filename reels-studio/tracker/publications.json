@@ -983,6 +983,31 @@
       "updated_at": "2026-10-16T10:37:32Z",
       "video_id": "news-muse-spark-01"
     },
+    "news-muse-spark-01:youtube": {
+      "attempts": 1,
+      "category": "news",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-10-16T23:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:537f540e4cb0ed1cf115ae975d759104c0cd0374001d847f6b3261e281259272",
+        "asset_id": 646976713,
+        "asset_size": 10025771,
+        "kit_asset_id": 646976754,
+        "kit_digest": "sha256:61d2cf5e7e92d690c58558141e1eb5de5adc48a329ad49a7171ee36ea327b96b",
+        "media_path": "media/646976713/news-muse-spark-01.mp4",
+        "release_tag": "renders-2026-10-16",
+        "video_id": "news-muse-spark-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/646976713/news-muse-spark-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "7a7dd2532ceb1959fbcf3a43e7baae3da0019f3c5d2cff96fc5e348dafcd3977",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "Meta's Muse Spark Open is an 816B-parameter open-weight model (42B active, 1M-token context, natively multimodal) built for coding and agentic work. Meta calls it the most capable US open-weight model (their claim). The catch: local runs reportedly need about 1 TB of RAM \u2014 two Mac Studios with M5 Ultra chips \u2014 and the Muse Model License limits some commercial use.\nSources: TechCrunch (2026-10-15) and Meta's announcement.\n\nCredits: Own spec and skills cards created for this video. Source links in post/description only. No on-screen credits.\n\n#Shorts #AI #MetaAI #LLM",
+      "title": "Muse Spark Open: Meta's 816B Giant Needs 1 TB of RAM",
+      "updated_at": "2026-10-16T10:37:33Z",
+      "video_id": "news-muse-spark-01"
+    },
     "news-nano-banana-21-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6acc923ba2941ce817669020",
