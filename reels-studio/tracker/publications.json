@@ -957,9 +957,11 @@
     },
     "news-muse-spark-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6ad1fe6c13b2adf724a220e0",
       "category": "news",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-16T22:00:00Z",
+      "due_at": "2026-10-16T22:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:537f540e4cb0ed1cf115ae975d759104c0cd0374001d847f6b3261e281259272",
         "asset_id": 646976713,
@@ -974,10 +976,11 @@
       "notify_subscribers": false,
       "payload_sha256": "fd22b47fb4c4e078139ea3bae093ec84dd04c7d41d1422a57fc2eab286066a40",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Meta's biggest open-weight model is here: Muse Spark Open, 816B parameters, multimodal, built for agents. Local runs need about a terabyte of memory. Save this one.\n\nCredits: Own spec and skills cards created for this video. Source links in post/description only. No on-screen credits.\n\n#AI #MetaAI #LLM",
       "title": "Muse Spark Open: Meta's 816B Giant Needs 1 TB of RAM",
-      "updated_at": "2026-10-16T10:37:30Z",
+      "updated_at": "2026-10-16T10:37:32Z",
       "video_id": "news-muse-spark-01"
     },
     "news-nano-banana-21-01:facebook": {
