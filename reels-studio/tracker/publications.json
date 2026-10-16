@@ -285,9 +285,11 @@
     },
     "model-minicpmv47-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6ad1fe62aecfd112ce6f0e19",
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-16T16:00:00Z",
+      "due_at": "2026-10-16T16:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:6faaf899c91bcabb9c47130f4385ebd18826add15ed81568ecacadf458434a8c",
         "asset_id": 646976630,
@@ -302,10 +304,11 @@
       "notify_subscribers": false,
       "payload_sha256": "d7d9dfe7630cb84b9cbdf8225c7170852236f8e1b45ab4ed0082631fe3361604",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "MiniCPM-V 4.7 sees images and video and is built to run on phones \u2014 OpenBMB reports 13+ tok/s on an iPhone 17 Pro Max at ~3 GB memory. Apache-2.0. Save this for on-device AI.\n\nCredits: Own spec and device cards created for this video. Source links in post/description only. No on-screen credits.\n\n#AI #LocalAI #VisionAI",
       "title": "MiniCPM-V 4.7: a Vision Model That Runs on Your Phone",
-      "updated_at": "2026-10-16T10:37:21Z",
+      "updated_at": "2026-10-16T10:37:22Z",
       "video_id": "model-minicpmv47-01"
     },
     "news-claude-free-01:facebook": {
