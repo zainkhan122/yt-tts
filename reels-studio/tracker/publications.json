@@ -177,7 +177,7 @@
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-15T22:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.facebook.com/reel/3714003408756110/",
       "media_ref": {
         "asset_digest": "sha256:9b74cd3e51e80565b7ab09aac73709af2b6f23cb00571f188d6f1aeeb9932f66",
         "asset_id": 643833486,
@@ -192,11 +192,11 @@
       "notify_subscribers": false,
       "payload_sha256": "c6f5555caeb631ca4613144ad7776c46218cdafbcc8d6727ee03cca43d8baf99",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-15T22:00:46.807Z",
+      "state": "sent",
       "text": "Liquid AI's LFM2.5: 24B total parameters, roughly 2B active per token, built for on-device agents. Weights under the LFM 1.0 licence; GGUF, MLX, ONNX and FP8 builds available.\n\nCredits: Own spec and formats cards created for this video. Source links in post/description only. No on-screen credits.\n\nAI-generated narration.\n\n#LocalAI #LLM",
       "title": "LFM2.5: 24B Brain, 2B at Work \u2014 a Local Agent Model",
-      "updated_at": "2026-10-15T12:48:14Z",
+      "updated_at": "2026-10-16T04:44:41Z",
       "video_id": "model-lfm25-01"
     },
     "model-lfm25-01:instagram": {
@@ -205,7 +205,7 @@
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-15T23:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/DeiFxrDFXxp/",
       "media_ref": {
         "asset_digest": "sha256:9b74cd3e51e80565b7ab09aac73709af2b6f23cb00571f188d6f1aeeb9932f66",
         "asset_id": 643833486,
@@ -220,11 +220,11 @@
       "notify_subscribers": false,
       "payload_sha256": "9aca63b72d94012b87f22aa0f4cb80f40f13ac63e6d96f0a95491a4f75ed15e3",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-15T23:01:57.570Z",
+      "state": "sent",
       "text": "LFM2.5-24B-A2B: a 24B model that only wakes about 2B parameters per token, built for private on-device agents. Vendor-reported 184 tok/s on an Apple M5 Max. Save this if you run local models.\n\nCredits: Own spec and formats cards created for this video. Source links in post/description only. No on-screen credits.\n\n#LocalAI #LLM #AIAgents",
       "title": "LFM2.5: 24B Brain, 2B at Work \u2014 a Local Agent Model",
-      "updated_at": "2026-10-15T12:48:18Z",
+      "updated_at": "2026-10-16T04:44:41Z",
       "video_id": "model-lfm25-01"
     },
     "model-lfm25-01:youtube": {
@@ -1422,7 +1422,7 @@
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-16T00:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.youtube.com/shorts/z7HeSga2u9w",
       "media_ref": {
         "asset_digest": "sha256:e5eadc0e14c986e58762bf71ccf404ec4de62c3f45818282df261db3bca81533",
         "asset_id": 643833549,
@@ -1437,11 +1437,11 @@
       "notify_subscribers": false,
       "payload_sha256": "72bb37e7b4e73b58ca28d258316f29c6351c8ede483783333a35119cd6fc0257",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-16T00:00:36.340Z",
+      "state": "sent",
       "text": "Solid Glass is an MIT-licensed design system for AI applications: one stylesheet that restyles your existing shadcn/ui components, sitting between flat design and liquid glass so text stays readable. It gained 904 GitHub stars in its first three days. Catches: you need the shadcn/React/Tailwind stack, and the project is days old. Demo visual is our own recreation.\nSource: https://github.com/deeplethe/solid-glass\n\nCredits: Own recreation and components card created for this video. Source links in post/description only. No on-screen credits.\n\n#Shorts #UI #WebDev #OpenSource",
       "title": "Solid Glass: the Glass UI You Can Actually Read",
-      "updated_at": "2026-10-15T12:48:21Z",
+      "updated_at": "2026-10-16T04:44:41Z",
       "video_id": "repo-solidglass-01"
     },
     "repo-whistle-01:facebook": {
