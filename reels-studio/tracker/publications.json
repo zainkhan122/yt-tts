@@ -1586,9 +1586,11 @@
     },
     "repo-scout-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6ad1fe75aecfd112ce6f0fbf",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-17T02:00:00Z",
+      "due_at": "2026-10-17T02:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:3d6d78999f66ef978fbc09d3501b85adf8a4d0f1ba1947fe0b2ceab9f28aa7e8",
         "asset_id": 646976790,
@@ -1603,10 +1605,11 @@
       "notify_subscribers": false,
       "payload_sha256": "2094660580fd800629938704c66afb39dad302baf4530cb01a09437ca8b9ae75",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Scout by Outcrawl is an open-source (Apache-2.0) browser agent: describe a task in plain words and it reads, clicks, types and scrolls in a real browser until the job is done. 867 GitHub stars in three days. Catches: the smoothest experience is Outcrawl's cloud, you need an Outcrawl key plus a model key, and some sites block bots.\nSource: https://github.com/outcrawlai/scout\n\nCredits: Own flow and steps cards created for this video. Source links in post/description only. No on-screen credits.\n\n#Shorts #AI #Agents #Automation",
       "title": "Scout: Tell It the Task, It Browses for You",
-      "updated_at": "2026-10-16T10:37:39Z",
+      "updated_at": "2026-10-16T10:37:41Z",
       "video_id": "repo-scout-01"
     },
     "repo-solidglass-01:facebook": {
