@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-16-repo-graphicle-01",
+  "created_at": "2026-10-16T08:20:00Z",
+  "buffer_insights": {
+    "path": "reels-studio/tracker/buffer-insights.json",
+    "sha256": "19b60ade2adba83a7f17e68afa2e117f8a0f35f95db18bc38616d2879c579e99"
+  },
+  "metrics_review": {
+    "snapshot_sha256": "19b60ade2adba83a7f17e68afa2e117f8a0f35f95db18bc38616d2879c579e99",
+    "reviewed_video_count": 79,
+    "sample_post_ids": [
+      "6acc91ac5feb3462de95f38b",
+      "6acc91a65feb3462de95f295",
+      "6ac904b32f26cc482c22c526",
+      "6accbfbf0b1f16abcb04921c"
+    ],
+    "findings": [
+      "Fresh snapshot fetched 2026-10-16T08:07:13Z: 79 shared video records, complete coverage across YouTube/Instagram/Facebook.",
+      "Hands-on local-AI demos and open-source spotlights lead our history: repo-ds4-01 972 YouTube views, tool-qwen38-01 807; Instagram fresh median leaders include model-embeddinggemma2-01 at 232 views within a day of posting.",
+      "Concrete, testable payoffs outperform feature lists (spotlight-papermorph-01, 608 YouTube views); every script below states its payoff in sentence one and attributes vendor figures.",
+      "Instagram rewards save-worthy tool/model spotlights (repo-opencr-01 268 views); each video carries a comment keyword CTA."
+    ],
+    "decisions": {
+      "topic": "Coding-agent tooling is a proven niche for us; a local-first tool with cited answers has a crisp, checkable demo story.",
+      "script": "Hook states the codebase-map payoff in sentence one, names Graphicle in scene two, attributes the speed comparison to the project's own tests, and keeps the v0.1 and Windows-preview caveats in the spoken catch.",
+      "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall; the decimal benchmark stays on screen.",
+      "visual": "Original stack and agent cards created for this video; no copied screenshots or terminal recordings."
+    }
+  },
+  "briefs": {
+    "repo-graphicle-01": {
+      "brief_sha256": "ff32dc1ab8d4daa10e6be08b50ca2db4cb0f87a36764dd1eecd10f4d64dc07a1",
+      "metrics_decisions": {
+        "topic": "Coding-agent tooling is a proven niche for us; a local-first tool with cited answers has a crisp, checkable demo story.",
+        "script": "Hook states the codebase-map payoff in sentence one, names Graphicle in scene two, attributes the speed comparison to the project's own tests, and keeps the v0.1 and Windows-preview caveats in the spoken catch.",
+        "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall; the decimal benchmark stays on screen.",
+        "visual": "Original stack and agent cards created for this video; no copied screenshots or terminal recordings."
+      },
+      "stages": {
+        "discover": {
+          "status": "complete",
+          "checked_at": "2026-10-16T08:20:00Z",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-16.md",
+            "reels-studio/research/ideas/feed-2026-10-16.md"
+          ]
+        },
+        "select": {
+          "status": "complete",
+          "selection_status": "selected",
+          "topic": "Graphicle: code graph + memory for coding agents",
+          "score": 72,
+          "score_breakdown": {
+            "trend_velocity": 17,
+            "demo_ability": 16,
+            "audience_breadth": 10,
+            "social_proof_gap": 6,
+            "free_value": 9,
+            "freshness_angle": 14
+          },
+          "metrics_snapshot_sha256": "19b60ade2adba83a7f17e68afa2e117f8a0f35f95db18bc38616d2879c579e99",
+          "basis_post_ids": [
+            "6acc91ac5feb3462de95f38b",
+            "6acc91a65feb3462de95f295",
+            "6ac904b32f26cc482c22c526"
+          ],
+          "hard_gates": {
+            "risk_flags_clear": true,
+            "claim_verifiable": true,
+            "license_clear": true
+          }
+        },
+        "research": {
+          "status": "complete",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-16.md",
+            "reels-studio/research/ideas/feed-2026-10-16.md"
+          ],
+          "dynamic_facts_checked_at": "2026-10-16T08:20:00Z",
+          "primary_sources": [
+            {
+              "url": "https://github.com/Graphicle-AI/graphicle",
+              "checked_at": "2026-10-16T08:20:00Z",
+              "claim": "README documents the code graph, project memory, MCP tools, local-first privacy and vendor benchmarks."
+            },
+            {
+              "url": "https://api.github.com/repos/Graphicle-AI/graphicle",
+              "checked_at": "2026-10-16T08:20:00Z",
+              "claim": "Live metadata: 180 stars, 9 forks, created 2026-10-14, Apache-2.0."
+            }
+          ]
+        },
+        "script": {
+          "status": "complete",
+          "script_sha256": "0484b8e06be3727e491786691718b16eba72d3165ff0ccda944b4f9e07e9c6a1",
+          "word_count": 129
+        },
+        "voice": {
+          "status": "complete",
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "per_chunk": 0.92,
+            "overall": 0.95
+          }
+        },
+        "assets": {
+          "status": "complete",
+          "rights_checked": true,
+          "approval_constraints_checked": true,
+          "capture_id": "repo-graphicle-01",
+          "manifest_sha256": "0e37e0c19e66b3c97693116aabe74028d03b1e93e01a7dbde5721a37f761f6e8",
+          "files": [
+            {
+              "path": "stack-card.png",
+              "sha256": "d427905e2eca94da6a7e9a8db0e084daba04dd01123fd003d1aadc3608c141d2"
+            },
+            {
+              "path": "agent-card.png",
+              "sha256": "62f831bca1af2a705dbf89dbabcb4241547e7ca6c77cab552fd038c5ef75fb28"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

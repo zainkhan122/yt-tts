@@ -1,0 +1,185 @@
+{
+  "id": "model-minicpmv47-01",
+  "template": "tool-spotlight",
+  "capture": "captures/model-minicpmv47-01",
+  "title": "MiniCPM-V 4.7: a Vision Model That Runs on Your Phone",
+  "niche": "on-device vision AI",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "Owner selected this topic on 2026-10-16 (Top-10 pick). Default flow: render + frame-level QA, then Buffer scheduled send on YouTube/Instagram/Facebook. Approved Option-3 Chatterbox flow voice; no on-screen credit captions.",
+  "production_category": "model",
+  "keywords": [
+    "MiniCPM-V",
+    "OpenBMB",
+    "phone AI",
+    "vision model",
+    "MoE"
+  ],
+  "facts": {
+    "total_params": "35B",
+    "active_params": "3B",
+    "license": "Apache-2.0",
+    "vendor_speed": "13+ tok/s, ~3 GB, iPhone 17 Pro Max (OpenBMB)",
+    "checked": "2026-10-16, HF model card + API"
+  },
+  "credits_on_screen": "Own spec and device cards created for this video. Source links in post/description only. No on-screen credits.",
+  "sources": [
+    "https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B",
+    "https://huggingface.co/api/models/openbmb/MiniCPM-V-4.7-35B-A3B"
+  ],
+  "verify_before_render": [
+    "HF card+API 2026-10-16: 35B total/3B active vision MoE, Apache-2.0, 9,278 downloads. Phone speed (13+ tok/s, ~3 GB, iPhone 17 Pro Max) is OpenBMB's vendor figure, attributed; we did not run it.",
+    "Full weights are a large download; GGUF and other quantized builds exist. iOS/Android/HarmonyOS support is the vendor's statement.",
+    "Visuals are our own cards; no third-party clips. No on-screen credit captions."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "spec-card.png",
+      "heading": "PHONE-BRAIN *VISION*",
+      "sub": "MiniCPM-V 4.7 \u00b7 OpenBMB",
+      "say": "A model that sees images and video, small enough at heart to run on a phone."
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "image": "device-card.png",
+      "heading": "MEET *MINICPM-V 4.7*",
+      "sub": "OpenBMB \u00b7 Apache-2.0",
+      "say": "This is {MiniCPM-V 4.7|Mini C P M V four point seven} from OpenBMB, a vision model built for devices."
+    },
+    {
+      "id": "speed",
+      "type": "stat",
+      "heading": "ON A *PHONE*",
+      "value": 13,
+      "decimals": 0,
+      "suffix": " tok/s",
+      "label": "OpenBMB's test \u00b7 iPhone 17 Pro Max \u00b7 ~3 GB",
+      "at": "tokens",
+      "say": "OpenBMB reports over thirteen tokens a second on an iPhone, using about three gigabytes of memory."
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "IT *SEES*",
+      "steps": [
+        "Single images",
+        "Multi-image sets",
+        "Video understanding"
+      ],
+      "step_at": [
+        "Single",
+        "Multi",
+        "Video"
+      ],
+      "say": "It reads single images, compares sets of them, and understands video too."
+    },
+    {
+      "id": "run",
+      "type": "terminal",
+      "heading": "RUN IT *YOUR WAY*",
+      "lines": [
+        "# GGUF via llama.cpp",
+        "ollama \u00b7 vLLM \u00b7 SGLang supported"
+      ],
+      "say": "Grab the {GGUF|G G U F} build, or run it through Ollama, vLLM or SGLang."
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "BEFORE YOU *DOWNLOAD*",
+      "cons": [
+        "Speed is the vendor's test",
+        "Full weights are still large"
+      ],
+      "pros": [
+        "Apache-2.0 licence",
+        "iOS, Android, HarmonyOS"
+      ],
+      "item_at": [
+        "vendor's",
+        "download",
+        "Apache",
+        "HarmonyOS"
+      ],
+      "say": "The catches: the phone speed is the vendor's own test, and the full weights are still a big download. But it is Apache two, and it runs on iPhone, Android and HarmonyOS."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "VISION",
+      "say": "Want phone-sized vision AI? Comment VISION and I will pin the model card."
+    }
+  ],
+  "seo": {
+    "keyword": "MiniCPM-V 4.7",
+    "aliases": [
+      "on-device vision",
+      "phone LLM"
+    ],
+    "onscreen_first3s": "PHONE-BRAIN VISION",
+    "youtube": {
+      "title": "MiniCPM-V 4.7: a Vision Model That Runs on Your Phone",
+      "description": "OpenBMB's MiniCPM-V 4.7 is a 35B vision-language MoE with only 3B active parameters. OpenBMB reports 13+ tok/s at about 3 GB of memory on an iPhone 17 Pro Max (vendor test; we did not run it). Apache-2.0, with GGUF, Ollama, vLLM and SGLang support.\nSource: https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B",
+      "hashtags": [
+        "#Shorts",
+        "#AI",
+        "#LocalAI",
+        "#VisionAI"
+      ],
+      "tags": [
+        "MiniCPM-V 4.7",
+        "on-device AI",
+        "vision language model",
+        "OpenBMB",
+        "local AI",
+        "multimodal"
+      ]
+    },
+    "tiktok": {
+      "caption": "MiniCPM-V 4.7: a 35B vision model with 3B active params. OpenBMB reports 13+ tok/s on an iPhone at ~3 GB. Apache-2.0. Catch: phone speed is the vendor's test.",
+      "hashtags": [
+        "#AI",
+        "#LocalAI",
+        "#VisionAI"
+      ]
+    },
+    "instagram": {
+      "caption": "MiniCPM-V 4.7 sees images and video and is built to run on phones \u2014 OpenBMB reports 13+ tok/s on an iPhone 17 Pro Max at ~3 GB memory. Apache-2.0. Save this for on-device AI.",
+      "hashtags": [
+        "#AI",
+        "#LocalAI",
+        "#VisionAI"
+      ]
+    },
+    "facebook": {
+      "caption": "MiniCPM-V 4.7 (OpenBMB): 35B vision MoE, 3B active, Apache-2.0. Vendor reports iPhone inference at 13+ tok/s with ~3 GB memory.",
+      "hashtags": [
+        "#AI",
+        "#LocalAI"
+      ]
+    },
+    "x": {
+      "text": "MiniCPM-V 4.7: vision AI built for phones. 35B total, 3B active; OpenBMB reports 13+ tok/s on iPhone at ~3 GB. Apache-2.0. https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B",
+      "hashtags": [
+        "#AI",
+        "#LocalAI"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "MiniCPM-V 4.7: a Vision Model That Runs on Your Phone"
+    ],
+    "caption": "OpenBMB's MiniCPM-V 4.7 packs a 35B vision-language MoE into a 3B-active design. OpenBMB reports over 13 tokens/s on an iPhone 17 Pro Max using about 3 GB of memory (their test; we did not benchmark it). Apache-2.0, with GGUF/Ollama/vLLM/SGLang routes. Catch: the full weights are still a big download.",
+    "hashtags": [
+      "#Shorts",
+      "#AI",
+      "#LocalAI",
+      "#VisionAI"
+    ],
+    "pinned_comment": "Model card: https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B \u2014 speed figures are OpenBMB's; visuals are our own cards."
+  }
+}
