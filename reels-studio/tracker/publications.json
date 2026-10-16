@@ -873,9 +873,11 @@
     },
     "news-muse-spark-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6ad1fe5fc0accac7daca2fa8",
       "category": "news",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-16T16:00:00Z",
+      "due_at": "2026-10-16T16:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:537f540e4cb0ed1cf115ae975d759104c0cd0374001d847f6b3261e281259272",
         "asset_id": 646976713,
@@ -890,10 +892,11 @@
       "notify_subscribers": false,
       "payload_sha256": "4a4bd7cced4bc2302dd0975bc1d5024537640ec84b15650a190a174cc4cc4c4c",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Meta Muse Spark Open: 816B total / 42B active, 1M-token context, multimodal. Muse Model License; local runs need ~1 TB RAM per press reports.\n\nCredits: Own spec and skills cards created for this video. Source links in post/description only. No on-screen credits.\n\nAI-generated narration.\n\n#AI #MetaAI",
       "title": "Muse Spark Open: Meta's 816B Giant Needs 1 TB of RAM",
-      "updated_at": "2026-10-16T10:37:18Z",
+      "updated_at": "2026-10-16T10:37:20Z",
       "video_id": "news-muse-spark-01"
     },
     "news-nano-banana-21-01:facebook": {
