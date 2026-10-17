@@ -1263,6 +1263,31 @@
       "updated_at": "2026-10-10T21:53:05Z",
       "video_id": "repo-ai-newtab-01"
     },
+    "repo-blender-mcp-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-18T14:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:087f8137dc91571221e392ad4b9270a8158e61a7daba6f6eb9c1702c94672c3c",
+        "asset_id": 651521505,
+        "asset_size": 9808944,
+        "kit_asset_id": 651521566,
+        "kit_digest": "sha256:382cf75b80d7981064ddd3a0783961e48245d72255d8d15d81367f259ef9daba",
+        "media_path": "media/651521505/repo-blender-mcp-01.mp4",
+        "release_tag": "renders-2026-10-18",
+        "video_id": "repo-blender-mcp-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/651521505/repo-blender-mcp-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "1235f7071f4b217e4810a28cfb81df2c84ad46dc6d9b9ea7a5e18812f11758ab",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Save this if you make 3D: an open-source add-on lets AI build scenes inside Blender while you watch. 21 scene tools, your choice of model, MIT licence.\n\nCredits: Own cards created for this video. Source links in post/description only. No on-screen credits.\n\n#Blender #AIArt #3D",
+      "title": "AI Inside Blender: It Builds Scenes From Chat | MCP for Blender Pro",
+      "updated_at": "2026-10-17T20:42:23Z",
+      "video_id": "repo-blender-mcp-01"
+    },
     "repo-blender-mcp-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6ad3ddae938409f1d0a0c96a",
