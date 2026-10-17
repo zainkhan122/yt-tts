@@ -1265,9 +1265,11 @@
     },
     "repo-blender-mcp-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6ad3ddb40b0d72757af32d3b",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-18T16:00:00Z",
+      "due_at": "2026-10-18T16:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:087f8137dc91571221e392ad4b9270a8158e61a7daba6f6eb9c1702c94672c3c",
         "asset_id": 651521505,
@@ -1282,10 +1284,11 @@
       "notify_subscribers": false,
       "payload_sha256": "a013144749daeb59c3e1d59086e2ca4f99a5e0dc5f45df45384f6d59c7e63742",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "MCP for Blender Pro (MIT): describe the scene, AI inspects and builds it inside Blender 4.2+. Agent team, MCP server, local models via Ollama.\n\nCredits: Own cards created for this video. Source links in post/description only. No on-screen credits.\n\nAI-generated narration.\n\n#Blender #AI",
       "title": "AI Inside Blender: It Builds Scenes From Chat | MCP for Blender Pro",
-      "updated_at": "2026-10-17T20:42:26Z",
+      "updated_at": "2026-10-17T20:42:28Z",
       "video_id": "repo-blender-mcp-01"
     },
     "repo-blender-mcp-01:instagram": {
