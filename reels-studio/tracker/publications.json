@@ -1265,9 +1265,11 @@
     },
     "repo-blender-mcp-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6ad3ddae938409f1d0a0c96a",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-17T22:30:00Z",
+      "due_at": "2026-10-17T22:30:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:087f8137dc91571221e392ad4b9270a8158e61a7daba6f6eb9c1702c94672c3c",
         "asset_id": 651521505,
@@ -1282,10 +1284,11 @@
       "notify_subscribers": true,
       "payload_sha256": "00d104a16d91d0b35364e40fac93e7b07e6fed6592153c1e18e72571689d06f0",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "MCP for Blender Pro is a free MIT add-on that gives AI 21 scene tools inside Blender 4.2+: describe a scene, it inspects what exists, then creates and edits objects step by step \u2014 with a visual chat, agent team and built-in MCP server. Works with OpenAI, Claude, Gemini or local Ollama. 551 GitHub stars in two days. Catches: the release targets Windows first and cloud models cost money.\nSource: https://github.com/anujasid/blender-ai-mcp-addon\n\nCredits: Own cards created for this video. Source links in post/description only. No on-screen credits.\n\n#Shorts #Blender #AI #3D",
       "title": "AI Inside Blender: It Builds Scenes From Chat | MCP for Blender Pro",
-      "updated_at": "2026-10-17T20:42:20Z",
+      "updated_at": "2026-10-17T20:42:22Z",
       "video_id": "repo-blender-mcp-01"
     },
     "repo-ds4-01:facebook": {
