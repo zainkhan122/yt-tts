@@ -45,11 +45,12 @@ Y1 = Y2 + h2 + GAP
 # scrim
 W = int(subprocess.check_output(["identify", "-format", "%w", BASE]).decode())
 H = int(subprocess.check_output(["identify", "-format", "%h", BASE]).decode())
+# Full-width soft south fade only — no rectangular SW panel (that read as a
+# transparent black square behind the type).
 run(["magick", BASE,
-     "(", "-size", f"{W}x{int(H*0.44)}", "gradient:rgba(0,0,0,0.88)-rgba(0,0,0,0)", "-flip", ")",
+     "(", "-size", f"{W}x{int(H*0.42)}",
+     "gradient:rgba(0,0,0,0.78)-rgba(0,0,0,0)", "-flip", ")",
      "-gravity", "South", "-composite",
-     "(", "-size", f"{int(W*0.56)}x{int(H*0.7)}", "gradient:rgba(0,0,0,0.55)-rgba(0,0,0,0)", ")",
-     "-gravity", "SouthWest", "-composite",
      f"{TH}/scrim.png"])
 
 # sequential composites: geometry as operator setting, one overlay at a time
