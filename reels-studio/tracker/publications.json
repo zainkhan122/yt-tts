@@ -1045,7 +1045,7 @@
       "category": "news",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-16T22:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/DekjrM1kbF0/",
       "media_ref": {
         "asset_digest": "sha256:537f540e4cb0ed1cf115ae975d759104c0cd0374001d847f6b3261e281259272",
         "asset_id": 646976713,
@@ -1060,11 +1060,11 @@
       "notify_subscribers": false,
       "payload_sha256": "fd22b47fb4c4e078139ea3bae093ec84dd04c7d41d1422a57fc2eab286066a40",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-16T22:01:22.224Z",
+      "state": "sent",
       "text": "Meta's biggest open-weight model is here: Muse Spark Open, 816B parameters, multimodal, built for agents. Local runs need about a terabyte of memory. Save this one.\n\nCredits: Own spec and skills cards created for this video. Source links in post/description only. No on-screen credits.\n\n#AI #MetaAI #LLM",
       "title": "Muse Spark Open: Meta's 816B Giant Needs 1 TB of RAM",
-      "updated_at": "2026-10-16T10:37:32Z",
+      "updated_at": "2026-10-17T04:41:54Z",
       "video_id": "news-muse-spark-01"
     },
     "news-muse-spark-01:youtube": {
@@ -1073,7 +1073,7 @@
       "category": "news",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-16T23:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.youtube.com/shorts/qrjNFMZFHXo",
       "media_ref": {
         "asset_digest": "sha256:537f540e4cb0ed1cf115ae975d759104c0cd0374001d847f6b3261e281259272",
         "asset_id": 646976713,
@@ -1088,11 +1088,11 @@
       "notify_subscribers": true,
       "payload_sha256": "7a7dd2532ceb1959fbcf3a43e7baae3da0019f3c5d2cff96fc5e348dafcd3977",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-16T23:00:44.272Z",
+      "state": "sent",
       "text": "Meta's Muse Spark Open is an 816B-parameter open-weight model (42B active, 1M-token context, natively multimodal) built for coding and agentic work. Meta calls it the most capable US open-weight model (their claim). The catch: local runs reportedly need about 1 TB of RAM \u2014 two Mac Studios with M5 Ultra chips \u2014 and the Muse Model License limits some commercial use.\nSources: TechCrunch (2026-10-15) and Meta's announcement.\n\nCredits: Own spec and skills cards created for this video. Source links in post/description only. No on-screen credits.\n\n#Shorts #AI #MetaAI #LLM",
       "title": "Muse Spark Open: Meta's 816B Giant Needs 1 TB of RAM",
-      "updated_at": "2026-10-16T10:37:35Z",
+      "updated_at": "2026-10-17T04:41:54Z",
       "video_id": "news-muse-spark-01"
     },
     "news-nano-banana-21-01:facebook": {
@@ -1702,7 +1702,7 @@
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-16T22:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.facebook.com/reel/28681756901478392/",
       "media_ref": {
         "asset_digest": "sha256:3d6d78999f66ef978fbc09d3501b85adf8a4d0f1ba1947fe0b2ceab9f28aa7e8",
         "asset_id": 646976790,
@@ -1717,11 +1717,11 @@
       "notify_subscribers": false,
       "payload_sha256": "6587f89a91d25d7133c166581c264fc70894c5d8a66b969766a384afec314f87",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-16T22:00:46.450Z",
+      "state": "sent",
       "text": "Scout (Outcrawl): open-source browser agent, npm install, bring your own model key. Apache-2.0.\n\nCredits: Own flow and steps cards created for this video. Source links in post/description only. No on-screen credits.\n\nAI-generated narration.\n\n#AI #Agents",
       "title": "Scout: Tell It the Task, It Browses for You",
-      "updated_at": "2026-10-16T10:37:29Z",
+      "updated_at": "2026-10-17T04:41:54Z",
       "video_id": "repo-scout-01"
     },
     "repo-scout-01:instagram": {
@@ -1730,7 +1730,7 @@
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-17T01:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/Dek4RVKFM7X/",
       "media_ref": {
         "asset_digest": "sha256:3d6d78999f66ef978fbc09d3501b85adf8a4d0f1ba1947fe0b2ceab9f28aa7e8",
         "asset_id": 646976790,
@@ -1745,11 +1745,11 @@
       "notify_subscribers": false,
       "payload_sha256": "372a4c3c92d599b04b3860dd38b701c62754d9940cfe04bfd2ef4cd6cf60e4a0",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-17T01:01:34.354Z",
+      "state": "sent",
       "text": "Tell it the task; it opens a browser and gets it done. Scout is Outcrawl's open-source browser agent (Apache-2.0). Save this if you automate the web.\n\nCredits: Own flow and steps cards created for this video. Source links in post/description only. No on-screen credits.\n\n#AI #Agents #Automation",
       "title": "Scout: Tell It the Task, It Browses for You",
-      "updated_at": "2026-10-16T10:37:38Z",
+      "updated_at": "2026-10-17T04:41:54Z",
       "video_id": "repo-scout-01"
     },
     "repo-scout-01:youtube": {
@@ -1758,7 +1758,7 @@
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-17T02:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.youtube.com/shorts/Y_zJBwfZjkY",
       "media_ref": {
         "asset_digest": "sha256:3d6d78999f66ef978fbc09d3501b85adf8a4d0f1ba1947fe0b2ceab9f28aa7e8",
         "asset_id": 646976790,
@@ -1773,11 +1773,11 @@
       "notify_subscribers": false,
       "payload_sha256": "2094660580fd800629938704c66afb39dad302baf4530cb01a09437ca8b9ae75",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-17T02:00:13.548Z",
+      "state": "sent",
       "text": "Scout by Outcrawl is an open-source (Apache-2.0) browser agent: describe a task in plain words and it reads, clicks, types and scrolls in a real browser until the job is done. 867 GitHub stars in three days. Catches: the smoothest experience is Outcrawl's cloud, you need an Outcrawl key plus a model key, and some sites block bots.\nSource: https://github.com/outcrawlai/scout\n\nCredits: Own flow and steps cards created for this video. Source links in post/description only. No on-screen credits.\n\n#Shorts #AI #Agents #Automation",
       "title": "Scout: Tell It the Task, It Browses for You",
-      "updated_at": "2026-10-16T10:37:41Z",
+      "updated_at": "2026-10-17T04:41:54Z",
       "video_id": "repo-scout-01"
     },
     "repo-solidglass-01:facebook": {
