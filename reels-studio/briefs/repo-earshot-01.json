@@ -1,0 +1,181 @@
+{
+ "id": "repo-earshot-01",
+ "template": "tool-spotlight",
+ "capture": "captures/repo-earshot-01",
+ "title": "Earshot: The Tool That Gives Coding Agents Ears",
+ "niche": "audio understanding for AI agents",
+ "lang": "en-us",
+ "style": "midnight",
+ "status": "Selected 2026-10-18 from fresh radar + performance advice (repo prioritised). Random daily count draw: 2 videos. Default flow: render + frame-level QA, then Buffer scheduled send on YouTube/Instagram/Facebook at each channel's best-performing window. Approved Option-3 Chatterbox flow voice; no on-screen credit captions.",
+ "production_category": "repo",
+ "keywords": [
+  "Earshot",
+  "AI agents",
+  "audio AI",
+  "coding agents",
+  "MCP"
+ ],
+ "facts": {
+  "stars": "651 GitHub stars in first 2 days (GitHub API, checked 2026-10-18)",
+  "license": "MIT",
+  "runtime": "CPU-only, local; first use downloads ~1.4 GB of models"
+ },
+ "credits_on_screen": "Own cards created for this video. Source links in post/description only. No on-screen credits.",
+ "sources": [
+  "https://github.com/Leonxlnx/earshot",
+  "https://api.github.com/repos/Leonxlnx/earshot"
+ ],
+ "verify_before_render": [
+  "Stars, licence and feature claims re-checked against the live repo on render day."
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "image",
+   "image": "ears-card.png",
+   "heading": "YOUR AGENT *CAN'T HEAR*",
+   "sub": "Earshot \u00b7 ears for coding agents \u00b7 MIT",
+   "say": "Your coding agent can see your film, but it cannot hear a single sound in it."
+  },
+  {
+   "id": "name",
+   "type": "image",
+   "image": "local-card.png",
+   "heading": "MEET *EARSHOT*",
+   "sub": "by Leonxlnx \u00b7 MIT licence",
+   "say": "This is Earshot, an open-source tool that gives AI agents ears."
+  },
+  {
+   "id": "how",
+   "type": "steps",
+   "heading": "HOW IT *LISTENS*",
+   "steps": [
+    "Drop in any sound",
+    "It describes the audio",
+    "Moments + fixes back"
+   ],
+   "step_at": [
+    "Drop in",
+    "describes",
+    "moments"
+   ],
+   "say": "Drop in any sound file. It describes what it hears in plain words, then hands back the moments that matter, with fixes."
+  },
+  {
+   "id": "stars",
+   "type": "stat",
+   "heading": "DEVS *NOTICED*",
+   "value": 651,
+   "decimals": 0,
+   "suffix": " stars",
+   "label": "GitHub \u00b7 first two days",
+   "at": "six hundred",
+   "say": "It passed six hundred GitHub stars in its first two days."
+  },
+  {
+   "id": "install",
+   "type": "terminal",
+   "heading": "*CLONE AND RUN*",
+   "lines": [
+    "git clone Leonxlnx/earshot",
+    "pip install -e .  # CPU only"
+   ],
+   "say": "Setup is a clone and a Python install on your own machine. No GPU needed."
+  },
+  {
+   "id": "catch",
+   "type": "verdict",
+   "heading": "BEFORE YOU *CLONE IT*",
+   "cons": [
+    "First use downloads ~1.4 GB of models",
+    "Each quick check loads models first"
+   ],
+   "pros": [
+    "MIT licence, runs on CPU",
+    "Your audio never leaves your machine"
+   ],
+   "item_at": [
+    "downloads",
+    "loads them first",
+    "MIT",
+    "never leaves"
+   ],
+   "say": "The honest catch: the first use downloads the listening models, and every quick check loads them first. In return, it is MIT-licensed, runs on CPU, and your audio never leaves your machine."
+  },
+  {
+   "id": "cta",
+   "type": "endcard",
+   "keyword": "SOUND",
+   "say": "What should your agent listen to first? Comment Sound and follow for tools like this."
+  }
+ ],
+ "seo": {
+  "keyword": "Earshot AI audio agent tool",
+  "aliases": [
+   "AI audio tool",
+   "agent hearing"
+  ],
+  "onscreen_first3s": "YOUR AGENT CAN'T HEAR",
+  "youtube": {
+   "title": "Your Coding Agent Can't Hear. Earshot Fixes That (Free, CPU-Only)",
+   "description": "Earshot is a free MIT tool that gives AI coding agents ears: it describes any sound in plain words, finds the best moments in long recordings, critiques your launch film against professional references, and can even forge new sounds in code \u2014 all locally on CPU, via CLI, Python or MCP. 651 GitHub stars in two days. Catches: ~1.4 GB model download on first use and model loading per quick check.\nSource: https://github.com/Leonxlnx/earshot",
+   "hashtags": [
+    "#Shorts",
+    "#AI",
+    "#Coding",
+    "#Agents"
+   ],
+   "tags": [
+    "Earshot",
+    "AI agents ears",
+    "audio AI",
+    "coding agent tools",
+    "MCP server",
+    "AI sound"
+   ]
+  },
+  "tiktok": {
+   "caption": "Your agent can see but not hear. Earshot gives coding agents ears \u2014 free, local, CPU-only.",
+   "hashtags": [
+    "#AI",
+    "#Coding",
+    "#Agents"
+   ]
+  },
+  "instagram": {
+   "caption": "Save this if you build with agents: Earshot lets AI hear, review and even make sound \u2014 locally on CPU. MIT licence.",
+   "hashtags": [
+    "#AI",
+    "#Coding",
+    "#OpenSource"
+   ]
+  },
+  "facebook": {
+   "caption": "Earshot (MIT): ears for coding agents. Describes sounds, finds key moments, critiques films \u2014 all on CPU, nothing leaves your machine.",
+   "hashtags": [
+    "#AI",
+    "#Coding"
+   ]
+  },
+  "x": {
+   "text": "Your coding agent can't hear your film. Earshot fixes that \u2014 free MIT, CPU-only, 651 stars in 2 days. https://github.com/Leonxlnx/earshot",
+   "hashtags": [
+    "#AI",
+    "#Coding"
+   ]
+  }
+ },
+ "post": {
+  "titles": [
+   "Earshot: The Tool That Gives Coding Agents Ears"
+  ],
+  "caption": "Earshot: an open-source (MIT) tool that gives AI agents ears \u2014 describe any sound in words, find the best moments in long recordings, get a scorecard for your launch film, even forge sounds in code. Runs locally on CPU. 651 stars in two days. Catches: ~1.4 GB first download; each quick check loads models first.",
+  "hashtags": [
+   "#Shorts",
+   "#AI",
+   "#Coding",
+   "#Agents"
+  ],
+  "keyword": "SOUND"
+ }
+}
