@@ -91,7 +91,7 @@
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-17T14:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.facebook.com/reel/28372716575744650/",
       "media_ref": {
         "asset_digest": "sha256:4b750854b7a8fbac5e2e1a49e5fdce7f6926d2ad8f0723475dc63be0a006ab2b",
         "asset_id": 646976885,
@@ -106,11 +106,11 @@
       "notify_subscribers": false,
       "payload_sha256": "8eb5460b86d4fbb8ef768159870f1dce5252c4e1bd9fd1d61f04fde802ec1d31",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-17T14:01:55.707Z",
+      "state": "sent",
       "text": "Drama 3 (Fish Audio): multi-character TTS, up to 16 speakers per text, voice cloning, edit-by-rewriting. Community License.\n\nCredits: Own cast and skills cards created for this video. Source links in post/description only. No on-screen credits.\n\nAI-generated narration.\n\n#AI #TTS",
       "title": "Drama 3: Sixteen Voices in One Script",
-      "updated_at": "2026-10-16T10:40:40Z",
+      "updated_at": "2026-10-17T15:44:53Z",
       "video_id": "model-drama3-01"
     },
     "model-drama3-01:instagram": {
@@ -119,7 +119,7 @@
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-17T15:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/DemYnXHkY1Q/",
       "media_ref": {
         "asset_digest": "sha256:4b750854b7a8fbac5e2e1a49e5fdce7f6926d2ad8f0723475dc63be0a006ab2b",
         "asset_id": 646976885,
@@ -134,11 +134,11 @@
       "notify_subscribers": false,
       "payload_sha256": "89c85de0f74be4f2336ce85d4b74a4f800f2e1b9b77603511eed8ca802529574",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-17T15:03:19.168Z",
+      "state": "sent",
       "text": "Sixteen characters, one script, each with a cloned voice: Drama 3 is TTS built for scenes, not narration. Save this if you make audio content.\n\nCredits: Own cast and skills cards created for this video. Source links in post/description only. No on-screen credits.\n\n#AI #TTS #VoiceAI",
       "title": "Drama 3: Sixteen Voices in One Script",
-      "updated_at": "2026-10-16T10:40:43Z",
+      "updated_at": "2026-10-17T15:44:53Z",
       "video_id": "model-drama3-01"
     },
     "model-drama3-01:youtube": {
@@ -147,7 +147,7 @@
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-17T15:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.youtube.com/shorts/on5kvMsmfEo",
       "media_ref": {
         "asset_digest": "sha256:4b750854b7a8fbac5e2e1a49e5fdce7f6926d2ad8f0723475dc63be0a006ab2b",
         "asset_id": 646976885,
@@ -162,11 +162,11 @@
       "notify_subscribers": false,
       "payload_sha256": "e92246f9729b0faece24cf1b04e9f4ae2c168a21e6aae9bae8389bd6974b6adc",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-17T15:01:05.993Z",
+      "state": "sent",
       "text": "Fish Audio's Drama 3 is a 35B (3B active) text-to-speech model built for multi-character scenes: speaker tags carry up to 16 characters in one text, with voice cloning and in-line direction tags like [sighs] and [laughs]. Fish Audio Community License. Catches: self-hosting needs a serious GPU; vendor streaming figures were measured on an H200.\nSource: https://huggingface.co/fishaudio/drama-3\n\nCredits: Own cast and skills cards created for this video. Source links in post/description only. No on-screen credits.\n\n#Shorts #AI #TTS #VoiceAI",
       "title": "Drama 3: Sixteen Voices in One Script",
-      "updated_at": "2026-10-16T10:40:46Z",
+      "updated_at": "2026-10-17T15:44:53Z",
       "video_id": "model-drama3-01"
     },
     "model-embeddinggemma2-01:facebook": {
