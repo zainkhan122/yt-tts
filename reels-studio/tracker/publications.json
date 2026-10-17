@@ -1489,9 +1489,11 @@
     },
     "repo-earshot-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6ad3ddbe938409f1d0a0cb7b",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-18T20:00:00Z",
+      "due_at": "2026-10-18T20:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:a5438c3820db9200522e221b639629806cad9235eaf2b0fba6d173405bfaa597",
         "asset_id": 651521604,
@@ -1506,10 +1508,11 @@
       "notify_subscribers": true,
       "payload_sha256": "bf0582114b19c632c80f70747c92d5e56eb4414c2a96e8643d1a98bde9bfff97",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Earshot is a free MIT tool that gives AI coding agents ears: it describes any sound in plain words, finds the best moments in long recordings, critiques your launch film against professional references, and can even forge new sounds in code \u2014 all locally on CPU, via CLI, Python or MCP. 651 GitHub stars in two days. Catches: ~1.4 GB model download on first use and model loading per quick check.\nSource: https://github.com/Leonxlnx/earshot\n\nCredits: Own cards created for this video. Source links in post/description only. No on-screen credits.\n\n#Shorts #AI #Coding #Agents",
       "title": "Your Coding Agent Can't Hear. Earshot Fixes That (Free, CPU-Only)",
-      "updated_at": "2026-10-17T20:42:36Z",
+      "updated_at": "2026-10-17T20:42:38Z",
       "video_id": "repo-earshot-01"
     },
     "repo-graphicle-01:facebook": {
