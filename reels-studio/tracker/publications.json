@@ -1433,9 +1433,11 @@
     },
     "repo-earshot-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6ad3ddba0a208cb323387478",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-18T18:30:00Z",
+      "due_at": "2026-10-18T18:30:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:a5438c3820db9200522e221b639629806cad9235eaf2b0fba6d173405bfaa597",
         "asset_id": 651521604,
@@ -1450,10 +1452,11 @@
       "notify_subscribers": false,
       "payload_sha256": "56ec230d6ffac0700ac24471dd79891f494a58b31e3e36115b91043ab7b17046",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Earshot (MIT): ears for coding agents. Describes sounds, finds key moments, critiques films \u2014 all on CPU, nothing leaves your machine.\n\nCredits: Own cards created for this video. Source links in post/description only. No on-screen credits.\n\nAI-generated narration.\n\n#AI #Coding",
       "title": "Your Coding Agent Can't Hear. Earshot Fixes That (Free, CPU-Only)",
-      "updated_at": "2026-10-17T20:42:33Z",
+      "updated_at": "2026-10-17T20:42:35Z",
       "video_id": "repo-earshot-01"
     },
     "repo-earshot-01:instagram": {
