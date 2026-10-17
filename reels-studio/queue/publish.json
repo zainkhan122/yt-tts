@@ -878,6 +878,54 @@
       "title": "Graphicle: a Map and Memory for Your Coding Agent",
       "video_id": "repo-graphicle-01",
       "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-10-17T20:29:53Z",
+      "approval": "approved",
+      "asset_digest": "sha256:087f8137dc91571221e392ad4b9270a8158e61a7daba6f6eb9c1702c94672c3c",
+      "asset_id": 651521505,
+      "asset_size": 9808944,
+      "brief_sha256": "c0616357405b19085dbb86fca9b9cd35a4719f4dbb91c1b14ff1079ef43e2731",
+      "category": "repo",
+      "expires_at": "2026-10-26T00:00:00Z",
+      "kit_asset_id": 651521566,
+      "kit_digest": "sha256:382cf75b80d7981064ddd3a0783961e48245d72255d8d15d81367f259ef9daba",
+      "media_path": "media/651521505/repo-blender-mcp-01.mp4",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "priority": 100,
+      "release_tag": "renders-2026-10-18",
+      "reviewed_at": "2026-10-17T20:30:16Z",
+      "title": "AI Inside Blender: It Builds Scenes From Chat | MCP for Blender Pro",
+      "video_id": "repo-blender-mcp-01",
+      "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-10-17T20:29:54Z",
+      "approval": "approved",
+      "asset_digest": "sha256:a5438c3820db9200522e221b639629806cad9235eaf2b0fba6d173405bfaa597",
+      "asset_id": 651521604,
+      "asset_size": 9443668,
+      "brief_sha256": "a49420a9adf4a672479dc56c278346cb3e372e959e456a559fb4bb04fe67c9ea",
+      "category": "repo",
+      "expires_at": "2026-10-26T00:00:00Z",
+      "kit_asset_id": 651521651,
+      "kit_digest": "sha256:fb7c11dcdef71217049383bc4d6a6580a08f704633858b38b66fa2ac43d7f5a5",
+      "media_path": "media/651521604/repo-earshot-01.mp4",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "priority": 100,
+      "release_tag": "renders-2026-10-18",
+      "reviewed_at": "2026-10-17T20:30:16Z",
+      "title": "Your Coding Agent Can't Hear. Earshot Fixes That (Free, CPU-Only)",
+      "video_id": "repo-earshot-01",
+      "youtube_ai_generated": false
     }
   ],
   "schema_version": 1
