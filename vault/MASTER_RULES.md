@@ -21,6 +21,11 @@
 6. **VERIFY** (storyboard): distinct-asset count + per-asset usage. FAIL if any
    asset >2×, consecutive same asset, or intra-chunk reuse. Success = coverage
    of `beat_needs.json`, not pool size 182.
+7. **MODESTY (non-negotiable):** no nudes, no bare chests, no cleavage, no
+   lingerie, no implied nudity — male or female, AI or stock. People in frame
+   are fully clothed (shoulders, chest, and torso covered). If a fetch or gen
+   returns otherwise, **delete and replace before render**. Queries must not
+   invite body close-ups (`chest`, `bare`, `skin`, `cleavage`).
 
 ## R2. CAPTION SYNC (kinetic text — exact, never estimated)
 
@@ -361,7 +366,24 @@ feeling beat is as wrong as cafe B-roll on a mechanism beat.
    beat (R24 dirs stay disjoint). Do not auto-hook beats 0–N.
 
 `tools/plan_assets.py VIDEO_DIR` drafts/validates `beat_needs.json`.
-`tools/check_script.py` WARNs if the file is missing; v18+ should have it
-before the first image wave. Optional `storyboard_config.json` keys:
-`hook_anchor` (substring that must appear in beats 0–7) — FAIL if set and
-missing; skip if unset (old videos).
+`tools/check_script.py` WARNs if the file is missing; **v18+ FAILS** without
+`hook_anchor` + `beat_needs.json` (`--legacy` to skip). `hook_anchor` must
+appear in beats 0–7.
+
+## R28. STUDIO LOOP (locked 2026-10-17 — measured, not guessed)
+
+From channel UCZfASgTXoayaIFMbCZ1uy3Q (499 views / 1.7% CTR / 4.2h):
+1. **Do not chase the 3AM view count.** It won Browse impressions and lost
+   Suggested (20% APV). Copy its *topic class* (Why + night/brain wound),
+   not its open.
+2. **Copy hold, not vanity:** Loneliest Types 89% APV, Four Inside You 67%,
+   See What Others Don't 52%. Claim-mechanism titles keep people.
+3. **v1 Feel Everything** (6.7% CTR → 10s AVD) is a warning. Never lead
+   with example-lists before the mechanism.
+4. **Shorts that loop convert:** Arrived Early (195% APV, +2 subs), Built
+   to Be Four, Unlived. Trailer-hooks (3AM Short 48%) do not. Extract the
+   reframe, not beats 0–N.
+5. **One public URL per idea.** Duplicate uploads split impressions.
+6. **Spoken + end-screen handoff** to a retention winner (returning
+   viewers were 0). Combined pack lives in one `metadata.md` (long + both
+   Shorts + pinned + end screen).
