@@ -45,6 +45,20 @@ Technical details (tools, commands) live in [`PIPELINE.md`](PIPELINE.md). Sessio
    - Saves come from "bookmark-worthy" value: lists, install steps, free alternatives.
    - Shares come from "send this to someone who…" relevance.
 6. **South Asia signal:** @beyondtahir speaks Hindi/Urdu, is personality-led and gets the highest engagement in the set (median 17.2K views, 5.1 comments/1k). An Urdu/Hindi version line is a real opportunity.
+
+**Refresh 2026-10-18 (`tools/channel_decode.py`, full report `research/social/decode-2026-10-18.md`):**
+decoded Script+Voice+Cover+Media+Heading+Description for the top-2/bottom-1 latest videos of all
+9 accounts (24 full decodes) plus Github Signals' YouTube Shorts listing. New/confirmed rules:
+- Winners are **faster and more expressive**: 186 vs 160 wpm, pitch range 16.0 vs 13.8 semitones
+  (top vs bottom tier). Flat or slow reads sink — pace is now treated as an edge, not table stakes.
+- **The product is the cover:** frame one is the actual repo page/result (or face + one symbolic
+  visual), with giant word-by-word captions from the first spoken word. No intros.
+- **Spoken CTA:** 62% of top-tier scripts ask (comment/save/follow) vs 33% of bottom-tier.
+- **Heading:** "Name: outcome" or a descriptive benefit sentence, sentence case, no caps-bait.
+- **TikTok description is a ~400-char keyword mini-article**, hashtags ≤3, link optional.
+  Per-platform package shapes stay as §9 — the same video scored 149.2K on TikTok vs 228 on
+  YouTube Shorts, so packages are adapted per platform, never copied across.
+- Anchor the tool to something familiar (Spotify, Windows, Claude…) in the first sentence.
 7. **What we refuse even though it gets views:**
    - movie/TV clips (ai_vanta_ai used Stranger Things);
    - piracy roundups;
@@ -290,6 +304,7 @@ Each render's `post.md` will carry **one ready block per platform** (Phase 4: `t
 
 - **Weekly:** compare our videos vs benchmarks on 3-s hold, % watched, saves/1k, shares/1k and comments/1k, and adjust the hook type, length and CTA.
 - **Monthly:** `channel_study` re-run (benchmarks + 3 new accounts) to update hook/pace/CTA rules. Retire formats that underperform 3 times in a row.
+- **Monthly:** `channel_decode` on the benchmark accounts (`tools/channel_decode.py --latest 10 --top 2 <accounts…>`) to refresh the Script+Voice+Cover+Heading+Description decode in `research/social/`.
 
 ## 12. Build roadmap (one phase = one session)
 
