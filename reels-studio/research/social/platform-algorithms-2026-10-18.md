@@ -24,12 +24,29 @@ owner-only (for us: Buffer Insights; for competitors: unknowable — do not pret
 | **Posting slot (ours, ET)** | evening 16:00–21:00 (median 132, n=8) | morning 10:00 lead (median 197, n=4) | midday 12:00 lead (median 82, n=9) | not connected (owner: Buffer covers YT/IG/FB only) |
 | **Kill signals** | slow first frame, context-first title | save-worthy value missing; >5 hashtags (hard cap) | cross-platform watermark, reused content | text-free first frame; generic #fyp tags |
 
-## Competitor evidence (Socialinsider 30-day snapshots, 2026-10-18)
+## Competitor evidence (niche set from `research/ai-tools-niche.md`, 2026-10-18)
 
-- **@sebintel (Instagram, 352.7K followers):** 58 posts/30 d, 5.04M views, avg 741 likes but
-  **avg 1,141 comments/post** — the comments are manufactured: every top Reel opens its caption
-  with *"Comment 'CLAUDE' and I'll send you the full setup guide."* The caption's first line is
-  a lead-magnet CTA; the keyword sentences follow. ER/post of top Reels 2.1–3.5%.
+Tracked set = the accounts in the niche file (AI tools/repos), **not** general AI educators.
+sebintel/Github Signals snapshots from the first probe round are background only; the
+format-relevant evidence is:
+
+- **Repo-spotlight TikTok decode** (`decode-2026-10-18.md`, 6 niche accounts, 11 usable
+  top/bottom decodes — @zaindevx_, @remy_engineering, @ezbackend, @marcinteodoru,
+  @sabrina_ramonov, @aitoolvaultly): top tier median **174K views, 38 s, 136 words, 193 wpm,
+  pitch 14.7 st, 5.8 cuts/10 s, spoken CTA 62%**. Winning hooks are stakes/scenario and
+  gold-mine framings ("If tomorrow your entire country suddenly lost access to the internet,
+  this GitHub project could become extremely useful…"). Bottom tier runs **74 s** — length
+  without density is the niche's main failure mode. (marcinteodoru's top hook uses profanity;
+  noted, **not** copied — brand safety.)
+- **@nomadatoast (Instagram, 607.5K followers):** 11 posts/30 d, 809.8K views, **avg 729
+  comments/post** at ER 0.37% — comment volume is the IG engine in this niche.
+- **@shedoesai (Instagram, 463.5K followers):** 9 posts/30 d, 3.35M views, **avg 393
+  comments/post** — her niche-file lesson ("comment TOOLS for the list") is measurable, and
+  it works. Low posting frequency, high per-post payoff: quality + lead magnet beats volume on IG.
+- **@mreflow / Matt Wolfe (YouTube, 1.02M subs):** 16 posts/30 d, 1.49M views, ER 0.16% —
+  long-form-led; Shorts are a feeder there, titles/descriptions carry the search load.
+- **Comment-keyword mechanics (also @sebintel, background):** top IG Reels open the caption
+  with *"Comment 'CLAUDE' and I'll send you the full setup guide."* (1,141 avg comments).
   → Adopted: IG caption line 1 = comment-keyword promise where we can fulfil it (we pin the
   link ourselves — never promise DMs we can't send; PLAYBOOK §4 close stack already does this,
   now it moves to line 1 on IG).
@@ -52,14 +69,21 @@ owner-only (for us: Buffer Insights; for competitors: unknowable — do not pret
 - **SocialStats.info — not adopted.** Dashboard-first (search loads an in-page report;
   compare/PDF/email features are account-shaped), no clean machine-readable endpoint found,
   and its public pages are a 2018-era wrapper. Socialinsider covers the same need better.
-- **Social Blade / vidIQ free tiers:** fine for one-off follower-grade checks in a browser;
-  no advantage over the two tools above for our pipeline. Not integrated.
-- **YouTube deep decode** still needs login cookies (bot gate) — owner decision, not a tooling gap.
+- **Owner-listed YouTube tools (checked 2026-10-18):** Social Blade — 403 bot wall for
+  machines, official API is paid; vidIQ / Viewstats — browser extensions/JS apps (Viewstats
+  loads, but its data API is not openly callable), useful for a human in a browser, not for
+  this pipeline; YTface / SocialFetch / SubSub / SearchVector — simple lookup pages, no data
+  beyond what yt-dlp already returns for free. **Verdict:** yt-dlp (listings, titles, views,
+  media) + Socialinsider snapshots (30-day channel stats + top posts) already cover the
+  programmatic need better than all of them. YouTube *deep* decode (per-video script/voice)
+  remains bot-gated without cookies — parked by owner choice of free tools instead.
+- **Facebook:** owner decision 2026-10-18 — **Buffer-only**. No FB competitor probing
+  (the probe also rejects numeric page ids); FB optimization runs on our own Insights data.
 
-## What would sharpen this further (owner inputs)
-1. **Competitor handles per platform** beyond the TikTok list (IG/FB/YT names) — probe runs
-   are cheap once named.
-2. **Facebook page username** (the numeric page id is rejected by the probe) — or accept
-   Buffer-only FB data, since FB competitor pages matter less than IG/YT in this niche.
-3. **YouTube cookies export** if deep YT competitor decode (scripts/voice/covers) is wanted;
-   without it, YT competitor work stays at headings/views level.
+## Tracked competitor set (from `research/ai-tools-niche.md`)
+- TikTok decode: @zaindevx_, @remy_engineering, @ezbackend, @marcinteodoru,
+  @sabrina_ramonov, @aitoolvaultly, @github.signals (+ the 9 Oct-07 benchmarks as background).
+- Instagram snapshots: @nomadatoast, @shedoesai (lead-magnet lane); @rileybrown.ai pending
+  (free-tool rate limits — retry next run).
+- YouTube snapshots: @mreflow (Matt Wolfe); @Futurepedia/@MatthewBerman pending rate limits.
+  (@ai-explained is **not** AI Explained's handle — 1.2K-sub channel; do not use.)

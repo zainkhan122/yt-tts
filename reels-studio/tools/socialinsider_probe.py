@@ -84,6 +84,10 @@ def main():
         print(f"   followers={s['followers']} ER={round(s['engagement_rate'] or 0, 2)}% "
               f"avg_comments={s['avg_comments']} views30d={s['total_views_30d']} posts30d={s['posts_30d']}")
     path = ROOT / f"research/social/platform-snapshots-{TODAY}.json"
+    if path.exists():  # merge repeat runs by (platform, handle) instead of clobbering
+        old = json.loads(path.read_text())
+        seen = {(s["platform"], s["handle"]) for s in out}
+        out = out + [s for s in old if (s["platform"], s["handle"]) not in seen]
     path.write_text(json.dumps(out, indent=1))
     print(f"wrote {path} ({len(out)} accounts)")
     return 0
