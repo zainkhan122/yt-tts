@@ -273,6 +273,15 @@ Instagram, TikTok and YouTube rules come from current 2026 sources (see `researc
 
 Each render's `post.md` will carry **one ready block per platform** (Phase 4: `tools/seo_pack.py`). It validates the limits automatically: char counts, the hashtag cap, keyword in the first line.
 
+**Per-platform algorithm evidence (2026-10-18):** `research/social/platform-algorithms-2026-10-18.md`
+holds the full matrix (what each algorithm pays for, heading/caption/CTA shape, our slot per
+platform, competitor snapshots). Refresh competitor snapshots monthly with
+`tools/socialinsider_probe.py ig:<handle> yt:<handle> tk:<handle> fb:<page>` (free, no login;
+public metrics only — owner metrics still come from Buffer Insights). One pattern adopted from
+that data: on **Instagram, caption line 1 is the comment-keyword promise** ("Comment KEYWORD —
+full guide pinned below"), with the keyword sentences after it; we always pin the link
+ourselves and never promise DMs.
+
 **Worked example (video #1, universal-modder):**
 - YT title: "AI Mods Any PC Game: Minecraft Inside GTA V 🤯". Description: "Universal Modder is a free open-source plugin that lets Claude Code, Codex or Gemini mod PC games you own… github.com/rehan-remade/universal-modder" + `#Shorts #AItools #gaming`.
 - TikTok: "AI mods PC games you own 🎮 Minecraft inside GTA V with Universal Modder. Which game would you mod first? #AItools #gaming #modding #ClaudeCode #opensource".
