@@ -30,7 +30,9 @@ class ProductionGateTests(unittest.TestCase):
             "lang": "en-us",
             "capture": "captures/cap-one",
             "sources": [{"url": "https://example.com/official", "title": "Official docs"}],
-            "scenes": [{"id": "hook", "say": "{Model 2|Model two} is a real feature."}],
+            "scenes": [{"id": "hook", "type": "page", "image": "screen.jpg",
+                        "say": "{Model 2|Model two} is a real feature."},
+                       {"id": "demo", "type": "image", "image": "screen.jpg"}],
         }
         self.brief_raw = (json.dumps(self.brief, ensure_ascii=False, indent=2) + "\n").encode()
         self.brief_path = self.root / "reels-studio/briefs/one.json"

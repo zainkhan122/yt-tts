@@ -33,7 +33,7 @@ def brief(**over):
             {"id": "hook", "type": "clip", "src": "demo.mp4", "in": 0, "out": 3,
              "headline": "A *HOOK*", "say": "A hook."},
             {"id": "how", "type": "steps", "heading": "HOW *IT* WORKS", "steps": ["one"],
-             "say": "One step."},
+             "background": {"img": "demo.mp4"}, "say": "One step."},
             {"id": "catch", "type": "verdict", "heading": "THE *CATCH*", "cons": ["one con"],
              "pros": ["one pro"], "item_at": ["con", "pro"], "say": "One con, one pro."},
             {"id": "cta", "type": "endcard", "keyword": "FIX", "say": "Comment fix."},
@@ -54,7 +54,7 @@ class BriefLintTests(unittest.TestCase):
         pack.mkdir(parents=True)
         (pack / "demo.mp4").write_bytes(b"x")
         (pack / "manifest.json").write_text(json.dumps({
-            "files": {"demo": {"file": "demo.mp4"}},
+            "files": {"demo": {"file": "demo.mp4", "kind": "own capture"}},
             "regions_css": {"repo_title": {"x": 1, "y": 2, "w": 3, "h": 4}},
             "url": "https://example.com"}))
 
@@ -85,7 +85,8 @@ class BriefLintTests(unittest.TestCase):
         b2["scenes"] = [{"id": "s1", "type": "verdict", "say": "one two", "cons": ["a", "b"]}]
         _, errors, warns = self.lint(b2)
         self.assertEqual(errors, [])
-        self.assertEqual([f["id"] for f in self.last_findings], ["BL051"])
+        # BL110 (media standard, 2026-10-18): this minimal brief stages no media at all.
+        self.assertEqual([f["id"] for f in self.last_findings], ["BL051", "BL110"])
         self.assertTrue(all(f["severity"] == "warning" for f in self.last_findings))
 
     def test_valid_brief_is_clean(self):

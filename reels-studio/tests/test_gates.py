@@ -11,7 +11,8 @@ from lib import gates  # noqa: E402
 
 BRIEF = {
     "id": "gate-demo-01", "template": "tool-spotlight", "capture": "captures/none",
-    "scenes": [{"id": "s1", "type": "page", "say": "hello world this tool helps", "heading": "hello world"}],
+    "scenes": [{"id": "s1", "type": "page", "say": "hello world this tool helps", "heading": "hello world"},
+               {"id": "s2", "type": "image", "image": "shot.png", "hold": True}],
     "seo": {"keyword": "hello world", "onscreen_first3s": "hello world",
             "youtube": {"title": "hello world in one minute", "description": "hello world is a demo tool for testing.",
                         "hashtags": ["#Shorts", "#demo", "#tools"], "tags": ["hello world", "demo"]},

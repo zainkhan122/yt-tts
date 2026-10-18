@@ -58,6 +58,8 @@ RULES = {
     "BL100": ("warning", "licence/legal terms spoken at most once per script (PLAYBOOK §4)"),
     "BL101": ("error", "no licence/legal term in the hook scene"),
     "BL102": ("warning", "no licence/legal term in on-screen headline text"),
+    "BL110": ("warning", "spotlight needs >=2 real-media scenes incl. >=1 motion/page scene"),
+    "BL111": ("warning", "scene stages no media at all (empty-stage risk)"),
     "BL900": ("error", "brief file readable as JSON"),
 }
 
@@ -196,6 +198,33 @@ def check(brief_path):
             for c in (s.get("camera") or []) + (s.get("cursor") or []):
                 if c.get("region") and c["region"] not in regions:
                     add("BL070", f"{where}: region {c['region']!r} not in the pack region map")
+
+    # Media standard (owner 2026-10-18): winners show the product working. Generated
+    # cards are support graphics; a spotlight needs real captured/demo media on stage.
+    # (Hard enforcement lives in production_gate.verify_capture_assets; these are the
+    # early warnings. When the pack is absent locally, scene types alone are counted.)
+    real_files = {v.get("file") for v in (manifest.get("files") or {}).values()
+                  if isinstance(v, dict) and str(v.get("kind", "")).startswith(
+                      ("own capture", "official demo media", "official image"))}
+    motion_types = {"clip", "clip-montage", "page", "scroll"}
+    media_scenes = motion_scenes = 0
+    for s in scenes:
+        refs = {s.get("image"), s.get("src"), s.get("figure"),
+                (s.get("background") or {}).get("img"), (s.get("background") or {}).get("image")}
+        refs.discard(None)
+        if s.get("type") in motion_types:
+            motion_scenes += 1
+            media_scenes += 1
+        elif refs & real_files or (not manifest and refs):
+            media_scenes += 1
+        if s.get("type") in ("steps", "image", "stat") and not refs and not (
+                (s.get("background") or {}).get("img")):
+            add("BL111", f"scene {s.get('id', '?')}: {s.get('type')} scene stages no media — "
+                         f"empty-stage risk; give it captured product media or a background")
+    if scenes and (media_scenes < 2 or motion_scenes < 1):
+        add("BL110", f"only {media_scenes} media scene(s), {motion_scenes} motion/page — "
+                     f"card-only videos do not ship; capture the real product (capture.py) "
+                     f"and stage it in at least two scenes")
 
     seo = brief.get("seo") or {}
     if not seo.get("keyword"):

@@ -244,6 +244,22 @@ github.signals 117K, ...): audio-only, vocals separated from music (UVR MDX-Net)
 - risk gates clean;
 - originality vs our last 5 videos.
 
+**Media standard (owner, 2026-10-18 — after card-only videos shipped):** the 8 automatic
+gates measure technical validity, NOT watchability; an "8/8" never again substitutes for
+watching the video. Hard rules, enforced in `production_gate.verify_capture_assets`
+(cloud render refuses otherwise) and warned early by brief_lint BL110/BL111:
+- the capture pack must contain **real product media** — our own captures of the product
+  page/UI (`capture.py`, kind "own capture") and/or official demo media/images;
+- **≥2 media scenes, ≥1 of them motion/page** (clip, clip-montage, page, scroll);
+- generated text cards are support graphics only — never the main visual, never the cover;
+- no scene may stage an empty/placeholder visual (no background-less steps scenes).
+**Viewer panel (mandatory before queueing):** `tools/viewer_panel.py <render-dir>` extracts
+one frame per scene; the reviewing agent scores the five personas against the decode bars
+and writes the verdict into `viewer-panel.md` in the render folder. Majority-swipe in the
+first 3 s, any empty/card-only scene, <60% real-media scenes, or no one-sentence takeaway
+= FAIL and the video returns to production. Filled panels for shipped videos live with
+their production records (`research/production/`).
+
 **Automatic safeguards added 2026-10-08** (all found while making video #1):
 - **Timing aligner:** each sentence break snaps to the pause nearest its syllable-expected position, with a proportional fallback. The old "largest gaps" method squeezed a whole sentence into 0.12 s with am_michael.
 - **Caption guard:** a caption group can never stay stuck on screen.
