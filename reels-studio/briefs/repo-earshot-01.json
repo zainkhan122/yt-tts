@@ -16,11 +16,11 @@
   "MCP"
  ],
  "facts": {
-  "stars": "651 GitHub stars in first 2 days (GitHub API, checked 2026-10-18)",
+  "stars": "737 GitHub stars (GitHub page capture, checked 2026-10-18)",
   "license": "MIT",
   "runtime": "CPU-only, local; first use downloads ~1.4 GB of models"
  },
- "credits_on_screen": "Own cards created for this video. Source links in post/description only. No on-screen credits.",
+ "credits_on_screen": "Own captures of the public GitHub repo + the project's own media (checked 2026-10-18).",
  "sources": [
   "https://github.com/Leonxlnx/earshot",
   "https://api.github.com/repos/Leonxlnx/earshot"
@@ -31,18 +31,26 @@
  "scenes": [
   {
    "id": "hook",
-   "type": "image",
-   "image": "ears-card.png",
+   "type": "page",
+   "image": "desktop-top.jpg",
    "heading": "YOUR AGENT *CAN'T HEAR*",
-   "sub": "Earshot \u00b7 ears for coding agents \u00b7 MIT",
-   "say": "Your coding agent can see your film, but it cannot hear a single sound in it."
+   "sub": "Earshot · ears for coding agents",
+   "say": "Your coding agent can see your film, but it cannot hear a single sound in it.",
+   "url": "github.com/Leonxlnx/earshot",
+   "camera": [
+    {
+     "region": "repo_title",
+     "zoom": 1.5,
+     "at": "hear"
+    }
+   ]
   },
   {
    "id": "name",
    "type": "image",
-   "image": "local-card.png",
+   "image": "launch_frames.png",
    "heading": "MEET *EARSHOT*",
-   "sub": "by Leonxlnx \u00b7 MIT licence",
+   "sub": "by Leonxlnx · open source",
    "say": "This is Earshot, an open-source tool that gives AI agents ears."
   },
   {
@@ -59,28 +67,49 @@
     "describes",
     "moments"
    ],
-   "say": "Drop in any sound file. It describes what it hears in plain words, then hands back the moments that matter, with fixes."
+   "say": "Drop in any sound file. It describes what it hears in plain words, then hands back the moments that matter, with fixes.",
+   "background": {
+    "image": "desktop-full.jpg",
+    "scroll_regions": [
+     "h_what_it_does",
+     "h_gallery"
+    ]
+   }
   },
   {
    "id": "stars",
-   "type": "stat",
+   "type": "page",
    "heading": "DEVS *NOTICED*",
-   "value": 651,
-   "decimals": 0,
-   "suffix": " stars",
-   "label": "GitHub \u00b7 first two days",
-   "at": "six hundred",
-   "say": "It passed six hundred GitHub stars in its first two days."
+   "say": "It passed seven hundred GitHub stars in just three days.",
+   "image": "desktop-top.jpg",
+   "camera": [
+    {
+     "region": "star_button",
+     "zoom": 2.6,
+     "at": "hundred"
+    }
+   ],
+   "cursor": [
+    {
+     "region": "star_button",
+     "at": "hundred",
+     "state": "★ Starred 737"
+    }
+   ]
   },
   {
    "id": "install",
-   "type": "terminal",
+   "type": "page",
    "heading": "*CLONE AND RUN*",
-   "lines": [
-    "git clone Leonxlnx/earshot",
-    "pip install -e .  # CPU only"
-   ],
-   "say": "Setup is a clone and a Python install on your own machine. No GPU needed."
+   "say": "Setup is a clone and a Python install on your own machine. No GPU needed.",
+   "image": "desktop-full.jpg",
+   "camera": [
+    {
+     "region": "h_install",
+     "zoom": 1.35,
+     "at": "clone"
+    }
+   ]
   },
   {
    "id": "catch",
@@ -91,16 +120,19 @@
     "Each quick check loads models first"
    ],
    "pros": [
-    "MIT licence, runs on CPU",
+    "Free and open source, runs on CPU",
     "Your audio never leaves your machine"
    ],
    "item_at": [
     "downloads",
     "loads them first",
-    "MIT",
+    "open source",
     "never leaves"
    ],
-   "say": "The honest catch: the first use downloads the listening models, and every quick check loads them first. In return, it is MIT-licensed, runs on CPU, and your audio never leaves your machine."
+   "say": "The honest catch: the first use downloads the listening models, and every quick check loads them first. In return, it is free and open source, runs on CPU, and your audio never leaves your machine.",
+   "image": "launch_sheet.png",
+   "region": "sheet_spectrogram",
+   "zoom": 1.15
   },
   {
    "id": "cta",
@@ -118,7 +150,7 @@
   "onscreen_first3s": "YOUR AGENT CAN'T HEAR",
   "youtube": {
    "title": "Your Coding Agent Can't Hear. Earshot Fixes That (Free, CPU-Only)",
-   "description": "Earshot is a free MIT tool that gives AI coding agents ears: it describes any sound in plain words, finds the best moments in long recordings, critiques your launch film against professional references, and can even forge new sounds in code \u2014 all locally on CPU, via CLI, Python or MCP. 651 GitHub stars in two days. Catches: ~1.4 GB model download on first use and model loading per quick check.\nSource: https://github.com/Leonxlnx/earshot",
+   "description": "Earshot is a free MIT tool that gives AI coding agents ears: it describes any sound in plain words, finds the best moments in long recordings, critiques your launch film against professional references, and can even forge new sounds in code — all locally on CPU, via CLI, Python or MCP. 651 GitHub stars in two days. Catches: ~1.4 GB model download on first use and model loading per quick check.\nSource: https://github.com/Leonxlnx/earshot",
    "hashtags": [
     "#Shorts",
     "#AI",
@@ -135,7 +167,7 @@
    ]
   },
   "tiktok": {
-   "caption": "Your agent can see but not hear. Earshot gives coding agents ears \u2014 free, local, CPU-only.",
+   "caption": "Your agent can see but not hear. Earshot gives coding agents ears — free, local, CPU-only.",
    "hashtags": [
     "#AI",
     "#Coding",
@@ -143,7 +175,7 @@
    ]
   },
   "instagram": {
-   "caption": "Save this if you build with agents: Earshot lets AI hear, review and even make sound \u2014 locally on CPU. MIT licence.",
+   "caption": "Save this if you build with agents: Earshot lets AI hear, review and even make sound — locally on CPU. MIT licence.",
    "hashtags": [
     "#AI",
     "#Coding",
@@ -151,14 +183,14 @@
    ]
   },
   "facebook": {
-   "caption": "Earshot (MIT): ears for coding agents. Describes sounds, finds key moments, critiques films \u2014 all on CPU, nothing leaves your machine.",
+   "caption": "Earshot (MIT): ears for coding agents. Describes sounds, finds key moments, critiques films — all on CPU, nothing leaves your machine.",
    "hashtags": [
     "#AI",
     "#Coding"
    ]
   },
   "x": {
-   "text": "Your coding agent can't hear your film. Earshot fixes that \u2014 free MIT, CPU-only, 651 stars in 2 days. https://github.com/Leonxlnx/earshot",
+   "text": "Your coding agent can't hear your film. Earshot fixes that — free MIT, CPU-only, 651 stars in 2 days. https://github.com/Leonxlnx/earshot",
    "hashtags": [
     "#AI",
     "#Coding"
@@ -169,7 +201,7 @@
   "titles": [
    "Earshot: The Tool That Gives Coding Agents Ears"
   ],
-  "caption": "Earshot: an open-source (MIT) tool that gives AI agents ears \u2014 describe any sound in words, find the best moments in long recordings, get a scorecard for your launch film, even forge sounds in code. Runs locally on CPU. 651 stars in two days. Catches: ~1.4 GB first download; each quick check loads models first.",
+  "caption": "Earshot: an open-source (MIT) tool that gives AI agents ears — describe any sound in words, find the best moments in long recordings, get a scorecard for your launch film, even forge sounds in code. Runs locally on CPU. 651 stars in two days. Catches: ~1.4 GB first download; each quick check loads models first.",
   "hashtags": [
    "#Shorts",
    "#AI",
@@ -177,5 +209,10 @@
    "#Agents"
   ],
   "keyword": "SOUND"
- }
+ },
+ "research_basis": [
+  "research/social/decode-2026-10-18.md",
+  "research/social/platform-algorithms-2026-10-18.md",
+  "tracker/performance.json"
+ ]
 }

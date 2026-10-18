@@ -1,129 +1,149 @@
 {
-  "schema_version": 1,
-  "batch_id": "2026-10-18-repo-blender-mcp-01",
-  "created_at": "2026-10-17T19:52:14Z",
-  "buffer_insights": {
-    "path": "reels-studio/tracker/buffer-insights.json",
-    "sha256": "230b71f473be70dcc341797ce0d4051f2e3f30f088dfcc7d320e3b962f5c501d"
-  },
-  "metrics_review": {
-    "snapshot_sha256": "230b71f473be70dcc341797ce0d4051f2e3f30f088dfcc7d320e3b962f5c501d",
-    "reviewed_video_count": 93,
-    "sample_post_ids": [
+ "schema_version": 1,
+ "batch_id": "2026-10-18-repo-blender-mcp-01",
+ "created_at": "2026-10-18T15:14:22Z",
+ "buffer_insights": {
+  "path": "reels-studio/tracker/buffer-insights.json",
+  "sha256": "230b71f473be70dcc341797ce0d4051f2e3f30f088dfcc7d320e3b962f5c501d"
+ },
+ "metrics_review": {
+  "snapshot_sha256": "230b71f473be70dcc341797ce0d4051f2e3f30f088dfcc7d320e3b962f5c501d",
+  "reviewed_video_count": 93,
+  "sample_post_ids": [
+   "6acc919add062ea3c8176035",
+   "6acc91a0712ba82086b03116",
+   "6acc91a3dd062ea3c817610d",
+   "6acc91a65feb3462de95f295"
+  ],
+  "findings": [
+   "Fresh snapshot fetched 2026-10-17T19:45:01Z: 93 shared video records, complete coverage across YouTube/Instagram/Facebook.",
+   "Performance analysis on this snapshot (performance.py): repo is the category to prioritise \u2014 repo production_category median percentile 68.2 (n=4 judged) and repo/tool queue categories lead news; statement hooks are the catalogue baseline (n=19 judged).",
+   "Best windows so far: Facebook midday ET (n=9, median 82), Instagram morning ET on the newest snapshot (n=4, median 197), YouTube evening ET (n=8, median 132) \u2014 scheduling defers to the publisher's researched windows and the dry-run plan is checked against these.",
+   "YouTube leaders repo-ds4-01 (984 views) and tool-qwen38-01 (926) are local/open-source demos; Instagram leaders reward save-worthy tool spotlights. Both of today's picks are repo spotlights with a one-line demo story."
+  ],
+  "decisions": {
+   "topic": "Performance says prioritise repo spotlights; a visual AI-builds-in-Blender demo matches our local-demo winners (repo-ds4-01, tool-qwen38-01).",
+   "script": "Payoff in sentence one, name in scene two, Windows-first and model-cost catches spoken in the verdict; exact stars stay on screen.",
+   "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% Whisper match per chunk and 95% overall; digit-light spoken lines.",
+   "visual": "Original tools and team cards made for this video; no project screenshots copied."
+  }
+ },
+ "briefs": {
+  "repo-blender-mcp-01": {
+   "brief_sha256": "2277d10dc1d8251588c5306b0ae9b59a82b23e6ae306728028ac68cab9cf767e",
+   "metrics_decisions": {
+    "topic": "Performance says prioritise repo spotlights; a visual AI-builds-in-Blender demo matches our local-demo winners (repo-ds4-01, tool-qwen38-01).",
+    "script": "Payoff in sentence one, name in scene two, Windows-first and model-cost catches spoken in the verdict; exact stars stay on screen.",
+    "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% Whisper match per chunk and 95% overall; digit-light spoken lines.",
+    "visual": "Rebuild 2026-10-18 to media standard: own captures of the real GitHub repo + the project's official product screenshots staged in 6/7 scenes (page/camera/steps-bg/verdict-behind); cards support only. Viewer panel must PASS before queueing."
+   },
+   "stages": {
+    "discover": {
+     "status": "complete",
+     "checked_at": "2026-10-17T19:52:14Z",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-17.md",
+      "reels-studio/research/ideas/feed-2026-10-17.md"
+     ]
+    },
+    "select": {
+     "status": "complete",
+     "selection_status": "selected",
+     "topic": "MCP for Blender Pro: AI that builds scenes inside Blender",
+     "score": 74,
+     "score_breakdown": {
+      "trend_velocity": 19,
+      "demo_ability": 19,
+      "audience_breadth": 12,
+      "social_proof_gap": 6,
+      "free_value": 9,
+      "freshness_angle": 9
+     },
+     "metrics_snapshot_sha256": "230b71f473be70dcc341797ce0d4051f2e3f30f088dfcc7d320e3b962f5c501d",
+     "basis_post_ids": [
       "6acc919add062ea3c8176035",
       "6acc91a0712ba82086b03116",
       "6acc91a3dd062ea3c817610d",
       "6acc91a65feb3462de95f295"
-    ],
-    "findings": [
-      "Fresh snapshot fetched 2026-10-17T19:45:01Z: 93 shared video records, complete coverage across YouTube/Instagram/Facebook.",
-      "Performance analysis on this snapshot (performance.py): repo is the category to prioritise \u2014 repo production_category median percentile 68.2 (n=4 judged) and repo/tool queue categories lead news; statement hooks are the catalogue baseline (n=19 judged).",
-      "Best windows so far: Facebook midday ET (n=9, median 82), Instagram morning ET on the newest snapshot (n=4, median 197), YouTube evening ET (n=8, median 132) \u2014 scheduling defers to the publisher's researched windows and the dry-run plan is checked against these.",
-      "YouTube leaders repo-ds4-01 (984 views) and tool-qwen38-01 (926) are local/open-source demos; Instagram leaders reward save-worthy tool spotlights. Both of today's picks are repo spotlights with a one-line demo story."
-    ],
-    "decisions": {
-      "topic": "Performance says prioritise repo spotlights; a visual AI-builds-in-Blender demo matches our local-demo winners (repo-ds4-01, tool-qwen38-01).",
-      "script": "Payoff in sentence one, name in scene two, Windows-first and model-cost catches spoken in the verdict; exact stars stay on screen.",
-      "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% Whisper match per chunk and 95% overall; digit-light spoken lines.",
-      "visual": "Original tools and team cards made for this video; no project screenshots copied."
-    }
-  },
-  "briefs": {
-    "repo-blender-mcp-01": {
-      "brief_sha256": "cbe94399e83c6a10de313260ee0e3493ef3f5190620dc91acb8799d73716957a",
-      "metrics_decisions": {
-        "topic": "Performance says prioritise repo spotlights; a visual AI-builds-in-Blender demo matches our local-demo winners (repo-ds4-01, tool-qwen38-01).",
-        "script": "Payoff in sentence one, name in scene two, Windows-first and model-cost catches spoken in the verdict; exact stars stay on screen.",
-        "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% Whisper match per chunk and 95% overall; digit-light spoken lines.",
-        "visual": "Original tools and team cards made for this video; no project screenshots copied."
+     ],
+     "hard_gates": {
+      "risk_flags_clear": true,
+      "claim_verifiable": true,
+      "license_clear": true
+     }
+    },
+    "research": {
+     "status": "complete",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-17.md",
+      "reels-studio/research/ideas/feed-2026-10-17.md"
+     ],
+     "dynamic_facts_checked_at": "2026-10-18T15:14:22Z",
+     "primary_sources": [
+      {
+       "url": "https://github.com/anujasid/blender-ai-mcp-addon",
+       "checked_at": "2026-10-18T15:14:22Z",
+       "claim": "README documents 21 scene tools, Visual Studio workspace, MCP server, model choices and agent team mode."
       },
-      "stages": {
-        "discover": {
-          "status": "complete",
-          "checked_at": "2026-10-17T19:52:14Z",
-          "evidence": [
-            "reels-studio/research/radar/radar-2026-10-17.md",
-            "reels-studio/research/ideas/feed-2026-10-17.md"
-          ]
-        },
-        "select": {
-          "status": "complete",
-          "selection_status": "selected",
-          "topic": "MCP for Blender Pro: AI that builds scenes inside Blender",
-          "score": 74,
-          "score_breakdown": {
-            "trend_velocity": 19,
-            "demo_ability": 19,
-            "audience_breadth": 12,
-            "social_proof_gap": 6,
-            "free_value": 9,
-            "freshness_angle": 9
-          },
-          "metrics_snapshot_sha256": "230b71f473be70dcc341797ce0d4051f2e3f30f088dfcc7d320e3b962f5c501d",
-          "basis_post_ids": [
-            "6acc919add062ea3c8176035",
-            "6acc91a0712ba82086b03116",
-            "6acc91a3dd062ea3c817610d",
-            "6acc91a65feb3462de95f295"
-          ],
-          "hard_gates": {
-            "risk_flags_clear": true,
-            "claim_verifiable": true,
-            "license_clear": true
-          }
-        },
-        "research": {
-          "status": "complete",
-          "evidence": [
-            "reels-studio/research/radar/radar-2026-10-17.md",
-            "reels-studio/research/ideas/feed-2026-10-17.md"
-          ],
-          "dynamic_facts_checked_at": "2026-10-17T19:52:14Z",
-          "primary_sources": [
-            {
-              "url": "https://github.com/anujasid/blender-ai-mcp-addon",
-              "checked_at": "2026-10-17T19:52:14Z",
-              "claim": "README documents 21 scene tools, Visual Studio workspace, MCP server, model choices and agent team mode."
-            },
-            {
-              "url": "https://api.github.com/repos/anujasid/blender-ai-mcp-addon",
-              "checked_at": "2026-10-17T19:52:14Z",
-              "claim": "Live metadata: 551 stars, 9 forks, created 2026-10-15, MIT."
-            }
-          ]
-        },
-        "script": {
-          "status": "complete",
-          "script_sha256": "19777a4a0552033afbde111e868ced6dd08b82e56d33cb6a37ac656b71de2dab",
-          "word_count": 125
-        },
-        "voice": {
-          "status": "complete",
-          "engine": "chatterbox",
-          "profile": "option-3",
-          "qa_thresholds": {
-            "per_chunk": 0.92,
-            "overall": 0.95
-          }
-        },
-        "assets": {
-          "status": "complete",
-          "rights_checked": true,
-          "approval_constraints_checked": true,
-          "capture_id": "repo-blender-mcp-01",
-          "manifest_sha256": "99051bcc9c3d9eb6a0d320b0dff995fd777c41c8f0161aff6e3b61847d3daa2e",
-          "files": [
-            {
-              "path": "team-card.png",
-              "sha256": "f669d410107490e4158d92dffecd761412f342d91dad3c9430059188cb83ecd3"
-            },
-            {
-              "path": "tools-card.png",
-              "sha256": "9a5062ab15d98a1136b1150b7b1fd3eb16510b12899ea287ec8ab0b51639ff91"
-            }
-          ]
-        }
+      {
+       "url": "https://api.github.com/repos/anujasid/blender-ai-mcp-addon",
+       "checked_at": "2026-10-18T15:14:22Z",
+       "claim": "Live metadata: 551 stars, 9 forks, created 2026-10-15, MIT."
       }
+     ]
+    },
+    "script": {
+     "status": "complete",
+     "script_sha256": "4324bb5455b94b19f965965fc3f6d81d79e1fa6a72f9bef5c0f573c947e034c3",
+     "word_count": 125
+    },
+    "voice": {
+     "status": "complete",
+     "engine": "chatterbox",
+     "profile": "option-3",
+     "qa_thresholds": {
+      "per_chunk": 0.92,
+      "overall": 0.95
+     }
+    },
+    "assets": {
+     "status": "complete",
+     "rights_checked": true,
+     "approval_constraints_checked": true,
+     "capture_id": "repo-blender-mcp-01",
+     "manifest_sha256": "470d9dd2f8f333c0e9d3cc2c023c4c1e8f81b64b4149d05b2731d8f7efc8392e",
+     "files": [
+      {
+       "path": "team-card.png",
+       "sha256": "f669d410107490e4158d92dffecd761412f342d91dad3c9430059188cb83ecd3"
+      },
+      {
+       "path": "tools-card.png",
+       "sha256": "9a5062ab15d98a1136b1150b7b1fd3eb16510b12899ea287ec8ab0b51639ff91"
+      },
+      {
+       "path": "desktop-top.jpg",
+       "sha256": "92e943ef6800c0382f91b11f07f12372ff0145b3700c52e597fbb2c981b9072b"
+      },
+      {
+       "path": "desktop-full.jpg",
+       "sha256": "ed7b20e13159b7b3879a3a878bc33fd13bffb5e8a105326fe0cbf1a501e6f5d0"
+      },
+      {
+       "path": "viewport.png",
+       "sha256": "5fad9c0bb61e72d916fd6a7bc84499b40cf4e2095de93cf6a324e510dec32a1f"
+      },
+      {
+       "path": "blender-workspace.png",
+       "sha256": "2ec7f077ce144989b6a2258d5dc45a83feef86627b4914b3e34f4072e4fffbbf"
+      },
+      {
+       "path": "studio.png",
+       "sha256": "eead4a0a88411848b689ce2ec5576f9efe2d9f52bc920d193999c47786198050"
+      }
+     ]
     }
+   }
   }
+ }
 }

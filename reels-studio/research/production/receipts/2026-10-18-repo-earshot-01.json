@@ -1,129 +1,145 @@
 {
-  "schema_version": 1,
-  "batch_id": "2026-10-18-repo-earshot-01",
-  "created_at": "2026-10-17T19:52:14Z",
-  "buffer_insights": {
-    "path": "reels-studio/tracker/buffer-insights.json",
-    "sha256": "230b71f473be70dcc341797ce0d4051f2e3f30f088dfcc7d320e3b962f5c501d"
-  },
-  "metrics_review": {
-    "snapshot_sha256": "230b71f473be70dcc341797ce0d4051f2e3f30f088dfcc7d320e3b962f5c501d",
-    "reviewed_video_count": 93,
-    "sample_post_ids": [
+ "schema_version": 1,
+ "batch_id": "2026-10-18-repo-earshot-01",
+ "created_at": "2026-10-18T15:14:22Z",
+ "buffer_insights": {
+  "path": "reels-studio/tracker/buffer-insights.json",
+  "sha256": "230b71f473be70dcc341797ce0d4051f2e3f30f088dfcc7d320e3b962f5c501d"
+ },
+ "metrics_review": {
+  "snapshot_sha256": "230b71f473be70dcc341797ce0d4051f2e3f30f088dfcc7d320e3b962f5c501d",
+  "reviewed_video_count": 93,
+  "sample_post_ids": [
+   "6acc919add062ea3c8176035",
+   "6acc91a0712ba82086b03116",
+   "6acc91a3dd062ea3c817610d",
+   "6acc91a65feb3462de95f295"
+  ],
+  "findings": [
+   "Fresh snapshot fetched 2026-10-17T19:45:01Z: 93 shared video records, complete coverage across YouTube/Instagram/Facebook.",
+   "Performance analysis on this snapshot (performance.py): repo is the category to prioritise \u2014 repo production_category median percentile 68.2 (n=4 judged) and repo/tool queue categories lead news; statement hooks are the catalogue baseline (n=19 judged).",
+   "Best windows so far: Facebook midday ET (n=9, median 82), Instagram morning ET on the newest snapshot (n=4, median 197), YouTube evening ET (n=8, median 132) \u2014 scheduling defers to the publisher's researched windows and the dry-run plan is checked against these.",
+   "YouTube leaders repo-ds4-01 (984 views) and tool-qwen38-01 (926) are local/open-source demos; Instagram leaders reward save-worthy tool spotlights. Both of today's picks are repo spotlights with a one-line demo story."
+  ],
+  "decisions": {
+   "topic": "Performance says prioritise repo spotlights; 'agents that can hear' is a fresh, instantly graspable angle in our winning coding-agent niche.",
+   "script": "Payoff in sentence one, name in scene two, 1.4 GB download and model-loading catches spoken in the verdict; exact stars stay on screen.",
+   "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall.",
+   "visual": "Original ears and local cards made for this video; no launch-film frames copied."
+  }
+ },
+ "briefs": {
+  "repo-earshot-01": {
+   "brief_sha256": "bd83ed6dc0383e4d6aec5a0041cfb6445913b3f5a3e0041567e821a4d42b8b60",
+   "metrics_decisions": {
+    "topic": "Performance says prioritise repo spotlights; 'agents that can hear' is a fresh, instantly graspable angle in our winning coding-agent niche.",
+    "script": "Payoff in sentence one, name in scene two, 1.4 GB download and model-loading catches spoken in the verdict; exact stars stay on screen.",
+    "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall.",
+    "visual": "Rebuild 2026-10-18 to media standard: own captures of the real GitHub repo + the project's official product screenshots staged in 6/7 scenes (page/camera/steps-bg/verdict-behind); cards support only. Viewer panel must PASS before queueing."
+   },
+   "stages": {
+    "discover": {
+     "status": "complete",
+     "checked_at": "2026-10-17T19:52:14Z",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-17.md",
+      "reels-studio/research/ideas/feed-2026-10-17.md"
+     ]
+    },
+    "select": {
+     "status": "complete",
+     "selection_status": "selected",
+     "topic": "Earshot: ears for coding agents (CPU, local)",
+     "score": 73,
+     "score_breakdown": {
+      "trend_velocity": 18,
+      "demo_ability": 18,
+      "audience_breadth": 10,
+      "social_proof_gap": 7,
+      "free_value": 10,
+      "freshness_angle": 10
+     },
+     "metrics_snapshot_sha256": "230b71f473be70dcc341797ce0d4051f2e3f30f088dfcc7d320e3b962f5c501d",
+     "basis_post_ids": [
       "6acc919add062ea3c8176035",
       "6acc91a0712ba82086b03116",
       "6acc91a3dd062ea3c817610d",
       "6acc91a65feb3462de95f295"
-    ],
-    "findings": [
-      "Fresh snapshot fetched 2026-10-17T19:45:01Z: 93 shared video records, complete coverage across YouTube/Instagram/Facebook.",
-      "Performance analysis on this snapshot (performance.py): repo is the category to prioritise \u2014 repo production_category median percentile 68.2 (n=4 judged) and repo/tool queue categories lead news; statement hooks are the catalogue baseline (n=19 judged).",
-      "Best windows so far: Facebook midday ET (n=9, median 82), Instagram morning ET on the newest snapshot (n=4, median 197), YouTube evening ET (n=8, median 132) \u2014 scheduling defers to the publisher's researched windows and the dry-run plan is checked against these.",
-      "YouTube leaders repo-ds4-01 (984 views) and tool-qwen38-01 (926) are local/open-source demos; Instagram leaders reward save-worthy tool spotlights. Both of today's picks are repo spotlights with a one-line demo story."
-    ],
-    "decisions": {
-      "topic": "Performance says prioritise repo spotlights; 'agents that can hear' is a fresh, instantly graspable angle in our winning coding-agent niche.",
-      "script": "Payoff in sentence one, name in scene two, 1.4 GB download and model-loading catches spoken in the verdict; exact stars stay on screen.",
-      "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall.",
-      "visual": "Original ears and local cards made for this video; no launch-film frames copied."
-    }
-  },
-  "briefs": {
-    "repo-earshot-01": {
-      "brief_sha256": "37bbe6af9828928bfe55c5e0a019a1009ec7e2bd54b10b215376e205e0b638fd",
-      "metrics_decisions": {
-        "topic": "Performance says prioritise repo spotlights; 'agents that can hear' is a fresh, instantly graspable angle in our winning coding-agent niche.",
-        "script": "Payoff in sentence one, name in scene two, 1.4 GB download and model-loading catches spoken in the verdict; exact stars stay on screen.",
-        "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall.",
-        "visual": "Original ears and local cards made for this video; no launch-film frames copied."
+     ],
+     "hard_gates": {
+      "risk_flags_clear": true,
+      "claim_verifiable": true,
+      "license_clear": true
+     }
+    },
+    "research": {
+     "status": "complete",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-17.md",
+      "reels-studio/research/ideas/feed-2026-10-17.md"
+     ],
+     "dynamic_facts_checked_at": "2026-10-18T15:14:22Z",
+     "primary_sources": [
+      {
+       "url": "https://github.com/Leonxlnx/earshot",
+       "checked_at": "2026-10-18T15:14:22Z",
+       "claim": "README documents describe/match/find/critique/forge, CPU-only local runs, MCP server and install."
       },
-      "stages": {
-        "discover": {
-          "status": "complete",
-          "checked_at": "2026-10-17T19:52:14Z",
-          "evidence": [
-            "reels-studio/research/radar/radar-2026-10-17.md",
-            "reels-studio/research/ideas/feed-2026-10-17.md"
-          ]
-        },
-        "select": {
-          "status": "complete",
-          "selection_status": "selected",
-          "topic": "Earshot: ears for coding agents (CPU, local)",
-          "score": 73,
-          "score_breakdown": {
-            "trend_velocity": 18,
-            "demo_ability": 18,
-            "audience_breadth": 10,
-            "social_proof_gap": 7,
-            "free_value": 10,
-            "freshness_angle": 10
-          },
-          "metrics_snapshot_sha256": "230b71f473be70dcc341797ce0d4051f2e3f30f088dfcc7d320e3b962f5c501d",
-          "basis_post_ids": [
-            "6acc919add062ea3c8176035",
-            "6acc91a0712ba82086b03116",
-            "6acc91a3dd062ea3c817610d",
-            "6acc91a65feb3462de95f295"
-          ],
-          "hard_gates": {
-            "risk_flags_clear": true,
-            "claim_verifiable": true,
-            "license_clear": true
-          }
-        },
-        "research": {
-          "status": "complete",
-          "evidence": [
-            "reels-studio/research/radar/radar-2026-10-17.md",
-            "reels-studio/research/ideas/feed-2026-10-17.md"
-          ],
-          "dynamic_facts_checked_at": "2026-10-17T19:52:14Z",
-          "primary_sources": [
-            {
-              "url": "https://github.com/Leonxlnx/earshot",
-              "checked_at": "2026-10-17T19:52:14Z",
-              "claim": "README documents describe/match/find/critique/forge, CPU-only local runs, MCP server and install."
-            },
-            {
-              "url": "https://api.github.com/repos/Leonxlnx/earshot",
-              "checked_at": "2026-10-17T19:52:14Z",
-              "claim": "Live metadata: 651 stars, 39 forks, created 2026-10-15, MIT."
-            }
-          ]
-        },
-        "script": {
-          "status": "complete",
-          "script_sha256": "e7fd7727da81dc644e30590400671966242cd7824177b77346aefb99c4746d17",
-          "word_count": 122
-        },
-        "voice": {
-          "status": "complete",
-          "engine": "chatterbox",
-          "profile": "option-3",
-          "qa_thresholds": {
-            "per_chunk": 0.92,
-            "overall": 0.95
-          }
-        },
-        "assets": {
-          "status": "complete",
-          "rights_checked": true,
-          "approval_constraints_checked": true,
-          "capture_id": "repo-earshot-01",
-          "manifest_sha256": "3469436c71afa43de83c0be7cb1759485113fba8ddacc7f7b96246c7191301ef",
-          "files": [
-            {
-              "path": "ears-card.png",
-              "sha256": "cc426600a1f33124780ce08fff2e1b0803a60eec4e9830d402daac6e58f50540"
-            },
-            {
-              "path": "local-card.png",
-              "sha256": "fd477ebad77eee96ac73fa7a8b8b774a87d3d81081ce7b69c3ce4040ffc35d42"
-            }
-          ]
-        }
+      {
+       "url": "https://api.github.com/repos/Leonxlnx/earshot",
+       "checked_at": "2026-10-18T15:14:22Z",
+       "claim": "Live metadata: 651 stars, 39 forks, created 2026-10-15, MIT."
       }
+     ]
+    },
+    "script": {
+     "status": "complete",
+     "script_sha256": "31e50f9c54d2485d47a332c81e8c26a3ed820ec1f7e9ff65d7ee5771b17fb762",
+     "word_count": 124
+    },
+    "voice": {
+     "status": "complete",
+     "engine": "chatterbox",
+     "profile": "option-3",
+     "qa_thresholds": {
+      "per_chunk": 0.92,
+      "overall": 0.95
+     }
+    },
+    "assets": {
+     "status": "complete",
+     "rights_checked": true,
+     "approval_constraints_checked": true,
+     "capture_id": "repo-earshot-01",
+     "manifest_sha256": "24f17870322f8a3ad195a799bfb3464ab1a2ae29d25b078e0a2b7a5c84279480",
+     "files": [
+      {
+       "path": "ears-card.png",
+       "sha256": "cc426600a1f33124780ce08fff2e1b0803a60eec4e9830d402daac6e58f50540"
+      },
+      {
+       "path": "local-card.png",
+       "sha256": "fd477ebad77eee96ac73fa7a8b8b774a87d3d81081ce7b69c3ce4040ffc35d42"
+      },
+      {
+       "path": "desktop-top.jpg",
+       "sha256": "af8d9d5e4297f734a0f9e432bcda57850ae1849cb3c6428eb9a1b9723578040e"
+      },
+      {
+       "path": "desktop-full.jpg",
+       "sha256": "3539789250884827a44a16d4b6428a3ee67617da8327092c88ed2ec84dddbb0f"
+      },
+      {
+       "path": "launch_frames.png",
+       "sha256": "0534071630cddfc1bd624f3e6e044970c836080a469129a8988e7e32f4b5d7a4"
+      },
+      {
+       "path": "launch_sheet.png",
+       "sha256": "cc49f68ef48566de0757f825b28b199acf0cc1d91be758f707a19966a0425b73"
+      }
+     ]
     }
+   }
   }
+ }
 }
