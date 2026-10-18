@@ -213,6 +213,18 @@ class PlannerTests(unittest.TestCase):
         with patch.object(planner, "payload_for", side_effect=fake_payload):
             return planner.plan(items or fixture_items(), records or {}, self.channels, posts or [], self.cfg, NOW, **kwargs)
 
+    def test_planner_recreates_released_rows_against_corrected_media(self):
+        # Regression (2026-10-18): release_row promised recreation, but the planner
+        # blocked every non-RETRYABLE record, so cleared rows could never come back.
+        from tools.post.common import key as row_key
+        items = fixture_items(1)
+        records = {row_key(items[0]["video_id"], p): {"video_id": items[0]["video_id"],
+                   "platform": p, "state": "released", "buffer_post_id": None,
+                   "previous_buffer_post_id": "gone", "due_at": "2026-10-13T19:00:00Z"}
+                   for p in items[0]["platforms"]}
+        rows, _ = self.planned(items=items, records=records)
+        self.assertEqual({r["platform"] for r in rows}, set(items[0]["platforms"]))
+
     def test_ten_videos_stay_in_backlog_not_bulk_dump(self):
         # Content mix is editorial (see test_mix_is_not_hardcoded); pacing still governs.
         self.cfg["schedule"]["max_posts_per_run"] = 100
@@ -728,6 +740,7 @@ class QueueReleaseTests(unittest.TestCase):
         self.assertNotIn(self.release.RELEASED, TERMINAL)
         r = self.release.release_row(self.row(), "x", self.release.now_utc())
         self.assertNotIn(r["state"], TERMINAL)
+
 
     def test_writes_require_the_exact_confirmation(self):
         import subprocess, sys

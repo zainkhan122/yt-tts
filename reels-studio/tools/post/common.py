@@ -9,7 +9,10 @@ ROOT = Path(__file__).resolve().parents[2]
 UTC = dt.timezone.utc
 TERMINAL = {"sent", "published_manual", "deleted"}
 # Anything except an explicitly rejected/deferred request blocks another createPost.
-RETRYABLE = {"retry_wait"}
+# "released" (owner-approved queue clear, tools/post/release.py): the Buffer post is
+# verifiably deleted, so the row occupies no slot and the planner may recreate it
+# against corrected media. Without this, released rows could never be recreated.
+RETRYABLE = {"retry_wait", "released"}
 PENDING = {"scheduled", "sending", "draft", "needs_approval"}
 UNCERTAIN = {"submitting", "uncertain"}
 
