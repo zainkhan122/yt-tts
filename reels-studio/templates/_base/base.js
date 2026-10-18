@@ -188,7 +188,13 @@
             card.id = "endcard";
             const av = mk("div", "", card);
             av.id = "ec-avatar";
-            mk("span", "", av, initials(b.name));
+            if (b.logo) {  // owner 2026-10-18: the real brand logo, never a text initial
+              const img = mk("img", "", av);
+              img.src = "assets/" + b.logo;
+              img.alt = b.name || "";
+            } else {
+              mk("span", "", av, initials(b.name));
+            }
             const nm = mk("div", "", card);
             nm.id = "ec-name";
             const nmt = mk("span", "", nm, b.name || "");

@@ -258,8 +258,20 @@ one frame per scene; the reviewing agent scores the five personas against the de
 and writes the verdict into `viewer-panel.md` in the render folder. Majority-swipe in the
 first 3 s, any empty/card-only scene, <60% real-media scenes, or no one-sentence takeaway
 = FAIL and the video returns to production. Filled panels for shipped videos live with
-their production records (`research/production/`).
+their production records (`research/production/`). **Enforced, not aspirational:**
+`queue_ctl.py approve` refuses any video without a PASS panel on file
+(`research/production/viewer-panel-*.md`, no FAIL verdict).
 
+**Findings-into-production (owner, 2026-10-18):** new data/findings must shape every new
+video, and validation must catch anything not up to the mark. The receipt already hard-gates
+fresh Buffer Insights (≤36 h), concrete findings and per-stage decisions. On top of that,
+every brief carries `research_basis`: the current research files it applies (latest decode,
+platform matrix, performance report). brief_lint BL112 warns when missing, BL113 *errors*
+when a cited file does not exist — "we used the findings" is checkable, not asserted.
+
+**Outro (owner, 2026-10-18):** the end-card shows the **real brand logo**
+(`brand/logo/avatar-1080.png`, staged as `assets/logo.png` by spotcore; `brand.logo` in
+`config/channel.json`), never a text initial. Regression: `tests/test_outro_logo.py`.
 **Automatic safeguards added 2026-10-08** (all found while making video #1):
 - **Timing aligner:** each sentence break snaps to the pause nearest its syllable-expected position, with a proportional fallback. The old "largest gaps" method squeezed a whole sentence into 0.12 s with am_michael.
 - **Caption guard:** a caption group can never stay stuck on screen.

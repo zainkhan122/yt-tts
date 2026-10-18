@@ -97,6 +97,9 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; 
   display: flex; width: 100%; height: 100%; border-radius: 50%; align-items: center; justify-content: center;
   background: var(--card); font: 900 76px "Inter"; color: var(--acc);
 }
+#ec-avatar img {
+  display: block; width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+}
 #ec-name { font: 900 62px "Inter"; display: flex; justify-content: center; align-items: center; gap: 14px; white-space: nowrap; }
 #ec-badge { width: 46px; height: 46px; border-radius: 50%; background: #3b9bff; display: inline-flex; align-items: center; justify-content: center; }
 #ec-handle { margin-top: 10px; font: 600 36px "Inter"; color: var(--muted); }

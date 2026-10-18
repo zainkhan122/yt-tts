@@ -28,6 +28,7 @@ def brief(**over):
         "credits_on_screen": "Own motion graphic.",
         "sources": ["https://example.com"],
         "verify_before_render": ["checked"],
+        "research_basis": ["research/social/decode-test.md"],
         "production_category": "tool",
         "scenes": [
             {"id": "hook", "type": "clip", "src": "demo.mp4", "in": 0, "out": 3,
@@ -52,6 +53,9 @@ class BriefLintTests(unittest.TestCase):
         self.root = Path(self.tmp.name)
         pack = self.root / "captures" / "lint-fixture"
         pack.mkdir(parents=True)
+        basis = self.root / "research" / "social"
+        basis.mkdir(parents=True)
+        (basis / "decode-test.md").write_text("decode fixture", encoding="utf-8")
         (pack / "demo.mp4").write_bytes(b"x")
         (pack / "manifest.json").write_text(json.dumps({
             "files": {"demo": {"file": "demo.mp4", "kind": "own capture"}},

@@ -418,6 +418,10 @@ def assets(b):
         if s["type"] in ("clip", "clip-montage") and d and (d / s["src"]).exists() and blur_name(s["src"]) not in seen:
             seen.add(blur_name(s["src"]))
             out.append((_blurred(d / s["src"]), blur_name(s["src"])))
+    # Brand logo for the outro end-card (owner 2026-10-18: real logo, never a text initial).
+    logo_src = ROOT / "brand" / "logo" / "avatar-1080.png"
+    if logo_src.exists() and "logo.png" not in seen:
+        out.append((logo_src, "logo.png"))
     return out
 
 

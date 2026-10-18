@@ -60,6 +60,8 @@ RULES = {
     "BL102": ("warning", "no licence/legal term in on-screen headline text"),
     "BL110": ("warning", "spotlight needs >=2 real-media scenes incl. >=1 motion/page scene"),
     "BL111": ("warning", "scene stages no media at all (empty-stage risk)"),
+    "BL112": ("warning", "brief cites the current research it applied (research_basis)"),
+    "BL113": ("error", "research_basis cites a file that does not exist"),
     "BL900": ("error", "brief file readable as JSON"),
 }
 
@@ -225,6 +227,19 @@ def check(brief_path):
         add("BL110", f"only {media_scenes} media scene(s), {motion_scenes} motion/page — "
                      f"card-only videos do not ship; capture the real product (capture.py) "
                      f"and stage it in at least two scenes")
+
+    # Findings-into-production (owner 2026-10-18): every brief must name the current
+    # research it applied (latest decode / platform matrix / performance report), so
+    # "we used the new data" is checkable instead of asserted. Missing = warning
+    # (legacy briefs), citing a nonexistent file = error.
+    basis = brief.get("research_basis")
+    if not isinstance(basis, list) or not basis:
+        add("BL112", "no research_basis: list the current research files this brief "
+                     "applies (e.g. research/social/decode-YYYY-MM-DD.md, performance report)")
+    else:
+        for ref in basis:
+            if not isinstance(ref, str) or not (ROOT / ref).exists():
+                add("BL113", f"research_basis cites missing file: {ref!r}")
 
     seo = brief.get("seo") or {}
     if not seo.get("keyword"):

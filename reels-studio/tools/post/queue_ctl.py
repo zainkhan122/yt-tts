@@ -18,6 +18,23 @@ from tools.post.common import config, fingerprint, iso, load_json, now_utc, pars
 from tools.post.media import read_kit
 
 
+def panel_passed(video_id):
+    """Watchability gate (owner 2026-10-18): a filled viewer panel with a PASS
+    verdict must be on file before a video may be approved for queueing. The 8
+    automatic QA gates measure technical validity only; this is the 'would a
+    viewer stay' check, and it fails closed."""
+    prod = ROOT / "research" / "production"
+    if not prod.exists():
+        return False
+    for f in sorted(prod.glob("viewer-panel-*.md")):
+        if video_id not in f.name:
+            continue
+        text = f.read_text(encoding="utf-8", errors="replace")
+        if "Panel result: PASS" in text and "Panel result: FAIL" not in text:
+            return True
+    return False
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -72,6 +89,11 @@ def main():
             expiry = parse_time(args.reviewed_until)
             if not now < expiry <= now + dt.timedelta(days=14):
                 raise SystemExit("Review expiry must be in the next 14 days (use shorter windows for news/pricing)")
+            missing = [v for v in args.video_ids if not panel_passed(v)]
+            if missing:
+                raise SystemExit("Viewer panel has not PASSed for: " + ", ".join(missing) +
+                                 " — run tools/viewer_panel.py on the render, fill it honestly, "
+                                 "and file it under research/production/ before queueing")
         for i in data["items"]:
             if i["video_id"] not in args.video_ids:
                 continue
