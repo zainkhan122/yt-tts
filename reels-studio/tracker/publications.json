@@ -1351,9 +1351,11 @@
     },
     "repo-coop-anything-01:facebook": {
       "attempts": 2,
+      "buffer_post_id": "6ad4dd410a208cb3236ce766",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-19T16:00:00Z",
+      "due_at": "2026-10-19T16:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:cc7392e5fa5abee37bac2a79b6ba3ada55884385e4557d2828b9946e0c15e650",
         "asset_id": 653695277,
@@ -1368,10 +1370,11 @@
       "notify_subscribers": false,
       "payload_sha256": "bd4cafd9196f36aa8819e10fbadd6e4c1f2751a5c07b5dc504ad2db585bd8ee7",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Co-op Anything: your AI agent turns single-player games into co-op \u2014 it builds and bot-tests the multiplayer, friends join in one click. Which solo game would you play together first?\n\nCredits: Own screen captures of the public GitHub repos (coop-anything + deus-ex-coop, checked 2026-10-18).\n\nAI-generated narration.\n\n#gaming #AI #mods",
       "title": "Co-op Anything: Turn Any Single-Player Game Into Co-op With AI",
-      "updated_at": "2026-10-18T14:52:47Z",
+      "updated_at": "2026-10-18T14:52:49Z",
       "video_id": "repo-coop-anything-01"
     },
     "repo-coop-anything-01:instagram": {
