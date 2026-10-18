@@ -55,6 +55,9 @@ RULES = {
     "BL080": ("warning", "at/item_at word appears in the spoken line"),
     "BL081": ("error", "clip-montage cut anchor is an exact spoken word"),
     "BL090": ("error", "seo block: keyword + #Shorts description"),
+    "BL100": ("warning", "licence/legal terms spoken at most once per script (PLAYBOOK §4)"),
+    "BL101": ("error", "no licence/legal term in the hook scene"),
+    "BL102": ("warning", "no licence/legal term in on-screen headline text"),
     "BL900": ("error", "brief file readable as JSON"),
 }
 
@@ -125,10 +128,18 @@ def check(brief_path):
         files = {v.get("file") for v in manifest.get("files", {}).values() if v.get("file")} | {"contact.jpg"}
     regions = set((manifest.get("regions_css") or {}).keys())
 
+    # Viewer-benefit first (owner rule 2026-10-18, PLAYBOOK §4): licence/legal terms are a
+    # trust badge, not a headline — at most one spoken mention per script, never in the hook.
+    legal = re.compile(r"\b(licen[cs]e[ds]?|mit|apache|gpl|agpl|lgpl|bsd|mpl|openrail)\b", re.I)
+    spoken_legal = sum(len(legal.findall(spoken(s.get("say")))) for s in brief.get("scenes") or [])
+    if spoken_legal > 1:
+        add("BL100", f"licence/legal terms spoken {spoken_legal} times; the limit is one plain "
+                     f"mention ('free and open source') at the verdict or close")
+
     scenes = brief.get("scenes") or []
     if not scenes:
         add("BL030", "no scenes")
-    for s in scenes:
+    for idx, s in enumerate(scenes):
         sid = s.get("id", "?")
         where = f"scene {sid}"
         if s.get("type") not in SCENE_TYPES:
@@ -152,6 +163,15 @@ def check(brief_path):
             v = s.get(key)
             if isinstance(v, str) and v.count("*") % 2:
                 add("BL040", f"{where}: unbalanced * in {key} {v!r}")
+        if idx == 0 and (legal.search(spoken(s.get("say"))) or legal.search(s.get("headline") or "")
+                         or legal.search(s.get("sub") or "")):
+            add("BL101", f"{where}: licence/legal term in the hook — open on the viewer's "
+                         f"pain or outcome instead (PLAYBOOK §4)")
+        for key in ("headline", "sub", "heading", "label"):
+            v = s.get(key)
+            if isinstance(v, str) and legal.search(v):
+                add("BL102", f"{where}: licence/legal term in on-screen {key} {v!r} — legal "
+                             f"detail belongs in the description's credits block, not on screen")
         say = norm(spoken(s.get("say")))
         for key in ("at", "item_at"):
             v = s.get(key)

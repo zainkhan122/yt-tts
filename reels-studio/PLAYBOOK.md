@@ -119,7 +119,8 @@ declarative Muse script at 7.2 semitones of melody and the conversational flow s
 **Our differentiator line:** one honest verdict ("The catch: …"). It also drives likes (opinion lines scored 107 likes/1k).
 
 **Close + CTA stack (last 5 s):**
-1. value close ("free and open source");
+1. value close — the payoff restated for the viewer ("…and it costs you nothing"); this is the
+   one place a plain "free and open source" may be spoken (see Viewer-benefit first);
 2. **save prompt** ("save this for later");
 3. **comment keyword** ("comment MOD and I'll pin the link");
 4. follow.
@@ -262,7 +263,7 @@ Each render's `post.md` will carry **one ready block per platform** (Phase 4: `t
 - YT title: "AI Mods Any PC Game: Minecraft Inside GTA V 🤯". Description: "Universal Modder is a free open-source plugin that lets Claude Code, Codex or Gemini mod PC games you own… github.com/rehan-remade/universal-modder" + `#Shorts #AItools #gaming`.
 - TikTok: "AI mods PC games you own 🎮 Minecraft inside GTA V with Universal Modder. Which game would you mod first? #AItools #gaming #modding #ClaudeCode #opensource".
 - IG: the same first line + "comment MOD for the link" + 5 tags max.
-- X: "An AI coding agent put real Minecraft inside GTA V. Universal Modder (free, MIT) 👇 github.com/rehan-remade/universal-modder #AI".
+- X: "An AI coding agent put real Minecraft inside GTA V — mod the games you own 👇 github.com/rehan-remade/universal-modder #AI".
 
 ## 10. Publishing workflow and cadence
 

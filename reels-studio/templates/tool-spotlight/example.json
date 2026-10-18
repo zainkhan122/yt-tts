@@ -1,6 +1,6 @@
 {
  "id": "my-tool-spotlight",
- "_how": "Copy, then edit: capture pack (python3 reels.py capture <id> --url ...), facts (re-check same day), scenes (types: clip, clip-montage, page, scroll, steps, terminal, verdict, stat, image, endcard; see templates/_spotlight/spotcore.py). Display vs spoken: {GTA V|GTA Five}. *word* in headings = yellow.",
+ "_how": "Copy, then edit: capture pack (python3 reels.py capture <id> --url ...), facts (re-check same day), scenes (types: clip, clip-montage, page, scroll, steps, terminal, verdict, stat, image, endcard; see templates/_spotlight/spotcore.py). Display vs spoken: {GTA V|GTA Five}. *word* in headings = yellow. Viewer-benefit first (PLAYBOOK SS4): hook = pain/outcome, features = outcomes for the viewer, catches = plain user-impact words; at most ONE licence mention per script (plain 'free and open source', verdict/close only, never the hook or headlines).",
  "template": "tool-spotlight",
  "capture": "captures/universal-modder",
  "title": "AI just put Minecraft inside GTA V",

@@ -45,7 +45,12 @@ RULE_IDS = {
     "SP070": ("error", "youtube: #Shorts in the description hashtags"),
     "SP071": ("warning", "youtube: keyword in the first 150 chars of the description"),
     "SP072": ("error", "youtube: backend tags within 500 chars"),
+    "SP080": ("warning", "no licence/legal term in a title or first line (benefit-first copy)"),
+    "SP081": ("warning", "no licence/legal term in the first 150 chars of the youtube description"),
 }
+
+# Viewer-benefit first (owner rule 2026-10-18, PLAYBOOK §9): legal detail goes below the fold.
+LEGAL = re.compile(r"\b(licen[cs]e[ds]?|mit|apache|gpl|agpl|lgpl|bsd|mpl|openrail)\b", re.I)
 
 
 def norm(s):
@@ -114,6 +119,10 @@ def check(brief_path_or_text):
             add("SP051", f"{plat}: generic tags (#fyp/#viral) carry no signal in 2026")
         if kws and not has_kw(text, kws, firstn):
             add("SP060", f"{plat}: keyword not within the first {firstn} words of the {field}")
+        first_line = (text or "").split("\n")[0]
+        if LEGAL.search(first_line):
+            add("SP080", f"{plat}: licence/legal term in the {field} first line — open with who "
+                         f"it's for and what it does for them; legal detail goes at the bottom")
         if plat == "youtube":
             if "#shorts" not in [t.lower() for t in tags]:
                 add("SP070", "youtube: #Shorts missing from description hashtags")

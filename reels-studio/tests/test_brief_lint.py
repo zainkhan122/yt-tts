@@ -150,16 +150,36 @@ class BriefLintTests(unittest.TestCase):
         _, errors, _ = self.lint(b)
         self.assertFalse(any(e.startswith("[BL081]") for e in errors))
 
+    def test_licence_in_hook_is_an_error(self):
+        b = brief()
+        b["scenes"][0]["say"] = "This MIT tool is free!"
+        _, errors, _ = self.lint(b)
+        self.assertTrue(any(e.startswith("[BL101]") for e in errors), errors)
+
+    def test_repeated_spoken_licence_mentions_warn(self):
+        b = brief()
+        b["scenes"][1]["say"] = "It is MIT licensed, honestly the licence is great."
+        _, errors, warns = self.lint(b)
+        self.assertTrue(any(w.startswith("[BL100]") for w in warns), warns)
+        self.assertFalse(any(e.startswith("[BL101]") for e in errors), errors)
+
     def test_missing_pack_skips_asset_checks_with_a_warning(self):
         b = brief(capture="captures/never-captured")
         _, errors, warns = self.lint(b)
         self.assertEqual(errors, [])
         self.assertTrue(any("not present locally" in w for w in warns))
 
+    # Briefs rendered and published before the 2026-10-18 viewer-benefit rule (PLAYBOOK §4).
+    # Their brief text is pinned by queue/receipt hashes and cannot be rewritten; BL101
+    # applies as an error to every brief created after that date.
+    GRANDFATHERED_BL101 = {"repo-blender-mcp-01.json", "repo-earshot-01.json"}
+
     def test_every_repo_brief_lints_without_errors(self):
         for p in sorted((ROOT / "briefs").glob("*.json")):
             with self.subTest(brief=p.name):
                 _, errors, _, _ = check(p)
+                if p.name in self.GRANDFATHERED_BL101:
+                    errors = [e for e in errors if not e.startswith("[BL101]")]
                 self.assertEqual(errors, [], f"{p.name}: {errors}")
 
 

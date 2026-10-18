@@ -123,7 +123,13 @@ Never used: other creators' clips (copyright + "reused content" demonetization).
 - **Pace benchmark ~175–185 wpm** (194-transcript social scan), but treat it as an editorial target, not a substitute for listening: record delivered WPM, preserve natural pauses, and keep spotlights within 35–42 s.
 - **Length:** spotlights 35–42 s, lists ~60 s.
 - **One honest opinion line** (our verdict / "the catch").
-- **Value close** ("free and open source") → **CTA: "Comment KEYWORD and I'll pin the link"** + follow. We pin the link ourselves; never promise DMs.
+- **Viewer-benefit first (owner rule 2026-10-18; full text: PLAYBOOK §4):** ~70% what it does
+  for the viewer / 20% how it works / 10% fine print. Licence or legal terms: at most one
+  spoken mention, plain words ("free and open source"), at the verdict/value close — never in
+  the hook, headlines or card titles; exact licence names live only in the description's bottom
+  credits. Catches are written as user impact ("Windows only for now"), not release-note jargon.
+  Enforced by brief_lint BL100–BL102 and seo_pack SP080/SP081.
+- **Value close** (the viewer's payoff restated) → **CTA: "Comment KEYWORD and I'll pin the link"** + follow. We pin the link ourselves; never promise DMs.
 - First sentence ≤ 12 words; every sentence ≤ 18 words; ≤ 7 words on screen per beat; captions always on.
 - Every brand name gets a pronunciation hint (`say`).
 
