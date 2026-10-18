@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "batch_id": "2026-10-18-repo-coop-anything-01",
- "created_at": "2026-10-18T12:01:07Z",
+ "created_at": "2026-10-18T13:43:55Z",
  "buffer_insights": {
   "path": "reels-studio/tracker/buffer-insights.json",
   "sha256": "1d386c05d50ae3c4d3efc6d65b384502687657e53d95832478be82b50fd8953d"
@@ -29,12 +29,12 @@
  },
  "briefs": {
   "repo-coop-anything-01": {
-   "brief_sha256": "e152e42915007808f46d1a7e501113cd1c18ba05c5b9b7adfb659e94369e5975",
+   "brief_sha256": "a636230fa3961a474fb4456f7f4d491e9d7a9c2c01cd37f87fe32624a4264539",
    "metrics_decisions": {
-    "topic": "Fresh radar 2026-10-18: cranebeaker/coop-anything (296 stars in 2 days, MIT). Repo stays the prioritised category; gaming widens the audience beyond devs.",
-    "script": "Niche-decode rules (decode-2026-10-18): stakes hook in sentence 1, product-first cover card, 135-word script for fast delivery, spoken comment-keyword CTA; licence spoken once in plain words ('free and open source'), MIT only at the bottom of the YouTube description (PLAYBOOK viewer-benefit rule).",
+    "topic": "Fresh radar 2026-10-18: cranebeaker/coop-anything (313 stars in 2 days, MIT). Repo stays the prioritised category; gaming widens the audience beyond devs.",
+    "script": "Rebuild 2026-10-18 (owner pulled the card-only cut): same viewer-benefit script, stars updated 296->313 after fresh capture; licence spoken once in plain words ('free and open source'), MIT only at the bottom of the YouTube description.",
     "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall.",
-    "visual": "Original games/how cards made for this video; proven-game results on the cover frame; no gameplay footage copied."
+    "visual": "Media standard 2026-10-18: own browser captures of the real GitHub repos (repo page, full README, 215-project directory, released deus-ex-coop repo) staged in 6 of 7 scenes incl. 3 page/camera scenes; cards are support graphics only. Viewer panel must PASS before queueing."
    },
    "stages": {
     "discover": {
@@ -77,24 +77,24 @@
       "reels-studio/research/radar/radar-2026-10-18.md",
       "reels-studio/research/ideas/feed-2026-10-18.md"
      ],
-     "dynamic_facts_checked_at": "2026-10-18T12:01:07Z",
+     "dynamic_facts_checked_at": "2026-10-18T13:43:55Z",
      "primary_sources": [
       {
        "url": "https://github.com/cranebeaker/coop-anything",
-       "checked_at": "2026-10-18T12:01:07Z",
+       "checked_at": "2026-10-18T13:43:55Z",
        "claim": "README: point a coding agent at the repo to research, build/fix, bot-test and package co-op for single-player games; Deus Ex released, Ocarina of Time fully synced, New Vegas in progress."
       },
       {
        "url": "https://api.github.com/repos/cranebeaker/coop-anything",
-       "checked_at": "2026-10-18T12:01:07Z",
-       "claim": "Live metadata: 296 stars, 21 forks, created 2026-10-16, MIT."
+       "checked_at": "2026-10-18T13:43:55Z",
+       "claim": "Live metadata + own page capture: 313 stars, 23 forks, created 2026-10-16, MIT."
       }
      ]
     },
     "script": {
      "status": "complete",
-     "script_sha256": "c3eb31229bc5206be6d12080d3d77bb17879ab8656e1d2b49b31a558aebe92e3",
-     "word_count": 135
+     "script_sha256": "180f6bdae1079b2e4af996de1c03d52e8745c0a14828e25f124e50ea195f46dc",
+     "word_count": 136
     },
     "voice": {
      "status": "complete",
@@ -110,7 +110,7 @@
      "rights_checked": true,
      "approval_constraints_checked": true,
      "capture_id": "repo-coop-anything-01",
-     "manifest_sha256": "f827500182137cd452708cc090b8156c08c221e9f8deb96fcf33ff7475429453",
+     "manifest_sha256": "ac53eb41bb3ce1ad5aa25d73faa78b6e649a7cc2a3619f4dca185d02637f0732",
      "files": [
       {
        "path": "games-card.png",
@@ -119,6 +119,22 @@
       {
        "path": "how-card.png",
        "sha256": "2b9cfc5a624902cf5af9d3e7a33000214c162c5575ab8b67f1d3957496fd24c4"
+      },
+      {
+       "path": "desktop-top.jpg",
+       "sha256": "92ec3915eb01448fd20b17c03be4acec837528e71d8e6d6686c8e5efc31de59f"
+      },
+      {
+       "path": "desktop-full.jpg",
+       "sha256": "523f4855fc1aec65d809b4141e6d7da080296b848aa27302d758fd82232582c6"
+      },
+      {
+       "path": "directory-top.jpg",
+       "sha256": "4cd84e1c0c4d3101e3fab9526c67f73ec74bb332b413e60bc4da4977d90eefbc"
+      },
+      {
+       "path": "deusex-top.jpg",
+       "sha256": "496e1a59c7a5764789ac7419509df1c4a4c82e8493fa262409803b0d77036a47"
       }
      ]
     }
