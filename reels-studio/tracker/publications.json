@@ -1407,9 +1407,11 @@
     },
     "repo-coop-anything-01:youtube": {
       "attempts": 2,
+      "buffer_post_id": "6ad4dd44938409f1d0d540c6",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-19T20:00:00Z",
+      "due_at": "2026-10-19T20:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:cc7392e5fa5abee37bac2a79b6ba3ada55884385e4557d2828b9946e0c15e650",
         "asset_id": 653695277,
@@ -1424,10 +1426,11 @@
       "notify_subscribers": true,
       "payload_sha256": "220d74c09aa299eacac019443d93b57e0257db87fa2d08d93a290bff1ff42197",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Co-op Anything turns single-player games into co-op: point your AI coding agent at the repo, name your game, and it studies, builds and bot-tests the multiplayer for you. Deus Ex co-op is already released, Ocarina of Time is fully synced, and Fallout: New Vegas story co-op is in the works \u2014 with one-click joins for friends and no port forwarding.\n\nFor gamers who always wished their favourite solo game had multiplayer \u2014 and for AI-agent fans who want a project with a real payoff.\n\nRepo: https://github.com/cranebeaker/coop-anything\n\nLicence: MIT (free and open source).\n\nCredits: Own screen captures of the public GitHub repos (coop-anything + deus-ex-coop, checked 2026-10-18).\n\n#Shorts #gaming #AI #mods #coop",
       "title": "Co-op Anything: Turn Any Single-Player Game Into Co-op With AI",
-      "updated_at": "2026-10-18T14:52:50Z",
+      "updated_at": "2026-10-18T14:52:52Z",
       "video_id": "repo-coop-anything-01"
     },
     "repo-ds4-01:facebook": {
