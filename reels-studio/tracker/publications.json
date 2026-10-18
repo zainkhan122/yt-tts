@@ -1545,9 +1545,11 @@
     },
     "repo-earshot-01:instagram": {
       "attempts": 2,
+      "buffer_post_id": "6ad4ebf4769b457934ccba60",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-19T16:30:00Z",
+      "due_at": "2026-10-19T16:30:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:3b5ca8358f5f534cc444ca218bd1941752e22cc6fee8d7e3b5c2b63f9d720716",
         "asset_id": 653839309,
@@ -1562,10 +1564,11 @@
       "notify_subscribers": false,
       "payload_sha256": "1704ef709d52c41ea991097d903565765ba8716b424e13a87d405a74e3237856",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Save this if you build with agents: Earshot lets AI hear, review and even make sound \u2014 locally on CPU. MIT licence.\n\nCredits: Own captures of the public GitHub repo + the project's own media (checked 2026-10-18).\n\n#AI #Coding #OpenSource",
       "title": "Your Coding Agent Can't Hear. Earshot Fixes That (Free, CPU-Only)",
-      "updated_at": "2026-10-18T15:55:30Z",
+      "updated_at": "2026-10-18T15:55:32Z",
       "video_id": "repo-earshot-01"
     },
     "repo-earshot-01:youtube": {
