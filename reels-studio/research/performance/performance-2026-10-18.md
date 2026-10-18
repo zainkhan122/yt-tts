@@ -1,6 +1,6 @@
 # Shorts performance — 2026-10-18
 
-Source: Buffer Insights snapshot `2026-10-18T09:38:27Z` (complete: **True**) · videos analysed: **31** · mature (≥7d): **3** · developing: **22** · too early (<2d): **6**
+Source: Buffer Insights snapshot `2026-10-18T11:56:36Z` (complete: **True**) · videos analysed: **31** · mature (≥7d): **3** · developing: **22** · too early (<2d): **6**
 
 Metrics are ranked within each platform and never compared across platforms. Verdicts use mature videos only; everything else is labelled descriptive.
 
@@ -8,31 +8,31 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| `list-free-video-ai-01` (mature) | 7.7d | 182 | 0% | 0 | 0 | — | 0 |
-| `repo-ai-newtab-01` (mature) | 7.4d | 169 | 0% | 0 | 0 | — | 0 |
-| `repo-solidglass-01` (developing) | 2.6d | 118 | 0% | 0 | 0 | — | 0 |
-| `repo-graphicle-01` (early) | 0.7d | 105 | 0% | 0 | 0 | — | 181.4 |
-| `tool-qwen-image-21-turbo-01` (developing) | 3.6d | 95 | 0% | 0 | 0 | — | 1.7 |
+| `list-free-video-ai-01` (mature) | 7.8d | 182 | 0% | 0 | 0 | — | 0 |
+| `repo-ai-newtab-01` (mature) | 7.5d | 169 | 0% | 0 | 0 | — | 0 |
+| `repo-solidglass-01` (developing) | 2.7d | 118 | 0% | 0 | 0 | — | 0 |
+| `repo-graphicle-01` (early) | 0.8d | 105 | 0% | 0 | 0 | — | 155.6 |
+| `tool-qwen-image-21-turbo-01` (developing) | 3.7d | 95 | 0% | 0 | 0 | — | 1.5 |
 
 ## instagram — top by views
 
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| `news-gpt61-astra-01` (developing) | 5.9d | 308 | 0.7% | 0 | 0 | 0 | 0 |
-| `repo-opencr-01` (developing) | 5.0d | 269 | 2.1% | 0 | 2 | 1 | 0 |
+| `news-gpt61-astra-01` (developing) | 6d | 308 | 0.7% | 0 | 0 | 0 | 0 |
+| `repo-opencr-01` (developing) | 5.1d | 269 | 2.1% | 0 | 2 | 1 | 0 |
 | `model-embeddinggemma2-01` (developing) | 2.9d | 236 | 4.7% | 0 | 7 | 1 | 0 |
-| `tool-higgsfield-01` (developing) | 4.6d | 219 | 1.6% | 0 | 1 | 2 | 0 |
-| `tool-qwen38-01` (developing) | 5.7d | 219 | 2.5% | 0 | 2 | 0 | 0 |
+| `tool-higgsfield-01` (developing) | 4.7d | 219 | 1.6% | 0 | 1 | 2 | 0 |
+| `tool-qwen38-01` (developing) | 5.8d | 219 | 2.5% | 0 | 2 | 0 | 0 |
 
 ## youtube — top by views
 
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| `tool-qwen38-01` (developing) | 5.7d | 1,094 | 0.7% | 0 | — | — | 88.1 |
-| `repo-ds4-01` (developing) | 5.5d | 1,002 | 0.9% | 0 | — | — | 12.1 |
-| `tool-ltx25-01` (developing) | 5.6d | 339 | 0.6% | 0 | — | — | 13.8 |
-| `news-gpt61-astra-01` (developing) | 5.9d | 266 | 0% | 0 | — | — | 1.7 |
-| `tool-openmontage-01` (developing) | 5.5d | 257 | 0.8% | 0 | — | — | 19.0 |
+| `tool-qwen38-01` (developing) | 5.8d | 1,103 | 0% | 0 | — | — | 93.8 |
+| `repo-ds4-01` (developing) | 5.6d | 1,003 | 0% | 0 | — | — | 10.4 |
+| `tool-ltx25-01` (developing) | 5.7d | 340 | 0% | 0 | — | — | 10.4 |
+| `news-gpt61-astra-01` (developing) | 6.0d | 266 | 0% | 0 | — | — | 0 |
+| `tool-openmontage-01` (developing) | 5.5d | 259 | 0% | 0 | — | — | 20.9 |
 
 ## Winners and underperformers (mature, cross-platform percentile)
 
