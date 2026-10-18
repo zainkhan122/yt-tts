@@ -1270,7 +1270,7 @@
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-18T16:00:00.000Z",
       "external_url": null,
-      "last_error": "Known Buffer post absent from complete active/recent scan; inspect its ID",
+      "last_error": "No unique Buffer receipt; no automatic recreate. Inspect Buffer before resolving.",
       "media_ref": {
         "asset_digest": "sha256:087f8137dc91571221e392ad4b9270a8158e61a7daba6f6eb9c1702c94672c3c",
         "asset_id": 651521505,
@@ -1299,7 +1299,7 @@
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-18T14:00:00.000Z",
       "external_url": null,
-      "last_error": "Known Buffer post absent from complete active/recent scan; inspect its ID",
+      "last_error": "No unique Buffer receipt; no automatic recreate. Inspect Buffer before resolving.",
       "media_ref": {
         "asset_digest": "sha256:087f8137dc91571221e392ad4b9270a8158e61a7daba6f6eb9c1702c94672c3c",
         "asset_id": 651521505,
@@ -1533,7 +1533,7 @@
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-18T18:30:00.000Z",
       "external_url": null,
-      "last_error": "Known Buffer post absent from complete active/recent scan; inspect its ID",
+      "last_error": "No unique Buffer receipt; no automatic recreate. Inspect Buffer before resolving.",
       "media_ref": {
         "asset_digest": "sha256:a5438c3820db9200522e221b639629806cad9235eaf2b0fba6d173405bfaa597",
         "asset_id": 651521604,
@@ -1562,7 +1562,7 @@
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-18T16:30:00.000Z",
       "external_url": null,
-      "last_error": "Known Buffer post absent from complete active/recent scan; inspect its ID",
+      "last_error": "No unique Buffer receipt; no automatic recreate. Inspect Buffer before resolving.",
       "media_ref": {
         "asset_digest": "sha256:a5438c3820db9200522e221b639629806cad9235eaf2b0fba6d173405bfaa597",
         "asset_id": 651521604,
@@ -1591,7 +1591,7 @@
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-18T20:00:00.000Z",
       "external_url": null,
-      "last_error": "Known Buffer post absent from complete active/recent scan; inspect its ID",
+      "last_error": "No unique Buffer receipt; no automatic recreate. Inspect Buffer before resolving.",
       "media_ref": {
         "asset_digest": "sha256:a5438c3820db9200522e221b639629806cad9235eaf2b0fba6d173405bfaa597",
         "asset_id": 651521604,
