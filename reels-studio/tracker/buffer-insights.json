@@ -3,34 +3,34 @@
   "coverage_by_platform": {
     "facebook": {
       "awaiting_posts": 0,
-      "fresh_metric_posts": 25,
+      "fresh_metric_posts": 22,
       "invalid_timestamp_posts": 0,
       "metrics_available_posts": 30,
-      "stale_posts": 5,
+      "stale_posts": 8,
       "total_video_posts": 30,
       "untimestamped_posts": 0
     },
     "instagram": {
-      "awaiting_posts": 1,
-      "fresh_metric_posts": 29,
+      "awaiting_posts": 0,
+      "fresh_metric_posts": 31,
       "invalid_timestamp_posts": 0,
-      "metrics_available_posts": 29,
+      "metrics_available_posts": 31,
       "stale_posts": 0,
-      "total_video_posts": 30,
+      "total_video_posts": 31,
       "untimestamped_posts": 0
     },
     "youtube": {
       "awaiting_posts": 0,
-      "fresh_metric_posts": 33,
+      "fresh_metric_posts": 34,
       "invalid_timestamp_posts": 0,
-      "metrics_available_posts": 33,
+      "metrics_available_posts": 34,
       "stale_posts": 0,
-      "total_video_posts": 33,
+      "total_video_posts": 34,
       "untimestamped_posts": 0
     }
   },
-  "expected_tracked_sent_posts": 87,
-  "fetched_at": "2026-10-17T19:45:01Z",
+  "expected_tracked_sent_posts": 91,
+  "fetched_at": "2026-10-18T09:38:27Z",
   "metrics_coverage_ok": true,
   "missing_expected_post_ids": [],
   "pagination_pages": 1,
@@ -159,6 +159,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.208Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 131
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -184,11 +214,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 126
+          "value": 131
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.208Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6ac904b32f26cc482c22c524",
       "sent_at": "2026-10-09T05:32:44.000Z",
@@ -319,6 +349,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.208Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.74
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 11
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 631
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -332,7 +392,7 @@
           "name": "Eng. Rate",
           "type": "engagementRate",
           "unit": "percentage",
-          "value": 1.76
+          "value": 1.74
         },
         {
           "name": "Reactions",
@@ -344,11 +404,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 625
+          "value": 631
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.208Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6ac904b32f26cc482c22c526",
       "sent_at": "2026-10-09T14:42:21.000Z",
@@ -479,6 +539,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.208Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.09
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 92
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -508,7 +598,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.208Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6ac904b32f26cc482c22c528",
       "sent_at": "2026-10-09T14:35:37.000Z",
@@ -639,6 +729,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.208Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 192
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -664,11 +784,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 191
+          "value": 192
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.208Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6aca1f1ec4de2d2b12255238",
       "sent_at": "2026-10-10T11:18:56.211Z",
@@ -949,6 +1069,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.917Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.81
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 124
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 128
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.227Z"
         }
       ],
       "metrics": [
@@ -1002,7 +1176,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.917Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
       "platform": "instagram",
       "post_id": "6aca1f23b07d37ac976e341a",
       "sent_at": "2026-10-10T11:19:55.742Z",
@@ -1057,7 +1231,7 @@
           "metrics_updated_at": "2026-10-13T10:48:31.425Z"
         },
         {
-          "fetched_at": "2026-10-17T19:45:01Z",
+          "fetched_at": "2026-10-18T09:38:27Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -1419,6 +1593,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.863Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.04
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 98
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 117
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.227Z"
         }
       ],
       "metrics": [
@@ -1472,7 +1700,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.863Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
       "platform": "instagram",
       "post_id": "6aca2926f91f772d459134ba",
       "sent_at": "2026-10-10T15:01:17.193Z",
@@ -1603,6 +1831,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.208Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.41
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 83
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -1632,7 +1890,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.208Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6aca2929d9cab260a7c269d7",
       "sent_at": "2026-10-10T15:00:24.203Z",
@@ -1687,7 +1945,7 @@
           "metrics_updated_at": "2026-10-13T10:48:31.425Z"
         },
         {
-          "fetched_at": "2026-10-17T19:45:01Z",
+          "fetched_at": "2026-10-18T09:38:27Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -1899,6 +2157,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.208Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 3.45
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 29
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -1928,7 +2216,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.208Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6aca292fc4de2d2b12272192",
       "sent_at": "2026-10-10T19:00:34.830Z",
@@ -2209,6 +2497,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.987Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.81
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 124
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 138
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.227Z"
         }
       ],
       "metrics": [
@@ -2262,7 +2604,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.987Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
       "platform": "instagram",
       "post_id": "6aca2932f91f772d459137cb",
       "sent_at": "2026-10-10T20:01:13.587Z",
@@ -2359,7 +2701,7 @@
           "metrics_updated_at": "2026-10-14T09:48:41.179Z"
         },
         {
-          "fetched_at": "2026-10-17T19:45:01Z",
+          "fetched_at": "2026-10-18T09:38:27Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -2537,7 +2879,7 @@
           "metrics_updated_at": "2026-10-14T09:48:41.179Z"
         },
         {
-          "fetched_at": "2026-10-17T19:45:01Z",
+          "fetched_at": "2026-10-18T09:38:27Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -2899,6 +3241,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.867Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 138
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 158
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.227Z"
         }
       ],
       "metrics": [
@@ -2952,7 +3348,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.867Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
       "platform": "instagram",
       "post_id": "6acb1f56bba9419ccb263e9a",
       "sent_at": "2026-10-11T11:01:18.916Z",
@@ -3083,6 +3479,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.208Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 30
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -3112,7 +3538,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.208Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6acb1f59d9cab260a7e93d9d",
       "sent_at": "2026-10-11T13:00:33.268Z",
@@ -3209,7 +3635,7 @@
           "metrics_updated_at": "2026-10-14T09:48:41.179Z"
         },
         {
-          "fetched_at": "2026-10-17T19:45:01Z",
+          "fetched_at": "2026-10-18T09:38:27Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -3571,6 +3997,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.891Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 3.45
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 87
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 112
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.227Z"
         }
       ],
       "metrics": [
@@ -3624,7 +4104,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.891Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
       "platform": "instagram",
       "post_id": "6acb1f5ff91f772d45b8ef27",
       "sent_at": "2026-10-11T15:02:01.391Z",
@@ -3755,6 +4235,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.208Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.64
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 61
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -3784,7 +4294,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.208Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6acb1f62d9cab260a7e93e69",
       "sent_at": "2026-10-11T17:00:47.297Z",
@@ -3881,7 +4391,7 @@
           "metrics_updated_at": "2026-10-14T09:48:41.179Z"
         },
         {
-          "fetched_at": "2026-10-17T19:45:01Z",
+          "fetched_at": "2026-10-18T09:38:27Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -3961,7 +4471,7 @@
           "value": 0
         }
       ],
-      "metrics_status": "fresh",
+      "metrics_status": "stale",
       "metrics_updated_at": "2026-10-16T07:49:04.706Z",
       "platform": "facebook",
       "post_id": "6acb1f65d9cab260a7e93ebf",
@@ -4243,6 +4753,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.909Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 3.8
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 158
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 4
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 186
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.227Z"
         }
       ],
       "metrics": [
@@ -4296,7 +4860,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.909Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
       "platform": "instagram",
       "post_id": "6acb1f68bba9419ccb263fbc",
       "sent_at": "2026-10-11T20:01:45.126Z",
@@ -4427,6 +4991,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.208Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 25
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -4452,11 +5046,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 24
+          "value": 25
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.208Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6acb1f6bc4de2d2b124e4a16",
       "sent_at": "2026-10-11T21:00:29.327Z",
@@ -4553,7 +5147,7 @@
           "metrics_updated_at": "2026-10-14T09:48:41.179Z"
         },
         {
-          "fetched_at": "2026-10-17T19:45:01Z",
+          "fetched_at": "2026-10-18T09:38:27Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -4633,7 +5227,7 @@
           "value": 0
         }
       ],
-      "metrics_status": "fresh",
+      "metrics_status": "stale",
       "metrics_updated_at": "2026-10-16T07:49:04.706Z",
       "platform": "facebook",
       "post_id": "6acb1ffdb07d37ac97979c9c",
@@ -4915,6 +5509,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.879Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.05
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 95
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 102
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.227Z"
         }
       ],
       "metrics": [
@@ -4968,7 +5616,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.879Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
       "platform": "instagram",
       "post_id": "6acb2000c4de2d2b124e5a9a",
       "sent_at": "2026-10-12T00:01:42.010Z",
@@ -5099,6 +5747,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.208Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 19
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -5128,7 +5806,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.208Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6acb2003d9cab260a7e95215",
       "sent_at": "2026-10-12T00:00:55.403Z",
@@ -5225,7 +5903,7 @@
           "metrics_updated_at": "2026-10-14T09:48:41.179Z"
         },
         {
-          "fetched_at": "2026-10-17T19:45:01Z",
+          "fetched_at": "2026-10-18T09:38:27Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -5305,7 +5983,7 @@
           "value": 0
         }
       ],
-      "metrics_status": "fresh",
+      "metrics_status": "stale",
       "metrics_updated_at": "2026-10-16T07:49:04.706Z",
       "platform": "facebook",
       "post_id": "6acb2006f91f772d45b9017d",
@@ -5587,6 +6265,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.874Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.79
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 126
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 136
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.227Z"
         }
       ],
       "metrics": [
@@ -5640,7 +6372,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.874Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
       "platform": "instagram",
       "post_id": "6acb2009c4de2d2b124e5c28",
       "sent_at": "2026-10-12T03:01:05.463Z",
@@ -5771,6 +6503,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.208Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 53
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -5800,7 +6562,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.208Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6acb200cb07d37ac9797a24d",
       "sent_at": "2026-10-12T03:00:23.644Z",
@@ -5939,7 +6701,7 @@
           "metrics_updated_at": "2026-10-16T07:49:04.706Z"
         },
         {
-          "fetched_at": "2026-10-17T19:45:01Z",
+          "fetched_at": "2026-10-18T09:38:27Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -6301,6 +7063,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.961Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.72
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 276
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 308
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.227Z"
         }
       ],
       "metrics": [
@@ -6354,7 +7170,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.961Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
       "platform": "instagram",
       "post_id": "6acc9197a2941ce817667955",
       "sent_at": "2026-10-12T12:02:20.469Z",
@@ -6493,7 +7309,7 @@
           "metrics_updated_at": "2026-10-16T07:49:04.706Z"
         },
         {
-          "fetched_at": "2026-10-17T19:45:01Z",
+          "fetched_at": "2026-10-18T09:38:27Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -6705,6 +7521,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.208Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 266
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -6730,11 +7576,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 265
+          "value": 266
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.208Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6acc919da2941ce817667a0b",
       "sent_at": "2026-10-12T13:00:59.457Z",
@@ -6913,6 +7759,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 70
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -6954,7 +7842,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T06:49:14.232Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6acc91a0712ba82086b03116",
       "sent_at": "2026-10-12T16:01:50.887Z",
@@ -7235,6 +8123,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.958Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.45
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 204
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 3
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 219
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.227Z"
         }
       ],
       "metrics": [
@@ -7288,7 +8230,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.958Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
       "platform": "instagram",
       "post_id": "6acc91a3dd062ea3c817610d",
       "sent_at": "2026-10-12T16:03:58.066Z",
@@ -7419,6 +8361,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.208Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.73
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 8
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 1094
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -7432,7 +8404,7 @@
           "name": "Eng. Rate",
           "type": "engagementRate",
           "unit": "percentage",
-          "value": 0.77
+          "value": 0.73
         },
         {
           "name": "Reactions",
@@ -7444,11 +8416,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 1043
+          "value": 1094
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.208Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6acc91a65feb3462de95f295",
       "sent_at": "2026-10-12T17:01:39.896Z",
@@ -7729,6 +8701,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.911Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.47
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 162
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 173
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.227Z"
         }
       ],
       "metrics": [
@@ -7782,7 +8808,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.911Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
       "platform": "instagram",
       "post_id": "6acc91a9a2941ce817667b18",
       "sent_at": "2026-10-12T19:03:39.315Z",
@@ -7913,6 +8939,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.208Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.9
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 9
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 1002
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -7938,11 +8994,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 995
+          "value": 1002
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.208Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6acc91ac5feb3462de95f38b",
       "sent_at": "2026-10-12T21:00:37.164Z",
@@ -8121,6 +9177,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 15
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -8146,7 +9244,7 @@
           "name": "Impressions",
           "type": "impressions",
           "unit": "count",
-          "value": 14
+          "value": 15
         },
         {
           "name": "Reactions",
@@ -8162,7 +9260,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T06:49:14.232Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6acc923ba2941ce817669020",
       "sent_at": "2026-10-12T19:01:14.336Z",
@@ -8341,6 +9439,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.78
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 36
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -8382,7 +9522,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T06:49:14.232Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6acc923e712ba82086b04311",
       "sent_at": "2026-10-12T22:01:11.240Z",
@@ -8663,6 +9803,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.906Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 123
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 132
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.227Z"
         }
       ],
       "metrics": [
@@ -8716,7 +9910,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.906Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
       "platform": "instagram",
       "post_id": "6acc92415feb3462de960928",
       "sent_at": "2026-10-12T22:02:43.809Z",
@@ -8847,6 +10041,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.207Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 41
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -8876,7 +10100,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.207Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6acc9244c5fdc4c02d0c56ea",
       "sent_at": "2026-10-12T22:30:12.298Z",
@@ -9157,6 +10381,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.898Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.45
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 138
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 149
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.227Z"
         }
       ],
       "metrics": [
@@ -9210,7 +10488,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.898Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
       "platform": "instagram",
       "post_id": "6acc9247802e657d5c3d7239",
       "sent_at": "2026-10-13T01:01:25.202Z",
@@ -9341,6 +10619,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.207Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.78
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 257
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -9354,7 +10662,7 @@
           "name": "Eng. Rate",
           "type": "engagementRate",
           "unit": "percentage",
-          "value": 0.81
+          "value": 0.78
         },
         {
           "name": "Reactions",
@@ -9366,11 +10674,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 246
+          "value": 257
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.207Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6acc924ac5fdc4c02d0c5770",
       "sent_at": "2026-10-12T22:45:09.415Z",
@@ -9549,6 +10857,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 37
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -9590,7 +10940,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T06:49:14.232Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6accbfad52632410b3dc6540",
       "sent_at": "2026-10-13T23:01:29.639Z",
@@ -9871,6 +11221,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.885Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.64
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 156
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 169
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.227Z"
         }
       ],
       "metrics": [
@@ -9924,7 +11328,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.885Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
       "platform": "instagram",
       "post_id": "6accbfb032da9d8379ea7743",
       "sent_at": "2026-10-13T09:25:58.940Z",
@@ -10055,6 +11459,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.207Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 115
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -10084,7 +11518,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.207Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6accbfb3624c35d1cf1d9443",
       "sent_at": "2026-10-13T00:15:04.107Z",
@@ -10263,6 +11697,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 47
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -10288,7 +11764,7 @@
           "name": "Impressions",
           "type": "impressions",
           "unit": "count",
-          "value": 46
+          "value": 47
         },
         {
           "name": "Reactions",
@@ -10304,7 +11780,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T06:49:14.232Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6accbfb60b1f16abcb04913b",
       "sent_at": "2026-10-12T22:46:15.191Z",
@@ -10435,6 +11911,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.207Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.14
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 88
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -10448,7 +11954,7 @@
           "name": "Eng. Rate",
           "type": "engagementRate",
           "unit": "percentage",
-          "value": 1.16
+          "value": 1.14
         },
         {
           "name": "Reactions",
@@ -10460,11 +11966,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 86
+          "value": 88
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.207Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6accbfb952632410b3dc6657",
       "sent_at": "2026-10-13T15:01:55.405Z",
@@ -10643,6 +12149,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 4
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -10684,7 +12232,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T06:49:14.232Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6accbfbc11bee99e6c99fa6d",
       "sent_at": "2026-10-12T23:30:44.498Z",
@@ -10965,6 +12513,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.900Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.1
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 238
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 269
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.227Z"
         }
       ],
       "metrics": [
@@ -11018,7 +12620,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.900Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
       "platform": "instagram",
       "post_id": "6accbfbf0b1f16abcb04921c",
       "sent_at": "2026-10-13T09:25:22.708Z",
@@ -11149,6 +12751,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.208Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 42
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -11178,7 +12810,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.208Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6accbfc211bee99e6c99fae8",
       "sent_at": "2026-10-12T11:56:19.295Z",
@@ -11357,6 +12989,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 82
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -11398,7 +13072,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T06:49:14.232Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6accbfc50b1f16abcb049341",
       "sent_at": "2026-10-13T19:02:02.167Z",
@@ -11630,6 +13304,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.912Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.55
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 193
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 219
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.227Z"
         }
       ],
       "metrics": [
@@ -11683,7 +13411,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.912Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
       "platform": "instagram",
       "post_id": "6accc03b11bee99e6c9a1833",
       "sent_at": "2026-10-13T19:03:24.017Z",
@@ -11814,6 +13542,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.207Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 56
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -11839,11 +13597,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 55
+          "value": 56
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.207Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6accd6f88aaa2e31caa56f20",
       "sent_at": "2026-10-13T18:01:33.035Z",
@@ -12022,6 +13780,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 31
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -12063,7 +13863,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T06:49:14.232Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6accd6fb0cc1ccfc8f759249",
       "sent_at": "2026-10-13T22:01:24.275Z",
@@ -12295,6 +14095,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.858Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.54
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 184
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 199
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.226Z"
         }
       ],
       "metrics": [
@@ -12348,7 +14202,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.858Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
       "platform": "instagram",
       "post_id": "6accd7007659eb754b6eeeba",
       "sent_at": "2026-10-13T22:03:53.751Z",
@@ -12479,6 +14333,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.208Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.59
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 339
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -12492,23 +14376,23 @@
           "name": "Eng. Rate",
           "type": "engagementRate",
           "unit": "percentage",
-          "value": 0.3
+          "value": 0.59
         },
         {
           "name": "Reactions",
           "type": "reactions",
           "unit": "count",
-          "value": 1
+          "value": 2
         },
         {
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 331
+          "value": 339
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.208Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6acce75f0728a43e978181cd",
       "sent_at": "2026-10-12T18:45:15.690Z",
@@ -12740,6 +14624,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.881Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.36
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 127
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 156
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.226Z"
         }
       ],
       "metrics": [
@@ -12793,7 +14731,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.881Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
       "platform": "instagram",
       "post_id": "6acd80a45229b40e868aabaa",
       "sent_at": "2026-10-14T01:02:10.161Z",
@@ -12924,6 +14862,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.207Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.67
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 149
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -12937,7 +14905,7 @@
           "name": "Eng. Rate",
           "type": "engagementRate",
           "unit": "percentage",
-          "value": 0.68
+          "value": 0.67
         },
         {
           "name": "Reactions",
@@ -12949,11 +14917,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 148
+          "value": 149
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.207Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6aceb924848c31c8094f6fac",
       "sent_at": "2026-10-14T01:00:30.648Z",
@@ -13090,6 +15058,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 86
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -13131,7 +15141,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T06:49:14.232Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6aceb927b610c3011f91ab1f",
       "sent_at": "2026-10-14T10:01:01.474Z",
@@ -13304,6 +15314,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.902Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 4.74
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 211
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 7
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 236
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.226Z"
         }
       ],
       "metrics": [
@@ -13357,7 +15421,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.902Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
       "platform": "instagram",
       "post_id": "6aceb92a33507eb5b0e27a2e",
       "sent_at": "2026-10-15T13:21:17.970Z",
@@ -13494,6 +15558,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 85
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -13535,7 +15641,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T06:49:14.232Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6aceb92d1f3f10bcb7a33625",
       "sent_at": "2026-10-14T13:01:46.852Z",
@@ -13636,6 +15742,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.207Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 76
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -13661,11 +15797,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 63
+          "value": 76
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.207Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6aceb930f847f2ad9eb488ff",
       "sent_at": "2026-10-14T13:01:32.335Z",
@@ -13802,6 +15938,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 82
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -13843,7 +16021,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T06:49:14.232Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6aceb933848c31c8094f7381",
       "sent_at": "2026-10-14T16:02:30.839Z",
@@ -14021,6 +16199,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.904Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 123
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 138
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.226Z"
         }
       ],
       "metrics": [
@@ -14074,7 +16306,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.904Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
       "platform": "instagram",
       "post_id": "6aceb93633507eb5b0e27cf6",
       "sent_at": "2026-10-14T16:05:27.991Z",
@@ -14175,6 +16407,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.207Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 193
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -14200,11 +16462,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 161
+          "value": 193
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.207Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6aceb9391f3f10bcb7a33919",
       "sent_at": "2026-10-14T17:01:58.770Z",
@@ -14341,6 +16603,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 95
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -14366,7 +16670,7 @@
           "name": "Impressions",
           "type": "impressions",
           "unit": "count",
-          "value": 94
+          "value": 95
         },
         {
           "name": "Reactions",
@@ -14382,7 +16686,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T06:49:14.232Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6aceb93c848c31c8094f748d",
       "sent_at": "2026-10-14T19:01:35.376Z",
@@ -14560,6 +16864,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:23.010Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 134
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 143
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.226Z"
         }
       ],
       "metrics": [
@@ -14613,7 +16971,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:23.010Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
       "platform": "instagram",
       "post_id": "6aceba5ff847f2ad9eb4dab5",
       "sent_at": "2026-10-14T19:02:17.657Z",
@@ -14714,6 +17072,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.207Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 221
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -14739,11 +17127,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 184
+          "value": 221
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.207Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6aceba63f847f2ad9eb4db4c",
       "sent_at": "2026-10-14T21:00:54.459Z",
@@ -14921,6 +17309,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.865Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.13
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 141
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 159
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.226Z"
         }
       ],
       "metrics": [
@@ -14974,7 +17416,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.865Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
       "platform": "instagram",
       "post_id": "6aceba661f3f10bcb7a37836",
       "sent_at": "2026-10-14T22:03:15.795Z",
@@ -15225,6 +17667,66 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.914Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Avg. Watch Time (sec)",
+              "type": "averageTimeWatched",
+              "unit": "count",
+              "value": 2.77
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 138
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Watch Time (min)",
+              "type": "totalTimeWatched",
+              "unit": "count",
+              "value": 6.47
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 156
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.226Z"
         }
       ],
       "metrics": [
@@ -15284,7 +17786,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.914Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
       "platform": "instagram",
       "post_id": "6acf87cb99f11617331a60d1",
       "sent_at": "2026-10-14T12:03:36.000Z",
@@ -15379,6 +17881,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 37
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -15404,7 +17948,7 @@
           "name": "Impressions",
           "type": "impressions",
           "unit": "count",
-          "value": 34
+          "value": 37
         },
         {
           "name": "Reactions",
@@ -15420,7 +17964,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T06:49:14.232Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6ad0cb7fe8416cbf0cfadadf",
       "sent_at": "2026-10-15T16:01:15.326Z",
@@ -15491,6 +18035,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.207Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 14
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -15516,11 +18090,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 7
+          "value": 14
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.207Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6ad0cb838913aa90c39762c5",
       "sent_at": "2026-10-15T17:00:38.497Z",
@@ -15693,6 +18267,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.876Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.24
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 134
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 154
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.226Z"
         }
       ],
       "metrics": [
@@ -15706,7 +18334,7 @@
           "name": "Eng. Rate",
           "type": "engagementRate",
           "unit": "percentage",
-          "value": 2.27
+          "value": 2.24
         },
         {
           "name": "Follows",
@@ -15718,7 +18346,7 @@
           "name": "Reach",
           "type": "reach",
           "unit": "count",
-          "value": 132
+          "value": 134
         },
         {
           "name": "Reactions",
@@ -15742,11 +18370,11 @@
           "name": "Views",
           "type": "views",
           "unit": "count",
-          "value": 151
+          "value": 154
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.876Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
       "platform": "instagram",
       "post_id": "6ad0cb86e8416cbf0cfadc2f",
       "sent_at": "2026-10-15T19:02:04.182Z",
@@ -15817,6 +18445,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.207Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 22
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -15842,11 +18500,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 14
+          "value": 22
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.207Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6ad0cb8a5d6d63b3aef84728",
       "sent_at": "2026-10-15T21:00:24.878Z",
@@ -15941,6 +18599,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 27
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -15966,7 +18666,7 @@
           "name": "Impressions",
           "type": "impressions",
           "unit": "count",
-          "value": 26
+          "value": 27
         },
         {
           "name": "Reactions",
@@ -15982,7 +18682,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T06:49:14.232Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6ad0cb8e5d6d63b3aef8477f",
       "sent_at": "2026-10-15T22:00:46.807Z",
@@ -16155,6 +18855,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.883Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 3.49
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 86
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 3
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 101
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.226Z"
         }
       ],
       "metrics": [
@@ -16168,7 +18922,7 @@
           "name": "Eng. Rate",
           "type": "engagementRate",
           "unit": "percentage",
-          "value": 3.53
+          "value": 3.49
         },
         {
           "name": "Follows",
@@ -16180,7 +18934,7 @@
           "name": "Reach",
           "type": "reach",
           "unit": "count",
-          "value": 85
+          "value": 86
         },
         {
           "name": "Reactions",
@@ -16204,11 +18958,11 @@
           "name": "Views",
           "type": "views",
           "unit": "count",
-          "value": 100
+          "value": 101
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.883Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
       "platform": "instagram",
       "post_id": "6ad0cb928913aa90c397647f",
       "sent_at": "2026-10-15T23:01:57.570Z",
@@ -16279,6 +19033,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.207Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 33
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -16304,11 +19088,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 21
+          "value": 33
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.207Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6ad0cb95f76aea2cf7a79b15",
       "sent_at": "2026-10-16T00:00:36.340Z",
@@ -16403,6 +19187,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 118
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -16444,7 +19270,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T06:49:14.232Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6ad0cb988445da123d70b6cd",
       "sent_at": "2026-10-15T19:01:00.010Z",
@@ -16617,6 +19443,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.919Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.61
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 165
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 190
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.226Z"
         }
       ],
       "metrics": [
@@ -16670,7 +19550,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.919Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
       "platform": "instagram",
       "post_id": "6ad0cb9b8445da123d70b711",
       "sent_at": "2026-10-15T21:01:33.658Z",
@@ -16723,6 +19603,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 8.33
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 12
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -16742,19 +19664,19 @@
           "name": "Eng. Rate",
           "type": "engagementRate",
           "unit": "percentage",
-          "value": 0
+          "value": 8.33
         },
         {
           "name": "Impressions",
           "type": "impressions",
           "unit": "count",
-          "value": 10
+          "value": 12
         },
         {
           "name": "Reactions",
           "type": "reactions",
           "unit": "count",
-          "value": 0
+          "value": 1
         },
         {
           "name": "Shares",
@@ -16764,7 +19686,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T06:49:14.232Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6ad1fe5caa117851c0f259db",
       "sent_at": "2026-10-16T13:00:43.728Z",
@@ -16817,6 +19739,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 15
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -16842,7 +19806,7 @@
           "name": "Impressions",
           "type": "impressions",
           "unit": "count",
-          "value": 14
+          "value": 15
         },
         {
           "name": "Reactions",
@@ -16858,7 +19822,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T06:49:14.232Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6ad1fe5fc0accac7daca2fa8",
       "sent_at": "2026-10-16T16:01:17.940Z",
@@ -16977,6 +19941,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.870Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.68
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 119
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 140
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.226Z"
         }
       ],
       "metrics": [
@@ -16990,7 +20008,7 @@
           "name": "Eng. Rate",
           "type": "engagementRate",
           "unit": "percentage",
-          "value": 1.71
+          "value": 1.68
         },
         {
           "name": "Follows",
@@ -17002,7 +20020,7 @@
           "name": "Reach",
           "type": "reach",
           "unit": "count",
-          "value": 117
+          "value": 119
         },
         {
           "name": "Reactions",
@@ -17026,11 +20044,11 @@
           "name": "Views",
           "type": "views",
           "unit": "count",
-          "value": 138
+          "value": 140
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.870Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
       "platform": "instagram",
       "post_id": "6ad1fe62aecfd112ce6f0e19",
       "sent_at": "2026-10-16T16:02:16.478Z",
@@ -17071,6 +20089,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.207Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 59
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -17096,11 +20144,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 6
+          "value": 59
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.207Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6ad1fe6558fcf4d767e1c236",
       "sent_at": "2026-10-16T20:00:28.197Z",
@@ -17153,6 +20201,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 14
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -17178,7 +20268,7 @@
           "name": "Impressions",
           "type": "impressions",
           "unit": "count",
-          "value": 12
+          "value": 14
         },
         {
           "name": "Reactions",
@@ -17194,7 +20284,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T06:49:14.232Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6ad1fe6913b2adf724a21e6d",
       "sent_at": "2026-10-16T22:00:46.450Z",
@@ -17313,6 +20403,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.896Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.51
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 199
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 3
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 217
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.226Z"
         }
       ],
       "metrics": [
@@ -17326,7 +20470,7 @@
           "name": "Eng. Rate",
           "type": "engagementRate",
           "unit": "percentage",
-          "value": 2.73
+          "value": 2.51
         },
         {
           "name": "Follows",
@@ -17338,7 +20482,7 @@
           "name": "Reach",
           "type": "reach",
           "unit": "count",
-          "value": 183
+          "value": 199
         },
         {
           "name": "Reactions",
@@ -17362,11 +20506,11 @@
           "name": "Views",
           "type": "views",
           "unit": "count",
-          "value": 202
+          "value": 217
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.896Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
       "platform": "instagram",
       "post_id": "6ad1fe6c13b2adf724a220e0",
       "sent_at": "2026-10-16T22:01:22.224Z",
@@ -17407,6 +20551,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.207Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 14
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -17432,11 +20606,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 1
+          "value": 14
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.207Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6ad1fe6f13b2adf724a22361",
       "sent_at": "2026-10-16T23:00:44.272Z",
@@ -17555,6 +20729,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T13:47:22.893Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.67
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 120
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 137
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.226Z"
         }
       ],
       "metrics": [
@@ -17568,7 +20796,7 @@
           "name": "Eng. Rate",
           "type": "engagementRate",
           "unit": "percentage",
-          "value": 1.68
+          "value": 1.67
         },
         {
           "name": "Follows",
@@ -17580,7 +20808,7 @@
           "name": "Reach",
           "type": "reach",
           "unit": "count",
-          "value": 119
+          "value": 120
         },
         {
           "name": "Reactions",
@@ -17604,11 +20832,11 @@
           "name": "Views",
           "type": "views",
           "unit": "count",
-          "value": 136
+          "value": 137
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T13:47:22.893Z",
+      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
       "platform": "instagram",
       "post_id": "6ad1fe7258fcf4d767e1c444",
       "sent_at": "2026-10-17T01:01:34.354Z",
@@ -17649,6 +20877,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T07:35:24.207Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 4.35
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 23
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -17662,7 +20920,7 @@
           "name": "Eng. Rate",
           "type": "engagementRate",
           "unit": "percentage",
-          "value": 5.56
+          "value": 4.35
         },
         {
           "name": "Reactions",
@@ -17674,11 +20932,11 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 18
+          "value": 23
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T07:35:24.207Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6ad1fe75aecfd112ce6f0fbf",
       "sent_at": "2026-10-17T02:00:13.548Z",
@@ -17731,6 +20989,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T14:03:26.599Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 7
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -17756,7 +21056,7 @@
           "name": "Impressions",
           "type": "impressions",
           "unit": "count",
-          "value": 0
+          "value": 7
         },
         {
           "name": "Reactions",
@@ -17772,7 +21072,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T14:03:26.599Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6ad1ff2813b2adf724a23951",
       "sent_at": "2026-10-17T14:01:55.707Z",
@@ -17788,11 +21088,114 @@
           "fetched_at": "2026-10-17T19:45:01Z",
           "metrics": [],
           "metrics_updated_at": "2026-10-16T10:40:43.201Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.09
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 92
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 107
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.226Z"
         }
       ],
-      "metrics": [],
-      "metrics_status": "awaiting_buffer_refresh",
-      "metrics_updated_at": "2026-10-16T10:40:43.201Z",
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 1.09
+        },
+        {
+          "name": "Follows",
+          "type": "follows",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reach",
+          "type": "reach",
+          "unit": "count",
+          "value": 92
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Saves",
+          "type": "saves",
+          "unit": "count",
+          "value": 1
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Views",
+          "type": "views",
+          "unit": "count",
+          "value": 107
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
       "platform": "instagram",
       "post_id": "6ad1ff2bc0accac7daca5073",
       "sent_at": "2026-10-17T15:03:19.168Z",
@@ -17833,6 +21236,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T15:04:30.908Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 9.09
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 11
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -17846,23 +21279,23 @@
           "name": "Eng. Rate",
           "type": "engagementRate",
           "unit": "percentage",
-          "value": 0
+          "value": 9.09
         },
         {
           "name": "Reactions",
           "type": "reactions",
           "unit": "count",
-          "value": 0
+          "value": 1
         },
         {
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 0
+          "value": 11
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T15:04:30.908Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6ad1ff2ebbb9ce09f66cb14c",
       "sent_at": "2026-10-17T15:01:05.993Z",
@@ -17915,6 +21348,48 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T18:02:47.413Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Clicks",
+              "type": "clicks",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Impressions",
+              "type": "impressions",
+              "unit": "count",
+              "value": 105
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:49:25.524Z"
         }
       ],
       "metrics": [
@@ -17940,7 +21415,7 @@
           "name": "Impressions",
           "type": "impressions",
           "unit": "count",
-          "value": 0
+          "value": 105
         },
         {
           "name": "Reactions",
@@ -17956,12 +21431,12 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T18:02:47.413Z",
+      "metrics_updated_at": "2026-10-18T05:49:25.524Z",
       "platform": "facebook",
       "post_id": "6ad1ff3158fcf4d767e1e2b8",
       "sent_at": "2026-10-17T18:01:19.845Z",
-      "title": "Graphicle: code graph + memory for coding agents in one Rust program. MCP for Claude Code/Codex/Cursor; local-first, Apache-2.0. Credits: Own stack and agent ca",
-      "video_id": null
+      "title": "Graphicle: a Map and Memory for Your Coding Agent",
+      "video_id": "repo-graphicle-01"
     },
     "6ad1ff35aecfd112ce6f38fd": {
       "caption_excerpt": "Graphicle is a single Rust program (Apache-2.0) that maps your codebase into a code graph, remembers docs, decisions and past agent sessions, and serves cited excerpts with exact files and lines to Claude Code, Codex, Cursor or any MCP clie",
@@ -17997,6 +21472,36 @@
             }
           ],
           "metrics_updated_at": "2026-10-17T19:04:21.453Z"
+        },
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 12
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         }
       ],
       "metrics": [
@@ -18022,20 +21527,208 @@
           "name": "Video Views",
           "type": "views",
           "unit": "count",
-          "value": 0
+          "value": 12
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-17T19:04:21.453Z",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
       "platform": "youtube",
       "post_id": "6ad1ff35aecfd112ce6f38fd",
       "sent_at": "2026-10-17T19:01:04.255Z",
-      "title": "Graphicle is a single Rust program (Apache-2.0) that maps your codebase into a code graph, remembers docs, decisions and past agent sessions, and serves cited e",
-      "video_id": null
+      "title": "Graphicle: a Map and Memory for Your Coding Agent",
+      "video_id": "repo-graphicle-01"
+    },
+    "6ad1ff38c0accac7daca5294": {
+      "caption_excerpt": "Your coding agent, but with a map and a memory: Graphicle indexes your repo and answers with exact files and lines. Local-first, Apache-2.0. Save this if you live in Claude Code or Cursor. Credits: Own stack and agent cards created for this",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "external_url": "https://www.instagram.com/reel/Dem6t4xkmVa/",
+      "history": [
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 119
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 141
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T05:50:37.226Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Follows",
+          "type": "follows",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Reach",
+          "type": "reach",
+          "unit": "count",
+          "value": 119
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Saves",
+          "type": "saves",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Shares",
+          "type": "shares",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Views",
+          "type": "views",
+          "unit": "count",
+          "value": 141
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
+      "platform": "instagram",
+      "post_id": "6ad1ff38c0accac7daca5294",
+      "sent_at": "2026-10-17T20:01:19.439Z",
+      "title": "Graphicle: a Map and Memory for Your Coding Agent",
+      "video_id": "repo-graphicle-01"
+    },
+    "6ad3ddae938409f1d0a0c96a": {
+      "caption_excerpt": "MCP for Blender Pro is a free MIT add-on that gives AI 21 scene tools inside Blender 4.2+: describe a scene, it inspects what exists, then creates and edits objects step by step — with a visual chat, agent team and built-in MCP server. Work",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "external_url": "https://www.youtube.com/shorts/1m0M8Arrcqg",
+      "history": [
+        {
+          "fetched_at": "2026-10-18T09:38:27Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Video Views",
+              "type": "views",
+              "unit": "count",
+              "value": 52
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T06:37:05.627Z"
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Comments",
+          "type": "comments",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Eng. Rate",
+          "type": "engagementRate",
+          "unit": "percentage",
+          "value": 0
+        },
+        {
+          "name": "Reactions",
+          "type": "reactions",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "Video Views",
+          "type": "views",
+          "unit": "count",
+          "value": 52
+        }
+      ],
+      "metrics_status": "fresh",
+      "metrics_updated_at": "2026-10-18T06:37:05.627Z",
+      "platform": "youtube",
+      "post_id": "6ad3ddae938409f1d0a0c96a",
+      "sent_at": "2026-10-17T22:30:09.441Z",
+      "title": "AI Inside Blender: It Builds Scenes From Chat | MCP for Blender Pro",
+      "video_id": "repo-blender-mcp-01"
     }
   },
   "schema_version": 1,
-  "sent_post_count": 94,
+  "sent_post_count": 96,
   "source": "Buffer GraphQL Post.metrics (read-only)",
-  "video_post_count": 93
+  "video_post_count": 95
 }
