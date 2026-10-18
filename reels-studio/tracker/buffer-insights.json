@@ -30,7 +30,7 @@
     }
   },
   "expected_tracked_sent_posts": 91,
-  "fetched_at": "2026-10-18T11:56:36Z",
+  "fetched_at": "2026-10-18T15:14:52Z",
   "metrics_coverage_ok": true,
   "missing_expected_post_ids": [],
   "pagination_pages": 1,
@@ -191,7 +191,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -411,7 +411,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -631,7 +631,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -851,7 +851,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -1243,6 +1243,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.227Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.81
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 124
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 128
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.486Z"
         }
       ],
       "metrics": [
@@ -1296,7 +1350,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.486Z",
       "platform": "instagram",
       "post_id": "6aca1f23b07d37ac976e341a",
       "sent_at": "2026-10-10T11:19:55.742Z",
@@ -1351,7 +1405,7 @@
           "metrics_updated_at": "2026-10-13T10:48:31.425Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -1767,6 +1821,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.227Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.04
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 98
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 117
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.365Z"
         }
       ],
       "metrics": [
@@ -1820,7 +1928,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.365Z",
       "platform": "instagram",
       "post_id": "6aca2926f91f772d459134ba",
       "sent_at": "2026-10-10T15:01:17.193Z",
@@ -1983,7 +2091,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -2095,7 +2203,7 @@
           "metrics_updated_at": "2026-10-13T10:48:31.425Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -2339,7 +2447,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -2731,6 +2839,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.227Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.81
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 124
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 138
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.391Z"
         }
       ],
       "metrics": [
@@ -2784,7 +2946,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.391Z",
       "platform": "instagram",
       "post_id": "6aca2932f91f772d459137cb",
       "sent_at": "2026-10-10T20:01:13.587Z",
@@ -2881,7 +3043,7 @@
           "metrics_updated_at": "2026-10-14T09:48:41.179Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -3059,7 +3221,7 @@
           "metrics_updated_at": "2026-10-14T09:48:41.179Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -3475,6 +3637,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.227Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 138
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 158
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.452Z"
         }
       ],
       "metrics": [
@@ -3528,7 +3744,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.452Z",
       "platform": "instagram",
       "post_id": "6acb1f56bba9419ccb263e9a",
       "sent_at": "2026-10-11T11:01:18.916Z",
@@ -3691,7 +3907,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -3845,7 +4061,7 @@
           "metrics_updated_at": "2026-10-14T09:48:41.179Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -4261,6 +4477,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.227Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 3.45
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 87
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 112
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.449Z"
         }
       ],
       "metrics": [
@@ -4314,7 +4584,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.449Z",
       "platform": "instagram",
       "post_id": "6acb1f5ff91f772d45b8ef27",
       "sent_at": "2026-10-11T15:02:01.391Z",
@@ -4477,7 +4747,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -4631,7 +4901,7 @@
           "metrics_updated_at": "2026-10-14T09:48:41.179Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -5047,6 +5317,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.227Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 3.8
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 158
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 4
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 186
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.386Z"
         }
       ],
       "metrics": [
@@ -5100,7 +5424,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.386Z",
       "platform": "instagram",
       "post_id": "6acb1f68bba9419ccb263fbc",
       "sent_at": "2026-10-11T20:01:45.126Z",
@@ -5263,7 +5587,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -5417,7 +5741,7 @@
           "metrics_updated_at": "2026-10-14T09:48:41.179Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -5833,6 +6157,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.227Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.05
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 95
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 102
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.377Z"
         }
       ],
       "metrics": [
@@ -5886,7 +6264,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.377Z",
       "platform": "instagram",
       "post_id": "6acb2000c4de2d2b124e5a9a",
       "sent_at": "2026-10-12T00:01:42.010Z",
@@ -6049,7 +6427,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -6203,7 +6581,7 @@
           "metrics_updated_at": "2026-10-14T09:48:41.179Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -6619,6 +6997,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.227Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.79
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 126
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 136
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.356Z"
         }
       ],
       "metrics": [
@@ -6672,7 +7104,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.356Z",
       "platform": "instagram",
       "post_id": "6acb2009c4de2d2b124e5c28",
       "sent_at": "2026-10-12T03:01:05.463Z",
@@ -6835,7 +7267,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -7031,7 +7463,7 @@
           "metrics_updated_at": "2026-10-16T07:49:04.706Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -7447,6 +7879,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.227Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.72
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 276
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 308
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.368Z"
         }
       ],
       "metrics": [
@@ -7500,7 +7986,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.368Z",
       "platform": "instagram",
       "post_id": "6acc9197a2941ce817667955",
       "sent_at": "2026-10-12T12:02:20.469Z",
@@ -7639,7 +8125,7 @@
           "metrics_updated_at": "2026-10-16T07:49:04.706Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -7883,7 +8369,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -8121,7 +8607,7 @@
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -8537,6 +9023,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.227Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.45
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 204
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 3
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 219
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.374Z"
         }
       ],
       "metrics": [
@@ -8590,7 +9130,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.374Z",
       "platform": "instagram",
       "post_id": "6acc91a3dd062ea3c817610d",
       "sent_at": "2026-10-12T16:03:58.066Z",
@@ -8753,7 +9293,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -9145,6 +9685,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.227Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.47
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 162
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 173
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.404Z"
         }
       ],
       "metrics": [
@@ -9198,7 +9792,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.404Z",
       "platform": "instagram",
       "post_id": "6acc91a9a2941ce817667b18",
       "sent_at": "2026-10-12T19:03:39.315Z",
@@ -9361,7 +9955,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -9599,7 +10193,7 @@
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -9861,7 +10455,7 @@
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -10277,6 +10871,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.227Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 123
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 132
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.406Z"
         }
       ],
       "metrics": [
@@ -10330,7 +10978,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.406Z",
       "platform": "instagram",
       "post_id": "6acc92415feb3462de960928",
       "sent_at": "2026-10-12T22:02:43.809Z",
@@ -10493,7 +11141,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -10885,6 +11533,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.227Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.45
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 138
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 149
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.408Z"
         }
       ],
       "metrics": [
@@ -10938,7 +11640,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.408Z",
       "platform": "instagram",
       "post_id": "6acc9247802e657d5c3d7239",
       "sent_at": "2026-10-13T01:01:25.202Z",
@@ -11101,7 +11803,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -11339,7 +12041,7 @@
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -11755,6 +12457,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.227Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.64
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 156
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 169
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.354Z"
         }
       ],
       "metrics": [
@@ -11808,7 +12564,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.354Z",
       "platform": "instagram",
       "post_id": "6accbfb032da9d8379ea7743",
       "sent_at": "2026-10-13T09:25:58.940Z",
@@ -11971,7 +12727,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -12209,7 +12965,7 @@
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -12453,7 +13209,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -12691,7 +13447,7 @@
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -13107,6 +13863,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.227Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.1
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 238
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 269
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.379Z"
         }
       ],
       "metrics": [
@@ -13160,7 +13970,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.379Z",
       "platform": "instagram",
       "post_id": "6accbfbf0b1f16abcb04921c",
       "sent_at": "2026-10-13T09:25:22.708Z",
@@ -13323,7 +14133,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -13561,7 +14371,7 @@
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -13928,6 +14738,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.227Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.55
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 193
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 219
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.384Z"
         }
       ],
       "metrics": [
@@ -13981,7 +14845,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.227Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.384Z",
       "platform": "instagram",
       "post_id": "6accc03b11bee99e6c9a1833",
       "sent_at": "2026-10-13T19:03:24.017Z",
@@ -14144,7 +15008,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -14382,7 +15246,7 @@
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -14749,6 +15613,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.226Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.54
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 184
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 199
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.396Z"
         }
       ],
       "metrics": [
@@ -14802,7 +15720,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.396Z",
       "platform": "instagram",
       "post_id": "6accd7007659eb754b6eeeba",
       "sent_at": "2026-10-13T22:03:53.751Z",
@@ -14965,7 +15883,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -15308,6 +16226,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.226Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.36
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 127
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 156
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.372Z"
         }
       ],
       "metrics": [
@@ -15361,7 +16333,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.372Z",
       "platform": "instagram",
       "post_id": "6acd80a45229b40e868aabaa",
       "sent_at": "2026-10-14T01:02:10.161Z",
@@ -15524,7 +16496,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -15720,7 +16692,7 @@
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -16028,6 +17000,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.226Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 4.74
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 211
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 7
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 236
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.351Z"
         }
       ],
       "metrics": [
@@ -16081,7 +17107,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.351Z",
       "platform": "instagram",
       "post_id": "6aceb92a33507eb5b0e27a2e",
       "sent_at": "2026-10-15T13:21:17.970Z",
@@ -16220,7 +17246,7 @@
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -16434,7 +17460,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -16630,7 +17656,7 @@
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -16943,6 +17969,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.226Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 123
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 138
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.389Z"
         }
       ],
       "metrics": [
@@ -16996,7 +18076,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.389Z",
       "platform": "instagram",
       "post_id": "6aceb93633507eb5b0e27cf6",
       "sent_at": "2026-10-14T16:05:27.991Z",
@@ -17129,7 +18209,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -17325,7 +18405,7 @@
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -17638,6 +18718,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.226Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 134
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 143
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.361Z"
         }
       ],
       "metrics": [
@@ -17691,7 +18825,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.361Z",
       "platform": "instagram",
       "post_id": "6aceba5ff847f2ad9eb4dab5",
       "sent_at": "2026-10-14T19:02:17.657Z",
@@ -17824,7 +18958,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -18113,6 +19247,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.226Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.13
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 141
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 159
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.393Z"
         }
       ],
       "metrics": [
@@ -18166,7 +19354,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.393Z",
       "platform": "instagram",
       "post_id": "6aceba661f3f10bcb7a37836",
       "sent_at": "2026-10-14T22:03:15.795Z",
@@ -18477,6 +19665,66 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.226Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Avg. Watch Time (sec)",
+              "type": "averageTimeWatched",
+              "unit": "count",
+              "value": 2.77
+            },
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 138
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Watch Time (min)",
+              "type": "totalTimeWatched",
+              "unit": "count",
+              "value": 6.47
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 156
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.370Z"
         }
       ],
       "metrics": [
@@ -18536,7 +19784,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.370Z",
       "platform": "instagram",
       "post_id": "6acf87cb99f11617331a60d1",
       "sent_at": "2026-10-14T12:03:36.000Z",
@@ -18633,7 +19881,7 @@
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -18817,7 +20065,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -19101,6 +20349,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.226Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.24
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 134
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 154
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.417Z"
         }
       ],
       "metrics": [
@@ -19154,7 +20456,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.417Z",
       "platform": "instagram",
       "post_id": "6ad0cb86e8416cbf0cfadc2f",
       "sent_at": "2026-10-15T19:02:04.182Z",
@@ -19257,7 +20559,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -19411,7 +20713,7 @@
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -19719,6 +21021,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.226Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 3.49
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 86
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 3
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 101
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.401Z"
         }
       ],
       "metrics": [
@@ -19772,7 +21128,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.401Z",
       "platform": "instagram",
       "post_id": "6ad0cb928913aa90c397647f",
       "sent_at": "2026-10-15T23:01:57.570Z",
@@ -19875,7 +21231,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -20029,7 +21385,7 @@
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -20337,6 +21693,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.226Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0.61
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 165
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 190
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.411Z"
         }
       ],
       "metrics": [
@@ -20390,7 +21800,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.411Z",
       "platform": "instagram",
       "post_id": "6ad0cb9b8445da123d70b711",
       "sent_at": "2026-10-15T21:01:33.658Z",
@@ -20445,7 +21855,7 @@
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -20581,7 +21991,7 @@
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -20835,6 +22245,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.226Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.68
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 119
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 140
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.446Z"
         }
       ],
       "metrics": [
@@ -20888,7 +22352,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.446Z",
       "platform": "instagram",
       "post_id": "6ad1fe62aecfd112ce6f0e19",
       "sent_at": "2026-10-16T16:02:16.478Z",
@@ -20961,7 +22425,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -21073,7 +22537,7 @@
           "metrics_updated_at": "2026-10-17T06:49:14.232Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -21327,6 +22791,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.226Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 2.49
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 201
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 3
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 221
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.413Z"
         }
       ],
       "metrics": [
@@ -21340,7 +22858,7 @@
           "name": "Eng. Rate",
           "type": "engagementRate",
           "unit": "percentage",
-          "value": 2.51
+          "value": 2.49
         },
         {
           "name": "Follows",
@@ -21352,7 +22870,7 @@
           "name": "Reach",
           "type": "reach",
           "unit": "count",
-          "value": 199
+          "value": 201
         },
         {
           "name": "Reactions",
@@ -21376,11 +22894,11 @@
           "name": "Views",
           "type": "views",
           "unit": "count",
-          "value": 217
+          "value": 221
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.413Z",
       "platform": "instagram",
       "post_id": "6ad1fe6c13b2adf724a220e0",
       "sent_at": "2026-10-16T22:01:22.224Z",
@@ -21453,7 +22971,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -21683,6 +23201,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.226Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.67
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 120
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 2
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 137
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.363Z"
         }
       ],
       "metrics": [
@@ -21736,7 +23308,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.363Z",
       "platform": "instagram",
       "post_id": "6ad1fe7258fcf4d767e1c444",
       "sent_at": "2026-10-17T01:01:34.354Z",
@@ -21809,7 +23381,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -21921,7 +23493,7 @@
           "metrics_updated_at": "2026-10-17T14:03:26.599Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -22072,6 +23644,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.226Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 1.09
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 92
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 1
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 107
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.398Z"
         }
       ],
       "metrics": [
@@ -22125,7 +23751,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.398Z",
       "platform": "instagram",
       "post_id": "6ad1ff2bc0accac7daca5073",
       "sent_at": "2026-10-17T15:03:19.168Z",
@@ -22198,7 +23824,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -22310,7 +23936,7 @@
           "metrics_updated_at": "2026-10-17T18:02:47.413Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Clicks",
@@ -22464,7 +24090,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
@@ -22586,6 +24212,60 @@
             }
           ],
           "metrics_updated_at": "2026-10-18T05:50:37.226Z"
+        },
+        {
+          "fetched_at": "2026-10-18T15:14:52Z",
+          "metrics": [
+            {
+              "name": "Comments",
+              "type": "comments",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Eng. Rate",
+              "type": "engagementRate",
+              "unit": "percentage",
+              "value": 0
+            },
+            {
+              "name": "Follows",
+              "type": "follows",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Reach",
+              "type": "reach",
+              "unit": "count",
+              "value": 119
+            },
+            {
+              "name": "Reactions",
+              "type": "reactions",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Saves",
+              "type": "saves",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Shares",
+              "type": "shares",
+              "unit": "count",
+              "value": 0
+            },
+            {
+              "name": "Views",
+              "type": "views",
+              "unit": "count",
+              "value": 141
+            }
+          ],
+          "metrics_updated_at": "2026-10-18T13:47:32.415Z"
         }
       ],
       "metrics": [
@@ -22639,7 +24319,7 @@
         }
       ],
       "metrics_status": "fresh",
-      "metrics_updated_at": "2026-10-18T05:50:37.226Z",
+      "metrics_updated_at": "2026-10-18T13:47:32.415Z",
       "platform": "instagram",
       "post_id": "6ad1ff38c0accac7daca5294",
       "sent_at": "2026-10-17T20:01:19.439Z",
@@ -22682,7 +24362,7 @@
           "metrics_updated_at": "2026-10-18T06:37:05.627Z"
         },
         {
-          "fetched_at": "2026-10-18T11:56:36Z",
+          "fetched_at": "2026-10-18T15:14:52Z",
           "metrics": [
             {
               "name": "Comments",
