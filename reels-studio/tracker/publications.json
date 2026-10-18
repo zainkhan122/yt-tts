@@ -1382,9 +1382,11 @@
     },
     "repo-coop-anything-01:instagram": {
       "attempts": 2,
+      "buffer_post_id": "6ad4dd3eae173d6e0006ee2d",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-19T14:00:00Z",
+      "due_at": "2026-10-19T14:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:cc7392e5fa5abee37bac2a79b6ba3ada55884385e4557d2828b9946e0c15e650",
         "asset_id": 653695277,
@@ -1399,10 +1401,11 @@
       "notify_subscribers": false,
       "payload_sha256": "55583bbce4f6fc27e768363555fcf18858d96f11844b8a4417fc455ed0877e44",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Comment COOP and I'll pin the repo link \ud83d\udc47\nYour favourite solo game, finally playable with friends: an AI agent builds the co-op for you. Deus Ex is already released \u2014 which game should be next?\nSave this for your next game night.\n\nCredits: Own screen captures of the public GitHub repos (coop-anything + deus-ex-coop, checked 2026-10-18).\n\n#gaming #AI #gamedev #mods #coop",
       "title": "Co-op Anything: Turn Any Single-Player Game Into Co-op With AI",
-      "updated_at": "2026-10-18T14:52:44Z",
+      "updated_at": "2026-10-18T14:52:46Z",
       "video_id": "repo-coop-anything-01"
     },
     "repo-coop-anything-01:youtube": {
