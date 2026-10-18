@@ -25,7 +25,7 @@ on:
         type: string
         default: ''
 permissions:
-  contents: read
+  contents: write # the final step commits the released journal rows back to main
 jobs:
   release:
     runs-on: ubuntu-latest
