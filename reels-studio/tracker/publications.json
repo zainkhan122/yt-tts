@@ -1403,6 +1403,31 @@
       "updated_at": "2026-10-18T12:30:42Z",
       "video_id": "repo-coop-anything-01"
     },
+    "repo-coop-anything-01:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-10-19T20:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:7ed4882105c59fbf04b995e50e7695bc798e458a77d27ba391908a2a65589a13",
+        "asset_id": 653434431,
+        "asset_size": 10418072,
+        "kit_asset_id": 653434484,
+        "kit_digest": "sha256:3b7d265602df529e46ab3952fc657451076159c3c636cfd8ebb9e30032c736d8",
+        "media_path": "media/653434431/repo-coop-anything-01.mp4",
+        "release_tag": "renders-2026-10-18-2",
+        "video_id": "repo-coop-anything-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/653434431/repo-coop-anything-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "b19b62c4d30d0bd65241ca0411ce231162dbf39a5ffbfb2af25a20c545d82deb",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "Co-op Anything turns single-player games into co-op: point your AI coding agent at the repo, name your game, and it studies, builds and bot-tests the multiplayer for you. Deus Ex co-op is already released, Ocarina of Time is fully synced, and Fallout: New Vegas story co-op is in the works \u2014 with one-click joins for friends and no port forwarding.\n\nFor gamers who always wished their favourite solo game had multiplayer \u2014 and for AI-agent fans who want a project with a real payoff.\n\nRepo: https://github.com/cranebeaker/coop-anything\n\nLicence: MIT (free and open source).\n\nCredits: Own cards created for this video. Source links in post/description only. No on-screen credits.\n\n#Shorts #gaming #AI #mods #coop",
+      "title": "Co-op Anything: Turn Any Single-Player Game Into Co-op With AI",
+      "updated_at": "2026-10-18T12:30:46Z",
+      "video_id": "repo-coop-anything-01"
+    },
     "repo-ds4-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6acc91a0712ba82086b03116",
