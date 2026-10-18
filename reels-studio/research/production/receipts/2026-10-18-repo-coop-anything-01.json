@@ -1,0 +1,128 @@
+{
+ "schema_version": 1,
+ "batch_id": "2026-10-18-repo-coop-anything-01",
+ "created_at": "2026-10-18T12:01:07Z",
+ "buffer_insights": {
+  "path": "reels-studio/tracker/buffer-insights.json",
+  "sha256": "1d386c05d50ae3c4d3efc6d65b384502687657e53d95832478be82b50fd8953d"
+ },
+ "metrics_review": {
+  "snapshot_sha256": "1d386c05d50ae3c4d3efc6d65b384502687657e53d95832478be82b50fd8953d",
+  "reviewed_video_count": 95,
+  "sample_post_ids": [
+   "6ac904b32f26cc482c22c524",
+   "6ac904b32f26cc482c22c526",
+   "6ac904b32f26cc482c22c528",
+   "6aca1f1ec4de2d2b12255238"
+  ],
+  "findings": [
+   "Fresh snapshot fetched 2026-10-18T11:56:36Z: 95 shared video records, complete.",
+   "performance.py on the fresh snapshot: repo remains a leading category; best windows unchanged - Facebook midday ET, Instagram morning ET, YouTube evening ET - the schedule defers to these.",
+   "Channel decode 2026-10-18 (niche accounts): winners run ~38 s at up to 193 wpm with stakes/scenario hooks, product-first covers, spoken CTAs (62%) and Name:outcome headings; this brief is built to that pattern."
+  ],
+  "decisions": {
+   "topic": "Fresh radar 2026-10-18: cranebeaker/coop-anything (296 stars in 2 days, MIT). Repo stays the prioritised category; gaming widens the audience beyond devs.",
+   "script": "Niche-decode rules (decode-2026-10-18): stakes hook in sentence 1, product-first cover card, 135-word script for fast delivery, spoken comment-keyword CTA; licence spoken once in plain words ('free and open source'), MIT only at the bottom of the YouTube description (PLAYBOOK viewer-benefit rule).",
+   "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall.",
+   "visual": "Original games/how cards made for this video; proven-game results on the cover frame; no gameplay footage copied."
+  }
+ },
+ "briefs": {
+  "repo-coop-anything-01": {
+   "brief_sha256": "e152e42915007808f46d1a7e501113cd1c18ba05c5b9b7adfb659e94369e5975",
+   "metrics_decisions": {
+    "topic": "Fresh radar 2026-10-18: cranebeaker/coop-anything (296 stars in 2 days, MIT). Repo stays the prioritised category; gaming widens the audience beyond devs.",
+    "script": "Niche-decode rules (decode-2026-10-18): stakes hook in sentence 1, product-first cover card, 135-word script for fast delivery, spoken comment-keyword CTA; licence spoken once in plain words ('free and open source'), MIT only at the bottom of the YouTube description (PLAYBOOK viewer-benefit rule).",
+    "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall.",
+    "visual": "Original games/how cards made for this video; proven-game results on the cover frame; no gameplay footage copied."
+   },
+   "stages": {
+    "discover": {
+     "status": "complete",
+     "checked_at": "2026-10-18T12:01:07Z",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-18.md",
+      "reels-studio/research/ideas/feed-2026-10-18.md"
+     ]
+    },
+    "select": {
+     "status": "complete",
+     "selection_status": "selected",
+     "topic": "Co-op Anything: AI turns single-player games into co-op",
+     "score": 78,
+     "score_breakdown": {
+      "trend_velocity": 16,
+      "demo_ability": 19,
+      "audience_breadth": 14,
+      "social_proof_gap": 8,
+      "free_value": 10,
+      "freshness_angle": 11
+     },
+     "metrics_snapshot_sha256": "1d386c05d50ae3c4d3efc6d65b384502687657e53d95832478be82b50fd8953d",
+     "basis_post_ids": [
+      "6ac904b32f26cc482c22c524",
+      "6ac904b32f26cc482c22c526",
+      "6ac904b32f26cc482c22c528",
+      "6aca1f1ec4de2d2b12255238"
+     ],
+     "hard_gates": {
+      "risk_flags_clear": true,
+      "claim_verifiable": true,
+      "license_clear": true
+     }
+    },
+    "research": {
+     "status": "complete",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-18.md",
+      "reels-studio/research/ideas/feed-2026-10-18.md"
+     ],
+     "dynamic_facts_checked_at": "2026-10-18T12:01:07Z",
+     "primary_sources": [
+      {
+       "url": "https://github.com/cranebeaker/coop-anything",
+       "checked_at": "2026-10-18T12:01:07Z",
+       "claim": "README: point a coding agent at the repo to research, build/fix, bot-test and package co-op for single-player games; Deus Ex released, Ocarina of Time fully synced, New Vegas in progress."
+      },
+      {
+       "url": "https://api.github.com/repos/cranebeaker/coop-anything",
+       "checked_at": "2026-10-18T12:01:07Z",
+       "claim": "Live metadata: 296 stars, 21 forks, created 2026-10-16, MIT."
+      }
+     ]
+    },
+    "script": {
+     "status": "complete",
+     "script_sha256": "c3eb31229bc5206be6d12080d3d77bb17879ab8656e1d2b49b31a558aebe92e3",
+     "word_count": 135
+    },
+    "voice": {
+     "status": "complete",
+     "engine": "chatterbox",
+     "profile": "option-3",
+     "qa_thresholds": {
+      "per_chunk": 0.92,
+      "overall": 0.95
+     }
+    },
+    "assets": {
+     "status": "complete",
+     "rights_checked": true,
+     "approval_constraints_checked": true,
+     "capture_id": "repo-coop-anything-01",
+     "manifest_sha256": "f827500182137cd452708cc090b8156c08c221e9f8deb96fcf33ff7475429453",
+     "files": [
+      {
+       "path": "games-card.png",
+       "sha256": "ca89b57e782bc1f0afbc05a823c9ea51ae4b020b1ff9558c60933c587ac40793"
+      },
+      {
+       "path": "how-card.png",
+       "sha256": "2b9cfc5a624902cf5af9d3e7a33000214c162c5575ab8b67f1d3957496fd24c4"
+      }
+     ]
+    }
+   }
+  }
+ }
+}
