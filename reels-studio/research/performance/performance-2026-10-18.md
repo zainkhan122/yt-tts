@@ -1,6 +1,6 @@
 # Shorts performance — 2026-10-18
 
-Source: Buffer Insights snapshot `2026-10-18T11:56:36Z` (complete: **True**) · videos analysed: **31** · mature (≥7d): **3** · developing: **22** · too early (<2d): **6**
+Source: Buffer Insights snapshot `2026-10-18T15:14:52Z` (complete: **True**) · videos analysed: **31** · mature (≥7d): **4** · developing: **21** · too early (<2d): **6**
 
 Metrics are ranked within each platform and never compared across platforms. Verdicts use mature videos only; everything else is labelled descriptive.
 
@@ -8,31 +8,31 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| `list-free-video-ai-01` (mature) | 7.8d | 182 | 0% | 0 | 0 | — | 0 |
-| `repo-ai-newtab-01` (mature) | 7.5d | 169 | 0% | 0 | 0 | — | 0 |
-| `repo-solidglass-01` (developing) | 2.7d | 118 | 0% | 0 | 0 | — | 0 |
-| `repo-graphicle-01` (early) | 0.8d | 105 | 0% | 0 | 0 | — | 155.6 |
-| `tool-qwen-image-21-turbo-01` (developing) | 3.7d | 95 | 0% | 0 | 0 | — | 1.5 |
+| `list-free-video-ai-01` (mature) | 7.9d | 182 | 0% | 0 | 0 | — | 0 |
+| `repo-ai-newtab-01` (mature) | 7.7d | 169 | 0% | 0 | 0 | — | 0 |
+| `repo-solidglass-01` (developing) | 2.8d | 118 | 0% | 0 | 0 | — | 0 |
+| `repo-graphicle-01` (early) | 0.9d | 105 | 0% | 0 | 0 | — | 129.2 |
+| `tool-qwen-image-21-turbo-01` (developing) | 3.8d | 95 | 0% | 0 | 0 | — | 1.2 |
 
 ## instagram — top by views
 
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| `news-gpt61-astra-01` (developing) | 6d | 308 | 0.7% | 0 | 0 | 0 | 0 |
-| `repo-opencr-01` (developing) | 5.1d | 269 | 2.1% | 0 | 2 | 1 | 0 |
-| `model-embeddinggemma2-01` (developing) | 2.9d | 236 | 4.7% | 0 | 7 | 1 | 0 |
-| `tool-higgsfield-01` (developing) | 4.7d | 219 | 1.6% | 0 | 1 | 2 | 0 |
-| `tool-qwen38-01` (developing) | 5.8d | 219 | 2.5% | 0 | 2 | 0 | 0 |
+| `news-gpt61-astra-01` (developing) | 6.1d | 308 | 0.7% | 0 | 0 | 0 | 0 |
+| `repo-opencr-01` (developing) | 5.2d | 269 | 2.1% | 0 | 2 | 1 | 0 |
+| `model-embeddinggemma2-01` (developing) | 3.1d | 236 | 4.7% | 0 | 7 | 1 | 0 |
+| `news-muse-spark-01` (early) | 1.7d | 221 | 2.5% | 0 | 1 | 3 | 29.1 |
+| `tool-higgsfield-01` (developing) | 4.8d | 219 | 1.6% | 0 | 1 | 2 | 0 |
 
 ## youtube — top by views
 
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| `tool-qwen38-01` (developing) | 5.8d | 1,103 | 0% | 0 | — | — | 93.8 |
-| `repo-ds4-01` (developing) | 5.6d | 1,003 | 0% | 0 | — | — | 10.4 |
-| `tool-ltx25-01` (developing) | 5.7d | 340 | 0% | 0 | — | — | 10.4 |
-| `news-gpt61-astra-01` (developing) | 6.0d | 266 | 0% | 0 | — | — | 0 |
-| `tool-openmontage-01` (developing) | 5.5d | 259 | 0% | 0 | — | — | 20.9 |
+| `tool-qwen38-01` (developing) | 5.9d | 1,103 | 0% | 0 | — | — | 38.5 |
+| `repo-ds4-01` (developing) | 5.8d | 1,003 | 0% | 0 | — | — | 4.3 |
+| `tool-ltx25-01` (developing) | 5.8d | 340 | 0% | 0 | — | — | 4.3 |
+| `news-gpt61-astra-01` (developing) | 6.1d | 266 | 0% | 0 | — | — | 0 |
+| `tool-openmontage-01` (developing) | 5.7d | 259 | 0% | 0 | — | — | 8.6 |
 
 ## Winners and underperformers (mature, cross-platform percentile)
 
@@ -51,7 +51,7 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 | production_category | repo | 6 | 66.8 | strong |
 | production_category | news | 7 | 57.4 | evidence |
 | production_category | unknown | 3 | 54.3 | descriptive only |
-| production_category | tool | 6 | 51.9 | evidence |
+| production_category | tool | 6 | 51.3 | evidence |
 | template | repo-spotlight | 4 | 59.1 | evidence |
 | template | tool-spotlight | 21 | 59 | evidence |
 | hook_style | statement | 24 | 58.2 | evidence |
@@ -63,7 +63,7 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 |---|---|---:|---:|
 | facebook | evening | 8 | 34 |
 | facebook | midday | 9 | 82 |
-| facebook | morning | 7 | 25 |
+| facebook | morning | 8 | 23 |
 | facebook | night | 1 | 8 |
 | instagram | evening | 10 | 152 |
 | instagram | midday | 8 | 148 |
