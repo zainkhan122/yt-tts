@@ -280,6 +280,35 @@ when a cited file does not exist — "we used the findings" is checkable, not as
 - **Final loudness guard:** after the render, if the MP4 is off −14 LUFS by more than 0.5 dB, the audio alone is limited and normalised with the video stream copied. The renderer had shifted am_michael from −14.3 to −15.3 LUFS.
 - **Footage truth:** shot boundaries come from frame-by-frame checks of the source (`teaser_shots` in the brief), not from scene-detect alone, which fire flicker fooled.
 
+## 8A. Creative treatment — design for the viewer, gates are the floor (owner 2026-10-19)
+
+The 8 automatic gates measure technical validity; they are NOT a ship decision and
+never the thing we optimise for. Before any scene is written, every brief carries a
+`treatment` (enforced by brief_lint BL120–BL127):
+
+- **One viewer, named.** `audience` (a Claude Code dev is not a Blender artist is not
+  a WhatsApp power user), `viewer_job` (what this Short does for them), `intent`
+  (browse / search / hybrid). If the treatment fits any audience, it fits none.
+- **A format that fits the material** — `archetype`, one of: `demo-first` (visual
+  payoff leads), `duel` (A-vs-B with a scoreboard), `myth-bust`, `quest`
+  (build-along), `warning` (danger first, then the safe path), `workflow`
+  (steal-this-recipe), `spotlight` (legacy default — needs a reason). The renderer
+  gives each archetype its own accent/styling (`data-archetype` in scene.css).
+  `tools/creative_check.py` fails the batch if the same archetype runs 3 in a row:
+  sameness is the template sneaking back.
+- **Retention craft, written down.** `hook_mechanic` (the pattern interrupt),
+  `open_loop` (question planted in second one, `payoff_scene` where it pays off,
+  target ~70% through), `proof_moment` (the scene where the skeptic converts —
+  real product evidence, never a card claim).
+- **Covers are designed, not grabbed.** 3 `cover_concepts` (<= 4-word text, real
+  media visual, the curiosity `gap` each opens). `tools/cover_lab.py` renders all
+  three (bleed / window / split); the viewer panel judges them cold and the winner
+  is pinned in `selected_cover`. The panel's cover section must be filled for PASS.
+- Reference channels feed this layer as *mechanisms* (how winners open, when they
+  pay off — quarterly decode), never as a look to copy.
+
+Ship rule restated: gates = floor; treatment + panel (incl. cover) = the decision.
+
 ## 9. Packaging + SEO per platform
 
 **Universal rule: triple keyword alignment.** The primary keyword (usually the tool name + what it does) is:

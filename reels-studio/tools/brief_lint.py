@@ -62,6 +62,14 @@ RULES = {
     "BL111": ("warning", "scene stages no media at all (empty-stage risk)"),
     "BL112": ("warning", "brief cites the current research it applied (research_basis)"),
     "BL113": ("error", "research_basis cites a file that does not exist"),
+    "BL120": ("warning", "creative treatment present (viewer-first stage, PLAYBOOK §8A)"),
+    "BL121": ("error", "treatment names one audience, viewer job and intent"),
+    "BL122": ("error", "treatment archetype is a known format"),
+    "BL123": ("error", "treatment open loop plants and pays off in a real scene"),
+    "BL124": ("error", "treatment proof moment is a real scene"),
+    "BL125": ("error", "treatment carries exactly 3 distinct cover concepts"),
+    "BL126": ("error", "cover concept text is <= 4 words (tap-test readable)"),
+    "BL127": ("error", "treatment selected_cover picks one of the concepts"),
     "BL900": ("error", "brief file readable as JSON"),
 }
 
@@ -240,6 +248,57 @@ def check(brief_path):
         for ref in basis:
             if not isinstance(ref, str) or not (ROOT / ref).exists():
                 add("BL113", f"research_basis cites missing file: {ref!r}")
+
+    # Creative treatment (owner 2026-10-19): gates are the floor, not the target.
+    # Every new brief is designed for ONE viewer with a format that fits the
+    # material before any scene is written. Missing = warning (legacy briefs);
+    # present-but-sloppy = error, because a half-filled treatment is how the
+    # template sneaks back in. See PLAYBOOK §8A.
+    ARCHETYPES = {"demo-first", "duel", "myth-bust", "quest", "warning",
+                  "workflow", "spotlight"}
+    tr = brief.get("treatment")
+    if not isinstance(tr, dict):
+        add("BL120", "no treatment: design this Short for one viewer first "
+                     "(audience, viewer job, format archetype, open loop, proof "
+                     "moment, 3 cover concepts) — PLAYBOOK §8A")
+    else:
+        if not all(isinstance(tr.get(k), str) and tr[k].strip()
+                   for k in ("audience", "viewer_job", "hook_mechanic")) \
+                or tr.get("intent") not in ("browse", "search", "hybrid"):
+            add("BL121", "treatment needs audience, viewer_job, hook_mechanic and "
+                         "intent in browse/search/hybrid")
+        if tr.get("archetype") not in ARCHETYPES:
+            add("BL122", f"treatment.archetype {tr.get('archetype')!r} not in "
+                         f"{sorted(ARCHETYPES)}")
+        scene_ids = {s.get("id") for s in scenes}
+        loop = tr.get("open_loop") or {}
+        if not loop.get("plant") or loop.get("payoff_scene") not in scene_ids:
+            add("BL123", "treatment.open_loop needs a plant (second-one question) "
+                         "and a payoff_scene that exists in scenes")
+        if tr.get("proof_moment") not in scene_ids:
+            add("BL124", "treatment.proof_moment must name a scene id where the "
+                         "skeptic converts (real product evidence on screen)")
+        covers = tr.get("cover_concepts")
+        if not isinstance(covers, list) or len(covers) != 3:
+            add("BL125", "treatment.cover_concepts must carry exactly 3 concepts "
+                         "for the cover lab")
+        else:
+            texts = []
+            for c in covers:
+                if not isinstance(c, dict) or not c.get("visual") or not c.get("gap"):
+                    add("BL125", "each cover concept needs visual (real media) + "
+                                 "gap (the curiosity it opens)")
+                    continue
+                texts.append(str(c.get("text", "")).strip())
+                if len(str(c.get("text", "")).split()) > 4:
+                    add("BL126", f"cover text {c.get('text')!r} is over 4 words — "
+                                 f"unreadable at feed size")
+            if len(set(texts)) != len(texts):
+                add("BL125", "cover concept texts must be distinct")
+        sel = tr.get("selected_cover")
+        if not isinstance(sel, int) or isinstance(sel, bool) or not 0 <= sel <= 2:
+            add("BL127", "treatment.selected_cover must be 0, 1 or 2 (the concept "
+                         "the panel picked)")
 
     seo = brief.get("seo") or {}
     if not seo.get("keyword"):

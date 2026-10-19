@@ -12,6 +12,16 @@ from lib import gates  # noqa: E402
 BRIEF = {
     "id": "gate-demo-01", "template": "tool-spotlight", "capture": "captures/none",
     "research_basis": ["research/social/decode-2026-10-18.md"],
+    "treatment": {"audience": "developers", "viewer_job": "learn hello world",
+                  "intent": "search", "archetype": "demo-first",
+                  "hook_mechanic": "result first",
+                  "open_loop": {"plant": "does it help?", "payoff_scene": "s2"},
+                  "proof_moment": "s1",
+                  "cover_concepts": [
+                      {"text": "HELLO WORLD", "visual": "shot.png", "gap": "what does it do?"},
+                      {"text": "ONE MINUTE", "visual": "shot.png", "gap": "learn what?"},
+                      {"text": "TRY THIS", "visual": "shot.png", "gap": "try what?"}],
+                  "selected_cover": 0},
     "scenes": [{"id": "s1", "type": "page", "say": "hello world this tool helps", "heading": "hello world"},
                {"id": "s2", "type": "image", "image": "shot.png", "hold": True}],
     "seo": {"keyword": "hello world", "onscreen_first3s": "hello world",

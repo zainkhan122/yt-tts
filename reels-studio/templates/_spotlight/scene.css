@@ -124,3 +124,18 @@
 .sp-kw { top: 610px; font-size: 58px; padding: 22px 48px; }
 #endcard { top: 930px; }
 #ec-cursor { top: 1360px; }
+
+/* ---- format archetypes (PLAYBOOK §9): one visual voice per format, chosen by
+   the brief's treatment — not one skin for every video. Accent + heading
+   treatment + step/verdict styling shift; layout grammar stays readable. */
+#root[data-archetype="demo-first"] { --cap-key: #4ade80; }
+#root[data-archetype="duel"] { --cap-key: #ff6a3d; }
+#root[data-archetype="duel"] .sp-heading { letter-spacing: 0.02em; text-transform: uppercase; }
+#root[data-archetype="myth-bust"] { --cap-key: #c084fc; }
+#root[data-archetype="quest"] { --cap-key: #fbbf24; }
+#root[data-archetype="warning"] { --cap-key: #ff5d47; }
+#root[data-archetype="warning"] .sp-heading .y { color: #ff5d47; }
+#root[data-archetype="workflow"] { --cap-key: #2dd4bf; }
+#root[data-archetype="demo-first"] .sp-step .num,
+#root[data-archetype="workflow"] .sp-step .num { border-radius: 10px; }
+#root[data-archetype="duel"] .sp-step .num { border-radius: 6px; }

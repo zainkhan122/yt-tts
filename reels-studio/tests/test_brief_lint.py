@@ -29,6 +29,17 @@ def brief(**over):
         "sources": ["https://example.com"],
         "verify_before_render": ["checked"],
         "research_basis": ["research/social/decode-test.md"],
+        "treatment": {
+            "audience": "developers", "viewer_job": "learn the fixture trick",
+            "intent": "browse", "archetype": "demo-first",
+            "hook_mechanic": "result first",
+            "open_loop": {"plant": "does it work?", "payoff_scene": "catch"},
+            "proof_moment": "how",
+            "cover_concepts": [
+                {"text": "IT WORKS", "visual": "demo.mp4", "gap": "does it?"},
+                {"text": "ONE TRICK", "visual": "demo.mp4", "gap": "which trick?"},
+                {"text": "WATCH THIS", "visual": "demo.mp4", "gap": "watch what?"}],
+            "selected_cover": 1},
         "production_category": "tool",
         "scenes": [
             {"id": "hook", "type": "clip", "src": "demo.mp4", "in": 0, "out": 3,
@@ -86,11 +97,13 @@ class BriefLintTests(unittest.TestCase):
         self.lint(b)
         self.assertEqual(self.last_findings, [])
         b2 = brief()
+        b2.pop("treatment", None)  # minimal legacy brief: treatment warning only
         b2["scenes"] = [{"id": "s1", "type": "verdict", "say": "one two", "cons": ["a", "b"]}]
         _, errors, warns = self.lint(b2)
         self.assertEqual(errors, [])
         # BL110 (media standard, 2026-10-18): this minimal brief stages no media at all.
-        self.assertEqual([f["id"] for f in self.last_findings], ["BL051", "BL110"])
+        # BL120 (creative treatment, 2026-10-19): and it was never designed for a viewer.
+        self.assertEqual([f["id"] for f in self.last_findings], ["BL051", "BL110", "BL120"])
         self.assertTrue(all(f["severity"] == "warning" for f in self.last_findings))
 
     def test_valid_brief_is_clean(self):

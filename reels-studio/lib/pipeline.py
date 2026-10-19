@@ -1351,6 +1351,7 @@ class Job:
             "{{MEDIA_HTML}}": "",
             "{{LANG}}": b.get("lang", "en")[:2], "{{TITLE}}": re.sub(r"[<>&\"]", "", b.get("title", self.id)),
             "{{PRESET}}": b.get("style", self.tpl.DEFAULTS.get("style", "neon")), "{{D}}": f"{self.D:g}",
+            "{{ARCHETYPE}}": re.sub(r"[^a-z-]", "", str((b.get("treatment") or {}).get("archetype", "spotlight"))) or "spotlight",
             "{{FONTS_CSS}}": "\n".join(css),
             "{{BASE_CSS}}": (BASE_DIR / "base.css").read_text(), "{{SCENE_CSS}}": self._scene_part("scene.css"),
             "{{SCENE_HTML}}": self._scene_part("scene.html"),
@@ -1371,7 +1372,7 @@ class Job:
         rep["{{SCENE_CSS}}"] = self._scene_part("scene.css")
         rep["{{SCENE_JS}}"] = self._scene_part("scene.js")
         html = (BASE_DIR / "base.html").read_text()
-        for k in ["{{FONTS_CSS}}", "{{BASE_CSS}}", "{{SCENE_CSS}}", "{{MEDIA_HTML}}", "{{SCENE_HTML}}", "{{BASE_JS}}", "{{SCENE_JS}}", "{{DATA_JSON}}", "{{LANG}}", "{{TITLE}}", "{{PRESET}}", "{{D}}"]:
+        for k in ["{{FONTS_CSS}}", "{{BASE_CSS}}", "{{SCENE_CSS}}", "{{MEDIA_HTML}}", "{{SCENE_HTML}}", "{{BASE_JS}}", "{{SCENE_JS}}", "{{DATA_JSON}}", "{{LANG}}", "{{TITLE}}", "{{PRESET}}", "{{ARCHETYPE}}", "{{D}}"]:
             html = html.replace(k, rep[k])
         (self.proj / "index.html").write_text(html, encoding="utf-8")
         (self.proj / "hyperframes.json").write_text(json.dumps({

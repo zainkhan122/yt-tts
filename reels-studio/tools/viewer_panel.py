@@ -81,6 +81,11 @@ def main():
               "- [ ] real product media covers >= 60% of scenes",
               "- [ ] first frame sells the benefit muted, in the first 3 s",
               "- [ ] one-sentence takeaway a first-time viewer would repeat: ",
+              "", "## Cover (judge cold, as it would appear in a stranger's feed)",
+              "- [ ] cover concepts rendered by tools/cover_lab.py and opened (sheet.jpg): ",
+              "- [ ] winning concept readable muted at feed size (<= 4 words, real media): ",
+              "- [ ] selected_cover in the brief matches the winning concept: ",
+              "- [ ] Would YOU tap this cover between two strangers' videos? why: ",
               "", "## Panel result: PASS / FAIL (fail = back to production, no queueing)", ""]
     out = out_dir / "viewer-panel.md"
     out.write_text("\n".join(lines))
