@@ -1409,7 +1409,7 @@
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-19T20:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.youtube.com/shorts/-BH04LS8BJI",
       "media_ref": {
         "asset_digest": "sha256:cc7392e5fa5abee37bac2a79b6ba3ada55884385e4557d2828b9946e0c15e650",
         "asset_id": 653695277,
@@ -1424,11 +1424,11 @@
       "notify_subscribers": true,
       "payload_sha256": "220d74c09aa299eacac019443d93b57e0257db87fa2d08d93a290bff1ff42197",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-19T20:01:01.540Z",
+      "state": "sent",
       "text": "Co-op Anything turns single-player games into co-op: point your AI coding agent at the repo, name your game, and it studies, builds and bot-tests the multiplayer for you. Deus Ex co-op is already released, Ocarina of Time is fully synced, and Fallout: New Vegas story co-op is in the works \u2014 with one-click joins for friends and no port forwarding.\n\nFor gamers who always wished their favourite solo game had multiplayer \u2014 and for AI-agent fans who want a project with a real payoff.\n\nRepo: https://github.com/cranebeaker/coop-anything\n\nLicence: MIT (free and open source).\n\nCredits: Own screen captures of the public GitHub repos (coop-anything + deus-ex-coop, checked 2026-10-18).\n\n#Shorts #gaming #AI #mods #coop",
       "title": "Co-op Anything: Turn Any Single-Player Game Into Co-op With AI",
-      "updated_at": "2026-10-18T14:52:52Z",
+      "updated_at": "2026-10-19T22:30:14Z",
       "video_id": "repo-coop-anything-01"
     },
     "repo-ds4-01:facebook": {
@@ -1773,7 +1773,7 @@
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-19T18:30:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.facebook.com/reel/1095205196628098/",
       "media_ref": {
         "asset_digest": "sha256:66c09127f9f6d19750a2569abfa0cf9597300df8517de25a555e46161bd9bb12",
         "asset_id": 656834438,
@@ -1788,11 +1788,11 @@
       "notify_subscribers": false,
       "payload_sha256": "75412fec043c2d6497f2655b25d3bf2dd94b7616ee688d806cc4191622290809",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-19T18:30:30.351Z",
+      "state": "sent",
       "text": "leanrea: one 8 KB skill that teaches coding agents to reverse engineer with plain command-line tools \u2014 no MCP server, no tool bloat. Nearly 900 stars in two days.\n\nCredits: Own captures of the public GitHub repo (checked 2026-10-19).\n\nAI-generated narration.\n\n#AI #Coding",
       "title": "leanrea: One Tiny Skill Replaces 207 Reverse-Engineering Tools",
-      "updated_at": "2026-10-19T16:54:25Z",
+      "updated_at": "2026-10-19T22:30:14Z",
       "video_id": "repo-leanrea-01"
     },
     "repo-leanrea-01:instagram": {
@@ -1801,7 +1801,7 @@
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-19T19:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/Der9dvPiuGu/",
       "media_ref": {
         "asset_digest": "sha256:66c09127f9f6d19750a2569abfa0cf9597300df8517de25a555e46161bd9bb12",
         "asset_id": 656834438,
@@ -1816,11 +1816,11 @@
       "notify_subscribers": false,
       "payload_sha256": "8b032661f1af82354bdd794371a67d36f88a80247cdec9d45f1712e2ef876072",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-19T19:02:43.688Z",
+      "state": "sent",
       "text": "Save this if your agent inspects apps: leanrea replaces a 207-tool MCP server with one tiny skill file. Faster, cheaper, no server to run.\n\nCredits: Own captures of the public GitHub repo (checked 2026-10-19).\n\n#AI #Coding #OpenSource",
       "title": "leanrea: One Tiny Skill Replaces 207 Reverse-Engineering Tools",
-      "updated_at": "2026-10-19T16:54:29Z",
+      "updated_at": "2026-10-19T22:30:14Z",
       "video_id": "repo-leanrea-01"
     },
     "repo-leanrea-01:youtube": {
@@ -1829,7 +1829,7 @@
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-19T22:30:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.youtube.com/watch?v=2dF5c-2OqQg",
       "media_ref": {
         "asset_digest": "sha256:66c09127f9f6d19750a2569abfa0cf9597300df8517de25a555e46161bd9bb12",
         "asset_id": 656834438,
@@ -1844,11 +1844,11 @@
       "notify_subscribers": true,
       "payload_sha256": "8afc23ff1c69ae920f5132781606cc9d0dd02fb721e3ecd43e4dff947ca73507",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-19T22:30:15.123Z",
+      "state": "sent",
       "text": "leanrea is a single 8 KB skill file that teaches Claude Code, Codex, Cursor and other coding agents to reverse engineer apps and binaries with plain CLI tools \u2014 no MCP server, no 207 tool definitions. The maker's own benchmark reports it faster and cheaper than the heavyweight REA setup (small sample \u2014 see the catch in the video). Nearly 900 GitHub stars in two days.\nSource: https://github.com/aicodeking/leanrea\n\nCredits: Own captures of the public GitHub repo (checked 2026-10-19).\n\n#Shorts #AI #Coding #ClaudeCode",
       "title": "leanrea: One Tiny Skill Replaces 207 Reverse-Engineering Tools",
-      "updated_at": "2026-10-19T16:54:36Z",
+      "updated_at": "2026-10-19T22:30:14Z",
       "video_id": "repo-leanrea-01"
     },
     "repo-manimgx-01:facebook": {
@@ -2206,7 +2206,7 @@
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-19T21:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.facebook.com/reel/2145751672697931/",
       "media_ref": {
         "asset_digest": "sha256:60e7d890b99b72db4098527a11f24ed76ca9d0a190c019d0caa0e6320ecf9c28",
         "asset_id": 656834533,
@@ -2221,11 +2221,11 @@
       "notify_subscribers": false,
       "payload_sha256": "cab105c777e1bf74967c6813942bed7f986f895d629e8eb57b27ca73f6d11d87",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-19T21:01:10.026Z",
+      "state": "sent",
       "text": "WhatsApp MCP: ask your AI to find anything in your own chat history. Read-only, self-hosted in your Cloudflare account. Unofficial \u2014 the risk is explained in the video.\n\nCredits: Own captures of the public GitHub repo (checked 2026-10-19).\n\nAI-generated narration.\n\n#AI #WhatsApp",
       "title": "WhatsApp MCP: Your AI Can Now Search Your Own Chats",
-      "updated_at": "2026-10-19T16:54:33Z",
+      "updated_at": "2026-10-19T22:30:14Z",
       "video_id": "repo-whatsapp-mcp-01"
     },
     "repo-whatsapp-mcp-01:instagram": {
