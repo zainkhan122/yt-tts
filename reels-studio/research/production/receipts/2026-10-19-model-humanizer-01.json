@@ -29,12 +29,12 @@
  },
  "briefs": {
   "model-humanizer-01": {
-   "brief_sha256": "74beb2d3b00d9a0a22b6f6c65cc71e2b2e7c614adfc06734e54d73eb7a5d05a7",
+   "brief_sha256": "5af2b5d4b4844b7986b39e313583d5145fac68e6c6d80277b6986b955046af5b",
    "metrics_decisions": {
     "topic": "HF trending with ~110k downloads/mo; 'make AI drafts sound like you' is a broad writer job with a genuine myth-bust tension (polish vs detector cheat).",
-    "script": "Accusation named in sentence one, official before/after as proof, its own fact-slip results and the authorship line spoken in the verdict.",
+    "script": "Myth-bust: accusation first, show the before/after, expose fact-slip caveat and authorship choice; shortened endcard line for the closing hold.",
     "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall.",
-    "visual": "Own HF captures plus official app showcase, before/after and evaluation media in 6/7 scenes. Covers: 3 concepts rendered, panel picked 'IT FOOLS DETECTORS'. Viewer panel must PASS before queueing."
+    "visual": "Own HF captures plus official app showcase, before/after and evaluation media in 6/7 scenes. Covers: 3 concepts rendered, panel picked 'IT FOOLS DETECTORS'. Viewer panel must PASS before queueing. Contrast adjustment for end-card CTA after the frame review."
    },
    "stages": {
     "discover": {
@@ -91,8 +91,8 @@
     },
     "script": {
      "status": "complete",
-     "script_sha256": "7522a91e40c64651582db98b69ed42d246845aeb1daba7027a9cb17fcd8e7043",
-     "word_count": 156
+     "script_sha256": "5b5c4e80f08bcd0c71c317893a1b66473937e759701b6c92b3a5bdf2cedb80f5",
+     "word_count": 148
     },
     "voice": {
      "status": "complete",
