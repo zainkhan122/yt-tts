@@ -21,14 +21,14 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 | `news-gpt61-astra-01` (developing) | 7.0d | 308 | 0.7% | 0 | 0 | 0 | 0 |
 | `repo-opencr-01` (developing) | 6.1d | 269 | 2.1% | 0 | 2 | 1 | 0 |
 | `model-embeddinggemma2-01` (developing) | 3.9d | 236 | 4.7% | 0 | 7 | 1 | 0 |
-| `news-muse-spark-01` (developing) | 2.5d | 221 | 2.5% | 0 | 1 | 3 | 0 |
+| `news-muse-spark-01` (developing) | 2.6d | 221 | 2.5% | 0 | 1 | 3 | 0 |
 | `tool-higgsfield-01` (developing) | 5.7d | 219 | 1.6% | 0 | 1 | 2 | 0 |
 
 ## youtube — top by views
 
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| `tool-qwen38-01` (developing) | 6.7d | 1,176 | 0.7% | 0 | — | — | 89.7 |
+| `tool-qwen38-01` (developing) | 6.8d | 1,176 | 0.7% | 0 | — | — | 89.7 |
 | `repo-ds4-01` (developing) | 6.6d | 1,005 | 0.9% | 0 | — | — | 2.5 |
 | `tool-ltx25-01` (developing) | 6.7d | 343 | 0.6% | 0 | — | — | 3.7 |
 | `news-gpt61-astra-01` (developing) | 6.9d | 266 | 0% | 0 | — | — | 0 |
