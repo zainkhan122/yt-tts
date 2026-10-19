@@ -380,6 +380,25 @@
       "status": "render_only_success",
       "voice_seed": 0
     },
+    "e17b6a25b25f7011991462997b431a81dd7fddbf733f655510870568055a86d0": {
+      "asset_files_sha256": "6a13011932890e46cad3ad1a6ceed7a3c62e510a1c5ae55e73ee59b1dda5e3e6",
+      "asset_manifest_sha256": "785b832d16e711912d06cdeba1d384384578f0c894d0aba7548ce082349b7ee7",
+      "brief_id": "repo-whatsapp-mcp-01",
+      "brief_sha256": "e0c2796891fb66da6839fda19d93f8111c09e5eb39e89a592b392c713edd5a70",
+      "capture_id": "repo-whatsapp-mcp-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "e17b6a25b25f7011991462997b431a81dd7fddbf733f655510870568055a86d0",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "86e6272e3ceec2d63170a39fb985a77f4d9daf1a7533f04926d3092a8ce633c7",
+      "run_id": "39285299454",
+      "started_at": "2026-10-19T16:25:30Z",
+      "status": "started",
+      "voice_seed": 0
+    },
     "f820227485aa278ed11362a03cd7cfa0c55c8d95a268d45f1ce454d0108c8f3d": {
       "asset_files_sha256": "3aa70653a06f7f23369673ecc3296c1bc0f3b476ed2d3c061af545a99de27baa",
       "asset_manifest_sha256": "6924109b61bebc28c7e032f03ac787932925dab81c9a409037095df6d07bc7bb",
