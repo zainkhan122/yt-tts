@@ -1823,6 +1823,31 @@
       "updated_at": "2026-10-19T16:54:29Z",
       "video_id": "repo-leanrea-01"
     },
+    "repo-leanrea-01:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-10-19T22:30:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:66c09127f9f6d19750a2569abfa0cf9597300df8517de25a555e46161bd9bb12",
+        "asset_id": 656834438,
+        "asset_size": 20059067,
+        "kit_asset_id": 656834504,
+        "kit_digest": "sha256:8e41bce5fe2f55eebc85981137a3296bb29b438c5a9bea1e4fa40cffd8f0a635",
+        "media_path": "media/656834438/repo-leanrea-01.mp4",
+        "release_tag": "renders-2026-10-19",
+        "video_id": "repo-leanrea-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/656834438/repo-leanrea-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "8afc23ff1c69ae920f5132781606cc9d0dd02fb721e3ecd43e4dff947ca73507",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "leanrea is a single 8 KB skill file that teaches Claude Code, Codex, Cursor and other coding agents to reverse engineer apps and binaries with plain CLI tools \u2014 no MCP server, no 207 tool definitions. The maker's own benchmark reports it faster and cheaper than the heavyweight REA setup (small sample \u2014 see the catch in the video). Nearly 900 GitHub stars in two days.\nSource: https://github.com/aicodeking/leanrea\n\nCredits: Own captures of the public GitHub repo (checked 2026-10-19).\n\n#Shorts #AI #Coding #ClaudeCode",
+      "title": "leanrea: One Tiny Skill Replaces 207 Reverse-Engineering Tools",
+      "updated_at": "2026-10-19T16:54:34Z",
+      "video_id": "repo-leanrea-01"
+    },
     "repo-manimgx-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6aceb933848c31c8094f7381",
