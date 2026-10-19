@@ -1353,7 +1353,7 @@
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-19T16:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.facebook.com/reel/1434492142219412/",
       "media_ref": {
         "asset_digest": "sha256:cc7392e5fa5abee37bac2a79b6ba3ada55884385e4557d2828b9946e0c15e650",
         "asset_id": 653695277,
@@ -1368,11 +1368,11 @@
       "notify_subscribers": false,
       "payload_sha256": "bd4cafd9196f36aa8819e10fbadd6e4c1f2751a5c07b5dc504ad2db585bd8ee7",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-19T16:02:44.112Z",
+      "state": "sent",
       "text": "Co-op Anything: your AI agent turns single-player games into co-op \u2014 it builds and bot-tests the multiplayer, friends join in one click. Which solo game would you play together first?\n\nCredits: Own screen captures of the public GitHub repos (coop-anything + deus-ex-coop, checked 2026-10-18).\n\nAI-generated narration.\n\n#gaming #AI #mods",
       "title": "Co-op Anything: Turn Any Single-Player Game Into Co-op With AI",
-      "updated_at": "2026-10-18T14:52:49Z",
+      "updated_at": "2026-10-19T16:54:17Z",
       "video_id": "repo-coop-anything-01"
     },
     "repo-coop-anything-01:instagram": {
@@ -1381,7 +1381,7 @@
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-19T14:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/DerbP1lCZrE/",
       "media_ref": {
         "asset_digest": "sha256:cc7392e5fa5abee37bac2a79b6ba3ada55884385e4557d2828b9946e0c15e650",
         "asset_id": 653695277,
@@ -1396,11 +1396,11 @@
       "notify_subscribers": false,
       "payload_sha256": "55583bbce4f6fc27e768363555fcf18858d96f11844b8a4417fc455ed0877e44",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-19T14:03:07.233Z",
+      "state": "sent",
       "text": "Comment COOP and I'll pin the repo link \ud83d\udc47\nYour favourite solo game, finally playable with friends: an AI agent builds the co-op for you. Deus Ex is already released \u2014 which game should be next?\nSave this for your next game night.\n\nCredits: Own screen captures of the public GitHub repos (coop-anything + deus-ex-coop, checked 2026-10-18).\n\n#gaming #AI #gamedev #mods #coop",
       "title": "Co-op Anything: Turn Any Single-Player Game Into Co-op With AI",
-      "updated_at": "2026-10-18T14:52:46Z",
+      "updated_at": "2026-10-19T16:54:17Z",
       "video_id": "repo-coop-anything-01"
     },
     "repo-coop-anything-01:youtube": {
@@ -1549,7 +1549,7 @@
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-19T16:30:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/DersU39CqOu/",
       "media_ref": {
         "asset_digest": "sha256:3b5ca8358f5f534cc444ca218bd1941752e22cc6fee8d7e3b5c2b63f9d720716",
         "asset_id": 653839309,
@@ -1564,11 +1564,11 @@
       "notify_subscribers": false,
       "payload_sha256": "1704ef709d52c41ea991097d903565765ba8716b424e13a87d405a74e3237856",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-19T16:32:18.097Z",
+      "state": "sent",
       "text": "Save this if you build with agents: Earshot lets AI hear, review and even make sound \u2014 locally on CPU. MIT licence.\n\nCredits: Own captures of the public GitHub repo + the project's own media (checked 2026-10-18).\n\n#AI #Coding #OpenSource",
       "title": "Your Coding Agent Can't Hear. Earshot Fixes That (Free, CPU-Only)",
-      "updated_at": "2026-10-18T15:55:32Z",
+      "updated_at": "2026-10-19T16:54:17Z",
       "video_id": "repo-earshot-01"
     },
     "repo-earshot-01:youtube": {
