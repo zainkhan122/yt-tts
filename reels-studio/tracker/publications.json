@@ -2230,9 +2230,11 @@
     },
     "repo-whatsapp-mcp-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6ad64b4f6cd7d3af6311b524",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-20T01:00:00Z",
+      "due_at": "2026-10-20T01:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:60e7d890b99b72db4098527a11f24ed76ca9d0a190c019d0caa0e6320ecf9c28",
         "asset_id": 656834533,
@@ -2247,10 +2249,11 @@
       "notify_subscribers": false,
       "payload_sha256": "1707ee29a4cdfe16cd76388cae4e7f20346ba38302229f3b4e6bb3677494a741",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "WhatsApp MCP is a read-only MCP server that lets Claude Code and other AI agents search and read your own WhatsApp history \u2014 full-text search across every chat, deployed into your own Cloudflare account. The honest catches are in the video: it is unofficial (against WhatsApp's terms, low but non-zero risk) and importing history needs the Workers Paid plan. 256 GitHub stars in its first day.\nSource: https://github.com/finereli/whatsapp-mcp\n\nCredits: Own captures of the public GitHub repo (checked 2026-10-19).\n\n#Shorts #AI #WhatsApp #Agents",
       "title": "WhatsApp MCP: Your AI Can Now Search Your Own Chats",
-      "updated_at": "2026-10-19T16:54:38Z",
+      "updated_at": "2026-10-19T16:54:39Z",
       "video_id": "repo-whatsapp-mcp-01"
     },
     "repo-whistle-01:facebook": {
