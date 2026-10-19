@@ -2174,9 +2174,11 @@
     },
     "repo-whatsapp-mcp-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6ad64b490fd6b6c1b9708f3a",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-19T21:00:00Z",
+      "due_at": "2026-10-19T21:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:60e7d890b99b72db4098527a11f24ed76ca9d0a190c019d0caa0e6320ecf9c28",
         "asset_id": 656834533,
@@ -2191,10 +2193,11 @@
       "notify_subscribers": false,
       "payload_sha256": "cab105c777e1bf74967c6813942bed7f986f895d629e8eb57b27ca73f6d11d87",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "WhatsApp MCP: ask your AI to find anything in your own chat history. Read-only, self-hosted in your Cloudflare account. Unofficial \u2014 the risk is explained in the video.\n\nCredits: Own captures of the public GitHub repo (checked 2026-10-19).\n\nAI-generated narration.\n\n#AI #WhatsApp",
       "title": "WhatsApp MCP: Your AI Can Now Search Your Own Chats",
-      "updated_at": "2026-10-19T16:54:31Z",
+      "updated_at": "2026-10-19T16:54:33Z",
       "video_id": "repo-whatsapp-mcp-01"
     },
     "repo-whistle-01:facebook": {
