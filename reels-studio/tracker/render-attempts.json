@@ -399,6 +399,25 @@
       "status": "render_only_success",
       "voice_seed": 0
     },
+    "e48a268dfed153c8317665971fbd34e32066281a9e3f20fcefb84ff7d40cb324": {
+      "asset_files_sha256": "0df28ee4363bf48806973cac0518c32100990ec337d471f3e9d3da15add8a64a",
+      "asset_manifest_sha256": "716ed4f74daf1e5caff4288910e7470cca3a0485a4cb7d5b99c08645e3b2804a",
+      "brief_id": "repo-huashu-motion-01",
+      "brief_sha256": "c5a13077323dec7acc8b0611b24ac13ab79d81fb006c7eba69e9a3cf0c924213",
+      "capture_id": "repo-huashu-motion-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "e48a268dfed153c8317665971fbd34e32066281a9e3f20fcefb84ff7d40cb324",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "17dfa484ac67bee3215366a362e5a66e07929081df8bbe7670cc2bb67d0c8e47",
+      "run_id": "39295412475",
+      "started_at": "2026-10-19T17:35:34Z",
+      "status": "started",
+      "voice_seed": 0
+    },
     "f820227485aa278ed11362a03cd7cfa0c55c8d95a268d45f1ce454d0108c8f3d": {
       "asset_files_sha256": "3aa70653a06f7f23369673ecc3296c1bc0f3b476ed2d3c061af545a99de27baa",
       "asset_manifest_sha256": "6924109b61bebc28c7e032f03ac787932925dab81c9a409037095df6d07bc7bb",
