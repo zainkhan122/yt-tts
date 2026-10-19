@@ -1,0 +1,126 @@
+{
+ "schema_version": 1,
+ "batch_id": "2026-10-19-repo-leanrea-01",
+ "created_at": "2026-10-19T15:59:29Z",
+ "buffer_insights": {
+  "path": "reels-studio/tracker/buffer-insights.json",
+  "sha256": "6bc52b65bd3ac0d2517fce3ecdb49342b03e30f0a009650e412e43391a6e5de9"
+ },
+ "metrics_review": {
+  "snapshot_sha256": "6bc52b65bd3ac0d2517fce3ecdb49342b03e30f0a009650e412e43391a6e5de9",
+  "reviewed_video_count": 99,
+  "sample_post_ids": [
+   "6acc919add062ea3c8176035",
+   "6acc91a0712ba82086b03116",
+   "6acc91a3dd062ea3c817610d",
+   "6acc91a65feb3462de95f295"
+  ],
+  "findings": [
+   "Fresh snapshot fetched 2026-10-19T10:47:10Z: 99 shared video records, complete.",
+   "Performance system: repo spotlights lead (repo median percentile leads tool/news); statement hooks are the catalogue baseline \u2014 both of today's picks are repo spotlights with benefit-first statement hooks.",
+   "Best windows so far: Facebook midday ET, Instagram morning ET, YouTube evening ET \u2014 scheduling defers to the publisher's researched windows and the dry-run plan is checked against these."
+  ],
+  "decisions": {
+   "topic": "899 stars in two days with hard benchmark numbers; 'delete the MCP tax' is an instantly graspable win for our coding-agent niche, the channel's proven category.",
+   "script": "Payoff in sentence one (the tax), name in scene two, maker's-benchmark caveat spoken in the verdict; exact stars stay on screen.",
+   "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall.",
+   "visual": "Own Playwright captures of the real repo in 6/7 scenes (page/camera/steps over full README, verdict over the benchmark table); cards support only. Viewer panel must PASS before queueing."
+  }
+ },
+ "briefs": {
+  "repo-leanrea-01": {
+   "brief_sha256": "deccbdbf958b027ad0f92052db3fe1d36ea4464fb11131d49cb465b9c6d9067e",
+   "metrics_decisions": {
+    "topic": "899 stars in two days with hard benchmark numbers; 'delete the MCP tax' is an instantly graspable win for our coding-agent niche, the channel's proven category.",
+    "script": "Payoff in sentence one (the tax), name in scene two, maker's-benchmark caveat spoken in the verdict; exact stars stay on screen.",
+    "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall.",
+    "visual": "Own Playwright captures of the real repo in 6/7 scenes (page/camera/steps over full README, verdict over the benchmark table); cards support only. Viewer panel must PASS before queueing."
+   },
+   "stages": {
+    "discover": {
+     "status": "complete",
+     "checked_at": "2026-10-19T15:59:29Z",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-19.md"
+     ]
+    },
+    "select": {
+     "status": "complete",
+     "selection_status": "selected",
+     "topic": "leanrea: one 8 KB skill replaces 207 reverse-engineering tools",
+     "score": 76,
+     "score_breakdown": {
+      "trend_velocity": 22,
+      "demo_ability": 17,
+      "audience_breadth": 10,
+      "social_proof_gap": 9,
+      "free_value": 10,
+      "freshness_angle": 8
+     },
+     "metrics_snapshot_sha256": "6bc52b65bd3ac0d2517fce3ecdb49342b03e30f0a009650e412e43391a6e5de9",
+     "basis_post_ids": [
+      "6acc919add062ea3c8176035",
+      "6acc91a0712ba82086b03116",
+      "6acc91a3dd062ea3c817610d",
+      "6acc91a65feb3462de95f295"
+     ],
+     "hard_gates": {
+      "risk_flags_clear": true,
+      "claim_verifiable": true,
+      "license_clear": true
+     }
+    },
+    "research": {
+     "status": "complete",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-19.md"
+     ],
+     "dynamic_facts_checked_at": "2026-10-19T15:59:29Z",
+     "primary_sources": [
+      {
+       "url": "https://github.com/aicodeking/leanrea",
+       "checked_at": "2026-10-19T15:59:29Z",
+       "claim": "README documents the 8 KB skill, no-MCP design, install commands and the maker's benchmark with caveats (3 reps, one model, one machine)."
+      },
+      {
+       "url": "https://api.github.com/repos/aicodeking/leanrea",
+       "checked_at": "2026-10-19T15:59:29Z",
+       "claim": "Live metadata: 899 stars, 140 forks, created 2026-10-17, MIT."
+      }
+     ]
+    },
+    "script": {
+     "status": "complete",
+     "script_sha256": "86271d2a3a14e1d6ee8e05b6d541c2c2accd9da8a714fa812ef60d909af0e3ff",
+     "word_count": 145
+    },
+    "voice": {
+     "status": "complete",
+     "engine": "chatterbox",
+     "profile": "option-3",
+     "qa_thresholds": {
+      "per_chunk": 0.92,
+      "overall": 0.95
+     }
+    },
+    "assets": {
+     "status": "complete",
+     "rights_checked": true,
+     "approval_constraints_checked": true,
+     "capture_id": "repo-leanrea-01",
+     "manifest_sha256": "773e8eb37a32b7ea41cd9837f4238af5cfdc195c2ae51941ee1cce5d9855d3ee",
+     "files": [
+      {
+       "path": "desktop-top.jpg",
+       "sha256": "0b4c398fb63ee1d1e17ed9e39f33dad5beee12e30ffeafda98cafda975ac212d"
+      },
+      {
+       "path": "desktop-full.jpg",
+       "sha256": "fdf2732610753d81bd7c32c8285736e716525982530fdc5c6d3dca28f227d095"
+      }
+     ]
+    }
+   }
+  }
+ }
+}
