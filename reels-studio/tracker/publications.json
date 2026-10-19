@@ -1769,9 +1769,11 @@
     },
     "repo-leanrea-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6ad64b41408d925d996e6c90",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-19T18:30:00Z",
+      "due_at": "2026-10-19T18:30:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:66c09127f9f6d19750a2569abfa0cf9597300df8517de25a555e46161bd9bb12",
         "asset_id": 656834438,
@@ -1786,10 +1788,11 @@
       "notify_subscribers": false,
       "payload_sha256": "75412fec043c2d6497f2655b25d3bf2dd94b7616ee688d806cc4191622290809",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "leanrea: one 8 KB skill that teaches coding agents to reverse engineer with plain command-line tools \u2014 no MCP server, no tool bloat. Nearly 900 stars in two days.\n\nCredits: Own captures of the public GitHub repo (checked 2026-10-19).\n\nAI-generated narration.\n\n#AI #Coding",
       "title": "leanrea: One Tiny Skill Replaces 207 Reverse-Engineering Tools",
-      "updated_at": "2026-10-19T16:54:23Z",
+      "updated_at": "2026-10-19T16:54:25Z",
       "video_id": "repo-leanrea-01"
     },
     "repo-manimgx-01:facebook": {
