@@ -1797,9 +1797,11 @@
     },
     "repo-leanrea-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6ad64b45d1648e7b92bd61ce",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-19T19:00:00Z",
+      "due_at": "2026-10-19T19:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:66c09127f9f6d19750a2569abfa0cf9597300df8517de25a555e46161bd9bb12",
         "asset_id": 656834438,
@@ -1814,10 +1816,11 @@
       "notify_subscribers": false,
       "payload_sha256": "8b032661f1af82354bdd794371a67d36f88a80247cdec9d45f1712e2ef876072",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Save this if your agent inspects apps: leanrea replaces a 207-tool MCP server with one tiny skill file. Faster, cheaper, no server to run.\n\nCredits: Own captures of the public GitHub repo (checked 2026-10-19).\n\n#AI #Coding #OpenSource",
       "title": "leanrea: One Tiny Skill Replaces 207 Reverse-Engineering Tools",
-      "updated_at": "2026-10-19T16:54:27Z",
+      "updated_at": "2026-10-19T16:54:29Z",
       "video_id": "repo-leanrea-01"
     },
     "repo-manimgx-01:facebook": {
