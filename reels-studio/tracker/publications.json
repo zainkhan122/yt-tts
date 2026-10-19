@@ -2230,9 +2230,11 @@
     },
     "repo-whatsapp-mcp-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6ad64b526cd7d3af6311b565",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-20T14:00:00Z",
+      "due_at": "2026-10-20T14:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:60e7d890b99b72db4098527a11f24ed76ca9d0a190c019d0caa0e6320ecf9c28",
         "asset_id": 656834533,
@@ -2247,10 +2249,11 @@
       "notify_subscribers": false,
       "payload_sha256": "69b4d49630bb12428853aa8e4d76e3f64b90dc4d0885e8b7fd36624a8a22c7e6",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Save this: a read-only bridge lets your agent search every WhatsApp chat you own. It cannot send, and messages stay in your account. Catch: unofficial, so watch the video first.\n\nCredits: Own captures of the public GitHub repo (checked 2026-10-19).\n\n#AI #WhatsApp #OpenSource",
       "title": "WhatsApp MCP: Your AI Can Now Search Your Own Chats",
-      "updated_at": "2026-10-19T16:54:41Z",
+      "updated_at": "2026-10-19T16:54:42Z",
       "video_id": "repo-whatsapp-mcp-01"
     },
     "repo-whatsapp-mcp-01:youtube": {
