@@ -2228,6 +2228,31 @@
       "updated_at": "2026-10-19T16:54:33Z",
       "video_id": "repo-whatsapp-mcp-01"
     },
+    "repo-whatsapp-mcp-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-20T14:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:60e7d890b99b72db4098527a11f24ed76ca9d0a190c019d0caa0e6320ecf9c28",
+        "asset_id": 656834533,
+        "asset_size": 22100579,
+        "kit_asset_id": 656834614,
+        "kit_digest": "sha256:7fd6f642d138c9fd60a1ac05bc35f0a19fe9c8b2f80051c3813c95e37b6c72db",
+        "media_path": "media/656834533/repo-whatsapp-mcp-01.mp4",
+        "release_tag": "renders-2026-10-19",
+        "video_id": "repo-whatsapp-mcp-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/656834533/repo-whatsapp-mcp-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "69b4d49630bb12428853aa8e4d76e3f64b90dc4d0885e8b7fd36624a8a22c7e6",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Save this: a read-only bridge lets your agent search every WhatsApp chat you own. It cannot send, and messages stay in your account. Catch: unofficial, so watch the video first.\n\nCredits: Own captures of the public GitHub repo (checked 2026-10-19).\n\n#AI #WhatsApp #OpenSource",
+      "title": "WhatsApp MCP: Your AI Can Now Search Your Own Chats",
+      "updated_at": "2026-10-19T16:54:41Z",
+      "video_id": "repo-whatsapp-mcp-01"
+    },
     "repo-whatsapp-mcp-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6ad64b4f6cd7d3af6311b524",
