@@ -1,0 +1,142 @@
+{
+ "schema_version": 1,
+ "batch_id": "2026-10-19-model-humanizer-01",
+ "created_at": "2026-10-19T17:35:11Z",
+ "buffer_insights": {
+  "path": "reels-studio/tracker/buffer-insights.json",
+  "sha256": "6bc52b65bd3ac0d2517fce3ecdb49342b03e30f0a009650e412e43391a6e5de9"
+ },
+ "metrics_review": {
+  "snapshot_sha256": "6bc52b65bd3ac0d2517fce3ecdb49342b03e30f0a009650e412e43391a6e5de9",
+  "reviewed_video_count": 99,
+  "sample_post_ids": [
+   "6acc919add062ea3c8176035",
+   "6acc91a0712ba82086b03116",
+   "6acc91a3dd062ea3c817610d",
+   "6acc91a65feb3462de95f295"
+  ],
+  "findings": [
+   "Fresh snapshot fetched 2026-10-19T10:47:10Z: 99 shared video records, complete.",
+   "Performance system: repo/tool formats lead; statement and question hooks are the catalogue baseline \u2014 batch 2 pilots the creative layer (PLAYBOOK 8A): quest format for huashu-motion, myth-bust for humanizer, covers picked from 3 designed concepts.",
+   "Best windows so far: Facebook midday ET, Instagram morning ET, YouTube evening ET \u2014 scheduling defers to the publisher's researched windows and the dry-run plan is checked against these."
+  ],
+  "decisions": {
+   "topic": "HF trending with ~110k downloads/mo; 'make AI drafts sound like you' is a broad writer job with a genuine myth-bust tension (polish vs detector cheat).",
+   "script": "Accusation named in sentence one, official before/after as proof, its own fact-slip results and the authorship line spoken in the verdict.",
+   "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall.",
+   "visual": "Own HF captures plus official app showcase, before/after and evaluation media in 6/7 scenes. Covers: 3 concepts rendered, panel picked 'IT FOOLS DETECTORS'. Viewer panel must PASS before queueing."
+  }
+ },
+ "briefs": {
+  "model-humanizer-01": {
+   "brief_sha256": "74beb2d3b00d9a0a22b6f6c65cc71e2b2e7c614adfc06734e54d73eb7a5d05a7",
+   "metrics_decisions": {
+    "topic": "HF trending with ~110k downloads/mo; 'make AI drafts sound like you' is a broad writer job with a genuine myth-bust tension (polish vs detector cheat).",
+    "script": "Accusation named in sentence one, official before/after as proof, its own fact-slip results and the authorship line spoken in the verdict.",
+    "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall.",
+    "visual": "Own HF captures plus official app showcase, before/after and evaluation media in 6/7 scenes. Covers: 3 concepts rendered, panel picked 'IT FOOLS DETECTORS'. Viewer panel must PASS before queueing."
+   },
+   "stages": {
+    "discover": {
+     "status": "complete",
+     "checked_at": "2026-10-19T17:35:11Z",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-19.md"
+     ]
+    },
+    "select": {
+     "status": "complete",
+     "selection_status": "selected",
+     "topic": "humanizer: AI drafts that read like you wrote them",
+     "score": 74,
+     "score_breakdown": {
+      "trend_velocity": 20,
+      "demo_ability": 17,
+      "audience_breadth": 14,
+      "social_proof_gap": 7,
+      "free_value": 9,
+      "freshness_angle": 7
+     },
+     "metrics_snapshot_sha256": "6bc52b65bd3ac0d2517fce3ecdb49342b03e30f0a009650e412e43391a6e5de9",
+     "basis_post_ids": [
+      "6acc919add062ea3c8176035",
+      "6acc91a0712ba82086b03116",
+      "6acc91a3dd062ea3c817610d",
+      "6acc91a65feb3462de95f295"
+     ],
+     "hard_gates": {
+      "risk_flags_clear": true,
+      "claim_verifiable": true,
+      "license_clear": true
+     }
+    },
+    "research": {
+     "status": "complete",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-19.md"
+     ],
+     "dynamic_facts_checked_at": "2026-10-19T17:35:11Z",
+     "primary_sources": [
+      {
+       "url": "https://huggingface.co/jialinyyzz/humanizer",
+       "checked_at": "2026-10-19T17:35:11Z",
+       "claim": "Model card documents the 12B rewriter, fact-pinning design, free local apps, and its own evaluation: some rewrites flagged for fact slips (44/420 English)."
+      },
+      {
+       "url": "https://huggingface.co/api/models/jialinyyzz/humanizer",
+       "checked_at": "2026-10-19T17:35:11Z",
+       "claim": "Live metadata: 1.97k likes, 109,937 downloads last month, Apache-2.0."
+      }
+     ]
+    },
+    "script": {
+     "status": "complete",
+     "script_sha256": "7522a91e40c64651582db98b69ed42d246845aeb1daba7027a9cb17fcd8e7043",
+     "word_count": 156
+    },
+    "voice": {
+     "status": "complete",
+     "engine": "chatterbox",
+     "profile": "option-3",
+     "qa_thresholds": {
+      "per_chunk": 0.92,
+      "overall": 0.95
+     }
+    },
+    "assets": {
+     "status": "complete",
+     "rights_checked": true,
+     "approval_constraints_checked": true,
+     "capture_id": "model-humanizer-01",
+     "manifest_sha256": "cc4530edc45fc0bc5ed4612200a79186d899f3e47160b0991c9faadb6ac5a42e",
+     "files": [
+      {
+       "path": "app-showcase-en.png",
+       "sha256": "114a7dd013ff6f2ec3366fc81642a2e88d9e5a9243bb706172267f47d0bc628a"
+      },
+      {
+       "path": "banner-en.png",
+       "sha256": "3c32b66d7282d635a5c8c0135658b082f2ca33fb8abcf6486026fd4963997637"
+      },
+      {
+       "path": "compare-en-email.png",
+       "sha256": "bd5c29c469a36d9383e5ad08ad0179eb8de603de200143f755f4913faaf5a4f4"
+      },
+      {
+       "path": "desktop-full.jpg",
+       "sha256": "422d53919030a6542364828dda2831101f005d00352680a49488064cb6e5189d"
+      },
+      {
+       "path": "desktop-top.jpg",
+       "sha256": "3e0e8862a106772b1c25aeddc6b0d45f6842d401c5eadf83a87c81d77fb69a07"
+      },
+      {
+       "path": "eval-en.png",
+       "sha256": "a0d9e2fd43bb3aeace2bf9d352006aecd4e6ceafe814b13042a4a494a88252c9"
+      }
+     ]
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,238 @@
+{
+ "id": "model-humanizer-01",
+ "template": "tool-spotlight",
+ "capture": "captures/model-humanizer-01",
+ "title": "humanizer: The Model That Makes AI Text Sound Like You",
+ "niche": "AI writing and local models",
+ "lang": "en-us",
+ "style": "midnight",
+ "status": "Selected 2026-10-19 (batch 2, creative pilot) from radar-2026-10-19 + performance advice. Creative treatment per PLAYBOOK 8A; cover concepts judged by viewer panel via cover_lab. Default flow: render + frame/cover panel PASS, then Buffer scheduled. Approved Option-3 Chatterbox flow voice.",
+ "production_category": "tool",
+ "keywords": [
+  "humanizer",
+  "AI writing",
+  "AI detector",
+  "local LLM",
+  "GGUF"
+ ],
+ "facts": {
+  "likes": "1.97k Hugging Face likes, 109,937 downloads last month (own capture, checked 2026-10-19)",
+  "license": "Apache-2.0",
+  "runtime": "12B GGUF model; free local app for Mac (Apple silicon) and Windows; rewrites can still slip facts per the project's own evaluation"
+ },
+ "credits_on_screen": "Own captures of the public Hugging Face page + the project's own media (checked 2026-10-19).",
+ "sources": [
+  "https://huggingface.co/jialinyyzz/humanizer",
+  "https://huggingface.co/api/models/jialinyyzz/humanizer"
+ ],
+ "verify_before_render": [
+  "Likes, downloads, licence and evaluation claims re-checked against the live model page on render day."
+ ],
+ "treatment": {
+  "audience": "writers, students and professionals who draft with AI",
+  "viewer_job": "make AI drafts read like their own writing before sending",
+  "intent": "browse",
+  "archetype": "myth-bust",
+  "hook_mechanic": "name the accusation first: detector cheat, or honest polish?",
+  "open_loop": {
+   "plant": "useful tool, or just a detector cheat?",
+   "payoff_scene": "catch"
+  },
+  "proof_moment": "how",
+  "cover_concepts": [
+   {
+    "text": "IT FOOLS DETECTORS",
+    "visual": "official banner: draft vs rewrite",
+    "gap": "fools them how?"
+   },
+   {
+    "text": "SOUNDS HUMAN NOW",
+    "visual": "the app, draft left rewrite right",
+    "gap": "same words, human how?"
+   },
+   {
+    "text": "YOU SIGN IT",
+    "visual": "before/after email",
+    "gap": "sign what, exactly?"
+   }
+  ],
+  "selected_cover": 0
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "page",
+   "image": "desktop-top.jpg",
+   "heading": "DETECTOR CHEAT, *OR GENIUS?*",
+   "sub": "humanizer · AI drafts that sound like you",
+   "say": "This model rewrites AI drafts so they read like you wrote them. Honest polish, or a detector cheat?",
+   "url": "huggingface.co/jialinyyzz/humanizer",
+   "camera": [
+    {
+     "region": "repo_title",
+     "zoom": 1.5,
+     "at": "detector cheat"
+    }
+   ]
+  },
+  {
+   "id": "name",
+   "type": "image",
+   "image": "app-showcase-en.png",
+   "heading": "MEET *HUMANIZER*",
+   "sub": "by jialinyyzz · free local app",
+   "say": "Meet Humanizer, a free local model that rewrites emails, essays and reports in your voice."
+  },
+  {
+   "id": "how",
+   "type": "steps",
+   "heading": "HOW IT *REWRITES*",
+   "steps": [
+    "Paste an AI draft",
+    "It rewrites, facts pinned",
+    "You read before sending"
+   ],
+   "step_at": [
+    "Paste",
+    "facts pinned",
+    "read before sending"
+   ],
+   "say": "Paste an AI draft. It rewrites the wording while pinning every number, date and name in place, like the before and after on its page. Then you read it before sending.",
+   "background": {
+    "image": "compare-en-email.png"
+   }
+  },
+  {
+   "id": "stars",
+   "type": "page",
+   "heading": "WRITERS *NOTICED*",
+   "image": "desktop-top.jpg",
+   "say": "Writers noticed: nearly two thousand likes and over a hundred thousand downloads.",
+   "camera": [
+    {
+     "region": "repo_title",
+     "zoom": 1.5,
+     "at": "two thousand"
+    }
+   ]
+  },
+  {
+   "id": "install",
+   "type": "page",
+   "heading": "*GET THE APP*",
+   "image": "desktop-full.jpg",
+   "say": "There is a free app for Mac and Windows, and it works offline once downloaded.",
+   "camera": [
+    {
+     "region": "h_quick_start",
+     "zoom": 1.35,
+     "at": "free app"
+    }
+   ]
+  },
+  {
+   "id": "catch",
+   "type": "verdict",
+   "heading": "THE *HONEST LINE*",
+   "cons": [
+    "Its own tests show some rewrites slip a fact",
+    "Passing off AI text as yours is your call"
+   ],
+   "pros": [
+    "Runs locally, works offline",
+    "Free and open source"
+   ],
+   "item_at": [
+    "slip a fact",
+    "your call",
+    "locally and offline",
+    "open source"
+   ],
+   "say": "The honest line: its own results show some rewrites still slip a fact, so read first, and passing off AI text as your own writing is your call to make. In return, it runs locally and offline, and it is free and open source.",
+   "image": "eval-en.png",
+   "region": "eval_card",
+   "zoom": 1.1
+  },
+  {
+   "id": "cta",
+   "type": "endcard",
+   "keyword": "HUMAN",
+   "say": "Would you let AI polish your writing, or is that crossing a line? Comment Human and follow for tools like this."
+  }
+ ],
+ "seo": {
+  "keyword": "humanizer AI text rewriter model",
+  "aliases": [
+   "AI humanizer",
+   "make AI text sound human",
+   "local AI writer"
+  ],
+  "onscreen_first3s": "DETECTOR CHEAT, OR GENIUS?",
+  "youtube": {
+   "title": "humanizer: The AI That Rewrites AI Text to Sound Like You",
+   "description": "humanizer is a 12B local model that rewrites AI-written drafts — emails, essays, reports — so they read like a person wrote them, while pinning numbers, dates and names. Free Mac/Windows app, runs offline. The honest line is in the video: its own evaluation shows some rewrites slip a fact, so read before you send. 1.97k likes, ~110k downloads.\nSource: https://huggingface.co/jialinyyzz/humanizer",
+   "hashtags": [
+    "#Shorts",
+    "#AI",
+    "#Writing",
+    "#LLM"
+   ],
+   "tags": [
+    "humanizer",
+    "AI writing",
+    "AI text rewriter",
+    "local LLM",
+    "GGUF",
+    "AI detector"
+   ]
+  },
+  "tiktok": {
+   "caption": "It rewrites AI drafts so they sound like you. Genius polish or detector cheat? The catch is in the video.",
+   "hashtags": [
+    "#AI",
+    "#Writing",
+    "#LLM"
+   ]
+  },
+  "instagram": {
+   "caption": "Save this if you draft with AI: humanizer rewrites your drafts in a human voice, locally and offline. Read before you send — its own tests say why.",
+   "hashtags": [
+    "#AI",
+    "#Writing",
+    "#OpenSource"
+   ]
+  },
+  "facebook": {
+   "caption": "humanizer: a free local model that rewrites AI drafts so they read like you wrote them — numbers and names pinned. Its own fact-check results are the catch, shown in the video.",
+   "hashtags": [
+    "#AI",
+    "#Writing"
+   ]
+  },
+  "x": {
+   "text": "A 12B local model that rewrites AI drafts to sound like you wrote them — free, offline, ~110k downloads. Genius or detector cheat? https://huggingface.co/jialinyyzz/humanizer",
+   "hashtags": [
+    "#AI",
+    "#Writing"
+   ]
+  }
+ },
+ "post": {
+  "titles": [
+   "humanizer: The Model That Makes AI Text Sound Like You"
+  ],
+  "caption": "humanizer: a 12B local model that rewrites AI drafts (emails, essays, reports) so they read like a person wrote them, pinning every number, date and name. Free Mac/Windows app, works offline. Catch: its own evaluation shows some rewrites slip a fact — read before you send. 1.97k likes, ~110k downloads.",
+  "hashtags": [
+   "#Shorts",
+   "#AI",
+   "#Writing",
+   "#LLM"
+  ],
+  "keyword": "HUMAN"
+ },
+ "research_basis": [
+  "research/social/decode-2026-10-18.md",
+  "research/social/platform-algorithms-2026-10-18.md",
+  "tracker/performance.json"
+ ]
+}
