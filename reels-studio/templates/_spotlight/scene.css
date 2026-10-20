@@ -59,6 +59,9 @@
 .sp-page { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
 .sp-page img { display: block; width: 100%; height: 100%; }
 .sp-dim { position: absolute; inset: 0; background: rgba(5, 9, 20, 0.62); opacity: 0; }
+/* evidence callout: the region stays bright, everything around it falls away */
+.sp-ring { position: absolute; border: 5px solid var(--acc); border-radius: 16px; pointer-events: none;
+  box-shadow: 0 0 0 9999px rgba(5, 9, 20, 0.72), 0 0 0 3px rgba(5, 9, 20, 0.55), 0 0 34px rgba(56, 189, 248, 0.45); }
 .sp-hlbox { position: absolute; border: 5px solid var(--cap-key); border-radius: 14px; box-shadow: 0 0 0 9999px rgba(5, 9, 20, 0.28), 0 0 28px rgba(255, 214, 10, 0.6); opacity: 0; }
 .sp-starred { position: absolute; display: flex; align-items: center; justify-content: center; gap: 6px; border-radius: 8px;
   background: #fff8c5; border: 1px solid #d4a72c; color: #24292f; font: 700 15px "Inter"; opacity: 0; }

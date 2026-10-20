@@ -29,7 +29,7 @@
  },
  "briefs": {
   "tool-fx0-01": {
-   "brief_sha256": "0f35e6d866f7a34304bd07d04092a32c1cda5cfa1b9a89b348de13ef23224f4c",
+   "brief_sha256": "5a632bdc42e68f9d56bcc55ad99c716639bccf514ff6d8e91499a6753f661d2f",
    "metrics_decisions": {
     "topic": "241 stars on day one for a Vercel Labs design agent; the viewer job (a landing page without hand-written CSS) is concrete and demoable in ten seconds.",
     "script": "Demo-first beats: finished page first, then the build, then a second page it built; five-free-prompt sign-in and placeholder copy spoken in the verdict.",

@@ -62,6 +62,19 @@ def scene_part(name):
                      if p.exists())
 
 
+def _html_without_timing_block(tpl, b, T, D, ev):
+    """Scene HTML for the audit. Montage-timing rejection is relaxed: layout is not timing."""
+    core = getattr(tpl, "core", None)
+    if core is None or not hasattr(core, "qa_montage"):
+        return tpl.html(b, T, D, ev)
+    original = core.qa_montage
+    core.qa_montage = lambda *a, **k: []
+    try:
+        return tpl.html(b, T, D, ev)
+    finally:
+        core.qa_montage = original
+
+
 def build_page(b, work, tpl):
     T, order, D = synth_timing(b, tpl)
     ev = tpl.events(b, T, D)
@@ -85,8 +98,12 @@ def build_page(b, work, tpl):
         shutil.copy2(src, dst)
     scene_css = (SHARED / "scene.css").read_text() + "\n" + (SHARED / "archetype.css").read_text()
     scene_js = (SHARED / "scene.js").read_text() + "\n" + (SHARED / "archetype.js").read_text()
+    # This tool measures geometry; the renderer enforces montage timing. With synthesised timings
+    # the montage anchor rule can block the build (it needs the real word times), so the layout
+    # audit builds with that one check relaxed and says so.
+    media_html = _html_without_timing_block(tpl, b, T, D, ev)
     rep = {"{{FONTS_CSS}}": "\n".join(fonts), "{{BASE_CSS}}": (BASE / "base.css").read_text(),
-           "{{SCENE_CSS}}": scene_css, "{{MEDIA_HTML}}": tpl.html(b, T, D, ev),
+           "{{SCENE_CSS}}": scene_css, "{{MEDIA_HTML}}": media_html,
            "{{SCENE_HTML}}": (SHARED / "scene.html").read_text() if (SHARED / "scene.html").exists() else "",
            "{{BASE_JS}}": (BASE / "base.js").read_text(), "{{SCENE_JS}}": scene_js,
            "{{DATA_JSON}}": json.dumps(data, ensure_ascii=False).replace("</", "<\\/"),
@@ -137,11 +154,16 @@ MEASURE_JS = r"""
       x: Math.min(...caps.map((c) => c.x)), y: Math.min(...caps.map((c) => c.y)),
       w: Math.max(...caps.map((c) => c.x + c.w)) - Math.min(...caps.map((c) => c.x)),
       h: Math.max(...caps.map((c) => c.y + c.h)) - Math.min(...caps.map((c) => c.y))} : null;
+  const dims = [...document.querySelectorAll(".sp-scene")].filter(vis).map((sc) => {
+      const dim = sc.querySelector(".sp-dim");
+      const br = sc.querySelector(".sp-browser");
+      return {id: sc.id, dim: dim ? parseFloat(getComputedStyle(dim).opacity) : null, page: !!br};
+    });
   const clips = [...document.querySelectorAll(".sp-vset")].filter(vis).map((el) => ({
     id: el.id, fill: !!el.querySelector(".sp-vfill"),
     card: el.querySelector(".sp-vcard") ? box(el.querySelector(".sp-vcard")) : null,
     fillBox: el.querySelector(".sp-vfill") ? box(el.querySelector(".sp-vfill")) : null}));
-  return {capCollisions, capFill, clips,
+  return {capCollisions, capFill, dims, clips,
           cap, surfaces: pick(".sp-imgcard, .sp-vcard, .sp-browser, .sp-term, .sp-steps, .sp-vcardx, .sp-stat, .sp-question, #endcard"),
           overlays: pick(".arch-stamp, .arch-kicker, .sp-chip, #arch-hud, .arch-rail"),
           arch: document.querySelector("#root").dataset.archetype,
@@ -201,12 +223,18 @@ def audit(brief_path, out_dir=None, keep=False):
                     rows.append({"scene": sid, "t": t, "el": str(s["sel"]), "bottom": round(bx["y"] + bx["h"]),
                                  "cap": bool(m["cap"]) and intersects(bx, m["cap"])})
                 for c in m["clips"]:
-                    if c["card"] and c["card"]["h"] > 0:
+                    # Only a clip WITHOUT a fill layer can leave a dead band: with fill-blur the
+                    # blurred copy of the footage covers the whole stage behind the card.
+                    if c["card"] and c["card"]["h"] > 0 and not c["fill"]:
                         bottom = c["card"]["y"] + c["card"]["h"]
                         if bottom < stage_bottom - 24:
                             problems.append(f"{sid} @{t}s {c['id']}: clip card ends at {bottom:.0f}, "
                                             f"leaving {stage_bottom - bottom:.0f}px of empty stage "
                                             f"(a covered clip must reach {stage_bottom})")
+                for d in m["dims"]:
+                    if d["page"] and d["dim"] is not None and d["dim"] < 0.2:
+                        problems.append(f"{d['id']} @{t}s: page capture is not dimmed (dim opacity "
+                                        f"{d['dim']:.2f}) — a full-brightness page flashes white in a dark film")
                 for c in m["capFill"]:
                     problems.append(f"{sid} @{t}s: caption plate '{c['text']}' needs "
                                     f"{c['ratio'] * 100:.0f}% of the caption zone; the per-word pop will "
@@ -214,7 +242,11 @@ def audit(brief_path, out_dir=None, keep=False):
                 for c in m["capCollisions"]:
                     problems.append(f"{sid} @{t}s: caption words collide ({c['text']}, overlap "
                                     f"{-c['gap']}px) — the plate is wider than the caption zone")
-                cap_on = bool((next(x for x in b["scenes"] if x["id"] == sid)).get("caption", True))
+                scene_def = next(x for x in b["scenes"] if x["id"] == sid)
+                # same default rule as the renderer: clip-with-headline and end cards carry their
+                # own typography, everything else is captioned
+                cap_on = bool(scene_def.get("caption", not (
+                    (scene_def["type"] == "clip" and scene_def.get("headline")) or scene_def["type"] == "endcard")))
                 if cap_on and frac == 0.6 and m["captionPlates"] == 0:
                     problems.append(f"{sid} @{t}s: scene is captioned but no caption plate is on screen "
                                     f"(the caption band sits empty while the line is spoken)")

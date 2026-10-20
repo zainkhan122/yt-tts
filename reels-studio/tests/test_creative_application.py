@@ -100,6 +100,32 @@ class ArchetypeLayerTests(unittest.TestCase):
         self.assertRegex(css, r"\.cw\s*\{[^}]*flex:\s*0 0 auto",
                          "caption words must not shrink; long plates have to wrap")
 
+    def test_catch_scene_never_opens_on_an_undimmed_page(self):
+        """2026-10-20: every catch scene opened on a full-stage white page for half a second,
+        because the dim tween started at t0+0.5. It has to be on from the scene's first frame."""
+        js = (SHARED / "scene.js").read_text()
+        self.assertIn("tl.set(dim, { opacity: 0.35 }, t0)", js)
+        self.assertNotIn("{ opacity: 1, duration: 0.4, immediateRender: false }, t0 + 0.5)", js)
+
+    def test_evidence_catch_keeps_one_card_above_the_caption_band(self):
+        """Two stacked verdict cards ran 898-1372 and crossed into the caption zone; with an
+        `evidence` list the catch card must hand over to the good card instead of stacking."""
+        js = (SHARED / "scene.js").read_text()
+        self.assertIn("const hasEv = Boolean(evList", js)
+        self.assertIn("if (!hasEv) y += card.offsetHeight + 24;", js)
+        self.assertIn("E(`${s.id}_${groups[gi + 1]}_card`", js)
+
+    def test_hook_clip_card_reserves_its_ken_burns_zoom(self):
+        js = (SHARED / "scene.js").read_text()
+        self.assertIn("Math.floor((STAGE_BOTTOM - cardTop) / 1.045)", js,
+                      "the hook card must reserve the 1.045 zoom or it ends past the stage floor")
+
+    def test_layout_audit_checks_dimmed_pages_and_caption_fit(self):
+        audit = (ROOT / "tools" / "layout_audit.py").read_text()
+        for needle in ("page capture is not dimmed", "caption words collide", "caption plate",
+                       "clip card ends at"):
+            self.assertIn(needle, audit)
+
     def test_stage_geometry_leaves_a_real_gap_above_captions(self):
         core = spotcore()
         self.assertLessEqual(core.LAYOUT["cover_top"], core.LAYOUT["stage_bottom"] - 300)

@@ -121,7 +121,7 @@
             im.alt = "";
             const vpW = 996, vpH = o.height - 68;
             const s0 = vpW / img.w;
-            const B = { br, vp, page, img, vpW, vpH, s0, left: 42, top: o.top + 66 };
+            const B = { br, vp, page, img, vpW, vpH, s0, left: 42, top: o.top + 66, regions: R };
             const clamp = (x, y, S) => ({
               x: Math.min(0, Math.max(Math.min(0, vpW - img.w * S), x)),
               y: Math.min(0, Math.max(Math.min(0, vpH - img.h * S), y)), scale: S,
@@ -264,8 +264,12 @@
               showSet(vs, t0, t1, s.id === FIRST);
               if (s.headline) {
                 card.classList.add("bleed");
+                // The card zooms to 1.045 while it is on screen (see the tween below). Reserving
+                // that growth keeps the scaled box on the stage floor instead of 10-18 px past it
+                // into the caption band (audit, 2026-10-20).
                 Object.assign(card.style, { left: "0px", top: cardTop + "px", width: "1080px",
-                                            height: Math.min(608, STAGE_BOTTOM - cardTop) + "px" });
+                                            height: Math.min(608, Math.floor((STAGE_BOTTOM - cardTop) / 1.045)) + "px",
+                                            transformOrigin: "center top" });
               } else {
                 const ar = parseFloat(card.getAttribute("data-ar") || "0.5625");
                 if (ar > 0.62) {  // tall / phone footage: card follows the source aspect inside 180-1220 (captions at 1330), no crop
@@ -410,19 +414,64 @@
           function sVerdict(s, root, t0, t1) {
             const cover = s.id === FIRST;
             heading(root, s.heading || "THE *CATCH*", t0 + 0.05, { instant: cover });
+            // An `evidence` list means the camera has to walk between proofs, so the page keeps the
+            // upper stage and the cards sit below it instead of covering the evidence.
+            const evList = Array.isArray(s.evidence) ? s.evidence : null;
+            const hasEv = Boolean(evList && evList.some((e) => e && e.region));
+            const bTop = cover ? COVER_STAGE_TOP : 452;
+            const bH = cover ? COVER_STAGE_HEIGHT : (hasEv ? 420 : STAGE_BOTTOM - STAGE_TOP);
             if (s.img && s.region) {
-              const B = browser(root, { top: cover ? COVER_STAGE_TOP : 452,
-                                       height: cover ? COVER_STAGE_HEIGHT : STAGE_BOTTOM - STAGE_TOP,
+              const B = browser(root, { top: bTop, height: bH,
                                        url: s.display_url || s.url || X.display_url || X.url, img: s.img, instant: cover });
-              const st = B.state(s.region, s.zoom || 1.15);
-              tl.fromTo(B.page, st, { ...B.drift(st, 1.04), duration: Math.max(0.1, t1 - t0), ease: "none", immediateRender: false }, t0);
+              // 2026-10-20: the dim used to fade in 0.5 s late, so every catch scene opened on a
+              // full-stage sheet of white in the middle of a dark film. It is on from frame one now.
               const dim = A.mk("div", "sp-dim", B.vp);
-              tl.fromTo(dim, { opacity: 0 }, { opacity: 1, duration: 0.4, immediateRender: false }, t0 + 0.5);
+              tl.set(dim, { opacity: 0.35 }, t0);
+              // Evidence callout: the region the line is talking about stays bright while the rest
+              // of the page falls away, so the proof reads instead of a grey slab.
+              const ring = A.mk("div", "sp-ring", B.page);
+              ring.style.opacity = "0";  // shown only when a real evidence region is on the page
+              const itemTimes = [];
+              (s.order || ["cons", "pros"]).forEach((grp) => (s[grp] || []).forEach((_, k) => itemTimes.push(E(`${s.id}_${grp}${k}`, t0 + 0.5))));
+              const ringTo = (r) => ({ left: (r.x - 12) + "px", top: (r.y - 12) + "px",
+                                       width: (r.w + 24) + "px", height: (r.h + 24) + "px" });
+              const first = (evList && evList.find((e) => e && e.region && B.regions[e.region])) ||
+                            { region: s.region, zoom: s.zoom };
+              let cur = B.state(first.region, first.zoom || 1.6);
+              tl.set(B.page, { ...cur }, t0);
+              const r0 = B.regions[first.region];
+              if (r0 && r0.w > 0) {
+                Object.assign(ring.style, ringTo(r0));
+                // on screen at the first frame of the scene: a callout that fades in leaves the
+                // full-brightness page behind it for half a second, which is the white flash.
+                tl.set(ring, { opacity: 1 }, t0);
+                tl.fromTo(ring, { scale: 1.05 }, { scale: 1, duration: 0.3, ease: "power2.out", immediateRender: false }, t0);
+              }
+              const moves = (evList || []).map((e, k) => ({ e, k }))
+                .filter(({ e, k }) => k > 0 && e && e.region && B.regions[e.region] && B.regions[e.region].w > 0);
+              moves.forEach(({ e, k }, n) => {
+                const at = Math.max(t0 + 0.5, itemTimes[k] !== undefined ? itemTimes[k] : t0 + 0.9 * k);
+                const nxt = B.state(e.region, e.zoom || 1.6);
+                tl.to(B.page, { ...nxt, duration: 0.55, ease: "power2.inOut", immediateRender: false }, at - 0.1);
+                tl.to(ring, { ...ringTo(B.regions[e.region]), duration: 0.55, ease: "power2.inOut", immediateRender: false }, at - 0.1);
+                if (n === moves.length - 1) {  // a slow drift keeps the frame alive until the next scene
+                  tl.to(B.page, { ...B.drift(nxt, 1.03), duration: Math.max(0.2, t1 - (at + 0.45)), ease: "none",
+                                  immediateRender: false }, at + 0.45);
+                }
+                cur = nxt;
+              });
+              if (!moves.length) {
+                tl.to(B.page, { ...B.drift(cur, 1.03), duration: Math.max(0.1, t1 - t0), ease: "none",
+                                immediateRender: false }, t0 + 0.02);
+              }
             }
-            let y = cover ? COVER_STAGE_TOP : 486;  // cards stack; the last one must clear STAGE_BOTTOM
-            (s.order || ["cons", "pros"]).forEach((grp) => {
+            // Evidence mode keeps the page on screen, so only ONE card may be up at a time: two
+            // stacked cards ran 898→1372 and crossed into the caption zone (2026-10-20). The catch
+            // card swaps to the good card exactly when the script starts listing the upside.
+            const groups = (s.order || ["cons", "pros"]).filter((g) => (s[g] || []).length);
+            let y = cover ? COVER_STAGE_TOP : (hasEv ? bTop + bH + 26 : 486);
+            groups.forEach((grp, gi) => {
               const items = s[grp] || [];
-              if (!items.length) return;
               const card = A.mk("div", "sp-vcardx " + grp, root);
               card.style.top = y + "px";
               A.mk("div", "sp-vt", card, grp === "cons" ? s.cons_title || "⚠ The catch" : s.pros_title || "✓ The good");
@@ -432,8 +481,14 @@
                 A.mk("span", "", it, txt);
                 tl.fromTo(it, { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.22, ease: "power3.out", immediateRender: false }, E(`${s.id}_${grp}${k}`, t0 + 0.5 + k * 0.6));
               });
-              tl.fromTo(card, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, E(`${s.id}_${grp}_card`, t0 + 0.3));
-              y += card.offsetHeight + 24;
+              const cardAt = E(`${s.id}_${grp}_card`, t0 + 0.3);
+              tl.fromTo(card, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, cardAt);
+              if (hasEv && gi + 1 < groups.length) {
+                // hide just before the upside card arrives, so the two never share a frame
+                const nextAt = E(`${s.id}_${groups[gi + 1]}_card`, E(`${s.id}_${groups[gi + 1]}0`, t0 + 1.1)) - 0.3;
+                tl.to(card, { opacity: 0, y: -26, duration: 0.2, ease: "power2.in", immediateRender: false }, Math.max(cardAt + 0.3, nextAt));
+              }
+              if (!hasEv) y += card.offsetHeight + 24;
             });
           }
           function sStat(s, root, t0, t1) {
