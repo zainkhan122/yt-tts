@@ -289,9 +289,9 @@
       "brief_sha256": "e0c2796891fb66da6839fda19d93f8111c09e5eb39e89a592b392c713edd5a70",
       "capture_id": null,
       "crf": 20,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=failure publish=skipped",
       "fingerprint": "64ca093539b4eb75e647eb8be565144ac4aaebba29200f37712b276bd9b361c9",
-      "finished_at": null,
+      "finished_at": "2026-10-20T17:26:31Z",
       "from_tag": "renders-2026-10-19",
       "quality": "looks",
       "rebuild_scenes": [
@@ -306,7 +306,7 @@
       "renderer_sha256": "c411d62a6728955c4e7ad3ae441d7eae8a685899f4f4f8e9369f5716aa792cf5",
       "run_id": "39464800072",
       "started_at": "2026-10-20T17:17:49Z",
-      "status": "started",
+      "status": "failed",
       "voice_seed": 0
     },
     "6865854e06b12e25df5de2eaaa7b8d77432e2ccdb7b2dc889df83202eabad333": {
