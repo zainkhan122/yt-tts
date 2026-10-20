@@ -3,6 +3,7 @@ import copy
 import datetime as dt
 import io
 import json
+import os
 from pathlib import Path
 import sys
 import tempfile
@@ -493,6 +494,47 @@ def normalised_schema(path):
                 if not inherited[field["name"]]:
                     field.pop("deprecationReason", None)
     return build_client_schema(doc)
+
+
+class VerifyModeExitTests(unittest.TestCase):
+    """The wiring, not just the helper: --verify must exit non-zero when Buffer disagrees."""
+
+    def run_verify(self, posts, video_id="repo-huashu-motion-01"):
+        import argparse
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as tmp:
+            report = Path(tmp) / "report.json"
+            stub = Mock()
+            stub.capabilities = {"facebook_ai_generated": True}
+            stub.request_count, stub.policies = 0, []
+            stub.state.return_value = ([], posts)
+            stub.channels.return_value = []
+            argv = ["unittest", video_id, "--verify", "--report", str(report)]
+            with patch.object(sys, "argv", argv), \
+                 patch.object(publisher, "BufferClient", return_value=stub), \
+                 patch.dict(os.environ, {"GITHUB_ACTIONS": "true"}, clear=False):
+                code = publisher.main()
+            return code, json.loads(report.read_text()), report.with_suffix(".md").read_text()
+
+    def test_missing_scheduled_post_fails_the_run(self):
+        code, report, text = self.run_verify([])
+        self.assertEqual(code, 1)
+        self.assertIn("DRIFT", text)
+        self.assertIn("Buffer has no such post", text)
+        self.assertEqual(report["mode"], "verify")
+
+    def test_matching_posts_pass(self):
+        journal = load_json(ROOT / "tracker/publications.json")["records"]
+        due = journal["repo-huashu-motion-01:youtube"]["due_at"]
+        posts = []
+        for platform in ("youtube", "instagram", "facebook"):
+            rec = journal[f"repo-huashu-motion-01:{platform}"]
+            posts.append({"id": rec["buffer_post_id"], "status": "scheduled", "dueAt": rec["due_at"],
+                          "assets": [{"source": "https://x/media/1/repo-huashu-motion-01.mp4"}]})
+        code, report, text = self.run_verify(posts)
+        self.assertEqual(code, 0, text)
+        self.assertIn("verified", text)
+        self.assertNotIn("DRIFT", text)
 
 
 class SchemaAndMediaTests(unittest.TestCase):
