@@ -161,10 +161,13 @@ def pick_images(brief, count, root=ROOT):
                     p = cap / v
                     if p.exists() and p not in staged:
                         staged.append(p)
-        preferred = ["desktop-top.jpg", "desktop-full.jpg", "readme-top.png", "app.png", "og.png"]
+        preferred = ["desktop-top.jpg", "desktop-mid.jpg", "desktop-full.jpg", "readme-top.png",
+                     "app.png", "og.png"]
         candidates += staged + [cap / n for n in preferred if (cap / n).exists()]
         for p in staged + sorted(cap.glob("*.png")) + sorted(cap.glob("*.jpg")):
-            if p not in candidates and "desktop" not in p.name and p.name not in ("sheet.jpg",):
+            # every accepted view counts, including scrolled desktop shots (desktop-mid.jpg);
+            # only the QA sheet is noise. Near-blank frames are dropped by is_blank() below.
+            if p not in candidates and p.name not in ("sheet.jpg",):
                 candidates.append(p)
         seen, ordered = set(), []
         for p in candidates:  # staged media first, then the standard shots, no repeats
