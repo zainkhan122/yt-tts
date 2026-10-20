@@ -2551,9 +2551,11 @@
     },
     "tool-fx0-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6ad7a32658633da51387120e",
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-20T21:00:00Z",
+      "due_at": "2026-10-20T21:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:93193f79722a001691707055ca889728c47ce628eb64369ffb58d62e1f6780f2",
         "asset_id": 659927017,
@@ -2568,10 +2570,11 @@
       "notify_subscribers": false,
       "payload_sha256": "023c2a7e1be2b32ac083a07b0d435ee0a73a4f312d6b11b74ff0d04cf00b05ae",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "fx0 turns one sentence into a finished page: a design agent writes the HTML, publishes it, and keeps every version.\n\nCredits: Own browser captures of fx0.vercel.dev (checked 2026-10-20) and of the page fx0 built.\n\nAI-generated narration.\n\n#AI #WebDev",
       "title": "fx0: One Sentence In, A Finished Page Out (Design Agent)",
-      "updated_at": "2026-10-20T17:21:40Z",
+      "updated_at": "2026-10-20T17:21:42Z",
       "video_id": "tool-fx0-01"
     },
     "tool-higgsfield-01:facebook": {
