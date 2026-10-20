@@ -1058,6 +1058,30 @@
       "title": "humanizer: The AI That Rewrites AI Text to Sound Like You",
       "video_id": "model-humanizer-01",
       "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-10-20T17:18:32Z",
+      "approval": "approved",
+      "asset_digest": "sha256:93193f79722a001691707055ca889728c47ce628eb64369ffb58d62e1f6780f2",
+      "asset_id": 659927017,
+      "asset_size": 14303910,
+      "brief_sha256": "af7c1478f52be8bfcabe0de03d06f4cc7cefa87c42ddfdfcb96e720171013a12",
+      "category": "tool",
+      "expires_at": "2026-10-27T17:45:00Z",
+      "kit_asset_id": 659927112,
+      "kit_digest": "sha256:f608f642b62ce96417628d2d6ada78abe1f213a6f6789982ddc8e0fd9ad1073d",
+      "media_path": "media/659927017/tool-fx0-01.mp4",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "priority": 90,
+      "release_tag": "renders-2026-10-20",
+      "reviewed_at": "2026-10-20T17:18:42Z",
+      "title": "fx0: One Sentence In, A Finished Page Out (Design Agent)",
+      "video_id": "tool-fx0-01",
+      "youtube_ai_generated": false
     }
   ],
   "schema_version": 1
