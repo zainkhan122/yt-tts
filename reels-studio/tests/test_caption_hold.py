@@ -112,6 +112,9 @@ HARNESS = textwrap.dedent('''
     const nodes = [];
     const mkNode = (tag, cls, text) => {
       const el = { tag, class: cls || "", text: text || "", children: [], style: {}, attrs: {},
+        clientWidth: 920,
+        // the caption fitter measures intrinsic word widths; a real element does this in layout
+        getBoundingClientRect() { return { x: 0, y: 0, width: 60 + 10 * (this.text || "").length, height: 80 }; },
         appendChild(c) { this.children.push(c); return c; },
         querySelector() { return { style: {} }; },
         setAttribute(k, v) { this.attrs[k] = v; } };

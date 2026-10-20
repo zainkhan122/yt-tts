@@ -69,7 +69,9 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; 
   padding-bottom: 0; bottom: 2px;  /* bottom-anchored: captions grow upward, never into media */
   font: 900 76px/1.08 "Inter", "Noto Color Emoji"; text-align: center;
 }
-.cw { position: relative; display: inline-block; color: var(--cap-fg); }
+.cw { position: relative; display: inline-block; color: var(--cap-fg);
+      flex: 0 0 auto; }  /* a caption word never shrinks: flex-shrink squeezed long plates
+                            into each other ("IS"+"PLACEHOLDER"+"TEXT" collided, 2026-10-20) */
 .cw .b, .cw .hl {
   text-shadow: 0 0 2px var(--cap-stroke), 0 0 8px var(--cap-stroke), 0 6px 0 var(--cap-stroke), 4px 4px 0 var(--cap-stroke), -4px -4px 0 var(--cap-stroke), 4px -4px 0 var(--cap-stroke), -4px 4px 0 var(--cap-stroke);
 }

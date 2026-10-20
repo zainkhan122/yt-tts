@@ -165,6 +165,13 @@
                 hl.setAttribute("data-layout-allow-overlap", "");
                 return w;
               });
+              // Long plates: shrink the type so the per-word "pop" (scale 1.08) cannot jam the
+              // words together. 2026-10-20 render read "ISPLACEHOLDERTEXT": the plate used 97%
+              // of the 920 px zone and the pop ate the 22 px gaps.
+              const zoneW = zone.clientWidth || 920;
+              const need = spans.reduce((sum, el) => sum + el.getBoundingClientRect().width, 0)
+                           + 22 * Math.max(0, spans.length - 1);
+              if (need > zoneW * 0.86) div.style.fontSize = Math.max(38, Math.floor(76 * zoneW * 0.86 / need)) + "px";
               const next = groups[gi + 1];
               const on = Math.max(0, g[0].s - 0.04);
               const off = Math.max(on + 0.12, Math.min(next ? next[0].s - 0.04 : D, g[g.length - 1].e + 0.5, D));  // never stuck on
@@ -173,8 +180,8 @@
               g.forEach((x, k) => {
                 const hl = spans[k].querySelector(".hl");
                 tl.fromTo(hl, { opacity: 0 }, { opacity: 1, duration: 0.05, immediateRender: false }, x.s);
-                tl.fromTo(spans[k], { scale: 1 }, { scale: 1.08, duration: 0.08, immediateRender: false }, x.s);
-                tl.fromTo(spans[k], { scale: 1.08 }, { scale: 1, duration: 0.14, immediateRender: false }, x.s + 0.08);
+                tl.fromTo(spans[k], { scale: 1 }, { scale: 1.05, duration: 0.08, immediateRender: false }, x.s);
+                tl.fromTo(spans[k], { scale: 1.05 }, { scale: 1, duration: 0.14, immediateRender: false }, x.s + 0.08);
                 tl.fromTo(hl, { opacity: 1 }, { opacity: 0, duration: 0.08, immediateRender: false }, Math.max(x.e, x.s + 0.12));
               });
             });

@@ -93,6 +93,13 @@ class ArchetypeLayerTests(unittest.TestCase):
         self.assertLess(data["layout"]["stage_bottom"], data["layout"]["cap_top"])
         self.assertEqual(data["beats"]["proof_scene"], "hook")
 
+    def test_caption_words_cannot_shrink_into_each_other(self):
+        """2026-10-20 render: a three-word plate wider than the caption zone let flex-shrink
+        squeeze the spans, so the film read 'ISPLACEHOLDERTEXT' with the words collided."""
+        css = (ROOT / "templates" / "_base" / "base.css").read_text()
+        self.assertRegex(css, r"\.cw\s*\{[^}]*flex:\s*0 0 auto",
+                         "caption words must not shrink; long plates have to wrap")
+
     def test_stage_geometry_leaves_a_real_gap_above_captions(self):
         core = spotcore()
         self.assertLessEqual(core.LAYOUT["cover_top"], core.LAYOUT["stage_bottom"] - 300)

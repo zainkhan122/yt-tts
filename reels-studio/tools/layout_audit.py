@@ -111,6 +111,26 @@ MEASURE_JS = r"""
   const box = (el) => { const r = el.getBoundingClientRect(); return {x: r.x, y: r.y, w: r.width, h: r.height}; };
   const pick = (sel) => [...document.querySelectorAll(sel)].filter(vis).map((el) => ({
     sel: el.className || el.id, box: box(el)}));
+  const wordBoxes = (pl) => [...pl.querySelectorAll(".cw")].map(box)
+      .sort((a, b) => a.x - b.x);
+  const capCollisions = [...document.querySelectorAll("#cap-zone .cg")].filter(vis).map((pl) => {
+      const bs = wordBoxes(pl);
+      for (let i = 1; i < bs.length; i++) {
+        if (bs[i - 1].x + bs[i - 1].w > bs[i].x + 1) {
+          return {text: pl.textContent.trim().slice(0, 40),
+                  gap: Math.round(bs[i].x - (bs[i - 1].x + bs[i - 1].w))};
+        }
+      }
+      return null;
+    }).filter(Boolean);
+  const zoneEl = document.querySelector("#cap-zone");
+  const zoneW = (zoneEl && zoneEl.clientWidth) || 920;
+  const capFill = [...document.querySelectorAll("#cap-zone .cg")].filter(vis).map((pl) => {
+      const kids = [...pl.querySelectorAll(".cw")];
+      const need = kids.reduce((s, el) => s + el.getBoundingClientRect().width, 0)
+                   + 22 * Math.max(0, kids.length - 1);
+      return {text: pl.textContent.trim().slice(0, 40), ratio: need / zoneW};
+    }).filter((x) => x.ratio > 0.92);
   const caps = [...document.querySelectorAll("#cap-zone .cg")].filter(vis)
       .filter((el) => el.textContent.trim().length > 0).map(box);
   const cap = caps.length ? {
@@ -121,7 +141,7 @@ MEASURE_JS = r"""
     id: el.id, fill: !!el.querySelector(".sp-vfill"),
     card: el.querySelector(".sp-vcard") ? box(el.querySelector(".sp-vcard")) : null,
     fillBox: el.querySelector(".sp-vfill") ? box(el.querySelector(".sp-vfill")) : null}));
-  return {clips,
+  return {capCollisions, capFill, clips,
           cap, surfaces: pick(".sp-imgcard, .sp-vcard, .sp-browser, .sp-term, .sp-steps, .sp-vcardx, .sp-stat, .sp-question, #endcard"),
           overlays: pick(".arch-stamp, .arch-kicker, .sp-chip, #arch-hud, .arch-rail"),
           arch: document.querySelector("#root").dataset.archetype,
@@ -187,6 +207,13 @@ def audit(brief_path, out_dir=None, keep=False):
                             problems.append(f"{sid} @{t}s {c['id']}: clip card ends at {bottom:.0f}, "
                                             f"leaving {stage_bottom - bottom:.0f}px of empty stage "
                                             f"(a covered clip must reach {stage_bottom})")
+                for c in m["capFill"]:
+                    problems.append(f"{sid} @{t}s: caption plate '{c['text']}' needs "
+                                    f"{c['ratio'] * 100:.0f}% of the caption zone; the per-word pop will "
+                                    f"jam the words together (keep it under 86%)")
+                for c in m["capCollisions"]:
+                    problems.append(f"{sid} @{t}s: caption words collide ({c['text']}, overlap "
+                                    f"{-c['gap']}px) — the plate is wider than the caption zone")
                 cap_on = bool((next(x for x in b["scenes"] if x["id"] == sid)).get("caption", True))
                 if cap_on and frac == 0.6 and m["captionPlates"] == 0:
                     problems.append(f"{sid} @{t}s: scene is captioned but no caption plate is on screen "
