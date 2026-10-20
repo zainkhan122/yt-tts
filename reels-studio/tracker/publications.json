@@ -2579,9 +2579,11 @@
     },
     "tool-fx0-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6ad7a32904c37bdd0539661a",
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-21T01:00:00Z",
+      "due_at": "2026-10-21T01:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:93193f79722a001691707055ca889728c47ce628eb64369ffb58d62e1f6780f2",
         "asset_id": 659927017,
@@ -2596,10 +2598,11 @@
       "notify_subscribers": false,
       "payload_sha256": "ece63438cdc27ac26490f15b85143b99e4e7173bbb4f0cfa88eebfa4c9deeb71",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "fx0 is an open-source design agent from Vercel Labs: describe a page and an agent writes it as a single HTML file, with live publishing and version history. This Short shows a live run that built a pricing page in about ten seconds, plus a dashboard the same agent built. Catches in the video: five free prompts before you sign in and bill your own model, and the copy is placeholder text you still edit.\nSource: https://github.com/vercel-labs/fx0\n\nCredits: Own browser captures of fx0.vercel.dev (checked 2026-10-20) and of the page fx0 built.\n\n#Shorts #AI #WebDev #OpenSource",
       "title": "fx0: One Sentence In, A Finished Page Out (Design Agent)",
-      "updated_at": "2026-10-20T17:21:44Z",
+      "updated_at": "2026-10-20T17:21:45Z",
       "video_id": "tool-fx0-01"
     },
     "tool-higgsfield-01:facebook": {
