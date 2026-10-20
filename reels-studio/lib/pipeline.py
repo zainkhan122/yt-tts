@@ -1716,6 +1716,18 @@ class Job:
                               "-f", "s16le", "-ac", "1", "-ar", "16000", "-"], capture_output=True)
         return hashlib.sha256(out.stdout).hexdigest()
 
+    def _audio_track_md5(self, mp4):
+        """md5 of the audio bitstream itself (no decode, no timestamps).
+
+        Windowed PCM hashes depend on the muxer's packet interleaving/first-PTS: a stream-copied
+        track can decode to the same samples yet land a packet earlier at `-ss`, which failed
+        run 39467796505 with audio_identical=False on a byte-identical track. The packet md5 is
+        the property we actually promise.
+        """
+        out = subprocess.run(["ffmpeg", "-v", "error", "-i", str(mp4), "-map", "0:a:0", "-c", "copy",
+                              "-f", "md5", "-"], capture_output=True, text=True)
+        return (out.stdout or "").strip()
+
     def verify_rebuild(self, mp4):
         """Prove the rebuild stayed local: unchanged scenes frame-identical, audio bit-identical.
 
@@ -1735,21 +1747,28 @@ class Job:
         frames_ok = scenelib.frames_verdict(drifts)
         prev_dur = float(prev.get("qa", {}).get("duration") or prev.get("duration") or 0)
         dur = scenelib.duration_verdict(prev_dur, float(self.manifest["qa"]["duration"])) if prev_dur else {"ok": True, "delta": None}
-        audio_ok = True
+        audio_ok, audio_proof = True, {}
         if prev_dur:
-            for t in [round(prev_dur * f, 3) for f in (0.2, 0.5, 0.8)]:
-                audio_ok = audio_ok and self._audio_window_sha(final, t) == self._audio_window_sha(prev_mp4, t)
+            new_md5, old_md5 = self._audio_track_md5(final), self._audio_track_md5(prev_mp4)
+            audio_ok = bool(new_md5) and new_md5 == old_md5
+            audio_proof = {"audio_md5": new_md5, "source_audio_md5": old_md5}
+            if not audio_ok:  # second opinion on the decoded samples, then fail closed either way
+                windows = [round(prev_dur * f, 3) for f in (0.2, 0.5, 0.8)]
+                audio_proof["pcm_windows_match"] = all(self._audio_window_sha(final, t) == self._audio_window_sha(prev_mp4, t) for t in windows)
         ok = bool(frames_ok["ok"] and dur["ok"] and audio_ok)
         self.manifest["rebuild"] = {
             "revision": self.manifest["revision"], "scenes": rebuilt, "reason": self.rebuild.get("reason", ""),
             "from_tag": self.rebuild.get("from_tag", ""), "audio_reused": True, "audio_identical": audio_ok,
-            "verification": {"ok": ok, "frames": frames_ok, "duration": dur, "samples": [{"at": d.get("at"), "mean_abs": d.get("mean_abs"), "heavy": d.get("heavy_ratio")} for d in drifts]},
+            "verification": {"ok": ok, "frames": frames_ok, "duration": dur,
+                             "unchanged_scenes": len(times) > 0, "audio": audio_proof,
+                             "samples": [{"at": d.get("at"), "mean_abs": d.get("mean_abs"), "heavy": d.get("heavy_ratio")} for d in drifts]},
         }
         self.manifest["rebuilds"].append({"revision": self.manifest["revision"], "scenes": rebuilt,
                                           "reason": self.rebuild.get("reason", ""), "at": iso_utc(),
                                           "verification_ok": ok})
-        self.stage("verify", ok=ok, samples=frames_ok["samples"], worst_mean_abs=frames_ok["worst_mean_abs"],
-                   duration_delta=dur["delta"], audio_identical=audio_ok)
+        self.stage("verify", ok=ok, samples=frames_ok["samples"], unchanged_scenes=len(times) > 0,
+                   worst_mean_abs=frames_ok["worst_mean_abs"], duration_delta=dur["delta"],
+                   audio_identical=audio_ok, audio_md5=audio_proof.get("audio_md5", ""))
         if not ok:
             raise SystemExit(f"rebuild verification FAILED (frames ok={frames_ok['ok']}, duration ok={dur['ok']}, "
                              f"audio identical={audio_ok}) - refusing to publish; see {self.log}")
