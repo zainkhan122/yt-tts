@@ -1711,6 +1711,31 @@
       "updated_at": "2026-10-20T10:17:43Z",
       "video_id": "repo-huashu-motion-01"
     },
+    "repo-huashu-motion-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-20T16:30:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:90cc29207ea8a710f95e008b8e6c8771766a0eb0d25afae797460aba611caadb",
+        "asset_id": 658960896,
+        "asset_size": 18588963,
+        "kit_asset_id": 658960985,
+        "kit_digest": "sha256:f4e30edbeae7ba0f782538e68bb084dd01cfe7081339e4e28ea4b47ab98b1a12",
+        "media_path": "media/658960896/repo-huashu-motion-01.mp4",
+        "release_tag": "renders-2026-10-19-2",
+        "video_id": "repo-huashu-motion-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/658960896/repo-huashu-motion-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "38b0d94ba802f09618957983bf9b19d0366990b0fbdc99b56bf4f19e4f9005c6",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Save this before your next launch: one skill turns your agent into a film crew \u2014 script, score and edits by pointing at the frame.\n\nCredits: Own captures of the public GitHub repo (checked 2026-10-19).\n\n#AI #Coding #OpenSource",
+      "title": "Your Coding Agent Can Now Shoot Your Launch Film (huashu-motion)",
+      "updated_at": "2026-10-20T10:17:44Z",
+      "video_id": "repo-huashu-motion-01"
+    },
     "repo-indra-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6ad0cb7fe8416cbf0cfadadf",
