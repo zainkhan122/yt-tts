@@ -56,7 +56,37 @@
     "gap": "edit by pointing?"
    }
   ],
-  "selected_cover": 0
+  "selected_cover": 0,
+  "structure": [
+   {
+    "scene": "hook",
+    "beat": "briefing"
+   },
+   {
+    "scene": "name",
+    "beat": "objective"
+   },
+   {
+    "scene": "how",
+    "beat": "proof"
+   },
+   {
+    "scene": "stars",
+    "beat": "field-notes"
+   },
+   {
+    "scene": "install",
+    "beat": "proof"
+   },
+   {
+    "scene": "catch",
+    "beat": "catch"
+   },
+   {
+    "scene": "cta",
+    "beat": "close"
+   }
+  ]
  },
  "scenes": [
   {
