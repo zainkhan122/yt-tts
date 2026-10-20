@@ -1,6 +1,6 @@
 # Shorts performance — 2026-10-20
 
-Source: Buffer Insights snapshot `2026-10-20T10:05:36Z` (complete: **True**) · videos analysed: **35** · mature (≥7d): **13** · developing: **17** · too early (<2d): **5**
+Source: Buffer Insights snapshot `2026-10-20T10:11:08Z` (complete: **True**) · videos analysed: **35** · mature (≥7d): **13** · developing: **17** · too early (<2d): **5**
 
 Metrics are ranked within each platform and never compared across platforms. Verdicts use mature videos only; everything else is labelled descriptive.
 
@@ -12,7 +12,7 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 | `repo-ai-newtab-01` (mature) | 9.5d | 169 | 0% | 0 | 0 | — | 0 |
 | `repo-solidglass-01` (developing) | 4.6d | 118 | 0% | 0 | 0 | — | 0 |
 | `repo-graphicle-01` (developing) | 2.7d | 108 | 0% | 0 | 0 | — | 1.0 |
-| `tool-qwen-image-21-turbo-01` (developing) | 5.6d | 97 | 0% | 0 | 0 | — | 2.1 |
+| `tool-qwen-image-21-turbo-01` (developing) | 5.6d | 97 | 0% | 0 | 0 | — | 2.0 |
 
 ## instagram — top by views
 
@@ -28,7 +28,7 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| `tool-qwen38-01` (mature) | 7.7d | 1,221 | 0.7% | 0 | — | — | 46.3 |
+| `tool-qwen38-01` (mature) | 7.7d | 1,221 | 0.7% | 0 | — | — | 46.1 |
 | `repo-ds4-01` (mature) | 7.5d | 1,006 | 0.9% | 0 | — | — | 1.0 |
 | `tool-ltx25-01` (mature) | 7.6d | 347 | 0.6% | 0 | — | — | 4.1 |
 | `tool-openmontage-01` (mature) | 7.5d | 269 | 0.7% | 0 | — | — | 7.2 |
