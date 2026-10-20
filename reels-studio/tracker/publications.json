@@ -289,7 +289,7 @@
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-20T19:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.instagram.com/reel/DeuiVC6ArLd/",
       "media_ref": {
         "asset_digest": "sha256:c548553f78bb2bad31b6d09d30fb4bd98d42401daa8f1ceb2311d02cc637fc93",
         "asset_id": 658961058,
@@ -304,11 +304,11 @@
       "notify_subscribers": false,
       "payload_sha256": "934668ef95d5ebcb1140a053756941b3b7e4fcd6dd624f7628e12f8457350dc9",
       "platform": "instagram",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-20T19:02:38.167Z",
+      "state": "sent",
       "text": "Save this if you draft with AI: humanizer rewrites your drafts in a human voice, locally and offline. Read before you send \u2014 its own tests say why.\n\nCredits: Own captures of the public Hugging Face page + the project's own media (checked 2026-10-19).\n\n#AI #Writing #OpenSource",
       "title": "humanizer: The AI That Rewrites AI Text to Sound Like You",
-      "updated_at": "2026-10-20T10:17:52Z",
+      "updated_at": "2026-10-20T21:45:20Z",
       "video_id": "model-humanizer-01"
     },
     "model-humanizer-01:youtube": {
@@ -1828,8 +1828,8 @@
       "buffer_post_id": "6ad73fd3fc46f49b9288ec5a",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-20T20:00:00.000Z",
-      "external_url": null,
+      "due_at": "2026-10-20T19:06:22.215Z",
+      "external_url": "https://www.youtube.com/shorts/OhBSlDqPvR4",
       "media_ref": {
         "asset_digest": "sha256:90cc29207ea8a710f95e008b8e6c8771766a0eb0d25afae797460aba611caadb",
         "asset_id": 658960896,
@@ -1844,11 +1844,11 @@
       "notify_subscribers": true,
       "payload_sha256": "5ca7ffe01de76cd3fe873829fa9ff5a5f0012d63630680593defc907aad8e639",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-20T19:06:24.134Z",
+      "state": "sent",
       "text": "huashu-motion is an agent skill that turns Claude Code, Codex and other coding agents into a film crew: it reads your product, writes the launch film, composes the score locally, and lets you re-edit by pointing at a frame. 881 GitHub stars on day one. Catches are in the video: macOS-tested so far, and you need Node, Chrome and FFmpeg.\nSource: https://github.com/alchaincyf/huashu-motion\n\nCredits: Own captures of the public GitHub repo (checked 2026-10-19).\n\n#Shorts #AI #Coding #Video",
       "title": "Your Coding Agent Can Now Shoot Your Launch Film (huashu-motion)",
-      "updated_at": "2026-10-20T10:17:55Z",
+      "updated_at": "2026-10-20T21:45:20Z",
       "video_id": "repo-huashu-motion-01"
     },
     "repo-indra-01:facebook": {
@@ -2555,7 +2555,7 @@
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
       "due_at": "2026-10-20T21:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.facebook.com/reel/1828942411562969/",
       "media_ref": {
         "asset_digest": "sha256:93193f79722a001691707055ca889728c47ce628eb64369ffb58d62e1f6780f2",
         "asset_id": 659927017,
@@ -2570,11 +2570,11 @@
       "notify_subscribers": false,
       "payload_sha256": "023c2a7e1be2b32ac083a07b0d435ee0a73a4f312d6b11b74ff0d04cf00b05ae",
       "platform": "facebook",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-20T21:00:41.009Z",
+      "state": "sent",
       "text": "fx0 turns one sentence into a finished page: a design agent writes the HTML, publishes it, and keeps every version.\n\nCredits: Own browser captures of fx0.vercel.dev (checked 2026-10-20) and of the page fx0 built.\n\nAI-generated narration.\n\n#AI #WebDev",
       "title": "fx0: One Sentence In, A Finished Page Out (Design Agent)",
-      "updated_at": "2026-10-20T17:21:42Z",
+      "updated_at": "2026-10-20T21:45:20Z",
       "verified_at": "2026-10-20T17:21:54Z",
       "video_id": "tool-fx0-01"
     },
