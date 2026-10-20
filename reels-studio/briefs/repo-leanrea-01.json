@@ -34,7 +34,7 @@
    "type": "page",
    "image": "desktop-top.jpg",
    "heading": "YOUR AGENT *PAYS A TAX*",
-   "sub": "leanrea · reverse engineering, minus the bloat",
+   "sub": "leanrea \u00b7 reverse engineering, minus the bloat",
    "say": "Your coding agent pays a heavy tax just to inspect an app you already own.",
    "url": "github.com/aicodeking/leanrea",
    "camera": [
@@ -50,7 +50,7 @@
    "type": "image",
    "image": "desktop-top.jpg",
    "heading": "MEET *LEANREA*",
-   "sub": "by aicodeking · open source",
+   "sub": "by aicodeking \u00b7 open source",
    "say": "This is leanrea: one tiny skill file that teaches your agent to reverse engineer with tools already on your machine."
   },
   {
@@ -93,7 +93,7 @@
     {
      "region": "star_button",
      "at": "nine hundred",
-     "state": "★ Starred 899"
+     "state": "\u2605 Starred 899"
     }
    ]
   },
@@ -142,7 +142,7 @@
   }
  ],
  "seo": {
-  "keyword": "leanrea reverse engineering agent skill",
+  "keyword": "leanrea reverse engineering",
   "aliases": [
    "Claude Code skill",
    "reverse engineering AI",
@@ -151,7 +151,7 @@
   "onscreen_first3s": "YOUR AGENT PAYS A TAX",
   "youtube": {
    "title": "leanrea: One Tiny Skill Replaces 207 Reverse-Engineering Tools",
-   "description": "leanrea is a single 8 KB skill file that teaches Claude Code, Codex, Cursor and other coding agents to reverse engineer apps and binaries with plain CLI tools — no MCP server, no 207 tool definitions. The maker's own benchmark reports it faster and cheaper than the heavyweight REA setup (small sample — see the catch in the video). Nearly 900 GitHub stars in two days.\nSource: https://github.com/aicodeking/leanrea",
+   "description": "leanrea is a single 8 KB skill file that teaches Claude Code, Codex, Cursor and other coding agents to reverse engineer apps and binaries with plain CLI tools \u2014 no MCP server, no 207 tool definitions. The maker's own benchmark reports it faster and cheaper than the heavyweight REA setup (small sample \u2014 see the catch in the video). Nearly 900 GitHub stars in two days.\nSource: https://github.com/aicodeking/leanrea",
    "hashtags": [
     "#Shorts",
     "#AI",
@@ -168,7 +168,7 @@
    ]
   },
   "tiktok": {
-   "caption": "Your agent pays a 207-tool tax to inspect an app. leanrea deletes it — one 8 KB skill file.",
+   "caption": "Your agent pays a 207-tool tax to inspect an app. leanrea deletes it \u2014 one 8 KB skill file.",
    "hashtags": [
     "#AI",
     "#Coding",
@@ -184,14 +184,14 @@
    ]
   },
   "facebook": {
-   "caption": "leanrea: one 8 KB skill that teaches coding agents to reverse engineer with plain command-line tools — no MCP server, no tool bloat. Nearly 900 stars in two days.",
+   "caption": "leanrea: one 8 KB skill that teaches coding agents to reverse engineer with plain command-line tools \u2014 no MCP server, no tool bloat. Nearly 900 stars in two days.",
    "hashtags": [
     "#AI",
     "#Coding"
    ]
   },
   "x": {
-   "text": "207 tools or one 8 KB file? leanrea teaches coding agents to reverse engineer with plain CLI tools — no MCP server. ~900 stars in 2 days. https://github.com/aicodeking/leanrea",
+   "text": "207 tools or one 8 KB file? leanrea teaches coding agents to reverse engineer with plain CLI tools \u2014 no MCP server. ~900 stars in 2 days. https://github.com/aicodeking/leanrea",
    "hashtags": [
     "#AI",
     "#Coding"
@@ -202,7 +202,7 @@
   "titles": [
    "leanrea: The 8 KB Skill That Replaces 207 Reverse-Engineering Tools"
   ],
-  "caption": "leanrea: one 8 KB skill file that teaches coding agents to reverse engineer apps with plain CLI tools — no MCP server, no 207 tool definitions. Maker's benchmark: faster and cheaper than the heavyweight setup (small sample). Nearly 900 stars in two days.",
+  "caption": "leanrea: one 8 KB skill file that teaches coding agents to reverse engineer apps with plain CLI tools \u2014 no MCP server, no 207 tool definitions. Maker's benchmark: faster and cheaper than the heavyweight setup (small sample). Nearly 900 stars in two days.",
   "hashtags": [
    "#Shorts",
    "#AI",

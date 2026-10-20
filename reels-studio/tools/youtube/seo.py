@@ -15,6 +15,52 @@ def tracking_tag(item):
     return "hypeless-ref-" + hashlib.sha256((item["video_id"] + "\0" + item["asset_digest"]).encode()).hexdigest()[:20]
 
 
+def keyword_hit(keyword, text, window=20):
+    """Does the primary keyword appear *naturally* in this copy?
+
+    Verbatim first (punctuation- and case-insensitive). Otherwise every keyword
+    token must appear, in order, inside a window of `window` words - so
+    "fx0 design agent" is satisfied by "fx0 is an open-source design agent" but
+    not by the words scattered across a paragraph. The old verbatim-only rule
+    rejected five of five live Shorts whose copy reads fine (run 39476928857:
+    "A specific primary keyword must appear naturally in title/opening
+    description") and blocked the YouTube enrichment worker entirely.
+    """
+    def stem(word):
+        """Just enough stemming for copy: generators/generator, rewrites/rewriter, engineering/engineer.
+
+        Applied repeatedly so both sides of a pair land on the same form
+        (engineering -> engineer -> engine, engineer -> engine).
+        """
+        for _ in range(3):
+            if len(word) <= 4:
+                break
+            for suffix in ("ies", "ing", "es", "ed", "er", "s", "e"):
+                if word.endswith(suffix) and len(word) - len(suffix) >= 4:
+                    word = word[:-len(suffix)] + ("y" if suffix == "ies" else "")
+                    break
+            else:
+                break
+        return word
+
+    def words(value):
+        return [stem(w) for w in re.findall(r"[a-z0-9]+", (value or "").casefold())]
+
+    kw = words(keyword)
+    text_words = words(text)
+    if not kw or not text_words:
+        return False
+    for start in range(len(text_words)):
+        chunk = text_words[start:start + len(kw) + window]
+        pos = 0
+        for word in chunk:
+            if pos < len(kw) and word == kw[pos]:
+                pos += 1
+                if pos == len(kw):
+                    return True
+    return False
+
+
 def validate(brief, kind="long", marker=None):
     youtube = brief.get("seo", {}).get("youtube", {})
     title = youtube.get("title", "").strip()
@@ -22,7 +68,7 @@ def validate(brief, kind="long", marker=None):
     keyword = brief.get("seo", {}).get("keyword", "").strip()
     if not title or len(title) > 100:
         raise ValueError("YouTube title must be 1–100 characters")
-    if not keyword or keyword.casefold() not in (title + " " + description[:250]).casefold():
+    if not keyword or not keyword_hit(keyword, title + " " + description[:250]):
         raise ValueError("A specific primary keyword must appear naturally in title/opening description")
     tags = list(dict.fromkeys(t.strip() for t in youtube.get("tags", []) if isinstance(t, str) and t.strip()))
     if not tags:

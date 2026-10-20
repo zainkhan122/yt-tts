@@ -350,6 +350,15 @@ class MetadataTests(unittest.TestCase):
         self.assertNotIn("hypeless-ref-test",out["description"])
         self.assertNotIn("#Shorts",out["description"])
 
+    def test_keyword_matches_natural_copy_not_only_the_verbatim_phrase(self):
+        # five of five live Shorts read fine yet failed the verbatim rule (run 39476928857)
+        self.assertTrue(seo.keyword_hit("fx0 design agent", "fx0 is an open-source design agent from Vercel Labs"))
+        self.assertTrue(seo.keyword_hit("free AI video generator", "3 Free AI Video Generators"))
+        self.assertTrue(seo.keyword_hit("leanrea reverse engineering", "leanrea is a skill that teaches agents to reverse engineer apps"))
+        self.assertFalse(seo.keyword_hit("fx0 design agent", "A surprise tool for making soup quickly"))
+        self.assertFalse(seo.keyword_hit("fx0 design agent", "agent design " + "filler " * 30 + "fx0"))
+        self.assertTrue(seo.keyword_hit("Example AI", "Example AI: Tested, Not Hyped"))
+
     def test_long_must_not_claim_to_be_shorts(self):
         b=brief();b["seo"]["youtube"]["hashtags"].append("#Shorts")
         with self.assertRaises(ValueError):seo.validate(b,"long")

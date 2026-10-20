@@ -34,7 +34,7 @@
    "type": "page",
    "image": "desktop-top.jpg",
    "heading": "ASK YOUR *WHATSAPP* ANYTHING",
-   "sub": "WhatsApp MCP · your chats, searchable by AI",
+   "sub": "WhatsApp MCP \u00b7 your chats, searchable by AI",
    "say": "That address someone sent you last March is buried in WhatsApp. Now your AI can dig it out.",
    "url": "github.com/finereli/whatsapp-mcp",
    "camera": [
@@ -50,7 +50,7 @@
    "type": "image",
    "image": "desktop-top.jpg",
    "heading": "MEET *WHATSAPP MCP*",
-   "sub": "by finereli · open source",
+   "sub": "by finereli \u00b7 open source",
    "say": "This is WhatsApp MCP, a read only bridge that lets your agent search your own messages."
   },
   {
@@ -93,7 +93,7 @@
     {
      "region": "star_button",
      "at": "fifty",
-     "state": "★ Starred 256"
+     "state": "\u2605 Starred 256"
     }
    ]
   },
@@ -142,7 +142,7 @@
   }
  ],
  "seo": {
-  "keyword": "WhatsApp MCP AI agent search your chats",
+  "keyword": "WhatsApp MCP",
   "aliases": [
    "WhatsApp MCP server",
    "AI WhatsApp search",
@@ -151,7 +151,7 @@
   "onscreen_first3s": "ASK YOUR WHATSAPP ANYTHING",
   "youtube": {
    "title": "WhatsApp MCP: Your AI Can Now Search Your Own Chats",
-   "description": "WhatsApp MCP is a read-only MCP server that lets Claude Code and other AI agents search and read your own WhatsApp history — full-text search across every chat, deployed into your own Cloudflare account. The honest catches are in the video: it is unofficial (against WhatsApp's terms, low but non-zero risk) and importing history needs the Workers Paid plan. 256 GitHub stars in its first day.\nSource: https://github.com/finereli/whatsapp-mcp",
+   "description": "WhatsApp MCP is a read-only MCP server that lets Claude Code and other AI agents search and read your own WhatsApp history \u2014 full-text search across every chat, deployed into your own Cloudflare account. The honest catches are in the video: it is unofficial (against WhatsApp's terms, low but non-zero risk) and importing history needs the Workers Paid plan. 256 GitHub stars in its first day.\nSource: https://github.com/finereli/whatsapp-mcp",
    "hashtags": [
     "#Shorts",
     "#AI",
@@ -168,7 +168,7 @@
    ]
   },
   "tiktok": {
-   "caption": "Your AI can now search your own WhatsApp. Read-only, in your own account — with one big catch.",
+   "caption": "Your AI can now search your own WhatsApp. Read-only, in your own account \u2014 with one big catch.",
    "hashtags": [
     "#AI",
     "#WhatsApp",
@@ -184,14 +184,14 @@
    ]
   },
   "facebook": {
-   "caption": "WhatsApp MCP: ask your AI to find anything in your own chat history. Read-only, self-hosted in your Cloudflare account. Unofficial — the risk is explained in the video.",
+   "caption": "WhatsApp MCP: ask your AI to find anything in your own chat history. Read-only, self-hosted in your Cloudflare account. Unofficial \u2014 the risk is explained in the video.",
    "hashtags": [
     "#AI",
     "#WhatsApp"
    ]
   },
   "x": {
-   "text": "Your AI can now search your own WhatsApp history — read-only, self-hosted, 256 stars in a day. Unofficial, so the catch matters: https://github.com/finereli/whatsapp-mcp",
+   "text": "Your AI can now search your own WhatsApp history \u2014 read-only, self-hosted, 256 stars in a day. Unofficial, so the catch matters: https://github.com/finereli/whatsapp-mcp",
    "hashtags": [
     "#AI",
     "#MCP"
