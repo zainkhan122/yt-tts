@@ -19,7 +19,7 @@ Reviewer: open EVERY frame. Score as the persona, not as the producer.
 
 - [x] Every scene has real media or justified end-card graphic; 6/7 scenes carry product capture.
 - [x] Real product media >60%; first frame sells benefit muted; takeaway: “A coding agent can make and re-edit a product launch film.”
-- [x] 3 Cover Lab concepts reviewed cold; winner “YOUR AGENT SHOOTS ADS” (concept 1) readable at feed size, real repo capture. Would tap: specific, surprising maker outcome.
+- [x] 3 Cover Lab concepts reviewed cold; winner “AGENT SHOOTS ADS” (concept 1) readable at feed size, real repo capture. Would tap: specific, surprising maker outcome.
 - **Execution note:** two sampled moments catch mid-sentence karaoke captions; no collision, overflow or escaping text. Verdict and end card are legible at their settled frames.
 
 ## Panel result: PASS
