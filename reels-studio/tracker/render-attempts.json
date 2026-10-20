@@ -764,6 +764,33 @@
       "status": "render_only_success",
       "voice_seed": 0
     },
+    "d3533efaadc53c9345eed5f665d9a97c7da4f1abf12239b1e6acf5289ec59f3c": {
+      "asset_files_sha256": null,
+      "asset_manifest_sha256": null,
+      "brief_id": "model-humanizer-01",
+      "brief_sha256": "6cd81d0792fc346fda2b8eedeacde6cf0af6bc209e0d1661892e5ec589d00366",
+      "capture_id": null,
+      "crf": 20,
+      "failure_conclusion": null,
+      "fingerprint": "d3533efaadc53c9345eed5f665d9a97c7da4f1abf12239b1e6acf5289ec59f3c",
+      "finished_at": null,
+      "from_tag": "renders-2026-10-20-2",
+      "quality": "looks",
+      "rebuild_scenes": [
+        "hook",
+        "name",
+        "how",
+        "stars",
+        "install",
+        "catch",
+        "cta"
+      ],
+      "renderer_sha256": "511b69fe39817a6741189634b6b2cf128b5f5cb7aa478008a8681c9c61f44869",
+      "run_id": "39474529366",
+      "started_at": "2026-10-20T18:25:12Z",
+      "status": "started",
+      "voice_seed": 0
+    },
     "d79b2f7201b72efe80fd3df4623fb8fd96b69385616a157e84d7b4e1356accb3": {
       "asset_files_sha256": "e2a5e530733fd44d6b6ed3290b06e14ac6d20e0c20992b7608884e4477e6a07e",
       "asset_manifest_sha256": "3469436c71afa43de83c0be7cb1759485113fba8ddacc7f7b96246c7191301ef",
