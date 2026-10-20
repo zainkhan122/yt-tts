@@ -2549,6 +2549,31 @@
       "updated_at": "2026-10-10T11:18:51Z",
       "video_id": "spotlight-papermorph-01"
     },
+    "tool-fx0-01:facebook": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-10-20T21:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:93193f79722a001691707055ca889728c47ce628eb64369ffb58d62e1f6780f2",
+        "asset_id": 659927017,
+        "asset_size": 14303910,
+        "kit_asset_id": 659927112,
+        "kit_digest": "sha256:f608f642b62ce96417628d2d6ada78abe1f213a6f6789982ddc8e0fd9ad1073d",
+        "media_path": "media/659927017/tool-fx0-01.mp4",
+        "release_tag": "renders-2026-10-20",
+        "video_id": "tool-fx0-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/659927017/tool-fx0-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "023c2a7e1be2b32ac083a07b0d435ee0a73a4f312d6b11b74ff0d04cf00b05ae",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "fx0 turns one sentence into a finished page: a design agent writes the HTML, publishes it, and keeps every version.\n\nCredits: Own browser captures of fx0.vercel.dev (checked 2026-10-20) and of the page fx0 built.\n\nAI-generated narration.\n\n#AI #WebDev",
+      "title": "fx0: One Sentence In, A Finished Page Out (Design Agent)",
+      "updated_at": "2026-10-20T17:21:40Z",
+      "video_id": "tool-fx0-01"
+    },
     "tool-higgsfield-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6accbfbc11bee99e6c99fa6d",
