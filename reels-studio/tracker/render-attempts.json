@@ -206,6 +206,33 @@
       "status": "render_only_success",
       "voice_seed": 0
     },
+    "3928e569a1f5c29bb2ad13df2ff1aecd19eeb25030d76521bf13dd18c801f349": {
+      "asset_files_sha256": null,
+      "asset_manifest_sha256": null,
+      "brief_id": "repo-whatsapp-mcp-01",
+      "brief_sha256": "e0c2796891fb66da6839fda19d93f8111c09e5eb39e89a592b392c713edd5a70",
+      "capture_id": null,
+      "crf": 20,
+      "failure_conclusion": null,
+      "fingerprint": "3928e569a1f5c29bb2ad13df2ff1aecd19eeb25030d76521bf13dd18c801f349",
+      "finished_at": null,
+      "from_tag": "renders-2026-10-19",
+      "quality": "looks",
+      "rebuild_scenes": [
+        "hook",
+        "name",
+        "how",
+        "stars",
+        "install",
+        "catch",
+        "cta"
+      ],
+      "renderer_sha256": "e49e635d3cb667650785097d66f952215453de0be56e953b357cc53787a002e8",
+      "run_id": "39467796505",
+      "started_at": "2026-10-20T17:38:18Z",
+      "status": "started",
+      "voice_seed": 0
+    },
     "4d1d06e79c38c306439bc72555dc346ccc7077af9d660975e48361e43f6d2b2f": {
       "asset_files_sha256": "31c816d610473ede5942b6fc8009ab3f310a0e667c22f59e99ed3d489427b35b",
       "asset_manifest_sha256": "f643c59a1e8593a42c082afb3f04731ce90398f836e79fda82e1c27125ae7631",
