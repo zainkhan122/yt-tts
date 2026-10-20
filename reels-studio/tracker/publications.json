@@ -1795,6 +1795,31 @@
       "updated_at": "2026-10-20T10:17:46Z",
       "video_id": "repo-huashu-motion-01"
     },
+    "repo-huashu-motion-01:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-10-20T20:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:90cc29207ea8a710f95e008b8e6c8771766a0eb0d25afae797460aba611caadb",
+        "asset_id": 658960896,
+        "asset_size": 18588963,
+        "kit_asset_id": 658960985,
+        "kit_digest": "sha256:f4e30edbeae7ba0f782538e68bb084dd01cfe7081339e4e28ea4b47ab98b1a12",
+        "media_path": "media/658960896/repo-huashu-motion-01.mp4",
+        "release_tag": "renders-2026-10-19-2",
+        "video_id": "repo-huashu-motion-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/658960896/repo-huashu-motion-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "5ca7ffe01de76cd3fe873829fa9ff5a5f0012d63630680593defc907aad8e639",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "huashu-motion is an agent skill that turns Claude Code, Codex and other coding agents into a film crew: it reads your product, writes the launch film, composes the score locally, and lets you re-edit by pointing at a frame. 881 GitHub stars on day one. Catches are in the video: macOS-tested so far, and you need Node, Chrome and FFmpeg.\nSource: https://github.com/alchaincyf/huashu-motion\n\nCredits: Own captures of the public GitHub repo (checked 2026-10-19).\n\n#Shorts #AI #Coding #Video",
+      "title": "Your Coding Agent Can Now Shoot Your Launch Film (huashu-motion)",
+      "updated_at": "2026-10-20T10:17:53Z",
+      "video_id": "repo-huashu-motion-01"
+    },
     "repo-indra-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6ad0cb7fe8416cbf0cfadadf",
