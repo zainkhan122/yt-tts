@@ -1685,9 +1685,11 @@
     },
     "repo-huashu-motion-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6ad73fc70b25f71ece5b0d67",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-20T16:00:00Z",
+      "due_at": "2026-10-20T16:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:90cc29207ea8a710f95e008b8e6c8771766a0eb0d25afae797460aba611caadb",
         "asset_id": 658960896,
@@ -1702,10 +1704,11 @@
       "notify_subscribers": false,
       "payload_sha256": "d1a20d16dbb8730126c4dd3f3787bb81eb57126ee51a3c8bcc0250cdc1aa32a3",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "huashu-motion: your coding agent shoots your product's launch film, composes the music locally, and re-edits when you point at a frame. 881 stars on day one.\n\nCredits: Own captures of the public GitHub repo (checked 2026-10-19).\n\nAI-generated narration.\n\n#AI #Coding",
       "title": "Your Coding Agent Can Now Shoot Your Launch Film (huashu-motion)",
-      "updated_at": "2026-10-20T10:17:40Z",
+      "updated_at": "2026-10-20T10:17:43Z",
       "video_id": "repo-huashu-motion-01"
     },
     "repo-indra-01:facebook": {
