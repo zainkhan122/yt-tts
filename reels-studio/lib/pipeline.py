@@ -185,6 +185,35 @@ def require_qa_checks(checks):
     return True
 
 
+def voice_reuse_proof(source_manifest, voiceover_path):
+    """A rebuild reuses the published voice track; prove THAT instead of a synthesizer handshake.
+
+    Returns (ok, evidence). ok only when the source render's own QA passed the approved voice
+    and the reused bytes hash to the source manifest's `audio_sha256` (the kit's voiceover.mp3
+    hashes to exactly that, checked on renders-2026-10-19). Run 39464800072 failed a rebuild
+    at QA with "got None, need chatterbox" because a rebuild never calls the synthesizer.
+    """
+    src = source_manifest or {}
+    want = str(src.get("audio_sha256") or "")
+    got = "sha256:" + hashlib.sha256(Path(voiceover_path).read_bytes()).hexdigest() if voiceover_path else ""
+    src_ok = ((src.get("qa") or {}).get("checks") or {}).get("approved_voice") is True
+    return bool(src_ok and want and got == want), {"audio_sha256": got, "source_audio_sha256": want,
+                                                   "source_qa_approved_voice": src_ok, "matches_source": got == want}
+
+
+def cover_contract_check(brief, cover):
+    """Covers are judged against what the brief promised.
+
+    A brief with cover concepts must ship the Cover Lab pick. A legacy brief without a
+    treatment keeps the frame grab - the same contract pipeline.prove_treatment states.
+    Requiring cover-lab of a legacy brief made legacy rebuilds fail closed at QA with no
+    way to pass (run 39464800072).
+    """
+    promised = bool(((brief.get("treatment") or {}).get("cover_concepts")))
+    ok = cover.get("source") == "cover-lab" if promised else cover.get("source") in ("cover-lab", "frame-grab")
+    return ok, ("cover-lab" if promised else "legacy-frame-grab")
+
+
 def hyperframes_failure_message(stage, output, log_path, *, reason=None, max_lines=80, max_chars=8000):
     """Surface bounded browser/lint diagnostics in Actions logs while preserving the full build log."""
     newline = chr(10)
@@ -1486,11 +1515,18 @@ class Job:
         checks["frame0_visible"] = f0_ok
         need = (self.brief.get("tts") or {}).get("engine")
         if need and self.brief.get("voice") != "files":  # owner rule 2026-10-09: every published video uses the approved voice
-            checks["approved_voice"] = getattr(self, "voice_engine", None) == need
+            reused = (self.rebuild or {}).get("voiceover")
+            if reused:
+                ok, evidence = voice_reuse_proof((self.rebuild or {}).get("manifest"), reused)
+                checks["approved_voice"] = ok
+                self.manifest["voice_reuse"] = {"from_tag": (self.rebuild or {}).get("from_tag"), **evidence}
+            else:
+                checks["approved_voice"] = getattr(self, "voice_engine", None) == need
         cover_t = self.events.get("cover", 1.0)
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-ss", f"{cover_t:.2f}", "-i", str(final), "-frames:v", "1", "-q:v", "3", str(self.out / "cover.jpg")], check=True)
         cover = creative_proof(self.brief, self.out)  # designed cover replaces the frame grab; fails closed
-        checks["designed_cover"] = cover["source"] == "cover-lab"
+        checks["designed_cover"], contract = cover_contract_check(self.brief, cover)
+        cover = {**cover, "contract": contract}
         self.manifest["cover"] = cover
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(final), "-vf", f"fps=12/{D:.3f},scale=270:-2,tile=6x2:margin=6:padding=6:color=0x111111",
                         "-frames:v", "1", "-q:v", "4", str(self.out / "contact.jpg")], check=True)
@@ -1517,7 +1553,11 @@ class Job:
         bad = [k for k, ok in checks.items() if not ok]
         self.stage("qa", passed=f"{len(checks) - len(bad)}/{len(checks)}", failed=",".join(bad) or "-", out=str(self.out.relative_to(ROOT.parent)))
         if "approved_voice" in bad:
-            raise SystemExit(f"QA: not the approved channel voice (got {getattr(self, 'voice_engine', None)}, need {need}): refusing to ship")
+            reuse = self.manifest.get("voice_reuse")
+            detail = (f"reused track from {reuse['from_tag']} does not match the published audio "
+                      f"({reuse['audio_sha256'][:19]} vs {reuse['source_audio_sha256'][:19] or 'no hash'})"
+                      if reuse else f"got {getattr(self, 'voice_engine', None)}, need {need}")
+            raise SystemExit(f"QA: not the approved channel voice ({detail}): refusing to ship")
         if not checks.get("frame0_visible"):
             raise SystemExit("QA: " + framecheck.describe(f0_ok, f0_peak) +
                              " - Buffer/Facebook would show an empty cover; refusing to ship")

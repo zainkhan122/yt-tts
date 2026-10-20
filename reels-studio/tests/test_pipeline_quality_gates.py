@@ -5,13 +5,49 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from lib.pipeline import (hyperframes_failure_message, hyperframes_lint_summary, normalized_match_text,
-                          normalize_match_words, parse_markup, require_flow_match, require_hyperframes_lint,
-                          require_qa_checks, require_whisper_match, should_run_whisper_qa,
-                          verify_chatterbox_snapshot)
+from lib.pipeline import (cover_contract_check, hyperframes_failure_message, hyperframes_lint_summary,
+                          normalized_match_text, normalize_match_words, parse_markup, require_flow_match,
+                          require_hyperframes_lint, require_qa_checks, require_whisper_match,
+                          should_run_whisper_qa, verify_chatterbox_snapshot, voice_reuse_proof)
 
 
 class PipelineQualityGateTests(unittest.TestCase):
+    def _voice_fixture(self, temp, *, approve=True, hash_matches=True):
+        track = Path(temp) / "voiceover.mp3"
+        track.write_bytes(b"published voice track bytes")
+        good = "sha256:" + hashlib.sha256(track.read_bytes()).hexdigest()
+        manifest = {"audio_sha256": good if hash_matches else "sha256:" + "0" * 64,
+                    "qa": {"checks": {"approved_voice": approve}}}
+        return manifest, track
+
+    def test_rebuild_voice_is_proven_by_the_reused_published_track(self):
+        with tempfile.TemporaryDirectory() as temp:
+            manifest, track = self._voice_fixture(temp)
+            ok, evidence = voice_reuse_proof(manifest, track)
+        self.assertTrue(ok, evidence)
+        self.assertTrue(evidence["matches_source"])
+        self.assertTrue(evidence["source_qa_approved_voice"])
+
+    def test_rebuild_voice_fails_closed_when_the_track_differs_from_the_published_bytes(self):
+        with tempfile.TemporaryDirectory() as temp:
+            manifest, track = self._voice_fixture(temp, hash_matches=False)
+            ok, _ = voice_reuse_proof(manifest, track)
+        self.assertFalse(ok)
+
+    def test_rebuild_voice_fails_closed_when_the_source_render_did_not_pass_the_voice_gate(self):
+        with tempfile.TemporaryDirectory() as temp:
+            manifest, track = self._voice_fixture(temp, approve=False)
+            ok, _ = voice_reuse_proof(manifest, track)
+        self.assertFalse(ok)
+
+    def test_cover_contract_requires_cover_lab_only_when_the_brief_promised_concepts(self):
+        promised = {"treatment": {"archetype": "quest", "cover_concepts": [{"text": "A"}]}}
+        legacy = {"id": "x"}
+        self.assertEqual(cover_contract_check(promised, {"source": "frame-grab"}), (False, "cover-lab"))
+        self.assertEqual(cover_contract_check(promised, {"source": "cover-lab"}), (True, "cover-lab"))
+        self.assertEqual(cover_contract_check(legacy, {"source": "frame-grab"}), (True, "legacy-frame-grab"))
+        self.assertEqual(cover_contract_check(legacy, {"source": "stale"}),(False, "legacy-frame-grab"))
+
     def test_pinned_chatterbox_snapshot_verifies_file_size_and_sha256(self):
         data = b"fixture model bytes"
         expected = {"fixture.safetensors": {"size": len(data), "sha256": hashlib.sha256(data).hexdigest()}}

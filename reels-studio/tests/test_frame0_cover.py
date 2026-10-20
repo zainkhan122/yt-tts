@@ -290,7 +290,10 @@ class Frame0GuardTests(unittest.TestCase):
         source = (ROOT / "lib/pipeline.py").read_text()
         self.assertIn('checks["frame0_visible"] = f0_ok', source)
         self.assertIn('"frame0_ymax": f0_peak', source)
-        self.assertIn('frame0_visible', source.split('if "approved_voice" in bad:')[1][:400])
+        # the blank-hook refusal must still be its own fail-closed branch (the voice branch above it
+        # grew a rebuild-specific message, so look for the branch itself, not a character offset)
+        self.assertIn('if not checks.get("frame0_visible"):', source)
+        self.assertIn('framecheck.describe(f0_ok, f0_peak)', source)
 
 
 if __name__ == "__main__":
