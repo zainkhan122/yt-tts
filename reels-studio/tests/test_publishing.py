@@ -469,14 +469,60 @@ class DeliveryTests(unittest.TestCase):
             self.assertFalse((Path(tmp)/"journal.json").exists())
 
 
+def normalised_schema(path):
+    """Build the client schema after aligning interface deprecation flags.
+
+    The captured Buffer introspection marks RestProxyError.message deprecated while the
+    MutationError interface it implements is not, which makes graphql-core reject the whole
+    schema before any query can be validated. Align the implementation flags with their
+    interface so the fixture stays faithful for types/arguments but valid for validation.
+    """
+    doc = load_json(path)
+    schema = doc.get("data", doc)["__schema"]
+    interfaces = {t["name"]: {f["name"]: bool(f.get("isDeprecated")) for f in (t.get("fields") or [])}
+                  for t in schema["types"] if t.get("kind") == "INTERFACE"}
+    for t in schema["types"]:
+        if t.get("kind") != "OBJECT":
+            continue
+        inherited = {}
+        for iface in t.get("interfaces") or []:
+            inherited.update(interfaces.get(iface.get("name"), {}))
+        for field in t.get("fields") or []:
+            if field["name"] in inherited:
+                field["isDeprecated"] = inherited[field["name"]]
+                if not inherited[field["name"]]:
+                    field.pop("deprecationReason", None)
+    return build_client_schema(doc)
+
+
 class SchemaAndMediaTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.schema = build_client_schema(load_json(ROOT / "research/publishing/buffer-schema-2026-10-10.json"))
+        cls.schema = normalised_schema(ROOT / "research/publishing/buffer-schema-2026-10-10.json")
 
     def test_graphql_queries_and_mutation_validate_against_official_schema(self):
-        for query_text in (api.STATE_QUERY, api.MORE_POSTS, api.CREATE):
+        for query_text in (api.STATE_QUERY, api.MORE_POSTS, api.CHANNELS_QUERY, api.CREATE):
             self.assertEqual(validate(self.schema, parse(query_text)), [])
+
+    def test_inventory_reports_drift_without_writing(self):
+        cfg = config()
+        channels = [{"id": c["buffer_id"], "name": n, "service": n, "isDisconnected": False,
+                     "isLocked": False, "isQueuePaused": False} for n, c in cfg["buffer"]["channels"].items()]
+        journal = {
+            "a:youtube": {"video_id": "a", "platform": "youtube", "state": "scheduled",
+                          "buffer_post_id": "live-1", "due_at": "2026-10-20T20:00:00+00:00"},
+            "a:facebook": {"video_id": "a", "platform": "facebook", "state": "scheduled",
+                           "buffer_post_id": "gone-1", "due_at": "2026-10-20T16:00:00+00:00"},
+        }
+        posts = [{"id": "live-1", "channelId": cfg["buffer"]["channels"]["youtube"]["buffer_id"],
+                  "status": "draft", "dueAt": "2026-10-20T20:00:00+00:00", "assets": [{"source": "https://x/a.mp4"}]}]
+        report = {"mode": "inventory", "inventory": publisher.inventory(channels, posts, journal, cfg, [], NOW)}
+        text = publisher.summary(report)
+        self.assertIn("MISSING from Buffer", text)
+        self.assertIn("state differs", text)
+        self.assertIn("draft", text)
+        self.assertIn("a.mp4", text)
+        self.assertEqual(journal["a:facebook"]["state"], "scheduled")  # diagnostic never mutates
 
     def test_platform_payloads_validate_against_official_schema(self):
         cfg = config()

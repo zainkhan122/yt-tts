@@ -42,6 +42,9 @@ STATE_QUERY = """query HypelessState($org: OrganizationId!, $input: PostsInput!,
   pageInfo { hasNextPage endCursor }
  }
 }"""
+CHANNELS_QUERY = """query HypelessChannels($org: OrganizationId!) {
+ channels(input: { organizationId: $org }) { """ + CHANNEL_FIELDS + """ }
+}"""
 MORE_POSTS = """query HypelessPosts($input: PostsInput!, $after: String) {
  posts(first: 100, after: $after, input: $input) {
   edges { node { """ + POST_FIELDS + """ } }
@@ -197,9 +200,14 @@ class BufferClient:
             return body["data"]
         raise Deferred("Retry budget exhausted", "RETRY_EXHAUSTED", 300)
 
-    def state(self):
+    def channels(self):
+        """Every channel in the token's organization, so an inventory can prove what it can see."""
         org = self.settings["organization_id"]
-        channel_ids = [c["buffer_id"] for c in self.settings["channels"].values()]
+        return self.request(CHANNELS_QUERY, {"org": org})["channels"]
+
+    def state(self, channel_ids=None):
+        org = self.settings["organization_id"]
+        channel_ids = channel_ids or [c["buffer_id"] for c in self.settings["channels"].values()]
         inp = {"organizationId": org, "filter": {"channelIds": channel_ids,
                "status": ["scheduled", "sending", "draft", "needs_approval", "error"]},
                "sort": [{"field": "createdAt", "direction": "desc"}]}

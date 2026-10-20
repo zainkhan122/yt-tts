@@ -162,6 +162,39 @@ def deliver(rows, items, journal, client, cfg, clock=now_utc):
     return outcomes
 
 
+def inventory(channels, posts, records, cfg, items, now):
+    """Read-only proof of what this token can see: org, channels, posts, journal drift."""
+    channel_by_id = {c["id"]: c for c in channels}
+    configured = {name: c["buffer_id"] for name, c in cfg["buffer"]["channels"].items()}
+    out = {"generated_at": iso(now), "organization_id": cfg["buffer"]["organization_id"],
+           "channels": [], "posts": [], "missing_channels": [], "journal": []}
+    for channel in channels:
+        row = {k: channel.get(k) for k in ("id", "name", "service", "serviceId", "externalLink",
+                                           "timezone", "isDisconnected", "isLocked", "isQueuePaused")}
+        row["configured_as"] = next((n for n, cid in configured.items() if cid == channel["id"]), None)
+        out["channels"].append(row)
+    seen = {c["id"] for c in channels}
+    out["missing_channels"] = [{"platform": n, "buffer_id": cid} for n, cid in configured.items() if cid not in seen]
+    live = {p["id"]: p for p in posts}
+    for post in posts:
+        channel = channel_by_id.get(post.get("channelId"), {})
+        out["posts"].append({"id": post["id"], "channel": channel.get("name"), "service": channel.get("service"),
+                             "status": post.get("status"), "dueAt": post.get("dueAt"),
+                             "sentAt": post.get("sentAt"), "externalLink": post.get("externalLink"),
+                             "assets": [a.get("source") for a in (post.get("assets") or [])],
+                             "text": (post.get("text") or "")[:90]})
+    queued = {i["video_id"] for i in items}
+    for k, rec in records.items():
+        found = live.get(rec.get("buffer_post_id"))
+        out["journal"].append({"key": k, "in_queue": rec.get("video_id") in queued,
+                               "journal_state": rec.get("state"),
+                               "buffer_post_id": rec.get("buffer_post_id"),
+                               "journal_due_at": rec.get("due_at"),
+                               "live_present": bool(found), "live_status": (found or {}).get("status"),
+                               "live_due_at": (found or {}).get("dueAt")})
+    return out
+
+
 def summary(report):
     lines = ["# Hypeless delivery", "", f"**Mode:** {report['mode']} · **Buffer writes:** {report.get('created', 0)}", "",
              "| Video | Platform | Planned local time |", "|---|---|---|"]
@@ -169,6 +202,30 @@ def summary(report):
         lines.append(f"| {row['video_id']} | {row['platform']} | {row['due_local']} |")
     if not report.get("plan"):
         lines.append("| No eligible posts | — | — |")
+    if report.get("inventory"):
+        inv = report["inventory"]
+        lines += ["", "## Buffer inventory (read-only)", "",
+                  f"Organization: `{inv['organization_id']}`", "",
+                  "| Channel | Service | Configured as | Disconnected | Locked | Paused |",
+                  "|---|---|---|---|---|---|"]
+        for c in inv["channels"]:
+            lines.append(f"| {c['name']} ({c['id']}) | {c['service']} | {c.get('configured_as') or '—'} | "
+                         f"{c.get('isDisconnected')} | {c.get('isLocked')} | {c.get('isQueuePaused')} |")
+        missing = inv.get("missing_channels") or []
+        if missing:
+            lines += ["", "**Configured channel IDs absent from this token:** " +
+                      ", ".join(f"{m['platform']}={m['buffer_id']}" for m in missing)]
+        lines += ["", "| Post | Channel | Status | Due (UTC) | Media |", "|---|---|---|---|---|"]
+        for p in inv["posts"]:
+            media = "; ".join(a.rsplit("/", 1)[-1] for a in (p["assets"] or [])) or "—"
+            lines.append(f"| {p['id']} | {p.get('channel')} | {p['status']} | {p.get('dueAt')} | {media} |")
+        if not inv["posts"]:
+            lines.append("| No posts visible to this token | — | — | — | — |")
+        lines += ["", "| Journal key | Queued | Journal state | Buffer ID | Live status | Live due (UTC) | Drift |", "|---|---|---|---|---|---|---|"]
+        for j in inv["journal"]:
+            drift = "MISSING from Buffer" if not j["live_present"] else ("state differs" if j["live_status"] != j["journal_state"] else "consistent")
+            lines.append(f"| {j['key']} | {'yes' if j.get('in_queue') else 'no'} | {j['journal_state']} | {j['buffer_post_id'] or '—'} | "
+                         f"{j['live_status'] or '—'} | {j['live_due_at'] or '—'} | {drift} |")
     lines += ["", "## Notes"] + ["- " + n for n in report.get("notes", [])]
     lines += ["", "## Delivery issues"] + [f"- {r['key']}: {r['state']} — {r.get('error', '')}" for r in report.get("issues", [])]
     lines += ["", "Dry-run schedules are proposals only. Scheduled is NOT the same as successfully published.",
@@ -183,6 +240,8 @@ def main():
     modes.add_argument("--dry-run", action="store_true")
     modes.add_argument("--live", action="store_true")
     modes.add_argument("--reconcile-only", action="store_true")
+    modes.add_argument("--inventory", action="store_true",
+                       help="read-only proof of visible Buffer organization/channels/posts and journal drift")
     ap.add_argument("--pilot", action="store_true", help="one explicitly selected video; bypass daily mix only for this pilot")
     ap.add_argument("--pilot-now", action="store_true", help="Owner-authorised single immediate pilot only; never a bulk posting mode")
     ap.add_argument("--verify-media", action="store_true")
@@ -201,7 +260,9 @@ def main():
     if args.pilot and len(items) != 1:
         raise SystemExit("Pilot mode requires exactly one video ID")
     dry = not (args.live or args.reconcile_only)
-    mode = "dry-run" if dry else ("reconcile-only" if args.reconcile_only else "live")
+    mode = "inventory" if args.inventory else ("dry-run" if dry else ("reconcile-only" if args.reconcile_only else "live"))
+    if args.inventory:
+        dry = True  # never persist a journal change from a diagnostic run
     if not dry and os.environ.get("GITHUB_ACTIONS") != "true":
         raise SystemExit("Journal-changing/live runs must use post.yml in GitHub Actions")
     if args.live and (not cfg.get("enabled") or os.environ.get("ALLOW_BUFFER_MUTATIONS") != "true"):
@@ -220,6 +281,22 @@ def main():
     else:
         client = BufferClient(cfg["buffer"])
         try:
+            if args.inventory:
+                channels = client.channels()
+                posts = client.state([c["id"] for c in channels])[1]
+                report["inventory"] = inventory(channels, posts, journal.records, cfg, all_items, now)
+                cfg["buffer"]["capabilities"] = client.capabilities
+                report["capabilities"] = client.capabilities
+                report["request_count"] = client.request_count
+                report["rate_limits"] = client.policies
+                save_json(args.report, report)
+                md = summary(report)
+                Path(args.report).with_suffix(".md").write_text(md, encoding="utf-8")
+                if os.environ.get("GITHUB_STEP_SUMMARY"):
+                    with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
+                        f.write(md)
+                print(md)
+                return 0
             channels, posts = client.state()
             cfg["buffer"]["capabilities"] = client.capabilities
             report["capabilities"] = client.capabilities
