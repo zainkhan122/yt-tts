@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "batch_id": "2026-10-20-tool-fx0-01",
- "created_at": "2026-10-20T13:51:10Z",
+ "created_at": "2026-10-20T14:38:20Z",
  "buffer_insights": {
   "path": "reels-studio/tracker/buffer-insights.json",
   "sha256": "05f9254103be39f5d3518635fa9feb1123269edcff987c7b8184c8a9538533f7"
@@ -29,7 +29,7 @@
  },
  "briefs": {
   "tool-fx0-01": {
-   "brief_sha256": "c1f777338aca78deb577ea17babdaa9f93d17574b15e9c82c7a533351981e899",
+   "brief_sha256": "ed1d5cf49cb27cfc552cb1f27c62adeedb8a7b1ed93620d6df374dbc8966c410",
    "metrics_decisions": {
     "topic": "241 stars on day one for a Vercel Labs design agent; the viewer job (a landing page without hand-written CSS) is concrete and demoable in ten seconds.",
     "script": "Demo-first beats: finished page first, then the build, then a second page it built; five-free-prompt sign-in and placeholder copy spoken in the verdict.",
@@ -39,7 +39,7 @@
    "stages": {
     "discover": {
      "status": "complete",
-     "checked_at": "2026-10-20T13:51:10Z",
+     "checked_at": "2026-10-20T14:38:20Z",
      "evidence": [
       "reels-studio/research/radar/radar-2026-10-20.md"
      ]
@@ -75,21 +75,21 @@
      "evidence": [
       "reels-studio/research/radar/radar-2026-10-20.md"
      ],
-     "dynamic_facts_checked_at": "2026-10-20T13:51:10Z",
+     "dynamic_facts_checked_at": "2026-10-20T14:38:20Z",
      "primary_sources": [
       {
        "url": "https://github.com/vercel-labs/fx0",
-       "checked_at": "2026-10-20T13:51:10Z",
+       "checked_at": "2026-10-20T14:38:20Z",
        "claim": "README documents a design agent built on libfx: describe a page, an agent writes it as one HTML file; five free prompts per IP, then Vercel sign-in with AI Gateway billing; version history and download."
       },
       {
        "url": "https://api.github.com/repos/vercel-labs/fx0",
-       "checked_at": "2026-10-20T13:51:10Z",
+       "checked_at": "2026-10-20T14:38:20Z",
        "claim": "Live metadata: 241 stars, 46 forks, created 2026-10-19, Apache-2.0."
       },
       {
        "url": "https://fx0.vercel.dev",
-       "checked_at": "2026-10-20T13:51:10Z",
+       "checked_at": "2026-10-20T14:38:20Z",
        "claim": "Own browser capture of the live app: suggestion chips, free-prompt counter, model picker, and a live run that published a page."
       }
      ]
@@ -113,7 +113,7 @@
      "rights_checked": true,
      "approval_constraints_checked": true,
      "capture_id": "tool-fx0-01",
-     "manifest_sha256": "3de8e026c79df506b71e6c7dd8645eaa92933b3788a382fb2a11a19d99f53929",
+     "manifest_sha256": "f643c59a1e8593a42c082afb3f04731ce90398f836e79fda82e1c27125ae7631",
      "files": [
       {
        "path": "desktop-top.jpg",
@@ -125,7 +125,7 @@
       },
       {
        "path": "demo.mp4",
-       "sha256": "65c317ef9995af9b683a6528f2c2d4442bab7e33df8a617096d31762440c0569"
+       "sha256": "834b0e5a69827cd0e5fdbed881138c53c256d7bffd45af91d6a8e6436826139a"
       },
       {
        "path": "build.png",

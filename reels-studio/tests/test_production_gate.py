@@ -245,6 +245,50 @@ class ProductionGateTests(unittest.TestCase):
         with self.assertRaisesRegex(ProductionGateError, "digest mismatch"):
             verify_capture_assets(self.root, "one", self.brief, stage)
 
+    def test_blank_demo_footage_fails_the_asset_gate(self):
+        """2026-10-20: the fx0 clip spent seconds on an EMPTY preview pane and still passed
+        every check, because frame 0 of the final video is the designed cover."""
+        import subprocess, tempfile
+        from PIL import Image, ImageDraw
+        try:
+            import imageio_ffmpeg
+            ff = imageio_ffmpeg.get_ffmpeg_exe()
+        except Exception:
+            self.skipTest("ffmpeg not available to build the fixture clip")
+        cap = self.root / "reels-studio/captures/cap-one"
+        cap.mkdir(parents=True, exist_ok=True)
+        # 2 s of pure white, then 2 s of a UI-like frame with structure
+        white = cap / "white.png"
+        Image.new("RGB", (1280, 720), (255, 255, 255)).save(white)
+        ui = cap / "ui.png"
+        im = Image.new("RGB", (1280, 720), (245, 245, 245))
+        pen = ImageDraw.Draw(im)
+        pen.rectangle([0, 0, 420, 720], fill=(230, 230, 232))
+        for r in range(4):
+            pen.rectangle([480, 80 + r * 140, 1200, 180 + r * 140], fill=(60, 70, 90))
+        im.save(ui)
+        clip = cap / "demo.mp4"
+        subprocess.run([ff, "-y", "-v", "error", "-loop", "1", "-t", "2", "-i", str(white),
+                        "-loop", "1", "-t", "2", "-i", str(ui), "-filter_complex",
+                        "[0:v][1:v]concat=n=2:v=1:a=0,fps=30", "-pix_fmt", "yuv420p", str(clip)], check=True)
+        manifest = {"files": {"white": {"file": "white.png", "kind": "own capture"},
+                              "ui": {"file": "ui.png", "kind": "own capture"},
+                              "clip": {"file": "demo.mp4", "kind": "official demo media"}}}
+        raw = (json.dumps(manifest, indent=1) + "\n").encode()
+        (cap / "manifest.json").write_bytes(raw)
+        stage = self.receipt["briefs"]["one"]["stages"]["assets"]
+        stage["manifest_sha256"] = sha256_bytes(raw)
+        stage["files"] = [{"path": n, "sha256": hashlib.sha256((cap / n).read_bytes()).hexdigest()}
+                          for n in ("white.png", "ui.png", "demo.mp4")]
+        self.brief["scenes"] = [{"id": "demo", "type": "clip", "src": "demo.mp4", "in": 0.0, "out": 2.0, "say": "x"},
+                                {"id": "proof", "type": "page", "image": "ui.png", "say": "y"}]
+        with self.assertRaisesRegex(ProductionGateError, "empty stage"):
+            verify_capture_assets(self.root, "one", self.brief, stage)
+        # the same clip used only where the UI is visible passes
+        self.brief["scenes"][0]["in"], self.brief["scenes"][0]["out"] = 2.2, 3.9
+        result = verify_capture_assets(self.root, "one", self.brief, stage)
+        self.assertEqual(result["clip_ranges_checked"], 1)
+
     def test_receipt_path_traversal_is_rejected(self):
         with self.assertRaisesRegex(ProductionGateError, "must be under"):
             validate_receipt(self.root, "../daily.json", ["one"])

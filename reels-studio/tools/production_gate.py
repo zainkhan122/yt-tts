@@ -462,6 +462,92 @@ def validate_receipt(
     return summary
 
 
+BLANK_STD_MAX = 4.0      # a flat frame (luma stddev) under this has no structure
+BLANK_EDGE_MIN = 0.006   # ...and fewer than this share of strong edges: an empty pane
+BLANK_SHARE_MAX = 0.10   # more than 10% blank samples in the used range = not shippable
+
+
+def _sample_blank_share(video: Path, start: float, end: float, samples: int = 8) -> float | None:
+    """Share of sampled frames inside [start, end] that are near-blank.
+
+    Ownership: on 2026-10-20 the fx0 demo clip opened on ~0.3 s of pure white and spent
+    seconds showing an EMPTY preview pane while the agent thought. Every automated check
+    passed (frame 0 of the final video is the designed cover) and the blank pane shipped
+    into the render. A demo clip is product evidence: if the pane is empty, there is no
+    evidence. Needs ffmpeg + Pillow; returns None (skipped, never a silent pass) if either
+    is missing, and callers log that.
+    """
+    try:
+        import subprocess
+        import tempfile
+        from PIL import Image, ImageStat
+    except Exception:
+        return None
+    try:
+        import imageio_ffmpeg
+        exe = imageio_ffmpeg.get_ffmpeg_exe()
+    except Exception:
+        exe = "ffmpeg"
+    span = max(0.05, end - start)
+    blank = 0
+    with tempfile.TemporaryDirectory() as tmp:
+        for i in range(samples):
+            t = start + span * (i + 0.5) / samples
+            out = Path(tmp) / f"s{i}.png"
+            r = subprocess.run([exe, "-y", "-v", "error", "-ss", f"{t:.3f}", "-i", str(video),
+                                "-frames:v", "1", "-vf", "scale=320:-2", str(out)],
+                               capture_output=True)
+            if r.returncode != 0 or not out.exists():
+                return None
+            with Image.open(out) as im:
+                g = im.convert("L")
+                std = ImageStat.Stat(g).stddev[0]
+                data = list(g.get_flattened_data() if hasattr(g, "get_flattened_data") else g.getdata())
+                w = g.width
+                edges = sum(1 for y in range(g.height) for x in range(1, w)
+                            if abs(data[y * w + x] - data[y * w + x - 1]) > 12)
+                edge = edges / max(1, g.width * g.height)
+            if std < BLANK_STD_MAX and edge < BLANK_EDGE_MIN:
+                blank += 1
+    return blank / samples
+
+
+def verify_media_is_not_blank(repo_root: Path, brief_id: str, brief: dict) -> dict:
+    """Fail the dispatch when a demo clip's used range is mostly an empty stage."""
+    capture = brief.get("capture")
+    if not capture:
+        return {"checked": 0, "skipped": "no capture"}
+    capture_id = Path(str(capture)).name
+    checked, blank_issues, skipped = 0, [], []
+    for scene in brief.get("scenes") or []:
+        if scene.get("type") not in ("clip", "clip-montage"):
+            continue
+        src = scene.get("src")
+        if not src:
+            continue
+        video = _repo_path(repo_root, f"reels-studio/captures/{capture_id}/{src}")
+        spans = ([(float(scene.get("in", 0.0)), float(scene.get("out", 0.0)))]
+                 if scene.get("type") == "clip"
+                 else [(float(c.get("in", 0.0)), float(c.get("out", 0.0))) for c in scene.get("cuts") or []])
+        for start, end in spans:
+            if end <= start:
+                continue
+            share = _sample_blank_share(video, start, end)
+            if share is None:
+                skipped.append(f"{src} ({start:.2f}-{end:.2f}s): sampler unavailable")
+                continue
+            checked += 1
+            if share > BLANK_SHARE_MAX:
+                blank_issues.append(f"{src} {start:.2f}-{end:.2f}s is {share:.0%} blank frames")
+    if blank_issues:
+        raise ProductionGateError(
+            f"{brief_id}: demo footage is an empty stage - {'; '.join(blank_issues)}. "
+            f"A clip must show the product doing something in every second it is on screen "
+            f"(trim the thinking/publishing dead time or recapture).")
+    return {"brief_id": brief_id, "checked": checked, "skipped": skipped,
+            "blank_share_max": BLANK_SHARE_MAX}
+
+
 def verify_capture_assets(repo_root: Path, brief_id: str, brief: dict, stage: dict) -> dict:
     """After capture_store.py pull-for, verify the exact manifest and every declared file hash."""
     capture = brief.get("capture")
@@ -520,9 +606,11 @@ def verify_capture_assets(repo_root: Path, brief_id: str, brief: dict, stage: di
             f"{brief_id}: media coverage too thin ({media_scenes} media scenes, "
             f"{motion_scenes} motion/page scenes; need >=2 and >=1) — show the product "
             f"working, not just cards (PLAYBOOK media standard 2026-10-18)")
+    blank = verify_media_is_not_blank(repo_root, brief_id, brief)
     return {"brief_id": brief_id, "capture": capture_id, "manifest_sha256": actual_manifest_sha,
             "verified_files": len(declared), "real_media_files": len(real_files),
-            "media_scenes": media_scenes, "motion_scenes": motion_scenes}
+            "media_scenes": media_scenes, "motion_scenes": motion_scenes,
+            "clip_ranges_checked": blank["checked"], "clip_sampler_skipped": blank["skipped"]}
 
 
 def asset_digest_receipt(repo_root: Path, capture_id: str) -> dict:

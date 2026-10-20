@@ -88,8 +88,8 @@
    "id": "hook",
    "type": "clip",
    "src": "demo.mp4",
-   "in": 12.6,
-   "out": 18.4,
+   "in": 4.6,
+   "out": 9.4,
    "fit": "fill-blur",
    "headline": "ONE PROMPT. *A WHOLE PAGE.*",
    "sub": "fx0 · the page was never typed by hand",
@@ -101,20 +101,20 @@
    "src": "demo.mp4",
    "cuts": [
     {
-     "in": 2.7,
-     "out": 5.2,
+     "in": 0.15,
+     "out": 2.05,
      "label": "ONE SENTENCE",
      "at": "sentence"
     },
     {
-     "in": 7.0,
-     "out": 11.4,
+     "in": 2.4,
+     "out": 5.2,
      "label": "AGENT BUILDS",
      "at": "builds"
     },
     {
-     "in": 12.6,
-     "out": 16.6,
+     "in": 5.3,
+     "out": 7.9,
      "label": "PUBLISHED",
      "at": "publishes"
     }
