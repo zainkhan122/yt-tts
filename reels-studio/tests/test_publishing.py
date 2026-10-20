@@ -504,6 +504,65 @@ class SchemaAndMediaTests(unittest.TestCase):
         for query_text in (api.STATE_QUERY, api.MORE_POSTS, api.CHANNELS_QUERY, api.CREATE):
             self.assertEqual(validate(self.schema, parse(query_text)), [])
 
+    def test_verify_plan_passes_only_when_buffer_matches_the_journal(self):
+        cfg = config()
+        ch = cfg["buffer"]["channels"]
+        item = {"video_id": "a", "approval": "approved", "platforms": ["youtube", "facebook", "instagram"],
+                "media_path": "media/1/a.mp4"}
+        due = "2026-10-20T20:00:00+00:00"
+        records = {f"a:{p}": {"video_id": "a", "platform": p, "state": "scheduled",
+                              "buffer_post_id": f"id-{p}", "due_at": due} for p in item["platforms"]}
+        good = [{"id": f"id-{p}", "channelId": ch[p]["buffer_id"], "status": "scheduled",
+                 "dueAt": due, "assets": [{"source": "https://x/media/1/a.mp4"}]} for p in item["platforms"]]
+        rows, issues = publisher.verify_plan(records, [item], good, cfg, NOW)
+        self.assertEqual(issues, [])
+        self.assertTrue(all(row["problem"] is None for row in rows))
+
+        draft = [dict(p, status="draft") for p in good]
+        _, issues = publisher.verify_plan(records, [item], draft, cfg, NOW)
+        self.assertEqual({i["state"] for i in issues}, {"drift"})
+        self.assertIn("not scheduled", issues[0]["error"])
+
+        moved = [dict(p, dueAt="2026-10-21T20:00:00+00:00") for p in good]
+        _, issues = publisher.verify_plan(records, [item], moved, cfg, NOW)
+        self.assertIn("due time drifted", issues[0]["error"])
+
+        stale = [dict(p, assets=[{"source": "https://x/media/9/old.mp4"}]) for p in good]
+        _, issues = publisher.verify_plan(records, [item], stale, cfg, NOW)
+        self.assertIn("but queue pins a.mp4", issues[0]["error"])
+
+        _, issues = publisher.verify_plan(records, [item], [], cfg, NOW)
+        self.assertEqual(len(issues), 3)
+        self.assertIn("Buffer has no such post", issues[0]["error"])
+
+    def test_verify_plan_treats_unscheduled_as_note_and_terminal_without_proof_as_drift(self):
+        cfg = config()
+        item = {"video_id": "b", "approval": "approved", "platforms": ["youtube"], "media_path": "media/2/b.mp4"}
+        rows, issues = publisher.verify_plan({}, [item], [], cfg, NOW)
+        self.assertEqual(issues, [])
+        self.assertIn("not scheduled yet", rows[0]["note"])
+        terminal = {"b:youtube": {"video_id": "b", "platform": "youtube", "state": "sent",
+                                  "buffer_post_id": "gone", "due_at": "2026-10-19T20:00:00+00:00"}}
+        _, issues = publisher.verify_plan(terminal, [item], [], cfg, NOW)
+        self.assertIn("without a Buffer post or public URL", issues[0]["error"])
+
+    def test_readback_only_calls_it_scheduled_when_buffer_agrees(self):
+        records = {"a:youtube": {"video_id": "a", "platform": "youtube", "state": "submitting",
+                                 "buffer_post_id": "live", "due_at": "2026-10-20T20:00:00+00:00"}}
+        rows = publisher.readback(records, ["a:youtube"],
+                                  [{"id": "live", "status": "scheduled", "dueAt": "2026-10-20T20:00:00+00:00",
+                                    "assets": [{"source": "https://x/a.mp4"}]}], NOW)
+        self.assertIsNone(rows[0]["problem"])
+        self.assertEqual(records["a:youtube"]["state"], "scheduled")
+        self.assertEqual(records["a:youtube"]["verified_at"], publisher.iso(NOW))
+
+        lost = {"a:youtube": {"video_id": "a", "platform": "youtube", "state": "submitting",
+                              "buffer_post_id": "ghost", "due_at": "2026-10-20T20:00:00+00:00"}}
+        rows = publisher.readback(lost, ["a:youtube"], [], NOW)
+        self.assertEqual(lost["a:youtube"]["state"], "unverified_missing")
+        self.assertIn("absent from read-back", rows[0]["problem"])
+        self.assertNotEqual(lost["a:youtube"]["state"], "scheduled")
+
     def test_inventory_reports_drift_without_writing(self):
         cfg = config()
         channels = [{"id": c["buffer_id"], "name": n, "service": n, "isDisconnected": False,

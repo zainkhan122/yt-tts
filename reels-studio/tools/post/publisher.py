@@ -181,6 +181,8 @@ def inventory(channels, posts, records, cfg, items, now):
         out["posts"].append({"id": post["id"], "channel": channel.get("name"), "service": channel.get("service"),
                              "status": post.get("status"), "dueAt": post.get("dueAt"),
                              "sentAt": post.get("sentAt"), "externalLink": post.get("externalLink"),
+                             "schedulingType": post.get("schedulingType"),
+                             "error": redact(((post.get("error") or {}).get("message") or "")) or None,
                              "assets": [a.get("source") for a in (post.get("assets") or [])],
                              "text": (post.get("text") or "")[:90]})
     queued = {i["video_id"] for i in items}
@@ -195,13 +197,113 @@ def inventory(channels, posts, records, cfg, items, now):
     return out
 
 
+def local_time(value, zone="Asia/Karachi"):
+    """Owner-facing time; the report never asks anyone to convert UTC in their head."""
+    moment = parse_time(value)
+    if not moment:
+        return "—"
+    try:
+        from zoneinfo import ZoneInfo
+        return moment.astimezone(ZoneInfo(zone)).strftime("%Y-%m-%d %H:%M %Z")
+    except Exception:
+        return iso(moment)
+
+
+def media_name(post):
+    """Filename of the video Buffer holds; stable across re-pinned hosting URLs."""
+    for asset in (post or {}).get("assets") or []:
+        source = asset.get("source") or ""
+        if source:
+            return source.split("?")[0].rstrip("/").rsplit("/", 1)[-1]
+    return None
+
+
+def verify_plan(records, items, posts, cfg, now):
+    """Read-back: prove Buffer holds exactly what the journal claims, or say what drifted.
+
+    Creation receipts are not evidence. A post can be accepted by Buffer and then sit in
+    draft, lose its scheduled time, point at stale media, or disappear. This compares the
+    journal against a fresh scan and returns one row per platform plus every problem found.
+    """
+    by_id = {p["id"]: p for p in posts}
+    rows, issues = [], []
+    for item in items:
+        expected_media = (item.get("media_path") or "").rsplit("/", 1)[-1] or None
+        for platform in item["platforms"]:
+            k = key(item["video_id"], platform)
+            record = records.get(k)
+            if not record:
+                # Never scheduled is a planning fact, not drift; it must not mask real mismatches.
+                rows.append({"key": k, "journal_state": None, "live_status": None,
+                             "problem": None, "note": "no receipt; not scheduled yet"})
+                continue
+            live = by_id.get(record.get("buffer_post_id"))
+            problem = None
+            if record["state"] in TERMINAL:
+                if not live and not record.get("external_url"):
+                    problem = "terminal receipt without a Buffer post or public URL"
+            elif record["state"] in PENDING:
+                if not live:
+                    problem = f"journal says {record['state']} but Buffer has no such post"
+                elif live.get("status") in {"draft", "needs_approval"}:
+                    problem = f"Buffer holds it as {live['status']}, not scheduled"
+                elif live.get("status") == "error":
+                    problem = "Buffer reported a delivery error: " + redact(((live.get("error") or {}).get("message") or ""))
+                else:
+                    want, got = parse_time(record.get("due_at")), parse_time(live.get("dueAt"))
+                    if want and got and abs((want - got).total_seconds()) > 120:
+                        problem = f"due time drifted: journal {iso(want)} vs Buffer {iso(got)}"
+                    elif expected_media and media_name(live) and media_name(live) != expected_media:
+                        problem = f"Buffer holds {media_name(live)} but queue pins {expected_media}"
+            else:
+                problem = f"unsettled delivery state {record['state']}"
+            rows.append({"key": k, "journal_state": record["state"], "buffer_post_id": record.get("buffer_post_id"),
+                         "journal_due_at": record.get("due_at"), "live_status": (live or {}).get("status"),
+                         "live_due_at": (live or {}).get("dueAt"), "live_media": media_name(live),
+                         "expected_media": expected_media, "problem": problem})
+            if problem:
+                issues.append({"key": k, "state": "drift", "error": problem})
+    return rows, issues
+
+
+def readback(records, keys, posts, now):
+    """Adopt a fresh scan after createPost so 'scheduled' means Buffer agrees, not that we asked."""
+    live = {p["id"]: p for p in posts}
+    rows = []
+    for k in keys:
+        record = records[k]
+        found = live.get(record.get("buffer_post_id"))
+        if not found:
+            record["state"] = "unverified_missing"
+            record["last_error"] = "Create accepted but post absent from read-back scan"
+            rows.append({"key": k, "journal_state": record["state"], "live_status": None,
+                         "live_due_at": None, "live_media": None, "problem": record["last_error"]})
+            continue
+        adopt(record, found, now)
+        record["verified_at"] = iso(now)
+        rows.append({"key": k, "journal_state": record["state"], "live_status": found.get("status"),
+                     "live_due_at": found.get("dueAt"), "live_media": media_name(found),
+                     "problem": record.get("last_error")})
+    return rows
+
+
 def summary(report):
     lines = ["# Hypeless delivery", "", f"**Mode:** {report['mode']} · **Buffer writes:** {report.get('created', 0)}", "",
              "| Video | Platform | Planned local time |", "|---|---|---|"]
     for row in report.get("plan", []):
         lines.append(f"| {row['video_id']} | {row['platform']} | {row['due_local']} |")
-    if not report.get("plan"):
+    if not report.get("plan") and report.get("mode") in {"reconcile-only", "verify", "inventory"}:
+        lines.append("| No new posts planned | — | — |")
+    elif not report.get("plan"):
         lines.append("| No eligible posts | — | — |")
+    if report.get("verification"):
+        lines += ["", "## Read-back verification (independent of create responses)", "",
+                  "| Receipt | Journal | Buffer status | Buffer due (UTC) | Media | Result |",
+                  "|---|---|---|---|---|---|"]
+        for row in report["verification"]:
+            lines.append(f"| {row['key']} | {row.get('journal_state') or '—'} | {row.get('live_status') or '—'} | "
+                         f"{row.get('live_due_at') or '—'} | {row.get('live_media') or '—'} | "
+                         f"{('DRIFT: ' + row['problem']) if row.get('problem') else 'verified'} |")
     if report.get("inventory"):
         inv = report["inventory"]
         lines += ["", "## Buffer inventory (read-only)", "",
@@ -215,12 +317,14 @@ def summary(report):
         if missing:
             lines += ["", "**Configured channel IDs absent from this token:** " +
                       ", ".join(f"{m['platform']}={m['buffer_id']}" for m in missing)]
-        lines += ["", "| Post | Channel | Status | Due (UTC) | Media |", "|---|---|---|---|---|"]
+        lines += ["", "| Post | Channel | Status | Scheduling | Due (UTC) | Due (PKT) | Media | Error |",
+                  "|---|---|---|---|---|---|---|---|"]
         for p in inv["posts"]:
             media = "; ".join(a.rsplit("/", 1)[-1] for a in (p["assets"] or [])) or "—"
-            lines.append(f"| {p['id']} | {p.get('channel')} | {p['status']} | {p.get('dueAt')} | {media} |")
+            lines.append(f"| {p['id']} | {p.get('channel')} | {p['status']} | {p.get('schedulingType') or '—'} | "
+                         f"{p.get('dueAt') or '—'} | {local_time(p.get('dueAt'))} | {media} | {p.get('error') or '—'} |")
         if not inv["posts"]:
-            lines.append("| No posts visible to this token | — | — | — | — |")
+            lines.append("| No posts visible to this token | — | — | — | — | — | — | — |")
         lines += ["", "| Journal key | Queued | Journal state | Buffer ID | Live status | Live due (UTC) | Drift |", "|---|---|---|---|---|---|---|"]
         for j in inv["journal"]:
             drift = "MISSING from Buffer" if not j["live_present"] else ("state differs" if j["live_status"] != j["journal_state"] else "consistent")
@@ -240,6 +344,8 @@ def main():
     modes.add_argument("--dry-run", action="store_true")
     modes.add_argument("--live", action="store_true")
     modes.add_argument("--reconcile-only", action="store_true")
+    modes.add_argument("--verify", action="store_true",
+                       help="read-back check that Buffer holds the approved queue; exits non-zero on drift")
     modes.add_argument("--inventory", action="store_true",
                        help="read-only proof of visible Buffer organization/channels/posts and journal drift")
     ap.add_argument("--pilot", action="store_true", help="one explicitly selected video; bypass daily mix only for this pilot")
@@ -260,9 +366,10 @@ def main():
     if args.pilot and len(items) != 1:
         raise SystemExit("Pilot mode requires exactly one video ID")
     dry = not (args.live or args.reconcile_only)
-    mode = "inventory" if args.inventory else ("dry-run" if dry else ("reconcile-only" if args.reconcile_only else "live"))
-    if args.inventory:
-        dry = True  # never persist a journal change from a diagnostic run
+    mode = ("inventory" if args.inventory else "verify" if args.verify
+            else "dry-run" if dry else ("reconcile-only" if args.reconcile_only else "live"))
+    if args.inventory or args.verify:
+        dry = True  # never persist a journal change from a diagnostic/verification run
     if not dry and os.environ.get("GITHUB_ACTIONS") != "true":
         raise SystemExit("Journal-changing/live runs must use post.yml in GitHub Actions")
     if args.live and (not cfg.get("enabled") or os.environ.get("ALLOW_BUFFER_MUTATIONS") != "true"):
@@ -297,6 +404,22 @@ def main():
                         f.write(md)
                 print(md)
                 return 0
+            if args.verify:
+                approved = [i for i in items if i.get("approval") == "approved"]
+                channels, posts = client.state()
+                rows_v, issues_v = verify_plan(journal.records, approved, posts, cfg, now)
+                report["verification"], report["issues"] = rows_v, issues_v
+                report["request_count"] = client.request_count
+                report["rate_limits"] = client.policies
+                save_json(args.report, report)
+                md = summary(report)
+                Path(args.report).with_suffix(".md").write_text(md, encoding="utf-8")
+                if os.environ.get("GITHUB_STEP_SUMMARY"):
+                    with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
+                        f.write(md)
+                print(md)
+                print(f"verified {sum(1 for r in rows_v if not r.get('problem'))}/{len(rows_v)} receipts; {len(issues_v)} drift")
+                return 1 if issues_v else 0
             channels, posts = client.state()
             cfg["buffer"]["capabilities"] = client.capabilities
             report["capabilities"] = client.capabilities
@@ -304,6 +427,13 @@ def main():
             if not dry:
                 journal.data["cooldown_until"] = None
                 journal.save("reconcile delivery status")
+            if args.reconcile_only:
+                # Reconcile is also the owner-facing status check: prove the approved queue is live.
+                approved = [i for i in items if i.get("approval") == "approved"]
+                rows_v, issues_v = verify_plan(journal.records, approved, posts, cfg, now)
+                report["verification"], report["issues"] = rows_v, issues_v
+                if issues_v:
+                    exit_code = 1
             if not args.reconcile_only:
                 if args.pilot_now:
                     from tools.post.pilot import immediate_plan
@@ -321,6 +451,16 @@ def main():
                     outcomes = deliver(rows, items, journal, client, cfg)
                     report["outcomes"] = outcomes
                     report["created"] = sum(1 for o in outcomes if o.get("buffer_post_id"))
+                    touched = [o["key"] for o in outcomes if o.get("buffer_post_id")]
+                    if touched:
+                        # A create response is not proof. Re-scan and only then call it scheduled.
+                        _, after = client.state()
+                        report["verification"] = readback(journal.records, touched, after, now_utc())
+                        journal.save("read-back verification")
+                        if any(row.get("problem") for row in report["verification"]):
+                            report["issues"] += [{"key": r["key"], "state": "drift", "error": r["problem"]}
+                                                 for r in report["verification"] if r.get("problem")]
+                            exit_code = 1
             report["request_count"] = client.request_count
             report["rate_limits"] = client.policies
             for k, rec in journal.records.items():

@@ -5,9 +5,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'dry-run = preview only; schedule = approved posts; reconcile = delivery receipts only; inventory = read-only Buffer proof'
+        description: 'dry-run = preview only; schedule = approved posts; reconcile = receipts + drift check; verify = read-only drift check; inventory = raw Buffer proof'
         type: choice
-        options: [dry-run, schedule, reconcile, inventory]
+        options: [dry-run, schedule, reconcile, verify, inventory]
         default: dry-run
       video_ids:
         description: 'Optional space-separated queued video IDs (empty = eligible backlog)'
@@ -95,17 +95,17 @@ jobs:
         if: steps.gate.outputs.mode != 'off'
         run: python3 reels-studio/tools/maintenance/storage.py audit
       - name: Build pinned, QA-checked media (no social posting)
-        if: steps.gate.outputs.mode != 'off' && steps.gate.outputs.mode != 'reconcile' && steps.gate.outputs.mode != 'inventory'
+        if: steps.gate.outputs.mode != 'off' && steps.gate.outputs.mode != 'reconcile' && steps.gate.outputs.mode != 'verify' && steps.gate.outputs.mode != 'inventory'
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 reels-studio/tools/post/media.py build --dest "$RUNNER_TEMP/hypeless-pages"
       - uses: actions/upload-pages-artifact@v3
-        if: steps.gate.outputs.mode != 'off' && steps.gate.outputs.mode != 'reconcile' && steps.gate.outputs.mode != 'inventory'
+        if: steps.gate.outputs.mode != 'off' && steps.gate.outputs.mode != 'reconcile' && steps.gate.outputs.mode != 'verify' && steps.gate.outputs.mode != 'inventory'
         with:
           path: ${{ runner.temp }}/hypeless-pages
   hosting:
     needs: prepare
-    if: needs.prepare.outputs.mode != 'off' && needs.prepare.outputs.mode != 'reconcile' && needs.prepare.outputs.mode != 'inventory'
+    if: needs.prepare.outputs.mode != 'off' && needs.prepare.outputs.mode != 'reconcile' && needs.prepare.outputs.mode != 'verify' && needs.prepare.outputs.mode != 'inventory'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -120,7 +120,7 @@ jobs:
         uses: actions/deploy-pages@v4
   delivery:
     needs: [prepare, hosting]
-    if: always() && needs.prepare.result == 'success' && needs.prepare.outputs.mode != 'off' && (needs.prepare.outputs.mode == 'reconcile' || needs.prepare.outputs.mode == 'inventory' || needs.hosting.result == 'success')
+    if: always() && needs.prepare.result == 'success' && needs.prepare.outputs.mode != 'off' && (needs.prepare.outputs.mode == 'reconcile' || needs.prepare.outputs.mode == 'verify' || needs.prepare.outputs.mode == 'inventory' || needs.hosting.result == 'success')
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
@@ -168,7 +168,7 @@ jobs:
           import os, subprocess, sys
           mode = os.environ['MODE']
           args = [sys.executable, 'reels-studio/tools/post/publisher.py', *os.environ['VIDEO_IDS'].replace(',', ' ').split()]
-          args += [{'dry-run':'--dry-run', 'schedule':'--live', 'reconcile':'--reconcile-only', 'inventory':'--inventory'}[mode]]
+          args += [{'dry-run':'--dry-run', 'schedule':'--live', 'reconcile':'--reconcile-only', 'verify':'--verify', 'inventory':'--inventory'}[mode]]
           if os.environ.get('PILOT') == 'true':
               args += ['--pilot']
           if os.environ.get('PILOT_NOW') == 'true':

@@ -319,6 +319,10 @@ def events(b, T, D, cfg):
     return ev
 
 
+class RenderBlocked(ValueError):
+    """Fail-closed render error callers (and tests) can catch instead of dying via SystemExit."""
+
+
 def qa_montage(b, T, D, ev):
     """Each montage cut with an 'at' word must have that word spoken while the cut is on screen (0.3 s lead allowed)."""
     issues = []
@@ -342,7 +346,7 @@ def html(b, T, D, ev, cfg):
     issues = qa_montage(b, T, D, ev)
     if issues:
         detail = "; ".join(issues)
-        raise SystemExit(f"[spotlight] montage timing QA failed: {detail} (reword the line or adjust the cut)")
+        raise RenderBlocked(f"render blocked: montage timing QA failed: {detail} (reword the line or adjust the cut)")
     out = []
     track = 4
     for s in scenes(b):

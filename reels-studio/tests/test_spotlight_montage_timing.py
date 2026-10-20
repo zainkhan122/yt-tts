@@ -21,7 +21,9 @@ class MontageTimingTests(unittest.TestCase):
     def test_anchor_outside_label_window_is_a_hard_render_error(self):
         brief, timing, events = fixture(anchor_time=2.0)
         self.assertTrue(spotcore.qa_montage(brief, timing, 4.0, events))
-        with self.assertRaisesRegex(SystemExit, "montage timing QA failed"):
+        # RenderBlocked is a ValueError so render tooling can catch and report it; an uncaught
+        # block still fails the render process with a traceback and non-zero exit.
+        with self.assertRaisesRegex(spotcore.RenderBlocked, "montage timing QA failed"):
             spotcore.html(brief, timing, 4.0, events, {})
 
 
