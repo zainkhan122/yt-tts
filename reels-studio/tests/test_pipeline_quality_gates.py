@@ -45,6 +45,7 @@ class PipelineQualityGateTests(unittest.TestCase):
         legacy = {"id": "x"}
         self.assertEqual(cover_contract_check(promised, {"source": "frame-grab"}), (False, "cover-lab"))
         self.assertEqual(cover_contract_check(promised, {"source": "cover-lab"}), (True, "cover-lab"))
+        self.assertEqual(cover_contract_check(legacy, {"source": "frame"}), (True, "legacy-frame-grab"))
         self.assertEqual(cover_contract_check(legacy, {"source": "frame-grab"}), (True, "legacy-frame-grab"))
         self.assertEqual(cover_contract_check(legacy, {"source": "stale"}),(False, "legacy-frame-grab"))
 

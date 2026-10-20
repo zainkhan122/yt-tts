@@ -210,7 +210,9 @@ def cover_contract_check(brief, cover):
     way to pass (run 39464800072).
     """
     promised = bool(((brief.get("treatment") or {}).get("cover_concepts")))
-    ok = cover.get("source") == "cover-lab" if promised else cover.get("source") in ("cover-lab", "frame-grab")
+    # creative_proof() calls the legacy frame grab "frame"; accept either spelling so a legacy
+    # rebuild is not failed by vocabulary (run 39466437765: 8/9, only designed_cover failed).
+    ok = cover.get("source") == "cover-lab" if promised else cover.get("source") in ("cover-lab", "frame", "frame-grab")
     return ok, ("cover-lab" if promised else "legacy-frame-grab")
 
 
