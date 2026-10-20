@@ -83,7 +83,7 @@ jobs:
             test_pipeline_quality_gates.py \
             test_brief_lint.py \
             test_creative.py \
-            test_creative_application.py \
+            test_creative_application.py test_cover_store.py \
             test_gates.py; do
             python3 -m unittest discover -s tests -p "$test_file"
           done

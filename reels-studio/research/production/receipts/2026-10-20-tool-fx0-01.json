@@ -1,0 +1,143 @@
+{
+ "schema_version": 1,
+ "batch_id": "2026-10-20-tool-fx0-01",
+ "created_at": "2026-10-20T13:51:10Z",
+ "buffer_insights": {
+  "path": "reels-studio/tracker/buffer-insights.json",
+  "sha256": "05f9254103be39f5d3518635fa9feb1123269edcff987c7b8184c8a9538533f7"
+ },
+ "metrics_review": {
+  "snapshot_sha256": "05f9254103be39f5d3518635fa9feb1123269edcff987c7b8184c8a9538533f7",
+  "reviewed_video_count": 108,
+  "sample_post_ids": [
+   "6ac904b32f26cc482c22c524",
+   "6ac904b32f26cc482c22c526",
+   "6ac904b32f26cc482c22c528",
+   "6aca1f1ec4de2d2b12255238"
+  ],
+  "findings": [
+   "Fresh Buffer Insights snapshot 2026-10-20T10:11:08Z (complete, 108 tracked video posts) reviewed before selecting this topic.",
+   "Mature repo items still lead: repo-ds4-01 sits at the 78th percentile cross-platform; repo median percentile 56.3 vs 51.5 for tools.",
+   "Demo-first chosen because the only honest proof of a design agent is the page it produced; capture-page-only films repeat the card-heavy look the panel failed on 2026-10-18."
+  ],
+  "decisions": {
+   "topic": "241 stars on day one for a Vercel Labs design agent; the viewer job (a landing page without hand-written CSS) is concrete and demoable in ten seconds.",
+   "script": "Demo-first beats: finished page first, then the build, then a second page it built; five-free-prompt sign-in and placeholder copy spoken in the verdict.",
+   "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall.",
+   "visual": "Own screen recording of fx0 building a page (no marketing media), plus own captures of the dashboard it built; covers designed in cover_lab from three distinct real captures."
+  }
+ },
+ "briefs": {
+  "tool-fx0-01": {
+   "brief_sha256": "c1f777338aca78deb577ea17babdaa9f93d17574b15e9c82c7a533351981e899",
+   "metrics_decisions": {
+    "topic": "241 stars on day one for a Vercel Labs design agent; the viewer job (a landing page without hand-written CSS) is concrete and demoable in ten seconds.",
+    "script": "Demo-first beats: finished page first, then the build, then a second page it built; five-free-prompt sign-in and placeholder copy spoken in the verdict.",
+    "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall.",
+    "visual": "Own screen recording of fx0 building a page (no marketing media), plus own captures of the dashboard it built; covers designed in cover_lab from three distinct real captures."
+   },
+   "stages": {
+    "discover": {
+     "status": "complete",
+     "checked_at": "2026-10-20T13:51:10Z",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-20.md"
+     ]
+    },
+    "select": {
+     "status": "complete",
+     "selection_status": "selected",
+     "topic": "fx0: describe a page, an agent builds it in one HTML file",
+     "score": 79,
+     "score_breakdown": {
+      "trend_velocity": 23,
+      "demo_ability": 19,
+      "audience_breadth": 11,
+      "social_proof_gap": 8,
+      "free_value": 7,
+      "freshness_angle": 11
+     },
+     "metrics_snapshot_sha256": "05f9254103be39f5d3518635fa9feb1123269edcff987c7b8184c8a9538533f7",
+     "basis_post_ids": [
+      "6ac904b32f26cc482c22c524",
+      "6ac904b32f26cc482c22c526",
+      "6ac904b32f26cc482c22c528",
+      "6aca1f1ec4de2d2b12255238"
+     ],
+     "hard_gates": {
+      "risk_flags_clear": true,
+      "claim_verifiable": true,
+      "license_clear": true
+     }
+    },
+    "research": {
+     "status": "complete",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-20.md"
+     ],
+     "dynamic_facts_checked_at": "2026-10-20T13:51:10Z",
+     "primary_sources": [
+      {
+       "url": "https://github.com/vercel-labs/fx0",
+       "checked_at": "2026-10-20T13:51:10Z",
+       "claim": "README documents a design agent built on libfx: describe a page, an agent writes it as one HTML file; five free prompts per IP, then Vercel sign-in with AI Gateway billing; version history and download."
+      },
+      {
+       "url": "https://api.github.com/repos/vercel-labs/fx0",
+       "checked_at": "2026-10-20T13:51:10Z",
+       "claim": "Live metadata: 241 stars, 46 forks, created 2026-10-19, Apache-2.0."
+      },
+      {
+       "url": "https://fx0.vercel.dev",
+       "checked_at": "2026-10-20T13:51:10Z",
+       "claim": "Own browser capture of the live app: suggestion chips, free-prompt counter, model picker, and a live run that published a page."
+      }
+     ]
+    },
+    "script": {
+     "status": "complete",
+     "script_sha256": "0962e3d5a69fd0c0c6f4fda9dd01f7e74d4eedd93978921ac5853f36c8e159ed",
+     "word_count": 113
+    },
+    "voice": {
+     "status": "complete",
+     "engine": "chatterbox",
+     "profile": "option-3",
+     "qa_thresholds": {
+      "per_chunk": 0.92,
+      "overall": 0.95
+     }
+    },
+    "assets": {
+     "status": "complete",
+     "rights_checked": true,
+     "approval_constraints_checked": true,
+     "capture_id": "tool-fx0-01",
+     "manifest_sha256": "3de8e026c79df506b71e6c7dd8645eaa92933b3788a382fb2a11a19d99f53929",
+     "files": [
+      {
+       "path": "desktop-top.jpg",
+       "sha256": "48d3adbdc97658bf436f119676c1e44e58d6ba1ef643f25483153dbb067e2616"
+      },
+      {
+       "path": "mobile.png",
+       "sha256": "b280c4beb3dd6fbc11a0a9ddb58cf1f6a2d7cdac697f66dd1500c9b0274cdf46"
+      },
+      {
+       "path": "demo.mp4",
+       "sha256": "65c317ef9995af9b683a6528f2c2d4442bab7e33df8a617096d31762440c0569"
+      },
+      {
+       "path": "build.png",
+       "sha256": "4b37583579e89b867300c502584693c3d8146074c68d6dac90adb900e33cbbb0"
+      },
+      {
+       "path": "artifact-top.jpg",
+       "sha256": "c7fe203d87a6b9cf4588bca0ffe2eaef803eb440ccc810038359d47640350efd"
+      }
+     ]
+    }
+   }
+  }
+ }
+}

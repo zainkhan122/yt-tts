@@ -317,6 +317,10 @@ never the thing we optimise for. Before any scene is written, every brief carrie
   ship unless `cover-selected.jpg` (hash-matched to `selection.json`, matching the
   brief's own selected concept and archetype) becomes `renders/<id>/cover.jpg` — the
   kit cover and the YouTube thumbnail. A frame grab is not a cover.
+  The reviewed bytes travel to the cloud with `tools/cover_store.py push/pull-for`
+  (`covers/` is gitignored, so a locally applied cover used to make every cloud render
+  fail closed); `render.yml` pulls the pack before rendering and the store refuses a
+  cover that changed after selection.
 - **A layout contract, measured.** `templates/_spotlight/spotcore.py` LAYOUT fixes the
   media stage (ends 1128) above the caption zone (1160–1500); `tools/layout_audit.py`
   renders the real composition in Chromium, seeks sampled moments and fails on any

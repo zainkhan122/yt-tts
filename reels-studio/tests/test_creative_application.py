@@ -103,11 +103,19 @@ class ArchetypeLayerTests(unittest.TestCase):
 # ---------------------------------------------------------------- cover lab application
 class CoverLabTests(unittest.TestCase):
     def pack(self, tmp, colours=((20, 30, 60), (10, 12, 24), (40, 10, 50))):
-        from PIL import Image
+        from PIL import Image, ImageDraw
         cap = Path(tmp) / "captures" / "demo-01"
         cap.mkdir(parents=True)
         for name, colour in zip(("desktop-top.jpg", "desktop-full.jpg", "og.png"), colours):
-            Image.new("RGB", (640, 400), colour).save(cap / name)
+            im = Image.new("RGB", (640, 400), colour)
+            pen = ImageDraw.Draw(im)  # real captures have blocks of UI; flat fills read as blank
+            lighter = tuple(min(255, c + 30) for c in colour)
+            pen.rectangle([0, 0, 120, 400], fill=lighter)
+            for r in range(3):
+                for c in range(3):
+                    pen.rectangle([150 + c * 160, 40 + r * 110, 290 + c * 160, 120 + r * 110], fill=lighter)
+            pen.text((160, 140), "metric overview", fill=(240, 240, 240))
+            im.save(cap / name)
         b = {"id": "demo-01", "capture": "captures/demo-01", "scenes": [{"id": "hook", "image": "desktop-top.jpg"}],
              "treatment": treatment()}
         return b
@@ -132,6 +140,33 @@ class CoverLabTests(unittest.TestCase):
         self.assertTrue(any("below 4.5" in p for p in problems))
         self.assertTrue(any("words" in p for p in problems))
         self.assertTrue(any("share capture images" in p for p in problems))
+
+    def test_cover_sources_skip_near_blank_frames(self):
+        from PIL import Image
+        with tempfile.TemporaryDirectory() as tmp:
+            b = self.pack(tmp)
+            cap = Path(tmp) / "captures" / "demo-01"
+            # a build still: page chrome at the top, a big empty pane below (not flat, not blank)
+            from PIL import ImageDraw
+            still = Image.new("RGB", (1280, 900), (255, 255, 255))
+            pen = ImageDraw.Draw(still)
+            pen.text((40, 30), "Building a pricing page now with three tiers and an FAQ", fill=(20, 20, 20))
+            pen.rectangle([0, 80, 660, 900], outline=(230, 230, 230), width=2)
+            pen.text((40, 800), "ask fx0 to design", fill=(90, 90, 90))
+            still.save(cap / "generating.png")
+            b["scenes"].append({"id": "s2", "image": "generating.png"})
+            _made, report = cover_lab.make_concepts(b, Path(tmp) / "covers", root=Path(tmp))
+            self.assertNotIn("generating.png", [Path(c["source"]).name for c in report],
+                             "a near-blank frame became cover media")
+
+    def test_window_cover_keeps_the_whole_landscape_ui(self):
+        from PIL import Image
+        with tempfile.TemporaryDirectory() as tmp:
+            b = self.pack(tmp, colours=((250, 250, 250), (10, 12, 24), (40, 10, 50)))
+            _made, report = cover_lab.make_concepts(b, Path(tmp) / "covers", root=Path(tmp))
+            window = next(c for c in report if c["layout"] == "window")
+            self.assertGreater(window["luma_std"], 0.5)
+            self.assertEqual(window["contrast_white"] >= 4.5, True)
 
     def test_apply_freezes_the_selected_concept(self):
         with tempfile.TemporaryDirectory() as tmp:

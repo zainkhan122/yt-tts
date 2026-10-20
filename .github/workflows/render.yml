@@ -169,6 +169,8 @@ jobs:
         run: bash reels-studio/cloud/setup-render.sh
       - name: Capture pack
         run: python3 reels-studio/tools/capture_store.py pull-for "$BRIEF"
+      - name: Reviewed cover pack (the panel's pick, byte-identical)
+        run: python3 reels-studio/tools/cover_store.py pull-for "$BRIEF"
       - name: Render (voice, QA gates, video)
         env:
           REBUILD_SCENES: ${{ inputs.rebuild_scenes }}
