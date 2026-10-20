@@ -126,6 +126,13 @@ class ArchetypeLayerTests(unittest.TestCase):
                        "clip card ends at"):
             self.assertIn(needle, audit)
 
+    def test_rebuild_sources_live_outside_the_wiped_work_dir(self):
+        """Job.run_all() deletes <work>/<id> before restoring a rebuild; sources downloaded
+        inside it vanished and the mux step failed (run 39459575577, 2026-10-20)."""
+        src = (ROOT / "reels.py").read_text()
+        self.assertIn('f"{vid}-rebuild-src"', src)
+        self.assertNotIn('/ vid / "rebuild-src"', src)
+
     def test_stage_geometry_leaves_a_real_gap_above_captions(self):
         core = spotcore()
         self.assertLessEqual(core.LAYOUT["cover_top"], core.LAYOUT["stage_bottom"] - 300)

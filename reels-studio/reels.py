@@ -304,7 +304,9 @@ def load_rebuild(brief_arg, scenes, reason, from_tag):
     brief = json.loads(brief_path.read_text(encoding="utf-8"))
     vid = brief["id"]
     tag = from_tag or time.strftime("renders-%Y-%m-%d")
-    work = Path(os.environ.get("REELS_WORK", "/var/tmp/reels")) / vid / "rebuild-src"
+    # NOT under <work>/<vid>: Job.run_all() wipes that directory before restoring, which on
+    # 2026-10-20 deleted the source mp4 the mux step then failed to open (run 39459575577).
+    work = Path(os.environ.get("REELS_WORK", "/var/tmp/reels")) / f"{vid}-rebuild-src"
     work.mkdir(parents=True, exist_ok=True)
     kit = pr.download(tag, f"{vid}-kit.zip", work / f"{vid}-kit.zip")
     mp4 = pr.download(tag, f"{vid}.mp4", work / f"{vid}.mp4")
