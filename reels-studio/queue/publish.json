@@ -998,6 +998,54 @@
       "title": "WhatsApp MCP: Your AI Can Now Search Your Own Chats",
       "video_id": "repo-whatsapp-mcp-01",
       "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-10-20T10:10:24Z",
+      "approval": "approved",
+      "asset_digest": "sha256:90cc29207ea8a710f95e008b8e6c8771766a0eb0d25afae797460aba611caadb",
+      "asset_id": 658960896,
+      "asset_size": 18588963,
+      "brief_sha256": "7c6c3cf049f4bb4c997e540085908125e7cb2a051fac4466d05534866643f3cc",
+      "category": "repo",
+      "expires_at": "2026-10-27T23:00:00Z",
+      "kit_asset_id": 658960985,
+      "kit_digest": "sha256:f4e30edbeae7ba0f782538e68bb084dd01cfe7081339e4e28ea4b47ab98b1a12",
+      "media_path": "media/658960896/repo-huashu-motion-01.mp4",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "priority": 75,
+      "release_tag": "renders-2026-10-19-2",
+      "reviewed_at": "2026-10-20T10:10:26Z",
+      "title": "Your Coding Agent Can Now Shoot Your Launch Film (huashu-motion)",
+      "video_id": "repo-huashu-motion-01",
+      "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-10-20T10:10:25Z",
+      "approval": "approved",
+      "asset_digest": "sha256:c548553f78bb2bad31b6d09d30fb4bd98d42401daa8f1ceb2311d02cc637fc93",
+      "asset_id": 658961058,
+      "asset_size": 20286487,
+      "brief_sha256": "7f7e92e3780c5478d99b5cd1b06628550371f42df18b9d5e769ad4ae9bca4a7a",
+      "category": "tool",
+      "expires_at": "2026-10-27T23:00:00Z",
+      "kit_asset_id": 658961128,
+      "kit_digest": "sha256:619b5fdb8a582bb5bc2839343d54f8fdb32552ad33f3dcfe537dfef006b58a52",
+      "media_path": "media/658961058/model-humanizer-01.mp4",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "priority": 75,
+      "release_tag": "renders-2026-10-19-2",
+      "reviewed_at": "2026-10-20T10:10:26Z",
+      "title": "humanizer: The AI That Rewrites AI Text to Sound Like You",
+      "video_id": "model-humanizer-01",
+      "youtube_ai_generated": false
     }
   ],
   "schema_version": 1
