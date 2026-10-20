@@ -19,7 +19,7 @@ Reviewer: open EVERY frame. Score as the persona, not as the producer.
 
 - [x] Every scene has real product media or a justified end-card graphic; 6/7 scenes carry product capture or official demo/evaluation media.
 - [x] First frame sells the dilemma muted; takeaway: “Humanizer rewrites AI drafts locally, but check facts before sending.”
-- [x] 3 Cover Lab concepts reviewed cold; winner “IT FOOLS DETECTORS” (concept 1), readable and based on real official visuals. Would tap: strong claim framed as a question; resolved honestly in the video.
+- [x] 3 Cover Lab concepts reviewed cold; winner “SOUNDS HUMAN NOW” (concept 2), readable and based on real official visuals. Would tap: a direct viewer benefit without promising detector evasion.
 - **Execution note:** CTA contrast fixed after first pass; final frame now holds a high-contrast purple button. One sampled frame catches the verdict before its first bullet animation; the following sampled frame shows the complete catch/good cards. No overlaps or escaped text.
 
 ## Panel result: PASS
