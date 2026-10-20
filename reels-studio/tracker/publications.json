@@ -255,6 +255,31 @@
       "updated_at": "2026-10-14T05:05:00Z",
       "video_id": "model-embeddinggemma2-01"
     },
+    "model-humanizer-01:facebook": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-10-20T18:30:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:c548553f78bb2bad31b6d09d30fb4bd98d42401daa8f1ceb2311d02cc637fc93",
+        "asset_id": 658961058,
+        "asset_size": 20286487,
+        "kit_asset_id": 658961128,
+        "kit_digest": "sha256:619b5fdb8a582bb5bc2839343d54f8fdb32552ad33f3dcfe537dfef006b58a52",
+        "media_path": "media/658961058/model-humanizer-01.mp4",
+        "release_tag": "renders-2026-10-19-2",
+        "video_id": "model-humanizer-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/658961058/model-humanizer-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "17e43a1540c2dc5b42fd2ee7e0e10b2ccba0bdebdd628064e016ae96e11cfed7",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "humanizer: a free local model that rewrites AI drafts so they read like you wrote them \u2014 numbers and names pinned. Its own fact-check results are the catch, shown in the video.\n\nCredits: Own captures of the public Hugging Face page + the project's own media (checked 2026-10-19).\n\nAI-generated narration.\n\n#AI #Writing",
+      "title": "humanizer: The AI That Rewrites AI Text to Sound Like You",
+      "updated_at": "2026-10-20T10:17:47Z",
+      "video_id": "model-humanizer-01"
+    },
     "model-lfm25-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6ad0cb8e5d6d63b3aef8477f",
