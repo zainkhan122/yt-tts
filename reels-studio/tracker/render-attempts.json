@@ -804,6 +804,33 @@
       "started_at": "2026-10-16T10:07:02Z",
       "status": "render_only_success",
       "voice_seed": 0
+    },
+    "fbd570f96fafb92d109f3dbf70c3d2feec6263fd49791206f69228836c54c344": {
+      "asset_files_sha256": null,
+      "asset_manifest_sha256": null,
+      "brief_id": "model-humanizer-01",
+      "brief_sha256": "cc3fb7e8ef84dda02b37c9a53bb38202c5cd5af628fa319c6965aabe090c3b29",
+      "capture_id": null,
+      "crf": 20,
+      "failure_conclusion": null,
+      "fingerprint": "fbd570f96fafb92d109f3dbf70c3d2feec6263fd49791206f69228836c54c344",
+      "finished_at": null,
+      "from_tag": "renders-2026-10-20-2",
+      "quality": "looks",
+      "rebuild_scenes": [
+        "hook",
+        "name",
+        "how",
+        "stars",
+        "install",
+        "catch",
+        "cta"
+      ],
+      "renderer_sha256": "511b69fe39817a6741189634b6b2cf128b5f5cb7aa478008a8681c9c61f44869",
+      "run_id": "39470630279",
+      "started_at": "2026-10-20T18:05:26Z",
+      "status": "started",
+      "voice_seed": 0
     }
   },
   "legacy_completed_briefs": [
