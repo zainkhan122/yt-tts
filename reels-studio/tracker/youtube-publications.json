@@ -206,6 +206,10 @@
       "thumbnail_digest": "sha256:dd16f0943310c7e3ed938ee88202b8d0330ef660e624c60273bb7a3e1bd5927d",
       "video_id": "news-gemini-agent-01",
       "youtube_id": "tiNhpvU1znw"
+    },
+    "ye9PXd0HpGE": {
+      "video_id": "model-minicpmv47-01",
+      "youtube_id": "ye9PXd0HpGE"
     }
   },
   "memberships": {
@@ -495,7 +499,7 @@
   },
   "quota": {
     "day_pacific": "2026-10-20",
-    "general_units": 463,
+    "general_units": 464,
     "upload_starts": 0
   },
   "records": {},
