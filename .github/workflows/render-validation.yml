@@ -1,8 +1,10 @@
 name: render-validation
 on:
+  workflow_dispatch:
   push:
     branches:
       - 'github-render-hardening*'
+      - 'creative-layer-*'
   pull_request:
     branches:
       - main
@@ -33,7 +35,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install pinned lightweight validation dependencies
-        run: python3 -m pip install --disable-pip-version-check --no-input numpy==2.2.6 scipy==1.15.3 soundfile==0.13.1 PyYAML==6.0.2
+        run: python3 -m pip install --disable-pip-version-check --no-input numpy==2.2.6 scipy==1.15.3 soundfile==0.13.1 PyYAML==6.0.2 Pillow==12.3.0 jsonschema==4.26.0 graphql-core==3.2.13 requests==2.34.2
       - name: Compile pipeline and regression tests
         run: |
           set -euo pipefail
@@ -78,9 +80,20 @@ jobs:
             test_production_gate.py \
             test_render_attempts.py \
             test_validate_dispatch.py \
-            test_pipeline_quality_gates.py; do
+            test_pipeline_quality_gates.py \
+            test_brief_lint.py \
+            test_creative.py \
+            test_creative_application.py \
+            test_gates.py; do
             python3 -m unittest discover -s tests -p "$test_file"
           done
+      - name: Measured layout audit (real composition, Chromium)
+        working-directory: reels-studio
+        run: |
+          set -euo pipefail
+          python3 -m pip install --disable-pip-version-check --no-input playwright==1.49.1
+          python3 -m playwright install --with-deps chromium
+          python3 tools/layout_audit.py tests/fixtures/layout/quest.json tests/fixtures/layout/myth-bust.json
       - name: Verify spoken scripts against every brief
         working-directory: reels-studio
         run: |
