@@ -117,7 +117,12 @@ MEASURE_JS = r"""
       x: Math.min(...caps.map((c) => c.x)), y: Math.min(...caps.map((c) => c.y)),
       w: Math.max(...caps.map((c) => c.x + c.w)) - Math.min(...caps.map((c) => c.x)),
       h: Math.max(...caps.map((c) => c.y + c.h)) - Math.min(...caps.map((c) => c.y))} : null;
-  return {cap, surfaces: pick(".sp-imgcard, .sp-vcard, .sp-browser, .sp-term, .sp-steps, .sp-vcardx, .sp-stat, .sp-question, #endcard"),
+  const clips = [...document.querySelectorAll(".sp-vset")].filter(vis).map((el) => ({
+    id: el.id, fill: !!el.querySelector(".sp-vfill"),
+    card: el.querySelector(".sp-vcard") ? box(el.querySelector(".sp-vcard")) : null,
+    fillBox: el.querySelector(".sp-vfill") ? box(el.querySelector(".sp-vfill")) : null}));
+  return {clips,
+          cap, surfaces: pick(".sp-imgcard, .sp-vcard, .sp-browser, .sp-term, .sp-steps, .sp-vcardx, .sp-stat, .sp-question, #endcard"),
           overlays: pick(".arch-stamp, .arch-kicker, .sp-chip, #arch-hud, .arch-rail"),
           arch: document.querySelector("#root").dataset.archetype,
           captionPlates: [...document.querySelectorAll("#cap-zone .cg")].filter(vis).length};
@@ -175,6 +180,17 @@ def audit(brief_path, out_dir=None, keep=False):
                         problems.append(f"{label}: overlaps caption box {m['cap']}")
                     rows.append({"scene": sid, "t": t, "el": str(s["sel"]), "bottom": round(bx["y"] + bx["h"]),
                                  "cap": bool(m["cap"]) and intersects(bx, m["cap"])})
+                for c in m["clips"]:
+                    if c["card"] and c["card"]["h"] > 0:
+                        bottom = c["card"]["y"] + c["card"]["h"]
+                        if bottom < stage_bottom - 24:
+                            problems.append(f"{sid} @{t}s {c['id']}: clip card ends at {bottom:.0f}, "
+                                            f"leaving {stage_bottom - bottom:.0f}px of empty stage "
+                                            f"(a covered clip must reach {stage_bottom})")
+                cap_on = bool((next(x for x in b["scenes"] if x["id"] == sid)).get("caption", True))
+                if cap_on and frac == 0.6 and m["captionPlates"] == 0:
+                    problems.append(f"{sid} @{t}s: scene is captioned but no caption plate is on screen "
+                                    f"(the caption band sits empty while the line is spoken)")
                 if m["cap"]:
                     if m["cap"]["y"] < cap_top - 2:
                         problems.append(f"{sid} @{t}s: caption box top {m['cap']['y']:.0f} < {cap_top}")
