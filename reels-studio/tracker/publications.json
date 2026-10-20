@@ -285,9 +285,11 @@
     },
     "model-humanizer-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6ad73fd095f8ed1a3c86e517",
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-20T19:00:00Z",
+      "due_at": "2026-10-20T19:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:c548553f78bb2bad31b6d09d30fb4bd98d42401daa8f1ceb2311d02cc637fc93",
         "asset_id": 658961058,
@@ -302,10 +304,11 @@
       "notify_subscribers": false,
       "payload_sha256": "934668ef95d5ebcb1140a053756941b3b7e4fcd6dd624f7628e12f8457350dc9",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Save this if you draft with AI: humanizer rewrites your drafts in a human voice, locally and offline. Read before you send \u2014 its own tests say why.\n\nCredits: Own captures of the public Hugging Face page + the project's own media (checked 2026-10-19).\n\n#AI #Writing #OpenSource",
       "title": "humanizer: The AI That Rewrites AI Text to Sound Like You",
-      "updated_at": "2026-10-20T10:17:50Z",
+      "updated_at": "2026-10-20T10:17:52Z",
       "video_id": "model-humanizer-01"
     },
     "model-lfm25-01:facebook": {
