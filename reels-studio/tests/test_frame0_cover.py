@@ -17,10 +17,13 @@ import json
 import re
 import shutil
 import subprocess
+import sys
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "templates" / "_spotlight"))
+import spotcore  # noqa: E402  (geometry contract shared with the renderer)
 
 SCENES = {
     "clip": {"id": "hook", "type": "clip", "src": "demo.mp4", "in": 0, "out": 3,
@@ -208,11 +211,11 @@ class Frame0CoverTests(unittest.TestCase):
         rows = self.build(scene, first=True)
         sub = next(r for r in rows if "sp-sub" in r["cls"].split())
         card = next(r for r in rows if "sp-imgcard" in r["cls"].split())
+        top, height = int(card["style"]["top"].rstrip("px")), int(card["style"]["height"].rstrip("px"))
         self.assertEqual(sub["style"].get("top"), "616px")
-        self.assertEqual(card["style"].get("top"), "700px")
-        self.assertGreaterEqual(int(card["style"]["top"].rstrip("px")),
-                                int(sub["style"]["top"].rstrip("px")) + sub.get("height", 40))
-        self.assertEqual(card["style"].get("height"), "608px")
+        self.assertGreaterEqual(top, int(sub["style"]["top"].rstrip("px")) + sub.get("height", 40))
+        self.assertLessEqual(top + height, spotcore.LAYOUT["stage_bottom"], "card must clear the caption zone")
+        self.assertGreaterEqual(top, spotcore.LAYOUT["cover_top"] - 1)
 
     def test_image_hook_without_subtitle_still_uses_big_title_and_lower_card(self):
         scene = {k: v for k, v in SCENES["image"].items() if k != "sub"}
@@ -220,16 +223,22 @@ class Frame0CoverTests(unittest.TestCase):
         heading = next(r for r in rows if "sp-heading" in r["cls"].split())
         card = next(r for r in rows if "sp-imgcard" in r["cls"].split())
         self.assertIn("cover-heading", heading["cls"].split())
-        self.assertEqual(card["style"].get("top"), "700px")
+        top, height = int(card["style"]["top"].rstrip("px")), int(card["style"]["height"].rstrip("px"))
+        self.assertLessEqual(top + height, spotcore.LAYOUT["stage_bottom"])
 
     def test_big_title_card_layouts_move_supporting_content_below(self):
-        cases = [("page", "sp-browser", "700px"), ("terminal", "sp-term", "700px"),
-                 ("stat", "sp-stat", "700px"), ("steps", "sp-steps", "900px")]
-        for typ, cls, top in cases:
+        """Every supporting card starts below the cover title AND ends above the captions."""
+        cases = [("page", "sp-browser"), ("terminal", "sp-term"), ("stat", "sp-stat"), ("steps", "sp-steps")]
+        for typ, cls in cases:
             with self.subTest(scene_type=typ):
                 rows = self.build(SCENES[typ], first=True)
                 row = next(r for r in rows if cls in r["cls"].split())
-                self.assertEqual(row["style"].get("top"), top)
+                top = int(row["style"]["top"].rstrip("px"))
+                self.assertGreaterEqual(top, spotcore.LAYOUT["cover_top"] - 1,
+                                        f"{typ}: card starts inside the big title band")
+                bottom = top + (int(row["style"].get("height", "0").rstrip("px")) if row["style"].get("height") else 0)
+                self.assertLessEqual(bottom, spotcore.LAYOUT["stage_bottom"],
+                                     f"{typ}: card runs into the caption zone")
 
     def test_the_theme_still_hides_the_cover_classes(self):
         """If the CSS stops hiding these, this suite's premise changed — re-check the rule."""

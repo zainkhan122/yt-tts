@@ -131,6 +131,52 @@ def voice_disclosure(voice, engine):
             "so YouTube/TikTok AI labels are not mandatory; adding \"AI voice\" to the description is a cheap trust win.")
 
 
+def creative_proof(brief, out_dir, root=None):
+    """Prove the treatment reached the shipped artifacts, or refuse to ship.
+
+    A treatment that stops at the brief is decoration. Three artifacts must carry it:
+      * the composition (data-archetype + archetype CSS/JS + layout contract),
+      * cover.jpg (the cover lab's selected concept, hash-matched to selection.json),
+      * the manifest (archetype, layout, selected concept), so later gates can check it.
+
+    Legacy briefs without a treatment keep the frame-grab cover.
+    """
+    root = Path(root or Path(__file__).resolve().parents[1])
+    tr = brief.get("treatment")
+    out_dir = Path(out_dir)
+    if not isinstance(tr, dict) or not tr.get("archetype"):
+        return {"source": "frame", "archetype": None}
+    arch = tr["archetype"]
+    covers = root / "covers" / brief["id"]
+    sel_path, cover_path = covers / "selection.json", covers / "cover-selected.jpg"
+    if not sel_path.exists() or not cover_path.exists():
+        raise SystemExit(f"cover lab not applied for {brief['id']}: run tools/cover_lab.py "
+                         f"briefs/{brief['id']}.json --apply (the selected concept ships as cover.jpg)")
+    sel = json.loads(sel_path.read_text())
+    if sel.get("brief") != brief["id"]:
+        raise SystemExit(f"cover selection belongs to {sel.get('brief')!r}, not {brief['id']}")
+    if sel.get("archetype") != arch:
+        raise SystemExit(f"cover selection was made for archetype {sel.get('archetype')!r}; "
+                         f"brief now says {arch!r} - re-run the cover lab")
+    concepts = tr.get("cover_concepts") or []
+    idx = sel.get("selected")
+    if not isinstance(idx, int) or not 0 <= idx < len(concepts):
+        raise SystemExit("cover selection index does not exist in the treatment")
+    if sel.get("text") != concepts[idx].get("text"):
+        raise SystemExit(f"selected cover text {sel.get('text')!r} is not concept {idx} "
+                         f"({concepts[idx].get('text')!r}) - re-run the cover lab")
+    if sel.get("selected") != tr.get("selected_cover"):
+        raise SystemExit(f"brief.selected_cover is {tr.get('selected_cover')} but the lab applied "
+                         f"concept {sel.get('selected')} - they must agree")
+    digest = hashlib.sha256(cover_path.read_bytes()).hexdigest()
+    if digest != sel.get("sha256"):
+        raise SystemExit("cover-selected.jpg changed after selection; re-run --apply and review it")
+    shutil.copy2(cover_path, out_dir / "cover.jpg")
+    return {"source": "cover-lab", "archetype": arch, "layout": sel.get("layout"),
+            "concept": sel.get("selected"), "text": sel.get("text"),
+            "sha256": "sha256:" + digest}
+
+
 def require_qa_checks(checks):
     """Fail closed: every measured render check is a ship gate, not just the voice/cover checks."""
     failed = [name for name, ok in checks.items() if not ok]
@@ -1353,9 +1399,9 @@ class Job:
             "{{PRESET}}": b.get("style", self.tpl.DEFAULTS.get("style", "neon")), "{{D}}": f"{self.D:g}",
             "{{ARCHETYPE}}": re.sub(r"[^a-z-]", "", str((b.get("treatment") or {}).get("archetype", "spotlight"))) or "spotlight",
             "{{FONTS_CSS}}": "\n".join(css),
-            "{{BASE_CSS}}": (BASE_DIR / "base.css").read_text(), "{{SCENE_CSS}}": self._scene_part("scene.css"),
+            "{{BASE_CSS}}": (BASE_DIR / "base.css").read_text(), "{{SCENE_CSS}}": self._scene_part("scene.css") + self._scene_part("archetype.css"),
             "{{SCENE_HTML}}": self._scene_part("scene.html"),
-            "{{BASE_JS}}": (BASE_DIR / "base.js").read_text(), "{{SCENE_JS}}": self._scene_part("scene.js"),
+            "{{BASE_JS}}": (BASE_DIR / "base.js").read_text(), "{{SCENE_JS}}": self._scene_part("scene.js") + self._scene_part("archetype.js"),
             "{{DATA_JSON}}": json.dumps(data, ensure_ascii=False).replace("</", "<\\/"),
         }
         if hasattr(self.tpl, "assets"):  # captures / official media the template needs, copied into the project
@@ -1443,6 +1489,9 @@ class Job:
             checks["approved_voice"] = getattr(self, "voice_engine", None) == need
         cover_t = self.events.get("cover", 1.0)
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-ss", f"{cover_t:.2f}", "-i", str(final), "-frames:v", "1", "-q:v", "3", str(self.out / "cover.jpg")], check=True)
+        cover = creative_proof(self.brief, self.out)  # designed cover replaces the frame grab; fails closed
+        checks["designed_cover"] = cover["source"] == "cover-lab"
+        self.manifest["cover"] = cover
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(final), "-vf", f"fps=12/{D:.3f},scale=270:-2,tile=6x2:margin=6:padding=6:color=0x111111",
                         "-frames:v", "1", "-q:v", "4", str(self.out / "contact.jpg")], check=True)
         self.write_srt()
@@ -1460,6 +1509,9 @@ class Job:
         self.manifest["timing"] = {sid: {k: self.timing[sid][k] for k in ("start", "end", "text")} for sid in self.order}
         self.manifest["music"] = self.music_cfg
         self.manifest["sources"] = self.brief.get("sources", [])
+        self.manifest["creative"] = {"archetype": (self.brief.get("treatment") or {}).get("archetype"),
+                                     "layout": self.brief.get("layout_contract", "spotlight-v2"),
+                                     "cover": cover}
         self.record_scenes()  # per-scene manifest: windows, digests, word timings, assets
         (self.out / "manifest.json").write_text(json.dumps(self.manifest, indent=2, ensure_ascii=False))
         bad = [k for k, ok in checks.items() if not ok]

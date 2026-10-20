@@ -82,7 +82,7 @@
 .sp-bigstat .l { margin-top: 30px; padding: 0 30px; text-align: center; }
 
 /* ---------- steps ---------- */
-.sp-steps { position: absolute; left: 60px; right: 60px; top: 900px; height: 340px; display: flex; flex-direction: column; gap: 6px;
+.sp-steps { position: absolute; left: 60px; right: 60px; top: 772px; height: 340px; display: flex; flex-direction: column; gap: 6px;
   padding: 16px 24px; border-radius: 30px; background: rgba(8, 12, 24, 0.92); border: 2px solid rgba(255, 255, 255, 0.12); opacity: 0; }
 .sp-step { position: relative; display: flex; align-items: center; gap: 22px; height: 56px; padding: 0 16px; border-radius: 16px;
   font: 800 36px "Inter"; color: #fff; opacity: 0; }

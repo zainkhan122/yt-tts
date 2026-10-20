@@ -38,6 +38,50 @@ class TreatmentLintTests(BriefLintTests):
         self.lint(b)
         self.assertIn("BL123", self.ids())
 
+    def test_structure_must_follow_the_archetype_grammar(self):
+        b = brief()
+        b["treatment"]["structure"] = [{"scene": "hook", "beat": "demo"},
+                                       {"scene": "how", "beat": "proof"},
+                                       {"scene": "catch", "beat": "catch"},
+                                       {"scene": "cta", "beat": "close"}]
+        self.lint(b)
+        self.assertNotIn("BL130", self.ids())
+        b["treatment"]["structure"] = [{"scene": "hook", "beat": "demo"},
+                                       {"scene": "how", "beat": "proof"},
+                                       {"scene": "catch", "beat": "catch"}]
+        self.lint(b)
+        self.assertIn("BL129", self.ids(), "a scene without a beat must fail (it would fall back to the template)")
+
+    def test_structure_cannot_reuse_the_same_skeleton_for_every_archetype(self):
+        b = brief()
+        b["treatment"]["structure"] = [{"scene": "hook", "beat": "claim"},
+                                       {"scene": "how", "beat": "evidence"},
+                                       {"scene": "catch", "beat": "catch"},
+                                       {"scene": "cta", "beat": "close"}]
+        self.lint(b)  # demo-first grammar wants demo/proof/how/catch/close
+        self.assertIn("BL130", self.ids())
+
+    def test_structure_must_open_and_close_correctly(self):
+        b = brief()
+        b["treatment"]["structure"] = [{"scene": "hook", "beat": "proof"},
+                                       {"scene": "how", "beat": "demo"},
+                                       {"scene": "catch", "beat": "catch"},
+                                       {"scene": "cta", "beat": "close"}]
+        self.lint(b)
+        self.assertIn("BL130", self.ids(), "must open on the archetype's first beat")
+        b["treatment"]["structure"] = [{"scene": "hook", "beat": "demo"},
+                                       {"scene": "how", "beat": "proof"},
+                                       {"scene": "catch", "beat": "catch"},
+                                       {"scene": "cta", "beat": "how"}]
+        self.lint(b)
+        self.assertIn("BL130", self.ids(), "must end on close")
+
+    def test_proof_moment_cannot_be_a_card(self):
+        b = brief()
+        b["treatment"]["proof_moment"] = "catch"  # a verdict card, not product evidence
+        self.lint(b)
+        self.assertIn("BL128", self.ids())
+
     def test_selected_cover_range(self):
         b = brief()
         b["treatment"]["selected_cover"] = 5

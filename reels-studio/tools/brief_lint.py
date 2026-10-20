@@ -70,6 +70,9 @@ RULES = {
     "BL125": ("error", "treatment carries exactly 3 distinct cover concepts"),
     "BL126": ("error", "cover concept text is <= 4 words (tap-test readable)"),
     "BL127": ("error", "treatment selected_cover picks one of the concepts"),
+    "BL128": ("error", "treatment proof moment is real product evidence, not a card"),
+    "BL129": ("error", "treatment.structure labels every scene with its beat (format grammar)"),
+    "BL130": ("error", "structure follows the archetype beat order (PLAYBOOK §9)"),
     "BL900": ("error", "brief file readable as JSON"),
 }
 
@@ -256,6 +259,18 @@ def check(brief_path):
     # template sneaks back in. See PLAYBOOK §8A.
     ARCHETYPES = {"demo-first", "duel", "myth-bust", "quest", "warning",
                   "workflow", "spotlight"}
+    # Beat grammar per archetype (PLAYBOOK §9): ordered slots, each satisfied by one of the
+    # listed beats. A treatment that names an archetype but keeps every other video's scene
+    # skeleton has not changed anything; this is where the format decides the structure.
+    GRAMMAR = {
+        "quest": [["briefing"], ["objective", "proof"], ["field-notes", "proof"], ["close"]],
+        "myth-bust": [["claim"], ["evidence", "test"], ["reality", "catch"], ["close"]],
+        "demo-first": [["demo"], ["proof", "how"], ["catch"], ["close"]],
+        "workflow": [["problem", "steps"], ["proof", "steps"], ["catch"], ["close"]],
+        "warning": [["warning"], ["evidence", "how"], ["close"]],
+        "duel": [["option-a"], ["option-b"], ["head-to-head", "catch"], ["close"]],
+        "spotlight": [["hook"], ["proof", "how"], ["catch"], ["close"]],
+    }
     tr = brief.get("treatment")
     if not isinstance(tr, dict):
         add("BL120", "no treatment: design this Short for one viewer first "
@@ -295,6 +310,49 @@ def check(brief_path):
                                  f"unreadable at feed size")
             if len(set(texts)) != len(texts):
                 add("BL125", "cover concept texts must be distinct")
+        # A treatment whose proof moment is a card is a treatment in name only: the
+        # conversion must happen on real product evidence (owner rule 2026-10-18).
+        proof = next((x for x in scenes if x.get("id") == tr.get("proof_moment")), None)
+        card_types = {"image", "verdict", "stat", "endcard"}
+        if proof is not None and proof.get("type") in card_types:
+            add("BL128", f"treatment.proof_moment {tr.get('proof_moment')!r} is a "
+                         f"'{proof.get('type')}' card; the proof must be real product evidence "
+                         f"(page/scroll/clip/clip-montage/steps/terminal)")
+        structure = tr.get("structure")
+        slots = GRAMMAR.get(tr.get("archetype"), GRAMMAR["spotlight"])
+        flat = "/".join("/".join(slot) for slot in slots)
+        if not isinstance(structure, list) or not structure:
+            add("BL129", "treatment.structure is missing: label every scene with its beat "
+                         f"(slots: {flat}) so the format decides the scene order, not the template")
+        else:
+            beats, ids = [], [x.get("id") for x in scenes]
+            for row in structure:
+                if not isinstance(row, dict) or row.get("scene") not in ids or not row.get("beat"):
+                    add("BL129", f"treatment.structure entry {row!r} must name an existing scene and a beat")
+                    continue
+                beats.append(row["beat"])
+            listed = [r.get("scene") for r in structure if isinstance(r, dict)]
+            if listed != ids:
+                add("BL129", "treatment.structure must list the scenes in playback order "
+                             f"(brief order: {ids}, structure order: {listed})")
+            if sorted(listed) != sorted(ids):
+                add("BL129", "treatment.structure must cover every scene exactly once "
+                             f"(scenes: {ids})")
+            if beats:
+                if beats[0] not in slots[0]:
+                    add("BL130", f"{tr.get('archetype')} must open on {'/'.join(slots[0])}, not '{beats[0]}'")
+                if beats[-1] != "close":
+                    add("BL130", "structure must end on 'close' (the CTA scene)")
+                rest, missing = list(beats[1:]), []
+                for slot in slots[1:]:
+                    hit = next((i for i, b in enumerate(rest) if b in slot), None)
+                    if hit is None:
+                        missing.append("/".join(slot))
+                    else:
+                        rest = rest[hit + 1:]
+                if missing:
+                    add("BL130", f"{tr.get('archetype')} structure is missing beats: {missing} "
+                                 f"(order: {flat})")
         sel = tr.get("selected_cover")
         if not isinstance(sel, int) or isinstance(sel, bool) or not 0 <= sel <= 2:
             add("BL127", "treatment.selected_cover must be 0, 1 or 2 (the concept "

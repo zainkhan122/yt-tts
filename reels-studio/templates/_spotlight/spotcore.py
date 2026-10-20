@@ -22,6 +22,18 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+
+# One geometry contract for every spotlight scene. Media/cards must end above CAP_TOP;
+# captions are bottom-anchored inside [CAP_TOP, CAP_BOTTOM]. Audited in a real browser by
+# tools/layout_audit.py, so a scene that breaks the contract fails before it ships.
+LAYOUT = {
+    "stage_top": 452,        # first content row under the heading band
+    "cover_top": 640,        # hook scene: content under the large cover title (+ optional sub)
+    "stage_bottom": 1128,    # hard floor for every card, window, clip and stamp
+    "cap_y": 1330,           # caption centre line (matches templates/*/DEFAULTS captions.y)
+    "cap_top": 1160,         # caption zone top = cap_y - 170
+    "cap_bottom": 1500,      # caption zone bottom; platform UI safe area starts at 1540
+}
 STOP = set("a an the and or of to in on at for with it its is are was be this that you your our we they them from by "
            "as into over under all any most more some just real own".split())
 
@@ -496,9 +508,18 @@ def data(b, T, D, ev, cfg):
     facts = dict(m.get("facts") or {})
     facts.update(b.get("facts") or {})
     source_url = m.get("url", "")
+    tr = b.get("treatment") or {}
+    loop = tr.get("open_loop") or {}
     return {"scenes": sc, "facts": facts, "regions": m.get("regions_css", {}), "url": source_url,
             "display_url": url_display_label(source_url),
-            "credits": "", "cut": cfg["cut"], "flavor": cfg["flavor"]}  # credits never on screen (owner rule 2026-10-09): credits_on_screen goes to post.md + YouTube description
+            "credits": "", "cut": cfg["cut"], "flavor": cfg["flavor"],
+            "layout": dict(LAYOUT),
+            # The treatment is not a label: its archetype drives the on-screen grammar and
+            # these roles decide which scene carries the claim, the proof and the payoff.
+            "archetype": tr.get("archetype", "spotlight"),
+            "beats": {"audience": tr.get("audience", ""), "viewer_job": tr.get("viewer_job", ""),
+                      "hook_mechanic": tr.get("hook_mechanic", ""), "proof_scene": tr.get("proof_moment", ""),
+                      "payoff_scene": loop.get("payoff_scene", "")}}  # credits never on screen (owner rule 2026-10-09): credits_on_screen goes to post.md + YouTube description
 
 
 def music(b, T, D, ev, cfg):

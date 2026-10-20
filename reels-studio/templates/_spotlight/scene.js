@@ -10,8 +10,11 @@
           const norm = (w) => String(w).toLowerCase().replace(/[^a-z0-9]/g, "");
           const KEYS = new Set(((A.DATA.captions || {}).keywords || []).map(norm));
           const FIRST = ((X.scenes || [])[0] || {}).id;
-          const COVER_STAGE_TOP = 700;
-          const COVER_STAGE_HEIGHT = 608;  // ends at y=1308, before the caption safe zone
+          const L = X.layout || {};
+          const STAGE_BOTTOM = L.stage_bottom || 1128;        // every card ends here, above captions
+          const COVER_STAGE_TOP = L.cover_top || 640;
+          const COVER_STAGE_HEIGHT = STAGE_BOTTOM - COVER_STAGE_TOP;
+          const STAGE_TOP = L.stage_top || 452;
           const WHIP = X.cut === "whip";
 
           // ---------------------------------------------------------------- helpers
@@ -240,7 +243,7 @@
           function sClip(s, root, t0, t1) {
             const vs = A.$("#vs-" + s.id);
             const card = vs ? vs.querySelector(".sp-vcard") : null;
-            let cardTop = 700;  // hook layout: headline box 236-616, sub from 616, card below the sub (never under it)
+            let cardTop = COVER_STAGE_TOP;  // hook layout: headline box 236-616, sub from 616, card below it
             if (s.headline) {
               A.mk("div", "sp-scrim", root);
               const h = A.mk("div", "sp-headline display", root);
@@ -261,7 +264,8 @@
               showSet(vs, t0, t1, s.id === FIRST);
               if (s.headline) {
                 card.classList.add("bleed");
-                Object.assign(card.style, { left: "0px", top: cardTop + "px", width: "1080px", height: "608px" });
+                Object.assign(card.style, { left: "0px", top: cardTop + "px", width: "1080px",
+                                            height: Math.min(608, STAGE_BOTTOM - cardTop) + "px" });
               } else {
                 const ar = parseFloat(card.getAttribute("data-ar") || "0.5625");
                 if (ar > 0.62) {  // tall / phone footage: card follows the source aspect inside 180-1220 (captions at 1330), no crop
@@ -296,8 +300,8 @@
           function sPage(s, root, t0, t1) {
             const cover = s.id === FIRST;
             heading(root, s.heading || prettyName(), t0 + 0.05, { instant: cover });
-            const B = browser(root, { top: cover ? COVER_STAGE_TOP : 452,
-                                     height: cover ? COVER_STAGE_HEIGHT : 700,
+            const B = browser(root, { top: cover ? COVER_STAGE_TOP : STAGE_TOP,
+                                     height: cover ? COVER_STAGE_HEIGHT : STAGE_BOTTOM - STAGE_TOP,
                                      url: s.display_url || s.url || X.display_url || X.url, img: s.img, instant: cover });
             const cams = s.camera || [];
             const states = [B.state(null, 1)].concat(cams.map((c) => B.state(c.region, c.zoom || 1.6)));
@@ -311,8 +315,8 @@
             const cover = s.id === FIRST;
             const title = s.heading || (cover ? prettyName() : "");
             if (title) heading(root, title, t0 + 0.05, { instant: cover });
-            const top = title ? (cover ? COVER_STAGE_TOP : 452) : 300;
-            const height = title ? (cover ? COVER_STAGE_HEIGHT : 700) : 852;
+            const top = title ? (cover ? COVER_STAGE_TOP : STAGE_TOP) : 300;
+            const height = title ? (cover ? COVER_STAGE_HEIGHT : STAGE_BOTTOM - STAGE_TOP) : STAGE_BOTTOM - 300;
             const B = browser(root, { top, height, url: s.display_url || s.url || X.display_url || X.url, img: s.img, instant: cover });
             const stops = s.stops || [];
             const states = [B.state(s.start_region || null, s.start_zoom || 1)].concat(stops.map((st) => B.state(st.region, st.zoom || 1.3)));
@@ -355,7 +359,7 @@
             }
             const list = A.mk("div", "sp-steps", root);
             if (s.id === FIRST) {
-              list.style.top = "900px";  // sits below the cover headline and optional image strip
+              list.style.top = Math.max(COVER_STAGE_TOP, STAGE_BOTTOM - 356) + "px";  // sits below the cover headline
               list.style.opacity = "1";  // hook scene: steps visible on frame 0
             }
             else tl.fromTo(list, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t0 + 0.1);
@@ -377,7 +381,8 @@
             heading(root, s.heading || `SETUP: *${lines.length}* COMMANDS`, t0 + 0.05, { instant: s.id === FIRST });
             const term = A.mk("div", "sp-term", root);
             if (s.id === FIRST) term.style.top = COVER_STAGE_TOP + "px";  // title band is 236-616
-            term.style.height = Math.min(560, 230 + lines.length * 150) + "px";  // fit the window to the commands
+            const termTop = s.id === FIRST ? COVER_STAGE_TOP : 480;
+            term.style.height = Math.max(240, Math.min(560, STAGE_BOTTOM - termTop, 230 + lines.length * 150)) + "px";
             const bar = A.mk("div", "sp-bar", term);
             dots(bar);
             A.mk("div", "sp-term-title", term, s.title || "Terminal");
@@ -407,14 +412,14 @@
             heading(root, s.heading || "THE *CATCH*", t0 + 0.05, { instant: cover });
             if (s.img && s.region) {
               const B = browser(root, { top: cover ? COVER_STAGE_TOP : 452,
-                                       height: cover ? COVER_STAGE_HEIGHT : 700,
+                                       height: cover ? COVER_STAGE_HEIGHT : STAGE_BOTTOM - STAGE_TOP,
                                        url: s.display_url || s.url || X.display_url || X.url, img: s.img, instant: cover });
               const st = B.state(s.region, s.zoom || 1.15);
               tl.fromTo(B.page, st, { ...B.drift(st, 1.04), duration: Math.max(0.1, t1 - t0), ease: "none", immediateRender: false }, t0);
               const dim = A.mk("div", "sp-dim", B.vp);
               tl.fromTo(dim, { opacity: 0 }, { opacity: 1, duration: 0.4, immediateRender: false }, t0 + 0.5);
             }
-            let y = cover ? COVER_STAGE_TOP : 486;
+            let y = cover ? COVER_STAGE_TOP : 486;  // cards stack; the last one must clear STAGE_BOTTOM
             (s.order || ["cons", "pros"]).forEach((grp) => {
               const items = s[grp] || [];
               if (!items.length) return;
@@ -458,7 +463,10 @@
             }
             const card = A.mk("div", "sp-imgcard", root);
             if (cover || s.sub) card.style.top = cardTop + "px";
-            if (cover) Object.assign(card.style, { top: cardTop + "px", height: Math.max(430, 1308 - cardTop) + "px" });
+            // The image card must end above the caption zone in every case; a fixed 640px
+            // height pushed it to 1164 once the sub line moved it down.
+            Object.assign(card.style, { top: cardTop + "px",
+                                        height: Math.max(300, Math.min(640, STAGE_BOTTOM - cardTop)) + "px" });
             const inn = A.mk("div", "in", card);
             const im = A.mk("img", "", inn);
             im.src = "assets/" + s.img.file;
@@ -503,4 +511,5 @@
             enter(root, t0, t1, s.id === FIRST);
             fn(s, root, t0, t1);
           }
+          if (typeof archetypeChrome === "function") archetypeChrome(tl, A, X);
         }

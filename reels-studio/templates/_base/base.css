@@ -65,7 +65,8 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; 
 #cap-zone { position: absolute; left: 80px; right: 80px; top: calc(var(--cap-y) - 170px); height: 340px; }
 .cg {
   position: absolute; inset: 0;
-  display: flex; flex-wrap: wrap; justify-content: center; align-content: center; gap: 0 22px; opacity: 0;
+  display: flex; flex-wrap: wrap; justify-content: center; align-content: flex-end; gap: 0 22px; opacity: 0;
+  padding-bottom: 0; bottom: 2px;  /* bottom-anchored: captions grow upward, never into media */
   font: 900 76px/1.08 "Inter", "Noto Color Emoji"; text-align: center;
 }
 .cw { position: relative; display: inline-block; color: var(--cap-fg); }

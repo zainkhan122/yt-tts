@@ -39,7 +39,9 @@ def brief(**over):
                 {"text": "IT WORKS", "visual": "demo.mp4", "gap": "does it?"},
                 {"text": "ONE TRICK", "visual": "demo.mp4", "gap": "which trick?"},
                 {"text": "WATCH THIS", "visual": "demo.mp4", "gap": "watch what?"}],
-            "selected_cover": 1},
+            "selected_cover": 1,
+            "structure": [{"scene": "hook", "beat": "demo"}, {"scene": "how", "beat": "proof"},
+                          {"scene": "catch", "beat": "catch"}, {"scene": "cta", "beat": "close"}]},
         "production_category": "tool",
         "scenes": [
             {"id": "hook", "type": "clip", "src": "demo.mp4", "in": 0, "out": 3,
@@ -191,6 +193,12 @@ class BriefLintTests(unittest.TestCase):
     # Their brief text is pinned by queue/receipt hashes and cannot be rewritten; BL101
     # applies as an error to every brief created after that date.
     GRANDFATHERED_BL101 = {"repo-blender-mcp-01.json", "repo-earshot-01.json"}
+    # Briefs produced before the structure rule (BL129/BL130). They are the baseline that
+    # FAILED the owner's review: two different archetypes shipped the same seven-scene
+    # skeleton. They are pinned by queue/receipt hashes and must not be rewritten to pass
+    # a new check they never designed for; every brief created from now on must declare
+    # its structure.
+    GRANDFATHERED_STRUCTURE = {"repo-huashu-motion-01.json", "model-humanizer-01.json"}
 
     def test_every_repo_brief_lints_without_errors(self):
         for p in sorted((ROOT / "briefs").glob("*.json")):
@@ -198,6 +206,8 @@ class BriefLintTests(unittest.TestCase):
                 _, errors, _, _ = check(p)
                 if p.name in self.GRANDFATHERED_BL101:
                     errors = [e for e in errors if not e.startswith("[BL101]")]
+                if p.name in self.GRANDFATHERED_STRUCTURE:
+                    errors = [e for e in errors if not e.startswith(("[BL129]", "[BL130]"))]
                 self.assertEqual(errors, [], f"{p.name}: {errors}")
 
 

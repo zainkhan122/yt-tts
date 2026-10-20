@@ -24,3 +24,6 @@ publishing-report.*
 
 # session context pack + bounded command logs are regenerable, never committed
 .context/
+
+# Designed covers are generated from the capture pack (real product media), not committed
+covers/

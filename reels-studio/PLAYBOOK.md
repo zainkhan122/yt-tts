@@ -292,18 +292,36 @@ never the thing we optimise for. Before any scene is written, every brief carrie
 - **A format that fits the material** — `archetype`, one of: `demo-first` (visual
   payoff leads), `duel` (A-vs-B with a scoreboard), `myth-bust`, `quest`
   (build-along), `warning` (danger first, then the safe path), `workflow`
-  (steal-this-recipe), `spotlight` (legacy default — needs a reason). The renderer
-  gives each archetype its own accent/styling (`data-archetype` in scene.css).
-  `tools/creative_check.py` fails the batch if the same archetype runs 3 in a row:
-  sameness is the template sneaking back.
+  (steal-this-recipe), `spotlight` (legacy default — needs a reason).
+  An archetype is a **fact on screen**, not a label: `templates/_spotlight/archetype.css`
+  + `archetype.js` give each one its own HUD, heading voice, caption plate and at
+  least one scene device (quest = mission rail + objective kickers + PROOF stamp;
+  myth-bust = claim/reality stamps + struck-through catch; and so on). A rule set that
+  only recolours fails `tests/test_creative_application.py`.
+- **A structure, declared** — `treatment.structure` labels every scene with its beat
+  in playback order; brief_lint BL129/BL130 checks it against the archetype grammar
+  (`quest`: briefing › objective › field-notes › close; `myth-bust`: claim ›
+  evidence/test › reality › close; `demo-first`: demo › proof/how › catch › close …).
+  Two archetypes may not ship the same beat skeleton (`tools/creative_check.py`).
+  `tools/creative_check.py` also fails the batch if the same archetype runs 3 in a row.
 - **Retention craft, written down.** `hook_mechanic` (the pattern interrupt),
   `open_loop` (question planted in second one, `payoff_scene` where it pays off,
   target ~70% through), `proof_moment` (the scene where the skeptic converts —
   real product evidence, never a card claim).
 - **Covers are designed, not grabbed.** 3 `cover_concepts` (<= 4-word text, real
   media visual, the curiosity `gap` each opens). `tools/cover_lab.py` renders all
-  three (bleed / window / split); the viewer panel judges them cold and the winner
-  is pinned in `selected_cover`. The panel's cover section must be filled for PASS.
+  three (bleed / window / split, each on its own real capture image), measures text
+  contrast against the actual plate (>= 4.5:1) and fails a set that is one design
+  three times. The viewer panel judges them cold, the winner is pinned in
+  `selected_cover`, then `cover_lab.py --apply` freezes it: the renderer refuses to
+  ship unless `cover-selected.jpg` (hash-matched to `selection.json`, matching the
+  brief's own selected concept and archetype) becomes `renders/<id>/cover.jpg` — the
+  kit cover and the YouTube thumbnail. A frame grab is not a cover.
+- **A layout contract, measured.** `templates/_spotlight/spotcore.py` LAYOUT fixes the
+  media stage (ends 1128) above the caption zone (1160–1500); `tools/layout_audit.py`
+  renders the real composition in Chromium, seeks sampled moments and fails on any
+  surface that crosses the floor or touches the caption box. Captions are
+  bottom-anchored so long lines grow upward, never into the product footage.
 - Reference channels feed this layer as *mechanisms* (how winners open, when they
   pay off — quarterly decode), never as a look to copy.
 
