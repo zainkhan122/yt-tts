@@ -2579,9 +2579,11 @@
     },
     "tool-fx0-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6ad7a32d04c37bdd053966f8",
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-21T14:00:00Z",
+      "due_at": "2026-10-21T14:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:93193f79722a001691707055ca889728c47ce628eb64369ffb58d62e1f6780f2",
         "asset_id": 659927017,
@@ -2596,10 +2598,11 @@
       "notify_subscribers": false,
       "payload_sha256": "924f9868d55b92101aee694b275993d78b7105284beb9cb24ee4137fb959e7b5",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Save this for your next landing page: describe it once, an agent writes it as one HTML file you can edit by hand.\n\nCredits: Own browser captures of fx0.vercel.dev (checked 2026-10-20) and of the page fx0 built.\n\n#AI #WebDev #OpenSource",
       "title": "fx0: One Sentence In, A Finished Page Out (Design Agent)",
-      "updated_at": "2026-10-20T17:21:47Z",
+      "updated_at": "2026-10-20T17:21:49Z",
       "video_id": "tool-fx0-01"
     },
     "tool-fx0-01:youtube": {
