@@ -88,8 +88,8 @@
    "id": "hook",
    "type": "clip",
    "src": "demo.mp4",
-   "in": 4.6,
-   "out": 9.4,
+   "in": 5.2,
+   "out": 12.7,
    "fit": "fill-blur",
    "headline": "ONE PROMPT. *A WHOLE PAGE.*",
    "sub": "fx0 · the page was never typed by hand",
@@ -104,19 +104,18 @@
      "in": 0.15,
      "out": 2.05,
      "label": "ONE SENTENCE",
-     "at": "sentence"
-    },
-    {
-     "in": 2.4,
-     "out": 5.2,
-     "label": "AGENT BUILDS",
      "at": "builds"
     },
     {
-     "in": 5.3,
-     "out": 7.9,
-     "label": "PUBLISHED",
+     "in": 2.4,
+     "out": 6.1,
+     "label": "AGENT BUILDS",
      "at": "publishes"
+    },
+    {
+     "in": 6.2,
+     "out": 11.6,
+     "label": "PUBLISHED, LIVE PAGE"
     }
    ],
    "say": "You give it a sentence. The agent builds the whole page in the open, then publishes it as one HTML file."

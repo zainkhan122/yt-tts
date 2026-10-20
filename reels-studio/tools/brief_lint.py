@@ -47,6 +47,7 @@ RULES = {
     "BL031": ("error", "scene type known to the renderer"),
     "BL032": ("error", "scene has a say line or an explicit hold"),
     "BL033": ("error", "clip scene carries src, in, out"),
+    "BL034": ("warning", "clip footage covers its own spoken line"),
     "BL040": ("error", "highlight markers balanced"),
     "BL050": ("warning", "verdict item_at length matches cons + pros"),
     "BL051": ("warning", "verdict item_at present (narration sync)"),
@@ -194,6 +195,16 @@ def check(brief_path):
                 wn = norm(w)
                 if wn and wn not in say:
                     add("BL080", f"{where}: {key}={w!r} not present in the spoken line")
+        if s.get("type") == "clip":  # footage shorter than its line = the renderer cuts the voice off
+            try:
+                span = float(s.get("out", 0)) - float(s.get("in", 0))
+            except (TypeError, ValueError):
+                span = 0.0
+            words = len(re.findall(r"\S+", spoken(s.get("say"))))
+            if span and words and span < words * 0.33:
+                add("BL034", f"{where}: clip is {span:.1f}s of footage for a {words}-word line "
+                             f"(~{words * 0.36:.1f}s spoken) - the scene will be truncated and its "
+                             f"anchors will drift; use a longer range or a shorter line")
         if s.get("type") == "clip-montage":
             for k, cut in enumerate(s.get("cuts") or []):
                 anchor = cut.get("at")
