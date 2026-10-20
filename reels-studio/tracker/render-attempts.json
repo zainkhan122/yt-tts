@@ -661,6 +661,33 @@
       "status": "render_only_success",
       "voice_seed": 0
     },
+    "c5544a4544463658617b7dc99e1c225e71e8e68d2d779c915414dca91de3e5e2": {
+      "asset_files_sha256": null,
+      "asset_manifest_sha256": null,
+      "brief_id": "repo-huashu-motion-01",
+      "brief_sha256": "014aa3f80cade612171b3097c0b03884b694b0f2352a7f0e64a6059fab9cc67d",
+      "capture_id": null,
+      "crf": 20,
+      "failure_conclusion": null,
+      "fingerprint": "c5544a4544463658617b7dc99e1c225e71e8e68d2d779c915414dca91de3e5e2",
+      "finished_at": null,
+      "from_tag": "renders-2026-10-20-1",
+      "quality": "looks",
+      "rebuild_scenes": [
+        "hook",
+        "name",
+        "how",
+        "stars",
+        "install",
+        "catch",
+        "cta"
+      ],
+      "renderer_sha256": "511b69fe39817a6741189634b6b2cf128b5f5cb7aa478008a8681c9c61f44869",
+      "run_id": "39473262212",
+      "started_at": "2026-10-20T18:16:16Z",
+      "status": "started",
+      "voice_seed": 0
+    },
     "c7e4dffd9294d9b1bd5785aef0324c6b0663e5219f00c4f1700878bcf2d64a36": {
       "asset_files_sha256": "39d0bbe676416ebb06a419b68e83c5b05816cfd3f6801c0d55da00d5a3c62234",
       "asset_manifest_sha256": "0b943eb5aebe5665eeec8e999a431809e5dd0d24624387ccb209750c04b465b0",
