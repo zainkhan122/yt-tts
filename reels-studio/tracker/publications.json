@@ -1829,7 +1829,7 @@
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-19T22:30:00.000Z",
-      "external_url": "https://www.youtube.com/watch?v=2dF5c-2OqQg",
+      "external_url": "https://www.youtube.com/shorts/2dF5c-2OqQg",
       "media_ref": {
         "asset_digest": "sha256:66c09127f9f6d19750a2569abfa0cf9597300df8517de25a555e46161bd9bb12",
         "asset_id": 656834438,
@@ -1848,7 +1848,7 @@
       "state": "sent",
       "text": "leanrea is a single 8 KB skill file that teaches Claude Code, Codex, Cursor and other coding agents to reverse engineer apps and binaries with plain CLI tools \u2014 no MCP server, no 207 tool definitions. The maker's own benchmark reports it faster and cheaper than the heavyweight REA setup (small sample \u2014 see the catch in the video). Nearly 900 GitHub stars in two days.\nSource: https://github.com/aicodeking/leanrea\n\nCredits: Own captures of the public GitHub repo (checked 2026-10-19).\n\n#Shorts #AI #Coding #ClaudeCode",
       "title": "leanrea: One Tiny Skill Replaces 207 Reverse-Engineering Tools",
-      "updated_at": "2026-10-19T22:30:14Z",
+      "updated_at": "2026-10-20T05:03:19Z",
       "video_id": "repo-leanrea-01"
     },
     "repo-manimgx-01:facebook": {
@@ -2262,7 +2262,7 @@
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-20T01:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.youtube.com/shorts/P-Cc_EAvqv8",
       "media_ref": {
         "asset_digest": "sha256:60e7d890b99b72db4098527a11f24ed76ca9d0a190c019d0caa0e6320ecf9c28",
         "asset_id": 656834533,
@@ -2277,11 +2277,11 @@
       "notify_subscribers": false,
       "payload_sha256": "1707ee29a4cdfe16cd76388cae4e7f20346ba38302229f3b4e6bb3677494a741",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-20T01:00:40.162Z",
+      "state": "sent",
       "text": "WhatsApp MCP is a read-only MCP server that lets Claude Code and other AI agents search and read your own WhatsApp history \u2014 full-text search across every chat, deployed into your own Cloudflare account. The honest catches are in the video: it is unofficial (against WhatsApp's terms, low but non-zero risk) and importing history needs the Workers Paid plan. 256 GitHub stars in its first day.\nSource: https://github.com/finereli/whatsapp-mcp\n\nCredits: Own captures of the public GitHub repo (checked 2026-10-19).\n\n#Shorts #AI #WhatsApp #Agents",
       "title": "WhatsApp MCP: Your AI Can Now Search Your Own Chats",
-      "updated_at": "2026-10-19T16:54:39Z",
+      "updated_at": "2026-10-20T05:03:19Z",
       "video_id": "repo-whatsapp-mcp-01"
     },
     "repo-whistle-01:facebook": {
