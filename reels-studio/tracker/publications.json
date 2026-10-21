@@ -3239,9 +3239,11 @@
     },
     "tool-scrawl-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6ad862e1aff466fe0907ff70",
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-21T16:00:00Z",
+      "due_at": "2026-10-21T16:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:9965c0b8ae7933afb00760142cd963f98d7325b088660a229a99f3ddfcba073b",
         "asset_id": 661637650,
@@ -3256,10 +3258,11 @@
       "notify_subscribers": false,
       "payload_sha256": "3fab82c10f5623247ecff022f18f23cd184bf0c30039f0e6aa7d24546ac1bf46",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Scrawl turns a screen bug into something an agent can read: one hotkey, a contact sheet, and a transcript pinned to each frame. Free and open source, Mac only for now.\n\nCredits: Own browser captures of scrawl.kitlangton.com (checked 2026-10-21).\n\nAI-generated narration.\n\n#AI #DevTools",
       "title": "Scrawl: Show Your Agent the Bug Instead of Describing It",
-      "updated_at": "2026-10-21T06:59:42Z",
+      "updated_at": "2026-10-21T06:59:45Z",
       "video_id": "tool-scrawl-01"
     }
   },
