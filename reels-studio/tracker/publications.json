@@ -3305,12 +3305,10 @@
       "video_id": "tool-scrawl-01"
     },
     "tool-scrawl-01:youtube": {
-      "attempts": 2,
-      "buffer_post_id": null,
+      "attempts": 3,
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-21T17:00:00.000Z",
-      "external_url": null,
+      "due_at": "2026-10-21T17:00:00Z",
       "media_ref": {
         "asset_digest": "sha256:9965c0b8ae7933afb00760142cd963f98d7325b088660a229a99f3ddfcba073b",
         "asset_id": 661637650,
@@ -3323,17 +3321,12 @@
       },
       "media_url": "https://zainkhan122.github.io/yt-tts/media/661637650/tool-scrawl-01.mp4",
       "notify_subscribers": false,
-      "payload_sha256": "2a4b79e3418ef4ad3cdea4c405a03192d6b1cffb3fc60f8c737e0c3b4b35a9a7",
+      "payload_sha256": "4b98dc662a741ed2339f210bd384fce84980fe402a8f4946a4c0075ffd9a5e0b",
       "platform": "youtube",
-      "previous_buffer_post_id": "6ad86da28f60cd81e646e494",
-      "release_note": "owner-approved queue clear; recreated against corrected media",
-      "released_at": "2026-10-21T08:12:51Z",
-      "sent_at": null,
-      "state": "released",
-      "text": "Scrawl is a free MIT menu-bar app for macOS: press Option Shift S, talk and draw over the screen, and it hands your coding agent a contact sheet, full-resolution keyframes and a time-aligned transcript. Frames are kept only when something happens, so the agent reads a few marked moments instead of scrubbing an hour of video.\nCatches in the video: macOS 26 on Apple silicon only, and the Windows build is an unsigned preview that does not self-update.\nSource: https://github.com/kitlangton/scrawl\n\nCredits: Own browser captures of scrawl.kitlangton.com (checked 2026-10-21).\n\n#Shorts #AI #DevTools #OpenSource",
+      "state": "submitting",
+      "text": "Scrawl: stop typing four paragraphs at your agent when a bug is on screen. Press Option Shift S, talk while you point at the screen, and the agent gets the frames where something actually changed plus a transcript timed to each one. Use it for any UI bug you can't describe cleanly: a layout that breaks, a button that does nothing, an error that flashes past.\nMac only for now (macOS 26 on Apple silicon). Free and open source.\nGitHub: https://github.com/kitlangton/scrawl\n\n#Shorts #DevTools #AICoding",
       "title": "Scrawl: Show Your Agent the Bug Instead of Describing It",
-      "updated_at": "2026-10-21T07:45:38Z",
-      "verified_at": "2026-10-21T07:45:51Z",
+      "updated_at": "2026-10-21T08:17:31Z",
       "video_id": "tool-scrawl-01"
     }
   },
