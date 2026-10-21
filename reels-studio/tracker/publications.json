@@ -3308,13 +3308,10 @@
       "video_id": "tool-scrawl-01"
     },
     "tool-scrawl-01:youtube": {
-      "attempts": 0,
-      "buffer_post_id": null,
+      "attempts": 1,
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-21T17:00:00.000Z",
-      "external_url": null,
-      "last_error": null,
+      "due_at": "2026-10-21T17:00:00Z",
       "media_ref": {
         "asset_digest": "sha256:9965c0b8ae7933afb00760142cd963f98d7325b088660a229a99f3ddfcba073b",
         "asset_id": 661637650,
@@ -3329,17 +3326,10 @@
       "notify_subscribers": false,
       "payload_sha256": "19a75569055132794b12191774e9e89a81cc90c4f509404dab79b3ec0591646c",
       "platform": "youtube",
-      "previous_attempts": 4,
-      "previous_buffer_post_id": "6ad87d3f7143aca6ab055dfa",
-      "previous_state": "dead_letter",
-      "release_note": "owner-approved Track B re-schedule: old Buffer post deleted and read-back confirmed absent (inventory run 39581676937); attempt budget reset for a fresh create against current copy",
-      "released_at": "2026-10-21T10:04:17Z",
-      "sent_at": null,
-      "state": "released",
+      "state": "submitting",
       "text": "Describing a UI bug to a coding agent takes four paragraphs, and it still guesses. Scrawl lets you show it instead. Press Option Shift S, talk while you point at the screen, and the agent gets only the frames where something happened, with your words timed to each one.\n\nMac only for now: macOS 26 on Apple silicon. Speech is transcribed on your own machine. Free and open source under MIT.\n\nhttps://github.com/kitlangton/scrawl\n\n#Shorts #ClaudeCode #MacApps",
       "title": "Scrawl: Show Your Agent the Bug Instead of Describing It",
-      "updated_at": "2026-10-21T10:04:17Z",
-      "verified_at": "2026-10-21T08:52:30Z",
+      "updated_at": "2026-10-21T10:09:47Z",
       "video_id": "tool-scrawl-01"
     }
   },
