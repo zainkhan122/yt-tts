@@ -199,13 +199,12 @@
     ],
     "onscreen_first3s": "ONE PROMPT. A WHOLE PAGE.",
     "youtube": {
-      "title": "fx0: One Sentence In, A Finished Page Out (Design Agent)",
-      "description": "fx0 is an open-source design agent from Vercel Labs: describe a page and an agent writes it as a single HTML file, with live publishing and version history. This Short shows a live run that built a pricing page in about ten seconds, plus a dashboard the same agent built. Catches in the video: five free prompts before you sign in and bill your own model, and the copy is placeholder text you still edit.\nSource: https://github.com/vercel-labs/fx0",
+      "title": "fx0 Design Agent: One Sentence In, Finished Landing Page Out",
+      "description": "fx0 design agent: starting a landing page from a blank file? Describe the page in one sentence. fx0 is an open-source design agent from Vercel Labs: it writes the whole page as one HTML file you can open and edit by hand, and keeps each version so you can roll back a change.\nGood for: a quick launch page, a waitlist, a portfolio you can edit tonight. Limit: the copy is placeholder text you still need to write, and the free tier is five prompts before sign-in.\nGitHub: https://github.com/vercel-labs/fx0",
       "hashtags": [
         "#Shorts",
-        "#AI",
         "#WebDev",
-        "#OpenSource"
+        "#AICoding"
       ],
       "tags": [
         "fx0",
@@ -217,32 +216,31 @@
       ]
     },
     "tiktok": {
-      "caption": "One sentence, and a design agent writes the whole page as one HTML file. No template, no build step.",
+      "caption": "fx0 design agent: one sentence, and it writes the whole landing page as one HTML file you can edit by hand. No template, no build step.",
       "hashtags": [
-        "#AI",
         "#WebDev",
+        "#AICoding",
         "#OpenSource"
       ]
     },
     "instagram": {
-      "caption": "Save this for your next landing page: describe it once, an agent writes it as one HTML file you can edit by hand.",
+      "caption": "fx0 design agent: next landing page, skip the blank file. Describe it in one sentence and it writes the whole page as one HTML file you can edit by hand. Open source from Vercel Labs.",
       "hashtags": [
-        "#AI",
         "#WebDev",
+        "#AICoding",
         "#OpenSource"
       ]
     },
     "facebook": {
-      "caption": "fx0 turns one sentence into a finished page: a design agent writes the HTML, publishes it, and keeps every version.",
+      "caption": "fx0 design agent: starting a landing page from a blank file takes hours. Describe it in one sentence and it writes the HTML, publishes it, and keeps every version. Open source from Vercel Labs. AI voice narration.",
       "hashtags": [
-        "#AI",
-        "#WebDev"
+        "#WebDev",
+        "#AICoding"
       ]
     },
     "x": {
-      "text": "Describe a page, an agent writes it as one HTML file and publishes it live. fx0, open source from Vercel Labs: https://github.com/vercel-labs/fx0",
+      "text": "fx0 design agent: describe a page in one sentence and it writes it as one HTML file, live and versioned. Open source from Vercel Labs: https://github.com/vercel-labs/fx0",
       "hashtags": [
-        "#AI",
         "#WebDev"
       ]
     }

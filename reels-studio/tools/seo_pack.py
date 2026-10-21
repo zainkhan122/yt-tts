@@ -27,6 +27,8 @@ RULES = {  # platform: (main field, hard max chars, soft max chars, hashtags min
     "facebook": ("caption", 5000, 400, 1, 5, 10),
     "x": ("text", 280, 240, 0, 2, 12),
 }
+GENERIC_TAGS = {"#ai", "#coding", "#video", "#tech", "#technology", "#viral", "#fyp", "#foryou", "#foryoupage", "#trending", "#programming"}
+CREDIT_TEXT = re.compile(r"\bcredits?\b|own (browser )?captures?|\(checked \d{4}|checked 20\d\d-", re.I)
 URL_X = 23  # X counts every link as 23 chars
 
 # Stable rule IDs: code -> (severity, one-line meaning). The receipt stores code + exact message.
@@ -43,6 +45,8 @@ RULE_IDS = {
     "SP051": ("warning", "no generic tags (#fyp/#viral)"),
     "SP060": ("warning", "keyword within the first N words of the field"),
     "SP070": ("error", "youtube: #Shorts in the description hashtags"),
+    "SP090": ("error", "no generic hashtags (#AI, #Coding, #Video, #Tech, #Viral...) — niche tags only"),
+    "SP091": ("error", "no credits/attribution/capture-note text in visible copy (credits live in the kit)"),
     "SP071": ("warning", "youtube: keyword in the first 150 chars of the description"),
     "SP072": ("error", "youtube: backend tags within 500 chars"),
     "SP080": ("warning", "no licence/legal term in a title or first line (benefit-first copy)"),
@@ -115,6 +119,10 @@ def check(brief_path_or_text):
             add("SP040" if plat in ("instagram", "x") and len(tags) > hmax else "SP041", f"{plat}: {len(tags)} hashtags (want {hmin}-{hmax})")
         if any(not re.fullmatch(r"#\w+", t) for t in tags):
             add("SP050", f"{plat}: malformed hashtag in {tags}")
+        if any(t.lower() in GENERIC_TAGS for t in tags if not (plat == "youtube" and t.lower() == "#shorts")):
+            add("SP090", f"{plat}: generic hashtag(s) {[t for t in tags if t.lower() in GENERIC_TAGS]} — use niche tags that name the tool's audience or task")
+        if CREDIT_TEXT.search(text or "") or CREDIT_TEXT.search(p.get("description", "") or ""):
+            add("SP091", f"{plat}: credits/capture note in visible copy — move it to the kit, keep only a plain source link")
         if any(t.lower() in ("#fyp", "#foryou", "#foryoupage", "#viral") for t in tags):
             add("SP051", f"{plat}: generic tags (#fyp/#viral) carry no signal in 2026")
         if kws and not has_kw(text, kws, firstn):
@@ -147,8 +155,6 @@ def render_report(b, seo, blocks, spoken5, onscreen, errors, warns, findings):
             desc_txt = p.get("description", "").strip()
             cr = (b.get("credits_on_screen") or "").strip()
             links = re.findall(r"[\w-]+(?:\.[\w-]+)+/[\w./-]+|[\w-]+\.(?:com|ai|org|io|dev|app|video)\b", cr)
-            if cr and not (links and all(l.lower() in desc_txt.lower() for l in links)):
-                desc_txt += "\n\nCredits: " + cr
             L += ["**Title**", "```", text, "```", "**Description**", "```", desc_txt + "\n\n" + " ".join(tags), "```",
                   "**Tags (backend)**", "```", ", ".join(p.get("tags", [])), "```", ""]
         else:

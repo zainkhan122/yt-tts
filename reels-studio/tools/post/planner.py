@@ -26,9 +26,7 @@ def copy_for(item, platform, cfg):
         raise ValueError(f"{item['video_id']}: brief changed since queue review; re-pin and re-approve")
     seo = b["seo"][platform]
     text = seo["description" if platform == "youtube" else "caption"].strip()
-    credits = (b.get("credits_on_screen") or "").strip()
-    if credits and credits.casefold() not in text.casefold():
-        text += "\n\nCredits: " + credits
+    # Credits never go in visible copy (owner 2026-10-21): they stay in the kit's credits file.
     if platform == "facebook":
         text += "\n\n" + item.get("facebook_disclosure", cfg["disclosure"]["facebook_caption"])
     tags = seo.get("hashtags", [])

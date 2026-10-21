@@ -198,12 +198,11 @@
     "onscreen_first3s": "SHOW IT, DON'T DESCRIBE IT",
     "youtube": {
       "title": "Scrawl: Show Your Agent the Bug Instead of Describing It",
-      "description": "Scrawl is a free MIT menu-bar app for macOS: press Option Shift S, talk and draw over the screen, and it hands your coding agent a contact sheet, full-resolution keyframes and a time-aligned transcript. Frames are kept only when something happens, so the agent reads a few marked moments instead of scrubbing an hour of video.\nCatches in the video: macOS 26 on Apple silicon only, and the Windows build is an unsigned preview that does not self-update.\nSource: https://github.com/kitlangton/scrawl",
+      "description": "Scrawl: stop typing four paragraphs at your agent when a bug is on screen. Press Option Shift S, talk while you point at the screen, and the agent gets the frames where something actually changed plus a transcript timed to each one. Use it for any UI bug you can't describe cleanly: a layout that breaks, a button that does nothing, an error that flashes past.\nMac only for now (macOS 26 on Apple silicon). Free and open source.\nGitHub: https://github.com/kitlangton/scrawl",
       "hashtags": [
         "#Shorts",
-        "#AI",
         "#DevTools",
-        "#OpenSource"
+        "#AICoding"
       ],
       "tags": [
         "Scrawl",
@@ -215,35 +214,33 @@
       ]
     },
     "tiktok": {
-      "caption": "Scrawl: stop writing four paragraphs about your screen. One hotkey records it, draws on it, and hands your agent something it can read.",
+      "caption": "Scrawl: stop describing the bug to your agent. Show it. Record your screen, talk over it, and it gets the exact frames that changed.",
       "hashtags": [
-        "#AI",
         "#DevTools",
-        "#Coding"
+        "#AICoding",
+        "#MacApp"
       ]
     },
     "instagram": {
-      "caption": "Scrawl: press two keys, talk and draw over the screen, and your coding agent gets a contact sheet plus a transcript of exactly the moment that broke. Save this for your next hard-to-explain bug. Mac only for now.",
+      "caption": "Scrawl: the bug you can't put into words? Record it once. Press two keys, talk over the screen, and your coding agent gets a timed transcript plus only the frames where something changed. Keep this for your next hard bug. Mac only for now (macOS 26+).",
       "hashtags": [
-        "#AI",
         "#DevTools",
-        "#OpenSource"
+        "#AICoding",
+        "#MacApp"
       ]
     },
     "facebook": {
-      "caption": "Scrawl turns a screen bug into something an agent can read: one hotkey, a contact sheet, and a transcript pinned to each frame. Free and open source, Mac only for now.",
+      "caption": "Scrawl: describing a screen bug to an AI agent takes forever and it still guesses. Record your screen while you talk, and the agent gets the changed frames with a transcript. Free and open source, Mac only for now. AI voice narration.",
       "hashtags": [
-        "#AI",
-        "#DevTools"
+        "#DevTools",
+        "#AICoding"
       ]
     },
     "x": {
-      "text": "Scrawl: press Option Shift S, talk and draw over the screen, paste the bundle into your agent. Frames only when something happens. Free and open source, macOS 26+ only: https://github.com/kitlangton/scrawl",
+      "text": "Scrawl: describing a bug takes four paragraphs. Record screen + voice and the agent gets the frames that changed. Free, open source, macOS 26+: https://github.com/kitlangton/scrawl",
       "hashtags": [
-        "#AI",
         "#DevTools"
-      ],
-      "caption": "Scrawl: press Option Shift S, talk and draw over the screen, paste the bundle into your agent. Frames only when something happens. Free and open source, macOS 26+ only: https://github.com/kitlangton/scrawl"
+      ]
     }
   },
   "post": {
