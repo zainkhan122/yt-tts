@@ -1,0 +1,31 @@
+{
+ "days": {
+  "2026-10-09": {
+   "count": 1,
+   "drawn_at": "2026-10-21T07:26:03+00:00",
+   "method": "secrets.SystemRandom().randint(1,5)"
+  },
+  "2026-10-10": {
+   "count": 5,
+   "drawn_at": "2026-10-21T07:26:03+00:00",
+   "method": "secrets.SystemRandom().randint(1,5)"
+  },
+  "2026-10-11": {
+   "count": 4,
+   "drawn_at": "2026-10-21T07:26:03+00:00",
+   "method": "secrets.SystemRandom().randint(1,5)"
+  },
+  "2026-10-12": {
+   "count": 4,
+   "drawn_at": "2026-10-21T07:26:03+00:00",
+   "method": "secrets.SystemRandom().randint(1,5)"
+  },
+  "2026-10-21": {
+   "count": 1,
+   "drawn_at": "2026-10-21T07:05:00Z",
+   "method": "python random.randint(1,5) (interactive draw, recorded retroactively)",
+   "note": "Drawn AFTER tool-scrawl-01 was scheduled. Count 1 matches the single short scheduled; recorded so later runs do not redraw today."
+  }
+ },
+ "schema_version": 1
+}

@@ -227,6 +227,7 @@ class PlannerTests(unittest.TestCase):
         self.assertEqual({r["platform"] for r in rows}, set(items[0]["platforms"]))
 
     def test_ten_videos_stay_in_backlog_not_bulk_dump(self):
+        self.cfg["schedule"]["best_times"]["enabled"] = False  # legacy calendar mechanics; owner rule 1-5 covered in test_best_times
         # Content mix is editorial (see test_mix_is_not_hardcoded); pacing still governs.
         self.cfg["schedule"]["max_posts_per_run"] = 100
         rows, _ = self.planned()
@@ -243,6 +244,7 @@ class PlannerTests(unittest.TestCase):
             self.assertTrue(all((b - a).total_seconds() >= self.cfg["schedule"]["minimum_gap_minutes"]*60 for a, b in zip(times, times[1:])))
 
     def test_dated_override_expands_one_day_only(self):
+        self.cfg["schedule"]["best_times"]["enabled"] = False  # legacy calendar mechanics; owner rule 1-5 covered in test_best_times
         # Owner-instruction batches may raise a single calendar day, never the 3/day baseline.
         self.cfg["schedule"]["max_posts_per_run"] = 100
         self.cfg["schedule"]["daily_target_overrides"] = {"2026-10-10": 5}
@@ -345,6 +347,7 @@ class PlannerTests(unittest.TestCase):
         self.assertGreaterEqual(self.cfg["schedule"]["max_repo_videos_per_day"], self.cfg["schedule"]["max_videos_per_day"])
 
     def test_daily_ceiling_is_ten_and_has_no_hidden_five_clamp(self):
+        self.cfg["schedule"]["best_times"]["enabled"] = False  # legacy calendar mechanics; owner rule 1-5 covered in test_best_times
         # Owner 2026-10-12: the 5/day cap is removed; the ceiling is 10 and the scheduler
         # must be able to place more than 5 on a day when a dated override asks for it.
         self.assertEqual(self.cfg["schedule"]["max_videos_per_day"], 10)

@@ -5,11 +5,13 @@ are read-only. Extra fourth/fifth daily slots require a config change, never ari
 because a render batch happens to be large.
 """
 import datetime as dt
+import json
 from collections import defaultdict
 from zoneinfo import ZoneInfo
 
 from tools.post.common import PENDING, RETRYABLE, TERMINAL, ROOT, iso, key, load_json, media_url, parse_time
 from tools.post import planner as copy_rules
+from tools.post import best_times
 
 DAYS = ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
 
@@ -86,7 +88,10 @@ def plan(items, records, channels, posts, cfg, now, preview=False, pilot=False, 
     long_ids = {r.get("youtube_id") for r in long_records.values() if r.get("youtube_id")}
     by_video = {i["video_id"]: i for i in items}
     live_channels = {c["id"]: c for c in channels}
+    best_rules = settings.get("best_times", {}) if settings.get("best_times", {}).get("enabled") else None
+    insights = best_times.load_insights() if best_rules else {}
     notes, rows = [], []
+    planned_provenance: dict = {}
     for platform, expected in cfg["buffer"]["channels"].items():
         if not expected.get("enabled"):
             continue
@@ -149,8 +154,15 @@ def plan(items, records, channels, posts, cfg, now, preview=False, pilot=False, 
             # but never beyond the hard caps below the baseline target.
             day_target = min(settings.get("daily_target_overrides", {}).get(day.isoformat(), target),
                              settings.get("max_videos_per_day", 10))
+            if best_rules:
+                # Owner rules 2026-10-21: random 1–5 shorts per day (drawn once), each channel
+                # uses its own best-performing hours, the k-th short taking the k-th best slot.
+                day_target = min(best_times.daily_count(day), settings.get("max_videos_per_day", 10))
+                clocks, provenance = best_times.ranked_clocks(insights, platform, profile, cfg, day_target, zone)
+                planned_provenance.setdefault(platform, {})[day.isoformat()] = provenance
+            else:
+                clocks = clocks_for(profile, day, day_target, settings)
             kinds = [cat for _, cat in known_categories[day]]
-            clocks = clocks_for(profile, day, day_target, settings)
             slots = [at_local(day, clock, profile.get("timezone", settings["timezone"])) for clock in clocks]
             slots = [t for t in slots if t and earliest <= t <= end]
             for idx, due in enumerate(slots):
@@ -201,6 +213,10 @@ def plan(items, records, channels, posts, cfg, now, preview=False, pilot=False, 
                     break
             day += dt.timedelta(days=1)
     # Every API mutation is paced separately; prioritise nearest publication times.
+    for row in rows:
+        row["slot_source"] = "best-time" if best_rules else "profile"
+    if best_rules:
+        notes.append("best-time rules: " + json.dumps(planned_provenance, sort_keys=True)[:4000])
     rows.sort(key=lambda r: (r["due_at"], r["platform"], r["video_id"]))
     if len(rows) > settings["max_posts_per_run"]:
         rows = rows[:settings["max_posts_per_run"]]
