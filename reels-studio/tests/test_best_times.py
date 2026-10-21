@@ -52,21 +52,28 @@ class BestTimeTests(unittest.TestCase):
         self.assertEqual(clocks, ["13:00", "17:00", "09:00"])
         self.assertNotIn("20:00", prov["ranked_hours"])
 
-    def test_every_count_1_to_5_is_placeable_with_gap_and_no_repeats(self):
+    def test_ranked_slots_never_repeat_and_keep_gap(self):
         for channel in ("youtube", "instagram", "facebook"):
             profile = CFG["schedule"]["profiles"][channel]
             for want in range(1, 6):
                 clocks, _ = bt.ranked_clocks(self.insights, channel, profile, CFG, want, NY)
-                self.assertEqual(len(clocks), want, f"{channel} want {want}")
-                self.assertEqual(len(set(clocks)), want, f"{channel} repeated a time")
+                self.assertLessEqual(len(clocks), want)
+                self.assertEqual(len(set(clocks)), len(clocks), f"{channel} repeated a time")
                 mins = sorted(int(c[:2]) * 60 + int(c[3:]) for c in clocks)
                 gaps = [b - a for a, b in zip(mins, mins[1:])]
                 self.assertTrue(all(g >= CFG["schedule"]["minimum_gap_minutes"] for g in gaps), f"{channel} {clocks}")
 
-    def test_no_data_falls_back_to_profile_not_empty(self):
+    def test_no_data_uses_six_to_nine_pm_window(self):
         clocks, prov = bt.ranked_clocks({}, "instagram", CFG["schedule"]["profiles"]["instagram"], CFG, 2, NY)
-        self.assertEqual(len(clocks), 2)
-        self.assertEqual(prov["hours_with_data"], 0)
+        self.assertEqual(clocks, ["18:00", "20:30"])
+        self.assertEqual(prov["fallback_window"], ["18:00", "21:00"])
+        for c in clocks:
+            self.assertTrue("18:00" <= c <= "21:00")
+
+    def test_window_cannot_exceed_gap_so_extra_shorts_wait(self):
+        # 150-minute gap fits only two slots in 18:00–21:00; the rest is not forced into other hours.
+        clocks, _ = bt.ranked_clocks({}, "facebook", CFG["schedule"]["profiles"]["facebook"], CFG, 5, NY)
+        self.assertEqual(clocks, ["18:00", "20:30"])
 
     def test_channels_rank_independently(self):
         for i, (hour, views) in enumerate([(7, 900), (7, 900), (7, 900)]):

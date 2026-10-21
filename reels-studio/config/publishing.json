@@ -304,7 +304,11 @@
    },
    "min_samples_per_hour": 3,
    "sequence_rule": "k-th short of a channel day takes that channel's k-th best hour; no two shorts on one channel share a time; hours apart by at least minimum_gap_minutes",
-   "fallback": "researched weekly_slots when the snapshot lacks enough data"
+   "fallback": "no reliable data for the channel -> 18:00-21:00 America/New_York window, every 30 min, minimum gap respected (owner 2026-10-21)",
+   "fallback_window": [
+    "18:00",
+    "21:00"
+   ]
   }
  },
  "schema_version": 2

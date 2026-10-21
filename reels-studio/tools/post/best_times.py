@@ -82,11 +82,19 @@ def hourly_medians(insights_posts: dict, platform: str, zone: ZoneInfo, min_samp
     return {h: statistics.median(v) for h, v in buckets.items() if len(v) >= min_samples}
 
 
+def _to_min(clock: str) -> int:
+    return int(clock[:2]) * 60 + int(clock[3:])
+
+
+def _clock(minutes: int) -> str:
+    return f"{minutes // 60:02d}:{minutes % 60:02d}"
+
+
 def ranked_clocks(insights_posts: dict, platform: str, profile: dict, cfg: dict, want: int,
                   zone: ZoneInfo) -> tuple[list[str], dict]:
     """Best `want` distinct clocks for one channel, best first, honouring the minimum gap.
 
-    Returns (clocks, provenance). Missing slots are filled from the profile's weekly slots,
+    Returns (clocks, provenance). Missing slots come from the 18:00–21:00 fallback window,
     and provenance says which clocks came from data and which from the fallback.
     """
     rules = cfg["schedule"].get("best_times", {})
@@ -105,23 +113,20 @@ def ranked_clocks(insights_posts: dict, platform: str, profile: dict, cfg: dict,
                   "ranked_hours": {f"{h:02d}:00": medians[h] for h in ordered}}
     clocks = [f"{h:02d}:00" for h in chosen]
     if len(clocks) < want:
-        # Researched profile slots first, then the configured 150-minute extended grid, so a
-        # day's full count is always placeable. Every fallback clock keeps the minimum gap.
-        ext = cfg["schedule"].get("extended_slots") or {}
-        grid_gap = max(int(ext.get("gap_minutes", gap)), gap)
-        start = int(ext.get("start", "00:00")[:2]) * 60 + int(ext.get("start", "00:00")[3:])
-        grid = [f"{(start + i * grid_gap) // 60:02d}:{(start + i * grid_gap) % 60:02d}"
-                for i in range(0, 24 * 60 // grid_gap + 1) if start + i * grid_gap < 24 * 60]
-        profile_slots = sorted({c for day in profile.get("weekly_slots", {}).values() for c in day})
+        # Owner rule 2026-10-21: without enough data for this channel, post in the 18:00–21:00
+        # window (channel time zone). Candidates are every 30 minutes in that window; the minimum
+        # gap still applies, so the window holds at most floor(180/gap)+1 slots.
+        lo, hi = (rules.get("fallback_window") or ["18:00", "21:00"])
+        lo_m, hi_m = _to_min(lo), _to_min(hi)
         added = []
-        for clock in profile_slots + grid:
+        for m in range(lo_m, hi_m + 1, 30):
             if len(clocks) >= want:
                 break
-            m = int(clock[:2]) * 60 + int(clock[3:])
-            if all(abs(m - (int(c[:2]) * 60 + int(c[3:]))) >= gap for c in clocks):
-                clocks.append(clock)
-                added.append(clock)
+            if all(abs(m - _to_min(c)) >= gap for c in clocks):
+                clocks.append(_clock(m))
+                added.append(_clock(m))
         provenance["fallback_clocks"] = added
+        provenance["fallback_window"] = [lo, hi]
     return clocks[:want], provenance
 
 
@@ -129,3 +134,20 @@ def load_insights(path: Path = INSIGHTS_PATH) -> dict:
     if not path.exists():
         return {}
     return json.loads(path.read_text()).get("posts", {})
+
+
+def main(argv=None) -> int:
+    import argparse
+    ap = argparse.ArgumentParser(description="Draw missing daily shorts counts (1-5) for the next N channel days.")
+    ap.add_argument("--days", type=int, default=7)
+    ap.add_argument("--from-date", help="YYYY-MM-DD (default: today in America/New_York)")
+    args = ap.parse_args(argv)
+    first = (dt.date.fromisoformat(args.from_date) if args.from_date
+             else dt.datetime.now(ZoneInfo("America/New_York")).date())
+    result = draw_days(first, args.days)
+    print(json.dumps(result, sort_keys=True))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
