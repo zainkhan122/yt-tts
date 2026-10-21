@@ -3295,9 +3295,11 @@
     },
     "tool-scrawl-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6ad862e7aff466fe09080042",
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-21T20:00:00Z",
+      "due_at": "2026-10-21T20:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:9965c0b8ae7933afb00760142cd963f98d7325b088660a229a99f3ddfcba073b",
         "asset_id": 661637650,
@@ -3312,10 +3314,11 @@
       "notify_subscribers": true,
       "payload_sha256": "28a2def34da5d206ffebe3c393cc824565c6f74ba24bf0a63b1e4e7af50f1a06",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Scrawl is a free MIT menu-bar app for macOS: press Option Shift S, talk and draw over the screen, and it hands your coding agent a contact sheet, full-resolution keyframes and a time-aligned transcript. Frames are kept only when something happens, so the agent reads a few marked moments instead of scrubbing an hour of video.\nCatches in the video: macOS 26 on Apple silicon only, and the Windows build is an unsigned preview that does not self-update.\nSource: https://github.com/kitlangton/scrawl\n\nCredits: Own browser captures of scrawl.kitlangton.com (checked 2026-10-21).\n\n#Shorts #AI #DevTools #OpenSource",
       "title": "Scrawl: Show Your Agent the Bug Instead of Describing It",
-      "updated_at": "2026-10-21T06:59:49Z",
+      "updated_at": "2026-10-21T06:59:51Z",
       "video_id": "tool-scrawl-01"
     }
   },
