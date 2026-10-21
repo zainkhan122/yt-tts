@@ -2604,6 +2604,7 @@
       "text": "fx0 design agent: next landing page, skip the blank file. Describe it in one sentence and it writes the page as one HTML file you can edit by hand, with no build step.\n\nThe catch: five free prompts, then sign in, and the copy is placeholder text you still write. Open source under Apache-2.0.\n\n#WebDev #LandingPage #OpenSource",
       "title": "fx0: One Sentence In, A Finished Page Out (Design Agent)",
       "updated_at": "2026-10-21T08:52:21Z",
+      "verified_at": "2026-10-21T08:52:30Z",
       "video_id": "tool-fx0-01"
     },
     "tool-fx0-01:youtube": {
@@ -3262,6 +3263,7 @@
       "text": "Scrawl: describing a screen bug to an AI agent takes forever, and it still guesses. Record your screen while you talk and point, and the agent gets the changed frames with a transcript. Free, open source, Mac only for now.\n\nAI-generated narration.\n\n#macOS #DevTools",
       "title": "Scrawl: Show Your Agent the Bug Instead of Describing It",
       "updated_at": "2026-10-21T08:52:18Z",
+      "verified_at": "2026-10-21T08:52:30Z",
       "video_id": "tool-scrawl-01"
     },
     "tool-scrawl-01:instagram": {
@@ -3290,6 +3292,7 @@
       "text": "Scrawl: stop typing four paragraphs at your coding agent. Press Option Shift S, point at the screen and talk. The agent gets only the frames where something happened, with your words attached. Mac only for now (macOS 26, Apple silicon). Free and open source.\n\nSave this for the next time an agent can't see your bug.\n\n#ClaudeCode #macOS #ScreenRecording",
       "title": "Scrawl: Show Your Agent the Bug Instead of Describing It",
       "updated_at": "2026-10-21T08:52:24Z",
+      "verified_at": "2026-10-21T08:52:30Z",
       "video_id": "tool-scrawl-01"
     },
     "tool-scrawl-01:youtube": {
@@ -3318,6 +3321,7 @@
       "text": "Describing a UI bug to a coding agent takes four paragraphs, and it still guesses. Scrawl lets you show it instead. Press Option Shift S, talk while you point at the screen, and the agent gets only the frames where something happened, with your words timed to each one.\n\nMac only for now: macOS 26 on Apple silicon. Speech is transcribed on your own machine. Free and open source under MIT.\n\nhttps://github.com/kitlangton/scrawl\n\n#Shorts #ClaudeCode #MacApps",
       "title": "Scrawl: Show Your Agent the Bug Instead of Describing It",
       "updated_at": "2026-10-21T08:52:15Z",
+      "verified_at": "2026-10-21T08:52:30Z",
       "video_id": "tool-scrawl-01"
     }
   },
