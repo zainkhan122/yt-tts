@@ -3276,6 +3276,7 @@
       "channel_id": "6ac8fe316a5c39ccb66231cb",
       "due_at": "2026-10-22T22:00:00.000Z",
       "external_url": null,
+      "last_error": "Automatic attempt budget exhausted; explicit review required",
       "media_ref": {
         "asset_digest": "sha256:9965c0b8ae7933afb00760142cd963f98d7325b088660a229a99f3ddfcba073b",
         "asset_id": 661637650,
@@ -3294,7 +3295,7 @@
       "release_note": "owner-approved queue clear; recreated against corrected media",
       "released_at": "2026-10-21T09:57:38Z",
       "sent_at": null,
-      "state": "released",
+      "state": "dead_letter",
       "text": "Scrawl: stop typing four paragraphs at your coding agent. Press Option Shift S, point at the screen and talk. The agent gets only the frames where something happened, with your words attached. Mac only for now (macOS 26, Apple silicon). Free and open source.\n\nSave this for the next time an agent can't see your bug.\n\n#ClaudeCode #macOS #ScreenRecording",
       "title": "Scrawl: Show Your Agent the Bug Instead of Describing It",
       "updated_at": "2026-10-21T08:52:24Z",
