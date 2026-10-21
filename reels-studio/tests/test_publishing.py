@@ -217,6 +217,24 @@ class PlannerTests(unittest.TestCase):
         with patch.object(planner, "payload_for", side_effect=fake_payload):
             return planner.plan(items or fixture_items(), records or {}, self.channels, posts or [], self.cfg, NOW, **kwargs)
 
+    def test_one_blocked_item_does_not_stop_the_rest(self):
+        # Regression (2026-10-21): one brief failing the studio gate aborted the whole run,
+        # so a held legacy item blocked every scheduled short. It must be reported and skipped.
+        items = fixture_items()
+        victim = items[0]["video_id"]
+        real = fake_payload
+
+        def gate(item, platform, due, cfg):
+            if item["video_id"] == victim:
+                raise ValueError(f"{victim}: studio checks failed: B003 required field `viewer` is missing")
+            return real(item, platform, due, cfg)
+
+        with patch.object(planner, "payload_for", side_effect=gate):
+            rows, notes = planner.plan(items, {}, self.channels, [], self.cfg, NOW)
+        self.assertTrue(rows, "the other items must still be planned")
+        self.assertFalse(any(r["video_id"] == victim for r in rows))
+        self.assertTrue(any(victim in n and "blocked" in n for n in notes), notes)
+
     def test_planner_recreates_released_rows_against_corrected_media(self):
         # Regression (2026-10-18): release_row promised recreation, but the planner
         # blocked every non-RETRYABLE record, so cleared rows could never come back.

@@ -88,7 +88,10 @@ def reconcile(records, items, posts, cfg, now):
             k = key(item["video_id"], platform)
             if k in records and records[k]["state"] not in RETRYABLE:
                 continue
-            text, brief = copy_for(item, platform, cfg)
+            try:
+                text, brief = copy_for(item, platform, cfg)
+            except ValueError:
+                continue  # blocked items are reported at plan time; the probe skips them
             probe = {"video_id": item["video_id"], "platform": platform,
                      "channel_id": cfg["buffer"]["channels"][platform]["buffer_id"],
                      "media_url": media_url(item, cfg), "text": text,

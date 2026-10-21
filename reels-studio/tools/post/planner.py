@@ -174,9 +174,14 @@ def legacy_plan(items, records, channels, remote_posts, cfg, now, preview=False,
                 for platform in item["platforms"]:
                     due = base + dt.timedelta(minutes=settings["platform_offset_minutes"].get(platform, 0))
                     if due <= end and eligible(item, platform, due):
+                        try:
+                            payload = payload_for(item, platform, due, cfg)
+                        except ValueError as exc:
+                            notes.append(f"{item['video_id']} {platform}: blocked — {exc}")
+                            continue
                         rows.append({"video_id": item["video_id"], "platform": platform, "category": item["category"],
                                      "due_at": iso(due), "due_local": due.astimezone(zone).isoformat(),
-                                     "media_url": media_url(item, cfg), "payload": payload_for(item, platform, due, cfg)})
+                                     "media_url": media_url(item, cfg), "payload": payload})
                 if not rows:
                     continue
                 if len(result) + len(rows) > settings["max_posts_per_run"]:

@@ -207,10 +207,17 @@ def plan(items, records, channels, posts, cfg, now, preview=False, pilot=False, 
                 if not eligible:
                     break
                 item = eligible[0]
+                try:
+                    payload = copy_rules.payload_for(item, platform, due, cfg)
+                except ValueError as exc:
+                    # One blocked item is reported and skipped; it must not stop the rest of the queue.
+                    notes.append(f"{item['video_id']} {platform}: blocked — {exc}")
+                    used.add(item["video_id"])
+                    continue
                 row = {"video_id": item["video_id"], "platform": platform, "category": item["category"],
                        "due_at": iso(due), "due_local": due.astimezone(zone).isoformat(),
                        "schedule_timezone": profile.get("timezone", settings["timezone"]),
-                       "media_url": media_url(item, cfg), "payload": copy_rules.payload_for(item, platform, due, cfg)}
+                       "media_url": media_url(item, cfg), "payload": payload}
                 rows.append(row)
                 used.add(item["video_id"])
                 events["plan:" + item["video_id"]] = due
