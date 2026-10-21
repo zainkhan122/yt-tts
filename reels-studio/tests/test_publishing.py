@@ -499,9 +499,22 @@ def normalised_schema(path):
 class VerifyModeExitTests(unittest.TestCase):
     """The wiring, not just the helper: --verify must exit non-zero when Buffer disagrees."""
 
-    def run_verify(self, posts, video_id="repo-huashu-motion-01"):
+    # A synthetic journal row, not the live tracker: the live one moves on its own
+    # (repo-huashu-motion-01:youtube turned `sent` overnight on 2026-10-21 and this
+    # test started passing an empty Buffer scan, failing the CI gate for every run).
+    SCHEDULED_ROW = {"buffer_post_id": "fixture-scheduled-post", "state": "scheduled",
+                     "due_at": "2026-10-21T20:00:00.000Z", "sent_at": None, "external_url": None}
+
+    def run_verify(self, posts, video_id="repo-huashu-motion-01", records=None):
         import argparse
+        from types import SimpleNamespace
         from unittest.mock import patch
+        records = records if records is not None else {
+            "repo-huashu-motion-01:youtube": dict(self.SCHEDULED_ROW),
+            "repo-huashu-motion-01:instagram": dict(self.SCHEDULED_ROW, buffer_post_id="fixture-instagram-post"),
+            "repo-huashu-motion-01:facebook": dict(self.SCHEDULED_ROW, buffer_post_id="fixture-facebook-post")}
+        journal = SimpleNamespace(records=records, data={"records": records, "cooldown_until": None},
+                                  push=lambda *a, **k: None, save=lambda *a, **k: None)
         with tempfile.TemporaryDirectory() as tmp:
             report = Path(tmp) / "report.json"
             stub = Mock()
@@ -512,6 +525,7 @@ class VerifyModeExitTests(unittest.TestCase):
             argv = ["unittest", video_id, "--verify", "--report", str(report)]
             with patch.object(sys, "argv", argv), \
                  patch.object(publisher, "BufferClient", return_value=stub), \
+                 patch.object(publisher, "Journal", return_value=journal), \
                  patch.dict(os.environ, {"GITHUB_ACTIONS": "true"}, clear=False):
                 code = publisher.main()
             return code, json.loads(report.read_text()), report.with_suffix(".md").read_text()
@@ -524,14 +538,12 @@ class VerifyModeExitTests(unittest.TestCase):
         self.assertEqual(report["mode"], "verify")
 
     def test_matching_posts_pass(self):
-        journal = load_json(ROOT / "tracker/publications.json")["records"]
-        due = journal["repo-huashu-motion-01:youtube"]["due_at"]
-        posts = []
-        for platform in ("youtube", "instagram", "facebook"):
-            rec = journal[f"repo-huashu-motion-01:{platform}"]
-            posts.append({"id": rec["buffer_post_id"], "status": "scheduled", "dueAt": rec["due_at"],
-                          "assets": [{"source": "https://x/media/1/repo-huashu-motion-01.mp4"}]})
-        code, report, text = self.run_verify(posts)
+        records = {f"repo-huashu-motion-01:{p}": dict(self.SCHEDULED_ROW, buffer_post_id=f"fixture-{p}-post")
+                   for p in ("youtube", "instagram", "facebook")}
+        posts = [{"id": rec["buffer_post_id"], "status": "scheduled", "dueAt": rec["due_at"],
+                  "assets": [{"source": "https://x/media/1/repo-huashu-motion-01.mp4"}]}
+                 for rec in records.values()]
+        code, report, text = self.run_verify(posts, records=records)
         self.assertEqual(code, 0, text)
         self.assertIn("verified", text)
         self.assertNotIn("DRIFT", text)
