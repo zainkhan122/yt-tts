@@ -3242,9 +3242,11 @@
     },
     "tool-scrawl-01:facebook": {
       "attempts": 4,
+      "buffer_post_id": "6ad87d42d109f3f66b87a0bc",
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-21T19:00:00Z",
+      "due_at": "2026-10-21T19:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:9965c0b8ae7933afb00760142cd963f98d7325b088660a229a99f3ddfcba073b",
         "asset_id": 661637650,
@@ -3259,10 +3261,11 @@
       "notify_subscribers": false,
       "payload_sha256": "b578d8495dbfb025a7bc9e2a60c81f2866eaba417959765f2124b8fd777d2769",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Scrawl: describing a screen bug to an AI agent takes forever, and it still guesses. Record your screen while you talk and point, and the agent gets the changed frames with a transcript. Free, open source, Mac only for now.\n\nAI-generated narration.\n\n#macOS #DevTools",
       "title": "Scrawl: Show Your Agent the Bug Instead of Describing It",
-      "updated_at": "2026-10-21T08:52:16Z",
+      "updated_at": "2026-10-21T08:52:18Z",
       "video_id": "tool-scrawl-01"
     },
     "tool-scrawl-01:instagram": {
