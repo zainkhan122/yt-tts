@@ -317,7 +317,7 @@
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-20T22:30:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.youtube.com/shorts/BwOoawD6-oE",
       "media_ref": {
         "asset_digest": "sha256:c548553f78bb2bad31b6d09d30fb4bd98d42401daa8f1ceb2311d02cc637fc93",
         "asset_id": 658961058,
@@ -332,11 +332,11 @@
       "notify_subscribers": true,
       "payload_sha256": "d0d3659441f01f0cd926d987adc7d04c5860d16f5a06276a95cec88f11f3f3c2",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-20T22:30:11.474Z",
+      "state": "sent",
       "text": "humanizer is a 12B local model that rewrites AI-written drafts \u2014 emails, essays, reports \u2014 so they read like a person wrote them, while pinning numbers, dates and names. Free Mac/Windows app, runs offline. The honest line is in the video: its own evaluation shows some rewrites slip a fact, so read before you send. 1.97k likes, ~110k downloads.\nSource: https://huggingface.co/jialinyyzz/humanizer\n\nCredits: Own captures of the public Hugging Face page + the project's own media (checked 2026-10-19).\n\n#Shorts #AI #Writing #LLM",
       "title": "humanizer: The AI That Rewrites AI Text to Sound Like You",
-      "updated_at": "2026-10-20T10:17:58Z",
+      "updated_at": "2026-10-21T05:54:05Z",
       "video_id": "model-humanizer-01"
     },
     "model-lfm25-01:facebook": {
@@ -2613,7 +2613,7 @@
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-21T01:00:00.000Z",
-      "external_url": null,
+      "external_url": "https://www.youtube.com/shorts/xP2d4y9_mnE",
       "media_ref": {
         "asset_digest": "sha256:93193f79722a001691707055ca889728c47ce628eb64369ffb58d62e1f6780f2",
         "asset_id": 659927017,
@@ -2628,11 +2628,11 @@
       "notify_subscribers": false,
       "payload_sha256": "ece63438cdc27ac26490f15b85143b99e4e7173bbb4f0cfa88eebfa4c9deeb71",
       "platform": "youtube",
-      "sent_at": null,
-      "state": "scheduled",
+      "sent_at": "2026-10-21T01:00:41.156Z",
+      "state": "sent",
       "text": "fx0 is an open-source design agent from Vercel Labs: describe a page and an agent writes it as a single HTML file, with live publishing and version history. This Short shows a live run that built a pricing page in about ten seconds, plus a dashboard the same agent built. Catches in the video: five free prompts before you sign in and bill your own model, and the copy is placeholder text you still edit.\nSource: https://github.com/vercel-labs/fx0\n\nCredits: Own browser captures of fx0.vercel.dev (checked 2026-10-20) and of the page fx0 built.\n\n#Shorts #AI #WebDev #OpenSource",
       "title": "fx0: One Sentence In, A Finished Page Out (Design Agent)",
-      "updated_at": "2026-10-20T17:21:45Z",
+      "updated_at": "2026-10-21T05:54:05Z",
       "verified_at": "2026-10-20T17:21:54Z",
       "video_id": "tool-fx0-01"
     },
