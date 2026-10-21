@@ -3241,12 +3241,10 @@
       "video_id": "tool-qwen38-01"
     },
     "tool-scrawl-01:facebook": {
-      "attempts": 2,
-      "buffer_post_id": null,
+      "attempts": 3,
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-21T19:00:00.000Z",
-      "external_url": null,
+      "due_at": "2026-10-21T19:00:00Z",
       "media_ref": {
         "asset_digest": "sha256:9965c0b8ae7933afb00760142cd963f98d7325b088660a229a99f3ddfcba073b",
         "asset_id": 661637650,
@@ -3259,17 +3257,12 @@
       },
       "media_url": "https://zainkhan122.github.io/yt-tts/media/661637650/tool-scrawl-01.mp4",
       "notify_subscribers": false,
-      "payload_sha256": "4c60de7404e27b75b1a6c371576d06608c2dea8e2a6ccc816823edfd618c3aa8",
+      "payload_sha256": "f47321da02103536660edd9b967c2436c966f43164afc152423c5649cfa20f63",
       "platform": "facebook",
-      "previous_buffer_post_id": "6ad86da6d2a22f9ba693c98a",
-      "release_note": "owner-approved queue clear; recreated against corrected media",
-      "released_at": "2026-10-21T08:13:09Z",
-      "sent_at": null,
-      "state": "released",
-      "text": "Scrawl turns a screen bug into something an agent can read: one hotkey, a contact sheet, and a transcript pinned to each frame. Free and open source, Mac only for now.\n\nCredits: Own browser captures of scrawl.kitlangton.com (checked 2026-10-21).\n\nAI-generated narration.\n\n#AI #DevTools",
+      "state": "submitting",
+      "text": "Scrawl: describing a screen bug to an AI agent takes forever and it still guesses. Record your screen while you talk, and the agent gets the changed frames with a transcript. Free and open source, Mac only for now. AI voice narration.\n\nAI-generated narration.\n\n#DevTools #AICoding",
       "title": "Scrawl: Show Your Agent the Bug Instead of Describing It",
-      "updated_at": "2026-10-21T07:45:42Z",
-      "verified_at": "2026-10-21T07:45:51Z",
+      "updated_at": "2026-10-21T08:17:34Z",
       "video_id": "tool-scrawl-01"
     },
     "tool-scrawl-01:instagram": {
