@@ -867,6 +867,25 @@
       "status": "render_only_success",
       "voice_seed": 0
     },
+    "e8708f59f0e349b1e74bdcd4c31fc8b2868f83850593ce29ed5181e4181fbcb5": {
+      "asset_files_sha256": "cdd422ebd5f26614ded51cd637f4b8c0f880f2929080cb7a9b64925b1e436a74",
+      "asset_manifest_sha256": "7f36ed47ca01e06c80727da1c794530b598d6a9d7814c011f195d164cbb8ad87",
+      "brief_id": "tool-scrawl-01",
+      "brief_sha256": "6cbc4f2f2c8239efe38b9efbf56769389d8d805c5ee29a61836a9767c08669c0",
+      "capture_id": "tool-scrawl-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "e8708f59f0e349b1e74bdcd4c31fc8b2868f83850593ce29ed5181e4181fbcb5",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "86c17dc85cf9ad504769cb2f337fd6b1388d23beb62031dc656e58e34e19066b",
+      "run_id": "39556462329",
+      "started_at": "2026-10-21T06:36:38Z",
+      "status": "started",
+      "voice_seed": 0
+    },
     "f16edb5b815aece0ead41238abca857934574289d9e2dafc2e8421a55ffc70cc": {
       "asset_files_sha256": "27a052475e12a0e1e5c92c4de2a76c812529d343783917a77ccf800ca5da7a80",
       "asset_manifest_sha256": "cc4530edc45fc0bc5ed4612200a79186d899f3e47160b0991c9faadb6ac5a42e",
