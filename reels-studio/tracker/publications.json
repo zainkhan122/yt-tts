@@ -2579,12 +2579,10 @@
       "video_id": "tool-fx0-01"
     },
     "tool-fx0-01:instagram": {
-      "attempts": 3,
-      "buffer_post_id": null,
+      "attempts": 4,
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-21T22:00:00.000Z",
-      "external_url": null,
+      "due_at": "2026-10-21T22:00:00Z",
       "media_ref": {
         "asset_digest": "sha256:93193f79722a001691707055ca889728c47ce628eb64369ffb58d62e1f6780f2",
         "asset_id": 659927017,
@@ -2599,15 +2597,10 @@
       "notify_subscribers": false,
       "payload_sha256": "ef2e10b781e773208c664eeb8072b9a589ff8ec735440e1d6b20a6bd264b1e34",
       "platform": "instagram",
-      "previous_buffer_post_id": "6ad87d45d0cc3336f1152c8b",
-      "release_note": "owner-approved queue clear; recreated against corrected media",
-      "released_at": "2026-10-21T09:57:56Z",
-      "sent_at": null,
-      "state": "released",
+      "state": "submitting",
       "text": "fx0 design agent: next landing page, skip the blank file. Describe it in one sentence and it writes the page as one HTML file you can edit by hand, with no build step.\n\nThe catch: five free prompts, then sign in, and the copy is placeholder text you still write. Open source under Apache-2.0.\n\n#WebDev #LandingPage #OpenSource",
       "title": "fx0: One Sentence In, A Finished Page Out (Design Agent)",
-      "updated_at": "2026-10-21T08:52:21Z",
-      "verified_at": "2026-10-21T08:52:30Z",
+      "updated_at": "2026-10-21T10:02:17Z",
       "video_id": "tool-fx0-01"
     },
     "tool-fx0-01:youtube": {
