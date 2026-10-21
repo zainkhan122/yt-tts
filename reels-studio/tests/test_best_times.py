@@ -95,3 +95,11 @@ class PlannerRuleTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             n = bt.daily_count(dt.date(2026, 12, 1), Path(tmp) / "c.json", random.Random(7))
         self.assertLessEqual(n, 5)
+
+
+class CiNoDrawTests(unittest.TestCase):
+    def test_ci_never_draws_an_unrecorded_day(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "c.json"
+            self.assertIsNone(bt.daily_count(dt.date(2026, 11, 9), path, allow_draw=False))
+            self.assertFalse(path.exists())  # nothing written on a throwaway runner

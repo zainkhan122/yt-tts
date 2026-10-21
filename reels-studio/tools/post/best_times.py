@@ -32,19 +32,31 @@ class BestTimeError(ValueError):
     pass
 
 
-def daily_count(day: dt.date, path: Path = COUNTS_PATH, rng=None) -> int:
-    """Return the day's count (1–5). Draw once; a stored value is never changed."""
+def daily_count(day: dt.date, path: Path = COUNTS_PATH, rng=None, allow_draw: bool = True):
+    """Return the day's count (1–5). Draw once; a stored value is never changed.
+
+    With allow_draw=False (cloud runs) a day that was never drawn returns None, so the planner
+    holds that day instead of drawing on a throwaway runner (which would differ every run).
+    """
     rng = rng or secrets.SystemRandom()
     data = json.loads(path.read_text()) if path.exists() else {"schema_version": 1, "days": {}}
     key = day.isoformat()
     if key in data["days"]:
         return int(data["days"][key]["count"])
+    if not allow_draw:
+        return None
     count = rng.randint(DRAW_MIN, DRAW_MAX)
     data["days"][key] = {"count": count, "drawn_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
                          "method": "secrets.SystemRandom().randint(1,5)"}
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=1, sort_keys=True) + "\n")
     return count
+
+
+def draw_days(first: dt.date, days: int, path: Path = COUNTS_PATH) -> dict:
+    """Draw and persist counts for missing days (run locally, then commit the store)."""
+    return {(first + dt.timedelta(days=i)).isoformat(): daily_count(first + dt.timedelta(days=i), path)
+            for i in range(days)}
 
 
 def _views(post: dict, platform: str):

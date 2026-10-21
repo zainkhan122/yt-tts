@@ -6,6 +6,7 @@ because a render batch happens to be large.
 """
 import datetime as dt
 import json
+import os
 from collections import defaultdict
 from zoneinfo import ZoneInfo
 
@@ -157,7 +158,13 @@ def plan(items, records, channels, posts, cfg, now, preview=False, pilot=False, 
             if best_rules:
                 # Owner rules 2026-10-21: random 1–5 shorts per day (drawn once), each channel
                 # uses its own best-performing hours, the k-th short taking the k-th best slot.
-                day_target = min(best_times.daily_count(day), settings.get("max_videos_per_day", 10))
+                allow_draw = not os.environ.get("GITHUB_ACTIONS")
+                count = best_times.daily_count(day, allow_draw=allow_draw)
+                if count is None:
+                    notes.append(f"{platform} {day}: no recorded daily count (1-5) — day held, not drawn in CI")
+                    day += dt.timedelta(days=1)
+                    continue
+                day_target = min(count, settings.get("max_videos_per_day", 10))
                 clocks, provenance = best_times.ranked_clocks(insights, platform, profile, cfg, day_target, zone)
                 planned_provenance.setdefault(platform, {})[day.isoformat()] = provenance
             else:
