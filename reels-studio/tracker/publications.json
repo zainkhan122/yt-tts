@@ -3265,12 +3265,10 @@
       "video_id": "tool-scrawl-01"
     },
     "tool-scrawl-01:instagram": {
-      "attempts": 2,
-      "buffer_post_id": null,
+      "attempts": 3,
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-22T22:00:00.000Z",
-      "external_url": null,
+      "due_at": "2026-10-22T22:00:00Z",
       "media_ref": {
         "asset_digest": "sha256:9965c0b8ae7933afb00760142cd963f98d7325b088660a229a99f3ddfcba073b",
         "asset_id": 661637650,
@@ -3283,17 +3281,12 @@
       },
       "media_url": "https://zainkhan122.github.io/yt-tts/media/661637650/tool-scrawl-01.mp4",
       "notify_subscribers": false,
-      "payload_sha256": "83e0026fe4f0508bbf249bf79c0324690d23e6e6cd5b28f69863f99020a2f40b",
+      "payload_sha256": "e7d6f8f1fc5a90b62af1cb8a699af766699481e5bdefc5191c8bd836a293b806",
       "platform": "instagram",
-      "previous_buffer_post_id": "6ad86da9d2a22f9ba693c9d8",
-      "release_note": "owner-approved queue clear; recreated against corrected media",
-      "released_at": "2026-10-21T08:13:00Z",
-      "sent_at": null,
-      "state": "released",
-      "text": "Scrawl: press two keys, talk and draw over the screen, and your coding agent gets a contact sheet plus a transcript of exactly the moment that broke. Save this for your next hard-to-explain bug. Mac only for now.\n\nCredits: Own browser captures of scrawl.kitlangton.com (checked 2026-10-21).\n\n#AI #DevTools #OpenSource",
+      "state": "submitting",
+      "text": "Scrawl: the bug you can't put into words? Record it once. Press two keys, talk over the screen, and your coding agent gets a timed transcript plus only the frames where something changed. Keep this for your next hard bug. Mac only for now (macOS 26+).\n\n#DevTools #AICoding #MacApp",
       "title": "Scrawl: Show Your Agent the Bug Instead of Describing It",
-      "updated_at": "2026-10-21T07:45:45Z",
-      "verified_at": "2026-10-21T07:45:51Z",
+      "updated_at": "2026-10-21T08:17:40Z",
       "video_id": "tool-scrawl-01"
     },
     "tool-scrawl-01:youtube": {
