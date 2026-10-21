@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-20T18:46:33Z",
+  "updated_at": "2026-10-21T07:48:04Z",
   "videos": {
     "list-free-video-ai-01": {
       "snapshots": [
@@ -67,10 +67,28 @@
           "taken_at": "2026-10-20T18:46:33Z",
           "views": 150,
           "window": "24h"
+        },
+        {
+          "age_hours": 174.79,
+          "analytics": {
+            "unavailable": "YouTubeError: YouTube HTTP 403: Request had insufficient authentication scopes."
+          },
+          "comments": 0,
+          "engagement_rate": 0.00662,
+          "likes": 1,
+          "published_at": "2026-10-14T01:00:55Z",
+          "taken_at": "2026-10-21T07:48:04Z",
+          "views": 151,
+          "window": "7d"
         }
       ],
       "title": null,
       "youtube_id": "JmXvnjaiilA"
+    },
+    "model-humanizer-01": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "BwOoawD6-oE"
     },
     "model-lfm25-01": {
       "snapshots": [
@@ -424,7 +442,21 @@
       "youtube_id": "1m0M8Arrcqg"
     },
     "repo-coop-anything-01": {
-      "snapshots": [],
+      "snapshots": [
+        {
+          "age_hours": 35.78,
+          "analytics": {
+            "unavailable": "YouTubeError: YouTube HTTP 403: Request had insufficient authentication scopes."
+          },
+          "comments": 1,
+          "engagement_rate": 0.00595,
+          "likes": 1,
+          "published_at": "2026-10-19T20:01:20Z",
+          "taken_at": "2026-10-21T07:48:04Z",
+          "views": 336,
+          "window": "24h"
+        }
+      ],
       "title": null,
       "youtube_id": "-BH04LS8BJI"
     },
@@ -498,6 +530,11 @@
       "title": null,
       "youtube_id": "uDNaETSGkpk"
     },
+    "repo-huashu-motion-01": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "OhBSlDqPvR4"
+    },
     "repo-indra-01": {
       "snapshots": [
         {
@@ -518,7 +555,21 @@
       "youtube_id": "187nv8dhDaQ"
     },
     "repo-leanrea-01": {
-      "snapshots": [],
+      "snapshots": [
+        {
+          "age_hours": 33.29,
+          "analytics": {
+            "unavailable": "YouTubeError: YouTube HTTP 403: Request had insufficient authentication scopes."
+          },
+          "comments": 0,
+          "engagement_rate": 0.0,
+          "likes": 0,
+          "published_at": "2026-10-19T22:30:33Z",
+          "taken_at": "2026-10-21T07:48:04Z",
+          "views": 13,
+          "window": "24h"
+        }
+      ],
       "title": null,
       "youtube_id": "2dF5c-2OqQg"
     },
@@ -644,7 +695,21 @@
       "youtube_id": "z7HeSga2u9w"
     },
     "repo-whatsapp-mcp-01": {
-      "snapshots": [],
+      "snapshots": [
+        {
+          "age_hours": 30.78,
+          "analytics": {
+            "unavailable": "YouTubeError: YouTube HTTP 403: Request had insufficient authentication scopes."
+          },
+          "comments": 0,
+          "engagement_rate": 0.02941,
+          "likes": 1,
+          "published_at": "2026-10-20T01:01:00Z",
+          "taken_at": "2026-10-21T07:48:04Z",
+          "views": 34,
+          "window": "24h"
+        }
+      ],
       "title": null,
       "youtube_id": "P-Cc_EAvqv8"
     },
@@ -711,6 +776,11 @@
       ],
       "title": null,
       "youtube_id": "Mt8Yn9ShBmM"
+    },
+    "tool-fx0-01": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "xP2d4y9_mnE"
     },
     "tool-higgsfield-01": {
       "snapshots": [
