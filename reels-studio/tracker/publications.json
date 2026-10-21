@@ -3311,6 +3311,7 @@
       "channel_id": "6ac904af6a5c39ccb662a01f",
       "due_at": "2026-10-21T17:00:00.000Z",
       "external_url": null,
+      "last_error": "Automatic attempt budget exhausted; explicit review required",
       "media_ref": {
         "asset_digest": "sha256:9965c0b8ae7933afb00760142cd963f98d7325b088660a229a99f3ddfcba073b",
         "asset_id": 661637650,
@@ -3329,7 +3330,7 @@
       "release_note": "owner-approved queue clear; recreated against corrected media",
       "released_at": "2026-10-21T09:57:29Z",
       "sent_at": null,
-      "state": "released",
+      "state": "dead_letter",
       "text": "Describing a UI bug to a coding agent takes four paragraphs, and it still guesses. Scrawl lets you show it instead. Press Option Shift S, talk while you point at the screen, and the agent gets only the frames where something happened, with your words timed to each one.\n\nMac only for now: macOS 26 on Apple silicon. Speech is transcribed on your own machine. Free and open source under MIT.\n\nhttps://github.com/kitlangton/scrawl\n\n#Shorts #ClaudeCode #MacApps",
       "title": "Scrawl: Show Your Agent the Bug Instead of Describing It",
       "updated_at": "2026-10-21T08:52:15Z",
