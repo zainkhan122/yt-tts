@@ -7,7 +7,7 @@ Every item gets RISK FLAGS (uncensored/NSFW, ToS bypass, "free API key" abuse, b
 Flagged items are never put into briefs: promoting them can cost the channel (and its viewers).
 
   python3 tools/trend_radar.py --days 14            # writes research/radar/radar-YYYY-MM-DD.md
-  python3 tools/trend_radar.py --days 14 --brief    # + briefs/draft-trending-repos-YYYY-MM-DD.json (ranked-list)
+  python3 tools/trend_radar.py --days 14 --brief    # + briefs/draft-trending-repos-YYYY-MM-DD.json (placeholders only; a human writes the copy)
 Uses GH_TOKEN or /var/tmp/gh/token if present (higher rate limit); works without.
 """
 import argparse
@@ -75,14 +75,9 @@ def hf(kind):
 
 
 def angle(item):
-    d = (item.get("desc") or "").lower()
-    if "mcp" in d or "claude code" in d or "plugin" in d:
-        return "tool-spotlight: 'Claude/Cursor just got a superpower' + 3-step setup"
-    if any(k in d for k in ("video", "image", "voice", "tts", "music")):
-        return "tool-spotlight with a real before/after you generate yourself"
-    if "agent" in d:
-        return "ranked-list: 'AI agents you can run free this week'"
-    return "ranked-list entry (trending repos of the week)"
+    """A prompt for the human editor, not a format. Picking the angle is a judgment call."""
+    d = (item.get("desc") or "").strip()
+    return f"Editor to decide: what can a viewer see this do on screen? ({d[:60]})" if d else "Editor to decide"
 
 
 def main():
@@ -115,15 +110,16 @@ def main():
         top = sorted(safe[:5], key=lambda r: r["stars"])  # countdown: smallest first
         items = [{"rank": len(top) - k, "name": r["name"].split("/")[1][:22], "line": re.sub(r"\s+", " ", r["desc"]).strip()[:90],
                   "value": r["stars"], "tag": f"{r['license']} · {r['per_day']:.0f}★/day", "mono": r["name"].split("/")[1][:2].upper()} for k, r in enumerate(top)]
-        brief = {"id": f"trending-repos-{today}", "template": "ranked-list", "draft": True,
-                 "needs_review": ["rewrite each 'line' as a spoken sentence you verified by running the tool",
+        brief = {"id": f"trending-repos-{today}", "draft": True,
+                 "needs_review": ["write the hook, sub and CTA yourself from what you verified by running each tool (no formula copy)",
+                                  "rewrite each 'line' as a spoken sentence you verified by running the tool",
                                   "check the licence and that the repo does what it claims", "add a real takeaway in the CTA"],
                  "title": f"{len(top)} AI repos blowing up on GitHub this week", "lang": "en-us", "voice": "af_heart", "speed": 1.05, "style": "midnight",
                  "brand": {"handle": "@yourhandle", "name": "Your Channel", "tagline": "Trending AI tools, tested"},
-                 "content": {"kicker": "📈 TRENDING ON GITHUB", "hook": f"These {len(top)} AI repos exploded on GitHub this week.",
-                             "hook_display": f"{len(top)} AI repos exploding this week", "sub": "ranked by GitHub stars",
+                 "content": {"kicker": "", "hook": "TODO: write the viewer-problem hook", "hook_display": "TODO",
+                             "sub": "TODO",
                              "metric_label": "GitHub stars", "metric_icon": "⭐", "items": items,
-                             "cta": "Which one should I test next? Comment below and follow for the weekly list."},
+                             "cta": "TODO: one concrete next step for the viewer"},
                  "sources": [f"GitHub API, fetched {today}: " + ", ".join(f"{r['name']} {r['stars']}★" for r in top)]}
         bp = ROOT / "briefs" / f"draft-trending-repos-{today}.json"
         bp.write_text(json.dumps(brief, ensure_ascii=False, indent=1), encoding="utf-8")

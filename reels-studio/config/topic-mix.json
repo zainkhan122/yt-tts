@@ -1,0 +1,15 @@
+{
+  "_doc": "Topic selection v3. Categories come from the channel descriptions (AI tools, repos, news). Templates are never used to choose a topic. Weights sum to 1.0.",
+  "categories": {
+    "tool":  {"target": 0.40, "description": "a usable AI product, model, API or offer you can try this week"},
+    "news":  {"target": 0.30, "description": "an AI launch, change, deadline or paid-to-free offer with a dated source"},
+    "repo":  {"target": 0.30, "description": "an open-source AI repository with a licence and real setup needs"}
+  },
+  "window_days": 14,
+  "max_consecutive_same_category": 2,
+  "weights": {"value": 0.40, "freshness": 0.20, "proof": 0.20, "urgency": 0.10, "balance": 0.10},
+  "freshness_half_life_days": 5,
+  "novelty_block_days": 30,
+  "blocking_risk_flags": ["licence-unclear", "unverified-claim", "no-https-source", "hype-only", "unsafe"],
+  "study_max_age_days": 7
+}

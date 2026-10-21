@@ -22,7 +22,15 @@ def channel_problem(channel, expected):
 
 
 def copy_for(item, platform, cfg):
-    b = load_json(ROOT / "briefs" / (item["video_id"] + ".json"))
+    """Final copy for one item on one platform. Any problem raises ValueError naming the item.
+
+    Callers treat ValueError as "this item/platform is blocked" and carry on with the queue.
+    Anything else (a missing or unreadable brief) is converted here so it cannot abort a whole run.
+    """
+    try:
+        b = load_json(ROOT / "briefs" / (item["video_id"] + ".json"))
+    except (OSError, ValueError) as exc:
+        raise ValueError(f"{item.get('video_id', '?')}: brief unreadable ({type(exc).__name__})") from None
     if item.get("brief_sha256") and fingerprint(b) != item["brief_sha256"]:
         raise ValueError(f"{item['video_id']}: brief changed since queue review; re-pin and re-approve")
     blocking = errors(check_brief(b, today=dt.date.today(), disclosure=cfg["disclosure"]["facebook_caption"]))

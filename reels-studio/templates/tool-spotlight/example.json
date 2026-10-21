@@ -1,7 +1,6 @@
 {
  "id": "my-tool-spotlight",
  "_how": "Copy, then edit: capture pack (python3 reels.py capture <id> --url ...), facts (re-check same day), scenes (types: clip, clip-montage, page, scroll, steps, terminal, verdict, stat, image, endcard; see templates/_spotlight/spotcore.py). Display vs spoken: {GTA V|GTA Five}. *word* in headings = yellow. Viewer-benefit first (PLAYBOOK SS4): hook = pain/outcome, features = outcomes for the viewer, catches = plain user-impact words; at most ONE licence mention per script (plain 'free and open source', verdict/close only, never the hook or headlines).",
- "template": "tool-spotlight",
  "capture": "captures/universal-modder",
  "title": "AI just put Minecraft inside GTA V",
  "lang": "en-us",
@@ -149,23 +148,6 @@
    "say": "Which game would you mod first? Comment {MOD|mod} and I'll pin the link."
   }
  ],
- "credits_on_screen": "Footage & images: github.com/rehan-remade/universal-modder (MIT). Screens: own capture.",
- "post": {
-  "titles": [
-   "AI just put Minecraft inside GTA V",
-   "This free AI mods almost any PC game you own",
-   "5,000 GitHub stars in 8 days: AI game modding"
-  ],
-  "caption": "An open-source plugin lets AI coding agents (Claude Code, Codex, Gemini) mod PC games you own: Minecraft in GTA V, Halo's Warthog in Minecraft and more. The catch is in the video.",
-  "hashtags": [
-   "#AItools",
-   "#gaming",
-   "#modding",
-   "#ClaudeCode",
-   "#opensource"
-  ],
-  "pinned_comment": "🔗 github.com/rehan-remade/universal-modder (MIT). Catches: art/3D/sound run on fal (pay-per-use); games you own only, and it refuses online games with anti-cheat. Footage: the repo's own teaser."
- },
  "sources": [
   "GitHub API 2026-10-08: 5,142 stars, 468 forks, MIT, created 2026-09-30 (capture 2026-10-07: 4,935 stars)",
   "README of rehan-remade/universal-modder, read 2026-10-08: install commands; 'Rules it follows': any game you own (single-player, multiplayer, servers you host); refuses online games with anti-cheat; never ships game files",
