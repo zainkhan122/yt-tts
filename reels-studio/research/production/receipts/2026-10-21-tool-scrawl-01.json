@@ -29,7 +29,7 @@
  },
  "briefs": {
   "tool-scrawl-01": {
-   "brief_sha256": "01d8cc18111304cf06f7a56d45b35536a4b30aa95feb5e34fbb045fc1a09dde6",
+   "brief_sha256": "6cbc4f2f2c8239efe38b9efbf56769389d8d805c5ee29a61836a9767c08669c0",
    "metrics_decisions": {
     "topic": "588 stars on day three for a macOS capture tool; the viewer job (stop describing your screen to an agent, hand it a contact sheet instead) is concrete and demoable in ten seconds.",
     "script": "Workflow archetype: hook shows the demo line 'Show an agent the problem', then two keystrokes, then the frames-on-change proof scroll, then the platform catch, then the comment CTA. 148 spoken words for a 52-56 second cut.",
@@ -113,7 +113,7 @@
      "rights_checked": true,
      "approval_constraints_checked": true,
      "capture_id": "tool-scrawl-01",
-     "manifest_sha256": "3d41d2b659adca1fd134dd5a7b710ed34772ffbe98b58297c5da4729229b9dae",
+     "manifest_sha256": "7f36ed47ca01e06c80727da1c794530b598d6a9d7814c011f195d164cbb8ad87",
      "files": [
       {
        "path": "desktop-full.jpg",

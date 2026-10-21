@@ -138,20 +138,20 @@
       "heading": "AND IT *ONLY KEEPS WHAT MATTERS*",
       "stops": [
         {
-          "region": "how_card1",
-          "zoom": 1.7,
-          "label": "FRAMES ON CHANGE",
-          "at": "frame"
+          "region": "how_text1",
+          "zoom": 2.0,
+          "label": "FRAME ON CHANGE",
+          "at": "draw"
         },
         {
-          "region": "how_card3",
-          "zoom": 1.7,
-          "label": "CROPPED TO YOU",
-          "at": "sentence"
+          "region": "how_text2",
+          "zoom": 2.0,
+          "label": "WORDS STAY ON IT",
+          "at": "transcribed"
         },
         {
           "region": "how_cards",
-          "zoom": 1.08,
+          "zoom": 1.12,
           "label": "CONTACT SHEET",
           "at": "contact"
         }
@@ -171,7 +171,7 @@
         "Transcription stays on your machine"
       ],
       "item_at": [
-        "macOS",
+        "Mac",
         "unsigned",
         "free and open source",
         "your own machine"
@@ -215,7 +215,7 @@
       ]
     },
     "tiktok": {
-      "caption": "Stop writing four paragraphs about your screen. One hotkey records it, draws on it, and turns it into something your agent can read.",
+      "caption": "Scrawl: stop writing four paragraphs about your screen. One hotkey records it, draws on it, and hands your agent something it can read.",
       "hashtags": [
         "#AI",
         "#DevTools",
@@ -223,7 +223,7 @@
       ]
     },
     "instagram": {
-      "caption": "Save this: press two keys, talk and draw over the screen, and your coding agent gets a contact sheet plus a transcript of exactly the moment that broke. Mac only for now.",
+      "caption": "Scrawl: press two keys, talk and draw over the screen, and your coding agent gets a contact sheet plus a transcript of exactly the moment that broke. Save this for your next hard-to-explain bug. Mac only for now.",
       "hashtags": [
         "#AI",
         "#DevTools",
@@ -238,11 +238,12 @@
       ]
     },
     "x": {
-      "text": "Scrawl: press Option Shift S, talk and draw over the screen, paste the bundle into your agent. Frames only when something happens. MIT, macOS 26+ only: https://github.com/kitlangton/scrawl",
+      "text": "Scrawl: press Option Shift S, talk and draw over the screen, paste the bundle into your agent. Frames only when something happens. Free and open source, macOS 26+ only: https://github.com/kitlangton/scrawl",
       "hashtags": [
         "#AI",
         "#DevTools"
-      ]
+      ],
+      "caption": "Scrawl: press Option Shift S, talk and draw over the screen, paste the bundle into your agent. Frames only when something happens. Free and open source, macOS 26+ only: https://github.com/kitlangton/scrawl"
     }
   },
   "post": {
