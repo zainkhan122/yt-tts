@@ -332,6 +332,9 @@ def require_whisper_match(matched, total, threshold=MIN_ENGLISH_WHISPER_MATCH, d
     return ratio
 
 
+DEFAULT_SKIN = "tool-spotlight"  # the one visual skin; content structure comes from the brief scenes
+
+
 def load_template(name):
     d = TPL_DIR / name
     if not (d / "template.py").exists():
@@ -1132,13 +1135,13 @@ class Job:
             if "lexicon" in chan:
                 self.brief["lexicon"] = {**chan["lexicon"], **self.brief.get("lexicon", {})}
         self.id = self.brief["id"]
-        self.tpl = load_template(self.brief["template"])
+        self.tpl = load_template(DEFAULT_SKIN)  # visual skin only; briefs carry no template (v2)
         self.quality, self.crf, self.do_check, self.do_render, self.keep_work = quality, crf, check, render, keep_work
         self.work = WORK_ROOT / self.id
         self.proj = self.work / "project"
         self.out = OUT_DIR / self.id
         self.log = self.work / "build.log"
-        self.manifest = {"id": self.id, "template": self.brief["template"], "brief": str(self.brief_path.relative_to(ROOT)) if ROOT in self.brief_path.parents else str(self.brief_path), "stages": {}}
+        self.manifest = {"id": self.id, "skin": DEFAULT_SKIN, "brief": str(self.brief_path.relative_to(ROOT)) if ROOT in self.brief_path.parents else str(self.brief_path), "stages": {}}
 
     def stage(self, name, **info):
         self.manifest["stages"][name] = info

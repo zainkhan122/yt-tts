@@ -1,6 +1,5 @@
 {
   "id": "model-drama3-01",
-  "template": "tool-spotlight",
   "capture": "captures/model-drama3-01",
   "title": "Drama 3: Sixteen Voices in One Script",
   "niche": "AI voice / TTS",
@@ -28,7 +27,7 @@
     "https://huggingface.co/api/models/fishaudio/drama-3"
   ],
   "verify_before_render": [
-    "HF card+API 2026-10-16: 35B/3B-active TTS MoE; speaker tags carry up to 16 characters in one text; voice cloning from a reference clip; point tags like [sighs]/[laughs]; edit-by-rewriting. Fish Audio Community License \u2014 never call it Apache.",
+    "HF card+API 2026-10-16: 35B/3B-active TTS MoE; speaker tags carry up to 16 characters in one text; voice cloning from a reference clip; point tags like [sighs]/[laughs]; edit-by-rewriting. Fish Audio Community License — never call it Apache.",
     "Vendor serving figures (H200): first audio under 100 ms p50 single stream; attributed if mentioned. We generated no audio.",
     "Self-hosting needs a serious GPU; playground exists. Visuals are our own cards. No on-screen credit captions."
   ],
@@ -38,7 +37,7 @@
       "type": "image",
       "image": "cast-card.png",
       "heading": "A CAST IN *ONE SCRIPT*",
-      "sub": "Drama 3 \u00b7 Fish Audio TTS",
+      "sub": "Drama 3 · Fish Audio TTS",
       "say": "One script, a whole cast of characters, each with their own voice."
     },
     {
@@ -46,7 +45,7 @@
       "type": "image",
       "image": "skills-card.png",
       "heading": "MEET *DRAMA 3*",
-      "sub": "Fish Audio \u00b7 community licence",
+      "sub": "Fish Audio · community licence",
       "say": "This is Drama three from Fish Audio, a speech model built for scenes, not just narration."
     },
     {
@@ -178,6 +177,6 @@
       "#TTS",
       "#VoiceAI"
     ],
-    "pinned_comment": "Model card: https://huggingface.co/fishaudio/drama-3 \u2014 we generated no audio for this video; visuals are our own cards."
+    "pinned_comment": "Model card: https://huggingface.co/fishaudio/drama-3 — we generated no audio for this video; visuals are our own cards."
   }
 }

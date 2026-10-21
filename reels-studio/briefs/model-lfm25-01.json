@@ -1,8 +1,7 @@
 {
   "id": "model-lfm25-01",
-  "template": "tool-spotlight",
   "capture": "captures/model-lfm25-01",
-  "title": "LFM2.5: 24B Brain, 2B at Work \u2014 a Local Agent Model",
+  "title": "LFM2.5: 24B Brain, 2B at Work — a Local Agent Model",
   "niche": "on-device AI agents / local LLMs",
   "lang": "en-us",
   "style": "midnight",
@@ -43,7 +42,7 @@
       "type": "image",
       "image": "spec-card.png",
       "heading": "24B BRAIN. *2B AT WORK.*",
-      "sub": "Liquid AI \u00b7 mixture of experts",
+      "sub": "Liquid AI · mixture of experts",
       "say": "A giant model brain, but only a small part of it lights up for every token."
     },
     {
@@ -61,7 +60,7 @@
       "value": 184,
       "decimals": 0,
       "suffix": " tok/s",
-      "label": "Liquid AI's test \u00b7 Apple M5 Max",
+      "label": "Liquid AI's test · Apple M5 Max",
       "at": "eighty",
       "say": "Liquid AI reports more than one hundred eighty tokens per second on a top-end Mac chip."
     },
@@ -127,7 +126,7 @@
     ],
     "onscreen_first3s": "24B BRAIN. 2B AT WORK.",
     "youtube": {
-      "title": "LFM2.5: 24B Brain, 2B at Work \u2014 a Local Agent Model",
+      "title": "LFM2.5: 24B Brain, 2B at Work — a Local Agent Model",
       "description": "Liquid AI's LFM2.5-24B-A2B carries 24B parameters but activates only about 2B per token, aiming at fast private agents on-device. Liquid AI reports up to 184 tok/s on an Apple M5 Max (vendor figure; we did not run the 24B model). It always thinks before answering, and Liquid AI recommends pairing it with retrieval or search for knowledge work. Weights are under the LFM 1.0 licence, with GGUF, MLX, ONNX and FP8 builds.\nSource: https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
       "hashtags": [
         "#Shorts",
@@ -178,7 +177,7 @@
   },
   "post": {
     "titles": [
-      "LFM2.5: 24B Brain, 2B at Work \u2014 a Local Agent Model"
+      "LFM2.5: 24B Brain, 2B at Work — a Local Agent Model"
     ],
     "caption": "Liquid AI's LFM2.5-24B-A2B carries 24B parameters but activates only about 2B per token, aiming at fast, private on-device agents. Liquid AI reports up to 184 tok/s on an M5 Max (their figure; we did not benchmark the 24B model). Catches: it always thinks before answering, Liquid AI recommends pairing it with search for knowledge work, and the weights use the LFM 1.0 licence.",
     "hashtags": [
@@ -187,6 +186,6 @@
       "#LLM",
       "#AIAgents"
     ],
-    "pinned_comment": "Model card: https://huggingface.co/LiquidAI/LFM2.5-24B-A2B \u2014 speed figures are Liquid AI's; the visuals are our own cards and no local run is claimed."
+    "pinned_comment": "Model card: https://huggingface.co/LiquidAI/LFM2.5-24B-A2B — speed figures are Liquid AI's; the visuals are our own cards and no local run is claimed."
   }
 }

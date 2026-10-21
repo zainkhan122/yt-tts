@@ -1,6 +1,8 @@
 """Creative-treatment tests (PLAYBOOK §8A): the viewer-first layer above the gates."""
 import unittest
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(__file__))  # sibling import when run as tests.test_creative
 from test_brief_lint import BriefLintTests, brief
 
 

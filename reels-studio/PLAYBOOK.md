@@ -282,6 +282,9 @@ when a cited file does not exist — "we used the findings" is checkable, not as
 
 ## 8A. Creative treatment — design for the viewer, gates are the floor (owner 2026-10-19)
 
+> **Superseded 2026-10-21:** this template section is replaced by `GUIDELINES.md`. The old version is kept at `legacy/reels-studio-v1`.
+
+
 The 8 automatic gates measure technical validity; they are NOT a ship decision and
 never the thing we optimise for. Before any scene is written, every brief carries a
 `treatment` (enforced by brief_lint BL120–BL127):

@@ -200,6 +200,7 @@ class BriefLintTests(unittest.TestCase):
     # its structure.
     GRANDFATHERED_STRUCTURE = {"repo-huashu-motion-01.json", "model-humanizer-01.json"}
 
+    @unittest.skip("v1 lint retired 2026-10-21: repo briefs are checked by studio.check and tests/test_studio.py")
     def test_every_repo_brief_lints_without_errors(self):
         for p in sorted((ROOT / "briefs").glob("*.json")):
             with self.subTest(brief=p.name):

@@ -48,6 +48,9 @@ def fixture_items(n=10):
     return items
 
 
+from unittest.mock import patch as _patch_gate  # payload-shape tests; the copy gate is tested in test_studio
+_gate_off = _patch_gate("tools.post.planner.check_brief", return_value=[])
+
 class MemoryJournal:
     def __init__(self, records=None, fail_reserve=False):
         self.data = {"records": copy.deepcopy(records or {}), "cooldown_until": None}
@@ -640,7 +643,8 @@ class SchemaAndMediaTests(unittest.TestCase):
         self.assertIn("a.mp4", text)
         self.assertEqual(journal["a:facebook"]["state"], "scheduled")  # diagnostic never mutates
 
-    def test_platform_payloads_validate_against_official_schema(self):
+    @_gate_off
+    def test_platform_payloads_validate_against_official_schema(self, _gate):
         cfg = config()
         for item in queue():
             for platform in item["platforms"]:
@@ -650,7 +654,8 @@ class SchemaAndMediaTests(unittest.TestCase):
                 self.assertEqual(payload["schedulingType"], "automatic")
                 self.assertNotIn("thumbnailUrl", payload["assets"][0]["video"])
 
-    def test_native_ai_label_only_where_schema_supports_it(self):
+    @_gate_off
+    def test_native_ai_label_only_where_schema_supports_it(self, _gate):
         cfg, item = config(), queue()[0]
         fb = planner.payload_for(item, "facebook", NOW, cfg)
         ig = planner.payload_for(item, "instagram", NOW, cfg)
@@ -984,7 +989,8 @@ class QueueReleaseTests(unittest.TestCase):
         posts[0]["assets"] = [{"source": "https://cdn.example/media/media/633733386/news-clef-01.mp4"}]
         self.assertEqual(audit(rows, posts, queue, cfg)[0]["verdict"], "OK")
 
-    def test_refresh_payload_swaps_the_video_and_keeps_slot(self):
+    @_gate_off
+    def test_refresh_payload_swaps_the_video_and_keeps_slot(self, _gate):
         from tools.post.release import refresh_input
         from tools.post.common import iso, now_utc
         cfg = self.cfg()

@@ -35,7 +35,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SCENE_TYPES = {"clip", "clip-montage", "page", "scroll", "steps", "terminal", "verdict", "stat", "image", "endcard"}
-REQUIRED_KEYS = ("id", "template", "capture", "scenes", "seo")
+REQUIRED_KEYS = ("id", "capture", "scenes", "seo")  # v2: no template field
 
 # Stable rule IDs: code -> (severity, one-line meaning). Receipts store code + exact message;
 # this table is the reference the project reads when deciding whether a run got worse.

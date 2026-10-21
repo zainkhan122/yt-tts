@@ -1,6 +1,5 @@
 {
   "id": "news-muse-spark-01",
-  "template": "tool-spotlight",
   "capture": "captures/news-muse-spark-01",
   "title": "Muse Spark Open: Meta's 816B Giant Needs 1 TB of RAM",
   "niche": "AI model news",
@@ -29,7 +28,7 @@
   ],
   "verify_before_render": [
     "Meta announced Muse Spark Open 2026-10-15: 816B total/42B active, 1M-token context, natively multimodal; Meta calls it the most capable US open-weight model (vendor claim).",
-    "Weights downloadable under the Muse Model License with limited commercial terms \u2014 never call it Apache or unrestricted.",
+    "Weights downloadable under the Muse Model License with limited commercial terms — never call it Apache or unrestricted.",
     "Press reports (TechCrunch/Engadget/Times of India): local runs need about 1 TB of RAM, e.g. two Mac Studios with M5 Ultra. It does not run on a normal Mac; say so.",
     "Visuals are our own cards; no third-party clips. No on-screen credit captions."
   ],
@@ -39,7 +38,7 @@
       "type": "image",
       "image": "spec-card.png",
       "heading": "META'S *816B* GIANT",
-      "sub": "Muse Spark Open \u00b7 announced Oct 15",
+      "sub": "Muse Spark Open · announced Oct 15",
       "say": "Meta just released the weights of its biggest model ever, tuned for Apple silicon."
     },
     {
@@ -47,7 +46,7 @@
       "type": "image",
       "image": "skills-card.png",
       "heading": "MEET *MUSE SPARK OPEN*",
-      "sub": "Meta \u00b7 Muse Model Licence",
+      "sub": "Meta · Muse Model Licence",
       "say": "It is Muse Spark Open, which Meta calls its most capable open-weight model yet."
     },
     {
@@ -57,7 +56,7 @@
       "value": 816,
       "decimals": 0,
       "suffix": "B",
-      "label": "total parameters \u00b7 42B active \u00b7 1M context",
+      "label": "total parameters · 42B active · 1M context",
       "at": "eight",
       "say": "Over eight hundred billion parameters in total, and only a slice of them works on each token."
     },
@@ -82,7 +81,7 @@
       "type": "terminal",
       "heading": "GET *ACCESS*",
       "lines": [
-        "# API: Baseten \u00b7 Fireworks",
+        "# API: Baseten · Fireworks",
         "# or download the weights"
       ],
       "say": "Use it through the Baseten or Fireworks APIs today, or download the weights yourself."
@@ -121,7 +120,7 @@
     "onscreen_first3s": "META'S 816B GIANT",
     "youtube": {
       "title": "Muse Spark Open: Meta's 816B Giant Needs 1 TB of RAM",
-      "description": "Meta's Muse Spark Open is an 816B-parameter open-weight model (42B active, 1M-token context, natively multimodal) built for coding and agentic work. Meta calls it the most capable US open-weight model (their claim). The catch: local runs reportedly need about 1 TB of RAM \u2014 two Mac Studios with M5 Ultra chips \u2014 and the Muse Model License limits some commercial use.\nSources: TechCrunch (2026-10-15) and Meta's announcement.",
+      "description": "Meta's Muse Spark Open is an 816B-parameter open-weight model (42B active, 1M-token context, natively multimodal) built for coding and agentic work. Meta calls it the most capable US open-weight model (their claim). The catch: local runs reportedly need about 1 TB of RAM — two Mac Studios with M5 Ultra chips — and the Muse Model License limits some commercial use.\nSources: TechCrunch (2026-10-15) and Meta's announcement.",
       "hashtags": [
         "#Shorts",
         "#AI",
@@ -160,7 +159,7 @@
       ]
     },
     "x": {
-      "text": "Meta's Muse Spark Open: 816B params, 42B active, 1M context \u2014 but local runs need ~1 TB of RAM. Muse Model License terms. https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/",
+      "text": "Meta's Muse Spark Open: 816B params, 42B active, 1M context — but local runs need ~1 TB of RAM. Muse Model License terms. https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/",
       "hashtags": [
         "#AI",
         "#MetaAI"
@@ -178,6 +177,6 @@
       "#MetaAI",
       "#LLM"
     ],
-    "pinned_comment": "Announcement coverage: https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/ \u2014 capability claims are Meta's; the RAM figure is press-reported."
+    "pinned_comment": "Announcement coverage: https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/ — capability claims are Meta's; the RAM figure is press-reported."
   }
 }

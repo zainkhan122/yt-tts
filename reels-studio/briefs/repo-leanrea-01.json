@@ -1,219 +1,218 @@
 {
- "id": "repo-leanrea-01",
- "template": "tool-spotlight",
- "capture": "captures/repo-leanrea-01",
- "title": "leanrea: The 8 KB Skill That Replaces 207 Reverse-Engineering Tools",
- "niche": "reverse engineering skills for coding agents",
- "lang": "en-us",
- "style": "midnight",
- "status": "Selected 2026-10-19 from fresh radar (radar-2026-10-19) + performance advice (repo prioritised). Today's batch: 2 videos. Default flow: render + frame-level QA + viewer panel PASS, then Buffer scheduled send on YouTube/Instagram/Facebook at each channel's best-performing window. Approved Option-3 Chatterbox flow voice; no on-screen credit captions.",
- "production_category": "repo",
- "keywords": [
-  "leanrea",
-  "reverse engineering",
-  "Claude Code skill",
-  "AI agent tools",
-  "MCP alternative"
- ],
- "facts": {
-  "stars": "899 GitHub stars (own capture, checked 2026-10-19)",
-  "license": "MIT",
-  "runtime": "One 8 KB SKILL.md; no MCP server; uses plain CLI tools (project README)"
- },
- "credits_on_screen": "Own captures of the public GitHub repo (checked 2026-10-19).",
- "sources": [
-  "https://github.com/aicodeking/leanrea",
-  "https://api.github.com/repos/aicodeking/leanrea"
- ],
- "verify_before_render": [
-  "Stars, licence and benchmark claims re-checked against the live repo on render day."
- ],
- "scenes": [
-  {
-   "id": "hook",
-   "type": "page",
-   "image": "desktop-top.jpg",
-   "heading": "YOUR AGENT *PAYS A TAX*",
-   "sub": "leanrea \u00b7 reverse engineering, minus the bloat",
-   "say": "Your coding agent pays a heavy tax just to inspect an app you already own.",
-   "url": "github.com/aicodeking/leanrea",
-   "camera": [
-    {
-     "region": "repo_title",
-     "zoom": 1.5,
-     "at": "inspect"
-    }
-   ]
-  },
-  {
-   "id": "name",
-   "type": "image",
-   "image": "desktop-top.jpg",
-   "heading": "MEET *LEANREA*",
-   "sub": "by aicodeking \u00b7 open source",
-   "say": "This is leanrea: one tiny skill file that teaches your agent to reverse engineer with tools already on your machine."
-  },
-  {
-   "id": "how",
-   "type": "steps",
-   "heading": "HOW IT *WORKS*",
-   "steps": [
-    "Point it at an app",
-    "It runs the fastest command",
-    "Answers with evidence"
-   ],
-   "step_at": [
-    "Point it",
-    "fastest command",
-    "evidence"
-   ],
-   "say": "Point it at an app. It picks the fastest command, runs it directly, and answers with evidence. In the maker's tests, that beat the heavyweight server on speed and cost.",
-   "background": {
-    "image": "desktop-full.jpg",
-    "scroll_regions": [
-     "h_benchmark",
-     "h_what_s_in_the_skill"
-    ]
-   }
-  },
-  {
-   "id": "stars",
-   "type": "page",
-   "heading": "DEVS *NOTICED*",
-   "image": "desktop-top.jpg",
-   "say": "Developers gave it nearly nine hundred stars in its first two days.",
-   "camera": [
-    {
-     "region": "star_button",
-     "zoom": 2.6,
-     "at": "nine hundred"
-    }
-   ],
-   "cursor": [
-    {
-     "region": "star_button",
-     "at": "nine hundred",
-     "state": "\u2605 Starred 899"
-    }
-   ]
-  },
-  {
-   "id": "install",
-   "type": "page",
-   "heading": "*ONE COMMAND*",
-   "image": "desktop-full.jpg",
-   "say": "You add it with a single installer command, and it works across the major coding agents.",
-   "camera": [
-    {
-     "region": "h_install",
-     "zoom": 1.35,
-     "at": "installer"
-    }
-   ]
-  },
-  {
-   "id": "catch",
-   "type": "verdict",
-   "heading": "BEFORE YOU *ADD IT*",
-   "cons": [
-    "Speed numbers are the maker's own small benchmark",
-    "The command-line tools must already be installed"
-   ],
-   "pros": [
-    "Free and open source",
-    "No MCP server, no tool bloat"
-   ],
-   "item_at": [
-    "maker's own",
-    "installed first",
-    "open source",
-    "no server to run"
-   ],
-   "say": "The honest catch: those speed numbers come from the maker's own small benchmark, and the tools still need to be installed first. In return, it is free and open source, with no server to run.",
-   "image": "desktop-full.jpg",
-   "region": "h_benchmark",
-   "zoom": 1.15
-  },
-  {
-   "id": "cta",
-   "type": "endcard",
-   "keyword": "SKILL",
-   "say": "Want your agent to inspect apps without the bloat? Comment Skill and follow for tools like this."
-  }
- ],
- "seo": {
-  "keyword": "leanrea reverse engineering",
-  "aliases": [
-   "Claude Code skill",
-   "reverse engineering AI",
-   "MCP alternative"
-  ],
-  "onscreen_first3s": "YOUR AGENT PAYS A TAX",
-  "youtube": {
-   "title": "leanrea: One Tiny Skill Replaces 207 Reverse-Engineering Tools",
-   "description": "leanrea is a single 8 KB skill file that teaches Claude Code, Codex, Cursor and other coding agents to reverse engineer apps and binaries with plain CLI tools \u2014 no MCP server, no 207 tool definitions. The maker's own benchmark reports it faster and cheaper than the heavyweight REA setup (small sample \u2014 see the catch in the video). Nearly 900 GitHub stars in two days.\nSource: https://github.com/aicodeking/leanrea",
-   "hashtags": [
-    "#Shorts",
-    "#AI",
-    "#Coding",
-    "#ClaudeCode"
-   ],
-   "tags": [
+  "id": "repo-leanrea-01",
+  "capture": "captures/repo-leanrea-01",
+  "title": "leanrea: The 8 KB Skill That Replaces 207 Reverse-Engineering Tools",
+  "niche": "reverse engineering skills for coding agents",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "Selected 2026-10-19 from fresh radar (radar-2026-10-19) + performance advice (repo prioritised). Today's batch: 2 videos. Default flow: render + frame-level QA + viewer panel PASS, then Buffer scheduled send on YouTube/Instagram/Facebook at each channel's best-performing window. Approved Option-3 Chatterbox flow voice; no on-screen credit captions.",
+  "production_category": "repo",
+  "keywords": [
     "leanrea",
     "reverse engineering",
     "Claude Code skill",
     "AI agent tools",
-    "MCP alternative",
-    "coding agents"
-   ]
-  },
-  "tiktok": {
-   "caption": "Your agent pays a 207-tool tax to inspect an app. leanrea deletes it \u2014 one 8 KB skill file.",
-   "hashtags": [
-    "#AI",
-    "#Coding",
-    "#Agents"
-   ]
-  },
-  "instagram": {
-   "caption": "Save this if your agent inspects apps: leanrea replaces a 207-tool MCP server with one tiny skill file. Faster, cheaper, no server to run.",
-   "hashtags": [
-    "#AI",
-    "#Coding",
-    "#OpenSource"
-   ]
-  },
-  "facebook": {
-   "caption": "leanrea: one 8 KB skill that teaches coding agents to reverse engineer with plain command-line tools \u2014 no MCP server, no tool bloat. Nearly 900 stars in two days.",
-   "hashtags": [
-    "#AI",
-    "#Coding"
-   ]
-  },
-  "x": {
-   "text": "207 tools or one 8 KB file? leanrea teaches coding agents to reverse engineer with plain CLI tools \u2014 no MCP server. ~900 stars in 2 days. https://github.com/aicodeking/leanrea",
-   "hashtags": [
-    "#AI",
-    "#Coding"
-   ]
-  }
- },
- "post": {
-  "titles": [
-   "leanrea: The 8 KB Skill That Replaces 207 Reverse-Engineering Tools"
+    "MCP alternative"
   ],
-  "caption": "leanrea: one 8 KB skill file that teaches coding agents to reverse engineer apps with plain CLI tools \u2014 no MCP server, no 207 tool definitions. Maker's benchmark: faster and cheaper than the heavyweight setup (small sample). Nearly 900 stars in two days.",
-  "hashtags": [
-   "#Shorts",
-   "#AI",
-   "#Coding",
-   "#Agents"
+  "facts": {
+    "stars": "899 GitHub stars (own capture, checked 2026-10-19)",
+    "license": "MIT",
+    "runtime": "One 8 KB SKILL.md; no MCP server; uses plain CLI tools (project README)"
+  },
+  "credits_on_screen": "Own captures of the public GitHub repo (checked 2026-10-19).",
+  "sources": [
+    "https://github.com/aicodeking/leanrea",
+    "https://api.github.com/repos/aicodeking/leanrea"
   ],
-  "keyword": "SKILL"
- },
- "research_basis": [
-  "research/social/decode-2026-10-18.md",
-  "research/social/platform-algorithms-2026-10-18.md",
-  "tracker/performance.json"
- ]
+  "verify_before_render": [
+    "Stars, licence and benchmark claims re-checked against the live repo on render day."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "heading": "YOUR AGENT *PAYS A TAX*",
+      "sub": "leanrea · reverse engineering, minus the bloat",
+      "say": "Your coding agent pays a heavy tax just to inspect an app you already own.",
+      "url": "github.com/aicodeking/leanrea",
+      "camera": [
+        {
+          "region": "repo_title",
+          "zoom": 1.5,
+          "at": "inspect"
+        }
+      ]
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "image": "desktop-top.jpg",
+      "heading": "MEET *LEANREA*",
+      "sub": "by aicodeking · open source",
+      "say": "This is leanrea: one tiny skill file that teaches your agent to reverse engineer with tools already on your machine."
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "HOW IT *WORKS*",
+      "steps": [
+        "Point it at an app",
+        "It runs the fastest command",
+        "Answers with evidence"
+      ],
+      "step_at": [
+        "Point it",
+        "fastest command",
+        "evidence"
+      ],
+      "say": "Point it at an app. It picks the fastest command, runs it directly, and answers with evidence. In the maker's tests, that beat the heavyweight server on speed and cost.",
+      "background": {
+        "image": "desktop-full.jpg",
+        "scroll_regions": [
+          "h_benchmark",
+          "h_what_s_in_the_skill"
+        ]
+      }
+    },
+    {
+      "id": "stars",
+      "type": "page",
+      "heading": "DEVS *NOTICED*",
+      "image": "desktop-top.jpg",
+      "say": "Developers gave it nearly nine hundred stars in its first two days.",
+      "camera": [
+        {
+          "region": "star_button",
+          "zoom": 2.6,
+          "at": "nine hundred"
+        }
+      ],
+      "cursor": [
+        {
+          "region": "star_button",
+          "at": "nine hundred",
+          "state": "★ Starred 899"
+        }
+      ]
+    },
+    {
+      "id": "install",
+      "type": "page",
+      "heading": "*ONE COMMAND*",
+      "image": "desktop-full.jpg",
+      "say": "You add it with a single installer command, and it works across the major coding agents.",
+      "camera": [
+        {
+          "region": "h_install",
+          "zoom": 1.35,
+          "at": "installer"
+        }
+      ]
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "BEFORE YOU *ADD IT*",
+      "cons": [
+        "Speed numbers are the maker's own small benchmark",
+        "The command-line tools must already be installed"
+      ],
+      "pros": [
+        "Free and open source",
+        "No MCP server, no tool bloat"
+      ],
+      "item_at": [
+        "maker's own",
+        "installed first",
+        "open source",
+        "no server to run"
+      ],
+      "say": "The honest catch: those speed numbers come from the maker's own small benchmark, and the tools still need to be installed first. In return, it is free and open source, with no server to run.",
+      "image": "desktop-full.jpg",
+      "region": "h_benchmark",
+      "zoom": 1.15
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "SKILL",
+      "say": "Want your agent to inspect apps without the bloat? Comment Skill and follow for tools like this."
+    }
+  ],
+  "seo": {
+    "keyword": "leanrea reverse engineering",
+    "aliases": [
+      "Claude Code skill",
+      "reverse engineering AI",
+      "MCP alternative"
+    ],
+    "onscreen_first3s": "YOUR AGENT PAYS A TAX",
+    "youtube": {
+      "title": "leanrea: One Tiny Skill Replaces 207 Reverse-Engineering Tools",
+      "description": "leanrea is a single 8 KB skill file that teaches Claude Code, Codex, Cursor and other coding agents to reverse engineer apps and binaries with plain CLI tools — no MCP server, no 207 tool definitions. The maker's own benchmark reports it faster and cheaper than the heavyweight REA setup (small sample — see the catch in the video). Nearly 900 GitHub stars in two days.\nSource: https://github.com/aicodeking/leanrea",
+      "hashtags": [
+        "#Shorts",
+        "#AI",
+        "#Coding",
+        "#ClaudeCode"
+      ],
+      "tags": [
+        "leanrea",
+        "reverse engineering",
+        "Claude Code skill",
+        "AI agent tools",
+        "MCP alternative",
+        "coding agents"
+      ]
+    },
+    "tiktok": {
+      "caption": "Your agent pays a 207-tool tax to inspect an app. leanrea deletes it — one 8 KB skill file.",
+      "hashtags": [
+        "#AI",
+        "#Coding",
+        "#Agents"
+      ]
+    },
+    "instagram": {
+      "caption": "Save this if your agent inspects apps: leanrea replaces a 207-tool MCP server with one tiny skill file. Faster, cheaper, no server to run.",
+      "hashtags": [
+        "#AI",
+        "#Coding",
+        "#OpenSource"
+      ]
+    },
+    "facebook": {
+      "caption": "leanrea: one 8 KB skill that teaches coding agents to reverse engineer with plain command-line tools — no MCP server, no tool bloat. Nearly 900 stars in two days.",
+      "hashtags": [
+        "#AI",
+        "#Coding"
+      ]
+    },
+    "x": {
+      "text": "207 tools or one 8 KB file? leanrea teaches coding agents to reverse engineer with plain CLI tools — no MCP server. ~900 stars in 2 days. https://github.com/aicodeking/leanrea",
+      "hashtags": [
+        "#AI",
+        "#Coding"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "leanrea: The 8 KB Skill That Replaces 207 Reverse-Engineering Tools"
+    ],
+    "caption": "leanrea: one 8 KB skill file that teaches coding agents to reverse engineer apps with plain CLI tools — no MCP server, no 207 tool definitions. Maker's benchmark: faster and cheaper than the heavyweight setup (small sample). Nearly 900 stars in two days.",
+    "hashtags": [
+      "#Shorts",
+      "#AI",
+      "#Coding",
+      "#Agents"
+    ],
+    "keyword": "SKILL"
+  },
+  "research_basis": [
+    "research/social/decode-2026-10-18.md",
+    "research/social/platform-algorithms-2026-10-18.md",
+    "tracker/performance.json"
+  ]
 }

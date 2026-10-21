@@ -109,9 +109,7 @@ def validate(brief, kind="long", marker=None):
     missing = [s for s in sources if isinstance(s, str) and s not in description]
     if missing:
         description += "\n\nSOURCES\n" + "\n".join(missing)
-    credits = brief.get("credits") or brief.get("credits_on_screen")
-    if credits and credits not in description:
-        description += "\n\nCredits: " + credits
+    # Credits never go in visible copy (owner rule 2026-10-21); they live in the kit's credits file.
     if kind == "long":
         description += "\n\nAI-generated narration. AI tools, minus the hype."
     description += "\n\n" + " ".join(hashtags)

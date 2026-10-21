@@ -1,6 +1,5 @@
 {
   "id": "repo-solidglass-01",
-  "template": "repo-spotlight",
   "capture": "captures/repo-solidglass-01",
   "title": "Solid Glass: the Glass UI You Can Actually Read",
   "niche": "open-source design systems / AI app UI",
@@ -29,7 +28,7 @@
   ],
   "verify_before_render": [
     "GitHub API checked 2026-10-15 10:31 UTC: 904 stars, 12 forks, created 2026-10-12, MIT license. 'Nine hundred stars in three days' is accurate at check time.",
-    "README: one stylesheet that restyles existing shadcn/ui components via data-slot/classes; components need no changes. Requires a shadcn/ui project (React 19, Tailwind CSS 4) \u2014 mandatory catch.",
+    "README: one stylesheet that restyles existing shadcn/ui components via data-slot/classes; components need no changes. Requires a shadcn/ui project (React 19, Tailwind CSS 4) — mandatory catch.",
     "Registry badge states 13 items; agent-focused components include status-glyph, tool-steps, ask-card, context-ring, diff-view and composer. Install command shown is the README's own command.",
     "Mandatory catch: the project is days old, so expect breaking changes; matures fast (pushed 2026-10-15).",
     "Demo visual is our own recreation of the flat / solid glass / liquid glass idea; no repo screenshots copied. No on-screen credit captions."
@@ -48,7 +47,7 @@
       "type": "image",
       "image": "components-card.png",
       "heading": "MEET *SOLID GLASS*",
-      "sub": "Open-source design system \u00b7 MIT",
+      "sub": "Open-source design system · MIT",
       "say": "It is Solid Glass, a new open-source design system for AI apps, built by DeepLethe."
     },
     {
@@ -74,7 +73,7 @@
       "value": 904,
       "decimals": 0,
       "suffix": " stars",
-      "label": "GitHub \u00b7 first three days",
+      "label": "GitHub · first three days",
       "at": "hundred",
       "say": "It pulled in nine hundred GitHub stars in its first three days."
     },
@@ -165,7 +164,7 @@
       ]
     },
     "x": {
-      "text": "Glass you can read: Solid Glass restyles shadcn/ui with one stylesheet \u2014 MIT, 904 stars in 3 days. Needs the shadcn/React/Tailwind stack. https://github.com/deeplethe/solid-glass",
+      "text": "Glass you can read: Solid Glass restyles shadcn/ui with one stylesheet — MIT, 904 stars in 3 days. Needs the shadcn/React/Tailwind stack. https://github.com/deeplethe/solid-glass",
       "hashtags": [
         "#UI",
         "#WebDev"
@@ -183,6 +182,6 @@
       "#WebDev",
       "#OpenSource"
     ],
-    "pinned_comment": "Repo: https://github.com/deeplethe/solid-glass \u2014 the three-panel visual is our own recreation, not a repo screenshot."
+    "pinned_comment": "Repo: https://github.com/deeplethe/solid-glass — the three-panel visual is our own recreation, not a repo screenshot."
   }
 }

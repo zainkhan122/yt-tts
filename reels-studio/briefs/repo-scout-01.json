@@ -1,6 +1,5 @@
 {
   "id": "repo-scout-01",
-  "template": "repo-spotlight",
   "capture": "captures/repo-scout-01",
   "title": "Scout: Tell It the Task, It Browses for You",
   "niche": "open-source browser agents",
@@ -37,7 +36,7 @@
       "type": "image",
       "image": "flow-card.png",
       "heading": "IT *BROWSES* FOR YOU",
-      "sub": "Scout \u00b7 open-source browser agent",
+      "sub": "Scout · open-source browser agent",
       "say": "Tell this agent the task, and it opens a real browser and does it."
     },
     {
@@ -45,7 +44,7 @@
       "type": "image",
       "image": "steps-card.png",
       "heading": "MEET *SCOUT*",
-      "sub": "By Outcrawl \u00b7 Apache-2.0",
+      "sub": "By Outcrawl · Apache-2.0",
       "say": "It is Scout, an open-source browser agent from Outcrawl."
     },
     {
@@ -71,7 +70,7 @@
       "value": 867,
       "decimals": 0,
       "suffix": " stars",
-      "label": "GitHub \u00b7 first three days",
+      "label": "GitHub · first three days",
       "at": "hundred",
       "say": "It picked up over eight hundred GitHub stars in its first three days."
     },
@@ -179,6 +178,6 @@
       "#Agents",
       "#Automation"
     ],
-    "pinned_comment": "Repo: https://github.com/outcrawlai/scout \u2014 visuals are our own cards, not the project's demo."
+    "pinned_comment": "Repo: https://github.com/outcrawlai/scout — visuals are our own cards, not the project's demo."
   }
 }

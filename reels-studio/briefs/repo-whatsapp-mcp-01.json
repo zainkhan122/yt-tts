@@ -1,219 +1,218 @@
 {
- "id": "repo-whatsapp-mcp-01",
- "template": "tool-spotlight",
- "capture": "captures/repo-whatsapp-mcp-01",
- "title": "WhatsApp MCP: Ask Your Own Chats Anything",
- "niche": "personal AI agents and MCP servers",
- "lang": "en-us",
- "style": "midnight",
- "status": "Selected 2026-10-19 from fresh radar (radar-2026-10-19) + performance advice (repo prioritised). Today's batch: 2 videos. Default flow: render + frame-level QA + viewer panel PASS, then Buffer scheduled send on YouTube/Instagram/Facebook at each channel's best-performing window. Approved Option-3 Chatterbox flow voice; no on-screen credit captions.",
- "production_category": "repo",
- "keywords": [
-  "WhatsApp MCP",
-  "AI agent",
-  "MCP server",
-  "WhatsApp search",
-  "Claude Code"
- ],
- "facts": {
-  "stars": "256 GitHub stars (own capture, checked 2026-10-19)",
-  "license": "MIT",
-  "runtime": "Read-only MCP server on Cloudflare Workers; unofficial (uses WhatsApp Web protocol via Baileys); importing history needs the Workers Paid plan (project README)"
- },
- "credits_on_screen": "Own captures of the public GitHub repo (checked 2026-10-19).",
- "sources": [
-  "https://github.com/finereli/whatsapp-mcp",
-  "https://api.github.com/repos/finereli/whatsapp-mcp"
- ],
- "verify_before_render": [
-  "Stars, licence, ToS and pricing caveats re-checked against the live repo on render day."
- ],
- "scenes": [
-  {
-   "id": "hook",
-   "type": "page",
-   "image": "desktop-top.jpg",
-   "heading": "ASK YOUR *WHATSAPP* ANYTHING",
-   "sub": "WhatsApp MCP \u00b7 your chats, searchable by AI",
-   "say": "That address someone sent you last March is buried in WhatsApp. Now your AI can dig it out.",
-   "url": "github.com/finereli/whatsapp-mcp",
-   "camera": [
-    {
-     "region": "repo_title",
-     "zoom": 1.5,
-     "at": "dig it out"
-    }
-   ]
-  },
-  {
-   "id": "name",
-   "type": "image",
-   "image": "desktop-top.jpg",
-   "heading": "MEET *WHATSAPP MCP*",
-   "sub": "by finereli \u00b7 open source",
-   "say": "This is WhatsApp MCP, a read only bridge that lets your agent search your own messages."
-  },
-  {
-   "id": "how",
-   "type": "steps",
-   "heading": "HOW IT *WORKS*",
-   "steps": [
-    "Link your phone once",
-    "Ask in plain words",
-    "It searches every chat"
-   ],
-   "step_at": [
-    "Link your phone",
-    "plain words",
-    "searches every chat"
-   ],
-   "say": "Link your phone once, then ask in plain words. It searches every chat, reads the one you mean, and answers without sending anything.",
-   "background": {
-    "image": "desktop-full.jpg",
-    "scroll_regions": [
-     "h_how_it_works",
-     "h_what_your_agent_can_do"
-    ]
-   }
-  },
-  {
-   "id": "stars",
-   "type": "page",
-   "heading": "DEVS *NOTICED*",
-   "image": "desktop-top.jpg",
-   "say": "It passed two hundred and fifty stars within its first day.",
-   "camera": [
-    {
-     "region": "star_button",
-     "zoom": 2.6,
-     "at": "fifty"
-    }
-   ],
-   "cursor": [
-    {
-     "region": "star_button",
-     "at": "fifty",
-     "state": "\u2605 Starred 256"
-    }
-   ]
-  },
-  {
-   "id": "install",
-   "type": "page",
-   "heading": "*DEPLOY YOUR OWN*",
-   "image": "desktop-full.jpg",
-   "say": "You deploy it into your own Cloudflare account, scan a code with your phone, and connect your agent.",
-   "camera": [
-    {
-     "region": "h_set_it_up",
-     "zoom": 1.35,
-     "at": "Cloudflare"
-    }
-   ]
-  },
-  {
-   "id": "catch",
-   "type": "verdict",
-   "heading": "BEFORE YOU *LINK IT*",
-   "cons": [
-    "Unofficial: against WhatsApp's terms, so the risk is not zero",
-    "Importing history needs the paid Workers plan"
-   ],
-   "pros": [
-    "Read only: it cannot send messages",
-    "Your messages stay in your own account"
-   ],
-   "item_at": [
-    "against WhatsApp's terms",
-    "paid Workers plan",
-    "never send",
-    "your own account"
-   ],
-   "say": "The honest catch: this is unofficial, it runs against WhatsApp's terms, so the risk is not zero, and importing history needs the paid Workers plan. In return, it can only read, never send, and your messages stay in your own account.",
-   "image": "desktop-full.jpg",
-   "region": "h_things_to_know",
-   "zoom": 1.15
-  },
-  {
-   "id": "cta",
-   "type": "endcard",
-   "keyword": "SEARCH",
-   "say": "What would you ask your own WhatsApp first? Comment Search and follow for tools like this."
-  }
- ],
- "seo": {
-  "keyword": "WhatsApp MCP",
-  "aliases": [
-   "WhatsApp MCP server",
-   "AI WhatsApp search",
-   "Claude WhatsApp"
-  ],
-  "onscreen_first3s": "ASK YOUR WHATSAPP ANYTHING",
-  "youtube": {
-   "title": "WhatsApp MCP: Your AI Can Now Search Your Own Chats",
-   "description": "WhatsApp MCP is a read-only MCP server that lets Claude Code and other AI agents search and read your own WhatsApp history \u2014 full-text search across every chat, deployed into your own Cloudflare account. The honest catches are in the video: it is unofficial (against WhatsApp's terms, low but non-zero risk) and importing history needs the Workers Paid plan. 256 GitHub stars in its first day.\nSource: https://github.com/finereli/whatsapp-mcp",
-   "hashtags": [
-    "#Shorts",
-    "#AI",
-    "#WhatsApp",
-    "#Agents"
-   ],
-   "tags": [
+  "id": "repo-whatsapp-mcp-01",
+  "capture": "captures/repo-whatsapp-mcp-01",
+  "title": "WhatsApp MCP: Ask Your Own Chats Anything",
+  "niche": "personal AI agents and MCP servers",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "Selected 2026-10-19 from fresh radar (radar-2026-10-19) + performance advice (repo prioritised). Today's batch: 2 videos. Default flow: render + frame-level QA + viewer panel PASS, then Buffer scheduled send on YouTube/Instagram/Facebook at each channel's best-performing window. Approved Option-3 Chatterbox flow voice; no on-screen credit captions.",
+  "production_category": "repo",
+  "keywords": [
     "WhatsApp MCP",
+    "AI agent",
     "MCP server",
-    "AI agents",
-    "Claude Code",
     "WhatsApp search",
-    "personal AI"
-   ]
-  },
-  "tiktok": {
-   "caption": "Your AI can now search your own WhatsApp. Read-only, in your own account \u2014 with one big catch.",
-   "hashtags": [
-    "#AI",
-    "#WhatsApp",
-    "#Agents"
-   ]
-  },
-  "instagram": {
-   "caption": "Save this: a read-only bridge lets your agent search every WhatsApp chat you own. It cannot send, and messages stay in your account. Catch: unofficial, so watch the video first.",
-   "hashtags": [
-    "#AI",
-    "#WhatsApp",
-    "#OpenSource"
-   ]
-  },
-  "facebook": {
-   "caption": "WhatsApp MCP: ask your AI to find anything in your own chat history. Read-only, self-hosted in your Cloudflare account. Unofficial \u2014 the risk is explained in the video.",
-   "hashtags": [
-    "#AI",
-    "#WhatsApp"
-   ]
-  },
-  "x": {
-   "text": "Your AI can now search your own WhatsApp history \u2014 read-only, self-hosted, 256 stars in a day. Unofficial, so the catch matters: https://github.com/finereli/whatsapp-mcp",
-   "hashtags": [
-    "#AI",
-    "#MCP"
-   ]
-  }
- },
- "post": {
-  "titles": [
-   "WhatsApp MCP: Ask Your Own Chats Anything"
+    "Claude Code"
   ],
-  "caption": "WhatsApp MCP: a read-only bridge that lets your AI agent search your own WhatsApp history, deployed into your own Cloudflare account. It cannot send messages. Catches: unofficial (against WhatsApp's terms) and history import needs the paid Workers plan. 256 stars in its first day.",
-  "hashtags": [
-   "#Shorts",
-   "#AI",
-   "#WhatsApp",
-   "#Agents"
+  "facts": {
+    "stars": "256 GitHub stars (own capture, checked 2026-10-19)",
+    "license": "MIT",
+    "runtime": "Read-only MCP server on Cloudflare Workers; unofficial (uses WhatsApp Web protocol via Baileys); importing history needs the Workers Paid plan (project README)"
+  },
+  "credits_on_screen": "Own captures of the public GitHub repo (checked 2026-10-19).",
+  "sources": [
+    "https://github.com/finereli/whatsapp-mcp",
+    "https://api.github.com/repos/finereli/whatsapp-mcp"
   ],
-  "keyword": "SEARCH"
- },
- "research_basis": [
-  "research/social/decode-2026-10-18.md",
-  "research/social/platform-algorithms-2026-10-18.md",
-  "tracker/performance.json"
- ]
+  "verify_before_render": [
+    "Stars, licence, ToS and pricing caveats re-checked against the live repo on render day."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "heading": "ASK YOUR *WHATSAPP* ANYTHING",
+      "sub": "WhatsApp MCP · your chats, searchable by AI",
+      "say": "That address someone sent you last March is buried in WhatsApp. Now your AI can dig it out.",
+      "url": "github.com/finereli/whatsapp-mcp",
+      "camera": [
+        {
+          "region": "repo_title",
+          "zoom": 1.5,
+          "at": "dig it out"
+        }
+      ]
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "image": "desktop-top.jpg",
+      "heading": "MEET *WHATSAPP MCP*",
+      "sub": "by finereli · open source",
+      "say": "This is WhatsApp MCP, a read only bridge that lets your agent search your own messages."
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "HOW IT *WORKS*",
+      "steps": [
+        "Link your phone once",
+        "Ask in plain words",
+        "It searches every chat"
+      ],
+      "step_at": [
+        "Link your phone",
+        "plain words",
+        "searches every chat"
+      ],
+      "say": "Link your phone once, then ask in plain words. It searches every chat, reads the one you mean, and answers without sending anything.",
+      "background": {
+        "image": "desktop-full.jpg",
+        "scroll_regions": [
+          "h_how_it_works",
+          "h_what_your_agent_can_do"
+        ]
+      }
+    },
+    {
+      "id": "stars",
+      "type": "page",
+      "heading": "DEVS *NOTICED*",
+      "image": "desktop-top.jpg",
+      "say": "It passed two hundred and fifty stars within its first day.",
+      "camera": [
+        {
+          "region": "star_button",
+          "zoom": 2.6,
+          "at": "fifty"
+        }
+      ],
+      "cursor": [
+        {
+          "region": "star_button",
+          "at": "fifty",
+          "state": "★ Starred 256"
+        }
+      ]
+    },
+    {
+      "id": "install",
+      "type": "page",
+      "heading": "*DEPLOY YOUR OWN*",
+      "image": "desktop-full.jpg",
+      "say": "You deploy it into your own Cloudflare account, scan a code with your phone, and connect your agent.",
+      "camera": [
+        {
+          "region": "h_set_it_up",
+          "zoom": 1.35,
+          "at": "Cloudflare"
+        }
+      ]
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "BEFORE YOU *LINK IT*",
+      "cons": [
+        "Unofficial: against WhatsApp's terms, so the risk is not zero",
+        "Importing history needs the paid Workers plan"
+      ],
+      "pros": [
+        "Read only: it cannot send messages",
+        "Your messages stay in your own account"
+      ],
+      "item_at": [
+        "against WhatsApp's terms",
+        "paid Workers plan",
+        "never send",
+        "your own account"
+      ],
+      "say": "The honest catch: this is unofficial, it runs against WhatsApp's terms, so the risk is not zero, and importing history needs the paid Workers plan. In return, it can only read, never send, and your messages stay in your own account.",
+      "image": "desktop-full.jpg",
+      "region": "h_things_to_know",
+      "zoom": 1.15
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "SEARCH",
+      "say": "What would you ask your own WhatsApp first? Comment Search and follow for tools like this."
+    }
+  ],
+  "seo": {
+    "keyword": "WhatsApp MCP",
+    "aliases": [
+      "WhatsApp MCP server",
+      "AI WhatsApp search",
+      "Claude WhatsApp"
+    ],
+    "onscreen_first3s": "ASK YOUR WHATSAPP ANYTHING",
+    "youtube": {
+      "title": "WhatsApp MCP: Your AI Can Now Search Your Own Chats",
+      "description": "WhatsApp MCP is a read-only MCP server that lets Claude Code and other AI agents search and read your own WhatsApp history — full-text search across every chat, deployed into your own Cloudflare account. The honest catches are in the video: it is unofficial (against WhatsApp's terms, low but non-zero risk) and importing history needs the Workers Paid plan. 256 GitHub stars in its first day.\nSource: https://github.com/finereli/whatsapp-mcp",
+      "hashtags": [
+        "#Shorts",
+        "#AI",
+        "#WhatsApp",
+        "#Agents"
+      ],
+      "tags": [
+        "WhatsApp MCP",
+        "MCP server",
+        "AI agents",
+        "Claude Code",
+        "WhatsApp search",
+        "personal AI"
+      ]
+    },
+    "tiktok": {
+      "caption": "Your AI can now search your own WhatsApp. Read-only, in your own account — with one big catch.",
+      "hashtags": [
+        "#AI",
+        "#WhatsApp",
+        "#Agents"
+      ]
+    },
+    "instagram": {
+      "caption": "Save this: a read-only bridge lets your agent search every WhatsApp chat you own. It cannot send, and messages stay in your account. Catch: unofficial, so watch the video first.",
+      "hashtags": [
+        "#AI",
+        "#WhatsApp",
+        "#OpenSource"
+      ]
+    },
+    "facebook": {
+      "caption": "WhatsApp MCP: ask your AI to find anything in your own chat history. Read-only, self-hosted in your Cloudflare account. Unofficial — the risk is explained in the video.",
+      "hashtags": [
+        "#AI",
+        "#WhatsApp"
+      ]
+    },
+    "x": {
+      "text": "Your AI can now search your own WhatsApp history — read-only, self-hosted, 256 stars in a day. Unofficial, so the catch matters: https://github.com/finereli/whatsapp-mcp",
+      "hashtags": [
+        "#AI",
+        "#MCP"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "WhatsApp MCP: Ask Your Own Chats Anything"
+    ],
+    "caption": "WhatsApp MCP: a read-only bridge that lets your AI agent search your own WhatsApp history, deployed into your own Cloudflare account. It cannot send messages. Catches: unofficial (against WhatsApp's terms) and history import needs the paid Workers plan. 256 stars in its first day.",
+    "hashtags": [
+      "#Shorts",
+      "#AI",
+      "#WhatsApp",
+      "#Agents"
+    ],
+    "keyword": "SEARCH"
+  },
+  "research_basis": [
+    "research/social/decode-2026-10-18.md",
+    "research/social/platform-algorithms-2026-10-18.md",
+    "tracker/performance.json"
+  ]
 }

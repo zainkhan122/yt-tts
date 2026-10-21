@@ -3,6 +3,7 @@ import datetime as dt
 from collections import defaultdict
 from zoneinfo import ZoneInfo
 
+from studio.rules import assemble, check_brief, errors
 from tools.post.common import (ROOT, PENDING, RETRYABLE, TERMINAL, fingerprint, iso,
                                key, load_json, media_url, parse_time)
 
@@ -24,17 +25,11 @@ def copy_for(item, platform, cfg):
     b = load_json(ROOT / "briefs" / (item["video_id"] + ".json"))
     if item.get("brief_sha256") and fingerprint(b) != item["brief_sha256"]:
         raise ValueError(f"{item['video_id']}: brief changed since queue review; re-pin and re-approve")
-    seo = b["seo"][platform]
-    text = seo["description" if platform == "youtube" else "caption"].strip()
-    # Credits never go in visible copy (owner 2026-10-21): they stay in the kit's credits file.
-    if platform == "facebook":
-        text += "\n\n" + item.get("facebook_disclosure", cfg["disclosure"]["facebook_caption"])
-    tags = seo.get("hashtags", [])
-    if tags:
-        text += "\n\n" + " ".join(tags)
-    maximum = {"youtube": 5000, "instagram": 2200, "facebook": 5000}[platform]
-    if len(text) > maximum:
-        raise ValueError(f"{item['video_id']}: {platform} caption exceeds {maximum} characters")
+    blocking = errors(check_brief(b, today=dt.date.today(), disclosure=cfg["disclosure"]["facebook_caption"]))
+    if blocking:
+        raise ValueError(f"{item['video_id']}: studio checks failed: " + "; ".join(f.code + " " + f.message for f in blocking))
+    # Final text is assembled once by the studio and is exactly what gets published.
+    text = assemble(b["seo"], platform, disclosure=cfg["disclosure"]["facebook_caption"])
     return text, b
 
 

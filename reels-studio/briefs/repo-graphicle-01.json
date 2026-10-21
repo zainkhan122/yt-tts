@@ -1,6 +1,5 @@
 {
   "id": "repo-graphicle-01",
-  "template": "repo-spotlight",
   "capture": "captures/repo-graphicle-01",
   "title": "Graphicle: a Map and Memory for Your Coding Agent",
   "niche": "open-source coding-agent tools",
@@ -38,7 +37,7 @@
       "type": "image",
       "image": "stack-card.png",
       "heading": "YOUR AGENT GETS A *MAP*",
-      "sub": "Graphicle \u00b7 code graph + memory",
+      "sub": "Graphicle · code graph + memory",
       "say": "This one program maps your whole codebase, so your coding agent stops guessing."
     },
     {
@@ -46,7 +45,7 @@
       "type": "image",
       "image": "agent-card.png",
       "heading": "MEET *GRAPHICLE*",
-      "sub": "Rust \u00b7 Apache-2.0 \u00b7 local-first",
+      "sub": "Rust · Apache-2.0 · local-first",
       "say": "It is Graphicle, a code graph and memory for coding agents, in a single Rust program."
     },
     {
@@ -72,7 +71,7 @@
       "value": 22.7,
       "decimals": 1,
       "suffix": "x",
-      "label": "their test vs Graphify \u00b7 13 codebases",
+      "label": "their test vs Graphify · 13 codebases",
       "at": "times",
       "say": "In their own tests it indexed code up to twenty-two times faster than Graphify, across thirteen codebases."
     },
@@ -173,13 +172,13 @@
     "titles": [
       "Graphicle: a Map and Memory for Your Coding Agent"
     ],
-    "caption": "Graphicle is one Rust program that maps your repository into a code graph, remembers your docs, decisions and past agent sessions, and answers your coding agent with cited excerpts \u2014 exact files and lines \u2014 over MCP. Local-first: no account, no API key, no telemetry. Their tests report up to 22.7x faster indexing than Graphify (pre-release builds). Catches: it is v0.1 and days old, and the Windows build is an unsigned preview.",
+    "caption": "Graphicle is one Rust program that maps your repository into a code graph, remembers your docs, decisions and past agent sessions, and answers your coding agent with cited excerpts — exact files and lines — over MCP. Local-first: no account, no API key, no telemetry. Their tests report up to 22.7x faster indexing than Graphify (pre-release builds). Catches: it is v0.1 and days old, and the Windows build is an unsigned preview.",
     "hashtags": [
       "#Shorts",
       "#AI",
       "#Coding",
       "#DevTools"
     ],
-    "pinned_comment": "Repo: https://github.com/Graphicle-AI/graphicle \u2014 benchmark figures are the project's own; visuals are our own cards."
+    "pinned_comment": "Repo: https://github.com/Graphicle-AI/graphicle — benchmark figures are the project's own; visuals are our own cards."
   }
 }
