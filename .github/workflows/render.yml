@@ -88,7 +88,7 @@ jobs:
             /reels-studio/reels.py
             /reels-studio/templates/
             /reels-studio/research/ideas/
-            /reels-studio/research/production/receipts/
+            /reels-studio/research/production/
             /reels-studio/research/radar/
             /reels-studio/research/social/
           sparse-checkout-cone-mode: false
