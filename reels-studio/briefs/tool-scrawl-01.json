@@ -1,0 +1,266 @@
+{
+  "id": "tool-scrawl-01",
+  "template": "tool-spotlight",
+  "capture": "captures/tool-scrawl-01",
+  "title": "Scrawl: Show Your Agent the Bug Instead of Describing It",
+  "niche": "AI coding agents and developer tooling",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "Selected 2026-10-21 (v0.3.11 released the same morning). New workflow treatment: problem, steps, proof, catch, close. Awaiting render + frame QA + viewer panel before any queueing.",
+  "production_category": "tool",
+  "keywords": [
+    "Scrawl",
+    "agent screen capture",
+    "screen recording for coding agents",
+    "macOS menu bar app",
+    "Claude Code"
+  ],
+  "facts": {
+    "stars": "588 GitHub stars and 54 forks (GitHub API, checked 2026-10-21)",
+    "license": "MIT",
+    "runtime": "macOS 26+ on Apple silicon (Homebrew cask or DMG); Windows 10 2004+ x64 is an unsigned preview that does not self-update; Linux is listed as coming soon (project page + README)",
+    "output": "A capture packs a contact sheet, full-resolution keyframes, a time-aligned transcript and an interaction manifest (README)",
+    "capture_rule": "A frame is kept only when something happens: you draw, click, say look or now, or the screen changes; speech is transcribed on the computer (project page)"
+  },
+  "credits_on_screen": "Own browser captures of scrawl.kitlangton.com (checked 2026-10-21).",
+  "sources": [
+    "https://github.com/kitlangton/scrawl",
+    "https://api.github.com/repos/kitlangton/scrawl",
+    "https://scrawl.kitlangton.com"
+  ],
+  "verify_before_render": [
+    "Star count, licence and latest release re-checked against the GitHub API on render day.",
+    "The platform limits (macOS 26, Apple silicon, unsigned Windows preview) re-read on the page before the catch is spoken."
+  ],
+  "treatment": {
+    "audience": "developers who already work with a coding agent and keep losing time describing what is on their screen",
+    "viewer_job": "hand the agent a screen recording it can actually read, without learning an editing tool",
+    "intent": "browse",
+    "archetype": "workflow",
+    "hook_mechanic": "open on the problem every agent user knows, then show the two-key fix",
+    "open_loop": {
+      "plant": "you can talk, click and draw over the screen while it records - what comes out the other side?",
+      "payoff_scene": "how"
+    },
+    "proof_moment": "how",
+    "structure": [
+      {
+        "scene": "hook",
+        "beat": "problem"
+      },
+      {
+        "scene": "how",
+        "beat": "steps"
+      },
+      {
+        "scene": "proof",
+        "beat": "proof"
+      },
+      {
+        "scene": "catch",
+        "beat": "catch"
+      },
+      {
+        "scene": "cta",
+        "beat": "close"
+      }
+    ],
+    "cover_concepts": [
+      {
+        "text": "SHOW, DON'T DESCRIBE",
+        "visual": "the Scrawl home page hero with the brush icon",
+        "gap": "show it to what?"
+      },
+      {
+        "text": "PROBLEM, RECORDED",
+        "visual": "the How it works strip: frames kept only when something happens",
+        "gap": "what do you do with the frames?"
+      },
+      {
+        "text": "ONE HOTKEY, ONE BUNDLE",
+        "visual": "the Install block: the Homebrew line and the agents skill",
+        "gap": "one key really?"
+      }
+    ],
+    "selected_cover": 0
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "page",
+      "image": "desktop-full.jpg",
+      "url": "scrawl.kitlangton.com",
+      "heading": "SHOW IT, *DON'T DESCRIBE IT*",
+      "camera": [
+        {
+          "region": "hero_title",
+          "zoom": 1.45,
+          "at": "describe"
+        },
+        {
+          "region": "hero_mock",
+          "zoom": 1.05,
+          "at": "showing"
+        }
+      ],
+      "say": "Every agent user knows this: you spend four paragraphs describing what is on your screen instead of just showing it."
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "TWO KEYS, *ONE CAPTURE*",
+      "steps": [
+        "Press Option Shift S",
+        "Talk, click, draw",
+        "Paste the bundle"
+      ],
+      "step_at": [
+        "option",
+        "talk",
+        "paste"
+      ],
+      "say": "Scrawl fixes that with one hotkey. Press Option Shift S, talk and draw over the screen while it records, then paste the bundle into your agent.",
+      "background": {
+        "image": "desktop-full.jpg",
+        "scroll_regions": [
+          "ctrl_head",
+          "ctrl_keys"
+        ],
+        "zoom": 1.5
+      },
+      "url": "scrawl.kitlangton.com/#controls"
+    },
+    {
+      "id": "proof",
+      "type": "scroll",
+      "image": "desktop-full.jpg",
+      "url": "scrawl.kitlangton.com/#how-it-works",
+      "heading": "AND IT *ONLY KEEPS WHAT MATTERS*",
+      "stops": [
+        {
+          "region": "how_card1",
+          "zoom": 1.7,
+          "label": "FRAMES ON CHANGE",
+          "at": "frame"
+        },
+        {
+          "region": "how_card3",
+          "zoom": 1.7,
+          "label": "CROPPED TO YOU",
+          "at": "sentence"
+        },
+        {
+          "region": "how_cards",
+          "zoom": 1.08,
+          "label": "CONTACT SHEET",
+          "at": "contact"
+        }
+      ],
+      "say": "It saves a frame only when something happens: you draw, you click, or you say look. Each sentence is transcribed on your computer and pinned to the frame it was about, so your agent gets a contact sheet instead of an hour of video."
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "BEFORE YOU *INSTALL IT*",
+      "cons": [
+        "Apple silicon Mac, macOS 26 or later",
+        "Windows build is an unsigned preview"
+      ],
+      "pros": [
+        "Free and open source (MIT)",
+        "Transcription stays on your machine"
+      ],
+      "item_at": [
+        "macOS",
+        "unsigned",
+        "free and open source",
+        "your own machine"
+      ],
+      "image": "desktop-full.jpg",
+      "region": "install_linux",
+      "zoom": 1.5,
+      "say": "The honest catch: it is Mac only, macOS twenty six on Apple silicon, and the Windows build is an unsigned preview that does not update itself. In return it is free and open source, and your speech is transcribed on your own machine."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "SHOW",
+      "say": "What would you show your agent first? Comment Show, and follow for tools like this."
+    }
+  ],
+  "seo": {
+    "keyword": "Scrawl",
+    "aliases": [
+      "screen recording for agents",
+      "agent screen capture",
+      "show your agent"
+    ],
+    "onscreen_first3s": "SHOW IT, DON'T DESCRIBE IT",
+    "youtube": {
+      "title": "Scrawl: Show Your Agent the Bug Instead of Describing It",
+      "description": "Scrawl is a free MIT menu-bar app for macOS: press Option Shift S, talk and draw over the screen, and it hands your coding agent a contact sheet, full-resolution keyframes and a time-aligned transcript. Frames are kept only when something happens, so the agent reads a few marked moments instead of scrubbing an hour of video.\nCatches in the video: macOS 26 on Apple silicon only, and the Windows build is an unsigned preview that does not self-update.\nSource: https://github.com/kitlangton/scrawl",
+      "hashtags": [
+        "#Shorts",
+        "#AI",
+        "#DevTools",
+        "#OpenSource"
+      ],
+      "tags": [
+        "Scrawl",
+        "screen recording for agents",
+        "AI coding agents",
+        "Claude Code",
+        "dev tools",
+        "macOS app"
+      ]
+    },
+    "tiktok": {
+      "caption": "Stop writing four paragraphs about your screen. One hotkey records it, draws on it, and turns it into something your agent can read.",
+      "hashtags": [
+        "#AI",
+        "#DevTools",
+        "#Coding"
+      ]
+    },
+    "instagram": {
+      "caption": "Save this: press two keys, talk and draw over the screen, and your coding agent gets a contact sheet plus a transcript of exactly the moment that broke. Mac only for now.",
+      "hashtags": [
+        "#AI",
+        "#DevTools",
+        "#OpenSource"
+      ]
+    },
+    "facebook": {
+      "caption": "Scrawl turns a screen bug into something an agent can read: one hotkey, a contact sheet, and a transcript pinned to each frame. Free and open source, Mac only for now.",
+      "hashtags": [
+        "#AI",
+        "#DevTools"
+      ]
+    },
+    "x": {
+      "text": "Scrawl: press Option Shift S, talk and draw over the screen, paste the bundle into your agent. Frames only when something happens. MIT, macOS 26+ only: https://github.com/kitlangton/scrawl",
+      "hashtags": [
+        "#AI",
+        "#DevTools"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "Scrawl: Show Your Agent the Bug Instead of Describing It"
+    ],
+    "caption": "Scrawl is a free MIT menu-bar capture app: Option Shift S records the screen, your voice and your marks, then packs a contact sheet, keyframes and a time-aligned transcript into a bundle your agent can read. Catches: macOS 26 on Apple silicon only, and the Windows build is an unsigned preview.",
+    "hashtags": [
+      "#Shorts",
+      "#AI",
+      "#DevTools",
+      "#OpenSource"
+    ],
+    "keyword": "SHOW"
+  },
+  "research_basis": [
+    "research/production/2026-10-21-tool-scrawl-01-topic.md",
+    "research/social/decode-2026-10-18.md",
+    "tracker/performance.json"
+  ]
+}

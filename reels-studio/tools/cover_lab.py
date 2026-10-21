@@ -202,7 +202,8 @@ def make_concepts(brief, out_dir, root=ROOT):
     concepts = tr["cover_concepts"]
     sources = pick_images(brief, len(concepts), root=root)
     kicker = {"quest": "MISSION BRIEF", "myth-bust": "CLAIM", "warning": "WARNING",
-              "workflow": "STEP 1", "duel": "SIDE A", "demo-first": "DEMO", "spotlight": ""}.get(arch, "")
+              # a cover is not episode one of a series: "STEP 1" read like a tutorial part number
+              "workflow": "WORKFLOW", "duel": "SIDE A", "demo-first": "DEMO", "spotlight": ""}.get(arch, "")
     made, report = [], []
     for i, concept in enumerate(concepts):
         text = concept["text"]

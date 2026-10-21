@@ -1,0 +1,143 @@
+{
+ "schema_version": 1,
+ "batch_id": "2026-10-21-tool-scrawl-01",
+ "created_at": "2026-10-21T06:02:45Z",
+ "buffer_insights": {
+  "path": "reels-studio/tracker/buffer-insights.json",
+  "sha256": "05f9254103be39f5d3518635fa9feb1123269edcff987c7b8184c8a9538533f7"
+ },
+ "metrics_review": {
+  "snapshot_sha256": "05f9254103be39f5d3518635fa9feb1123269edcff987c7b8184c8a9538533f7",
+  "reviewed_video_count": 108,
+  "sample_post_ids": [
+   "6ac904b32f26cc482c22c524",
+   "6ac904b32f26cc482c22c526",
+   "6ac904b32f26cc482c22c528",
+   "6aca1f1ec4de2d2b12255238"
+  ],
+  "findings": [
+   "Fresh Buffer Insights snapshot 2026-10-20T10:11:08Z (complete, 108 tracked video posts) reviewed before selecting this topic.",
+   "Repo and tool items still carry the reach: the top videos of the last week are single-tool explainers with one visible demo, not round-ups.",
+   "Workflow-first beats another capture-page-only film because the product's whole value is a change in how you brief an agent; the film shows the two keystrokes and the output rather than describing the repo."
+  ],
+  "decisions": {
+   "topic": "588 stars on day three for a macOS capture tool; the viewer job (stop describing your screen to an agent, hand it a contact sheet instead) is concrete and demoable in ten seconds.",
+   "script": "Workflow archetype: hook shows the demo line 'Show an agent the problem', then two keystrokes, then the frames-on-change proof scroll, then the platform catch, then the comment CTA. 148 spoken words for a 52-56 second cut.",
+   "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall.",
+   "visual": "Four own browser captures of scrawl.kitlangton.com (hero, How it works, Controls, Install) plus the full-page capture for scroll moves; no marketing media exists on the page, and the catch states the platform limits plainly. Covers designed in cover_lab from three distinct real captures."
+  }
+ },
+ "briefs": {
+  "tool-scrawl-01": {
+   "brief_sha256": "01d8cc18111304cf06f7a56d45b35536a4b30aa95feb5e34fbb045fc1a09dde6",
+   "metrics_decisions": {
+    "topic": "588 stars on day three for a macOS capture tool; the viewer job (stop describing your screen to an agent, hand it a contact sheet instead) is concrete and demoable in ten seconds.",
+    "script": "Workflow archetype: hook shows the demo line 'Show an agent the problem', then two keystrokes, then the frames-on-change proof scroll, then the platform catch, then the comment CTA. 148 spoken words for a 52-56 second cut.",
+    "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall.",
+    "visual": "Four own browser captures of scrawl.kitlangton.com (hero, How it works, Controls, Install) plus the full-page capture for scroll moves; no marketing media exists on the page, and the catch states the platform limits plainly. Covers designed in cover_lab from three distinct real captures."
+   },
+   "stages": {
+    "discover": {
+     "status": "complete",
+     "checked_at": "2026-10-21T06:02:45Z",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-21.md"
+     ]
+    },
+    "select": {
+     "status": "complete",
+     "selection_status": "selected",
+     "topic": "scrawl: show your screen, stop describing it",
+     "score": 82,
+     "score_breakdown": {
+      "trend_velocity": 22,
+      "demo_ability": 19,
+      "audience_breadth": 12,
+      "social_proof_gap": 8,
+      "free_value": 8,
+      "freshness_angle": 13
+     },
+     "metrics_snapshot_sha256": "05f9254103be39f5d3518635fa9feb1123269edcff987c7b8184c8a9538533f7",
+     "basis_post_ids": [
+      "6ac904b32f26cc482c22c524",
+      "6ac904b32f26cc482c22c526",
+      "6ac904b32f26cc482c22c528",
+      "6aca1f1ec4de2d2b12255238"
+     ],
+     "hard_gates": {
+      "risk_flags_clear": true,
+      "claim_verifiable": true,
+      "license_clear": true
+     }
+    },
+    "research": {
+     "status": "complete",
+     "evidence": [
+      "reels-studio/research/production/2026-10-21-tool-scrawl-01-topic.md"
+     ],
+     "dynamic_facts_checked_at": "2026-10-21T06:02:45Z",
+     "primary_sources": [
+      {
+       "url": "https://github.com/kitlangton/scrawl",
+       "checked_at": "2026-10-21T06:02:45Z",
+       "claim": "README: screen and voice recording that turns into an agent bundle: Option+Shift+S to record, Shift-drag to draw, frames saved only when something changes, speech transcribed on-device; macOS 26+ Apple silicon, Windows unsigned preview, Linux coming soon; MIT."
+      },
+      {
+       "url": "https://api.github.com/repos/kitlangton/scrawl",
+       "checked_at": "2026-10-21T06:02:45Z",
+       "claim": "Live metadata 2026-10-21: 588 stars, 54 forks, MIT, created 2026-10-14, latest release v0.3.11 published 2026-10-21T02:51Z."
+      },
+      {
+       "url": "https://scrawl.kitlangton.com",
+       "checked_at": "2026-10-21T06:02:45Z",
+       "claim": "Own browser captures of the live site: hero demo line, How it works cards, Controls table, and the Install page with the brew cask and the macOS 26 / Apple silicon requirement."
+      }
+     ]
+    },
+    "script": {
+     "status": "complete",
+     "script_sha256": "ebe003259bb96b3553fb2a6fcaae5100b04a9972993c7df330f891c745f0d15b",
+     "word_count": 148
+    },
+    "voice": {
+     "status": "complete",
+     "engine": "chatterbox",
+     "profile": "option-3",
+     "qa_thresholds": {
+      "per_chunk": 0.92,
+      "overall": 0.95
+     }
+    },
+    "assets": {
+     "status": "complete",
+     "rights_checked": true,
+     "approval_constraints_checked": true,
+     "capture_id": "tool-scrawl-01",
+     "manifest_sha256": "3d41d2b659adca1fd134dd5a7b710ed34772ffbe98b58297c5da4729229b9dae",
+     "files": [
+      {
+       "path": "desktop-full.jpg",
+       "sha256": "6ee08fb54cec48dc20937b9afd6204143aba9328501c0e0afcb1c5edf9892380"
+      },
+      {
+       "path": "desktop-how.jpg",
+       "sha256": "9ff67f22bb32e10f419092c59c91bbe53bae424fa45a2aa77803f5feb74cd673"
+      },
+      {
+       "path": "desktop-install.jpg",
+       "sha256": "d46eedaa627b63bf56ecb5383caca42b02e50ab8f77d12af0e321aaa61b030d4"
+      },
+      {
+       "path": "desktop-top.jpg",
+       "sha256": "8879c5445d6cbe71671a31ceca89dfa95e51b4ffc71c0d274199427bbeaf0500"
+      },
+      {
+       "path": "mobile.png",
+       "sha256": "d6acfd37f3538779eceb3c0708585ac9a73cfe0dfb3e08b5eddfc3f3983519f0"
+      }
+     ]
+    }
+   }
+  }
+ }
+}
