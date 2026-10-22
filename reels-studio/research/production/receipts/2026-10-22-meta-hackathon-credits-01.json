@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-22-meta-hackathon-credits-01",
+  "created_at": "2026-10-22T10:38:59Z",
+  "buffer_insights": {
+    "path": "reels-studio/tracker/buffer-insights.json",
+    "sha256": "dabaf3a20e80566c4ce8f7ed9f0bd0f5490a4b008ecd600be3946f49ceb92905"
+  },
+  "metrics_review": {
+    "snapshot_sha256": "dabaf3a20e80566c4ce8f7ed9f0bd0f5490a4b008ecd600be3946f49ceb92905",
+    "reviewed_video_count": 120,
+    "sample_post_ids": [
+      "6acc91a65feb3462de95f295",
+      "6acc91ac5feb3462de95f38b",
+      "6ac904b32f26cc482c22c526"
+    ],
+    "findings": [
+      "Snapshot 2026-10-22T10:37:10Z is complete: 120 video posts; YouTube median 58 views across 42 posts with metrics.",
+      "Top two YouTube views are model-access stories: Qwen3.8-27B on one RTX 3090 (1,257 views) and DeepSeek 4 local inference (1,009 views).",
+      "Decision context: the deadline is the reason to post now; expected reach is modest and the short is written for people who can act before Oct 25."
+    ],
+    "decisions": {
+      "topic": "Deadline news with a concrete viewer action: apply before Oct 25 and know the catch. Model-access stories led the snapshot.",
+      "script": "Read the official page first, then the dated facts, then the catch: credits are for selected applicants only.",
+      "voice": "Approved Chatterbox Option-3 profile at the fixed floors (92% per chunk, 95% overall).",
+      "visual": "Official page captures only (headline, key dates, prize line). No Meta footage, no invented product demo."
+    }
+  },
+  "briefs": {
+    "meta-hackathon-credits-01": {
+      "brief_sha256": "e4b830ce55118caeebcfd99b02611242ca25381c31ac1644f401a84377680d5a",
+      "metrics_decisions": {
+        "topic": "Deadline news with a concrete viewer action: apply before Oct 25 and know the catch. Model-access stories led the snapshot.",
+        "script": "Read the official page first, then the dated facts, then the catch: credits are for selected applicants only.",
+        "voice": "Approved Chatterbox Option-3 profile at the fixed floors (92% per chunk, 95% overall).",
+        "visual": "Official page captures only (headline, key dates, prize line). No Meta footage, no invented product demo."
+      },
+      "stages": {
+        "discover": {
+          "status": "complete",
+          "checked_at": "2026-10-22T10:38:59Z",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-22.md"
+          ]
+        },
+        "select": {
+          "status": "complete",
+          "selection_status": "selected",
+          "topic": "Meta Global AI Developer Hackathon: $150 toward model usage if selected",
+          "score": 68,
+          "score_breakdown": {
+            "trend_velocity": 18,
+            "demo_ability": 8,
+            "audience_breadth": 12,
+            "social_proof_gap": 9,
+            "free_value": 9,
+            "freshness_angle": 12
+          },
+          "metrics_snapshot_sha256": "dabaf3a20e80566c4ce8f7ed9f0bd0f5490a4b008ecd600be3946f49ceb92905",
+          "basis_post_ids": [
+            "6acc91a65feb3462de95f295",
+            "6acc91ac5feb3462de95f38b"
+          ],
+          "hard_gates": {
+            "risk_flags_clear": true,
+            "claim_verifiable": true,
+            "license_clear": true
+          }
+        },
+        "research": {
+          "status": "complete",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-22.md"
+          ],
+          "dynamic_facts_checked_at": "2026-10-22T10:38:59Z",
+          "primary_sources": [
+            {
+              "url": "https://dev.meta.ai/events/global-hackathon",
+              "checked_at": "2026-10-22T10:38:59Z",
+              "claim": "Applications close Oct 25, 2026 11:59 PM ET or earlier at 20,000 spots; 10 days virtual; $1,000,000 prize pool; Official Rules before Oct 26."
+            },
+            {
+              "url": "https://x.com/MetaforDevs/status/2110045152601633114",
+              "checked_at": "2026-10-22T10:38:59Z",
+              "claim": "Meta for Developers 2026-10-13: $150 in Meta Model API usage per selected participant; cap 20,000; 26 Oct to 4 Nov."
+            }
+          ]
+        },
+        "script": {
+          "status": "complete",
+          "script_sha256": "ac45caf9bbe0822ff3859e3fa827aa9448c13d207b19e9a605248cfaa767aa92",
+          "word_count": 105
+        },
+        "voice": {
+          "status": "complete",
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "per_chunk": 0.92,
+            "overall": 0.95
+          }
+        },
+        "assets": {
+          "status": "complete",
+          "capture_id": "meta-hackathon-credits-01",
+          "manifest_sha256": "208088fb3ec72b73d6d7ddb68e98695109deff7c13525f9287c90c722fce8680",
+          "files": [
+            {
+              "path": "desktop-full.jpg",
+              "sha256": "c8d84b0da721b838baa49d93d8369b8ceb958849d4263a94367648bc2334c420"
+            },
+            {
+              "path": "desktop-top.jpg",
+              "sha256": "7d18a0e86539595ce36b6b0cf453d73c517f208de9d7fe2c6bbea20168ef7b23"
+            },
+            {
+              "path": "mobile-full.jpg",
+              "sha256": "f6a21514e16b39cf2ae8c0756d54b7d6fcc1901c763950ace33d79d5e971c4fc"
+            },
+            {
+              "path": "logo-5cb3b29f.svg",
+              "sha256": "7a0430c375fc8563eafa7636869b5b132e6da4461711a81d384bc0044a20d039"
+            },
+            {
+              "path": "logo-6f02b62e.svg",
+              "sha256": "764de926994a45e479f4db6c0b6b39a870ff73cc096f37cf7cc2adf879da330a"
+            },
+            {
+              "path": "og-image.png",
+              "sha256": "2aa3bb64967600012875c56bced798ef1d255568bced7e6a9b1dea83a3fd2c56"
+            }
+          ],
+          "rights_checked": true,
+          "approval_constraints_checked": true
+        }
+      }
+    }
+  }
+}
