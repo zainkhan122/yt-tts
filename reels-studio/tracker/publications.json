@@ -113,6 +113,31 @@
       "updated_at": "2026-10-22T15:16:59Z",
       "video_id": "meta-hackathon-credits-01"
     },
+    "meta-hackathon-credits-01:instagram": {
+      "attempts": 1,
+      "category": "news",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-23T22:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:3d4cde519c3e62301e16a2c9aeaa917057c58ccc7b97d01279543ea08db17e49",
+        "asset_id": 666196864,
+        "asset_size": 7818946,
+        "kit_asset_id": 666196918,
+        "kit_digest": "sha256:07b761d9d5f5eb2e89e12371c816f311e6919386ecd175dddff282d9f559c75b",
+        "media_path": "media/666196864/meta-hackathon-credits-01.mp4",
+        "release_tag": "renders-2026-10-22",
+        "video_id": "meta-hackathon-credits-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/666196864/meta-hackathon-credits-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "e6450a810dea181f1555e0b1a5337387cdd4af6c1bdb26bee25d39599d36c219",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Meta hackathon: each selected builder gets $150 toward model usage. You still have to be picked, and applications close Oct 25 at 11:59 PM ET.\n\nIf you've been sitting on an app idea that needs model calls, this is the one to check today.\n\n#MetaHackathon #MetaAPI #DeveloperTools",
+      "title": "Meta hackathon: $150 toward model usage if you're picked",
+      "updated_at": "2026-10-22T15:17:03Z",
+      "video_id": "meta-hackathon-credits-01"
+    },
     "meta-hackathon-credits-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6ada28eee8cca8cdcc5ac118",
