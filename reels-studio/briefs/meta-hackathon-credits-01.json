@@ -113,7 +113,7 @@
      "at": "apply"
     }
    ],
-   "say": "Meta's hackathon can pay for your model calls. Here is what it actually gives you, straight from its own page."
+   "say": "Meta's hackathon can pay for your model calls. Here is what the official page says."
   },
   {
    "id": "dates",
@@ -127,7 +127,7 @@
      "at": "dates"
     }
    ],
-   "say": "Applications close October twenty-fifth, at eleven fifty-nine PM Eastern, or sooner if twenty thousand spots fill first."
+   "say": "Applications close on October twenty-fifth, at one minute to midnight Eastern. They close sooner if twenty thousand spots fill first."
   },
   {
    "id": "prize",
@@ -136,7 +136,7 @@
    "label": "cash prize pool, two tracks",
    "source": "https://dev.meta.ai/events/global-hackathon",
    "retrieved_at": "2026-10-22",
-   "say": "There is a one million dollar prize pool, split between an indie track and a startup track."
+   "say": "The prize pool is one million dollars, split between an indie track and a startup track."
   },
   {
    "id": "catch",
@@ -156,7 +156,7 @@
     "ten days",
     "newest models"
    ],
-   "say": "The catch: the one hundred fifty dollars toward model usage is for selected applicants only, not everyone who applies. The official rules come before October twenty-sixth, and you must accept them if you are picked."
+   "say": "The catch: the one hundred fifty dollars toward model usage is for selected applicants only. The official rules come before October twenty-sixth, and you must accept them if you are picked."
   },
   {
    "id": "cta",
