@@ -115,9 +115,11 @@
     },
     "meta-hackathon-credits-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6ada28f1f09f431dcae5a2c4",
       "category": "news",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-23T22:00:00Z",
+      "due_at": "2026-10-23T22:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:3d4cde519c3e62301e16a2c9aeaa917057c58ccc7b97d01279543ea08db17e49",
         "asset_id": 666196864,
@@ -132,10 +134,11 @@
       "notify_subscribers": false,
       "payload_sha256": "e6450a810dea181f1555e0b1a5337387cdd4af6c1bdb26bee25d39599d36c219",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Meta hackathon: each selected builder gets $150 toward model usage. You still have to be picked, and applications close Oct 25 at 11:59 PM ET.\n\nIf you've been sitting on an app idea that needs model calls, this is the one to check today.\n\n#MetaHackathon #MetaAPI #DeveloperTools",
       "title": "Meta hackathon: $150 toward model usage if you're picked",
-      "updated_at": "2026-10-22T15:17:03Z",
+      "updated_at": "2026-10-22T15:17:05Z",
       "video_id": "meta-hackathon-credits-01"
     },
     "meta-hackathon-credits-01:youtube": {
