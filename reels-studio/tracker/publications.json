@@ -85,6 +85,31 @@
       "updated_at": "2026-10-10T21:53:05Z",
       "video_id": "list-free-video-ai-01"
     },
+    "meta-hackathon-credits-01:facebook": {
+      "attempts": 1,
+      "category": "news",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-10-22T19:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:3d4cde519c3e62301e16a2c9aeaa917057c58ccc7b97d01279543ea08db17e49",
+        "asset_id": 666196864,
+        "asset_size": 7818946,
+        "kit_asset_id": 666196918,
+        "kit_digest": "sha256:07b761d9d5f5eb2e89e12371c816f311e6919386ecd175dddff282d9f559c75b",
+        "media_path": "media/666196864/meta-hackathon-credits-01.mp4",
+        "release_tag": "renders-2026-10-22",
+        "video_id": "meta-hackathon-credits-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/666196864/meta-hackathon-credits-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "622601e9054ce98cbcd699b2400a8b7fa893776942f1a1d4126141b1beac3d08",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "Meta hackathon: selected participants get $150 toward Meta Model API usage to build with Meta's models. Applications close October 25 at 11:59 PM ET. Only selected applicants get the $150, so read the official page before you apply.\n\nAI-generated narration.\n\n#MetaHackathon #DeveloperTools",
+      "title": "Meta hackathon: $150 toward model usage if you're picked",
+      "updated_at": "2026-10-22T15:16:56Z",
+      "video_id": "meta-hackathon-credits-01"
+    },
     "model-drama3-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6ad1ff2813b2adf724a23951",
