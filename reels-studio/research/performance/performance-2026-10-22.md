@@ -1,6 +1,6 @@
 # Shorts performance — 2026-10-22
 
-Source: Buffer Insights snapshot `2026-10-22T10:11:45Z` (complete: **True**) · videos analysed: **39** · mature (≥7d): **21** · developing: **13** · too early (<2d): **5**
+Source: Buffer Insights snapshot `2026-10-22T10:37:10Z` (complete: **True**) · videos analysed: **39** · mature (≥7d): **21** · developing: **13** · too early (<2d): **5**
 
 Metrics are ranked within each platform and never compared across platforms. Verdicts use mature videos only; everything else is labelled descriptive.
 
@@ -10,29 +10,29 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 |---|---:|---:|---:|---:|---:|---:|---:|
 | `list-free-video-ai-01` (mature) | 11.7d | 182 | 0% | 0 | 0 | — | 0 |
 | `repo-ai-newtab-01` (mature) | 11.5d | 169 | 0% | 0 | 0 | — | 0 |
-| `repo-solidglass-01` (developing) | 6.6d | 118 | 0% | 0 | 0 | — | 0 |
+| `repo-solidglass-01` (developing) | 6.7d | 118 | 0% | 0 | 0 | — | 0 |
 | `repo-graphicle-01` (developing) | 4.7d | 108 | 0% | 0 | 0 | — | 0 |
-| `tool-qwen-image-21-turbo-01` (mature) | 7.6d | 97 | 0% | 0 | 0 | — | 0 |
+| `tool-qwen-image-21-turbo-01` (mature) | 7.7d | 97 | 0% | 0 | 0 | — | 0 |
 
 ## instagram — top by views
 
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | `news-gpt61-astra-01` (mature) | 9.9d | 308 | 0.7% | 0 | 0 | 0 | 0 |
-| `repo-opencr-01` (mature) | 9.0d | 269 | 2.1% | 0 | 2 | 1 | 0 |
+| `repo-opencr-01` (mature) | 9.1d | 269 | 2.1% | 0 | 2 | 1 | 0 |
 | `model-embeddinggemma2-01` (developing) | 6.9d | 236 | 4.7% | 0 | 7 | 1 | 0 |
 | `news-muse-spark-01` (developing) | 5.5d | 221 | 2.5% | 0 | 1 | 3 | 0 |
-| `tool-higgsfield-01` (mature) | 8.6d | 219 | 1.6% | 0 | 1 | 2 | 0 |
+| `tool-higgsfield-01` (mature) | 8.7d | 219 | 1.6% | 0 | 1 | 2 | 0 |
 
 ## youtube — top by views
 
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| `tool-qwen38-01` (mature) | 9.7d | 1,257 | 0.6% | 0 | — | — | 15.0 |
-| `repo-ds4-01` (mature) | 9.6d | 1,009 | 0.9% | 0 | — | — | 1 |
-| `repo-coop-anything-01` (developing) | 2.6d | 437 | 0.7% | 1 | — | — | 100.8 |
-| `tool-ltx25-01` (mature) | 9.6d | 354 | 0.6% | 0 | — | — | 3.0 |
-| `tool-openmontage-01` (mature) | 9.5d | 322 | 0.6% | 0 | — | — | 48.9 |
+| `tool-qwen38-01` (mature) | 9.7d | 1,257 | 0.6% | 0 | — | — | 14.7 |
+| `repo-ds4-01` (mature) | 9.6d | 1,009 | 0.9% | 0 | — | — | 1.0 |
+| `repo-coop-anything-01` (developing) | 2.6d | 437 | 0.7% | 1 | — | — | 99.1 |
+| `tool-ltx25-01` (mature) | 9.7d | 354 | 0.6% | 0 | — | — | 2.9 |
+| `tool-openmontage-01` (mature) | 9.5d | 322 | 0.6% | 0 | — | — | 48.1 |
 
 ## Winners and underperformers (mature, cross-platform percentile)
 
