@@ -32,14 +32,54 @@
  "treatment": {
   "audience": "indie developers and small teams with an app idea and no model budget",
   "viewer_job": "decide today whether to apply before the deadline, knowing what is free and what is not",
-  "intent": "act",
+  "intent": "search",
   "hook_mechanic": "open on the official page's own headline and the apply button, so the viewer sees the offer on the source itself",
   "open_loop": {
    "plant": "free for everyone?",
    "payoff_scene": "catch"
   },
   "proof_moment": "dates",
-  "selected_cover": 0
+  "selected_cover": 0,
+  "archetype": "spotlight",
+  "cover_concepts": [
+   {
+    "text": "APPLY BY OCT 25",
+    "visual": "official page key-dates section",
+    "gap": "what closes first?"
+   },
+   {
+    "text": "$150 IF PICKED",
+    "visual": "official page headline and Apply now button",
+    "gap": "free for everyone?"
+   },
+   {
+    "text": "META HACKATHON CATCH",
+    "visual": "official page prize and rules lines",
+    "gap": "what is the catch?"
+   }
+  ],
+  "structure": [
+   {
+    "scene": "hook",
+    "beat": "hook"
+   },
+   {
+    "scene": "dates",
+    "beat": "proof"
+   },
+   {
+    "scene": "prize",
+    "beat": "proof"
+   },
+   {
+    "scene": "catch",
+    "beat": "catch"
+   },
+   {
+    "scene": "cta",
+    "beat": "close"
+   }
+  ]
  },
  "research_basis": [
   "research/reference-study/2026-10-21.md",
@@ -136,25 +176,28 @@
    "label": "cash prize pool, two tracks",
    "source": "https://dev.meta.ai/events/global-hackathon",
    "retrieved_at": "2026-10-22",
-   "say": "The prize pool is 1 million dollars across two tracks."
+   "say": "The prize pool is 1 million dollars across two tracks.",
+   "background": {
+    "img": "desktop-top.jpg"
+   }
   },
   {
    "id": "catch",
    "type": "verdict",
    "heading": "THE *CATCH*",
    "cons": [
-    "$150 usage only for selected applicants",
-    "Official rules not published yet"
+    "Only selected applicants get the money",
+    "Rules to accept before Oct 26"
    ],
    "pros": [
-    "Ten days, virtual, worldwide",
-    "Build with Meta's newest models"
+    "$150 toward Meta Model API usage",
+    "Free to enter if picked"
    ],
    "item_at": [
     "selected",
     "rules",
-    "ten days",
-    "newest models"
+    "dollars",
+    "picked"
    ],
    "say": "The catch: only selected applicants get the 150 dollars. The official rules come before October 26, and you must accept them if you are picked."
   },
