@@ -28,7 +28,7 @@
   },
   "briefs": {
     "meta-hackathon-credits-01": {
-      "brief_sha256": "739516384661ee59c56fd6c881835c480e264914af60dc2de14592a332d24313",
+      "brief_sha256": "83332e521852c28e73f7895e406d95529b379e2426c4a684bac2dcc84007d760",
       "metrics_decisions": {
         "topic": "Deadline news with a concrete viewer action: apply before Oct 25 and know the catch. Model-access stories led the snapshot.",
         "script": "Read the official page first, then the dated facts, then the catch: credits are for selected applicants only.",
@@ -88,8 +88,8 @@
         },
         "script": {
           "status": "complete",
-          "script_sha256": "ec9eb7def53adc854f86412f4ba87aa8f01d5e0de5716d086cc3ff5a9ea05e26",
-          "word_count": 83
+          "script_sha256": "1ac26d3dae28cbc37ad99e34e1ebef9f438732048440440a151815c2eb40f2de",
+          "word_count": 81
         },
         "voice": {
           "status": "complete",
