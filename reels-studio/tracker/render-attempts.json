@@ -1057,6 +1057,25 @@
       "status": "render_only_success",
       "voice_seed": 0
     },
+    "fb65784e262846fd7906d7b974dba92901bb434f4fa16273b4a48b777c417de6": {
+      "asset_files_sha256": "4ceda0112bb5e092176055042d6ed6ab1ead79a58d7e4f7fe37b2dc114a2366b",
+      "asset_manifest_sha256": "208088fb3ec72b73d6d7ddb68e98695109deff7c13525f9287c90c722fce8680",
+      "brief_id": "meta-hackathon-credits-01",
+      "brief_sha256": "f2bf69f19b84ea477e2e1a2bd87f89dcb47f3f147166edb2ac16e0f7087e18a6",
+      "capture_id": "meta-hackathon-credits-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "fb65784e262846fd7906d7b974dba92901bb434f4fa16273b4a48b777c417de6",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "0012084e3e3cfd02d42430f6233ee52470b0aab0098b095629e7ae933e293f15",
+      "run_id": "39794553214",
+      "started_at": "2026-10-22T14:18:44Z",
+      "status": "started",
+      "voice_seed": 1
+    },
     "fbd570f96fafb92d109f3dbf70c3d2feec6263fd49791206f69228836c54c344": {
       "asset_files_sha256": null,
       "asset_manifest_sha256": null,
