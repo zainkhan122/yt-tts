@@ -1884,9 +1884,11 @@
     },
     "repo-harp-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6adccbfbe4be8a4d8665bbed",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-24T20:00:00Z",
+      "due_at": "2026-10-24T20:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:061ebc4deb1ba1ac5d0e7650e1da4ce578f279ef6fd5b4422a60310b84a0f10c",
         "asset_id": 672573504,
@@ -1901,10 +1903,11 @@
       "notify_subscribers": true,
       "payload_sha256": "1f5b1edb18da21f5bd7eec2129da705979ee66f858a45cf8084a2a3085b74e4c",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Running several Claude Code or Codex sessions? Harp is a macOS app that lists them in one sidebar and shows which one needs you.\n\nLicence: AGPL-3.0. It is an unofficial fork of Warp.\n\nRepo: https://github.com/dominikmartn/harp\n\n#Shorts #ClaudeCode #CodexCLI",
       "title": "Harp: one sidebar for many agents, showing which needs you",
-      "updated_at": "2026-10-24T15:17:13Z",
+      "updated_at": "2026-10-24T15:17:15Z",
       "video_id": "repo-harp-01"
     },
     "repo-huashu-motion-01:facebook": {
