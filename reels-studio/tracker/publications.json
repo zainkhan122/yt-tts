@@ -1856,9 +1856,11 @@
     },
     "repo-harp-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6adccbfe0b5343d0708d202e",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-24T21:00:00Z",
+      "due_at": "2026-10-24T21:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:061ebc4deb1ba1ac5d0e7650e1da4ce578f279ef6fd5b4422a60310b84a0f10c",
         "asset_id": 672573504,
@@ -1873,10 +1875,11 @@
       "notify_subscribers": false,
       "payload_sha256": "3ceca6d872cead49856b0e0a3a5c4d723f0d160d27e2b9a523ac75cb73ef6a61",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Harp puts Claude Code and Codex sessions in one sidebar and shows which one needs you.\n\nIt is a macOS app and an unofficial fork of Warp under AGPL-3.0.\n\nAI-generated narration.\n\nAI-generated narration.\n\n#ClaudeCode",
       "title": "Harp: one sidebar for many agents, showing which needs you",
-      "updated_at": "2026-10-24T15:17:16Z",
+      "updated_at": "2026-10-24T15:17:18Z",
       "video_id": "repo-harp-01"
     },
     "repo-harp-01:instagram": {
