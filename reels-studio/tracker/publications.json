@@ -1856,9 +1856,11 @@
     },
     "repo-harp-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6adccbf8e4be8a4d8665bb7d",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-24T19:00:00Z",
+      "due_at": "2026-10-24T19:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:061ebc4deb1ba1ac5d0e7650e1da4ce578f279ef6fd5b4422a60310b84a0f10c",
         "asset_id": 672573504,
@@ -1873,10 +1875,11 @@
       "notify_subscribers": false,
       "payload_sha256": "20a4fcad73fb671aabc61d222c36e7a69b514c22b4b6b4504f482f19fd6bfcd1",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Harp: several Claude Code or Codex sessions, one sidebar. It shows which one needs you, so you stop checking tabs.\n\nmacOS only. AGPL-3.0 licence.\n\n#ClaudeCode #CodexCLI #DevTools",
       "title": "Harp: one sidebar for many agents, showing which needs you",
-      "updated_at": "2026-10-24T15:17:09Z",
+      "updated_at": "2026-10-24T15:17:12Z",
       "video_id": "repo-harp-01"
     },
     "repo-huashu-motion-01:facebook": {
