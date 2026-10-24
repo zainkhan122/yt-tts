@@ -195,6 +195,25 @@
       "status": "scene_rebuild_success",
       "voice_seed": 0
     },
+    "264800115b64236f53bb0059b7b4a9a51559cadf740ada73395b3c74aa64c3ee": {
+      "asset_files_sha256": "d9827e25fd1f2b9c26b4dacca5eaa52c004a667ac2782faefd70f8dddb20f737",
+      "asset_manifest_sha256": "0e8dae403355439791d6eb7cc9dff51675e6b3c375d21d4d3024e0026ad2e4f7",
+      "brief_id": "repo-motion2code-01",
+      "brief_sha256": "bfbcdc99bd5c19749e414333c74ffa1f025673531d39cb145a4057a312e5d9d5",
+      "capture_id": "repo-motion2code-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "264800115b64236f53bb0059b7b4a9a51559cadf740ada73395b3c74aa64c3ee",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "0012084e3e3cfd02d42430f6233ee52470b0aab0098b095629e7ae933e293f15",
+      "run_id": "40104583378",
+      "started_at": "2026-10-24T14:54:40Z",
+      "status": "started",
+      "voice_seed": 1
+    },
     "26c78147be8b5f39d2342caf03aaf242d58a0dedf8316f00d1b888ca8d059c1c": {
       "asset_files_sha256": "ed8fb86a11fee5521c69dadda65603115f1b46257f8de027aae12b275e52ef92",
       "asset_manifest_sha256": "a774ce561457c285a3f896ca3fb81133b47bc75adec0b620f8379b1c5d5a55f8",
