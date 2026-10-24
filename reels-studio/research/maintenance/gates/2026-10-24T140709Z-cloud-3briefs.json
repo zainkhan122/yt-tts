@@ -1,0 +1,191 @@
+{
+  "dispatched": [
+    "repo-harp-01",
+    "repo-motion2code-01",
+    "repo-ltx25-01"
+  ],
+  "release_tag": "renders-2026-10-24",
+  "gates": [
+    {
+      "brief": "repo-harp-01",
+      "path": "/home/user/work-remediation/reels-studio/briefs/repo-harp-01.json",
+      "lint": [],
+      "seo": [
+        {
+          "id": "SP011",
+          "severity": "warning",
+          "message": "keyword not in on-screen text of the first 3 s ('')"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "youtube: keyword not within the first 4 words of the title"
+        },
+        {
+          "id": "SP041",
+          "severity": "warning",
+          "message": "tiktok: 2 hashtags (want 3-5)"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "tiktok: keyword not within the first 8 words of the caption"
+        },
+        {
+          "id": "SP080",
+          "severity": "warning",
+          "message": "instagram: licence/legal term in the caption first line — open with who it's for and what it does for them; legal detail goes at the bottom"
+        },
+        {
+          "id": "SP080",
+          "severity": "warning",
+          "message": "facebook: licence/legal term in the caption first line — open with who it's for and what it does for them; legal detail goes at the bottom"
+        },
+        {
+          "id": "SP080",
+          "severity": "warning",
+          "message": "x: licence/legal term in the text first line — open with who it's for and what it does for them; legal detail goes at the bottom"
+        }
+      ],
+      "rollup": {
+        "errors": 0,
+        "warnings": 7,
+        "by_id": {
+          "SP011": 1,
+          "SP041": 1,
+          "SP060": 2,
+          "SP080": 3
+        }
+      },
+      "at": "2026-10-24T14:07:09Z"
+    },
+    {
+      "brief": "repo-motion2code-01",
+      "path": "/home/user/work-remediation/reels-studio/briefs/repo-motion2code-01.json",
+      "lint": [],
+      "seo": [
+        {
+          "id": "SP010",
+          "severity": "warning",
+          "message": "keyword not spoken in the first ~10 s: TikTok/YouTube index speech (say it in the hook if natural)"
+        },
+        {
+          "id": "SP011",
+          "severity": "warning",
+          "message": "keyword not in on-screen text of the first 3 s ('')"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "youtube: keyword not within the first 4 words of the title"
+        },
+        {
+          "id": "SP071",
+          "severity": "warning",
+          "message": "youtube: keyword not in the first 150 chars of the description"
+        },
+        {
+          "id": "SP041",
+          "severity": "warning",
+          "message": "tiktok: 2 hashtags (want 3-5)"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "tiktok: keyword not within the first 8 words of the caption"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "instagram: keyword not within the first 10 words of the caption"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "facebook: keyword not within the first 10 words of the caption"
+        },
+        {
+          "id": "SP080",
+          "severity": "warning",
+          "message": "facebook: licence/legal term in the caption first line — open with who it's for and what it does for them; legal detail goes at the bottom"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "x: keyword not within the first 12 words of the text"
+        },
+        {
+          "id": "SP080",
+          "severity": "warning",
+          "message": "x: licence/legal term in the text first line — open with who it's for and what it does for them; legal detail goes at the bottom"
+        }
+      ],
+      "rollup": {
+        "errors": 0,
+        "warnings": 11,
+        "by_id": {
+          "SP010": 1,
+          "SP011": 1,
+          "SP041": 1,
+          "SP060": 5,
+          "SP071": 1,
+          "SP080": 2
+        }
+      },
+      "at": "2026-10-24T14:07:09Z"
+    },
+    {
+      "brief": "repo-ltx25-01",
+      "path": "/home/user/work-remediation/reels-studio/briefs/repo-ltx25-01.json",
+      "lint": [],
+      "seo": [
+        {
+          "id": "SP011",
+          "severity": "warning",
+          "message": "keyword not in on-screen text of the first 3 s ('')"
+        },
+        {
+          "id": "SP031",
+          "severity": "warning",
+          "message": "youtube: title 65 chars > recommended 60"
+        },
+        {
+          "id": "SP041",
+          "severity": "warning",
+          "message": "tiktok: 2 hashtags (want 3-5)"
+        },
+        {
+          "id": "SP080",
+          "severity": "warning",
+          "message": "instagram: licence/legal term in the caption first line — open with who it's for and what it does for them; legal detail goes at the bottom"
+        },
+        {
+          "id": "SP080",
+          "severity": "warning",
+          "message": "facebook: licence/legal term in the caption first line — open with who it's for and what it does for them; legal detail goes at the bottom"
+        },
+        {
+          "id": "SP080",
+          "severity": "warning",
+          "message": "x: licence/legal term in the text first line — open with who it's for and what it does for them; legal detail goes at the bottom"
+        }
+      ],
+      "rollup": {
+        "errors": 0,
+        "warnings": 6,
+        "by_id": {
+          "SP011": 1,
+          "SP031": 1,
+          "SP041": 1,
+          "SP080": 3
+        }
+      },
+      "at": "2026-10-24T14:07:09Z"
+    }
+  ],
+  "production_receipt": "reels-studio/research/production/receipts/2026-10-24-repo-trio.json",
+  "publish_release_requested": false,
+  "status": "dispatched_not_verified",
+  "delivery_policy": "Actions artifact only by default; public GitHub Release requires explicit --publish-release",
+  "run_id": 40101074739
+}
