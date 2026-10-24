@@ -264,7 +264,7 @@
       "priority": 100,
       "release_tag": "renders-2026-10-10",
       "reviewed_at": "2026-10-11T05:29:03Z",
-      "title": "Pomelli: Free AI Product Photos—with a Catch",
+      "title": "Pomelli: Free AI Product Photos\u2014with a Catch",
       "video_id": "tool-pomelli-01",
       "youtube_ai_generated": true
     },
@@ -755,7 +755,7 @@
       "priority": 15,
       "release_tag": "renders-2026-10-15",
       "reviewed_at": "2026-10-15T12:42:11Z",
-      "title": "LFM2.5: 24B Brain, 2B at Work — a Local Agent Model",
+      "title": "LFM2.5: 24B Brain, 2B at Work \u2014 a Local Agent Model",
       "video_id": "model-lfm25-01",
       "youtube_ai_generated": false
     },
@@ -1131,6 +1131,30 @@
       "reviewed_at": "2026-10-22T15:05:59Z",
       "title": "Meta hackathon: $150 toward model usage if you're picked",
       "video_id": "meta-hackathon-credits-01",
+      "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-10-24T15:12:26Z",
+      "approval": "approved",
+      "asset_digest": "sha256:061ebc4deb1ba1ac5d0e7650e1da4ce578f279ef6fd5b4422a60310b84a0f10c",
+      "asset_id": 672573504,
+      "asset_size": 10723198,
+      "brief_sha256": "8f7f5bbdbefdd33cfbfb0442fe229e96510ed3b40698de9499685c41578166c3",
+      "category": "repo",
+      "expires_at": "2026-10-26T12:00:00Z",
+      "kit_asset_id": 672573557,
+      "kit_digest": "sha256:e3d7afcf10522e880e9f7959438b33cc351a535d02030f294b4f080603663f5b",
+      "media_path": "media/672573504/repo-harp-01.mp4",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "priority": 80,
+      "release_tag": "renders-2026-10-24",
+      "reviewed_at": "2026-10-24T15:13:02Z",
+      "title": "Harp: one sidebar for many agents, showing which needs you",
+      "video_id": "repo-harp-01",
       "youtube_ai_generated": false
     }
   ],
