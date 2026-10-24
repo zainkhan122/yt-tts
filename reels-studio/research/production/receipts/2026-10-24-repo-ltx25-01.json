@@ -1,0 +1,141 @@
+{
+ "schema_version": 1,
+ "batch_id": "2026-10-24-repo-ltx25-01",
+ "created_at": "2026-10-24T14:06:22Z",
+ "buffer_insights": {
+  "path": "reels-studio/tracker/buffer-insights.json",
+  "sha256": "55a5d1c906422b7bb5234662dcd61d1e529e3d0bf6333ff1da8e9b835653b037"
+ },
+ "metrics_review": {
+  "snapshot_sha256": "55a5d1c906422b7bb5234662dcd61d1e529e3d0bf6333ff1da8e9b835653b037",
+  "reviewed_video_count": 124,
+  "sample_post_ids": [
+   "6ac904b32f26cc482c22c524",
+   "6ac904b32f26cc482c22c526",
+   "6aca1f1ec4de2d2b12255238",
+   "6aca1f23b07d37ac976e341a"
+  ],
+  "findings": [
+   "Buffer Insights snapshot 2026-10-24T13:18:43Z is complete with 124 tracked video posts; reviewed before the topic scores.",
+   "Repo and open-tool posts are the most consistent sources of usable proof in the snapshot; the basis posts are cited in SELECT.",
+   "Scores are judgment against the rubric; a short's score is only raised when its proof is on the page or in product media."
+  ],
+  "decisions": {
+   "topic": "Three different viewer jobs: a multi-agent sidebar, a motion-as-code skill and an open-weight model licence.",
+   "script": "Proof-first beats with the catch in the verdict and one spoken licence mention per short.",
+   "voice": "Approved Chatterbox Option-3 profile at the fixed floors.",
+   "visual": "Real product media from capture packs only; no credits on screen; covers via cover_lab."
+  }
+ },
+ "briefs": {
+  "repo-ltx25-01": {
+   "brief_sha256": "d953548596b05667a683aadb5dab54faf024286db6e48ea8bb667ca691537aa4",
+   "metrics_decisions": {
+    "topic": "repo-ltx25-01: the viewer job is concrete and the proof is on the page or in the product media.",
+    "script": "Proof-first beats: the page or product media first, then the claim it supports, then the catch in the verdict.",
+    "voice": "Approved Chatterbox Option-3 profile at the fixed floors: at least 92% per chunk and 95% overall.",
+    "visual": "Real product media from the capture pack (page captures and README images only); covers designed in cover_lab from three distinct captures."
+   },
+   "stages": {
+    "discover": {
+     "status": "complete",
+     "checked_at": "2026-10-24T14:06:22Z",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-24.md"
+     ]
+    },
+    "select": {
+     "status": "complete",
+     "selection_status": "selected",
+     "topic": "LTX-2.5: open-weight video with synchronized audio, free commercial use below a $10M revenue line",
+     "score": 78,
+     "score_breakdown": {
+      "trend_velocity": 20,
+      "demo_ability": 12,
+      "audience_breadth": 12,
+      "social_proof_gap": 12,
+      "free_value": 9,
+      "freshness_angle": 13
+     },
+     "metrics_snapshot_sha256": "55a5d1c906422b7bb5234662dcd61d1e529e3d0bf6333ff1da8e9b835653b037",
+     "basis_post_ids": [
+      "6ac904b32f26cc482c22c524",
+      "6ac904b32f26cc482c22c526",
+      "6aca1f1ec4de2d2b12255238",
+      "6aca1f23b07d37ac976e341a"
+     ],
+     "hard_gates": {
+      "risk_flags_clear": true,
+      "claim_verifiable": true,
+      "license_clear": true
+     }
+    },
+    "research": {
+     "status": "complete",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-24.md"
+     ],
+     "dynamic_facts_checked_at": "2026-10-24T14:06:22Z",
+     "primary_sources": [
+      {
+       "url": "https://huggingface.co/Lightricks/LTX-2.5",
+       "checked_at": "2026-10-24T14:06:22Z",
+       "claim": "Model card: open-weight synchronized video and audio model; LTX-2.x Community License free for commercial use under $10M annual revenue; native multishot; model page asks for contact details first."
+      }
+     ]
+    },
+    "script": {
+     "status": "complete",
+     "script_sha256": "ff4ab3cb659093e035e4d626b2ef376ae216de626d7c0f65065bcd29a00e7e63",
+     "word_count": 92
+    },
+    "voice": {
+     "status": "complete",
+     "engine": "chatterbox",
+     "profile": "option-3",
+     "qa_thresholds": {
+      "per_chunk": 0.92,
+      "overall": 0.95
+     }
+    },
+    "assets": {
+     "status": "complete",
+     "rights_checked": true,
+     "approval_constraints_checked": true,
+     "capture_id": "repo-ltx25-01",
+     "manifest_sha256": "0834bd258bcf2c746e70a8e4799d580d3cd8c32565fed907e2aadc5fbedc78d4",
+     "files": [
+      {
+       "path": "contact.jpg",
+       "sha256": "03c282d2a913f7bd0f5e317517371206914f7de3f4d9157ffba10d5ff9069ca0"
+      },
+      {
+       "path": "desktop-full.jpg",
+       "sha256": "73c9be03a80dd3a8c7b19c9a80d84f7417c1a01adbca855f4ac1126889fc2a34"
+      },
+      {
+       "path": "desktop-top.jpg",
+       "sha256": "7ff22e1cca2c3409d61919ee7247cef87e07cf491802c23f1af7c368786153a6"
+      },
+      {
+       "path": "favicon.svg",
+       "sha256": "6a9577cd4f7fa6b75bde1025af85b944e9dd1388373b55ccba6e9f80ac2eae60"
+      },
+      {
+       "path": "manifest.json",
+       "sha256": "0834bd258bcf2c746e70a8e4799d580d3cd8c32565fed907e2aadc5fbedc78d4"
+      },
+      {
+       "path": "mobile-full.jpg",
+       "sha256": "07082f08f8cae5f2b680e03819121e73ca7f20761930e87d5eaaf2696a131845"
+      },
+      {
+       "path": "og-image.png",
+       "sha256": "8bffff9dd7ddffe8c986ca3d2eaa432965db4243e896adfb6f72963d19b600b2"
+      }
+     ]
+    }
+   }
+  }
+ }
+}
