@@ -1,0 +1,378 @@
+{
+ "schema_version": 1,
+ "batch_id": "2026-10-24-repo-trio",
+ "created_at": "2026-10-24T14:06:22Z",
+ "buffer_insights": {
+  "path": "reels-studio/tracker/buffer-insights.json",
+  "sha256": "55a5d1c906422b7bb5234662dcd61d1e529e3d0bf6333ff1da8e9b835653b037"
+ },
+ "metrics_review": {
+  "snapshot_sha256": "55a5d1c906422b7bb5234662dcd61d1e529e3d0bf6333ff1da8e9b835653b037",
+  "reviewed_video_count": 124,
+  "sample_post_ids": [
+   "6ac904b32f26cc482c22c524",
+   "6ac904b32f26cc482c22c526",
+   "6aca1f1ec4de2d2b12255238",
+   "6aca1f23b07d37ac976e341a"
+  ],
+  "findings": [
+   "Buffer Insights snapshot 2026-10-24T13:18:43Z is complete with 124 tracked video posts; reviewed before the topic scores.",
+   "Repo and open-tool posts are the most consistent sources of usable proof in the snapshot; the basis posts are cited in SELECT.",
+   "Scores are judgment against the rubric; a short's score is only raised when its proof is on the page or in product media."
+  ],
+  "decisions": {
+   "topic": "Three different viewer jobs: a multi-agent sidebar, a motion-as-code skill and an open-weight model licence.",
+   "script": "Proof-first beats with the catch in the verdict and one spoken licence mention per short.",
+   "voice": "Approved Chatterbox Option-3 profile at the fixed floors.",
+   "visual": "Real product media from capture packs only; no credits on screen; covers via cover_lab."
+  }
+ },
+ "briefs": {
+  "repo-harp-01": {
+   "brief_sha256": "38ddafe69902d5355c12d594b0814ed3b3f7fbe84dba07d98c5f07d4a36fb324",
+   "metrics_decisions": {
+    "topic": "repo-harp-01: the viewer job is concrete and the proof is on the page or in the product media.",
+    "script": "Proof-first beats: the page or product media first, then the claim it supports, then the catch in the verdict.",
+    "voice": "Approved Chatterbox Option-3 profile at the fixed floors: at least 92% per chunk and 95% overall.",
+    "visual": "Real product media from the capture pack (page captures and README images only); covers designed in cover_lab from three distinct captures."
+   },
+   "stages": {
+    "discover": {
+     "status": "complete",
+     "checked_at": "2026-10-24T14:06:22Z",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-24.md",
+      "reels-studio/research/reference-study/2026-10-24.md"
+     ]
+    },
+    "select": {
+     "status": "complete",
+     "selection_status": "selected",
+     "topic": "Harp: one sidebar for Claude Code and Codex agents, shows which one needs you",
+     "score": 70,
+     "score_breakdown": {
+      "trend_velocity": 18,
+      "demo_ability": 17,
+      "audience_breadth": 10,
+      "social_proof_gap": 10,
+      "free_value": 4,
+      "freshness_angle": 11
+     },
+     "metrics_snapshot_sha256": "55a5d1c906422b7bb5234662dcd61d1e529e3d0bf6333ff1da8e9b835653b037",
+     "basis_post_ids": [
+      "6ac904b32f26cc482c22c524",
+      "6ac904b32f26cc482c22c526",
+      "6aca1f1ec4de2d2b12255238",
+      "6aca1f23b07d37ac976e341a"
+     ],
+     "hard_gates": {
+      "risk_flags_clear": true,
+      "claim_verifiable": true,
+      "license_clear": true
+     }
+    },
+    "research": {
+     "status": "complete",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-24.md"
+     ],
+     "dynamic_facts_checked_at": "2026-10-24T14:06:22Z",
+     "primary_sources": [
+      {
+       "url": "https://github.com/dominikmartn/harp",
+       "checked_at": "2026-10-24T14:06:22Z",
+       "claim": "README: runs many Claude Code and Codex agents side by side in one sidebar that shows which one needs you; unofficial Warp fork; AGPL-3.0; macOS badge."
+      }
+     ]
+    },
+    "script": {
+     "status": "complete",
+     "script_sha256": "75f1739e764de1c3b48597f223011b10c81a8b39b3f7808cf64d2b629b9a59b7",
+     "word_count": 111
+    },
+    "voice": {
+     "status": "complete",
+     "engine": "chatterbox",
+     "profile": "option-3",
+     "qa_thresholds": {
+      "per_chunk": 0.92,
+      "overall": 0.95
+     }
+    },
+    "assets": {
+     "status": "complete",
+     "rights_checked": true,
+     "approval_constraints_checked": true,
+     "capture_id": "repo-harp-01",
+     "manifest_sha256": "24fc4d17bb74e1507676f5aa80718d62ac74df91242af35e3c5a3c23f6edea7e",
+     "files": [
+      {
+       "path": "contact.jpg",
+       "sha256": "79bf0ecdcf70bab57b2c6ea815302d69055376f96120cb618bccac481bf91237"
+      },
+      {
+       "path": "desktop-full.jpg",
+       "sha256": "75d19f855e10197ed497434df7d5d45dfdc43578a390d378308dff5ea39c4f88"
+      },
+      {
+       "path": "desktop-top.jpg",
+       "sha256": "f59a55164102bf0a3cc22411fccdaa26307fb0773359c0fc7d361c2d5fe7e38d"
+      },
+      {
+       "path": "favicon.svg",
+       "sha256": "6a9577cd4f7fa6b75bde1025af85b944e9dd1388373b55ccba6e9f80ac2eae60"
+      },
+      {
+       "path": "hero-dark.png",
+       "sha256": "19e0a6caf1e1a9034ec80181cc622fd3d792272819fa7b0b80663eb2b95cd948"
+      },
+      {
+       "path": "limit-rings-dark.png",
+       "sha256": "9e68888e15bd4c6e687521e2b512d7dc65487cc0a460e1eb9278f3a05d89f4c2"
+      },
+      {
+       "path": "manifest.json",
+       "sha256": "24fc4d17bb74e1507676f5aa80718d62ac74df91242af35e3c5a3c23f6edea7e"
+      },
+      {
+       "path": "mobile-full.jpg",
+       "sha256": "24866472628d325560a264e64213a18dd0eff9e3ce9a9649afbea377e1c2c89b"
+      },
+      {
+       "path": "og-image.png",
+       "sha256": "65d77eee24adf7be83c00af73dbf066c76f2e1aabf22e9bdaa4419830daefb00"
+      },
+      {
+       "path": "sidebar-dark.png",
+       "sha256": "ff7c620132c12d53dd8996f4c1c6af630a1fb1d9de199c135de79c89c277379b"
+      },
+      {
+       "path": "sidebar-rows-showing-needs-you-backgroun.png",
+       "sha256": "4d439a8585238f51f8fabee98ffa0144ae4ff61abb09b39bcc86c66e87cc2e6b"
+      },
+      {
+       "path": "usage-limit-rings-for-claude-and-codex-i.png",
+       "sha256": "db46734d21a2bbe5f9473ca941a748039bd6019bae73d00c8f45e4405476991d"
+      },
+      {
+       "path": "what-it-adds.png",
+       "sha256": "8188dea96a8d5b87bc4d65f29e820a47397b4225b3e6798d006daa716e8ff9d2"
+      }
+     ]
+    }
+   }
+  },
+  "repo-motion2code-01": {
+   "brief_sha256": "8d72b2683e4abf710bb4cb7b89457e4ab37391312e475400a6a07b0fc7cbf038",
+   "metrics_decisions": {
+    "topic": "repo-motion2code-01: the viewer job is concrete and the proof is on the page or in the product media.",
+    "script": "Proof-first beats: the page or product media first, then the claim it supports, then the catch in the verdict.",
+    "voice": "Approved Chatterbox Option-3 profile at the fixed floors: at least 92% per chunk and 95% overall.",
+    "visual": "Real product media from the capture pack (page captures and README images only); covers designed in cover_lab from three distinct captures."
+   },
+   "stages": {
+    "discover": {
+     "status": "complete",
+     "checked_at": "2026-10-24T14:06:22Z",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-24.md",
+      "reels-studio/research/reference-study/2026-10-24.md"
+     ]
+    },
+    "select": {
+     "status": "complete",
+     "selection_status": "selected",
+     "topic": "motion2code: rebuild a motion design video as SVG and one GSAP timeline a coding agent can edit",
+     "score": 63,
+     "score_breakdown": {
+      "trend_velocity": 12,
+      "demo_ability": 16,
+      "audience_breadth": 8,
+      "social_proof_gap": 11,
+      "free_value": 7,
+      "freshness_angle": 9
+     },
+     "metrics_snapshot_sha256": "55a5d1c906422b7bb5234662dcd61d1e529e3d0bf6333ff1da8e9b835653b037",
+     "basis_post_ids": [
+      "6ac904b32f26cc482c22c524",
+      "6ac904b32f26cc482c22c526",
+      "6aca1f1ec4de2d2b12255238",
+      "6aca1f23b07d37ac976e341a"
+     ],
+     "hard_gates": {
+      "risk_flags_clear": true,
+      "claim_verifiable": true,
+      "license_clear": true
+     }
+    },
+    "research": {
+     "status": "complete",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-24.md"
+     ],
+     "dynamic_facts_checked_at": "2026-10-24T14:06:22Z",
+     "primary_sources": [
+      {
+       "url": "https://github.com/lovisdotio/motion2code",
+       "checked_at": "2026-10-24T14:06:22Z",
+       "claim": "README: skill rebuilds a motion design video as inline SVG shapes on one GSAP timeline, seekable frame by frame, checked against source; MIT; Think Big example 10 s, 24 KB."
+      }
+     ]
+    },
+    "script": {
+     "status": "complete",
+     "script_sha256": "2fcb0084bcc3b8a21600f8efe42b3f03484279108e219d59922ab225de6744ed",
+     "word_count": 111
+    },
+    "voice": {
+     "status": "complete",
+     "engine": "chatterbox",
+     "profile": "option-3",
+     "qa_thresholds": {
+      "per_chunk": 0.92,
+      "overall": 0.95
+     }
+    },
+    "assets": {
+     "status": "complete",
+     "rights_checked": true,
+     "approval_constraints_checked": true,
+     "capture_id": "repo-motion2code-01",
+     "manifest_sha256": "0e8dae403355439791d6eb7cc9dff51675e6b3c375d21d4d3024e0026ad2e4f7",
+     "files": [
+      {
+       "path": "contact.jpg",
+       "sha256": "74f6b183bdce5b9f771da4eee15c801c68158630c79c1e6f538191a7f3c41ec7"
+      },
+      {
+       "path": "desktop-full.jpg",
+       "sha256": "3c5acfc33de7565bab8f4e7eb36d2a2e8e87fd80c12d80d8a75070343b18cc2d"
+      },
+      {
+       "path": "desktop-top.jpg",
+       "sha256": "f38bc949d72596e7427c5e27c65e82e8a2d27250fa64db4f25a0261a33f9b51d"
+      },
+      {
+       "path": "manifest.json",
+       "sha256": "0e8dae403355439791d6eb7cc9dff51675e6b3c375d21d4d3024e0026ad2e4f7"
+      },
+      {
+       "path": "mobile-full.jpg",
+       "sha256": "e2ba53ed9dc1ae4058408b629e45b8ff07d372561f12359b7856631a170de6c5"
+      }
+     ]
+    }
+   }
+  },
+  "repo-ltx25-01": {
+   "brief_sha256": "b29e105f073a5b36e7f785b463a7c3403cae07922e02b5027cfe6e1799b0e40e",
+   "metrics_decisions": {
+    "topic": "repo-ltx25-01: the viewer job is concrete and the proof is on the page or in the product media.",
+    "script": "Proof-first beats: the page or product media first, then the claim it supports, then the catch in the verdict.",
+    "voice": "Approved Chatterbox Option-3 profile at the fixed floors: at least 92% per chunk and 95% overall.",
+    "visual": "Real product media from the capture pack (page captures and README images only); covers designed in cover_lab from three distinct captures."
+   },
+   "stages": {
+    "discover": {
+     "status": "complete",
+     "checked_at": "2026-10-24T14:06:22Z",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-24.md",
+      "reels-studio/research/reference-study/2026-10-24.md"
+     ]
+    },
+    "select": {
+     "status": "complete",
+     "selection_status": "selected",
+     "topic": "LTX-2.5: open-weight video with synchronized audio, free commercial use below a $10M revenue line",
+     "score": 78,
+     "score_breakdown": {
+      "trend_velocity": 20,
+      "demo_ability": 12,
+      "audience_breadth": 12,
+      "social_proof_gap": 12,
+      "free_value": 9,
+      "freshness_angle": 13
+     },
+     "metrics_snapshot_sha256": "55a5d1c906422b7bb5234662dcd61d1e529e3d0bf6333ff1da8e9b835653b037",
+     "basis_post_ids": [
+      "6ac904b32f26cc482c22c524",
+      "6ac904b32f26cc482c22c526",
+      "6aca1f1ec4de2d2b12255238",
+      "6aca1f23b07d37ac976e341a"
+     ],
+     "hard_gates": {
+      "risk_flags_clear": true,
+      "claim_verifiable": true,
+      "license_clear": true
+     }
+    },
+    "research": {
+     "status": "complete",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-24.md"
+     ],
+     "dynamic_facts_checked_at": "2026-10-24T14:06:22Z",
+     "primary_sources": [
+      {
+       "url": "https://huggingface.co/Lightricks/LTX-2.5",
+       "checked_at": "2026-10-24T14:06:22Z",
+       "claim": "Model card: open-weight synchronized video and audio model; LTX-2.x Community License free for commercial use under $10M annual revenue; native multishot; model page asks for contact details first."
+      }
+     ]
+    },
+    "script": {
+     "status": "complete",
+     "script_sha256": "ff4ab3cb659093e035e4d626b2ef376ae216de626d7c0f65065bcd29a00e7e63",
+     "word_count": 92
+    },
+    "voice": {
+     "status": "complete",
+     "engine": "chatterbox",
+     "profile": "option-3",
+     "qa_thresholds": {
+      "per_chunk": 0.92,
+      "overall": 0.95
+     }
+    },
+    "assets": {
+     "status": "complete",
+     "rights_checked": true,
+     "approval_constraints_checked": true,
+     "capture_id": "repo-ltx25-01",
+     "manifest_sha256": "0834bd258bcf2c746e70a8e4799d580d3cd8c32565fed907e2aadc5fbedc78d4",
+     "files": [
+      {
+       "path": "contact.jpg",
+       "sha256": "03c282d2a913f7bd0f5e317517371206914f7de3f4d9157ffba10d5ff9069ca0"
+      },
+      {
+       "path": "desktop-full.jpg",
+       "sha256": "73c9be03a80dd3a8c7b19c9a80d84f7417c1a01adbca855f4ac1126889fc2a34"
+      },
+      {
+       "path": "desktop-top.jpg",
+       "sha256": "7ff22e1cca2c3409d61919ee7247cef87e07cf491802c23f1af7c368786153a6"
+      },
+      {
+       "path": "favicon.svg",
+       "sha256": "6a9577cd4f7fa6b75bde1025af85b944e9dd1388373b55ccba6e9f80ac2eae60"
+      },
+      {
+       "path": "manifest.json",
+       "sha256": "0834bd258bcf2c746e70a8e4799d580d3cd8c32565fed907e2aadc5fbedc78d4"
+      },
+      {
+       "path": "mobile-full.jpg",
+       "sha256": "07082f08f8cae5f2b680e03819121e73ca7f20761930e87d5eaaf2696a131845"
+      },
+      {
+       "path": "og-image.png",
+       "sha256": "8bffff9dd7ddffe8c986ca3d2eaa432965db4243e896adfb6f72963d19b600b2"
+      }
+     ]
+    }
+   }
+  }
+ }
+}

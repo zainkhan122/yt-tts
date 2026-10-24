@@ -1,0 +1,247 @@
+{
+ "id": "repo-motion2code-01",
+ "capture": "captures/repo-motion2code-01",
+ "title": "Turn a motion design video into code your agent can edit",
+ "niche": "motion design and animation for developers",
+ "lang": "en-us",
+ "style": "midnight",
+ "production_category": "repo",
+ "status": "v2 new 2026-10-24: judged repo from the 24 Oct radar; review before scheduling",
+ "keywords": [
+  "motion design",
+  "GSAP",
+  "SVG animation",
+  "Claude Code",
+  "Codex"
+ ],
+ "facts": {
+  "repo": "github.com/lovisdotio/motion2code (created 2026-10-20)",
+  "licence": "MIT (GitHub)",
+  "example": "Think Big: 10 s, 24 KB (README gallery)"
+ },
+ "sources": [
+  "https://github.com/lovisdotio/motion2code"
+ ],
+ "verify_before_render": [
+  "Re-open github.com/lovisdotio/motion2code: licence, agent list and the Think Big example line must match the capture.",
+  "If the repo is archived or its licence changes, do not render."
+ ],
+ "treatment": {
+  "audience": "motion designers and developers who want animation they can edit as code",
+  "viewer_job": "decide whether a motion video can become editable code with a coding agent",
+  "intent": "search",
+  "hook_mechanic": "open on the repo header, then the example output in the next beat",
+  "open_loop": {
+   "plant": "can a video become code?",
+   "payoff_scene": "example"
+  },
+  "proof_moment": "example",
+  "selected_cover": 0,
+  "archetype": "spotlight",
+  "cover_concepts": [
+   {
+    "text": "MOTION VIDEO → CODE",
+    "visual": "desktop-top.jpg repo header",
+    "gap": "what does the code look like?"
+   },
+   {
+    "text": "24 KB, 10 SECONDS",
+    "visual": "README gallery example",
+    "gap": "how light is it?"
+   },
+   {
+    "text": "EDITABLE MOTION",
+    "visual": "README gallery poster",
+    "gap": "can I change it later?"
+   }
+  ],
+  "structure": [
+   {
+    "scene": "hook",
+    "beat": "hook"
+   },
+   {
+    "scene": "example",
+    "beat": "proof"
+   },
+   {
+    "scene": "size",
+    "beat": "proof"
+   },
+   {
+    "scene": "catch",
+    "beat": "catch"
+   },
+   {
+    "scene": "cta",
+    "beat": "close"
+   }
+  ]
+ },
+ "research_basis": [
+  "research/reference-study/2026-10-24.md",
+  "research/radar/radar-2026-10-24.md"
+ ],
+ "viewer": {
+  "who": "motion designers and developers who animate in video tools",
+  "problem": "a finished motion video is hard to change once it is rendered"
+ },
+ "idea": "A coding-agent skill rebuilds a motion video as inline SVG and one GSAP timeline you can edit.",
+ "claims": [
+  {
+   "id": "c1",
+   "text": "motion2code is a skill for coding agents that rebuilds a motion design video as inline SVG shapes animated by one GSAP timeline.",
+   "source": "https://github.com/lovisdotio/motion2code"
+  },
+  {
+   "id": "c2",
+   "text": "The output seeks frame by frame, loops seamlessly, and is checked side by side against the source.",
+   "source": "https://github.com/lovisdotio/motion2code"
+  },
+  {
+   "id": "c3",
+   "text": "The Think Big example is 10 seconds and 24 KB.",
+   "source": "https://github.com/lovisdotio/motion2code"
+  },
+  {
+   "id": "c4",
+   "text": "The repository is MIT licensed.",
+   "source": "https://github.com/lovisdotio/motion2code"
+  }
+ ],
+ "proof_plan": [
+  {
+   "claim": "c1",
+   "evidence": "capture:desktop-top.jpg",
+   "how_shown": "hook on the repo header, skill description spoken"
+  },
+  {
+   "claim": "c2",
+   "evidence": "source:https://github.com/lovisdotio/motion2code",
+   "how_shown": "example scene, spoken over the frame-check line"
+  },
+  {
+   "claim": "c3",
+   "evidence": "source:https://github.com/lovisdotio/motion2code",
+   "how_shown": "stat scene"
+  },
+  {
+   "claim": "c4",
+   "evidence": "capture:desktop-top.jpg",
+   "how_shown": "catch verdict, MIT line spoken"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "page",
+   "image": "desktop-top.jpg",
+   "heading": "A MOTION VIDEO, *AS CODE*",
+   "say": "Motion designers keep animation in a video file, so every change means a re-render. This skill rebuilds the animation as code your coding agent can edit."
+  },
+  {
+   "id": "example",
+   "type": "page",
+   "image": "mobile-full.jpg",
+   "heading": "ONE TIMELINE, *SEEKABLE*",
+   "say": "The output is inline SVG shapes on one GSAP timeline. It seeks frame by frame, loops cleanly, and is checked side by side against the source."
+  },
+  {
+   "id": "size",
+   "type": "stat",
+   "value": "24 KB",
+   "label": "for the 10-second Think Big example",
+   "source": "https://github.com/lovisdotio/motion2code",
+   "retrieved_at": "2026-10-24",
+   "say": "The Think Big example is ten seconds and twenty-four kilobytes, all in code.",
+   "background": {
+    "img": "desktop-top.jpg"
+   }
+  },
+  {
+   "id": "catch",
+   "type": "verdict",
+   "heading": "THE *CATCH*",
+   "cons": [
+    "You need a coding agent to run the skill",
+    "Frame checks are a quality gate, not a guarantee"
+   ],
+   "pros": [
+    "MIT licence",
+    "Works with Claude Code, Codex, Cursor and more"
+   ],
+   "item_at": [
+    "coding agent",
+    "frame check",
+    "Cursor",
+    "MIT"
+   ],
+   "say": "The catch: you need a coding agent to run it, and the frame check is a quality gate, not a promise. Cursor and others work too, and the repo is MIT."
+  },
+  {
+   "id": "cta",
+   "type": "endcard",
+   "keyword": "MOTION",
+   "say": "Would you edit your motion as code? Tell me what you animate in the comments."
+  }
+ ],
+ "seo": {
+  "youtube": {
+   "title": "Turn a motion design video into code your agent can edit",
+   "description": "A coding-agent skill rebuilds a motion design video as inline SVG and one GSAP timeline. It seeks frame by frame, loops, and is checked against the source.\n\nThe Think Big example is 10 seconds and 24 KB. Licence: MIT.\n\nRepo: https://github.com/lovisdotio/motion2code",
+   "hashtags": [
+    "#Shorts",
+    "#GSAP",
+    "#MotionDesign"
+   ],
+   "tags": [
+    "GSAP",
+    "SVG animation",
+    "motion design",
+    "Claude Code skill",
+    "video to code"
+   ]
+  },
+  "tiktok": {
+   "caption": "Motion design as code: a coding-agent skill that rebuilds a video as editable SVG and GSAP.",
+   "hashtags": [
+    "#MotionDesign",
+    "#GSAP"
+   ]
+  },
+  "instagram": {
+   "caption": "Rebuild a motion video as SVG and one GSAP timeline, then edit it like code. The Think Big example is 10 seconds and 24 KB.",
+   "hashtags": [
+    "#MotionDesign",
+    "#GSAP",
+    "#SVGAnimation"
+   ]
+  },
+  "facebook": {
+   "caption": "A coding-agent skill rebuilds a motion design video as inline SVG and one GSAP timeline you can edit. MIT licence.\n\nAI-generated narration.",
+   "hashtags": [
+    "#MotionDesign"
+   ]
+  },
+  "x": {
+   "text": "A coding-agent skill rebuilds a motion design video as editable SVG and one GSAP timeline. MIT. https://github.com/lovisdotio/motion2code",
+   "hashtags": [
+    "#GSAP"
+   ]
+  },
+  "keyword": "motion2code",
+  "aliases": [
+   "GSAP skill",
+   "video to code"
+  ]
+ },
+ "review": {
+  "reviewed_at": "2026-10-24T14:40:00Z",
+  "expires_at": "2026-10-26",
+  "reviewer": "agent; facts checked against the GitHub and model-card captures on 2026-10-24; owner approval pending"
+ },
+ "voice": {
+  "synthetic": true
+ },
+ "voice_seed": 1
+}

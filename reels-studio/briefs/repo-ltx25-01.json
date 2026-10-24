@@ -1,0 +1,248 @@
+{
+ "id": "repo-ltx25-01",
+ "capture": "captures/repo-ltx25-01",
+ "title": "LTX-2.5: video with sound from an open model you can run yourself",
+ "niche": "open-weight video generation for creators and developers",
+ "lang": "en-us",
+ "style": "midnight",
+ "production_category": "model",
+ "status": "v2 new 2026-10-24: judged model from the 24 Oct radar; review before scheduling",
+ "keywords": [
+  "LTX-2.5",
+  "open weights",
+  "video generation",
+  "self-host",
+  "Lightricks"
+ ],
+ "facts": {
+  "model": "Lightricks/LTX-2.5 (Hugging Face)",
+  "licence": "LTX-2.x Community License: free commercial use under $10M annual revenue (model card)",
+  "features": "synchronized audio and video, native multishot (model card)",
+  "gate": "model page asks you to agree to share contact details before access (model card)"
+ },
+ "sources": [
+  "https://huggingface.co/Lightricks/LTX-2.5"
+ ],
+ "verify_before_render": [
+  "Re-open the LTX-2.5 model card: the $10M revenue line and the multishot and audio claims must still match.",
+  "If the licence terms or the revenue threshold change, rewrite the stat and the verdict before rendering."
+ ],
+ "treatment": {
+  "audience": "creators and developers who want video generation without per-clip billing",
+  "viewer_job": "decide whether an open model is worth running on their own machine",
+  "intent": "search",
+  "hook_mechanic": "open on the repo header with the model name and the sound-with-video promise",
+  "open_loop": {
+   "plant": "free to use for my business?",
+   "payoff_scene": "licence"
+  },
+  "proof_moment": "shots",
+  "selected_cover": 0,
+  "archetype": "spotlight",
+  "cover_concepts": [
+   {
+    "text": "VIDEO WITH SOUND",
+    "visual": "desktop-top.jpg repo header",
+    "gap": "what does it make?"
+   },
+   {
+    "text": "$10M REVENUE LINE",
+    "visual": "model card licence section",
+    "gap": "am I covered?"
+   },
+   {
+    "text": "RUN IT YOURSELF",
+    "visual": "repo README header",
+    "gap": "do I need a cloud?"
+   }
+  ],
+  "structure": [
+   {
+    "scene": "hook",
+    "beat": "hook"
+   },
+   {
+    "scene": "shots",
+    "beat": "proof"
+   },
+   {
+    "scene": "licence",
+    "beat": "proof"
+   },
+   {
+    "scene": "catch",
+    "beat": "catch"
+   },
+   {
+    "scene": "cta",
+    "beat": "close"
+   }
+  ]
+ },
+ "research_basis": [
+  "research/reference-study/2026-10-24.md",
+  "research/radar/radar-2026-10-24.md"
+ ],
+ "viewer": {
+  "who": "creators and developers who would rather self-host than pay per clip",
+  "problem": "they want video with sound but cannot tell whether an open model is free for their use"
+ },
+ "idea": "LTX-2.5 generates video with synchronized sound, and its open licence is free below a $10M revenue line.",
+ "claims": [
+  {
+   "id": "c1",
+   "text": "LTX-2.5 is an open-weight model that generates synchronized video and audio from text, image and video inputs.",
+   "source": "https://huggingface.co/Lightricks/LTX-2.5"
+  },
+  {
+   "id": "c2",
+   "text": "Commercial and production use is free under the LTX-2.x Community License for organisations under $10M annual revenue.",
+   "source": "https://huggingface.co/Lightricks/LTX-2.5"
+  },
+  {
+   "id": "c3",
+   "text": "Native multishot generates connected scenes in one pass, keeping character, lighting and style across cuts.",
+   "source": "https://huggingface.co/Lightricks/LTX-2.5"
+  },
+  {
+   "id": "c5",
+   "text": "The model page asks you to agree to share contact details before you can access it.",
+   "source": "https://huggingface.co/Lightricks/LTX-2.5"
+  }
+ ],
+ "proof_plan": [
+  {
+   "claim": "c1",
+   "evidence": "capture:desktop-top.jpg",
+   "how_shown": "hook on the repo header, spoken"
+  },
+  {
+   "claim": "c3",
+   "evidence": "capture:desktop-full.jpg",
+   "how_shown": "shots scene, multishot spoken over the repo"
+  },
+  {
+   "claim": "c2",
+   "evidence": "source:https://huggingface.co/Lightricks/LTX-2.5",
+   "how_shown": "licence stat scene"
+  },
+  {
+   "claim": "c5",
+   "evidence": "source:https://huggingface.co/Lightricks/LTX-2.5",
+   "how_shown": "catch verdict, spoken"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "page",
+   "image": "desktop-top.jpg",
+   "heading": "VIDEO WITH *SOUND*",
+   "say": "Most video models stop at silent clips. LTX-2.5 makes video and audio together, and you can run it yourself."
+  },
+  {
+   "id": "shots",
+   "type": "page",
+   "image": "desktop-full.jpg",
+   "heading": "ONE PASS, *SEVERAL SHOTS*",
+   "say": "Its native multishot mode generates connected scenes in one pass, keeping the character, lighting and style steady across cuts."
+  },
+  {
+   "id": "licence",
+   "type": "stat",
+   "value": "$10M",
+   "label": "annual revenue line for free commercial use",
+   "source": "https://huggingface.co/Lightricks/LTX-2.5",
+   "retrieved_at": "2026-10-24",
+   "say": "For organisations under ten million dollars in annual revenue, commercial use is free.",
+   "background": {
+    "img": "desktop-top.jpg"
+   }
+  },
+  {
+   "id": "catch",
+   "type": "verdict",
+   "heading": "THE *CATCH*",
+   "cons": [
+    "Model page asks you to share contact details first",
+    "Community licence, not MIT"
+   ],
+   "pros": [
+    "Open weights you can self-host",
+    "Free commercial use below the revenue line"
+   ],
+   "item_at": [
+    "contact",
+    "revenue",
+    "open weights",
+    "self-host"
+   ],
+   "say": "The catch: the model page asks for contact details before access, and the revenue line decides whether commercial use is free. Open weights help you self-host."
+  },
+  {
+   "id": "cta",
+   "type": "endcard",
+   "keyword": "LTX",
+   "say": "Would you run this on your own machine? Tell me your setup in the comments."
+  }
+ ],
+ "seo": {
+  "youtube": {
+   "title": "LTX-2.5: video with sound from an open model you can run yourself",
+   "description": "LTX-2.5 generates synchronized video and audio, with native multishot. Open weights; free commercial use under a $10M annual revenue line.\n\nThe catch: the model page asks for contact details first, and the licence is the LTX-2.x Community License, not MIT.\n\nModel: https://huggingface.co/Lightricks/LTX-2.5\nRepo: https://github.com/Lightricks/LTX-2",
+   "hashtags": [
+    "#Shorts",
+    "#OpenWeights",
+    "#LTX2"
+   ],
+   "tags": [
+    "LTX-2.5",
+    "open weights video model",
+    "video with audio",
+    "self-host video model",
+    "Lightricks"
+   ]
+  },
+  "tiktok": {
+   "caption": "An open video model that makes sound with the video. Free commercial use under a $10M revenue line.",
+   "hashtags": [
+    "#OpenWeights",
+    "#LTX2"
+   ]
+  },
+  "instagram": {
+   "caption": "LTX-2.5 makes video with synchronized audio, and you can self-host it. Free commercial use under a $10M annual revenue line. Read the licence first.",
+   "hashtags": [
+    "#OpenWeights",
+    "#LTX2",
+    "#SelfHosted"
+   ]
+  },
+  "facebook": {
+   "caption": "LTX-2.5 is an open-weight model for video with synchronized audio. Commercial use is free under the community licence for organisations under $10M annual revenue. Read the licence before you ship.\n\nAI-generated narration.",
+   "hashtags": [
+    "#OpenWeights"
+   ]
+  },
+  "x": {
+   "text": "LTX-2.5: open-weight video with synchronized audio, free commercial use under a $10M revenue line. Read the licence. https://huggingface.co/Lightricks/LTX-2.5",
+   "hashtags": [
+    "#LTX2"
+   ]
+  },
+  "keyword": "LTX-2.5",
+  "aliases": [
+   "LTX 2.5",
+   "open video model"
+  ]
+ },
+ "review": {
+  "reviewed_at": "2026-10-24T14:40:00Z",
+  "expires_at": "2026-10-26",
+  "reviewer": "agent; facts checked against the GitHub and model-card captures on 2026-10-24; owner approval pending"
+ },
+ "voice": {
+  "synthetic": true
+ },
+ "voice_seed": 1
+}
