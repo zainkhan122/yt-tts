@@ -187,8 +187,8 @@
  ],
  "seo": {
   "youtube": {
-   "title": "Turn a motion design video into code your agent can edit",
-   "description": "A coding-agent skill rebuilds a motion design video as inline SVG and one GSAP timeline. It seeks frame by frame, loops, and is checked against the source.\n\nThe Think Big example is 10 seconds and 24 KB. Licence: MIT.\n\nRepo: https://github.com/lovisdotio/motion2code",
+   "title": "motion2code: turn a motion design video into editable code",
+   "description": "motion2code rebuilds a motion design video as inline SVG and one GSAP timeline. It seeks frame by frame, loops, and is checked against the source.\n\nThe Think Big example is 10 seconds and 24 KB. Licence: MIT.\n\nRepo: https://github.com/lovisdotio/motion2code",
    "hashtags": [
     "#Shorts",
     "#GSAP",
@@ -203,14 +203,15 @@
    ]
   },
   "tiktok": {
-   "caption": "Motion design as code: a coding-agent skill that rebuilds a video as editable SVG and GSAP.",
+   "caption": "motion2code: a coding-agent skill that rebuilds a video as editable SVG and GSAP.",
    "hashtags": [
     "#MotionDesign",
-    "#GSAP"
+    "#GSAP",
+    "#SVG"
    ]
   },
   "instagram": {
-   "caption": "Rebuild a motion video as SVG and one GSAP timeline, then edit it like code. The Think Big example is 10 seconds and 24 KB.",
+   "caption": "motion2code: rebuild a motion video as SVG and one GSAP timeline, then edit it like code.\n\nThe Think Big example is 10 seconds and 24 KB.",
    "hashtags": [
     "#MotionDesign",
     "#GSAP",
@@ -218,13 +219,13 @@
    ]
   },
   "facebook": {
-   "caption": "A coding-agent skill rebuilds a motion design video as inline SVG and one GSAP timeline you can edit. MIT licence.\n\nAI-generated narration.",
+   "caption": "motion2code: a coding-agent skill rebuilds a motion design video as inline SVG and one GSAP timeline you can edit.\n\nMIT licence.\n\nAI-generated narration.",
    "hashtags": [
     "#MotionDesign"
    ]
   },
   "x": {
-   "text": "A coding-agent skill rebuilds a motion design video as editable SVG and one GSAP timeline. MIT. https://github.com/lovisdotio/motion2code",
+   "text": "motion2code: a coding-agent skill rebuilds a motion design video as editable SVG and one GSAP timeline.\nMIT. https://github.com/lovisdotio/motion2code",
    "hashtags": [
     "#GSAP"
    ]

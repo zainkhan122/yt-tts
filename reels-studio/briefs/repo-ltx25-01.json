@@ -188,7 +188,7 @@
  ],
  "seo": {
   "youtube": {
-   "title": "LTX-2.5: video with sound from an open model you can run yourself",
+   "title": "LTX-2.5: open video model with sound you can run yourself",
    "description": "LTX-2.5 generates synchronized video and audio, with native multishot. Open weights; free commercial use under a $10M annual revenue line.\n\nThe catch: the model page asks for contact details first, and the licence is the LTX-2.x Community License, not MIT.\n\nModel: https://huggingface.co/Lightricks/LTX-2.5\nRepo: https://github.com/Lightricks/LTX-2",
    "hashtags": [
     "#Shorts",
@@ -207,11 +207,12 @@
    "caption": "An open video model that makes sound with the video. Free commercial use under a $10M revenue line.",
    "hashtags": [
     "#OpenWeights",
-    "#LTX2"
+    "#LTX2",
+    "#SelfHosted"
    ]
   },
   "instagram": {
-   "caption": "LTX-2.5 makes video with synchronized audio, and you can self-host it. Free commercial use under a $10M annual revenue line. Read the licence first.",
+   "caption": "LTX-2.5 makes video with synchronized audio, and you can self-host it.\n\nFree commercial use under a $10M annual revenue line. Read the licence first.",
    "hashtags": [
     "#OpenWeights",
     "#LTX2",
@@ -219,13 +220,13 @@
    ]
   },
   "facebook": {
-   "caption": "LTX-2.5 is an open-weight model for video with synchronized audio. Commercial use is free under the community licence for organisations under $10M annual revenue. Read the licence before you ship.\n\nAI-generated narration.",
+   "caption": "LTX-2.5 is an open-weight model for video with synchronized audio.\n\nCommercial use is free under the community licence for organisations under $10M annual revenue. Read the licence before you ship.\n\nAI-generated narration.",
    "hashtags": [
     "#OpenWeights"
    ]
   },
   "x": {
-   "text": "LTX-2.5: open-weight video with synchronized audio, free commercial use under a $10M revenue line. Read the licence. https://huggingface.co/Lightricks/LTX-2.5",
+   "text": "LTX-2.5: open-weight video with synchronized audio.\nFree commercial use under a $10M revenue line. Read the licence. https://huggingface.co/Lightricks/LTX-2.5",
    "hashtags": [
     "#LTX2"
    ]
