@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "batch_id": "2026-10-24-repo-vvv-01",
- "created_at": "2026-10-26T10:27:35Z",
+ "created_at": "2026-10-26T10:57:19Z",
  "buffer_insights": {
   "path": "reels-studio/tracker/buffer-insights.json",
   "sha256": "7e063089168ff6a703e33e79a6b91c214fcf6e7f93884b136ae95ef5c54cd86e"
@@ -29,7 +29,7 @@
  },
  "briefs": {
   "repo-vvv-01": {
-   "brief_sha256": "baa52451fcc6e49d33c5e8434f6f41085d3af3d4e1152961386ebed7974537d8",
+   "brief_sha256": "a7f1a3d00ad43f2a20d200bb8fe552d7af160d5eeaeb43d46897116a2dd9b75b",
    "metrics_decisions": {
     "topic": "repo-vvv-01: a reusable template for video work, shown on the maker's own finished films.",
     "script": "Promise, then the proof on the demo films, then the catch in plain words.",
@@ -39,7 +39,7 @@
    "stages": {
     "discover": {
      "status": "complete",
-     "checked_at": "2026-10-26T10:27:35Z",
+     "checked_at": "2026-10-26T10:57:19Z",
      "evidence": [
       "reels-studio/research/radar/radar-2026-10-26.md"
      ]
@@ -75,16 +75,16 @@
      "evidence": [
       "reels-studio/research/radar/radar-2026-10-26.md"
      ],
-     "dynamic_facts_checked_at": "2026-10-26T10:27:35Z",
+     "dynamic_facts_checked_at": "2026-10-26T10:57:19Z",
      "primary_sources": [
       {
        "url": "https://github.com/actionow-ai/vvv",
-       "checked_at": "2026-10-26T10:27:35Z",
+       "checked_at": "2026-10-26T10:57:19Z",
        "claim": "README: builds a video template once and reuses it across coding agents; status 0.1; MIT; created 2026-10-22."
       },
       {
        "url": "https://github.com/actionow-ai/vvv/releases/tag/v0.1.2",
-       "checked_at": "2026-10-26T10:27:35Z",
+       "checked_at": "2026-10-26T10:57:19Z",
        "claim": "v0.1.2 release: five editable Remotion templates, currently wedding films."
       }
      ]

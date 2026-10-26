@@ -86,7 +86,7 @@
    "src": "album-vertical.mp4",
    "in": 0.0,
    "out": 8.0,
-   "headline": "BUILD A *TEMPLATE* ONCE",
+   "headline": "vvv: BUILD A *TEMPLATE* ONCE",
    "say": "Build a video template once, then let your coding agent reuse it for every new film."
   },
   {
@@ -119,21 +119,12 @@
   },
   {
    "id": "catch",
-   "type": "verdict",
-   "heading": "THE *CATCH*",
-   "cons": [
-    "Version 0.1, an early release",
-    "Only wedding templates so far"
-   ],
-   "pros": [
-    "Free and open source"
-   ],
-   "say": "The catch: it is version 0.1, the library is wedding films for now, and it is tested on macOS with Claude Code and Codex. It is free and open source.",
-   "item_at": [
-    "version",
-    "wedding",
-    "free"
-   ]
+   "type": "clip",
+   "src": "album-vertical.mp4",
+   "in": 20.0,
+   "out": 31.0,
+   "headline": "TESTED WITH *CLAUDE CODE* & *CODEX*",
+   "say": "The catch: it is version 0.1, the library is wedding films for now, and it is tested on macOS with Claude Code and Codex. It is free and open source."
   },
   {
    "id": "cta",
