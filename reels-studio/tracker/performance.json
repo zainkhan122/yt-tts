@@ -1,8 +1,8 @@
 {
   "counts": {
     "developing": 9,
-    "early": 2,
-    "mature": 30
+    "early": 1,
+    "mature": 31
   },
   "dimension_findings": [
     {
@@ -16,8 +16,8 @@
         },
         {
           "group": "news",
-          "median_percentile": 59.2,
-          "n": 9
+          "median_percentile": 49.8,
+          "n": 10
         },
         {
           "group": "tool",
@@ -43,14 +43,14 @@
           "n": 3
         },
         {
-          "group": "news",
-          "median_percentile": 50.8,
-          "n": 8
-        },
-        {
           "group": "model",
           "median_percentile": 42.9,
           "n": 5
+        },
+        {
+          "group": "news",
+          "median_percentile": 40.4,
+          "n": 9
         },
         {
           "group": "tool",
@@ -73,8 +73,8 @@
       "rows": [
         {
           "group": "unknown",
-          "median_percentile": 53.7,
-          "n": 39
+          "median_percentile": 53.5,
+          "n": 40
         }
       ],
       "strong": [],
@@ -86,8 +86,8 @@
       "rows": [
         {
           "group": "statement",
-          "median_percentile": 53.7,
-          "n": 37
+          "median_percentile": 53.5,
+          "n": 38
         }
       ],
       "strong": [],
@@ -99,16 +99,16 @@
       "rows": [
         {
           "group": "comment CTA",
-          "median_percentile": 53.7,
-          "n": 39
+          "median_percentile": 53.5,
+          "n": 40
         }
       ],
       "strong": [],
       "weak": []
     }
   ],
-  "generated_at": "2026-10-25T09:50:16Z",
-  "generated_for_date": "2026-10-25",
+  "generated_at": "2026-10-26T11:50:43Z",
+  "generated_for_date": "2026-10-26",
   "platforms": [
     "facebook",
     "instagram",
@@ -179,8 +179,8 @@
     {
       "daypart": "evening",
       "evidence_ok": true,
-      "median_views": 141.0,
-      "n": 15,
+      "median_views": 140.0,
+      "n": 16,
       "platform": "instagram"
     },
     {
@@ -264,7 +264,7 @@
       }
     ],
     "category_percentiles": {
-      "news": 59.2,
+      "news": 49.8,
       "repo": 59.6,
       "tool": 41.7
     },
@@ -393,7 +393,7 @@
   },
   "videos": [
     {
-      "age_days": 14.66,
+      "age_days": 15.74,
       "category": "tool",
       "composite_percentile": 62.9,
       "has_comment_cta": true,
@@ -404,7 +404,7 @@
       "niche": "tech / AI tools: ranked list",
       "platforms": {
         "facebook": {
-          "age_days": 14.66,
+          "age_days": 15.74,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -511,7 +511,7 @@
           "views_percentile": 100.0
         },
         "instagram": {
-          "age_days": 14.78,
+          "age_days": 15.87,
           "avg_watch_s": 3.51,
           "comments": 0.0,
           "engagement_actions": 1.0,
@@ -936,7 +936,7 @@
           "views_percentile": 23.8
         },
         "youtube": {
-          "age_days": 14.78,
+          "age_days": 15.87,
           "avg_watch_s": null,
           "comments": 2.0,
           "engagement_actions": 2.0,
@@ -1176,18 +1176,18 @@
       "video_id": "list-free-video-ai-01"
     },
     {
-      "age_days": 1.49,
+      "age_days": 2.58,
       "category": "news",
       "composite_percentile": 25.8,
       "has_comment_cta": true,
       "hook": "Meta's hackathon can cover your model calls. Here is the official page.",
       "hook_heading": "META HACKATHON: *IF YOU'RE PICKED*",
       "hook_style": "statement",
-      "maturity": "early",
+      "maturity": "developing",
       "niche": "AI developer programmes and free model usage",
       "platforms": {
         "facebook": {
-          "age_days": 2.62,
+          "age_days": 3.7,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -1336,7 +1336,7 @@
           "views_percentile": 20.0
         },
         "instagram": {
-          "age_days": 1.49,
+          "age_days": 2.58,
           "avg_watch_s": 2.35,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -1465,7 +1465,7 @@
               "metrics_updated_at": "2026-10-24T22:51:45.968Z"
             }
           ],
-          "maturity": "early",
+          "maturity": "developing",
           "metrics_status": "fresh",
           "platform": "instagram",
           "post_id": "6ada28f1f09f431dcae5a2c4",
@@ -1479,7 +1479,7 @@
           "views_percentile": 2.5
         },
         "youtube": {
-          "age_days": 2.53,
+          "age_days": 3.62,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -1599,7 +1599,7 @@
       "video_id": "meta-hackathon-credits-01"
     },
     {
-      "age_days": 7.78,
+      "age_days": 8.87,
       "category": "tool",
       "composite_percentile": 18.3,
       "has_comment_cta": true,
@@ -1610,7 +1610,7 @@
       "niche": "AI voice / TTS",
       "platforms": {
         "facebook": {
-          "age_days": 7.83,
+          "age_days": 8.91,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -1927,7 +1927,7 @@
           "views_percentile": 6.2
         },
         "instagram": {
-          "age_days": 7.78,
+          "age_days": 8.87,
           "avg_watch_s": 2.51,
           "comments": 0.0,
           "engagement_actions": 1.0,
@@ -2352,7 +2352,7 @@
           "views_percentile": 12.5
         },
         "youtube": {
-          "age_days": 7.78,
+          "age_days": 8.87,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -2592,7 +2592,7 @@
       "video_id": "model-drama3-01"
     },
     {
-      "age_days": 9.85,
+      "age_days": 10.94,
       "category": "tool",
       "composite_percentile": 84.2,
       "has_comment_cta": true,
@@ -2603,7 +2603,7 @@
       "niche": "multimodal embeddings and semantic search",
       "platforms": {
         "facebook": {
-          "age_days": 10.99,
+          "age_days": 12.08,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -2920,7 +2920,7 @@
           "views_percentile": 82.5
         },
         "instagram": {
-          "age_days": 9.85,
+          "age_days": 10.94,
           "avg_watch_s": 4.9,
           "comments": 0.0,
           "engagement_actions": 8.0,
@@ -3345,7 +3345,7 @@
           "views_percentile": 95.0
         },
         "youtube": {
-          "age_days": 11.37,
+          "age_days": 12.45,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -3585,7 +3585,7 @@
       "video_id": "model-embeddinggemma2-01"
     },
     {
-      "age_days": 4.47,
+      "age_days": 5.56,
       "category": "tool",
       "composite_percentile": 19.6,
       "has_comment_cta": true,
@@ -3596,7 +3596,7 @@
       "niche": "AI writing and local models",
       "platforms": {
         "facebook": {
-          "age_days": 4.64,
+          "age_days": 5.72,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -3829,7 +3829,7 @@
           "views_percentile": 45.0
         },
         "instagram": {
-          "age_days": 4.62,
+          "age_days": 5.7,
           "avg_watch_s": 2.03,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -4146,7 +4146,7 @@
           "views_percentile": 10.0
         },
         "youtube": {
-          "age_days": 4.47,
+          "age_days": 5.56,
           "avg_watch_s": null,
           "comments": 4.0,
           "engagement_actions": 4.0,
@@ -4326,7 +4326,7 @@
       "video_id": "model-humanizer-01"
     },
     {
-      "age_days": 9.45,
+      "age_days": 10.53,
       "category": "tool",
       "composite_percentile": 22.5,
       "has_comment_cta": true,
@@ -4337,7 +4337,7 @@
       "niche": "on-device AI agents / local LLMs",
       "platforms": {
         "facebook": {
-          "age_days": 9.49,
+          "age_days": 10.58,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -4654,7 +4654,7 @@
           "views_percentile": 37.5
         },
         "instagram": {
-          "age_days": 9.45,
+          "age_days": 10.53,
           "avg_watch_s": 3.46,
           "comments": 0.0,
           "engagement_actions": 3.0,
@@ -5079,7 +5079,7 @@
           "views_percentile": 5.0
         },
         "youtube": {
-          "age_days": 9.53,
+          "age_days": 10.62,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -5319,7 +5319,7 @@
       "video_id": "model-lfm25-01"
     },
     {
-      "age_days": 8.58,
+      "age_days": 9.66,
       "category": "tool",
       "composite_percentile": 42.9,
       "has_comment_cta": true,
@@ -5330,7 +5330,7 @@
       "niche": "on-device vision AI",
       "platforms": {
         "facebook": {
-          "age_days": 8.87,
+          "age_days": 9.95,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -5647,7 +5647,7 @@
           "views_percentile": 12.5
         },
         "instagram": {
-          "age_days": 8.74,
+          "age_days": 9.83,
           "avg_watch_s": 3.48,
           "comments": 0.0,
           "engagement_actions": 1.0,
@@ -6072,7 +6072,7 @@
           "views_percentile": 46.2
         },
         "youtube": {
-          "age_days": 8.58,
+          "age_days": 9.66,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -6312,7 +6312,7 @@
       "video_id": "model-minicpmv47-01"
     },
     {
-      "age_days": 14.94,
+      "age_days": 16.02,
       "category": "news",
       "composite_percentile": 59.2,
       "has_comment_cta": true,
@@ -6323,7 +6323,7 @@
       "niche": "tech / AI tools: AI news, paid to free",
       "platforms": {
         "facebook": {
-          "age_days": 14.94,
+          "age_days": 16.02,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -6430,7 +6430,7 @@
           "views_percentile": 71.2
         },
         "instagram": {
-          "age_days": 14.94,
+          "age_days": 16.02,
           "avg_watch_s": 3.68,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -6855,7 +6855,7 @@
           "views_percentile": 28.8
         },
         "youtube": {
-          "age_days": 14.94,
+          "age_days": 16.02,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -7095,7 +7095,7 @@
       "video_id": "news-claude-free-01"
     },
     {
-      "age_days": 11.49,
+      "age_days": 12.57,
       "category": "news",
       "composite_percentile": 72.5,
       "has_comment_cta": true,
@@ -7106,7 +7106,7 @@
       "niche": "tech / AI news",
       "platforms": {
         "facebook": {
-          "age_days": 11.62,
+          "age_days": 12.7,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -7423,7 +7423,7 @@
           "views_percentile": 75.0
         },
         "instagram": {
-          "age_days": 11.49,
+          "age_days": 12.57,
           "avg_watch_s": 4.16,
           "comments": 0.0,
           "engagement_actions": 1.0,
@@ -7848,7 +7848,7 @@
           "views_percentile": 82.5
         },
         "youtube": {
-          "age_days": 11.66,
+          "age_days": 12.74,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -8088,7 +8088,7 @@
       "video_id": "news-clef-01"
     },
     {
-      "age_days": 13.28,
+      "age_days": 14.37,
       "category": "news",
       "composite_percentile": 30.4,
       "has_comment_cta": true,
@@ -8099,7 +8099,7 @@
       "niche": "tech / AI news",
       "platforms": {
         "facebook": {
-          "age_days": 13.33,
+          "age_days": 14.41,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -8248,7 +8248,7 @@
           "views_percentile": 2.5
         },
         "instagram": {
-          "age_days": 13.28,
+          "age_days": 14.37,
           "avg_watch_s": 1.87,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -8673,7 +8673,7 @@
           "views_percentile": 37.5
         },
         "youtube": {
-          "age_days": 13.28,
+          "age_days": 14.37,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -8913,7 +8913,7 @@
       "video_id": "news-gemini-agent-01"
     },
     {
-      "age_days": 10.74,
+      "age_days": 11.82,
       "category": "news",
       "composite_percentile": 61.2,
       "has_comment_cta": true,
@@ -8924,7 +8924,7 @@
       "niche": "AI product feature",
       "platforms": {
         "facebook": {
-          "age_days": 10.87,
+          "age_days": 11.95,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -9241,7 +9241,7 @@
           "views_percentile": 80.0
         },
         "instagram": {
-          "age_days": 10.74,
+          "age_days": 11.82,
           "avg_watch_s": 1.65,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -9666,7 +9666,7 @@
           "views_percentile": 41.2
         },
         "youtube": {
-          "age_days": 10.87,
+          "age_days": 11.95,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -9906,7 +9906,7 @@
       "video_id": "news-gpt6-intelligent-ui-01"
     },
     {
-      "age_days": 12.87,
+      "age_days": 13.95,
       "category": "news",
       "composite_percentile": 73.3,
       "has_comment_cta": true,
@@ -9917,7 +9917,7 @@
       "niche": "tech / AI news",
       "platforms": {
         "facebook": {
-          "age_days": 12.99,
+          "age_days": 14.08,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -10108,7 +10108,7 @@
           "views_percentile": 35.0
         },
         "instagram": {
-          "age_days": 12.91,
+          "age_days": 13.99,
           "avg_watch_s": 11.21,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -10533,7 +10533,7 @@
           "views_percentile": 100.0
         },
         "youtube": {
-          "age_days": 12.87,
+          "age_days": 13.95,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -10773,7 +10773,7 @@
       "video_id": "news-gpt61-astra-01"
     },
     {
-      "age_days": 11.45,
+      "age_days": 12.53,
       "category": "news",
       "composite_percentile": 64.2,
       "has_comment_cta": true,
@@ -10784,7 +10784,7 @@
       "niche": "tech / AI news",
       "platforms": {
         "facebook": {
-          "age_days": 11.45,
+          "age_days": 12.53,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -11101,7 +11101,7 @@
           "views_percentile": 50.0
         },
         "instagram": {
-          "age_days": 12.02,
+          "age_days": 13.1,
           "avg_watch_s": 3.4,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -11526,7 +11526,7 @@
           "views_percentile": 70.0
         },
         "youtube": {
-          "age_days": 12.4,
+          "age_days": 13.48,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -11766,7 +11766,7 @@
       "video_id": "news-gpt61-sol-01"
     },
     {
-      "age_days": 13.87,
+      "age_days": 14.95,
       "category": "news",
       "composite_percentile": 35.0,
       "has_comment_cta": true,
@@ -11777,7 +11777,7 @@
       "niche": "tech / AI news",
       "platforms": {
         "facebook": {
-          "age_days": 13.95,
+          "age_days": 15.03,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -11926,7 +11926,7 @@
           "views_percentile": 20.0
         },
         "instagram": {
-          "age_days": 13.95,
+          "age_days": 15.03,
           "avg_watch_s": 4.53,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -12351,7 +12351,7 @@
           "views_percentile": 65.0
         },
         "youtube": {
-          "age_days": 13.87,
+          "age_days": 14.95,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -12591,7 +12591,7 @@
       "video_id": "news-haiku-55-01"
     },
     {
-      "age_days": 8.45,
+      "age_days": 9.53,
       "category": "news",
       "composite_percentile": 40.4,
       "has_comment_cta": true,
@@ -12602,7 +12602,7 @@
       "niche": "AI model news",
       "platforms": {
         "facebook": {
-          "age_days": 8.74,
+          "age_days": 9.83,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -12919,7 +12919,7 @@
           "views_percentile": 25.0
         },
         "instagram": {
-          "age_days": 8.49,
+          "age_days": 9.58,
           "avg_watch_s": 4.72,
           "comments": 0.0,
           "engagement_actions": 4.0,
@@ -13344,7 +13344,7 @@
           "views_percentile": 92.5
         },
         "youtube": {
-          "age_days": 8.45,
+          "age_days": 9.53,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -13584,7 +13584,7 @@
       "video_id": "news-muse-spark-01"
     },
     {
-      "age_days": 12.47,
+      "age_days": 13.56,
       "category": "news",
       "composite_percentile": 27.5,
       "has_comment_cta": true,
@@ -13595,7 +13595,7 @@
       "niche": "tech / AI news",
       "platforms": {
         "facebook": {
-          "age_days": 12.62,
+          "age_days": 13.7,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -13828,7 +13828,7 @@
           "views_percentile": 20.0
         },
         "instagram": {
-          "age_days": 12.49,
+          "age_days": 13.57,
           "avg_watch_s": 2.0,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -14253,7 +14253,7 @@
           "views_percentile": 32.5
         },
         "youtube": {
-          "age_days": 12.47,
+          "age_days": 13.56,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -14493,7 +14493,7 @@
       "video_id": "news-nano-banana-21-01"
     },
     {
-      "age_days": 14.45,
+      "age_days": 15.53,
       "category": "repo",
       "composite_percentile": 53.7,
       "has_comment_cta": true,
@@ -14504,7 +14504,7 @@
       "niche": "tech / AI tools: trending GitHub repo spotlight",
       "platforms": {
         "facebook": {
-          "age_days": 14.45,
+          "age_days": 15.53,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -14653,7 +14653,7 @@
           "views_percentile": 97.5
         },
         "instagram": {
-          "age_days": 14.58,
+          "age_days": 15.66,
           "avg_watch_s": 3.46,
           "comments": 0.0,
           "engagement_actions": 1.0,
@@ -15078,7 +15078,7 @@
           "views_percentile": 41.2
         },
         "youtube": {
-          "age_days": 14.62,
+          "age_days": 15.7,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -15318,18 +15318,18 @@
       "video_id": "repo-ai-newtab-01"
     },
     {
-      "age_days": 6.62,
+      "age_days": 7.7,
       "category": "repo",
       "composite_percentile": 73.3,
       "has_comment_cta": true,
       "hook": "Your AI can now build scenes inside Blender, not just chat about them.",
       "hook_heading": "AI BUILDS *IN BLENDER*",
       "hook_style": "statement",
-      "maturity": "developing",
+      "maturity": "mature",
       "niche": "AI scene building in Blender",
       "platforms": {
         "facebook": {
-          "age_days": 6.64,
+          "age_days": 7.72,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -15632,7 +15632,7 @@
               "metrics_updated_at": "2026-10-24T22:50:31.231Z"
             }
           ],
-          "maturity": "developing",
+          "maturity": "mature",
           "metrics_status": "fresh",
           "platform": "facebook",
           "post_id": "6ad4ebe80b0d72757a2bfe3a",
@@ -15646,7 +15646,7 @@
           "views_percentile": 57.5
         },
         "instagram": {
-          "age_days": 6.62,
+          "age_days": 7.7,
           "avg_watch_s": 4.53,
           "comments": 0.0,
           "engagement_actions": 4.0,
@@ -16057,7 +16057,7 @@
               "metrics_updated_at": "2026-10-24T22:51:45.969Z"
             }
           ],
-          "maturity": "developing",
+          "maturity": "mature",
           "metrics_status": "fresh",
           "platform": "instagram",
           "post_id": "6ad4ebebae173d6e000af3bd",
@@ -16071,7 +16071,7 @@
           "views_percentile": 75.0
         },
         "youtube": {
-          "age_days": 7.47,
+          "age_days": 8.56,
           "avg_watch_s": null,
           "comments": 2.0,
           "engagement_actions": 2.0,
@@ -16311,7 +16311,7 @@
       "video_id": "repo-blender-mcp-01"
     },
     {
-      "age_days": 5.58,
+      "age_days": 6.66,
       "category": "repo",
       "composite_percentile": 80.8,
       "has_comment_cta": true,
@@ -16322,7 +16322,7 @@
       "niche": "AI game mods / co-op for single-player games",
       "platforms": {
         "facebook": {
-          "age_days": 5.74,
+          "age_days": 6.82,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -16597,7 +16597,7 @@
           "views_percentile": 62.5
         },
         "instagram": {
-          "age_days": 5.82,
+          "age_days": 6.91,
           "avg_watch_s": 4.08,
           "comments": 0.0,
           "engagement_actions": 9.0,
@@ -16968,7 +16968,7 @@
           "views_percentile": 85.0
         },
         "youtube": {
-          "age_days": 5.58,
+          "age_days": 6.66,
           "avg_watch_s": null,
           "comments": 1.0,
           "engagement_actions": 1.0,
@@ -17178,7 +17178,7 @@
       "video_id": "repo-coop-anything-01"
     },
     {
-      "age_days": 12.53,
+      "age_days": 13.62,
       "category": "repo",
       "composite_percentile": 79.2,
       "has_comment_cta": true,
@@ -17189,7 +17189,7 @@
       "niche": "tech / AI repo",
       "platforms": {
         "facebook": {
-          "age_days": 12.74,
+          "age_days": 13.83,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -17422,7 +17422,7 @@
           "views_percentile": 67.5
         },
         "instagram": {
-          "age_days": 12.62,
+          "age_days": 13.7,
           "avg_watch_s": 7.37,
           "comments": 0.0,
           "engagement_actions": 3.0,
@@ -17847,7 +17847,7 @@
           "views_percentile": 72.5
         },
         "youtube": {
-          "age_days": 12.53,
+          "age_days": 13.62,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -18087,7 +18087,7 @@
       "video_id": "repo-ds4-01"
     },
     {
-      "age_days": 5.72,
+      "age_days": 6.8,
       "category": "repo",
       "composite_percentile": 46.2,
       "has_comment_cta": true,
@@ -18098,7 +18098,7 @@
       "niche": "audio understanding for AI agents",
       "platforms": {
         "facebook": {
-          "age_days": 6.53,
+          "age_days": 7.62,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -18401,7 +18401,7 @@
               "metrics_updated_at": "2026-10-24T22:50:31.231Z"
             }
           ],
-          "maturity": "developing",
+          "maturity": "mature",
           "metrics_status": "fresh",
           "platform": "facebook",
           "post_id": "6ad4ebf1ae173d6e000af4b0",
@@ -18415,7 +18415,7 @@
           "views_percentile": 87.5
         },
         "instagram": {
-          "age_days": 5.72,
+          "age_days": 6.8,
           "avg_watch_s": 1.92,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -18786,7 +18786,7 @@
           "views_percentile": 15.0
         },
         "youtube": {
-          "age_days": 6.58,
+          "age_days": 7.66,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -19005,7 +19005,7 @@
               "metrics_updated_at": "2026-10-25T00:09:51.189Z"
             }
           ],
-          "maturity": "developing",
+          "maturity": "mature",
           "metrics_status": "fresh",
           "platform": "youtube",
           "post_id": "6ad4ebee0b0d72757a2bff4b",
@@ -19026,7 +19026,7 @@
       "video_id": "repo-earshot-01"
     },
     {
-      "age_days": 7.58,
+      "age_days": 8.66,
       "category": "repo",
       "composite_percentile": 63.3,
       "has_comment_cta": true,
@@ -19037,7 +19037,7 @@
       "niche": "open-source coding-agent tools",
       "platforms": {
         "facebook": {
-          "age_days": 7.66,
+          "age_days": 8.74,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -19354,7 +19354,7 @@
           "views_percentile": 92.5
         },
         "instagram": {
-          "age_days": 7.58,
+          "age_days": 8.66,
           "avg_watch_s": 1.53,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -19779,7 +19779,7 @@
           "views_percentile": 50.0
         },
         "youtube": {
-          "age_days": 7.62,
+          "age_days": 8.7,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -20019,7 +20019,7 @@
       "video_id": "repo-graphicle-01"
     },
     {
-      "age_days": 0.53,
+      "age_days": 1.62,
       "category": "repo",
       "composite_percentile": 12.9,
       "has_comment_cta": true,
@@ -20030,7 +20030,7 @@
       "niche": "developer tools for running several coding agents",
       "platforms": {
         "facebook": {
-          "age_days": 0.53,
+          "age_days": 1.62,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -20095,7 +20095,7 @@
           "views_percentile": 6.2
         },
         "instagram": {
-          "age_days": 0.62,
+          "age_days": 1.7,
           "avg_watch_s": 33.36,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -20178,7 +20178,7 @@
           "views_percentile": 20.0
         },
         "youtube": {
-          "age_days": 0.58,
+          "age_days": 1.66,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -20238,7 +20238,7 @@
       "video_id": "repo-harp-01"
     },
     {
-      "age_days": 4.61,
+      "age_days": 5.7,
       "category": "repo",
       "composite_percentile": 39.2,
       "has_comment_cta": true,
@@ -20249,7 +20249,7 @@
       "niche": "AI video creation with coding agents",
       "platforms": {
         "facebook": {
-          "age_days": 4.74,
+          "age_days": 5.83,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -20482,7 +20482,7 @@
           "views_percentile": 40.0
         },
         "instagram": {
-          "age_days": 4.72,
+          "age_days": 5.8,
           "avg_watch_s": 2.71,
           "comments": 0.0,
           "engagement_actions": 1.0,
@@ -20799,7 +20799,7 @@
           "views_percentile": 35.0
         },
         "youtube": {
-          "age_days": 4.61,
+          "age_days": 5.7,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -20979,7 +20979,7 @@
       "video_id": "repo-huashu-motion-01"
     },
     {
-      "age_days": 9.62,
+      "age_days": 10.7,
       "category": "repo",
       "composite_percentile": 43.3,
       "has_comment_cta": true,
@@ -20990,7 +20990,7 @@
       "niche": "open-source local OCR / document AI",
       "platforms": {
         "facebook": {
-          "age_days": 9.74,
+          "age_days": 10.83,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -21307,7 +21307,7 @@
           "views_percentile": 52.5
         },
         "instagram": {
-          "age_days": 9.62,
+          "age_days": 10.7,
           "avg_watch_s": 4.13,
           "comments": 0.0,
           "engagement_actions": 2.0,
@@ -21732,7 +21732,7 @@
           "views_percentile": 60.0
         },
         "youtube": {
-          "age_days": 9.7,
+          "age_days": 10.78,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -21972,7 +21972,7 @@
       "video_id": "repo-indra-01"
     },
     {
-      "age_days": 5.47,
+      "age_days": 6.56,
       "category": "repo",
       "composite_percentile": 21.3,
       "has_comment_cta": true,
@@ -21983,7 +21983,7 @@
       "niche": "reverse engineering skills for coding agents",
       "platforms": {
         "facebook": {
-          "age_days": 5.64,
+          "age_days": 6.72,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -22258,7 +22258,7 @@
           "views_percentile": 12.5
         },
         "instagram": {
-          "age_days": 5.62,
+          "age_days": 6.7,
           "avg_watch_s": 2.12,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -22629,7 +22629,7 @@
           "views_percentile": 23.8
         },
         "youtube": {
-          "age_days": 5.47,
+          "age_days": 6.56,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -22839,7 +22839,7 @@
       "video_id": "repo-leanrea-01"
     },
     {
-      "age_days": 10.62,
+      "age_days": 11.7,
       "category": "repo",
       "composite_percentile": 71.3,
       "has_comment_cta": true,
@@ -22850,7 +22850,7 @@
       "niche": "open-source math animation engine",
       "platforms": {
         "facebook": {
-          "age_days": 10.74,
+          "age_days": 11.83,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -23167,7 +23167,7 @@
           "views_percentile": 77.5
         },
         "instagram": {
-          "age_days": 10.62,
+          "age_days": 11.7,
           "avg_watch_s": 2.46,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -23592,7 +23592,7 @@
           "views_percentile": 53.8
         },
         "youtube": {
-          "age_days": 10.7,
+          "age_days": 11.78,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -23832,7 +23832,7 @@
       "video_id": "repo-manimgx-01"
     },
     {
-      "age_days": 11.78,
+      "age_days": 12.87,
       "category": "repo",
       "composite_percentile": 75.0,
       "has_comment_cta": true,
@@ -23843,7 +23843,7 @@
       "niche": "tech / AI repo",
       "platforms": {
         "facebook": {
-          "age_days": 12.46,
+          "age_days": 13.54,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -24118,7 +24118,7 @@
           "views_percentile": 60.0
         },
         "instagram": {
-          "age_days": 12.02,
+          "age_days": 13.1,
           "avg_watch_s": 5.31,
           "comments": 0.0,
           "engagement_actions": 3.0,
@@ -24543,7 +24543,7 @@
           "views_percentile": 97.5
         },
         "youtube": {
-          "age_days": 11.78,
+          "age_days": 12.87,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -24783,7 +24783,7 @@
       "video_id": "repo-opencr-01"
     },
     {
-      "age_days": 8.33,
+      "age_days": 9.41,
       "category": "repo",
       "composite_percentile": 24.6,
       "has_comment_cta": true,
@@ -24794,7 +24794,7 @@
       "niche": "open-source browser agents",
       "platforms": {
         "facebook": {
-          "age_days": 8.49,
+          "age_days": 9.58,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -25111,7 +25111,7 @@
           "views_percentile": 12.5
         },
         "instagram": {
-          "age_days": 8.37,
+          "age_days": 9.45,
           "avg_watch_s": 2.46,
           "comments": 0.0,
           "engagement_actions": 2.0,
@@ -25536,7 +25536,7 @@
           "views_percentile": 46.2
         },
         "youtube": {
-          "age_days": 8.33,
+          "age_days": 9.41,
           "avg_watch_s": null,
           "comments": 3.0,
           "engagement_actions": 3.0,
@@ -25776,7 +25776,7 @@
       "video_id": "repo-scout-01"
     },
     {
-      "age_days": 9.41,
+      "age_days": 10.49,
       "category": "repo",
       "composite_percentile": 73.3,
       "has_comment_cta": true,
@@ -25787,7 +25787,7 @@
       "niche": "open-source design systems / AI app UI",
       "platforms": {
         "facebook": {
-          "age_days": 9.62,
+          "age_days": 10.7,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -26104,7 +26104,7 @@
           "views_percentile": 95.0
         },
         "instagram": {
-          "age_days": 9.53,
+          "age_days": 10.62,
           "avg_watch_s": 5.06,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -26529,7 +26529,7 @@
           "views_percentile": 80.0
         },
         "youtube": {
-          "age_days": 9.41,
+          "age_days": 10.49,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -26769,7 +26769,7 @@
       "video_id": "repo-solidglass-01"
     },
     {
-      "age_days": 4.82,
+      "age_days": 5.91,
       "category": "repo",
       "composite_percentile": 53.3,
       "has_comment_cta": true,
@@ -26780,7 +26780,7 @@
       "niche": "personal AI agents and MCP servers",
       "platforms": {
         "facebook": {
-          "age_days": 5.53,
+          "age_days": 6.62,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -27055,7 +27055,7 @@
           "views_percentile": 55.0
         },
         "instagram": {
-          "age_days": 4.82,
+          "age_days": 5.91,
           "avg_watch_s": 5.98,
           "comments": 0.0,
           "engagement_actions": 4.0,
@@ -27372,7 +27372,7 @@
           "views_percentile": 53.8
         },
         "youtube": {
-          "age_days": 5.37,
+          "age_days": 6.45,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -27582,7 +27582,7 @@
       "video_id": "repo-whatsapp-mcp-01"
     },
     {
-      "age_days": 13.53,
+      "age_days": 14.62,
       "category": "repo",
       "composite_percentile": 59.6,
       "has_comment_cta": true,
@@ -27593,7 +27593,7 @@
       "niche": "tech / AI repo",
       "platforms": {
         "facebook": {
-          "age_days": 13.66,
+          "age_days": 14.74,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -27742,7 +27742,7 @@
           "views_percentile": 65.0
         },
         "instagram": {
-          "age_days": 13.58,
+          "age_days": 14.66,
           "avg_watch_s": 5.0,
           "comments": 0.0,
           "engagement_actions": 4.0,
@@ -28167,7 +28167,7 @@
           "views_percentile": 77.5
         },
         "youtube": {
-          "age_days": 13.53,
+          "age_days": 14.62,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -28407,7 +28407,7 @@
       "video_id": "repo-whistle-01"
     },
     {
-      "age_days": 3.49,
+      "age_days": 4.57,
       "category": "tool",
       "composite_percentile": 30.8,
       "has_comment_cta": true,
@@ -28418,7 +28418,7 @@
       "niche": "AI design agents for developers and indie makers",
       "platforms": {
         "facebook": {
-          "age_days": 4.53,
+          "age_days": 5.62,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -28651,7 +28651,7 @@
           "views_percentile": 85.0
         },
         "instagram": {
-          "age_days": 3.49,
+          "age_days": 4.57,
           "avg_watch_s": 1.11,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -28914,7 +28914,7 @@
           "views_percentile": 0.0
         },
         "youtube": {
-          "age_days": 4.37,
+          "age_days": 5.45,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -29094,7 +29094,7 @@
       "video_id": "tool-fx0-01"
     },
     {
-      "age_days": 11.62,
+      "age_days": 12.7,
       "category": "tool",
       "composite_percentile": 41.7,
       "has_comment_cta": true,
@@ -29105,7 +29105,7 @@
       "niche": "tech / AI tools",
       "platforms": {
         "facebook": {
-          "age_days": 12.43,
+          "age_days": 13.51,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -29380,7 +29380,7 @@
           "views_percentile": 0.0
         },
         "instagram": {
-          "age_days": 11.62,
+          "age_days": 12.7,
           "avg_watch_s": 4.0,
           "comments": 0.0,
           "engagement_actions": 3.0,
@@ -29805,7 +29805,7 @@
           "views_percentile": 88.8
         },
         "youtube": {
-          "age_days": 12.91,
+          "age_days": 14.0,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -30045,7 +30045,7 @@
       "video_id": "tool-higgsfield-01"
     },
     {
-      "age_days": 11.37,
+      "age_days": 12.45,
       "category": "tool",
       "composite_percentile": 65.8,
       "has_comment_cta": true,
@@ -30056,7 +30056,7 @@
       "niche": "tech / AI video",
       "platforms": {
         "facebook": {
-          "age_days": 11.49,
+          "age_days": 12.58,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -30373,7 +30373,7 @@
           "views_percentile": 42.5
         },
         "instagram": {
-          "age_days": 11.37,
+          "age_days": 12.45,
           "avg_watch_s": 3.62,
           "comments": 0.0,
           "engagement_actions": 1.0,
@@ -30798,7 +30798,7 @@
           "views_percentile": 62.5
         },
         "youtube": {
-          "age_days": 12.63,
+          "age_days": 13.71,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -31038,7 +31038,7 @@
       "video_id": "tool-ltx25-01"
     },
     {
-      "age_days": 13.7,
+      "age_days": 14.78,
       "category": "tool",
       "composite_percentile": 35.0,
       "has_comment_cta": true,
@@ -31049,7 +31049,7 @@
       "niche": "tech / AI tool",
       "platforms": {
         "facebook": {
-          "age_days": 13.83,
+          "age_days": 14.91,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -31198,7 +31198,7 @@
           "views_percentile": 30.0
         },
         "instagram": {
-          "age_days": 13.78,
+          "age_days": 14.87,
           "avg_watch_s": 2.65,
           "comments": 0.0,
           "engagement_actions": 2.0,
@@ -31623,7 +31623,7 @@
           "views_percentile": 17.5
         },
         "youtube": {
-          "age_days": 13.7,
+          "age_days": 14.78,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -31863,7 +31863,7 @@
       "video_id": "tool-mosa-01"
     },
     {
-      "age_days": 12.37,
+      "age_days": 13.45,
       "category": "tool",
       "composite_percentile": 65.0,
       "has_comment_cta": true,
@@ -31874,7 +31874,7 @@
       "niche": "tech / AI tools",
       "platforms": {
         "facebook": {
-          "age_days": 12.49,
+          "age_days": 13.58,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -32149,7 +32149,7 @@
           "views_percentile": 47.5
         },
         "instagram": {
-          "age_days": 12.37,
+          "age_days": 13.45,
           "avg_watch_s": 3.05,
           "comments": 0.0,
           "engagement_actions": 2.0,
@@ -32574,7 +32574,7 @@
           "views_percentile": 57.5
         },
         "youtube": {
-          "age_days": 12.46,
+          "age_days": 13.55,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -32814,7 +32814,7 @@
       "video_id": "tool-openmontage-01"
     },
     {
-      "age_days": 13.41,
+      "age_days": 14.49,
       "category": "tool",
       "composite_percentile": 16.7,
       "has_comment_cta": true,
@@ -32825,7 +32825,7 @@
       "niche": "tech / AI tool",
       "platforms": {
         "facebook": {
-          "age_days": 13.45,
+          "age_days": 14.53,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -32974,7 +32974,7 @@
           "views_percentile": 32.5
         },
         "instagram": {
-          "age_days": 13.41,
+          "age_days": 14.49,
           "avg_watch_s": 1.85,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -33399,7 +33399,7 @@
           "views_percentile": 7.5
         },
         "youtube": {
-          "age_days": 13.41,
+          "age_days": 14.49,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -33639,7 +33639,7 @@
       "video_id": "tool-pomelli-01"
     },
     {
-      "age_days": 10.49,
+      "age_days": 11.57,
       "category": "tool",
       "composite_percentile": 79.2,
       "has_comment_cta": true,
@@ -33650,7 +33650,7 @@
       "niche": "AI image-generation model",
       "platforms": {
         "facebook": {
-          "age_days": 10.62,
+          "age_days": 11.7,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -33967,7 +33967,7 @@
           "views_percentile": 90.0
         },
         "instagram": {
-          "age_days": 10.49,
+          "age_days": 11.57,
           "avg_watch_s": 4.28,
           "comments": 0.0,
           "engagement_actions": 2.0,
@@ -34392,7 +34392,7 @@
           "views_percentile": 67.5
         },
         "youtube": {
-          "age_days": 10.53,
+          "age_days": 11.62,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -34632,7 +34632,7 @@
       "video_id": "tool-qwen-image-21-turbo-01"
     },
     {
-      "age_days": 12.7,
+      "age_days": 13.78,
       "category": "tool",
       "composite_percentile": 72.1,
       "has_comment_cta": true,
@@ -34643,7 +34643,7 @@
       "niche": "tech / AI tools",
       "platforms": {
         "facebook": {
-          "age_days": 12.91,
+          "age_days": 14.0,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -34834,7 +34834,7 @@
           "views_percentile": 27.5
         },
         "instagram": {
-          "age_days": 12.74,
+          "age_days": 13.82,
           "avg_watch_s": 6.36,
           "comments": 0.0,
           "engagement_actions": 2.0,
@@ -35259,7 +35259,7 @@
           "views_percentile": 88.8
         },
         "youtube": {
-          "age_days": 12.7,
+          "age_days": 13.78,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -35499,7 +35499,7 @@
       "video_id": "tool-qwen38-01"
     },
     {
-      "age_days": 2.49,
+      "age_days": 3.57,
       "category": "tool",
       "composite_percentile": 33.3,
       "has_comment_cta": true,
@@ -35510,7 +35510,7 @@
       "niche": "AI coding agents and developer tooling",
       "platforms": {
         "facebook": {
-          "age_days": 3.62,
+          "age_days": 4.7,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -35701,7 +35701,7 @@
           "views_percentile": 71.2
         },
         "instagram": {
-          "age_days": 2.49,
+          "age_days": 3.57,
           "avg_watch_s": 6.9,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -35904,7 +35904,7 @@
           "views_percentile": 28.8
         },
         "youtube": {
-          "age_days": 3.7,
+          "age_days": 4.78,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
