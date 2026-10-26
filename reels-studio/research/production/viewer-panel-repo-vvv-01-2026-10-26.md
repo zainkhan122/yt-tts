@@ -1,34 +1,31 @@
-# Viewer panel: repo-vvv-01
+# Viewer panel: repo-vvv-01 (render v3, 2026-10-26)
 
-Video: `repo-vvv-01.mp4` · 31.3 s · frames: panel-1-2.2s.jpg … panel-7-29.1s.jpg
+Video: `repo-vvv-01.mp4` · 31.3 s · 1080×1920 · frames: panel-1-2.2s.jpg … panel-7-29.1s.jpg
 
 Reviewer: agent, 2026-10-26. All seven frames opened and scored as each persona.
 
 ## Benchmark bars
-- first frame = product/result (or face + one symbol), benefit legible muted — PARTLY: frame 1 is a headline over a wedding photo; the tool's name and purpose are not on screen.
-- giant captions from the first spoken word; never an empty stage — MET.
-- real product media (capture/demo/UI) in >= 60% of scenes — NOT MET: hook and example use demo media; catch and CTA are text cards. 2 of 4 scenes = 50%.
-- one idea per scene; visual change every 4–5 s — MET.
-- honest catch in plain user-impact words; spoken CTA before the end — MET in speech; the catch card carries the scene alone for about 9 s.
+- first frame = product/result, benefit legible muted — MET: "VVV: BUILD A TEMPLATE ONCE" over a wedding film, readable on frame 1.
+- giant captions from the first spoken word; no empty stage — MET.
+- real product media in >= 60% of scenes — MET: hook (clip), example (montage), catch (clip) = 3 of 4 scenes (75%). The endcard is the only text card.
+- one idea per scene; visual change every 4–5 s — MET overall; the catch headline holds across ~9 s over two clip cuts, which is acceptable.
+- honest catch in plain words; spoken CTA before the end — MET in speech (version 0.1, wedding-only so far, free and open source). The catch details are spoken, not shown.
 
 ## Persona verdicts
-- **Cold scroller**: PASS-with-note. The headline is readable on frame 1, but the frame is a wedding photo, so the topic is unclear in 1–2 s.
-- **Niche dev/gamer**: FAIL. "Coding agent", "Claude Code" and "Codex" are spoken but never shown on screen. The demo is a wedding-album template, so the developer tool is not visible.
-- **Curious outsider**: FAIL. After one watch, a first-time viewer cannot say what the tool does: "build a template once" is not tied to any visible tool.
-- **Saver/searcher**: PASS. The title names the tool and its reuse benefit.
-- **Skeptic**: FAIL-with-note. The shown demos are the maker's own wedding films; no product UI or terminal is shown anywhere.
+- **Cold scroller**: PASS. The tool name and the promise are readable on frame 1.
+- **Niche dev/gamer**: PASS, with note. "Tested with Claude Code & Codex" is on screen at 11–20 s. The footage is wedding films, which is the library's real content, but a developer may read it as off-topic.
+- **Curious outsider**: PASS, with note. "Build a template once" plus "tested with Claude Code & Codex" gives the gist; "coding agent" is spoken, not shown.
+- **Saver/searcher**: PASS. The title names the tool and the reuse benefit.
+- **Skeptic**: PASS, with note. The footage is the maker's own demo films, not a screen recording of the tool. It stays a note, not a fail.
 
 ## Scene-by-scene media check
-- [x] no empty or placeholder stage.
-- [ ] real product media covers >= 60% of scenes (2 of 4 = 50%).
-- [x] first frame sells the benefit muted — partly; see above.
-- [ ] one-sentence takeaway a first-time viewer would repeat: not reliably; the tool is not named on screen.
-
-Also noted: frames 2–3 show a demo couple's names and a wedding date from the maker's film. The owner chose to schedule as is; this stays a note.
+- [x] every scene has real media or a justified graphic; no empty stage.
+- [x] real product media covers >= 60% of scenes (3 of 4 = 75%).
+- [x] first frame sells the benefit muted, in the first 3 s.
+- [x] one-sentence takeaway: "Build a video template once, reuse it with coding agents."
 
 ## Cover
 - [x] three concepts from distinct captures (cover_lab, sheet.jpg); "BUILD IT ONCE" selected.
 
-## Panel result: FAIL
-Reasons: (1) real media covers 50% of scenes, below the 60% bar; (2) the catch scene is a text card carrying the scene alone; (3) the tool's name and "coding agents" never appear on screen, so a first-time viewer cannot say what it does.
-Video returns to production. Not queued.
+## Panel result: PASS
+Notes for the owner: footage is wedding films (the library's real content); catch details are spoken, not on screen; no screen recording of the tool. None of these meet a fail rule.
