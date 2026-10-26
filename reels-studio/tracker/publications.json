@@ -2572,9 +2572,11 @@
     },
     "repo-vvv-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6adf35fd551b0b514a63c423",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-26T19:00:00Z",
+      "due_at": "2026-10-26T19:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:3d58b6c3288d08248a0b00ee4e1a8d3a34e1fdecb445798184a35e066e63d1f0",
         "asset_id": 677915377,
@@ -2589,10 +2591,11 @@
       "notify_subscribers": false,
       "payload_sha256": "7e7f4f963da3e14f38fe474e51f018d236f8f25f2fb7a6109434d8891a029599",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Build a video template once, then let your coding agent refill it for each new film. Status 0.1; free and open source. Try it before you rebuild a video by hand.\n\n#Remotion #VideoTemplates #AIVideo",
       "title": "vvv: a video template built once, reused by coding agents",
-      "updated_at": "2026-10-26T11:14:03Z",
+      "updated_at": "2026-10-26T11:14:05Z",
       "video_id": "repo-vvv-01"
     },
     "repo-vvv-01:youtube": {
