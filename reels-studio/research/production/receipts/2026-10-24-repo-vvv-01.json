@@ -1,0 +1,174 @@
+{
+ "schema_version": 1,
+ "batch_id": "2026-10-24-repo-vvv-01",
+ "created_at": "2026-10-26T10:22:55Z",
+ "buffer_insights": {
+  "path": "reels-studio/tracker/buffer-insights.json",
+  "sha256": "7e063089168ff6a703e33e79a6b91c214fcf6e7f93884b136ae95ef5c54cd86e"
+ },
+ "metrics_review": {
+  "snapshot_sha256": "7e063089168ff6a703e33e79a6b91c214fcf6e7f93884b136ae95ef5c54cd86e",
+  "reviewed_video_count": 127,
+  "sample_post_ids": [
+   "6ac904b32f26cc482c22c524",
+   "6ac904b32f26cc482c22c526",
+   "6aca1f1ec4de2d2b12255238",
+   "6aca1f23b07d37ac976e341a"
+  ],
+  "findings": [
+   "Buffer Insights snapshot 2026-10-25T09:49:29Z is complete with 127 tracked video posts; reviewed on 2026-10-26.",
+   "Median views across the 127 posts is 36 and the top post has 308; the four basis posts sit at 0, 0, 0 and 128 views, so audience proof is weak and the score rests on judgment and the fresh launch.",
+   "vvv is a 4-day-old repo with a visible reuse promise; the claim is shown on the maker's own films, not on a repo page."
+  ],
+  "decisions": {
+   "topic": "One repo-spotlight short for video creators; the viewer job is the reusable template.",
+   "script": "Promise, proof, catch, close.",
+   "voice": "Approved Chatterbox Option-3 profile.",
+   "visual": "Maker's MIT demo films; no repo page."
+  }
+ },
+ "briefs": {
+  "repo-vvv-01": {
+   "brief_sha256": "2b836ef10703445824de0eaff1395f75df196af41c575dcf867f00887874188d",
+   "metrics_decisions": {
+    "topic": "repo-vvv-01: a reusable template for video work, shown on the maker's own finished films.",
+    "script": "Promise, then the proof on the demo films, then the catch in plain words.",
+    "voice": "Approved Chatterbox Option-3 profile at the fixed floors (92% per chunk, 95% overall).",
+    "visual": "Maker's MIT demo films and stills from capture pack repo-vvv-01; no repo page; no credits on screen; covers via cover_lab."
+   },
+   "stages": {
+    "discover": {
+     "status": "complete",
+     "checked_at": "2026-10-26T10:22:55Z",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-26.md"
+     ]
+    },
+    "select": {
+     "status": "complete",
+     "selection_status": "selected",
+     "topic": "vvv: build a video template once, reuse it across coding agents",
+     "score": 81,
+     "score_breakdown": {
+      "trend_velocity": 22,
+      "demo_ability": 14,
+      "audience_breadth": 10,
+      "social_proof_gap": 12,
+      "free_value": 8,
+      "freshness_angle": 15
+     },
+     "metrics_snapshot_sha256": "7e063089168ff6a703e33e79a6b91c214fcf6e7f93884b136ae95ef5c54cd86e",
+     "basis_post_ids": [
+      "6ac904b32f26cc482c22c524",
+      "6ac904b32f26cc482c22c526",
+      "6aca1f1ec4de2d2b12255238",
+      "6aca1f23b07d37ac976e341a"
+     ],
+     "hard_gates": {
+      "risk_flags_clear": true,
+      "claim_verifiable": true,
+      "license_clear": true
+     }
+    },
+    "research": {
+     "status": "complete",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-26.md"
+     ],
+     "dynamic_facts_checked_at": "2026-10-26T10:22:55Z",
+     "primary_sources": [
+      {
+       "url": "https://github.com/actionow-ai/vvv",
+       "checked_at": "2026-10-26T10:22:55Z",
+       "claim": "README: builds a video template once and reuses it across coding agents; status 0.1; MIT; created 2026-10-22."
+      },
+      {
+       "url": "https://github.com/actionow-ai/vvv/releases/tag/v0.1.2",
+       "checked_at": "2026-10-26T10:22:55Z",
+       "claim": "v0.1.2 release: five editable Remotion templates, currently wedding films."
+      }
+     ]
+    },
+    "script": {
+     "status": "complete",
+     "script_sha256": "cd67e9b662c6f0b1b2aa6d4d8139d3bc18eb669da054bee45544738075941b4a",
+     "word_count": 87
+    },
+    "voice": {
+     "status": "complete",
+     "engine": "chatterbox",
+     "profile": "option-3",
+     "qa_thresholds": {
+      "per_chunk": 0.92,
+      "overall": 0.95
+     }
+    },
+    "assets": {
+     "status": "complete",
+     "rights_checked": true,
+     "approval_constraints_checked": true,
+     "capture_id": "repo-vvv-01",
+     "manifest_sha256": "0a64b21c2f6145ce4bcc42e5c7873564c172b76523371eabe489208765f24ce6",
+     "files": [
+      {
+       "path": "album-vertical-still.jpg",
+       "sha256": "02dc057e9791ecccae6c2c8a8c2952c9ce81898d7f73ff9efceaecb0cf9164bd"
+      },
+      {
+       "path": "album-vertical.jpg",
+       "sha256": "ea109119c3982795afaac9abc794d9f8a4169cf0ac6b77282eb0a33fc39a4477"
+      },
+      {
+       "path": "album-vertical.mp4",
+       "sha256": "26b1fcbba3d6e9be902f1a86a0ecf27c776fa28ac9bab26c1510e2a1f63b81a9"
+      },
+      {
+       "path": "album.jpg",
+       "sha256": "23d1b67e28c8dabdb2e5c137b10615fd6f4a19cc936180bb2a922ac3bde38865"
+      },
+      {
+       "path": "album.mp4",
+       "sha256": "d7e68d9c6919edbfdd04bf470a3adb2792c339fc233e53354945abe412cce846"
+      },
+      {
+       "path": "comedy.jpg",
+       "sha256": "120dbc43950e83fd111d9c4775058b0e88dc8acd8f4bac5bdfb2dd36dcb437f0"
+      },
+      {
+       "path": "comedy.mp4",
+       "sha256": "12339ee5d8bde1a3d5949ea87337941274c74290189b0cd688f9e662ac857b4e"
+      },
+      {
+       "path": "doodle.jpg",
+       "sha256": "f2cae76e0f5fd16d0f9cbe62f0912880ca2597580221aad67cbf11ca48fa8c46"
+      },
+      {
+       "path": "doodle.mp4",
+       "sha256": "5f192b20aeae5ba234f5473055fb07b9ff457e44bc7fec4a2a8a8cd9b1c66345"
+      },
+      {
+       "path": "dv-story.jpg",
+       "sha256": "9f1e483e00dc5b63f1241728fdb5cbf8ff50903c2fe1549a2c3e5cebfbe58e07"
+      },
+      {
+       "path": "dv-story.mp4",
+       "sha256": "32cd6efdef1f823e733af7be9b48ec8c033ecd2d9b4998d2417e7c9a4b17c773"
+      },
+      {
+       "path": "manifest.json",
+       "sha256": "0a64b21c2f6145ce4bcc42e5c7873564c172b76523371eabe489208765f24ce6"
+      },
+      {
+       "path": "starter.mp4",
+       "sha256": "bc963430a491d6fdd5381367833556331066437cef1debcf04d67f41c5d56df7"
+      },
+      {
+       "path": "vvv-montage.mp4",
+       "sha256": "ee937cc5326fcc1e0e4af80388793b714225432c68fd990e1e0f8f7be404800d"
+      }
+     ]
+    }
+   }
+  }
+ }
+}

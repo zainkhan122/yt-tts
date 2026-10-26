@@ -1,0 +1,261 @@
+{
+ "id": "repo-vvv-01",
+ "capture": "captures/repo-vvv-01",
+ "title": "vvv: build a video template once, reuse it across coding agents",
+ "niche": "AI tools for video creators",
+ "lang": "en",
+ "style": "spotlight",
+ "production_category": "repo",
+ "status": "draft",
+ "keywords": [
+  "vvv",
+  "Remotion",
+  "video template",
+  "coding agent",
+  "Claude Code",
+  "Codex"
+ ],
+ "facts": {
+  "repo": "actionow-ai/vvv",
+  "stars": 379,
+  "license": "MIT",
+  "created": "2026-10-22",
+  "release": "v0.1.2 (status 0.1 early release)",
+  "description": "Build a video template once, reuse it across coding agents. Editable Remotion templates and an Agent Skill for Claude Code, Codex and 25+ agents.",
+  "verified_on": "macOS ARM64 with Claude Code and Codex (README)",
+  "library": "five editable Remotion templates, currently wedding films (README/release)",
+  "no_benchmark": "no comparative benchmark published yet (README)"
+ },
+ "sources": [
+  "https://github.com/actionow-ai/vvv",
+  "https://github.com/actionow-ai/vvv/releases/tag/v0.1.2"
+ ],
+ "verify_before_render": true,
+ "treatment": {
+  "audience": "video creators and developers who make short videos with coding agents",
+  "viewer_job": "decide whether a reusable video template for coding agents is worth trying",
+  "intent": "search",
+  "hook_mechanic": "open on a finished 9:16 demo film, then the one-line promise",
+  "open_loop": {
+   "plant": "why rebuild the same video every time?",
+   "payoff_scene": "example"
+  },
+  "proof_moment": "example",
+  "selected_cover": 0,
+  "archetype": "spotlight",
+  "cover_concepts": [
+   {
+    "text": "BUILD IT ONCE",
+    "visual": "album-vertical-still.jpg",
+    "gap": "what do I reuse?"
+   },
+   {
+    "text": "REUSE IT",
+    "visual": "album.jpg",
+    "gap": "reuse for what?"
+   },
+   {
+    "text": "FREE, MIT",
+    "visual": "doodle.jpg",
+    "gap": "is it free?"
+   }
+  ],
+  "structure": [
+   {
+    "scene": "hook",
+    "beat": "hook"
+   },
+   {
+    "scene": "example",
+    "beat": "proof"
+   },
+   {
+    "scene": "catch",
+    "beat": "catch"
+   },
+   {
+    "scene": "cta",
+    "beat": "close"
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "clip",
+   "src": "album-vertical.mp4",
+   "in": 0.0,
+   "out": 8.0,
+   "headline": "BUILD IT *ONCE*",
+   "say": "Build a video template once, then let your coding agent reuse it for every new film."
+  },
+  {
+   "id": "example",
+   "type": "clip-montage",
+   "src": "vvv-montage.mp4",
+   "cuts": [
+    {
+     "in": 0.0,
+     "out": 3.0,
+     "label": "ALBUM"
+    },
+    {
+     "in": 3.0,
+     "out": 6.0,
+     "label": "COMEDY"
+    },
+    {
+     "in": 6.0,
+     "out": 9.0,
+     "label": "DOODLE"
+    },
+    {
+     "in": 9.0,
+     "out": 12.0,
+     "label": "DV STORY"
+    }
+   ],
+   "say": "The scenes, timing and layouts stay fixed. You change only the photos, names and copy, and it checks the inputs before anything renders."
+  },
+  {
+   "id": "catch",
+   "type": "verdict",
+   "heading": "THE *CATCH*",
+   "cons": [
+    "Version 0.1, an early release",
+    "Only wedding templates so far"
+   ],
+   "pros": [
+    "Free and open source"
+   ],
+   "say": "The catch: it is version 0.1, the library is wedding films for now, and it is tested on macOS with Claude Code and Codex. It is free and open source.",
+   "item_at": [
+    "version",
+    "wedding",
+    "free"
+   ]
+  },
+  {
+   "id": "cta",
+   "type": "endcard",
+   "keyword": "TEMPLATE",
+   "say": "Would you build your next video as a template? Comment template and tell me what you would reuse."
+  }
+ ],
+ "seo": {
+  "youtube": {
+   "title": "vvv: build a video template once, reuse it across coding agents",
+   "description": "vvv keeps a video's scenes, timing and layouts as an editable Remotion template. A coding agent refills only the photos, names and copy.\n\nStatus 0.1, free and open source.\n\nRepo: https://github.com/actionow-ai/vvv",
+   "hashtags": [
+    "#Shorts",
+    "#Remotion",
+    "#VideoTemplates"
+   ],
+   "tags": [
+    "Remotion",
+    "video template",
+    "Claude Code",
+    "Codex",
+    "coding agents"
+   ]
+  },
+  "tiktok": {
+   "caption": "vvv: build a video template once, then let your coding agent reuse it for each new film. Status 0.1, free and open source.",
+   "hashtags": [
+    "#Remotion",
+    "#VideoTemplates",
+    "#ClaudeCode"
+   ]
+  },
+  "instagram": {
+   "caption": "Build a video template once, then let your coding agent refill it for each new film. Status 0.1; free and open source. Try it before you rebuild a video by hand.",
+   "hashtags": [
+    "#Remotion",
+    "#VideoTemplates",
+    "#AIVideo"
+   ]
+  },
+  "facebook": {
+   "caption": "vvv: build a video template once, then let your coding agent reuse it for each new film. Status 0.1, free and open source.",
+   "hashtags": [
+    "#Remotion",
+    "#VideoTemplates",
+    "#ClaudeCode"
+   ]
+  },
+  "x": {
+   "text": "vvv: build a video template once, then let your coding agent reuse it for each new film. Status 0.1, free and open source. https://github.com/actionow-ai/vvv",
+   "hashtags": [
+    "#Remotion",
+    "#ClaudeCode"
+   ]
+  },
+  "keyword": "TEMPLATE",
+  "aliases": [
+   "vvv",
+   "video template",
+   "Remotion"
+  ]
+ },
+ "viewer": {
+  "who": "video creators and developers who make short videos with coding agents",
+  "problem": "every new video means rebuilding the same scenes and timing from scratch"
+ },
+ "idea": "vvv turns a finished video into a template that a coding agent refills with new photos and copy.",
+ "claims": [
+  {
+   "id": "c1",
+   "text": "vvv builds a video template once and reuses it across coding agents, using editable Remotion templates.",
+   "source": "https://github.com/actionow-ai/vvv"
+  },
+  {
+   "id": "c2",
+   "text": "Status 0.1, an early release, verified end to end on macOS ARM64 with Claude Code and Codex.",
+   "source": "https://github.com/actionow-ai/vvv"
+  },
+  {
+   "id": "c3",
+   "text": "The library has five templates, currently wedding films (v0.1.2 release).",
+   "source": "https://github.com/actionow-ai/vvv/releases/tag/v0.1.2"
+  },
+  {
+   "id": "c4",
+   "text": "Code, docs, templates and demo media are MIT.",
+   "source": "https://github.com/actionow-ai/vvv"
+  }
+ ],
+ "proof_plan": [
+  {
+   "claim": "c1",
+   "evidence": "capture:album-vertical.mp4",
+   "how_shown": "hook clip: the finished 9:16 template film, the reuse promise spoken"
+  },
+  {
+   "claim": "c2",
+   "evidence": "capture:vvv-montage.mp4",
+   "how_shown": "example montage: the four demo films, the status line spoken in the catch"
+  },
+  {
+   "claim": "c3",
+   "evidence": "capture:vvv-montage.mp4",
+   "how_shown": "example montage: album, comedy, doodle and DV story; wedding films spoken in the catch"
+  },
+  {
+   "claim": "c4",
+   "evidence": "capture:album.jpg",
+   "how_shown": "catch verdict: MIT spoken once as the free-and-open-source line"
+  }
+ ],
+ "research_basis": [
+  "research/radar/radar-2026-10-26.md"
+ ],
+ "review": {
+  "reviewed_at": "2026-10-26T09:00:00Z",
+  "expires_at": "2026-10-27",
+  "reviewer": "agent; facts checked against the GitHub repo, README and v0.1.2 release on 2026-10-26; owner approval pending"
+ },
+ "voice": {
+  "synthetic": true
+ },
+ "voice_seed": 1
+}
