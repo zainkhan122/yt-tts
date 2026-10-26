@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "batch_id": "2026-10-24-repo-motion2code-01",
- "created_at": "2026-10-26T07:19:08Z",
+ "created_at": "2026-10-26T07:38:16Z",
  "buffer_insights": {
   "path": "reels-studio/tracker/buffer-insights.json",
   "sha256": "7e063089168ff6a703e33e79a6b91c214fcf6e7f93884b136ae95ef5c54cd86e"
@@ -29,7 +29,7 @@
  },
  "briefs": {
   "repo-motion2code-01": {
-   "brief_sha256": "e77c99c508626812744a3318cd577a70cf52213b549f53a52087032d8527f7db",
+   "brief_sha256": "5e1a6e9ff3782658773c3b8d5c7d597981c77b04d56252cddc239955b23a7d31",
    "metrics_decisions": {
     "topic": "repo-motion2code-01: the viewer job is concrete and the proof is on the page or in the product media.",
     "script": "Proof-first beats: the page or product media first, then the claim it supports, then the catch in the verdict.",
@@ -39,7 +39,7 @@
    "stages": {
     "discover": {
      "status": "complete",
-     "checked_at": "2026-10-26T07:19:08Z",
+     "checked_at": "2026-10-26T07:38:16Z",
      "evidence": [
       "reels-studio/research/radar/radar-2026-10-26.md",
       "reels-studio/research/radar/radar-2026-10-24.md"
@@ -76,18 +76,18 @@
      "evidence": [
       "reels-studio/research/radar/radar-2026-10-24.md"
      ],
-     "dynamic_facts_checked_at": "2026-10-26T07:19:08Z",
+     "dynamic_facts_checked_at": "2026-10-26T07:38:16Z",
      "primary_sources": [
       {
        "url": "https://github.com/lovisdotio/motion2code",
-       "checked_at": "2026-10-26T07:19:08Z",
+       "checked_at": "2026-10-26T07:38:16Z",
        "claim": "README: skill rebuilds a motion design video as inline SVG shapes on one GSAP timeline; repo MIT, 268 stars (2026-10-26 check)."
       }
      ]
     },
     "script": {
      "status": "complete",
-     "script_sha256": "2fcb0084bcc3b8a21600f8efe42b3f03484279108e219d59922ab225de6744ed",
+     "script_sha256": "2fb3a089a413d5da4bf691558ec5af9fbaa00a0468680593b01dc3c0ac91abb4",
      "word_count": 111
     },
     "voice": {
@@ -104,7 +104,7 @@
      "rights_checked": true,
      "approval_constraints_checked": true,
      "capture_id": "repo-motion2code-01",
-     "manifest_sha256": "b47ff4e0690f3439d67c5cca6b7c716e8681e9e7cbd903dd90c0e197627aa27e",
+     "manifest_sha256": "eab7492de01375af8940c3a4395a0e05039be8b7aaaad0f4e78b62070c279ed5",
      "files": [
       {
        "path": "contact.jpg",
@@ -119,12 +119,20 @@
        "sha256": "f38bc949d72596e7427c5e27c65e82e8a2d27250fa64db4f25a0261a33f9b51d"
       },
       {
+       "path": "example-montage.mp4",
+       "sha256": "1d982956783f49761dcdeb0a6c7a62d0efc4023c3e6e0c0001827c87c45ef82f"
+      },
+      {
+       "path": "eye.mp4",
+       "sha256": "0031e56e3e100eeaa30853324fa997ed2ff5da8cb9d54e5ccf288311b83b9b49"
+      },
+      {
        "path": "festival-map.mp4",
        "sha256": "02c94f13740f5573a6d822fe7255e1e64e162b1f6b2c815e6843debb8b380bd8"
       },
       {
        "path": "manifest.json",
-       "sha256": "b47ff4e0690f3439d67c5cca6b7c716e8681e9e7cbd903dd90c0e197627aa27e"
+       "sha256": "eab7492de01375af8940c3a4395a0e05039be8b7aaaad0f4e78b62070c279ed5"
       },
       {
        "path": "mobile-full.jpg",
@@ -132,7 +140,7 @@
       },
       {
        "path": "think-big-loop.mp4",
-       "sha256": "532e7fa0c13d337ad2729386aa63bd32a2913b79b42942cf18f8bf945390012b"
+       "sha256": "c27126088bf4c0e109f0d1725ec0c91765d2f3a570a7d1a51eef0819d3f4c45d"
       },
       {
        "path": "think-big-still.jpg",
@@ -141,6 +149,10 @@
       {
        "path": "think-big.mp4",
        "sha256": "dbcaee8ca6d3d373084dbb9d6487d256e5a4d0924982b25a4889c69b948000ac"
+      },
+      {
+       "path": "weather-radar.mp4",
+       "sha256": "3d12dcaf782712f673fc346d6a6d850c803ffafa8170396a1bb5955ca5c4b826"
       }
      ]
     }
