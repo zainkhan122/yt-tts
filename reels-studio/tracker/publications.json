@@ -2570,6 +2570,31 @@
       "updated_at": "2026-10-26T11:14:02Z",
       "video_id": "repo-vvv-01"
     },
+    "repo-vvv-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-26T19:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:3d58b6c3288d08248a0b00ee4e1a8d3a34e1fdecb445798184a35e066e63d1f0",
+        "asset_id": 677915377,
+        "asset_size": 7325562,
+        "kit_asset_id": 677915444,
+        "kit_digest": "sha256:c924166c655fc87b10ce5cbf1ca4004226db477ee1eeed9ce8e1e52fe6587c1e",
+        "media_path": "media/677915377/repo-vvv-01.mp4",
+        "release_tag": "renders-2026-10-26-r2",
+        "video_id": "repo-vvv-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/677915377/repo-vvv-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "7e7f4f963da3e14f38fe474e51f018d236f8f25f2fb7a6109434d8891a029599",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Build a video template once, then let your coding agent refill it for each new film. Status 0.1; free and open source. Try it before you rebuild a video by hand.\n\n#Remotion #VideoTemplates #AIVideo",
+      "title": "vvv: a video template built once, reused by coding agents",
+      "updated_at": "2026-10-26T11:14:03Z",
+      "video_id": "repo-vvv-01"
+    },
     "repo-vvv-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6adf35f7551b0b514a63c1a4",
