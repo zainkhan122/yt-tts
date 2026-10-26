@@ -30,7 +30,7 @@
   "audience": "motion designers and developers who want animation they can edit as code",
   "viewer_job": "decide whether a motion video can become editable code with a coding agent",
   "intent": "search",
-  "hook_mechanic": "open on the repo header, then the example output in the next beat",
+  "hook_mechanic": "open on the animated gallery output so the viewer sees the result before any repo page",
   "open_loop": {
    "plant": "can a video become code?",
    "payoff_scene": "example"
@@ -112,13 +112,13 @@
  "proof_plan": [
   {
    "claim": "c1",
-   "evidence": "capture:desktop-top.jpg",
-   "how_shown": "hook on the repo header, skill description spoken"
+   "evidence": "capture:think-big.mp4",
+   "how_shown": "hook clip: the gallery output, skill description spoken"
   },
   {
    "claim": "c2",
-   "evidence": "source:https://github.com/lovisdotio/motion2code",
-   "how_shown": "example scene, spoken over the frame-check line"
+   "evidence": "capture:think-big.mp4",
+   "how_shown": "example montage: the replayed output, with the frame-check line spoken"
   },
   {
    "claim": "c3",
@@ -134,16 +134,30 @@
  "scenes": [
   {
    "id": "hook",
-   "type": "page",
-   "image": "desktop-top.jpg",
-   "heading": "MOTION2CODE: A MOTION VIDEO, *AS CODE*",
+   "type": "clip",
+   "src": "think-big-loop.mp4",
+   "in": 0.0,
+   "out": 9.8,
+   "fit": "fill-blur",
+   "headline": "A MOTION VIDEO, *AS CODE*",
    "say": "Motion designers keep animation in a video file, so every change means a re-render. This skill rebuilds the animation as code your coding agent can edit."
   },
   {
    "id": "example",
-   "type": "page",
-   "image": "mobile-full.jpg",
-   "heading": "ONE TIMELINE, *SEEKABLE*",
+   "type": "clip-montage",
+   "src": "festival-map.mp4",
+   "cuts": [
+    {
+     "in": 0.0,
+     "out": 2.0,
+     "label": "POSTER TO MAP"
+    },
+    {
+     "in": 2.0,
+     "out": 4.0,
+     "label": "REPLAYED AS CODE"
+    }
+   ],
    "say": "The output is inline SVG shapes on one GSAP timeline. It seeks frame by frame, loops cleanly, and is checked side by side against the source."
   },
   {
@@ -155,7 +169,7 @@
    "retrieved_at": "2026-10-24",
    "say": "The Think Big example is ten seconds and twenty-four kilobytes, all in code.",
    "background": {
-    "img": "desktop-top.jpg"
+    "img": "think-big-still.jpg"
    }
   },
   {
