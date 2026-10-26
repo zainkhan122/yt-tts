@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "batch_id": "2026-10-24-repo-motion2code-01",
- "created_at": "2026-10-26T07:38:16Z",
+ "created_at": "2026-10-26T07:51:58Z",
  "buffer_insights": {
   "path": "reels-studio/tracker/buffer-insights.json",
   "sha256": "7e063089168ff6a703e33e79a6b91c214fcf6e7f93884b136ae95ef5c54cd86e"
@@ -29,7 +29,7 @@
  },
  "briefs": {
   "repo-motion2code-01": {
-   "brief_sha256": "5e1a6e9ff3782658773c3b8d5c7d597981c77b04d56252cddc239955b23a7d31",
+   "brief_sha256": "e7f8039cd0282d6b0c3dbf89313a875f4366614549c71988433358d335efeb7c",
    "metrics_decisions": {
     "topic": "repo-motion2code-01: the viewer job is concrete and the proof is on the page or in the product media.",
     "script": "Proof-first beats: the page or product media first, then the claim it supports, then the catch in the verdict.",
@@ -39,7 +39,7 @@
    "stages": {
     "discover": {
      "status": "complete",
-     "checked_at": "2026-10-26T07:38:16Z",
+     "checked_at": "2026-10-26T07:51:58Z",
      "evidence": [
       "reels-studio/research/radar/radar-2026-10-26.md",
       "reels-studio/research/radar/radar-2026-10-24.md"
@@ -76,11 +76,11 @@
      "evidence": [
       "reels-studio/research/radar/radar-2026-10-24.md"
      ],
-     "dynamic_facts_checked_at": "2026-10-26T07:38:16Z",
+     "dynamic_facts_checked_at": "2026-10-26T07:51:58Z",
      "primary_sources": [
       {
        "url": "https://github.com/lovisdotio/motion2code",
-       "checked_at": "2026-10-26T07:38:16Z",
+       "checked_at": "2026-10-26T07:51:58Z",
        "claim": "README: skill rebuilds a motion design video as inline SVG shapes on one GSAP timeline; repo MIT, 268 stars (2026-10-26 check)."
       }
      ]
@@ -104,7 +104,7 @@
      "rights_checked": true,
      "approval_constraints_checked": true,
      "capture_id": "repo-motion2code-01",
-     "manifest_sha256": "eab7492de01375af8940c3a4395a0e05039be8b7aaaad0f4e78b62070c279ed5",
+     "manifest_sha256": "4500b9f2468b5b920bf7f2c5e64e355f3f754b1af1d8fd5de18f4b9db5b222fc",
      "files": [
       {
        "path": "contact.jpg",
@@ -127,12 +127,16 @@
        "sha256": "0031e56e3e100eeaa30853324fa997ed2ff5da8cb9d54e5ccf288311b83b9b49"
       },
       {
+       "path": "festival-map-still.jpg",
+       "sha256": "255d897a5623a8771e54456655ddebaa62e28a78ca409ba9cefdbc63ce66fef7"
+      },
+      {
        "path": "festival-map.mp4",
        "sha256": "02c94f13740f5573a6d822fe7255e1e64e162b1f6b2c815e6843debb8b380bd8"
       },
       {
        "path": "manifest.json",
-       "sha256": "eab7492de01375af8940c3a4395a0e05039be8b7aaaad0f4e78b62070c279ed5"
+       "sha256": "4500b9f2468b5b920bf7f2c5e64e355f3f754b1af1d8fd5de18f4b9db5b222fc"
       },
       {
        "path": "mobile-full.jpg",
