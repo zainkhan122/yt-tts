@@ -1,5 +1,7 @@
 # Resume Hypeless safely — read this before doing work
 
+> **Start here: `HANDOFF-2026-10-26.md`** (latest state, owner standing orders, what is live, what is held, what was deleted). The sections below are older history.
+
 ## Latest owner decision — 2026-10-11
 
 **The interactive Arena agent remains the main brain** for research, scripts, asset selection, editing and QA. The optional producer/critic is **PAUSED BY OWNER and NOT QUALIFIED FOR ACTIVATION**. All five `agent-*` Actions workflows are disabled, and the inference client fails before reading a key or making a request while the pause flag is set.

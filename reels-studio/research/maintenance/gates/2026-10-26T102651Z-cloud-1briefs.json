@@ -1,0 +1,40 @@
+{
+  "dispatched": [
+    "repo-vvv-01"
+  ],
+  "release_tag": "renders-2026-10-26",
+  "gates": [
+    {
+      "brief": "repo-vvv-01",
+      "path": "/home/user/work-remediation/reels-studio/briefs/repo-vvv-01.json",
+      "lint": [],
+      "seo": [
+        {
+          "id": "SP011",
+          "severity": "warning",
+          "message": "keyword not in on-screen text of the first 3 s ('BUILD IT *ONCE*')"
+        },
+        {
+          "id": "SP031",
+          "severity": "warning",
+          "message": "youtube: title 63 chars > recommended 60"
+        }
+      ],
+      "rollup": {
+        "errors": 0,
+        "warnings": 2,
+        "by_id": {
+          "SP011": 1,
+          "SP031": 1
+        }
+      },
+      "at": "2026-10-26T10:26:51Z"
+    }
+  ],
+  "production_receipt": "reels-studio/research/production/receipts/2026-10-24-repo-vvv-01.json",
+  "publish_release_requested": false,
+  "status": "workflow_failed_or_timed_out",
+  "delivery_policy": "Actions artifact only by default; public GitHub Release requires explicit --publish-release",
+  "run_id": 40307483263,
+  "workflow_result": "failure"
+}

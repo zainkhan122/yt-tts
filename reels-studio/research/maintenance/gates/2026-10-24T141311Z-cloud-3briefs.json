@@ -1,0 +1,81 @@
+{
+  "dispatched": [
+    "repo-harp-01",
+    "repo-motion2code-01",
+    "repo-ltx25-01"
+  ],
+  "release_tag": "renders-2026-10-24",
+  "gates": [
+    {
+      "brief": "repo-harp-01",
+      "path": "/home/user/work-remediation/reels-studio/briefs/repo-harp-01.json",
+      "lint": [],
+      "seo": [
+        {
+          "id": "SP011",
+          "severity": "warning",
+          "message": "keyword not in on-screen text of the first 3 s ('')"
+        }
+      ],
+      "rollup": {
+        "errors": 0,
+        "warnings": 1,
+        "by_id": {
+          "SP011": 1
+        }
+      },
+      "at": "2026-10-24T14:13:11Z"
+    },
+    {
+      "brief": "repo-motion2code-01",
+      "path": "/home/user/work-remediation/reels-studio/briefs/repo-motion2code-01.json",
+      "lint": [],
+      "seo": [
+        {
+          "id": "SP010",
+          "severity": "warning",
+          "message": "keyword not spoken in the first ~10 s: TikTok/YouTube index speech (say it in the hook if natural)"
+        },
+        {
+          "id": "SP011",
+          "severity": "warning",
+          "message": "keyword not in on-screen text of the first 3 s ('')"
+        }
+      ],
+      "rollup": {
+        "errors": 0,
+        "warnings": 2,
+        "by_id": {
+          "SP010": 1,
+          "SP011": 1
+        }
+      },
+      "at": "2026-10-24T14:13:11Z"
+    },
+    {
+      "brief": "repo-ltx25-01",
+      "path": "/home/user/work-remediation/reels-studio/briefs/repo-ltx25-01.json",
+      "lint": [],
+      "seo": [
+        {
+          "id": "SP011",
+          "severity": "warning",
+          "message": "keyword not in on-screen text of the first 3 s ('')"
+        }
+      ],
+      "rollup": {
+        "errors": 0,
+        "warnings": 1,
+        "by_id": {
+          "SP011": 1
+        }
+      },
+      "at": "2026-10-24T14:13:11Z"
+    }
+  ],
+  "production_receipt": "reels-studio/research/production/receipts/2026-10-24-repo-trio.json",
+  "publish_release_requested": false,
+  "status": "dispatched_not_verified",
+  "delivery_policy": "Actions artifact only by default; public GitHub Release requires explicit --publish-release",
+  "run_id": 40101518199
+}
