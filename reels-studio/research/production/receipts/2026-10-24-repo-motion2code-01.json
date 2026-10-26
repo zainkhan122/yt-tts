@@ -1,14 +1,14 @@
 {
  "schema_version": 1,
  "batch_id": "2026-10-24-repo-motion2code-01",
- "created_at": "2026-10-24T14:06:22Z",
+ "created_at": "2026-10-26T07:19:08Z",
  "buffer_insights": {
   "path": "reels-studio/tracker/buffer-insights.json",
-  "sha256": "55a5d1c906422b7bb5234662dcd61d1e529e3d0bf6333ff1da8e9b835653b037"
+  "sha256": "7e063089168ff6a703e33e79a6b91c214fcf6e7f93884b136ae95ef5c54cd86e"
  },
  "metrics_review": {
-  "snapshot_sha256": "55a5d1c906422b7bb5234662dcd61d1e529e3d0bf6333ff1da8e9b835653b037",
-  "reviewed_video_count": 124,
+  "snapshot_sha256": "7e063089168ff6a703e33e79a6b91c214fcf6e7f93884b136ae95ef5c54cd86e",
+  "reviewed_video_count": 127,
   "sample_post_ids": [
    "6ac904b32f26cc482c22c524",
    "6ac904b32f26cc482c22c526",
@@ -16,20 +16,20 @@
    "6aca1f23b07d37ac976e341a"
   ],
   "findings": [
-   "Buffer Insights snapshot 2026-10-24T13:18:43Z is complete with 124 tracked video posts; reviewed before the topic scores.",
-   "Repo and open-tool posts are the most consistent sources of usable proof in the snapshot; the basis posts are cited in SELECT.",
-   "Scores are judgment against the rubric; a short's score is only raised when its proof is on the page or in product media."
+   "Buffer Insights snapshot 2026-10-25T09:49:29Z is complete with 127 tracked video posts; reviewed on 2026-10-26 before the SELECT score was re-confirmed.",
+   "Median views across the 127 posts is 36 and the top post has 308; the four SELECT basis posts sit at 0, 0, 0 and 128 views, so audience proof is weak and the score is held on judgment, not on a performance lift.",
+   "The motion2code short now relies on the repo's own MIT gallery output rather than a repo-page scroll, so the basis posts are cited for audience context only."
   ],
   "decisions": {
-   "topic": "Three different viewer jobs: a multi-agent sidebar, a motion-as-code skill and an open-weight model licence.",
-   "script": "Proof-first beats with the catch in the verdict and one spoken licence mention per short.",
+   "topic": "Keep motion2code as a single repo-spotlight short for developers and creators; no other topic in this batch.",
+   "script": "Proof-first beats: the gallery output first, then the claim, then the catch in the verdict.",
    "voice": "Approved Chatterbox Option-3 profile at the fixed floors.",
-   "visual": "Real product media from capture packs only; no credits on screen; covers via cover_lab."
+   "visual": "Gallery GIFs from lovisdotio/motion2code (MIT) converted to 960x540 MP4, plus the capture pack; no on-screen credits; covers via cover_lab."
   }
  },
  "briefs": {
   "repo-motion2code-01": {
-   "brief_sha256": "bfbcdc99bd5c19749e414333c74ffa1f025673531d39cb145a4057a312e5d9d5",
+   "brief_sha256": "e77c99c508626812744a3318cd577a70cf52213b549f53a52087032d8527f7db",
    "metrics_decisions": {
     "topic": "repo-motion2code-01: the viewer job is concrete and the proof is on the page or in the product media.",
     "script": "Proof-first beats: the page or product media first, then the claim it supports, then the catch in the verdict.",
@@ -39,8 +39,9 @@
    "stages": {
     "discover": {
      "status": "complete",
-     "checked_at": "2026-10-24T14:06:22Z",
+     "checked_at": "2026-10-26T07:19:08Z",
      "evidence": [
+      "reels-studio/research/radar/radar-2026-10-26.md",
       "reels-studio/research/radar/radar-2026-10-24.md"
      ]
     },
@@ -57,7 +58,7 @@
       "free_value": 7,
       "freshness_angle": 9
      },
-     "metrics_snapshot_sha256": "55a5d1c906422b7bb5234662dcd61d1e529e3d0bf6333ff1da8e9b835653b037",
+     "metrics_snapshot_sha256": "7e063089168ff6a703e33e79a6b91c214fcf6e7f93884b136ae95ef5c54cd86e",
      "basis_post_ids": [
       "6ac904b32f26cc482c22c524",
       "6ac904b32f26cc482c22c526",
@@ -75,12 +76,12 @@
      "evidence": [
       "reels-studio/research/radar/radar-2026-10-24.md"
      ],
-     "dynamic_facts_checked_at": "2026-10-24T14:06:22Z",
+     "dynamic_facts_checked_at": "2026-10-26T07:19:08Z",
      "primary_sources": [
       {
        "url": "https://github.com/lovisdotio/motion2code",
-       "checked_at": "2026-10-24T14:06:22Z",
-       "claim": "README: skill rebuilds a motion design video as inline SVG shapes on one GSAP timeline, seekable frame by frame, checked against source; MIT; Think Big example 10 s, 24 KB."
+       "checked_at": "2026-10-26T07:19:08Z",
+       "claim": "README: skill rebuilds a motion design video as inline SVG shapes on one GSAP timeline; repo MIT, 268 stars (2026-10-26 check)."
       }
      ]
     },
@@ -103,7 +104,7 @@
      "rights_checked": true,
      "approval_constraints_checked": true,
      "capture_id": "repo-motion2code-01",
-     "manifest_sha256": "0e8dae403355439791d6eb7cc9dff51675e6b3c375d21d4d3024e0026ad2e4f7",
+     "manifest_sha256": "b47ff4e0690f3439d67c5cca6b7c716e8681e9e7cbd903dd90c0e197627aa27e",
      "files": [
       {
        "path": "contact.jpg",
@@ -118,12 +119,28 @@
        "sha256": "f38bc949d72596e7427c5e27c65e82e8a2d27250fa64db4f25a0261a33f9b51d"
       },
       {
+       "path": "festival-map.mp4",
+       "sha256": "02c94f13740f5573a6d822fe7255e1e64e162b1f6b2c815e6843debb8b380bd8"
+      },
+      {
        "path": "manifest.json",
-       "sha256": "0e8dae403355439791d6eb7cc9dff51675e6b3c375d21d4d3024e0026ad2e4f7"
+       "sha256": "b47ff4e0690f3439d67c5cca6b7c716e8681e9e7cbd903dd90c0e197627aa27e"
       },
       {
        "path": "mobile-full.jpg",
        "sha256": "e2ba53ed9dc1ae4058408b629e45b8ff07d372561f12359b7856631a170de6c5"
+      },
+      {
+       "path": "think-big-loop.mp4",
+       "sha256": "532e7fa0c13d337ad2729386aa63bd32a2913b79b42942cf18f8bf945390012b"
+      },
+      {
+       "path": "think-big-still.jpg",
+       "sha256": "d353a56dd00e01f29377ff343f8aa323debf881dc729cca1bf9e9a13d60d3d8b"
+      },
+      {
+       "path": "think-big.mp4",
+       "sha256": "dbcaee8ca6d3d373084dbb9d6487d256e5a4d0924982b25a4889c69b948000ac"
       }
      ]
     }
