@@ -2111,9 +2111,11 @@
     },
     "repo-koubo-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6ae21dcbe490badbade8434b",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-28T21:00:00Z",
+      "due_at": "2026-10-28T21:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:feacb0b5eeda29d6ffa31c0dde1931660082cfe8983e273e4ef53767ea762fdd",
         "asset_id": 685434668,
@@ -2128,10 +2130,11 @@
       "notify_subscribers": false,
       "payload_sha256": "97915b4d30559bbffafe3d6216da9539f36ad102bb232b203d9200ee9e4b2b5c",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Koubo turns one photo and one sentence into a finished talking-head video, with the script, lip-synced presenter and captions handled by your coding agent.\n\nGeneration runs on paid Renoise balance, and the text-behind effect needs macOS.\n\nAI-generated narration.\n\n#AIVideo #DigitalHuman",
       "title": "Koubo: one photo, one sentence, a full AI presenter",
-      "updated_at": "2026-10-28T16:07:37Z",
+      "updated_at": "2026-10-28T16:07:39Z",
       "video_id": "repo-koubo-01"
     },
     "repo-koubo-01:youtube": {
