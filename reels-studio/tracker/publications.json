@@ -2111,9 +2111,11 @@
     },
     "repo-koubo-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6ae21dc7f835de4f32579913",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-28T20:00:00Z",
+      "due_at": "2026-10-28T20:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:feacb0b5eeda29d6ffa31c0dde1931660082cfe8983e273e4ef53767ea762fdd",
         "asset_id": 685434668,
@@ -2128,10 +2130,11 @@
       "notify_subscribers": true,
       "payload_sha256": "b022268b25757d4b21bf52538a881ca52d68418fb61a0d2f0d508d3ffb25f640",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Koubo is an open agent skill that turns one photo and one sentence into a finished talking-head video: the script, lip-synced segments, captions and packaging are all handled by your coding agent.\n\nGeneration runs on paid Renoise balance (482 for the 27-second demo ad). The text-behind effect needs macOS.\n\nRepo: https://github.com/andyhuo520/digital-human-koubo\n\nLicence: MIT.\n\n#Shorts #AIVideo #DigitalHuman",
       "title": "Koubo: one photo, one sentence, a full AI presenter",
-      "updated_at": "2026-10-28T16:07:33Z",
+      "updated_at": "2026-10-28T16:07:36Z",
       "video_id": "repo-koubo-01"
     },
     "repo-leanrea-01:facebook": {
