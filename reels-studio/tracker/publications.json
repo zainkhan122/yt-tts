@@ -1856,9 +1856,11 @@
     },
     "repo-halo-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6ae21dd2f835de4f32579ea3",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-29T20:00:00Z",
+      "due_at": "2026-10-29T20:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:d900c256c0bfa9214dc126d0cca414a6f72934c64e4a175ab87879e75a10bb1d",
         "asset_id": 685434866,
@@ -1873,10 +1875,11 @@
       "notify_subscribers": true,
       "payload_sha256": "e0094c2d6f7c34791537c398300874301f94087d2ed357e85fd8e67657314f2a",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Halo is a lightweight open-source AI overlay for live conversations: it hears both sides, watches your screen and suggests what to say. Rewind recaps the last few minutes when you lose the thread.\n\nWorks with any OpenAI-compatible model, or fully local with Ollama. The README itself warns that many interviews and exams prohibit outside help.\n\nRepo: https://github.com/stormydayy/halo-overlay\n\nLicence: GPL-3.0.\n\n#Shorts #AItools #Productivity",
       "title": "Halo: an AI overlay that whispers what to say on calls",
-      "updated_at": "2026-10-28T16:07:44Z",
+      "updated_at": "2026-10-28T16:07:46Z",
       "video_id": "repo-halo-01"
     },
     "repo-harp-01:facebook": {
