@@ -1856,9 +1856,11 @@
     },
     "repo-halo-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6ae21dd6f835de4f3257a189",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-29T21:00:00Z",
+      "due_at": "2026-10-29T21:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:d900c256c0bfa9214dc126d0cca414a6f72934c64e4a175ab87879e75a10bb1d",
         "asset_id": 685434866,
@@ -1873,10 +1875,11 @@
       "notify_subscribers": false,
       "payload_sha256": "9d718e827282c99d0161d07fcbfc1c4a4fb979356459f331121c10dc90951570",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Halo is a lightweight AI overlay for live conversations: it hears both sides, watches your screen and suggests what to say, and Rewind recaps what you missed.\n\nFree and open source under GPL-3.0; bring your own model or run it fully local.\n\nAI-generated narration.\n\nAI-generated narration.\n\n#AItools #Productivity",
       "title": "Halo: an AI overlay that whispers what to say on calls",
-      "updated_at": "2026-10-28T16:07:48Z",
+      "updated_at": "2026-10-28T16:07:50Z",
       "video_id": "repo-halo-01"
     },
     "repo-halo-01:youtube": {
