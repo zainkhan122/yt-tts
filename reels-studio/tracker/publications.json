@@ -1882,6 +1882,31 @@
       "updated_at": "2026-10-28T16:07:50Z",
       "video_id": "repo-halo-01"
     },
+    "repo-halo-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-30T01:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:d900c256c0bfa9214dc126d0cca414a6f72934c64e4a175ab87879e75a10bb1d",
+        "asset_id": 685434866,
+        "asset_size": 14520009,
+        "kit_asset_id": 685434962,
+        "kit_digest": "sha256:a8872f033e031dc821582aae4e959fbf4325dd08c68ccf3a3e91ffe7b779db5a",
+        "media_path": "media/685434866/repo-halo-01.mp4",
+        "release_tag": "renders-2026-10-28",
+        "video_id": "repo-halo-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/685434866/repo-halo-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "ab2f44325f3c60209f9981a81585bd30615d19c0ef0e29ced396d8f3012fce63",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Comment HALO and I will pin the repo link.\n\nHalo floats over any call, hears both sides, watches your screen and suggests what to say. Rewind recaps the last few minutes in three lines.\n\nFree and open source (GPL-3.0); bring your own model or run it local with Ollama. Many interviews ban outside help, so check the rules.\n\n#AItools #Productivity #OpenSource #Ollama #RemoteWork",
+      "title": "Halo: an AI overlay that whispers what to say on calls",
+      "updated_at": "2026-10-28T16:07:52Z",
+      "video_id": "repo-halo-01"
+    },
     "repo-halo-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6ae21dd2f835de4f32579ea3",
