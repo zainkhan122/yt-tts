@@ -76,6 +76,25 @@
       "status": "failed",
       "voice_seed": 0
     },
+    "1865145c5acc1369f0d114b313f74b3f205c6b36e06ba282ec7e7f662c0c5432": {
+      "asset_files_sha256": "0673fe4edda4917c157bd8729ea76f3b3532f8226315cf2cd08a6d3435074c77",
+      "asset_manifest_sha256": "8b8ae126f61320827e01ed945b7e6aee1d327ef9ef8a9d9fbc3c7fbce48f0dd2",
+      "brief_id": "repo-halo-01",
+      "brief_sha256": "098ddcd771ffc4afc399e8a9c37c42b073cf532bc8ec30571aa6a76fe12edcdc",
+      "capture_id": "repo-halo-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "1865145c5acc1369f0d114b313f74b3f205c6b36e06ba282ec7e7f662c0c5432",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "0012084e3e3cfd02d42430f6233ee52470b0aab0098b095629e7ae933e293f15",
+      "run_id": "40710275985",
+      "started_at": "2026-10-28T15:14:10Z",
+      "status": "started",
+      "voice_seed": 3
+    },
     "1a5c7080f2152643a1ec0c49f459fd7ca47ab5be80740f7a1d89907be34fab46": {
       "asset_files_sha256": "157b780b101415ed2e2a925a0b40229b135203268a8a6465dcc16594eed6cab4",
       "asset_manifest_sha256": "3de8e026c79df506b71e6c7dd8645eaa92933b3788a382fb2a11a19d99f53929",
