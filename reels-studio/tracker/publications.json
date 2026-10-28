@@ -2137,6 +2137,31 @@
       "updated_at": "2026-10-28T16:07:39Z",
       "video_id": "repo-koubo-01"
     },
+    "repo-koubo-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-29T01:00:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:feacb0b5eeda29d6ffa31c0dde1931660082cfe8983e273e4ef53767ea762fdd",
+        "asset_id": 685434668,
+        "asset_size": 12858120,
+        "kit_asset_id": 685434799,
+        "kit_digest": "sha256:9df76368604d3dd965dc43401941cb60d1048a3af7a1ba5a27436b17cbbabdeb",
+        "media_path": "media/685434668/repo-koubo-01.mp4",
+        "release_tag": "renders-2026-10-28",
+        "video_id": "repo-koubo-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/685434668/repo-koubo-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "485d8514d061fe98c2fd16f6e526fd69173642d590673f47588aca643e58509b",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Comment KOUBO and I will pin the repo link.\n\nOne photo and one sentence become a finished talking-head video: script, lip-synced presenter, captions and packaging, all run by your coding agent.\n\nGeneration costs Renoise balance, and the text-behind effect needs macOS.\n\n#AIVideo #DigitalHuman #AITools #ClaudeCode #ContentCreators",
+      "title": "Koubo: one photo, one sentence, a full AI presenter",
+      "updated_at": "2026-10-28T16:07:40Z",
+      "video_id": "repo-koubo-01"
+    },
     "repo-koubo-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6ae21dc7f835de4f32579913",
