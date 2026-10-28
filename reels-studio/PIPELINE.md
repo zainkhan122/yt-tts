@@ -18,11 +18,18 @@ The interactive agent runs research/production; approved-render Buffer delivery 
 | Source | Tool | What it finds | Cadence |
 |---|---|---|---|
 | GitHub: new AI repos ranked by **stars/day** | `reels.py radar` | tools, agents, MCP servers, generators that are taking off | weekly (Mon) |
+| **gittrend.io** (curated GitHub trending aggregator, JSON API) | `tools/sources.py` + `idea_feed.py` | daily top repos ranked by star velocity (stars/day, trending score) | daily |
 | Hugging Face trending models + Spaces | `reels.py radar` | new open models, free "try it" apps (image/video/voice) | weekly |
-| **Source registry** (32+: TikTok, YouTube Shorts/long-form, web feeds such as GitHub Trending, Product Hunt, Hugging Face, Reddit; `research/sources.csv`, add with `tools/sources.py add <url>`, history in `research/sources/posts.csv`) | `tools/idea_feed.py` (daily) | tools/repos several channels covered this week (**consensus ≥ 2 = trend**) | daily |
-| **TikTok / YouTube Shorts / Instagram** explainer accounts | `reels.py social` + `tools/channel_study.py` | which tools creators cover, **which videos got traction**, their scripts, hooks and CTAs | weekly scan of ~6 accounts, top 2 each |
+| **Source registry** (33+: TikTok, YouTube Shorts/long-form, web feeds such as GitHub Trending, Product Hunt, Hugging Face, Reddit, gittrend.io; `research/sources.csv`, add with `tools/sources.py add <url>`, history in `research/sources/posts.csv`) | `tools/idea_feed.py` (daily) | tools/repos several channels covered this week (**consensus ≥ 2 = trend**) | daily |
+| **TikTok / YouTube Shorts** explainer accounts | `reels.py social` + `tools/channel_study.py` | which tools creators cover, **which videos got traction**, their scripts, hooks and CTAs | weekly scan of ~6 accounts, top 2 each |
+| **YouTube comment mining** | `tools/need_miner.py` | unmet viewer questions in reference-channel comments ("how do I…", "is there a…") → **need signal** | weekly |
 | News / launches | agent web search | big launches (models, free tiers, price drops) | as needed |
 | Official free-tier pages | agent + `reels.py capture` | legit free API quotas / free plans, verified on the day | monthly refresh |
+
+**Three demand signals** (each topic is scored on all three before selection):
+1. **Consensus** (`idea_feed.py`): how many watchlist channels covered it this week.
+2. **Searched** (`tools/search_probe.py`): real autocomplete volume + intent modifiers (alternative, free, vs, tutorial…). Free, no API key.
+3. **Needed** (`tools/need_miner.py`): unmet questions mined from reference-channel comments.
 
 Every idea goes into **`topics/backlog.csv`** (SSOT for topics) with its signals and status.
 

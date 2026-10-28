@@ -70,7 +70,10 @@ decoded Script+Voice+Cover+Media+Heading+Description for the top-2/bottom-1 late
 ## 2. Content engine: where every video idea comes from
 
 ```
-sources (32: TikTok, YouTube, web feeds) ──► idea_feed (daily, 2 min) ──► consensus topics (≥2 channels in 7 days)
+sources (33: TikTok, YouTube, web feeds, gittrend.io) ──► idea_feed (daily, 2 min) ──► consensus topics (≥2 channels in 7 days)
+        │
+        ├── searched probe (search_probe.py, free autocomplete) ──► demand score 0-100
+        └── need mining (need_miner.py, reference-channel comments) ──► unmet-question signal
 GitHub/HF radar (stars/day) ───────────────┘                                   │
                                                   verify on primary sources ◄──┘
                                                   score (rubric ≥ 60) ──► topics/backlog.csv ──► today's 1–2 videos
