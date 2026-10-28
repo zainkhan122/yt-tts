@@ -8,6 +8,9 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from pathlib import Path
+
+SPARSE_CHECKOUT_SKIP = not Path(__file__).resolve().parent.parent.parent.joinpath('.github/workflows').exists()
 from unittest.mock import Mock, patch
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -981,6 +984,7 @@ class QueueReleaseTests(unittest.TestCase):
         self.assertFalse(self.release.sent_in_buffer("scheduled"))
         self.assertEqual([r["key"] for r in self.release.refresh_candidates(found)], ["scheduled:instagram"])
 
+    @unittest.skipIf(SPARSE_CHECKOUT_SKIP, 'workflow files not in sparse checkout')
     def test_scheduled_delivery_fails_closed_if_media_refresh_fails(self):
         workflow = (ROOT.parent / ".github/workflows/post.yml").read_text()
         start = workflow.index("- name: Fail-closed media freshness guard")

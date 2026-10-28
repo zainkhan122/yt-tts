@@ -5,6 +5,9 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from pathlib import Path
+
+SPARSE_CHECKOUT_SKIP = not Path(__file__).resolve().parent.parent.parent.joinpath('.github/workflows').exists()
 from unittest.mock import Mock,patch
 
 import requests
@@ -167,6 +170,7 @@ class FreeOnlyClientTests(unittest.TestCase):
  def test_markdown_response_cannot_pass_as_schema_json(self):
   with self.assertRaises(PilotBlocked):json_content({'content':'```json\n{"ok":true}\n```'})
 
+ @unittest.skipIf(SPARSE_CHECKOUT_SKIP, 'workflow files not in sparse checkout')
  def test_probe_workflow_has_no_publishing_credentials_or_schedule(self):
   import yaml
   w=yaml.safe_load((ROOT.parent/'.github/workflows/agent-probe.yml').read_text())

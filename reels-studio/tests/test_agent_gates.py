@@ -9,6 +9,9 @@ import sys
 import tarfile
 import tempfile
 import unittest
+from pathlib import Path
+
+SPARSE_CHECKOUT_SKIP = not Path(__file__).resolve().parent.parent.parent.joinpath('.github/workflows').exists()
 from unittest.mock import Mock,patch
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -192,6 +195,7 @@ class URLArchiveAndRenderTests(unittest.TestCase):
    save_json(p/'agent-state.json',state);save_json(p/'candidate-brief.json',brief)
    with self.assertRaises(PilotBlocked):validate_render_inputs(p)
 
+ @unittest.skipIf(SPARSE_CHECKOUT_SKIP, 'workflow files not in sparse checkout')
  def test_workflow_has_no_social_credentials_or_cron(self):
   import yaml
   w=yaml.safe_load((ROOT.parent/'.github/workflows/agent-pilot.yml').read_text())
@@ -269,6 +273,7 @@ class CriticResumeBoundaryTests(unittest.TestCase):
   cfg['roles']['critic']['model']='other/model:free'
   with self.assertRaises(PilotBlocked):validate_resume(state,{'passed':True},calls,cfg,'test')
 
+ @unittest.skipIf(SPARSE_CHECKOUT_SKIP, 'workflow files not in sparse checkout')
  def test_resume_workflow_is_read_only_and_nonscheduled(self):
   import yaml
   w=yaml.safe_load((ROOT.parent/'.github/workflows/agent-resume-critic.yml').read_text())
@@ -278,6 +283,7 @@ class CriticResumeBoundaryTests(unittest.TestCase):
 
 
 class ResumeArtifactSelectionTests(unittest.TestCase):
+ @unittest.skipIf(SPARSE_CHECKOUT_SKIP, 'workflow files not in sparse checkout')
  def test_resuming_a_resume_uses_explicit_allowlisted_artifact_name(self):
   import yaml
   data=yaml.safe_load((ROOT.parent/'.github/workflows/agent-resume-critic.yml').read_text())
@@ -297,6 +303,7 @@ class CheckpointArchiveTests(unittest.TestCase):
   for field,value in [('asset_id',-1),('name','../../credentials.tar.gz'),('sha256','missing'),('size_bytes',999999999)]:
    with self.assertRaises(PilotBlocked):validate_reference({**ref,field:value})
 
+ @unittest.skipIf(SPARSE_CHECKOUT_SKIP, 'workflow files not in sparse checkout')
  def test_resume_archive_is_an_explicit_choice_not_a_secret_model_fallback(self):
   import yaml
   d=yaml.safe_load((ROOT.parent/'.github/workflows/agent-resume-critic.yml').read_text())

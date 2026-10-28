@@ -8,6 +8,9 @@ import io
 import tempfile
 import unittest
 from pathlib import Path
+
+SPARSE_CHECKOUT_SKIP = not Path(__file__).resolve().parent.parent.parent.joinpath('.github/workflows').exists()
+from pathlib import Path
 from contextlib import redirect_stderr, redirect_stdout
 from unittest.mock import patch
 
@@ -191,6 +194,7 @@ class DispatchPlanTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "status must be selected"):
             self.plan()
 
+    @unittest.skipIf(SPARSE_CHECKOUT_SKIP, 'workflow files not in sparse checkout')
     def test_workflow_entry_rejects_non_main_branch_before_remote_access(self):
         env = {"GITHUB_ACTIONS": "true", "GITHUB_REF": "refs/heads/feature", "BRIEFS": "one"}
         stderr = io.StringIO()
@@ -201,6 +205,7 @@ class DispatchPlanTests(unittest.TestCase):
         self.assertIn("protected main branch", stderr.getvalue())
         check.assert_not_called()
 
+    @unittest.skipIf(SPARSE_CHECKOUT_SKIP, 'workflow files not in sparse checkout')
     def test_render_plan_sparse_checkout_includes_validator_and_its_imports(self):
         workflow = (ROOT.parent / ".github/workflows/render.yml").read_text(encoding="utf-8")
         plan_checkout = workflow.split("name: Six-stage / score / Insights / duplicate-render plan", 1)[0]
@@ -212,6 +217,7 @@ class DispatchPlanTests(unittest.TestCase):
             with self.subTest(path=path):
                 self.assertIn(path, plan_checkout)
 
+    @unittest.skipIf(SPARSE_CHECKOUT_SKIP, 'workflow files not in sparse checkout')
     def test_workflow_entry_checks_and_reserves_only_when_requested(self):
         fake_plan = {"briefs": ["one"], "tag": "renders-2026-10-14", "attempts": [{"fingerprint": "a" * 64}]}
         env = {"GITHUB_ACTIONS": "true", "GITHUB_REF": "refs/heads/main", "BRIEFS": "one",

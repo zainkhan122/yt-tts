@@ -4,6 +4,9 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+
+SPARSE_CHECKOUT_SKIP = not Path(__file__).resolve().parent.parent.parent.joinpath('.github/workflows').exists()
+from pathlib import Path
 from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -142,6 +145,7 @@ class RenderAttemptTests(unittest.TestCase):
         registry = finish_in_registry(registry, "125", "render_only_success")
         self.assertEqual(next(iter(registry["attempts"].values()))["status"], "render_only_success")
 
+    @unittest.skipIf(SPARSE_CHECKOUT_SKIP, 'workflow files not in sparse checkout')
     def test_public_release_is_an_explicit_opt_in(self):
         workflow = (ROOT.parent / ".github/workflows/render.yml").read_text(encoding="utf-8")
         self.assertIn("publish_release:", workflow)
