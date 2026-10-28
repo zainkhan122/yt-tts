@@ -1180,6 +1180,54 @@
       "title": "vvv: a video template built once, reused by coding agents",
       "video_id": "repo-vvv-01",
       "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-10-28T15:50:19Z",
+      "approval": "approved",
+      "asset_digest": "sha256:feacb0b5eeda29d6ffa31c0dde1931660082cfe8983e273e4ef53767ea762fdd",
+      "asset_id": 685434668,
+      "asset_size": 12858120,
+      "brief_sha256": "75a82899142dcb685a0ffcb04e58fc35a3d8b3f2429e8d82bfcb85ad18135d59",
+      "category": "repo",
+      "expires_at": "2026-11-04T15:00:00Z",
+      "kit_asset_id": 685434799,
+      "kit_digest": "sha256:9df76368604d3dd965dc43401941cb60d1048a3af7a1ba5a27436b17cbbabdeb",
+      "media_path": "media/685434668/repo-koubo-01.mp4",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "priority": 10,
+      "release_tag": "renders-2026-10-28",
+      "reviewed_at": "2026-10-28T15:52:21Z",
+      "title": "Koubo: one photo, one sentence, a full AI presenter",
+      "video_id": "repo-koubo-01",
+      "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-10-28T15:50:20Z",
+      "approval": "approved",
+      "asset_digest": "sha256:d900c256c0bfa9214dc126d0cca414a6f72934c64e4a175ab87879e75a10bb1d",
+      "asset_id": 685434866,
+      "asset_size": 14520009,
+      "brief_sha256": "c746a5667803a010f80a55a934e5328f660691e0454f8cb16e02b9be2315b61b",
+      "category": "repo",
+      "expires_at": "2026-11-04T15:00:00Z",
+      "kit_asset_id": 685434962,
+      "kit_digest": "sha256:a8872f033e031dc821582aae4e959fbf4325dd08c68ccf3a3e91ffe7b779db5a",
+      "media_path": "media/685434866/repo-halo-01.mp4",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "priority": 20,
+      "release_tag": "renders-2026-10-28",
+      "reviewed_at": "2026-10-28T15:52:21Z",
+      "title": "Halo: an AI overlay that whispers what to say on calls",
+      "video_id": "repo-halo-01",
+      "youtube_ai_generated": false
     }
   ],
   "schema_version": 1
