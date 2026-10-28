@@ -64,6 +64,5 @@ rss,huggingface-blog,https://huggingface.co/blog/feed.xml,,model/tool releases,o
 rss,reddit-localllama,https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day,,open/local model releases,model releases + community traction,daily,en,2026-10-07,active
 youtube,beyondtahir-yt,https://www.youtube.com/@beyondtahir,videos,AI tools long-form (Urdu/Hindi creator),South Asian AI audience; tested tool deep dives,daily,ur/hi,2026-10-07,active
 rss,reddit-stablediffusion,https://www.reddit.com/r/StableDiffusion/top/.rss?t=day,,free image/video generators,open image/video gen tools + workflows,daily,en,2026-10-07,active
-
 instagram,gittrend.io,https://www.instagram.com/gittrend.io,,"open-source project discovery: GitHub trends, one product per post","same audience as ours (developers); 173k followers; study delivery (caption, hook, hashtags, media) - scanner does not read Instagram, so this is a manual reference",daily,en,2026-10-24,manual
-
+gittrend,gittrend.io,https://gittrend.io,,daily trending GitHub repos by star velocity,curated GitHub trending aggregator; daily top repos ranked by stars/day,daily,en,2026-10-28,active

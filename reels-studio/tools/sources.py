@@ -35,11 +35,51 @@ ATOM = "{http://www.w3.org/2005/Atom}"
 
 
 def detect(url):
+    if "gittrend.io" in url:
+        return "gittrend", "gittrend.io"
     if "tiktok.com/@" in url:
         return "tiktok", re.search(r"@([\w.]+)", url).group(1)
     if "youtube.com/@" in url:
         return "youtube", re.search(r"@([\w.-]+)", url).group(1)
     return "rss", re.sub(r"[^a-z0-9]+", "-", re.sub(r"^https?://(www\.)?", "", url).lower()).strip("-")[:40]
+
+
+def gittrend_list(url, n):
+    """gittrend.io JSON API -> normalized post dicts. Free, no key.
+
+    The /api/trending endpoint returns {"data":[{fullName, description, stars,
+    starsToday, trendingScore, topics, tags, ...}], "pagination":{...}}.
+    Accepts either the site root (https://gittrend.io) or the API URL directly.
+    """
+    if "/api/trending" not in url:
+        url = "https://gittrend.io/api/trending"
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 reels-studio"})
+    raw = urllib.request.urlopen(req, timeout=40).read().decode("utf-8", "replace")
+    payload = json.loads(raw)
+    items = payload.get("data") or []
+    out = []
+    for it in items[:n]:
+        full = it.get("fullName") or ""
+        desc = (it.get("description") or "")[:600]
+        out.append({
+            "platform": "web",
+            "id": str(it.get("id") or full),
+            "url": f"https://github.com/{full}" if full else "",
+            "title": full,
+            "description": desc,
+            "timestamp": 0,  # trending list has no per-item publish time
+            "views": it.get("starsToday") or 0,
+            "likes": it.get("stars") or 0,
+            "comments": "",
+            "shares": "",
+            "saves": "",
+            "duration": "",
+            "_gittrend_score": it.get("trendingScore") or 0,
+            "_gittrend_stars": it.get("stars") or 0,
+            "_gittrend_stars_today": it.get("starsToday") or 0,
+            "_gittrend_topics": ";".join(it.get("tags") or []),
+        })
+    return out
 
 
 def load():
@@ -93,6 +133,8 @@ def fetch(src, n):
     """Latest posts of one source as normalized dicts."""
     if src["type"] == "rss":
         return [{**e, "platform": "web"} for e in rss_list(src["url"], n)]
+    if src["type"] == "gittrend":
+        return gittrend_list(src["url"], n)
     base = re.sub(r"/(shorts|videos|featured|streams)/?$", "", src["url"].rstrip("/"))  # tabs from the stored URL, not the handle
     urls = [src["url"]] if src["type"] == "tiktok" else [f"{base}/{t}" for t in (src.get("tabs") or "shorts").split(",")]
     out = []

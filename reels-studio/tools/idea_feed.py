@@ -117,20 +117,34 @@ def main():
                 tp["first"] = min(tp["first"], ts or tp["first"])
     chans = list(got)
     ranked = sorted(agg.values(), key=lambda t: (-len(t["channels"]), -t["views"]))
+    # Search-demand probe: does anyone actually search for each topic? (free, no key)
+    try:
+        sys.path.insert(0, str(ROOT / "tools"))
+        import search_probe as sp
+        for t in ranked:
+            probe_name = t["name"].split("/")[-1]
+            try:
+                t["searched"] = sp.searched_score(probe_name)["score"]
+            except Exception:
+                t["searched"] = None
+    except Exception:
+        for t in ranked:
+            t["searched"] = None
     today = dt.date.today().isoformat()
     L = [f"# Idea feed: {today} (last {a.days} days, {len(chans)} watchlist channels)", "",
          "**Consensus** = number of watchlist channels that posted about it. ≥ 2 = confirmed niche trend: cover it with our own research and angle.",
          "Topics are auto-extracted, so verify each before scoring (rubric: PIPELINE.md §2).", "",
          "**Daily mix** (PIPELINE.md §1): not hardcoded — pick the strongest topics by consensus/views and let the queue priority order them. Pacing limits still apply (ceiling 10/day, 150-minute spacing). Shortlist goes to the owner for approval.", "",
-         "| # | Topic | Kind | Consensus | Channels | Views (sum) | Best video | Repo |", "|---|---|---|---|---|---|---|---|"]
+         "| # | Topic | Kind | Consensus | Channels | Views (sum) | Searched | Best video | Repo |", "|---|---|---|---|---|---|---|---|---|"]
     def kind(t):
         k = t["name"].split("/")[-1].lower()
         return "repo" if "/" in t["name"] else ("platform" if k in PLATFORMS else ("tool" if k in TOOLS else "other"))
     shown = [t for t in ranked if kind(t) != "platform"]
     for i, t in enumerate(shown[:40], 1):
         repo = t["name"] if "/" in t["name"] else ""
+        srch = f"{t['searched']}" if t.get("searched") is not None else "—"
         L.append(f"| {i} | **{t['name'].split('/')[-1]}** | {kind(t)} | {len(t['channels'])} | {', '.join(sorted(t['channels']))} | {t['views']:,} | "
-                 f"[{t['best'][0]:,} views]({t['best'][1]}) | {('github.com/' + repo) if repo else ''} |")
+                 f"{srch} | [{t['best'][0]:,} views]({t['best'][1]}) | {('github.com/' + repo) if repo else ''} |")
     L += ["", "## AI tools covered this week (non-repo, by consensus then views)", ""]
     for t in [t for t in ranked if kind(t) == "tool"][:15]:
         L.append(f"- **{t['name']}**: {len(t['channels'])} channel(s), {t['views']:,} views. " + " / ".join(f'"{x}"' for x in t["titles"][:3]))
