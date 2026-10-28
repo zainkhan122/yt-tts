@@ -1,3 +1,4 @@
+import base64
 import json
 import sys
 import unittest
@@ -125,3 +126,74 @@ class BufferInsightsTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class FakeGhActions:
+    """Stand-in for tools.gh_actions.api with scripted (method, path) responses."""
+
+    def __init__(self, responses):
+        self.responses = responses
+        self.calls = []
+
+    def api(self, method, path, body=None, raw=False):
+        self.calls.append((method, path, body))
+        for (m, frag), value in self.responses:
+            if m == method and frag in path:
+                return value
+        raise AssertionError(f"unexpected API call {method} {path}")
+
+
+class LargeTrackerCommitTests(unittest.TestCase):
+    """Regression: tracker grew past 1 MiB, where the Contents API returns empty content."""
+
+    def setUp(self):
+        import tools.gh_actions as mod
+        self._real_api = mod.api
+        self.mod = mod
+
+    def tearDown(self):
+        self.mod.api = self._real_api
+
+    def test_read_falls_back_to_blob_api_when_contents_are_empty(self):
+        from tools.post import buffer_insights as bi
+        blob = base64.b64encode(b"x" * 1200000).decode()
+        fake = FakeGhActions([
+            (("GET", "/contents/"), (200, {"content": "", "sha": "abc123"})),
+            (("GET", "/git/blobs/abc123"), (200, {"content": blob})),
+        ])
+        self.mod.api = fake.api
+        out = bi._read_remote_bytes(fake, "reels-studio/tracker/buffer-insights.json", "main")
+        self.assertEqual(len(out), 1200000)
+        self.assertEqual(fake.calls[1][1], "/git/blobs/abc123")
+
+    def test_cas_still_refuses_when_remote_changed(self):
+        from tools.post import buffer_insights as bi
+        blob = base64.b64encode(b"remote-bytes").decode()
+        fake = FakeGhActions([
+            (("GET", "/contents/"), (200, {"content": "", "sha": "abc123"})),
+            (("GET", "/git/blobs/abc123"), (200, {"content": blob})),
+        ])
+        self.mod.api = fake.api
+        with self.assertRaises(RuntimeError):
+            bi.commit_snapshot_remote(b"new", b"stale-local-bytes")
+
+    def test_write_over_1mib_uses_git_data_api_after_too_large(self):
+        from tools.post import buffer_insights as bi
+        same = b"same-bytes"
+        fake = FakeGhActions([
+            (("GET", "/contents/"), (200, {"content": base64.b64encode(same).decode(), "sha": "abc123"})),
+            (("PUT", "/contents/"), (422, {"message": "file is too large"})),
+            (("POST", "/git/blobs"), (201, {"sha": "blobsha"})),
+            (("GET", "/git/ref/heads/main"), (200, {"object": {"sha": "headsha"}})),
+            (("POST", "/git/trees"), (201, {"sha": "treesha"})),
+            (("POST", "/git/commits"), (201, {"sha": "commitsha"})),
+            (("PATCH", "/git/refs/heads/main"), (200, {})),
+        ])
+        self.mod.api = fake.api
+        big = b"y" * 1_100_000
+        bi.commit_snapshot_remote(big, same)  # CAS read matches, so no raise
+        methods = [(m, p) for m, p, _ in fake.calls]
+        self.assertIn(("POST", "/git/blobs"), methods)
+        self.assertIn(("PATCH", "/git/refs/heads/main"), methods)
+        patch_body = fake.calls[-1][2]
+        self.assertEqual(patch_body, {"sha": "commitsha", "force": False})

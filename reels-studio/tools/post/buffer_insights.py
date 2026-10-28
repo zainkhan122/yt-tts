@@ -386,22 +386,75 @@ def write_snapshot(path: Path, snapshot: dict) -> bytes:
     return raw
 
 
+def _read_remote_bytes(gh_actions, path: str, branch: str) -> bytes:
+    """Exact remote bytes for the compare-and-swap read.
+
+    The Contents API only inlines files up to 1 MiB and answers with an empty
+    `content` field beyond that, which silently read as "the tracker changed"
+    and failed every snapshot once it grew past the limit. Fall back to the
+    blob API, which returns the full object.
+    """
+    status, remote = gh_actions.api("GET", f"/contents/{path}?ref={branch}")
+    if status != 200:
+        raise RuntimeError(f"cannot read remote Buffer Insights tracker (HTTP {status})")
+    if remote.get("content"):
+        return base64.b64decode(remote["content"])
+    status, blob = gh_actions.api("GET", f"/git/blobs/{remote['sha']}")
+    if status != 200:
+        raise RuntimeError(f"cannot read remote Buffer Insights blob (HTTP {status})")
+    return base64.b64decode(blob.get("content", ""))
+
+
 def commit_snapshot_remote(new_raw: bytes, previous_raw: bytes | None, *, branch="main") -> None:
     """Commit through GitHub's compare-and-swap Contents API; never overwrite a concurrent update."""
     from tools import gh_actions
     path = "reels-studio/tracker/buffer-insights.json"
-    status, remote = gh_actions.api("GET", f"/contents/{path}?ref={branch}")
-    if status != 200:
-        raise RuntimeError(f"cannot read remote Buffer Insights tracker (HTTP {status})")
-    remote_raw = base64.b64decode(remote.get("content", ""))
+    remote_raw = _read_remote_bytes(gh_actions, path, branch)
     if previous_raw is not None and remote_raw != previous_raw:
         raise RuntimeError("Buffer Insights tracker changed during this run; refusing to overwrite it")
     message = "analytics: refresh read-only Buffer Insights " + dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
+    status, remote = gh_actions.api("GET", f"/contents/{path}?ref={branch}")
+    if status != 200:
+        raise RuntimeError(f"cannot read remote Buffer Insights tracker (HTTP {status})")
     payload = {"message": message, "branch": branch, "sha": remote["sha"],
                "content": base64.b64encode(new_raw).decode("ascii")}
     status, result = gh_actions.api("PUT", f"/contents/{path}", payload)
-    if status != 200:
+    if status == 200:
+        return
+    detail = result.get("message", "") if isinstance(result, dict) else str(result)
+    if len(new_raw) <= 1_048_576:
         raise RuntimeError(f"Buffer Insights tracker write failed/conflicted (HTTP {status}); snapshot not committed")
+    # The Contents API refuses payloads over 1 MiB outright ("file is too large"),
+    # which is not a conflict: the compare-and-swap read above already proved the
+    # remote blob is unchanged, so commit the same bytes through the git data API.
+    if "too large" not in detail.lower():
+        raise RuntimeError(f"Buffer Insights tracker write failed/conflicted (HTTP {status}); snapshot not committed")
+    _commit_blob(gh_actions, path, message, new_raw, branch=branch)
+
+
+def _commit_blob(gh_actions, path: str, message: str, new_raw: bytes, *, branch: str) -> None:
+    """Commit one file over 1 MiB with the git data API (blob -> tree -> commit -> ref)."""
+    status, blob = gh_actions.api("POST", "/git/blobs",
+                                  {"content": base64.b64encode(new_raw).decode("ascii"), "encoding": "base64"})
+    if status != 201:
+        raise RuntimeError(f"Buffer Insights blob upload failed (HTTP {status}); snapshot not committed")
+    status, ref = gh_actions.api("GET", f"/git/ref/heads/{branch}")
+    if status != 200:
+        raise RuntimeError(f"cannot read branch {branch} (HTTP {status}); snapshot not committed")
+    base = ref["object"]["sha"]
+    status, tree = gh_actions.api("POST", "/git/trees", {
+        "base_tree": base,
+        "tree": [{"path": path, "mode": "100644", "type": "blob", "sha": blob["sha"]}],
+    })
+    if status != 201:
+        raise RuntimeError(f"Buffer Insights tree failed (HTTP {status}); snapshot not committed")
+    status, commit = gh_actions.api("POST", "/git/commits",
+                                    {"message": message, "tree": tree["sha"], "parents": [base]})
+    if status != 201:
+        raise RuntimeError(f"Buffer Insights commit failed (HTTP {status}); snapshot not committed")
+    status, _ = gh_actions.api("PATCH", f"/git/refs/heads/{branch}", {"sha": commit["sha"], "force": False})
+    if status != 200:
+        raise RuntimeError(f"Buffer Insights ref update conflicted (HTTP {status}); snapshot not committed")
 
 
 def run_snapshot(*, output: Path, settings_path: Path | None = None, publications_path: Path | None = None,
