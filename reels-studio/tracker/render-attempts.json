@@ -431,6 +431,25 @@
       "status": "render_only_success",
       "voice_seed": 1
     },
+    "4fd7926ee9cce2974d477a97959c81bb354b2dfd8e488a7c0662e6f4dfea07b4": {
+      "asset_files_sha256": "d2b1a36d7b2eae5b73926b46311233292855f9ca6e3a560eadb1178b22b2b22f",
+      "asset_manifest_sha256": "d575f8edc58eb8abeb5e5ce616ecb405d56596c1d59345c0730f6fcd47a16fc0",
+      "brief_id": "repo-koubo-01",
+      "brief_sha256": "9a3b7054b2a7e94ca0a389dcde8a896e0fc637c412853a474c444a7c231f71f7",
+      "capture_id": "repo-koubo-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "4fd7926ee9cce2974d477a97959c81bb354b2dfd8e488a7c0662e6f4dfea07b4",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "0012084e3e3cfd02d42430f6233ee52470b0aab0098b095629e7ae933e293f15",
+      "run_id": "40708112886",
+      "started_at": "2026-10-28T14:39:40Z",
+      "status": "started",
+      "voice_seed": 2
+    },
     "541e95b0e7618c1d0811b59671b4c18680ba5fb1ea7ec3453b733b7d9f6d186f": {
       "asset_files_sha256": "31c816d610473ede5942b6fc8009ab3f310a0e667c22f59e99ed3d489427b35b",
       "asset_manifest_sha256": "f643c59a1e8593a42c082afb3f04731ce90398f836e79fda82e1c27125ae7631",
@@ -758,6 +777,25 @@
       "started_at": "2026-10-20T15:18:33Z",
       "status": "render_only_success",
       "voice_seed": 0
+    },
+    "9fadf9e4f7d2f4e20732ee7f9b6b7ca6028ad6c724441454c1d56c9a894cccb4": {
+      "asset_files_sha256": "0673fe4edda4917c157bd8729ea76f3b3532f8226315cf2cd08a6d3435074c77",
+      "asset_manifest_sha256": "8b8ae126f61320827e01ed945b7e6aee1d327ef9ef8a9d9fbc3c7fbce48f0dd2",
+      "brief_id": "repo-halo-01",
+      "brief_sha256": "513fac44817a2795444ab29fd9540fd38e365864b3248a8695d40f3038fba7b8",
+      "capture_id": "repo-halo-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "9fadf9e4f7d2f4e20732ee7f9b6b7ca6028ad6c724441454c1d56c9a894cccb4",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "0012084e3e3cfd02d42430f6233ee52470b0aab0098b095629e7ae933e293f15",
+      "run_id": "40708112886",
+      "started_at": "2026-10-28T14:39:40Z",
+      "status": "started",
+      "voice_seed": 2
     },
     "a320ee723cafeb69b1216f12cf609c818d56e06f6d8f87c91138ad894f594622": {
       "asset_files_sha256": "31c816d610473ede5942b6fc8009ab3f310a0e667c22f59e99ed3d489427b35b",
