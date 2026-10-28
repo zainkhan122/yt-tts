@@ -1,0 +1,324 @@
+{
+ "id": "repo-koubo-01",
+ "capture": "captures/repo-koubo-01",
+ "title": "Koubo: one photo and one sentence become a talking-head video",
+ "niche": "AI tools that make presenter videos",
+ "lang": "en-us",
+ "style": "spotlight",
+ "production_category": "repo",
+ "status": "draft 2026-10-28: selected from the 28 Oct radar; owner approved the batch of 2",
+ "keywords": [
+  "digital human",
+  "talking head video",
+  "Renoise MCP",
+  "Claude Code",
+  "Remotion",
+  "agent skill"
+ ],
+ "facts": {
+  "repo": "andyhuo520/digital-human-koubo (created 2026-10-26)",
+  "stars": 1251,
+  "licence": "MIT (GitHub API 2026-10-28)",
+  "pipeline": "Agent Skill + Renoise MCP (Grok Video 1.5) + Remotion 4, whisper back-check per segment (README)",
+  "cost": "the 27 s demo ad cost 482 Renoise credits (README); Renoise login is in the browser, no API key",
+  "styles": "5 editing styles and 48 packaging components measured from 25 creator videos (README)",
+  "languages": "English, Japanese, Korean, French, Spanish, Arabic tested, whisper back-check 94-100% (README)",
+  "platform": "cross-platform; the text-behind-presenter effect needs macOS (README)"
+ },
+ "sources": [
+  "https://github.com/andyhuo520/digital-human-koubo",
+  "https://github.com/andyhuo520/digital-human-koubo/releases/tag/v1.0.0"
+ ],
+ "verify_before_render": [
+  "Re-open github.com/andyhuo520/digital-human-koubo: licence, the 482-credit line and the macOS note must still match the capture.",
+  "Re-read the star count from the GitHub API and update facts.stars if it moved.",
+  "If the repo is archived, removed, or the licence changes, do not render."
+ ],
+ "treatment": {
+  "audience": "creators and marketers who want a presenter video without filming anyone",
+  "viewer_job": "see an AI presenter pipeline end to end and decide if the credit cost is worth it",
+  "intent": "hybrid",
+  "hook_mechanic": "open on the finished vertical ad, then land the reveal that no person is in it",
+  "open_loop": {
+   "plant": "who made this ad?",
+   "payoff_scene": "pipeline"
+  },
+  "proof_moment": "proof",
+  "selected_cover": 0,
+  "archetype": "demo-first",
+  "cover_concepts": [
+   {
+    "text": "NOT A *REAL* PRESENTER",
+    "visual": "one-photo-one-sentence-a-27-second-lives.jpg",
+    "gap": "then what is she?"
+   },
+   {
+    "text": "ONE PHOTO IN",
+    "visual": "reference-photo-composited-livestream-st.jpg",
+    "gap": "what comes out?"
+   },
+   {
+    "text": "48 CREATOR *TRICKS*",
+    "visual": "packaging-component-gallery.jpg",
+    "gap": "whose tricks?"
+   }
+  ],
+  "structure": [
+   {
+    "scene": "demo",
+    "beat": "demo"
+   },
+   {
+    "scene": "pipeline",
+    "beat": "how"
+   },
+   {
+    "scene": "proof",
+    "beat": "proof"
+   },
+   {
+    "scene": "catch",
+    "beat": "catch"
+   },
+   {
+    "scene": "cta",
+    "beat": "close"
+   }
+  ]
+ },
+ "viewer": {
+  "who": "creators and small teams who need a talking-head video but have no presenter, camera or studio",
+  "problem": "hiring or filming a presenter costs days and money, and every script change means filming again"
+ },
+ "idea": "Koubo is an agent skill that turns one photo and one sentence into a finished talking-head video: script, lip-synced clips, captions, packaging, all driven by a coding agent.",
+ "claims": [
+  {
+   "id": "c1",
+   "text": "Koubo turns one photo and one sentence into a finished talking-head video with script, lip-synced presenter, captions and packaging.",
+   "source": "https://github.com/andyhuo520/digital-human-koubo"
+  },
+  {
+   "id": "c2",
+   "text": "The pipeline splits the script into segments of 15 seconds or less, generates them through Renoise MCP, then whisper-checks every segment against the script.",
+   "source": "https://github.com/andyhuo520/digital-human-koubo"
+  },
+  {
+   "id": "c3",
+   "text": "It ships 5 editing styles and 48 packaging components measured frame by frame from 25 videos by top creators.",
+   "source": "https://github.com/andyhuo520/digital-human-koubo"
+  },
+  {
+   "id": "c4",
+   "text": "The 27-second demo ad cost 482 Renoise credits, and Renoise login happens in the browser with no API key.",
+   "source": "https://github.com/andyhuo520/digital-human-koubo"
+  },
+  {
+   "id": "c5",
+   "text": "The text-behind-presenter effect uses Apple Vision and needs macOS; the rest is cross-platform.",
+   "source": "https://github.com/andyhuo520/digital-human-koubo"
+  },
+  {
+   "id": "c6",
+   "text": "The repo is MIT licensed, and every demo video is labelled as performed by an AI digital human.",
+   "source": "https://github.com/andyhuo520/digital-human-koubo/releases/tag/v1.0.0"
+  }
+ ],
+ "proof_plan": [
+  {
+   "claim": "c1",
+   "evidence": "capture:workbuddy-live-ad.mp4",
+   "how_shown": "demo scene: the official 9:16 livestream ad plays full bleed while the one-photo-one-sentence promise is spoken"
+  },
+  {
+   "claim": "c2",
+   "evidence": "capture:desktop-full.jpg",
+   "how_shown": "pipeline scene: the README pipeline diagram behind the step chips"
+  },
+  {
+   "claim": "c3",
+   "evidence": "capture:koubo-montage.mp4",
+   "how_shown": "proof montage: four official style demos cut on the spoken style names"
+  },
+  {
+   "claim": "c4",
+   "evidence": "capture:desktop-full.jpg",
+   "how_shown": "catch: the verdict card, credit cost spoken as the first con"
+  },
+  {
+   "claim": "c5",
+   "evidence": "capture:desktop-full.jpg",
+   "how_shown": "catch: the macOS line spoken as the second con"
+  },
+  {
+   "claim": "c6",
+   "evidence": "capture:desktop-top.jpg",
+   "how_shown": "value close: free and open source spoken once at the payoff"
+  }
+ ],
+ "research_basis": [
+  "research/radar/radar-2026-10-28.md",
+  "research/production/2026-10-28-repo-koubo-01-fact-sheet.md",
+  "research/social/platform-algorithms-2026-10-18.md"
+ ],
+ "scenes": [
+  {
+   "id": "demo",
+   "type": "clip",
+   "src": "workbuddy-live-ad.mp4",
+   "in": 0.0,
+   "out": 9.0,
+   "headline": "THIS PRESENTER IS *NOT REAL*",
+   "say": "This sales ad has no real presenter in it. The only input was one photo and one sentence."
+  },
+  {
+   "id": "pipeline",
+   "type": "steps",
+   "heading": "ONE SKILL RUNS *ALL OF IT*",
+   "steps": [
+    "Agent writes the script",
+    "Renoise renders each segment",
+    "Whisper checks every line",
+    "Remotion cuts the video"
+   ],
+   "step_at": [
+    "writes",
+    "renders",
+    "checks",
+    "cuts"
+   ],
+   "background": {
+    "image": "desktop-full.jpg",
+    "scroll_regions": [
+     "h_how-it-works",
+     "h_what-it-does"
+    ],
+    "zoom": 1.6
+   },
+   "url": "github.com/andyhuo520/digital-human-koubo#how-it-works",
+   "say": "It is an agent skill called Koubo. Your coding agent writes the script, renders every segment through Renoise, then whisper checks each line and cuts the video in Remotion."
+  },
+  {
+   "id": "proof",
+   "type": "clip-montage",
+   "src": "koubo-montage.mp4",
+   "cuts": [
+    {
+     "in": 0.0,
+     "out": 2.75,
+     "label": "EXPLAINER",
+     "at": "explainer"
+    },
+    {
+     "in": 2.75,
+     "out": 5.5,
+     "label": "LAUNCH",
+     "at": "launch"
+    },
+    {
+     "in": 5.5,
+     "out": 8.25,
+     "label": "TUTORIAL",
+     "at": "tutorial"
+    },
+    {
+     "in": 8.25,
+     "out": 11.0,
+     "label": "TWO HOSTS",
+     "at": "hosts"
+    }
+   ],
+   "say": "Five styles ship with it: a finance explainer, a launch breakdown, a tutorial, and shows with two hosts, plus forty-eight packaging tricks taken from top creators."
+  },
+  {
+   "id": "catch",
+   "type": "verdict",
+   "heading": "THE *CATCH*",
+   "pros": [
+    "No camera, studio or presenter",
+    "Whisper checks every line"
+   ],
+   "cons": [
+    "Renoise balance: 482 for the demo ad",
+    "Text-behind effect needs macOS"
+   ],
+   "item_at": [
+    "camera",
+    "whisper",
+    "balance",
+    "macOS"
+   ],
+   "say": "The catch: no camera or studio, and whisper checks every line, but generation burns your Renoise balance, four hundred eighty-two for that demo ad, and the text-behind trick needs macOS."
+  },
+  {
+   "id": "cta",
+   "type": "endcard",
+   "keyword": "KOUBO",
+   "say": "Would you put an AI presenter on your channel? Comment koubo and I will pin the repo, free and open source."
+  }
+ ],
+ "seo": {
+  "youtube": {
+   "title": "Koubo: one photo, one sentence, a full AI presenter",
+   "description": "Koubo is an open agent skill that turns one photo and one sentence into a finished talking-head video: the script, lip-synced segments, captions and packaging are all handled by your coding agent.\n\nGeneration runs on paid Renoise balance (482 for the 27-second demo ad). The text-behind effect needs macOS.\n\nRepo: https://github.com/andyhuo520/digital-human-koubo\n\nLicence: MIT.",
+   "hashtags": [
+    "#Shorts",
+    "#AIVideo",
+    "#DigitalHuman"
+   ],
+   "tags": [
+    "digital human",
+    "AI presenter",
+    "talking head video",
+    "Renoise MCP",
+    "Claude Code skill",
+    "Remotion"
+   ]
+  },
+  "tiktok": {
+   "caption": "Koubo turns one photo and one sentence into a finished talking-head video, no filming at all. Your coding agent writes the script, renders the presenter and cuts the video. Would you use an AI face on your channel? #AIVideo #DigitalHuman #AITools #ClaudeCode",
+   "hashtags": [
+    "#AIVideo",
+    "#DigitalHuman",
+    "#AITools",
+    "#ClaudeCode"
+   ]
+  },
+  "instagram": {
+   "caption": "Comment KOUBO and I will pin the repo link.\n\nOne photo and one sentence become a finished talking-head video: script, lip-synced presenter, captions and packaging, all run by your coding agent.\n\nGeneration costs Renoise balance, and the text-behind effect needs macOS.",
+   "hashtags": [
+    "#AIVideo",
+    "#DigitalHuman",
+    "#AITools",
+    "#ClaudeCode",
+    "#ContentCreators"
+   ]
+  },
+  "facebook": {
+   "caption": "Koubo turns one photo and one sentence into a finished talking-head video, with the script, lip-synced presenter and captions handled by your coding agent.\n\nGeneration runs on paid Renoise balance, and the text-behind effect needs macOS.",
+   "hashtags": [
+    "#AIVideo",
+    "#DigitalHuman"
+   ]
+  },
+  "x": {
+   "text": "One photo + one sentence = a finished talking-head video. Koubo is an open agent skill that scripts, renders and edits it for you.\nhttps://github.com/andyhuo520/digital-human-koubo",
+   "hashtags": [
+    "#AIVideo"
+   ]
+  },
+  "keyword": "KOUBO",
+  "aliases": [
+   "digital human",
+   "AI presenter"
+  ]
+ },
+ "review": {
+  "reviewed_at": "2026-10-28T14:10:00Z",
+  "expires_at": "2026-10-30",
+  "reviewer": "agent; facts checked against the GitHub repo, README and release v1.0.0 on 2026-10-28; owner approved the batch of 2 on 2026-10-28"
+ },
+ "voice": {
+  "synthetic": true
+ },
+ "voice_seed": 1
+}

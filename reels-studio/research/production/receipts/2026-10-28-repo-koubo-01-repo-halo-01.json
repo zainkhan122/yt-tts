@@ -1,0 +1,315 @@
+{
+ "batch_id": "2026-10-28-repo-koubo-01-repo-halo-01",
+ "briefs": {
+  "repo-halo-01": {
+   "brief_sha256": "af8a6736aa9a2e1f92c9815d538042201a0cb7b7fae9af144d635b34b468a4d2",
+   "metrics_decisions": {
+    "script": "Warning beats: stakes, evidence (both-sides hearing), how (Rewind), catch (own-model + bans), close.",
+    "topic": "Conversation assistant with a self-declared rules catch; the viewer job (decide if it helps and where the line is) is concrete.",
+    "visual": "Own captures of the repo page only; covers designed in cover_lab from three distinct captures.",
+    "voice": "Approved Chatterbox Option-3 profile at the fixed floors: at least 92% per chunk and 95% overall."
+   },
+   "stages": {
+    "assets": {
+     "approval_constraints_checked": true,
+     "capture_id": "repo-halo-01",
+     "files": [
+      {
+       "path": "desktop-full.jpg",
+       "sha256": "772e857b603f4d162c4bdaf37983bef530c343bd422141b361a069290f337a5c"
+      },
+      {
+       "path": "desktop-top.jpg",
+       "sha256": "c27dc789e0ea802a8e0a06fcf664e02c5ddce57dba4185a5829e297b9a4f280f"
+      },
+      {
+       "path": "mobile-full.jpg",
+       "sha256": "e37e7875a63ee0d429e11a74a3c01ef51e4fd66aa044d3a7a362331aa084abf6"
+      },
+      {
+       "path": "favicon.svg",
+       "sha256": "6a9577cd4f7fa6b75bde1025af85b944e9dd1388373b55ccba6e9f80ac2eae60"
+      },
+      {
+       "path": "og-image.png",
+       "sha256": "7685d5854006cb67cddae7b317f1350e91c96368614118297e05d10a0592ecb8"
+      }
+     ],
+     "manifest_sha256": "8b8ae126f61320827e01ed945b7e6aee1d327ef9ef8a9d9fbc3c7fbce48f0dd2",
+     "rights_checked": true,
+     "status": "complete"
+    },
+    "discover": {
+     "checked_at": "2026-10-28T13:20:00Z",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-28.md"
+     ],
+     "status": "complete"
+    },
+    "research": {
+     "dynamic_facts_checked_at": "2026-10-28T14:10:00Z",
+     "evidence": [
+      "reels-studio/research/production/2026-10-28-repo-halo-01-fact-sheet.md"
+     ],
+     "primary_sources": [
+      {
+       "checked_at": "2026-10-28T13:48:00Z",
+       "claim": "Minimal AI overlay for live conversations; Rewind (Ctrl+Shift+Enter) answers from 30 s-5 min; two audio channels Them/You; GPL-3.0; keys OS-encrypted; own disclaimer that many interviews ban outside help.",
+       "url": "https://github.com/stormydayy/halo-overlay"
+      }
+     ],
+     "status": "complete"
+    },
+    "script": {
+     "script_sha256": "149daa14be063a22d8943e464c114f9bcc3c8a8eebde1a17b3dbe161c8b9bffc",
+     "status": "complete",
+     "word_count": 111
+    },
+    "select": {
+     "basis_post_ids": [
+      "6adccbfe0b5343d0708d202e",
+      "6adf35f7551b0b514a63c1a4",
+      "6acc91a65feb3462de95f295",
+      "6acc919add062ea3c8176035",
+      "6ad4dd44938409f1d0d540c6"
+     ],
+     "hard_gates": {
+      "claim_verifiable": true,
+      "license_clear": true,
+      "risk_flags_clear": true
+     },
+     "metrics_snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
+     "score": 81,
+     "score_breakdown": {
+      "audience_breadth": 14,
+      "demo_ability": 13,
+      "free_value": 10,
+      "freshness_angle": 15,
+      "social_proof_gap": 13,
+      "trend_velocity": 16
+     },
+     "selection_status": "selected",
+     "status": "complete",
+     "topic": "halo-overlay: a floating AI that listens to your calls, sees your screen and whispers what to say"
+    },
+    "voice": {
+     "engine": "chatterbox",
+     "profile": "option-3",
+     "qa_thresholds": {
+      "overall": 0.95,
+      "per_chunk": 0.92
+     },
+     "status": "complete"
+    }
+   }
+  },
+  "repo-koubo-01": {
+   "brief_sha256": "56d242ce7556fd224b783f42c35cfddffdde1c7097104c9a1a93d3a2a1dfa9bf",
+   "metrics_decisions": {
+    "script": "Demo-first beats: the finished ad first, then the four pipeline steps, then the style montage, then the catch.",
+    "topic": "Media-led repo with official vertical demo MP4s; the viewer job (see it end to end) is concrete and the proof is on screen.",
+    "visual": "Real product media from the capture pack only; covers designed in cover_lab from three distinct captures.",
+    "voice": "Approved Chatterbox Option-3 profile at the fixed floors: at least 92% per chunk and 95% overall."
+   },
+   "stages": {
+    "assets": {
+     "approval_constraints_checked": true,
+     "capture_id": "repo-koubo-01",
+     "files": [
+      {
+       "path": "desktop-full.jpg",
+       "sha256": "e6bf95e40818f235f393d67970336535de74d452a8f7b8550d33e62cacc5dc54"
+      },
+      {
+       "path": "desktop-top.jpg",
+       "sha256": "918e2dda021f7e25e5b1698a789f67d92cb6c3446d221befb3029a74dbb797be"
+      },
+      {
+       "path": "caption-intensity-presets.jpg",
+       "sha256": "72e6547540bee6214409305fb833b00a510898f1ea703573af7e6ddab99a0ac7"
+      },
+      {
+       "path": "close-up-89-hides-the-text-medium-shot-5.jpg",
+       "sha256": "eacb72adebb2c7f2910e884be37a120fac279dd63a0620909f019b9793938b18"
+      },
+      {
+       "path": "cuts-per-minute-measured-on-25-creator-v.jpg",
+       "sha256": "a49527c9b3c5f610f5e9f3dbe9b4e221ed9baa09dec7df6edb0967d41de0e055"
+      },
+      {
+       "path": "og-image.png",
+       "sha256": "b3a3283d828361db9a0d64bf6d1eaad295dcce8524d36302749ff982de0e4200"
+      },
+      {
+       "path": "one-photo-one-sentence-a-27-second-lives.jpg",
+       "sha256": "98176464a67e87194ba2bad42b4b6d753fedc7bc8e69c7cce285457714b7c866"
+      },
+      {
+       "path": "original-vision-matte-original-big-text-.jpg",
+       "sha256": "b923ce8deefb704fe4e41c33e215f981545064d4c5bdf869ee9a76821ef06dfa"
+      },
+      {
+       "path": "packaging-component-gallery.jpg",
+       "sha256": "76e3bcfc56fe05e2f9da41b749529a7f45ba65bda0dca4cfeafb77022e0db9f8"
+      },
+      {
+       "path": "reference-photo-composited-livestream-st.jpg",
+       "sha256": "8f5ff106a0f9f98bc445e5d780f26bee0d1e7faa21c5164093084125d0384505"
+      },
+      {
+       "path": "the-5-segments-of-the-livestream-ad-and-.jpg",
+       "sha256": "4a3dd695b66f15db50e06dab5df0bed353043a56f2b6176d471bdabecf621377"
+      },
+      {
+       "path": "the-five-editing-styles.jpg",
+       "sha256": "12b1c3cbb1dbf0ea72d10c21de7b596310e2679ab6c6e45472033aa5ecbeaef6"
+      },
+      {
+       "path": "favicon.svg",
+       "sha256": "6a9577cd4f7fa6b75bde1025af85b944e9dd1388373b55ccba6e9f80ac2eae60"
+      },
+      {
+       "path": "koubo-montage.mp4",
+       "sha256": "bc84b7bffeb648fac7a9f7e816cc06e29cbeffef6e1614a0a43777cb5c9b660d"
+      },
+      {
+       "path": "memt-launchgif.mp4",
+       "sha256": "51c8ad45e1abc19d5878d07e2b6e2c6ba671eeac9cb3adddc5c14632dafaa769"
+      },
+      {
+       "path": "packaging-gallerygif.mp4",
+       "sha256": "8ed911aab0cf78371212548a3c2497a62e6f96922dabdd6ebef9167a65616914"
+      },
+      {
+       "path": "renoise-koubo-huazi.mp4",
+       "sha256": "e436b9b65a682255f8de309141fa3b28e667cbea53a101d52a8708090367dd55"
+      },
+      {
+       "path": "text-behind.mp4",
+       "sha256": "0d75542281f6da6fdbdaa64ba3de849f2622d3a1f88418b4154cd2a60b6bb01f"
+      },
+      {
+       "path": "tutorial-digital-human-upgradegif.mp4",
+       "sha256": "2b6d2b81dec041d2e2951b55f61cf4a39c18a33f36c19a1957c90d0329d044e6"
+      },
+      {
+       "path": "tutorial-ep2gif.mp4",
+       "sha256": "e4db7f6c47b575c1a70dd0867cf83a105bdddcefe6af8512b477ffb3891303b0"
+      },
+      {
+       "path": "workbuddy-live-ad.mp4",
+       "sha256": "42a5d28f123b0aec95417e395cf32ce0b3d987fdeef9e69135898cef4151dd81"
+      },
+      {
+       "path": "xiaolin-style-explainergif.mp4",
+       "sha256": "edd6c618cc8ca8db965250a3ceb487443b10d19b1cc37c0093ca9cd13663089c"
+      },
+      {
+       "path": "mobile-full.jpg",
+       "sha256": "ecb0b4e9a199141bce297dcbe97f694c1333f95813cef96cd76500a45d8ced5a"
+      }
+     ],
+     "manifest_sha256": "d575f8edc58eb8abeb5e5ce616ecb405d56596c1d59345c0730f6fcd47a16fc0",
+     "rights_checked": true,
+     "status": "complete"
+    },
+    "discover": {
+     "checked_at": "2026-10-28T13:20:00Z",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-28.md"
+     ],
+     "status": "complete"
+    },
+    "research": {
+     "dynamic_facts_checked_at": "2026-10-28T14:10:00Z",
+     "evidence": [
+      "reels-studio/research/production/2026-10-28-repo-koubo-01-fact-sheet.md"
+     ],
+     "primary_sources": [
+      {
+       "checked_at": "2026-10-28T13:48:00Z",
+       "claim": "One photo + one sentence -> finished talking-head video; pipeline = SKILL.md + Renoise MCP (Grok Video 1.5) + whisper back-check + Remotion 4; 482 credits for the 27 s ad; MIT.",
+       "url": "https://github.com/andyhuo520/digital-human-koubo"
+      },
+      {
+       "checked_at": "2026-10-28T13:53:00Z",
+       "claim": "Release v1.0.0 ships 8 demo MP4s incl. workbuddy-live-ad 720x1280 and renoise-koubo-huazi 720x1280.",
+       "url": "https://github.com/andyhuo520/digital-human-koubo/releases/tag/v1.0.0"
+      }
+     ],
+     "status": "complete"
+    },
+    "script": {
+     "script_sha256": "8b6a688375f3495dac356e6c6a0b447031fc7e5b9d11b94fa5c2e002cf0796c2",
+     "status": "complete",
+     "word_count": 124
+    },
+    "select": {
+     "basis_post_ids": [
+      "6adccbfe0b5343d0708d202e",
+      "6adf35f7551b0b514a63c1a4",
+      "6acc91a65feb3462de95f295",
+      "6acc919add062ea3c8176035",
+      "6ad4dd44938409f1d0d540c6"
+     ],
+     "hard_gates": {
+      "claim_verifiable": true,
+      "license_clear": true,
+      "risk_flags_clear": true
+     },
+     "metrics_snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
+     "score": 88,
+     "score_breakdown": {
+      "audience_breadth": 13,
+      "demo_ability": 20,
+      "free_value": 4,
+      "freshness_angle": 15,
+      "social_proof_gap": 11,
+      "trend_velocity": 25
+     },
+     "selection_status": "selected",
+     "status": "complete",
+     "topic": "digital-human-koubo: one photo + one sentence to a finished talking-head video, driven by your coding agent"
+    },
+    "voice": {
+     "engine": "chatterbox",
+     "profile": "option-3",
+     "qa_thresholds": {
+      "overall": 0.95,
+      "per_chunk": 0.92
+     },
+     "status": "complete"
+    }
+   }
+  }
+ },
+ "buffer_insights": {
+  "path": "reels-studio/tracker/buffer-insights.json",
+  "sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6"
+ },
+ "created_at": "2026-10-28T14:30:00Z",
+ "metrics_review": {
+  "decisions": {
+   "script": "Open on the finished ad as the payoff, then the pipeline steps, then a montage cut on spoken style names. | Stakes first (a disqualification), then how it hears both sides, then Rewind, then the catch and the line.",
+   "topic": "Pick media-led repos with official vertical demo footage; demo-first archetype because the maker publishes finished films. | A conversation assistant with a real ethics catch; warning archetype because the honest-rules line is the product's own disclaimer.",
+   "visual": "Real product media from the capture pack only: the official 9:16 ad, the page capture behind the steps, and the montage. | Own captures of the repo page only (the repo ships no demo media); the README sections drive the camera.",
+   "voice": "Approved Chatterbox Option-3 profile at the fixed floors: at least 92% per chunk and 95% overall."
+  },
+  "findings": [
+   "Snapshot fetched 2026-10-28T13:50:31Z is complete: 130 tracked posts, 42 unique videos, zero missing expected post ids; coverage complete on all three platforms.",
+   "The top recent shared videos (tool-qwen38-01, repo-harp-01, repo-vvv-01) carried the strongest media-led proof; repo posts with native 9:16 demo media perform on all three platforms.",
+   "Koubo is a repo whose 8 official release demo MP4s (two native 9:16) give real motion media, the rare case where the maker ships vertical video.",
+   "Halo is a repo with no demo media; its own captures of the README page are the only evidence, and its README disclaimer is the honest catch."
+  ],
+  "reviewed_video_count": 130,
+  "sample_post_ids": [
+   "6adccbfe0b5343d0708d202e",
+   "6adf35f7551b0b514a63c1a4",
+   "6acc91a65feb3462de95f295",
+   "6acc919add062ea3c8176035",
+   "6ad4dd44938409f1d0d540c6"
+  ],
+  "snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6"
+ },
+ "schema_version": 1
+}

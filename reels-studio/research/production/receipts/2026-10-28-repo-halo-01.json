@@ -1,0 +1,136 @@
+{
+ "batch_id": "2026-10-28-repo-halo-01",
+ "briefs": {
+  "repo-halo-01": {
+   "brief_sha256": "af8a6736aa9a2e1f92c9815d538042201a0cb7b7fae9af144d635b34b468a4d2",
+   "metrics_decisions": {
+    "script": "Warning beats: stakes, evidence (both-sides hearing), how (Rewind), catch (own-model + bans), close.",
+    "topic": "Conversation assistant with a self-declared rules catch; the viewer job (decide if it helps and where the line is) is concrete.",
+    "visual": "Own captures of the repo page only; covers designed in cover_lab from three distinct captures.",
+    "voice": "Approved Chatterbox Option-3 profile at the fixed floors: at least 92% per chunk and 95% overall."
+   },
+   "stages": {
+    "assets": {
+     "approval_constraints_checked": true,
+     "capture_id": "repo-halo-01",
+     "files": [
+      {
+       "path": "desktop-full.jpg",
+       "sha256": "772e857b603f4d162c4bdaf37983bef530c343bd422141b361a069290f337a5c"
+      },
+      {
+       "path": "desktop-top.jpg",
+       "sha256": "c27dc789e0ea802a8e0a06fcf664e02c5ddce57dba4185a5829e297b9a4f280f"
+      },
+      {
+       "path": "mobile-full.jpg",
+       "sha256": "e37e7875a63ee0d429e11a74a3c01ef51e4fd66aa044d3a7a362331aa084abf6"
+      },
+      {
+       "path": "favicon.svg",
+       "sha256": "6a9577cd4f7fa6b75bde1025af85b944e9dd1388373b55ccba6e9f80ac2eae60"
+      },
+      {
+       "path": "og-image.png",
+       "sha256": "7685d5854006cb67cddae7b317f1350e91c96368614118297e05d10a0592ecb8"
+      }
+     ],
+     "manifest_sha256": "8b8ae126f61320827e01ed945b7e6aee1d327ef9ef8a9d9fbc3c7fbce48f0dd2",
+     "rights_checked": true,
+     "status": "complete"
+    },
+    "discover": {
+     "checked_at": "2026-10-28T13:20:00Z",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-28.md"
+     ],
+     "status": "complete"
+    },
+    "research": {
+     "dynamic_facts_checked_at": "2026-10-28T14:10:00Z",
+     "evidence": [
+      "reels-studio/research/production/2026-10-28-repo-halo-01-fact-sheet.md"
+     ],
+     "primary_sources": [
+      {
+       "checked_at": "2026-10-28T13:48:00Z",
+       "claim": "Minimal AI overlay for live conversations; Rewind (Ctrl+Shift+Enter) answers from 30 s-5 min; two audio channels Them/You; GPL-3.0; keys OS-encrypted; own disclaimer that many interviews ban outside help.",
+       "url": "https://github.com/stormydayy/halo-overlay"
+      }
+     ],
+     "status": "complete"
+    },
+    "script": {
+     "script_sha256": "149daa14be063a22d8943e464c114f9bcc3c8a8eebde1a17b3dbe161c8b9bffc",
+     "status": "complete",
+     "word_count": 111
+    },
+    "select": {
+     "basis_post_ids": [
+      "6adccbfe0b5343d0708d202e",
+      "6adf35f7551b0b514a63c1a4",
+      "6acc91a65feb3462de95f295",
+      "6acc919add062ea3c8176035",
+      "6ad4dd44938409f1d0d540c6"
+     ],
+     "hard_gates": {
+      "claim_verifiable": true,
+      "license_clear": true,
+      "risk_flags_clear": true
+     },
+     "metrics_snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
+     "score": 81,
+     "score_breakdown": {
+      "audience_breadth": 14,
+      "demo_ability": 13,
+      "free_value": 10,
+      "freshness_angle": 15,
+      "social_proof_gap": 13,
+      "trend_velocity": 16
+     },
+     "selection_status": "selected",
+     "status": "complete",
+     "topic": "halo-overlay: a floating AI that listens to your calls, sees your screen and whispers what to say"
+    },
+    "voice": {
+     "engine": "chatterbox",
+     "profile": "option-3",
+     "qa_thresholds": {
+      "overall": 0.95,
+      "per_chunk": 0.92
+     },
+     "status": "complete"
+    }
+   }
+  }
+ },
+ "buffer_insights": {
+  "path": "reels-studio/tracker/buffer-insights.json",
+  "sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6"
+ },
+ "created_at": "2026-10-28T14:30:00Z",
+ "metrics_review": {
+  "decisions": {
+   "script": "Stakes first (a disqualification), then how it hears both sides, then Rewind, then the catch and the line.",
+   "topic": "A conversation assistant with a real ethics catch; warning archetype because the honest-rules line is the product's own disclaimer.",
+   "visual": "Own captures of the repo page only (the repo ships no demo media); the README sections drive the camera.",
+   "voice": "Approved Chatterbox Option-3 profile at the fixed floors: at least 92% per chunk and 95% overall."
+  },
+  "findings": [
+   "Snapshot fetched 2026-10-28T13:50:31Z is complete: 130 tracked posts, 42 unique videos, zero missing expected post ids; coverage complete on all three platforms.",
+   "The top recent shared videos (tool-qwen38-01, repo-harp-01, repo-vvv-01) carried the strongest media-led proof; repo posts with native 9:16 demo media perform on all three platforms.",
+   "Koubo is a repo whose 8 official release demo MP4s (two native 9:16) give real motion media, the rare case where the maker ships vertical video.",
+   "Halo is a repo with no demo media; its own captures of the README page are the only evidence, and its README disclaimer is the honest catch."
+  ],
+  "reviewed_video_count": 130,
+  "sample_post_ids": [
+   "6adccbfe0b5343d0708d202e",
+   "6adf35f7551b0b514a63c1a4",
+   "6acc91a65feb3462de95f295",
+   "6acc919add062ea3c8176035",
+   "6ad4dd44938409f1d0d540c6"
+  ],
+  "snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6"
+ },
+ "schema_version": 1
+}

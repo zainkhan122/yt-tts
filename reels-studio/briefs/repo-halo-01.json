@@ -1,0 +1,306 @@
+{
+ "id": "repo-halo-01",
+ "capture": "captures/repo-halo-01",
+ "title": "Halo: an AI overlay that hears your calls and suggests what to say",
+ "niche": "AI assistants for live conversations",
+ "lang": "en-us",
+ "style": "spotlight",
+ "production_category": "repo",
+ "status": "draft 2026-10-28: selected from the 28 Oct radar; owner approved the batch of 2",
+ "keywords": [
+  "AI overlay",
+  "live conversation",
+  "interview assistant",
+  "Ollama",
+  "whisper",
+  "cheating daddy"
+ ],
+ "facts": {
+  "repo": "stormydayy/halo-overlay (created 2026-10-25)",
+  "stars": 516,
+  "licence": "GPL-3.0 (GitHub API 2026-10-28)",
+  "origin": "from-scratch rewrite of sohzm/cheating-daddy (README)",
+  "engine": "one OpenAI-compatible client: Gemini, Groq, OpenAI, OpenRouter, Ollama, LM Studio (README)",
+  "speech": "VAD + any whisper-compatible API, or local whisper.cpp / faster-whisper (README)",
+  "rewind": "Ctrl+Shift+Enter recaps 30 s to 5 min: what happened, what they need, what to say (README v2.1)",
+  "scale": "~3,100 lines, 0 runtime dependencies, 27 unit tests, keys encrypted by the OS (README)",
+  "rules": "README disclaimer: many interviews, exams, employers and platforms prohibit outside help or recording"
+ },
+ "sources": [
+  "https://github.com/stormydayy/halo-overlay"
+ ],
+ "verify_before_render": [
+  "Re-open github.com/stormydayy/halo-overlay: licence, Rewind shortcut and the disclaimer must still match the capture.",
+  "Re-read the star count from the GitHub API and update facts.stars if it moved.",
+  "If the repo is archived, removed, or the licence changes, do not render."
+ ],
+ "treatment": {
+  "audience": "professionals who sit in interviews, meetings and sales calls live",
+  "viewer_job": "decide whether a live AI call assistant helps them, and where the line is",
+  "intent": "browse",
+  "hook_mechanic": "stakes first: an interview disqualification, then the tool that risks it",
+  "open_loop": {
+   "plant": "is this cheating?",
+   "payoff_scene": "catch"
+  },
+  "proof_moment": "rewind",
+  "selected_cover": 0,
+  "archetype": "warning",
+  "cover_concepts": [
+   {
+    "text": "AI *WHISPERING* ANSWERS",
+    "visual": "desktop-top.jpg",
+    "gap": "is that cheating?"
+   },
+   {
+    "text": "HEARS. SEES. *SUGGESTS.*",
+    "visual": "desktop-full.jpg",
+    "gap": "how does it hear both sides?"
+   },
+   {
+    "text": "WHAT DID *I MISS?*",
+    "visual": "mobile-full.jpg",
+    "gap": "what is rewind?"
+   }
+  ],
+  "structure": [
+   {
+    "scene": "hook",
+    "beat": "warning"
+   },
+   {
+    "scene": "overlay",
+    "beat": "evidence"
+   },
+   {
+    "scene": "rewind",
+    "beat": "how"
+   },
+   {
+    "scene": "catch",
+    "beat": "catch"
+   },
+   {
+    "scene": "cta",
+    "beat": "close"
+   }
+  ]
+ },
+ "viewer": {
+  "who": "people who handle interviews, meetings and sales calls live and hate losing the thread",
+  "problem": "in a live call you cannot pause, and once you zone out you do not know what they just asked"
+ },
+ "idea": "Halo is a floating AI overlay that hears both sides of a live call, watches your screen, and suggests what to say, with a Rewind key that recaps what you missed.",
+ "claims": [
+  {
+   "id": "c1",
+   "text": "Halo is a minimal AI overlay that floats over your screen, listens to the conversation, sees the screen and gives short suggestions in the moment.",
+   "source": "https://github.com/stormydayy/halo-overlay"
+  },
+  {
+   "id": "c2",
+   "text": "It captures two audio channels labelled Them and You, and suppresses your mic while the other side speaks.",
+   "source": "https://github.com/stormydayy/halo-overlay"
+  },
+  {
+   "id": "c3",
+   "text": "Rewind (v2.1): Ctrl+Shift+Enter answers from the last 30 seconds to 5 minutes of transcript plus screen keyframes in three lines: what happened, what they need, what to say.",
+   "source": "https://github.com/stormydayy/halo-overlay"
+  },
+  {
+   "id": "c4",
+   "text": "It works with any OpenAI-compatible model including local Ollama, is GPL-3.0, ~3,100 lines with 0 runtime dependencies, and API keys are encrypted by the OS.",
+   "source": "https://github.com/stormydayy/halo-overlay"
+  },
+  {
+   "id": "c5",
+   "text": "The README itself warns that many interviews, exams, employers and platforms prohibit outside help or recording.",
+   "source": "https://github.com/stormydayy/halo-overlay"
+  }
+ ],
+ "proof_plan": [
+  {
+   "claim": "c1",
+   "evidence": "capture:desktop-full.jpg",
+   "how_shown": "hook camera lands on the repo title and intro while the stakes are spoken"
+  },
+  {
+   "claim": "c2",
+   "evidence": "capture:desktop-full.jpg",
+   "how_shown": "overlay scene: camera on the Them/You audio-channels line as it is spoken"
+  },
+  {
+   "claim": "c3",
+   "evidence": "capture:desktop-full.jpg",
+   "how_shown": "rewind scene: camera on the Rewind section and its three-line answer"
+  },
+  {
+   "claim": "c4",
+   "evidence": "capture:desktop-full.jpg",
+   "how_shown": "catch verdict: free-and-open-source and local lines spoken"
+  },
+  {
+   "claim": "c5",
+   "evidence": "capture:desktop-full.jpg",
+   "how_shown": "catch verdict: the rules line spoken last"
+  }
+ ],
+ "research_basis": [
+  "research/radar/radar-2026-10-28.md",
+  "research/production/2026-10-28-repo-halo-01-fact-sheet.md",
+  "research/social/platform-algorithms-2026-10-18.md"
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "page",
+   "image": "desktop-full.jpg",
+   "url": "github.com/stormydayy/halo-overlay",
+   "heading": "HALO *WHISPERS* THE ANSWERS?",
+   "camera": [
+    {
+     "region": "repo_title",
+     "zoom": 1.5,
+     "at": "interview"
+    },
+    {
+     "region": "h_halo",
+     "zoom": 1.15,
+     "at": "whispers"
+    }
+   ],
+   "say": "An AI that listens to your job interview and whispers the answers sounds perfect, until it gets you disqualified."
+  },
+  {
+   "id": "overlay",
+   "type": "page",
+   "image": "desktop-full.jpg",
+   "url": "github.com/stormydayy/halo-overlay#everything-else",
+   "heading": "IT HEARS *BOTH SIDES*",
+   "camera": [
+    {
+     "region": "title_two-audio-channels",
+     "zoom": 1.7,
+     "at": "both"
+    },
+    {
+     "region": "title_change-detector",
+     "zoom": 1.7,
+     "at": "screen"
+    }
+   ],
+   "say": "This is Halo, an overlay that floats over any call. It hears both sides of the conversation, watches your screen, and suggests what to say next."
+  },
+  {
+   "id": "rewind",
+   "type": "page",
+   "image": "desktop-full.jpg",
+   "url": "github.com/stormydayy/halo-overlay#new-rewind-v-21",
+   "heading": "ZONED OUT? *REWIND*",
+   "camera": [
+    {
+     "region": "h_new-rewind-v-2-1",
+     "zoom": 1.6,
+     "at": "thread"
+    },
+    {
+     "region": "title_what-to-say",
+     "zoom": 1.9,
+     "at": "say"
+    }
+   ],
+   "say": "Lost the thread? Rewind answers in three lines: what happened, what they need from you, and what to say."
+  },
+  {
+   "id": "catch",
+   "type": "verdict",
+   "heading": "THE *CATCH*",
+   "pros": [
+    "Keys stay encrypted by your OS",
+    "Runs fully local with Ollama"
+   ],
+   "cons": [
+    "You bring your own model",
+    "Many interviews ban outside help"
+   ],
+   "item_at": [
+    "encrypted",
+    "local",
+    "model",
+    "interviews"
+   ],
+   "say": "The catch: it is free and open source, and your keys stay encrypted, but you bring your own model or run it fully local, and many interviews ban outside help."
+  },
+  {
+   "id": "cta",
+   "type": "endcard",
+   "keyword": "HALO",
+   "say": "Would you use this on a real sales call? Comment halo and I will pin the repo."
+  }
+ ],
+ "seo": {
+  "youtube": {
+   "title": "Halo: an AI overlay that whispers what to say on calls",
+   "description": "Halo is a lightweight open-source AI overlay for live conversations: it hears both sides, watches your screen and suggests what to say. Rewind recaps the last few minutes when you lose the thread.\n\nWorks with any OpenAI-compatible model, or fully local with Ollama. The README itself warns that many interviews and exams prohibit outside help.\n\nRepo: https://github.com/stormydayy/halo-overlay\n\nLicence: GPL-3.0.",
+   "hashtags": [
+    "#Shorts",
+    "#AItools",
+    "#Productivity"
+   ],
+   "tags": [
+    "AI overlay",
+    "live conversation assistant",
+    "interview assistant",
+    "Ollama local AI",
+    "open source AI"
+   ]
+  },
+  "tiktok": {
+   "caption": "Halo is an AI overlay that hears your calls, sees your screen and whispers what to say. Rewind recaps what you missed. But many interviews ban outside help, so know the rules. Would you use it? #AItools #Productivity #OpenSource #Ollama",
+   "hashtags": [
+    "#AItools",
+    "#Productivity",
+    "#OpenSource",
+    "#Ollama"
+   ]
+  },
+  "instagram": {
+   "caption": "Comment HALO and I will pin the repo link.\n\nHalo floats over any call, hears both sides, watches your screen and suggests what to say. Rewind recaps the last few minutes in three lines.\n\nFree and open source (GPL-3.0); bring your own model or run it local with Ollama. Many interviews ban outside help, so check the rules.",
+   "hashtags": [
+    "#AItools",
+    "#Productivity",
+    "#OpenSource",
+    "#Ollama",
+    "#RemoteWork"
+   ]
+  },
+  "facebook": {
+   "caption": "Halo is a lightweight AI overlay for live conversations: it hears both sides, watches your screen and suggests what to say, and Rewind recaps what you missed.\n\nFree and open source under GPL-3.0; bring your own model or run it fully local.\n\nAI-generated narration.",
+   "hashtags": [
+    "#AItools",
+    "#Productivity"
+   ]
+  },
+  "x": {
+   "text": "An AI overlay for live calls: it hears both sides, sees your screen and whispers what to say. Rewind recaps what you missed.\nGPL-3.0, runs local with Ollama.\nhttps://github.com/stormydayy/halo-overlay",
+   "hashtags": [
+    "#AItools"
+   ]
+  },
+  "keyword": "HALO",
+  "aliases": [
+   "AI overlay",
+   "conversation assistant"
+  ],
+  "onscreen_first3s": "HALO WHISPERS THE ANSWERS?"
+ },
+ "review": {
+  "reviewed_at": "2026-10-28T14:10:00Z",
+  "expires_at": "2026-10-30",
+  "reviewer": "agent; facts checked against the GitHub repo and README on 2026-10-28; owner approved the batch of 2 on 2026-10-28"
+ },
+ "voice": {
+  "synthetic": true
+ },
+ "voice_seed": 1
+}
