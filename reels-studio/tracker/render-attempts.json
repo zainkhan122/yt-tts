@@ -1,5 +1,24 @@
 {
   "attempts": {
+    "0196916b9457933606a459071bde144c375ccde70286d66e11b3b5820653e39f": {
+      "asset_files_sha256": "38d8e5610b11d01bffebc47050f97db697463e3a8bc849d3138be75520538c51",
+      "asset_manifest_sha256": "58de3894166ee33399d9a1cf6330e08722d9fbb877e91e3e642cae9816f4f153",
+      "brief_id": "tool-claude-code-01",
+      "brief_sha256": "566ce32464b48b3a9ed0d98bfc53c529a00d40e2f1b772207977288768059056",
+      "capture_id": "tool-claude-code-01",
+      "crf": 26,
+      "failure_conclusion": null,
+      "fingerprint": "0196916b9457933606a459071bde144c375ccde70286d66e11b3b5820653e39f",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "0a5aefdd84153b659c71367e09942535dbc0cf41d06a14366e2e248fda0e15ff",
+      "run_id": "40942287914",
+      "started_at": "2026-10-29T19:41:11Z",
+      "status": "started",
+      "voice_seed": 331782
+    },
     "06cd8ae1615dff02910c72050786137f3408f7fb992740a046cf155cf9486dbf": {
       "asset_files_sha256": "126eb73f070179427f0f546c1e4c849c4943be825a0dd640ef9104514ac60e0d",
       "asset_manifest_sha256": "c6a51f15b1e2bba709739f85153c8a3acfcffb8435f7e64f50134502496c0568",
@@ -75,6 +94,25 @@
       "started_at": "2026-10-22T13:39:49Z",
       "status": "failed",
       "voice_seed": 0
+    },
+    "14af688a243e7a14df971996a84de7fca85a6f850ab788b300dc2d7a6a4bfadd": {
+      "asset_files_sha256": "38d8e5610b11d01bffebc47050f97db697463e3a8bc849d3138be75520538c51",
+      "asset_manifest_sha256": "58de3894166ee33399d9a1cf6330e08722d9fbb877e91e3e642cae9816f4f153",
+      "brief_id": "tool-gpt6-01",
+      "brief_sha256": "7a77ae542e93c1321cd411e164943f1a86838d7c55c400f2e0c68d6921fb6b4b",
+      "capture_id": "tool-gpt6-01",
+      "crf": 26,
+      "failure_conclusion": null,
+      "fingerprint": "14af688a243e7a14df971996a84de7fca85a6f850ab788b300dc2d7a6a4bfadd",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "0a5aefdd84153b659c71367e09942535dbc0cf41d06a14366e2e248fda0e15ff",
+      "run_id": "40942287914",
+      "started_at": "2026-10-29T19:41:11Z",
+      "status": "started",
+      "voice_seed": 785915
     },
     "1865145c5acc1369f0d114b313f74b3f205c6b36e06ba282ec7e7f662c0c5432": {
       "asset_files_sha256": "0673fe4edda4917c157bd8729ea76f3b3532f8226315cf2cd08a6d3435074c77",
@@ -1398,6 +1436,25 @@
       "started_at": "2026-10-22T11:14:55Z",
       "status": "failed",
       "voice_seed": 0
+    },
+    "f03fda0eadadf845b0a7372621c2ac319eadaa9215ed961773e10c7cd4211fd0": {
+      "asset_files_sha256": "a3d5295ef13b65a09e9e8370d60c5719f0b1ded101ec1f01df07c54f16afd308",
+      "asset_manifest_sha256": "4cf631e4df99283f6e780d33d14f9fdcdf1f3b62e92c9231f424141bf20016e7",
+      "brief_id": "tool-heygen-01",
+      "brief_sha256": "5c8ca4512db98a7db86036e03816d4bdc513e1c5282822bcbfd91bc9476b5691",
+      "capture_id": "tool-heygen-01",
+      "crf": 26,
+      "failure_conclusion": null,
+      "fingerprint": "f03fda0eadadf845b0a7372621c2ac319eadaa9215ed961773e10c7cd4211fd0",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "0a5aefdd84153b659c71367e09942535dbc0cf41d06a14366e2e248fda0e15ff",
+      "run_id": "40942287914",
+      "started_at": "2026-10-29T19:41:11Z",
+      "status": "started",
+      "voice_seed": 258727
     },
     "f16edb5b815aece0ead41238abca857934574289d9e2dafc2e8421a55ffc70cc": {
       "asset_files_sha256": "27a052475e12a0e1e5c92c4de2a76c812529d343783917a77ccf800ca5da7a80",
