@@ -173,7 +173,7 @@ jobs:
           BRIEF_ID=$(basename "$BRIEF" .json)
           RECEIPT_PATH="${{ inputs.production_receipt }}"
           if command -v jq &>/dev/null; then
-            jq --arg id "$BRIEF_ID" '.briefs |= {$id: .[$id]}' "$RECEIPT_PATH" > "reels-studio/research/production/receipts/per-brief-$BRIEF_ID.json"
+            jq --arg id "$BRIEF_ID" --arg out "per-brief-$BRIEF_ID" '.briefs |= {$id: .[$id]} | .batch_id = $out' "$RECEIPT_PATH" > "reels-studio/research/production/receipts/per-brief-$BRIEF_ID.json"
           else
             python3 -c "import json,sys; d=json.load(open(sys.argv[1])); bid=sys.argv[2]; d['briefs']={bid:d['briefs'][bid]}; json.dump(d,open(f"/tmp/receipt-{bid}.json","w"),indent=2)" "$RECEIPT_PATH" "$BRIEF_ID"
           fi
