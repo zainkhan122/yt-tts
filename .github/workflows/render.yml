@@ -92,7 +92,6 @@ jobs:
             /reels-studio/research/radar/
             /reels-studio/research/social/
           sparse-checkout-cone-mode: false
-          filter: blob:none
       - id: p
         name: Six-stage / score / Insights / duplicate-render plan
         env:
