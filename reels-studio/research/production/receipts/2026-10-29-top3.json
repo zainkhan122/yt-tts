@@ -129,10 +129,6 @@
               "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
             },
             {
-              "path": "manifest.json",
-              "sha256": "235b501d0628a5b2704951f75165203d3341ca9c6063a86e3ab49d8528e77180"
-            },
-            {
               "path": "model-card.jpg",
               "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
             },
@@ -251,6 +247,10 @@
             {
               "path": "install.jpg",
               "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "manifest.json",
+              "sha256": "21092257ebc48027f601f49f07711f64c6786ee106b4f6b69138748f817f6c7e"
             },
             {
               "path": "model-card.jpg",
