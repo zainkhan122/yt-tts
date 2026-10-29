@@ -102,7 +102,7 @@
           "rights_checked": true,
           "approval_constraints_checked": true,
           "capture_id": "tool-gpt6-01",
-          "manifest_sha256": "15f55e01ebbbefcf5895cbb88c7cbb54ea17d9c72ed436e66ef3cd02fc0742e8",
+          "manifest_sha256": "dd551216ab8a04ee54584fd807fc984ccacb9f7cc08eeff86a70bf073ef07baf",
           "files": [
             {
               "path": "catch.jpg",
@@ -127,10 +127,6 @@
             {
               "path": "install.jpg",
               "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-            },
-            {
-              "path": "manifest.json",
-              "sha256": "dd551216ab8a04ee54584fd807fc984ccacb9f7cc08eeff86a70bf073ef07baf"
             },
             {
               "path": "model-card.jpg",
@@ -226,7 +222,7 @@
           "rights_checked": true,
           "approval_constraints_checked": true,
           "capture_id": "tool-claude-code-01",
-          "manifest_sha256": "838c0ce31d8f0c7534380333ddf9dfdace97e2968df7442f607ab2cefb54c4a5",
+          "manifest_sha256": "3631ccde34b526f17afab3b03eb73967d3b3cc6686294815cead877ee8e15866",
           "files": [
             {
               "path": "catch.jpg",
@@ -251,10 +247,6 @@
             {
               "path": "install.jpg",
               "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-            },
-            {
-              "path": "manifest.json",
-              "sha256": "3631ccde34b526f17afab3b03eb73967d3b3cc6686294815cead877ee8e15866"
             },
             {
               "path": "model-card.jpg",
@@ -350,12 +342,8 @@
           "rights_checked": true,
           "approval_constraints_checked": true,
           "capture_id": "tool-heygen-01",
-          "manifest_sha256": "200010837489ef0e96718e5005c6cef1b28122561895f319c49afdceaa2a1bd6",
+          "manifest_sha256": "69413ac2ed0d5a1b4ca99f4e776688f9d691bf49e9f5121d861c8456e81635da",
           "files": [
-            {
-              "path": "README.md",
-              "sha256": "9ffb4502db3c57348a6122360d3f694d1dfb537b6e3ae0f7af160bc58067ac7d"
-            },
             {
               "path": "contact.jpg",
               "sha256": "459fd3db1a698fd598ce6070b6c6564f262deed2488c023ae22a0fb2aba86df0"
@@ -363,10 +351,6 @@
             {
               "path": "hero-dark.png",
               "sha256": "03f38c6fc23e0f9ed02bb65e878cdbe0c57f7006b2daf4d2a3768bf69dc49988"
-            },
-            {
-              "path": "manifest.json",
-              "sha256": "69413ac2ed0d5a1b4ca99f4e776688f9d691bf49e9f5121d861c8456e81635da"
             },
             {
               "path": "og-image.png",
