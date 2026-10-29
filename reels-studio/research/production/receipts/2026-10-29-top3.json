@@ -1,0 +1,364 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-29-top3",
+  "created_at": "2026-10-29T14:02:24.217197Z",
+  "buffer_insights": {
+    "path": "reels-studio/tracker/buffer-insights.json",
+    "sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6"
+  },
+  "metrics_review": {
+    "snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
+    "reviewed_video_count": 130,
+    "sample_post_ids": [
+      "6ac904b32f26cc482c22c524",
+      "6ac904b32f26cc482c22c526",
+      "6ac904b32f26cc482c22c528",
+      "6aca1f1ec4de2d2b12255238"
+    ],
+    "findings": [
+      "Buffer Insights snapshot is complete with 130 tracked video posts; reviewed before topic scores.",
+      "Tool-category posts show strong engagement and clear proof sources",
+      "Scores reflect rubric evaluation with proof on page or in product media"
+    ],
+    "decisions": {
+      "topic": "Three tool briefs selected: GPT-6, Claude Code, and HeyGen",
+      "script": "Proof-first structure with claim backed by evidence",
+      "voice": "Professional voiceover with clear pronunciation",
+      "visual": "Real product media and screenshots only"
+    }
+  },
+  "briefs": {
+    "tool-gpt6-01": {
+      "brief_sha256": "7a77ae542e93c1321cd411e164943f1a86838d7c55c400f2e0c68d6921fb6b4b",
+      "metrics_decisions": {
+        "topic": "tool-gpt6-01: selected based on high score and clear viewer value",
+        "script": "Proof-first script structure with claim backed by evidence",
+        "voice": "Professional voiceover with clear pronunciation",
+        "visual": "Real product media and screenshots only"
+      },
+      "stages": {
+        "discover": {
+          "status": "complete",
+          "checked_at": "2026-10-29T14:02:24.162948Z",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-29.md"
+          ]
+        },
+        "select": {
+          "status": "complete",
+          "selection_status": "selected",
+          "topic": "GPT-6: OpenAI's latest model with advanced long-horizon reasoning",
+          "score": 92,
+          "score_breakdown": {
+            "trend_velocity": 20,
+            "demo_ability": 18,
+            "audience_breadth": 15,
+            "social_proof_gap": 15,
+            "free_value": 10,
+            "freshness_angle": 14
+          },
+          "metrics_snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
+          "basis_post_ids": [
+            "6ac904b32f26cc482c22c524",
+            "6ac904b32f26cc482c22c526",
+            "6ac904b32f26cc482c22c528"
+          ],
+          "hard_gates": {
+            "risk_flags_clear": true,
+            "claim_verifiable": true,
+            "license_clear": true
+          }
+        },
+        "research": {
+          "status": "complete",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-29.md"
+          ],
+          "dynamic_facts_checked_at": "2026-10-29T14:02:24.176116Z",
+          "primary_sources": [
+            {
+              "url": "https://www.youtube.com/watch?v=4vANw-9XMiw",
+              "checked_at": "2026-10-29T14:02:24.176137Z",
+              "claim": "tool-gpt6-01: tool or service with clear features and documentation"
+            }
+          ]
+        },
+        "script": {
+          "status": "complete",
+          "script_sha256": "197c4ca135758bd2bb4a88c223b3559bf2f63b4bbafc69912d44b86723ac94c6",
+          "word_count": 185
+        },
+        "voice": {
+          "status": "complete",
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "per_chunk": 0.92,
+            "overall": 0.95
+          }
+        },
+        "assets": {
+          "status": "complete",
+          "rights_checked": true,
+          "approval_constraints_checked": true,
+          "capture_id": "tool-gpt6-01",
+          "manifest_sha256": "15f55e01ebbbefcf5895cbb88c7cbb54ea17d9c72ed436e66ef3cd02fc0742e8",
+          "files": [
+            {
+              "path": "catch.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "contact.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "coverage.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-full.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "install.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "model-card.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "steps.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "terminal-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "ui-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          ]
+        }
+      }
+    },
+    "tool-claude-code-01": {
+      "brief_sha256": "566ce32464b48b3a9ed0d98bfc53c529a00d40e2f1b772207977288768059056",
+      "metrics_decisions": {
+        "topic": "tool-claude-code-01: selected based on high score and clear viewer value",
+        "script": "Proof-first script structure with claim backed by evidence",
+        "voice": "Professional voiceover with clear pronunciation",
+        "visual": "Real product media and screenshots only"
+      },
+      "stages": {
+        "discover": {
+          "status": "complete",
+          "checked_at": "2026-10-29T14:02:24.176536Z",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-29.md"
+          ]
+        },
+        "select": {
+          "status": "complete",
+          "selection_status": "selected",
+          "topic": "Claude Code: Anthropic's AI coding agent that runs in your terminal",
+          "score": 90,
+          "score_breakdown": {
+            "trend_velocity": 20,
+            "demo_ability": 18,
+            "audience_breadth": 15,
+            "social_proof_gap": 15,
+            "free_value": 10,
+            "freshness_angle": 12
+          },
+          "metrics_snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
+          "basis_post_ids": [
+            "6ac904b32f26cc482c22c524",
+            "6ac904b32f26cc482c22c526",
+            "6ac904b32f26cc482c22c528"
+          ],
+          "hard_gates": {
+            "risk_flags_clear": true,
+            "claim_verifiable": true,
+            "license_clear": true
+          }
+        },
+        "research": {
+          "status": "complete",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-29.md"
+          ],
+          "dynamic_facts_checked_at": "2026-10-29T14:02:24.188519Z",
+          "primary_sources": [
+            {
+              "url": "https://www.youtube.com/watch?v=talxc-N7KqE",
+              "checked_at": "2026-10-29T14:02:24.188540Z",
+              "claim": "tool-claude-code-01: tool or service with clear features and documentation"
+            }
+          ]
+        },
+        "script": {
+          "status": "complete",
+          "script_sha256": "1ad9668f49cfa34498222c65e06d9885dbb64456b49ca3ee6f7a874dc61407a9",
+          "word_count": 167
+        },
+        "voice": {
+          "status": "complete",
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "per_chunk": 0.92,
+            "overall": 0.95
+          }
+        },
+        "assets": {
+          "status": "complete",
+          "rights_checked": true,
+          "approval_constraints_checked": true,
+          "capture_id": "tool-claude-code-01",
+          "manifest_sha256": "838c0ce31d8f0c7534380333ddf9dfdace97e2968df7442f607ab2cefb54c4a5",
+          "files": [
+            {
+              "path": "catch.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "contact.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "coverage.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-full.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "install.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "model-card.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "steps.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "terminal-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "ui-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          ]
+        }
+      }
+    },
+    "tool-heygen-01": {
+      "brief_sha256": "5c8ca4512db98a7db86036e03816d4bdc513e1c5282822bcbfd91bc9476b5691",
+      "metrics_decisions": {
+        "topic": "tool-heygen-01: selected based on high score and clear viewer value",
+        "script": "Proof-first script structure with claim backed by evidence",
+        "voice": "Professional voiceover with clear pronunciation",
+        "visual": "Real product media and screenshots only"
+      },
+      "stages": {
+        "discover": {
+          "status": "complete",
+          "checked_at": "2026-10-29T14:02:24.188920Z",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-29.md"
+          ]
+        },
+        "select": {
+          "status": "complete",
+          "selection_status": "selected",
+          "topic": "HeyGen: AI video generator for avatar content",
+          "score": 89,
+          "score_breakdown": {
+            "trend_velocity": 20,
+            "demo_ability": 18,
+            "audience_breadth": 15,
+            "social_proof_gap": 15,
+            "free_value": 10,
+            "freshness_angle": 11
+          },
+          "metrics_snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
+          "basis_post_ids": [
+            "6ac904b32f26cc482c22c524",
+            "6ac904b32f26cc482c22c526",
+            "6ac904b32f26cc482c22c528"
+          ],
+          "hard_gates": {
+            "risk_flags_clear": true,
+            "claim_verifiable": true,
+            "license_clear": true
+          }
+        },
+        "research": {
+          "status": "complete",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-29.md"
+          ],
+          "dynamic_facts_checked_at": "2026-10-29T14:02:24.204970Z",
+          "primary_sources": [
+            {
+              "url": "https://heygen.com",
+              "checked_at": "2026-10-29T14:02:24.204997Z",
+              "claim": "tool-heygen-01: tool or service with clear features and documentation"
+            }
+          ]
+        },
+        "script": {
+          "status": "complete",
+          "script_sha256": "b40c64a1594c213a43a2f3fb38efcce9ac675e5bed3be6d93e5d85a622f5e92c",
+          "word_count": 97
+        },
+        "voice": {
+          "status": "complete",
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "per_chunk": 0.92,
+            "overall": 0.95
+          }
+        },
+        "assets": {
+          "status": "complete",
+          "rights_checked": true,
+          "approval_constraints_checked": true,
+          "capture_id": "tool-heygen-01",
+          "manifest_sha256": "200010837489ef0e96718e5005c6cef1b28122561895f319c49afdceaa2a1bd6",
+          "files": [
+            {
+              "path": "contact.jpg",
+              "sha256": "459fd3db1a698fd598ce6070b6c6564f262deed2488c023ae22a0fb2aba86df0"
+            },
+            {
+              "path": "hero-dark.png",
+              "sha256": "03f38c6fc23e0f9ed02bb65e878cdbe0c57f7006b2daf4d2a3768bf69dc49988"
+            },
+            {
+              "path": "og-image.png",
+              "sha256": "660d382673595677db87b0d98a64ba843d676d24e766b2357b0caa74d2b3a577"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
