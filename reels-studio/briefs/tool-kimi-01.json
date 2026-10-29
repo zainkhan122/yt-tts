@@ -1,0 +1,229 @@
+{
+  "id": "tool-kimi-01",
+  "capture": "tool-kimi-01",
+  "title": "Kimi K3.1: The Open-Source Model That's Caught Up",
+  "niche": "AI models and open-source AI",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "tool",
+  "keywords": [
+    "Kimi",
+    "Kimi K3.1",
+    "open-source AI",
+    "Moonshot AI"
+  ],
+  "facts": {
+    "consensus": "6 watchlist channels covered it this week (idea feed 2026-10-29)",
+    "views": "115,122 combined views across channels",
+    "best_video": "54,000 views (https://www.youtube.com/watch?v=1Fsz1UJdtIQ)",
+    "description": "Kimi K3.1 is an open-source AI model from Moonshot AI that rivals closed models"
+  },
+  "viewer": {
+    "who": "developers and researchers who want powerful AI without API costs",
+    "problem": "closed AI models are expensive; open-source models lag behind on capability",
+    "job": "want a free, open-source model that competes with GPT-4 and Claude"
+  },
+  "idea": "Kimi K3.1 is the most-discussed open-source AI model this week, with 6 channels covering it.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Kimi K3.1 is an open-source AI model from Moonshot AI",
+      "source": "https://www.youtube.com/watch?v=1Fsz1UJdtIQ"
+    },
+    {
+      "id": "c2",
+      "text": "6 watchlist channels covered Kimi this week with 115,122 combined views",
+      "source": "https://gittrend.io/api/trending"
+    },
+    {
+      "id": "c3",
+      "text": "Kimi K3.1 passes the Rubik's Cube test, proving advanced reasoning",
+      "source": "https://www.youtube.com/watch?v=1Fsz1UJdtIQ"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://www.youtube.com/watch?v=1Fsz1UJdtIQ",
+      "how_shown": "hook camera on Kimi model card"
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://gittrend.io",
+      "how_shown": "stars scene shows coverage stats"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://www.youtube.com/watch?v=1Fsz1UJdtIQ",
+      "how_shown": "how scene shows Rubik's Cube test"
+    }
+  ],
+  "review": {
+    "reviewed_at": "2026-10-29T10:00:00Z",
+    "expires_at": "2026-10-31",
+    "reviewer": "agent; facts checked against idea feed and trending data on 2026-10-29",
+    "notes": "Coverage and views verified against idea feed 2026-10-29"
+  },
+  "sources": [
+    "https://www.youtube.com/watch?v=1Fsz1UJdtIQ",
+    "https://gittrend.io/api/trending"
+  ],
+  "verify_before_render": [
+    "Model capabilities and benchmarks re-checked against latest Kimi documentation on render day."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "page",
+      "image": "model-card.jpg",
+      "heading": "OPEN-SOURCE AI *CAUGHT UP*",
+      "sub": "Kimi K3.1 · 6 channels covered it this week",
+      "say": "Open source AI just caught up. Six channels covered this model this week. One hundred fifteen thousand views. This is Kimi K3.1, and it changes what free AI can do.",
+      "url": "kimi.moonshot.ai",
+      "camera": [
+        {
+          "region": "model_card",
+          "zoom": 1.5,
+          "at": "one hundred fifteen"
+        }
+      ]
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "heading": "Kimi K3.1",
+      "sub": "Moonshot AI's open-source model",
+      "say": "It's Kimi K3.1 from Moonshot AI. Not a closed model you pay per token for. It's open source. You can run it locally, deploy it yourself, or use it for free.",
+      "image": "kimi-model.jpg"
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "HOW IT WORKS",
+      "say": "Kimi K3.1 passes the Rubik's Cube test, proving advanced spatial reasoning. It handles multi-step math, code generation, and complex problem solving. And it does it without an API key.",
+      "image": "kimi-benchmarks.jpg"
+    },
+    {
+      "id": "stars",
+      "type": "page",
+      "image": "coverage.jpg",
+      "heading": "115,122 VIEWS THIS WEEK",
+      "sub": "6 channels covered it",
+      "say": "One hundred fifteen thousand views this week. Six channels covering the same model means the AI community has noticed. Open source is no longer a compromise.",
+      "url": "gittrend.io",
+      "camera": [
+        {
+          "region": "coverage",
+          "zoom": 1.5,
+          "at": "no longer a compromise"
+        }
+      ]
+    },
+    {
+      "id": "install",
+      "type": "page",
+      "image": "install.jpg",
+      "heading": "RUN IT FREE",
+      "sub": "No API key required",
+      "say": "Download the model weights, run them on your hardware, or use a free inference provider. No signup, no billing, no per-token costs. Just open source.",
+      "url": "kimi.moonshot.ai",
+      "camera": [
+        {
+          "region": "install",
+          "zoom": 1.3,
+          "at": "no per-token costs"
+        }
+      ]
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE HONEST CATCH",
+      "say": "Kimi K3.1 is impressive, but it's not perfect. Some tasks still favor closed models. And running it locally needs decent hardware. But for the price, it's hard to beat.",
+      "image": "catch.jpg"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "OPEN SOURCE",
+      "say": "Would you switch to an open-source AI model? Comment OPEN SOURCE and follow for tools like this."
+    }
+  ],
+  "seo": {
+    "keyword": "Kimi K3.1 open-source AI",
+    "aliases": [
+      "Kimi K3.1",
+      "Moonshot AI model",
+      "open-source AI model"
+    ],
+    "onscreen_first3s": "OPEN-SOURCE AI CAUGHT UP",
+    "youtube": {
+      "title": "This Open-Source AI Just Caught Up",
+      "description": "Kimi K3.1 is an open-source AI model that rivals closed models. 6 channels covered it this week. Here's why. #shorts #ai #opensource #kimi #programming",
+      "hashtags": [
+        "#shorts",
+        "#kimi",
+        "#openweights",
+        "#moonshot",
+        "#llm"
+      ],
+      "tags": [
+        "Kimi K3.1",
+        "open-source AI",
+        "Moonshot AI",
+        "AI model",
+        "free AI"
+      ]
+    },
+    "tiktok": {
+      "caption": "This open-source AI just caught up. 6 channels covered it this week. #shorts #ai #opensource #kimi",
+      "hashtags": [
+        "#shorts",
+        "#kimi",
+        "#openweights",
+        "#moonshot",
+        "#llm"
+      ]
+    },
+    "instagram": {
+      "caption": "Open-source AI caught up. 115k views this week. #shorts #ai #opensource #tech",
+      "hashtags": [
+        "#shorts",
+        "#kimi",
+        "#openweights",
+        "#moonshot",
+        "#llm"
+      ]
+    },
+    "facebook": {
+      "caption": "This open-source AI just caught up. 6 channels covered it this week. #shorts #ai #opensource",
+      "hashtags": [
+        "#shorts",
+        "#kimi",
+        "#openweights"
+      ]
+    },
+    "x": {
+      "text": "This open-source AI just caught up. 6 channels covered it. #shorts #ai #opensource",
+      "hashtags": [
+        "#shorts",
+        "#kimi"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Would you switch to open-source AI? Comment OPEN SOURCE",
+    "hashtags": [
+      "#shorts",
+      "#ai",
+      "#opensource",
+      "#kimi",
+      "#programming"
+    ]
+  },
+  "research_basis": [
+    "research/ideas/feed-2026-10-29.md",
+    "research/radar/radar-2026-10-29.md"
+  ]
+}

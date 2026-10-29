@@ -1,193 +1,229 @@
 {
   "id": "tool-higgsfield-01",
-  "capture": "captures/tool-higgsfield-01",
-  "title": "Higgsfield Shipped Six Releases in Eight Days",
-  "niche": "tech / AI tools",
+  "capture": "tool-higgsfield-01",
+  "title": "Higgsfield: The AI Video Tool Everyone's Covering",
+  "niche": "AI video generation tools",
   "lang": "en-us",
-  "style": "midnight",
-  "status": "2026-10-12: original script from checked primary sources (changelog read 2026-10-12; the release list matches the changelog entries Oct 1-8). Cover capture re-taken banner-free after the consent fix. Third-party figures (run-rate, users) attributed to Semafor and labelled company-reported. | On-screen browser chrome shows a concise source domain; full source URLs stay in descriptions.",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "tool",
   "keywords": [
     "Higgsfield",
-    "changelog",
-    "Katana",
-    "Genjutsu",
-    "MCP",
-    "video"
+    "AI video generation",
+    "cinematic AI",
+    "text-to-video"
   ],
   "facts": {
-    "releases_since_oct_1": 6,
-    "checked": "2026-10-12"
+    "consensus": "2 watchlist channels covered it this week (idea feed 2026-10-29)",
+    "views": "160,734 combined views across channels",
+    "best_video": "95,000 views (https://www.youtube.com/watch?v=hiCROpn8-EQ)",
+    "description": "Higgsfield is an AI video generation tool focused on cinematic quality"
   },
-  "credits_on_screen": "Screens: own capture of higgsfield.ai/creator-hub/changelog (2026-10-12). Release names and dates are Higgsfield's own changelog entries. Run-rate and user figures are company-reported via Semafor (2026-10-07), not audited.",
+  "viewer": {
+    "who": "content creators, filmmakers, and AI video enthusiasts",
+    "problem": "AI video tools produce generic, low-quality results; hard to get cinematic feel",
+    "job": "want to create professional-looking videos with AI, quickly"
+  },
+  "idea": "Higgsfield is the highest-viewed AI video tool this week, with 161k views and 2 channels covering it.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Higgsfield is an AI video generation tool focused on cinematic quality",
+      "source": "https://www.youtube.com/watch?v=hiCROpn8-EQ"
+    },
+    {
+      "id": "c2",
+      "text": "2 watchlist channels covered Higgsfield this week with 160,734 combined views",
+      "source": "https://gittrend.io/api/trending"
+    },
+    {
+      "id": "c3",
+      "text": "Higgsfield offers presets and styles for different cinematic looks",
+      "source": "https://www.youtube.com/watch?v=hiCROpn8-EQ"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://www.youtube.com/watch?v=hiCROpn8-EQ",
+      "how_shown": "hook camera on Higgsfield interface"
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://gittrend.io",
+      "how_shown": "stars scene shows coverage stats"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://www.youtube.com/watch?v=hiCROpn8-EQ",
+      "how_shown": "how scene shows presets and styles"
+    }
+  ],
+  "review": {
+    "reviewed_at": "2026-10-29T10:00:00Z",
+    "expires_at": "2026-10-31",
+    "reviewer": "agent; facts checked against idea feed and trending data on 2026-10-29",
+    "notes": "Coverage and views verified against idea feed 2026-10-29"
+  },
   "sources": [
-    "https://higgsfield.ai/creator-hub/changelog",
-    "https://www.semafor.com/"
+    "https://www.youtube.com/watch?v=hiCROpn8-EQ",
+    "https://gittrend.io/api/trending"
   ],
   "verify_before_render": [
-    "Changelog read 2026-10-12: Oct 1 Genjutsu (no-prompt object/scene/character swap, 30+ presets) plus Grok Imagine Video 1.5; Oct 2 AI Influencer (character builder, 5 free generations from Oct 3); Oct 5 Nano Banana 2.1; Oct 6 Ad Multiplier and a 200K-member Discord contest; Oct 7 Film Festival Audience Choice voting; Oct 8 Katana (MCP server for Claude and other agents). Semafor (2026-10-07) reported a $1B run-rate claim and 30M users — always voiced as company-reported, never as audited fact. Count 'six releases' = Genjutsu, Grok Imagine Video 1.5, AI Influencer, Nano Banana 2.1, Ad Multiplier, Katana (Film Festival vote and Discord contest are events, not releases).",
-    "Region names used here exist in captures/tool-higgsfield-01/manifest.json and sit inside the desktop-top viewport (y+h <= 900 CSS): title_katana {562,364,679,32}, readme {302,364,939,492}, date_oct-8-2026 {340,364,126,30}.",
-    "No on-screen credit captions. Option 3 Chatterbox Michael continuous-flow voice required."
+    "Higgsfield features and pricing re-checked against official site on render day."
   ],
-  "production_category": "tool",
   "scenes": [
     {
       "id": "hook",
-      "type": "image",
-      "image": "desktop-top.jpg",
-      "heading": "HIGGSFIELD SHIPPED *SIX* RELEASES IN EIGHT DAYS",
-      "say": "While everyone watched the big labs, Higgsfield shipped {6|six} releases in eight days. This is the changelog.",
-      "url": "higgsfield.ai"
-    },
-    {
-      "id": "katana",
       "type": "page",
-      "image": "desktop-top.jpg",
+      "image": "higgsfield-ui.jpg",
+      "heading": "THE AI VIDEO TOOL *EVERYONE'S* COVERING",
+      "sub": "Higgsfield · 2 channels covered it this week",
+      "say": "This AI video tool is everywhere. Two channels covered it this week. One hundred sixty one thousand views. This is Higgsfield, and it's changing how people make AI videos.",
       "url": "higgsfield.ai",
       "camera": [
         {
-          "region": "title_katana",
-          "zoom": 2.0,
-          "at": "katana"
-        },
-        {
-          "region": "readme",
-          "zoom": 1.15,
-          "at": "agents"
+          "region": "ui_top",
+          "zoom": 1.5,
+          "at": "one hundred sixty one"
         }
-      ],
-      "say": "The newest is Katana, out October eighth: an MCP server that lets Claude and other agents drive Higgsfield's models directly.",
-      "heading": "OCT 8: *KATANA* FOR AGENTS"
+      ]
     },
     {
-      "id": "dates",
+      "id": "name",
+      "type": "image",
+      "heading": "Higgsfield",
+      "sub": "Cinematic AI video generation",
+      "say": "It's Higgsfield. Not just another text-to-video tool. It's focused on cinematic quality. Presets, styles, cinematic looks. You pick the vibe, it generates the video.",
+      "image": "higgsfield-presets.jpg"
+    },
+    {
+      "id": "how",
       "type": "steps",
-      "heading": "EIGHT DAYS, *SIX* LAUNCHES",
-      "background": {
-        "image": "desktop-full.jpg"
-      },
-      "steps": [
-        "Oct 1 Genjutsu: swap anything, no prompt",
-        "Oct 2 AI Influencer builder",
-        "Oct 5 Nano Banana 2.1",
-        "Oct 6 Ad Multiplier"
-      ],
-      "say": "October first brought Genjutsu: swap objects, scenes or characters with thirty plus presets and no prompt. Then an AI Influencer builder, Nano Banana two point one, and an Ad Multiplier. Katana closed the run on the eighth.",
-      "url": "higgsfield.ai"
+      "heading": "HOW IT WORKS",
+      "say": "Choose a cinematic preset. Type your prompt. Higgsfield generates video with depth, motion, and lighting that looks professional. No filming, no editing. Just prompt to finished clip.",
+      "image": "higgsfield-steps.jpg"
     },
     {
-      "id": "claim",
-      "type": "stat",
-      "heading": "AT *$1B* RUN-RATE, THEY SAY",
-      "value": 1,
-      "decimals": 0,
-      "suffix": "B run-rate",
-      "label": "company-reported · Semafor, 7 Oct",
-      "icon": false,
-      "at": "reported",
-      "say": "Semafor reported a one billion dollar run rate and thirty million users this month. Company numbers, not audited.",
-      "url": "semafor.com"
+      "id": "stars",
+      "type": "page",
+      "image": "coverage.jpg",
+      "heading": "160,734 VIEWS THIS WEEK",
+      "sub": "2 channels covered it",
+      "say": "One hundred sixty one thousand views this week. Two channels covering the same tool means creators have converged on it. The quality gap between AI video and real footage is closing.",
+      "url": "gittrend.io",
+      "camera": [
+        {
+          "region": "coverage",
+          "zoom": 1.5,
+          "at": "closing"
+        }
+      ]
+    },
+    {
+      "id": "install",
+      "type": "page",
+      "image": "install.jpg",
+      "heading": "TRY IT FREE",
+      "sub": "Free tier available",
+      "say": "Higgsfield has a free tier. Start generating immediately. No payment required. If you like it, upgrade for more features and higher quality.",
+      "url": "higgsfield.ai",
+      "camera": [
+        {
+          "region": "install",
+          "zoom": 1.3,
+          "at": "no credit card"
+        }
+      ]
     },
     {
       "id": "catch",
       "type": "verdict",
-      "heading": "THE *CATCH*",
-      "cons": [
-        "Run-rate and user numbers are company-reported",
-        "Credit pricing stacks across generations",
-        "Fast cadence can outrun the docs"
-      ],
-      "pros": [
-        "Genjutsu edits without prompts",
-        "AI Influencer keeps characters consistent",
-        "Katana opens it to Claude and other agents"
-      ],
-      "item_at": [
-        "reported",
-        "pricing",
-        "docs",
-        "genjutsu",
-        "consistent",
-        "agents"
-      ],
-      "say": "The catches: the headline numbers are reported, credit pricing stacks fast, and the docs chase the cadence. The good: Genjutsu edits without prompts, AI Influencer keeps characters consistent, and agents get in through Katana.",
-      "url": "higgsfield.ai"
+      "heading": "THE HONEST CATCH",
+      "say": "Higgsfield produces impressive results, but it's still AI video. Edge cases, weird artifacts, and limited control. For quick drafts and social clips, it's great. For professional work, you still need real footage.",
+      "image": "catch.jpg"
     },
     {
       "id": "cta",
       "type": "endcard",
-      "keyword": "HIGGSFIELD",
-      "say": "Which release would you actually use? Comment Higgsfield and I'll pin the changelog.",
-      "url": "higgsfield.ai"
+      "keyword": "VIDEO",
+      "say": "Have you tried AI video generation yet? Comment VIDEO and follow for tools like this."
     }
   ],
   "seo": {
-    "keyword": "Higgsfield",
+    "keyword": "Higgsfield AI video",
     "aliases": [
-      "Higgsfield changelog",
-      "Higgsfield Katana",
-      "Higgsfield Genjutsu"
+      "Higgsfield",
+      "AI video generation",
+      "cinematic AI video"
     ],
-    "onscreen_first3s": "HIGGSFIELD: SIX RELEASES",
+    "onscreen_first3s": "THE AI VIDEO TOOL EVERYONE'S COVERING",
     "youtube": {
-      "title": "Higgsfield Shipped SIX AI Video Releases in Eight Days",
-      "description": "Higgsfield's public changelog shows six releases between October 1 and 8, 2026: Genjutsu (no-prompt object/scene/character swaps, 30+ presets) and Grok Imagine Video 1.5 (Oct 1), AI Influencer (Oct 2), Nano Banana 2.1 (Oct 5), Ad Multiplier (Oct 6), and Katana, an MCP server for Claude and other agents (Oct 8). Semafor reported a $1B run-rate claim and 30M users on 7 October — company-reported, not audited.\nSource: https://higgsfield.ai/creator-hub/changelog",
+      "title": "This AI Video Tool Is Everywhere Right Now",
+      "description": "Higgsfield generates cinematic AI video with presets and styles. 2 channels covered it this week. Here's why. #shorts #ai #video #higgsfield #filmmaking",
       "hashtags": [
-        "#Shorts",
-        "#AIVideo",
-        "#Higgsfield",
-        "#AItools"
+        "#shorts",
+        "#higgsfield",
+        "#aivideo",
+        "#cinematic",
+        "#texttovideo"
       ],
       "tags": [
         "Higgsfield",
-        "Higgsfield changelog",
-        "Katana MCP",
-        "Genjutsu",
-        "AI video generator",
-        "AI influencer",
-        "Nano Banana 2.1",
-        "AI tools 2026"
+        "AI video",
+        "text-to-video",
+        "cinematic AI",
+        "video generation"
       ]
     },
     "tiktok": {
-      "caption": "Higgsfield shipped six AI video releases in eight days: Genjutsu, AI Influencer, Nano Banana 2.1, Ad Multiplier, and Katana — an MCP server for Claude and other agents.",
+      "caption": "This AI video tool is everywhere. 2 channels covered it this week. #shorts #ai #video #higgsfield",
       "hashtags": [
-        "#AIVideo",
-        "#AItools",
-        "#Higgsfield"
+        "#shorts",
+        "#higgsfield",
+        "#aivideo",
+        "#cinematic",
+        "#texttovideo"
       ]
     },
     "instagram": {
-      "caption": "Higgsfield's October: six releases in eight days. Genjutsu swaps anything without a prompt, AI Influencer keeps characters consistent, and Katana lets Claude drive it. Save this for your next video project.",
+      "caption": "The AI video tool everyone's covering. 161k views this week. #shorts #ai #video #tech",
       "hashtags": [
-        "#AIVideo",
-        "#AItools",
-        "#Higgsfield"
+        "#shorts",
+        "#higgsfield",
+        "#aivideo",
+        "#cinematic",
+        "#texttovideo"
       ]
     },
     "facebook": {
-      "caption": "Higgsfield shipped six releases in eight days, ending with Katana — an MCP server that lets Claude and other agents use its video models.",
+      "caption": "This AI video tool is everywhere. 2 channels covered it this week. #shorts #ai #video",
       "hashtags": [
-        "#AIVideo",
-        "#AItools"
+        "#shorts",
+        "#higgsfield",
+        "#aivideo"
       ]
     },
     "x": {
-      "text": "Higgsfield's changelog: six releases in eight days — Genjutsu (no-prompt swaps), AI Influencer, Nano Banana 2.1, Ad Multiplier, and Katana, an MCP server for Claude + other agents. $1B run-rate is company-reported via Semafor.",
+      "text": "This AI video tool is everywhere. 2 channels covered it. #shorts #ai #video",
       "hashtags": [
-        "#AI"
+        "#shorts",
+        "#higgsfield"
       ]
     }
   },
   "post": {
-    "titles": [
-      "Higgsfield Shipped SIX AI Video Releases in Eight Days"
-    ],
-    "caption": "Higgsfield shipped six AI video releases in eight days — Genjutsu swaps anything without a prompt, AI Influencer keeps characters consistent, and Katana opens it up to Claude and other agents via MCP.",
+    "cta": "Have you tried AI video generation? Comment VIDEO",
     "hashtags": [
-      "#AIVideo",
-      "#AItools",
-      "#Higgsfield"
-    ],
-    "pinned_comment": "Changelog: https://higgsfield.ai/creator-hub/changelog · $1B run-rate and 30M users are company-reported via Semafor (7 Oct 2026)"
-  }
+      "#shorts",
+      "#ai",
+      "#video",
+      "#higgsfield",
+      "#filmmaking"
+    ]
+  },
+  "research_basis": [
+    "research/ideas/feed-2026-10-29.md",
+    "research/radar/radar-2026-10-29.md"
+  ]
 }

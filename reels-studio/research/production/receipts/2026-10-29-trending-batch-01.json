@@ -1,0 +1,1232 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-29-trending-batch-01",
+  "created_at": "2026-10-29T04:49:49.650213+00:00",
+  "buffer_insights": {
+    "path": "reels-studio/tracker/buffer-insights.json",
+    "sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6"
+  },
+  "metrics_review": {
+    "snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
+    "reviewed_video_count": 130,
+    "sample_post_ids": [
+      "6ac904b32f26cc482c22c524",
+      "6ac904b32f26cc482c22c526",
+      "6ac904b32f26cc482c22c528",
+      "6aca1f1ec4de2d2b12255238",
+      "6aca1f23b07d37ac976e341a"
+    ],
+    "findings": [
+      "YouTube Shorts continue to drive the highest engagement with 43 fresh metric posts in the last 36 hours.",
+      "TikTok shows 43 fresh metric posts but lower comment-to-view ratios compared to YouTube Shorts.",
+      "Instagram Reels and Facebook Reels show stable metrics with no stale posts in the current snapshot.",
+      "Top performing posts use the hook-stars-install beat structure with real repo screenshots.",
+      "Cross-platform hashtag consistency (#shorts + niche tags) correlates with higher discovery scores."
+    ],
+    "decisions": {
+      "topic": "GitHub trending repos with high star velocity; clear category, provable claims, no risk flags.",
+      "script": "Hook \u2192 name \u2192 how \u2192 stars \u2192 install \u2192 catch \u2192 CTA. Seven beats, ~120 words, 180 WPM.",
+      "voice": "Approved Chatterbox profile at fixed floors.",
+      "visual": "Real repo data from GitHub API; capture pack with regions for camera zooms."
+    }
+  },
+  "briefs": {
+    "repo-rea-01": {
+      "brief_sha256": "2ad8e342e1e99ceeeec8f81bd887832f07212839097d1a47d388a5c4e6f80f1f",
+      "metrics_decisions": {
+        "topic": "GitHub trending repo from gittrend.io (2026-10-29); high star velocity, clear viewer job, provable claims.",
+        "script": "Hook (what is this) \u2192 name (who made it) \u2192 how (what it does) \u2192 stars (social proof) \u2192 install (how to get it) \u2192 catch (honest limitation) \u2192 CTA.",
+        "voice": "Approved Chatterbox profile at fixed floors: >=92% per chunk, >=95% overall.",
+        "visual": "Real repo data from GitHub API; capture pack manifest with regions for camera zooms."
+      },
+      "stages": {
+        "discover": {
+          "checked_at": "2026-10-29T04:49:49.650213+00:00",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-29.md",
+            "reels-studio/research/reference-study/mOGbXAjnPg4.md",
+            "reels-studio/research/reference-study/EAJFs6Q0Ufs.md",
+            "reels-studio/research/reference-study/9YvCiNc_kiU.md"
+          ],
+          "status": "complete"
+        },
+        "select": {
+          "basis_post_ids": [
+            "6ac904b32f26cc482c22c524",
+            "6ac904b32f26cc482c22c526",
+            "6ac904b32f26cc482c22c528",
+            "6aca1f1ec4de2d2b12255238",
+            "6aca1f23b07d37ac976e341a"
+          ],
+          "hard_gates": {
+            "claim_verifiable": true,
+            "license_clear": true,
+            "risk_flags_clear": true
+          },
+          "metrics_snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
+          "score": 85,
+          "score_breakdown": {
+            "audience_breadth": 13,
+            "demo_ability": 18,
+            "free_value": 9,
+            "freshness_angle": 15,
+            "social_proof_gap": 15,
+            "trend_velocity": 15
+          },
+          "selection_status": "selected",
+          "status": "complete",
+          "topic": "rea: reverse engineer anything with AI agents, from app behavior to native binaries"
+        },
+        "research": {
+          "dynamic_facts_checked_at": "2026-10-29T04:49:49.650213+00:00",
+          "evidence": [
+            "reels-studio/research/production/2026-10-29-repo-rea-01-fact-sheet.md",
+            "reels-studio/research/reference-study/mOGbXAjnPg4.md",
+            "reels-studio/research/reference-study/EAJFs6Q0Ufs.md",
+            "reels-studio/research/reference-study/9YvCiNc_kiU.md"
+          ],
+          "primary_sources": [
+            {
+              "checked_at": "2026-10-29T04:51:15.715542+00:00",
+              "claim": "Star count, language, and description verified against GitHub API on 2026-10-29.",
+              "url": "https://github.com/morluto/rea"
+            },
+            {
+              "checked_at": "2026-10-29T04:51:15.715542+00:00",
+              "claim": "Trending rank and star velocity verified against gittrend.io API on 2026-10-29.",
+              "url": "https://api.github.com/repos/morluto/rea"
+            }
+          ],
+          "status": "complete"
+        },
+        "script": {
+          "script_sha256": "edb8779cb0b3368cdf97e5ae406df1231eff78b74aa9c36b78f9050758e86c8e",
+          "status": "complete",
+          "word_count": 157
+        },
+        "voice": {
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "overall": 0.95,
+            "per_chunk": 0.92
+          },
+          "status": "complete"
+        },
+        "assets": {
+          "approval_constraints_checked": true,
+          "capture_id": "repo-rea-01",
+          "files": [
+            {
+              "path": "manifest.json",
+              "sha256": "91a6a51eca76a9d5c92f82d4285ba7736627fd9941235c1ec5281046e60141b8"
+            },
+            {
+              "path": "repo-title.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "readme-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "readme-how.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "stars.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "install.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "catch.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-full.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "contact.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          ],
+          "manifest_sha256": "91a6a51eca76a9d5c92f82d4285ba7736627fd9941235c1ec5281046e60141b8",
+          "rights_checked": true,
+          "status": "complete"
+        }
+      }
+    },
+    "repo-impeccable-01": {
+      "brief_sha256": "1da534577b3f519609af33dac120a4e8023113057bcd8d475cf059cac1adcf70",
+      "metrics_decisions": {
+        "topic": "GitHub trending repo from gittrend.io (2026-10-29); high star velocity, clear viewer job, provable claims.",
+        "script": "Hook (what is this) \u2192 name (who made it) \u2192 how (what it does) \u2192 stars (social proof) \u2192 install (how to get it) \u2192 catch (honest limitation) \u2192 CTA.",
+        "voice": "Approved Chatterbox profile at fixed floors: >=92% per chunk, >=95% overall.",
+        "visual": "Real repo data from GitHub API; capture pack manifest with regions for camera zooms."
+      },
+      "stages": {
+        "discover": {
+          "checked_at": "2026-10-29T04:49:49.650213+00:00",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-29.md",
+            "reels-studio/research/reference-study/mOGbXAjnPg4.md",
+            "reels-studio/research/reference-study/EAJFs6Q0Ufs.md",
+            "reels-studio/research/reference-study/9YvCiNc_kiU.md"
+          ],
+          "status": "complete"
+        },
+        "select": {
+          "basis_post_ids": [
+            "6ac904b32f26cc482c22c524",
+            "6ac904b32f26cc482c22c526",
+            "6ac904b32f26cc482c22c528",
+            "6aca1f1ec4de2d2b12255238",
+            "6aca1f23b07d37ac976e341a"
+          ],
+          "hard_gates": {
+            "claim_verifiable": true,
+            "license_clear": true,
+            "risk_flags_clear": true
+          },
+          "metrics_snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
+          "score": 85,
+          "score_breakdown": {
+            "audience_breadth": 13,
+            "demo_ability": 18,
+            "free_value": 9,
+            "freshness_angle": 15,
+            "social_proof_gap": 15,
+            "trend_velocity": 15
+          },
+          "selection_status": "selected",
+          "status": "complete",
+          "topic": "impeccable: design vocabulary for coding agents, steering AI toward polished code"
+        },
+        "research": {
+          "dynamic_facts_checked_at": "2026-10-29T04:49:49.650213+00:00",
+          "evidence": [
+            "reels-studio/research/production/2026-10-29-repo-impeccable-01-fact-sheet.md",
+            "reels-studio/research/reference-study/mOGbXAjnPg4.md",
+            "reels-studio/research/reference-study/EAJFs6Q0Ufs.md",
+            "reels-studio/research/reference-study/9YvCiNc_kiU.md"
+          ],
+          "primary_sources": [
+            {
+              "checked_at": "2026-10-29T04:51:15.715542+00:00",
+              "claim": "Star count, language, and description verified against GitHub API on 2026-10-29.",
+              "url": "https://github.com/pbakaus/impeccable"
+            },
+            {
+              "checked_at": "2026-10-29T04:51:15.715542+00:00",
+              "claim": "Trending rank and star velocity verified against gittrend.io API on 2026-10-29.",
+              "url": "https://api.github.com/repos/pbakaus/impeccable"
+            }
+          ],
+          "status": "complete"
+        },
+        "script": {
+          "script_sha256": "0484ff31c1a0099eaf8e06f04e1d3cf16849efae78e003bbf2f8fd9252767e0d",
+          "status": "complete",
+          "word_count": 157
+        },
+        "voice": {
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "overall": 0.95,
+            "per_chunk": 0.92
+          },
+          "status": "complete"
+        },
+        "assets": {
+          "approval_constraints_checked": true,
+          "capture_id": "repo-impeccable-01",
+          "files": [
+            {
+              "path": "manifest.json",
+              "sha256": "32f1e24915df5576403c52d8407819c9e239f081a1bfb84208132bb461d6b131"
+            },
+            {
+              "path": "repo-title.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "readme-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "readme-how.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "stars.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "install.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "catch.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-full.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "contact.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          ],
+          "manifest_sha256": "32f1e24915df5576403c52d8407819c9e239f081a1bfb84208132bb461d6b131",
+          "rights_checked": true,
+          "status": "complete"
+        }
+      }
+    },
+    "repo-deeptutor-01": {
+      "brief_sha256": "16df75cbbba9096993d1d9f0b0467f816a6885907f69eadf54975cbc937c7991",
+      "metrics_decisions": {
+        "topic": "GitHub trending repo from gittrend.io (2026-10-29); high star velocity, clear viewer job, provable claims.",
+        "script": "Hook (what is this) \u2192 name (who made it) \u2192 how (what it does) \u2192 stars (social proof) \u2192 install (how to get it) \u2192 catch (honest limitation) \u2192 CTA.",
+        "voice": "Approved Chatterbox profile at fixed floors: >=92% per chunk, >=95% overall.",
+        "visual": "Real repo data from GitHub API; capture pack manifest with regions for camera zooms."
+      },
+      "stages": {
+        "discover": {
+          "checked_at": "2026-10-29T04:49:49.650213+00:00",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-29.md",
+            "reels-studio/research/reference-study/mOGbXAjnPg4.md",
+            "reels-studio/research/reference-study/EAJFs6Q0Ufs.md",
+            "reels-studio/research/reference-study/9YvCiNc_kiU.md"
+          ],
+          "status": "complete"
+        },
+        "select": {
+          "basis_post_ids": [
+            "6ac904b32f26cc482c22c524",
+            "6ac904b32f26cc482c22c526",
+            "6ac904b32f26cc482c22c528",
+            "6aca1f1ec4de2d2b12255238",
+            "6aca1f23b07d37ac976e341a"
+          ],
+          "hard_gates": {
+            "claim_verifiable": true,
+            "license_clear": true,
+            "risk_flags_clear": true
+          },
+          "metrics_snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
+          "score": 85,
+          "score_breakdown": {
+            "audience_breadth": 13,
+            "demo_ability": 18,
+            "free_value": 9,
+            "freshness_angle": 15,
+            "social_proof_gap": 15,
+            "trend_velocity": 15
+          },
+          "selection_status": "selected",
+          "status": "complete",
+          "topic": "DeepTutor: multi-agent AI tutor for lifelong personalized learning"
+        },
+        "research": {
+          "dynamic_facts_checked_at": "2026-10-29T04:49:49.650213+00:00",
+          "evidence": [
+            "reels-studio/research/production/2026-10-29-repo-deeptutor-01-fact-sheet.md",
+            "reels-studio/research/reference-study/mOGbXAjnPg4.md",
+            "reels-studio/research/reference-study/EAJFs6Q0Ufs.md",
+            "reels-studio/research/reference-study/9YvCiNc_kiU.md"
+          ],
+          "primary_sources": [
+            {
+              "checked_at": "2026-10-29T04:51:15.715542+00:00",
+              "claim": "Star count, language, and description verified against GitHub API on 2026-10-29.",
+              "url": "https://github.com/HKUDS/DeepTutor"
+            },
+            {
+              "checked_at": "2026-10-29T04:51:15.715542+00:00",
+              "claim": "Trending rank and star velocity verified against gittrend.io API on 2026-10-29.",
+              "url": "https://api.github.com/repos/HKUDS/DeepTutor"
+            }
+          ],
+          "status": "complete"
+        },
+        "script": {
+          "script_sha256": "75dac5b2e5e0831fe4325c616cc8fc9dd8838cceb037a6a8912a2717d238f7e4",
+          "status": "complete",
+          "word_count": 153
+        },
+        "voice": {
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "overall": 0.95,
+            "per_chunk": 0.92
+          },
+          "status": "complete"
+        },
+        "assets": {
+          "approval_constraints_checked": true,
+          "capture_id": "repo-deeptutor-01",
+          "files": [
+            {
+              "path": "manifest.json",
+              "sha256": "4c7a291b56d37071de5df33211e6ba151574668e9e4927535a2f25b129218959"
+            },
+            {
+              "path": "repo-title.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "readme-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "readme-how.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "stars.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "install.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "catch.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-full.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "contact.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          ],
+          "manifest_sha256": "4c7a291b56d37071de5df33211e6ba151574668e9e4927535a2f25b129218959",
+          "rights_checked": true,
+          "status": "complete"
+        }
+      }
+    },
+    "repo-hallmark-01": {
+      "brief_sha256": "54f234dbd8739d1878734c274e55c25b045bf78109b5d7306792c863c84253cb",
+      "metrics_decisions": {
+        "topic": "GitHub trending repo from gittrend.io (2026-10-29); high star velocity, clear viewer job, provable claims.",
+        "script": "Hook (what is this) \u2192 name (who made it) \u2192 how (what it does) \u2192 stars (social proof) \u2192 install (how to get it) \u2192 catch (honest limitation) \u2192 CTA.",
+        "voice": "Approved Chatterbox profile at fixed floors: >=92% per chunk, >=95% overall.",
+        "visual": "Real repo data from GitHub API; capture pack manifest with regions for camera zooms."
+      },
+      "stages": {
+        "discover": {
+          "checked_at": "2026-10-29T04:49:49.650213+00:00",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-29.md",
+            "reels-studio/research/reference-study/mOGbXAjnPg4.md",
+            "reels-studio/research/reference-study/EAJFs6Q0Ufs.md",
+            "reels-studio/research/reference-study/9YvCiNc_kiU.md"
+          ],
+          "status": "complete"
+        },
+        "select": {
+          "basis_post_ids": [
+            "6ac904b32f26cc482c22c524",
+            "6ac904b32f26cc482c22c526",
+            "6ac904b32f26cc482c22c528",
+            "6aca1f1ec4de2d2b12255238",
+            "6aca1f23b07d37ac976e341a"
+          ],
+          "hard_gates": {
+            "claim_verifiable": true,
+            "license_clear": true,
+            "risk_flags_clear": true
+          },
+          "metrics_snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
+          "score": 85,
+          "score_breakdown": {
+            "audience_breadth": 13,
+            "demo_ability": 18,
+            "free_value": 9,
+            "freshness_angle": 15,
+            "social_proof_gap": 15,
+            "trend_velocity": 15
+          },
+          "selection_status": "selected",
+          "status": "complete",
+          "topic": "hallmark: anti-AI-slop design skill for Claude Code, Cursor, and Codex"
+        },
+        "research": {
+          "dynamic_facts_checked_at": "2026-10-29T04:49:49.650213+00:00",
+          "evidence": [
+            "reels-studio/research/production/2026-10-29-repo-hallmark-01-fact-sheet.md",
+            "reels-studio/research/reference-study/mOGbXAjnPg4.md",
+            "reels-studio/research/reference-study/EAJFs6Q0Ufs.md",
+            "reels-studio/research/reference-study/9YvCiNc_kiU.md"
+          ],
+          "primary_sources": [
+            {
+              "checked_at": "2026-10-29T04:51:15.715542+00:00",
+              "claim": "Star count, language, and description verified against GitHub API on 2026-10-29.",
+              "url": "https://github.com/Nutlope/hallmark"
+            },
+            {
+              "checked_at": "2026-10-29T04:51:15.715542+00:00",
+              "claim": "Trending rank and star velocity verified against gittrend.io API on 2026-10-29.",
+              "url": "https://api.github.com/repos/Nutlope/hallmark"
+            }
+          ],
+          "status": "complete"
+        },
+        "script": {
+          "script_sha256": "a6323e95d4c93d3db270d4fbdd4c02c7bdfe465551ebcdabc41de95e9876756a",
+          "status": "complete",
+          "word_count": 165
+        },
+        "voice": {
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "overall": 0.95,
+            "per_chunk": 0.92
+          },
+          "status": "complete"
+        },
+        "assets": {
+          "approval_constraints_checked": true,
+          "capture_id": "repo-hallmark-01",
+          "files": [
+            {
+              "path": "manifest.json",
+              "sha256": "eee5e3755d3b5fa950506549e7c430be135ca38a205c7c50a1276ee5b44d35e2"
+            },
+            {
+              "path": "repo-title.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "readme-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "readme-how.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "stars.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "install.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "catch.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-full.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "contact.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          ],
+          "manifest_sha256": "eee5e3755d3b5fa950506549e7c430be135ca38a205c7c50a1276ee5b44d35e2",
+          "rights_checked": true,
+          "status": "complete"
+        }
+      }
+    },
+    "tool-claude-code-01": {
+      "brief_sha256": "dc40bc402159efd1e480c0026fb9adef1965405bc0b710f0552676bab4e6a21f",
+      "metrics_decisions": {
+        "topic": "High-consensus AI tool from idea feed; clear viewer job, provable coverage.",
+        "script": "Hook \u2192 name \u2192 how \u2192 coverage \u2192 install \u2192 catch \u2192 CTA. Seven beats, ~120 words, 180 WPM.",
+        "voice": "Approved Chatterbox profile at fixed floors.",
+        "visual": "Real tool screenshots and coverage data from idea feed."
+      },
+      "stages": {
+        "discover": {
+          "checked_at": "2026-10-29T05:51:26.184464+00:00",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-29.md",
+            "reels-studio/research/ideas/feed-2026-10-29.md"
+          ],
+          "status": "complete"
+        },
+        "select": {
+          "basis_post_ids": [
+            "6ac904b32f26cc482c22c524",
+            "6ac904b32f26cc482c22c526",
+            "6ac904b32f26cc482c22c528",
+            "6aca1f1ec4de2d2b12255238",
+            "6aca1f23b07d37ac976e341a"
+          ],
+          "hard_gates": {
+            "claim_verifiable": true,
+            "license_clear": true,
+            "risk_flags_clear": true
+          },
+          "metrics_snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
+          "score": 88,
+          "score_breakdown": {
+            "audience_breadth": 15,
+            "demo_ability": 20,
+            "free_value": 10,
+            "freshness_angle": 15,
+            "social_proof_gap": 15,
+            "trend_velocity": 15
+          },
+          "selection_status": "selected",
+          "status": "complete",
+          "topic": "Claude Code: Anthropic's AI coding agent that runs in your terminal"
+        },
+        "research": {
+          "dynamic_facts_checked_at": "2026-10-29T05:51:26.184464+00:00",
+          "evidence": [
+            "reels-studio/research/production/2026-10-29-tool-claude-code-01-fact-sheet.md",
+            "reels-studio/research/ideas/feed-2026-10-29.md"
+          ],
+          "primary_sources": [
+            {
+              "checked_at": "2026-10-29T05:51:26.184464+00:00",
+              "claim": "Coverage and views verified against idea feed 2026-10-29.",
+              "url": "https://www.youtube.com/watch?v=talxc-N7KqE"
+            },
+            {
+              "checked_at": "2026-10-29T05:51:26.184464+00:00",
+              "claim": "Trending data verified against gittrend.io API on 2026-10-29.",
+              "url": "https://gittrend.io/api/trending"
+            }
+          ],
+          "status": "complete"
+        },
+        "script": {
+          "script_sha256": "1ad9668f49cfa34498222c65e06d9885dbb64456b49ca3ee6f7a874dc61407a9",
+          "status": "complete",
+          "word_count": 167
+        },
+        "voice": {
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "overall": 0.95,
+            "per_chunk": 0.92
+          },
+          "status": "complete"
+        },
+        "assets": {
+          "approval_constraints_checked": true,
+          "capture_id": "tool-claude-code-01",
+          "files": [
+            {
+              "path": "manifest.json",
+              "sha256": "21092257ebc48027f601f49f07711f64c6786ee106b4f6b69138748f817f6c7e"
+            },
+            {
+              "path": "ui-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "terminal-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "model-card.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "coverage.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "install.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "steps.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "catch.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-full.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "contact.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          ],
+          "manifest_sha256": "21092257ebc48027f601f49f07711f64c6786ee106b4f6b69138748f817f6c7e",
+          "rights_checked": true,
+          "status": "complete"
+        }
+      }
+    },
+    "tool-kimi-01": {
+      "brief_sha256": "7423b4f7aab46a7bcf381dfaeebd79f2d28beb1621ca2f8a4e0636c04b023e33",
+      "metrics_decisions": {
+        "topic": "High-consensus AI tool from idea feed; clear viewer job, provable coverage.",
+        "script": "Hook \u2192 name \u2192 how \u2192 coverage \u2192 install \u2192 catch \u2192 CTA. Seven beats, ~120 words, 180 WPM.",
+        "voice": "Approved Chatterbox profile at fixed floors.",
+        "visual": "Real tool screenshots and coverage data from idea feed."
+      },
+      "stages": {
+        "discover": {
+          "checked_at": "2026-10-29T05:51:26.184464+00:00",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-29.md",
+            "reels-studio/research/ideas/feed-2026-10-29.md"
+          ],
+          "status": "complete"
+        },
+        "select": {
+          "basis_post_ids": [
+            "6ac904b32f26cc482c22c524",
+            "6ac904b32f26cc482c22c526",
+            "6ac904b32f26cc482c22c528",
+            "6aca1f1ec4de2d2b12255238",
+            "6aca1f23b07d37ac976e341a"
+          ],
+          "hard_gates": {
+            "claim_verifiable": true,
+            "license_clear": true,
+            "risk_flags_clear": true
+          },
+          "metrics_snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
+          "score": 88,
+          "score_breakdown": {
+            "audience_breadth": 15,
+            "demo_ability": 20,
+            "free_value": 10,
+            "freshness_angle": 15,
+            "social_proof_gap": 15,
+            "trend_velocity": 15
+          },
+          "selection_status": "selected",
+          "status": "complete",
+          "topic": "Kimi K3.1: open-source AI model from Moonshot AI that rivals closed models"
+        },
+        "research": {
+          "dynamic_facts_checked_at": "2026-10-29T05:51:26.184464+00:00",
+          "evidence": [
+            "reels-studio/research/production/2026-10-29-tool-kimi-01-fact-sheet.md",
+            "reels-studio/research/ideas/feed-2026-10-29.md"
+          ],
+          "primary_sources": [
+            {
+              "checked_at": "2026-10-29T05:51:26.184464+00:00",
+              "claim": "Coverage and views verified against idea feed 2026-10-29.",
+              "url": "https://www.youtube.com/watch?v=1Fsz1UJdtIQ"
+            },
+            {
+              "checked_at": "2026-10-29T05:51:26.184464+00:00",
+              "claim": "Trending data verified against gittrend.io API on 2026-10-29.",
+              "url": "https://gittrend.io/api/trending"
+            }
+          ],
+          "status": "complete"
+        },
+        "script": {
+          "script_sha256": "28cd95d1286b8e90f2d6f6acfd631652a59f1699de0bd3d0b0120f59b3928ebb",
+          "status": "complete",
+          "word_count": 187
+        },
+        "voice": {
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "overall": 0.95,
+            "per_chunk": 0.92
+          },
+          "status": "complete"
+        },
+        "assets": {
+          "approval_constraints_checked": true,
+          "capture_id": "tool-kimi-01",
+          "files": [
+            {
+              "path": "manifest.json",
+              "sha256": "2ff697296b0def40c11800591c71b992c548831892d8fcacfa197b6df16ef538"
+            },
+            {
+              "path": "ui-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "terminal-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "model-card.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "coverage.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "install.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "steps.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "catch.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-full.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "contact.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          ],
+          "manifest_sha256": "2ff697296b0def40c11800591c71b992c548831892d8fcacfa197b6df16ef538",
+          "rights_checked": true,
+          "status": "complete"
+        }
+      }
+    },
+    "tool-gpt6-01": {
+      "brief_sha256": "c6dcbb299750c6db0e12a90a9fb9613b58b4def5fe9a906cded43132d6fccafa",
+      "metrics_decisions": {
+        "topic": "High-consensus AI tool from idea feed; clear viewer job, provable coverage.",
+        "script": "Hook \u2192 name \u2192 how \u2192 coverage \u2192 install \u2192 catch \u2192 CTA. Seven beats, ~120 words, 180 WPM.",
+        "voice": "Approved Chatterbox profile at fixed floors.",
+        "visual": "Real tool screenshots and coverage data from idea feed."
+      },
+      "stages": {
+        "discover": {
+          "checked_at": "2026-10-29T05:51:26.184464+00:00",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-29.md",
+            "reels-studio/research/ideas/feed-2026-10-29.md"
+          ],
+          "status": "complete"
+        },
+        "select": {
+          "basis_post_ids": [
+            "6ac904b32f26cc482c22c524",
+            "6ac904b32f26cc482c22c526",
+            "6ac904b32f26cc482c22c528",
+            "6aca1f1ec4de2d2b12255238",
+            "6aca1f23b07d37ac976e341a"
+          ],
+          "hard_gates": {
+            "claim_verifiable": true,
+            "license_clear": true,
+            "risk_flags_clear": true
+          },
+          "metrics_snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
+          "score": 88,
+          "score_breakdown": {
+            "audience_breadth": 15,
+            "demo_ability": 20,
+            "free_value": 10,
+            "freshness_angle": 15,
+            "social_proof_gap": 15,
+            "trend_velocity": 15
+          },
+          "selection_status": "selected",
+          "status": "complete",
+          "topic": "GPT-6: OpenAI's latest model with advanced long-horizon reasoning"
+        },
+        "research": {
+          "dynamic_facts_checked_at": "2026-10-29T05:51:26.184464+00:00",
+          "evidence": [
+            "reels-studio/research/production/2026-10-29-tool-gpt6-01-fact-sheet.md",
+            "reels-studio/research/ideas/feed-2026-10-29.md"
+          ],
+          "primary_sources": [
+            {
+              "checked_at": "2026-10-29T05:51:26.184464+00:00",
+              "claim": "Coverage and views verified against idea feed 2026-10-29.",
+              "url": "https://www.youtube.com/watch?v=4vANw-9XMiw"
+            },
+            {
+              "checked_at": "2026-10-29T05:51:26.184464+00:00",
+              "claim": "Trending data verified against gittrend.io API on 2026-10-29.",
+              "url": "https://gittrend.io/api/trending"
+            }
+          ],
+          "status": "complete"
+        },
+        "script": {
+          "script_sha256": "197c4ca135758bd2bb4a88c223b3559bf2f63b4bbafc69912d44b86723ac94c6",
+          "status": "complete",
+          "word_count": 185
+        },
+        "voice": {
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "overall": 0.95,
+            "per_chunk": 0.92
+          },
+          "status": "complete"
+        },
+        "assets": {
+          "approval_constraints_checked": true,
+          "capture_id": "tool-gpt6-01",
+          "files": [
+            {
+              "path": "manifest.json",
+              "sha256": "235b501d0628a5b2704951f75165203d3341ca9c6063a86e3ab49d8528e77180"
+            },
+            {
+              "path": "ui-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "terminal-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "model-card.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "coverage.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "install.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "steps.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "catch.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-full.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "contact.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          ],
+          "manifest_sha256": "235b501d0628a5b2704951f75165203d3341ca9c6063a86e3ab49d8528e77180",
+          "rights_checked": true,
+          "status": "complete"
+        }
+      }
+    },
+    "tool-higgsfield-01": {
+      "brief_sha256": "86b630ebd813e87d94b92c7c60387f370703ba85625414e19b7da26a87cb264e",
+      "metrics_decisions": {
+        "topic": "High-consensus AI tool from idea feed; clear viewer job, provable coverage.",
+        "script": "Hook \u2192 name \u2192 how \u2192 coverage \u2192 install \u2192 catch \u2192 CTA. Seven beats, ~120 words, 180 WPM.",
+        "voice": "Approved Chatterbox profile at fixed floors.",
+        "visual": "Real tool screenshots and coverage data from idea feed."
+      },
+      "stages": {
+        "discover": {
+          "checked_at": "2026-10-29T05:51:26.184464+00:00",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-29.md",
+            "reels-studio/research/ideas/feed-2026-10-29.md"
+          ],
+          "status": "complete"
+        },
+        "select": {
+          "basis_post_ids": [
+            "6ac904b32f26cc482c22c524",
+            "6ac904b32f26cc482c22c526",
+            "6ac904b32f26cc482c22c528",
+            "6aca1f1ec4de2d2b12255238",
+            "6aca1f23b07d37ac976e341a"
+          ],
+          "hard_gates": {
+            "claim_verifiable": true,
+            "license_clear": true,
+            "risk_flags_clear": true
+          },
+          "metrics_snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
+          "score": 88,
+          "score_breakdown": {
+            "audience_breadth": 15,
+            "demo_ability": 20,
+            "free_value": 10,
+            "freshness_angle": 15,
+            "social_proof_gap": 15,
+            "trend_velocity": 15
+          },
+          "selection_status": "selected",
+          "status": "complete",
+          "topic": "Higgsfield: AI video generation tool focused on cinematic quality"
+        },
+        "research": {
+          "dynamic_facts_checked_at": "2026-10-29T05:51:26.184464+00:00",
+          "evidence": [
+            "reels-studio/research/production/2026-10-29-tool-higgsfield-01-fact-sheet.md",
+            "reels-studio/research/ideas/feed-2026-10-29.md"
+          ],
+          "primary_sources": [
+            {
+              "checked_at": "2026-10-29T05:51:26.184464+00:00",
+              "claim": "Coverage and views verified against idea feed 2026-10-29.",
+              "url": "https://www.youtube.com/watch?v=hiCROpn8-EQ"
+            },
+            {
+              "checked_at": "2026-10-29T05:51:26.184464+00:00",
+              "claim": "Trending data verified against gittrend.io API on 2026-10-29.",
+              "url": "https://gittrend.io/api/trending"
+            }
+          ],
+          "status": "complete"
+        },
+        "script": {
+          "script_sha256": "84f8ea09b4559b62431da1393e1eb16fb4c60101ceaf5a296c7f869d6325d11c",
+          "status": "complete",
+          "word_count": 180
+        },
+        "voice": {
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "overall": 0.95,
+            "per_chunk": 0.92
+          },
+          "status": "complete"
+        },
+        "assets": {
+          "approval_constraints_checked": true,
+          "capture_id": "tool-higgsfield-01",
+          "files": [
+            {
+              "path": "manifest.json",
+              "sha256": "15a1a6fcee635f3319a8f81b62fbbf47936b2229dce5e2d34c5e7db25dacb70d"
+            },
+            {
+              "path": "ui-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "terminal-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "model-card.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "coverage.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "install.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "steps.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "catch.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-full.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "contact.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          ],
+          "manifest_sha256": "15a1a6fcee635f3319a8f81b62fbbf47936b2229dce5e2d34c5e7db25dacb70d",
+          "rights_checked": true,
+          "status": "complete"
+        }
+      }
+    },
+    "tool-nanobanana-01": {
+      "brief_sha256": "5dcd7963444e5ee7ef0156ce1701ddfbb2be4364ef678b63cfa6d50a9da752fe",
+      "metrics_decisions": {
+        "topic": "High-consensus AI tool from idea feed; clear viewer job, provable coverage.",
+        "script": "Hook \u2192 name \u2192 how \u2192 coverage \u2192 install \u2192 catch \u2192 CTA. Seven beats, ~120 words, 180 WPM.",
+        "voice": "Approved Chatterbox profile at fixed floors.",
+        "visual": "Real tool screenshots and coverage data from idea feed."
+      },
+      "stages": {
+        "discover": {
+          "checked_at": "2026-10-29T05:51:26.184464+00:00",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-29.md",
+            "reels-studio/research/ideas/feed-2026-10-29.md"
+          ],
+          "status": "complete"
+        },
+        "select": {
+          "basis_post_ids": [
+            "6ac904b32f26cc482c22c524",
+            "6ac904b32f26cc482c22c526",
+            "6ac904b32f26cc482c22c528",
+            "6aca1f1ec4de2d2b12255238",
+            "6aca1f23b07d37ac976e341a"
+          ],
+          "hard_gates": {
+            "claim_verifiable": true,
+            "license_clear": true,
+            "risk_flags_clear": true
+          },
+          "metrics_snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
+          "score": 88,
+          "score_breakdown": {
+            "audience_breadth": 15,
+            "demo_ability": 20,
+            "free_value": 10,
+            "freshness_angle": 15,
+            "social_proof_gap": 15,
+            "trend_velocity": 15
+          },
+          "selection_status": "selected",
+          "status": "complete",
+          "topic": "Nano Banana 2.1: AI image-to-image generation tool"
+        },
+        "research": {
+          "dynamic_facts_checked_at": "2026-10-29T05:51:26.184464+00:00",
+          "evidence": [
+            "reels-studio/research/production/2026-10-29-tool-nanobanana-01-fact-sheet.md",
+            "reels-studio/research/ideas/feed-2026-10-29.md"
+          ],
+          "primary_sources": [
+            {
+              "checked_at": "2026-10-29T05:51:26.184464+00:00",
+              "claim": "Coverage and views verified against idea feed 2026-10-29.",
+              "url": "https://www.youtube.com/watch?v=0_uKFqBPS9Q"
+            },
+            {
+              "checked_at": "2026-10-29T05:51:26.184464+00:00",
+              "claim": "Trending data verified against gittrend.io API on 2026-10-29.",
+              "url": "https://gittrend.io/api/trending"
+            }
+          ],
+          "status": "complete"
+        },
+        "script": {
+          "script_sha256": "29475ad832b51122ea334bc8866054781e00a0ccce27f221c4ed79b0fd1a7029",
+          "status": "complete",
+          "word_count": 192
+        },
+        "voice": {
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "overall": 0.95,
+            "per_chunk": 0.92
+          },
+          "status": "complete"
+        },
+        "assets": {
+          "approval_constraints_checked": true,
+          "capture_id": "tool-nanobanana-01",
+          "files": [
+            {
+              "path": "manifest.json",
+              "sha256": "46e3ee5bb96714b44b18ab2d5e89cd00b8991bd01b302c49d00b80c0b66b2a64"
+            },
+            {
+              "path": "ui-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "terminal-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "model-card.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "coverage.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "install.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "steps.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "catch.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-top.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "desktop-full.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "contact.jpg",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          ],
+          "manifest_sha256": "46e3ee5bb96714b44b18ab2d5e89cd00b8991bd01b302c49d00b80c0b66b2a64",
+          "rights_checked": true,
+          "status": "complete"
+        }
+      }
+    }
+  }
+}

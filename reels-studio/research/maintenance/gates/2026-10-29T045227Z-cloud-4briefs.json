@@ -1,0 +1,277 @@
+{
+  "dispatched": [
+    "repo-rea-01",
+    "repo-impeccable-01",
+    "repo-deeptutor-01",
+    "repo-hallmark-01"
+  ],
+  "release_tag": "renders-2026-10-29",
+  "gates": [
+    {
+      "brief": "repo-rea-01",
+      "path": "/home/user/work-remediation/reels-studio/briefs/repo-rea-01.json",
+      "lint": [
+        {
+          "id": "BL020",
+          "severity": "warning",
+          "message": "capture pack repo-rea-01 not present locally — asset/region checks skipped"
+        },
+        {
+          "id": "BL120",
+          "severity": "warning",
+          "message": "no treatment: design this Short for one viewer first (audience, viewer job, format archetype, open loop, proof moment, 3 cover concepts) — PLAYBOOK §8A"
+        }
+      ],
+      "seo": [
+        {
+          "id": "SP010",
+          "severity": "warning",
+          "message": "keyword not spoken in the first ~10 s: TikTok/YouTube index speech (say it in the hook if natural)"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "youtube: keyword not within the first 4 words of the title"
+        },
+        {
+          "id": "SP071",
+          "severity": "warning",
+          "message": "youtube: keyword not in the first 150 chars of the description"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "tiktok: keyword not within the first 8 words of the caption"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "instagram: keyword not within the first 10 words of the caption"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "facebook: keyword not within the first 10 words of the caption"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "x: keyword not within the first 12 words of the text"
+        }
+      ],
+      "rollup": {
+        "errors": 0,
+        "warnings": 9,
+        "by_id": {
+          "BL020": 1,
+          "BL120": 1,
+          "SP010": 1,
+          "SP060": 5,
+          "SP071": 1
+        }
+      },
+      "at": "2026-10-29T04:52:27Z"
+    },
+    {
+      "brief": "repo-impeccable-01",
+      "path": "/home/user/work-remediation/reels-studio/briefs/repo-impeccable-01.json",
+      "lint": [
+        {
+          "id": "BL020",
+          "severity": "warning",
+          "message": "capture pack repo-impeccable-01 not present locally — asset/region checks skipped"
+        },
+        {
+          "id": "BL120",
+          "severity": "warning",
+          "message": "no treatment: design this Short for one viewer first (audience, viewer job, format archetype, open loop, proof moment, 3 cover concepts) — PLAYBOOK §8A"
+        }
+      ],
+      "seo": [
+        {
+          "id": "SP010",
+          "severity": "warning",
+          "message": "keyword not spoken in the first ~10 s: TikTok/YouTube index speech (say it in the hook if natural)"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "youtube: keyword not within the first 4 words of the title"
+        },
+        {
+          "id": "SP071",
+          "severity": "warning",
+          "message": "youtube: keyword not in the first 150 chars of the description"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "tiktok: keyword not within the first 8 words of the caption"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "instagram: keyword not within the first 10 words of the caption"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "facebook: keyword not within the first 10 words of the caption"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "x: keyword not within the first 12 words of the text"
+        }
+      ],
+      "rollup": {
+        "errors": 0,
+        "warnings": 9,
+        "by_id": {
+          "BL020": 1,
+          "BL120": 1,
+          "SP010": 1,
+          "SP060": 5,
+          "SP071": 1
+        }
+      },
+      "at": "2026-10-29T04:52:27Z"
+    },
+    {
+      "brief": "repo-deeptutor-01",
+      "path": "/home/user/work-remediation/reels-studio/briefs/repo-deeptutor-01.json",
+      "lint": [
+        {
+          "id": "BL020",
+          "severity": "warning",
+          "message": "capture pack repo-deeptutor-01 not present locally — asset/region checks skipped"
+        },
+        {
+          "id": "BL120",
+          "severity": "warning",
+          "message": "no treatment: design this Short for one viewer first (audience, viewer job, format archetype, open loop, proof moment, 3 cover concepts) — PLAYBOOK §8A"
+        }
+      ],
+      "seo": [
+        {
+          "id": "SP010",
+          "severity": "warning",
+          "message": "keyword not spoken in the first ~10 s: TikTok/YouTube index speech (say it in the hook if natural)"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "youtube: keyword not within the first 4 words of the title"
+        },
+        {
+          "id": "SP071",
+          "severity": "warning",
+          "message": "youtube: keyword not in the first 150 chars of the description"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "tiktok: keyword not within the first 8 words of the caption"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "instagram: keyword not within the first 10 words of the caption"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "facebook: keyword not within the first 10 words of the caption"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "x: keyword not within the first 12 words of the text"
+        }
+      ],
+      "rollup": {
+        "errors": 0,
+        "warnings": 9,
+        "by_id": {
+          "BL020": 1,
+          "BL120": 1,
+          "SP010": 1,
+          "SP060": 5,
+          "SP071": 1
+        }
+      },
+      "at": "2026-10-29T04:52:27Z"
+    },
+    {
+      "brief": "repo-hallmark-01",
+      "path": "/home/user/work-remediation/reels-studio/briefs/repo-hallmark-01.json",
+      "lint": [
+        {
+          "id": "BL020",
+          "severity": "warning",
+          "message": "capture pack repo-hallmark-01 not present locally — asset/region checks skipped"
+        },
+        {
+          "id": "BL120",
+          "severity": "warning",
+          "message": "no treatment: design this Short for one viewer first (audience, viewer job, format archetype, open loop, proof moment, 3 cover concepts) — PLAYBOOK §8A"
+        }
+      ],
+      "seo": [
+        {
+          "id": "SP010",
+          "severity": "warning",
+          "message": "keyword not spoken in the first ~10 s: TikTok/YouTube index speech (say it in the hook if natural)"
+        },
+        {
+          "id": "SP011",
+          "severity": "warning",
+          "message": "keyword not in on-screen text of the first 3 s ('STOP AI SLOP IN YOUR DESIGNS')"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "youtube: keyword not within the first 4 words of the title"
+        },
+        {
+          "id": "SP071",
+          "severity": "warning",
+          "message": "youtube: keyword not in the first 150 chars of the description"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "tiktok: keyword not within the first 8 words of the caption"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "instagram: keyword not within the first 10 words of the caption"
+        },
+        {
+          "id": "SP060",
+          "severity": "warning",
+          "message": "facebook: keyword not within the first 10 words of the caption"
+        }
+      ],
+      "rollup": {
+        "errors": 0,
+        "warnings": 9,
+        "by_id": {
+          "BL020": 1,
+          "BL120": 1,
+          "SP010": 1,
+          "SP011": 1,
+          "SP060": 4,
+          "SP071": 1
+        }
+      },
+      "at": "2026-10-29T04:52:27Z"
+    }
+  ],
+  "production_receipt": "reels-studio/research/production/receipts/2026-10-29-trending-batch-01.json",
+  "publish_release_requested": false,
+  "status": "dispatched_not_verified",
+  "delivery_policy": "Actions artifact only by default; public GitHub Release requires explicit --publish-release",
+  "run_id": 40820168843
+}
