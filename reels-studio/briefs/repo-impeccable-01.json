@@ -1,0 +1,267 @@
+{
+  "id": "repo-impeccable-01",
+  "capture": "repo-impeccable-01",
+  "title": "impeccable: Design Vocabulary for Your Coding Agent",
+  "niche": "AI agents and developer productivity",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "impeccable",
+    "coding agent",
+    "design skills",
+    "anti-slop",
+    "Rust"
+  ],
+  "facts": {
+    "stars": "92,814 GitHub stars (gittrend.io, 2026-10-29)",
+    "stars_today": "+2,185 stars today",
+    "language": "Rust",
+    "license": "open source",
+    "description": "The design vocabulary for your coding agent. Steer with polish and bolder, review with critique.",
+    "topics": [
+      "agent-skills",
+      "ai",
+      "anti-slop",
+      "design"
+    ]
+  },
+  "sources": [
+    "https://github.com/pbakaus/impeccable",
+    "https://api.github.com/repos/pbakaus/impeccable"
+  ],
+  "verify_before_render": [
+    "Stars, license, and repo status re-checked against the live repo on render day."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "page",
+      "image": "repo-title.jpg",
+      "heading": "GIVE YOUR AI *GOOD DESIGN* SENSE",
+      "sub": "impeccable · design vocabulary for coding agents",
+      "say": "Your AI writes code fast. But does it write code that looks good? Impecable gives your coding agent a design vocabulary.",
+      "url": "github.com/pbakaus/impeccable",
+      "camera": [
+        {
+          "region": "repo_title",
+          "zoom": 1.5,
+          "at": "design vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "heading": "impeccable",
+      "sub": "Polish, bolder, critique",
+      "say": "It's called impeccable. It's a design vocabulary that plugs into your coding agent. You steer with polish and bolder, you review with critique.",
+      "image": "readme-top.jpg"
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "HOW IT WORKS",
+      "say": "It's a set of agent skills built in Rust. Your AI agent loads them, and now it knows what polished code looks like. Not just valid code, but clean, intentional design.",
+      "image": "readme-how.jpg"
+    },
+    {
+      "id": "stars",
+      "type": "page",
+      "image": "stars.jpg",
+      "heading": "92,814 ★ AND GROWING",
+      "sub": "+2,185 stars today",
+      "say": "Ninety two thousand stars. Two thousand more today. The anti-slop movement is real, and impeccable is at the center of it.",
+      "url": "github.com/pbakaus/impeccable",
+      "camera": [
+        {
+          "region": "stars",
+          "zoom": 1.5,
+          "at": "anti-slop"
+        }
+      ]
+    },
+    {
+      "id": "install",
+      "type": "page",
+      "image": "install.jpg",
+      "heading": "ADD IT TO YOUR AGENT",
+      "sub": "One config file",
+      "say": "Add one config file to your AI agent setup. It works with Claude Code, Cursor, and Codex. The skills load automatically.",
+      "url": "github.com/pbakaus/impeccable",
+      "camera": [
+        {
+          "region": "install",
+          "zoom": 1.3,
+          "at": "skills load"
+        }
+      ]
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE HONEST CATCH",
+      "say": "It's a vocabulary, not a magic wand. Your AI still needs to understand the problem. But with impeccable, it will at least stop generating slop.",
+      "image": "catch.jpg"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "POLISH",
+      "say": "Stop accepting ugly code from your AI. Comment POLISH and follow for tools like this."
+    }
+  ],
+  "seo": {
+    "keyword": "impeccable coding agent",
+    "aliases": [
+      "impeccable AI design",
+      "anti-slop coding",
+      "AI coding agent design skills"
+    ],
+    "onscreen_first3s": "GIVE YOUR AI GOOD DESIGN",
+    "youtube": {
+      "title": "Your AI Needs This Design Skill",
+      "description": "impeccable gives your coding agent a design vocabulary. No more AI slop. #shorts #ai #coding #design #programming",
+      "tags": [
+        "impeccable",
+        "coding agent",
+        "AI design",
+        "anti-slop",
+        "programming"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#antislop",
+        "#agentskills",
+        "#designsystems"
+      ]
+    },
+    "tiktok": {
+      "title": "Your AI needs this design skill",
+      "description": "impeccable gives coding agents a design vocabulary. Stop accepting ugly code. #shorts #ai #coding #design",
+      "tags": [
+        "impeccable",
+        "AI",
+        "coding",
+        "design",
+        "programming"
+      ],
+      "caption": "impeccable gives coding agents a design vocabulary. Stop accepting ugly code. #shorts #ai #coding #design",
+      "hashtags": [
+        "#shorts",
+        "#antislop",
+        "#agentskills",
+        "#designsystems"
+      ]
+    },
+    "instagram": {
+      "title": "Fix your AI's ugly code",
+      "description": "impeccable gives coding agents real design sense. 92k stars. #shorts #ai #tech #coding",
+      "tags": [
+        "impeccable",
+        "AI",
+        "coding",
+        "tech",
+        "design"
+      ],
+      "caption": "impeccable gives coding agents real design sense. 92k stars. #shorts #ai #tech #coding",
+      "hashtags": [
+        "#shorts",
+        "#antislop",
+        "#agentskills",
+        "#designsystems"
+      ]
+    },
+    "facebook": {
+      "title": "Give your AI good design sense",
+      "description": "impeccable is a design vocabulary for coding agents. 92k+ stars and climbing. #shorts #ai #programming",
+      "tags": [
+        "impeccable",
+        "AI",
+        "coding",
+        "design"
+      ],
+      "caption": "impeccable is a design vocabulary for coding agents. 92k+ stars and climbing. #shorts #ai #programming",
+      "hashtags": [
+        "#shorts",
+        "#antislop",
+        "#agentskills"
+      ]
+    },
+    "x": {
+      "title": "Your AI needs design skills",
+      "description": "impeccable gives coding agents a design vocabulary. #shorts #ai",
+      "tags": [
+        "impeccable",
+        "AI",
+        "coding"
+      ],
+      "text": "impeccable gives coding agents a design vocabulary. #shorts #ai",
+      "hashtags": [
+        "#shorts",
+        "#antislop"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Stop accepting ugly code. Comment POLISH",
+    "hashtags": [
+      "#shorts",
+      "#ai",
+      "#coding",
+      "#design",
+      "#programming"
+    ]
+  },
+  "research_basis": [
+    "research/reference-study/fwBIZRq-vzY.md",
+    "research/reference-study/EAJFs6Q0Ufs.md"
+  ],
+  "viewer": {
+    "who": "developers who use AI coding agents like Claude Code, Cursor, and Codex",
+    "problem": "AI generated code often has poor design — generic layouts, sloppy spacing, cookie-cutter patterns",
+    "job": "want their AI agent to write code that looks intentional and polished, not generic AI slop"
+  },
+  "idea": "impeccable is a design vocabulary for coding agents that steers them toward polished, bold design instead of generic AI slop.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "impeccable is a design vocabulary that plugs into Claude Code, Cursor, and Codex",
+      "source": "https://github.com/pbakaus/impeccable"
+    },
+    {
+      "id": "c2",
+      "text": "impeccable has 92,814 GitHub stars with 2,185 new stars today",
+      "source": "https://gittrend.io/api/trending"
+    },
+    {
+      "id": "c3",
+      "text": "impeccable is built in Rust and works as agent skills",
+      "source": "https://github.com/pbakaus/impeccable"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/pbakaus/impeccable",
+      "how_shown": "hook camera on repo title and description"
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://gittrend.io",
+      "how_shown": "stars scene shows star count and today's growth"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://github.com/pbakaus/impeccable",
+      "how_shown": "how scene shows Rust and agent skills"
+    }
+  ],
+  "review": {
+    "reviewed_at": "2026-10-29T10:00:00Z",
+    "expires_at": "2026-10-31",
+    "reviewer": "agent; facts checked against gittrend.io trending API and GitHub repo on 2026-10-29",
+    "notes": "All star counts and descriptions verified against live gittrend.io API on 2026-10-29"
+  }
+}

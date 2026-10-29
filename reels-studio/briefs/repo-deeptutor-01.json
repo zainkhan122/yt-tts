@@ -1,0 +1,267 @@
+{
+  "id": "repo-deeptutor-01",
+  "capture": "repo-deeptutor-01",
+  "title": "DeepTutor: Your AI Tutor for Life",
+  "niche": "AI education and personalized learning",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "DeepTutor",
+    "AI tutor",
+    "personalized learning",
+    "multi-agent",
+    "education"
+  ],
+  "facts": {
+    "stars": "48,105 GitHub stars (gittrend.io, 2026-10-29)",
+    "stars_today": "+2,079 stars today",
+    "language": "Python",
+    "license": "open source",
+    "description": "DeepTutor: Lifelong Personalized Tutoring",
+    "topics": [
+      "ai-tutor",
+      "deepresearch",
+      "interactive-learning",
+      "multi-agent-systems"
+    ]
+  },
+  "sources": [
+    "https://github.com/HKUDS/DeepTutor",
+    "https://api.github.com/repos/HKUDS/DeepTutor"
+  ],
+  "verify_before_render": [
+    "Stars, license, and repo status re-checked against the live repo on render day."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "page",
+      "image": "repo-title.jpg",
+      "heading": "A TUTOR THAT *LEARS WITH YOU* FOREVER",
+      "sub": "DeepTutor · lifelong personalized tutoring",
+      "say": "Most AI tutors forget you after one session. DeepTutor is built to learn alongside you for years.",
+      "url": "github.com/HKUDS/DeepTutor",
+      "camera": [
+        {
+          "region": "repo_title",
+          "zoom": 1.5,
+          "at": "for years"
+        }
+      ]
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "heading": "DeepTutor",
+      "sub": "Multi-agent AI tutoring",
+      "say": "It's called DeepTutor. It's a multi-agent system that personalizes education to how you learn, not just what you know.",
+      "image": "readme-top.jpg"
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "HOW IT WORKS",
+      "say": "Multiple AI agents work together. One tracks your knowledge. Another adapts the difficulty. A third checks your understanding. They coordinate to give you a tutor that actually knows your level.",
+      "image": "readme-how.jpg"
+    },
+    {
+      "id": "stars",
+      "type": "page",
+      "image": "stars.jpg",
+      "heading": "48,105 ★ AND GROWING",
+      "sub": "+2,079 stars today",
+      "say": "Forty eight thousand stars. Two thousand more today. The education AI space is exploding, and DeepTutor is leading it.",
+      "url": "github.com/HKUDS/DeepTutor",
+      "camera": [
+        {
+          "region": "stars",
+          "zoom": 1.5,
+          "at": "leading it"
+        }
+      ]
+    },
+    {
+      "id": "install",
+      "type": "page",
+      "image": "install.jpg",
+      "heading": "TRY IT FREE",
+      "sub": "Open source, self-hostable",
+      "say": "It's open source and self-hostable. Run it locally, or deploy it to your own server. Your data never leaves your machine.",
+      "url": "github.com/HKUDS/DeepTutor",
+      "camera": [
+        {
+          "region": "install",
+          "zoom": 1.3,
+          "at": "never leaves"
+        }
+      ]
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE HONEST CATCH",
+      "say": "No AI tutor replaces a real teacher. But DeepTutor's multi-agent approach gets closer than anything I've seen. It adapts, it remembers, and it pushes you when you're ready.",
+      "image": "catch.jpg"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "TUTOR",
+      "say": "What would you want a lifetime AI tutor to teach you? Comment TUTOR and follow for tools like this."
+    }
+  ],
+  "seo": {
+    "keyword": "DeepTutor AI tutor",
+    "aliases": [
+      "DeepTutor lifelong tutoring",
+      "AI tutor multi-agent",
+      "personalized AI education"
+    ],
+    "onscreen_first3s": "A TUTOR THAT LEEARNS WITH YOU",
+    "youtube": {
+      "title": "This AI Tutor Remembers You Forever",
+      "description": "DeepTutor is a multi-agent AI tutor that personalizes education. Open source and self-hostable. #shorts #ai #education #tutor",
+      "tags": [
+        "DeepTutor",
+        "AI tutor",
+        "education",
+        "multi-agent",
+        "learning"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#aitutor",
+        "#multiagent",
+        "#lifelonglearning"
+      ]
+    },
+    "tiktok": {
+      "title": "This AI tutor remembers you forever",
+      "description": "DeepTutor uses multiple AI agents to personalize your learning. Open source. #shorts #ai #education #tutor",
+      "tags": [
+        "DeepTutor",
+        "AI",
+        "education",
+        "tutor",
+        "learning"
+      ],
+      "caption": "DeepTutor uses multiple AI agents to personalize your learning. Open source. #shorts #ai #education #tutor",
+      "hashtags": [
+        "#shorts",
+        "#aitutor",
+        "#multiagent",
+        "#lifelonglearning"
+      ]
+    },
+    "instagram": {
+      "title": "AI tutor that learns with you",
+      "description": "DeepTutor is a multi-agent AI tutor that adapts to your level. 48k stars. #shorts #ai #education #tech",
+      "tags": [
+        "DeepTutor",
+        "AI",
+        "education",
+        "tutor",
+        "tech"
+      ],
+      "caption": "DeepTutor is a multi-agent AI tutor that adapts to your level. 48k stars. #shorts #ai #education #tech",
+      "hashtags": [
+        "#shorts",
+        "#aitutor",
+        "#multiagent",
+        "#lifelonglearning"
+      ]
+    },
+    "facebook": {
+      "title": "AI tutor that remembers you forever",
+      "description": "DeepTutor is a lifelong personalized AI tutor. Open source, 48k+ stars. #shorts #ai #education",
+      "tags": [
+        "DeepTutor",
+        "AI",
+        "education",
+        "tutor"
+      ],
+      "caption": "DeepTutor is a lifelong personalized AI tutor. Open source, 48k+ stars. #shorts #ai #education",
+      "hashtags": [
+        "#shorts",
+        "#aitutor",
+        "#multiagent"
+      ]
+    },
+    "x": {
+      "title": "AI tutor that learns with you",
+      "description": "DeepTutor: multi-agent AI tutoring that remembers. #shorts #ai",
+      "tags": [
+        "DeepTutor",
+        "AI",
+        "education"
+      ],
+      "text": "DeepTutor: multi-agent AI tutoring that remembers. #shorts #ai",
+      "hashtags": [
+        "#shorts",
+        "#aitutor"
+      ]
+    }
+  },
+  "post": {
+    "cta": "What would you want to learn forever? Comment TUTOR",
+    "hashtags": [
+      "#shorts",
+      "#ai",
+      "#education",
+      "#tutor",
+      "#learning"
+    ]
+  },
+  "research_basis": [
+    "research/reference-study/fwBIZRq-vzY.md",
+    "research/reference-study/9YvCiNc_kiU.md"
+  ],
+  "viewer": {
+    "who": "students, lifelong learners, and anyone who wants personalized AI tutoring",
+    "problem": "most AI tutors are one-shot chatbots that forget you after a single session",
+    "job": "want an AI tutor that remembers their level, adapts over time, and grows with them"
+  },
+  "idea": "DeepTutor is a multi-agent AI tutor that personalizes education and remembers the learner across sessions.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "DeepTutor is a multi-agent system for lifelong personalized tutoring",
+      "source": "https://github.com/HKUDS/DeepTutor"
+    },
+    {
+      "id": "c2",
+      "text": "DeepTutor has 48,105 GitHub stars with 2,079 new stars today",
+      "source": "https://gittrend.io/api/trending"
+    },
+    {
+      "id": "c3",
+      "text": "DeepTutor is open source, self-hostable, and built in Python",
+      "source": "https://github.com/HKUDS/DeepTutor"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/HKUDS/DeepTutor",
+      "how_shown": "hook camera on repo title and description"
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://gittrend.io",
+      "how_shown": "stars scene shows star count and today's growth"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://github.com/HKUDS/DeepTutor",
+      "how_shown": "install scene shows open source and self-hostable"
+    }
+  ],
+  "review": {
+    "reviewed_at": "2026-10-29T10:00:00Z",
+    "expires_at": "2026-10-31",
+    "reviewer": "agent; facts checked against gittrend.io trending API and GitHub repo on 2026-10-29",
+    "notes": "All star counts and descriptions verified against live gittrend.io API on 2026-10-29"
+  }
+}
