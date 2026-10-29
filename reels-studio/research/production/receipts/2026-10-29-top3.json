@@ -222,7 +222,7 @@
           "rights_checked": true,
           "approval_constraints_checked": true,
           "capture_id": "tool-claude-code-01",
-          "manifest_sha256": "3e758b278bce6d0ca9da2a497a30ccfec8ee73b9d780d5646f8310a38086795f",
+          "manifest_sha256": "838c0ce31d8f0c7534380333ddf9dfdace97e2968df7442f607ab2cefb54c4a5",
           "files": [
             {
               "path": "catch.jpg",
@@ -342,8 +342,12 @@
           "rights_checked": true,
           "approval_constraints_checked": true,
           "capture_id": "tool-heygen-01",
-          "manifest_sha256": "200010837489ef0e96718e5005c6cef1b28122561895f319c49afdceaa2a1bd6",
+          "manifest_sha256": "0b0bd8ee57ee0ef77740ecdd5150a3bb76d4cd7cd32d8ef23bfc309813f83af7",
           "files": [
+            {
+              "path": "README.md",
+              "sha256": "9ffb4502db3c57348a6122360d3f694d1dfb537b6e3ae0f7af160bc58067ac7d"
+            },
             {
               "path": "contact.jpg",
               "sha256": "459fd3db1a698fd598ce6070b6c6564f262deed2488c023ae22a0fb2aba86df0"
