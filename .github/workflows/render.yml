@@ -168,6 +168,15 @@ jobs:
         run: bash reels-studio/cloud/setup-render.sh
       - name: Capture pack
         run: python3 reels-studio/tools/capture_store.py pull-for "$BRIEF"
+      - name: Create per-brief receipt
+        run: |
+          BRIEF_ID=$(basename "$BRIEF" .json)
+          RECEIPT_PATH="${{ inputs.production_receipt }}"
+          if command -v jq &>/dev/null; then
+            jq --arg id "$BRIEF_ID" '.briefs |= {$id: .[$id]}' "$RECEIPT_PATH" > "/tmp/receipt-$BRIEF_ID.json"
+          else
+            python3 -c "import json,sys; d=json.load(open(sys.argv[1])); bid=sys.argv[2]; d['briefs']={bid:d['briefs'][bid]}; json.dump(d,open(f"/tmp/receipt-{bid}.json","w"),indent=2)" "$RECEIPT_PATH" "$BRIEF_ID"
+          fi
       - name: Reviewed cover pack (the panel's pick, byte-identical)
         run: python3 reels-studio/tools/cover_store.py pull-for "$BRIEF"
       - name: Render (voice, QA gates, video)
@@ -180,7 +189,7 @@ jobs:
           if [ -n "$REBUILD_SCENES" ]; then
             extra=(--rebuild-scenes "$REBUILD_SCENES" --rebuild-reason "$REBUILD_REASON" --from-tag "${FROM_TAG:-${{ needs.plan.outputs.tag }}}")
           else
-            extra=(--receipt "${{ inputs.production_receipt }}")
+            extra=(--receipt "/tmp/receipt-${{ matrix.brief }}.json")
           fi
           python3 reels-studio/reels.py make "$BRIEF" --quality "${{ inputs.quality }}" --crf "${{ inputs.crf }}" "${extra[@]}"
       - name: SEO pack (gate)
