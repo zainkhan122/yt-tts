@@ -4,10 +4,10 @@
   "created_at": "2026-10-29T14:02:24.217197Z",
   "buffer_insights": {
     "path": "reels-studio/tracker/buffer-insights.json",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    "sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6"
   },
   "metrics_review": {
-    "snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
     "reviewed_video_count": 130,
     "sample_post_ids": [
       "6ac904b32f26cc482c22c524",
@@ -57,7 +57,7 @@
             "free_value": 10,
             "freshness_angle": 14
           },
-          "metrics_snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "metrics_snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
           "basis_post_ids": [
             "6ac904b32f26cc482c22c524",
             "6ac904b32f26cc482c22c526",
@@ -177,7 +177,7 @@
             "free_value": 10,
             "freshness_angle": 12
           },
-          "metrics_snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "metrics_snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
           "basis_post_ids": [
             "6ac904b32f26cc482c22c524",
             "6ac904b32f26cc482c22c526",
@@ -297,7 +297,7 @@
             "free_value": 10,
             "freshness_angle": 11
           },
-          "metrics_snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "metrics_snapshot_sha256": "e648aa843db46a26cff9e0d9b8c27e06730f98f8052fcc77e6bbd0f2d3971ec6",
           "basis_post_ids": [
             "6ac904b32f26cc482c22c524",
             "6ac904b32f26cc482c22c526",
