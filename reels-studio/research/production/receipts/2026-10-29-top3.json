@@ -129,6 +129,10 @@
               "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
             },
             {
+              "path": "manifest.json",
+              "sha256": "235b501d0628a5b2704951f75165203d3341ca9c6063a86e3ab49d8528e77180"
+            },
+            {
               "path": "model-card.jpg",
               "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
             },
@@ -249,6 +253,10 @@
               "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
             },
             {
+              "path": "manifest.json",
+              "sha256": "21092257ebc48027f601f49f07711f64c6786ee106b4f6b69138748f817f6c7e"
+            },
+            {
               "path": "model-card.jpg",
               "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
             },
@@ -345,12 +353,20 @@
           "manifest_sha256": "69413ac2ed0d5a1b4ca99f4e776688f9d691bf49e9f5121d861c8456e81635da",
           "files": [
             {
+              "path": "README.md",
+              "sha256": "9ffb4502db3c57348a6122360d3f694d1dfb537b6e3ae0f7af160bc58067ac7d"
+            },
+            {
               "path": "contact.jpg",
               "sha256": "459fd3db1a698fd598ce6070b6c6564f262deed2488c023ae22a0fb2aba86df0"
             },
             {
               "path": "hero-dark.png",
               "sha256": "03f38c6fc23e0f9ed02bb65e878cdbe0c57f7006b2daf4d2a3768bf69dc49988"
+            },
+            {
+              "path": "manifest.json",
+              "sha256": "0a00eb1b131b73485627121c9339275f862d1c84d4f6edda91a1989e9396d07f"
             },
             {
               "path": "og-image.png",
