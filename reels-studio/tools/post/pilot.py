@@ -55,7 +55,8 @@ def immediate_plan(items, records, channels, posts, cfg, now, preview=False):
             raise ValueError(platform+": no pending capacity for the pilot")
         if sum(t.astimezone(zone).date()==now.astimezone(zone).date() for t in events.values())>=cfg["schedule"].get("daily_target",3):
             raise ValueError(platform+": daily posting target already reached")
-        if any(abs((now-t).total_seconds()) < cfg["schedule"]["minimum_gap_minutes"]*60 for t in events.values()):
+        pilot_gap = max(cfg["schedule"]["minimum_gap_minutes"], 60)
+        if any(abs((now-t).total_seconds()) < pilot_gap*60 for t in events.values()):
             raise ValueError(platform+": immediate pilot conflicts with recent/upcoming posts")
         if item["category"] == "repo" and any(r.get("platform")==platform and r.get("category")=="repo" and
                 parse_time(r.get("sent_at") or r.get("due_at")) and parse_time(r.get("sent_at") or r.get("due_at")).astimezone(zone).date()==now.astimezone(zone).date()
