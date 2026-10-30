@@ -1,6 +1,6 @@
 {
   "id": "tool-claude-code-01",
-  "capture": "tool-claude-code-01",
+  "capture": "captures/tool-claude-code-01",
   "title": "Claude Code: The Coding Agent That's Everywhere",
   "niche": "AI coding tools and developer productivity",
   "lang": "en-us",
@@ -78,7 +78,7 @@
       "type": "page",
       "image": "terminal-top.jpg",
       "heading": "THE AI CODING AGENT *EVERYONE* IS TALKING ABOUT",
-      "sub": "Claude Code \u00b7 7 channels covered it this week",
+      "sub": "Claude Code · 7 channels covered it this week",
       "say": "Seven channels covered this tool this week. Eighty two thousand views. This is Claude Code, the AI coding agent that runs right in your terminal.",
       "url": "claude.ai/code",
       "camera": [
@@ -95,14 +95,14 @@
       "heading": "Claude Code",
       "sub": "Anthropic's terminal AI",
       "say": "It's Claude Code from Anthropic. Not a browser extension, not a chat window. It lives in your terminal, right where you code.",
-      "image": "claude-code-ui.jpg"
+      "image": "desktop-top.jpg"
     },
     {
       "id": "how",
       "type": "steps",
       "heading": "HOW IT WORKS",
       "say": "Type a request. Claude Code reads your codebase, understands the context, and makes the change. It commits, pushes, and even opens PRs. You review, it iterates.",
-      "image": "claude-code-steps.jpg"
+      "image": "steps.jpg"
     },
     {
       "id": "stars",
