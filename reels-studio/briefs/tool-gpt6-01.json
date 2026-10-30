@@ -3,33 +3,47 @@
   "claims": [
     {
       "id": "c1",
-      "source": "https://www.youtube.com/watch?v=4vANw-9XMiw",
-      "text": "GPT-6 is OpenAI's latest model with advanced long-horizon reasoning"
+      "source": "https://www.dexerto.com/minecraft/gpt-6-astra-forced-to-play-minecraft-gets-depressed-by-creeper-and-farms-potatoes-for-hours-3409634/",
+      "text": "GPT-6 Astra is OpenAI's latest frontier model with advanced long-horizon reasoning"
     },
     {
       "id": "c2",
-      "source": "https://gittrend.io/api/trending",
-      "text": "4 watchlist channels covered GPT-6 this week with 162,909 combined views"
+      "source": "https://gigazine.net/gsc_news/en/20260917-gpt-6-astra-plays-minecraft/",
+      "text": "In a 141-hour Minecraft test, GPT-6 Astra progressed further than any AI system ever tested, building a Blaze farm, collecting 6 Blaze Rods, and securing 3 Ender Pearls"
     },
     {
       "id": "c3",
-      "source": "https://www.youtube.com/watch?v=4vANw-9XMiw",
-      "text": "GPT-6 played Minecraft for 141 hours, building advanced structures"
+      "source": "https://www.tomshardware.com/news/gpt-6-astra-minecraft-test",
+      "text": "After a Creeper destroyed its inventory, Astra spent hours farming potatoes and showed increased caution around Creepers"
+    },
+    {
+      "id": "c4",
+      "source": "https://tech-insider.org/ai-minecraft-rsg-speedrun-manifold-odds/",
+      "text": "GPT-6 Astra is the Vals AI CUA-Bench leader at 19.2% of the game suite"
+    },
+    {
+      "id": "c5",
+      "source": "https://openai.com",
+      "text": "GPT-6 is available in ChatGPT with no special access required"
     }
   ],
   "facts": {
-    "best_video": "112,000 views (https://www.youtube.com/watch?v=4vANw-9XMiw)",
-    "consensus": "4 watchlist channels covered it this week (idea feed 2026-10-29)",
-    "description": "GPT-6 is OpenAI's latest model with advanced long-horizon reasoning",
-    "views": "162,909 combined views across channels"
+    "availability": "GPT-6 is available in ChatGPT. No special access required.",
+    "benchmark": "Vals AI CUA-Bench leader at 19.2% of the game suite \u2014 further than any previous AI system.",
+    "description": "GPT-6 Astra is OpenAI's latest frontier model, demonstrating unprecedented long-horizon reasoning by playing Minecraft for 141 hours straight in a Vals AI evaluation.",
+    "what_happened_next": "A Creeper destroyed its inventory. After that, Astra spent hours farming potatoes and became paranoid about green objects. Viewers watching the stream urged it to speed up.",
+    "what_it_did": "In a 141-hour Minecraft test by Vals AI, GPT-6 Astra progressed further than any AI system ever tested. It built a semi-automatic Blaze farm, collected 6 Blaze Rods, found a Warped Forest, killed 6+ Endermen, and secured 3 Ender Pearls \u2014 enough to craft Ender Eyes for the final boss.",
+    "what_it_is": "OpenAI's newest frontier AI model with advanced long-horizon reasoning \u2014 the ability to sustain attention and plan across hours of autonomous work, not just seconds.",
+    "why_it_matters": "This is the first AI to sustain autonomous goal-directed behavior for days. It plans ahead, learns from failure, and keeps going. The Minecraft demo is a benchmark \u2014 the same long-horizon reasoning applies to real software agents, research, and automation."
   },
   "id": "tool-gpt6-01",
-  "idea": "GPT-6 is the most-viewed AI model topic this week, with 163k views and 4 channels covering it.",
+  "idea": "GPT-6 Astra is the first AI to demonstrate long-horizon reasoning \u2014 sustaining autonomous goal-directed behavior for 141 hours in Minecraft, progressing further than any AI before it. This is a fundamental leap in AI capability.",
   "keywords": [
     "GPT-6",
+    "GPT-6 Astra",
     "OpenAI",
-    "frontier AI",
-    "long-horizon reasoning"
+    "long-horizon reasoning",
+    "AI agent"
   ],
   "lang": "en-us",
   "niche": "AI models and frontier AI",
@@ -37,45 +51,55 @@
     "cta": "What would you want GPT-6 to do? Comment GPT-6",
     "hashtags": [
       "#shorts",
-      "#ai",
       "#gpt6",
+      "#gpt6astra",
       "#openai",
-      "#programming"
+      "#frontierai"
     ]
   },
   "production_category": "tool",
   "proof_plan": [
     {
       "claim": "c1",
-      "evidence": "source:https://www.youtube.com/watch?v=4vANw-9XMiw",
-      "how_shown": "hook camera on GPT-6 model card"
+      "evidence": "Dexerto, GIGAZINE, Tom's Hardware reporting on Vals AI evaluation",
+      "how_shown": "Name scene shows GPT-6 model card"
     },
     {
       "claim": "c2",
-      "evidence": "source:https://gittrend.io",
-      "how_shown": "stars scene shows coverage stats"
+      "evidence": "GIGAZINE: built Blaze farm, collected 6 Blaze Rods, 3 Ender Pearls",
+      "how_shown": "How scene shows Minecraft progression stats"
     },
     {
       "claim": "c3",
-      "evidence": "source:https://www.youtube.com/watch?v=4vANw-9XMiw",
-      "how_shown": "how scene shows Minecraft footage"
+      "evidence": "Dexerto: Creeper destroyed inventory, potato farming, paranoia about green objects",
+      "how_shown": "Catch scene shows the Creeper incident"
+    },
+    {
+      "claim": "c4",
+      "evidence": "Tech Insider: Vals AI CUA-Bench 19.2%",
+      "how_shown": "Stars scene shows benchmark score"
+    },
+    {
+      "claim": "c5",
+      "evidence": "OpenAI.com: available in ChatGPT",
+      "how_shown": "Install scene shows ChatGPT interface"
     }
   ],
   "research_basis": [
     "research/ideas/feed-2026-10-29.md",
-    "research/radar/radar-2026-10-29.md"
+    "research/production/2026-10-29-tool-gpt6-01-fact-sheet.md"
   ],
   "review": {
-    "expires_at": "2026-10-31",
-    "notes": "Coverage and views verified against idea feed 2026-10-29",
-    "reviewed_at": "2026-10-29T10:00:00Z",
-    "reviewer": "agent; facts checked against idea feed and trending data on 2026-10-29"
+    "expires_at": "2026-11-07",
+    "notes": "Verified GPT-6 Astra Minecraft test details, benchmark scores, and availability from multiple independent sources.",
+    "reviewed_at": "2026-10-30T10:26:54.282361+00:00",
+    "reviewer": "agent; facts checked against Dexerto, GIGAZINE, Tom's Hardware, Tech Insider on 2026-10-30"
   },
   "scenes": [
     {
       "camera": [
         {
-          "at": "one hundred sixty three",
+          "at": "GPT-6",
           "region": "model_card",
           "zoom": 1.5
         }
@@ -83,39 +107,39 @@
       "heading": "THE AI THAT PLAYED *MINECRAFT* FOR 141 HOURS",
       "id": "hook",
       "image": "model-card.jpg",
-      "say": "This AI played Minecraft for one hundred and forty one hours. It built structures, explored, and survived. Four channels covered it this week. One hundred sixty three thousand views. This is GPT-6.",
-      "sub": "GPT-6 \u00b7 4 channels covered it this week",
+      "say": "This AI played Minecraft for one hundred and forty one hours straight. It built a Blaze farm, found a Warped Forest, killed six Endermen, and collected three Ender Pearls. It got further than any AI ever tested. Then a Creeper blew up everything. This is GPT-6 Astra.",
+      "sub": "GPT-6 Astra \u00b7 Vals AI evaluation",
       "type": "page",
       "url": "openai.com"
     },
     {
-      "heading": "GPT-6",
+      "heading": "GPT-6 ASTRA",
       "id": "name",
       "image": "desktop-top.jpg",
-      "say": "It's GPT-6 from OpenAI. Not just a bigger model. It's a different kind of reasoning. It can sustain attention for hours, not seconds.",
+      "say": "It's called GPT-6 Astra. OpenAI's newest model. Not just a bigger language model \u2014 it's built for long-horizon reasoning. That means it can sustain attention and plan across hours of autonomous work. Not seconds. Not minutes. Hours.",
       "sub": "OpenAI's frontier model",
       "type": "image"
     },
     {
-      "heading": "HOW IT WORKS",
+      "heading": "WHAT IT DID",
       "id": "how",
       "image": "desktop-full.jpg",
-      "say": "GPT-6 played Minecraft for 141 hours straight. It learned to build, explore, and survive. It didn't just follow instructions \u2014 it planned ahead. This is long-horizon reasoning, and it's a new frontier.",
+      "say": "Vals AI put GPT-6 Astra in Minecraft and told it to beat the game. For one hundred and forty one hours, it played without human help. It built a semi-automatic Blaze farm. Collected six Blaze Rods. Found a Warped Forest. Killed six Endermen. Got three Ender Pearls \u2014 enough to craft Ender Eyes and find the stronghold. It was in the endgame.",
       "type": "steps"
     },
     {
       "camera": [
         {
-          "at": "captivated",
+          "at": "nineteen",
           "region": "coverage",
           "zoom": 1.5
         }
       ],
-      "heading": "162,909 VIEWS THIS WEEK",
+      "heading": "FURTHER THAN ANY AI BEFORE",
       "id": "stars",
       "image": "coverage.jpg",
-      "say": "One hundred sixty three thousand views this week. Four channels covering the same model means people are captivated. This isn't just another model release.",
-      "sub": "4 channels covered it",
+      "say": "It scored nineteen point two percent on the Vals AI benchmark \u2014 the furthest any AI has gotten in this test. Four channels covered it this week. One hundred sixty three thousand views. People are captivated because this isn't just a game. It's a test of how long an AI can keep a goal in mind.",
+      "sub": "Vals AI CUA-Bench leader \u00b7 19.2%",
       "type": "page",
       "url": "gittrend.io"
     },
@@ -130,7 +154,7 @@
       "heading": "TRY IT NOW",
       "id": "install",
       "image": "install.jpg",
-      "say": "GPT-6 is available in ChatGPT right now. No special access required. Just open ChatGPT and start asking. The capabilities are already live.",
+      "say": "You can try GPT-6 right now. It's in ChatGPT. No special access, no API key, no waitlist. Just open ChatGPT and start asking. The long-horizon reasoning capabilities are already live.",
       "sub": "Available in ChatGPT",
       "type": "page",
       "url": "chat.openai.com"
@@ -139,7 +163,7 @@
       "heading": "THE HONEST CATCH",
       "id": "catch",
       "image": "catch.jpg",
-      "say": "GPT-6 is impressive, but it's still an AI. It will hallucinate. It will make mistakes. And the Minecraft demo is impressive, but real-world tasks are harder. But this is the direction, and it's moving fast.",
+      "say": "Here's what happened next. A Creeper destroyed Astra's inventory. And it broke. It spent the next several hours farming potatoes. It became paranoid about green objects \u2014 reminding itself that sugarcane was not a Creeper. This is the first AI to sustain days of autonomous work, and it still couldn't handle a setback. That's the gap between a demo and a reliable agent.",
       "type": "verdict"
     },
     {
@@ -152,83 +176,91 @@
   "seo": {
     "aliases": [
       "GPT-6",
+      "GPT-6 Astra",
       "OpenAI GPT-6",
       "frontier AI model",
       "long-horizon reasoning"
     ],
     "facebook": {
-      "caption": "GPT-6 played Minecraft for 141 hours straight. It built, explored, and survived \u2014 planning ahead, not following a script. This is the future of AI reasoning. Live in ChatGPT now. #shorts #gpt6 #openai #ai",
+      "caption": "GPT-6 Astra played Minecraft for 141 hours straight. Built a Blaze farm, killed 6 Endermen, reached the endgame. Further than any AI ever tested. Then a Creeper destroyed everything. This is the first AI that can sustain days of autonomous work. Live in ChatGPT now. #shorts #gpt6 #openai #ai",
       "hashtags": [
         "#shorts",
         "#gpt6",
+        "#gpt6astra",
         "#openai",
         "#ai"
       ]
     },
     "instagram": {
-      "caption": "This AI played Minecraft for 141 hours \u2014 no scripts, just planning. GPT-6 can sustain reasoning for hours, not seconds. It's live in ChatGPT right now. #shorts #gpt6 #openai #frontierai",
+      "caption": "GPT-6 played Minecraft for 141 hours \u2014 built a farm, killed 6 Endermen, got 3 Ender Pearls. Further than any AI ever tested. Then one Creeper broke everything and it farmed potatoes for hours. This is what long-horizon reasoning looks like. Live in ChatGPT now. #shorts #gpt6 #openai #frontierai",
       "hashtags": [
         "#shorts",
         "#gpt6",
+        "#gpt6astra",
         "#openai",
         "#frontierai",
         "#llm"
       ]
     },
-    "keyword": "GPT-6 OpenAI long-horizon reasoning",
+    "keyword": "GPT-6 Astra OpenAI long-horizon reasoning",
     "onscreen_first3s": "THE AI THAT PLAYED MINECRAFT FOR 141 HOURS",
     "tiktok": {
-      "caption": "GPT-6 played Minecraft for 141 hours straight \u2014 no scripts, no instructions. It planned, built, and survived on its own. This is what long-horizon reasoning looks like. Already live in ChatGPT. #shorts #gpt6 #openai #ai",
+      "caption": "GPT-6 played Minecraft for 141 hours straight. Built a Blaze farm, killed 6 Endermen, got 3 Ender Pearls. Got further than any AI ever tested. Then a Creeper blew everything up and it farmed potatoes for hours. This is long-horizon reasoning \u2014 AI that thinks for days, not seconds. Live in ChatGPT now. #shorts #gpt6 #openai #ai",
       "hashtags": [
         "#shorts",
         "#gpt6",
+        "#gpt6astra",
         "#openai",
-        "#frontierai",
-        "#llm"
+        "#frontierai"
       ]
     },
     "x": {
       "hashtags": [
         "#gpt6",
+        "#gpt6astra",
         "#openai",
         "#ai"
       ],
-      "text": "GPT-6 played Minecraft for 141 hours straight. No scripts. It planned ahead, built structures, and survived on its own. This is long-horizon reasoning \u2014 AI that thinks for hours, not seconds. Live in ChatGPT now. #gpt6 #openai #ai"
+      "text": "GPT-6 played Minecraft for 141 hours. Built a Blaze farm, killed 6 Endermen, got 3 Ender Pearls. Further than any AI ever tested. Then a Creeper blew everything up. This is long-horizon reasoning \u2014 AI that sustains attention for days. Live in ChatGPT now. #gpt6 #openai #ai"
     },
     "youtube": {
-      "description": "GPT-6 is OpenAI's newest model, and it just played Minecraft for 141 hours without stopping. It built structures, explored, and survived on its own \u2014 not following scripted instructions, but planning ahead. This is long-horizon reasoning: AI that can sustain attention for hours, not seconds. It's already live in ChatGPT. No special access needed.\n\nWhat would you want GPT-6 to do? Comment GPT-6\n\n#shorts #gpt6 #openai #frontierai #llm #ai",
+      "description": "GPT-6 Astra is OpenAI's newest model, and it just played Minecraft for 141 hours straight in a Vals AI test. It built a Blaze farm, collected 6 Blaze Rods, killed 6+ Endermen, and got 3 Ender Pearls \u2014 enough to reach the endgame. It scored 19.2% on the CUA-Bench, the furthest any AI has ever gone. Then a Creeper destroyed everything, and it spent hours farming potatoes.\n\nThis is long-horizon reasoning: AI that can sustain attention and plan across hours, not seconds. It's live in ChatGPT right now.\n\nWhat would you want GPT-6 to do? Comment GPT-6\n\n#shorts #gpt6 #gpt6astra #openai #frontierai #ai #minecraft",
       "hashtags": [
         "#shorts",
         "#gpt6",
+        "#gpt6astra",
         "#openai",
         "#frontierai",
         "#llm"
       ],
       "tags": [
         "GPT-6",
+        "GPT-6 Astra",
         "OpenAI",
         "long-horizon reasoning",
-        "AI reasoning",
-        "ChatGPT",
-        "frontier AI",
+        "AI agent",
+        "Vals AI",
+        "CUA-Bench",
         "Minecraft AI"
       ],
-      "title": "GPT-6 Played Minecraft for 141 Hours Straight \u2014 Here's Why That Matters"
+      "title": "GPT-6 Played Minecraft for 141 Hours \u2014 Got Further Than Any AI Before"
     }
   },
   "sources": [
-    "https://www.youtube.com/watch?v=4vANw-9XMiw",
-    "https://gittrend.io/api/trending"
+    "https://www.dexerto.com/minecraft/gpt-6-astra-forced-to-play-minecraft-gets-depressed-by-creeper-and-farms-potatoes-for-hours-3409634/",
+    "https://gigazine.net/gsc_news/en/20260917-gpt-6-astra-plays-minecraft/",
+    "https://tech-insider.org/ai-minecraft-rsg-speedrun-manifold-odds/",
+    "https://openai.com"
   ],
   "status": "draft",
   "style": "explainer",
-  "title": "GPT-6: The Model That Played Minecraft for 141 Hours",
+  "title": "GPT-6 Astra: The AI That Played Minecraft for 141 Hours",
   "verify_before_render": [
     "GPT-6 capabilities and benchmarks re-checked against latest OpenAI announcements on render day."
   ],
   "viewer": {
-    "job": "want to see what the next generation of AI can actually do",
-    "problem": "previous AI models struggle with long tasks and sustained reasoning",
+    "job": "See what the next generation of AI reasoning can actually do \u2014 and what it means for the future of AI agents.",
+    "problem": "Previous AI models can only sustain attention for seconds or minutes. They can't plan across hours of autonomous work.",
     "who": "AI enthusiasts, developers, and anyone curious about frontier AI"
   },
   "voice_seed": 785915
