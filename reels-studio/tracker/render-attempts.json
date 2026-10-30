@@ -564,6 +564,25 @@
       "status": "failed",
       "voice_seed": 785915
     },
+    "4bac7423eeefb78666766dcde81e611a1e7c6eb008a8dea74dc08c4daabd6f86": {
+      "asset_files_sha256": "181cf942cdbd06351417b38fb5c12b98f896fd353f24a844f375062a8078c98f",
+      "asset_manifest_sha256": "8f4e481c0ee4e034b00555d74aeb6de00d7c195e0c1d14a1695ec9c3ffd14a9c",
+      "brief_id": "repo-cleanyourtv-01",
+      "brief_sha256": "dd178c3d5191ce3d2e2cc202541a7b43bcf744dbe0da8639e2881e1b9753e95e",
+      "capture_id": "repo-cleanyourtv-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "4bac7423eeefb78666766dcde81e611a1e7c6eb008a8dea74dc08c4daabd6f86",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "8cad27cb51903f25e8e0b424bad4f56cdaa746fa8ccd5df4cc112f75486112ae",
+      "run_id": "41092997043",
+      "started_at": "2026-10-30T16:47:14Z",
+      "status": "started",
+      "voice_seed": 0
+    },
     "4cfde1412a5bfb628098c0d894109dc039a0da11bf88cdf07d40ffe86e96cbd1": {
       "asset_files_sha256": "4ceda0112bb5e092176055042d6ed6ab1ead79a58d7e4f7fe37b2dc114a2366b",
       "asset_manifest_sha256": "208088fb3ec72b73d6d7ddb68e98695109deff7c13525f9287c90c722fce8680",
@@ -1272,6 +1291,25 @@
       "status": "success",
       "voice_seed": 0
     },
+    "aa0a0dbac31500ee30ad00640831fb8df4f094aeab73e2a3a224e42e5df7fd7f": {
+      "asset_files_sha256": "9b8d49142d1fec14c3c94207d8cbf6b1f58c4c8ee67f62059bb186a3568924bd",
+      "asset_manifest_sha256": "048cdb6a5ee3e982b90009457da8e117063e9f2bcf1e3d921ace5b153a2d50e4",
+      "brief_id": "repo-edge0-01",
+      "brief_sha256": "2aa57bd1c470a8d731676c675ec8eb5f650c2bfeef88d34df648674be91a69d3",
+      "capture_id": "repo-edge0-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "aa0a0dbac31500ee30ad00640831fb8df4f094aeab73e2a3a224e42e5df7fd7f",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "8cad27cb51903f25e8e0b424bad4f56cdaa746fa8ccd5df4cc112f75486112ae",
+      "run_id": "41092997043",
+      "started_at": "2026-10-30T16:47:14Z",
+      "status": "started",
+      "voice_seed": 0
+    },
     "abb9a9636c5e55319db39f61d9d4cf56850d2ccf3af34164c5acddf67bc0bba7": {
       "asset_files_sha256": "4ceda0112bb5e092176055042d6ed6ab1ead79a58d7e4f7fe37b2dc114a2366b",
       "asset_manifest_sha256": "208088fb3ec72b73d6d7ddb68e98695109deff7c13525f9287c90c722fce8680",
@@ -1541,6 +1579,25 @@
       "run_id": "39473262212",
       "started_at": "2026-10-20T18:16:16Z",
       "status": "scene_rebuild_success",
+      "voice_seed": 0
+    },
+    "c647ebda87af87c9bfbfb6eaf1c2972de32d014d52f8e8812d21ceb89f8b1f2b": {
+      "asset_files_sha256": "3d4a8c9eaef726e1cebd6ac47df382e57cfb00376b2735632c4fba46c47fbcdb",
+      "asset_manifest_sha256": "2a5d5f4f22abb6484f33da8801d8bd01be0b348d04b50016c26a3cfc243ff5de",
+      "brief_id": "repo-deeptutor-01",
+      "brief_sha256": "5c265c6df35275f0f3d55584f7387f30d79a48316e5f7b1d44f3d45a17261308",
+      "capture_id": "repo-deeptutor-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "c647ebda87af87c9bfbfb6eaf1c2972de32d014d52f8e8812d21ceb89f8b1f2b",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "8cad27cb51903f25e8e0b424bad4f56cdaa746fa8ccd5df4cc112f75486112ae",
+      "run_id": "41092997043",
+      "started_at": "2026-10-30T16:47:14Z",
+      "status": "started",
       "voice_seed": 0
     },
     "c7e4dffd9294d9b1bd5785aef0324c6b0663e5219f00c4f1700878bcf2d64a36": {
@@ -1910,6 +1967,25 @@
       "run_id": "38885060482",
       "started_at": "2026-10-16T10:07:02Z",
       "status": "render_only_success",
+      "voice_seed": 0
+    },
+    "fa1d2b351377a78000a4fe1353613141681532ef6d7eb667c0f7fe7b3a157c4e": {
+      "asset_files_sha256": "fa31c578423b396d38eb23945307b99dd54b866d1e4db7f1ee1483923bfa81de",
+      "asset_manifest_sha256": "7668350792ecb5b5b37e9c074da8875ede7210a92ec787581f83242c69db3bd0",
+      "brief_id": "repo-impeccable-01",
+      "brief_sha256": "89513c59bb7bffecd0c9a57dd5b309c7262d4a6b91103676e08eab607e703e44",
+      "capture_id": "repo-impeccable-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "fa1d2b351377a78000a4fe1353613141681532ef6d7eb667c0f7fe7b3a157c4e",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "8cad27cb51903f25e8e0b424bad4f56cdaa746fa8ccd5df4cc112f75486112ae",
+      "run_id": "41092997043",
+      "started_at": "2026-10-30T16:47:14Z",
+      "status": "started",
       "voice_seed": 0
     },
     "fb65784e262846fd7906d7b974dba92901bb434f4fa16273b4a48b777c417de6": {
