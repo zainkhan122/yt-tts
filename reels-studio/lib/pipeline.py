@@ -1103,7 +1103,27 @@ def normalize_mp4_audio(mp4, I=-14.0, TP=-2.5, tol=0.5):
                    ["-movflags", "+faststart", str(tmp)], check=True)  # -t: AAC padding must not lengthen the file
     tmp.replace(mp4)
     after, _ = measure(mp4)
+    _ceiling_peaks(mp4)
     return before, after
+
+
+def _ceiling_peaks(mp4, ceiling_db=-1.8, passes=2):
+    """Safety net after loudnorm + AAC encode: if the final true peak is still above ceiling_db, re-limit the
+    AUDIO only (video copied) with a lower limiter until it is under the ceiling. Loudness stays at target."""
+    for _ in range(passes):
+        _, pk = measure(mp4)
+        if pk is None or pk <= ceiling_db:
+            return pk
+        lin = 10 ** ((ceiling_db - 0.6) / 20)  # limiter ceiling 0.6 dB under the guard
+        vdur = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=duration",
+                               "-of", "csv=p=0", str(mp4)], capture_output=True, text=True).stdout.strip()
+        tmp = Path(mp4).with_name(Path(mp4).stem + ".peak.mp4")
+        subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(mp4), "-map", "0:v:0", "-map", "0:a:0", "-c:v", "copy",
+                        "-af", f"alimiter=limit={lin:.4f}:attack=2:release=40:level=disabled",
+                        "-ar", "48000", "-ac", "2", "-c:a", "aac", "-b:a", "192k"] + (["-t", vdur] if vdur else []) +
+                       ["-movflags", "+faststart", str(tmp)], check=True)
+        tmp.replace(mp4)
+    return measure(mp4)[1]
 
 
 def measure(path):
