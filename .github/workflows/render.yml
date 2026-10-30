@@ -155,7 +155,6 @@ jobs:
             /reels-studio/
             /.github/workflows/
           sparse-checkout-cone-mode: false
-          filter: blob:none
       - uses: actions/cache@v4
         with:
           path: |
@@ -228,7 +227,6 @@ jobs:
             /reels-studio/lib/
             /reels-studio/tools/
           sparse-checkout-cone-mode: false
-          filter: blob:none
       - name: Download temporary render artifacts on runner
         uses: actions/download-artifact@v4
         with:
@@ -264,7 +262,6 @@ jobs:
             /reels-studio/tools/gh_actions.py
             /reels-studio/lib/secrets.py
           sparse-checkout-cone-mode: false
-          filter: blob:none
       - name: Finalize write-ahead attempt receipt
         env:
           GH_TOKEN: ${{ github.token }}
