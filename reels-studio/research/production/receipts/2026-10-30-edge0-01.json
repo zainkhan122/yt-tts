@@ -104,7 +104,7 @@
           "status": "complete",
           "rights_checked": true,
           "approval_constraints_checked": true,
-          "manifest_sha256": "048cdb6a5ee3e982b90009457da8e117063e9f2bcf1e3d921ace5b153a2d50e4",
+          "manifest_sha256": "1e713860ab8aa9e0aa61f6bec60ba5e84ef9e61fe97f43ec8a0417a44264058c",
           "capture_id": "repo-edge0-01",
           "files": [
             {
@@ -114,6 +114,14 @@
             {
               "path": "img-2.jpg",
               "sha256": "d7285e3c6d5f1039a8b5283031e27fd48aa0cebbb9fb57d180903481eeb8f204"
+            },
+            {
+              "path": "img-3.png",
+              "sha256": "df2e91637f3d1e26da33832a979c60ab1cdf67c1a7a3883f3221a9f51b21b958"
+            },
+            {
+              "path": "img-4.png",
+              "sha256": "9508323efea8201c240c0302bcc78a2dc8207e2d94d0381e4139d84b9c5ac017"
             }
           ]
         }
