@@ -35,10 +35,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SCENE_TYPES = {"clip", "clip-montage", "page", "scroll", "steps", "terminal", "verdict", "stat", "image", "endcard"}
-# ONE-TIME OWNER WAIVER (2026-10-30, repo-rea-01 only): the repo's own still images may serve as the proof
-# moment and the media standard (BL128, BL110). NOT a permanent rule change. REMOVE this constant and its
-# two uses after the rea render is verified.
-ONE_TIME_STILL_PROOF_WAIVER = {"repo-rea-01"}
 
 REQUIRED_KEYS = ("id", "capture", "scenes", "seo")  # v2: no template field
 
@@ -253,7 +249,7 @@ def check(brief_path):
                 (s.get("background") or {}).get("img")):
             add("BL111", f"scene {s.get('id', '?')}: {s.get('type')} scene stages no media — "
                          f"empty-stage risk; give it captured product media or a background")
-    if scenes and (media_scenes < 2 or motion_scenes < 1) and bid not in ONE_TIME_STILL_PROOF_WAIVER:
+    if scenes and (media_scenes < 2 or motion_scenes < 1):
         add("BL110", f"only {media_scenes} media scene(s), {motion_scenes} motion/page — "
                      f"card-only videos do not ship; capture the real product (capture.py) "
                      f"and stage it in at least two scenes")
@@ -333,7 +329,7 @@ def check(brief_path):
         # conversion must happen on real product evidence (owner rule 2026-10-18).
         proof = next((x for x in scenes if x.get("id") == tr.get("proof_moment")), None)
         card_types = {"image", "verdict", "stat", "endcard"}
-        if proof is not None and proof.get("type") in card_types and bid not in ONE_TIME_STILL_PROOF_WAIVER:
+        if proof is not None and proof.get("type") in card_types:
             add("BL128", f"treatment.proof_moment {tr.get('proof_moment')!r} is a "
                          f"'{proof.get('type')}' card; the proof must be real product evidence "
                          f"(page/scroll/clip/clip-montage/steps/terminal)")

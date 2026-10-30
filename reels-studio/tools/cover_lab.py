@@ -144,10 +144,6 @@ def is_blank(path, min_std=4.0, min_ink=0.001, min_edge=0.006):
     return edge < min_edge or (std < min_std and ink < min_ink)
 
 
-# ONE-TIME OWNER WAIVER (2026-10-30, repo-rea-01 only): the repo has only two real raster images, so three
-# concepts cannot each use distinct media. REMOVE this constant and its use after the rea render is verified.
-ONE_TIME_COVER_SOURCE_WAIVER = {"repo-rea-01"}
-ONE_TIME_COVER_SOURCE_WAIVER_ACTIVE = True  # set by main() only for brief ids in the waiver set
 
 def pick_images(brief, count, root=ROOT):
     """Different real capture image per concept; fall back to the hook image only when the pack is thin.
@@ -288,7 +284,7 @@ def audit(report):
     if len(set(layouts)) != len(layouts):
         problems.append(f"concepts reuse a layout: {layouts}")
     sources = [c["source"] for c in report]
-    if len(report) >= 3 and len(set(sources)) != len(sources) and not ONE_TIME_COVER_SOURCE_WAIVER_ACTIVE:
+    if len(report) >= 3 and len(set(sources)) != len(sources):
         seen, dupes = set(), set()
         for src in sources:
             (dupes if src in seen else seen).add(src)
@@ -330,8 +326,6 @@ def main():
     if not isinstance(brief.get("treatment"), dict):
         raise SystemExit("brief has no treatment — design the cover concepts first (PLAYBOOK §8A)")
     out = Path(args.out) if args.out else ROOT / "covers" / brief["id"]
-    global ONE_TIME_COVER_SOURCE_WAIVER_ACTIVE
-    ONE_TIME_COVER_SOURCE_WAIVER_ACTIVE = brief["id"] in ONE_TIME_COVER_SOURCE_WAIVER
     made, report = make_concepts(brief, out)
     (out / "concepts.json").write_text(json.dumps({"brief": brief["id"], "concepts": report}, indent=2))
     problems = audit(report)
