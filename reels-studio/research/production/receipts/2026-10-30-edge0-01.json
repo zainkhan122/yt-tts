@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-30-edge0-01",
+  "created_at": "2026-10-30T16:45:49Z",
+  "buffer_insights": {
+    "path": "reels-studio/tracker/buffer-insights.json",
+    "sha256": "018a37eccbd8139b97aeb624a6639d1e11addb2e8b1d909e80fc944b774b8038"
+  },
+  "metrics_review": {
+    "snapshot_sha256": "018a37eccbd8139b97aeb624a6639d1e11addb2e8b1d909e80fc944b774b8038",
+    "reviewed_video_count": 136,
+    "sample_post_ids": [
+      "6acc91a65feb3462de95f295",
+      "6acc91ac5feb3462de95f38b",
+      "6ad4dd44938409f1d0d540c6"
+    ],
+    "findings": [
+      "All 136 shared videos reviewed: mean 111.7 views per video, top three at 1635, 1019, 956 views.",
+      "No video exists in these five repos; each brief uses the repo's own still images with callouts (owner rule, 2026-10-30)."
+    ],
+    "decisions": {
+      "topic": "Viewer question first, then the tool as the answer, then one honest catch.",
+      "script": "Plain, not promotional; open on the viewer's question; keep the catch.",
+      "voice": "Approved Chatterbox Option-3 channel voice; no new audition.",
+      "visual": "Repo's own still images only, with callouts; no filming and no other creators' clips."
+    }
+  },
+  "briefs": {
+    "repo-edge0-01": {
+      "brief_sha256": "2e66a5c84c8f08d38d5dacc8269eca831adafea9d4f994715a6f61ce02589c64",
+      "metrics_decisions": {
+        "topic": "Viewer question, then the tool; one catch.",
+        "script": "Plain viewer-first script, no promotion.",
+        "voice": "Approved Chatterbox Option-3 voice.",
+        "visual": "Repo's own still images with callouts."
+      },
+      "stages": {
+        "discover": {
+          "status": "complete",
+          "checked_at": "2026-10-30T16:45:49Z",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-30.md"
+          ]
+        },
+        "select": {
+          "status": "complete",
+          "selection_status": "selected",
+          "topic": "Edge0: a 35B model on a Mac with about 3 GB of memory",
+          "score": 73,
+          "score_breakdown": {
+            "trend_velocity": 16,
+            "demo_ability": 13,
+            "audience_breadth": 10,
+            "social_proof_gap": 12,
+            "free_value": 10,
+            "freshness_angle": 12
+          },
+          "metrics_snapshot_sha256": "018a37eccbd8139b97aeb624a6639d1e11addb2e8b1d909e80fc944b774b8038",
+          "basis_post_ids": [
+            "6acc91a65feb3462de95f295",
+            "6acc91ac5feb3462de95f38b",
+            "6ad4dd44938409f1d0d540c6"
+          ],
+          "hard_gates": {
+            "risk_flags_clear": true,
+            "claim_verifiable": true,
+            "license_clear": true
+          }
+        },
+        "research": {
+          "status": "complete",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-30.md"
+          ],
+          "dynamic_facts_checked_at": "2026-10-30T16:45:49Z",
+          "primary_sources": [
+            {
+              "url": "https://github.com/Edge0-AI/Edge0",
+              "checked_at": "2026-10-30T16:45:49Z",
+              "claim": "Edge0: 8,782 stars, Apache-2.0, created 2026-09-08; README 2.9 GiB peak memory"
+            },
+            {
+              "url": "https://api.github.com/repos/Edge0-AI/Edge0",
+              "checked_at": "2026-10-30T16:45:49Z",
+              "claim": "Edge0: 8,782 stars, Apache-2.0, created 2026-09-08; README 2.9 GiB peak memory"
+            }
+          ]
+        },
+        "script": {
+          "status": "complete",
+          "script_sha256": "15aaad0ae291b71c519e84560498a0e6468592581558a83c11f364197f5c1c91",
+          "word_count": 118
+        },
+        "voice": {
+          "status": "complete",
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "per_chunk": 0.92,
+            "overall": 0.95
+          }
+        },
+        "assets": {
+          "status": "complete",
+          "rights_checked": true,
+          "approval_constraints_checked": true,
+          "manifest_sha256": "048cdb6a5ee3e982b90009457da8e117063e9f2bcf1e3d921ace5b153a2d50e4",
+          "capture_id": "repo-edge0-01",
+          "files": [
+            {
+              "path": "img-1.png",
+              "sha256": "4301b84546a111f6e46de2d0361baebefd60e79497c0d3734e8483e35138d6c4"
+            },
+            {
+              "path": "img-2.jpg",
+              "sha256": "d7285e3c6d5f1039a8b5283031e27fd48aa0cebbb9fb57d180903481eeb8f204"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
