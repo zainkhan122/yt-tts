@@ -40,8 +40,15 @@ STOP = set("a an the and or of to in on at for with it its is are was be this th
 
 # ------------------------------------------------------------------ inputs
 def capture(b):
-    d = (ROOT / b["capture"]) if b.get("capture") else None
-    m = json.loads((d / "manifest.json").read_text()) if d and (d / "manifest.json").exists() else {}
+    cap = b.get("capture")
+    if not cap:
+        return None, {}
+    # Accept both "captures/<id>" (correct) and "<id>" (legacy) formats.
+    # The capture pack lives at ROOT/captures/<id>/ — always ensure the "captures/" prefix.
+    if not cap.startswith("captures/"):
+        cap = f"captures/{cap}"
+    d = ROOT / cap
+    m = json.loads((d / "manifest.json").read_text()) if (d / "manifest.json").exists() else {}
     return d, m
 
 
@@ -497,7 +504,9 @@ def data(b, T, D, ev, cfg):
             bg["img"] = image_dims(b, bg["image"])
         if x.get("figure"):
             x["fig"] = image_dims(b, x["figure"])
-        if x["type"] in ("verdict",) and x.get("region") and not x.get("image"):
+        if x["type"] in ("verdict", "page") and not x.get("image"):
+            # Page/verdict scenes without an explicit image get the full-page capture as default.
+            # Without this, s.img is undefined in scene.js -> "Cannot read properties of undefined (reading 'w')".
             x["img"] = image_dims(b, "desktop-full.jpg")
         for k in ("headline", "sub", "heading", "label"):
             if isinstance(x.get(k), str):
