@@ -28,9 +28,11 @@ published only with read-back evidence.
 6. Captions never cover media.
 7. Every PASS, scheduled or published claim has read-back evidence.
 8. The daily draw is accurate: random 1–5 videos per day, recorded as drawn.
+9. Every spoken script is viewer-first and follows `SCRIPT-STYLE.md` (owner, 2026-10-30). Start from the viewer's question, not the product's pitch. Examples and the checklist are in that file.
 
 ## Copy and production principles
 - Open on the viewer's problem. Show how the tool helps in their next project.
+- Viewer-first script style is mandatory: see `SCRIPT-STYLE.md` (rules, hook sugar with an accuracy test, examples, self-check).
 - No promotional or robotic language. No fixed templates or formula copy.
 - Use the product's real media, animations, charts, stickers and captions where they best deliver the point.
   Default to none of the repo-page scrolling or README display.

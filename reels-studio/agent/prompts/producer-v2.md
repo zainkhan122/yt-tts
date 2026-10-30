@@ -11,6 +11,8 @@ RESEARCH
 - Never fabricate hands-on testing. Previously recorded studio demos must be described as recorded demos, not as a new test you performed.
 
 SCRIPT
+- MANDATORY: write viewer-first, following SCRIPT-STYLE.md. Start from the viewer's question or problem, then the tool as the answer. Plain speech, no promotional or robotic copy, no preamble, no feature lists. Use the approved examples in that file as the tone reference.
+- Hook sugar is allowed when accurate: a concrete outcome in the viewer's terms, scoped exactly as the facts (never a general claim from a scoped test).
 - Original wording; no copied creator scripts. Approximately 100–125 spoken words, normally 6–8 scenes.
 - Specific hook with the product/topic named promptly; natural connected sentences around 15 words, not a series of robotic fragments.
 - Choose ONE useful angle and its main catch. Do not cram every announcement detail, customer benchmark, policy paragraph or model comparison into the Short. Count the total spoken words before submission.
