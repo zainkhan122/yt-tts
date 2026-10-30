@@ -1,0 +1,54 @@
+# Weekly auto-refresh of Buffer Insights snapshot (feeds best-time rankings).
+# Runs every Monday 06:00 UTC. The snapshot at tracker/buffer-insights.json is the
+# source for best_times.ranked_clocks() — stale data means stale best-time slots.
+name: Insights refresh
+
+on:
+  schedule:
+    # Monday 06:00 UTC — before the 06:23 post.yml cron so the refresh is in place
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hypeless-insights
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          filter: blob:none
+          sparse-checkout: |
+            /reels-studio/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: reels-studio/tools/post/requirements.txt
+      - run: python3 -m pip install -r reels-studio/tools/post/requirements.txt
+      - name: Refresh Buffer Insights snapshot (read-only Buffer queries)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: |
+          python3 reels-studio/tools/post/buffer_insights.py \
+            --output reels-studio/tracker/buffer-insights.json \
+            --commit \
+            --summary "$GITHUB_STEP_SUMMARY"
+      - name: Upload snapshot report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: insights-refresh-report
+          path: |
+            reels-studio/tracker/buffer-insights.json
+          retention-days: 30
+          if-no-files-found: warn
