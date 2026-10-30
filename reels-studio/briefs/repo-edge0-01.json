@@ -299,5 +299,6 @@
     "expires_at": "2026-11-01",
     "reviewer": "agent; facts checked against the GitHub API and the repo README on 2026-10-30; owner approval pending",
     "notes": "New brief 2026-10-30. Memory figure taken from the README (2.9 GiB peak), not the one-line description (2.5 GB). Hook is 11 words and says 'on a Mac' in the first sentence. Quality figure is attributed to the authors. Owner decision: a live Mac run is needed before render."
-  }
+  },
+  "voice_seed": 7
 }
