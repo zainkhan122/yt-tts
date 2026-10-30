@@ -2986,9 +2986,11 @@
     },
     "tool-claude-code-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6ae451f836e83ed163648739",
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-30T21:06:00Z",
+      "due_at": "2026-10-30T21:06:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:3bd23e08c31994008289d73587038834f96feef6cc34281d0e82f3c78ee6e49d",
         "asset_id": 690899399,
@@ -3003,10 +3005,11 @@
       "notify_subscribers": false,
       "payload_sha256": "9b00d5c7459a2e1d4e7cfa6efb3feb8c8e3f54fd789391891216e9278864e21b",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "This AI coding agent is everywhere right now. 7 channels covered it this week. #shorts #ai #coding\n\nAI-generated narration.\n\n#shorts #claudecode #anthropic",
       "title": "This AI Coding Agent Is Everywhere Right Now",
-      "updated_at": "2026-10-30T08:14:46Z",
+      "updated_at": "2026-10-30T08:14:48Z",
       "video_id": "tool-claude-code-01"
     },
     "tool-claude-code-01:youtube": {
