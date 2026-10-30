@@ -74,6 +74,27 @@ def hf(kind):
             for m in d]
 
 
+def gittrend(limit=25):
+    """GitTrend 'Trending today' page (https://gittrend.io/): ranked by star velocity.
+    Parses the public HTML; no API key needed. Returns [] on any failure (source is optional)."""
+    try:
+        req = urllib.request.Request("https://gittrend.io/", headers={"User-Agent": "reels-studio-radar"})
+        with urllib.request.urlopen(req, timeout=40) as r:
+            html = r.read().decode("utf-8", "replace")
+    except Exception:
+        return []
+    out, seen = [], set()
+    for m in re.finditer(r'href="(?:https://gittrend\.io)?/repo/([^"/?#]+/[^"/?#]+)"', html):
+        name = m.group(1)
+        if name in seen:
+            continue
+        seen.add(name)
+        out.append({"name": name, "url": f"https://github.com/{name}", "source": "GitTrend"})
+        if len(out) >= limit:
+            break
+    return out
+
+
 def angle(item):
     """A prompt for the human editor, not a format. Picking the angle is a judgment call."""
     d = (item.get("desc") or "").strip()
@@ -88,13 +109,16 @@ def main():
     today = dt.date.today().isoformat()
     gh = github(a.days)
     models, spaces = hf("models"), hf("spaces")
+    trending = gittrend()
     L = [f"# Trend radar: {today} (last {a.days} days)", "",
-         "Sources: GitHub search API (new repos, ranked by stars/day), Hugging Face trending models and Spaces.",
+         "Sources: GitHub search API (new repos, ranked by stars/day), Hugging Face trending models and Spaces, GitTrend trending today (https://gittrend.io/).",
          "⚠ = risk flag. Never promote flagged items. ZH = description not in English (translate and verify before covering).", "",
          "## New AI repos on GitHub", "", "| # | Repo | ★ | ★/day | Licence | What it is | Flags | Video angle |", "|---|---|---|---|---|---|---|---|"]
     for i, r in enumerate(gh[:20], 1):
         fl = ("⚠ " + ", ".join(r["flags"])) if r["flags"] else ("ZH" if r["zh"] else "")
         L.append(f"| {i} | [{r['name']}]({r['url']}) | {r['stars']:,} | {r['per_day']:.0f} | {r['license']} | {r['desc'][:90].replace('|', '/')} | {fl} | {'-' if r['flags'] else angle(r)} |")
+    L += ["", "## GitTrend: trending repos today (star velocity)", ""]
+    L += [f"- [{t['name']}]({t['url']})" for t in trending] or ["- (GitTrend unavailable today)"]
     for title, items in (("Trending models on Hugging Face", models), ("Trending Spaces (free apps to try)", spaces)):
         L += ["", f"## {title}", "", "| # | Item | Trend score | Likes | Type | Flags |", "|---|---|---|---|---|---|"]
         for i, m in enumerate(items[:12], 1):
