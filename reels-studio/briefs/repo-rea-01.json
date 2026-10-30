@@ -53,10 +53,10 @@
     },
     {
       "id": "how",
-      "type": "steps",
+      "type": "image",
       "heading": "SETUP IN ONE COMMAND",
       "say": "Setup is one command once Node.js is installed: npx rea-agents setup. It connects rea to Claude Code, Codex, Cursor and other agents.",
-      "image": "rea-hopper-analysis.png",
+      "image": "rea-plugin.png",
       "sub": "npx rea-agents setup"
     },
     {
@@ -69,10 +69,11 @@
     },
     {
       "id": "catch",
-      "type": "verdict",
+      "type": "image",
       "heading": "THE CATCH",
       "say": "The catch: you need Node.js, and compiled programs need a disassembler installed.",
-      "image": "rea-hopper-analysis.png"
+      "image": "rea-hopper-analysis.png",
+      "sub": "Needs Node.js and a disassembler"
     },
     {
       "id": "cta",
