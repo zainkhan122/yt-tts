@@ -3012,6 +3012,31 @@
       "updated_at": "2026-10-30T08:14:48Z",
       "video_id": "tool-claude-code-01"
     },
+    "tool-claude-code-01:instagram": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-31T01:11:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:3bd23e08c31994008289d73587038834f96feef6cc34281d0e82f3c78ee6e49d",
+        "asset_id": 690899399,
+        "asset_size": 7569777,
+        "kit_asset_id": 690899472,
+        "kit_digest": "sha256:d9be20a8d0352168849b3d15ff134d7e36a52dd3e1951217916edad292a902c1",
+        "media_path": "media/690899399/tool-claude-code-01.mp4",
+        "release_tag": "renders-2026-10-30",
+        "video_id": "tool-claude-code-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/690899399/tool-claude-code-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "fb4af84330cbc4cd2c21fedb0b69883c3cf1b47e89da1fcb677871edc9692bdf",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "The AI coding agent everyone is talking about. 82k views this week. #shorts #ai #coding #tech\n\n#shorts #claudecode #anthropic #aiagents #devtools",
+      "title": "This AI Coding Agent Is Everywhere Right Now",
+      "updated_at": "2026-10-30T08:14:53Z",
+      "video_id": "tool-claude-code-01"
+    },
     "tool-claude-code-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6ae451f536e83ed163648681",
