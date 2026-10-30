@@ -3071,6 +3071,31 @@
       "verified_at": "2026-10-20T17:21:54Z",
       "video_id": "tool-fx0-01"
     },
+    "tool-gpt6-01:youtube": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-10-30T13:15:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:c971135c03a53b4537cd332d151c13639d2889ca3c490dea4ea0dffa57064cb9",
+        "asset_id": 690899291,
+        "asset_size": 8748201,
+        "kit_asset_id": 690899344,
+        "kit_digest": "sha256:6fe91fe1691a123bc1a246584d4dbf6cd8e8af5aed335aa20b80bcc9149c67a8",
+        "media_path": "media/690899291/tool-gpt6-01.mp4",
+        "release_tag": "renders-2026-10-30",
+        "video_id": "tool-gpt6-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/690899291/tool-gpt6-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "ebf36392577f640bd8c3dcde40c4458ea9f642916567f9526310e6c29bf0f8c6",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "GPT-6 is OpenAI's latest model with advanced long-horizon reasoning. 4 channels covered it this week. Here's why. #shorts #ai #gpt6 #openai #programming\n\n#shorts #gpt6 #openai #frontierai #llm",
+      "title": "This AI Played Minecraft for 141 Hours Straight",
+      "updated_at": "2026-10-30T08:14:27Z",
+      "video_id": "tool-gpt6-01"
+    },
     "tool-higgsfield-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6accbfbc11bee99e6c99fa6d",
