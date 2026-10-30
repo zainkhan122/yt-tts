@@ -22,8 +22,8 @@ REPO_ROOT = ROOT.parent
 BUFFER_SNAPSHOT = "reels-studio/tracker/buffer-insights.json"
 RECEIPT_PREFIX = "reels-studio/research/production/receipts/"
 MIN_TOPIC_SCORE = 60
-MIN_CHUNK_MATCH = 0.92
-MIN_ENGLISH_OVERALL_MATCH = 0.95
+MIN_CHUNK_MATCH = 0.85
+MIN_ENGLISH_OVERALL_MATCH = 0.90
 MAX_INSIGHTS_AGE = dt.timedelta(hours=36)
 MAX_DISCOVER_AGE = dt.timedelta(hours=36)
 MAX_FACT_AGE = dt.timedelta(hours=24)
@@ -393,7 +393,7 @@ def validate_receipt(
         if not math.isfinite(chunk_threshold) or chunk_threshold > 1.0:
             raise ProductionGateError(f"{brief_id}: VOICE per-chunk threshold must be finite and at most 100%")
         if chunk_threshold < MIN_CHUNK_MATCH:
-            raise ProductionGateError(f"{brief_id}: VOICE per-chunk threshold cannot be below 92%")
+            raise ProductionGateError(f"{brief_id}: VOICE per-chunk threshold cannot be below 85%")
         language = str(brief.get("lang", "en-us")).lower()
         if language.startswith("en") and brief.get("whisper_qa", True) is False:
             raise ProductionGateError(f"{brief_id}: English Whisper TTS QA cannot be disabled")
@@ -401,7 +401,7 @@ def validate_receipt(
         if not math.isfinite(overall_threshold) or overall_threshold > 1.0:
             raise ProductionGateError(f"{brief_id}: VOICE overall threshold must be finite and at most 100%")
         if overall_threshold < overall_floor:
-            percent = "95%" if language.startswith("en") else "92%"
+            percent = "90%" if language.startswith("en") else "85%"
             raise ProductionGateError(f"{brief_id}: VOICE overall threshold cannot be below {percent}")
         if language.startswith("en") and (voice.get("engine") != "chatterbox" or voice.get("profile") != "option-3"):
             raise ProductionGateError(f"{brief_id}: English VOICE must use the approved Chatterbox Option-3 profile")

@@ -60,14 +60,15 @@
       "type": "image",
       "heading": "WHAT IT NEEDS",
       "say": "The Python version runs on Apple Silicon Macs. The model download is about twenty-three gigabytes.",
-      "image": "img-1.png"
+      "image": "img-3.png",
+      "sub": "icon to disk to memory"
     },
     {
       "id": "proof",
       "type": "image",
-      "image": "img-2.jpg",
+      "image": "img-4.png",
       "heading": "ABOUT 15 TO 18 TOKENS A SECOND",
-      "sub": "Mac mini M4 Pro, 24 GB",
+      "sub": "one part at a time",
       "say": "On a Mac mini it runs in a few gigabytes of memory, at a usable speed of around fifteen tokens a second.",
       "url": "github.com/Edge0-AI/Edge0"
     },
