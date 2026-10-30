@@ -1589,6 +1589,25 @@
       "status": "scene_rebuild_success",
       "voice_seed": 0
     },
+    "d66079c1ca86dd33adee79e08a47fe23f1ba72fb7e67eb8c10923ff86c66be6f": {
+      "asset_files_sha256": "9c7770e3f2e0a14a97f2684853e4777a89b0a3058cbdc616054ab332fbfe4adc",
+      "asset_manifest_sha256": "b483e6f3689be72c237edc2facb66b539a4497f5d7d2202264244fe85df77957",
+      "brief_id": "repo-rea-01",
+      "brief_sha256": "afed1697f8beb513ff10b3b0f88db425ae3ed66ab6dea54450decc80b5efc50e",
+      "capture_id": "repo-rea-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "d66079c1ca86dd33adee79e08a47fe23f1ba72fb7e67eb8c10923ff86c66be6f",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "39aa3075e013b8c9a179286d94060838da63fdccffcc3989fefc3a4a16fba01a",
+      "run_id": "41054841615",
+      "started_at": "2026-10-30T12:22:36Z",
+      "status": "started",
+      "voice_seed": 0
+    },
     "d79b2f7201b72efe80fd3df4623fb8fd96b69385616a157e84d7b4e1356accb3": {
       "asset_files_sha256": "e2a5e530733fd44d6b6ed3290b06e14ac6d20e0c20992b7608884e4477e6a07e",
       "asset_manifest_sha256": "3469436c71afa43de83c0be7cb1759485113fba8ddacc7f7b96246c7191301ef",
