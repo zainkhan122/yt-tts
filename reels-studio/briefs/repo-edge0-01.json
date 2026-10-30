@@ -59,7 +59,7 @@
       "id": "how",
       "type": "image",
       "heading": "WHAT IT NEEDS",
-      "say": "The Python version runs on Apple Silicon Macs. The model download is about 23 gigabytes.",
+      "say": "The Python version runs on Apple Silicon Macs. The model download is about twenty-three gigabytes.",
       "image": "img-1.png"
     },
     {
@@ -68,14 +68,14 @@
       "image": "img-2.jpg",
       "heading": "ABOUT 15 TO 18 TOKENS A SECOND",
       "sub": "Mac mini M4 Pro, 24 GB",
-      "say": "In the authors' own test, on a Mac mini with 24 gigabytes, it used about 3 gigabytes of memory and ran at 15 to 18 tokens per second.",
+      "say": "In the authors' own test, on a Mac mini with twenty-four gigabytes, it used about three gigabytes of memory and ran at fifteen to eighteen tokens per second.",
       "url": "github.com/Edge0-AI/Edge0"
     },
     {
       "id": "catch",
       "type": "image",
       "heading": "THE CATCH",
-      "say": "The catch: it's a preview. In the authors' test it scores 81 on MMLU-Pro, against 84.6 for the full-precision base model.",
+      "say": "The catch: it's a preview. In the authors' test it scores eighty-one on MMLU-Pro, against eighty-four point six for the full-precision base model.",
       "image": "img-1.png"
     },
     {

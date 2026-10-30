@@ -27,7 +27,7 @@
   },
   "briefs": {
     "repo-edge0-01": {
-      "brief_sha256": "2e66a5c84c8f08d38d5dacc8269eca831adafea9d4f994715a6f61ce02589c64",
+      "brief_sha256": "9d8c1ad07d57ee9fbcfafd556c4be23806f6f15ac65f919b638633d97adab1c4",
       "metrics_decisions": {
         "topic": "Viewer question, then the tool; one catch.",
         "script": "Plain viewer-first script, no promotion.",
@@ -88,8 +88,8 @@
         },
         "script": {
           "status": "complete",
-          "script_sha256": "15aaad0ae291b71c519e84560498a0e6468592581558a83c11f364197f5c1c91",
-          "word_count": 118
+          "script_sha256": "6da9935fc20f2f59e07e7d19a75c8337a27c1ea1328d358de0da88a848ab0369",
+          "word_count": 120
         },
         "voice": {
           "status": "complete",
