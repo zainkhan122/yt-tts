@@ -1,6 +1,6 @@
 {
   "id": "tool-gpt6-01",
-  "capture": "tool-gpt6-01",
+  "capture": "captures/tool-gpt6-01",
   "title": "GPT-6: The Model That Played Minecraft for 141 Hours",
   "niche": "AI models and frontier AI",
   "lang": "en-us",
@@ -78,7 +78,7 @@
       "type": "page",
       "image": "model-card.jpg",
       "heading": "THE AI THAT PLAYED *MINECRAFT* FOR 141 HOURS",
-      "sub": "GPT-6 \u00b7 4 channels covered it this week",
+      "sub": "GPT-6 · 4 channels covered it this week",
       "say": "This AI played Minecraft for one hundred and forty one hours. It built structures, explored, and survived. Four channels covered it this week. One hundred sixty three thousand views. This is GPT-6.",
       "url": "openai.com",
       "camera": [
@@ -95,14 +95,14 @@
       "heading": "GPT-6",
       "sub": "OpenAI's frontier model",
       "say": "It's GPT-6 from OpenAI. Not just a bigger model. It's a different kind of reasoning. It can sustain attention for hours, not seconds.",
-      "image": "gpt6-model.jpg"
+      "image": "desktop-top.jpg"
     },
     {
       "id": "how",
       "type": "steps",
       "heading": "HOW IT WORKS",
-      "say": "GPT-6 played Minecraft for 141 hours straight. It learned to build, explore, and survive. It didn't just follow instructions \u2014 it planned ahead. This is long-horizon reasoning, and it's a new frontier.",
-      "image": "gpt6-minecraft.jpg"
+      "say": "GPT-6 played Minecraft for 141 hours straight. It learned to build, explore, and survive. It didn't just follow instructions — it planned ahead. This is long-horizon reasoning, and it's a new frontier.",
+      "image": "desktop-full.jpg"
     },
     {
       "id": "stars",
