@@ -1,8 +1,8 @@
 {
   "counts": {
-    "developing": 4,
-    "early": 1,
-    "mature": 38
+    "developing": 3,
+    "early": 2,
+    "mature": 39
   },
   "dimension_findings": [
     {
@@ -11,17 +11,17 @@
       "rows": [
         {
           "group": "repo",
-          "median_percentile": 58.1,
+          "median_percentile": 59.1,
           "n": 17
         },
         {
           "group": "news",
-          "median_percentile": 49.1,
+          "median_percentile": 49.5,
           "n": 10
         },
         {
           "group": "tool",
-          "median_percentile": 41.2,
+          "median_percentile": 41.8,
           "n": 15
         }
       ],
@@ -34,38 +34,32 @@
       "rows": [
         {
           "group": "repo",
-          "median_percentile": 59.4,
+          "median_percentile": 60.8,
           "n": 16
         },
         {
           "group": "unknown",
-          "median_percentile": 58.6,
+          "median_percentile": 59.2,
           "n": 3
         },
         {
           "group": "model",
-          "median_percentile": 44.8,
+          "median_percentile": 44.6,
           "n": 5
         },
         {
           "group": "news",
-          "median_percentile": 39.6,
+          "median_percentile": 39.9,
           "n": 9
         },
         {
           "group": "tool",
-          "median_percentile": 34.8,
+          "median_percentile": 36.7,
           "n": 9
         }
       ],
       "strong": [],
-      "weak": [
-        {
-          "group": "tool",
-          "median_percentile": 34.8,
-          "n": 9
-        }
-      ]
+      "weak": []
     },
     {
       "dimension": "template",
@@ -73,7 +67,7 @@
       "rows": [
         {
           "group": "unknown",
-          "median_percentile": 53.4,
+          "median_percentile": 53.6,
           "n": 42
         }
       ],
@@ -86,7 +80,7 @@
       "rows": [
         {
           "group": "statement",
-          "median_percentile": 53.4,
+          "median_percentile": 53.6,
           "n": 40
         }
       ],
@@ -99,7 +93,7 @@
       "rows": [
         {
           "group": "comment CTA",
-          "median_percentile": 53.4,
+          "median_percentile": 53.6,
           "n": 42
         }
       ],
@@ -107,19 +101,14 @@
       "weak": []
     }
   ],
-  "generated_at": "2026-10-29T11:32:28Z",
-  "generated_for_date": "2026-10-29",
+  "generated_at": "2026-10-30T11:24:39Z",
+  "generated_for_date": "2026-10-30",
   "platforms": [
     "facebook",
     "instagram",
     "youtube"
   ],
   "recommendations": [
-    {
-      "action": "Reduce or rework 'tool' topics (production_category) until the hook/format changes.",
-      "confidence": "medium",
-      "evidence": "n=9 judged videos, median cross-platform views percentile 34.8."
-    },
     {
       "action": "Prefer the midday ET window for facebook posts.",
       "confidence": "low",
@@ -133,15 +122,15 @@
     {
       "action": "Prefer the morning ET window for youtube posts.",
       "confidence": "low",
-      "evidence": "youtube/morning median views 84.0 across n=5 judged posts (best of 3 windows with evidence)."
+      "evidence": "youtube/morning median views 85.0 across n=5 judged posts (best of 3 windows with evidence)."
     },
     {
       "action": "Study and reuse the hook/structure of the mature winners: `model-embeddinggemma2-01`, `repo-coop-anything-01`, `repo-ds4-01`, `tool-qwen-image-21-turbo-01`.",
       "confidence": "medium",
-      "evidence": "4 mature video(s) at or above the 75th cross-platform percentile."
+      "evidence": "5 mature video(s) at or above the 75th cross-platform percentile."
     },
     {
-      "action": "Do not repeat the topics/angles of the mature underperformers without a new angle: `tool-pomelli-01`, `model-humanizer-01`, `model-drama3-01`, `model-lfm25-01`.",
+      "action": "Do not repeat the topics/angles of the mature underperformers without a new angle: `tool-pomelli-01`, `model-humanizer-01`, `model-lfm25-01`, `model-drama3-01`.",
       "confidence": "medium",
       "evidence": "4 mature video(s) at or below the 25th cross-platform percentile."
     }
@@ -214,42 +203,42 @@
     {
       "daypart": "midday",
       "evidence_ok": true,
-      "median_views": 58.0,
+      "median_views": 60.0,
       "n": 14,
       "platform": "youtube"
     },
     {
       "daypart": "morning",
       "evidence_ok": true,
-      "median_views": 84.0,
+      "median_views": 85.0,
       "n": 5,
       "platform": "youtube"
     },
     {
       "daypart": "night",
       "evidence_ok": false,
-      "median_views": 40.0,
+      "median_views": 41.0,
       "n": 2,
       "platform": "youtube"
     }
   ],
   "snapshot_complete": true,
-  "snapshot_fetched_at": "2026-10-29T11:31:48Z",
+  "snapshot_fetched_at": "2026-10-30T11:24:12Z",
   "snapshot_stale": false,
   "topic_advice": {
     "blocked_by_risk_flags": [],
     "category_percentiles": {
-      "news": 49.1,
-      "repo": 58.1,
-      "tool": 41.2
+      "news": 49.5,
+      "repo": 59.1,
+      "tool": 41.8
     },
     "top_candidates": []
   },
   "videos": [
     {
-      "age_days": 18.73,
+      "age_days": 19.73,
       "category": "tool",
-      "composite_percentile": 61.7,
+      "composite_percentile": 62.6,
       "has_comment_cta": true,
       "hook": "Three AI video generators you can try without a subscription, but their catches are very different.",
       "hook_heading": "",
@@ -258,7 +247,7 @@
       "niche": "tech / AI tools: ranked list",
       "platforms": {
         "facebook": {
-          "age_days": 18.73,
+          "age_days": 19.73,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -309,7 +298,7 @@
               "metrics_updated_at": "2026-10-13T10:48:31.425Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -362,10 +351,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 97.6
+          "views_percentile": 97.7
         },
         "instagram": {
-          "age_days": 18.85,
+          "age_days": 19.85,
           "avg_watch_s": 3.51,
           "comments": 0.0,
           "engagement_actions": 1.0,
@@ -728,7 +717,7 @@
               "metrics_updated_at": "2026-10-27T19:52:18.622Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -785,7 +774,7 @@
                   "value": 117
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.801Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -799,14 +788,14 @@
           "shares": 0.0,
           "views": 117.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 25.6
+          "views_percentile": 27.4
         },
         "youtube": {
-          "age_days": 18.86,
+          "age_days": 19.85,
           "avg_watch_s": null,
           "comments": 2.0,
           "engagement_actions": 2.0,
-          "engagement_rate": 2.3,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/nA0SBClidO4",
           "follows": null,
           "history": [
@@ -991,7 +980,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.553Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -1003,7 +992,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 2.3
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -1018,7 +1007,7 @@
                   "value": 87
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.999Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.689Z"
             }
           ],
           "maturity": "mature",
@@ -1032,7 +1021,7 @@
           "shares": null,
           "views": 87.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 61.9
+          "views_percentile": 62.8
         }
       },
       "production_category": "unknown",
@@ -1042,9 +1031,9 @@
       "video_id": "list-free-video-ai-01"
     },
     {
-      "age_days": 5.56,
+      "age_days": 6.56,
       "category": "news",
-      "composite_percentile": 31.0,
+      "composite_percentile": 31.8,
       "has_comment_cta": true,
       "hook": "Meta's hackathon can cover your model calls. Here is the official page.",
       "hook_heading": "META HACKATHON: *IF YOU'RE PICKED*",
@@ -1053,7 +1042,7 @@
       "niche": "AI developer programmes and free model usage",
       "platforms": {
         "facebook": {
-          "age_days": 6.69,
+          "age_days": 7.68,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -1230,7 +1219,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.088Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -1269,10 +1258,10 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.651Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.307Z"
             }
           ],
-          "maturity": "developing",
+          "maturity": "mature",
           "metrics_status": "fresh",
           "platform": "facebook",
           "post_id": "6ada28ebf09f431dcae5a0ce",
@@ -1283,10 +1272,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 26.2
+          "views_percentile": 25.6
         },
         "instagram": {
-          "age_days": 5.56,
+          "age_days": 6.56,
           "avg_watch_s": 2.35,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -1475,7 +1464,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.945Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -1532,7 +1521,7 @@
                   "value": 44
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.142Z"
             }
           ],
           "maturity": "developing",
@@ -1546,10 +1535,10 @@
           "shares": 0.0,
           "views": 44.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 2.4
+          "views_percentile": 4.8
         },
         "youtube": {
-          "age_days": 6.61,
+          "age_days": 7.6,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -1678,7 +1667,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -1702,24 +1691,24 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 89
+                  "value": 93
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.651Z"
             }
           ],
-          "maturity": "developing",
+          "maturity": "mature",
           "metrics_status": "fresh",
           "platform": "youtube",
           "post_id": "6ada28eee8cca8cdcc5ac118",
           "primary_metric": "views",
-          "primary_views": 89.0,
+          "primary_views": 93.0,
           "saves": null,
           "sent_at": "2026-10-22T21:00:38.240Z",
           "shares": null,
-          "views": 89.0,
-          "views_per_day_recent": 11.07,
-          "views_percentile": 64.3
+          "views": 93.0,
+          "views_per_day_recent": 7.37,
+          "views_percentile": 65.1
         }
       },
       "production_category": "news",
@@ -1729,9 +1718,9 @@
       "video_id": "meta-hackathon-credits-01"
     },
     {
-      "age_days": 11.85,
+      "age_days": 12.85,
       "category": "tool",
-      "composite_percentile": 21.5,
+      "composite_percentile": 23.4,
       "has_comment_cta": true,
       "hook": "One script, a whole cast of characters, each with their own voice.",
       "hook_heading": "A CAST IN *ONE SCRIPT*",
@@ -1740,7 +1729,7 @@
       "niche": "AI voice / TTS",
       "platforms": {
         "facebook": {
-          "age_days": 11.9,
+          "age_days": 12.89,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -2001,7 +1990,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.088Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -2025,7 +2014,7 @@
                   "name": "Impressions",
                   "type": "impressions",
                   "unit": "count",
-                  "value": 11
+                  "value": 12
                 },
                 {
                   "name": "Reactions",
@@ -2040,7 +2029,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.651Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.308Z"
             }
           ],
           "maturity": "mature",
@@ -2048,16 +2037,16 @@
           "platform": "facebook",
           "post_id": "6ad1ff2813b2adf724a23951",
           "primary_metric": "impressions",
-          "primary_views": 11.0,
+          "primary_views": 12.0,
           "saves": null,
           "sent_at": "2026-10-17T14:01:55.707Z",
           "shares": 0.0,
           "views": null,
-          "views_per_day_recent": 1.11,
-          "views_percentile": 7.1
+          "views_per_day_recent": 1.05,
+          "views_percentile": 7.0
         },
         "instagram": {
-          "age_days": 11.85,
+          "age_days": 12.85,
           "avg_watch_s": 2.51,
           "comments": 0.0,
           "engagement_actions": 1.0,
@@ -2420,7 +2409,7 @@
               "metrics_updated_at": "2026-10-28T13:49:16.015Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -2477,7 +2466,7 @@
                   "value": 107
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -2491,14 +2480,14 @@
           "shares": 0.0,
           "views": 107.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 14.6
+          "views_percentile": 16.7
         },
         "youtube": {
-          "age_days": 11.86,
+          "age_days": 12.85,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
-          "engagement_rate": 2.08,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/on5kvMsmfEo",
           "follows": null,
           "history": [
@@ -2683,7 +2672,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -2695,7 +2684,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 2.08
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -2707,10 +2696,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 48
+                  "value": 50
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.787Z"
             }
           ],
           "maturity": "mature",
@@ -2718,13 +2707,13 @@
           "platform": "youtube",
           "post_id": "6ad1ff2ebbb9ce09f66cb14c",
           "primary_metric": "views",
-          "primary_views": 48.0,
+          "primary_views": 50.0,
           "saves": null,
           "sent_at": "2026-10-17T15:01:05.993Z",
           "shares": null,
-          "views": 48.0,
-          "views_per_day_recent": 2.21,
-          "views_percentile": 42.9
+          "views": 50.0,
+          "views_per_day_recent": 2.11,
+          "views_percentile": 46.5
         }
       },
       "production_category": "model",
@@ -2734,9 +2723,9 @@
       "video_id": "model-drama3-01"
     },
     {
-      "age_days": 13.92,
+      "age_days": 14.92,
       "category": "tool",
-      "composite_percentile": 83.3,
+      "composite_percentile": 83.7,
       "has_comment_cta": true,
       "hook": "{EmbeddingGemma 2|EmbeddingGemma two} maps text, code, images, audio and video into one search space.",
       "hook_heading": "ONE MODEL. FIVE *MODALITIES*",
@@ -2745,7 +2734,7 @@
       "niche": "multimodal embeddings and semantic search",
       "platforms": {
         "facebook": {
-          "age_days": 15.06,
+          "age_days": 16.06,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -3006,7 +2995,7 @@
               "metrics_updated_at": "2026-10-20T03:49:43.388Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -3058,11 +3047,11 @@
           "sent_at": "2026-10-14T10:01:01.474Z",
           "shares": 0.0,
           "views": null,
-          "views_per_day_recent": 0.11,
-          "views_percentile": 81.0
+          "views_per_day_recent": 0.1,
+          "views_percentile": 81.4
         },
         "instagram": {
-          "age_days": 13.92,
+          "age_days": 14.92,
           "avg_watch_s": 4.9,
           "comments": 0.0,
           "engagement_actions": 8.0,
@@ -3425,7 +3414,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.933Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -3482,7 +3471,7 @@
                   "value": 236
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -3496,14 +3485,14 @@
           "shares": 7.0,
           "views": 236.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 95.1
+          "views_percentile": 95.2
         },
         "youtube": {
-          "age_days": 15.44,
+          "age_days": 16.43,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
-          "engagement_rate": 0.65,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/JmXvnjaiilA",
           "follows": null,
           "history": [
@@ -3688,7 +3677,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -3700,7 +3689,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 0.65
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -3715,7 +3704,7 @@
                   "value": 155
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.654Z"
             }
           ],
           "maturity": "mature",
@@ -3728,8 +3717,8 @@
           "sent_at": "2026-10-14T01:00:30.648Z",
           "shares": null,
           "views": 155.0,
-          "views_per_day_recent": 1.11,
-          "views_percentile": 73.8
+          "views_per_day_recent": 0.53,
+          "views_percentile": 74.4
         }
       },
       "production_category": "model",
@@ -3739,9 +3728,9 @@
       "video_id": "model-embeddinggemma2-01"
     },
     {
-      "age_days": 8.54,
+      "age_days": 9.54,
       "category": "tool",
-      "composite_percentile": 21.1,
+      "composite_percentile": 22.2,
       "has_comment_cta": true,
       "hook": "This model rewrites AI drafts so they read like you wrote them. Honest polish, or a detector cheat?",
       "hook_heading": "DETECTOR CHEAT, *OR GENIUS?*",
@@ -3750,7 +3739,7 @@
       "niche": "AI writing and local models",
       "platforms": {
         "facebook": {
-          "age_days": 8.71,
+          "age_days": 9.7,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -4011,7 +4000,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.088Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -4050,7 +4039,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.651Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.308Z"
             }
           ],
           "maturity": "mature",
@@ -4064,10 +4053,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 42.9
+          "views_percentile": 41.9
         },
         "instagram": {
-          "age_days": 8.69,
+          "age_days": 9.68,
           "avg_watch_s": 2.03,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -4430,7 +4419,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.987Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -4487,7 +4476,7 @@
                   "value": 103
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.142Z"
             }
           ],
           "maturity": "mature",
@@ -4501,14 +4490,14 @@
           "shares": 0.0,
           "views": 103.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 12.2
+          "views_percentile": 14.3
         },
         "youtube": {
-          "age_days": 8.54,
+          "age_days": 9.54,
           "avg_watch_s": null,
           "comments": 7.0,
           "engagement_actions": 7.0,
-          "engagement_rate": 36.84,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/BwOoawD6-oE",
           "follows": null,
           "history": [
@@ -4693,7 +4682,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -4705,7 +4694,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 36.84
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -4720,7 +4709,7 @@
                   "value": 19
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.636Z"
             }
           ],
           "maturity": "mature",
@@ -4733,8 +4722,8 @@
           "sent_at": "2026-10-20T22:30:11.474Z",
           "shares": null,
           "views": 19.0,
-          "views_per_day_recent": 1.11,
-          "views_percentile": 8.3
+          "views_per_day_recent": 0.53,
+          "views_percentile": 10.5
         }
       },
       "production_category": "tool",
@@ -4744,9 +4733,9 @@
       "video_id": "model-humanizer-01"
     },
     {
-      "age_days": 13.52,
+      "age_days": 14.52,
       "category": "tool",
-      "composite_percentile": 22.3,
+      "composite_percentile": 23.3,
       "has_comment_cta": true,
       "hook": "A giant model brain, but only a small part of it lights up for every token.",
       "hook_heading": "24B BRAIN. *2B AT WORK.*",
@@ -4755,7 +4744,7 @@
       "niche": "on-device AI agents / local LLMs",
       "platforms": {
         "facebook": {
-          "age_days": 13.56,
+          "age_days": 14.56,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -5016,7 +5005,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.089Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -5055,7 +5044,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.652Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.308Z"
             }
           ],
           "maturity": "mature",
@@ -5069,10 +5058,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 35.7
+          "views_percentile": 34.9
         },
         "instagram": {
-          "age_days": 13.52,
+          "age_days": 14.52,
           "avg_watch_s": 3.46,
           "comments": 0.0,
           "engagement_actions": 3.0,
@@ -5435,7 +5424,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.952Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -5492,7 +5481,7 @@
                   "value": 101
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -5506,10 +5495,10 @@
           "shares": 0.0,
           "views": 101.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 7.3
+          "views_percentile": 9.5
         },
         "youtube": {
-          "age_days": 13.61,
+          "age_days": 14.6,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -5698,7 +5687,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -5725,7 +5714,7 @@
                   "value": 34
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.796Z"
             }
           ],
           "maturity": "mature",
@@ -5738,8 +5727,8 @@
           "sent_at": "2026-10-15T21:00:24.878Z",
           "shares": null,
           "views": 34.0,
-          "views_per_day_recent": 1.11,
-          "views_percentile": 23.8
+          "views_per_day_recent": 0.53,
+          "views_percentile": 25.6
         }
       },
       "production_category": "model",
@@ -5749,9 +5738,9 @@
       "video_id": "model-lfm25-01"
     },
     {
-      "age_days": 12.65,
+      "age_days": 13.64,
       "category": "tool",
-      "composite_percentile": 44.8,
+      "composite_percentile": 44.6,
       "has_comment_cta": true,
       "hook": "A model that sees images and video, small enough at heart to run on a phone.",
       "hook_heading": "PHONE-BRAIN *VISION*",
@@ -5760,7 +5749,7 @@
       "niche": "on-device vision AI",
       "platforms": {
         "facebook": {
-          "age_days": 12.94,
+          "age_days": 13.93,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -6021,7 +6010,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.088Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -6060,7 +6049,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.652Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.308Z"
             }
           ],
           "maturity": "mature",
@@ -6074,10 +6063,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 15.5
+          "views_percentile": 12.8
         },
         "instagram": {
-          "age_days": 12.81,
+          "age_days": 13.81,
           "avg_watch_s": 3.48,
           "comments": 0.0,
           "engagement_actions": 1.0,
@@ -6440,7 +6429,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.979Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -6497,7 +6486,7 @@
                   "value": 140
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -6511,10 +6500,10 @@
           "shares": 0.0,
           "views": 140.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 47.6
+          "views_percentile": 48.8
         },
         "youtube": {
-          "age_days": 12.65,
+          "age_days": 13.64,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -6703,7 +6692,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -6730,7 +6719,7 @@
                   "value": 131
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.698Z"
             }
           ],
           "maturity": "mature",
@@ -6743,8 +6732,8 @@
           "sent_at": "2026-10-16T20:00:28.197Z",
           "shares": null,
           "views": 131.0,
-          "views_per_day_recent": 1.11,
-          "views_percentile": 71.4
+          "views_per_day_recent": 0.53,
+          "views_percentile": 72.1
         }
       },
       "production_category": "model",
@@ -6754,9 +6743,9 @@
       "video_id": "model-minicpmv47-01"
     },
     {
-      "age_days": 19.01,
+      "age_days": 20.0,
       "category": "news",
-      "composite_percentile": 58.6,
+      "composite_percentile": 59.2,
       "has_comment_cta": true,
       "hook": "Okay, this is a big one: Claude Slides, Docs and Design just left beta, and they're now on the free plan.",
       "hook_heading": "",
@@ -6765,7 +6754,7 @@
       "niche": "tech / AI tools: AI news, paid to free",
       "platforms": {
         "facebook": {
-          "age_days": 19.01,
+          "age_days": 20.0,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -6816,7 +6805,7 @@
               "metrics_updated_at": "2026-10-13T10:48:31.425Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -6869,10 +6858,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 69.0
+          "views_percentile": 69.8
         },
         "instagram": {
-          "age_days": 19.01,
+          "age_days": 20.0,
           "avg_watch_s": 3.68,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -7235,7 +7224,7 @@
               "metrics_updated_at": "2026-10-27T19:52:18.622Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -7292,7 +7281,7 @@
                   "value": 128
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.801Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -7306,10 +7295,10 @@
           "shares": 0.0,
           "views": 128.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 30.5
+          "views_percentile": 31.0
         },
         "youtube": {
-          "age_days": 19.01,
+          "age_days": 20.0,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -7498,7 +7487,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.553Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -7525,7 +7514,7 @@
                   "value": 195
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.999Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.752Z"
             }
           ],
           "maturity": "mature",
@@ -7539,7 +7528,7 @@
           "shares": null,
           "views": 195.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 76.2
+          "views_percentile": 76.7
         }
       },
       "production_category": "unknown",
@@ -7549,9 +7538,9 @@
       "video_id": "news-claude-free-01"
     },
     {
-      "age_days": 15.56,
+      "age_days": 16.56,
       "category": "news",
-      "composite_percentile": 71.3,
+      "composite_percentile": 71.9,
       "has_comment_cta": true,
       "hook": "Cloudflare Clef does not write answers at all. It picks from the options you give it — in one pass.",
       "hook_heading": "A MODEL THAT CANNOT *RAMBLE*",
@@ -7560,7 +7549,7 @@
       "niche": "tech / AI news",
       "platforms": {
         "facebook": {
-          "age_days": 15.69,
+          "age_days": 16.68,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -7821,7 +7810,7 @@
               "metrics_updated_at": "2026-10-19T04:49:33.316Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -7874,10 +7863,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 73.8
+          "views_percentile": 74.4
         },
         "instagram": {
-          "age_days": 15.56,
+          "age_days": 16.56,
           "avg_watch_s": 4.16,
           "comments": 0.0,
           "engagement_actions": 1.0,
@@ -8240,7 +8229,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.969Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -8297,7 +8286,7 @@
                   "value": 199
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -8311,10 +8300,10 @@
           "shares": 1.0,
           "views": 199.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 82.9
+          "views_percentile": 83.3
         },
         "youtube": {
-          "age_days": 15.73,
+          "age_days": 16.72,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -8503,7 +8492,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -8527,10 +8516,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 67
+                  "value": 68
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.539Z"
             }
           ],
           "maturity": "mature",
@@ -8538,13 +8527,13 @@
           "platform": "youtube",
           "post_id": "6accd6f88aaa2e31caa56f20",
           "primary_metric": "views",
-          "primary_views": 67.0,
+          "primary_views": 68.0,
           "saves": null,
           "sent_at": "2026-10-13T18:01:33.035Z",
           "shares": null,
-          "views": 67.0,
-          "views_per_day_recent": 0.0,
-          "views_percentile": 57.1
+          "views": 68.0,
+          "views_per_day_recent": 0.53,
+          "views_percentile": 58.1
         }
       },
       "production_category": "news",
@@ -8554,9 +8543,9 @@
       "video_id": "news-clef-01"
     },
     {
-      "age_days": 17.36,
+      "age_days": 18.35,
       "category": "news",
-      "composite_percentile": 31.7,
+      "composite_percentile": 32.1,
       "has_comment_cta": true,
       "hook": "Google says its new Gemini agent can keep working after you close your laptop.",
       "hook_heading": "",
@@ -8565,7 +8554,7 @@
       "niche": "tech / AI news",
       "platforms": {
         "facebook": {
-          "age_days": 17.4,
+          "age_days": 18.39,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -8658,7 +8647,7 @@
               "metrics_updated_at": "2026-10-14T09:48:41.179Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -8711,10 +8700,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 4.8
+          "views_percentile": 4.7
         },
         "instagram": {
-          "age_days": 17.36,
+          "age_days": 18.35,
           "avg_watch_s": 1.87,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -9077,7 +9066,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.908Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -9134,7 +9123,7 @@
                   "value": 136
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.801Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -9148,10 +9137,10 @@
           "shares": 0.0,
           "views": 136.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 39.0
+          "views_percentile": 40.5
         },
         "youtube": {
-          "age_days": 17.36,
+          "age_days": 18.35,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -9340,7 +9329,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.553Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -9364,10 +9353,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 53
+                  "value": 54
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.999Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.659Z"
             }
           ],
           "maturity": "mature",
@@ -9375,12 +9364,12 @@
           "platform": "youtube",
           "post_id": "6acb200cb07d37ac9797a24d",
           "primary_metric": "views",
-          "primary_views": 53.0,
+          "primary_views": 54.0,
           "saves": null,
           "sent_at": "2026-10-12T03:00:23.644Z",
           "shares": null,
-          "views": 53.0,
-          "views_per_day_recent": 0.0,
+          "views": 54.0,
+          "views_per_day_recent": 0.53,
           "views_percentile": 51.2
         }
       },
@@ -9391,9 +9380,9 @@
       "video_id": "news-gemini-agent-01"
     },
     {
-      "age_days": 14.81,
+      "age_days": 15.8,
       "category": "news",
-      "composite_percentile": 60.3,
+      "composite_percentile": 61.2,
       "has_comment_cta": true,
       "hook": "GPT-6 Intelligent UI lets ChatGPT answer with a tool, not just a paragraph.",
       "hook_heading": "A TOOL, NOT JUST *TEXT*",
@@ -9402,7 +9391,7 @@
       "niche": "AI product feature",
       "platforms": {
         "facebook": {
-          "age_days": 14.94,
+          "age_days": 15.93,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -9663,7 +9652,7 @@
               "metrics_updated_at": "2026-10-21T02:49:53.579Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -9716,10 +9705,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 78.6
+          "views_percentile": 79.1
         },
         "instagram": {
-          "age_days": 14.81,
+          "age_days": 15.8,
           "avg_watch_s": 1.65,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -10082,7 +10071,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.903Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -10139,7 +10128,7 @@
                   "value": 138
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -10153,10 +10142,10 @@
           "shares": 0.0,
           "views": 138.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 42.7
+          "views_percentile": 44.0
         },
         "youtube": {
-          "age_days": 14.94,
+          "age_days": 15.93,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -10345,7 +10334,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -10369,10 +10358,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 84
+                  "value": 85
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.815Z"
             }
           ],
           "maturity": "mature",
@@ -10380,13 +10369,13 @@
           "platform": "youtube",
           "post_id": "6aceb930f847f2ad9eb488ff",
           "primary_metric": "views",
-          "primary_views": 84.0,
+          "primary_views": 85.0,
           "saves": null,
           "sent_at": "2026-10-14T13:01:32.335Z",
           "shares": null,
-          "views": 84.0,
-          "views_per_day_recent": 1.11,
-          "views_percentile": 59.5
+          "views": 85.0,
+          "views_per_day_recent": 1.05,
+          "views_percentile": 60.5
         }
       },
       "production_category": "news",
@@ -10396,9 +10385,9 @@
       "video_id": "news-gpt6-intelligent-ui-01"
     },
     {
-      "age_days": 16.94,
+      "age_days": 17.93,
       "category": "news",
-      "composite_percentile": 72.2,
+      "composite_percentile": 71.3,
       "has_comment_cta": true,
       "hook": "OpenAI built a smarter model, and then decided not to ship it. This is {GPT-6.1 Astra|GPT six point one Astra}.",
       "hook_heading": "",
@@ -10407,7 +10396,7 @@
       "niche": "tech / AI news",
       "platforms": {
         "facebook": {
-          "age_days": 17.06,
+          "age_days": 18.06,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -10542,7 +10531,7 @@
               "metrics_updated_at": "2026-10-16T07:49:04.706Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -10595,10 +10584,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 33.3
+          "views_percentile": 32.6
         },
         "instagram": {
-          "age_days": 16.98,
+          "age_days": 17.97,
           "avg_watch_s": 11.21,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -10961,7 +10950,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.977Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -11018,7 +11007,7 @@
                   "value": 308
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.801Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -11035,11 +11024,11 @@
           "views_percentile": 100.0
         },
         "youtube": {
-          "age_days": 16.94,
+          "age_days": 17.93,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
-          "engagement_rate": 0.37,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/3qjmijMrjPs",
           "follows": null,
           "history": [
@@ -11224,7 +11213,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.553Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -11236,7 +11225,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 0.37
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -11248,10 +11237,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 269
+                  "value": 270
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.999Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.700Z"
             }
           ],
           "maturity": "mature",
@@ -11259,13 +11248,13 @@
           "platform": "youtube",
           "post_id": "6acc919da2941ce817667a0b",
           "primary_metric": "views",
-          "primary_views": 269.0,
+          "primary_views": 270.0,
           "saves": null,
           "sent_at": "2026-10-12T13:00:59.457Z",
           "shares": null,
-          "views": 269.0,
-          "views_per_day_recent": 0.0,
-          "views_percentile": 83.3
+          "views": 270.0,
+          "views_per_day_recent": 0.53,
+          "views_percentile": 81.4
         }
       },
       "production_category": "news",
@@ -11275,9 +11264,9 @@
       "video_id": "news-gpt61-astra-01"
     },
     {
-      "age_days": 15.52,
+      "age_days": 16.52,
       "category": "news",
-      "composite_percentile": 62.4,
+      "composite_percentile": 62.6,
       "has_comment_cta": true,
       "hook": "OpenAI scrapped its last flagship, then shipped this one a day later at a fifth of the price. It is called GPT-6.1 Sol.",
       "hook_heading": "OPENAI'S *CHEAPEST* FRONTIER MODEL YET",
@@ -11286,7 +11275,7 @@
       "niche": "tech / AI news",
       "platforms": {
         "facebook": {
-          "age_days": 15.52,
+          "age_days": 16.52,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -11547,7 +11536,7 @@
               "metrics_updated_at": "2026-10-19T04:49:33.316Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -11600,10 +11589,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 47.6
+          "views_percentile": 46.5
         },
         "instagram": {
-          "age_days": 16.09,
+          "age_days": 17.08,
           "avg_watch_s": 3.4,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -11966,7 +11955,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.981Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -12023,7 +12012,7 @@
                   "value": 169
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -12037,10 +12026,10 @@
           "shares": 0.0,
           "views": 169.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 70.7
+          "views_percentile": 71.4
         },
         "youtube": {
-          "age_days": 16.47,
+          "age_days": 17.46,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -12229,7 +12218,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -12256,7 +12245,7 @@
                   "value": 130
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.706Z"
             }
           ],
           "maturity": "mature",
@@ -12270,7 +12259,7 @@
           "shares": null,
           "views": 130.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 69.0
+          "views_percentile": 69.8
         }
       },
       "production_category": "news",
@@ -12280,7 +12269,7 @@
       "video_id": "news-gpt61-sol-01"
     },
     {
-      "age_days": 17.94,
+      "age_days": 18.93,
       "category": "news",
       "composite_percentile": 32.7,
       "has_comment_cta": true,
@@ -12291,7 +12280,7 @@
       "niche": "tech / AI news",
       "platforms": {
         "facebook": {
-          "age_days": 18.02,
+          "age_days": 19.02,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -12384,7 +12373,7 @@
               "metrics_updated_at": "2026-10-14T09:48:41.179Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -12437,10 +12426,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 15.5
+          "views_percentile": 12.8
         },
         "instagram": {
-          "age_days": 18.02,
+          "age_days": 19.02,
           "avg_watch_s": 4.53,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -12803,7 +12792,7 @@
               "metrics_updated_at": "2026-10-28T13:49:16.002Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -12860,7 +12849,7 @@
                   "value": 158
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.801Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -12874,10 +12863,10 @@
           "shares": 0.0,
           "views": 158.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 65.9
+          "views_percentile": 66.7
         },
         "youtube": {
-          "age_days": 17.94,
+          "age_days": 18.93,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -13066,7 +13055,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.553Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -13093,7 +13082,7 @@
                   "value": 30
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.999Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.695Z"
             }
           ],
           "maturity": "mature",
@@ -13107,7 +13096,7 @@
           "shares": null,
           "views": 30.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 16.7
+          "views_percentile": 18.6
         }
       },
       "production_category": "news",
@@ -13117,9 +13106,9 @@
       "video_id": "news-haiku-55-01"
     },
     {
-      "age_days": 12.52,
+      "age_days": 13.52,
       "category": "news",
-      "composite_percentile": 39.6,
+      "composite_percentile": 39.9,
       "has_comment_cta": true,
       "hook": "Meta just released the weights of its biggest model ever, tuned for Apple silicon.",
       "hook_heading": "META'S *816B* GIANT",
@@ -13128,7 +13117,7 @@
       "niche": "AI model news",
       "platforms": {
         "facebook": {
-          "age_days": 12.81,
+          "age_days": 13.81,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -13389,7 +13378,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.088Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -13428,7 +13417,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.652Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.308Z"
             }
           ],
           "maturity": "mature",
@@ -13442,10 +13431,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 21.4
+          "views_percentile": 19.8
         },
         "instagram": {
-          "age_days": 12.56,
+          "age_days": 13.56,
           "avg_watch_s": 4.72,
           "comments": 0.0,
           "engagement_actions": 4.0,
@@ -13808,7 +13797,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.906Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -13865,7 +13854,7 @@
                   "value": 221
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -13879,10 +13868,10 @@
           "shares": 1.0,
           "views": 221.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 92.7
+          "views_percentile": 92.9
         },
         "youtube": {
-          "age_days": 12.52,
+          "age_days": 13.52,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -14071,7 +14060,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -14098,7 +14087,7 @@
                   "value": 18
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.808Z"
             }
           ],
           "maturity": "mature",
@@ -14112,7 +14101,7 @@
           "shares": null,
           "views": 18.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 4.8
+          "views_percentile": 7.0
         }
       },
       "production_category": "news",
@@ -14122,9 +14111,9 @@
       "video_id": "news-muse-spark-01"
     },
     {
-      "age_days": 16.54,
+      "age_days": 17.54,
       "category": "news",
-      "composite_percentile": 26.1,
+      "composite_percentile": 26.2,
       "has_comment_cta": true,
       "hook": "{Nano Banana 2.1|Nano Banana two point one} landed this month with a price cut, and one catch in the token bill.",
       "hook_heading": "NANO BANANA 2.1: *HALF PRICE*",
@@ -14133,7 +14122,7 @@
       "niche": "tech / AI news",
       "platforms": {
         "facebook": {
-          "age_days": 16.69,
+          "age_days": 17.68,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -14310,7 +14299,7 @@
               "metrics_updated_at": "2026-10-17T06:49:14.232Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -14362,11 +14351,11 @@
           "sent_at": "2026-10-12T19:01:14.336Z",
           "shares": 0.0,
           "views": null,
-          "views_per_day_recent": 0.09,
-          "views_percentile": 15.5
+          "views_per_day_recent": 0.08,
+          "views_percentile": 12.8
         },
         "instagram": {
-          "age_days": 16.56,
+          "age_days": 17.56,
           "avg_watch_s": 2.0,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -14729,7 +14718,7 @@
               "metrics_updated_at": "2026-10-28T13:49:16.012Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -14786,7 +14775,7 @@
                   "value": 132
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -14800,10 +14789,10 @@
           "shares": 0.0,
           "views": 132.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 34.1
+          "views_percentile": 35.7
         },
         "youtube": {
-          "age_days": 16.54,
+          "age_days": 17.54,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -14992,7 +14981,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -15019,7 +15008,7 @@
                   "value": 42
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.710Z"
             }
           ],
           "maturity": "mature",
@@ -15033,7 +15022,7 @@
           "shares": null,
           "views": 42.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 28.6
+          "views_percentile": 30.2
         }
       },
       "production_category": "news",
@@ -15043,9 +15032,9 @@
       "video_id": "news-nano-banana-21-01"
     },
     {
-      "age_days": 18.52,
+      "age_days": 19.52,
       "category": "repo",
-      "composite_percentile": 52.7,
+      "composite_percentile": 53.4,
       "has_comment_cta": true,
       "hook": "Okay, someone at {Anthropic|Anthropic} just built an AI homepage that literally writes itself.",
       "hook_heading": "",
@@ -15054,7 +15043,7 @@
       "niche": "tech / AI tools: trending GitHub repo spotlight",
       "platforms": {
         "facebook": {
-          "age_days": 18.52,
+          "age_days": 19.52,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -15147,7 +15136,7 @@
               "metrics_updated_at": "2026-10-14T09:48:41.179Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -15200,10 +15189,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 95.2
+          "views_percentile": 95.3
         },
         "instagram": {
-          "age_days": 18.65,
+          "age_days": 19.64,
           "avg_watch_s": 3.46,
           "comments": 0.0,
           "engagement_actions": 1.0,
@@ -15566,7 +15555,7 @@
               "metrics_updated_at": "2026-10-27T19:52:18.622Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -15623,7 +15612,7 @@
                   "value": 138
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.801Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -15637,14 +15626,14 @@
           "shares": 0.0,
           "views": 138.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 42.7
+          "views_percentile": 44.0
         },
         "youtube": {
-          "age_days": 18.69,
+          "age_days": 19.68,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
-          "engagement_rate": 3.23,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/IP70g5d8_Qc",
           "follows": null,
           "history": [
@@ -15829,7 +15818,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.553Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -15841,7 +15830,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 3.23
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -15856,7 +15845,7 @@
                   "value": 31
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.999Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.681Z"
             }
           ],
           "maturity": "mature",
@@ -15870,7 +15859,7 @@
           "shares": null,
           "views": 31.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 20.2
+          "views_percentile": 20.9
         }
       },
       "production_category": "unknown",
@@ -15880,9 +15869,9 @@
       "video_id": "repo-ai-newtab-01"
     },
     {
-      "age_days": 10.69,
+      "age_days": 11.68,
       "category": "repo",
-      "composite_percentile": 72.8,
+      "composite_percentile": 73.4,
       "has_comment_cta": true,
       "hook": "Your AI can now build scenes inside Blender, not just chat about them.",
       "hook_heading": "AI BUILDS *IN BLENDER*",
@@ -15891,7 +15880,7 @@
       "niche": "AI scene building in Blender",
       "platforms": {
         "facebook": {
-          "age_days": 10.71,
+          "age_days": 11.7,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -16152,7 +16141,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.088Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -16191,7 +16180,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.651Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.308Z"
             }
           ],
           "maturity": "mature",
@@ -16205,10 +16194,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 57.1
+          "views_percentile": 58.1
         },
         "instagram": {
-          "age_days": 10.69,
+          "age_days": 11.68,
           "avg_watch_s": 4.53,
           "comments": 0.0,
           "engagement_actions": 4.0,
@@ -16571,7 +16560,7 @@
               "metrics_updated_at": "2026-10-28T13:49:16.025Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -16628,7 +16617,7 @@
                   "value": 174
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -16642,14 +16631,14 @@
           "shares": 3.0,
           "views": 174.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 75.6
+          "views_percentile": 76.2
         },
         "youtube": {
-          "age_days": 11.54,
+          "age_days": 12.54,
           "avg_watch_s": null,
           "comments": 2.0,
           "engagement_actions": 2.0,
-          "engagement_rate": 1.0,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/1m0M8Arrcqg",
           "follows": null,
           "history": [
@@ -16834,7 +16823,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -16846,7 +16835,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 1
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -16858,10 +16847,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 301
+                  "value": 304
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.638Z"
             }
           ],
           "maturity": "mature",
@@ -16869,13 +16858,13 @@
           "platform": "youtube",
           "post_id": "6ad3ddae938409f1d0a0c96a",
           "primary_metric": "views",
-          "primary_views": 301.0,
+          "primary_views": 304.0,
           "saves": null,
           "sent_at": "2026-10-17T22:30:09.441Z",
           "shares": null,
-          "views": 301.0,
-          "views_per_day_recent": 1.11,
-          "views_percentile": 85.7
+          "views": 304.0,
+          "views_per_day_recent": 2.11,
+          "views_percentile": 86.0
         }
       },
       "production_category": "repo",
@@ -16885,9 +16874,9 @@
       "video_id": "repo-blender-mcp-01"
     },
     {
-      "age_days": 9.65,
+      "age_days": 10.64,
       "category": "repo",
-      "composite_percentile": 80.8,
+      "composite_percentile": 81.3,
       "has_comment_cta": true,
       "hook": "Your favourite single-player game was never meant for friends. An AI agent can now change that.",
       "hook_heading": "NEVER MEANT *FOR FRIENDS*",
@@ -16896,7 +16885,7 @@
       "niche": "AI game mods / co-op for single-player games",
       "platforms": {
         "facebook": {
-          "age_days": 9.81,
+          "age_days": 10.81,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -17157,7 +17146,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.088Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -17196,7 +17185,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.651Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.308Z"
             }
           ],
           "maturity": "mature",
@@ -17210,10 +17199,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 61.9
+          "views_percentile": 62.8
         },
         "instagram": {
-          "age_days": 9.9,
+          "age_days": 10.89,
           "avg_watch_s": 4.06,
           "comments": 0.0,
           "engagement_actions": 9.0,
@@ -17576,7 +17565,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.983Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -17633,7 +17622,7 @@
                   "value": 209
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -17646,15 +17635,15 @@
           "sent_at": "2026-10-19T14:03:07.233Z",
           "shares": 6.0,
           "views": 209.0,
-          "views_per_day_recent": 1.11,
-          "views_percentile": 85.4
+          "views_per_day_recent": 0.53,
+          "views_percentile": 85.7
         },
         "youtube": {
-          "age_days": 9.65,
+          "age_days": 10.64,
           "avg_watch_s": null,
           "comments": 2.0,
           "engagement_actions": 2.0,
-          "engagement_rate": 1.09,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/-BH04LS8BJI",
           "follows": null,
           "history": [
@@ -17839,7 +17828,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -17851,7 +17840,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 1.09
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -17863,10 +17852,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 914
+                  "value": 956
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.666Z"
             }
           ],
           "maturity": "mature",
@@ -17874,13 +17863,13 @@
           "platform": "youtube",
           "post_id": "6ad4dd44938409f1d0d540c6",
           "primary_metric": "views",
-          "primary_views": 914.0,
+          "primary_views": 956.0,
           "saves": null,
           "sent_at": "2026-10-19T20:01:01.540Z",
           "shares": null,
-          "views": 914.0,
-          "views_per_day_recent": 63.08,
-          "views_percentile": 95.2
+          "views": 956.0,
+          "views_per_day_recent": 52.15,
+          "views_percentile": 95.3
         }
       },
       "production_category": "repo",
@@ -17890,9 +17879,9 @@
       "video_id": "repo-coop-anything-01"
     },
     {
-      "age_days": 16.61,
+      "age_days": 17.6,
       "category": "repo",
-      "composite_percentile": 79.2,
+      "composite_percentile": 79.6,
       "has_comment_cta": true,
       "hook": "The creator of Redis built a small inference engine to run DeepSeek 4 on hardware people actually own.",
       "hook_heading": "DEEPSEEK 4, ON *HARDWARE YOU OWN*",
@@ -17901,7 +17890,7 @@
       "niche": "tech / AI repo",
       "platforms": {
         "facebook": {
-          "age_days": 16.81,
+          "age_days": 17.81,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -18078,7 +18067,7 @@
               "metrics_updated_at": "2026-10-17T06:49:14.232Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -18131,10 +18120,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 66.7
+          "views_percentile": 67.4
         },
         "instagram": {
-          "age_days": 16.69,
+          "age_days": 17.68,
           "avg_watch_s": 7.37,
           "comments": 0.0,
           "engagement_actions": 3.0,
@@ -18497,7 +18486,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.959Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -18554,7 +18543,7 @@
                   "value": 173
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.801Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -18568,14 +18557,14 @@
           "shares": 1.0,
           "views": 173.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 73.2
+          "views_percentile": 73.8
         },
         "youtube": {
-          "age_days": 16.61,
+          "age_days": 17.6,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
-          "engagement_rate": 0.88,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/NPkDz4_lbqY",
           "follows": null,
           "history": [
@@ -18760,7 +18749,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.553Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -18772,7 +18761,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 0.88
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -18784,10 +18773,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 1017
+                  "value": 1019
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.553Z"
             }
           ],
           "maturity": "mature",
@@ -18795,13 +18784,13 @@
           "platform": "youtube",
           "post_id": "6acc91ac5feb3462de95f38b",
           "primary_metric": "views",
-          "primary_views": 1017.0,
+          "primary_views": 1019.0,
           "saves": null,
           "sent_at": "2026-10-12T21:00:37.164Z",
           "shares": null,
-          "views": 1017.0,
-          "views_per_day_recent": 0.0,
-          "views_percentile": 97.6
+          "views": 1019.0,
+          "views_per_day_recent": 1.05,
+          "views_percentile": 97.7
         }
       },
       "production_category": "repo",
@@ -18811,9 +18800,9 @@
       "video_id": "repo-ds4-01"
     },
     {
-      "age_days": 9.79,
+      "age_days": 10.79,
       "category": "repo",
-      "composite_percentile": 45.8,
+      "composite_percentile": 47.0,
       "has_comment_cta": true,
       "hook": "Your coding agent can see your film, but it cannot hear a single sound in it.",
       "hook_heading": "YOUR AGENT *CAN'T HEAR*",
@@ -18822,7 +18811,7 @@
       "niche": "audio understanding for AI agents",
       "platforms": {
         "facebook": {
-          "age_days": 10.61,
+          "age_days": 11.6,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -19083,7 +19072,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.088Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -19122,7 +19111,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.651Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.308Z"
             }
           ],
           "maturity": "mature",
@@ -19136,10 +19125,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 84.5
+          "views_percentile": 84.9
         },
         "instagram": {
-          "age_days": 9.79,
+          "age_days": 10.79,
           "avg_watch_s": 1.92,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -19502,7 +19491,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.984Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -19559,7 +19548,7 @@
                   "value": 111
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -19573,14 +19562,14 @@
           "shares": 0.0,
           "views": 111.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 17.1
+          "views_percentile": 19.0
         },
         "youtube": {
-          "age_days": 10.65,
+          "age_days": 11.64,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
-          "engagement_rate": 2.22,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/RDnLRhg-O-0",
           "follows": null,
           "history": [
@@ -19765,7 +19754,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -19777,7 +19766,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 2.22
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -19792,7 +19781,7 @@
                   "value": 45
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.793Z"
             }
           ],
           "maturity": "mature",
@@ -19806,7 +19795,7 @@
           "shares": null,
           "views": 45.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 35.7
+          "views_percentile": 37.2
         }
       },
       "production_category": "repo",
@@ -19816,9 +19805,9 @@
       "video_id": "repo-earshot-01"
     },
     {
-      "age_days": 11.65,
+      "age_days": 12.64,
       "category": "repo",
-      "composite_percentile": 60.7,
+      "composite_percentile": 62.4,
       "has_comment_cta": true,
       "hook": "This one program maps your whole codebase, so your coding agent stops guessing.",
       "hook_heading": "YOUR AGENT GETS A *MAP*",
@@ -19827,7 +19816,7 @@
       "niche": "open-source coding-agent tools",
       "platforms": {
         "facebook": {
-          "age_days": 11.73,
+          "age_days": 12.72,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -20088,7 +20077,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.088Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -20127,7 +20116,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.651Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.308Z"
             }
           ],
           "maturity": "mature",
@@ -20141,10 +20130,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 90.5
+          "views_percentile": 90.7
         },
         "instagram": {
-          "age_days": 11.65,
+          "age_days": 12.64,
           "avg_watch_s": 1.53,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -20507,7 +20496,7 @@
               "metrics_updated_at": "2026-10-28T13:49:16.023Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -20564,7 +20553,7 @@
                   "value": 141
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -20578,10 +20567,10 @@
           "shares": 0.0,
           "views": 141.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 51.2
+          "views_percentile": 52.4
         },
         "youtube": {
-          "age_days": 11.69,
+          "age_days": 12.68,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -20770,7 +20759,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -20794,10 +20783,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 47
+                  "value": 49
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.534Z"
             }
           ],
           "maturity": "mature",
@@ -20805,13 +20794,13 @@
           "platform": "youtube",
           "post_id": "6ad1ff35aecfd112ce6f38fd",
           "primary_metric": "views",
-          "primary_views": 47.0,
+          "primary_views": 49.0,
           "saves": null,
           "sent_at": "2026-10-17T19:01:04.255Z",
           "shares": null,
-          "views": 47.0,
-          "views_per_day_recent": 0.0,
-          "views_percentile": 40.5
+          "views": 49.0,
+          "views_per_day_recent": 1.05,
+          "views_percentile": 44.2
         }
       },
       "production_category": "repo",
@@ -20821,9 +20810,172 @@
       "video_id": "repo-graphicle-01"
     },
     {
-      "age_days": 4.61,
+      "age_days": 0.43,
       "category": "repo",
-      "composite_percentile": 70.0,
+      "composite_percentile": 1.1,
+      "has_comment_cta": true,
+      "hook": "An AI that listens to your job interview and whispers the answers sounds perfect, until it gets you disqualified.",
+      "hook_heading": "HALO *WHISPERS* THE ANSWERS?",
+      "hook_style": "statement",
+      "maturity": "early",
+      "niche": "AI assistants for live conversations",
+      "platforms": {
+        "facebook": {
+          "age_days": 0.6,
+          "avg_watch_s": null,
+          "comments": 0.0,
+          "engagement_actions": 0.0,
+          "engagement_rate": 0.0,
+          "external_url": "https://www.facebook.com/reel/1681952020226645/",
+          "follows": null,
+          "history": [
+            {
+              "fetched_at": "2026-10-30T11:24:12Z",
+              "metrics": [
+                {
+                  "name": "Clicks",
+                  "type": "clicks",
+                  "unit": "count",
+                  "value": 0
+                },
+                {
+                  "name": "Comments",
+                  "type": "comments",
+                  "unit": "count",
+                  "value": 0
+                },
+                {
+                  "name": "Eng. Rate",
+                  "type": "engagementRate",
+                  "unit": "percentage",
+                  "value": 0
+                },
+                {
+                  "name": "Impressions",
+                  "type": "impressions",
+                  "unit": "count",
+                  "value": 0
+                },
+                {
+                  "name": "Reactions",
+                  "type": "reactions",
+                  "unit": "count",
+                  "value": 0
+                },
+                {
+                  "name": "Shares",
+                  "type": "shares",
+                  "unit": "count",
+                  "value": 0
+                }
+              ],
+              "metrics_updated_at": "2026-10-29T21:03:07.397Z"
+            }
+          ],
+          "maturity": "early",
+          "metrics_status": "fresh",
+          "platform": "facebook",
+          "post_id": "6ae21dd6f835de4f3257a189",
+          "primary_metric": "impressions",
+          "primary_views": 0.0,
+          "saves": null,
+          "sent_at": "2026-10-29T21:01:33.875Z",
+          "shares": 0.0,
+          "views": null,
+          "views_per_day_recent": null,
+          "views_percentile": 0.0
+        },
+        "instagram": {
+          "age_days": 0.43,
+          "avg_watch_s": null,
+          "comments": null,
+          "engagement_actions": null,
+          "engagement_rate": null,
+          "external_url": "https://www.instagram.com/reel/DfGWowogNLX/",
+          "follows": null,
+          "history": [
+            {
+              "fetched_at": "2026-10-30T11:24:12Z",
+              "metrics": [],
+              "metrics_updated_at": "2026-10-28T16:07:54.152Z"
+            }
+          ],
+          "maturity": "early",
+          "metrics_status": "awaiting_buffer_refresh",
+          "platform": "instagram",
+          "post_id": "6ae21dda1d398031838ed6c7",
+          "primary_metric": null,
+          "primary_views": null,
+          "saves": null,
+          "sent_at": "2026-10-30T01:01:41.802Z",
+          "shares": null,
+          "views": null,
+          "views_per_day_recent": null
+        },
+        "youtube": {
+          "age_days": 0.64,
+          "avg_watch_s": null,
+          "comments": 0.0,
+          "engagement_actions": 0.0,
+          "engagement_rate": 0.0,
+          "external_url": "https://www.youtube.com/shorts/cXqQhlbnMnU",
+          "follows": null,
+          "history": [
+            {
+              "fetched_at": "2026-10-30T11:24:12Z",
+              "metrics": [
+                {
+                  "name": "Comments",
+                  "type": "comments",
+                  "unit": "count",
+                  "value": 0
+                },
+                {
+                  "name": "Eng. Rate",
+                  "type": "engagementRate",
+                  "unit": "percentage",
+                  "value": 0
+                },
+                {
+                  "name": "Reactions",
+                  "type": "reactions",
+                  "unit": "count",
+                  "value": 0
+                },
+                {
+                  "name": "Video Views",
+                  "type": "views",
+                  "unit": "count",
+                  "value": 15
+                }
+              ],
+              "metrics_updated_at": "2026-10-30T10:44:39.530Z"
+            }
+          ],
+          "maturity": "early",
+          "metrics_status": "fresh",
+          "platform": "youtube",
+          "post_id": "6ae21dd2f835de4f32579ea3",
+          "primary_metric": "views",
+          "primary_views": 15.0,
+          "saves": null,
+          "sent_at": "2026-10-29T20:01:38.759Z",
+          "shares": null,
+          "views": 15.0,
+          "views_per_day_recent": null,
+          "views_percentile": 2.3
+        }
+      },
+      "production_category": "repo",
+      "scene_count": 5,
+      "template": "unknown",
+      "title": "Halo: an AI overlay that hears your calls and suggests what to say",
+      "video_id": "repo-halo-01"
+    },
+    {
+      "age_days": 5.6,
+      "category": "repo",
+      "composite_percentile": 70.7,
       "has_comment_cta": true,
       "hook": "You run several coding agents at once. One of them is waiting on you, and you only find out when you check the tab. This sidebar tells you which one.",
       "hook_heading": "HARP: WHICH AGENT NEEDS *YOU?*",
@@ -20832,7 +20984,7 @@
       "niche": "developer tools for running several coding agents",
       "platforms": {
         "facebook": {
-          "age_days": 4.61,
+          "age_days": 5.6,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -20925,7 +21077,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.088Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -20964,7 +21116,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.651Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.307Z"
             }
           ],
           "maturity": "developing",
@@ -20981,7 +21133,7 @@
           "views_percentile": 100.0
         },
         "instagram": {
-          "age_days": 4.69,
+          "age_days": 5.68,
           "avg_watch_s": 33.05,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -21110,7 +21262,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.975Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -21167,7 +21319,7 @@
                   "value": 114
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.142Z"
             }
           ],
           "maturity": "developing",
@@ -21181,14 +21333,14 @@
           "shares": 0.0,
           "views": 114.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 22.0
+          "views_percentile": 23.8
         },
         "youtube": {
-          "age_days": 4.65,
+          "age_days": 5.64,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
-          "engagement_rate": 0.9,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/9QShq29xK7g",
           "follows": null,
           "history": [
@@ -21253,7 +21405,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -21265,7 +21417,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 0.9
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -21280,7 +21432,7 @@
                   "value": 334
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.653Z"
             }
           ],
           "maturity": "developing",
@@ -21294,7 +21446,7 @@
           "shares": null,
           "views": 334.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 88.1
+          "views_percentile": 88.4
         }
       },
       "production_category": "repo",
@@ -21304,9 +21456,9 @@
       "video_id": "repo-harp-01"
     },
     {
-      "age_days": 8.68,
+      "age_days": 9.68,
       "category": "repo",
-      "composite_percentile": 40.8,
+      "composite_percentile": 42.9,
       "has_comment_cta": true,
       "hook": "Your coding agent can now shoot your product's launch film, music included.",
       "hook_heading": "YOUR AGENT *SHOOTS THE AD*",
@@ -21315,7 +21467,7 @@
       "niche": "AI video creation with coding agents",
       "platforms": {
         "facebook": {
-          "age_days": 8.81,
+          "age_days": 9.81,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -21576,7 +21728,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.088Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -21615,7 +21767,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.651Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.308Z"
             }
           ],
           "maturity": "mature",
@@ -21629,10 +21781,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 38.1
+          "views_percentile": 37.2
         },
         "instagram": {
-          "age_days": 8.79,
+          "age_days": 9.79,
           "avg_watch_s": 2.71,
           "comments": 0.0,
           "engagement_actions": 1.0,
@@ -21995,7 +22147,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.947Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -22052,7 +22204,7 @@
                   "value": 134
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.142Z"
             }
           ],
           "maturity": "mature",
@@ -22066,10 +22218,10 @@
           "shares": 1.0,
           "views": 134.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 36.6
+          "views_percentile": 38.1
         },
         "youtube": {
-          "age_days": 8.68,
+          "age_days": 9.68,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -22258,7 +22410,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -22282,10 +22434,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 52
+                  "value": 56
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.791Z"
             }
           ],
           "maturity": "mature",
@@ -22293,13 +22445,13 @@
           "platform": "youtube",
           "post_id": "6ad73fd3fc46f49b9288ec5a",
           "primary_metric": "views",
-          "primary_views": 52.0,
+          "primary_views": 56.0,
           "saves": null,
           "sent_at": "2026-10-20T19:06:24.134Z",
           "shares": null,
-          "views": 52.0,
-          "views_per_day_recent": 2.21,
-          "views_percentile": 47.6
+          "views": 56.0,
+          "views_per_day_recent": 3.16,
+          "views_percentile": 53.5
         }
       },
       "production_category": "repo",
@@ -22309,9 +22461,9 @@
       "video_id": "repo-huashu-motion-01"
     },
     {
-      "age_days": 13.69,
+      "age_days": 14.68,
       "category": "repo",
-      "composite_percentile": 46.5,
+      "composite_percentile": 47.0,
       "has_comment_cta": true,
       "hook": "This synthetic invoice went in as an image, and Indra read the total locally.",
       "hook_heading": "SCAN IN. *MARKDOWN OUT.*",
@@ -22320,7 +22472,7 @@
       "niche": "open-source local OCR / document AI",
       "platforms": {
         "facebook": {
-          "age_days": 13.81,
+          "age_days": 14.81,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -22581,7 +22733,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.089Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -22633,11 +22785,11 @@
           "sent_at": "2026-10-15T16:01:15.326Z",
           "shares": 0.0,
           "views": null,
-          "views_per_day_recent": 1.11,
-          "views_percentile": 52.4
+          "views_per_day_recent": 0.53,
+          "views_percentile": 51.2
         },
         "instagram": {
-          "age_days": 13.69,
+          "age_days": 14.68,
           "avg_watch_s": 4.13,
           "comments": 0.0,
           "engagement_actions": 2.0,
@@ -23000,7 +23152,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.900Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -23057,7 +23209,7 @@
                   "value": 154
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -23071,10 +23223,10 @@
           "shares": 0.0,
           "views": 154.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 61.0
+          "views_percentile": 61.9
         },
         "youtube": {
-          "age_days": 13.77,
+          "age_days": 14.77,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -23263,7 +23415,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -23287,10 +23439,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 37
+                  "value": 38
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.546Z"
             }
           ],
           "maturity": "mature",
@@ -23298,13 +23450,13 @@
           "platform": "youtube",
           "post_id": "6ad0cb838913aa90c39762c5",
           "primary_metric": "views",
-          "primary_views": 37.0,
+          "primary_views": 38.0,
           "saves": null,
           "sent_at": "2026-10-15T17:00:38.497Z",
           "shares": null,
-          "views": 37.0,
-          "views_per_day_recent": 0.0,
-          "views_percentile": 26.2
+          "views": 38.0,
+          "views_per_day_recent": 0.53,
+          "views_percentile": 27.9
         }
       },
       "production_category": "repo",
@@ -23314,9 +23466,9 @@
       "video_id": "repo-indra-01"
     },
     {
-      "age_days": 0.61,
+      "age_days": 1.43,
       "category": "repo",
-      "composite_percentile": 0.0,
+      "composite_percentile": 17.8,
       "has_comment_cta": true,
       "hook": "This sales ad has no real presenter in it. The only input was one photo and one sentence.",
       "hook_heading": "",
@@ -23325,22 +23477,22 @@
       "niche": "AI tools that make presenter videos",
       "platforms": {
         "facebook": {
-          "age_days": 0.61,
+          "age_days": 1.6,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
-          "engagement_rate": 0.0,
+          "engagement_rate": 2.27,
           "external_url": "https://www.facebook.com/reel/1837357560840738/",
           "follows": null,
           "history": [
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
                   "type": "clicks",
                   "unit": "count",
-                  "value": 0
+                  "value": 1
                 },
                 {
                   "name": "Comments",
@@ -23352,13 +23504,13 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 0
+                  "value": 2.27
                 },
                 {
                   "name": "Impressions",
                   "type": "impressions",
                   "unit": "count",
-                  "value": 0
+                  "value": 44
                 },
                 {
                   "name": "Reactions",
@@ -23373,7 +23525,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T21:02:24.901Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.307Z"
             }
           ],
           "maturity": "early",
@@ -23381,16 +23533,99 @@
           "platform": "facebook",
           "post_id": "6ae21dcbe490badbade8434b",
           "primary_metric": "impressions",
-          "primary_views": 0.0,
+          "primary_views": 44.0,
           "saves": null,
           "sent_at": "2026-10-28T21:00:55.177Z",
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": null,
+          "views_percentile": 53.5
+        },
+        "instagram": {
+          "age_days": 1.43,
+          "avg_watch_s": 11.57,
+          "comments": 0.0,
+          "engagement_actions": 0.0,
+          "engagement_rate": 0.0,
+          "external_url": "https://www.instagram.com/reel/DfDx0awAt_f/",
+          "follows": null,
+          "history": [
+            {
+              "fetched_at": "2026-10-30T11:24:12Z",
+              "metrics": [
+                {
+                  "name": "Avg. Watch Time (sec)",
+                  "type": "averageTimeWatched",
+                  "unit": "count",
+                  "value": 11.57
+                },
+                {
+                  "name": "Comments",
+                  "type": "comments",
+                  "unit": "count",
+                  "value": 0
+                },
+                {
+                  "name": "Eng. Rate",
+                  "type": "engagementRate",
+                  "unit": "percentage",
+                  "value": 0
+                },
+                {
+                  "name": "Reach",
+                  "type": "reach",
+                  "unit": "count",
+                  "value": 6
+                },
+                {
+                  "name": "Reactions",
+                  "type": "reactions",
+                  "unit": "count",
+                  "value": 0
+                },
+                {
+                  "name": "Saves",
+                  "type": "saves",
+                  "unit": "count",
+                  "value": 0
+                },
+                {
+                  "name": "Shares",
+                  "type": "shares",
+                  "unit": "count",
+                  "value": 0
+                },
+                {
+                  "name": "Watch Time (min)",
+                  "type": "totalTimeWatched",
+                  "unit": "count",
+                  "value": 1.74
+                },
+                {
+                  "name": "Views",
+                  "type": "views",
+                  "unit": "count",
+                  "value": 11
+                }
+              ],
+              "metrics_updated_at": "2026-10-29T17:52:38.142Z"
+            }
+          ],
+          "maturity": "early",
+          "metrics_status": "fresh",
+          "platform": "instagram",
+          "post_id": "6ae21dce1d398031838ecf23",
+          "primary_metric": "views",
+          "primary_views": 11.0,
+          "saves": 0.0,
+          "sent_at": "2026-10-29T01:02:02.688Z",
+          "shares": 0.0,
+          "views": 11.0,
+          "views_per_day_recent": null,
           "views_percentile": 0.0
         },
         "youtube": {
-          "age_days": 0.65,
+          "age_days": 1.64,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -23399,7 +23634,7 @@
           "follows": null,
           "history": [
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -23423,10 +23658,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 7
+                  "value": 13
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.997Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.656Z"
             }
           ],
           "maturity": "early",
@@ -23434,11 +23669,11 @@
           "platform": "youtube",
           "post_id": "6ae21dc7f835de4f32579913",
           "primary_metric": "views",
-          "primary_views": 7.0,
+          "primary_views": 13.0,
           "saves": null,
           "sent_at": "2026-10-28T20:00:52.273Z",
           "shares": null,
-          "views": 7.0,
+          "views": 13.0,
           "views_per_day_recent": null,
           "views_percentile": 0.0
         }
@@ -23450,9 +23685,9 @@
       "video_id": "repo-koubo-01"
     },
     {
-      "age_days": 9.54,
+      "age_days": 10.54,
       "category": "repo",
-      "composite_percentile": 26.8,
+      "composite_percentile": 29.7,
       "has_comment_cta": true,
       "hook": "Your coding agent pays a heavy tax just to inspect an app you already own.",
       "hook_heading": "YOUR AGENT *PAYS A TAX*",
@@ -23461,7 +23696,7 @@
       "niche": "reverse engineering skills for coding agents",
       "platforms": {
         "facebook": {
-          "age_days": 9.71,
+          "age_days": 10.7,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -23722,7 +23957,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.088Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -23746,7 +23981,7 @@
                   "name": "Impressions",
                   "type": "impressions",
                   "unit": "count",
-                  "value": 14
+                  "value": 16
                 },
                 {
                   "name": "Reactions",
@@ -23761,7 +23996,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.651Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.308Z"
             }
           ],
           "maturity": "mature",
@@ -23769,16 +24004,16 @@
           "platform": "facebook",
           "post_id": "6ad64b41408d925d996e6c90",
           "primary_metric": "impressions",
-          "primary_views": 14.0,
+          "primary_views": 16.0,
           "saves": null,
           "sent_at": "2026-10-19T18:30:30.351Z",
           "shares": 0.0,
           "views": null,
-          "views_per_day_recent": 0.0,
-          "views_percentile": 9.5
+          "views_per_day_recent": 1.05,
+          "views_percentile": 19.8
         },
         "instagram": {
-          "age_days": 9.69,
+          "age_days": 10.68,
           "avg_watch_s": 2.12,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -24141,7 +24376,7 @@
               "metrics_updated_at": "2026-10-28T13:49:16.019Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -24198,7 +24433,7 @@
                   "value": 117
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.142Z"
             }
           ],
           "maturity": "mature",
@@ -24212,14 +24447,14 @@
           "shares": 0.0,
           "views": 117.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 25.6
+          "views_percentile": 27.4
         },
         "youtube": {
-          "age_days": 9.54,
+          "age_days": 10.54,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
-          "engagement_rate": 2.04,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/2dF5c-2OqQg",
           "follows": null,
           "history": [
@@ -24404,7 +24639,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -24416,7 +24651,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 2.04
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -24428,10 +24663,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 49
+                  "value": 48
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.855Z"
             }
           ],
           "maturity": "mature",
@@ -24439,13 +24674,13 @@
           "platform": "youtube",
           "post_id": "6ad64b4c6cd7d3af6311b39c",
           "primary_metric": "views",
-          "primary_views": 49.0,
+          "primary_views": 48.0,
           "saves": null,
           "sent_at": "2026-10-19T22:30:15.123Z",
           "shares": null,
-          "views": 49.0,
-          "views_per_day_recent": 3.32,
-          "views_percentile": 45.2
+          "views": 48.0,
+          "views_per_day_recent": 1.05,
+          "views_percentile": 41.9
         }
       },
       "production_category": "repo",
@@ -24455,9 +24690,9 @@
       "video_id": "repo-leanrea-01"
     },
     {
-      "age_days": 14.69,
+      "age_days": 15.68,
       "category": "repo",
-      "composite_percentile": 70.3,
+      "composite_percentile": 71.7,
       "has_comment_cta": true,
       "hook": "Manim-style Python, rendered through a Rust GPU engine.",
       "hook_heading": "",
@@ -24466,7 +24701,7 @@
       "niche": "open-source math animation engine",
       "platforms": {
         "facebook": {
-          "age_days": 14.81,
+          "age_days": 15.81,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -24727,7 +24962,7 @@
               "metrics_updated_at": "2026-10-23T00:50:15.694Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -24780,10 +25015,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 76.2
+          "views_percentile": 76.7
         },
         "instagram": {
-          "age_days": 14.69,
+          "age_days": 15.68,
           "avg_watch_s": 2.46,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -25146,7 +25381,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.961Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -25203,7 +25438,7 @@
                   "value": 144
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -25217,10 +25452,10 @@
           "shares": 0.0,
           "views": 144.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 53.7
+          "views_percentile": 54.8
         },
         "youtube": {
-          "age_days": 14.77,
+          "age_days": 15.77,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -25409,7 +25644,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -25433,10 +25668,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 268
+                  "value": 277
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.810Z"
             }
           ],
           "maturity": "mature",
@@ -25444,13 +25679,13 @@
           "platform": "youtube",
           "post_id": "6aceb9391f3f10bcb7a33919",
           "primary_metric": "views",
-          "primary_views": 268.0,
+          "primary_views": 277.0,
           "saves": null,
           "sent_at": "2026-10-14T17:01:58.770Z",
           "shares": null,
-          "views": 268.0,
-          "views_per_day_recent": 2.21,
-          "views_percentile": 81.0
+          "views": 277.0,
+          "views_per_day_recent": 5.79,
+          "views_percentile": 83.7
         }
       },
       "production_category": "repo",
@@ -25460,9 +25695,9 @@
       "video_id": "repo-manimgx-01"
     },
     {
-      "age_days": 15.85,
+      "age_days": 16.85,
       "category": "repo",
-      "composite_percentile": 74.6,
+      "composite_percentile": 75.2,
       "has_comment_cta": true,
       "hook": "Alibaba built an AI code reviewer for its own engineers, ran it internally for two years, and just open sourced it. It is called {Open Code Review|Open Code Review}.",
       "hook_heading": "ALIBABA OPEN-SOURCED ITS *CODE REVIEWER*",
@@ -25471,7 +25706,7 @@
       "niche": "tech / AI repo",
       "platforms": {
         "facebook": {
-          "age_days": 16.53,
+          "age_days": 17.53,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -25690,7 +25925,7 @@
               "metrics_updated_at": "2026-10-18T05:49:25.524Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -25743,10 +25978,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 59.5
+          "views_percentile": 60.5
         },
         "instagram": {
-          "age_days": 16.09,
+          "age_days": 17.08,
           "avg_watch_s": 5.31,
           "comments": 0.0,
           "engagement_actions": 3.0,
@@ -26109,7 +26344,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.991Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -26166,7 +26401,7 @@
                   "value": 269
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -26183,11 +26418,11 @@
           "views_percentile": 97.6
         },
         "youtube": {
-          "age_days": 15.85,
+          "age_days": 16.85,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
-          "engagement_rate": 0.93,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/zOGSyBEO2Dc",
           "follows": null,
           "history": [
@@ -26372,7 +26607,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -26384,7 +26619,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 0.93
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -26396,10 +26631,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 108
+                  "value": 109
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.664Z"
             }
           ],
           "maturity": "mature",
@@ -26407,13 +26642,13 @@
           "platform": "youtube",
           "post_id": "6accbfb952632410b3dc6657",
           "primary_metric": "views",
-          "primary_views": 108.0,
+          "primary_views": 109.0,
           "saves": null,
           "sent_at": "2026-10-13T15:01:55.405Z",
           "shares": null,
-          "views": 108.0,
-          "views_per_day_recent": 3.32,
-          "views_percentile": 66.7
+          "views": 109.0,
+          "views_per_day_recent": 2.11,
+          "views_percentile": 67.4
         }
       },
       "production_category": "repo",
@@ -26423,9 +26658,9 @@
       "video_id": "repo-opencr-01"
     },
     {
-      "age_days": 12.4,
+      "age_days": 13.39,
       "category": "repo",
-      "composite_percentile": 25.8,
+      "composite_percentile": 26.0,
       "has_comment_cta": true,
       "hook": "Tell this agent the task, and it opens a real browser and does it.",
       "hook_heading": "IT *BROWSES* FOR YOU",
@@ -26434,7 +26669,7 @@
       "niche": "open-source browser agents",
       "platforms": {
         "facebook": {
-          "age_days": 12.56,
+          "age_days": 13.56,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -26695,7 +26930,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.088Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -26734,7 +26969,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.652Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.308Z"
             }
           ],
           "maturity": "mature",
@@ -26748,10 +26983,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 15.5
+          "views_percentile": 12.8
         },
         "instagram": {
-          "age_days": 12.44,
+          "age_days": 13.43,
           "avg_watch_s": 2.46,
           "comments": 0.0,
           "engagement_actions": 2.0,
@@ -27114,7 +27349,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.949Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -27171,7 +27406,7 @@
                   "value": 140
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -27185,14 +27420,14 @@
           "shares": 0.0,
           "views": 140.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 47.6
+          "views_percentile": 48.8
         },
         "youtube": {
-          "age_days": 12.4,
+          "age_days": 13.39,
           "avg_watch_s": null,
           "comments": 3.0,
           "engagement_actions": 3.0,
-          "engagement_rate": 10.71,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/Y_zJBwfZjkY",
           "follows": null,
           "history": [
@@ -27377,7 +27612,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -27389,7 +27624,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 10.71
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -27404,7 +27639,7 @@
                   "value": 28
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.631Z"
             }
           ],
           "maturity": "mature",
@@ -27418,7 +27653,7 @@
           "shares": null,
           "views": 28.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 14.3
+          "views_percentile": 16.3
         }
       },
       "production_category": "repo",
@@ -27428,9 +27663,9 @@
       "video_id": "repo-scout-01"
     },
     {
-      "age_days": 13.48,
+      "age_days": 14.48,
       "category": "repo",
-      "composite_percentile": 70.5,
+      "composite_percentile": 71.2,
       "has_comment_cta": true,
       "hook": "This is a glass interface you can actually read. No squinting through the blur.",
       "hook_heading": "GLASS YOU CAN *READ*",
@@ -27439,7 +27674,7 @@
       "niche": "open-source design systems / AI app UI",
       "platforms": {
         "facebook": {
-          "age_days": 13.69,
+          "age_days": 14.68,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -27700,7 +27935,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.089Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -27739,7 +27974,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.652Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.308Z"
             }
           ],
           "maturity": "mature",
@@ -27753,10 +27988,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 92.9
+          "views_percentile": 93.0
         },
         "instagram": {
-          "age_days": 13.6,
+          "age_days": 14.6,
           "avg_watch_s": 5.06,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -28119,7 +28354,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.942Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -28176,7 +28411,7 @@
                   "value": 190
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -28190,10 +28425,10 @@
           "shares": 0.0,
           "views": 190.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 80.5
+          "views_percentile": 81.0
         },
         "youtube": {
-          "age_days": 13.48,
+          "age_days": 14.48,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -28382,7 +28617,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -28409,7 +28644,7 @@
                   "value": 46
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.805Z"
             }
           ],
           "maturity": "mature",
@@ -28423,7 +28658,7 @@
           "shares": null,
           "views": 46.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 38.1
+          "views_percentile": 39.5
         }
       },
       "production_category": "repo",
@@ -28433,9 +28668,9 @@
       "video_id": "repo-solidglass-01"
     },
     {
-      "age_days": 2.69,
+      "age_days": 3.68,
       "category": "repo",
-      "composite_percentile": 25.0,
+      "composite_percentile": 26.4,
       "has_comment_cta": true,
       "hook": "Build a video template once, then let your coding agent reuse it for every new film.",
       "hook_heading": "",
@@ -28444,7 +28679,7 @@
       "niche": "AI tools for video creators",
       "platforms": {
         "facebook": {
-          "age_days": 2.69,
+          "age_days": 3.68,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -28495,7 +28730,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.088Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -28534,7 +28769,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.651Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.307Z"
             }
           ],
           "maturity": "developing",
@@ -28548,11 +28783,11 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 50.0
+          "views_percentile": 48.8
         },
         "instagram": {
-          "age_days": 2.69,
-          "avg_watch_s": 2.49,
+          "age_days": 3.68,
+          "avg_watch_s": 2.63,
           "comments": 0.0,
           "engagement_actions": 0.0,
           "engagement_rate": 0.0,
@@ -28620,13 +28855,13 @@
               "metrics_updated_at": "2026-10-28T13:49:15.940Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
                   "type": "averageTimeWatched",
                   "unit": "count",
-                  "value": 2.49
+                  "value": 2.63
                 },
                 {
                   "name": "Comments",
@@ -28668,16 +28903,16 @@
                   "name": "Watch Time (min)",
                   "type": "totalTimeWatched",
                   "unit": "count",
-                  "value": 2.2
+                  "value": 2.37
                 },
                 {
                   "name": "Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 57
+                  "value": 58
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.799Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.142Z"
             }
           ],
           "maturity": "developing",
@@ -28685,16 +28920,16 @@
           "platform": "instagram",
           "post_id": "6adf35fd551b0b514a63c423",
           "primary_metric": "views",
-          "primary_views": 57.0,
+          "primary_views": 58.0,
           "saves": 0.0,
           "sent_at": "2026-10-26T19:02:18.184Z",
           "shares": 0.0,
-          "views": 57.0,
-          "views_per_day_recent": 0.0,
-          "views_percentile": 4.9
+          "views": 58.0,
+          "views_per_day_recent": 0.53,
+          "views_percentile": 7.1
         },
         "youtube": {
-          "age_days": 2.85,
+          "age_days": 3.85,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -28733,7 +28968,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -28757,10 +28992,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 31
+                  "value": 33
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.789Z"
             }
           ],
           "maturity": "developing",
@@ -28768,13 +29003,13 @@
           "platform": "youtube",
           "post_id": "6adf35f7551b0b514a63c1a4",
           "primary_metric": "views",
-          "primary_views": 31.0,
+          "primary_views": 33.0,
           "saves": null,
           "sent_at": "2026-10-26T15:01:38.490Z",
           "shares": null,
-          "views": 31.0,
-          "views_per_day_recent": 5.53,
-          "views_percentile": 20.2
+          "views": 33.0,
+          "views_per_day_recent": 3.69,
+          "views_percentile": 23.3
         }
       },
       "production_category": "repo",
@@ -28784,9 +29019,9 @@
       "video_id": "repo-vvv-01"
     },
     {
-      "age_days": 8.89,
+      "age_days": 9.89,
       "category": "repo",
-      "composite_percentile": 54.0,
+      "composite_percentile": 53.9,
       "has_comment_cta": true,
       "hook": "That address someone sent you last March is buried in WhatsApp. Now your AI can dig it out.",
       "hook_heading": "ASK YOUR *WHATSAPP* ANYTHING",
@@ -28795,7 +29030,7 @@
       "niche": "personal AI agents and MCP servers",
       "platforms": {
         "facebook": {
-          "age_days": 9.61,
+          "age_days": 10.6,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -29056,7 +29291,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.088Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -29095,7 +29330,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.651Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.308Z"
             }
           ],
           "maturity": "mature",
@@ -29109,10 +29344,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 54.8
+          "views_percentile": 55.8
         },
         "instagram": {
-          "age_days": 8.89,
+          "age_days": 9.89,
           "avg_watch_s": 5.94,
           "comments": 0.0,
           "engagement_actions": 4.0,
@@ -29475,7 +29710,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.956Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -29532,7 +29767,7 @@
                   "value": 145
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.142Z"
             }
           ],
           "maturity": "mature",
@@ -29546,14 +29781,14 @@
           "shares": 2.0,
           "views": 145.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 56.1
+          "views_percentile": 57.1
         },
         "youtube": {
-          "age_days": 9.44,
+          "age_days": 10.43,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
-          "engagement_rate": 1.89,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/P-Cc_EAvqv8",
           "follows": null,
           "history": [
@@ -29738,7 +29973,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -29750,7 +29985,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 1.89
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -29765,7 +30000,7 @@
                   "value": 53
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.799Z"
             }
           ],
           "maturity": "mature",
@@ -29779,7 +30014,7 @@
           "shares": null,
           "views": 53.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 51.2
+          "views_percentile": 48.8
         }
       },
       "production_category": "repo",
@@ -29789,9 +30024,9 @@
       "video_id": "repo-whatsapp-mcp-01"
     },
     {
-      "age_days": 17.61,
+      "age_days": 18.6,
       "category": "repo",
-      "composite_percentile": 58.1,
+      "composite_percentile": 59.1,
       "has_comment_cta": true,
       "hook": "Whistle transcribes speech locally, with a model file smaller than some app updates.",
       "hook_heading": "",
@@ -29800,7 +30035,7 @@
       "niche": "tech / AI repo",
       "platforms": {
         "facebook": {
-          "age_days": 17.73,
+          "age_days": 18.72,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -29893,7 +30128,7 @@
               "metrics_updated_at": "2026-10-14T09:48:41.179Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -29946,10 +30181,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 64.3
+          "views_percentile": 65.1
         },
         "instagram": {
-          "age_days": 17.65,
+          "age_days": 18.64,
           "avg_watch_s": 5.0,
           "comments": 0.0,
           "engagement_actions": 4.0,
@@ -30312,7 +30547,7 @@
               "metrics_updated_at": "2026-10-28T13:49:16.017Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -30369,7 +30604,7 @@
                   "value": 186
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.801Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -30383,10 +30618,10 @@
           "shares": 0.0,
           "views": 186.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 78.0
+          "views_percentile": 78.6
         },
         "youtube": {
-          "age_days": 17.61,
+          "age_days": 18.6,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -30575,7 +30810,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.553Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -30602,7 +30837,7 @@
                   "value": 44
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.999Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.733Z"
             }
           ],
           "maturity": "mature",
@@ -30616,7 +30851,7 @@
           "shares": null,
           "views": 44.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 32.1
+          "views_percentile": 33.7
         }
       },
       "production_category": "repo",
@@ -30626,9 +30861,9 @@
       "video_id": "repo-whistle-01"
     },
     {
-      "age_days": 7.56,
+      "age_days": 8.56,
       "category": "tool",
-      "composite_percentile": 30.9,
+      "composite_percentile": 32.6,
       "has_comment_cta": true,
       "hook": "No designer, no template. This pricing page was written by an agent from one sentence.",
       "hook_heading": "",
@@ -30637,7 +30872,7 @@
       "niche": "AI design agents for developers and indie makers",
       "platforms": {
         "facebook": {
-          "age_days": 8.61,
+          "age_days": 9.6,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -30898,7 +31133,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.088Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -30937,7 +31172,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.651Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.308Z"
             }
           ],
           "maturity": "mature",
@@ -30951,10 +31186,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 84.5
+          "views_percentile": 84.9
         },
         "instagram": {
-          "age_days": 7.56,
+          "age_days": 8.56,
           "avg_watch_s": 1.11,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -31263,7 +31498,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.936Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -31320,7 +31555,7 @@
                   "value": 42
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.142Z"
             }
           ],
           "maturity": "mature",
@@ -31334,10 +31569,10 @@
           "shares": 0.0,
           "views": 42.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 0.0
+          "views_percentile": 2.4
         },
         "youtube": {
-          "age_days": 8.44,
+          "age_days": 9.43,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -31526,7 +31761,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -31553,7 +31788,7 @@
                   "value": 19
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.543Z"
             }
           ],
           "maturity": "mature",
@@ -31567,7 +31802,7 @@
           "shares": null,
           "views": 19.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 8.3
+          "views_percentile": 10.5
         }
       },
       "production_category": "tool",
@@ -31577,9 +31812,9 @@
       "video_id": "tool-fx0-01"
     },
     {
-      "age_days": 15.69,
+      "age_days": 16.68,
       "category": "tool",
-      "composite_percentile": 41.2,
+      "composite_percentile": 41.8,
       "has_comment_cta": true,
       "hook": "This AI video tool is everywhere. Two channels covered it this week. One hundred sixty one thousand views. This is Higgsfield, and it's changing how people make AI videos.",
       "hook_heading": "THE AI VIDEO TOOL *EVERYONE'S* COVERING",
@@ -31588,7 +31823,7 @@
       "niche": "AI video generation tools",
       "platforms": {
         "facebook": {
-          "age_days": 16.5,
+          "age_days": 17.5,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -31807,7 +32042,7 @@
               "metrics_updated_at": "2026-10-18T05:49:25.524Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -31860,10 +32095,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 2.4
+          "views_percentile": 2.3
         },
         "instagram": {
-          "age_days": 15.69,
+          "age_days": 16.68,
           "avg_watch_s": 4.0,
           "comments": 0.0,
           "engagement_actions": 3.0,
@@ -32226,7 +32461,7 @@
               "metrics_updated_at": "2026-10-28T13:49:16.005Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -32283,7 +32518,7 @@
                   "value": 219
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -32297,10 +32532,10 @@
           "shares": 1.0,
           "views": 219.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 89.0
+          "views_percentile": 89.3
         },
         "youtube": {
-          "age_days": 16.98,
+          "age_days": 17.98,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -32489,7 +32724,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.553Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -32516,7 +32751,7 @@
                   "value": 44
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.999Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.684Z"
             }
           ],
           "maturity": "mature",
@@ -32530,7 +32765,7 @@
           "shares": null,
           "views": 44.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 32.1
+          "views_percentile": 33.7
         }
       },
       "production_category": "tool",
@@ -32540,7 +32775,7 @@
       "video_id": "tool-higgsfield-01"
     },
     {
-      "age_days": 15.44,
+      "age_days": 16.43,
       "category": "tool",
       "composite_percentile": 65.6,
       "has_comment_cta": true,
@@ -32551,7 +32786,7 @@
       "niche": "tech / AI video",
       "platforms": {
         "facebook": {
-          "age_days": 15.56,
+          "age_days": 16.56,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -32812,7 +33047,7 @@
               "metrics_updated_at": "2026-10-19T04:49:33.316Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -32865,10 +33100,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 40.5
+          "views_percentile": 39.5
         },
         "instagram": {
-          "age_days": 15.44,
+          "age_days": 16.43,
           "avg_watch_s": 3.62,
           "comments": 0.0,
           "engagement_actions": 1.0,
@@ -33231,7 +33466,7 @@
               "metrics_updated_at": "2026-10-28T13:49:16.021Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -33288,7 +33523,7 @@
                   "value": 156
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -33302,14 +33537,14 @@
           "shares": 0.0,
           "views": 156.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 63.4
+          "views_percentile": 64.3
         },
         "youtube": {
-          "age_days": 16.7,
+          "age_days": 17.69,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
-          "engagement_rate": 0.5,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/PYlszxIISMg",
           "follows": null,
           "history": [
@@ -33494,7 +33729,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.553Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -33506,7 +33741,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 0.5
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -33518,10 +33753,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 400
+                  "value": 421
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.683Z"
             }
           ],
           "maturity": "mature",
@@ -33529,13 +33764,13 @@
           "platform": "youtube",
           "post_id": "6acce75f0728a43e978181cd",
           "primary_metric": "views",
-          "primary_views": 400.0,
+          "primary_views": 421.0,
           "saves": null,
           "sent_at": "2026-10-12T18:45:15.690Z",
           "shares": null,
-          "views": 400.0,
-          "views_per_day_recent": 6.64,
-          "views_percentile": 92.9
+          "views": 421.0,
+          "views_per_day_recent": 14.22,
+          "views_percentile": 93.0
         }
       },
       "production_category": "tool",
@@ -33545,9 +33780,9 @@
       "video_id": "tool-ltx25-01"
     },
     {
-      "age_days": 17.77,
+      "age_days": 18.77,
       "category": "tool",
-      "composite_percentile": 34.3,
+      "composite_percentile": 35.0,
       "has_comment_cta": true,
       "hook": "Mosa puts your scattered AI tools onto one visual canvas, so a single workflow can make a whole campaign.",
       "hook_heading": "",
@@ -33556,7 +33791,7 @@
       "niche": "tech / AI tool",
       "platforms": {
         "facebook": {
-          "age_days": 17.9,
+          "age_days": 18.89,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -33649,7 +33884,7 @@
               "metrics_updated_at": "2026-10-14T09:48:41.179Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -33702,10 +33937,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 28.6
+          "views_percentile": 27.9
         },
         "instagram": {
-          "age_days": 17.85,
+          "age_days": 18.85,
           "avg_watch_s": 2.65,
           "comments": 0.0,
           "engagement_actions": 2.0,
@@ -34068,7 +34303,7 @@
               "metrics_updated_at": "2026-10-28T13:49:16.081Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -34125,7 +34360,7 @@
                   "value": 112
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.801Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -34139,14 +34374,14 @@
           "shares": 0.0,
           "views": 112.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 19.5
+          "views_percentile": 21.4
         },
         "youtube": {
-          "age_days": 17.77,
+          "age_days": 18.77,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
-          "engagement_rate": 1.54,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/tCnRrRcfdPM",
           "follows": null,
           "history": [
@@ -34331,7 +34566,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.553Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -34343,7 +34578,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 1.54
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -34358,7 +34593,7 @@
                   "value": 65
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.999Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.662Z"
             }
           ],
           "maturity": "mature",
@@ -34371,8 +34606,8 @@
           "sent_at": "2026-10-11T17:00:47.297Z",
           "shares": null,
           "views": 65.0,
-          "views_per_day_recent": 1.11,
-          "views_percentile": 54.8
+          "views_per_day_recent": 0.53,
+          "views_percentile": 55.8
         }
       },
       "production_category": "tool",
@@ -34382,9 +34617,9 @@
       "video_id": "tool-mosa-01"
     },
     {
-      "age_days": 16.44,
+      "age_days": 17.43,
       "category": "tool",
-      "composite_percentile": 64.7,
+      "composite_percentile": 64.8,
       "has_comment_cta": true,
       "hook": "You already pay for an AI coding assistant. This open source project turns it into a full video studio.",
       "hook_heading": "OPENMONTAGE TURNS YOUR AI INTO A *VIDEO STUDIO*",
@@ -34393,7 +34628,7 @@
       "niche": "tech / AI tools",
       "platforms": {
         "facebook": {
-          "age_days": 16.56,
+          "age_days": 17.56,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -34612,7 +34847,7 @@
               "metrics_updated_at": "2026-10-18T05:49:25.524Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -34665,10 +34900,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 45.2
+          "views_percentile": 44.2
         },
         "instagram": {
-          "age_days": 16.44,
+          "age_days": 17.43,
           "avg_watch_s": 3.05,
           "comments": 0.0,
           "engagement_actions": 2.0,
@@ -35031,7 +35266,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.964Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -35088,7 +35323,7 @@
                   "value": 149
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -35102,14 +35337,14 @@
           "shares": 0.0,
           "views": 149.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 58.5
+          "views_percentile": 59.5
         },
         "youtube": {
-          "age_days": 16.53,
+          "age_days": 17.53,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
-          "engagement_rate": 0.59,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/Rn41X54bIno",
           "follows": null,
           "history": [
@@ -35294,7 +35529,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -35306,7 +35541,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 0.59
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -35318,10 +35553,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 337
+                  "value": 344
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.818Z"
             }
           ],
           "maturity": "mature",
@@ -35329,13 +35564,13 @@
           "platform": "youtube",
           "post_id": "6acc924ac5fdc4c02d0c5770",
           "primary_metric": "views",
-          "primary_views": 337.0,
+          "primary_views": 344.0,
           "saves": null,
           "sent_at": "2026-10-12T22:45:09.415Z",
           "shares": null,
-          "views": 337.0,
-          "views_per_day_recent": 1.11,
-          "views_percentile": 90.5
+          "views": 344.0,
+          "views_per_day_recent": 4.21,
+          "views_percentile": 90.7
         }
       },
       "production_category": "tool",
@@ -35345,9 +35580,9 @@
       "video_id": "tool-openmontage-01"
     },
     {
-      "age_days": 17.48,
+      "age_days": 18.47,
       "category": "tool",
-      "composite_percentile": 17.6,
+      "composite_percentile": 18.7,
       "has_comment_cta": true,
       "hook": "Pomelli can turn a plain product photo into branded marketing images, without booking a studio.",
       "hook_heading": "",
@@ -35356,7 +35591,7 @@
       "niche": "tech / AI tool",
       "platforms": {
         "facebook": {
-          "age_days": 17.52,
+          "age_days": 18.52,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -35449,7 +35684,7 @@
               "metrics_updated_at": "2026-10-14T09:48:41.179Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -35502,10 +35737,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 31.0
+          "views_percentile": 30.2
         },
         "instagram": {
-          "age_days": 17.48,
+          "age_days": 18.47,
           "avg_watch_s": 1.85,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -35868,7 +36103,7 @@
               "metrics_updated_at": "2026-10-28T13:49:16.078Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -35925,7 +36160,7 @@
                   "value": 102
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.801Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -35939,10 +36174,10 @@
           "shares": 0.0,
           "views": 102.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 9.8
+          "views_percentile": 11.9
         },
         "youtube": {
-          "age_days": 17.48,
+          "age_days": 18.47,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -36131,7 +36366,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.553Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -36155,10 +36390,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 20
+                  "value": 21
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.999Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.677Z"
             }
           ],
           "maturity": "mature",
@@ -36166,13 +36401,13 @@
           "platform": "youtube",
           "post_id": "6acb2003d9cab260a7e95215",
           "primary_metric": "views",
-          "primary_views": 20.0,
+          "primary_views": 21.0,
           "saves": null,
           "sent_at": "2026-10-12T00:00:55.403Z",
           "shares": null,
-          "views": 20.0,
-          "views_per_day_recent": 0.0,
-          "views_percentile": 11.9
+          "views": 21.0,
+          "views_per_day_recent": 0.53,
+          "views_percentile": 14.0
         }
       },
       "production_category": "tool",
@@ -36182,9 +36417,9 @@
       "video_id": "tool-pomelli-01"
     },
     {
-      "age_days": 14.56,
+      "age_days": 15.56,
       "category": "tool",
-      "composite_percentile": 78.3,
+      "composite_percentile": 78.8,
       "has_comment_cta": true,
       "hook": "Qwen Image 2.1 Turbo brings an eight-step mode for image generation.",
       "hook_heading": "QWEN IMAGE 2.1 *TURBO*",
@@ -36193,7 +36428,7 @@
       "niche": "AI image-generation model",
       "platforms": {
         "facebook": {
-          "age_days": 14.69,
+          "age_days": 15.68,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -36454,7 +36689,7 @@
               "metrics_updated_at": "2026-10-24T22:50:31.232Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -36507,10 +36742,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 88.1
+          "views_percentile": 88.4
         },
         "instagram": {
-          "age_days": 14.56,
+          "age_days": 15.56,
           "avg_watch_s": 4.28,
           "comments": 0.0,
           "engagement_actions": 2.0,
@@ -36873,7 +37108,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.973Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -36930,7 +37165,7 @@
                   "value": 159
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -36944,10 +37179,10 @@
           "shares": 1.0,
           "views": 159.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 68.3
+          "views_percentile": 69.0
         },
         "youtube": {
-          "age_days": 14.61,
+          "age_days": 15.6,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -37136,7 +37371,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -37160,10 +37395,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 243
+                  "value": 244
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.813Z"
             }
           ],
           "maturity": "mature",
@@ -37171,13 +37406,13 @@
           "platform": "youtube",
           "post_id": "6aceba63f847f2ad9eb4db4c",
           "primary_metric": "views",
-          "primary_views": 243.0,
+          "primary_views": 244.0,
           "saves": null,
           "sent_at": "2026-10-14T21:00:54.459Z",
           "shares": null,
-          "views": 243.0,
-          "views_per_day_recent": 0.0,
-          "views_percentile": 78.6
+          "views": 244.0,
+          "views_per_day_recent": 0.53,
+          "views_percentile": 79.1
         }
       },
       "production_category": "model",
@@ -37187,7 +37422,7 @@
       "video_id": "tool-qwen-image-21-turbo-01"
     },
     {
-      "age_days": 16.77,
+      "age_days": 17.77,
       "category": "tool",
       "composite_percentile": 70.9,
       "has_comment_cta": true,
@@ -37198,7 +37433,7 @@
       "niche": "tech / AI tools",
       "platforms": {
         "facebook": {
-          "age_days": 16.98,
+          "age_days": 17.98,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -37333,7 +37568,7 @@
               "metrics_updated_at": "2026-10-16T07:49:04.706Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -37386,10 +37621,10 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 23.8
+          "views_percentile": 23.3
         },
         "instagram": {
-          "age_days": 16.81,
+          "age_days": 17.81,
           "avg_watch_s": 6.36,
           "comments": 0.0,
           "engagement_actions": 2.0,
@@ -37752,7 +37987,7 @@
               "metrics_updated_at": "2026-10-28T13:49:15.938Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
@@ -37809,7 +38044,7 @@
                   "value": 219
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.801Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.143Z"
             }
           ],
           "maturity": "mature",
@@ -37823,14 +38058,14 @@
           "shares": 2.0,
           "views": 219.0,
           "views_per_day_recent": 0.0,
-          "views_percentile": 89.0
+          "views_percentile": 89.3
         },
         "youtube": {
-          "age_days": 16.77,
+          "age_days": 17.77,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
-          "engagement_rate": 0.58,
+          "engagement_rate": 0.0,
           "external_url": "https://www.youtube.com/shorts/Rw3IUZoKJiI",
           "follows": null,
           "history": [
@@ -38015,7 +38250,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.553Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -38027,7 +38262,7 @@
                   "name": "Eng. Rate",
                   "type": "engagementRate",
                   "unit": "percentage",
-                  "value": 0.58
+                  "value": 0
                 },
                 {
                   "name": "Reactions",
@@ -38039,10 +38274,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 1542
+                  "value": 1635
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.522Z"
             }
           ],
           "maturity": "mature",
@@ -38050,12 +38285,12 @@
           "platform": "youtube",
           "post_id": "6acc91a65feb3462de95f295",
           "primary_metric": "views",
-          "primary_views": 1542.0,
+          "primary_views": 1635.0,
           "saves": null,
           "sent_at": "2026-10-12T17:01:39.896Z",
           "shares": null,
-          "views": 1542.0,
-          "views_per_day_recent": 63.08,
+          "views": 1635.0,
+          "views_per_day_recent": 79.01,
           "views_percentile": 100.0
         }
       },
@@ -38066,18 +38301,18 @@
       "video_id": "tool-qwen38-01"
     },
     {
-      "age_days": 6.56,
+      "age_days": 7.56,
       "category": "tool",
-      "composite_percentile": 34.8,
+      "composite_percentile": 36.7,
       "has_comment_cta": true,
       "hook": "Every agent user knows this: you spend four paragraphs describing what is on your screen instead of just showing it.",
       "hook_heading": "SHOW IT, *DON'T DESCRIBE IT*",
       "hook_style": "statement",
-      "maturity": "developing",
+      "maturity": "mature",
       "niche": "AI coding agents and developer tooling",
       "platforms": {
         "facebook": {
-          "age_days": 7.69,
+          "age_days": 8.68,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -38296,7 +38531,7 @@
               "metrics_updated_at": "2026-10-27T19:51:00.088Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Clicks",
@@ -38335,7 +38570,7 @@
                   "value": 0
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:51:14.651Z"
+              "metrics_updated_at": "2026-10-29T17:51:24.307Z"
             }
           ],
           "maturity": "mature",
@@ -38349,11 +38584,11 @@
           "shares": 0.0,
           "views": null,
           "views_per_day_recent": 0.0,
-          "views_percentile": 71.4
+          "views_percentile": 72.1
         },
         "instagram": {
-          "age_days": 6.56,
-          "avg_watch_s": 6.9,
+          "age_days": 7.56,
+          "avg_watch_s": 6.88,
           "comments": 0.0,
           "engagement_actions": 0.0,
           "engagement_rate": 0.0,
@@ -38601,13 +38836,13 @@
               "metrics_updated_at": "2026-10-28T13:49:15.971Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Avg. Watch Time (sec)",
                   "type": "averageTimeWatched",
                   "unit": "count",
-                  "value": 6.9
+                  "value": 6.88
                 },
                 {
                   "name": "Comments",
@@ -38625,7 +38860,7 @@
                   "name": "Reach",
                   "type": "reach",
                   "unit": "count",
-                  "value": 121
+                  "value": 122
                 },
                 {
                   "name": "Reactions",
@@ -38649,33 +38884,33 @@
                   "name": "Watch Time (min)",
                   "type": "totalTimeWatched",
                   "unit": "count",
-                  "value": 13.8
+                  "value": 13.87
                 },
                 {
                   "name": "Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 128
+                  "value": 129
                 }
               ],
-              "metrics_updated_at": "2026-10-28T18:52:26.800Z"
+              "metrics_updated_at": "2026-10-29T17:52:38.142Z"
             }
           ],
-          "maturity": "developing",
+          "maturity": "mature",
           "metrics_status": "fresh",
           "platform": "instagram",
           "post_id": "6ad88f74a692b85eaf80bec1",
           "primary_metric": "views",
-          "primary_views": 128.0,
+          "primary_views": 129.0,
           "saves": 0.0,
           "sent_at": "2026-10-22T22:03:19.205Z",
           "shares": 0.0,
-          "views": 128.0,
-          "views_per_day_recent": 0.0,
-          "views_percentile": 30.5
+          "views": 129.0,
+          "views_per_day_recent": 0.53,
+          "views_percentile": 33.3
         },
         "youtube": {
-          "age_days": 7.77,
+          "age_days": 8.77,
           "avg_watch_s": null,
           "comments": 0.0,
           "engagement_actions": 0.0,
@@ -38834,7 +39069,7 @@
               "metrics_updated_at": "2026-10-27T20:58:14.552Z"
             },
             {
-              "fetched_at": "2026-10-29T11:31:48Z",
+              "fetched_at": "2026-10-30T11:24:12Z",
               "metrics": [
                 {
                   "name": "Comments",
@@ -38858,10 +39093,10 @@
                   "name": "Video Views",
                   "type": "views",
                   "unit": "count",
-                  "value": 16
+                  "value": 17
                 }
               ],
-              "metrics_updated_at": "2026-10-28T23:38:12.998Z"
+              "metrics_updated_at": "2026-10-30T10:44:39.704Z"
             }
           ],
           "maturity": "mature",
@@ -38869,13 +39104,13 @@
           "platform": "youtube",
           "post_id": "6ad88f6ed803b33b75374108",
           "primary_metric": "views",
-          "primary_views": 16.0,
+          "primary_views": 17.0,
           "saves": null,
           "sent_at": "2026-10-21T17:01:10.165Z",
           "shares": null,
-          "views": 16.0,
-          "views_per_day_recent": 1.11,
-          "views_percentile": 2.4
+          "views": 17.0,
+          "views_per_day_recent": 1.05,
+          "views_percentile": 4.7
         }
       },
       "production_category": "tool",
