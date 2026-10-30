@@ -3071,6 +3071,31 @@
       "verified_at": "2026-10-20T17:21:54Z",
       "video_id": "tool-fx0-01"
     },
+    "tool-gpt6-01:facebook": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-10-30T19:07:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:c971135c03a53b4537cd332d151c13639d2889ca3c490dea4ea0dffa57064cb9",
+        "asset_id": 690899291,
+        "asset_size": 8748201,
+        "kit_asset_id": 690899344,
+        "kit_digest": "sha256:6fe91fe1691a123bc1a246584d4dbf6cd8e8af5aed335aa20b80bcc9149c67a8",
+        "media_path": "media/690899291/tool-gpt6-01.mp4",
+        "release_tag": "renders-2026-10-30",
+        "video_id": "tool-gpt6-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/690899291/tool-gpt6-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "69ffc9a3cdcb7e93da8c14a08993dd32f42c207777f0bb437490ea70668719e0",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "This AI played Minecraft for 141 hours straight. 4 channels covered it. #shorts #ai #gpt6\n\nAI-generated narration.\n\n#shorts #gpt6 #openai",
+      "title": "This AI Played Minecraft for 141 Hours Straight",
+      "updated_at": "2026-10-30T08:14:34Z",
+      "video_id": "tool-gpt6-01"
+    },
     "tool-gpt6-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6ae451e558a62337fb73be73",
