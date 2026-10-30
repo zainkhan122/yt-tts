@@ -1,17 +1,16 @@
 {
-  "id": "tool-heygen-01",
   "capture": "captures/tool-heygen-01",
-  "title": "HeyGen: AI video generator for avatar-based content creati",
-  "niche": "tool",
-  "lang": "en-us",
-  "style": "explainer",
-  "status": "draft",
-  "production_category": "tool",
-  "keywords": [
-    "HeyGen",
-    "HeyGen",
-    "HeyGen tool",
-    "HeyGen AI"
+  "claims": [
+    {
+      "id": "c1",
+      "source": "https://heygen.com",
+      "text": "HeyGen is AI video generator for avatar-based content creation"
+    },
+    {
+      "id": "c2",
+      "source": "https://twitter.com/HeyGen_Official",
+      "text": "Multiple channels covered HeyGen this week"
+    }
   ],
   "facts": {
     "description": "AI video generator for avatar-based content creation",
@@ -20,24 +19,27 @@
       "https://twitter.com/HeyGen_Official"
     ]
   },
-  "viewer": {
-    "who": "people interested in HeyGen",
-    "problem": "existing solutions for HeyGen are limited",
-    "job": "want to understand and use HeyGen"
-  },
+  "id": "tool-heygen-01",
   "idea": "HeyGen is a tool that AI video generator for avatar-based content creation",
-  "claims": [
-    {
-      "id": "c1",
-      "text": "HeyGen is AI video generator for avatar-based content creation",
-      "source": "https://heygen.com"
-    },
-    {
-      "id": "c2",
-      "text": "Multiple channels covered HeyGen this week",
-      "source": "https://twitter.com/HeyGen_Official"
-    }
+  "keywords": [
+    "HeyGen",
+    "HeyGen",
+    "HeyGen tool",
+    "HeyGen AI"
   ],
+  "lang": "en-us",
+  "niche": "tool",
+  "post": {
+    "cta": "What would you use HeyGen for? Comment HEYGEN",
+    "hashtags": [
+      "#shorts",
+      "#aivideo",
+      "#higgsfield",
+      "#texttovideo",
+      "#cinematic"
+    ]
+  },
+  "production_category": "tool",
   "proof_plan": [
     {
       "claim": "c1",
@@ -50,170 +52,173 @@
       "how_shown": "c2 scene shows the claim"
     }
   ],
+  "research_basis": [
+    "research/radar/radar-2026-10-29.md",
+    "research/ideas/feed-2026-10-29.md"
+  ],
   "review": {
-    "reviewed_at": "2026-10-29T08:02:27.740244+00:00",
     "expires_at": "2026-10-31",
-    "reviewer": "agent; facts checked against sources on 2026-10-29",
-    "notes": "Facts verified against sources on 2026-10-29"
+    "notes": "Facts verified against sources on 2026-10-29",
+    "reviewed_at": "2026-10-29T08:02:27.740244+00:00",
+    "reviewer": "agent; facts checked against sources on 2026-10-29"
+  },
+  "scenes": [
+    {
+      "camera": [
+        {
+          "at": "here's what",
+          "region": "repo_title",
+          "zoom": 1.5
+        }
+      ],
+      "heading": "THE *HEYGEN* STORY",
+      "id": "hook",
+      "image": "hero-dark.png",
+      "say": "This is HeyGen. Here's what it does and why it matters.",
+      "sub": "AI video generator for avatar-based cont",
+      "type": "page",
+      "url": ""
+    },
+    {
+      "heading": "HeyGen",
+      "id": "name",
+      "image": "og-image.png",
+      "say": "It's called HeyGen. AI video generator for avatar-based content creation",
+      "sub": "AI video generator for avatar-based cont",
+      "type": "image"
+    },
+    {
+      "heading": "HOW IT WORKS",
+      "id": "how",
+      "image": "hero-dark.png",
+      "say": "Drop in your input. HeyGen processes it and produces the output. It handles the complexity so you don't have to.",
+      "type": "steps"
+    },
+    {
+      "camera": [
+        {
+          "at": "noticed",
+          "region": "stars",
+          "zoom": 1.5
+        }
+      ],
+      "heading": "TRENDING NOW",
+      "id": "stars",
+      "image": "hero-dark.png",
+      "say": "Multiple channels covered HeyGen this week. The community has noticed.",
+      "sub": "Covered by multiple channels",
+      "type": "page",
+      "url": "gittrend.io"
+    },
+    {
+      "camera": [
+        {
+          "at": "no complex",
+          "region": "install",
+          "zoom": 1.3
+        }
+      ],
+      "heading": "GET STARTED",
+      "id": "install",
+      "image": "hero-dark.png",
+      "say": "Install with npm. It works with any project. No Docker required, no complex setup.",
+      "sub": "Free tier available",
+      "type": "page",
+      "url": ""
+    },
+    {
+      "heading": "THE HONEST CATCH",
+      "id": "catch",
+      "image": "catch.jpg",
+      "say": "HeyGen is impressive, but it's still early. Some tasks will need human review. But the direction is clear.",
+      "type": "verdict"
+    },
+    {
+      "id": "cta",
+      "keyword": "HEYGEN",
+      "say": "What would you use HeyGen for? Comment HEYGEN and follow for tools like this.",
+      "type": "endcard"
+    }
+  ],
+  "seo": {
+    "aliases": [
+      "HeyGen",
+      "HeyGen AI video",
+      "AI avatar video generator",
+      "text to video AI"
+    ],
+    "facebook": {
+      "caption": "HeyGen generates AI video with digital avatar actors. Type your script, pick an avatar, and get a produced video \u2014 lip-sync, voice cloning, and scenes handled automatically. #shorts #heygen #aivideo",
+      "hashtags": [
+        "#shorts",
+        "#heygen",
+        "#aivideo"
+      ]
+    },
+    "instagram": {
+      "caption": "Type a script. Pick an AI avatar. Get a full video with lip-sync, voice, and scenes \u2014 no camera needed. This is HeyGen. #shorts #heygen #aivideo #texttovideo",
+      "hashtags": [
+        "#shorts",
+        "#heygen",
+        "#aivideo",
+        "#texttovideo",
+        "#aiavatars"
+      ]
+    },
+    "keyword": "HeyGen AI avatar video generator",
+    "onscreen_first3s": "AI AVATARS THAT SPEAK FOR YOU",
+    "tiktok": {
+      "caption": "HeyGen creates AI video with digital avatar actors. Type a script, pick an avatar, get a full video \u2014 lip-sync, voice, scenes, all automatic. No camera, no studio. #shorts #heygen #aivideo #texttovideo",
+      "hashtags": [
+        "#shorts",
+        "#heygen",
+        "#aivideo",
+        "#texttovideo",
+        "#aiavatars"
+      ]
+    },
+    "x": {
+      "hashtags": [
+        "#heygen",
+        "#aivideo",
+        "#texttovideo"
+      ],
+      "text": "HeyGen turns text into AI video with digital avatar actors. Type a script, pick an avatar, get a full video \u2014 lip-sync and voice included. No camera needed. #heygen #aivideo #texttovideo"
+    },
+    "youtube": {
+      "description": "HeyGen generates AI video with digital avatar actors \u2014 type your script, pick an avatar, and get a fully produced video. No camera, no studio, no actors. It handles lip-sync, voice cloning, and scene composition automatically.\n\nWhat would you use HeyGen for? Comment HEYGEN\n\n#shorts #heygen #aivideo #texttovideo #aiavatars #aicontent",
+      "hashtags": [
+        "#shorts",
+        "#heygen",
+        "#aivideo",
+        "#texttovideo",
+        "#aiavatars"
+      ],
+      "tags": [
+        "HeyGen",
+        "AI video generator",
+        "AI avatars",
+        "text to video",
+        "digital actors",
+        "AI content creation"
+      ],
+      "title": "HeyGen: AI Video Generator With Digital Avatar Actors"
+    }
   },
   "sources": [
     "https://heygen.com",
     "https://twitter.com/HeyGen_Official"
   ],
+  "status": "draft",
+  "style": "explainer",
+  "title": "HeyGen: AI video generator for avatar-based content creati",
   "verify_before_render": [
     "Features and capabilities re-checked against live sources on render day."
   ],
-  "scenes": [
-    {
-      "id": "hook",
-      "type": "page",
-      "heading": "THE *HEYGEN* STORY",
-      "sub": "AI video generator for avatar-based cont",
-      "say": "This is HeyGen. Here's what it does and why it matters.",
-      "url": "",
-      "camera": [
-        {
-          "region": "repo_title",
-          "zoom": 1.5,
-          "at": "here's what"
-        }
-      ],
-      "image": "hero-dark.png"
-    },
-    {
-      "id": "name",
-      "type": "image",
-      "heading": "HeyGen",
-      "sub": "AI video generator for avatar-based cont",
-      "say": "It's called HeyGen. AI video generator for avatar-based content creation",
-      "image": "og-image.png"
-    },
-    {
-      "id": "how",
-      "type": "steps",
-      "heading": "HOW IT WORKS",
-      "say": "Drop in your input. HeyGen processes it and produces the output. It handles the complexity so you don't have to.",
-      "image": "hero-dark.png"
-    },
-    {
-      "id": "stars",
-      "type": "page",
-      "heading": "TRENDING NOW",
-      "sub": "Covered by multiple channels",
-      "say": "Multiple channels covered HeyGen this week. The community has noticed.",
-      "url": "gittrend.io",
-      "camera": [
-        {
-          "region": "stars",
-          "zoom": 1.5,
-          "at": "noticed"
-        }
-      ],
-      "image": "hero-dark.png"
-    },
-    {
-      "id": "install",
-      "type": "page",
-      "heading": "GET STARTED",
-      "sub": "Free tier available",
-      "say": "Install with npm. It works with any project. No Docker required, no complex setup.",
-      "url": "",
-      "camera": [
-        {
-          "region": "install",
-          "zoom": 1.3,
-          "at": "no complex"
-        }
-      ],
-      "image": "hero-dark.png"
-    },
-    {
-      "id": "catch",
-      "type": "verdict",
-      "heading": "THE HONEST CATCH",
-      "say": "HeyGen is impressive, but it's still early. Some tasks will need human review. But the direction is clear.",
-      "image": "catch.jpg"
-    },
-    {
-      "id": "cta",
-      "type": "endcard",
-      "keyword": "HEYGEN",
-      "say": "What would you use HeyGen for? Comment HEYGEN and follow for tools like this."
-    }
-  ],
-  "seo": {
-    "keyword": "HeyGen",
-    "aliases": [
-      "HeyGen",
-      "HeyGen tool",
-      "HeyGen AI"
-    ],
-    "onscreen_first3s": "AI VIDEO GENERATOR FOR AVATAR-",
-    "youtube": {
-      "title": "AI video generator for avatar-based content creation",
-      "description": "AI video generator for avatar-based content creation\n\nHeyGen. #Shorts",
-      "hashtags": [
-        "#shorts",
-        "#aivideo",
-        "#higgsfield",
-        "#texttovideo",
-        "#cinematic"
-      ],
-      "tags": [
-        "HeyGen",
-        "HeyGen tool",
-        "HeyGen AI"
-      ]
-    },
-    "tiktok": {
-      "caption": "AI video generator for avatar-based content creation #Shorts",
-      "hashtags": [
-        "#shorts",
-        "#aivideo",
-        "#higgsfield",
-        "#texttovideo",
-        "#cinematic"
-      ]
-    },
-    "instagram": {
-      "caption": "AI video generator for avatar-based content creation #Shorts #Explore",
-      "hashtags": [
-        "#shorts",
-        "#aivideo",
-        "#higgsfield",
-        "#texttovideo",
-        "#cinematic"
-      ]
-    },
-    "facebook": {
-      "caption": "AI video generator for avatar-based content creation #Shorts",
-      "hashtags": [
-        "#shorts",
-        "#aivideo",
-        "#higgsfield"
-      ]
-    },
-    "x": {
-      "text": "AI video generator for avatar-based content creation #Shorts",
-      "hashtags": [
-        "#shorts",
-        "#aivideo"
-      ]
-    }
+  "viewer": {
+    "job": "want to understand and use HeyGen",
+    "problem": "existing solutions for HeyGen are limited",
+    "who": "people interested in HeyGen"
   },
-  "post": {
-    "cta": "What would you use HeyGen for? Comment HEYGEN",
-    "hashtags": [
-      "#shorts",
-      "#aivideo",
-      "#higgsfield",
-      "#texttovideo",
-      "#cinematic"
-    ]
-  },
-  "research_basis": [
-    "research/radar/radar-2026-10-29.md",
-    "research/ideas/feed-2026-10-29.md"
-  ],
   "voice_seed": 258727
 }
