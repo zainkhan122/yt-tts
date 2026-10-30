@@ -1,47 +1,49 @@
 {
-  "id": "tool-gpt6-01",
   "capture": "captures/tool-gpt6-01",
-  "title": "GPT-6: The Model That Played Minecraft for 141 Hours",
-  "niche": "AI models and frontier AI",
-  "lang": "en-us",
-  "style": "explainer",
-  "status": "draft",
-  "production_category": "tool",
+  "claims": [
+    {
+      "id": "c1",
+      "source": "https://www.youtube.com/watch?v=4vANw-9XMiw",
+      "text": "GPT-6 is OpenAI's latest model with advanced long-horizon reasoning"
+    },
+    {
+      "id": "c2",
+      "source": "https://gittrend.io/api/trending",
+      "text": "4 watchlist channels covered GPT-6 this week with 162,909 combined views"
+    },
+    {
+      "id": "c3",
+      "source": "https://www.youtube.com/watch?v=4vANw-9XMiw",
+      "text": "GPT-6 played Minecraft for 141 hours, building advanced structures"
+    }
+  ],
+  "facts": {
+    "best_video": "112,000 views (https://www.youtube.com/watch?v=4vANw-9XMiw)",
+    "consensus": "4 watchlist channels covered it this week (idea feed 2026-10-29)",
+    "description": "GPT-6 is OpenAI's latest model with advanced long-horizon reasoning",
+    "views": "162,909 combined views across channels"
+  },
+  "id": "tool-gpt6-01",
+  "idea": "GPT-6 is the most-viewed AI model topic this week, with 163k views and 4 channels covering it.",
   "keywords": [
     "GPT-6",
     "OpenAI",
     "frontier AI",
     "long-horizon reasoning"
   ],
-  "facts": {
-    "consensus": "4 watchlist channels covered it this week (idea feed 2026-10-29)",
-    "views": "162,909 combined views across channels",
-    "best_video": "112,000 views (https://www.youtube.com/watch?v=4vANw-9XMiw)",
-    "description": "GPT-6 is OpenAI's latest model with advanced long-horizon reasoning"
+  "lang": "en-us",
+  "niche": "AI models and frontier AI",
+  "post": {
+    "cta": "What would you want GPT-6 to do? Comment GPT-6",
+    "hashtags": [
+      "#shorts",
+      "#ai",
+      "#gpt6",
+      "#openai",
+      "#programming"
+    ]
   },
-  "viewer": {
-    "who": "AI enthusiasts, developers, and anyone curious about frontier AI",
-    "problem": "previous AI models struggle with long tasks and sustained reasoning",
-    "job": "want to see what the next generation of AI can actually do"
-  },
-  "idea": "GPT-6 is the most-viewed AI model topic this week, with 163k views and 4 channels covering it.",
-  "claims": [
-    {
-      "id": "c1",
-      "text": "GPT-6 is OpenAI's latest model with advanced long-horizon reasoning",
-      "source": "https://www.youtube.com/watch?v=4vANw-9XMiw"
-    },
-    {
-      "id": "c2",
-      "text": "4 watchlist channels covered GPT-6 this week with 162,909 combined views",
-      "source": "https://gittrend.io/api/trending"
-    },
-    {
-      "id": "c3",
-      "text": "GPT-6 played Minecraft for 141 hours, building advanced structures",
-      "source": "https://www.youtube.com/watch?v=4vANw-9XMiw"
-    }
-  ],
+  "production_category": "tool",
   "proof_plan": [
     {
       "claim": "c1",
@@ -59,108 +61,142 @@
       "how_shown": "how scene shows Minecraft footage"
     }
   ],
+  "research_basis": [
+    "research/ideas/feed-2026-10-29.md",
+    "research/radar/radar-2026-10-29.md"
+  ],
   "review": {
-    "reviewed_at": "2026-10-29T10:00:00Z",
     "expires_at": "2026-10-31",
-    "reviewer": "agent; facts checked against idea feed and trending data on 2026-10-29",
-    "notes": "Coverage and views verified against idea feed 2026-10-29"
+    "notes": "Coverage and views verified against idea feed 2026-10-29",
+    "reviewed_at": "2026-10-29T10:00:00Z",
+    "reviewer": "agent; facts checked against idea feed and trending data on 2026-10-29"
   },
-  "sources": [
-    "https://www.youtube.com/watch?v=4vANw-9XMiw",
-    "https://gittrend.io/api/trending"
-  ],
-  "verify_before_render": [
-    "GPT-6 capabilities and benchmarks re-checked against latest OpenAI announcements on render day."
-  ],
   "scenes": [
     {
-      "id": "hook",
-      "type": "page",
-      "image": "model-card.jpg",
-      "heading": "THE AI THAT PLAYED *MINECRAFT* FOR 141 HOURS",
-      "sub": "GPT-6 · 4 channels covered it this week",
-      "say": "This AI played Minecraft for one hundred and forty one hours. It built structures, explored, and survived. Four channels covered it this week. One hundred sixty three thousand views. This is GPT-6.",
-      "url": "openai.com",
       "camera": [
         {
+          "at": "one hundred sixty three",
           "region": "model_card",
-          "zoom": 1.5,
-          "at": "one hundred sixty three"
+          "zoom": 1.5
         }
-      ]
+      ],
+      "heading": "THE AI THAT PLAYED *MINECRAFT* FOR 141 HOURS",
+      "id": "hook",
+      "image": "model-card.jpg",
+      "say": "This AI played Minecraft for one hundred and forty one hours. It built structures, explored, and survived. Four channels covered it this week. One hundred sixty three thousand views. This is GPT-6.",
+      "sub": "GPT-6 \u00b7 4 channels covered it this week",
+      "type": "page",
+      "url": "openai.com"
     },
     {
-      "id": "name",
-      "type": "image",
       "heading": "GPT-6",
-      "sub": "OpenAI's frontier model",
+      "id": "name",
+      "image": "desktop-top.jpg",
       "say": "It's GPT-6 from OpenAI. Not just a bigger model. It's a different kind of reasoning. It can sustain attention for hours, not seconds.",
-      "image": "desktop-top.jpg"
+      "sub": "OpenAI's frontier model",
+      "type": "image"
     },
     {
-      "id": "how",
-      "type": "steps",
       "heading": "HOW IT WORKS",
-      "say": "GPT-6 played Minecraft for 141 hours straight. It learned to build, explore, and survive. It didn't just follow instructions — it planned ahead. This is long-horizon reasoning, and it's a new frontier.",
-      "image": "desktop-full.jpg"
+      "id": "how",
+      "image": "desktop-full.jpg",
+      "say": "GPT-6 played Minecraft for 141 hours straight. It learned to build, explore, and survive. It didn't just follow instructions \u2014 it planned ahead. This is long-horizon reasoning, and it's a new frontier.",
+      "type": "steps"
     },
     {
-      "id": "stars",
-      "type": "page",
-      "image": "coverage.jpg",
-      "heading": "162,909 VIEWS THIS WEEK",
-      "sub": "4 channels covered it",
-      "say": "One hundred sixty three thousand views this week. Four channels covering the same model means people are captivated. This isn't just another model release.",
-      "url": "gittrend.io",
       "camera": [
         {
+          "at": "captivated",
           "region": "coverage",
-          "zoom": 1.5,
-          "at": "captivated"
+          "zoom": 1.5
         }
-      ]
+      ],
+      "heading": "162,909 VIEWS THIS WEEK",
+      "id": "stars",
+      "image": "coverage.jpg",
+      "say": "One hundred sixty three thousand views this week. Four channels covering the same model means people are captivated. This isn't just another model release.",
+      "sub": "4 channels covered it",
+      "type": "page",
+      "url": "gittrend.io"
     },
     {
-      "id": "install",
-      "type": "page",
-      "image": "install.jpg",
-      "heading": "TRY IT NOW",
-      "sub": "Available in ChatGPT",
-      "say": "GPT-6 is available in ChatGPT right now. No special access required. Just open ChatGPT and start asking. The capabilities are already live.",
-      "url": "chat.openai.com",
       "camera": [
         {
+          "at": "already live",
           "region": "install",
-          "zoom": 1.3,
-          "at": "already live"
+          "zoom": 1.3
         }
-      ]
+      ],
+      "heading": "TRY IT NOW",
+      "id": "install",
+      "image": "install.jpg",
+      "say": "GPT-6 is available in ChatGPT right now. No special access required. Just open ChatGPT and start asking. The capabilities are already live.",
+      "sub": "Available in ChatGPT",
+      "type": "page",
+      "url": "chat.openai.com"
     },
     {
-      "id": "catch",
-      "type": "verdict",
       "heading": "THE HONEST CATCH",
+      "id": "catch",
+      "image": "catch.jpg",
       "say": "GPT-6 is impressive, but it's still an AI. It will hallucinate. It will make mistakes. And the Minecraft demo is impressive, but real-world tasks are harder. But this is the direction, and it's moving fast.",
-      "image": "catch.jpg"
+      "type": "verdict"
     },
     {
       "id": "cta",
-      "type": "endcard",
       "keyword": "GPT-6",
-      "say": "What would you want GPT-6 to do for you? Comment GPT-6 and follow for tools like this."
+      "say": "What would you want GPT-6 to do for you? Comment GPT-6 and follow for tools like this.",
+      "type": "endcard"
     }
   ],
   "seo": {
-    "keyword": "GPT-6 OpenAI",
     "aliases": [
       "GPT-6",
       "OpenAI GPT-6",
-      "frontier AI model"
+      "frontier AI model",
+      "long-horizon reasoning"
     ],
+    "facebook": {
+      "caption": "GPT-6 played Minecraft for 141 hours straight. It built, explored, and survived \u2014 planning ahead, not following a script. This is the future of AI reasoning. Live in ChatGPT now. #shorts #gpt6 #openai #ai",
+      "hashtags": [
+        "#shorts",
+        "#gpt6",
+        "#openai",
+        "#ai"
+      ]
+    },
+    "instagram": {
+      "caption": "This AI played Minecraft for 141 hours \u2014 no scripts, just planning. GPT-6 can sustain reasoning for hours, not seconds. It's live in ChatGPT right now. #shorts #gpt6 #openai #frontierai",
+      "hashtags": [
+        "#shorts",
+        "#gpt6",
+        "#openai",
+        "#frontierai",
+        "#llm"
+      ]
+    },
+    "keyword": "GPT-6 OpenAI long-horizon reasoning",
     "onscreen_first3s": "THE AI THAT PLAYED MINECRAFT FOR 141 HOURS",
+    "tiktok": {
+      "caption": "GPT-6 played Minecraft for 141 hours straight \u2014 no scripts, no instructions. It planned, built, and survived on its own. This is what long-horizon reasoning looks like. Already live in ChatGPT. #shorts #gpt6 #openai #ai",
+      "hashtags": [
+        "#shorts",
+        "#gpt6",
+        "#openai",
+        "#frontierai",
+        "#llm"
+      ]
+    },
+    "x": {
+      "hashtags": [
+        "#gpt6",
+        "#openai",
+        "#ai"
+      ],
+      "text": "GPT-6 played Minecraft for 141 hours straight. No scripts. It planned ahead, built structures, and survived on its own. This is long-horizon reasoning \u2014 AI that thinks for hours, not seconds. Live in ChatGPT now. #gpt6 #openai #ai"
+    },
     "youtube": {
-      "title": "This AI Played Minecraft for 141 Hours Straight",
-      "description": "GPT-6 is OpenAI's latest model with advanced long-horizon reasoning. 4 channels covered it this week. Here's why. #shorts #ai #gpt6 #openai #programming",
+      "description": "GPT-6 is OpenAI's newest model, and it just played Minecraft for 141 hours without stopping. It built structures, explored, and survived on its own \u2014 not following scripted instructions, but planning ahead. This is long-horizon reasoning: AI that can sustain attention for hours, not seconds. It's already live in ChatGPT. No special access needed.\n\nWhat would you want GPT-6 to do? Comment GPT-6\n\n#shorts #gpt6 #openai #frontierai #llm #ai",
       "hashtags": [
         "#shorts",
         "#gpt6",
@@ -171,60 +207,29 @@
       "tags": [
         "GPT-6",
         "OpenAI",
-        "frontier AI",
         "long-horizon reasoning",
-        "AI model"
-      ]
-    },
-    "tiktok": {
-      "caption": "This AI played Minecraft for 141 hours straight. 4 channels covered it. #shorts #ai #gpt6 #openai",
-      "hashtags": [
-        "#shorts",
-        "#gpt6",
-        "#openai",
-        "#frontierai",
-        "#llm"
-      ]
-    },
-    "instagram": {
-      "caption": "This AI played Minecraft for 141 hours. 163k views this week. #shorts #ai #gpt6 #tech",
-      "hashtags": [
-        "#shorts",
-        "#gpt6",
-        "#openai",
-        "#frontierai",
-        "#llm"
-      ]
-    },
-    "facebook": {
-      "caption": "This AI played Minecraft for 141 hours straight. 4 channels covered it. #shorts #ai #gpt6",
-      "hashtags": [
-        "#shorts",
-        "#gpt6",
-        "#openai"
-      ]
-    },
-    "x": {
-      "text": "This AI played Minecraft for 141 hours. 4 channels covered it. #shorts #ai #gpt6",
-      "hashtags": [
-        "#shorts",
-        "#gpt6"
-      ]
+        "AI reasoning",
+        "ChatGPT",
+        "frontier AI",
+        "Minecraft AI"
+      ],
+      "title": "GPT-6 Played Minecraft for 141 Hours Straight \u2014 Here's Why That Matters"
     }
   },
-  "post": {
-    "cta": "What would you want GPT-6 to do? Comment GPT-6",
-    "hashtags": [
-      "#shorts",
-      "#ai",
-      "#gpt6",
-      "#openai",
-      "#programming"
-    ]
-  },
-  "research_basis": [
-    "research/ideas/feed-2026-10-29.md",
-    "research/radar/radar-2026-10-29.md"
+  "sources": [
+    "https://www.youtube.com/watch?v=4vANw-9XMiw",
+    "https://gittrend.io/api/trending"
   ],
+  "status": "draft",
+  "style": "explainer",
+  "title": "GPT-6: The Model That Played Minecraft for 141 Hours",
+  "verify_before_render": [
+    "GPT-6 capabilities and benchmarks re-checked against latest OpenAI announcements on render day."
+  ],
+  "viewer": {
+    "job": "want to see what the next generation of AI can actually do",
+    "problem": "previous AI models struggle with long tasks and sustained reasoning",
+    "who": "AI enthusiasts, developers, and anyone curious about frontier AI"
+  },
   "voice_seed": 785915
 }
