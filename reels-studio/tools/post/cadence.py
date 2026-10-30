@@ -5,6 +5,7 @@ are read-only. Extra fourth/fifth daily slots require a config change, never ari
 because a render batch happens to be large.
 """
 import datetime as dt
+import hashlib
 import json
 import os
 from collections import defaultdict
@@ -15,6 +16,21 @@ from tools.post import planner as copy_rules
 from tools.post import best_times
 
 DAYS = ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
+
+
+def random_offset_minutes(platform, day, slot_idx, cfg):
+    """Deterministic random offset (5-15 min) from a best-time slot.
+
+    Owner 2026-10-30: the 150-minute minimum gap was removed. Each best-time slot gets a
+    deterministic random offset so the actual posting time varies naturally. The seed is
+    platform + day + slot_index, so dry-run and live-run agree.
+    """
+    rules = cfg["schedule"].get("random_gap_minutes", {})
+    lo = int(rules.get("min", 5))
+    hi = int(rules.get("max", 15))
+    seed = f"{platform}:{day.isoformat()}:{slot_idx}".encode()
+    digest = hashlib.sha256(seed).hexdigest()
+    return int(digest[:8], 16) % (hi - lo + 1) + lo
 
 
 def at_local(day, clock, timezone):
@@ -42,8 +58,8 @@ def clocks_for(profile, day, target, settings=None):
 
     Up to the researched windows (base + optional slots) the calendar is unchanged. Above
     that, an evenly spaced day grid from `extended_slots` (default 00:00, every 150 min)
-    keeps every gap >= `minimum_gap_minutes`, so a high-volume day up to the configured
-    ceiling (owner 2026-10-12: 10/day) is genuinely placeable — no hidden 5-slot clamp.
+    keeps every gap >= `minimum_gap_minutes`. The 150-minute minimum gap was removed by
+    owner 2026-10-30; best-time slots get random 5-15 min offsets instead.
     """
     settings = settings or {}
     target = min(int(settings.get("max_videos_per_day", 10)), max(1, int(target)))
@@ -178,6 +194,8 @@ def plan(items, records, channels, posts, cfg, now, preview=False, pilot=False, 
                     break
                 if any(abs((due-t).total_seconds()) < settings["minimum_gap_minutes"]*60 for t in events.values()):
                     continue
+                # Owner 2026-10-30: apply deterministic random 5-15 min offset to best-time slot
+                due = due + dt.timedelta(minutes=random_offset_minutes(platform, day, idx, cfg))
                 if platform == "youtube" and any(abs((due-t).total_seconds()) < settings.get("short_long_gap_minutes",120)*60 for t in long_events):
                     notes.append(f"youtube: skip {iso(due)} to protect long-video spacing")
                     continue
