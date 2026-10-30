@@ -1,47 +1,49 @@
 {
-  "id": "tool-claude-code-01",
   "capture": "captures/tool-claude-code-01",
-  "title": "Claude Code: The Coding Agent That's Everywhere",
-  "niche": "AI coding tools and developer productivity",
-  "lang": "en-us",
-  "style": "explainer",
-  "status": "draft",
-  "production_category": "tool",
+  "claims": [
+    {
+      "id": "c1",
+      "source": "https://www.youtube.com/watch?v=talxc-N7KqE",
+      "text": "Claude Code is Anthropic's AI coding agent that runs in your terminal"
+    },
+    {
+      "id": "c2",
+      "source": "https://gittrend.io/api/trending",
+      "text": "7 watchlist channels covered Claude Code this week with 82,526 combined views"
+    },
+    {
+      "id": "c3",
+      "source": "https://www.youtube.com/watch?v=talxc-N7KqE",
+      "text": "Claude Code integrates with GitHub, Cursor, and other dev tools"
+    }
+  ],
+  "facts": {
+    "best_video": "67,000 views (https://www.youtube.com/watch?v=talxc-N7KqE)",
+    "consensus": "7 watchlist channels covered it this week (idea feed 2026-10-29)",
+    "description": "Claude Code is Anthropic's AI coding agent that runs in your terminal",
+    "views": "82,526 combined views across channels"
+  },
+  "id": "tool-claude-code-01",
+  "idea": "Claude Code is the most-covered AI coding tool this week, with 7 channels discussing it.",
   "keywords": [
     "Claude Code",
     "AI coding agent",
     "Anthropic",
     "coding assistant"
   ],
-  "facts": {
-    "consensus": "7 watchlist channels covered it this week (idea feed 2026-10-29)",
-    "views": "82,526 combined views across channels",
-    "best_video": "67,000 views (https://www.youtube.com/watch?v=talxc-N7KqE)",
-    "description": "Claude Code is Anthropic's AI coding agent that runs in your terminal"
+  "lang": "en-us",
+  "niche": "AI coding tools and developer productivity",
+  "post": {
+    "cta": "Have you tried Claude Code? Comment CODING",
+    "hashtags": [
+      "#shorts",
+      "#ai",
+      "#coding",
+      "#claude",
+      "#programming"
+    ]
   },
-  "viewer": {
-    "who": "developers who code daily and want AI assistance in their workflow",
-    "problem": "manual coding is slow; existing AI assistants are bolted on, not integrated",
-    "job": "want an AI that understands their codebase and helps them ship faster"
-  },
-  "idea": "Claude Code is the most-covered AI coding tool this week, with 7 channels discussing it.",
-  "claims": [
-    {
-      "id": "c1",
-      "text": "Claude Code is Anthropic's AI coding agent that runs in your terminal",
-      "source": "https://www.youtube.com/watch?v=talxc-N7KqE"
-    },
-    {
-      "id": "c2",
-      "text": "7 watchlist channels covered Claude Code this week with 82,526 combined views",
-      "source": "https://gittrend.io/api/trending"
-    },
-    {
-      "id": "c3",
-      "text": "Claude Code integrates with GitHub, Cursor, and other dev tools",
-      "source": "https://www.youtube.com/watch?v=talxc-N7KqE"
-    }
-  ],
+  "production_category": "tool",
   "proof_plan": [
     {
       "claim": "c1",
@@ -59,108 +61,141 @@
       "how_shown": "how scene shows integrations"
     }
   ],
+  "research_basis": [
+    "research/ideas/feed-2026-10-29.md",
+    "research/radar/radar-2026-10-29.md"
+  ],
   "review": {
-    "reviewed_at": "2026-10-29T10:00:00Z",
     "expires_at": "2026-10-31",
-    "reviewer": "agent; facts checked against idea feed and trending data on 2026-10-29",
-    "notes": "Coverage and views verified against idea feed 2026-10-29"
+    "notes": "Coverage and views verified against idea feed 2026-10-29",
+    "reviewed_at": "2026-10-29T10:00:00Z",
+    "reviewer": "agent; facts checked against idea feed and trending data on 2026-10-29"
   },
-  "sources": [
-    "https://www.youtube.com/watch?v=talxc-N7KqE",
-    "https://gittrend.io/api/trending"
-  ],
-  "verify_before_render": [
-    "Features and capabilities re-checked against latest Claude Code documentation on render day."
-  ],
   "scenes": [
     {
-      "id": "hook",
-      "type": "page",
-      "image": "terminal-top.jpg",
-      "heading": "THE AI CODING AGENT *EVERYONE* IS TALKING ABOUT",
-      "sub": "Claude Code · 7 channels covered it this week",
-      "say": "Seven channels covered this tool this week. Eighty two thousand views. This is Claude Code, the AI coding agent that runs right in your terminal.",
-      "url": "claude.ai/code",
       "camera": [
         {
+          "at": "eighty two thousand",
           "region": "terminal_top",
-          "zoom": 1.5,
-          "at": "eighty two thousand"
+          "zoom": 1.5
         }
-      ]
+      ],
+      "heading": "THE AI CODING AGENT *EVERYONE* IS TALKING ABOUT",
+      "id": "hook",
+      "image": "terminal-top.jpg",
+      "say": "Seven channels covered this tool this week. Eighty two thousand views. This is Claude Code, the AI coding agent that runs right in your terminal.",
+      "sub": "Claude Code \u00b7 7 channels covered it this week",
+      "type": "page",
+      "url": "claude.ai/code"
     },
     {
-      "id": "name",
-      "type": "image",
       "heading": "Claude Code",
-      "sub": "Anthropic's terminal AI",
+      "id": "name",
+      "image": "desktop-top.jpg",
       "say": "It's Claude Code from Anthropic. Not a browser extension, not a chat window. It lives in your terminal, right where you code.",
-      "image": "desktop-top.jpg"
+      "sub": "Anthropic's terminal AI",
+      "type": "image"
     },
     {
-      "id": "how",
-      "type": "steps",
       "heading": "HOW IT WORKS",
+      "id": "how",
+      "image": "steps.jpg",
       "say": "Type a request. Claude Code reads your codebase, understands the context, and makes the change. It commits, pushes, and even opens PRs. You review, it iterates.",
-      "image": "steps.jpg"
+      "type": "steps"
     },
     {
-      "id": "stars",
-      "type": "page",
-      "image": "coverage.jpg",
-      "heading": "82,526 VIEWS THIS WEEK",
-      "sub": "7 channels covered it",
-      "say": "Eighty two thousand views this week alone. Seven channels covering the same tool means the developer community has converged on it.",
-      "url": "gittrend.io",
       "camera": [
         {
+          "at": "converged",
           "region": "coverage",
-          "zoom": 1.5,
-          "at": "converged"
+          "zoom": 1.5
         }
-      ]
+      ],
+      "heading": "82,526 VIEWS THIS WEEK",
+      "id": "stars",
+      "image": "coverage.jpg",
+      "say": "Eighty two thousand views this week alone. Seven channels covering the same tool means the developer community has converged on it.",
+      "sub": "7 channels covered it",
+      "type": "page",
+      "url": "gittrend.io"
     },
     {
-      "id": "install",
-      "type": "page",
-      "image": "install.jpg",
-      "heading": "INSTALL IN SECONDS",
-      "sub": "npm install -g @anthropic-ai/claude-code",
-      "say": "Install with npm. It works with any project, any language. No Docker required, no complex setup. Just run it where you code.",
-      "url": "claude.ai/code",
       "camera": [
         {
+          "at": "no complex setup",
           "region": "install",
-          "zoom": 1.3,
-          "at": "no complex setup"
+          "zoom": 1.3
         }
-      ]
+      ],
+      "heading": "INSTALL IN SECONDS",
+      "id": "install",
+      "image": "install.jpg",
+      "say": "Install with npm. It works with any project, any language. No Docker required, no complex setup. Just run it where you code.",
+      "sub": "npm install -g @anthropic-ai/claude-code",
+      "type": "page",
+      "url": "claude.ai/code"
     },
     {
-      "id": "catch",
-      "type": "verdict",
       "heading": "THE HONEST CATCH",
+      "id": "catch",
+      "image": "catch.jpg",
       "say": "Claude Code is powerful, but it's still an AI. It will make mistakes. It will misunderstand your intent sometimes. You still need to review every change. But for the eighty percent case, it changes how you code.",
-      "image": "catch.jpg"
+      "type": "verdict"
     },
     {
       "id": "cta",
-      "type": "endcard",
       "keyword": "CODING",
-      "say": "Have you tried Claude Code yet? Comment CODING and follow for tools like this."
+      "say": "Have you tried Claude Code yet? Comment CODING and follow for tools like this.",
+      "type": "endcard"
     }
   ],
   "seo": {
-    "keyword": "Claude Code AI coding agent",
     "aliases": [
+      "Claude Code",
       "Claude Code terminal",
-      "Anthropic coding assistant",
+      "Anthropic coding agent",
       "AI coding agent"
     ],
-    "onscreen_first3s": "THE AI CODING AGENT EVERYONE IS TALKING ABOUT",
+    "facebook": {
+      "caption": "Claude Code is an AI coding agent that runs in your terminal. It reads your codebase, makes changes, commits, pushes, and opens PRs. Install with npm. This is what AI-assisted coding looks like. #shorts #claudecode #coding",
+      "hashtags": [
+        "#shorts",
+        "#claudecode",
+        "#anthropic"
+      ]
+    },
+    "instagram": {
+      "caption": "This AI coding agent lives in your terminal. Type a request \u2014 it reads your codebase, makes the change, commits, and opens a PR. Install with npm. Claude Code. #shorts #claudecode #anthropic #coding",
+      "hashtags": [
+        "#shorts",
+        "#claudecode",
+        "#anthropic",
+        "#aiagents",
+        "#devtools"
+      ]
+    },
+    "keyword": "Claude Code AI coding agent terminal",
+    "onscreen_first3s": "THE AI CODING AGENT THAT LIVES IN YOUR TERMINAL",
+    "tiktok": {
+      "caption": "Claude Code runs in your terminal, reads your entire codebase, and ships code for you. Commits, pushes, opens PRs. Install with npm. This is how AI coding actually works. #shorts #claudecode #anthropic #coding",
+      "hashtags": [
+        "#shorts",
+        "#claudecode",
+        "#anthropic",
+        "#aiagents",
+        "#devtools"
+      ]
+    },
+    "x": {
+      "hashtags": [
+        "#claudecode",
+        "#anthropic",
+        "#coding"
+      ],
+      "text": "Claude Code runs in your terminal, reads your codebase, and ships code. Commits, pushes, opens PRs. Install with npm. This is AI coding done right. #claudecode #anthropic #coding"
+    },
     "youtube": {
-      "title": "This AI Coding Agent Is Everywhere Right Now",
-      "description": "Claude Code runs in your terminal and ships code. 7 channels covered it this week. Here's why. #shorts #ai #coding #claude #programming",
+      "description": "Claude Code is Anthropic's AI coding agent that lives right in your terminal \u2014 not a browser extension, not a chat window. Type a request, it reads your entire codebase, understands the context, makes the change, commits, pushes, and even opens a PR. You review, it iterates.\n\nInstall with npm. Works with any project, any language. No Docker, no complex setup.\n\nHave you tried Claude Code? Comment CODING\n\n#shorts #claudecode #anthropic #aiagents #devtools #coding",
       "hashtags": [
         "#shorts",
         "#claudecode",
@@ -170,61 +205,30 @@
       ],
       "tags": [
         "Claude Code",
-        "AI coding",
         "Anthropic",
+        "AI coding",
         "coding agent",
-        "terminal"
-      ]
-    },
-    "tiktok": {
-      "caption": "This AI coding agent is everywhere. 7 channels covered it this week. #shorts #ai #coding #claude",
-      "hashtags": [
-        "#shorts",
-        "#claudecode",
-        "#anthropic",
-        "#aiagents",
-        "#devtools"
-      ]
-    },
-    "instagram": {
-      "caption": "The AI coding agent everyone is talking about. 82k views this week. #shorts #ai #coding #tech",
-      "hashtags": [
-        "#shorts",
-        "#claudecode",
-        "#anthropic",
-        "#aiagents",
-        "#devtools"
-      ]
-    },
-    "facebook": {
-      "caption": "This AI coding agent is everywhere right now. 7 channels covered it this week. #shorts #ai #coding",
-      "hashtags": [
-        "#shorts",
-        "#claudecode",
-        "#anthropic"
-      ]
-    },
-    "x": {
-      "text": "This AI coding agent is everywhere. 7 channels covered it. #shorts #ai #coding",
-      "hashtags": [
-        "#shorts",
-        "#claudecode"
-      ]
+        "terminal",
+        "devtools",
+        "npm"
+      ],
+      "title": "Claude Code: The AI Coding Agent That Runs in Your Terminal"
     }
   },
-  "post": {
-    "cta": "Have you tried Claude Code? Comment CODING",
-    "hashtags": [
-      "#shorts",
-      "#ai",
-      "#coding",
-      "#claude",
-      "#programming"
-    ]
-  },
-  "research_basis": [
-    "research/ideas/feed-2026-10-29.md",
-    "research/radar/radar-2026-10-29.md"
+  "sources": [
+    "https://www.youtube.com/watch?v=talxc-N7KqE",
+    "https://gittrend.io/api/trending"
   ],
+  "status": "draft",
+  "style": "explainer",
+  "title": "Claude Code: The Coding Agent That's Everywhere",
+  "verify_before_render": [
+    "Features and capabilities re-checked against latest Claude Code documentation on render day."
+  ],
+  "viewer": {
+    "job": "want an AI that understands their codebase and helps them ship faster",
+    "problem": "manual coding is slow; existing AI assistants are bolted on, not integrated",
+    "who": "developers who code daily and want AI assistance in their workflow"
+  },
   "voice_seed": 331782
 }
