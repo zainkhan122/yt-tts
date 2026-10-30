@@ -3101,9 +3101,11 @@
     },
     "tool-gpt6-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6ae451ee36e83ed1636485e8",
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-30T19:13:00Z",
+      "due_at": "2026-10-30T19:13:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:c971135c03a53b4537cd332d151c13639d2889ca3c490dea4ea0dffa57064cb9",
         "asset_id": 690899291,
@@ -3118,10 +3120,11 @@
       "notify_subscribers": false,
       "payload_sha256": "89e7d435345041a3eb4772785f201d277ac332908a93015b3a8c2fecef991219",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "This AI played Minecraft for 141 hours. 163k views this week. #shorts #ai #gpt6 #tech\n\n#shorts #gpt6 #openai #frontierai #llm",
       "title": "This AI Played Minecraft for 141 Hours Straight",
-      "updated_at": "2026-10-30T08:14:37Z",
+      "updated_at": "2026-10-30T08:14:39Z",
       "video_id": "tool-gpt6-01"
     },
     "tool-gpt6-01:youtube": {
