@@ -86,7 +86,7 @@
       "id": "catch",
       "type": "verdict",
       "heading": "WHAT YOU NEED",
-      "say": "You need Node.js to start. Native binary work also needs one disassembler on your machine, such as Hopper or Ghidra.",
+      "say": "You need Node.js to start. Native binary work uses a disassembler such as Hopper or Ghidra. Setup can install Hopper with your approval, or you can use one you already have.",
       "image": "catch.jpg"
     },
     {
