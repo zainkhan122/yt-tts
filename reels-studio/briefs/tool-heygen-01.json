@@ -4,138 +4,182 @@
     {
       "id": "c1",
       "source": "https://heygen.com",
-      "text": "HeyGen is AI video generator for avatar-based content creation"
+      "text": "HeyGen is an AI video platform that turns a script into a video featuring a photoreal AI avatar"
     },
     {
       "id": "c2",
-      "source": "https://twitter.com/HeyGen_Official",
-      "text": "Multiple channels covered HeyGen this week"
+      "source": "https://aivoraai.github.io/blog/what-is-heygen.html",
+      "text": "It offers 200+ stock avatars, custom digital twins from 2-minute video samples, and Photo Avatar from a single still image"
+    },
+    {
+      "id": "c3",
+      "source": "https://promptsrush.com/blog/heygen-review",
+      "text": "HeyGen translates videos into 175+ languages with native lip-sync, preserving the original speaker's voice"
+    },
+    {
+      "id": "c4",
+      "source": "https://creatify.ai/review/heygen-ai",
+      "text": "Avatar IV produces the most realistic photoreal avatars with 0.02-second lip sync margin"
+    },
+    {
+      "id": "c5",
+      "source": "https://promptsrush.com/blog/heygen-review",
+      "text": "HeyGen has an MCP server for Claude/Cursor integration and a documented API with webhooks"
     }
   ],
   "facts": {
-    "description": "AI video generator for avatar-based content creation",
-    "sources": [
-      "https://heygen.com",
-      "https://twitter.com/HeyGen_Official"
-    ]
+    "description": "HeyGen is an AI video platform that turns a script into a studio-quality video featuring a photoreal AI avatar \u2014 with lip-sync, voice cloning, and translation into 175+ languages.",
+    "founded": "2020",
+    "how_it_works": "Script input \u2192 avatar selection \u2192 voice assignment \u2192 render. The engine maps audio phonemes to precise facial muscle movements for natural lip-sync, micro-expressions, blinking, and head movement.",
+    "integrations": "Zapier, HubSpot, Canva, Notion, Make, Salesforce, SCORM",
+    "key_features": [
+      "200+ stock avatars (700+ on paid plans)",
+      "Custom avatars: digital twin from a 2-minute video sample",
+      "Photo Avatar: animate from a single still image",
+      "Avatar IV: most realistic photoreal avatar model",
+      "175+ language translation with native lip-sync",
+      "Voice cloning: reproduce any voice",
+      "Interactive Avatars: real-time conversational AI",
+      "HeyGen Agent: brief-to-video workflow automation",
+      "MCP server for Claude/Cursor integration",
+      "API with webhooks for production pipelines"
+    ],
+    "what_it_is": "An AI video platform built around photoreal talking avatars. You type or paste a script, pick an avatar (or clone yourself), choose a voice, and HeyGen renders a finished video. No camera, no studio, no actors.",
+    "what_you_can_make": "Product explainer videos, multilingual ads, corporate training, personalized sales outreach, social media clips, and real-time interactive avatars for support widgets."
   },
   "id": "tool-heygen-01",
-  "idea": "HeyGen is a tool that AI video generator for avatar-based content creation",
+  "idea": "HeyGen turns a text script into a photoreal AI avatar video with lip-sync, voice cloning, and 175+ language translation. No camera, no crew, no shoot day. 5.3 million views on the topic this week.",
   "keywords": [
     "HeyGen",
-    "HeyGen",
-    "HeyGen tool",
-    "HeyGen AI"
+    "AI video",
+    "AI avatars",
+    "video translation",
+    "voice cloning"
   ],
   "lang": "en-us",
-  "niche": "tool",
+  "niche": "AI video tools",
   "post": {
     "cta": "What would you use HeyGen for? Comment HEYGEN",
     "hashtags": [
       "#shorts",
+      "#heygen",
       "#aivideo",
-      "#higgsfield",
-      "#texttovideo",
-      "#cinematic"
+      "#aiavatars",
+      "#texttovideo"
     ]
   },
   "production_category": "tool",
   "proof_plan": [
     {
       "claim": "c1",
-      "evidence": "source:https://heygen.com",
-      "how_shown": "c1 scene shows the claim"
+      "evidence": "heygen.com, multiple review sources",
+      "how_shown": "Name scene shows HeyGen interface"
     },
     {
       "claim": "c2",
-      "evidence": "source:https://twitter.com/HeyGen_Official",
-      "how_shown": "c2 scene shows the claim"
+      "evidence": "Aivora AI: 200+ stock, custom twins, Photo Avatar",
+      "how_shown": "How scene shows avatar library"
+    },
+    {
+      "claim": "c3",
+      "evidence": "PromptsRush: 175+ languages, native lip-sync",
+      "how_shown": "Stars scene shows translation feature"
+    },
+    {
+      "claim": "c4",
+      "evidence": "Creatify: Avatar IV, 0.02s lip sync margin",
+      "how_shown": "Stars scene shows realism stats"
+    },
+    {
+      "claim": "c5",
+      "evidence": "PromptsRush: MCP server, API, webhooks",
+      "how_shown": "Install scene shows integrations"
     }
   ],
   "research_basis": [
-    "research/radar/radar-2026-10-29.md",
-    "research/ideas/feed-2026-10-29.md"
+    "research/ideas/feed-2026-10-29.md",
+    "research/production/2026-10-29-tool-heygen-01-fact-sheet.md"
   ],
   "review": {
-    "expires_at": "2026-10-31",
-    "notes": "Facts verified against sources on 2026-10-29",
-    "reviewed_at": "2026-10-29T08:02:27.740244+00:00",
-    "reviewer": "agent; facts checked against sources on 2026-10-29"
+    "expires_at": "2026-11-07",
+    "notes": "Verified HeyGen features, avatar library size, language support, and integrations from multiple independent sources.",
+    "reviewed_at": "2026-10-30T10:26:54.282361+00:00",
+    "reviewer": "agent; facts checked against heygen.com, Aivora AI, PromptsRush, Creatify on 2026-10-30"
   },
   "scenes": [
     {
       "camera": [
         {
-          "at": "here's what",
-          "region": "repo_title",
+          "at": "HeyGen",
+          "region": "model_card",
           "zoom": 1.5
         }
       ],
-      "heading": "THE *HEYGEN* STORY",
+      "heading": "TYPE A SCRIPT. GET A VIDEO.",
       "id": "hook",
       "image": "hero-dark.png",
-      "say": "This is HeyGen. Here's what it does and why it matters.",
-      "sub": "AI video generator for avatar-based cont",
+      "say": "Type a script. Pick an avatar. Get a finished video. No camera, no studio, no actors. HeyGen renders a photoreal AI avatar delivering your words \u2014 with lip-sync, voice cloning, and translation into one hundred seventy five languages.",
+      "sub": "HeyGen \u00b7 AI avatar video platform",
       "type": "page",
-      "url": ""
+      "url": "heygen.com"
     },
     {
-      "heading": "HeyGen",
+      "heading": "HEYGEN",
       "id": "name",
-      "image": "og-image.png",
-      "say": "It's called HeyGen. AI video generator for avatar-based content creation",
-      "sub": "AI video generator for avatar-based cont",
+      "image": "hero-dark.png",
+      "say": "It's called HeyGen. An AI video platform built around photoreal talking avatars. You write or paste a script, pick an avatar from two hundred stock options, or clone yourself from a two-minute video. Choose a voice. HeyGen renders the finished video in minutes.",
+      "sub": "AI video with photoreal avatars",
       "type": "image"
     },
     {
       "heading": "HOW IT WORKS",
       "id": "how",
-      "image": "hero-dark.png",
-      "say": "Drop in your input. HeyGen processes it and produces the output. It handles the complexity so you don't have to.",
+      "image": "desktop-full.jpg",
+      "say": "Step one: type or paste your script. Step two: pick an avatar \u2014 stock, custom digital twin, or Photo Avatar from a single image. Step three: choose a voice, or clone your own. HeyGen's engine maps audio to facial muscle movements for natural lip-sync, blinking, and micro-expressions. The video is ready to export.",
       "type": "steps"
     },
     {
       "camera": [
         {
-          "at": "noticed",
-          "region": "stars",
+          "at": "one hundred",
+          "region": "coverage",
           "zoom": 1.5
         }
       ],
-      "heading": "TRENDING NOW",
+      "heading": "175+ LANGUAGES \u00b7 NATIVE LIP-SYNC",
       "id": "stars",
-      "image": "hero-dark.png",
-      "say": "Multiple channels covered HeyGen this week. The community has noticed.",
-      "sub": "Covered by multiple channels",
+      "image": "coverage.jpg",
+      "say": "HeyGen translates your video into one hundred seventy five languages \u2014 and re-syncs the avatar's lips so it doesn't look dubbed. The original speaker's voice is preserved. One video, dozens of languages. Five point three million views on the topic this week.",
+      "sub": "5.3M views this week",
       "type": "page",
       "url": "gittrend.io"
     },
     {
       "camera": [
         {
-          "at": "no complex",
+          "at": "minutes",
           "region": "install",
           "zoom": 1.3
         }
       ],
-      "heading": "GET STARTED",
+      "heading": "START CREATE",
       "id": "install",
-      "image": "hero-dark.png",
-      "say": "Install with npm. It works with any project. No Docker required, no complex setup.",
-      "sub": "Free tier available",
+      "image": "install.jpg",
+      "say": "Go to heygen.com and create a free account. Pick an avatar, paste your script, and generate your first video in minutes. Higher tiers unlock the API, custom avatars, and integrations with Zapier, HubSpot, Canva, and Notion. There's even an MCP server for Claude and Cursor.",
+      "sub": "heygen.com \u00b7 API available",
       "type": "page",
-      "url": ""
+      "url": "heygen.com"
     },
     {
       "heading": "THE HONEST CATCH",
       "id": "catch",
       "image": "catch.jpg",
-      "say": "HeyGen is impressive, but it's still early. Some tasks will need human review. But the direction is clear.",
+      "say": "HeyGen's avatars are impressive \u2014 Avatar IV is genuinely hard to distinguish from real footage. But it's still AI-generated video. For formal corporate training or legal content, you may still need a human presenter. And the free plan caps videos at one minute. But for marketing, social, and multilingual content, it changes the production math.",
       "type": "verdict"
     },
     {
       "id": "cta",
-      "keyword": "HEYGEN",
+      "keyword": "HeyGen",
       "say": "What would you use HeyGen for? Comment HEYGEN and follow for tools like this.",
       "type": "endcard"
     }
@@ -144,11 +188,12 @@
     "aliases": [
       "HeyGen",
       "HeyGen AI video",
-      "AI avatar video generator",
-      "text to video AI"
+      "AI avatar video",
+      "AI video generator",
+      "video translation"
     ],
     "facebook": {
-      "caption": "HeyGen generates AI video with digital avatar actors. Type your script, pick an avatar, and get a produced video \u2014 lip-sync, voice cloning, and scenes handled automatically. #shorts #heygen #aivideo",
+      "caption": "HeyGen turns a script into a video with a photoreal AI avatar \u2014 no camera, no studio. 200+ stock avatars, custom digital twins, 175+ language translation with native lip-sync. What would you use it for? #shorts #heygen #aivideo",
       "hashtags": [
         "#shorts",
         "#heygen",
@@ -156,25 +201,25 @@
       ]
     },
     "instagram": {
-      "caption": "Type a script. Pick an AI avatar. Get a full video with lip-sync, voice, and scenes \u2014 no camera needed. This is HeyGen. #shorts #heygen #aivideo #texttovideo",
+      "caption": "Type a script. Pick an avatar. Get a video. No camera needed. HeyGen renders photoreal AI avatars with lip-sync, voice cloning, and 175+ language translation. Avatar IV \u2014 genuinely hard to distinguish from real footage. #shorts #heygen #aivideo #texttovideo",
       "hashtags": [
         "#shorts",
         "#heygen",
         "#aivideo",
-        "#texttovideo",
-        "#aiavatars"
+        "#aiavatars",
+        "#texttovideo"
       ]
     },
-    "keyword": "HeyGen AI avatar video generator",
-    "onscreen_first3s": "AI AVATARS THAT SPEAK FOR YOU",
+    "keyword": "HeyGen AI video generator photoreal avatars",
+    "onscreen_first3s": "TYPE A SCRIPT. GET A VIDEO.",
     "tiktok": {
-      "caption": "HeyGen creates AI video with digital avatar actors. Type a script, pick an avatar, get a full video \u2014 lip-sync, voice, scenes, all automatic. No camera, no studio. #shorts #heygen #aivideo #texttovideo",
+      "caption": "Type a script. Pick an avatar. Get a finished video. No camera, no studio. HeyGen renders photoreal AI avatars with lip-sync, voice cloning, and 175+ language translation. Avatar IV is genuinely hard to tell from real footage. #shorts #heygen #aivideo #texttovideo",
       "hashtags": [
         "#shorts",
         "#heygen",
         "#aivideo",
-        "#texttovideo",
-        "#aiavatars"
+        "#aiavatars",
+        "#texttovideo"
       ]
     },
     "x": {
@@ -183,42 +228,46 @@
         "#aivideo",
         "#texttovideo"
       ],
-      "text": "HeyGen turns text into AI video with digital avatar actors. Type a script, pick an avatar, get a full video \u2014 lip-sync and voice included. No camera needed. #heygen #aivideo #texttovideo"
+      "text": "HeyGen turns a script into a video with a photoreal AI avatar. 200+ stock avatars, custom digital twins from 2-minute video, 175+ language translation with native lip-sync. No camera needed. #heygen #aivideo #texttovideo"
     },
     "youtube": {
-      "description": "HeyGen generates AI video with digital avatar actors \u2014 type your script, pick an avatar, and get a fully produced video. No camera, no studio, no actors. It handles lip-sync, voice cloning, and scene composition automatically.\n\nWhat would you use HeyGen for? Comment HEYGEN\n\n#shorts #heygen #aivideo #texttovideo #aiavatars #aicontent",
+      "description": "HeyGen turns a script into a studio-quality video with a photoreal AI avatar \u2014 no camera, no studio, no actors. Pick from 200+ stock avatars, clone yourself from a 2-minute video, or animate from a single photo. Lip-sync, voice cloning, and translation into 175+ languages.\n\nWhat would you use HeyGen for? Comment HEYGEN\n\n#shorts #heygen #aivideo #aiavatars #texttovideo #aicontent #video",
       "hashtags": [
         "#shorts",
         "#heygen",
         "#aivideo",
-        "#texttovideo",
-        "#aiavatars"
+        "#aiavatars",
+        "#texttovideo"
       ],
       "tags": [
         "HeyGen",
-        "AI video generator",
+        "AI video",
         "AI avatars",
-        "text to video",
-        "digital actors",
-        "AI content creation"
+        "photoreal avatars",
+        "video translation",
+        "voice cloning",
+        "Avatar IV"
       ],
-      "title": "HeyGen: AI Video Generator With Digital Avatar Actors"
+      "title": "HeyGen: Type a Script, Get a Video With AI Avatar Actors"
     }
   },
   "sources": [
     "https://heygen.com",
-    "https://twitter.com/HeyGen_Official"
+    "https://twitter.com/HeyGen_Official",
+    "https://aivoraai.github.io/blog/what-is-heygen.html",
+    "https://promptsrush.com/blog/heygen-review",
+    "https://creatify.ai/review/heygen-ai"
   ],
   "status": "draft",
   "style": "explainer",
-  "title": "HeyGen: AI video generator for avatar-based content creati",
+  "title": "HeyGen: AI Video Platform With Photoreal Avatars",
   "verify_before_render": [
-    "Features and capabilities re-checked against live sources on render day."
+    "HeyGen features and avatar capabilities re-checked against latest HeyGen documentation on render day."
   ],
   "viewer": {
-    "job": "want to understand and use HeyGen",
-    "problem": "existing solutions for HeyGen are limited",
-    "who": "people interested in HeyGen"
+    "job": "Get studio-quality avatar videos \u2014 in any language \u2014 from a script, in minutes, without filming anything.",
+    "problem": "Creating talking-head videos requires a camera, a studio, an actor, and days of production. Scaling to multiple languages means re-hiring talent for each market.",
+    "who": "Marketers, content creators, educators, and business owners who need video content at scale"
   },
-  "voice_seed": 258727
+  "voice_seed": 785915
 }
