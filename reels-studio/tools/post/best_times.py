@@ -1,4 +1,4 @@
-"""Posting rules (owner 2026-10-21) — enforced in code, not just documented.
+"""Posting rules (owner 2026-10-21, gap removed 2026-10-30) — enforced in code, not just documented.
 
 1. DAILY COUNT: each calendar day (America/New_York, the channel calendar) posts a random
    number of shorts from 1 to 5. The number is drawn ONCE per day with a CSPRNG and stored in
@@ -6,9 +6,11 @@
 2. BEST TIME PER CHANNEL: each channel (YouTube, Instagram, Facebook) ranks its posting hours
    by the median views in tracker/buffer-insights.json (read-only Buffer Insights snapshot,
    America/New_York). Only hours with at least `min_samples_per_hour` sent posts are ranked.
-3. SEQUENCE, NO SHARED TIMES: the k-th short of a day gets the k-th best slot of THAT channel.
-   Slots on one channel are at least `minimum_gap_minutes` apart, so no two shorts share a
-   time on the same channel. Hours with no reliable data fall back to the researched profile.
+3. SEQUENCE + RANDOM OFFSET: the k-th short of a day gets the k-th best slot of THAT channel.
+   The 150-minute minimum gap was REMOVED (owner 2026-10-30). Each best-time slot gets a
+   deterministic random 5-15 minute offset (CSPRNG, seeded by platform+day+slot_index) so
+   actual posting times vary naturally. Hours with no reliable data fall back to the researched
+   profile window.
 """
 from __future__ import annotations
 
@@ -92,10 +94,11 @@ def _clock(minutes: int) -> str:
 
 def ranked_clocks(insights_posts: dict, platform: str, profile: dict, cfg: dict, want: int,
                   zone: ZoneInfo) -> tuple[list[str], dict]:
-    """Best `want` distinct clocks for one channel, best first, honouring the minimum gap.
+    """Best `want` distinct clocks for one channel, best first.
 
-    Returns (clocks, provenance). Missing slots come from the 18:00–21:00 fallback window,
-    and provenance says which clocks came from data and which from the fallback.
+    The 150-minute minimum gap was removed (owner 2026-10-30); all ranked hours are eligible.
+    Missing slots come from the 18:00–21:00 fallback window, and provenance says which
+    clocks came from data and which from the fallback.
     """
     rules = cfg["schedule"].get("best_times", {})
     min_samples = int(rules.get("min_samples_per_hour", 3))
