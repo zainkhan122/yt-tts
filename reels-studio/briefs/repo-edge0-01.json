@@ -1,0 +1,317 @@
+{
+  "id": "repo-edge0-01",
+  "capture": "repo-edge0-01",
+  "title": "Edge0: a 35-billion-parameter model in 3 GB of memory",
+  "niche": "AI tools for developers",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "Edge0",
+    "local AI model",
+    "Mac",
+    "35B model",
+    "SSD offload"
+  ],
+  "facts": {
+    "stars": "8,782 GitHub stars (GitHub API, 2026-10-30)",
+    "language": "Python",
+    "created": "2026-09-08",
+    "last_pushed": "2026-10-29",
+    "description": "Streaming MoE inference: SSD expert offload, Recover-LoRA and prerouter routing prediction (README)",
+    "memory": "about 2.9 GiB MLX allocator peak for edge0-35b, short contexts, on a Mac mini M4 Pro 24 GB (README). The repo description says about 2.5 GB; use the README figure.",
+    "speed": "14.9 to 17.7 tokens per second for edge0-35b on the same Mac mini (README)",
+    "quality": "MMLU-Pro 81.0 for edge0-35b (int4) vs 84.6 for Qwen3.6-35B-A3B (fp16), authors' own OpenCompass run (README)",
+    "requirements": "Python version needs macOS on Apple Silicon with MLX; disk about 23 GB for the 35B weights (README)",
+    "status": "preview models (README)",
+    "media_plan": "README logo assets/20260908-223115.jpg; a Mac run must be built from the repo before render"
+  },
+  "sources": [
+    "https://github.com/Edge0-AI/Edge0",
+    "https://api.github.com/repos/Edge0-AI/Edge0"
+  ],
+  "verify_before_render": [
+    "The memory figure is the README's 2.9 GiB, on a 24 GB Mac mini; say 'about 3 GB' only.",
+    "Benchmarks are the authors' own; keep the attribution on screen.",
+    "A real run on an Apple Silicon Mac must confirm speed before render.",
+    "Capture pack repo-edge0-01 must be built before render."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "page",
+      "image": "repo-title.jpg",
+      "heading": "35B MODEL IN 3 GB OF MEMORY",
+      "sub": "Edge0 · streams from SSD on a Mac",
+      "say": "A local AI model: 35 billion parameters in 3 GB of memory.",
+      "url": "github.com/Edge0-AI/Edge0",
+      "camera": [
+        {
+          "region": "repo_title",
+          "zoom": 1.4,
+          "at": "3 GB of memory"
+        }
+      ]
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "heading": "Edge0",
+      "sub": "keeps the model on the SSD, loads only what it needs",
+      "say": "It's called Edge0. It keeps the model on your SSD and loads only the parts it needs for the next step.",
+      "image": "readme-top.jpg"
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "WHAT IT NEEDS",
+      "say": "The Python version runs on Apple Silicon Macs. You download the 23 gigabyte model, then run it with the included scripts.",
+      "image": "readme-how.jpg"
+    },
+    {
+      "id": "proof",
+      "type": "page",
+      "image": "speed-table.jpg",
+      "heading": "ABOUT 15 TO 18 TOKENS A SECOND",
+      "sub": "Mac mini M4 Pro, 24 GB",
+      "say": "On a Mac mini M4 Pro with 24 gigabytes, the 35-billion model runs at about 15 to 18 tokens per second.",
+      "url": "github.com/Edge0-AI/Edge0",
+      "camera": [
+        {
+          "region": "speed",
+          "zoom": 1.4,
+          "at": "15 to 18"
+        }
+      ]
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE CATCH",
+      "say": "It's a preview. In the authors' own test, it scores 81 on MMLU-Pro, against 84.6 for the full-precision base model.",
+      "image": "catch.jpg"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "EDGE",
+      "say": "Would you run a 35-billion model on your laptop? Comment EDGE and I'll pin the link."
+    }
+  ],
+  "seo": {
+    "keyword": "local AI model",
+    "aliases": [
+      "35B model 3GB memory",
+      "run AI model on Mac",
+      "SSD offload AI model"
+    ],
+    "onscreen_first3s": "35B MODEL IN 3 GB OF MEMORY",
+    "youtube": {
+      "title": "local AI model: Edge0 runs 35B in 3 GB on a Mac",
+      "description": "Local AI model: Edge0 runs a 35-billion-parameter model in about 3 GB of memory on an Apple Silicon Mac, streaming weights from SSD. Preview release.\n\nTool page: https://github.com/Edge0-AI/Edge0\n\n#localllm #macai #applesilicon #mlx #shorts",
+      "tags": [
+        "local AI model",
+        "Edge0",
+        "35B model",
+        "Mac",
+        "SSD offload",
+        "Apple Silicon"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#localllm",
+        "#macai",
+        "#applesilicon"
+      ]
+    },
+    "tiktok": {
+      "title": "A 35B AI model in 3 GB of memory",
+      "description": "local AI model: Edge0 runs 35B in 3 GB on a Mac #localllm #macai #applesilicon",
+      "tags": [
+        "Edge0",
+        "local AI",
+        "35B model",
+        "Mac",
+        "AI memory"
+      ],
+      "caption": "local AI model: Edge0 runs 35B in 3 GB on a Mac #localllm #macai #applesilicon",
+      "hashtags": [
+        "#localllm",
+        "#macai",
+        "#applesilicon"
+      ]
+    },
+    "instagram": {
+      "title": "35B model, 3 GB of memory",
+      "description": "local AI model: Edge0 runs 35B in 3 GB on a Mac #localllm #macai #applesilicon",
+      "tags": [
+        "Edge0",
+        "local AI",
+        "35B model",
+        "Mac",
+        "AI memory"
+      ],
+      "caption": "local AI model: Edge0 runs 35B in 3 GB on a Mac #localllm #macai #applesilicon",
+      "hashtags": [
+        "#localllm",
+        "#macai",
+        "#applesilicon"
+      ]
+    },
+    "facebook": {
+      "title": "A 35B model in 3 GB",
+      "description": "local AI model: Edge0 runs 35B in 3 GB on a Mac #localllm #macai #applesilicon",
+      "tags": [
+        "Edge0",
+        "local AI",
+        "35B model",
+        "Mac"
+      ],
+      "caption": "local AI model: Edge0 runs 35B in 3 GB on a Mac #localllm #macai #applesilicon",
+      "hashtags": [
+        "#localllm",
+        "#macai",
+        "#applesilicon"
+      ]
+    },
+    "x": {
+      "title": "35B model in 3 GB on a Mac",
+      "description": "local AI model: Edge0 runs 35B in 3 GB on a Mac #localllm #macai",
+      "tags": [
+        "Edge0",
+        "local AI",
+        "35B model"
+      ],
+      "text": "local AI model: Edge0 runs 35B in 3 GB on a Mac #localllm #macai",
+      "hashtags": [
+        "#localllm",
+        "#macai"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Would you run a 35-billion model on your laptop? Comment EDGE",
+    "hashtags": [
+      "#shorts",
+      "#localllm",
+      "#macai",
+      "#applesilicon"
+    ]
+  },
+  "research_basis": [
+    "research/radar/radar-2026-10-30.md"
+  ],
+  "viewer": {
+    "who": "Mac users and developers who want to run large models locally",
+    "problem": "large models need far more memory than most laptops have",
+    "job": "know whether a large model can run on their Mac, and what it costs in speed and quality"
+  },
+  "idea": "Edge0 runs a 35-billion-parameter model in about 3 GB of memory on an Apple Silicon Mac, streaming weights from SSD.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "The 35B model runs in about 2.9 GiB peak memory on a Mac mini M4 Pro with 24 GB (README).",
+      "source": "https://github.com/Edge0-AI/Edge0"
+    },
+    {
+      "id": "c2",
+      "text": "14.9 to 17.7 tokens per second for edge0-35b on the same Mac (README).",
+      "source": "https://github.com/Edge0-AI/Edge0"
+    },
+    {
+      "id": "c3",
+      "text": "MMLU-Pro 81.0 for edge0-35b (int4) vs 84.6 for the fp16 base, authors' OpenCompass run (README).",
+      "source": "https://github.com/Edge0-AI/Edge0"
+    },
+    {
+      "id": "c4",
+      "text": "Preview models; the Python version needs macOS on Apple Silicon with MLX; 23 GB disk (README).",
+      "source": "https://github.com/Edge0-AI/Edge0"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "capture:repo-title.jpg",
+      "how_shown": "hook: the claim with the README figure"
+    },
+    {
+      "claim": "c2",
+      "evidence": "capture:speed-table.jpg",
+      "how_shown": "proof: the README benchmark table"
+    },
+    {
+      "claim": "c3",
+      "evidence": "capture:speed-table.jpg",
+      "how_shown": "catch: quality figure, attributed to the authors"
+    },
+    {
+      "claim": "c4",
+      "evidence": "capture:readme-how.jpg",
+      "how_shown": "how: requirements"
+    }
+  ],
+  "treatment": {
+    "audience": "Mac developers and local-AI tinkerers",
+    "viewer_job": "decide whether a 35B model can run on their machine",
+    "intent": "search",
+    "hook_mechanic": "number shock: 35 billion parameters in 3 GB",
+    "open_loop": {
+      "plant": "does it run on my Mac?",
+      "payoff_scene": "catch"
+    },
+    "proof_moment": "proof",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "text": "35B IN 3 GB",
+        "visual": "repo-title.jpg",
+        "gap": "how is that possible?"
+      },
+      {
+        "text": "ON A MAC",
+        "visual": "readme-how.jpg",
+        "gap": "what do I need?"
+      },
+      {
+        "text": "15 TOKENS/SEC",
+        "visual": "speed-table.jpg",
+        "gap": "is it usable?"
+      }
+    ],
+    "structure": [
+      {
+        "scene": "hook",
+        "beat": "hook"
+      },
+      {
+        "scene": "name",
+        "beat": "name"
+      },
+      {
+        "scene": "how",
+        "beat": "how"
+      },
+      {
+        "scene": "proof",
+        "beat": "proof"
+      },
+      {
+        "scene": "catch",
+        "beat": "catch"
+      },
+      {
+        "scene": "cta",
+        "beat": "close"
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-10-30T10:00:00Z",
+    "expires_at": "2026-11-01",
+    "reviewer": "agent; facts checked against the GitHub API and the repo README on 2026-10-30; owner approval pending",
+    "notes": "New brief 2026-10-30. Memory figure taken from the README (2.9 GiB peak), not the one-line description (2.5 GB). Hook is 11 words and says 'on a Mac' in the first sentence. Quality figure is attributed to the authors. Owner decision: a live Mac run is needed before render."
+  }
+}

@@ -1,8 +1,8 @@
 {
   "id": "repo-rea-01",
   "capture": "repo-rea-01",
-  "title": "rea: Reverse Engineer Anything With AI Agents",
-  "niche": "AI agents and reverse engineering tools",
+  "title": "rea: the AI agent that reverse engineers apps and binaries",
+  "niche": "AI tools for developers",
   "lang": "en-us",
   "style": "explainer",
   "status": "draft",
@@ -11,43 +11,43 @@
     "rea",
     "reverse engineering",
     "AI agents",
-    "decompiler",
-    "binary analysis"
+    "binary analysis",
+    "decompiler"
   ],
   "facts": {
-    "stars": "402,877 GitHub stars (gittrend.io, 2026-10-29)",
-    "stars_today": "+5,233 stars today",
+    "stars": "410,069 GitHub stars (GitHub API, 2026-10-30)",
     "language": "TypeScript",
-    "license": "open source",
-    "description": "Reverse engineer anything with agents, from app behavior down to native binaries",
-    "topics": [
-      "ai-agents",
-      "binary-analysis",
-      "cli",
-      "decompiler"
-    ]
+    "created": "2026-04-14",
+    "last_pushed": "2026-10-30",
+    "description": "Reverse engineer anything with agents, from app behavior down to native binaries.",
+    "setup": "npx rea-agents setup (needs Node.js and npm)",
+    "agents": "Claude Code, Codex, Cursor, Gemini CLI, Grok Build and others (README)",
+    "native_tools": "Hopper, Ghidra, IDA or Kuna, using an installation you already have (README)",
+    "media_plan": "README image docs/assets/rea-hopper-analysis.png; capture pack not yet built"
   },
   "sources": [
     "https://github.com/morluto/rea",
     "https://api.github.com/repos/morluto/rea"
   ],
   "verify_before_render": [
-    "Stars, license, and repo status re-checked against the live repo on render day."
+    "Star count re-read from the GitHub API on render day.",
+    "Confirm setup command and supported agents against the README on render day.",
+    "Capture pack repo-rea-01 must be built from the repo's own media before render."
   ],
   "scenes": [
     {
       "id": "hook",
       "type": "page",
       "image": "repo-title.jpg",
-      "heading": "REVERSE ENGINEER *ANYTHING* WITH AI",
-      "sub": "rea · from app behavior to native binaries",
-      "say": "What if you could reverse engineer any app, any binary, just by asking an AI agent to do it?",
+      "heading": "410,000 STARS: AI THAT REVERSE ENGINEERS",
+      "sub": "rea · apps and binaries",
+      "say": "410,000 stars: reverse engineering AI for apps and binaries.",
       "url": "github.com/morluto/rea",
       "camera": [
         {
           "region": "repo_title",
-          "zoom": 1.5,
-          "at": "just by asking"
+          "zoom": 1.4,
+          "at": "reverse engineers"
         }
       ]
     },
@@ -55,81 +55,65 @@
       "id": "name",
       "type": "image",
       "heading": "rea",
-      "sub": "AI-powered reverse engineering",
-      "say": "It's called rea, and it reverse engineers anything using AI agents. From app behavior down to native binaries.",
+      "sub": "one MCP for reverse engineering",
+      "say": "It's called rea. One tool gives your coding agent reverse engineering across binaries, apps and runtime behavior.",
       "image": "readme-top.jpg"
     },
     {
       "id": "how",
       "type": "steps",
-      "heading": "HOW IT WORKS",
-      "say": "Drop in a binary or an app. Rea's agents analyze the behavior, trace the execution, and reconstruct what's happening underneath. It handles decompiled code, binary analysis, and even reverse-engineered protocols.",
+      "heading": "SETUP IN ONE COMMAND",
+      "say": "Install Node.js, then run npx rea-agents setup. It registers rea with Claude Code, Codex, Cursor and other agents.",
       "image": "readme-how.jpg"
     },
     {
-      "id": "stars",
+      "id": "proof",
       "type": "page",
-      "image": "stars.jpg",
-      "heading": "402,877 ★ AND CLIMBING",
-      "sub": "+5,233 stars today",
-      "say": "Four hundred thousand stars and climbing. Five thousand more today alone. The reverse engineering community is converging on it fast.",
+      "image": "rea-hopper-analysis.png",
+      "heading": "NATIVE BINARIES, ANALYZED",
+      "sub": "Hopper running inside rea",
+      "say": "Native analysis uses Hopper, Ghidra, IDA or Kuna, if you already have one installed.",
       "url": "github.com/morluto/rea",
       "camera": [
         {
-          "region": "stars",
-          "zoom": 1.5,
-          "at": "five thousand"
-        }
-      ]
-    },
-    {
-      "id": "install",
-      "type": "page",
-      "image": "install.jpg",
-      "heading": "INSTALL IN MINUTES",
-      "sub": "npm install -g rea",
-      "say": "Install with npm. It's a CLI tool, so it drops right into your existing workflow. No Docker required, no complex setup.",
-      "url": "github.com/morluto/rea",
-      "camera": [
-        {
-          "region": "install",
-          "zoom": 1.3,
-          "at": "no complex setup"
+          "region": "analysis",
+          "zoom": 1.4,
+          "at": "Hopper"
         }
       ]
     },
     {
       "id": "catch",
       "type": "verdict",
-      "heading": "THE HONEST CATCH",
-      "say": "Reverse engineering is hard. Rea makes it dramatically faster, but it's not magic. The output needs human review, and some binaries will still fight back. But for the eighty percent case, it changes the game.",
+      "heading": "WHAT YOU NEED",
+      "say": "You need Node.js to start. Native binary work also needs one disassembler on your machine, such as Hopper or Ghidra.",
       "image": "catch.jpg"
     },
     {
       "id": "cta",
       "type": "endcard",
-      "keyword": "REVERSE",
-      "say": "What would you reverse engineer first? Comment REVERSE and follow for tools like this."
+      "keyword": "REA",
+      "say": "Which app would you open first? Comment REA and I'll pin the link."
     }
   ],
   "seo": {
-    "keyword": "rea reverse engineering",
+    "keyword": "reverse engineering AI",
     "aliases": [
       "rea AI reverse engineering",
       "reverse engineer binaries AI",
       "decompiler AI agent"
     ],
-    "onscreen_first3s": "REVERSE ENGINEER ANYTHING",
+    "onscreen_first3s": "410,000 STARS: AI REVERSE ENGINEERS",
     "youtube": {
-      "title": "This AI Reverse Engineers Anything in Seconds",
-      "description": "rea is an AI agent that reverse engineers apps and binaries automatically. Here's how it works. #shorts #reverseengineering #ai #programming",
+      "title": "reverse engineering AI: rea analyzes apps and binaries",
+      "description": "reverse engineering AI for apps and binaries, inside your coding agent. Setup: npx rea-agents setup.\n\nTool page: https://github.com/morluto/rea\n\n#reverseengineering #decompiler #binaryanalysis #claudecode #shorts",
       "tags": [
+        "reverse engineering AI",
         "rea",
-        "reverse engineering",
-        "AI agents",
         "decompiler",
         "binary analysis",
-        "programming"
+        "Claude Code",
+        "Codex"
       ],
       "hashtags": [
         "#shorts",
@@ -139,18 +123,17 @@
       ]
     },
     "tiktok": {
-      "title": "This AI reverse engineers ANYTHING",
-      "description": "rea uses AI agents to reverse engineer apps and binaries. Drop in a binary, get the source. #shorts #ai #coding #reverseengineering",
+      "title": "AI reverse engineers apps and binaries",
+      "description": "reverse engineering AI: rea analyzes apps and binaries #reverseengineering #decompiler #binaryanalysis",
       "tags": [
         "rea",
         "reverse engineering",
-        "AI",
-        "coding",
-        "decompiler"
+        "AI agents",
+        "decompiler",
+        "binary analysis"
       ],
-      "caption": "rea uses AI agents to reverse engineer apps and binaries. Drop in a binary, get the source. #shorts #ai #coding #reverseengineering",
+      "caption": "reverse engineering AI: rea analyzes apps and binaries #reverseengineering #decompiler #binaryanalysis",
       "hashtags": [
-        "#shorts",
         "#reverseengineering",
         "#decompiler",
         "#binaryanalysis"
@@ -158,61 +141,59 @@
     },
     "instagram": {
       "title": "AI that reverse engineers anything",
-      "description": "rea just changed reverse engineering forever. 400k stars and climbing. #shorts #ai #tech #programming",
+      "description": "reverse engineering AI: rea analyzes apps and binaries #reverseengineering #decompiler #binaryanalysis",
       "tags": [
         "rea",
         "reverse engineering",
-        "AI",
-        "tech",
-        "programming"
+        "AI agents",
+        "decompiler",
+        "binary analysis"
       ],
-      "caption": "rea just changed reverse engineering forever. 400k stars and climbing. #shorts #ai #tech #programming",
+      "caption": "reverse engineering AI: rea analyzes apps and binaries #reverseengineering #decompiler #binaryanalysis",
       "hashtags": [
-        "#shorts",
         "#reverseengineering",
         "#decompiler",
         "#binaryanalysis"
       ]
     },
     "facebook": {
-      "title": "AI that reverse engineers anything in seconds",
-      "description": "rea uses AI agents to reverse engineer apps and binaries automatically. 400k+ stars. #shorts #ai #programming",
+      "title": "AI reverse engineers apps and binaries",
+      "description": "reverse engineering AI: rea analyzes apps and binaries #reverseengineering #decompiler #binaryanalysis",
       "tags": [
         "rea",
-        "AI",
         "reverse engineering",
-        "programming"
+        "AI agents",
+        "decompiler"
       ],
-      "caption": "rea uses AI agents to reverse engineer apps and binaries automatically. 400k+ stars. #shorts #ai #programming",
+      "caption": "reverse engineering AI: rea analyzes apps and binaries #reverseengineering #decompiler #binaryanalysis",
       "hashtags": [
-        "#shorts",
         "#reverseengineering",
-        "#decompiler"
+        "#decompiler",
+        "#binaryanalysis"
       ]
     },
     "x": {
-      "title": "AI reverse engineers anything",
-      "description": "rea: 400k stars, reverse engineering with AI agents. #shorts #ai",
+      "title": "rea: AI reverse engineering",
+      "description": "reverse engineering AI: rea analyzes apps and binaries #reverseengineering #decompiler",
       "tags": [
         "rea",
-        "AI",
-        "reverse engineering"
+        "reverse engineering",
+        "AI agents"
       ],
-      "text": "rea: 400k stars, reverse engineering with AI agents. #shorts #ai",
+      "text": "reverse engineering AI: rea analyzes apps and binaries #reverseengineering #decompiler",
       "hashtags": [
-        "#shorts",
-        "#reverseengineering"
+        "#reverseengineering",
+        "#decompiler"
       ]
     }
   },
   "post": {
-    "cta": "What would you reverse engineer first? Comment REVERSE",
+    "cta": "Which app would you open first? Comment REA",
     "hashtags": [
       "#shorts",
       "#reverseengineering",
-      "#ai",
-      "#programming",
-      "#decompiler"
+      "#decompiler",
+      "#binaryanalysis"
     ]
   },
   "research_basis": [
@@ -220,49 +201,115 @@
     "research/reference-study/EAJFs6Q0Ufs.md"
   ],
   "viewer": {
-    "who": "developers, reverse engineers, and security researchers who work with binaries and compiled code",
-    "problem": "reverse engineering is slow, manual work that requires deep expertise in disassembly, decompilation, and binary analysis",
-    "job": "want to understand what a binary does without spending hours in a decompiler"
+    "who": "developers and security researchers who work with binaries and compiled code",
+    "problem": "reverse engineering is slow, manual work that needs deep expertise in disassembly and decompilation",
+    "job": "understand what a binary or app does without hours in a decompiler"
   },
-  "idea": "rea is an AI agent that reverse engineers apps and binaries automatically, from behavior down to native code.",
+  "idea": "rea gives your AI coding agent reverse engineering for apps and binaries, set up with one command.",
   "claims": [
     {
       "id": "c1",
-      "text": "rea reverse engineers anything using AI agents, from app behavior down to native binaries",
+      "text": "rea reverse engineers apps, binaries and runtime behavior through an AI agent.",
       "source": "https://github.com/morluto/rea"
     },
     {
       "id": "c2",
-      "text": "rea has 402,877 GitHub stars with 5,233 new stars today",
-      "source": "https://gittrend.io/api/trending"
+      "text": "410,069 GitHub stars on 2026-10-30.",
+      "source": "https://api.github.com/repos/morluto/rea"
     },
     {
       "id": "c3",
-      "text": "rea is a TypeScript CLI tool installable via npm",
+      "text": "Setup is npx rea-agents setup, which needs Node.js and npm.",
+      "source": "https://github.com/morluto/rea"
+    },
+    {
+      "id": "c4",
+      "text": "Native analysis uses an existing Hopper, Ghidra, IDA or Kuna installation.",
       "source": "https://github.com/morluto/rea"
     }
   ],
   "proof_plan": [
     {
       "claim": "c1",
-      "evidence": "source:https://github.com/morluto/rea",
-      "how_shown": "hook camera on repo title and description"
+      "evidence": "capture:repo-title.jpg",
+      "how_shown": "hook: repo title and tagline on screen"
     },
     {
       "claim": "c2",
-      "evidence": "source:https://gittrend.io",
-      "how_shown": "stars scene shows star count and today's growth"
+      "evidence": "capture:stars.jpg",
+      "how_shown": "proof: star count on the repo page"
     },
     {
       "claim": "c3",
-      "evidence": "source:https://github.com/morluto/rea",
-      "how_shown": "install scene shows npm command"
+      "evidence": "capture:readme-how.jpg",
+      "how_shown": "how: setup command and supported agents"
+    },
+    {
+      "claim": "c4",
+      "evidence": "capture:rea-hopper-analysis.png",
+      "how_shown": "proof: native analysis panel"
     }
   ],
+  "treatment": {
+    "audience": "developers and security researchers",
+    "viewer_job": "decide whether rea is worth installing",
+    "intent": "search",
+    "hook_mechanic": "number shock: 410,000 stars plus the capability in one sentence",
+    "open_loop": {
+      "plant": "what would you open first?",
+      "payoff_scene": "proof"
+    },
+    "proof_moment": "proof",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "text": "410K STARS",
+        "visual": "repo-title.jpg",
+        "gap": "what does it do?"
+      },
+      {
+        "text": "REVERSE ANY APP",
+        "visual": "readme-top.jpg",
+        "gap": "how hard is setup?"
+      },
+      {
+        "text": "ONE COMMAND",
+        "visual": "readme-how.jpg",
+        "gap": "what do I need?"
+      }
+    ],
+    "structure": [
+      {
+        "scene": "hook",
+        "beat": "hook"
+      },
+      {
+        "scene": "name",
+        "beat": "name"
+      },
+      {
+        "scene": "how",
+        "beat": "how"
+      },
+      {
+        "scene": "proof",
+        "beat": "proof"
+      },
+      {
+        "scene": "catch",
+        "beat": "catch"
+      },
+      {
+        "scene": "cta",
+        "beat": "close"
+      }
+    ]
+  },
   "review": {
-    "reviewed_at": "2026-10-29T10:00:00Z",
-    "expires_at": "2026-10-31",
-    "reviewer": "agent; facts checked against gittrend.io trending API and GitHub repo on 2026-10-29",
-    "notes": "All star counts and descriptions verified against live gittrend.io API on 2026-10-29"
+    "reviewed_at": "2026-10-30T10:00:00Z",
+    "expires_at": "2026-11-01",
+    "reviewer": "agent; facts checked against the GitHub API and the repo README on 2026-10-30; owner approval pending",
+    "notes": "Rewritten 2026-10-30. Stars re-read from the API (was 402,877). Install command corrected: the package is rea-agents, not rea. Removed 'no Docker' and 'five thousand today' claims (not in README). Hook is a number plus the capability, 11 words."
   }
 }

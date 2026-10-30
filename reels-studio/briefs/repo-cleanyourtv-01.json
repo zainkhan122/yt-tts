@@ -1,0 +1,304 @@
+{
+  "id": "repo-cleanyourtv-01",
+  "capture": "repo-cleanyourtv-01",
+  "title": "CleanYourTV: remove the ads from your Android TV over Wi-Fi",
+  "niche": "smart TV tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "Android TV",
+    "Google TV",
+    "debloat",
+    "Wi-Fi",
+    "no root"
+  ],
+  "facts": {
+    "stars": "46,042 GitHub stars (GitHub API, 2026-10-30)",
+    "language": "Python",
+    "created": "2026-10-17",
+    "last_pushed": "2026-10-30",
+    "description": "Debloat any Android or Google TV over Wi-Fi and get a clean home screen (GitHub description)",
+    "method": "pm disable-user on preloaded apps; nothing uninstalled; restore script undoes each step (README)",
+    "requirements": "Android TV or Google TV; developer options and USB debugging on the TV; a computer on the same Wi-Fi (README)",
+    "limits": "Fire TV gets the debloat half only; Samsung (Tizen), LG (webOS), Roku and Vizio are not supported (README)",
+    "media_plan": "README banner and docs images; the Halloween promo is excluded from the script; before/after screenshots to be taken from SHOWCASE.md (repo's own media)"
+  },
+  "sources": [
+    "https://github.com/Gathin23/cleanyourtv",
+    "https://api.github.com/repos/Gathin23/cleanyourtv"
+  ],
+  "verify_before_render": [
+    "Check SHOWCASE.md for the repo's own before/after screenshots. No filming.",
+    "Do not use the Halloween promo or its dates in any copy.",
+    "Capture pack repo-cleanyourtv-01 must be built before render."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "page",
+      "image": "repo-title.jpg",
+      "heading": "ADS OFF YOUR ANDROID TV, NO ROOT",
+      "sub": "CleanYourTV · over Wi-Fi",
+      "say": "Android TV debloat: remove the ads over Wi-Fi, no root.",
+      "url": "github.com/Gathin23/cleanyourtv",
+      "camera": [
+        {
+          "region": "repo_title",
+          "zoom": 1.4,
+          "at": "no root"
+        }
+      ]
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "heading": "CleanYourTV",
+      "sub": "a clean home screen for Android TV",
+      "say": "It's called CleanYourTV. It disables the preinstalled junk and swaps the ad-filled home screen for a clean launcher.",
+      "image": "readme-top.jpg"
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "THREE STEPS",
+      "say": "On the TV, turn on developer options and USB debugging. Then, on a computer on the same Wi-Fi, run the three steps.",
+      "image": "readme-how.jpg"
+    },
+    {
+      "id": "proof",
+      "type": "page",
+      "image": "before-after.jpg",
+      "heading": "NOTHING UNINSTALLED",
+      "sub": "Every step can be undone",
+      "say": "Preloaded apps are disabled, not removed. One restore command brings back the stock home screen.",
+      "url": "github.com/Gathin23/cleanyourtv",
+      "camera": [
+        {
+          "region": "restore",
+          "zoom": 1.4,
+          "at": "stock home screen"
+        }
+      ]
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "WHAT WORKS WHERE",
+      "say": "It works on Android TV and Google TV. Fire TV gets only the cleanup half. Samsung, LG and Roku are not supported.",
+      "image": "catch.jpg"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "CLEAN",
+      "say": "Which TV brand would you clean first? Comment CLEAN and I'll pin the link."
+    }
+  ],
+  "seo": {
+    "keyword": "Android TV debloat",
+    "aliases": [
+      "remove ads Android TV",
+      "clean Google TV home screen",
+      "debloat Android TV no root"
+    ],
+    "onscreen_first3s": "ADS OFF YOUR ANDROID TV, NO ROOT",
+    "youtube": {
+      "title": "Android TV debloat: remove ads over Wi-Fi, no root",
+      "description": "Android TV debloat over Wi-Fi with no root: CleanYourTV removes preinstalled apps and gives you a clean home screen. Undo with one command.\n\nTool page: https://github.com/Gathin23/cleanyourtv\n\n#androidtv #googletv #smarttv #cleanhome #shorts",
+      "tags": [
+        "Android TV debloat",
+        "Google TV",
+        "smart TV",
+        "no root",
+        "Wi-Fi",
+        "home screen"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#androidtv",
+        "#googletv",
+        "#smarttv"
+      ]
+    },
+    "tiktok": {
+      "title": "Ads off your Android TV, no root",
+      "description": "Android TV debloat: remove ads over Wi-Fi, no root #androidtv #googletv #smarttv",
+      "tags": [
+        "Android TV",
+        "Google TV",
+        "debloat",
+        "no root",
+        "smart TV"
+      ],
+      "caption": "Android TV debloat: remove ads over Wi-Fi, no root #androidtv #googletv #smarttv",
+      "hashtags": [
+        "#androidtv",
+        "#googletv",
+        "#smarttv"
+      ]
+    },
+    "instagram": {
+      "title": "Clean your Android TV over Wi-Fi",
+      "description": "Android TV debloat: remove ads over Wi-Fi, no root #androidtv #googletv #smarttv",
+      "tags": [
+        "Android TV",
+        "Google TV",
+        "debloat",
+        "no root",
+        "smart TV"
+      ],
+      "caption": "Android TV debloat: remove ads over Wi-Fi, no root #androidtv #googletv #smarttv",
+      "hashtags": [
+        "#androidtv",
+        "#googletv",
+        "#smarttv"
+      ]
+    },
+    "facebook": {
+      "title": "Remove ads from Android TV",
+      "description": "Android TV debloat: remove ads over Wi-Fi, no root #androidtv #googletv #smarttv",
+      "tags": [
+        "Android TV",
+        "Google TV",
+        "debloat",
+        "no root"
+      ],
+      "caption": "Android TV debloat: remove ads over Wi-Fi, no root #androidtv #googletv #smarttv",
+      "hashtags": [
+        "#androidtv",
+        "#googletv",
+        "#smarttv"
+      ]
+    },
+    "x": {
+      "title": "Ads off Android TV, no root",
+      "description": "Android TV debloat: remove ads over Wi-Fi, no root #androidtv #googletv",
+      "tags": [
+        "Android TV",
+        "Google TV",
+        "debloat"
+      ],
+      "text": "Android TV debloat: remove ads over Wi-Fi, no root #androidtv #googletv",
+      "hashtags": [
+        "#androidtv",
+        "#googletv"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Which TV brand would you clean first? Comment CLEAN",
+    "hashtags": [
+      "#shorts",
+      "#androidtv",
+      "#googletv",
+      "#smarttv"
+    ]
+  },
+  "research_basis": [
+    "research/radar/radar-2026-10-30.md"
+  ],
+  "viewer": {
+    "who": "owners of Android TV and Google TV sets with a cluttered home screen",
+    "problem": "preinstalled apps and ad-filled home screens are hard to remove without root",
+    "job": "clean the home screen and know exactly how to undo it"
+  },
+  "idea": "CleanYourTV removes preinstalled apps from Android TV and Google TV over Wi-Fi, without root, and undoes in one command.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Preloaded apps are disabled, not uninstalled, so a restore script can undo each step (README).",
+      "source": "https://github.com/Gathin23/cleanyourtv"
+    },
+    {
+      "id": "c2",
+      "text": "Works on Android TV and Google TV over Wi-Fi, with no root and no cable (README).",
+      "source": "https://github.com/Gathin23/cleanyourtv"
+    },
+    {
+      "id": "c3",
+      "text": "Fire TV gets the cleanup half; Samsung, LG, Roku and Vizio are not supported (README).",
+      "source": "https://github.com/Gathin23/cleanyourtv"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "capture:before-after.jpg",
+      "how_shown": "proof: disabled, not removed; restore"
+    },
+    {
+      "claim": "c2",
+      "evidence": "capture:readme-how.jpg",
+      "how_shown": "how: the three steps"
+    },
+    {
+      "claim": "c3",
+      "evidence": "capture:catch.jpg",
+      "how_shown": "catch: supported devices"
+    }
+  ],
+  "treatment": {
+    "audience": "Android TV and Google TV owners",
+    "viewer_job": "clean the home screen safely",
+    "intent": "search",
+    "hook_mechanic": "problem and fix in one line, with the limit: no root",
+    "open_loop": {
+      "plant": "can I undo it?",
+      "payoff_scene": "proof"
+    },
+    "proof_moment": "proof",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "text": "ADS OFF",
+        "visual": "repo-title.jpg",
+        "gap": "how?"
+      },
+      {
+        "text": "NO ROOT",
+        "visual": "readme-how.jpg",
+        "gap": "what do I need?"
+      },
+      {
+        "text": "UNDO IT",
+        "visual": "before-after.jpg",
+        "gap": "is it reversible?"
+      }
+    ],
+    "structure": [
+      {
+        "scene": "hook",
+        "beat": "hook"
+      },
+      {
+        "scene": "name",
+        "beat": "name"
+      },
+      {
+        "scene": "how",
+        "beat": "how"
+      },
+      {
+        "scene": "proof",
+        "beat": "proof"
+      },
+      {
+        "scene": "catch",
+        "beat": "catch"
+      },
+      {
+        "scene": "cta",
+        "beat": "close"
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-10-30T10:00:00Z",
+    "expires_at": "2026-11-01",
+    "reviewer": "agent; facts checked against the GitHub API and the repo README on 2026-10-30; owner approval pending",
+    "notes": "New brief 2026-10-30. Halloween promo and its dates removed from all copy. Licence status not used (owner: not our concern). Brand names and supported devices taken from the README. The before/after needs the repo's own screenshots (SHOWCASE.md) before render."
+  }
+}

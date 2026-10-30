@@ -1,0 +1,303 @@
+{
+  "id": "repo-dsh-free-01",
+  "capture": "repo-dsh-free-01",
+  "title": "dsh-our-free-model: free DeepSeek and Kimi models, no API key",
+  "niche": "AI tools for developers",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "DeepSeek",
+    "Kimi",
+    "free AI models",
+    "no API key",
+    "dsh"
+  ],
+  "facts": {
+    "stars": "52,007 GitHub stars (GitHub API, 2026-10-30)",
+    "language": "JavaScript",
+    "created": "2026-09-24",
+    "last_pushed": "2026-10-30",
+    "status": "beta (README)",
+    "description": "Plugin for the dsh app (DeepSeek Harness): frontier models with no login and no API key, claimed free with no usage cap (README claim)",
+    "availability": "the model list depends on your network; blocked models are shown in a separate list (README)",
+    "install": "install from the repo's release package or local source, not the npm copy (README warns the npm package is third-party); restart dsh once (README)",
+    "media_plan": "README icon.svg and docs images; dsh UI capture to be built from the repo's own media"
+  },
+  "sources": [
+    "https://github.com/Ebony-Vinyl/dsh-our-free-model",
+    "https://api.github.com/repos/Ebony-Vinyl/dsh-our-free-model"
+  ],
+  "verify_before_render": [
+    "The 'free, no cap, no key' claim is the README's claim. Test it on a machine before render; if it fails, change the hook to match what was seen.",
+    "Install from the repo release, not npm (README warning).",
+    "Capture pack repo-dsh-free-01 must be built before render."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "page",
+      "image": "repo-title.jpg",
+      "heading": "FREE DEEPSEEK AND KIMI, NO API KEY?",
+      "sub": "dsh-our-free-model · plugin for the dsh app",
+      "say": "A plugin claims free DeepSeek models, with no API key.",
+      "url": "github.com/Ebony-Vinyl/dsh-our-free-model",
+      "camera": [
+        {
+          "region": "repo_title",
+          "zoom": 1.4,
+          "at": "no API key"
+        }
+      ]
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "heading": "dsh-our-free-model",
+      "sub": "a plugin for the dsh app",
+      "say": "It's called dsh-our-free-model. It's a plugin for dsh, which is DeepSeek Harness, a desktop app.",
+      "image": "readme-top.jpg"
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "INSTALL IT",
+      "say": "Install from the repo's release package, not the npm copy. Then restart dsh once and open the model picker.",
+      "image": "readme-how.jpg"
+    },
+    {
+      "id": "proof",
+      "type": "page",
+      "image": "model-picker.jpg",
+      "heading": "ONLY WHAT YOUR NETWORK REACHES",
+      "sub": "Model picker",
+      "say": "The picker shows only models your network can reach. Blocked models stay in a separate list.",
+      "url": "github.com/Ebony-Vinyl/dsh-our-free-model",
+      "camera": [
+        {
+          "region": "picker",
+          "zoom": 1.4,
+          "at": "separate list"
+        }
+      ]
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE CATCH",
+      "say": "Which models work depends on your network region, and the plugin is in beta. The plugin claims no usage cap. Test that yourself before you rely on it.",
+      "image": "catch.jpg"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "FREE",
+      "say": "Which model would you test first? Comment FREE and I'll pin the link."
+    }
+  ],
+  "seo": {
+    "keyword": "free DeepSeek models",
+    "aliases": [
+      "free DeepSeek model",
+      "no API key AI model",
+      "dsh DeepSeek Harness plugin"
+    ],
+    "onscreen_first3s": "FREE DEEPSEEK AND KIMI, NO API KEY?",
+    "youtube": {
+      "title": "free DeepSeek models, no API key? A plugin claims it",
+      "description": "Free DeepSeek models with no API key: a dsh plugin claims it. Availability depends on your network, and the plugin is in beta.\n\nTool page: https://github.com/Ebony-Vinyl/dsh-our-free-model\n\n#deepseek #kimi #freeai #dsh #shorts",
+      "tags": [
+        "free DeepSeek models",
+        "Kimi",
+        "dsh",
+        "no API key",
+        "DeepSeek Harness"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#deepseek",
+        "#kimi",
+        "#freeai"
+      ]
+    },
+    "tiktok": {
+      "title": "Free DeepSeek models, no API key?",
+      "description": "free DeepSeek models, no API key? A plugin claims it #deepseek #kimi #freeai",
+      "tags": [
+        "DeepSeek",
+        "Kimi",
+        "free AI",
+        "no API key",
+        "dsh"
+      ],
+      "caption": "free DeepSeek models, no API key? A plugin claims it #deepseek #kimi #freeai",
+      "hashtags": [
+        "#deepseek",
+        "#kimi",
+        "#freeai"
+      ]
+    },
+    "instagram": {
+      "title": "Free DeepSeek and Kimi, no key?",
+      "description": "free DeepSeek models, no API key? A plugin claims it #deepseek #kimi #freeai",
+      "tags": [
+        "DeepSeek",
+        "Kimi",
+        "free AI",
+        "no API key",
+        "dsh"
+      ],
+      "caption": "free DeepSeek models, no API key? A plugin claims it #deepseek #kimi #freeai",
+      "hashtags": [
+        "#deepseek",
+        "#kimi",
+        "#freeai"
+      ]
+    },
+    "facebook": {
+      "title": "Free DeepSeek and Kimi models?",
+      "description": "free DeepSeek models, no API key? A plugin claims it #deepseek #kimi #freeai",
+      "tags": [
+        "DeepSeek",
+        "Kimi",
+        "free AI",
+        "no API key"
+      ],
+      "caption": "free DeepSeek models, no API key? A plugin claims it #deepseek #kimi #freeai",
+      "hashtags": [
+        "#deepseek",
+        "#kimi",
+        "#freeai"
+      ]
+    },
+    "x": {
+      "title": "Free DeepSeek models, no key?",
+      "description": "free DeepSeek models, no API key? A plugin claims it #deepseek #kimi",
+      "tags": [
+        "DeepSeek",
+        "Kimi",
+        "free AI"
+      ],
+      "text": "free DeepSeek models, no API key? A plugin claims it #deepseek #kimi",
+      "hashtags": [
+        "#deepseek",
+        "#kimi"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Which model would you test first? Comment FREE",
+    "hashtags": [
+      "#shorts",
+      "#deepseek",
+      "#kimi",
+      "#freeai"
+    ]
+  },
+  "research_basis": [
+    "research/radar/radar-2026-10-30.md"
+  ],
+  "viewer": {
+    "who": "developers who want to try frontier models without paying",
+    "problem": "free-model claims are hard to check, and access depends on where you are",
+    "job": "know what the plugin does and how to check it on their own network"
+  },
+  "idea": "A dsh plugin claims free DeepSeek and Kimi models with no API key; availability depends on your network.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "The plugin lists DeepSeek and Kimi models in the dsh app, with no login and no API key (README claim).",
+      "source": "https://github.com/Ebony-Vinyl/dsh-our-free-model"
+    },
+    {
+      "id": "c2",
+      "text": "The model list depends on the user's network; blocked models are kept in a separate list (README).",
+      "source": "https://github.com/Ebony-Vinyl/dsh-our-free-model"
+    },
+    {
+      "id": "c3",
+      "text": "The npm package named dsh-our-free-model is not published by the repo; install from the repo release (README).",
+      "source": "https://github.com/Ebony-Vinyl/dsh-our-free-model"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "capture:repo-title.jpg",
+      "how_shown": "hook: the README claim on screen, attributed"
+    },
+    {
+      "claim": "c2",
+      "evidence": "capture:model-picker.jpg",
+      "how_shown": "proof: picker with the separate blocked list"
+    },
+    {
+      "claim": "c3",
+      "evidence": "capture:readme-how.jpg",
+      "how_shown": "how: install from the release, not npm"
+    }
+  ],
+  "treatment": {
+    "audience": "developers who want to try models for free",
+    "viewer_job": "decide whether to test the plugin and how to check it",
+    "intent": "search",
+    "hook_mechanic": "stakes: a free-model claim, with the catch attached",
+    "open_loop": {
+      "plant": "does it really work without a key?",
+      "payoff_scene": "catch"
+    },
+    "proof_moment": "proof",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "text": "NO API KEY?",
+        "visual": "repo-title.jpg",
+        "gap": "what is the catch?"
+      },
+      {
+        "text": "CHECK FIRST",
+        "visual": "model-picker.jpg",
+        "gap": "what do I check?"
+      },
+      {
+        "text": "FREE DEEPSEEK",
+        "visual": "readme-top.jpg",
+        "gap": "which models?"
+      }
+    ],
+    "structure": [
+      {
+        "scene": "hook",
+        "beat": "hook"
+      },
+      {
+        "scene": "name",
+        "beat": "name"
+      },
+      {
+        "scene": "how",
+        "beat": "how"
+      },
+      {
+        "scene": "proof",
+        "beat": "proof"
+      },
+      {
+        "scene": "catch",
+        "beat": "catch"
+      },
+      {
+        "scene": "cta",
+        "beat": "close"
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-10-30T10:00:00Z",
+    "expires_at": "2026-11-01",
+    "reviewer": "agent; facts checked against the GitHub API and the repo README on 2026-10-30; owner approval pending",
+    "notes": "New brief 2026-10-30. The hook names the claim as the plugin's claim, because no run has verified it. Install warning from the README is included (npm copy is not the repo's). Stars from the API. Owner decision: hook can only run after a live test on a machine."
+  }
+}

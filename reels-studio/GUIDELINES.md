@@ -125,4 +125,5 @@ Do not reuse a structure because it worked once; reuse only what the numbers sho
 - **Clickbait is allowed** (sharp hooks, stakes, curiosity). It must still be accurate.
 - **Show the tool, don't comment on it.** The viewer sees the tool being used: the job it does for them, in the first seconds.
 - **Legal, terms-of-service and privacy are NOT our concern.** Those are the tool owner's job. Do not exclude a tool or topic on licence, terms, copyright or privacy grounds. (Viewer safety, such as instructions for harming a device or a person, is the only exception and needs owner sign-off.)
-- **TTS, script and SEO carry no sources.** No links, citations, licence text, "Source:", "Repo:" or legal wording in narration, captions, titles, descriptions or hashtags. Sources stay internal in the brief (`claims`, `sources`) for fact checking only.
+- **TTS, script and SEO carry no sources.** No citations, licence text, "Source:" or legal wording in narration, captions, titles, descriptions or hashtags. Sources stay internal in the brief (`claims`, `sources`) for fact checking only.
+- **Exception (owner, 2026-10-30): the tool page link goes in the YouTube description, and nothing else.** Use the tool's page (its GitHub repo) as the only link in any description. No legal, privacy, licence, terms or other links, on any platform.

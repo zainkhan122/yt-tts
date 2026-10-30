@@ -1,8 +1,8 @@
 {
   "id": "repo-impeccable-01",
   "capture": "repo-impeccable-01",
-  "title": "impeccable: Design Vocabulary for Your Coding Agent",
-  "niche": "AI agents and developer productivity",
+  "title": "impeccable: the same AI, a different design",
+  "niche": "AI tools for developers",
   "lang": "en-us",
   "style": "explainer",
   "status": "draft",
@@ -10,44 +10,43 @@
   "keywords": [
     "impeccable",
     "coding agent",
-    "design skills",
-    "anti-slop",
-    "Rust"
+    "design",
+    "AI slop",
+    "Claude Code"
   ],
   "facts": {
-    "stars": "92,814 GitHub stars (gittrend.io, 2026-10-29)",
-    "stars_today": "+2,185 stars today",
-    "language": "Rust",
-    "license": "open source",
-    "description": "The design vocabulary for your coding agent. Steer with polish and bolder, review with critique.",
-    "topics": [
-      "agent-skills",
-      "ai",
-      "anti-slop",
-      "design"
-    ]
+    "stars": "96,313 GitHub stars (GitHub API, 2026-10-30)",
+    "language": "Rust (GitHub)",
+    "created": "2025-11-16",
+    "last_pushed": "2026-10-30",
+    "description": "The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit.",
+    "install": "npx impeccable install from the project root, then reload the coding tool and run /impeccable init (README)",
+    "agents": "Claude Code, Cursor, Codex CLI, GitHub Copilot and others (README)",
+    "media_plan": "README before/after pair docs/images/readme-without.webp and readme-with.webp (the repo's own media)"
   },
   "sources": [
     "https://github.com/pbakaus/impeccable",
     "https://api.github.com/repos/pbakaus/impeccable"
   ],
   "verify_before_render": [
-    "Stars, license, and repo status re-checked against the live repo on render day."
+    "Star count re-read from the API on render day.",
+    "Before/after pair must come from the repo's own README images.",
+    "Capture pack repo-impeccable-01 must be built before render."
   ],
   "scenes": [
     {
       "id": "hook",
       "type": "page",
-      "image": "repo-title.jpg",
-      "heading": "GIVE YOUR AI *GOOD DESIGN* SENSE",
+      "image": "before-after.jpg",
+      "heading": "SAME AI. SAME BRIEF. WATCH THE DESIGN CHANGE.",
       "sub": "impeccable · design vocabulary for coding agents",
-      "say": "Your AI writes code fast. But does it write code that looks good? Impecable gives your coding agent a design vocabulary.",
+      "say": "Same coding agent, same brief. Watch the design change with Impeccable.",
       "url": "github.com/pbakaus/impeccable",
       "camera": [
         {
-          "region": "repo_title",
-          "zoom": 1.5,
-          "at": "design vocabulary"
+          "region": "before_after",
+          "zoom": 1.4,
+          "at": "Impeccable"
         }
       ]
     },
@@ -55,213 +54,250 @@
       "id": "name",
       "type": "image",
       "heading": "impeccable",
-      "sub": "Polish, bolder, critique",
-      "say": "It's called impeccable. It's a design vocabulary that plugs into your coding agent. You steer with polish and bolder, you review with critique.",
+      "sub": "a design vocabulary for your coding agent",
+      "say": "It's called impeccable. It gives your coding agent words for design: polish, bolder, critique and audit.",
       "image": "readme-top.jpg"
     },
     {
       "id": "how",
       "type": "steps",
-      "heading": "HOW IT WORKS",
-      "say": "It's a set of agent skills built in Rust. Your AI agent loads them, and now it knows what polished code looks like. Not just valid code, but clean, intentional design.",
+      "heading": "TWO COMMANDS",
+      "say": "From your project root, run npx impeccable install. Then run slash impeccable init in your agent.",
       "image": "readme-how.jpg"
     },
     {
-      "id": "stars",
+      "id": "proof",
       "type": "page",
-      "image": "stars.jpg",
-      "heading": "92,814 ★ AND GROWING",
-      "sub": "+2,185 stars today",
-      "say": "Ninety two thousand stars. Two thousand more today. The anti-slop movement is real, and impeccable is at the center of it.",
+      "image": "before-after.jpg",
+      "heading": "WITHOUT, THEN WITH",
+      "sub": "Same model, same brief",
+      "say": "Without it, the page is a cream layout with pill buttons. With it, the page is built around one picture.",
       "url": "github.com/pbakaus/impeccable",
       "camera": [
         {
-          "region": "stars",
-          "zoom": 1.5,
-          "at": "anti-slop"
-        }
-      ]
-    },
-    {
-      "id": "install",
-      "type": "page",
-      "image": "install.jpg",
-      "heading": "ADD IT TO YOUR AGENT",
-      "sub": "One config file",
-      "say": "Add one config file to your AI agent setup. It works with Claude Code, Cursor, and Codex. The skills load automatically.",
-      "url": "github.com/pbakaus/impeccable",
-      "camera": [
-        {
-          "region": "install",
+          "region": "after",
           "zoom": 1.3,
-          "at": "skills load"
+          "at": "built around one picture"
         }
       ]
     },
     {
       "id": "catch",
       "type": "verdict",
-      "heading": "THE HONEST CATCH",
-      "say": "It's a vocabulary, not a magic wand. Your AI still needs to understand the problem. But with impeccable, it will at least stop generating slop.",
+      "heading": "WHAT TO KNOW",
+      "say": "Run the install from your project root, then reload your coding tool. It works with Claude Code, Cursor and Codex, among others.",
       "image": "catch.jpg"
     },
     {
       "id": "cta",
       "type": "endcard",
       "keyword": "POLISH",
-      "say": "Stop accepting ugly code from your AI. Comment POLISH and follow for tools like this."
+      "say": "Which page would you fix first? Comment POLISH and I'll pin the link."
     }
   ],
   "seo": {
-    "keyword": "impeccable coding agent",
+    "keyword": "impeccable",
     "aliases": [
-      "impeccable AI design",
-      "anti-slop coding",
-      "AI coding agent design skills"
+      "impeccable design skills",
+      "AI slop design",
+      "design vocabulary coding agent"
     ],
-    "onscreen_first3s": "GIVE YOUR AI GOOD DESIGN",
+    "onscreen_first3s": "SAME AI. SAME BRIEF. A DIFFERENT DESIGN.",
     "youtube": {
-      "title": "Your AI Needs This Design Skill",
-      "description": "impeccable gives your coding agent a design vocabulary. No more AI slop. #shorts #ai #coding #design #programming",
+      "title": "impeccable coding agent: the same AI, a different design",
+      "description": "impeccable coding agent skills: polish, bolder, critique and audit. Install with npx impeccable install.\n\nTool page: https://github.com/pbakaus/impeccable\n\n#claudecode #frontenddesign #webdesign #codingagent #shorts",
       "tags": [
         "impeccable",
         "coding agent",
         "AI design",
-        "anti-slop",
-        "programming"
+        "Claude Code",
+        "design skills",
+        "frontend design"
       ],
       "hashtags": [
         "#shorts",
-        "#antislop",
-        "#agentskills",
-        "#designsystems"
+        "#claudecode",
+        "#frontenddesign",
+        "#webdesign"
       ]
     },
     "tiktok": {
-      "title": "Your AI needs this design skill",
-      "description": "impeccable gives coding agents a design vocabulary. Stop accepting ugly code. #shorts #ai #coding #design",
+      "title": "Same AI, different design",
+      "description": "impeccable coding agent: the same AI, a different design #claudecode #frontenddesign #webdesign",
       "tags": [
         "impeccable",
-        "AI",
-        "coding",
-        "design",
-        "programming"
+        "coding agent",
+        "AI design",
+        "Claude Code",
+        "design skills"
       ],
-      "caption": "impeccable gives coding agents a design vocabulary. Stop accepting ugly code. #shorts #ai #coding #design",
+      "caption": "impeccable coding agent: the same AI, a different design #claudecode #frontenddesign #webdesign",
       "hashtags": [
-        "#shorts",
-        "#antislop",
-        "#agentskills",
-        "#designsystems"
+        "#claudecode",
+        "#frontenddesign",
+        "#webdesign"
       ]
     },
     "instagram": {
-      "title": "Fix your AI's ugly code",
-      "description": "impeccable gives coding agents real design sense. 92k stars. #shorts #ai #tech #coding",
+      "title": "Same AI, same brief",
+      "description": "impeccable coding agent: the same AI, a different design #claudecode #frontenddesign #webdesign",
       "tags": [
         "impeccable",
-        "AI",
-        "coding",
-        "tech",
-        "design"
+        "coding agent",
+        "AI design",
+        "Claude Code",
+        "design skills"
       ],
-      "caption": "impeccable gives coding agents real design sense. 92k stars. #shorts #ai #tech #coding",
+      "caption": "impeccable coding agent: the same AI, a different design #claudecode #frontenddesign #webdesign",
       "hashtags": [
-        "#shorts",
-        "#antislop",
-        "#agentskills",
-        "#designsystems"
+        "#claudecode",
+        "#frontenddesign",
+        "#webdesign"
       ]
     },
     "facebook": {
-      "title": "Give your AI good design sense",
-      "description": "impeccable is a design vocabulary for coding agents. 92k+ stars and climbing. #shorts #ai #programming",
+      "title": "Same AI, different design",
+      "description": "impeccable coding agent: the same AI, a different design #claudecode #frontenddesign #webdesign",
       "tags": [
         "impeccable",
-        "AI",
-        "coding",
-        "design"
+        "coding agent",
+        "AI design",
+        "Claude Code"
       ],
-      "caption": "impeccable is a design vocabulary for coding agents. 92k+ stars and climbing. #shorts #ai #programming",
+      "caption": "impeccable coding agent: the same AI, a different design #claudecode #frontenddesign #webdesign",
       "hashtags": [
-        "#shorts",
-        "#antislop",
-        "#agentskills"
+        "#claudecode",
+        "#frontenddesign",
+        "#webdesign"
       ]
     },
     "x": {
-      "title": "Your AI needs design skills",
-      "description": "impeccable gives coding agents a design vocabulary. #shorts #ai",
+      "title": "impeccable: design for coding agents",
+      "description": "impeccable coding agent: the same AI, a different design #claudecode #frontenddesign",
       "tags": [
         "impeccable",
-        "AI",
-        "coding"
+        "coding agent",
+        "AI design"
       ],
-      "text": "impeccable gives coding agents a design vocabulary. #shorts #ai",
+      "text": "impeccable coding agent: the same AI, a different design #claudecode #frontenddesign",
       "hashtags": [
-        "#shorts",
-        "#antislop"
+        "#claudecode",
+        "#frontenddesign"
       ]
     }
   },
   "post": {
-    "cta": "Stop accepting ugly code. Comment POLISH",
+    "cta": "Which page would you fix first? Comment POLISH",
     "hashtags": [
       "#shorts",
-      "#ai",
-      "#coding",
-      "#design",
-      "#programming"
+      "#claudecode",
+      "#frontenddesign",
+      "#webdesign"
     ]
   },
   "research_basis": [
-    "research/reference-study/fwBIZRq-vzY.md",
     "research/reference-study/EAJFs6Q0Ufs.md"
   ],
   "viewer": {
-    "who": "developers who use AI coding agents like Claude Code, Cursor, and Codex",
-    "problem": "AI generated code often has poor design — generic layouts, sloppy spacing, cookie-cutter patterns",
-    "job": "want their AI agent to write code that looks intentional and polished, not generic AI slop"
+    "who": "developers who build UI with coding agents",
+    "problem": "agent-built interfaces look generic, and the developer has no shared vocabulary to steer them",
+    "job": "steer a coding agent toward a better design with a few commands"
   },
-  "idea": "impeccable is a design vocabulary for coding agents that steers them toward polished, bold design instead of generic AI slop.",
+  "idea": "impeccable gives a coding agent a design vocabulary, so the interface it builds looks deliberate.",
   "claims": [
     {
       "id": "c1",
-      "text": "impeccable is a design vocabulary that plugs into Claude Code, Cursor, and Codex",
+      "text": "impeccable gives coding agents a design vocabulary: polish, bolder, critique and audit.",
       "source": "https://github.com/pbakaus/impeccable"
     },
     {
       "id": "c2",
-      "text": "impeccable has 92,814 GitHub stars with 2,185 new stars today",
-      "source": "https://gittrend.io/api/trending"
+      "text": "96,313 GitHub stars on 2026-10-30.",
+      "source": "https://api.github.com/repos/pbakaus/impeccable"
     },
     {
       "id": "c3",
-      "text": "impeccable is built in Rust and works as agent skills",
+      "text": "Install with npx impeccable install from the project root, then run /impeccable init.",
       "source": "https://github.com/pbakaus/impeccable"
     }
   ],
   "proof_plan": [
     {
       "claim": "c1",
-      "evidence": "source:https://github.com/pbakaus/impeccable",
-      "how_shown": "hook camera on repo title and description"
+      "evidence": "capture:before-after.jpg",
+      "how_shown": "hook and proof: the repo's own before/after pair"
     },
     {
       "claim": "c2",
-      "evidence": "source:https://gittrend.io",
-      "how_shown": "stars scene shows star count and today's growth"
+      "evidence": "capture:repo-title.jpg",
+      "how_shown": "name: repo title with the star count"
     },
     {
       "claim": "c3",
-      "evidence": "source:https://github.com/pbakaus/impeccable",
-      "how_shown": "how scene shows Rust and agent skills"
+      "evidence": "capture:readme-how.jpg",
+      "how_shown": "how: install commands"
     }
   ],
+  "treatment": {
+    "audience": "developers using coding agents for UI",
+    "viewer_job": "decide whether a design vocabulary is worth adding",
+    "intent": "search",
+    "hook_mechanic": "proof-first: the same model and brief, two different results",
+    "open_loop": {
+      "plant": "what changes?",
+      "payoff_scene": "proof"
+    },
+    "proof_moment": "proof",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "text": "SAME AI",
+        "visual": "before-after.jpg",
+        "gap": "what changed?"
+      },
+      {
+        "text": "TWO COMMANDS",
+        "visual": "readme-how.jpg",
+        "gap": "how hard is it?"
+      },
+      {
+        "text": "POLISH IT",
+        "visual": "readme-top.jpg",
+        "gap": "what does it do?"
+      }
+    ],
+    "structure": [
+      {
+        "scene": "hook",
+        "beat": "hook"
+      },
+      {
+        "scene": "name",
+        "beat": "name"
+      },
+      {
+        "scene": "how",
+        "beat": "how"
+      },
+      {
+        "scene": "proof",
+        "beat": "proof"
+      },
+      {
+        "scene": "catch",
+        "beat": "catch"
+      },
+      {
+        "scene": "cta",
+        "beat": "close"
+      }
+    ]
+  },
   "review": {
-    "reviewed_at": "2026-10-29T10:00:00Z",
-    "expires_at": "2026-10-31",
-    "reviewer": "agent; facts checked against gittrend.io trending API and GitHub repo on 2026-10-29",
-    "notes": "All star counts and descriptions verified against live gittrend.io API on 2026-10-29"
+    "reviewed_at": "2026-10-30T10:00:00Z",
+    "expires_at": "2026-11-01",
+    "reviewer": "agent; facts checked against the GitHub API and the repo README on 2026-10-30; owner approval pending",
+    "notes": "Rewritten 2026-10-30. Removed 'built in Rust' (not in README) and the 'impecable' typo. Install corrected to npx impeccable install with /impeccable init. Before/after taken from the repo's own README images. Stars re-read from the API (was 92,814)."
   }
 }
