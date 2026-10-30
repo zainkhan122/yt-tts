@@ -1228,6 +1228,78 @@
       "title": "Halo: an AI overlay that whispers what to say on calls",
       "video_id": "repo-halo-01",
       "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-10-30T04:19:46Z",
+      "approval": "approved",
+      "asset_digest": "sha256:c971135c03a53b4537cd332d151c13639d2889ca3c490dea4ea0dffa57064cb9",
+      "asset_id": 690899291,
+      "asset_size": 8748201,
+      "brief_sha256": "3dfe33ee7bb708c8da9da774f52053b643a583ab2bd1272180ff9504073e7f7e",
+      "category": "tool",
+      "expires_at": "2026-11-06T12:00:00Z",
+      "kit_asset_id": 690899344,
+      "kit_digest": "sha256:6fe91fe1691a123bc1a246584d4dbf6cd8e8af5aed335aa20b80bcc9149c67a8",
+      "media_path": "media/690899291/tool-gpt6-01.mp4",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "priority": 50,
+      "release_tag": "renders-2026-10-30",
+      "reviewed_at": "2026-10-30T04:23:17Z",
+      "title": "This AI Played Minecraft for 141 Hours Straight",
+      "video_id": "tool-gpt6-01",
+      "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-10-30T04:19:47Z",
+      "approval": "approved",
+      "asset_digest": "sha256:3bd23e08c31994008289d73587038834f96feef6cc34281d0e82f3c78ee6e49d",
+      "asset_id": 690899399,
+      "asset_size": 7569777,
+      "brief_sha256": "a39ca2fbab822accb41198aaf82b58a3172854ec18006e08f23f68e3b6acc183",
+      "category": "tool",
+      "expires_at": "2026-11-06T12:00:00Z",
+      "kit_asset_id": 690899472,
+      "kit_digest": "sha256:d9be20a8d0352168849b3d15ff134d7e36a52dd3e1951217916edad292a902c1",
+      "media_path": "media/690899399/tool-claude-code-01.mp4",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "priority": 50,
+      "release_tag": "renders-2026-10-30",
+      "reviewed_at": "2026-10-30T04:23:17Z",
+      "title": "This AI Coding Agent Is Everywhere Right Now",
+      "video_id": "tool-claude-code-01",
+      "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-10-30T04:19:48Z",
+      "approval": "approved",
+      "asset_digest": "sha256:9ea86e6f56f4dc2913e2706d98f545d6488ebb530dfb82525ecd1786321d8ff8",
+      "asset_id": 690899524,
+      "asset_size": 4733079,
+      "brief_sha256": "82c75db42a15c489bedcd52cb2369c87da2a75d0a874ecca61f3094b61d8024c",
+      "category": "tool",
+      "expires_at": "2026-11-06T12:00:00Z",
+      "kit_asset_id": 690899596,
+      "kit_digest": "sha256:a3ba9f76c7600e0435c85448313163e245dbf7f2ecb8de320569c2d17e32fd3b",
+      "media_path": "media/690899524/tool-heygen-01.mp4",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "priority": 50,
+      "release_tag": "renders-2026-10-30",
+      "reviewed_at": "2026-10-30T04:23:17Z",
+      "title": "AI video generator for avatar-based content creation",
+      "video_id": "tool-heygen-01",
+      "youtube_ai_generated": false
     }
   ],
   "schema_version": 1
