@@ -3183,6 +3183,31 @@
       "updated_at": "2026-10-30T08:14:32Z",
       "video_id": "tool-heygen-01"
     },
+    "tool-heygen-01:instagram": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-30T20:10:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:9ea86e6f56f4dc2913e2706d98f545d6488ebb530dfb82525ecd1786321d8ff8",
+        "asset_id": 690899524,
+        "asset_size": 4733079,
+        "kit_asset_id": 690899596,
+        "kit_digest": "sha256:a3ba9f76c7600e0435c85448313163e245dbf7f2ecb8de320569c2d17e32fd3b",
+        "media_path": "media/690899524/tool-heygen-01.mp4",
+        "release_tag": "renders-2026-10-30",
+        "video_id": "tool-heygen-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/690899524/tool-heygen-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "ac8bcc0d5cc82690f1a11aa88824eb24f3db4b5efb1b06aa5cc5947bc9ff2a72",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "AI video generator for avatar-based content creation #Shorts #Explore\n\n#shorts #aivideo #higgsfield #texttovideo #cinematic",
+      "title": "AI video generator for avatar-based content creation",
+      "updated_at": "2026-10-30T08:14:40Z",
+      "video_id": "tool-heygen-01"
+    },
     "tool-higgsfield-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6accbfbc11bee99e6c99fa6d",
