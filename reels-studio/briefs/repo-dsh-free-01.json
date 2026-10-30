@@ -41,7 +41,7 @@
       "image": "repo-title.jpg",
       "heading": "FREE DEEPSEEK AND KIMI, NO API KEY?",
       "sub": "dsh-our-free-model · plugin for the dsh app",
-      "say": "A plugin claims free DeepSeek models, with no API key.",
+      "say": "Could you use free DeepSeek models with no API key?",
       "url": "github.com/Ebony-Vinyl/dsh-our-free-model",
       "camera": [
         {
@@ -56,14 +56,14 @@
       "type": "image",
       "heading": "dsh-our-free-model",
       "sub": "a plugin for the dsh app",
-      "say": "It's called dsh-our-free-model. It's a plugin for dsh, which is DeepSeek Harness, a desktop app.",
+      "say": "A plugin for the dsh app says yes. It's called dsh-our-free-model, and it lists models like DeepSeek and Kimi.",
       "image": "readme-top.jpg"
     },
     {
       "id": "how",
       "type": "steps",
       "heading": "INSTALL IT",
-      "say": "Install from the repo's release package, not the npm copy. Then restart dsh once and open the model picker.",
+      "say": "Install it from the release package, not the npm copy. Restart dsh once, then open the model picker.",
       "image": "readme-how.jpg"
     },
     {
@@ -72,7 +72,7 @@
       "image": "model-picker.jpg",
       "heading": "ONLY WHAT YOUR NETWORK REACHES",
       "sub": "Model picker",
-      "say": "The picker shows only models your network can reach. Blocked models stay in a separate list.",
+      "say": "The picker only lists models your network can reach. Blocked models go in a separate list.",
       "url": "github.com/Ebony-Vinyl/dsh-our-free-model",
       "camera": [
         {
@@ -86,7 +86,7 @@
       "id": "catch",
       "type": "verdict",
       "heading": "THE CATCH",
-      "say": "Which models work depends on your network region, and the plugin is in beta. The plugin claims no usage cap. Test that yourself before you rely on it.",
+      "say": "The catch: which models work depends on your network, and the plugin is in beta. It claims no usage cap, so test that yourself.",
       "image": "catch.jpg"
     },
     {

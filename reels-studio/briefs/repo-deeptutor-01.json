@@ -40,7 +40,7 @@
       "image": "repo-title.jpg",
       "heading": "AN AI TUTOR WITH A VISIBLE MEMORY",
       "sub": "DeepTutor · lifelong personalized tutoring",
-      "say": "An AI tutor with a memory you can actually see and edit.",
+      "say": "Ever had an AI tutor forget everything you studied last week?",
       "url": "github.com/HKUDS/DeepTutor",
       "camera": [
         {
@@ -55,14 +55,14 @@
       "type": "image",
       "heading": "DeepTutor",
       "sub": "a tutor that keeps learning about you",
-      "say": "It's called DeepTutor. It tracks what you learn over time, so the next lesson starts where you actually are.",
+      "say": "It's called DeepTutor. It builds a memory of what you've learned over time, and you can open that memory and see where each fact came from.",
       "image": "readme-top.jpg"
     },
     {
       "id": "how",
       "type": "steps",
       "heading": "THREE MEMORY LAYERS",
-      "say": "Session traces feed surface summaries, and those feed a synthesis. Each memory links back to the evidence it came from.",
+      "say": "You can edit that memory too. Install it with pip or Docker, then connect your model provider in Settings.",
       "image": "readme-how.jpg"
     },
     {
@@ -71,7 +71,7 @@
       "image": "memory-graph.jpg",
       "heading": "EVERY MEMORY, TRACEABLE",
       "sub": "Memory Graph view",
-      "say": "Open the memory graph and see which study session each fact came from. You can edit it.",
+      "say": "You can also connect your own knowledge bases and study from them, in the same place.",
       "url": "github.com/HKUDS/DeepTutor",
       "camera": [
         {
@@ -85,14 +85,14 @@
       "id": "catch",
       "type": "verdict",
       "heading": "WHAT IT TAKES",
-      "say": "It is a full self-hosted app. Install it with pip or Docker, then add your model provider in Settings.",
+      "say": "The catch: it's a full self-hosted app, so setup takes more than one command.",
       "image": "catch.jpg"
     },
     {
       "id": "cta",
       "type": "endcard",
       "keyword": "TUTOR",
-      "say": "What would you learn with a tutor that remembers you? Comment TUTOR and I'll pin the link."
+      "say": "What would you want a tutor to remember about you? Comment TUTOR and I'll pin the link."
     }
   ],
   "seo": {

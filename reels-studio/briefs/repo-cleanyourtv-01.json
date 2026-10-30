@@ -41,7 +41,7 @@
       "image": "repo-title.jpg",
       "heading": "ADS OFF YOUR ANDROID TV, NO ROOT",
       "sub": "CleanYourTV · over Wi-Fi",
-      "say": "Android TV debloat: remove the ads over Wi-Fi, no root.",
+      "say": "Is your Android TV home screen full of ads?",
       "url": "github.com/Gathin23/cleanyourtv",
       "camera": [
         {
@@ -56,14 +56,14 @@
       "type": "image",
       "heading": "CleanYourTV",
       "sub": "a clean home screen for Android TV",
-      "say": "It's called CleanYourTV. It disables the preinstalled junk and swaps the ad-filled home screen for a clean launcher.",
+      "say": "CleanYourTV removes the preinstalled apps and gives you a clean home screen, over Wi-Fi. You don't need root, and nothing gets uninstalled.",
       "image": "readme-top.jpg"
     },
     {
       "id": "how",
       "type": "steps",
       "heading": "THREE STEPS",
-      "say": "On the TV, turn on developer options and USB debugging. Then, on a computer on the same Wi-Fi, run the three steps.",
+      "say": "On the TV, turn on developer options and USB debugging. Then, on a computer on the same Wi-Fi, run the three steps from the guide.",
       "image": "readme-how.jpg"
     },
     {
@@ -72,7 +72,7 @@
       "image": "before-after.jpg",
       "heading": "NOTHING UNINSTALLED",
       "sub": "Every step can be undone",
-      "say": "Preloaded apps are disabled, not removed. One restore command brings back the stock home screen.",
+      "say": "Preloaded apps are only disabled. One restore command brings back the stock home screen.",
       "url": "github.com/Gathin23/cleanyourtv",
       "camera": [
         {
@@ -86,7 +86,7 @@
       "id": "catch",
       "type": "verdict",
       "heading": "WHAT WORKS WHERE",
-      "say": "It works on Android TV and Google TV. Fire TV gets only the cleanup half. Samsung, LG and Roku are not supported.",
+      "say": "It works on Android TV and Google TV. Fire TV gets only the cleanup part. Samsung, LG and Roku aren't supported.",
       "image": "catch.jpg"
     },
     {
