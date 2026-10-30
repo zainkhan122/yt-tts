@@ -119,3 +119,10 @@ Do not reuse a structure because it worked once; reuse only what the numbers sho
 - Editing a published post's copy to fix a rule after the fact; fix the next one and record
   the miss.
 - Scheduling without a recorded draw, a passing check, and a passing production gate.
+
+## Owner policy — 2026-10-30 (overrides any earlier rule)
+- **Facts must be right.** Verify what the video says (features, numbers, dates). Stats and performance claims need a source in the brief, not in the spoken or visible copy.
+- **Clickbait is allowed** (sharp hooks, stakes, curiosity). It must still be accurate.
+- **Show the tool, don't comment on it.** The viewer sees the tool being used: the job it does for them, in the first seconds.
+- **Legal, terms-of-service and privacy are NOT our concern.** Those are the tool owner's job. Do not exclude a tool or topic on licence, terms, copyright or privacy grounds. (Viewer safety, such as instructions for harming a device or a person, is the only exception and needs owner sign-off.)
+- **TTS, script and SEO carry no sources.** No links, citations, licence text, "Source:", "Repo:" or legal wording in narration, captions, titles, descriptions or hashtags. Sources stay internal in the brief (`claims`, `sources`) for fact checking only.

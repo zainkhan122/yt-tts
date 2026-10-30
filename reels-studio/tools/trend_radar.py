@@ -95,6 +95,30 @@ def gittrend(limit=25):
     return out
 
 
+def reference_posts(days=7, limit=30):
+    """Recent posts from the source registry (research/sources.csv, history in research/sources/posts.csv):
+    TikTok, YouTube (Shorts/long-form), RSS and web sources. Run `tools/sources.py scan` first."""
+    import csv
+    path = ROOT / "research/sources/posts.csv"
+    if not path.exists():
+        return []
+    cutoff = (dt.date.today() - dt.timedelta(days=days)).isoformat()
+    out = []
+    with path.open(encoding="utf-8", newline="") as f:
+        for r in csv.DictReader(f):
+            pub = (r.get("published") or "")[:10]
+            seen = (r.get("last_seen") or "")[:10]
+            if max(pub, seen) < cutoff:
+                continue
+            try:
+                views = int(float(r.get("views") or 0))
+            except ValueError:
+                views = 0
+            out.append({"platform": r.get("platform", ""), "source": r.get("source", ""), "title": (r.get("title") or "")[:90],
+                        "url": r.get("url", ""), "views": views, "published": pub})
+    return sorted(out, key=lambda x: (-x["views"], x["published"]), reverse=False)[:limit]
+
+
 def angle(item):
     """A prompt for the human editor, not a format. Picking the angle is a judgment call."""
     d = (item.get("desc") or "").strip()
@@ -110,6 +134,7 @@ def main():
     gh = github(a.days)
     models, spaces = hf("models"), hf("spaces")
     trending = gittrend()
+    refs = reference_posts()
     L = [f"# Trend radar: {today} (last {a.days} days)", "",
          "Sources: GitHub search API (new repos, ranked by stars/day), Hugging Face trending models and Spaces, GitTrend trending today (https://gittrend.io/).",
          "⚠ = risk flag. Never promote flagged items. ZH = description not in English (translate and verify before covering).", "",
@@ -117,6 +142,9 @@ def main():
     for i, r in enumerate(gh[:20], 1):
         fl = ("⚠ " + ", ".join(r["flags"])) if r["flags"] else ("ZH" if r["zh"] else "")
         L.append(f"| {i} | [{r['name']}]({r['url']}) | {r['stars']:,} | {r['per_day']:.0f} | {r['license']} | {r['desc'][:90].replace('|', '/')} | {fl} | {'-' if r['flags'] else angle(r)} |")
+    L += ["", "## Reference channels (research/sources.csv, last 7 days, by views)", ""]
+    L += ["| Platform | Source | Post | Views | Published |", "|---|---|---|---|---|"]
+    L += [f"| {x['platform']} | {x['source']} | [{x['title'] or x['url']}]({x['url']}) | {x['views']:,} | {x['published']} |" for x in refs] or ["- (no recent posts; run tools/sources.py scan)"]
     L += ["", "## GitTrend: trending repos today (star velocity)", ""]
     L += [f"- [{t['name']}]({t['url']})" for t in trending] or ["- (GitTrend unavailable today)"]
     for title, items in (("Trending models on Hugging Face", models), ("Trending Spaces (free apps to try)", spaces)):
