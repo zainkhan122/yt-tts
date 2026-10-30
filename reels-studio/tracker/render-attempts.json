@@ -2071,6 +2071,25 @@
       "started_at": "2026-10-20T18:05:26Z",
       "status": "cancelled",
       "voice_seed": 0
+    },
+    "fcff30e76b78f53d39a7a3609c49b2199bfdc5d198a63224662f5eae78a41b76": {
+      "asset_files_sha256": "9b8d49142d1fec14c3c94207d8cbf6b1f58c4c8ee67f62059bb186a3568924bd",
+      "asset_manifest_sha256": "048cdb6a5ee3e982b90009457da8e117063e9f2bcf1e3d921ace5b153a2d50e4",
+      "brief_id": "repo-edge0-01",
+      "brief_sha256": "881270ac9c074e0a5b6f4a9dc2c39740df17bcc5c01f1046f6b867a72339cb9a",
+      "capture_id": "repo-edge0-01",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "fcff30e76b78f53d39a7a3609c49b2199bfdc5d198a63224662f5eae78a41b76",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "8cad27cb51903f25e8e0b424bad4f56cdaa746fa8ccd5df4cc112f75486112ae",
+      "run_id": "41103044358",
+      "started_at": "2026-10-30T18:00:07Z",
+      "status": "started",
+      "voice_seed": 7
     }
   },
   "legacy_completed_briefs": [
