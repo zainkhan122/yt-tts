@@ -1,6 +1,6 @@
 {
   "id": "repo-rea-01",
-  "capture": "repo-rea-01",
+  "capture": "captures/repo-rea-01",
   "title": "rea: the AI agent that reverse engineers apps and binaries",
   "niche": "AI tools for developers",
   "lang": "en-us",
@@ -250,17 +250,17 @@
     "cover_concepts": [
       {
         "text": "410K STARS",
-        "visual": "repo-title.jpg",
+        "visual": "rea-plugin.png",
         "gap": "what does it do?"
       },
       {
         "text": "REVERSE ANY APP",
-        "visual": "readme-top.jpg",
+        "visual": "rea-hopper-analysis.png",
         "gap": "how hard is setup?"
       },
       {
         "text": "ONE COMMAND",
-        "visual": "readme-how.jpg",
+        "visual": "rea-plugin.png",
         "gap": "what do I need?"
       }
     ],
