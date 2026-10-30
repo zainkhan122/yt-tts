@@ -131,6 +131,9 @@ def check(brief_path):
     pack, manifest = None, {}
     cap = brief.get("capture")
     if cap:
+        # Accept both "captures/<id>" and "<id>" formats (fix 2026-10-30).
+        if not Path(cap).is_absolute() and not cap.startswith("captures/"):
+            cap = f"captures/{cap}"
         pack = Path(cap)
         if not pack.is_absolute():
             pack = ROOT / pack
