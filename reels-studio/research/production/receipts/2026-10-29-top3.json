@@ -29,7 +29,7 @@
   },
   "briefs": {
     "tool-gpt6-01": {
-      "brief_sha256": "7a77ae542e93c1321cd411e164943f1a86838d7c55c400f2e0c68d6921fb6b4b",
+      "brief_sha256": "09e662ba27c1db942d7ed01215a36283b616b338b3e7c864d97578a31e8f4bde",
       "metrics_decisions": {
         "topic": "tool-gpt6-01: selected based on high score and clear viewer value",
         "script": "Proof-first script structure with claim backed by evidence",
@@ -102,54 +102,54 @@
           "rights_checked": true,
           "approval_constraints_checked": true,
           "capture_id": "tool-gpt6-01",
-          "manifest_sha256": "58de3894166ee33399d9a1cf6330e08722d9fbb877e91e3e642cae9816f4f153",
+          "manifest_sha256": "a44f69b93b931b9fe55d8702425cdf638347de23b6a639fdad033a1aff00954a",
           "files": [
             {
               "path": "catch.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "c05b6b793d18e42ee5bb9f5ec346121735f7310ed0e0ff587c3747546a336d0f"
             },
             {
               "path": "contact.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "ff876d15a7923b84919c06a5e4596a71e67789cd7fff31cfe426f908793b92d2"
             },
             {
               "path": "coverage.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "113eb3026d4eb8224211d0ae9c02ebe1e891727c0876d08cd36ab70c8e0d6071"
             },
             {
               "path": "desktop-full.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "b195847cfb85724cdb31359ef1c9c3a5dbd33e44d10d9ddbaa91b2c5cabf4531"
             },
             {
               "path": "desktop-top.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "2674ce1ad19fc9e37c530e3b1dcaad6a2b41b6d153e4baf0e17eb277105eb6d6"
             },
             {
               "path": "install.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "6f2aecfc0ef45e9edd2c158690c6a7edd4bd737f13b2f102c923a2c444949763"
             },
             {
               "path": "model-card.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "feca8604b2fbd803f62784958cea055f58be3c05b7cc96a8fdd5e2d2b8ed4e12"
             },
             {
               "path": "steps.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "3b8088f14a004061e58ae8880450433aded88ab6f918c541a83b4756cb2283b8"
             },
             {
               "path": "terminal-top.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "3f6c8dabcff213610d17f980f0a452b59056055245d77e20e8133b315183d93b"
             },
             {
               "path": "ui-top.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "74a8c2243c42b2e7f819cbb31a2fa37c4b895536475f07d3f47cfb445718b852"
             }
           ]
         }
       }
     },
     "tool-claude-code-01": {
-      "brief_sha256": "566ce32464b48b3a9ed0d98bfc53c529a00d40e2f1b772207977288768059056",
+      "brief_sha256": "9bcd5b6ca3d72bed73501dba0838b863cfd1202b5e7f8ef1d957ce81b6534183",
       "metrics_decisions": {
         "topic": "tool-claude-code-01: selected based on high score and clear viewer value",
         "script": "Proof-first script structure with claim backed by evidence",
@@ -222,31 +222,31 @@
           "rights_checked": true,
           "approval_constraints_checked": true,
           "capture_id": "tool-claude-code-01",
-          "manifest_sha256": "58de3894166ee33399d9a1cf6330e08722d9fbb877e91e3e642cae9816f4f153",
+          "manifest_sha256": "854dbadf9aefba638a73711ae96aebc67576df5ed46cc93f886965fceec5439f",
           "files": [
             {
               "path": "catch.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "bdaee9bcd5a97df7d7a4fef22c051a8a59c51dee9e40630cf7243ed445f2c54b"
             },
             {
               "path": "contact.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "e8fb0bd3b88db45887048eb3a6aee629a9146ef8f04c970cb0cd483247f20263"
             },
             {
               "path": "coverage.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "113eb3026d4eb8224211d0ae9c02ebe1e891727c0876d08cd36ab70c8e0d6071"
             },
             {
               "path": "desktop-full.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "a089dd0a0d3526995c7594ccfab0b1102562ddd0a4f69c9790deaa351027d632"
             },
             {
               "path": "desktop-top.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "ae88ff400305b82d7688c76cc3fc5a06253bd9e18cf53582c7474870417e1d15"
             },
             {
               "path": "install.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "06d0b6a271440d4f92c737e7628f5e6f4489d928c4d60e4e7811daa09e1af5ec"
             },
             {
               "path": "model-card.jpg",
@@ -254,22 +254,22 @@
             },
             {
               "path": "steps.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "fdba4c20206dc56283242d932a5d409c23d1aaee0eafe905e4e0feae26d40991"
             },
             {
               "path": "terminal-top.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "3fa5916372d9818a8d32479c7b55e912fd415cb3b31fc175a45c07bd2dbaf8bc"
             },
             {
               "path": "ui-top.jpg",
-              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "sha256": "ddf3416c9c248b77398d7b33d22516f26ec20055b7148ef406bf62926ec3b988"
             }
           ]
         }
       }
     },
     "tool-heygen-01": {
-      "brief_sha256": "5c8ca4512db98a7db86036e03816d4bdc513e1c5282822bcbfd91bc9476b5691",
+      "brief_sha256": "8a660f9c0173dc5ccc1979b87345a4a877fe9240a4359f464c876a19cce1b40f",
       "metrics_decisions": {
         "topic": "tool-heygen-01: selected based on high score and clear viewer value",
         "script": "Proof-first script structure with claim backed by evidence",
@@ -342,7 +342,7 @@
           "rights_checked": true,
           "approval_constraints_checked": true,
           "capture_id": "tool-heygen-01",
-          "manifest_sha256": "4cf631e4df99283f6e780d33d14f9fdcdf1f3b62e92c9231f424141bf20016e7",
+          "manifest_sha256": "803676d1155794a5a7f2d2f1266fbd1443726fe9d48eac875a084341aff0eaf2",
           "files": [
             {
               "path": "README.md",
@@ -350,7 +350,7 @@
             },
             {
               "path": "contact.jpg",
-              "sha256": "459fd3db1a698fd598ce6070b6c6564f262deed2488c023ae22a0fb2aba86df0"
+              "sha256": "7fd76cb1d4d4f98479d5f9cb16cd32b896689cc32f196354cfd2efaa4f9cd836"
             },
             {
               "path": "hero-dark.png",
@@ -359,6 +359,14 @@
             {
               "path": "og-image.png",
               "sha256": "660d382673595677db87b0d98a64ba843d676d24e766b2357b0caa74d2b3a577"
+            },
+            {
+              "path": "catch.jpg",
+              "sha256": "ff049a57f727a79ba1397b1229f766e275bf8549860307c867881c0d50cb762e"
+            },
+            {
+              "path": "desktop-full.jpg",
+              "sha256": "7823bea21f58b31a5c915ef22dce0906c3ea3b89b44f1fecbd016e140fa3d68d"
             }
           ]
         }
