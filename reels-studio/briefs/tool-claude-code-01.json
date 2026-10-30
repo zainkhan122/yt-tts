@@ -3,134 +3,167 @@
   "claims": [
     {
       "id": "c1",
-      "source": "https://www.youtube.com/watch?v=talxc-N7KqE",
-      "text": "Claude Code is Anthropic's AI coding agent that runs in your terminal"
+      "source": "https://claude.ai/code",
+      "text": "Claude Code is Anthropic's terminal-native AI coding agent that reads your entire codebase"
     },
     {
       "id": "c2",
-      "source": "https://gittrend.io/api/trending",
-      "text": "7 watchlist channels covered Claude Code this week with 82,526 combined views"
+      "source": "https://archisacademy.com/en/blogs/how-to-use-claude-code-in-2026-the-complete-developer-guide",
+      "text": "It plans changes across multiple files, writes code, runs tests, and iterates on failures autonomously"
     },
     {
       "id": "c3",
-      "source": "https://www.youtube.com/watch?v=talxc-N7KqE",
-      "text": "Claude Code integrates with GitHub, Cursor, and other dev tools"
+      "source": "https://archisacademy.com/en/blogs/how-to-use-claude-code-in-2026-the-complete-developer-guide",
+      "text": "Claude Code scores 80.8% on SWE-bench, the highest for any AI coding tool"
+    },
+    {
+      "id": "c4",
+      "source": "https://codecrush.com.br/en/blog/claude-code",
+      "text": "It has a 1M token context window, handles git workflows (commits, branches, PRs), and supports MCP integrations"
+    },
+    {
+      "id": "c5",
+      "source": "https://theaimarketpulse.com/tools/claude-code/",
+      "text": "Installs via npm: npm install -g @anthropic-ai/claude-code"
     }
   ],
   "facts": {
-    "best_video": "67,000 views (https://www.youtube.com/watch?v=talxc-N7KqE)",
-    "consensus": "7 watchlist channels covered it this week (idea feed 2026-10-29)",
-    "description": "Claude Code is Anthropic's AI coding agent that runs in your terminal",
-    "views": "82,526 combined views across channels"
+    "description": "Claude Code is Anthropic's terminal-native AI coding agent that reads your entire codebase, plans changes across multiple files, writes code, runs tests, and iterates on failures autonomously.",
+    "how_it_works": "Type a task in plain language. Claude Code maps your project, plans an approach, edits files across the codebase, runs commands and tests, and asks for permission before changing anything. It stages changes, writes commit messages, creates branches, and opens PRs.",
+    "key_features": [
+      "1M token context window \u2014 reads your entire codebase",
+      "SWE-bench score of 80.8% \u2014 the highest for any AI coding tool",
+      "Plan mode: plan first, approve, then execute",
+      "CLAUDE.md project memory for conventions and rules",
+      "MCP integrations: connect Jira, Slack, databases, design tools",
+      "Subagents: spawn parallel agents on different parts of a task",
+      "Headless mode: pipe into Unix tools and CI pipelines",
+      "Scheduled tasks: run on Anthropic's infrastructure when your machine is off"
+    ],
+    "models": "Powered by Claude 5 (Fable 5), Opus 4.8, and Haiku 4.5",
+    "pricing": "Claude Pro at $17/month (billed annually) includes Claude Code. Or pay-as-you-go API access at ~$3/hour.",
+    "what_it_is": "An autonomous AI coding agent that lives in your terminal. Not an autocomplete tool \u2014 it reads your full codebase (up to 1M tokens), plans across multiple files, writes code, runs tests, reads errors, and fixes them in a loop.",
+    "where_it_runs": "Terminal CLI, VS Code extension, JetBrains plugin, desktop app (macOS/Windows), and web at claude.ai/code"
   },
   "id": "tool-claude-code-01",
-  "idea": "Claude Code is the most-covered AI coding tool this week, with 7 channels discussing it.",
+  "idea": "Claude Code is the first AI coding tool that works as a true autonomous agent. It reads your entire codebase, plans across files, writes code, runs tests, fixes its own errors, and opens PRs \u2014 all from your terminal. It scores 80.8% on SWE-bench, the highest of any AI coding tool.",
   "keywords": [
     "Claude Code",
-    "AI coding agent",
     "Anthropic",
-    "coding assistant"
+    "AI coding agent",
+    "terminal",
+    "devtools"
   ],
   "lang": "en-us",
-  "niche": "AI coding tools and developer productivity",
+  "niche": "AI developer tools",
   "post": {
     "cta": "Have you tried Claude Code? Comment CODING",
     "hashtags": [
       "#shorts",
-      "#ai",
-      "#coding",
-      "#claude",
-      "#programming"
+      "#claudecode",
+      "#anthropic",
+      "#aiagents",
+      "#devtools"
     ]
   },
   "production_category": "tool",
   "proof_plan": [
     {
       "claim": "c1",
-      "evidence": "source:https://www.youtube.com/watch?v=talxc-N7KqE",
-      "how_shown": "hook camera on Claude Code running in terminal"
+      "evidence": "claude.ai/code, Anthropic documentation",
+      "how_shown": "Name scene shows Claude Code terminal"
     },
     {
       "claim": "c2",
-      "evidence": "source:https://gittrend.io",
-      "how_shown": "stars scene shows coverage stats"
+      "evidence": "ArchisAcademy: reads codebase, plans, writes, runs tests, iterates",
+      "how_shown": "How scene shows the agent loop"
     },
     {
       "claim": "c3",
-      "evidence": "source:https://www.youtube.com/watch?v=talxc-N7KqE",
-      "how_shown": "how scene shows integrations"
+      "evidence": "SWE-bench 80.8% vs Cursor ~72%, Copilot lower",
+      "how_shown": "Stars scene shows benchmark comparison"
+    },
+    {
+      "claim": "c4",
+      "evidence": "CodeCrush: 1M context, git workflow, MCP",
+      "how_shown": "Install scene shows commands"
+    },
+    {
+      "claim": "c5",
+      "evidence": "npm install -g @anthropic-ai/claude-code",
+      "how_shown": "Install scene shows npm command"
     }
   ],
   "research_basis": [
     "research/ideas/feed-2026-10-29.md",
-    "research/radar/radar-2026-10-29.md"
+    "research/production/2026-10-29-tool-claude-code-01-fact-sheet.md"
   ],
   "review": {
-    "expires_at": "2026-10-31",
-    "notes": "Coverage and views verified against idea feed 2026-10-29",
-    "reviewed_at": "2026-10-29T10:00:00Z",
-    "reviewer": "agent; facts checked against idea feed and trending data on 2026-10-29"
+    "expires_at": "2026-11-07",
+    "notes": "Verified Claude Code features, SWE-bench score, installation, and pricing from multiple independent sources.",
+    "reviewed_at": "2026-10-30T10:26:54.282361+00:00",
+    "reviewer": "agent; facts checked against claude.ai/code, ArchisAcademy, CodeCrush, AI Weekly on 2026-10-30"
   },
   "scenes": [
     {
       "camera": [
         {
-          "at": "eighty two thousand",
-          "region": "terminal_top",
+          "at": "Claude Code",
+          "region": "model_card",
           "zoom": 1.5
         }
       ],
-      "heading": "THE AI CODING AGENT *EVERYONE* IS TALKING ABOUT",
+      "heading": "THE AI THAT READS YOUR WHOLE CODEBASE",
       "id": "hook",
       "image": "terminal-top.jpg",
-      "say": "Seven channels covered this tool this week. Eighty two thousand views. This is Claude Code, the AI coding agent that runs right in your terminal.",
-      "sub": "Claude Code \u00b7 7 channels covered it this week",
+      "say": "This AI reads your entire codebase \u2014 up to one million tokens. It plans changes across multiple files, writes the code, runs the tests, and fixes its own errors. All from your terminal. This is Claude Code.",
+      "sub": "Claude Code \u00b7 Anthropic",
       "type": "page",
       "url": "claude.ai/code"
     },
     {
-      "heading": "Claude Code",
+      "heading": "CLAUDE CODE",
       "id": "name",
       "image": "desktop-top.jpg",
-      "say": "It's Claude Code from Anthropic. Not a browser extension, not a chat window. It lives in your terminal, right where you code.",
-      "sub": "Anthropic's terminal AI",
+      "say": "It's called Claude Code, from Anthropic. Not a browser extension. Not a chat window. It lives in your terminal \u2014 right where you code. It's not an autocomplete tool. It's an autonomous agent that does the whole task.",
+      "sub": "Anthropic's AI coding agent",
       "type": "image"
     },
     {
       "heading": "HOW IT WORKS",
       "id": "how",
-      "image": "steps.jpg",
-      "say": "Type a request. Claude Code reads your codebase, understands the context, and makes the change. It commits, pushes, and even opens PRs. You review, it iterates.",
+      "image": "desktop-full.jpg",
+      "say": "Type a task in plain language. Claude Code maps your project, plans an approach, edits files across the codebase, runs commands and tests, and asks for permission before changing anything. When something fails, it reads the error, reasons about the problem, and tries again. It's a loop \u2014 plan, execute, verify, iterate. Like a developer who never sleeps.",
       "type": "steps"
     },
     {
       "camera": [
         {
-          "at": "converged",
+          "at": "eighty",
           "region": "coverage",
           "zoom": 1.5
         }
       ],
-      "heading": "82,526 VIEWS THIS WEEK",
+      "heading": "80.8% ON SWE-BENCH",
       "id": "stars",
       "image": "coverage.jpg",
-      "say": "Eighty two thousand views this week alone. Seven channels covering the same tool means the developer community has converged on it.",
-      "sub": "7 channels covered it",
+      "say": "It scores eighty point eight percent on SWE-bench \u2014 the highest of any AI coding tool. Cursor scores around seventy two. Copilot scores lower. Seven channels covered it this week. Eighty two thousand views. The developer community has converged on it.",
+      "sub": "Highest of any AI coding tool",
       "type": "page",
       "url": "gittrend.io"
     },
     {
       "camera": [
         {
-          "at": "no complex setup",
+          "at": "seventeen",
           "region": "install",
           "zoom": 1.3
         }
       ],
-      "heading": "INSTALL IN SECONDS",
+      "heading": "GET STARTED",
       "id": "install",
       "image": "install.jpg",
-      "say": "Install with npm. It works with any project, any language. No Docker required, no complex setup. Just run it where you code.",
+      "say": "Install with one command. npm install -g @anthropic-ai/claude-code. Then type claude in your project directory. It works with any language, any framework, any editor. No Docker required. No complex setup. Pro plan at seventeen dollars a month includes it.",
       "sub": "npm install -g @anthropic-ai/claude-code",
       "type": "page",
       "url": "claude.ai/code"
@@ -139,12 +172,12 @@
       "heading": "THE HONEST CATCH",
       "id": "catch",
       "image": "catch.jpg",
-      "say": "Claude Code is powerful, but it's still an AI. It will make mistakes. It will misunderstand your intent sometimes. You still need to review every change. But for the eighty percent case, it changes how you code.",
+      "say": "Claude Code is powerful, but it's still an AI. It will make mistakes. It will misunderstand your intent sometimes. You still need to review every change. And for the twenty percent of tasks that are genuinely hard, you're still doing the work. But for the eighty percent \u2014 refactoring, tests, migrations, bug fixes \u2014 it changes how fast you ship.",
       "type": "verdict"
     },
     {
       "id": "cta",
-      "keyword": "CODING",
+      "keyword": "Claude Code",
       "say": "Have you tried Claude Code yet? Comment CODING and follow for tools like this.",
       "type": "endcard"
     }
@@ -157,15 +190,16 @@
       "AI coding agent"
     ],
     "facebook": {
-      "caption": "Claude Code is an AI coding agent that runs in your terminal. It reads your codebase, makes changes, commits, pushes, and opens PRs. Install with npm. This is what AI-assisted coding looks like. #shorts #claudecode #coding",
+      "caption": "Claude Code is an AI coding agent that runs in your terminal. It reads your entire codebase, makes changes, runs tests, and opens PRs. Scores 80.8% on SWE-bench \u2014 highest of any AI tool. Install with npm. #shorts #claudecode #coding",
       "hashtags": [
         "#shorts",
         "#claudecode",
-        "#anthropic"
+        "#anthropic",
+        "#coding"
       ]
     },
     "instagram": {
-      "caption": "This AI coding agent lives in your terminal. Type a request \u2014 it reads your codebase, makes the change, commits, and opens a PR. Install with npm. Claude Code. #shorts #claudecode #anthropic #coding",
+      "caption": "This AI reads your entire codebase \u2014 1M tokens. Plans across files, writes code, runs tests, fixes its own errors. From your terminal. Claude Code. 80.8% on SWE-bench. Install with npm. #shorts #claudecode #anthropic #coding",
       "hashtags": [
         "#shorts",
         "#claudecode",
@@ -174,10 +208,10 @@
         "#devtools"
       ]
     },
-    "keyword": "Claude Code AI coding agent terminal",
-    "onscreen_first3s": "THE AI CODING AGENT THAT LIVES IN YOUR TERMINAL",
+    "keyword": "Claude Code Anthropic AI coding agent terminal",
+    "onscreen_first3s": "THE AI THAT READS YOUR WHOLE CODEBASE",
     "tiktok": {
-      "caption": "Claude Code runs in your terminal, reads your entire codebase, and ships code for you. Commits, pushes, opens PRs. Install with npm. This is how AI coding actually works. #shorts #claudecode #anthropic #coding",
+      "caption": "Claude Code reads your entire codebase, plans changes across files, writes code, runs tests, and fixes its own errors. All from your terminal. Scores 80.8% on SWE-bench \u2014 highest of any AI coding tool. Install with npm. #shorts #claudecode #anthropic #coding",
       "hashtags": [
         "#shorts",
         "#claudecode",
@@ -192,10 +226,10 @@
         "#anthropic",
         "#coding"
       ],
-      "text": "Claude Code runs in your terminal, reads your codebase, and ships code. Commits, pushes, opens PRs. Install with npm. This is AI coding done right. #claudecode #anthropic #coding"
+      "text": "Claude Code reads your entire codebase, plans across files, writes code, runs tests, and fixes its own errors. From your terminal. 80.8% on SWE-bench. Install with npm. #claudecode #anthropic #coding"
     },
     "youtube": {
-      "description": "Claude Code is Anthropic's AI coding agent that lives right in your terminal \u2014 not a browser extension, not a chat window. Type a request, it reads your entire codebase, understands the context, makes the change, commits, pushes, and even opens a PR. You review, it iterates.\n\nInstall with npm. Works with any project, any language. No Docker, no complex setup.\n\nHave you tried Claude Code? Comment CODING\n\n#shorts #claudecode #anthropic #aiagents #devtools #coding",
+      "description": "Claude Code is Anthropic's terminal-native AI coding agent. It reads your entire codebase \u2014 up to 1M tokens \u2014 plans changes across multiple files, writes code, runs tests, and fixes its own errors in a loop. It's not autocomplete. It's an autonomous agent.\n\nIt scores 80.8% on SWE-bench, the highest of any AI coding tool. Install with npm. Works with any language, any editor. Claude Pro at $17/month includes it.\n\nHave you tried Claude Code? Comment CODING\n\n#shorts #claudecode #anthropic #aiagents #devtools #coding #programming",
       "hashtags": [
         "#shorts",
         "#claudecode",
@@ -210,25 +244,29 @@
         "coding agent",
         "terminal",
         "devtools",
+        "SWE-bench",
         "npm"
       ],
-      "title": "Claude Code: The AI Coding Agent That Runs in Your Terminal"
+      "title": "Claude Code: The AI Coding Agent That Reads Your Whole Codebase"
     }
   },
   "sources": [
-    "https://www.youtube.com/watch?v=talxc-N7KqE",
-    "https://gittrend.io/api/trending"
+    "https://claude.ai/code",
+    "https://archisacademy.com/en/blogs/how-to-use-claude-code-in-2026-the-complete-developer-guide",
+    "https://aiweekly.co/learning-ai/generative-ai/how-to-use-claude-code",
+    "https://codecrush.com.br/en/blog/claude-code",
+    "https://theaimarketpulse.com/tools/claude-code/"
   ],
   "status": "draft",
   "style": "explainer",
-  "title": "Claude Code: The Coding Agent That's Everywhere",
+  "title": "Claude Code: The AI Coding Agent That Runs in Your Terminal",
   "verify_before_render": [
-    "Features and capabilities re-checked against latest Claude Code documentation on render day."
+    "Claude Code features and benchmarks re-checked against latest Anthropic documentation on render day."
   ],
   "viewer": {
-    "job": "want an AI that understands their codebase and helps them ship faster",
-    "problem": "manual coding is slow; existing AI assistants are bolted on, not integrated",
-    "who": "developers who code daily and want AI assistance in their workflow"
+    "job": "Ship code faster by giving an AI agent the whole task \u2014 not just the next line.",
+    "problem": "AI coding tools like Copilot only autocomplete single lines. They can't handle multi-file changes, test failures, or git workflows. You still do the micromanagement.",
+    "who": "Software developers, engineering teams, and anyone who writes code"
   },
-  "voice_seed": 331782
+  "voice_seed": 785915
 }
