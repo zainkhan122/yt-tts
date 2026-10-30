@@ -1089,7 +1089,7 @@ def normalize_mp4_audio(mp4, I=-14.0, TP=-2.5, tol=0.5):
     before, pk = measure(mp4)
     if before is not None and abs(before - I) <= tol and (pk is None or pk <= TP + 0.4):
         return before, before
-    lim = "alimiter=limit=0.79:attack=4:release=60:level=disabled"  # ~-2 dBFS ceiling makes room for linear gain
+    lim = "alimiter=limit=0.708:attack=4:release=60:level=disabled"  # ~-3 dBFS ceiling: room for linear gain + AAC overshoot (rea QA 2026-10-30)
     p = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(mp4), "-af",
                         f"{lim},loudnorm=I={I}:TP={TP}:LRA=11:print_format=json", "-f", "null", "-"], capture_output=True, text=True)
     js = json.loads(p.stderr[p.stderr.rfind("{"): p.stderr.rfind("}") + 1])
