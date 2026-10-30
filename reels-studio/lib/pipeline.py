@@ -1082,7 +1082,8 @@ def loudnorm(inp, out, I=-14.0, TP=-1.5, LRA=11.0):
     return js
 
 
-def normalize_mp4_audio(mp4, I=-14.0, TP=-1.5, tol=0.5):
+def normalize_mp4_audio(mp4, I=-14.0, TP=-2.5, tol=0.5):
+    # TP -2.5 (was -1.5): AAC encoding raises true peaks; rea render 2026-10-30 failed peak<=-1dBFS at -1.5 target
     """Final loudness guard: if the rendered MP4 is off target, limit + two-pass linear loudnorm the AUDIO only
     (video stream copied, no re-render). Returns (before, after) integrated LUFS."""
     before, pk = measure(mp4)
