@@ -1398,12 +1398,9 @@ class Job:
         fonts_dir = self.proj / "assets" / "fonts"
         fonts_dir.mkdir(parents=True, exist_ok=True)
         css = []
-        emoji = Path("/usr/share/fonts/truetype/noto/NotoColorEmoji.ttf")  # flags / emoji (apt fonts-noto-color-emoji)
-        if emoji.exists():
-            shutil.copy2(emoji, fonts_dir / emoji.name)
-            css.append('@font-face { font-family: "Noto Color Emoji"; src: url("assets/fonts/NotoColorEmoji.ttf") format("truetype"); }')
-        else:
-            css.append('@font-face { font-family: "Noto Color Emoji"; src: local("Noto Color Emoji"), local("Apple Color Emoji"), local("Segoe UI Emoji"); }')
+        # Emoji: always use local() fallback — NotoColorEmoji.ttf is 10.3 MB and exceeds
+        # hyperframes lint's 2 MB inline limit (fix 2026-10-30). Browsers have emoji fonts built in.
+        css.append('@font-face { font-family: "Noto Color Emoji"; src: local("Noto Color Emoji"), local("Apple Color Emoji"), local("Segoe UI Emoji"); }')
         for fam, (fn, wght) in FONT_FILES.items():  # every family named in CSS gets an explicit @font-face (lint rule)
             src = BASE_DIR / "fonts" / fn
             if src.exists():
