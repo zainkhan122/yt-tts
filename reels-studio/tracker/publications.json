@@ -2984,6 +2984,31 @@
       "updated_at": "2026-10-10T11:18:51Z",
       "video_id": "spotlight-papermorph-01"
     },
+    "tool-claude-code-01:facebook": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-10-30T21:06:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:3bd23e08c31994008289d73587038834f96feef6cc34281d0e82f3c78ee6e49d",
+        "asset_id": 690899399,
+        "asset_size": 7569777,
+        "kit_asset_id": 690899472,
+        "kit_digest": "sha256:d9be20a8d0352168849b3d15ff134d7e36a52dd3e1951217916edad292a902c1",
+        "media_path": "media/690899399/tool-claude-code-01.mp4",
+        "release_tag": "renders-2026-10-30",
+        "video_id": "tool-claude-code-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/690899399/tool-claude-code-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "9b00d5c7459a2e1d4e7cfa6efb3feb8c8e3f54fd789391891216e9278864e21b",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "This AI coding agent is everywhere right now. 7 channels covered it this week. #shorts #ai #coding\n\nAI-generated narration.\n\n#shorts #claudecode #anthropic",
+      "title": "This AI Coding Agent Is Everywhere Right Now",
+      "updated_at": "2026-10-30T08:14:46Z",
+      "video_id": "tool-claude-code-01"
+    },
     "tool-claude-code-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6ae451f536e83ed163648681",
