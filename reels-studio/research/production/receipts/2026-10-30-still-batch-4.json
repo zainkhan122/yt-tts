@@ -27,7 +27,7 @@
   },
   "briefs": {
     "repo-deeptutor-01": {
-      "brief_sha256": "5c265c6df35275f0f3d55584f7387f30d79a48316e5f7b1d44f3d45a17261308",
+      "brief_sha256": "6a126e8680717566b49ec561666cfc4cadb403702a31783491afc68a8466a587",
       "metrics_decisions": {
         "topic": "Viewer question, then the tool; one catch.",
         "script": "Plain viewer-first script, no promotion.",
@@ -104,7 +104,7 @@
           "status": "complete",
           "rights_checked": true,
           "approval_constraints_checked": true,
-          "manifest_sha256": "2a5d5f4f22abb6484f33da8801d8bd01be0b348d04b50016c26a3cfc243ff5de",
+          "manifest_sha256": "12d0274782ef7c4a619ef6feecfc03fdac80c4a9077229746788ea96dae11e2f",
           "capture_id": "repo-deeptutor-01",
           "files": [
             {
@@ -126,13 +126,17 @@
             {
               "path": "img-5.png",
               "sha256": "071a374ab4ef31414639a9b5df554e8a736701865a32f5f3852b1b53c72780ac"
+            },
+            {
+              "path": "img-6.png",
+              "sha256": "7e634c93b6c71765697438387a06e9f8270ea732c71984796213ef49ce9e06bf"
             }
           ]
         }
       }
     },
     "repo-impeccable-01": {
-      "brief_sha256": "89513c59bb7bffecd0c9a57dd5b309c7262d4a6b91103676e08eab607e703e44",
+      "brief_sha256": "1c0992a3c6d2afa2ed645bebf2a5ef9e896b83c7c361f1972e88bf4bf32e2f55",
       "metrics_decisions": {
         "topic": "Viewer question, then the tool; one catch.",
         "script": "Plain viewer-first script, no promotion.",
@@ -209,7 +213,7 @@
           "status": "complete",
           "rights_checked": true,
           "approval_constraints_checked": true,
-          "manifest_sha256": "7668350792ecb5b5b37e9c074da8875ede7210a92ec787581f83242c69db3bd0",
+          "manifest_sha256": "48959e1f2ede286df2ca668a26fb19338a2d847b582528caac377580f5c56c7c",
           "capture_id": "repo-impeccable-01",
           "files": [
             {
@@ -219,6 +223,10 @@
             {
               "path": "img-2.png",
               "sha256": "6ba41290d8b219921673c791c773f8cd9d35ede27e043d9fbe34ef04a8305332"
+            },
+            {
+              "path": "img-3.png",
+              "sha256": "7b021d4cee4f29e7853f2e02ff80635affb58a5fbc26e671cfb696ef7e8e67c4"
             }
           ]
         }
@@ -326,7 +334,7 @@
       }
     },
     "repo-cleanyourtv-01": {
-      "brief_sha256": "dd178c3d5191ce3d2e2cc202541a7b43bcf744dbe0da8639e2881e1b9753e95e",
+      "brief_sha256": "d1b927019238807ef5c5b23351ce74df44c867c7717c896656966b9406899894",
       "metrics_decisions": {
         "topic": "Viewer question, then the tool; one catch.",
         "script": "Plain viewer-first script, no promotion.",
@@ -403,7 +411,7 @@
           "status": "complete",
           "rights_checked": true,
           "approval_constraints_checked": true,
-          "manifest_sha256": "8f4e481c0ee4e034b00555d74aeb6de00d7c195e0c1d14a1695ec9c3ffd14a9c",
+          "manifest_sha256": "5fbf9dc4a0b33e3f6014e229da6bfb11cc39016edba57c175a5f8c06dcd3e7f8",
           "capture_id": "repo-cleanyourtv-01",
           "files": [
             {
@@ -425,6 +433,10 @@
             {
               "path": "img-5.jpg",
               "sha256": "534ebfaa4a536838a72909fd347a7f8358633edd3e5b0bd1136f0678a00699b1"
+            },
+            {
+              "path": "img-6.png",
+              "sha256": "d0ff6445cea95980bd6860eb49f4eed4174e9f954d92a0c7205b1d1f10de4f26"
             }
           ]
         }
