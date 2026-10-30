@@ -1,6 +1,6 @@
 {
   "id": "repo-cleanyourtv-01",
-  "capture": "repo-cleanyourtv-01",
+  "capture": "captures/repo-cleanyourtv-01",
   "title": "CleanYourTV: remove the ads from your Android TV over Wi-Fi",
   "niche": "smart TV tools",
   "lang": "en-us",
@@ -37,19 +37,12 @@
   "scenes": [
     {
       "id": "hook",
-      "type": "page",
-      "image": "repo-title.jpg",
+      "type": "image",
+      "image": "img-1.png",
       "heading": "ADS OFF YOUR ANDROID TV, NO ROOT",
       "sub": "CleanYourTV · over Wi-Fi",
       "say": "Is your Android TV home screen full of ads?",
-      "url": "github.com/Gathin23/cleanyourtv",
-      "camera": [
-        {
-          "region": "repo_title",
-          "zoom": 1.4,
-          "at": "no root"
-        }
-      ]
+      "url": "github.com/Gathin23/cleanyourtv"
     },
     {
       "id": "name",
@@ -57,37 +50,30 @@
       "heading": "CleanYourTV",
       "sub": "a clean home screen for Android TV",
       "say": "CleanYourTV removes the preinstalled apps and gives you a clean home screen, over Wi-Fi. You don't need root, and nothing gets uninstalled.",
-      "image": "readme-top.jpg"
+      "image": "img-2.jpg"
     },
     {
       "id": "how",
-      "type": "steps",
+      "type": "image",
       "heading": "THREE STEPS",
       "say": "On the TV, turn on developer options and USB debugging. Then, on a computer on the same Wi-Fi, run the three steps from the guide.",
-      "image": "readme-how.jpg"
+      "image": "img-3.png"
     },
     {
       "id": "proof",
-      "type": "page",
-      "image": "before-after.jpg",
+      "type": "image",
+      "image": "img-4.png",
       "heading": "NOTHING UNINSTALLED",
       "sub": "Every step can be undone",
       "say": "Preloaded apps are only disabled. One restore command brings back the stock home screen.",
-      "url": "github.com/Gathin23/cleanyourtv",
-      "camera": [
-        {
-          "region": "restore",
-          "zoom": 1.4,
-          "at": "stock home screen"
-        }
-      ]
+      "url": "github.com/Gathin23/cleanyourtv"
     },
     {
       "id": "catch",
-      "type": "verdict",
+      "type": "image",
       "heading": "WHAT WORKS WHERE",
       "say": "It works on Android TV and Google TV. Fire TV gets only the cleanup part. Samsung, LG and Roku aren't supported.",
-      "image": "catch.jpg"
+      "image": "img-5.jpg"
     },
     {
       "id": "cta",
@@ -254,17 +240,17 @@
     "cover_concepts": [
       {
         "text": "ADS OFF",
-        "visual": "repo-title.jpg",
+        "visual": "img-1.png",
         "gap": "how?"
       },
       {
         "text": "NO ROOT",
-        "visual": "readme-how.jpg",
+        "visual": "img-2.jpg",
         "gap": "what do I need?"
       },
       {
         "text": "UNDO IT",
-        "visual": "before-after.jpg",
+        "visual": "img-3.png",
         "gap": "is it reversible?"
       }
     ],

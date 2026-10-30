@@ -1,6 +1,6 @@
 {
   "id": "repo-deeptutor-01",
-  "capture": "repo-deeptutor-01",
+  "capture": "captures/repo-deeptutor-01",
   "title": "DeepTutor: an AI tutor with a memory you can see and edit",
   "niche": "AI tools for learning",
   "lang": "en-us",
@@ -36,19 +36,12 @@
   "scenes": [
     {
       "id": "hook",
-      "type": "page",
-      "image": "repo-title.jpg",
+      "type": "image",
+      "image": "img-1.png",
       "heading": "AN AI TUTOR WITH A VISIBLE MEMORY",
       "sub": "DeepTutor · lifelong personalized tutoring",
       "say": "Ever had an AI tutor forget everything you studied last week?",
-      "url": "github.com/HKUDS/DeepTutor",
-      "camera": [
-        {
-          "region": "repo_title",
-          "zoom": 1.4,
-          "at": "see and edit"
-        }
-      ]
+      "url": "github.com/HKUDS/DeepTutor"
     },
     {
       "id": "name",
@@ -56,37 +49,30 @@
       "heading": "DeepTutor",
       "sub": "a tutor that keeps learning about you",
       "say": "It's called DeepTutor. It builds a memory of what you've learned over time, and you can open that memory and see where each fact came from.",
-      "image": "readme-top.jpg"
+      "image": "img-2.png"
     },
     {
       "id": "how",
-      "type": "steps",
+      "type": "image",
       "heading": "THREE MEMORY LAYERS",
       "say": "You can edit that memory too. Install it with pip or Docker, then connect your model provider in Settings.",
-      "image": "readme-how.jpg"
+      "image": "img-3.png"
     },
     {
       "id": "proof",
-      "type": "page",
-      "image": "memory-graph.jpg",
+      "type": "image",
+      "image": "img-2.png",
       "heading": "EVERY MEMORY, TRACEABLE",
       "sub": "Memory Graph view",
       "say": "You can also connect your own knowledge bases and study from them, in the same place.",
-      "url": "github.com/HKUDS/DeepTutor",
-      "camera": [
-        {
-          "region": "memory",
-          "zoom": 1.4,
-          "at": "Memory Graph"
-        }
-      ]
+      "url": "github.com/HKUDS/DeepTutor"
     },
     {
       "id": "catch",
-      "type": "verdict",
+      "type": "image",
       "heading": "WHAT IT TAKES",
       "say": "The catch: it's a full self-hosted app, so setup takes more than one command.",
-      "image": "catch.jpg"
+      "image": "img-4.png"
     },
     {
       "id": "cta",
@@ -253,17 +239,17 @@
     "cover_concepts": [
       {
         "text": "SEE ITS MEMORY",
-        "visual": "memory-graph.jpg",
+        "visual": "img-1.png",
         "gap": "what does it remember?"
       },
       {
         "text": "AI TUTOR",
-        "visual": "repo-title.jpg",
+        "visual": "img-2.png",
         "gap": "how do I set it up?"
       },
       {
         "text": "EDIT IT",
-        "visual": "readme-top.jpg",
+        "visual": "img-3.png",
         "gap": "can I change it?"
       }
     ],

@@ -1,0 +1,426 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-30-still-batch-4",
+  "created_at": "2026-10-30T16:45:49Z",
+  "buffer_insights": {
+    "path": "reels-studio/tracker/buffer-insights.json",
+    "sha256": "018a37eccbd8139b97aeb624a6639d1e11addb2e8b1d909e80fc944b774b8038"
+  },
+  "metrics_review": {
+    "snapshot_sha256": "018a37eccbd8139b97aeb624a6639d1e11addb2e8b1d909e80fc944b774b8038",
+    "reviewed_video_count": 136,
+    "sample_post_ids": [
+      "6acc91a65feb3462de95f295",
+      "6acc91ac5feb3462de95f38b",
+      "6ad4dd44938409f1d0d540c6"
+    ],
+    "findings": [
+      "All 136 shared videos reviewed: mean 111.7 views per video, top three at 1635, 1019, 956 views.",
+      "No video exists in these five repos; each brief uses the repo's own still images with callouts (owner rule, 2026-10-30)."
+    ],
+    "decisions": {
+      "topic": "Viewer question first, then the tool as the answer, then one honest catch.",
+      "script": "Plain, not promotional; open on the viewer's question; keep the catch.",
+      "voice": "Approved Chatterbox Option-3 channel voice; no new audition.",
+      "visual": "Repo's own still images only, with callouts; no filming and no other creators' clips."
+    }
+  },
+  "briefs": {
+    "repo-deeptutor-01": {
+      "brief_sha256": "5c265c6df35275f0f3d55584f7387f30d79a48316e5f7b1d44f3d45a17261308",
+      "metrics_decisions": {
+        "topic": "Viewer question, then the tool; one catch.",
+        "script": "Plain viewer-first script, no promotion.",
+        "voice": "Approved Chatterbox Option-3 voice.",
+        "visual": "Repo's own still images with callouts."
+      },
+      "stages": {
+        "discover": {
+          "status": "complete",
+          "checked_at": "2026-10-30T16:45:49Z",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-30.md"
+          ]
+        },
+        "select": {
+          "status": "complete",
+          "selection_status": "selected",
+          "topic": "DeepTutor: multi-agent AI tutor for lifelong personalized learning",
+          "score": 85,
+          "score_breakdown": {
+            "trend_velocity": 22,
+            "demo_ability": 14,
+            "audience_breadth": 15,
+            "social_proof_gap": 12,
+            "free_value": 10,
+            "freshness_angle": 12
+          },
+          "metrics_snapshot_sha256": "018a37eccbd8139b97aeb624a6639d1e11addb2e8b1d909e80fc944b774b8038",
+          "basis_post_ids": [
+            "6acc91a65feb3462de95f295",
+            "6acc91ac5feb3462de95f38b",
+            "6ad4dd44938409f1d0d540c6"
+          ],
+          "hard_gates": {
+            "risk_flags_clear": true,
+            "claim_verifiable": true,
+            "license_clear": true
+          }
+        },
+        "research": {
+          "status": "complete",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-30.md"
+          ],
+          "dynamic_facts_checked_at": "2026-10-30T16:45:49Z",
+          "primary_sources": [
+            {
+              "url": "https://github.com/HKUDS/DeepTutor",
+              "checked_at": "2026-10-30T16:45:49Z",
+              "claim": "DeepTutor: 51,217 stars, Apache-2.0, created 2025-12-28"
+            },
+            {
+              "url": "https://api.github.com/repos/HKUDS/DeepTutor",
+              "checked_at": "2026-10-30T16:45:49Z",
+              "claim": "DeepTutor: 51,217 stars, Apache-2.0, created 2025-12-28"
+            }
+          ]
+        },
+        "script": {
+          "status": "complete",
+          "script_sha256": "6f997af3f516281d47da046947eb24a1af20dbb5811018768196a9f1ecd67f9c",
+          "word_count": 103
+        },
+        "voice": {
+          "status": "complete",
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "per_chunk": 0.92,
+            "overall": 0.95
+          }
+        },
+        "assets": {
+          "status": "complete",
+          "rights_checked": true,
+          "approval_constraints_checked": true,
+          "manifest_sha256": "2a5d5f4f22abb6484f33da8801d8bd01be0b348d04b50016c26a3cfc243ff5de",
+          "capture_id": "repo-deeptutor-01",
+          "files": [
+            {
+              "path": "img-1.png",
+              "sha256": "3b61d73cbed52c5a838bbb9bdc1aeba264b6f4eb4a12e7298065374f379a52bc"
+            },
+            {
+              "path": "img-2.png",
+              "sha256": "5f9e5af8b948316b12651f4ee205f384c7dfd6cd78619046dde0505f734bd5bb"
+            },
+            {
+              "path": "img-3.png",
+              "sha256": "625e7688a7d8e5c19e51e768ba9fc96cc1a98d62271da80394a7260ef2ced9d1"
+            },
+            {
+              "path": "img-4.png",
+              "sha256": "ba240324ecff6fe600612c0806dde1c57574da749773796253e7f74a63af8920"
+            },
+            {
+              "path": "img-5.png",
+              "sha256": "071a374ab4ef31414639a9b5df554e8a736701865a32f5f3852b1b53c72780ac"
+            }
+          ]
+        }
+      }
+    },
+    "repo-impeccable-01": {
+      "brief_sha256": "89513c59bb7bffecd0c9a57dd5b309c7262d4a6b91103676e08eab607e703e44",
+      "metrics_decisions": {
+        "topic": "Viewer question, then the tool; one catch.",
+        "script": "Plain viewer-first script, no promotion.",
+        "voice": "Approved Chatterbox Option-3 voice.",
+        "visual": "Repo's own still images with callouts."
+      },
+      "stages": {
+        "discover": {
+          "status": "complete",
+          "checked_at": "2026-10-30T16:45:49Z",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-30.md"
+          ]
+        },
+        "select": {
+          "status": "complete",
+          "selection_status": "selected",
+          "topic": "impeccable: design vocabulary for coding agents, steering AI toward polished code",
+          "score": 85,
+          "score_breakdown": {
+            "trend_velocity": 22,
+            "demo_ability": 15,
+            "audience_breadth": 15,
+            "social_proof_gap": 12,
+            "free_value": 10,
+            "freshness_angle": 11
+          },
+          "metrics_snapshot_sha256": "018a37eccbd8139b97aeb624a6639d1e11addb2e8b1d909e80fc944b774b8038",
+          "basis_post_ids": [
+            "6acc91a65feb3462de95f295",
+            "6acc91ac5feb3462de95f38b",
+            "6ad4dd44938409f1d0d540c6"
+          ],
+          "hard_gates": {
+            "risk_flags_clear": true,
+            "claim_verifiable": true,
+            "license_clear": true
+          }
+        },
+        "research": {
+          "status": "complete",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-30.md"
+          ],
+          "dynamic_facts_checked_at": "2026-10-30T16:45:49Z",
+          "primary_sources": [
+            {
+              "url": "https://github.com/pbakaus/impeccable",
+              "checked_at": "2026-10-30T16:45:49Z",
+              "claim": "impeccable: 96,313 stars, Apache-2.0, created 2025-11-16"
+            },
+            {
+              "url": "https://api.github.com/repos/pbakaus/impeccable",
+              "checked_at": "2026-10-30T16:45:49Z",
+              "claim": "impeccable: 96,313 stars, Apache-2.0, created 2025-11-16"
+            }
+          ]
+        },
+        "script": {
+          "status": "complete",
+          "script_sha256": "5336b141650929805cbd61323ac1250ad860ddcbdf7ff97eb1a6723461c513be",
+          "word_count": 110
+        },
+        "voice": {
+          "status": "complete",
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "per_chunk": 0.92,
+            "overall": 0.95
+          }
+        },
+        "assets": {
+          "status": "complete",
+          "rights_checked": true,
+          "approval_constraints_checked": true,
+          "manifest_sha256": "7668350792ecb5b5b37e9c074da8875ede7210a92ec787581f83242c69db3bd0",
+          "capture_id": "repo-impeccable-01",
+          "files": [
+            {
+              "path": "img-1.png",
+              "sha256": "02a470fe24d09d497980085cb3a9a7443142bbdabadf371c5e89e58adbe807c5"
+            },
+            {
+              "path": "img-2.png",
+              "sha256": "6ba41290d8b219921673c791c773f8cd9d35ede27e043d9fbe34ef04a8305332"
+            }
+          ]
+        }
+      }
+    },
+    "repo-edge0-01": {
+      "brief_sha256": "2aa57bd1c470a8d731676c675ec8eb5f650c2bfeef88d34df648674be91a69d3",
+      "metrics_decisions": {
+        "topic": "Viewer question, then the tool; one catch.",
+        "script": "Plain viewer-first script, no promotion.",
+        "voice": "Approved Chatterbox Option-3 voice.",
+        "visual": "Repo's own still images with callouts."
+      },
+      "stages": {
+        "discover": {
+          "status": "complete",
+          "checked_at": "2026-10-30T16:45:49Z",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-30.md"
+          ]
+        },
+        "select": {
+          "status": "complete",
+          "selection_status": "selected",
+          "topic": "Edge0: a 35B model on a Mac with about 3 GB of memory",
+          "score": 73,
+          "score_breakdown": {
+            "trend_velocity": 16,
+            "demo_ability": 13,
+            "audience_breadth": 10,
+            "social_proof_gap": 12,
+            "free_value": 10,
+            "freshness_angle": 12
+          },
+          "metrics_snapshot_sha256": "018a37eccbd8139b97aeb624a6639d1e11addb2e8b1d909e80fc944b774b8038",
+          "basis_post_ids": [
+            "6acc91a65feb3462de95f295",
+            "6acc91ac5feb3462de95f38b",
+            "6ad4dd44938409f1d0d540c6"
+          ],
+          "hard_gates": {
+            "risk_flags_clear": true,
+            "claim_verifiable": true,
+            "license_clear": true
+          }
+        },
+        "research": {
+          "status": "complete",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-30.md"
+          ],
+          "dynamic_facts_checked_at": "2026-10-30T16:45:49Z",
+          "primary_sources": [
+            {
+              "url": "https://github.com/Edge0-AI/Edge0",
+              "checked_at": "2026-10-30T16:45:49Z",
+              "claim": "Edge0: 8,782 stars, Apache-2.0, created 2026-09-08; README 2.9 GiB peak memory"
+            },
+            {
+              "url": "https://api.github.com/repos/Edge0-AI/Edge0",
+              "checked_at": "2026-10-30T16:45:49Z",
+              "claim": "Edge0: 8,782 stars, Apache-2.0, created 2026-09-08; README 2.9 GiB peak memory"
+            }
+          ]
+        },
+        "script": {
+          "status": "complete",
+          "script_sha256": "15aaad0ae291b71c519e84560498a0e6468592581558a83c11f364197f5c1c91",
+          "word_count": 118
+        },
+        "voice": {
+          "status": "complete",
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "per_chunk": 0.92,
+            "overall": 0.95
+          }
+        },
+        "assets": {
+          "status": "complete",
+          "rights_checked": true,
+          "approval_constraints_checked": true,
+          "manifest_sha256": "048cdb6a5ee3e982b90009457da8e117063e9f2bcf1e3d921ace5b153a2d50e4",
+          "capture_id": "repo-edge0-01",
+          "files": [
+            {
+              "path": "img-1.png",
+              "sha256": "4301b84546a111f6e46de2d0361baebefd60e79497c0d3734e8483e35138d6c4"
+            },
+            {
+              "path": "img-2.jpg",
+              "sha256": "d7285e3c6d5f1039a8b5283031e27fd48aa0cebbb9fb57d180903481eeb8f204"
+            }
+          ]
+        }
+      }
+    },
+    "repo-cleanyourtv-01": {
+      "brief_sha256": "dd178c3d5191ce3d2e2cc202541a7b43bcf744dbe0da8639e2881e1b9753e95e",
+      "metrics_decisions": {
+        "topic": "Viewer question, then the tool; one catch.",
+        "script": "Plain viewer-first script, no promotion.",
+        "voice": "Approved Chatterbox Option-3 voice.",
+        "visual": "Repo's own still images with callouts."
+      },
+      "stages": {
+        "discover": {
+          "status": "complete",
+          "checked_at": "2026-10-30T16:45:49Z",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-30.md"
+          ]
+        },
+        "select": {
+          "status": "complete",
+          "selection_status": "selected",
+          "topic": "CleanYourTV: strip ads from an Android TV over Wi-Fi with no root",
+          "score": 91,
+          "score_breakdown": {
+            "trend_velocity": 24,
+            "demo_ability": 14,
+            "audience_breadth": 15,
+            "social_proof_gap": 13,
+            "free_value": 10,
+            "freshness_angle": 15
+          },
+          "metrics_snapshot_sha256": "018a37eccbd8139b97aeb624a6639d1e11addb2e8b1d909e80fc944b774b8038",
+          "basis_post_ids": [
+            "6acc91a65feb3462de95f295",
+            "6acc91ac5feb3462de95f38b",
+            "6ad4dd44938409f1d0d540c6"
+          ],
+          "hard_gates": {
+            "risk_flags_clear": true,
+            "claim_verifiable": true,
+            "license_clear": true
+          }
+        },
+        "research": {
+          "status": "complete",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-30.md"
+          ],
+          "dynamic_facts_checked_at": "2026-10-30T16:45:49Z",
+          "primary_sources": [
+            {
+              "url": "https://github.com/Gathin23/cleanyourtv",
+              "checked_at": "2026-10-30T16:45:49Z",
+              "claim": "CleanYourTV: 46,042 stars, created 2026-10-17; pm disable-user, restore script"
+            },
+            {
+              "url": "https://api.github.com/repos/Gathin23/cleanyourtv",
+              "checked_at": "2026-10-30T16:45:49Z",
+              "claim": "CleanYourTV: 46,042 stars, created 2026-10-17; pm disable-user, restore script"
+            }
+          ]
+        },
+        "script": {
+          "status": "complete",
+          "script_sha256": "64b7612449ee67f7fe7ddba940ada05c895f880c55693157f063c262a0330ee4",
+          "word_count": 105
+        },
+        "voice": {
+          "status": "complete",
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "per_chunk": 0.92,
+            "overall": 0.95
+          }
+        },
+        "assets": {
+          "status": "complete",
+          "rights_checked": true,
+          "approval_constraints_checked": true,
+          "manifest_sha256": "8f4e481c0ee4e034b00555d74aeb6de00d7c195e0c1d14a1695ec9c3ffd14a9c",
+          "capture_id": "repo-cleanyourtv-01",
+          "files": [
+            {
+              "path": "img-1.png",
+              "sha256": "ad9bed9f688873c35676d0901339f53ab0b59100acd4256557fa2f66867c09f5"
+            },
+            {
+              "path": "img-2.jpg",
+              "sha256": "f86508175316e1b5ef1143732817283688b9ecc259c6488e41d2101ee7878e39"
+            },
+            {
+              "path": "img-3.png",
+              "sha256": "0243b2720e01d636932fe2fb2a6fb55b151d1eed69fe2182290e071657c492af"
+            },
+            {
+              "path": "img-4.png",
+              "sha256": "2baada3c899b295bef84cb83a540292aa78299c87a9989542e6ef8ffc6252bc8"
+            },
+            {
+              "path": "img-5.jpg",
+              "sha256": "534ebfaa4a536838a72909fd347a7f8358633edd3e5b0bd1136f0678a00699b1"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

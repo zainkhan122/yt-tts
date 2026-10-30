@@ -1,6 +1,6 @@
 {
   "id": "repo-impeccable-01",
-  "capture": "repo-impeccable-01",
+  "capture": "captures/repo-impeccable-01",
   "title": "impeccable: the same AI, a different design",
   "niche": "AI tools for developers",
   "lang": "en-us",
@@ -36,19 +36,12 @@
   "scenes": [
     {
       "id": "hook",
-      "type": "page",
-      "image": "before-after.jpg",
+      "type": "image",
+      "image": "img-1.png",
       "heading": "SAME AI. SAME BRIEF. WATCH THE DESIGN CHANGE.",
       "sub": "impeccable · design vocabulary for coding agents",
       "say": "Why does AI-built design so often look the same?",
-      "url": "github.com/pbakaus/impeccable",
-      "camera": [
-        {
-          "region": "before_after",
-          "zoom": 1.4,
-          "at": "Impeccable"
-        }
-      ]
+      "url": "github.com/pbakaus/impeccable"
     },
     {
       "id": "name",
@@ -56,37 +49,30 @@
       "heading": "impeccable",
       "sub": "a design vocabulary for your coding agent",
       "say": "It's called impeccable. It gives your coding agent a design vocabulary, so you steer it with words like polish and bolder.",
-      "image": "readme-top.jpg"
+      "image": "img-2.png"
     },
     {
       "id": "how",
-      "type": "steps",
+      "type": "image",
       "heading": "TWO COMMANDS",
       "say": "From your project root, run npx impeccable install. Then run the init command in your agent, and reload your coding tool.",
-      "image": "readme-how.jpg"
+      "image": "img-1.png"
     },
     {
       "id": "proof",
-      "type": "page",
-      "image": "before-after.jpg",
+      "type": "image",
+      "image": "img-2.png",
       "heading": "WITHOUT, THEN WITH",
       "sub": "Same model, same brief",
       "say": "The repo shows the same model and brief twice. Without impeccable, the page is a cream layout with pill buttons. With it, the page is built around one picture.",
-      "url": "github.com/pbakaus/impeccable",
-      "camera": [
-        {
-          "region": "after",
-          "zoom": 1.3,
-          "at": "built around one picture"
-        }
-      ]
+      "url": "github.com/pbakaus/impeccable"
     },
     {
       "id": "catch",
-      "type": "verdict",
+      "type": "image",
       "heading": "WHAT TO KNOW",
       "say": "The catch: you review the result with critique and audit, so you still decide what looks right.",
-      "image": "catch.jpg"
+      "image": "img-1.png"
     },
     {
       "id": "cta",
@@ -253,17 +239,17 @@
     "cover_concepts": [
       {
         "text": "SAME AI",
-        "visual": "before-after.jpg",
+        "visual": "img-1.png",
         "gap": "what changed?"
       },
       {
         "text": "TWO COMMANDS",
-        "visual": "readme-how.jpg",
+        "visual": "img-2.png",
         "gap": "how hard is it?"
       },
       {
         "text": "POLISH IT",
-        "visual": "readme-top.jpg",
+        "visual": "img-1.png",
         "gap": "what does it do?"
       }
     ],

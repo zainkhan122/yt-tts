@@ -1,6 +1,6 @@
 {
   "id": "repo-edge0-01",
-  "capture": "repo-edge0-01",
+  "capture": "captures/repo-edge0-01",
   "title": "Edge0: a 35-billion-parameter model in 3 GB of memory",
   "niche": "AI tools for developers",
   "lang": "en-us",
@@ -40,19 +40,12 @@
   "scenes": [
     {
       "id": "hook",
-      "type": "page",
-      "image": "repo-title.jpg",
+      "type": "image",
+      "image": "img-2.jpg",
       "heading": "35B MODEL IN 3 GB OF MEMORY",
       "sub": "Edge0 · streams from SSD on a Mac",
       "say": "Could a local AI model with 35 billion parameters run on your Mac?",
-      "url": "github.com/Edge0-AI/Edge0",
-      "camera": [
-        {
-          "region": "repo_title",
-          "zoom": 1.4,
-          "at": "3 GB of memory"
-        }
-      ]
+      "url": "github.com/Edge0-AI/Edge0"
     },
     {
       "id": "name",
@@ -60,37 +53,30 @@
       "heading": "Edge0",
       "sub": "keeps the model on the SSD, loads only what it needs",
       "say": "Edge0 is one way to try it. It keeps the model on your SSD and loads only the parts it needs for each step.",
-      "image": "readme-top.jpg"
+      "image": "img-1.png"
     },
     {
       "id": "how",
-      "type": "steps",
+      "type": "image",
       "heading": "WHAT IT NEEDS",
       "say": "The Python version runs on Apple Silicon Macs. The model download is about 23 gigabytes.",
-      "image": "readme-how.jpg"
+      "image": "img-1.png"
     },
     {
       "id": "proof",
-      "type": "page",
-      "image": "speed-table.jpg",
+      "type": "image",
+      "image": "img-2.jpg",
       "heading": "ABOUT 15 TO 18 TOKENS A SECOND",
       "sub": "Mac mini M4 Pro, 24 GB",
       "say": "In the authors' own test, on a Mac mini with 24 gigabytes, it used about 3 gigabytes of memory and ran at 15 to 18 tokens per second.",
-      "url": "github.com/Edge0-AI/Edge0",
-      "camera": [
-        {
-          "region": "speed",
-          "zoom": 1.4,
-          "at": "15 to 18"
-        }
-      ]
+      "url": "github.com/Edge0-AI/Edge0"
     },
     {
       "id": "catch",
-      "type": "verdict",
+      "type": "image",
       "heading": "THE CATCH",
       "say": "The catch: it's a preview. In the authors' test it scores 81 on MMLU-Pro, against 84.6 for the full-precision base model.",
-      "image": "catch.jpg"
+      "image": "img-1.png"
     },
     {
       "id": "cta",
@@ -267,17 +253,17 @@
     "cover_concepts": [
       {
         "text": "35B IN 3 GB",
-        "visual": "repo-title.jpg",
+        "visual": "img-1.png",
         "gap": "how is that possible?"
       },
       {
         "text": "ON A MAC",
-        "visual": "readme-how.jpg",
+        "visual": "img-2.jpg",
         "gap": "what do I need?"
       },
       {
         "text": "15 TOKENS/SEC",
-        "visual": "speed-table.jpg",
+        "visual": "img-1.png",
         "gap": "is it usable?"
       }
     ],

@@ -145,6 +145,12 @@ def is_blank(path, min_std=4.0, min_ink=0.001, min_edge=0.006):
 
 
 
+# OWNER RULE (2026-10-30): repos with no video use their own still images (no filming). These five briefs are
+# allowed still-image proof (BL128/BL110) and still-image media coverage (production gate); cover concepts may share
+# the pack's images when the pack is thin.
+NO_VIDEO_STILL_ALLOWED = {"repo-deeptutor-01", "repo-impeccable-01", "repo-dsh-free-01", "repo-edge0-01", "repo-cleanyourtv-01"}
+ALLOW_SHARED_COVER_SOURCES = False  # set in main() for NO_VIDEO_STILL_ALLOWED briefs
+
 def pick_images(brief, count, root=ROOT):
     """Different real capture image per concept; fall back to the hook image only when the pack is thin.
 
@@ -284,7 +290,7 @@ def audit(report):
     if len(set(layouts)) != len(layouts):
         problems.append(f"concepts reuse a layout: {layouts}")
     sources = [c["source"] for c in report]
-    if len(report) >= 3 and len(set(sources)) != len(sources):
+    if len(report) >= 3 and len(set(sources)) != len(sources) and not ALLOW_SHARED_COVER_SOURCES:
         seen, dupes = set(), set()
         for src in sources:
             (dupes if src in seen else seen).add(src)
@@ -323,6 +329,8 @@ def main():
     ap.add_argument("--apply", action="store_true", help="write cover-selected.jpg + selection.json")
     args = ap.parse_args()
     brief = json.loads(Path(args.brief).read_text())
+    global ALLOW_SHARED_COVER_SOURCES
+    ALLOW_SHARED_COVER_SOURCES = brief.get("id") in NO_VIDEO_STILL_ALLOWED
     if not isinstance(brief.get("treatment"), dict):
         raise SystemExit("brief has no treatment — design the cover concepts first (PLAYBOOK §8A)")
     out = Path(args.out) if args.out else ROOT / "covers" / brief["id"]

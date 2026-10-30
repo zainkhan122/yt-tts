@@ -1,6 +1,6 @@
 {
   "id": "repo-dsh-free-01",
-  "capture": "repo-dsh-free-01",
+  "capture": "captures/repo-dsh-free-01",
   "title": "dsh-our-free-model: free DeepSeek and Kimi models, no API key",
   "niche": "AI tools for developers",
   "lang": "en-us",
@@ -37,19 +37,12 @@
   "scenes": [
     {
       "id": "hook",
-      "type": "page",
-      "image": "repo-title.jpg",
+      "type": "image",
+      "image": "img-1.png",
       "heading": "FREE DEEPSEEK AND KIMI, NO API KEY?",
       "sub": "dsh-our-free-model · plugin for the dsh app",
       "say": "Could you use free DeepSeek models with no API key?",
-      "url": "github.com/Ebony-Vinyl/dsh-our-free-model",
-      "camera": [
-        {
-          "region": "repo_title",
-          "zoom": 1.4,
-          "at": "no API key"
-        }
-      ]
+      "url": "github.com/Ebony-Vinyl/dsh-our-free-model"
     },
     {
       "id": "name",
@@ -57,37 +50,30 @@
       "heading": "dsh-our-free-model",
       "sub": "a plugin for the dsh app",
       "say": "A plugin for the dsh app says yes. It's called dsh-our-free-model, and it lists models like DeepSeek and Kimi.",
-      "image": "readme-top.jpg"
+      "image": "img-2.png"
     },
     {
       "id": "how",
-      "type": "steps",
+      "type": "image",
       "heading": "INSTALL IT",
       "say": "Install it from the release package, not the npm copy. Restart dsh once, then open the model picker.",
-      "image": "readme-how.jpg"
+      "image": "img-3.png"
     },
     {
       "id": "proof",
-      "type": "page",
-      "image": "model-picker.jpg",
+      "type": "image",
+      "image": "img-4.png",
       "heading": "ONLY WHAT YOUR NETWORK REACHES",
       "sub": "Model picker",
       "say": "The picker only lists models your network can reach. Blocked models go in a separate list.",
-      "url": "github.com/Ebony-Vinyl/dsh-our-free-model",
-      "camera": [
-        {
-          "region": "picker",
-          "zoom": 1.4,
-          "at": "separate list"
-        }
-      ]
+      "url": "github.com/Ebony-Vinyl/dsh-our-free-model"
     },
     {
       "id": "catch",
-      "type": "verdict",
+      "type": "image",
       "heading": "THE CATCH",
       "say": "The catch: which models work depends on your network, and the plugin is in beta. It claims no usage cap, so test that yourself.",
-      "image": "catch.jpg"
+      "image": "img-5.png"
     },
     {
       "id": "cta",
@@ -253,17 +239,17 @@
     "cover_concepts": [
       {
         "text": "NO API KEY?",
-        "visual": "repo-title.jpg",
+        "visual": "img-1.png",
         "gap": "what is the catch?"
       },
       {
         "text": "CHECK FIRST",
-        "visual": "model-picker.jpg",
+        "visual": "img-2.png",
         "gap": "what do I check?"
       },
       {
         "text": "FREE DEEPSEEK",
-        "visual": "readme-top.jpg",
+        "visual": "img-3.png",
         "gap": "which models?"
       }
     ],

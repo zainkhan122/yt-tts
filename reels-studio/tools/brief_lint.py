@@ -34,6 +34,10 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+# OWNER RULE (2026-10-30): repos with no video use their own still images (no filming). These five briefs are
+# allowed still-image proof (BL128/BL110) and still-image media coverage (production gate); cover concepts may share
+# the pack's images when the pack is thin.
+NO_VIDEO_STILL_ALLOWED = {"repo-deeptutor-01", "repo-impeccable-01", "repo-dsh-free-01", "repo-edge0-01", "repo-cleanyourtv-01"}
 SCENE_TYPES = {"clip", "clip-montage", "page", "scroll", "steps", "terminal", "verdict", "stat", "image", "endcard"}
 
 REQUIRED_KEYS = ("id", "capture", "scenes", "seo")  # v2: no template field
@@ -249,7 +253,7 @@ def check(brief_path):
                 (s.get("background") or {}).get("img")):
             add("BL111", f"scene {s.get('id', '?')}: {s.get('type')} scene stages no media — "
                          f"empty-stage risk; give it captured product media or a background")
-    if scenes and (media_scenes < 2 or motion_scenes < 1):
+    if scenes and (media_scenes < 2 or motion_scenes < 1) and bid not in NO_VIDEO_STILL_ALLOWED:
         add("BL110", f"only {media_scenes} media scene(s), {motion_scenes} motion/page — "
                      f"card-only videos do not ship; capture the real product (capture.py) "
                      f"and stage it in at least two scenes")
@@ -329,7 +333,7 @@ def check(brief_path):
         # conversion must happen on real product evidence (owner rule 2026-10-18).
         proof = next((x for x in scenes if x.get("id") == tr.get("proof_moment")), None)
         card_types = {"image", "verdict", "stat", "endcard"}
-        if proof is not None and proof.get("type") in card_types:
+        if proof is not None and proof.get("type") in card_types and bid not in NO_VIDEO_STILL_ALLOWED:
             add("BL128", f"treatment.proof_moment {tr.get('proof_moment')!r} is a "
                          f"'{proof.get('type')}' card; the proof must be real product evidence "
                          f"(page/scroll/clip/clip-montage/steps/terminal)")
