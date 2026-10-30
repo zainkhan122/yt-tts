@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-30-repo-rea-01",
+  "created_at": "2026-10-30T12:18:05Z",
+  "buffer_insights": {
+    "path": "reels-studio/tracker/buffer-insights.json",
+    "sha256": "018a37eccbd8139b97aeb624a6639d1e11addb2e8b1d909e80fc944b774b8038"
+  },
+  "metrics_review": {
+    "snapshot_sha256": "018a37eccbd8139b97aeb624a6639d1e11addb2e8b1d909e80fc944b774b8038",
+    "reviewed_video_count": 136,
+    "sample_post_ids": [
+      "6acc91a65feb3462de95f295",
+      "6acc91ac5feb3462de95f38b",
+      "6ad4dd44938409f1d0d540c6"
+    ],
+    "findings": [
+      "All 136 shared videos reviewed: mean 111.7 views per video, top three at 1635, 1019, 956 views, 45 with zero views.",
+      "The repo has no demo video, so the visual decision uses its two real still images, with zoom and callouts only."
+    ],
+    "decisions": {
+      "topic": "Choose viewer-question topics about how an app works, with a tool that answers them.",
+      "script": "Open on the viewer question, then the tool as the answer, then one honest catch.",
+      "voice": "Use the approved Chatterbox Option-3 channel voice; no new audition.",
+      "visual": "Use the repo's own images with zoom and callouts; no page screenshots."
+    }
+  },
+  "briefs": {
+    "repo-rea-01": {
+      "brief_sha256": "afed1697f8beb513ff10b3b0f88db425ae3ed66ab6dea54450decc80b5efc50e",
+      "metrics_decisions": {
+        "topic": "Viewer question about how an app works, answered by the tool.",
+        "script": "Question hook, plain explanation, one catch, keyword close.",
+        "voice": "Approved Chatterbox Option-3 channel voice.",
+        "visual": "Repo's own images only, with zoom and callouts."
+      },
+      "stages": {
+        "discover": {
+          "status": "complete",
+          "checked_at": "2026-10-30T12:18:05Z",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-30.md"
+          ]
+        },
+        "select": {
+          "status": "complete",
+          "selection_status": "selected",
+          "topic": "rea: reverse engineer anything with AI agents, from app behavior to native binaries",
+          "score": 81,
+          "score_breakdown": {
+            "trend_velocity": 22,
+            "demo_ability": 12,
+            "audience_breadth": 12,
+            "social_proof_gap": 11,
+            "free_value": 9,
+            "freshness_angle": 15
+          },
+          "metrics_snapshot_sha256": "018a37eccbd8139b97aeb624a6639d1e11addb2e8b1d909e80fc944b774b8038",
+          "basis_post_ids": [
+            "6acc91a65feb3462de95f295",
+            "6acc91ac5feb3462de95f38b",
+            "6ad4dd44938409f1d0d540c6"
+          ],
+          "hard_gates": {
+            "risk_flags_clear": true,
+            "claim_verifiable": true,
+            "license_clear": true
+          }
+        },
+        "research": {
+          "status": "complete",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-30.md"
+          ],
+          "dynamic_facts_checked_at": "2026-10-30T12:18:05Z",
+          "primary_sources": [
+            {
+              "url": "https://github.com/morluto/rea",
+              "checked_at": "2026-10-30T12:18:05Z",
+              "claim": "rea reverse engineers apps and binaries with AI agents; setup via npx rea-agents setup"
+            },
+            {
+              "url": "https://api.github.com/repos/morluto/rea",
+              "checked_at": "2026-10-30T12:18:05Z",
+              "claim": "410,069 stars and MIT licence on 2026-10-30"
+            }
+          ]
+        },
+        "script": {
+          "status": "complete",
+          "script_sha256": "0a56f76e9ad464b4c1c29b320de4af26af9c7ba5556e873b8f622e7417a10654",
+          "word_count": 122
+        },
+        "voice": {
+          "status": "complete",
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "per_chunk": 0.92,
+            "overall": 0.95
+          }
+        },
+        "assets": {
+          "status": "complete",
+          "rights_checked": true,
+          "approval_constraints_checked": true,
+          "manifest_sha256": "b483e6f3689be72c237edc2facb66b539a4497f5d7d2202264244fe85df77957",
+          "capture_id": "repo-rea-01",
+          "files": [
+            {
+              "path": "rea-plugin.png",
+              "sha256": "116b66711e78b23d1926bf40e4866a1cfa0f76e10f39bca9a67b8f70a5a2a014"
+            },
+            {
+              "path": "rea-hopper-analysis.png",
+              "sha256": "144e207c9ca57f61a311210a0d679c55d36f6614cbf4d15b7b280a268389aa1d"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

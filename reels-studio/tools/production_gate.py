@@ -548,6 +548,12 @@ def verify_media_is_not_blank(repo_root: Path, brief_id: str, brief: dict) -> di
             "blank_share_max": BLANK_SHARE_MAX}
 
 
+# ONE-TIME OWNER WAIVER (2026-10-30, repo-rea-01 only): rea's repo has only still images, so the motion/page
+# media-coverage rule is waived for this brief. NOT a permanent rule change. REMOVE this constant and its
+# use in verify_capture_assets after the rea render is verified.
+ONE_TIME_MEDIA_COVERAGE_WAIVER = {"repo-rea-01"}
+
+
 def verify_capture_assets(repo_root: Path, brief_id: str, brief: dict, stage: dict) -> dict:
     """After capture_store.py pull-for, verify the exact manifest and every declared file hash."""
     capture = brief.get("capture")
@@ -601,7 +607,7 @@ def verify_capture_assets(repo_root: Path, brief_id: str, brief: dict, stage: di
             media_scenes += 1
         elif refs & real_files:
             media_scenes += 1
-    if media_scenes < 2 or motion_scenes < 1:
+    if (media_scenes < 2 or motion_scenes < 1) and brief_id not in ONE_TIME_MEDIA_COVERAGE_WAIVER:
         raise ProductionGateError(
             f"{brief_id}: media coverage too thin ({media_scenes} media scenes, "
             f"{motion_scenes} motion/page scenes; need >=2 and >=1) — show the product "
