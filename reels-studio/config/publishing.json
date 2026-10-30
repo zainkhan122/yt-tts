@@ -83,15 +83,15 @@
       "2026-10-14": 5
     },
     "extended_slots": {
-      "gap_minutes": 0,
-      "note": "High-volume days above the researched windows use this evenly spaced grid. The 150-min minimum gap was removed (owner 2026-10-30); random 5-15 min offsets are applied to best-time slots instead.",
+      "gap_minutes": 144,
+      "note": "High-volume days above the researched windows use this evenly spaced grid. The 150-min minimum gap was removed (owner 2026-10-30); random 5-15 min offsets are applied to best-time slots instead. Extended slot spacing is 144 min (1440/10) so 10 slots evenly cover 24h.",
       "start": "00:00"
     },
     "lookahead_hours": 48,
     "max_posts_per_run": 9,
     "max_repo_videos_per_day": 10,
     "max_videos_per_day": 10,
-    "minimum_gap_minutes": 0,
+    "minimum_gap_minutes": 5,
     "minimum_lead_minutes": 60,
     "profiles": {
       "facebook": {
