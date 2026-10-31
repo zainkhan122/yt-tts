@@ -114,7 +114,7 @@
     },
     "tiktok": {
       "title": "A 35B AI model in 3 GB of memory",
-      "description": "local AI model: Edge0 runs 35B in 3 GB on a Mac #localllm #macai #applesilicon",
+      "description": "Edge0 keeps the model on the SSD and loads only the layers each step needs. Works on Apple Silicon Macs.",
       "tags": [
         "Edge0",
         "local AI",
@@ -122,7 +122,7 @@
         "Mac",
         "AI memory"
       ],
-      "caption": "local AI model: Edge0 runs 35B in 3 GB on a Mac #localllm #macai #applesilicon",
+      "caption": "Edge0 keeps the model on the SSD and loads only the layers each step needs. Works on Apple Silicon Macs.",
       "hashtags": [
         "#localllm",
         "#macai",
@@ -131,7 +131,7 @@
     },
     "instagram": {
       "title": "35B model, 3 GB of memory",
-      "description": "local AI model: Edge0 runs 35B in 3 GB on a Mac #localllm #macai #applesilicon",
+      "description": "A 35B model running on a Mac with a few GB of memory. The model streams from SSD. Preview release, Apache-2.0.",
       "tags": [
         "Edge0",
         "local AI",
@@ -139,7 +139,7 @@
         "Mac",
         "AI memory"
       ],
-      "caption": "local AI model: Edge0 runs 35B in 3 GB on a Mac #localllm #macai #applesilicon",
+      "caption": "A 35B model running on a Mac with a few GB of memory. The model streams from SSD. Preview release, Apache-2.0.",
       "hashtags": [
         "#localllm",
         "#macai",
@@ -148,14 +148,14 @@
     },
     "facebook": {
       "title": "A 35B model in 3 GB",
-      "description": "local AI model: Edge0 runs 35B in 3 GB on a Mac #localllm #macai #applesilicon",
+      "description": "How Edge0 runs a large model on an Apple Silicon Mac: it reads the model from SSD in parts, not all at once. Preview release.",
       "tags": [
         "Edge0",
         "local AI",
         "35B model",
         "Mac"
       ],
-      "caption": "local AI model: Edge0 runs 35B in 3 GB on a Mac #localllm #macai #applesilicon",
+      "caption": "How Edge0 runs a large model on an Apple Silicon Mac: it reads the model from SSD in parts, not all at once. Preview release.",
       "hashtags": [
         "#localllm",
         "#macai",
