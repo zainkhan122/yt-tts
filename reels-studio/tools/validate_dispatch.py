@@ -105,7 +105,7 @@ def plan_dispatch(
         asset_hashes = {}
     else:
         if not production_receipt.strip():
-            raise ValueError("new renders require a production receipt (script, voice, assets); scene rebuilds are exempt")
+            raise ValueError("new renders require a production receipt (script and assets); scene rebuilds are exempt")
         result = production_gate.validate_receipt(repo_root, production_receipt.strip(), ids, now=now)
         asset_hashes = {
             brief_id: {"manifest_sha256": row["asset_manifest_sha256"],

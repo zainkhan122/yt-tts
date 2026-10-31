@@ -144,7 +144,7 @@ class ProductionGateTests(unittest.TestCase):
     def test_missing_stage_fails_closed(self):
         del self.receipt["briefs"]["one"]["stages"]["assets"]
         self.receipt_path.write_text(json.dumps(self.receipt), encoding="utf-8")
-        with self.assertRaisesRegex(ProductionGateError, "script, voice and assets"):
+        with self.assertRaisesRegex(ProductionGateError, "script and assets"):
             self.validate()
 
     def test_script_mutation_after_receipt_fails(self):

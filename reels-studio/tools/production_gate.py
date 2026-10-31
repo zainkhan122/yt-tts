@@ -28,7 +28,9 @@ MAX_INSIGHTS_AGE = dt.timedelta(hours=36)
 MAX_DISCOVER_AGE = dt.timedelta(hours=36)
 # Owner 2026-10-31 (simplified): only the production stages that protect the render are required.
 # Topic scoring, Insights freshness, metrics review and licence checks were removed.
-STAGES = ("script", "voice", "assets")
+STAGES = ("script", "assets")
+# Voice QA (TTS match per chunk, retries) is enforced inside the render itself (lib/pipeline.py
+# require_flow_match). A voice record before the render is optional; when present it is still checked.
 METRIC_DECISIONS = ("topic", "script", "voice", "visual")
 SHA_RE = re.compile(r"^[0-9a-f]{64}$")
 
@@ -237,6 +239,35 @@ def _validate_metrics_review(review: dict, snapshot: dict, snapshot_sha: str) ->
     _require_decisions(review.get("decisions"), "metrics_review")
 
 
+def _check_voice_record(brief_id, brief, voice):
+    """Optional pre-render voice record: thresholds and English profile (owner 31 Oct)."""
+    thresholds = voice.get("qa_thresholds")
+    if not isinstance(thresholds, dict):
+        raise ProductionGateError(f"{brief_id}: VOICE must declare immutable QA thresholds")
+    if isinstance(thresholds.get("per_chunk"), bool) or isinstance(thresholds.get("overall"), bool):
+        raise ProductionGateError(f"{brief_id}: VOICE QA thresholds must be numeric, not booleans")
+    try:
+        chunk_threshold = float(thresholds.get("per_chunk"))
+        overall_threshold = float(thresholds.get("overall"))
+    except (TypeError, ValueError) as exc:
+        raise ProductionGateError(f"{brief_id}: VOICE QA thresholds must be numeric") from exc
+    if not math.isfinite(chunk_threshold) or chunk_threshold > 1.0:
+        raise ProductionGateError(f"{brief_id}: VOICE per-chunk threshold must be finite and at most 100%")
+    if chunk_threshold < MIN_CHUNK_MATCH:
+        raise ProductionGateError(f"{brief_id}: VOICE per-chunk threshold cannot be below {MIN_CHUNK_MATCH:.0%}")
+    language = str(brief.get("lang", "en-us")).lower()
+    if language.startswith("en") and brief.get("whisper_qa", True) is False:
+        raise ProductionGateError(f"{brief_id}: English Whisper TTS QA cannot be disabled")
+    overall_floor = MIN_ENGLISH_OVERALL_MATCH if language.startswith("en") else MIN_CHUNK_MATCH
+    if not math.isfinite(overall_threshold) or overall_threshold > 1.0:
+        raise ProductionGateError(f"{brief_id}: VOICE overall threshold must be finite and at most 100%")
+    if overall_threshold < overall_floor:
+        percent = "90%" if language.startswith("en") else "85%"
+        raise ProductionGateError(f"{brief_id}: VOICE overall threshold cannot be below {percent}")
+    if language.startswith("en") and (voice.get("engine") != "chatterbox" or voice.get("profile") != "option-3"):
+        raise ProductionGateError(f"{brief_id}: English VOICE must use the approved Chatterbox Option-3 profile")
+
+
 def validate_receipt(
     repo_root: Path,
     receipt_path: str,
@@ -279,7 +310,7 @@ def validate_receipt(
 
         stages = item.get("stages")
         if not isinstance(stages, dict) or not set(STAGES) <= set(stages):
-            raise ProductionGateError(f"{brief_id}: receipt must contain the script, voice and assets stages")
+            raise ProductionGateError(f"{brief_id}: receipt must contain the script and assets stages")
         for stage_name in STAGES:
             stage = stages[stage_name]
             if not isinstance(stage, dict) or stage.get("status") != "complete":
@@ -297,32 +328,9 @@ def validate_receipt(
                 f"{brief_id}: SCRIPT word_count must equal the {exact_word_count} spoken words in the current brief"
             )
 
-        voice = stages["voice"]
-        thresholds = voice.get("qa_thresholds")
-        if not isinstance(thresholds, dict):
-            raise ProductionGateError(f"{brief_id}: VOICE must declare immutable QA thresholds")
-        if isinstance(thresholds.get("per_chunk"), bool) or isinstance(thresholds.get("overall"), bool):
-            raise ProductionGateError(f"{brief_id}: VOICE QA thresholds must be numeric, not booleans")
-        try:
-            chunk_threshold = float(thresholds.get("per_chunk"))
-            overall_threshold = float(thresholds.get("overall"))
-        except (TypeError, ValueError) as exc:
-            raise ProductionGateError(f"{brief_id}: VOICE QA thresholds must be numeric") from exc
-        if not math.isfinite(chunk_threshold) or chunk_threshold > 1.0:
-            raise ProductionGateError(f"{brief_id}: VOICE per-chunk threshold must be finite and at most 100%")
-        if chunk_threshold < MIN_CHUNK_MATCH:
-            raise ProductionGateError(f"{brief_id}: VOICE per-chunk threshold cannot be below {MIN_CHUNK_MATCH:.0%}")
-        language = str(brief.get("lang", "en-us")).lower()
-        if language.startswith("en") and brief.get("whisper_qa", True) is False:
-            raise ProductionGateError(f"{brief_id}: English Whisper TTS QA cannot be disabled")
-        overall_floor = MIN_ENGLISH_OVERALL_MATCH if language.startswith("en") else MIN_CHUNK_MATCH
-        if not math.isfinite(overall_threshold) or overall_threshold > 1.0:
-            raise ProductionGateError(f"{brief_id}: VOICE overall threshold must be finite and at most 100%")
-        if overall_threshold < overall_floor:
-            percent = "90%" if language.startswith("en") else "85%"
-            raise ProductionGateError(f"{brief_id}: VOICE overall threshold cannot be below {percent}")
-        if language.startswith("en") and (voice.get("engine") != "chatterbox" or voice.get("profile") != "option-3"):
-            raise ProductionGateError(f"{brief_id}: English VOICE must use the approved Chatterbox Option-3 profile")
+        voice = stages.get("voice")
+        if voice is not None:
+            _check_voice_record(brief_id, brief, voice)
 
         assets = stages["assets"]
         asset_digest = assets.get("manifest_sha256")

@@ -1,7 +1,7 @@
 # Cloud render: one GitHub runner (4 vCPU / 16 GB) per brief, up to 10 in parallel.
 # Public Release publication is opt-in; otherwise QA-passing files remain short-lived Actions artifacts.
 # Start: python3 reels-studio/reels.py cloud <brief-id> [<brief-id> ...] --receipt reels-studio/research/production/receipts/<batch>.json
-# A fresh Buffer Insights snapshot + all six production stages are mandatory before new video renders.
+# A fresh Buffer Insights snapshot + the script and assets stages are required (voice QA runs inside the render) before new video renders.
 name: render
 on:
   workflow_dispatch:
@@ -14,7 +14,7 @@ on:
         required: false
         default: ''
       production_receipt:
-        description: 'Six-stage receipt path under reels-studio/research/production/receipts/ (required for new videos; not needed for scene rebuilds)'
+        description: 'Production receipt path under reels-studio/research/production/receipts/ (script and assets; required for new videos, not needed for scene rebuilds)'
         required: false
         default: ''
       publish_release:

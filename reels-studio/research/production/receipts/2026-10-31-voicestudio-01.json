@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-31-voicestudio-01",
+  "created_at": "2026-10-31T13:04:03Z",
+  "briefs": {
+    "repo-voicestudio-01": {
+      "brief_sha256": "16b8b838c8935f60e8af5271071a3498117f37073d819e4dc5c9ec7aed2d0065",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "e2e398677b0a98e1900d607b0b2e2889240509075d4928b1bbaba2509ca9b49e",
+          "word_count": 107
+        },
+        "assets": {
+          "status": "complete",
+          "capture_id": "repo-voicestudio-01",
+          "manifest_sha256": "8fcde4643a671dd0d38cb732336dd391911c5dcf8fa1d8d8186bfadc35dca882",
+          "files": [
+            {
+              "path": "img-1.jpg",
+              "sha256": "93f518331180a746cf938d2ed17122a4661d8d3709c10c567613c2f609680b02"
+            },
+            {
+              "path": "img-2.jpg",
+              "sha256": "160e5d11e79fdd92b0c1d833bffd516a7a0177c44457d15671eab02c4ac8123c"
+            },
+            {
+              "path": "img-3.jpg",
+              "sha256": "2144ca5bfecd2eaede2e8703348ba067c152f7ec20d14fe02e11c6c6a9711de4"
+            },
+            {
+              "path": "img-4.jpg",
+              "sha256": "a22dfcf42c776db5159c4918c0a4b32a2e186abbf4f695682dcf42248713674f"
+            },
+            {
+              "path": "img-5.jpg",
+              "sha256": "fdfe0274bce66acbf1f3cb2eb9bd35d8ae43f7b5a53d5fd199e3a760315ad002"
+            }
+          ],
+          "evidence": [
+            "captures/repo-voicestudio-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}
