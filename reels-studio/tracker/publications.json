@@ -1770,6 +1770,31 @@
       "updated_at": "2026-10-18T20:55:22Z",
       "video_id": "repo-earshot-01"
     },
+    "repo-edge0-01:facebook": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-10-31T18:11:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:63ba168833e9edd9d818f737748d9b27434cadf206674338eb50988a91438141",
+        "asset_id": 694308885,
+        "asset_size": 8738266,
+        "kit_asset_id": 694308930,
+        "kit_digest": "sha256:102015582f999491c0ff771af14b4ed7efcde417ec733a84a37efd99f3b4b642",
+        "media_path": "media/694308885/repo-edge0-01.mp4",
+        "release_tag": "renders-2026-10-31",
+        "video_id": "repo-edge0-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/694308885/repo-edge0-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "95ad7e0879c6d84fa4cc70c7b50935121323c43b914812494c93dcf9e6b9bac3",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "How Edge0 runs a large model on an Apple Silicon Mac: it reads the model from SSD in parts, not all at once. Preview release.\n\nAI-generated narration.\n\n#localllm #macai #applesilicon",
+      "title": "local AI model: Edge0 runs 35B in 3 GB on a Mac",
+      "updated_at": "2026-10-31T04:16:14Z",
+      "video_id": "repo-edge0-01"
+    },
     "repo-edge0-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6ae56b841891472093b2e9be",
