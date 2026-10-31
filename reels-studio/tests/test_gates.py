@@ -30,12 +30,14 @@ BRIEF = {
                 "pros": ["one win"], "item_at": ["cost", "win"], "say": "one cost one win"},
                {"id": "s4", "type": "endcard", "keyword": "HELLO", "say": "comment hello."}],
     "seo": {"keyword": "hello world", "onscreen_first3s": "hello world",
-            "youtube": {"title": "hello world in one minute", "description": "hello world is a demo tool for testing.",
-                        "hashtags": ["#Shorts", "#demo", "#tools"], "tags": ["hello world", "demo"]},
-            "tiktok": {"caption": "hello world tool in 20 seconds", "hashtags": ["#shorts", "#demo", "#tools"]},
-            "instagram": {"caption": "hello world tool in 20 seconds", "hashtags": ["#shorts", "#demo"]},
-            "facebook": {"caption": "hello world tool in 20 seconds", "hashtags": ["#shorts", "#demo"]},
-            "x": {"text": "hello world tool in 20 seconds", "hashtags": ["#shorts"]}},
+            "youtube": {"title": "hello world in one minute",
+                        "description": "Hello world is a demo tool for testing, shown here in one minute for developers.\n\nTool page: https://example.com/hello\n\n#shorts #helloworld #demo #tools",
+                        "hashtags": ["#shorts", "#helloworld", "#demo", "#tools"],
+                        "tags": ["hello world", "demo tool", "testing tool", "developer demo"]},
+            "tiktok": {"caption": "hello world tool in 20 seconds", "hashtags": ["#helloworld", "#demo", "#tools"]},
+            "instagram": {"caption": "hello world tool in 20 seconds", "hashtags": ["#helloworld", "#demo"]},
+            "facebook": {"caption": "hello world tool in 20 seconds", "hashtags": ["#helloworld", "#demo"]},
+            "x": {"text": "hello world tool in 20 seconds", "hashtags": ["#helloworld"]}},
 }  # error-free apart from the missing capture pack (BL020, warning)
 
 
