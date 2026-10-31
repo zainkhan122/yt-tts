@@ -27,3 +27,6 @@ publishing-report.*
 
 # Designed covers are generated from the capture pack (real product media), not committed
 covers/
+
+# Cloud dispatch gate receipts: one local folder, not versioned (dispatch logs live in GitHub Actions)
+research/maintenance/gates/*-cloud-*.json

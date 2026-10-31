@@ -20,8 +20,8 @@
     "box": [
       0,
       0,
-      1080,
-      950
+      1920,
+      1080
     ],
     "width": 940,
     "x": 70,
@@ -31,6 +31,6 @@
     "type": "none"
   },
   "logo_px": 120,
-  "source_note": "cover-hero.jpg is the composed scene frame: the tool's own README animation (feed) above the record/compress/recall diagram.",
+  "source_note": "cover-hero.jpg is the tool's own README animation frame (3x), the feed the viewer sees.",
   "review": "draft 31 Oct: cover for owner review"
 }
