@@ -1,0 +1,218 @@
+{
+  "id": "repo-claude-mem-01",
+  "capture": "captures/repo-claude-mem-01",
+  "title": "claude-mem: memory for your coding agent, across sessions",
+  "niche": "AI coding tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "claude code memory",
+    "coding agent memory",
+    "persistent context",
+    "open source AI tools"
+  ],
+  "facts": {
+    "stars": "about 107k GitHub stars (GitHub API, 2026-10-31)",
+    "license": "Apache-2.0 (internal field only; not spoken or shown)",
+    "created": "2025-08-31",
+    "last_pushed": "2026-10-31",
+    "description": "Captures what your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode and more.",
+    "method": "installs as a plugin for the agent; records sessions, compresses them into notes, and loads the relevant notes at the start of the next session",
+    "requirements": "Node 20 or newer (README badge); worker runs locally",
+    "limits": "capture depends on the agent integration installed; recall is not automatic for every tool (maker FAQ); not verified: exact install steps",
+    "media_plan": "tool's own README animation (cm-preview) as clip scenes; maker logo on a card; no maker video exists"
+  },
+  "sources": [
+    "https://github.com/thedotmack/claude-mem",
+    "https://api.github.com/repos/thedotmack/claude-mem",
+    "https://claude-mem.ai"
+  ],
+  "verify_before_render": [
+    "Capture pack repo-claude-mem-01 is built from the maker's README animation and logo only. No filming.",
+    "Check the README install section before render: the spoken lines must match it.",
+    "Do not say that every tool is captured automatically; the maker FAQ says capture depends on the integration."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "clip",
+      "src": "loop-scene.mp4",
+      "in": 0.0,
+      "out": 4.0,
+      "heading": "YOUR AGENT FORGETS?",
+      "sub": "claude-mem · open source",
+      "say": "Does your coding agent forget everything the moment you close the session?"
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "image": "img-1.jpg",
+      "heading": "CLAUDE-MEM",
+      "sub": "memory for coding agents",
+      "say": "Claude-mem is open-source coding agent memory: it records what your agent did in each session and keeps the useful parts."
+    },
+    {
+      "id": "record",
+      "type": "clip",
+      "src": "loop-scene.mp4",
+      "in": 4.0,
+      "out": 12.0,
+      "heading": "IT KEEPS THE DECISIONS",
+      "sub": "decisions, discoveries, fixes",
+      "say": "As the agent works, it saves the decisions, the discoveries and the fixes, then compresses them into short notes."
+    },
+    {
+      "id": "recall",
+      "type": "clip",
+      "src": "loop-scene.mp4",
+      "in": 12.0,
+      "out": 20.0,
+      "heading": "NEXT SESSION",
+      "sub": "relevant notes load back in",
+      "say": "When you start a new session, the relevant notes load back in, so the agent can pick up where it stopped."
+    },
+    {
+      "id": "catch",
+      "type": "clip",
+      "heading": "WORKS ACROSS TOOLS",
+      "sub": "Claude Code, Codex, Gemini and more",
+      "say": "It works with several coding agents, but capture depends on the integration you install, so check your setup first.",
+      "src": "loop-scene.mp4",
+      "in": 16.0,
+      "out": 21.0
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "MEMORY",
+      "say": "Do your agent sessions start from zero? Comment MEMORY and I'll pin the link."
+    }
+  ],
+  "seo": {
+    "keyword": "coding agent memory",
+    "aliases": [
+      "claude code memory",
+      "persistent context",
+      "open source AI tools"
+    ],
+    "onscreen_first3s": "YOUR AGENT FORGETS?",
+    "youtube": {
+      "title": "Coding Agent Memory That Keeps Context (Open Source)",
+      "description": "Coding agent memory that saves decisions and fixes from each session and loads them into the next one. Open source.\nTool page: https://github.com/thedotmack/claude-mem\n#shorts #codingagentmemory #claudecode #opensource",
+      "tags": [
+        "coding agent memory",
+        "claude code memory",
+        "persistent context",
+        "AI coding tools",
+        "open source AI tools",
+        "claude-mem"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#codingagentmemory",
+        "#claudecode",
+        "#opensource"
+      ]
+    },
+    "tiktok": {
+      "caption": "Coding agent memory, open source: your next session starts with the useful context.",
+      "hashtags": [
+        "#codingagentmemory",
+        "#claudecode",
+        "#opensource"
+      ]
+    },
+    "instagram": {
+      "caption": "Coding agent memory, open source: your next session starts with the useful context.",
+      "hashtags": [
+        "#codingagentmemory",
+        "#claudecode",
+        "#opensource",
+        "#localai"
+      ]
+    },
+    "facebook": {
+      "caption": "Coding agent memory, open source: decisions and fixes carry over to your next session.",
+      "hashtags": [
+        "#codingagentmemory",
+        "#claudecode",
+        "#opensource"
+      ]
+    },
+    "x": {
+      "text": "Coding agent memory, open source: your next session starts with context.",
+      "hashtags": [
+        "#codingagentmemory"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Do your agent sessions start from zero? Comment MEMORY and I'll pin the link.",
+    "hashtags": [
+      "#shorts",
+      "#codingagent",
+      "#claudecode",
+      "#opensource"
+    ]
+  },
+  "research_basis": [
+    "research/ideas/topics-2026-10-31.md"
+  ],
+  "viewer": {
+    "who": "developers who use coding agents and lose context between sessions",
+    "problem": "the agent forgets decisions and fixes when a session ends",
+    "job": "keep useful context for the next session"
+  },
+  "idea": "claude-mem records the decisions and fixes from each agent session and loads the relevant ones into the next session.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "claude-mem captures agent session activity, compresses it with AI and injects relevant context into later sessions.",
+      "source": "https://github.com/thedotmack/claude-mem"
+    },
+    {
+      "id": "c2",
+      "text": "It works with several coding agents, and capture depends on the integration installed.",
+      "source": "https://claude-mem.ai"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "capture:cm-preview.mp4",
+      "how_shown": "tool's own README animation, record and recall segments"
+    },
+    {
+      "claim": "c2",
+      "evidence": "capture:img-2.jpg",
+      "how_shown": "tool's own animation frame with the integrations line"
+    }
+  ],
+  "treatment": {
+    "audience": "developers who use coding agents",
+    "viewer_job": "keep context between agent sessions",
+    "intent": "search",
+    "hook_mechanic": "question about lost context, answered by the tool",
+    "open_loop": {
+      "plant": "why does my agent forget?",
+      "payoff_scene": "recall"
+    },
+    "proof_moment": "record",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "text": "YOUR AGENT FORGETS?",
+        "visual": "cm-preview.mp4 hero"
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-10-31T13:00:00Z",
+    "expires_at": "2026-11-07",
+    "reviewer": "agent; facts from GitHub API and README on 2026-10-31; owner approval pending",
+    "notes": "Draft. No maker video exists; media is the tool's own README animation. Copy avoids exact figures and licence text. Cover and motion still to design."
+  }
+}
