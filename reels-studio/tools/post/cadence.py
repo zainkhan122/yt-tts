@@ -20,7 +20,7 @@ DAYS = ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
 
 
 def random_offset_minutes(platform, day, slot_idx, cfg):
-    """Deterministic random offset (5-15 min) from a best-time slot.
+    """Deterministic random offset (5-20 min) from a best-time bracket.
 
     Owner 2026-10-30: the 150-minute minimum gap was removed. Each best-time slot gets a
     deterministic random offset so the actual posting time varies naturally. The seed is
@@ -28,7 +28,7 @@ def random_offset_minutes(platform, day, slot_idx, cfg):
     """
     rules = cfg["schedule"].get("random_gap_minutes", {})
     lo = int(rules.get("min", 5))
-    hi = int(rules.get("max", 15))
+    hi = int(rules.get("max", 20))
     seed = f"{platform}:{day.isoformat()}:{slot_idx}".encode()
     digest = hashlib.sha256(seed).hexdigest()
     return int(digest[:8], 16) % (hi - lo + 1) + lo
@@ -196,7 +196,7 @@ def plan(items, records, channels, posts, cfg, now, preview=False, pilot=False, 
                     break
                 if any(abs((due-t).total_seconds()) < settings["minimum_gap_minutes"]*60 for t in events.values()):
                     continue
-                # Owner 2026-10-30: apply deterministic random 5-15 min offset to best-time slot
+                # Owner 2026-10-31: apply deterministic random 5-20 min offset to the best-time bracket
                 due = due + dt.timedelta(minutes=random_offset_minutes(platform, day, idx, cfg))
                 if platform == "youtube" and any(abs((due-t).total_seconds()) < settings.get("short_long_gap_minutes",120)*60 for t in long_events):
                     notes.append(f"youtube: skip {iso(due)} to protect long-video spacing")

@@ -104,6 +104,15 @@ def _buffer_slots(platform: str, report: dict | None, now: dt.datetime) -> tuple
     return slots, "fresh Buffer windows"
 
 
+def buffer_gap_minutes(platform: str, pick_index: int, rules: dict) -> int:
+    """Random gap 5-20 min between Buffer-bracket picks, deterministic per platform and pick index."""
+    import hashlib
+    gap = rules.get("buffer_gap_minutes") or {}
+    lo, hi = int(gap.get("min", 5)), int(gap.get("max", 20))
+    digest = hashlib.sha256(f"gap:{platform}:{pick_index}".encode()).hexdigest()
+    return int(digest[:8], 16) % (hi - lo + 1) + lo
+
+
 def ranked_clocks(insights_posts: dict, platform: str, profile: dict, cfg: dict, want: int,
                   zone: ZoneInfo, windows_report: dict | None = None,
                   now: dt.datetime | None = None) -> tuple[list[str], dict]:
@@ -140,12 +149,16 @@ def ranked_clocks(insights_posts: dict, platform: str, profile: dict, cfg: dict,
         if buffer_slots:
             # Buffer's slots are many and nearly all used once, so their order alone says little. Keep the
             # researched evening window first, then the rest, and space picks apart so they do not cluster.
-            in_win = [_to_min(c) for c in buffer_slots if _to_min(lo) <= _to_min(c) <= _to_min(hi)]
-            rest = [_to_min(c) for c in buffer_slots if _to_min(c) not in in_win]
-            # rest: nearest to the researched window first, so 07:00 comes before 06:06
+            # Owner 2026-10-31: a Buffer slot is a time BRACKET, not an exact time. Each slot maps to its
+            # bracket start (30-minute bracket); the real posting time is bracket + random offset (cadence).
+            bracket = int(rules.get("buffer_bracket_minutes", 30))
+            brackets = sorted({_to_min(c) // bracket * bracket for c in buffer_slots})
+            in_win = [m for m in brackets if _to_min(lo) <= m <= _to_min(hi)]
+            rest = [m for m in brackets if m not in in_win]
+            # rest: nearest to the researched window first, so 07:00 comes before 06:00
             rest.sort(key=lambda m: min(abs(m - _to_min(lo)), abs(m - _to_min(hi))))
             candidates = in_win + rest
-            spacing = max(gap, int(rules.get("buffer_spacing_minutes", 60)))
+            spacing = None  # per pick, below
             provenance["fallback_source"] = "buffer-windows"
             provenance["fallback_slots_by_use"] = buffer_slots[:40]
         else:
@@ -157,7 +170,9 @@ def ranked_clocks(insights_posts: dict, platform: str, profile: dict, cfg: dict,
         for m in candidates:
             if len(clocks) >= want:
                 break
-            if all(abs(m - _to_min(c)) >= spacing for c in clocks):
+            if spacing is None:
+                need = buffer_gap_minutes(platform, len(clocks), rules)
+            if all(abs(m - _to_min(c)) >= (need if spacing is None else spacing) for c in clocks):
                 clocks.append(_clock(m))
                 added.append(_clock(m))
         provenance["fallback_clocks"] = added

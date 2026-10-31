@@ -74,7 +74,13 @@
       "rule_owner": "2026-10-21",
       "sequence_rule": "k-th short of a channel day takes that channel's k-th best hour; each slot gets a random 5-15 minute offset (deterministic per platform+day+slot); the 150-minute minimum gap was removed (owner 2026-10-30)",
       "slot_source": "tracker/buffer-insights.json (read-only Buffer Insights snapshot)",
-      "buffer_spacing_minutes": 60
+      "buffer_bracket_minutes": 30,
+      "buffer_gap_minutes": {
+        "min": 5,
+        "max": 20,
+        "rule": "random gap between picks, deterministic per platform+pick index",
+        "rule_owner": "2026-10-31"
+      }
     },
     "daily_target": 3,
     "daily_target_overrides": {
@@ -307,10 +313,10 @@
       }
     },
     "random_gap_minutes": {
-      "max": 15,
+      "max": 20,
       "min": 5,
-      "rule": "deterministic CSPRNG per platform+day+slot_index; offset added to best-time hour",
-      "rule_owner": "2026-10-30"
+      "rule": "deterministic CSPRNG per platform+day+slot_index; offset added to the best-time bracket",
+      "rule_owner": "2026-10-31"
     },
     "required_daily_categories": [],
     "short_long_gap_minutes": 120,

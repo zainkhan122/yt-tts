@@ -80,12 +80,20 @@ class FetchWithFakeClient(unittest.TestCase):
         self.assertEqual(out[0]["service"], "youtube")
 
 
+class RandomGap(unittest.TestCase):
+    def test_gap_is_between_five_and_twenty_minutes(self):
+        rules = {}
+        gaps = {bt.buffer_gap_minutes("youtube", i, rules) for i in range(200)}
+        self.assertTrue(gaps <= set(range(5, 21)), gaps)
+        self.assertGreater(len(gaps), 3)  # varies, not one fixed value
+
+
 class BestTimesFallback(unittest.TestCase):
     def test_fresh_buffer_windows_replace_the_researched_window(self):
         report = bw.build([channel("youtube", SLOTS)], NOW)
         clocks, prov = bt.ranked_clocks({}, "youtube", {"timezone": "America/New_York"}, CFG, 2, NY,
                                         windows_report=report, now=NOW)
-        self.assertEqual(clocks, ["18:30", "09:00"])  # evening slot first, then nearest to 18:00-21:00
+        self.assertEqual(clocks, ["18:30", "19:00"])  # evening brackets first (30-minute brackets, not exact times)
         self.assertEqual(prov["fallback_source"], "buffer-windows")
 
     def test_evening_buffer_slot_first_and_picks_spaced_apart(self):
@@ -93,7 +101,9 @@ class BestTimesFallback(unittest.TestCase):
         report = bw.build([channel("facebook", slots)], NOW)
         clocks, prov = bt.ranked_clocks({}, "facebook", {"timezone": "America/New_York"}, CFG, 2, NY,
                                         windows_report=report, now=NOW)
-        self.assertEqual(clocks, ["18:30", "07:00"])   # 19:00 is inside 60 min of 18:30; 06:06/06:08 cluster
+        # brackets: 18:30, 19:00 are evening; 06:00 and 07:00 are the rest. Picks are bracket starts.
+        self.assertEqual(clocks, ["18:30", "19:00"])
+        self.assertTrue(all(c.endswith(":00") or c.endswith(":30") for c in clocks))
         self.assertEqual(prov["fallback_source"], "buffer-windows")
 
     def test_stale_windows_fall_back_and_say_why(self):
