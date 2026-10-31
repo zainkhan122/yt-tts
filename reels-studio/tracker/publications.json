@@ -1884,9 +1884,11 @@
     },
     "repo-edge0-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6ae56b9ceaa24d6f9a559b6c",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-31T20:10:00Z",
+      "due_at": "2026-10-31T20:10:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:63ba168833e9edd9d818f737748d9b27434cadf206674338eb50988a91438141",
         "asset_id": 694308885,
@@ -1901,10 +1903,11 @@
       "notify_subscribers": false,
       "payload_sha256": "4d5420dd763f3474bc475330aaed4e18db4c3fc18da3aa6a11dc1088cca18568",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "A 35B model running on a Mac with a few GB of memory. The model streams from SSD. Preview release, Apache-2.0.\n\n#localllm #macai #applesilicon",
       "title": "local AI model: Edge0 runs 35B in 3 GB on a Mac",
-      "updated_at": "2026-10-31T04:16:26Z",
+      "updated_at": "2026-10-31T04:16:28Z",
       "video_id": "repo-edge0-01"
     },
     "repo-edge0-01:youtube": {
