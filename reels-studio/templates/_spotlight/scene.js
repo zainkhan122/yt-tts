@@ -589,8 +589,13 @@
             const im = A.mk("img", "", inn);
             im.src = "assets/" + s.img.file;
             focusMotion(im, 960, cardH, s.img.w, s.img.h, s.focus, t0, t1);
-            tl.fromTo(card, { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.32,
-                      ease: "back.out(1.6)", immediateRender: false }, t0 + 0.05);
+            if (cover) {  // frame 0 is the cover: the tool visual is on screen from the first frame
+              card.style.opacity = "1";
+              tl.fromTo(card, { scale: 0.94 }, { scale: 1, duration: 0.36, ease: "power3.out" }, 0);
+            } else {
+              tl.fromTo(card, { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.32,
+                        ease: "back.out(1.6)", immediateRender: false }, t0 + 0.05);
+            }
           }
           // Side-by-side panels. Each panel: a crop-zoom of the tool's own UI (left/right
           // {image, img, focus, label, levels}) and an animated level bar drawn from the
