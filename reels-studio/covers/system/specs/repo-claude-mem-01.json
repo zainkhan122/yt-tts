@@ -1,0 +1,36 @@
+{
+  "brief": "repo-claude-mem-01",
+  "headline": [
+    "YOUR AGENT",
+    "FORGETS EVERYTHING?"
+  ],
+  "headline_size": 128,
+  "accent": [
+    250,
+    204,
+    21
+  ],
+  "bg_top": [
+    14,
+    20,
+    36
+  ],
+  "hero": {
+    "img": "cover-hero.jpg",
+    "box": [
+      0,
+      0,
+      1080,
+      940
+    ],
+    "width": 940,
+    "x": 70,
+    "y": 690
+  },
+  "cue": {
+    "type": "none"
+  },
+  "logo_px": 120,
+  "source_note": "cover-hero.jpg is the composed scene frame: the tool's own README animation (feed) above the record/compress/recall diagram.",
+  "review": "draft 31 Oct: cover for owner review"
+}
