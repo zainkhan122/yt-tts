@@ -272,11 +272,11 @@ def cmd_cloud(a):
 
 
 def preflight_local_render(briefs, receipt, *, no_render=False, rebuild_scenes="", repo_root=REPO):
-    """Enforce the same six-stage/score/Insights/asset contract on local full renders."""
+    """Enforce the same script/voice/asset contract on local full renders."""
     if no_render or rebuild_scenes:
         return None
     if not receipt:
-        raise SystemExit("local full renders require --receipt with all six completed stages; use --no-render for layout-only iteration")
+        raise SystemExit("local full renders require --receipt with all the script, voice and assets stages; use --no-render for layout-only iteration")
     sys.path.insert(0, str(ROOT))
     from lib.delivery import DeliveryError, validate_ids
     from tools.production_gate import validate_receipt
@@ -430,7 +430,7 @@ def main():
         p.add_argument("--rebuild-scenes", default="", help="re-render only these scene ids (cloud rebuild mode)")
         p.add_argument("--rebuild-reason", default="", help="why this rebuild (recorded in the manifest)")
         p.add_argument("--from-tag", default="", help="release tag holding the previous kit+mp4 for a rebuild")
-        p.add_argument("--receipt", default="", help="six-stage production receipt; required for any non-rebuild video render")
+        p.add_argument("--receipt", default="", help="production receipt (script, voice, assets); required for any non-rebuild video render")
     sub.add_parser("templates")
     sub.add_parser("doctor")
     p = sub.add_parser("new")
@@ -452,7 +452,7 @@ def main():
     p.add_argument("--tag", default="", help="GitHub Release tag (default: renders-YYYY-MM-DD in Asia/Karachi)")
     p.add_argument("--quality", default="looks")
     p.add_argument("--crf", default="23")
-    p.add_argument("--receipt", default="", help="six-stage receipt path under research/production/receipts/")
+    p.add_argument("--receipt", default="", help="production receipt path under research/production/receipts/")
     p.add_argument("--publish-release", action="store_true", help="explicitly authorize public GitHub Release publication after QA")
     p.add_argument("--wait", action="store_true", help="wait for QA; print Release URL only when --publish-release was set")
     p = sub.add_parser("scenes", help="per-scene manifest of a published render (windows, digests, assets)")

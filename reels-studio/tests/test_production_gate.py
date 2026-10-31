@@ -119,21 +119,6 @@ class ProductionGateTests(unittest.TestCase):
         self.assertEqual(result["briefs"]["one"]["script_sha256"], script_sha256(self.brief))
         self.assertEqual(script_word_count(self.brief), 6)
 
-    def test_discovery_must_have_a_fresh_timezone_aware_timestamp(self):
-        discover = self.receipt["briefs"]["one"]["stages"]["discover"]
-        del discover["checked_at"]
-        self.receipt_path.write_text(json.dumps(self.receipt), encoding="utf-8")
-        with self.assertRaisesRegex(ProductionGateError, "DISCOVER evidence timestamp is missing"):
-            self.validate()
-        discover["checked_at"] = "2026-10-12T23:59:59Z"  # just over the 36-hour limit
-        self.receipt_path.write_text(json.dumps(self.receipt), encoding="utf-8")
-        with self.assertRaisesRegex(ProductionGateError, "DISCOVER evidence is stale"):
-            self.validate()
-        discover["checked_at"] = "not-a-timezone"
-        self.receipt_path.write_text(json.dumps(self.receipt), encoding="utf-8")
-        with self.assertRaisesRegex(ProductionGateError, "timestamp is invalid"):
-            self.validate()
-
     def test_script_word_count_must_match_spoken_form_not_display_markup(self):
         brief = {"scenes": [{"id": "hook", "say": "A {8,000|eight thousand} token window. 🚀"}]}
         self.assertEqual(script_word_count(brief), 5)
@@ -159,30 +144,13 @@ class ProductionGateTests(unittest.TestCase):
     def test_missing_stage_fails_closed(self):
         del self.receipt["briefs"]["one"]["stages"]["assets"]
         self.receipt_path.write_text(json.dumps(self.receipt), encoding="utf-8")
-        with self.assertRaisesRegex(ProductionGateError, "exactly the six"):
-            self.validate()
-
-    def test_stale_or_incomplete_buffer_snapshot_fails(self):
-        self.snapshot["complete"] = False
-        new_raw = (json.dumps(self.snapshot, ensure_ascii=False, indent=2, sort_keys=True) + "\n").encode()
-        self.snapshot_path.write_bytes(new_raw)
-        self.receipt["buffer_insights"]["sha256"] = sha256_bytes(new_raw)
-        self.receipt["metrics_review"]["snapshot_sha256"] = sha256_bytes(new_raw)
-        self.receipt["briefs"]["one"]["stages"]["select"]["metrics_snapshot_sha256"] = sha256_bytes(new_raw)
-        self.receipt_path.write_text(json.dumps(self.receipt), encoding="utf-8")
-        with self.assertRaisesRegex(ProductionGateError, "incomplete"):
+        with self.assertRaisesRegex(ProductionGateError, "script, voice and assets"):
             self.validate()
 
     def test_script_mutation_after_receipt_fails(self):
         self.brief["scenes"][0]["say"] += " Changed."
         self.brief_path.write_text(json.dumps(self.brief), encoding="utf-8")
         with self.assertRaisesRegex(ProductionGateError, "brief changed"):
-            self.validate()
-
-    def test_missing_metrics_decision_fails(self):
-        del self.receipt["briefs"]["one"]["metrics_decisions"]["voice"]
-        self.receipt_path.write_text(json.dumps(self.receipt), encoding="utf-8")
-        with self.assertRaisesRegex(ProductionGateError, "voice"):
             self.validate()
 
     def test_english_whisper_qa_cannot_be_disabled_by_brief(self):

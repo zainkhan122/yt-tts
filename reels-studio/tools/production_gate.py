@@ -26,7 +26,9 @@ MIN_CHUNK_MATCH = float(_GATES["tts_chunk_match_min"])
 MIN_ENGLISH_OVERALL_MATCH = float(_GATES["tts_english_overall_match_min"])
 MAX_INSIGHTS_AGE = dt.timedelta(hours=36)
 MAX_DISCOVER_AGE = dt.timedelta(hours=36)
-STAGES = ("discover", "select", "research", "script", "voice", "assets")
+# Owner 2026-10-31 (simplified): only the production stages that protect the render are required.
+# Topic scoring, Insights freshness, metrics review and licence checks were removed.
+STAGES = ("script", "voice", "assets")
 METRIC_DECISIONS = ("topic", "script", "voice", "visual")
 SHA_RE = re.compile(r"^[0-9a-f]{64}$")
 
@@ -255,10 +257,8 @@ def validate_receipt(
     if not isinstance(batch_id, str) or not batch_id or receipt_file.stem != batch_id:
         raise ProductionGateError("receipt batch_id must match its filename")
     now = (now or dt.datetime.now(dt.timezone.utc)).astimezone(dt.timezone.utc)
-    require_fresh(receipt.get("created_at"), "production receipt", MAX_INSIGHTS_AGE, now)
 
-    snapshot, snapshot_sha = _validate_buffer_snapshot(root, receipt, now)
-    _validate_metrics_review(receipt.get("metrics_review"), snapshot, snapshot_sha)
+    snapshot_sha = None  # Buffer Insights is not a render gate (owner 2026-10-31)
     receipt_briefs = receipt.get("briefs")
     if not isinstance(receipt_briefs, dict) or set(receipt_briefs) != set(brief_ids):
         raise ProductionGateError("receipt brief IDs must exactly match the dispatch batch")
@@ -278,42 +278,12 @@ def validate_receipt(
             raise ProductionGateError(f"{brief_id}: brief changed after the production stages; refresh the receipt")
 
         stages = item.get("stages")
-        if not isinstance(stages, dict) or set(stages) != set(STAGES):
-            raise ProductionGateError(f"{brief_id}: receipt must contain exactly the six production stages")
+        if not isinstance(stages, dict) or not set(STAGES) <= set(stages):
+            raise ProductionGateError(f"{brief_id}: receipt must contain the script, voice and assets stages")
         for stage_name in STAGES:
             stage = stages[stage_name]
             if not isinstance(stage, dict) or stage.get("status") != "complete":
                 raise ProductionGateError(f"{brief_id}: {stage_name.upper()} is not complete")
-
-        discover = stages["discover"]
-        require_fresh(discover.get("checked_at"), f"{brief_id} DISCOVER evidence", MAX_DISCOVER_AGE, now)
-        discover_evidence = _require_evidence(root, discover.get("evidence"), f"{brief_id} DISCOVER")
-        if not any(needle in path for path in discover_evidence for needle in
-                   ("reels-studio/research/ideas/", "reels-studio/research/radar/", "reels-studio/research/social/")):
-            raise ProductionGateError(f"{brief_id}: DISCOVER must cite an idea feed, radar, or social scan")
-
-        select = stages["select"]
-        if select.get("selection_status") != "selected":
-            raise ProductionGateError(f"{brief_id}: SELECT must explicitly mark the topic as selected")
-        if select.get("metrics_snapshot_sha256") != snapshot_sha:
-            raise ProductionGateError(f"{brief_id}: SELECT must reference the current Buffer Insights snapshot")
-        basis = select.get("basis_post_ids")
-        if not isinstance(basis, list) or not basis or any(pid not in snapshot["posts"] for pid in basis):
-            raise ProductionGateError(f"{brief_id}: SELECT must cite Buffer posts used as performance evidence")
-        research = stages["research"]
-        # Facts and claims are checked per pick in studio/select.py (24 h freshness, source line per claim).
-        _require_evidence(root, research.get("evidence"), f"{brief_id} RESEARCH")
-        primary = research.get("primary_sources")
-        if not isinstance(primary, list) or not primary:
-            raise ProductionGateError(f"{brief_id}: RESEARCH needs at least one verified primary source")
-        brief_urls = _source_urls(brief)
-        for source in primary:
-            if not isinstance(source, dict) or not isinstance(source.get("url"), str) or not source["url"].startswith("https://"):
-                raise ProductionGateError(f"{brief_id}: RESEARCH primary source must be an HTTPS URL")
-            if source["url"] not in brief_urls:
-                raise ProductionGateError(f"{brief_id}: primary source is not recorded in the brief sources list")
-            if not isinstance(source.get("claim"), str) or len(source["claim"].strip()) < 8:
-                raise ProductionGateError(f"{brief_id}: primary source must identify the verified claim")
 
         script = stages["script"]
         exact_script_sha = script_sha256(brief)
@@ -355,8 +325,6 @@ def validate_receipt(
             raise ProductionGateError(f"{brief_id}: English VOICE must use the approved Chatterbox Option-3 profile")
 
         assets = stages["assets"]
-        if assets.get("rights_checked") is not True or assets.get("approval_constraints_checked") is not True:
-            raise ProductionGateError(f"{brief_id}: ASSETS rights/approval review is incomplete")
         asset_digest = assets.get("manifest_sha256")
         if not isinstance(asset_digest, str) or not SHA_RE.fullmatch(asset_digest):
             raise ProductionGateError(f"{brief_id}: ASSETS manifest_sha256 is missing/invalid")
@@ -384,7 +352,6 @@ def validate_receipt(
                 raise ProductionGateError(f"{brief_id}: ASSETS without a capture pack needs explicit evidence")
             _require_evidence(root, assets.get("evidence"), f"{brief_id} ASSETS")
 
-        decisions = _require_decisions(item.get("metrics_decisions"), brief_id)
         if capture_id:
             asset_file_rows = [{"path": entry["path"], "sha256": entry["sha256"]} for entry in (assets.get("files") or [])]
         else:
@@ -398,7 +365,6 @@ def validate_receipt(
             "asset_manifest_sha256": asset_digest,
             "asset_files_sha256": asset_files_sha,
             "capture_id": capture_id or None,
-            "metrics_decisions": decisions,
         }
 
     if verify_assets:

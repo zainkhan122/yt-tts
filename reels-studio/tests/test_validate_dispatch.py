@@ -162,7 +162,7 @@ class DispatchPlanTests(unittest.TestCase):
             self.plan(tag="refs/heads/main")
 
     def test_new_render_requires_receipt_and_scene_rebuild_remains_available(self):
-        with self.assertRaisesRegex(ValueError, "require a six-stage"):
+        with self.assertRaisesRegex(ValueError, "require a production receipt"):
             plan_dispatch("one", briefs_root=self.briefs, repo_root=self.repo)
         result = plan_dispatch("one", briefs_root=self.briefs, repo_root=self.repo,
                                rebuild_scenes="hook", rebuild_reason="fix scene label", from_tag="renders-2026-10-10")
@@ -180,7 +180,7 @@ class DispatchPlanTests(unittest.TestCase):
 
     def test_receipt_with_unfinished_stage_is_rejected(self):
         self._write_receipt(stage_status="pending")
-        with self.assertRaisesRegex(ValueError, "DISCOVER is not complete"):
+        with self.assertRaisesRegex(ValueError, "is not complete"):
             self.plan()
 
     def test_selection_must_be_explicit_not_scored(self):

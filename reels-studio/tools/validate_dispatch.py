@@ -36,7 +36,7 @@ def plan_dispatch(
     today: datetime.date | None = None,
     now: datetime.datetime | None = None,
 ) -> dict:
-    """Validate inputs, six-stage receipts, assets metadata and deterministic attempt keys."""
+    """Validate inputs, production receipts, assets metadata and deterministic attempt keys."""
     briefs_root = Path(briefs_root or ROOT / "briefs")
     repo_root = Path(repo_root or REPO_ROOT).resolve()
     raw = raw_briefs.replace(",", " ").split()
@@ -105,7 +105,7 @@ def plan_dispatch(
         asset_hashes = {}
     else:
         if not production_receipt.strip():
-            raise ValueError("new renders require a six-stage production receipt; scene rebuilds are exempt")
+            raise ValueError("new renders require a production receipt (script, voice, assets); scene rebuilds are exempt")
         result = production_gate.validate_receipt(repo_root, production_receipt.strip(), ids, now=now)
         asset_hashes = {
             brief_id: {"manifest_sha256": row["asset_manifest_sha256"],
