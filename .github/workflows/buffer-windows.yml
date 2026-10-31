@@ -1,0 +1,58 @@
+# Weekly refresh of Buffer's posting windows per channel (owner 31 Oct 2026).
+# Read-only: it asks Buffer for each channel's postingSchedule and commits tracker/buffer-windows.json
+# when it changed. best_times uses this snapshot as the fallback slots; a snapshot older than 8 days is not used.
+name: Buffer posting windows (weekly, read-only)
+on:
+  workflow_dispatch:
+  schedule:
+    # Mondays 04:00 UTC: fresh windows before the week's posting plan is drawn.
+    - cron: '0 4 * * 1'
+permissions:
+  contents: read
+concurrency:
+  group: hypeless-buffer-windows
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            /reels-studio/config/publishing.json
+            /reels-studio/tools/post/
+            /reels-studio/lib/
+            /reels-studio/tracker/buffer-windows.json
+          sparse-checkout-cone-mode: false
+          filter: blob:none
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the read-only client dependency
+        run: python3 -m pip install 'requests>=2.32.3,<3'
+      - name: Read Buffer posting windows and write the snapshot
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          PYTHONUNBUFFERED: '1'
+        run: python3 reels-studio/tools/post/buffer_windows.py
+      - name: Commit the snapshot only if it changed
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          git config user.name "studio-bot"
+          git config user.email "studio@local"
+          git add reels-studio/tracker/buffer-windows.json
+          if git diff --cached --quiet; then
+            echo "Buffer windows unchanged; nothing to commit."
+            exit 0
+          fi
+          git commit -m "buffer windows: weekly refresh $(date -u +%Y-%m-%d)"
+          for attempt in 1 2 3; do
+            git pull --rebase -q origin main && git push -q origin HEAD:main && exit 0
+            sleep 5
+          done
+          echo "push failed after retries" >&2
+          exit 1

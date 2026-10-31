@@ -14,6 +14,7 @@ from zoneinfo import ZoneInfo
 from tools.post.common import PENDING, RETRYABLE, TERMINAL, ROOT, iso, key, load_json, media_url, parse_time
 from tools.post import planner as copy_rules
 from tools.post import best_times
+from tools.post import buffer_windows
 
 DAYS = ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
 
@@ -181,7 +182,8 @@ def plan(items, records, channels, posts, cfg, now, preview=False, pilot=False, 
                     day += dt.timedelta(days=1)
                     continue
                 day_target = min(count, settings.get("max_videos_per_day", 10))
-                clocks, provenance = best_times.ranked_clocks(insights, platform, profile, cfg, day_target, zone)
+                clocks, provenance = best_times.ranked_clocks(insights, platform, profile, cfg, day_target, zone,
+                                                              windows_report=buffer_windows.load())
                 planned_provenance.setdefault(platform, {})[day.isoformat()] = provenance
             else:
                 clocks = clocks_for(profile, day, day_target, settings)

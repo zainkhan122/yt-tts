@@ -92,8 +92,21 @@ def _clock(minutes: int) -> str:
     return f"{minutes // 60:02d}:{minutes % 60:02d}"
 
 
+def _buffer_slots(platform: str, report: dict | None, now: dt.datetime) -> tuple[list[str], str]:
+    """Buffer's windows for this platform, or ([], reason) when they cannot be used."""
+    from tools.post import buffer_windows as bw
+    ok, why = bw.is_fresh(report, now)
+    if not ok:
+        return [], why
+    slots = (report["platforms"].get(platform) or {}).get("clocks_by_use") or []
+    if not slots:
+        return [], f"no Buffer window for {platform}"
+    return slots, "fresh Buffer windows"
+
+
 def ranked_clocks(insights_posts: dict, platform: str, profile: dict, cfg: dict, want: int,
-                  zone: ZoneInfo) -> tuple[list[str], dict]:
+                  zone: ZoneInfo, windows_report: dict | None = None,
+                  now: dt.datetime | None = None) -> tuple[list[str], dict]:
     """Best `want` distinct clocks for one channel, best first.
 
     The 150-minute minimum gap was removed (owner 2026-10-30); all ranked hours are eligible.
@@ -119,17 +132,27 @@ def ranked_clocks(insights_posts: dict, platform: str, profile: dict, cfg: dict,
         # Owner rule 2026-10-21: without enough data for this channel, post in the 18:00–21:00
         # window (channel time zone). Candidates are every 30 minutes in that window; the minimum
         # gap still applies, so the window holds at most floor(180/gap)+1 slots.
-        lo, hi = (rules.get("fallback_window") or ["18:00", "21:00"])
-        lo_m, hi_m = _to_min(lo), _to_min(hi)
+        # Owner 31 Oct 2026: the fallback is Buffer's own posting windows for the channel (refreshed weekly
+        # by tools/post/buffer_windows.py). A stale or missing snapshot falls back to the researched window.
+        buffer_slots, why = _buffer_slots(platform, windows_report, now or dt.datetime.now(dt.timezone.utc))
+        if buffer_slots:
+            candidates = [_to_min(c) for c in buffer_slots]
+            provenance["fallback_source"] = "buffer-windows"
+            provenance["fallback_slots_by_use"] = buffer_slots
+        else:
+            lo, hi = (rules.get("fallback_window") or ["18:00", "21:00"])
+            candidates = list(range(_to_min(lo), _to_min(hi) + 1, 30))
+            provenance["fallback_source"] = "researched-window"
+            provenance["fallback_window"] = [lo, hi]
+        provenance["fallback_note"] = why
         added = []
-        for m in range(lo_m, hi_m + 1, 30):
+        for m in candidates:
             if len(clocks) >= want:
                 break
             if all(abs(m - _to_min(c)) >= gap for c in clocks):
                 clocks.append(_clock(m))
                 added.append(_clock(m))
         provenance["fallback_clocks"] = added
-        provenance["fallback_window"] = [lo, hi]
     return clocks[:want], provenance
 
 

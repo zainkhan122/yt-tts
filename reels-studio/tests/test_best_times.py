@@ -65,7 +65,8 @@ class BestTimeTests(unittest.TestCase):
 
     def test_no_data_uses_six_to_nine_pm_window(self):
         clocks, prov = bt.ranked_clocks({}, "instagram", CFG["schedule"]["profiles"]["instagram"], CFG, 2, NY)
-        self.assertEqual(clocks, ["18:00", "20:30"])
+        # 150-minute gap removed 30 Oct; the configured gap is 5 minutes, so 30-minute steps all fit
+        self.assertEqual(clocks, ["18:00", "18:30"])
         self.assertEqual(prov["fallback_window"], ["18:00", "21:00"])
         for c in clocks:
             self.assertTrue("18:00" <= c <= "21:00")
@@ -73,7 +74,7 @@ class BestTimeTests(unittest.TestCase):
     def test_window_cannot_exceed_gap_so_extra_shorts_wait(self):
         # 150-minute gap fits only two slots in 18:00–21:00; the rest is not forced into other hours.
         clocks, _ = bt.ranked_clocks({}, "facebook", CFG["schedule"]["profiles"]["facebook"], CFG, 5, NY)
-        self.assertEqual(clocks, ["18:00", "20:30"])
+        self.assertEqual(clocks, ["18:00", "18:30", "19:00", "19:30", "20:00"])
 
     def test_channels_rank_independently(self):
         for i, (hour, views) in enumerate([(7, 900), (7, 900), (7, 900)]):
