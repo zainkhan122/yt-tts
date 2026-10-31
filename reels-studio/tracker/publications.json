@@ -2142,9 +2142,11 @@
     },
     "repo-impeccable-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6ae56b8d1891472093b2ea62",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-31T16:15:00Z",
+      "due_at": "2026-10-31T16:15:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:07df2019167f1106493678094d19d9d8ff725bb1b1d2e58cc9b8d7c8fef1fb45",
         "asset_id": 694309088,
@@ -2159,10 +2161,11 @@
       "notify_subscribers": false,
       "payload_sha256": "e684cccd298364e098dddefd8aaeeac101880e990a4a48f32696efc334e0adaf",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Impeccable adds a design vocabulary to a coding agent. The before and after use the same model and the same brief.\n\nAI-generated narration.\n\n#claudecode #frontenddesign #webdesign",
       "title": "impeccable coding agent: the same AI, a different design",
-      "updated_at": "2026-10-31T04:16:11Z",
+      "updated_at": "2026-10-31T04:16:13Z",
       "video_id": "repo-impeccable-01"
     },
     "repo-impeccable-01:instagram": {
