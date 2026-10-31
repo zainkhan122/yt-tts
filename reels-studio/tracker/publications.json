@@ -3094,9 +3094,11 @@
     },
     "repo-voicestudio-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6ae618bfab019b908712e11d",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-11-01T22:11:00Z",
+      "due_at": "2026-11-01T22:11:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:473feda9e489a4b14c61a962dc1d9ea11813b054ac53d7a40efa5a1d96d2d318",
         "asset_id": 695873927,
@@ -3111,10 +3113,11 @@
       "notify_subscribers": true,
       "payload_sha256": "679aa7eaac241586894cd3f6290f341025fcb2f83b0f38a30252f74abad36fda",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "VoiceStudio clones voices, designs new ones and dubs video, all on your computer.\n\nTool page: https://github.com/debpalash/VoiceStudio\n\n#shorts #voicecloning #aidubbing #localai\n\n#shorts #voicecloning #aidubbing #localai",
       "title": "Clone and dub voices on your own machine (open source)",
-      "updated_at": "2026-10-31T16:35:10Z",
+      "updated_at": "2026-10-31T16:35:11Z",
       "video_id": "repo-voicestudio-01"
     },
     "repo-vvv-01:facebook": {
