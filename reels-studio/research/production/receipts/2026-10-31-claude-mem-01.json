@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-31-claude-mem-01",
+  "created_at": "2026-10-31T18:16:17Z",
+  "briefs": {
+    "repo-claude-mem-01": {
+      "brief_sha256": "31497283fdda3fd047fccf4e3c4c0403b63b1abb00c859c6f62dc0c578fc2aa1",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "a475cd14814577f0ede4e024560b4795a9d826860b28f4668a94ddacc532a7ca",
+          "word_count": 105
+        },
+        "assets": {
+          "status": "complete",
+          "capture_id": "repo-claude-mem-01",
+          "manifest_sha256": "c554383d4456ea36afcfc7cc6f8226482f653ebc7b2ed21918f3759382742a3b",
+          "files": [
+            {
+              "path": "claude-mem-logo-for-light-mode.webp",
+              "sha256": "1aa342d465ebc7fddd00f57b1037a84f1a4859038ae210e228b56b21f63a56fc"
+            },
+            {
+              "path": "cm-preview.gif",
+              "sha256": "13e1d2ab12090b1a155298ea77d1a567efb6041d047159a5b41d1e7c4101784c"
+            },
+            {
+              "path": "cm-preview.mp4",
+              "sha256": "a62667b8a23ef3de08019bd5b1c326deeba76806005fca700b716bb09e420460"
+            },
+            {
+              "path": "cover-hero.jpg",
+              "sha256": "924c502bb8d762061b7623db954ac349953fb89eb8a45848b7c50a5825f95ce2"
+            },
+            {
+              "path": "img-1.jpg",
+              "sha256": "5e9de940397342f108174dd74d84e414c7d89b36344a7d83fa206af90656ba99"
+            },
+            {
+              "path": "img-2.jpg",
+              "sha256": "8235a142931cf7e23cfd40b24cc0d2af3262d6c099de60078421340b974e8e96"
+            },
+            {
+              "path": "loop-scene.mp4",
+              "sha256": "9cb3e0e9760d8cc110288d32219efc4ec4daf5eb7c06adcf25844d4a54e5dc1d"
+            }
+          ],
+          "evidence": [
+            "captures/repo-claude-mem-01/manifest.json"
+          ],
+          "cover_sha256": "06c71f55adac2c7827f35a6124553b032a554c6ade54f02e4bb0cda4a08292f2"
+        }
+      }
+    }
+  }
+}
