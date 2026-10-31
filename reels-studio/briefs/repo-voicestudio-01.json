@@ -1,0 +1,276 @@
+{
+  "id": "repo-voicestudio-01",
+  "capture": "captures/repo-voicestudio-01",
+  "title": "VoiceStudio: clone, dub and design voices on your own machine",
+  "niche": "AI voice tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "voice cloning",
+    "AI dubbing",
+    "local AI voice",
+    "ElevenLabs alternative",
+    "open source"
+  ],
+  "facts": {
+    "stars": "about 96k GitHub stars (GitHub API, 2026-10-31)",
+    "language": "desktop app",
+    "created": "2026-04-09",
+    "last_pushed": "2026-10-31",
+    "description": "Open-source, fully-local ElevenLabs alternative: voice cloning, voice design, video dubbing, dictation, transcription and audiobook creation (GitHub description)",
+    "method": "runs on the user's own machine; clone a voice from a sample, design a voice, dub a video into other languages (README and in-app screens)",
+    "requirements": "desktop app (README download section)",
+    "limits": "not verified in this brief: model downloads and hardware needs; check README before render",
+    "media_plan": "maker's own README images: voice cloning, dubbing, voice design, overview, models (captures/repo-voicestudio-01)"
+  },
+  "sources": [
+    "https://github.com/debpalash/VoiceStudio",
+    "https://api.github.com/repos/debpalash/VoiceStudio"
+  ],
+  "verify_before_render": [
+    "Capture pack repo-voicestudio-01 is built from the maker's README images only. No filming.",
+    "Check the README for hardware and model-download requirements before any claim about speed or cost.",
+    "Do not state exact star counts or language counts in copy.",
+    "Licence is not part of any copy (owner 30 Oct)."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "img-1.jpg",
+      "heading": "CLONE A VOICE ON YOUR MACHINE",
+      "sub": "VoiceStudio · open source",
+      "say": "Want a voice clone without sending your audio to the cloud?",
+      "url": "github.com/debpalash/VoiceStudio"
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "image": "img-4.jpg",
+      "heading": "VoiceStudio",
+      "sub": "voice cloning, voice design, dubbing",
+      "say": "VoiceStudio is a desktop app that clones a voice from a short sample, designs a new one, and dubs video into other languages."
+    },
+    {
+      "id": "dub",
+      "type": "image",
+      "image": "img-2.jpg",
+      "heading": "DUB A VIDEO",
+      "sub": "one video, several languages",
+      "say": "Drop in a video, pick a language, and it writes the dubbed version next to the original, with the timing kept in sync."
+    },
+    {
+      "id": "design",
+      "type": "image",
+      "image": "img-3.jpg",
+      "heading": "DESIGN A VOICE",
+      "sub": "describe it, then generate it",
+      "say": "No sample? You can design a new voice from a description instead."
+    },
+    {
+      "id": "catch",
+      "type": "image",
+      "image": "img-5.jpg",
+      "heading": "CHOOSE YOUR MODEL",
+      "sub": "check hardware first",
+      "say": "The models run on your own computer, so check the README for the hardware each one needs before you download."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "VOICE",
+      "say": "Would you clone your own voice or dub a video first? Comment VOICE and I'll pin the link."
+    }
+  ],
+  "seo": {
+    "keyword": "AI voice cloning local",
+    "aliases": [
+      "ElevenLabs alternative open source",
+      "AI video dubbing free",
+      "clone voice on your computer"
+    ],
+    "onscreen_first3s": "CLONE A VOICE ON YOUR MACHINE",
+    "youtube": {
+      "title": "Clone and dub voices on your own machine (open source)",
+      "description": "VoiceStudio clones voices, designs new ones and dubs video, all on your computer.\n\nTool page: https://github.com/debpalash/VoiceStudio\n\n#shorts #voicecloning #aidubbing #localai",
+      "tags": [
+        "voice cloning",
+        "AI dubbing",
+        "local AI",
+        "open source voice"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#voicecloning",
+        "#aidubbing",
+        "#localai"
+      ]
+    },
+    "tiktok": {
+      "title": "Clone a voice on your own machine",
+      "description": "Open-source voice cloning and video dubbing that runs on your computer.",
+      "tags": [
+        "voice cloning",
+        "AI dubbing",
+        "local AI"
+      ],
+      "caption": "Open-source voice cloning and video dubbing that runs on your computer.",
+      "hashtags": [
+        "#voicecloning",
+        "#aidubbing",
+        "#localai"
+      ]
+    },
+    "instagram": {
+      "title": "Clone a voice on your own machine",
+      "description": "Open-source voice cloning and dubbing on your computer.",
+      "tags": [
+        "voice cloning",
+        "AI dubbing"
+      ],
+      "caption": "Open-source voice cloning and dubbing on your computer.",
+      "hashtags": [
+        "#voicecloning",
+        "#aidubbing",
+        "#localai"
+      ]
+    },
+    "facebook": {
+      "title": "Clone and dub voices on your computer",
+      "description": "VoiceStudio is open source and runs on your computer: voice cloning, voice design and video dubbing.",
+      "tags": [
+        "voice cloning",
+        "AI dubbing"
+      ],
+      "caption": "VoiceStudio is open source and runs on your computer: voice cloning, voice design and video dubbing.",
+      "hashtags": [
+        "#voicecloning",
+        "#aidubbing"
+      ]
+    },
+    "x": {
+      "title": "Local voice cloning and dubbing",
+      "description": "Open-source voice cloning and dubbing that runs on your computer #voicecloning #aidubbing",
+      "tags": [
+        "voice cloning",
+        "AI dubbing"
+      ],
+      "text": "Open-source voice cloning and dubbing that runs on your computer #voicecloning #aidubbing",
+      "hashtags": [
+        "#voicecloning",
+        "#aidubbing"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Would you clone your own voice or dub a video first? Comment VOICE",
+    "hashtags": [
+      "#shorts",
+      "#voicecloning",
+      "#aidubbing",
+      "#localai"
+    ]
+  },
+  "research_basis": [
+    "research/ideas/topics-2026-10-31.md"
+  ],
+  "viewer": {
+    "who": "creators who want voice cloning or dubbing without a cloud account",
+    "problem": "voice tools usually upload your audio and charge per use",
+    "job": "clone or dub a voice on their own computer"
+  },
+  "idea": "VoiceStudio is an open-source desktop app for voice cloning, voice design and video dubbing that runs on the user's machine.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "VoiceStudio runs on the user's own machine (GitHub description and README).",
+      "source": "https://github.com/debpalash/VoiceStudio"
+    },
+    {
+      "id": "c2",
+      "text": "It clones a voice from a sample, designs a voice, and dubs video into other languages (README and app screens).",
+      "source": "https://github.com/debpalash/VoiceStudio"
+    },
+    {
+      "id": "c3",
+      "text": "Model choice depends on hardware (README).",
+      "source": "https://github.com/debpalash/VoiceStudio"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "capture:img-1.jpg",
+      "how_shown": "proof: voice cloning screen from the maker's README"
+    },
+    {
+      "claim": "c2",
+      "evidence": "capture:img-2.jpg",
+      "how_shown": "dub: dubbing screen with original and dubbed tracks"
+    },
+    {
+      "claim": "c3",
+      "evidence": "capture:img-5.jpg",
+      "how_shown": "catch: models screen from the maker's README"
+    }
+  ],
+  "treatment": {
+    "audience": "creators who want voice cloning or dubbing on their own computer",
+    "viewer_job": "clone or dub a voice locally",
+    "intent": "search",
+    "hook_mechanic": "question about cloud upload, answered by local",
+    "open_loop": {
+      "plant": "is my audio uploaded?",
+      "payoff_scene": "catch"
+    },
+    "proof_moment": "dub",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "text": "CLONE LOCALLY",
+        "visual": "img-1.jpg",
+        "gap": "no cloud?"
+      },
+      {
+        "text": "DUB A VIDEO",
+        "visual": "img-2.jpg",
+        "gap": "how many languages?"
+      }
+    ],
+    "structure": [
+      {
+        "scene": "hook",
+        "beat": "hook"
+      },
+      {
+        "scene": "name",
+        "beat": "name"
+      },
+      {
+        "scene": "dub",
+        "beat": "proof"
+      },
+      {
+        "scene": "design",
+        "beat": "how"
+      },
+      {
+        "scene": "catch",
+        "beat": "catch"
+      },
+      {
+        "scene": "cta",
+        "beat": "close"
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-10-31T12:00:00Z",
+    "expires_at": "2026-11-07",
+    "reviewer": "agent; facts from GitHub API and README on 2026-10-31; owner approval pending",
+    "notes": "Draft for the single-short test. Copy avoids exact figures. Hardware and model-download claims are not verified and are only stated as README-dependent."
+  }
+}
