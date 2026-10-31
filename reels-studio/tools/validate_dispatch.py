@@ -109,7 +109,8 @@ def plan_dispatch(
         result = production_gate.validate_receipt(repo_root, production_receipt.strip(), ids, now=now)
         asset_hashes = {
             brief_id: {"manifest_sha256": row["asset_manifest_sha256"],
-                       "files_sha256": row["asset_files_sha256"], "capture_id": row["capture_id"]}
+                       "files_sha256": row["asset_files_sha256"], "capture_id": row["capture_id"],
+                       "cover_sha256": row.get("cover_sha256")}
             for brief_id, row in result["briefs"].items()
         }
 

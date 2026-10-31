@@ -101,6 +101,7 @@ def make_attempts(repo_root: Path, plan: dict, loaded_briefs: dict[str, dict], b
             "asset_manifest_sha256": asset_manifest_sha,
             "asset_files_sha256": asset_files_sha,
             "capture_id": capture_id,
+            "cover_sha256": asset.get("cover_sha256") if isinstance(asset, dict) else None,
             "rebuild_scenes": list(plan.get("rebuild_scenes") or []),
             "from_tag": plan.get("from_tag", ""),
         }

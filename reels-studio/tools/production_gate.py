@@ -373,6 +373,7 @@ def validate_receipt(
             "asset_manifest_sha256": asset_digest,
             "asset_files_sha256": asset_files_sha,
             "capture_id": capture_id or None,
+            "cover_sha256": assets.get("cover_sha256") or None,
         }
 
     if verify_assets:
