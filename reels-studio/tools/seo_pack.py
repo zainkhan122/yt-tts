@@ -43,14 +43,20 @@ RULE_IDS = {
     "SP041": ("warning", "hashtag count within the recommended range"),
     "SP050": ("error", "hashtags are well formed"),
     "SP051": ("warning", "no generic tags (#fyp/#viral)"),
-    "SP060": ("warning", "keyword within the first N words of the field"),
+    "SP060": ("error", "keyword within the first N words of the field"),
     "SP070": ("error", "youtube: #Shorts in the description hashtags"),
     "SP090": ("error", "no generic hashtags (#AI, #Coding, #Video, #Tech, #Viral...) — niche tags only"),
     "SP091": ("error", "no credits/attribution/capture-note text in visible copy (credits live in the kit)"),
-    "SP071": ("warning", "youtube: keyword in the first 150 chars of the description"),
+    "SP071": ("error", "youtube: keyword in the first 150 chars of the description"),
     "SP072": ("error", "youtube: backend tags within 500 chars"),
     "SP080": ("warning", "no licence/legal term in a title or first line (benefit-first copy)"),
     "SP081": ("warning", "no licence/legal term in the first 150 chars of the youtube description"),
+    # Search-tuned copy (owner 31 Oct): the title, tags and captions must carry the search phrase.
+    "SP100": ("error", "youtube: primary keyword in the title (search phrase first)"),
+    "SP101": ("error", "youtube: 4-10 backend tags, including the keyword and at least two aliases"),
+    "SP102": ("error", "youtube: description first line is a full sentence of 60+ chars that names the keyword"),
+    "SP103": ("error", "links: only the YouTube description carries one link (the tool page); no link in any other platform's copy"),
+    "SP104": ("error", "hashtags: at least one hashtag built from the keyword (e.g. #aivoicecloning)"),
 }
 
 # Viewer-benefit first (owner rule 2026-10-18, PLAYBOOK §9): legal detail goes below the fold.
@@ -71,6 +77,13 @@ def has_kw(text, kws, first_words=None):
 
 def x_len(text):
     return len(re.sub(r"https?://\S+|\b[\w.-]+\.(com|io|dev|ai|org)/\S*", "x" * URL_X, text))
+
+
+def kw_tag_ok(tags, primary):
+    """A hashtag built from the keyword: '#aivoicecloning' for 'AI voice cloning', or the last two words joined."""
+    words = norm(primary).split()
+    keys = {"".join(words), "".join(words[-2:])} if len(words) >= 2 else {"".join(words)}
+    return any(any(k and k in norm(tg).replace(" ", "") for k in keys) for tg in tags or [])
 
 
 def check(brief_path_or_text):
@@ -140,6 +153,37 @@ def check(brief_path_or_text):
             if len(",".join(p.get("tags", []))) > 500:
                 add("SP072", "youtube: backend tags exceed 500 chars")
         blocks.append((plat, p, text, tags))
+    # Search-tuned copy checks (owner 31 Oct, SEO standard in docs/seo-standard.md)
+    yt = seo.get("youtube") or {}
+    primary = (seo.get("keyword") or "").strip()
+    if primary and yt:
+        if not has_kw(yt.get("title", ""), [primary]):
+            add("SP100", f"youtube: title does not contain the keyword '{primary}'")
+        ytags = yt.get("tags", []) or []
+        alias_hits = [a for a in seo.get("aliases", []) if has_kw(" ".join(ytags), [a])]
+        if not (4 <= len(ytags) <= 10) or not has_kw(" ".join(ytags), [primary]) or (seo.get("aliases") and len(alias_hits) < min(2, len(seo.get("aliases", [])))):
+            add("SP101", f"youtube: {len(ytags)} backend tags; need 4-10, the keyword, and at least two aliases")
+        first_line = (yt.get("description", "") or "").split("\n")[0]
+        if len(first_line) < 60 or not has_kw(first_line, kws):
+            add("SP102", f"youtube: first description line is {len(first_line)} chars or lacks the keyword")
+        if not kw_tag_ok(yt.get("hashtags", []), primary):
+            add("SP104", "hashtags: no hashtag built from the keyword")
+    if primary:
+        for plat in ("instagram", "facebook", "tiktok", "x"):
+            p = seo.get(plat) or {}
+            if not any(p.get(k) for k in ("caption", "text", "description")):
+                continue
+            body = " ".join(str(p.get(k, "")) for k in ("caption", "text", "description"))
+            if re.search(r"https?://|\b[\w-]+\.(com|io|dev|ai|org)/", body):
+                add("SP103", f"links: {plat} copy contains a link; only the YouTube description may carry the tool page")
+        if re.search(r"https?://", " ".join(str(v) for v in (yt.get("title", ""),))):
+            add("SP103", "links: youtube title contains a link")
+        if len(re.findall(r"https?://", yt.get("description", "") or "")) > 1:
+            add("SP103", "links: youtube description has more than one link")
+    for plat in ("instagram", "facebook", "tiktok"):
+        p = seo.get(plat) or {}
+        if primary and p.get("hashtags") and not kw_tag_ok(p["hashtags"], primary):
+            add("SP104", f"hashtags: {plat} has no hashtag built from the keyword")
     return bid, errors, warns, findings, b, seo, blocks, spoken5, onscreen
 
 
