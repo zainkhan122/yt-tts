@@ -3066,9 +3066,11 @@
     },
     "repo-voicestudio-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6ae618c2f0984eef331cd916",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-11-01T22:13:00Z",
+      "due_at": "2026-11-01T22:13:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:473feda9e489a4b14c61a962dc1d9ea11813b054ac53d7a40efa5a1d96d2d318",
         "asset_id": 695873927,
@@ -3083,10 +3085,11 @@
       "notify_subscribers": false,
       "payload_sha256": "b8cd8ed8984e11e3d7c91b28c306dfba0c662e335faf08eec9b1ed89b0535348",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "VoiceStudio is open source and runs on your computer: voice cloning, voice design and video dubbing.\n\nAI-generated narration.\n\n#voicecloning #aidubbing",
       "title": "Clone and dub voices on your own machine (open source)",
-      "updated_at": "2026-10-31T16:35:13Z",
+      "updated_at": "2026-10-31T16:35:15Z",
       "video_id": "repo-voicestudio-01"
     },
     "repo-voicestudio-01:instagram": {
