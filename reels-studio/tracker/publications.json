@@ -1548,9 +1548,11 @@
     },
     "repo-cleanyourtv-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6ae56c1eeaa24d6f9a55b21a",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-31T21:15:00Z",
+      "due_at": "2026-10-31T21:15:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:a6077ce4544e88cb60f383742c11f3eff4b9150bfee8d4c22f23377b4add02de",
         "asset_id": 694309194,
@@ -1565,10 +1567,11 @@
       "notify_subscribers": true,
       "payload_sha256": "2256ad2b1c1556fa342b25ee8c192d9db4b74ebb88bc966ad87ae387c4697539",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Android TV debloat over Wi-Fi with no root: CleanYourTV removes preinstalled apps and gives you a clean home screen. Undo with one command.\n\nTool page: https://github.com/Gathin23/cleanyourtv\n\n#androidtv #googletv #smarttv #cleanhome #shorts\n\n#shorts #androidtv #googletv #smarttv",
       "title": "Android TV debloat: remove ads over Wi-Fi, no root",
-      "updated_at": "2026-10-31T04:18:36Z",
+      "updated_at": "2026-10-31T04:18:38Z",
       "video_id": "repo-cleanyourtv-01"
     },
     "repo-coop-anything-01:facebook": {
