@@ -1604,9 +1604,11 @@
     },
     "repo-deeptutor-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6ae56b931891472093b2eb07",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-31T19:06:00Z",
+      "due_at": "2026-10-31T19:06:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:a9f21914c30352872545a9a0ec326a6bbc83303183f53523e629ab6bebb72940",
         "asset_id": 694308971,
@@ -1621,10 +1623,11 @@
       "notify_subscribers": false,
       "payload_sha256": "dee9506dac8047974b45a7eb74a136ba2081a3dd962a9b16e747f9607a7b00cd",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "DeepTutor keeps a memory of what you have learned and lets you trace it. Open source, self-hosted.\n\n#AItutor #selflearning #selfhosted",
       "title": "AI tutor with a memory you can edit: DeepTutor",
-      "updated_at": "2026-10-31T04:16:17Z",
+      "updated_at": "2026-10-31T04:16:19Z",
       "video_id": "repo-deeptutor-01"
     },
     "repo-ds4-01:facebook": {
