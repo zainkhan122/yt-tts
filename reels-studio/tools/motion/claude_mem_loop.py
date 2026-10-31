@@ -2,8 +2,8 @@
 """Motion graphic for claude-mem: record -> compress -> recall, drawn as a loop.
 
 Writes an RGBA frame sequence (1080x300) for the diagram band, then composes a
-1080x1920 reel clip with the tool's OWN animation (cm-preview.mp4, scaled 1.5x,
-never upscaled further) above the diagram. Vector text stays crisp; the tool
+1080x1920 reel clip with the tool's OWN animation (cm-preview.mp4, scaled to full frame width,
+the diagram below it) above the diagram. Vector text stays crisp; the tool
 media keeps its native pixels.
 
 Usage: python3 tools/motion/claude_mem_loop.py
@@ -89,9 +89,9 @@ def main():
         "-i", str(CAP / "cm-preview.mp4"),
         "-framerate", str(FPS), "-i", str(tmp / "f%04d.png"),
         "-filter_complex",
-        "[1:v]scale=960:540:flags=lanczos,fps=30[t];"
-        "[0:v][t]overlay=60:560:shortest=1[a];"
-        "[a][2:v]overlay=0:1200:shortest=1,format=yuv420p[v]",
+        "[1:v]scale=1080:608:flags=lanczos,fps=30[t];"
+        "[0:v][t]overlay=0:470:shortest=1[a];"
+        "[a][2:v]overlay=0:1120:shortest=1,format=yuv420p[v]",
         "-map", "[v]", "-t", f"{DUR}", "-r", str(FPS),
         "-c:v", "libx264", "-crf", "18", "-preset", "medium", str(out),
     ]
