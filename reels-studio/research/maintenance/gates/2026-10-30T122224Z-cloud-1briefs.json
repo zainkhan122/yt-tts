@@ -1,0 +1,34 @@
+{
+  "dispatched": [
+    "repo-rea-01"
+  ],
+  "release_tag": "renders-2026-10-30",
+  "gates": [
+    {
+      "brief": "repo-rea-01",
+      "path": "/home/user/studio/reels-studio/briefs/repo-rea-01.json",
+      "lint": [],
+      "seo": [
+        {
+          "id": "SP010",
+          "severity": "warning",
+          "message": "keyword not spoken in the first ~10 s: TikTok/YouTube index speech (say it in the hook if natural)"
+        }
+      ],
+      "rollup": {
+        "errors": 0,
+        "warnings": 1,
+        "by_id": {
+          "SP010": 1
+        }
+      },
+      "at": "2026-10-30T12:22:24Z"
+    }
+  ],
+  "production_receipt": "reels-studio/research/production/receipts/2026-10-30-repo-rea-01.json",
+  "publish_release_requested": false,
+  "status": "workflow_failed_or_timed_out",
+  "delivery_policy": "Actions artifact only by default; public GitHub Release requires explicit --publish-release",
+  "run_id": 41054841615,
+  "workflow_result": "failure"
+}

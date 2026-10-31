@@ -89,14 +89,6 @@ These six scripts were approved by the owner. Use them as the reference for tone
 - Catch: "The catch: you review the result with critique and audit, so you still decide what looks right."
 - Close: "Which page would you fix first? Comment POLISH and I'll pin the link."
 
-**Example D, dsh free model (model access)**
-- Hook: "Could you use free DeepSeek models with no API key?"
-- Name: "A plugin for the dsh app says yes. It's called dsh-our-free-model, and it lists models like DeepSeek and Kimi."
-- How: "Install it from the release package, not the npm copy. Restart dsh once, then open the model picker."
-- Proof: "The picker only lists models your network can reach. Blocked models go in a separate list."
-- Catch: "The catch: which models work depends on your network, and the plugin is in beta. It claims no usage cap, so test that yourself."
-- Close: "Which model would you test first? Comment FREE and I'll pin the link."
-
 **Example E, Edge0 (local models)**
 - Hook: "Could a local AI model with 35 billion parameters run on your Mac?"
 - Name: "Edge0 is one way to try it. It keeps the model on your SSD and loads only the parts it needs for each step."

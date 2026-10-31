@@ -1,0 +1,26 @@
+{
+  "dispatched": [
+    "repo-edge0-01"
+  ],
+  "release_tag": "renders-2026-10-31",
+  "gates": [
+    {
+      "brief": "repo-edge0-01",
+      "path": "/home/user/studio/reels-studio/briefs/repo-edge0-01.json",
+      "lint": [],
+      "seo": [],
+      "rollup": {
+        "errors": 0,
+        "warnings": 0,
+        "by_id": {}
+      },
+      "at": "2026-10-30T19:33:16Z"
+    }
+  ],
+  "production_receipt": "reels-studio/research/production/receipts/2026-10-30-edge0-01.json",
+  "publish_release_requested": false,
+  "status": "workflow_failed_or_timed_out",
+  "delivery_policy": "Actions artifact only by default; public GitHub Release requires explicit --publish-release",
+  "run_id": 41116190868,
+  "workflow_result": "cancelled"
+}

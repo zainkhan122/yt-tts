@@ -207,7 +207,7 @@
     <tr><td>TTS per-chunk alignment at 92%</td><td>Words spoken match the script.</td><td><b>High.</b> Five Edge0 renders failed at 77–92%. Whisper writes numerals as digits, so the score dropped on correct speech. Threshold was lowered to 85% (owner approved). Better fix: normalise numbers and abbreviations before comparing.</td><td><span class="tag simplify">simplify</span></td></tr>
     <tr><td>Media coverage (≥ 2 media scenes, ≥ 1 motion)</td><td>Videos should show real material, not text cards.</td><td><b>Medium.</b> Blocked still-graphic briefs. Fixed with a hard-coded set of five IDs in three files. That's brittle.</td><td><span class="tag simplify">simplify</span></td></tr>
     <tr><td>Hard-coded NO_VIDEO_STILL_ALLOWED set</td><td>Lets specific briefs bypass media coverage.</td><td><b>Medium.</b> Lives in three files and drifts. Replace with a declared <code>media_mode</code> per brief (video, capture, graphic) and one rule.</td><td><span class="tag simplify">simplify</span></td></tr>
-    <tr><td>claim_verifiable hard gate</td><td>Facts in the video are checked before publish.</td><td><b>Medium.</b> Blocks dsh indefinitely. Owner accepted the risk, but the gate has no way to record that. Add <code>owner_accepted_risk</code> with reason and date.</td><td><span class="tag simplify">simplify</span></td></tr>
+    <tr><td>claim_verifiable hard gate</td><td>Facts in the video are checked before publish.</td><td><b>Medium.</b> Blocked a claim-based topic until the gate was retired (31 Oct).<code>owner_accepted_risk</code> with reason and date.</td><td><span class="tag simplify">simplify</span></td></tr>
     <tr><td>Copy identical across platforms (C040)</td><td>Each platform gets its own text.</td><td><b>Medium.</b> Found only at Buffer dry-run, after rendering. It should fail at brief lint. The rule is good; the timing is wrong.</td><td><span class="tag simplify">move earlier</span></td></tr>
     <tr><td>Brief sha pinned in queue</td><td>Stops a changed brief going out under an old approval.</td><td><b>Medium.</b> Any copy edit (even a comma) invalidates queue items and forced a manual hash update. Pin media and copy separately, so copy edits need only a re-check.</td><td><span class="tag simplify">simplify</span></td></tr>
     <tr><td>Loudness −14 ± 1 LUFS and peak ≤ −1 dBFS</td><td>Platform-safe audio.</td><td>Two renders failed on peak; fixed in the audio chain (limiter and post-encode guard). Working.</td><td><span class="tag keep">keep</span></td></tr>
@@ -257,7 +257,7 @@
     <li>Approve the single preflight command and the media-mode field (replaces the hard-coded bypass set).</li>
     <li>Approve normalised alignment for numerals and units (threshold unchanged).</li>
     <li>Approve the publish-existing path with a digest check, so QA-passed renders are not re-rendered.</li>
-    <li>Approve the accepted-risk record for claim_verifiable, so dsh can be handled without a workaround.</li>
+    <li>Accepted-risk record for claim_verifiable: not approved (31 Oct); the claim check is per pick now.</li>
     <li>Confirm the 14-day expiry and the panel PASS rule stay as they are.</li>
   </ol>
   <div class="callout">Nothing in this document changes the code. Each item above is a proposal for you to approve before work starts.</div>

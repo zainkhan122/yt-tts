@@ -148,7 +148,7 @@ def is_blank(path, min_std=4.0, min_ink=0.001, min_edge=0.006):
 # OWNER RULE (2026-10-30): repos with no video use their own still images (no filming). These five briefs are
 # allowed still-image proof (BL128/BL110) and still-image media coverage (production gate); cover concepts may share
 # the pack's images when the pack is thin.
-NO_VIDEO_STILL_ALLOWED = {"repo-deeptutor-01", "repo-impeccable-01", "repo-dsh-free-01", "repo-edge0-01", "repo-cleanyourtv-01"}
+NO_VIDEO_STILL_ALLOWED = {"repo-deeptutor-01", "repo-impeccable-01", "repo-edge0-01", "repo-cleanyourtv-01"}
 ALLOW_SHARED_COVER_SOURCES = False  # set in main() for NO_VIDEO_STILL_ALLOWED briefs
 
 def pick_images(brief, count, root=ROOT):

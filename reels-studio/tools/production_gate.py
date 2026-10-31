@@ -500,7 +500,7 @@ def verify_media_is_not_blank(repo_root: Path, brief_id: str, brief: dict) -> di
 # OWNER RULE (2026-10-30): repos with no video use their own still images (no filming). These five briefs are
 # allowed still-image proof (BL128/BL110) and still-image media coverage (production gate); cover concepts may share
 # the pack's images when the pack is thin.
-NO_VIDEO_STILL_ALLOWED = {"repo-deeptutor-01", "repo-impeccable-01", "repo-dsh-free-01", "repo-edge0-01", "repo-cleanyourtv-01"}
+NO_VIDEO_STILL_ALLOWED = {"repo-deeptutor-01", "repo-impeccable-01", "repo-edge0-01", "repo-cleanyourtv-01"}
 
 def verify_capture_assets(repo_root: Path, brief_id: str, brief: dict, stage: dict) -> dict:
     """After capture_store.py pull-for, verify the exact manifest and every declared file hash."""
