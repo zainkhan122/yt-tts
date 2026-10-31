@@ -1604,9 +1604,11 @@
     },
     "repo-deeptutor-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6ae56b96eaa24d6f9a559abd",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-10-31T19:11:00Z",
+      "due_at": "2026-10-31T19:11:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:a9f21914c30352872545a9a0ec326a6bbc83303183f53523e629ab6bebb72940",
         "asset_id": 694308971,
@@ -1621,10 +1623,11 @@
       "notify_subscribers": false,
       "payload_sha256": "10886854df8d35d4b136cb0aa7ae5e51411e02a914a59621769414f71b7ff96f",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "DeepTutor is an open-source tutor that keeps learning about you over time. You can see the memory layers and the graph behind each answer.\n\nAI-generated narration.\n\n#AItutor #selflearning #selfhosted",
       "title": "AI tutor with a memory you can edit: DeepTutor",
-      "updated_at": "2026-10-31T04:16:20Z",
+      "updated_at": "2026-10-31T04:16:22Z",
       "video_id": "repo-deeptutor-01"
     },
     "repo-deeptutor-01:instagram": {
