@@ -566,22 +566,31 @@
           function sFocus(s, root, t0, t1) {
             const cover = s.id === FIRST;
             heading(root, s.heading, t0 + 0.05, { instant: cover });
-            const cardTop = 470;
+            let cardTop = cover ? COVER_STAGE_TOP : 470;  // same placement rules as sImageStill
+            let sub = null;
+            if (s.sub) {
+              sub = A.mk("div", "sp-sub", root, s.sub);
+              sub.style.top = cover ? "616px" : "436px";
+              A.fit(sub, { max: 54, min: 42, maxH: 66 });
+              if (sub.scrollHeight > 66) A.fit(sub, { max: 54, min: 40, maxH: 124 });
+              if (cover) {
+                cardTop = Math.max(COVER_STAGE_TOP, Math.ceil(616 + sub.scrollHeight + 26));
+                sub.style.opacity = "1";
+              } else {
+                cardTop = Math.max(470, Math.ceil(436 + sub.scrollHeight + 26));
+                tl.fromTo(sub, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.28, immediateRender: false }, t0 + 0.3);
+              }
+            }
+            const cardH = Math.max(300, Math.min(640, STAGE_BOTTOM - cardTop));
             const card = A.mk("div", "sp-imgcard", root);
-            Object.assign(card.style, { top: cardTop + "px", height: "640px" });
+            Object.assign(card.style, { top: cardTop + "px", height: cardH + "px" });
             const inn = A.mk("div", "in", card);
             inn.style.overflow = "hidden";
             const im = A.mk("img", "", inn);
             im.src = "assets/" + s.img.file;
-            focusMotion(im, 960, 640, s.img.w, s.img.h, s.focus, t0, t1);
+            focusMotion(im, 960, cardH, s.img.w, s.img.h, s.focus, t0, t1);
             tl.fromTo(card, { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.32,
                       ease: "back.out(1.6)", immediateRender: false }, t0 + 0.05);
-            if (s.sub) {
-              const sub = A.mk("div", "sp-sub", root, s.sub);
-              sub.style.top = "436px";
-              A.fit(sub, { max: 54, min: 42, maxH: 66 });
-              tl.fromTo(sub, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.28, immediateRender: false }, t0 + 0.3);
-            }
           }
           // Side-by-side panels. Each panel: a crop-zoom of the tool's own UI (left/right
           // {image, img, focus, label, levels}) and an animated level bar drawn from the
