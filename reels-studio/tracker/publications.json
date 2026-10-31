@@ -2140,6 +2140,31 @@
       "updated_at": "2026-10-20T21:45:20Z",
       "video_id": "repo-huashu-motion-01"
     },
+    "repo-impeccable-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-10-31T16:08:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:07df2019167f1106493678094d19d9d8ff725bb1b1d2e58cc9b8d7c8fef1fb45",
+        "asset_id": 694309088,
+        "asset_size": 16384210,
+        "kit_asset_id": 694309153,
+        "kit_digest": "sha256:6c9a31f3d42dc60b325b0f7d3cc519925a88fe890ba172ce7c39d057a6a22d11",
+        "media_path": "media/694309088/repo-impeccable-01.mp4",
+        "release_tag": "renders-2026-10-31",
+        "video_id": "repo-impeccable-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/694309088/repo-impeccable-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "9f4cbb680d6d70d135aba453090e080417989c910c7a7ed1fdc256d7e2ba6877",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Impeccable gives your coding agent a design vocabulary: install it, then steer the design with a few commands. Apache-2.0.\n\n#claudecode #frontenddesign #webdesign",
+      "title": "impeccable coding agent: the same AI, a different design",
+      "updated_at": "2026-10-31T04:16:08Z",
+      "video_id": "repo-impeccable-01"
+    },
     "repo-impeccable-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6ae56b87eaa24d6f9a5598a6",
