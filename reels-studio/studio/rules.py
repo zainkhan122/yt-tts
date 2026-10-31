@@ -180,13 +180,7 @@ def check_brief(brief, *, today=None, captures_dir=None, disclosure=DISCLOSURE_T
     for cid in sorted(claim_ids - covered):
         _err(out, "B054", bid, f"claim {cid} has no proof_plan entry; show it or cut it")
 
-    review = brief["review"] if isinstance(brief["review"], dict) else {}
-    try:
-        expires = dt.date.fromisoformat(str(review.get("expires_at", ""))[:10])
-        if expires < today:
-            _err(out, "B060", bid, f"review expired on {expires}; re-verify the facts")
-    except ValueError:
-        _err(out, "B060", bid, "review.expires_at is missing or not a date")
+    # B060 (review expiry) removed 31 Oct 2026: fact-age rules are not part of the approved pipeline.
 
     out.extend(check_copy(brief, disclosure=disclosure))
     return out

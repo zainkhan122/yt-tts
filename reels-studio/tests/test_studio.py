@@ -276,12 +276,11 @@ class BriefRules(unittest.TestCase):
         b["proof_plan"][0]["evidence"] = "owner_test"
         self.assertEqual(errors(check_brief(b, today=TODAY)), [])
 
-    def test_expired_or_bad_review_is_error(self):
+    def test_review_expiry_is_not_a_gate(self):
+        # Owner 31 Oct 2026: fact-age rules are not needed; an old review date must not block a brief.
         b = good_brief()
         b["review"]["expires_at"] = "2026-10-20"
-        self.assertIn("B060", codes(check_brief(b, today=TODAY)))
-        b["review"]["expires_at"] = "soon"
-        self.assertIn("B060", codes(check_brief(b, today=TODAY)))
+        self.assertNotIn("B060", codes(check_brief(b, today=TODAY)))
 
 
 class RealBriefs(unittest.TestCase):
