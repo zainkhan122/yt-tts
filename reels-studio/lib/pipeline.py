@@ -260,8 +260,9 @@ def require_hyperframes_lint(exit_code, output, log_path):
     return summary
 
 
-MIN_FLOW_MATCH = 0.85
-MIN_ENGLISH_WHISPER_MATCH = 0.90
+_GATES = json.loads((ROOT / "config" / "gates.json").read_text(encoding="utf-8"))
+MIN_FLOW_MATCH = float(_GATES["tts_chunk_match_min"])
+MIN_ENGLISH_WHISPER_MATCH = float(_GATES["tts_english_whisper_match_min"])
 
 
 def tts_retry_policy(tts):

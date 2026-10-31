@@ -21,9 +21,10 @@ ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = ROOT.parent
 BUFFER_SNAPSHOT = "reels-studio/tracker/buffer-insights.json"
 RECEIPT_PREFIX = "reels-studio/research/production/receipts/"
-MIN_TOPIC_SCORE = 60
-MIN_CHUNK_MATCH = 0.85
-MIN_ENGLISH_OVERALL_MATCH = 0.90
+_GATES = json.loads((ROOT / "config" / "gates.json").read_text(encoding="utf-8"))  # single thresholds source
+MIN_TOPIC_SCORE = int(_GATES["topic_score_min"])
+MIN_CHUNK_MATCH = float(_GATES["tts_chunk_match_min"])
+MIN_ENGLISH_OVERALL_MATCH = float(_GATES["tts_english_overall_match_min"])
 MAX_INSIGHTS_AGE = dt.timedelta(hours=36)
 MAX_DISCOVER_AGE = dt.timedelta(hours=36)
 MAX_FACT_AGE = dt.timedelta(hours=24)
