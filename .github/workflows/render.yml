@@ -81,6 +81,7 @@ jobs:
             /reels-studio/topics/backlog.csv
             /reels-studio/tracker/buffer-insights.json
             /reels-studio/config/channel.json
+            /reels-studio/config/gates.json
             /reels-studio/brand/voice/michael-ref.wav
             /reels-studio/cloud/setup-render.sh
             /reels-studio/setup/setup-whisper.sh
@@ -226,6 +227,7 @@ jobs:
             /reels-studio/briefs/
             /reels-studio/lib/
             /reels-studio/tools/
+            /reels-studio/config/gates.json
           sparse-checkout-cone-mode: false
       - name: Download temporary render artifacts on runner
         uses: actions/download-artifact@v4
