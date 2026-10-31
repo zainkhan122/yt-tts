@@ -1660,9 +1660,11 @@
     },
     "repo-deeptutor-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6ae56b99406ab8a0189af259",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-10-31T20:08:00Z",
+      "due_at": "2026-10-31T20:08:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:a9f21914c30352872545a9a0ec326a6bbc83303183f53523e629ab6bebb72940",
         "asset_id": 694308971,
@@ -1677,10 +1679,11 @@
       "notify_subscribers": false,
       "payload_sha256": "bfd78a11c3fc45aa7a788a041b56fd4118883849bd015443a9e6ccf799a76249",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "AI tutor that keeps a memory you can see and edit. DeepTutor is self-hosted: install with pip or Docker.\n\nTool page: https://github.com/HKUDS/DeepTutor\n\n#AItutor #selflearning #selfhosted #studytok #shorts\n\n#shorts #AItutor #selflearning #selfhosted",
       "title": "AI tutor with a memory you can edit: DeepTutor",
-      "updated_at": "2026-10-31T04:16:23Z",
+      "updated_at": "2026-10-31T04:16:25Z",
       "video_id": "repo-deeptutor-01"
     },
     "repo-ds4-01:facebook": {
