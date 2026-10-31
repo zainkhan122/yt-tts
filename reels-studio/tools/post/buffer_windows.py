@@ -39,8 +39,13 @@ WINDOWS_QUERY = """query HypelessWindows($org: OrganizationId!) {
 
 
 def _day_name(value) -> str | None:
-    if isinstance(value, str) and value.strip().lower() in DAYS:
-        return value.strip().lower()
+    """Buffer sends short names ('mon'); accept full names too."""
+    if not isinstance(value, str):
+        return None
+    v = value.strip().lower()
+    for day in DAYS:
+        if v in (day, day[:3]):
+            return day
     return None
 
 

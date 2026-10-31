@@ -47,6 +47,16 @@ class Build(unittest.TestCase):
         self.assertIn("postingSchedule", bw.WINDOWS_QUERY)
 
 
+    def test_buffer_short_day_names(self):
+        slots = [{"day": "mon", "paused": False, "times": ["09:00"]},
+                 {"day": "tue", "paused": False, "times": ["09:00", "20:00"]}]
+        report = bw.build([channel("instagram", slots)], NOW)
+        ig = report["platforms"]["instagram"]
+        self.assertEqual(sorted(ig["days"]), ["monday", "tuesday"])
+        self.assertEqual(ig["clocks_by_use"], ["09:00", "20:00"])
+        self.assertEqual(ig["problems"], [])
+
+
 class Freshness(unittest.TestCase):
     def test_missing_snapshot_is_not_fresh(self):
         self.assertFalse(bw.is_fresh(None, NOW)[0])
