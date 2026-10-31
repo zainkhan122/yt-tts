@@ -38,7 +38,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # OWNER RULE (2026-10-30): repos with no video use their own still images (no filming). These five briefs are
 # allowed still-image proof (BL128/BL110) and still-image media coverage (production gate); cover concepts may share
 # the pack's images when the pack is thin.
-SCENE_TYPES = {"clip", "clip-montage", "page", "scroll", "steps", "terminal", "verdict", "stat", "image", "endcard"}
+SCENE_TYPES = {"clip", "clip-montage", "page", "scroll", "steps", "terminal", "verdict", "stat", "image", "split", "endcard"}
 
 REQUIRED_KEYS = ("id", "capture", "scenes", "seo")  # v2: no template field
 

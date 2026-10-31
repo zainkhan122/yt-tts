@@ -155,10 +155,10 @@ def render_report(b, seo, blocks, spoken5, onscreen, errors, warns, findings):
             desc_txt = p.get("description", "").strip()
             cr = (b.get("credits_on_screen") or "").strip()
             links = re.findall(r"[\w-]+(?:\.[\w-]+)+/[\w./-]+|[\w-]+\.(?:com|ai|org|io|dev|app|video)\b", cr)
-            L += ["**Title**", "```", text, "```", "**Description**", "```", desc_txt + "\n\n" + " ".join(tags), "```",
+            L += ["**Title**", "```", text, "```", "**Description**", "```", desc_txt + ("\n\n" + " ".join(x for x in tags if x not in desc_txt) if any(x not in desc_txt for x in tags) else ""), "```",
                   "**Tags (backend)**", "```", ", ".join(p.get("tags", [])), "```", ""]
         else:
-            L += ["```", text.strip() + ("\n\n" + " ".join(tags) if tags else ""), "```", ""]
+            L += ["```", text.strip() + ("\n\n" + " ".join(x for x in tags if x not in text) if any(x not in text for x in tags) else ""), "```", ""]
     L += ["## Checks", ""] + [f"- ❌ {e}" for e in errors] + [f"- ⚠ {w}" for w in warns] + (["- ✅ all platform rules pass"] if not errors and not warns else [])
     (out_dir / "seo.md").write_text("\n".join(L) + "\n", encoding="utf-8")
     return out_dir / "seo.md", findings

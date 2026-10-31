@@ -142,3 +142,6 @@
 #root[data-archetype="demo-first"] .sp-step .num,
 #root[data-archetype="workflow"] .sp-step .num { border-radius: 10px; }
 #root[data-archetype="duel"] .sp-step .num { border-radius: 6px; }
+
+/* ---------- split scene: two crop-zooms + audio level bars ---------- */
+.sp-bar { position: absolute; border-radius: 6px; background: var(--cap-key, #4ade80); opacity: 0.9; }

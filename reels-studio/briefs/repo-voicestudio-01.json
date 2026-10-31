@@ -51,7 +51,28 @@
       "image": "img-4.jpg",
       "heading": "VoiceStudio",
       "sub": "voice cloning, voice design, dubbing",
-      "say": "VoiceStudio is a desktop app that clones a voice from a short sample, designs a new one, and dubs video into other languages."
+      "say": "VoiceStudio is a desktop app that clones a voice from a short sample, designs a new one, and dubs video into other languages.",
+      "focus": [
+        {
+          "box": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "at": 0.0,
+          "pad": 0.95
+        },
+        {
+          "box": [
+            0.27,
+            0.33,
+            0.69,
+            0.2
+          ],
+          "at": 1.2
+        }
+      ]
     },
     {
       "id": "dub",
@@ -59,15 +80,66 @@
       "image": "img-2.jpg",
       "heading": "DUB A VIDEO",
       "sub": "one video, several languages",
-      "say": "Drop in a video, pick a language, and it writes the dubbed version next to the original, with the timing kept in sync."
+      "say": "Drop in a video, pick a language, and it writes the dubbed version next to the original, with the timing kept in sync.",
+      "focus": [
+        {
+          "box": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "at": 0.0,
+          "pad": 0.95
+        },
+        {
+          "box": [
+            0.4,
+            0.42,
+            0.5,
+            0.28
+          ],
+          "at": 1.0
+        }
+      ]
     },
     {
       "id": "design",
-      "type": "image",
-      "image": "img-3.jpg",
-      "heading": "DESIGN A VOICE",
-      "sub": "describe it, then generate it",
-      "say": "No sample? You can design a new voice from a description instead."
+      "type": "split",
+      "heading": "SAMPLE TO CLONE",
+      "say": "Give it a short clean sample, and the clone speaks new lines in the same voice.",
+      "left": {
+        "image": "img-1.jpg",
+        "focus": [
+          {
+            "box": [
+              0.7,
+              0.15,
+              0.27,
+              0.3
+            ],
+            "at": 0.0
+          }
+        ],
+        "label": "YOUR SAMPLE",
+        "levels_file": "audio/reference-envelope.json"
+      },
+      "right": {
+        "image": "img-2.jpg",
+        "focus": [
+          {
+            "box": [
+              0.655,
+              0.43,
+              0.28,
+              0.2
+            ],
+            "at": 0.0
+          }
+        ],
+        "label": "CLONED VOICE",
+        "levels_file": "audio/clone-envelope.json"
+      }
     },
     {
       "id": "catch",
@@ -75,7 +147,28 @@
       "image": "img-5.jpg",
       "heading": "CHOOSE YOUR MODEL",
       "sub": "check hardware first",
-      "say": "The models run on your own computer, so check the README for the hardware each one needs before you download."
+      "say": "The models run on your own computer, so check the README for the hardware each one needs before you download.",
+      "focus": [
+        {
+          "box": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "at": 0.0,
+          "pad": 0.95
+        },
+        {
+          "box": [
+            0.55,
+            0.17,
+            0.4,
+            0.25
+          ],
+          "at": 1.2
+        }
+      ]
     },
     {
       "id": "cta",

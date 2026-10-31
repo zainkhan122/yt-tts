@@ -432,6 +432,9 @@ def assets(b):
         bg = s.get("background")
         if isinstance(bg, dict) and bg.get("image"):
             names.append(bg["image"])
+        for side in ("left", "right"):  # split panels: crop-zoom sources
+            if s.get("type") == "split" and isinstance(s.get(side), dict) and s[side].get("image"):
+                names.append(s[side]["image"])
     seen, out = set(), []
     for n in names:
         if n not in seen and d and (d / n).exists():
@@ -504,6 +507,15 @@ def data(b, T, D, ev, cfg):
             bg["img"] = image_dims(b, bg["image"])
         if x.get("figure"):
             x["fig"] = image_dims(b, x["figure"])
+        if x["type"] == "split":
+            for side in ("left", "right"):
+                pan = x.get(side)
+                if isinstance(pan, dict) and pan.get("image"):
+                    pan["img"] = image_dims(b, pan["image"])
+                    if pan.get("levels_file") and d:
+                        env = json.loads((d / pan["levels_file"]).read_text(encoding="utf-8"))
+                        pan["levels"] = [round(float(v), 2) for v in env["levels"][::2]]  # 30 Hz -> 15 Hz
+                    pan.pop("levels_file", None)
         if x["type"] in ("verdict", "page") and not x.get("image"):
             # Page/verdict scenes without an explicit image get the full-page capture as default.
             # Without this, s.img is undefined in scene.js -> "Cannot read properties of undefined (reading 'w')".

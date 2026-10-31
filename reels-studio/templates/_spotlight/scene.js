@@ -497,7 +497,7 @@
             const card = statBadge(root, s, E(`${s.id}_stat`, t0 + 0.3), true, cover);
             if (cover && !s.top) card.style.top = COVER_STAGE_TOP + "px";
           }
-          function sImage(s, root, t0, t1) {
+          function sImageStill(s, root, t0, t1) {
             const cover = s.id === FIRST;
             heading(root, s.heading, t0 + 0.05, { instant: cover });
             let cardTop = cover ? COVER_STAGE_TOP : 470;  // 470 = .sp-imgcard default top
@@ -540,6 +540,93 @@
               if (k + 1 < arr.length) tl.set(chip, { opacity: 0 }, t0 + 0.6 + (k + 1) * ((t1 - t0 - 1.0) / arr.length));
             });
           }
+          // Crop-zoom on a still from the tool's OWN media. `focus` is a list of
+          // {box:[x,y,w,h] as fractions of the image, at: seconds from scene start, pad}.
+          // Each keyframe glides the image so that box fills the panel (the rest of
+          // the screenshot is cut away). Nothing is drawn: it only moves real pixels.
+          function focusMotion(im, PW, PH, iw, ih, focus, t0, t1) {
+            const k = PW / iw, DH = ih * k, oy = (PH - DH) / 2;
+            Object.assign(im.style, { position: "absolute", left: "0px", top: oy + "px",
+                                      width: PW + "px", height: DH + "px", maxWidth: "none",
+                                      maxHeight: "none", transformOrigin: "0 0" });
+            focus.forEach((f, i) => {
+              const [bx, by, bw, bh] = f.box;
+              const cx = (bx + bw / 2) * iw * k, cy = (by + bh / 2) * ih * k;
+              const z = Math.min(PW / (bw * iw * k), PH / (bh * ih * k)) * (f.pad || 0.9);
+              const x = PW / 2 - cx * z, y = PH / 2 - oy - cy * z;
+              const at = t0 + (f.at != null ? f.at : (i / focus.length) * (t1 - t0));
+              tl.to(im, { x: x, y: y, scale: z, duration: 0.7, ease: "power2.inOut",
+                          immediateRender: false }, at);
+            });
+          }
+          function sImage(s, root, t0, t1) {
+            if (s.focus && s.img) return sFocus(s, root, t0, t1);
+            return sImageStill(s, root, t0, t1);
+          }
+          function sFocus(s, root, t0, t1) {
+            const cover = s.id === FIRST;
+            heading(root, s.heading, t0 + 0.05, { instant: cover });
+            const cardTop = 470;
+            const card = A.mk("div", "sp-imgcard", root);
+            Object.assign(card.style, { top: cardTop + "px", height: "640px" });
+            const inn = A.mk("div", "in", card);
+            inn.style.overflow = "hidden";
+            const im = A.mk("img", "", inn);
+            im.src = "assets/" + s.img.file;
+            focusMotion(im, 960, 640, s.img.w, s.img.h, s.focus, t0, t1);
+            tl.fromTo(card, { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.32,
+                      ease: "back.out(1.6)", immediateRender: false }, t0 + 0.05);
+            if (s.sub) {
+              const sub = A.mk("div", "sp-sub", root, s.sub);
+              sub.style.top = "436px";
+              A.fit(sub, { max: 54, min: 42, maxH: 66 });
+              tl.fromTo(sub, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.28, immediateRender: false }, t0 + 0.3);
+            }
+          }
+          // Side-by-side panels. Each panel: a crop-zoom of the tool's own UI (left/right
+          // {image, img, focus, label, levels}) and an animated level bar drawn from the
+          // real audio envelope (levels = 15 Hz RMS of the reference or the cloned voice).
+          function sSplit(s, root, t0, t1) {
+            heading(root, s.heading, t0 + 0.05);
+            const top = 470, PH = 380, PW = 460, BAR_BASE = 1100, BAR_MAX = 170, N = 36;
+            [s.left, s.right].forEach((p, pi) => {
+              if (!p) return;
+              const x = pi === 0 ? 60 : 560;
+              const card = A.mk("div", "sp-imgcard", root);
+              Object.assign(card.style, { left: x + "px", width: PW + "px", top: top + "px", height: PH + "px" });
+              const inn = A.mk("div", "in", card);
+              inn.style.overflow = "hidden";
+              const im = A.mk("img", "", inn);
+              im.src = "assets/" + p.img.file;
+              focusMotion(im, PW, PH, p.img.w, p.img.h, p.focus || [{ box: [0, 0, 1, 1] }], t0, t1);
+              tl.fromTo(card, { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.32,
+                        ease: "back.out(1.6)", immediateRender: false }, t0 + 0.05 + 0.1 * pi);
+              const lab = A.mk("div", "sp-chip dark", root, p.label || "");
+              lab.style.top = (BAR_BASE - BAR_MAX - 60) + "px";
+              lab.style.left = (x + 10) + "px";
+              lab.style.transform = "none";
+              const bars = [];
+              for (let j = 0; j < N; j++) {
+                const b = A.mk("div", "sp-bar", root);
+                b.style.left = (x + 10 + j * ((PW - 20) / N)) + "px";
+                b.style.width = ((PW - 20) / N - 5) + "px";
+                b.style.top = BAR_BASE + "px";
+                bars.push(b);
+              }
+              const lv = p.levels || [];
+              if (lv.length) {
+                const step = 1 / 12;
+                for (let st = 0; t0 + st * step < t1 - 0.05; st++) {
+                  const tt = t0 + st * step;
+                  bars.forEach((b, j) => {
+                    const v = lv[(st + j * 2) % lv.length];
+                    const h = 8 + v * BAR_MAX;
+                    tl.set(b, { height: h, top: BAR_BASE - h }, tt);
+                  });
+                }
+              }
+            });
+          }
           function sEnd(s, root, t0, t1) {
             const q = s.question || firstQuestion(s.say);
             if (q) {
@@ -556,7 +643,7 @@
           }
 
           const BUILD = { clip: sClip, "clip-montage": sMontage, page: sPage, scroll: sScroll, steps: sSteps, terminal: sTerminal,
-                          verdict: sVerdict, stat: sStat, image: sImage, endcard: sEnd };
+                          verdict: sVerdict, stat: sStat, image: sImage, split: sSplit, endcard: sEnd };
           for (const s of X.scenes || []) {
             const fn = BUILD[s.type];
             if (!fn) { console.warn("spotlight: unknown scene type " + s.type); continue; }
