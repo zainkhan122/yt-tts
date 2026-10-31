@@ -135,12 +135,20 @@ def ranked_clocks(insights_posts: dict, platform: str, profile: dict, cfg: dict,
         # Owner 31 Oct 2026: the fallback is Buffer's own posting windows for the channel (refreshed weekly
         # by tools/post/buffer_windows.py). A stale or missing snapshot falls back to the researched window.
         buffer_slots, why = _buffer_slots(platform, windows_report, now or dt.datetime.now(dt.timezone.utc))
+        lo, hi = (rules.get("fallback_window") or ["18:00", "21:00"])
+        spacing = gap
         if buffer_slots:
-            candidates = [_to_min(c) for c in buffer_slots]
+            # Buffer's slots are many and nearly all used once, so their order alone says little. Keep the
+            # researched evening window first, then the rest, and space picks apart so they do not cluster.
+            in_win = [_to_min(c) for c in buffer_slots if _to_min(lo) <= _to_min(c) <= _to_min(hi)]
+            rest = [_to_min(c) for c in buffer_slots if _to_min(c) not in in_win]
+            # rest: nearest to the researched window first, so 07:00 comes before 06:06
+            rest.sort(key=lambda m: min(abs(m - _to_min(lo)), abs(m - _to_min(hi))))
+            candidates = in_win + rest
+            spacing = max(gap, int(rules.get("buffer_spacing_minutes", 60)))
             provenance["fallback_source"] = "buffer-windows"
-            provenance["fallback_slots_by_use"] = buffer_slots
+            provenance["fallback_slots_by_use"] = buffer_slots[:40]
         else:
-            lo, hi = (rules.get("fallback_window") or ["18:00", "21:00"])
             candidates = list(range(_to_min(lo), _to_min(hi) + 1, 30))
             provenance["fallback_source"] = "researched-window"
             provenance["fallback_window"] = [lo, hi]
@@ -149,7 +157,7 @@ def ranked_clocks(insights_posts: dict, platform: str, profile: dict, cfg: dict,
         for m in candidates:
             if len(clocks) >= want:
                 break
-            if all(abs(m - _to_min(c)) >= gap for c in clocks):
+            if all(abs(m - _to_min(c)) >= spacing for c in clocks):
                 clocks.append(_clock(m))
                 added.append(_clock(m))
         provenance["fallback_clocks"] = added

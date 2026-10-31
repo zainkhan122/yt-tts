@@ -85,7 +85,15 @@ class BestTimesFallback(unittest.TestCase):
         report = bw.build([channel("youtube", SLOTS)], NOW)
         clocks, prov = bt.ranked_clocks({}, "youtube", {"timezone": "America/New_York"}, CFG, 2, NY,
                                         windows_report=report, now=NOW)
-        self.assertEqual(clocks, ["09:00", "07:15"])  # most used first, ties by earlier time
+        self.assertEqual(clocks, ["18:30", "09:00"])  # evening slot first, then nearest to 18:00-21:00
+        self.assertEqual(prov["fallback_source"], "buffer-windows")
+
+    def test_evening_buffer_slot_first_and_picks_spaced_apart(self):
+        slots = [{"day": "monday", "paused": False, "times": ["06:06", "06:08", "18:30", "19:00", "07:00"]}]
+        report = bw.build([channel("facebook", slots)], NOW)
+        clocks, prov = bt.ranked_clocks({}, "facebook", {"timezone": "America/New_York"}, CFG, 2, NY,
+                                        windows_report=report, now=NOW)
+        self.assertEqual(clocks, ["18:30", "07:00"])   # 19:00 is inside 60 min of 18:30; 06:06/06:08 cluster
         self.assertEqual(prov["fallback_source"], "buffer-windows")
 
     def test_stale_windows_fall_back_and_say_why(self):
