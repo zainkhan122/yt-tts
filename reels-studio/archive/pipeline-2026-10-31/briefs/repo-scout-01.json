@@ -1,0 +1,183 @@
+{
+  "id": "repo-scout-01",
+  "capture": "captures/repo-scout-01",
+  "title": "Scout: Tell It the Task, It Browses for You",
+  "niche": "open-source browser agents",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "Owner selected this topic on 2026-10-16 (Top-10 pick). Default flow: render + frame-level QA, then Buffer scheduled send on YouTube/Instagram/Facebook. Approved Option-3 Chatterbox flow voice; no on-screen credit captions.",
+  "production_category": "repo",
+  "keywords": [
+    "Scout",
+    "Outcrawl",
+    "browser agent",
+    "automation",
+    "Apache-2.0"
+  ],
+  "facts": {
+    "stars": 867,
+    "forks": 27,
+    "license": "Apache-2.0",
+    "checked": "2026-10-16, GitHub README + API"
+  },
+  "credits_on_screen": "Own flow and steps cards created for this video. Source links in post/description only. No on-screen credits.",
+  "sources": [
+    "https://github.com/outcrawlai/scout",
+    "https://api.github.com/repos/outcrawlai/scout"
+  ],
+  "verify_before_render": [
+    "GitHub API 2026-10-16: 867 stars, 27 forks, created 2026-10-13, Apache-2.0. Install npm i @outcrawl/scout, Node 22+.",
+    "Needs an Outcrawl key (README: free 1,000 credits/month) plus any chat-completions model key or a local model endpoint.",
+    "Catches spoken: smoothest on Outcrawl's cloud; two keys; sites may block bots. Visuals are our own cards; no copied demo GIF."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "flow-card.png",
+      "heading": "IT *BROWSES* FOR YOU",
+      "sub": "Scout · open-source browser agent",
+      "say": "Tell this agent the task, and it opens a real browser and does it."
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "image": "steps-card.png",
+      "heading": "MEET *SCOUT*",
+      "sub": "By Outcrawl · Apache-2.0",
+      "say": "It is Scout, an open-source browser agent from Outcrawl."
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "HOW IT *WORKS*",
+      "steps": [
+        "Reads the page",
+        "Clicks and types",
+        "Reports what's missing"
+      ],
+      "step_at": [
+        "Reads",
+        "Clicks",
+        "missing"
+      ],
+      "say": "It reads the page, clicks, types and scrolls until the job is done, then reports back."
+    },
+    {
+      "id": "stars",
+      "type": "stat",
+      "heading": "DEVS *NOTICED*",
+      "value": 867,
+      "decimals": 0,
+      "suffix": " stars",
+      "label": "GitHub · first three days",
+      "at": "hundred",
+      "say": "It picked up over eight hundred GitHub stars in its first three days."
+    },
+    {
+      "id": "install",
+      "type": "terminal",
+      "heading": "ONE *NPM INSTALL*",
+      "lines": [
+        "npm i @outcrawl/scout"
+      ],
+      "say": "Install it with npm. You bring an Outcrawl key, and a key for whichever model you like."
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "BEFORE YOU *RUN IT*",
+      "cons": [
+        "Best on Outcrawl's cloud",
+        "Needs two API keys",
+        "Sites may block bots"
+      ],
+      "pros": [
+        "Apache-2.0",
+        "Runs locally too"
+      ],
+      "item_at": [
+        "cloud",
+        "keys",
+        "block",
+        "Apache",
+        "machine"
+      ],
+      "say": "The catches: the smoothest ride is on Outcrawl's own cloud, you need two keys to start, and some sites will still block a bot. But it is Apache two, and it can run on your own machine."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "SCOUT",
+      "say": "What would you send a browser agent to do? Comment SCOUT and I will pin the repo."
+    }
+  ],
+  "seo": {
+    "keyword": "Scout browser agent",
+    "aliases": [
+      "AI agents",
+      "browser automation"
+    ],
+    "onscreen_first3s": "IT BROWSES FOR YOU",
+    "youtube": {
+      "title": "Scout: Tell It the Task, It Browses for You",
+      "description": "Scout by Outcrawl is an open-source (Apache-2.0) browser agent: describe a task in plain words and it reads, clicks, types and scrolls in a real browser until the job is done. 867 GitHub stars in three days. Catches: the smoothest experience is Outcrawl's cloud, you need an Outcrawl key plus a model key, and some sites block bots.\nSource: https://github.com/outcrawlai/scout",
+      "hashtags": [
+        "#Shorts",
+        "#AI",
+        "#Agents",
+        "#Automation"
+      ],
+      "tags": [
+        "Scout",
+        "browser agent",
+        "Outcrawl",
+        "AI automation",
+        "web agent"
+      ]
+    },
+    "tiktok": {
+      "caption": "Scout: an open-source browser agent that does web tasks for you. Apache-2.0, 867 stars in 3 days. Catches: cloud upsell, two API keys, bot blocking.",
+      "hashtags": [
+        "#AI",
+        "#Agents",
+        "#Automation"
+      ]
+    },
+    "instagram": {
+      "caption": "Tell it the task; it opens a browser and gets it done. Scout is Outcrawl's open-source browser agent (Apache-2.0). Save this if you automate the web.",
+      "hashtags": [
+        "#AI",
+        "#Agents",
+        "#Automation"
+      ]
+    },
+    "facebook": {
+      "caption": "Scout (Outcrawl): open-source browser agent, npm install, bring your own model key. Apache-2.0.",
+      "hashtags": [
+        "#AI",
+        "#Agents"
+      ]
+    },
+    "x": {
+      "text": "Tell it the task, it browses for you: Scout, Outcrawl's Apache-2.0 browser agent, 867 stars in 3 days. https://github.com/outcrawlai/scout",
+      "hashtags": [
+        "#AI",
+        "#Agents"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "Scout: Tell It the Task, It Browses for You"
+    ],
+    "caption": "Scout is Outcrawl's open-source browser agent: describe the task in plain words and it reads, clicks, types and scrolls in a real browser, then reports back (or tells you what's missing). Apache-2.0, 867 GitHub stars in its first three days. Catches: best experience is on Outcrawl's cloud, you need two API keys, and some sites still block bots.",
+    "hashtags": [
+      "#Shorts",
+      "#AI",
+      "#Agents",
+      "#Automation"
+    ],
+    "pinned_comment": "Repo: https://github.com/outcrawlai/scout — visuals are our own cards, not the project's demo."
+  }
+}

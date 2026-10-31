@@ -276,7 +276,7 @@ def tts_retry_policy(tts):
     except (TypeError, ValueError) as exc:
         raise SystemExit("TTS min_match/max_retries must be numeric") from exc
     if not math.isfinite(threshold) or threshold < MIN_FLOW_MATCH:
-        raise SystemExit("TTS per-chunk QA cannot be lowered below 85%; fix the spoken text or approved voice seed")
+        raise SystemExit(f"TTS per-chunk QA cannot be lowered below {MIN_FLOW_MATCH:.0%}; fix the spoken text or approved voice seed")
     if threshold > 1.0:
         raise SystemExit("TTS per-chunk QA threshold cannot exceed 100%")
     if not isinstance(raw_retries, int) and not (isinstance(raw_retries, str) and re.fullmatch(r"[0-9]+", raw_retries.strip())):
@@ -296,7 +296,7 @@ def require_flow_match(match, threshold, chunk_index, attempts, expected=None, h
     threshold = float(threshold)
     match = float(match)
     if not math.isfinite(threshold) or threshold < MIN_FLOW_MATCH:
-        raise SystemExit("TTS per-chunk QA threshold cannot be lowered below 85%")
+        raise SystemExit(f"TTS per-chunk QA threshold cannot be lowered below {MIN_FLOW_MATCH:.0%}")
     if threshold > 1.0 or not math.isfinite(match) or not 0.0 <= match <= 1.0:
         raise SystemExit("TTS alignment returned an invalid score/threshold")
     if match < threshold:
@@ -323,7 +323,7 @@ def require_whisper_match(matched, total, threshold=MIN_ENGLISH_WHISPER_MATCH, d
     """The final English voiceover must clear the project-wide character-match target."""
     threshold = float(threshold)
     if not math.isfinite(threshold) or threshold < MIN_ENGLISH_WHISPER_MATCH:
-        raise SystemExit("English final Whisper QA threshold cannot be lowered below 95%")
+        raise SystemExit(f"English final Whisper QA threshold cannot be lowered below {MIN_ENGLISH_WHISPER_MATCH:.0%}")
     if threshold > 1.0:
         raise SystemExit("English final Whisper QA threshold cannot exceed 100%")
     ratio = float(matched) / max(1, int(total))

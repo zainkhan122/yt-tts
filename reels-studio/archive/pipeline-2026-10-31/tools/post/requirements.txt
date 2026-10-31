@@ -1,0 +1,15 @@
+requests>=2.32.3,<3
+# Used only by tests to validate GraphQL operations/input against the pinned public schema.
+graphql-core>=3.2.6,<3.3
+
+# Shared safety suite also exercises encrypted YouTube checkpoints and mobile thumbnails.
+PyNaCl>=1.5,<2
+Pillow>=10.4,<13
+# lib.pipeline (imported by the shared suite) measures loudness with numpy.
+numpy>=1.26,<3
+soundfile>=0.12,<1
+# lib.pipeline/lib.synth resample and filter with scipy.
+scipy>=1.13,<2
+
+# Shared regression suite includes isolated optional-agent safety gates.
+-r ../agent/requirements.txt

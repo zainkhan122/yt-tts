@@ -116,7 +116,6 @@ class ProductionGateTests(unittest.TestCase):
 
     def test_complete_receipt_passes_and_hashes_script(self):
         result = self.validate()
-        self.assertEqual(result["briefs"]["one"]["topic_score"], 75)
         self.assertEqual(result["briefs"]["one"]["script_sha256"], script_sha256(self.brief))
         self.assertEqual(script_word_count(self.brief), 6)
 
@@ -163,17 +162,6 @@ class ProductionGateTests(unittest.TestCase):
         with self.assertRaisesRegex(ProductionGateError, "exactly the six"):
             self.validate()
 
-    def test_score_below_60_or_mismatched_breakdown_fails(self):
-        self.receipt["briefs"]["one"]["stages"]["select"]["score"] = 59
-        self.receipt_path.write_text(json.dumps(self.receipt), encoding="utf-8")
-        with self.assertRaisesRegex(ProductionGateError, "topic score must be an integer from 60"):
-            self.validate()
-        self.receipt["briefs"]["one"]["stages"]["select"]["score"] = 75
-        self.receipt["briefs"]["one"]["stages"]["select"]["score_breakdown"]["freshness_angle"] = 9
-        self.receipt_path.write_text(json.dumps(self.receipt), encoding="utf-8")
-        with self.assertRaisesRegex(ProductionGateError, "does not equal"):
-            self.validate()
-
     def test_stale_or_incomplete_buffer_snapshot_fails(self):
         self.snapshot["complete"] = False
         new_raw = (json.dumps(self.snapshot, ensure_ascii=False, indent=2, sort_keys=True) + "\n").encode()
@@ -189,12 +177,6 @@ class ProductionGateTests(unittest.TestCase):
         self.brief["scenes"][0]["say"] += " Changed."
         self.brief_path.write_text(json.dumps(self.brief), encoding="utf-8")
         with self.assertRaisesRegex(ProductionGateError, "brief changed"):
-            self.validate()
-
-    def test_backlog_score_must_match(self):
-        path = self.root / "reels-studio/topics/backlog.csv"
-        path.write_text("video_id,topic,score,status\none,Test topic,59,selected\n", encoding="utf-8")
-        with self.assertRaisesRegex(ProductionGateError, "does not match"):
             self.validate()
 
     def test_missing_metrics_decision_fails(self):

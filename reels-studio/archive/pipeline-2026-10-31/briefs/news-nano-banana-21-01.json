@@ -1,0 +1,192 @@
+{
+  "id": "news-nano-banana-21-01",
+  "capture": "captures/news-nano-banana-21-01",
+  "title": "Nano Banana 2.1: Half-Price Images, One Catch",
+  "niche": "tech / AI news",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "2026-10-12: original script based on checked primary sources (Google's Gemini API docs: model list, pricing table, deprecations page, read 2026-10-12); approved Option 3 flow voice; no on-screen credits. | On-screen browser chrome shows a concise source domain; full source URLs stay in descriptions.",
+  "keywords": [
+    "Nano Banana 2.1",
+    "image",
+    "pricing",
+    "4K",
+    "editing",
+    "Google"
+  ],
+  "facts": {
+    "checked": "2026-10-12"
+  },
+  "credits_on_screen": "Own capture of Google DeepMind's Nano Banana model page; demo images are Google's official media from that page. Prices and dates read from Google's Gemini API docs on 2026-10-12.",
+  "sources": [
+    "https://ai.google.dev/gemini-api/docs/image-generation",
+    "https://ai.google.dev/gemini-api/docs/pricing",
+    "https://ai.google.dev/gemini-api/docs/deprecations"
+  ],
+  "verify_before_render": [
+    "Google docs read 2026-10-12: gemini-nano-banana-2.1 released October 6, 2026, 'recommended for all new projects'; improved visual quality, text rendering, multi-turn consistency, Google Search grounding, 1K/2K/4K; up to 14 reference images. Pricing (standard tier): input $1.50/1M tokens, output $7.50/1M text+thinking, $30/1M images = $0.0336/1K, $0.0504/2K, $0.113/4K; previous generation (gemini-3.1-flash-image) images were $60/1M = ~$0.067/1K. Batch halves it. No free API tier. Deprecations page: Imagen 4 models retired 2026-08-17 with 2.1 as replacement; gemini-2.5-flash-image shutdown 2027-03-15; 2.1 has no shutdown date announced.",
+    "No on-screen credit captions. Option 3 Chatterbox Michael continuous-flow voice required."
+  ],
+  "production_category": "news",
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "desktop-top.jpg",
+      "heading": "NANO BANANA 2.1: *HALF PRICE*",
+      "say": "{Nano Banana 2.1|Nano Banana two point one} landed this month with a price cut, and one catch in the token bill.",
+      "url": "deepmind.google"
+    },
+    {
+      "id": "price",
+      "type": "stat",
+      "heading": "PER *IMAGE* NOW",
+      "value": 0.0336,
+      "decimals": 4,
+      "prefix": "$",
+      "label": "per 1K image · standard tier · down from ~$0.067",
+      "icon": false,
+      "at": "three",
+      "say": "Three point three six cents per image at one-K, about half of what the previous model charged. Four-K output is eleven point three cents.",
+      "url": "ai.google.dev"
+    },
+    {
+      "id": "new",
+      "type": "steps",
+      "heading": "WHAT *2.1* FIXES",
+      "background": {
+        "image": "desktop-full.jpg"
+      },
+      "steps": [
+        "Text inside images renders cleanly",
+        "Characters stay consistent across edits",
+        "Google Search grounding built in"
+      ],
+      "say": "It fixes the things that made AI images annoying: text that renders cleanly, characters that stay the same across edits, and generation grounded in Google Search.",
+      "url": "ai.google.dev"
+    },
+    {
+      "id": "detail",
+      "type": "image",
+      "image": "a-detailed-macro-shot-of-a-colorful-spid.jpg",
+      "heading": "LOOK AT THE *TEXTURE*",
+      "say": "Fine detail, messy textures, tricky subjects. This is a one-shot render from the family's own gallery.",
+      "url": "deepmind.google"
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE *CATCH*",
+      "cons": [
+        "Input tokens now cost 3x more ($1.50 per 1M)",
+        "No free API tier",
+        "Search grounding billed per query"
+      ],
+      "pros": [
+        "Image output at half price",
+        "1K, 2K and 4K output",
+        "Recommended for all new projects"
+      ],
+      "item_at": [
+        "input",
+        "free",
+        "search",
+        "half",
+        "four",
+        "recommends"
+      ],
+      "say": "The catch: input tokens cost three times more, there is no free API tier, and search grounding is billed per query. But images are half price, up to four-K, and Google now recommends it for every new project.",
+      "url": "ai.google.dev"
+    },
+    {
+      "id": "migration",
+      "type": "steps",
+      "heading": "EVERYONE'S *MOVING OVER*",
+      "background": {
+        "image": "desktop-top.jpg"
+      },
+      "steps": [
+        "Imagen 4: retired August 2026",
+        "Original Nano Banana: March 15, 2027",
+        "2.1: no shutdown date announced"
+      ],
+      "say": "It is also the migration target: Imagen 4 was retired in August, and the original Nano Banana shuts down on March fifteenth, twenty twenty seven.",
+      "url": "ai.google.dev"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "BANANA",
+      "say": "Would you switch your image pipeline? Comment Banana and I will pin the price table.",
+      "url": "ai.google.dev"
+    }
+  ],
+  "seo": {
+    "keyword": "Nano Banana 2.1",
+    "aliases": [
+      "Nano Banana",
+      "Google image model"
+    ],
+    "onscreen_first3s": "NANO BANANA 2.1: HALF PRICE",
+    "youtube": {
+      "title": "Nano Banana 2.1: Half-Price Images, One Catch",
+      "description": "Nano Banana 2.1 (gemini-nano-banana-2.1) arrived on October 6, 2026: $0.0336 per 1K image, about half the previous model's price, with better text rendering, stronger character consistency, search grounding and 1K/2K/4K output. The catch: input tokens cost $1.50 per 1M now, there is no free API tier, and grounding is billed per query. Google recommends 2.1 for all new projects. Prices read from Google's docs on 12 October 2026.\nSource: https://ai.google.dev/gemini-api/docs/image-generation",
+      "hashtags": [
+        "#Shorts",
+        "#AInews",
+        "#NanoBanana",
+        "#AItools"
+      ],
+      "tags": [
+        "Nano Banana 2.1",
+        "Nano Banana pricing",
+        "Google image model",
+        "Gemini image generation",
+        "AI image editing",
+        "Nano Banana vs Imagen",
+        "AI tools 2026"
+      ]
+    },
+    "tiktok": {
+      "caption": "Nano Banana 2.1 cut image prices in half: $0.0336 per 1K image, better text rendering and search grounding. The catch? Input tokens cost 3x more now.",
+      "hashtags": [
+        "#NanoBanana",
+        "#AInews",
+        "#AItools"
+      ]
+    },
+    "instagram": {
+      "caption": "Nano Banana 2.1 dropped image prices in half — $0.0336 per 1K image with cleaner text and steadier characters across edits. The catch is in the token bill. Save this before you re-price your pipeline.",
+      "hashtags": [
+        "#NanoBanana",
+        "#AInews",
+        "#AItools"
+      ]
+    },
+    "facebook": {
+      "caption": "Nano Banana 2.1 halves the price per image ($0.0336 per 1K) and sharpens text rendering, but input tokens now cost three times more. Google calls it the model for all new projects.",
+      "hashtags": [
+        "#NanoBanana",
+        "#AInews"
+      ]
+    },
+    "x": {
+      "text": "Nano Banana 2.1: $0.0336 per 1K image, half the old price, with better text rendering and search grounding. The catch — input tokens now cost $1.50 per 1M, and there is no free API tier.",
+      "hashtags": [
+        "#AI"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "Nano Banana 2.1: Half-Price Images, One Catch"
+    ],
+    "caption": "Nano Banana 2.1 halves the price per image and sharpens text rendering, but input tokens now cost 3x more. Google recommends it for all new projects; the catch is in the token bill.",
+    "hashtags": [
+      "#NanoBanana",
+      "#AInews",
+      "#AItools"
+    ],
+    "pinned_comment": "Price table and docs: https://ai.google.dev/gemini-api/docs/pricing"
+  }
+}

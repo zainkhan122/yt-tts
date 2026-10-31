@@ -183,18 +183,12 @@ class DispatchPlanTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "DISCOVER is not complete"):
             self.plan()
 
-    def test_selection_must_be_explicit_and_score_at_least_sixty(self):
+    def test_selection_must_be_explicit_not_scored(self):
+        # Topic score and backlog rules were retired 31 Oct 2026 (pipeline plan, decision 6):
+        # a low number on the receipt no longer blocks a pick. An explicit selection still does.
         self._write_receipt(score=59)
-        with self.assertRaisesRegex(ValueError, "topic score must be an integer from 60"):
-            self.plan()
-        self._write_receipt(score=75)
-        backlog = self.repo / "reels-studio/topics/backlog.csv"
-        text = backlog.read_text(encoding="utf-8").replace(",selected", ",idea", 1)
-        backlog.write_text(text, encoding="utf-8")
-        with self.assertRaisesRegex(ValueError, "status must be selected"):
-            self.plan()
+        self.plan()
 
-    @unittest.skipIf(SPARSE_CHECKOUT_SKIP, 'workflow files not in sparse checkout')
     def test_workflow_entry_rejects_non_main_branch_before_remote_access(self):
         env = {"GITHUB_ACTIONS": "true", "GITHUB_REF": "refs/heads/feature", "BRIEFS": "one"}
         stderr = io.StringIO()

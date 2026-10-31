@@ -1,0 +1,208 @@
+{
+  "id": "repo-coop-anything-01",
+  "capture": "captures/repo-coop-anything-01",
+  "title": "Co-op Anything: Turn Any Single-Player Game Into Co-op With AI",
+  "niche": "AI game mods / co-op for single-player games",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "Selected 2026-10-18 (findings batch) from fresh radar + performance data; niche-decode rules applied: stakes hook, product-first cover, ~38s density, spoken CTA, Name:outcome headings, per-platform descriptions, one plain licence mention max. Render + frame QA, then Buffer at best windows.",
+  "production_category": "repo",
+  "keywords": [
+    "Co-op Anything",
+    "AI game mod",
+    "co-op mod",
+    "single-player games",
+    "AI agents"
+  ],
+  "facts": {
+    "stars": "313 GitHub stars in first 2 days (GitHub page capture, checked 2026-10-18)",
+    "license": "MIT",
+    "runtime": "AI coding agent workflow; per-game results vary"
+  },
+  "credits_on_screen": "Own screen captures of the public GitHub repos (coop-anything + deus-ex-coop, checked 2026-10-18).",
+  "sources": [
+    "https://github.com/cranebeaker/coop-anything",
+    "https://api.github.com/repos/cranebeaker/coop-anything"
+  ],
+  "verify_before_render": [
+    "Stars, licence and game-status claims re-checked against the live repo on render day."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "heading": "NEVER MEANT *FOR FRIENDS*",
+      "sub": "Co-op Anything · turns solo games co-op",
+      "say": "Your favourite single-player game was never meant for friends. An AI agent can now change that.",
+      "url": "github.com/cranebeaker/coop-anything",
+      "camera": [
+        {
+          "region": "repo_title",
+          "zoom": 1.5,
+          "at": "game"
+        }
+      ]
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "image": "directory-top.jpg",
+      "heading": "MEET *CO-OP ANYTHING*",
+      "sub": "Point your agent at any game",
+      "say": "It is called Co-op Anything: a playbook and toolkit that turns solo games into co-op."
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "HOW IT *WORKS*",
+      "steps": [
+        "Tell your agent the game",
+        "It builds + bot-tests the co-op",
+        "Friends join in one click"
+      ],
+      "step_at": [
+        "Tell your agent",
+        "builds",
+        "one click"
+      ],
+      "say": "Tell your agent which game. It studies the game, builds or fixes the co-op, tests it with bots, then packages it so friends join in one click.",
+      "background": {
+        "image": "desktop-full.jpg",
+        "scroll_regions": [
+          "h_how_it_works",
+          "h_quick_start"
+        ]
+      }
+    },
+    {
+      "id": "stars",
+      "type": "page",
+      "heading": "GAMERS *NOTICED*",
+      "say": "Gamers gave it more than three hundred GitHub stars in its first two days.",
+      "image": "desktop-top.jpg",
+      "camera": [
+        {
+          "region": "star_button",
+          "zoom": 2.6,
+          "at": "stars"
+        }
+      ],
+      "cursor": [
+        {
+          "region": "star_button",
+          "at": "stars",
+          "state": "★ Starred 313"
+        }
+      ]
+    },
+    {
+      "id": "install",
+      "type": "page",
+      "heading": "*ONE SENTENCE*",
+      "say": "Setup is one sentence to your coding agent: read this repo — I want this game in co-op.",
+      "image": "desktop-full.jpg",
+      "camera": [
+        {
+          "region": "h_quick_start",
+          "zoom": 1.35,
+          "at": "sentence"
+        }
+      ]
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "BEFORE YOU *GET EXCITED*",
+      "cons": [
+        "Your game may not be built yet",
+        "The agent does real work — results vary"
+      ],
+      "pros": [
+        "Deus Ex co-op already released",
+        "Free and open source"
+      ],
+      "item_at": [
+        "real building work",
+        "results vary",
+        "already released",
+        "open source"
+      ],
+      "say": "The honest catch: unless your game is already done, the agent has real building work ahead, and results vary. But Deus Ex is already released, and it is free and open source.",
+      "image": "deusex-top.jpg",
+      "region": "deusex_about",
+      "zoom": 1.15
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "COOP",
+      "say": "Which solo game deserves co-op first? Comment Coop and follow for tools like this."
+    }
+  ],
+  "seo": {
+    "keyword": "Co-op Anything",
+    "aliases": [
+      "AI co-op mod",
+      "play single-player games with friends"
+    ],
+    "onscreen_first3s": "NEVER MEANT FOR FRIENDS",
+    "youtube": {
+      "title": "Co-op Anything: Turn Any Single-Player Game Into Co-op With AI",
+      "description": "Co-op Anything turns single-player games into co-op: point your AI coding agent at the repo, name your game, and it studies, builds and bot-tests the multiplayer for you. Deus Ex co-op is already released, Ocarina of Time is fully synced, and Fallout: New Vegas story co-op is in the works — with one-click joins for friends and no port forwarding.\n\nFor gamers who always wished their favourite solo game had multiplayer — and for AI-agent fans who want a project with a real payoff.\n\nRepo: https://github.com/cranebeaker/coop-anything\n\nLicence: MIT (free and open source).",
+      "hashtags": [
+        "#Shorts",
+        "#gaming",
+        "#AI",
+        "#mods",
+        "#coop"
+      ],
+      "tags": [
+        "co-op anything",
+        "ai co-op mod",
+        "single player games with friends",
+        "ai game mod",
+        "github repo"
+      ]
+    },
+    "tiktok": {
+      "caption": "Co-op Anything turns your favourite single-player game into co-op. Point your AI coding agent at this free toolkit: it studies the game, builds or fixes the multiplayer, tests it with bots, and packages it so friends join in one click, no port forwarding. Deus Ex co-op is already released, Ocarina of Time is fully synced, and Fallout: New Vegas story co-op is coming. Which solo game deserves co-op first?",
+      "hashtags": [
+        "#gaming",
+        "#AI",
+        "#mods"
+      ]
+    },
+    "instagram": {
+      "caption": "Comment COOP and I'll pin the repo link 👇\nYour favourite solo game, finally playable with friends: an AI agent builds the co-op for you. Deus Ex is already released — which game should be next?\nSave this for your next game night.",
+      "hashtags": [
+        "#gaming",
+        "#AI",
+        "#gamedev",
+        "#mods",
+        "#coop"
+      ]
+    },
+    "facebook": {
+      "caption": "Co-op Anything: your AI agent turns single-player games into co-op — it builds and bot-tests the multiplayer, friends join in one click. Which solo game would you play together first?",
+      "hashtags": [
+        "#gaming",
+        "#AI",
+        "#mods"
+      ]
+    },
+    "x": {
+      "text": "Co-op Anything lets your AI agent turn single-player games into co-op — Deus Ex already released, Ocarina of Time fully synced 👇 github.com/cranebeaker/coop-anything",
+      "hashtags": [
+        "#AI",
+        "#gaming"
+      ]
+    }
+  },
+  "research_basis": [
+    "research/social/decode-2026-10-18.md",
+    "research/social/platform-algorithms-2026-10-18.md",
+    "tracker/performance.json",
+    "research/production/viewer-panel-2026-10-18-repo-coop-anything-01.md"
+  ]
+}

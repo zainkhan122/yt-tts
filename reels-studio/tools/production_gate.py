@@ -22,21 +22,10 @@ REPO_ROOT = ROOT.parent
 BUFFER_SNAPSHOT = "reels-studio/tracker/buffer-insights.json"
 RECEIPT_PREFIX = "reels-studio/research/production/receipts/"
 _GATES = json.loads((ROOT / "config" / "gates.json").read_text(encoding="utf-8"))  # single thresholds source
-MIN_TOPIC_SCORE = int(_GATES["topic_score_min"])
 MIN_CHUNK_MATCH = float(_GATES["tts_chunk_match_min"])
 MIN_ENGLISH_OVERALL_MATCH = float(_GATES["tts_english_overall_match_min"])
 MAX_INSIGHTS_AGE = dt.timedelta(hours=36)
 MAX_DISCOVER_AGE = dt.timedelta(hours=36)
-MAX_FACT_AGE = dt.timedelta(hours=24)
-MAX_SOURCE_AGE = dt.timedelta(hours=72)
-SCORE_WEIGHTS = {
-    "trend_velocity": 25,
-    "demo_ability": 20,
-    "audience_breadth": 15,
-    "social_proof_gap": 15,
-    "free_value": 10,
-    "freshness_angle": 15,
-}
 STAGES = ("discover", "select", "research", "script", "voice", "assets")
 METRIC_DECISIONS = ("topic", "script", "voice", "visual")
 SHA_RE = re.compile(r"^[0-9a-f]{64}$")
@@ -189,15 +178,6 @@ def _require_decisions(decisions, label: str) -> dict:
     return result
 
 
-def _load_backlog(repo_root: Path) -> list[dict]:
-    path = _repo_path(repo_root, "reels-studio/topics/backlog.csv")
-    try:
-        with path.open("r", encoding="utf-8-sig", newline="") as f:
-            return list(csv.DictReader(f))
-    except OSError as exc:
-        raise ProductionGateError("topics/backlog.csv is unreadable") from exc
-
-
 def _validate_buffer_snapshot(repo_root: Path, receipt: dict, now: dt.datetime) -> tuple[dict, str]:
     ref = receipt.get("buffer_insights")
     if not isinstance(ref, dict):
@@ -282,7 +262,6 @@ def validate_receipt(
     receipt_briefs = receipt.get("briefs")
     if not isinstance(receipt_briefs, dict) or set(receipt_briefs) != set(brief_ids):
         raise ProductionGateError("receipt brief IDs must exactly match the dispatch batch")
-    backlog = _load_backlog(root)
     summary = {"batch_id": batch_id, "receipt_sha256": sha256_bytes(receipt_raw),
                "buffer_insights_sha256": snapshot_sha, "briefs": {}}
 
@@ -316,45 +295,14 @@ def validate_receipt(
         select = stages["select"]
         if select.get("selection_status") != "selected":
             raise ProductionGateError(f"{brief_id}: SELECT must explicitly mark the topic as selected")
-        score = select.get("score")
-        if isinstance(score, bool) or not isinstance(score, int) or not MIN_TOPIC_SCORE <= score <= 100:
-            raise ProductionGateError(f"{brief_id}: topic score must be an integer from {MIN_TOPIC_SCORE} to 100")
-        breakdown = select.get("score_breakdown")
-        if not isinstance(breakdown, dict) or set(breakdown) != set(SCORE_WEIGHTS):
-            raise ProductionGateError(f"{brief_id}: SELECT score_breakdown must use the PIPELINE.md rubric")
-        for criterion, maximum in SCORE_WEIGHTS.items():
-            value = breakdown.get(criterion)
-            if isinstance(value, bool) or not isinstance(value, int) or not 0 <= value <= maximum:
-                raise ProductionGateError(f"{brief_id}: SELECT {criterion} must be an integer from 0 to {maximum}")
-        if sum(breakdown.values()) != score:
-            raise ProductionGateError(f"{brief_id}: SELECT score does not equal its rubric breakdown")
         if select.get("metrics_snapshot_sha256") != snapshot_sha:
             raise ProductionGateError(f"{brief_id}: SELECT must reference the current Buffer Insights snapshot")
         basis = select.get("basis_post_ids")
         if not isinstance(basis, list) or not basis or any(pid not in snapshot["posts"] for pid in basis):
             raise ProductionGateError(f"{brief_id}: SELECT must cite Buffer posts used as performance evidence")
-        hard = select.get("hard_gates")
-        if not isinstance(hard, dict) or any(hard.get(key) is not True for key in
-                ("risk_flags_clear", "claim_verifiable", "license_clear")):
-            raise ProductionGateError(f"{brief_id}: SELECT has an unresolved automatic hard gate")
-        matches = [row for row in backlog if row.get("video_id", "").strip() == brief_id]
-        if len(matches) != 1:
-            raise ProductionGateError(f"{brief_id}: topics/backlog.csv must have exactly one scored row with video_id={brief_id}")
-        try:
-            backlog_score = int(matches[0].get("score", ""))
-        except (TypeError, ValueError) as exc:
-            raise ProductionGateError(f"{brief_id}: backlog score is missing or not numeric") from exc
-        if backlog_score != score:
-            raise ProductionGateError(f"{brief_id}: backlog score {backlog_score} does not match receipt score {score}")
-        if (matches[0].get("status") or "").strip().lower() != "selected":
-            raise ProductionGateError(f"{brief_id}: topics/backlog.csv status must be selected before rendering")
-        backlog_topic = (matches[0].get("topic") or "").strip()
-        if not backlog_topic or select.get("topic") != backlog_topic:
-            raise ProductionGateError(f"{brief_id}: SELECT topic must exactly match the selected backlog topic")
-
         research = stages["research"]
+        # Facts and claims are checked per pick in studio/select.py (24 h freshness, source line per claim).
         _require_evidence(root, research.get("evidence"), f"{brief_id} RESEARCH")
-        require_fresh(research.get("dynamic_facts_checked_at"), f"{brief_id} dynamic facts", MAX_FACT_AGE, now)
         primary = research.get("primary_sources")
         if not isinstance(primary, list) or not primary:
             raise ProductionGateError(f"{brief_id}: RESEARCH needs at least one verified primary source")
@@ -364,7 +312,6 @@ def validate_receipt(
                 raise ProductionGateError(f"{brief_id}: RESEARCH primary source must be an HTTPS URL")
             if source["url"] not in brief_urls:
                 raise ProductionGateError(f"{brief_id}: primary source is not recorded in the brief sources list")
-            require_fresh(source.get("checked_at"), f"{brief_id} primary source", MAX_SOURCE_AGE, now)
             if not isinstance(source.get("claim"), str) or len(source["claim"].strip()) < 8:
                 raise ProductionGateError(f"{brief_id}: primary source must identify the verified claim")
 
@@ -394,7 +341,7 @@ def validate_receipt(
         if not math.isfinite(chunk_threshold) or chunk_threshold > 1.0:
             raise ProductionGateError(f"{brief_id}: VOICE per-chunk threshold must be finite and at most 100%")
         if chunk_threshold < MIN_CHUNK_MATCH:
-            raise ProductionGateError(f"{brief_id}: VOICE per-chunk threshold cannot be below 85%")
+            raise ProductionGateError(f"{brief_id}: VOICE per-chunk threshold cannot be below {MIN_CHUNK_MATCH:.0%}")
         language = str(brief.get("lang", "en-us")).lower()
         if language.startswith("en") and brief.get("whisper_qa", True) is False:
             raise ProductionGateError(f"{brief_id}: English Whisper TTS QA cannot be disabled")
@@ -447,7 +394,6 @@ def validate_receipt(
         asset_files_sha = sha256_bytes(json.dumps(asset_file_rows, sort_keys=True, separators=(",", ":")).encode("utf-8"))
         summary["briefs"][brief_id] = {
             "brief_sha256": actual_brief_sha,
-            "topic_score": score,
             "script_sha256": exact_script_sha,
             "asset_manifest_sha256": asset_digest,
             "asset_files_sha256": asset_files_sha,

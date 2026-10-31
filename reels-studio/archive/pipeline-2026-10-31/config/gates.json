@@ -1,0 +1,7 @@
+{
+  "_doc": "Single source for production QA thresholds. lib/pipeline.py and tools/production_gate.py both read this file. Change a value here, never in code. Tests fail if the code and this file disagree.",
+  "topic_score_min": 60,
+  "tts_chunk_match_min": 0.85,
+  "tts_english_overall_match_min": 0.90,
+  "tts_english_whisper_match_min": 0.90
+}

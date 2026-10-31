@@ -4,7 +4,7 @@
 The pipeline has 9 stages, each with a clear input/output contract:
 
   1. DISCOVER   — search_probe, need_miner, idea_feed → backlog candidates
-  2. SELECT     — studio.topics, rerank_backlog → picked topic + candidate
+  2. SELECT     — studio.select (agent judgment, recorded per pick; code checks the record)
   3. RESEARCH   — capture, social_scan, channel_study → proof assets + reference data
   4. SCRIPT     — studio.rules, studio.shotplan, brief_lint → validated brief
   5. VOICE      — tts_roundtrip, voice_study, audio_analyze → audio metrics + TTS
@@ -37,13 +37,13 @@ STAGES = {
         "module": "tools.search_probe + tools.need_miner + tools.idea_feed",
         "produces": "research/backlog.csv (candidates with value/proof/freshness)",
         "consumes": "research/sources.csv (watchlist channels)",
-        "gate": "studio.topics refuses to rank without fresh reference study",
+        "gate": "24 h freshness per item; judgment record complete; claims sourced or owner-approved",
     },
     "select": {
-        "module": "studio.topics + tools.rerank_backlog",
-        "produces": "selected topic + candidate dict (value, proof_assets, deadline)",
+        "module": "studio.select + tools.demand.autocomplete + tools.reference.ytdlp_insights",
+        "produces": "day record with a random pick count (2-7) and one judgment record per pick",
         "consumes": "research/backlog.csv",
-        "gate": "MIN_TOPIC_SCORE=60; classification required; judged value required",
+        "gate": "pick count within config/selection.json; no fixed mix or score",
     },
     "research": {
         "module": "tools.capture + tools.social_scan + tools.channel_study + tools.reference_analyzer",

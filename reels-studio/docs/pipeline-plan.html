@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reels Studio: revised pipeline plan (draft for owner review)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --ink:#1b2430; --muted:#5b6777; --line:#d9e0ea; --bg:#f6f8fb; --card:#ffffff;
+          --blue:#2d6cdf; --green:#1f9d62; --amber:#d98a00; --red:#c93c3c; --violet:#7a4fd6; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--ink); background:var(--bg); }
+  header { background:linear-gradient(135deg,#1d3557,#2d6cdf); color:#fff; padding:36px 40px; }
+  header h1 { margin:0 0 6px; font-size:28px; letter-spacing:.2px; }
+  header p { margin:0; opacity:.9; max-width:880px; }
+  main { max-width:1120px; margin:0 auto; padding:28px 24px 60px; }
+  section { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:26px 28px; margin:0 0 22px; }
+  h2 { font-size:20px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 18px; }
+  h3 { font-size:16px; margin:18px 0 8px; }
+  .pill { display:inline-block; font-size:12px; font-weight:600; padding:3px 10px; border-radius:999px; color:#fff; vertical-align:middle; }
+  .keep { background:var(--green); } .change { background:var(--amber); } .remove { background:var(--red); } .new { background:var(--violet); } .gap { background:#8a94a3; }
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { background:#eef3fb; font-weight:600; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
+  .card { border:1px solid var(--line); border-radius:12px; padding:16px; background:#fff; }
+  .card h4 { margin:0 0 6px; font-size:15px; }
+  .step-no { display:inline-flex; width:28px; height:28px; border-radius:50%; align-items:center; justify-content:center; background:var(--blue); color:#fff; font-weight:700; margin-right:8px; font-size:13px; }
+  .who { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.6px; }
+  .ex { background:#f3f7ff; border-left:4px solid var(--blue); padding:10px 12px; border-radius:6px; margin:8px 0; font-size:14px; }
+  .bad { background:#fff4f4; border-left:4px solid var(--red); padding:10px 12px; border-radius:6px; margin:8px 0; font-size:14px; }
+  code { background:#eef1f5; padding:1px 5px; border-radius:4px; font-size:13px; }
+  .legend span { margin-right:14px; font-size:13px; }
+  .note { font-size:13px; color:var(--muted); margin-top:10px; }
+  svg text { font-family: -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Reels Studio: revised pipeline plan</h1>
+  <p>Draft for owner review, built from your 31 Oct feedback. Nothing here is implemented yet. The aim: I (the agent) make the creative judgments, guided by written guidelines and by what our analytics show is working, and the code only checks facts and file integrity.</p>
+</header>
+<main>
+
+<!-- 1. FEEDBACK -->
+<section>
+  <h2>1. Your feedback, and what changes</h2>
+  <p class="sub">Each row is one of your points, the change it causes, and where it appears below.</p>
+  <table>
+    <tr><th style="width:30%">Your feedback</th><th>What changes</th><th style="width:12%">Where</th></tr>
+    <tr><td>Classifying by URL (GitHub = repo, Hugging Face = tool, else unclassified) is wrong. I should classify every candidate myself.</td>
+        <td>Category is my judgment after reading the source. No host lookup, no fixed categories, and no "unclassified" parking lot.</td><td>Step 2</td></tr>
+    <tr><td>Blocking flags (licence-unclear, unverified-claim, no-https-source, hype-only, unsafe) are vague. Licence and legal checks are not our job.</td>
+        <td>Every check becomes a concrete test (section 4). Licence is removed as a check entirely.</td><td>Section 4</td></tr>
+    <tr><td>A 7-day-old reference study is too stale. We should use content from the last 24 hours.</td>
+        <td>The 7-day study limit is removed. Intake runs every day and the default window is 24 hours. Older items need a written reason.</td><td>Step 1</td></tr>
+    <tr><td>Scoring is template-based. Score on usefulness, search volume, likes, comments and stars. If a tool has no media, make it.</td>
+        <td>The numeric score formula is removed. I make a written judgment on each signal in section 5, and missing media becomes a production task.</td><td>Steps 2–3, 5–6</td></tr>
+    <tr><td>No fixed share of repo, tool or news. I decide what to include, guided by what works in our analytics.</td>
+        <td>The 40/30/30 mix is removed. Analytics feed my choice (section 5 has the source list).</td><td>Step 3</td></tr>
+    <tr><td>The production gate (score ≥ 60, rubric sum, fact age ≤ 24 h, source age ≤ 72 h) is not needed.</td>
+        <td>The production gate's topic and age rules are removed. The facts that matter are checked during the claim step.</td><td>Step 4</td></tr>
+    <tr><td>BL rules other than structure and files are templates. I should decide how each tool is presented.</td>
+        <td>Structure and file rules stay. Creative rules are replaced by guidelines plus my per-tool plan (section 6).</td><td>Section 6</td></tr>
+  </table>
+</section>
+
+<!-- 2. FLOW -->
+<section>
+  <h2>2. The revised flow</h2>
+  <p class="sub">Ten steps. The shaded steps are my judgment. The white steps are code checks.</p>
+  <div class="legend"><span><span class="pill new">Agent judgment</span></span><span><span class="pill keep">Code check</span></span><span><span class="pill gap">Owner decision</span></span></div>
+  <svg viewBox="0 0 1000 560" width="100%" role="img" aria-label="Revised pipeline flow" style="margin-top:12px">
+    <defs>
+      <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a94a3"/></marker>
+    </defs>
+    <!-- row 1 -->
+    <g>
+      <rect x="20" y="30" width="180" height="90" rx="12" fill="#ffffff" stroke="#2d6cdf" stroke-width="2"/>
+      <text x="110" y="58" text-anchor="middle" font-size="13" font-weight="700" fill="#1b2430">1 SENSE</text>
+      <text x="110" y="78" text-anchor="middle" font-size="12" fill="#5b6777">Daily intake, 24 h window</text>
+      <text x="110" y="98" text-anchor="middle" font-size="11" fill="#1f9d62">code: collects links</text>
+    </g>
+    <g>
+      <rect x="240" y="30" width="180" height="90" rx="12" fill="#f1ecfc" stroke="#7a4fd6" stroke-width="2"/>
+      <text x="330" y="58" text-anchor="middle" font-size="13" font-weight="700" fill="#1b2430">2 READ &amp; CLASSIFY</text>
+      <text x="330" y="78" text-anchor="middle" font-size="12" fill="#5b6777">I read each source</text>
+      <text x="330" y="98" text-anchor="middle" font-size="11" fill="#7a4fd6">agent judgment</text>
+    </g>
+    <g>
+      <rect x="460" y="30" width="180" height="90" rx="12" fill="#f1ecfc" stroke="#7a4fd6" stroke-width="2"/>
+      <text x="550" y="58" text-anchor="middle" font-size="13" font-weight="700" fill="#1b2430">3 JUDGE &amp; CHOOSE</text>
+      <text x="550" y="78" text-anchor="middle" font-size="12" fill="#5b6777">Usefulness, demand, traction</text>
+      <text x="550" y="98" text-anchor="middle" font-size="11" fill="#7a4fd6">agent judgment + analytics</text>
+    </g>
+    <g>
+      <rect x="680" y="30" width="180" height="90" rx="12" fill="#e9f7f0" stroke="#1f9d62" stroke-width="2"/>
+      <text x="770" y="58" text-anchor="middle" font-size="13" font-weight="700" fill="#1b2430">4 VERIFY CLAIMS</text>
+      <text x="770" y="78" text-anchor="middle" font-size="12" fill="#5b6777">Every claim traced to a source</text>
+      <text x="770" y="98" text-anchor="middle" font-size="11" fill="#1f9d62">code check + agent</text>
+    </g>
+    <!-- row 2 -->
+    <g>
+      <rect x="680" y="190" width="180" height="90" rx="12" fill="#f1ecfc" stroke="#7a4fd6" stroke-width="2"/>
+      <text x="770" y="218" text-anchor="middle" font-size="13" font-weight="700" fill="#1b2430">5 PLAN THE VIDEO</text>
+      <text x="770" y="238" text-anchor="middle" font-size="12" fill="#5b6777">Hook, angle, media plan</text>
+      <text x="770" y="258" text-anchor="middle" font-size="11" fill="#7a4fd6">agent judgment</text>
+    </g>
+    <g>
+      <rect x="460" y="190" width="180" height="90" rx="12" fill="#f1ecfc" stroke="#7a4fd6" stroke-width="2"/>
+      <text x="550" y="218" text-anchor="middle" font-size="13" font-weight="700" fill="#1b2430">6 MAKE THE MEDIA</text>
+      <text x="550" y="238" text-anchor="middle" font-size="12" fill="#5b6777">Maker assets + our graphics</text>
+      <text x="550" y="258" text-anchor="middle" font-size="11" fill="#7a4fd6">agent judgment, per tool</text>
+    </g>
+    <g>
+      <rect x="240" y="190" width="180" height="90" rx="12" fill="#f1ecfc" stroke="#7a4fd6" stroke-width="2"/>
+      <text x="330" y="218" text-anchor="middle" font-size="13" font-weight="700" fill="#1b2430">7 SCRIPT &amp; COPY</text>
+      <text x="330" y="238" text-anchor="middle" font-size="12" fill="#5b6777">Viewer question first</text>
+      <text x="330" y="258" text-anchor="middle" font-size="11" fill="#7a4fd6">agent judgment</text>
+    </g>
+    <g>
+      <rect x="20" y="190" width="180" height="90" rx="12" fill="#e9f7f0" stroke="#1f9d62" stroke-width="2"/>
+      <text x="110" y="218" text-anchor="middle" font-size="13" font-weight="700" fill="#1b2430">8 VOICE &amp; ALIGN</text>
+      <text x="110" y="238" text-anchor="middle" font-size="12" fill="#5b6777">Words match the audio</text>
+      <text x="110" y="258" text-anchor="middle" font-size="11" fill="#1f9d62">code check</text>
+    </g>
+    <!-- row 3 -->
+    <g>
+      <rect x="20" y="360" width="180" height="90" rx="12" fill="#e9f7f0" stroke="#1f9d62" stroke-width="2"/>
+      <text x="110" y="388" text-anchor="middle" font-size="13" font-weight="700" fill="#1b2430">9 RENDER &amp; QA</text>
+      <text x="110" y="408" text-anchor="middle" font-size="12" fill="#5b6777">Video, loudness, frames</text>
+      <text x="110" y="428" text-anchor="middle" font-size="11" fill="#1f9d62">code check + agent review</text>
+    </g>
+    <g>
+      <rect x="240" y="360" width="180" height="90" rx="12" fill="#f1ecfc" stroke="#7a4fd6" stroke-width="2"/>
+      <text x="330" y="388" text-anchor="middle" font-size="13" font-weight="700" fill="#1b2430">10 PUBLISH &amp; LEARN</text>
+      <text x="330" y="408" text-anchor="middle" font-size="12" fill="#5b6777">Buffer read-back, metrics</text>
+      <text x="330" y="428" text-anchor="middle" font-size="11" fill="#7a4fd6">feeds step 3 next time</text>
+    </g>
+    <g>
+      <rect x="460" y="360" width="180" height="90" rx="12" fill="#fdf3dc" stroke="#d98a00" stroke-width="2" stroke-dasharray="6 4"/>
+      <text x="550" y="388" text-anchor="middle" font-size="13" font-weight="700" fill="#1b2430">OWNER PANEL</text>
+      <text x="550" y="408" text-anchor="middle" font-size="12" fill="#5b6777">Only for flagged items</text>
+      <text x="550" y="428" text-anchor="middle" font-size="11" fill="#d98a00">owner decision</text>
+    </g>
+    <!-- arrows: row1 left->right -->
+    <line x1="200" y1="75" x2="240" y2="75" stroke="#8a94a3" stroke-width="2" marker-end="url(#arr)"/>
+    <line x1="420" y1="75" x2="460" y2="75" stroke="#8a94a3" stroke-width="2" marker-end="url(#arr)"/>
+    <line x1="640" y1="75" x2="680" y2="75" stroke="#8a94a3" stroke-width="2" marker-end="url(#arr)"/>
+    <!-- down from 4 to 5 -->
+    <line x1="770" y1="120" x2="770" y2="190" stroke="#8a94a3" stroke-width="2" marker-end="url(#arr)"/>
+    <!-- row2 right->left -->
+    <line x1="680" y1="235" x2="640" y2="235" stroke="#8a94a3" stroke-width="2" marker-end="url(#arr)"/>
+    <line x1="460" y1="235" x2="420" y2="235" stroke="#8a94a3" stroke-width="2" marker-end="url(#arr)"/>
+    <line x1="240" y1="235" x2="200" y2="235" stroke="#8a94a3" stroke-width="2" marker-end="url(#arr)"/>
+    <!-- down from 8 to 9 -->
+    <line x1="110" y1="280" x2="110" y2="360" stroke="#8a94a3" stroke-width="2" marker-end="url(#arr)"/>
+    <!-- row3 left->right -->
+    <line x1="200" y1="405" x2="240" y2="405" stroke="#8a94a3" stroke-width="2" marker-end="url(#arr)"/>
+    <!-- owner panel dashed from 9 & 4 -->
+    <line x1="420" y1="405" x2="460" y2="405" stroke="#d98a00" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+    <!-- feedback loop 10 -> 3 -->
+    <path d="M 330 360 C 330 330, 520 320, 550 120" fill="none" stroke="#7a4fd6" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arr)"/>
+    <text x="520" y="318" font-size="12" fill="#7a4fd6">results from analytics feed the next choice</text>
+  </svg>
+  <p class="note">Step 9 can send an item back to step 6 or 7 when QA fails. It does not restart the whole flow. The owner panel only sees items that the code cannot decide, such as a claim that cannot be traced.</p>
+</section>
+
+<!-- 3. STEP BY STEP -->
+<section>
+  <h2>3. Step by step: what happens, who decides, and what I produce</h2>
+  <p class="sub">For each step: the decision, the guideline I read first, and the output that goes into the brief.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="who">Step 1 · Sense · code</div>
+      <h4><span class="step-no">1</span>Daily intake, 24-hour window</h4>
+      <p>Collect new items from GitHub trending, Hugging Face, GitTrend, the TikTok and YouTube channels in the registry, and the news and product pages in <code>research/sources.csv</code>. Each item keeps its URL, the time it appeared, and its raw text.</p>
+      <div class="ex"><b>Default:</b> an item is eligible if it appeared in the last 24 hours. Older items need a note in the brief explaining why they are still worth making.</div>
+      <p class="note">Output: <code>intake/YYYY-MM-DD.json</code> (raw items, no judgment yet)</p>
+    </div>
+    <div class="card">
+      <div class="who">Step 2 · Read &amp; classify · agent</div>
+      <h4><span class="step-no">2</span>I read each item and decide what it is</h4>
+      <p>I open the source, read it, and write one line: what the thing is, who made it, and what someone could do with it. The category is my label for that content, such as a tool, a repo, a model, a free offer, or news. There is no host lookup and no fixed list.</p>
+      <div class="ex"><b>Example:</b> a GitHub repo that is a free-model proxy is a <i>free offer / tool</i>, not a "repo". A Hugging Face model card with a sales page is a <i>product</i>.</div>
+      <p class="note">Output: a one-line judgment per item, with the source link.</p>
+    </div>
+    <div class="card">
+      <div class="who">Step 3 · Judge &amp; choose · agent + analytics</div>
+      <h4><span class="step-no">3</span>I decide what to make, and why</h4>
+      <p>I score each item on the signals in section 5, then write the reason for each pick. I also look at our analytics: which topics, hooks and formats performed well recently. That is a guide, not a quota.</p>
+      <div class="ex"><b>Output:</b> 1 to 3 picks per day, each with a paragraph explaining the choice and the data behind it.</div>
+      <p class="note">Owner decision: how many items per day (section 8).</p>
+    </div>
+    <div class="card">
+      <div class="who">Step 4 · Verify claims · code + agent</div>
+      <h4><span class="step-no">4</span>Every claim must trace to a source</h4>
+      <p>Each number, capability or comparison the video will state is listed and matched to a line in the maker's own page, README or docs, or to a run I did. A claim with no match is rewritten or dropped. The checks are in section 4.</p>
+      <div class="bad"><b>Stops here:</b> a claim with no source line. Example: "no usage cap" with no maker text saying so. That is an owner decision, not a silent pass.</div>
+    </div>
+    <div class="card">
+      <div class="who">Step 5 · Plan the video · agent</div>
+      <h4><span class="step-no">5</span>Decide how this tool should be shown</h4>
+      <p>I write a per-tool plan: the viewer's question, the hook, the story beats, the proof moment, what the viewer should try, and the visuals this tool needs. I do not use a template. I start from the tool's own media and create what is missing.</p>
+      <div class="ex"><b>Example plan:</b> for a tool with a terminal install, the proof is the install output shown live in a terminal graphic; for a tool with only a web UI, the proof is a before and after of the UI.</div>
+    </div>
+    <div class="card">
+      <div class="who">Step 6 · Make the media · agent</div>
+      <h4><span class="step-no">6</span>Use the maker's media, then make what is missing</h4>
+      <p>Use the maker's own screenshots, logos and clips. Where media is thin, I make a per-tool asset: an animation, a chart, a diagram, or a transition built for that tool's story. No shared layouts. Nothing is filmed.</p>
+      <div class="ex"><b>Example:</b> for a tool that runs a model on a laptop, the graphic is a memory bar that fills as the model loads. For a tool that removes ads, it is the home-screen rows disappearing one at a time.</div>
+    </div>
+    <div class="card">
+      <div class="who">Step 7 · Script &amp; copy · agent</div>
+      <h4><span class="step-no">7</span>Open on the viewer's question</h4>
+      <p>The script opens on the question the viewer has, then shows what the tool does for them, in plain speech. No sources, legal text or citations in the spoken script, the captions, or the copy. Sources stay only in the internal brief fields.</p>
+      <div class="ex"><b>Example opening:</b> "Is your Android TV home screen full of ads?" then the cleanup, in plain words.</div>
+    </div>
+    <div class="card">
+      <div class="who">Step 8 · Voice &amp; align · code</div>
+      <h4><span class="step-no">8</span>Words match the audio</h4>
+      <p>The voice is generated, then checked against the script. The match threshold lives in one file, <code>config/gates.json</code>. If a line fails, the code reports the exact expected and heard words, and I fix the script.</p>
+    </div>
+    <div class="card">
+      <div class="who">Step 9 · Render &amp; QA · code + agent</div>
+      <h4><span class="step-no">9</span>Render, then check the picture</h4>
+      <p>The code checks format, length, loudness, peak level and that frames are not blank. I review the frames for layout, readability and whether the proof shows. A failure goes back to step 6 or 7 with the specific reason.</p>
+    </div>
+    <div class="card">
+      <div class="who">Step 10 · Publish &amp; learn · code + agent</div>
+      <h4><span class="step-no">10</span>Publish, read back, learn</h4>
+      <p>Schedule through Buffer after a read-back check. After publishing, metrics go to the analytics files. That data feeds step 3 for the next choice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. BLOCKING CHECKS -->
+<section>
+  <h2>4. Facts that block a topic, in tangible terms</h2>
+  <p class="sub">Each check has a test anyone can rerun. Vague flags are removed.</p>
+  <table>
+    <tr><th style="width:22%">Old flag</th><th style="width:12%">Status</th><th>New test (what is checked, and how)</th></tr>
+    <tr><td>licence-unclear</td><td><span class="pill remove">Removed</span></td><td>Not our job. Licence and legal terms do not block a topic (your rule).</td></tr>
+    <tr><td>no-https-source</td><td><span class="pill change">Replaced</span></td><td>The primary link is fetched today and returns a successful response over https, and it is the maker's own domain or repo. Failure means the link is dead, or it is a reseller or aggregator and not the maker.</td></tr>
+    <tr><td>unverified-claim</td><td><span class="pill change">Replaced</span></td><td>Every number and capability in the planned script is matched to a line in the maker's page, README, docs, or a run I did. Any claim with no matching line is blocked until rewritten or approved by you. The dsh "no usage cap" claim is the current example.</td></tr>
+    <tr><td>hype-only</td><td><span class="pill change">Replaced</span></td><td>The maker's own docs show a runnable path: an install command, a demo, or a screenshot of real output. If the only evidence is a launch post or a press line, the item is not a candidate.</td></tr>
+    <tr><td>unsafe</td><td><span class="pill change">Replaced</span></td><td>The video would not instruct the viewer to do any of these: paste a password or API key into a third-party site, run an unsigned installer from an unknown host, or disable a security setting. If the tool requires one of these, the video either shows the safe path or drops the topic.</td></tr>
+    <tr><td>Freshness (topic age, study age)</td><td><span class="pill change">Replaced</span></td><td>Item must have appeared within 24 hours (step 1). The source must have been fetched within the same run.</td></tr>
+  </table>
+  <p class="note">Two of these are proposals you should confirm: the unsafe list and the claim rule for "no usage cap".</p>
+</section>
+
+<!-- 5. SIGNALS -->
+<section>
+  <h2>5. How I judge a candidate: signals, not a formula</h2>
+  <p class="sub">There is no weighted score and no fixed mix. I write a judgment on each signal, then the reason for the pick. Data sources are shown with their availability today.</p>
+  <table>
+    <tr><th style="width:20%">Signal</th><th style="width:44%">What I judge</th><th>Data source and status</th></tr>
+    <tr><td>Viewer usefulness</td><td>Can a viewer do the thing in under 10 minutes, and does the video show it working? Written as one sentence of the viewer's gain.</td><td>Maker docs and README, which I read. <span class="pill keep">Available</span></td></tr>
+    <tr><td>Search demand</td><td>Are people searching for the problem or tool name? Is it rising, flat, or falling?</td><td>No search-volume feed in the repo. <span class="pill gap">Data gap</span> Owner decision: source (section 8).</td></tr>
+    <tr><td>Traction</td><td>Stars, forks, and star velocity. Likes, comments, views on the maker's posts or videos.</td><td>GitHub API for stars and forks: <span class="pill keep">Available</span>. Likes and comments on social posts: <span class="pill gap">Not yet connected</span>.</td></tr>
+    <tr><td>Freshness</td><td>Appeared in the last 24 hours, or a new release. Older items need a note.</td><td>Intake timestamps (step 1). <span class="pill keep">Available</span></td></tr>
+    <tr><td>Competition</td><td>How many videos already cover this, and how old are they? Is there a clear angle we can add?</td><td>YouTube search results. <span class="pill gap">Not yet connected</span></td></tr>
+    <tr><td>Media readiness</td><td>Does the maker have usable screenshots, a logo, or a clip? If not, what do we make? This never blocks a pick; it adds a production task.</td><td>Repo and maker pages, which I check. <span class="pill keep">Available</span></td></tr>
+    <tr><td>What works for us</td><td>Which hooks, formats and topics did our past videos turn into views, watch time, or follows? Which failed?</td><td><code>tracker/performance.json</code>, <code>tracker/buffer-insights.json</code>, <code>tracker/youtube-publications.json</code>. <span class="pill keep">Available</span></td></tr>
+  </table>
+  <div class="ex" style="margin-top:14px"><b>Example of a judgment (written, not scored):</b> "Pick: a free-model proxy. Viewer gain: they can run a strong model with no key in five minutes. Demand: rising for the 'free DeepSeek' terms (search feed missing, so unverified). Traction: 52k stars, up fast. Competition: 3 videos, all over 60 days old. Media: maker README has 2 screenshots, so a terminal graphic is needed. Claim risk: the 'no usage cap' line has no source, so it is held for owner decision."</div>
+</section>
+
+<!-- 6. BL RULES -->
+<section>
+  <h2>6. Brief-lint rules: keep, replace, remove</h2>
+  <p class="sub">35 rules today: 23 errors and 12 warnings. Each row shows what happens to the group.</p>
+  <table>
+    <tr><th style="width:24%">Group (codes)</th><th style="width:14%">Decision</th><th>Reason and replacement</th></tr>
+    <tr><td>Structure and files (BL001, BL010, BL030, BL900)</td><td><span class="pill keep">Keep</span></td><td>The brief must parse, have the right name, and declare scenes. Your approval.</td></tr>
+    <tr><td>Renderer and reference integrity (BL031, BL033, BL020, BL060, BL070)</td><td><span class="pill keep">Keep</span></td><td>Scene types must exist in the renderer, clips need their source fields, and referenced media must exist. These prevent a crash in the cloud.</td></tr>
+    <tr><td>Research traceability (BL112, BL113)</td><td><span class="pill keep">Keep</span></td><td>The brief must name the research it used, and the file must exist. This feeds step 4.</td></tr>
+    <tr><td>Legal and source wording in the script (BL100, BL101, BL102)</td><td><span class="pill keep">Keep</span></td><td>Your rule: no sources, legal text or citations in script, hook, or on-screen text.</td></tr>
+    <tr><td>SEO presence (BL090)</td><td><span class="pill change">Simplify</span></td><td>Keep "a keyword and a description exist". Remove the hard-coded hashtag rule; I choose the tags for each tool.</td></tr>
+    <tr><td>Narration sync rules (BL050, BL051, BL080, BL081, BL034, BL040)</td><td><span class="pill change">Replace</span></td><td>These check word positions in the brief, which are template rules. The real test is step 8: the audio is aligned against the script. Keep the alignment check; drop the brief-level word matching.</td></tr>
+    <tr><td>Media coverage (BL110, BL111, BL128)</td><td><span class="pill remove">Remove</span></td><td>Replaced by step 5 and 6: I write the media plan per tool and make missing assets. A rule that counts scenes is a template.</td></tr>
+    <tr><td>Creative treatment (BL120–BL130)</td><td><span class="pill remove">Remove</span></td><td>Archetypes, three cover concepts, word limits, and fixed beat order are the template you rejected. Replaced by per-tool guidelines (section 7) and my plan in step 5.</td></tr>
+  </table>
+</section>
+
+<!-- 7. GUIDELINES -->
+<section>
+  <h2>7. Guidelines I work from, with examples (replacing templates)</h2>
+  <p class="sub">Guidelines describe the judgment, with examples of good and bad. They do not fill in a fixed layout. Each one is a file I read before the step.</p>
+  <div class="grid">
+    <div class="card">
+      <h4>Hook guideline</h4>
+      <p>Open on what the viewer wants to know, in their words, within the first 3 seconds. Only then name the tool.</p>
+      <div class="ex">"Is your Android TV home screen full of ads?"</div>
+      <div class="bad">"Introducing a new open-source cleanup tool." (product announcement, no viewer question)</div>
+    </div>
+    <div class="card">
+      <h4>Explain guideline</h4>
+      <p>Say what the tool does for the viewer in one plain sentence, then show it working. No adjectives that the video does not prove.</p>
+      <div class="ex">"It removes the ad rows, and it runs over Wi-Fi with no root."</div>
+      <div class="bad">"The best-in-class, revolutionary way to clean your TV."</div>
+    </div>
+    <div class="card">
+      <h4>Media guideline</h4>
+      <p>Use the maker's media first. If it does not show the proof, make an asset that does. Each asset must answer one question the viewer has.</p>
+      <div class="ex">Terminal graphic for an install command; a memory bar for a model that needs RAM; a before and after for a UI tool.</div>
+      <div class="bad">The same card layout reused for every tool.</div>
+    </div>
+    <div class="card">
+      <h4>Claim guideline</h4>
+      <p>A number or capability is said only if a source line supports it. If it cannot be supported, rephrase it to what is shown, or drop it.</p>
+      <div class="ex">"Runs a 35-billion-parameter model on a laptop" if the maker's docs say so.</div>
+      <div class="bad">"No usage cap" with no matching maker text. Held for owner decision.</div>
+    </div>
+    <div class="card">
+      <h4>Description guideline</h4>
+      <p>Describe what the viewer will see and do. One link: the tool's own page. No legal, privacy, licence or terms links.</p>
+      <div class="ex">"Clean your Android TV home screen without root. Link: the project page."</div>
+    </div>
+    <div class="card">
+      <h4>Pick guideline</h4>
+      <p>Write the viewer gain, the demand signal, the traction, the competition, and the risk, then decide. Check our analytics before choosing the format.</p>
+      <div class="ex">A pick with an unsupported claim is not dropped; it is held, and the owner decides.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. DECISIONS -->
+<section>
+  <h2>8. What I need from you</h2>
+  <table>
+    <tr><th style="width:4%">#</th><th>Decision</th><th style="width:34%">My recommendation</th></tr>
+    <tr><td>1</td><td>Search-volume source. The repo has no feed for it.</td><td>Connect a search-trends source. Until then, I mark demand "unverified" and do not treat it as a signal.</td></tr>
+    <tr><td>2</td><td>Likes, comments and views on social posts. Not connected yet.</td><td>Connect the YouTube and Buffer metrics first; these are available through the accounts we already use.</td></tr>
+    <tr><td>3</td><td>How many picks per day.</td><td>One to three. I'll write the reason for each.</td></tr>
+    <tr><td>4</td><td>The "unsafe" list in section 4.</td><td>Confirm the three examples, or give me your own list.</td></tr>
+    <tr><td>5</td><td>dsh "no usage cap" claim.</td><td>Hold it. It is untraced, and I cannot verify it from the maker's pages.</td></tr>
+    <tr><td>6</td><td>Remove the topic engine's weights, the 40/30/30 mix, and the production topic gate, and rewrite the BL rules as in section 6.</td><td>Yes, as specified. I'll make the change after you approve this plan.</td></tr>
+  </table>
+</section>
+
+<!-- 9. WHAT IS NOT DONE -->
+<section>
+  <h2>9. Status</h2>
+  <ul>
+    <li><b>Done:</b> the single thresholds source and one-command preflight, committed locally as <code>32740c0</code> (not pushed; this session has no git credentials).</li>
+    <li><b>Not done:</b> this plan. Nothing in the code has changed for it yet.</li>
+    <li><b>Open:</b> the 12 posts scheduled on 31 Oct still need a Buffer read-back.</li>
+    <li><b>Open:</b> per-tool visuals. No renders until you approve the plan and the guidelines.</li>
+  </ul>
+</section>
+
+</main>
+</body>
+</html>

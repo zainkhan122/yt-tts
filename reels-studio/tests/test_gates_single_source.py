@@ -14,7 +14,6 @@ GATES = json.loads((ROOT / "config" / "gates.json").read_text(encoding="utf-8"))
 class SingleSourceTests(unittest.TestCase):
     def test_production_gate_reads_config(self):
         import production_gate as pg
-        self.assertEqual(pg.MIN_TOPIC_SCORE, GATES["topic_score_min"])
         self.assertEqual(pg.MIN_CHUNK_MATCH, GATES["tts_chunk_match_min"])
         self.assertEqual(pg.MIN_ENGLISH_OVERALL_MATCH, GATES["tts_english_overall_match_min"])
 

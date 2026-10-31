@@ -57,15 +57,15 @@ class GateReportTests(unittest.TestCase):
 
     def test_findings_carry_rule_ids_and_roll_up_by_id(self):
         brief = json.loads(json.dumps(BRIEF))
-        brief["scenes"][0]["heading"] = "BROKEN *HIGHLIGHT"
+        brief["scenes"][0]["type"] = "not-a-scene-type"
         brief["seo"]["youtube"]["hashtags"] = ["#notshorts"]
         with tempfile.TemporaryDirectory() as tmp:
             report = gates.run(write_brief(tmp, brief))
         ids = [f["id"] for f in report["lint"]] + [f["id"] for f in report["seo"]]
-        self.assertIn("BL040", ids)
+        self.assertIn("BL031", ids)
         self.assertIn("SP070", ids)
         self.assertGreaterEqual(report["rollup"]["errors"], 2)
-        self.assertEqual(report["rollup"]["by_id"]["BL040"], 1)
+        self.assertEqual(report["rollup"]["by_id"]["BL031"], 1)
         self.assertTrue(all("[" in line for line in gates.summary_lines(report)[1:]))
 
     def test_unreadable_brief_is_recorded_not_raised(self):
@@ -91,7 +91,7 @@ class ManifestRecordTests(unittest.TestCase):
             clean["at"] = "2026-10-12T10:00:00Z"
             gates.record(manifest, clean)
             dirty_brief = json.loads(json.dumps(BRIEF))
-            dirty_brief["scenes"][0]["heading"] = "BROKEN *HIGHLIGHT"
+            dirty_brief["scenes"][0]["type"] = "not-a-scene-type"
             dirty = gates.run(write_brief(tmp, dirty_brief))
             dirty["at"] = "2026-10-12T11:00:00Z"
             gates.record(manifest, dirty)
@@ -99,8 +99,8 @@ class ManifestRecordTests(unittest.TestCase):
         self.assertEqual(stored["current"]["at"], "2026-10-12T11:00:00Z")
         self.assertEqual([h["at"] for h in stored["history"]], ["2026-10-12T10:00:00Z", "2026-10-12T11:00:00Z"])
         change = stored["changed_since_last_run"]
-        self.assertEqual(change["after"]["BL040"], 1)
-        self.assertIsNone(change["before"].get("BL040"))
+        self.assertEqual(change["after"]["BL031"], 1)
+        self.assertIsNone(change["before"].get("BL031"))
         self.assertEqual(change["before"], {"BL020": 1})  # clean run: only the missing-pack warning
 
     def test_unchanged_run_adds_no_change_note(self):

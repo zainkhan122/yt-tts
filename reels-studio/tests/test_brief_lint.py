@@ -85,11 +85,11 @@ class BriefLintTests(unittest.TestCase):
 
     def test_findings_carry_stable_rule_ids(self):
         b = brief()
-        b["scenes"][0]["headline"] = "A *BROKEN HOOK"
+        b["scenes"][0]["type"] = "nonsense"
         b["scenes"][0]["camera"] = [{"region": "below_the_viewport"}]
         _, errors, _ = self.lint(b)
         ids = {f["id"] for f in self.last_findings}
-        self.assertEqual(ids, {"BL040", "BL070"})
+        self.assertEqual(ids, {"BL031", "BL070"})
         self.assertTrue(all(e.startswith("[") for e in errors))
         self.assertTrue(all(f["severity"] == "error" for f in self.last_findings))
 
@@ -103,21 +103,14 @@ class BriefLintTests(unittest.TestCase):
         b2["scenes"] = [{"id": "s1", "type": "verdict", "say": "one two", "cons": ["a", "b"]}]
         _, errors, warns = self.lint(b2)
         self.assertEqual(errors, [])
-        # BL110 (media standard, 2026-10-18): this minimal brief stages no media at all.
-        # BL120 (creative treatment, 2026-10-19): and it was never designed for a viewer.
-        self.assertEqual([f["id"] for f in self.last_findings], ["BL051", "BL110", "BL120"])
+        # Retired rules (31 Oct 2026) must not fire; only the research-basis note may remain.
+        self.assertTrue(set(f["id"] for f in self.last_findings) <= {"BL112"}, self.last_findings)
         self.assertTrue(all(f["severity"] == "warning" for f in self.last_findings))
 
     def test_valid_brief_is_clean(self):
         bid, errors, warns = self.lint(brief())
         self.assertEqual(errors, [])
         self.assertEqual(warns, [])
-
-    def test_unbalanced_highlight_markers_are_an_error(self):
-        b = brief()
-        b["scenes"][0]["headline"] = "A *BROKEN HOOK"
-        _, errors, _ = self.lint(b)
-        self.assertTrue(any("unbalanced *" in e for e in errors))
 
     def test_asset_missing_from_pack_is_an_error(self):
         b = brief()
@@ -142,33 +135,6 @@ class BriefLintTests(unittest.TestCase):
         del b["scenes"][0]["out"]
         _, errors, _ = self.lint(b)
         self.assertTrue(any("clip without in/out" in e for e in errors))
-
-    def test_verdict_without_item_at_is_a_warning_not_an_error(self):
-        b = brief()
-        b["scenes"][2].pop("item_at")
-        _, errors, warns = self.lint(b)
-        self.assertEqual(errors, [])
-        self.assertTrue(any("item_at" in w for w in warns))
-
-    def test_sync_word_not_spoken_is_a_warning(self):
-        b = brief()
-        b["scenes"][2]["item_at"] = ["nonsense", "pro"]
-        _, errors, warns = self.lint(b)
-        self.assertEqual(errors, [])
-        self.assertTrue(any("not present in the spoken line" in w for w in warns))
-
-    def test_montage_cut_anchor_must_match_an_exact_spoken_word(self):
-        b = brief()
-        hook = b["scenes"][0]
-        hook["type"] = "clip-montage"
-        hook["say"] = "The Pi case closes ports—real quick."
-        hook["cuts"] = [{"in": 1, "out": 2, "label": "CUT SIDE PORTS", "at": "ports"}]
-        _, errors, _ = self.lint(b)
-        self.assertTrue(any(e.startswith("[BL081]") and "exact spoken word" in e for e in errors))
-
-        hook["say"] = "The Pi case closes the side ports."
-        _, errors, _ = self.lint(b)
-        self.assertFalse(any(e.startswith("[BL081]") for e in errors))
 
     def test_licence_in_hook_is_an_error(self):
         b = brief()

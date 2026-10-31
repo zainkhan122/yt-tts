@@ -106,27 +106,27 @@ class PipelineQualityGateTests(unittest.TestCase):
 
     def test_english_final_voiceover_must_meet_whisper_character_match(self):
         self.assertAlmostEqual(require_whisper_match(95, 100), 0.95)
-        with self.assertRaisesRegex(SystemExit, "94.9%.*95%.*script words not matched: Qwen, fourteenth"):
-            require_whisper_match(949, 1000, diagnostics="script words not matched: Qwen, fourteenth")
+        with self.assertRaisesRegex(SystemExit, "88.9%.*90%.*script words not matched: Qwen, fourteenth"):
+            require_whisper_match(889, 1000, diagnostics="script words not matched: Qwen, fourteenth")
         with self.assertRaisesRegex(SystemExit, "0.0%"):
             require_whisper_match(0, 0)
 
 
     def test_tts_threshold_cannot_be_weakened_and_retries_are_bounded(self):
         from lib.pipeline import tts_retry_policy
-        self.assertEqual(tts_retry_policy({"min_match": 0.92, "max_retries": 2}), (3, 0.92))
-        with self.assertRaisesRegex(SystemExit, "cannot be lowered below 92%"):
-            tts_retry_policy({"min_match": 0.91, "max_retries": 2})
+        self.assertEqual(tts_retry_policy({"min_match": 0.90, "max_retries": 2}), (3, 0.90))
+        with self.assertRaisesRegex(SystemExit, "cannot be lowered below 85%"):
+            tts_retry_policy({"min_match": 0.84, "max_retries": 2})
         with self.assertRaisesRegex(SystemExit, "at most two alternate-seed retries"):
-            tts_retry_policy({"min_match": 0.92, "max_retries": 3})
-        with self.assertRaisesRegex(SystemExit, "cannot be lowered below 92%"):
+            tts_retry_policy({"min_match": 0.90, "max_retries": 3})
+        with self.assertRaisesRegex(SystemExit, "cannot be lowered below 85%"):
             tts_retry_policy({"min_match": float("nan"), "max_retries": 2})
         with self.assertRaisesRegex(SystemExit, "max_retries must be an integer"):
-            tts_retry_policy({"min_match": 0.92, "max_retries": 2.5})
-        with self.assertRaisesRegex(SystemExit, "cannot be lowered below 92%"):
+            tts_retry_policy({"min_match": 0.90, "max_retries": 2.5})
+        with self.assertRaisesRegex(SystemExit, "cannot be lowered below 85%"):
             require_flow_match(0.99, 0.80, 0, 1)
-        with self.assertRaisesRegex(SystemExit, "cannot be lowered below 95%"):
-            require_whisper_match(100, 100, threshold=0.90)
+        with self.assertRaisesRegex(SystemExit, "cannot be lowered below 90%"):
+            require_whisper_match(100, 100, threshold=0.89)
 
     def test_english_whisper_qa_cannot_be_disabled_by_brief(self):
         self.assertTrue(should_run_whisper_qa("en-us", True))

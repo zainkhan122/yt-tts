@@ -10,7 +10,7 @@ published only with read-back evidence.
 |---|---|---|---|
 | Study | human + `tools/channel_decode.py` | `research/social/`, `research/reference-study/` | Learn delivery from referred channels before making anything. Learn, do not copy. |
 | Radar | `tools/trend_radar.py` | `research/radar/` | Surface candidates. Flags risky items. Writes no copy or angle. |
-| Topic choice | `studio/topics.py` + `config/topic-mix.json` | `topics/candidates.csv` | Rank candidates on value, freshness, proof, deadline and category balance. Refuses to rank without a study ≤7 days old. |
+| Topic choice | `studio/select.py` + `config/selection.json` | `intake/YYYY-MM-DD-selection.json` | Agent judges each pick from the last 24 h (classification, viewer gain, autocomplete demand, Buffer and yt-dlp reference insights, competition, media plan). Code draws the daily pick count at random (2 to 7), checks each judgment record, and checks each claim has a source line or owner approval. No weights, no fixed mix. (Retired 31 Oct 2026: studio/topics.py, topic-mix.json.) |
 | Brief | a human (with the guidelines) | `briefs/*.json` | Script, claims with dated sources, shot plan, captions. No `template` field. |
 | Shot plan | `studio/shotplan.py` | `tests/test_shotplan.py` | Validates timing, real-media share (≥55%), text share (≤20%), sourced stats, callouts on real media, and that captures exist. |
 | Studio rules | `studio/rules.py`, `studio/check.py` | `tests/test_studio.py` | Copy rules, URL and disclosure rules, licence badge, per-platform assembly. |

@@ -1,0 +1,244 @@
+{
+ "id": "repo-harp-01",
+ "capture": "captures/repo-harp-01",
+ "title": "One sidebar for many coding agents: see which one needs you",
+ "niche": "developer tools for running several coding agents",
+ "lang": "en-us",
+ "style": "midnight",
+ "production_category": "repo",
+ "status": "v2 new 2026-10-24: judged repo from the 24 Oct radar; review before scheduling",
+ "keywords": [
+  "Claude Code",
+  "Codex",
+  "coding agents",
+  "terminal",
+  "macOS"
+ ],
+ "facts": {
+  "repo": "github.com/dominikmartn/harp (created 2026-10-20)",
+  "licence": "AGPL-3.0 (GitHub)",
+  "platform": "macOS (README badge)",
+  "origin": "unofficial fork of the Warp terminal (README)"
+ },
+ "sources": [
+  "https://github.com/dominikmartn/harp"
+ ],
+ "verify_before_render": [
+  "Re-open github.com/dominikmartn/harp: licence, platform line and fork note must match the capture.",
+  "If the repo is archived, removed or its licence changes, do not render."
+ ],
+ "treatment": {
+  "audience": "developers who run several Claude Code or Codex sessions at once",
+  "viewer_job": "find which agent needs input without checking every tab",
+  "intent": "search",
+  "hook_mechanic": "open on the sidebar with the needs-you state, the problem in one frame",
+  "open_loop": {
+   "plant": "which one needs me?",
+   "payoff_scene": "sidebar"
+  },
+  "proof_moment": "sidebar",
+  "selected_cover": 0,
+  "archetype": "spotlight",
+  "cover_concepts": [
+   {
+    "text": "WHICH AGENT NEEDS YOU?",
+    "visual": "sidebar-dark.png sidebar rows",
+    "gap": "which tab is blocked?"
+   },
+   {
+    "text": "MANY AGENTS, ONE SIDEBAR",
+    "visual": "hero-dark.png",
+    "gap": "how do I run them together?"
+   },
+   {
+    "text": "AGPL FORK OF WARP",
+    "visual": "desktop-top.jpg repo header",
+    "gap": "is it free to use?"
+   }
+  ],
+  "structure": [
+   {
+    "scene": "hook",
+    "beat": "hook"
+   },
+   {
+    "scene": "sidebar",
+    "beat": "proof"
+   },
+   {
+    "scene": "limits",
+    "beat": "proof"
+   },
+   {
+    "scene": "catch",
+    "beat": "catch"
+   },
+   {
+    "scene": "cta",
+    "beat": "close"
+   }
+  ]
+ },
+ "research_basis": [
+  "research/reference-study/2026-10-24.md",
+  "research/radar/radar-2026-10-24.md"
+ ],
+ "viewer": {
+  "who": "developers running several coding agents in one machine",
+  "problem": "they lose track of which agent is waiting for them"
+ },
+ "idea": "Harp puts Claude Code and Codex sessions in one sidebar and shows which one needs you.",
+ "claims": [
+  {
+   "id": "c1",
+   "text": "Harp runs many Claude Code and Codex agents side by side, in one sidebar that shows which one needs you.",
+   "source": "https://github.com/dominikmartn/harp"
+  },
+  {
+   "id": "c2",
+   "text": "The README lists the sidebar states as needs you, background work, working, done and inactive.",
+   "source": "https://github.com/dominikmartn/harp"
+  },
+  {
+   "id": "c3",
+   "text": "Harp is an unofficial fork of the Warp terminal, licensed AGPL-3.0.",
+   "source": "https://github.com/dominikmartn/harp"
+  },
+  {
+   "id": "c4",
+   "text": "The README platform badge says macOS.",
+   "source": "https://github.com/dominikmartn/harp"
+  }
+ ],
+ "proof_plan": [
+  {
+   "claim": "c1",
+   "evidence": "capture:sidebar-dark.png",
+   "how_shown": "sidebar scene with the needs-you row in view"
+  },
+  {
+   "claim": "c2",
+   "evidence": "capture:sidebar-rows-showing-needs-you-backgroun.png",
+   "how_shown": "sidebar scene, states named in narration"
+  },
+  {
+   "claim": "c3",
+   "evidence": "capture:desktop-top.jpg",
+   "how_shown": "catch verdict, AGPL line spoken"
+  },
+  {
+   "claim": "c4",
+   "evidence": "capture:desktop-top.jpg",
+   "how_shown": "catch verdict, macOS line spoken"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "page",
+   "image": "hero-dark.png",
+   "heading": "HARP: WHICH AGENT NEEDS *YOU?*",
+   "say": "You run several coding agents at once. One of them is waiting on you, and you only find out when you check the tab. This sidebar tells you which one."
+  },
+  {
+   "id": "sidebar",
+   "type": "page",
+   "image": "sidebar-rows-showing-needs-you-backgroun.png",
+   "heading": "NEEDS YOU, WORKING, *DONE*",
+   "say": "Harp groups your sessions by state. The README lists needs you, background work, working, done and inactive, so the blocked one is easy to spot."
+  },
+  {
+   "id": "limits",
+   "type": "page",
+   "image": "usage-limit-rings-for-claude-and-codex-i.png",
+   "heading": "CLAUDE AND CODEX *LIMITS*",
+   "say": "It also shows usage limit rings for Claude and Codex, so you can see how much room each one has left."
+  },
+  {
+   "id": "catch",
+   "type": "verdict",
+   "heading": "THE *CATCH*",
+   "cons": [
+    "macOS only, per the README",
+    "Unofficial fork of Warp: read its terms first"
+   ],
+   "pros": [
+    "One sidebar for Claude Code and Codex",
+    "Shows which session needs you"
+   ],
+   "item_at": [
+    "macOS",
+    "unofficial",
+    "fork",
+    "terms"
+   ],
+   "say": "The catch: it runs on macOS only, and it is an unofficial fork of Warp, so read its terms before you ship."
+  },
+  {
+   "id": "cta",
+   "type": "endcard",
+   "keyword": "HARP",
+   "say": "Which tool do you run your agents in? Tell me in the comments."
+  }
+ ],
+ "seo": {
+  "youtube": {
+   "title": "Harp: one sidebar for many agents, showing which needs you",
+   "description": "Running several Claude Code or Codex sessions? Harp is a macOS app that lists them in one sidebar and shows which one needs you.\n\nLicence: AGPL-3.0. It is an unofficial fork of Warp.\n\nRepo: https://github.com/dominikmartn/harp",
+   "hashtags": [
+    "#Shorts",
+    "#ClaudeCode",
+    "#CodexCLI"
+   ],
+   "tags": [
+    "Claude Code",
+    "Codex CLI",
+    "coding agents",
+    "Warp fork",
+    "macOS terminal"
+   ]
+  },
+  "tiktok": {
+   "caption": "Harp: several coding agents at once? This sidebar shows which one is waiting for you.",
+   "hashtags": [
+    "#ClaudeCode",
+    "#CodexCLI",
+    "#DevTools"
+   ]
+  },
+  "instagram": {
+   "caption": "Harp: several Claude Code or Codex sessions, one sidebar. It shows which one needs you, so you stop checking tabs.\n\nmacOS only. AGPL-3.0 licence.",
+   "hashtags": [
+    "#ClaudeCode",
+    "#CodexCLI",
+    "#DevTools"
+   ]
+  },
+  "facebook": {
+   "caption": "Harp puts Claude Code and Codex sessions in one sidebar and shows which one needs you.\n\nIt is a macOS app and an unofficial fork of Warp under AGPL-3.0.\n\nAI-generated narration.",
+   "hashtags": [
+    "#ClaudeCode"
+   ]
+  },
+  "x": {
+   "text": "Harp puts Claude Code and Codex sessions in one sidebar and shows which one needs you.\nmacOS, AGPL-3.0. https://github.com/dominikmartn/harp",
+   "hashtags": [
+    "#ClaudeCode"
+   ]
+  },
+  "keyword": "Harp",
+  "aliases": [
+   "Claude Code sidebar",
+   "Codex sessions"
+  ]
+ },
+ "review": {
+  "reviewed_at": "2026-10-24T14:40:00Z",
+  "expires_at": "2026-10-26",
+  "reviewer": "agent; facts checked against the GitHub and model-card captures on 2026-10-24; owner approval pending"
+ },
+ "voice": {
+  "synthetic": true
+ },
+ "voice_seed": 1
+}

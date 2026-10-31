@@ -1,0 +1,321 @@
+{
+  "activation_note": "Owner authorised today's publication across YT/IG/FB on 2026-10-10. One controlled immediate Claude pilot first; subsequent videos follow the researched paced calendar. 2026-10-11 owner instruction: the daily content mix must NOT be hardcoded (no fixed 2 tools / 2 news / 1 repo); required_daily_categories is empty. 2026-10-12 owner instruction (later): the 5/day production cap is removed \u2014 the daily count is chosen by the researched factors up to a ceiling of max_videos_per_day = 10, with minimum spacing 150 minutes and per-channel queue limits still enforced by the planner. 2026-10-30 owner instruction: REMOVE the 150-minute minimum gap limit. Videos are scheduled at their BEST time slot brackets from Buffer Insights with a random 5-15 minute offset (CSPRNG, deterministic per platform+day+slot).",
+  "branch": "main",
+  "buffer": {
+    "channels": {
+      "facebook": {
+        "buffer_id": "6ac8fe8d6a5c39ccb6623485",
+        "enabled": true,
+        "name": "Hypeless Ai",
+        "owner_supplied_url": "https://www.facebook.com/profile.php?id=61595198762966",
+        "service_id": "1323320354206601",
+        "url": "https://facebook.com/1323320354206601"
+      },
+      "instagram": {
+        "buffer_id": "6ac8fe316a5c39ccb66231cb",
+        "enabled": true,
+        "name": "hypelessai.ai",
+        "service_id": "17841413107297846",
+        "url": "https://instagram.com/hypelessai.ai"
+      },
+      "youtube": {
+        "buffer_id": "6ac904af6a5c39ccb662a01f",
+        "enabled": true,
+        "name": "Hypeless Ai",
+        "service_id": "UCcWh9OdX3rbfHOtDZ6neyrA",
+        "url": "https://www.youtube.com/channel/UCcWh9OdX3rbfHOtDZ6neyrA"
+      }
+    },
+    "facebook_ai_disclosure_policy": "Owner 2026-10-10: include Facebook despite missing native API flag. Always add AI-narration caption disclosure; detect native flag support and use it if available. This does not assert native-label compliance or promise a Buffer rollout.",
+    "max_attempts": 4,
+    "max_inline_wait_seconds": 60,
+    "max_pages": 10,
+    "organization_id": "6ac8fdc70ed969c7deb8ca1d",
+    "queue_limit_per_channel": 10,
+    "queue_target_per_channel": 8,
+    "quota_reserve": 5,
+    "request_spacing_seconds": 3.0,
+    "secret_name": "BUFFER_API_KEY"
+  },
+  "disclosure": {
+    "facebook_caption": "AI-generated narration.",
+    "facebook_native_label_required": true,
+    "instagram_ai_generated": true,
+    "note": "Instagram has a native isAiGenerated flag. Facebook currently exposes no native AI-info field through Buffer; add a caption disclosure, do not claim the native label was set. YouTube default false is for generic narration over real demos; override per video for realistic synthetic depictions.",
+    "youtube_ai_generated": false
+  },
+  "enabled": true,
+  "live_pilot_passed": true,
+  "live_pilot_video": "news-claude-free-01",
+  "media": {
+    "base_url": "https://zainkhan122.github.io/yt-tts",
+    "max_site_bytes": 750000000,
+    "retention_days": 7
+  },
+  "repository": "zainkhan122/yt-tts",
+  "schedule": {
+    "best_times": {
+      "count_rule": "random 1-5 shorts per channel calendar day (America/New_York), drawn once and never redrawn",
+      "count_store": "tracker/daily-counts.json",
+      "daily_count_max": 5,
+      "daily_count_min": 1,
+      "enabled": true,
+      "fallback": "no reliable data for the channel -> 18:00-21:00 America/New_York window, every 30 min, random 5-15 min offset applied (owner 2026-10-30)",
+      "fallback_window": [
+        "18:00",
+        "21:00"
+      ],
+      "metric": {
+        "facebook": "impressions",
+        "instagram": "views",
+        "youtube": "views"
+      },
+      "min_samples_per_hour": 3,
+      "rule_owner": "2026-10-21",
+      "sequence_rule": "k-th short of a channel day takes that channel's k-th best hour; each slot gets a random 5-15 minute offset (deterministic per platform+day+slot); the 150-minute minimum gap was removed (owner 2026-10-30)",
+      "slot_source": "tracker/buffer-insights.json (read-only Buffer Insights snapshot)"
+    },
+    "daily_target": 3,
+    "daily_target_overrides": {
+      "2026-10-11": 5,
+      "2026-10-12": 5,
+      "2026-10-13": 5,
+      "2026-10-14": 5
+    },
+    "extended_slots": {
+      "gap_minutes": 144,
+      "note": "High-volume days above the researched windows use this evenly spaced grid. The 150-min minimum gap was removed (owner 2026-10-30); random 5-15 min offsets are applied to best-time slots instead. Extended slot spacing is 144 min (1440/10) so 10 slots evenly cover 24h.",
+      "start": "00:00"
+    },
+    "lookahead_hours": 48,
+    "max_posts_per_run": 9,
+    "max_repo_videos_per_day": 10,
+    "max_videos_per_day": 10,
+    "minimum_gap_minutes": 5,
+    "minimum_lead_minutes": 60,
+    "profiles": {
+      "facebook": {
+        "optional_slots": {
+          "fri": [
+            "19:30",
+            "22:00"
+          ],
+          "mon": [
+            "19:30",
+            "22:00"
+          ],
+          "sat": [
+            "19:30",
+            "22:00"
+          ],
+          "sun": [
+            "19:30",
+            "22:00"
+          ],
+          "thu": [
+            "19:30",
+            "22:00"
+          ],
+          "tue": [
+            "19:30",
+            "22:00"
+          ],
+          "wed": [
+            "19:30",
+            "22:00"
+          ]
+        },
+        "timezone": "America/New_York",
+        "weekly_slots": {
+          "fri": [
+            "12:00",
+            "14:30",
+            "17:00"
+          ],
+          "mon": [
+            "12:00",
+            "14:30",
+            "17:00"
+          ],
+          "sat": [
+            "12:00",
+            "14:30",
+            "17:00"
+          ],
+          "sun": [
+            "12:00",
+            "14:30",
+            "17:00"
+          ],
+          "thu": [
+            "12:00",
+            "14:30",
+            "17:00"
+          ],
+          "tue": [
+            "12:00",
+            "14:30",
+            "17:00"
+          ],
+          "wed": [
+            "12:00",
+            "14:30",
+            "17:00"
+          ]
+        }
+      },
+      "instagram": {
+        "optional_slots": {
+          "fri": [
+            "17:30",
+            "20:00"
+          ],
+          "mon": [
+            "17:30",
+            "20:00"
+          ],
+          "sat": [
+            "17:30",
+            "20:00"
+          ],
+          "sun": [
+            "17:30",
+            "20:00"
+          ],
+          "thu": [
+            "17:30",
+            "20:00"
+          ],
+          "tue": [
+            "17:30",
+            "20:00"
+          ],
+          "wed": [
+            "17:30",
+            "20:00"
+          ]
+        },
+        "timezone": "America/New_York",
+        "weekly_slots": {
+          "fri": [
+            "10:00",
+            "12:30",
+            "15:00"
+          ],
+          "mon": [
+            "10:00",
+            "12:30",
+            "15:00"
+          ],
+          "sat": [
+            "10:00",
+            "12:30",
+            "15:00"
+          ],
+          "sun": [
+            "10:00",
+            "12:30",
+            "15:00"
+          ],
+          "thu": [
+            "10:00",
+            "12:30",
+            "15:00"
+          ],
+          "tue": [
+            "10:00",
+            "12:30",
+            "15:00"
+          ],
+          "wed": [
+            "10:00",
+            "12:30",
+            "15:00"
+          ]
+        }
+      },
+      "youtube": {
+        "optional_slots": {
+          "fri": [
+            "13:30",
+            "23:30"
+          ],
+          "mon": [
+            "13:30",
+            "23:30"
+          ],
+          "sat": [
+            "13:30",
+            "23:30"
+          ],
+          "sun": [
+            "13:30",
+            "23:30"
+          ],
+          "thu": [
+            "13:30",
+            "23:30"
+          ],
+          "tue": [
+            "13:30",
+            "23:30"
+          ],
+          "wed": [
+            "13:30",
+            "23:30"
+          ]
+        },
+        "timezone": "America/New_York",
+        "weekly_slots": {
+          "fri": [
+            "16:00",
+            "18:30",
+            "22:00"
+          ],
+          "mon": [
+            "16:00",
+            "18:30",
+            "21:00"
+          ],
+          "sat": [
+            "16:00",
+            "18:30",
+            "21:00"
+          ],
+          "sun": [
+            "16:00",
+            "18:30",
+            "21:00"
+          ],
+          "thu": [
+            "16:00",
+            "18:30",
+            "21:00"
+          ],
+          "tue": [
+            "16:00",
+            "18:30",
+            "21:00"
+          ],
+          "wed": [
+            "16:00",
+            "18:30",
+            "21:00"
+          ]
+        }
+      }
+    },
+    "random_gap_minutes": {
+      "max": 15,
+      "min": 5,
+      "rule": "deterministic CSPRNG per platform+day+slot_index; offset added to best-time hour",
+      "rule_owner": "2026-10-30"
+    },
+    "required_daily_categories": [],
+    "short_long_gap_minutes": 120,
+    "strategy": "explicit_utc",
+    "timezone": "America/New_York",
+    "youtube_short_notifications_per_24h": 2
+  },
+  "schema_version": 2
+}

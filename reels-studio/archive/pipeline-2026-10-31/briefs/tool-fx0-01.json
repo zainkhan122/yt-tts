@@ -1,0 +1,260 @@
+{
+  "id": "tool-fx0-01",
+  "capture": "captures/tool-fx0-01",
+  "title": "fx0: Describe a Page, an Agent Builds It in One HTML File",
+  "niche": "AI design agents for developers and indie makers",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "v2 copy rewritten 2026-10-21 for the guideline system; video unchanged; owner approval pending before reschedule",
+  "production_category": "tool",
+  "keywords": [
+    "fx0",
+    "design agent",
+    "AI website builder",
+    "landing page generator",
+    "Vercel Labs"
+  ],
+  "facts": {
+    "stars": "241 GitHub stars and 46 forks (GitHub API, own capture 2026-10-20)",
+    "license": "Apache-2.0",
+    "runtime": "Web app at fx0.vercel.dev; describe a page and the agent writes it as one HTML file; five free prompts per IP, then sign in and bill model calls through your own AI Gateway (project README + own capture)",
+    "dependencies": "Model access needs a Vercel sign-in; the generated page is a single HTML file with no build step (own capture)"
+  },
+  "sources": [
+    "https://github.com/vercel-labs/fx0",
+    "https://api.github.com/repos/vercel-labs/fx0",
+    "https://fx0.vercel.dev"
+  ],
+  "verify_before_render": [
+    "Star count and licence re-checked against the GitHub API on render day.",
+    "The free-prompt limit and the sign-in requirement re-checked on the live app before the catch is spoken."
+  ],
+  "treatment": {
+    "audience": "developers and indie makers who need a landing page and do not want to hand-write CSS",
+    "viewer_job": "get a designed page from a sentence, then edit the HTML themselves",
+    "intent": "browse",
+    "hook_mechanic": "start on the finished page, then rewind: you never see a prompt box first",
+    "open_loop": {
+      "plant": "this page exists — but how much did the human do?",
+      "payoff_scene": "build"
+    },
+    "proof_moment": "proof",
+    "selected_cover": 0
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "clip",
+      "src": "demo.mp4",
+      "in": 5.2,
+      "out": 12.7,
+      "fit": "fill-blur",
+      "caption": true,
+      "headline": "ONE PROMPT. *A WHOLE PAGE.*",
+      "sub": "fx0 · the page was never typed by hand",
+      "say": "No designer, no template. This pricing page was written by an agent from one sentence."
+    },
+    {
+      "id": "build",
+      "type": "clip-montage",
+      "src": "demo.mp4",
+      "cuts": [
+        {
+          "in": 0.15,
+          "out": 2.05,
+          "label": "ONE SENTENCE",
+          "at": "builds"
+        },
+        {
+          "in": 2.4,
+          "out": 6.1,
+          "label": "AGENT BUILDS",
+          "at": "publishes"
+        },
+        {
+          "in": 6.2,
+          "out": 11.6,
+          "label": "PUBLISHED, LIVE PAGE"
+        }
+      ],
+      "say": "You give it a sentence. The agent builds the whole page in the open, then publishes it as one HTML file."
+    },
+    {
+      "id": "proof",
+      "type": "page",
+      "image": "artifact-top.jpg",
+      "heading": "AND *THIS* ONE TOO",
+      "say": "The same agent built this analytics dashboard: visitor numbers, a thirty day chart, and the top pages.",
+      "camera": [
+        {
+          "region": "art_kpis",
+          "zoom": 1.5,
+          "at": "numbers"
+        },
+        {
+          "region": "art_chart",
+          "zoom": 1.3,
+          "at": "chart"
+        },
+        {
+          "region": "art_table",
+          "zoom": 1.25,
+          "at": "pages"
+        }
+      ]
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "BEFORE YOU *SHIP IT*",
+      "cons": [
+        "Five free prompts, then sign in",
+        "Placeholder copy you still edit"
+      ],
+      "pros": [
+        "One HTML file, no build step",
+        "Free and open source"
+      ],
+      "item_at": [
+        "five free prompts",
+        "placeholder",
+        "one html file",
+        "open source"
+      ],
+      "say": "The honest catch: five free prompts, then you sign in and bill the model to your own account, and the copy is placeholder text you still edit. In return you get one HTML file, no build step, and it is free and open source.",
+      "image": "desktop-top.jpg",
+      "region": "free_left",
+      "zoom": 3.0,
+      "evidence": [
+        {
+          "region": "free_left",
+          "zoom": 3.0
+        },
+        null,
+        {
+          "region": "site_note",
+          "zoom": 2.1
+        },
+        {
+          "region": "site_note",
+          "zoom": 1.8
+        }
+      ]
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "PAGE",
+      "say": "What would you have it build first? Comment Page, and follow for more tools like this."
+    }
+  ],
+  "research_basis": [
+    "research/social/decode-2026-10-18.md",
+    "research/social/platform-algorithms-2026-10-18.md",
+    "tracker/performance.json"
+  ],
+  "viewer": {
+    "who": "developers and indie makers who need a landing page",
+    "problem": "they do not want to hand-write CSS for a page that only needs to exist this week"
+  },
+  "idea": "Show that one sentence can produce a finished page, and say plainly what it costs you to use it.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "fx0 is an open-source design agent from Vercel Labs, under the Apache-2.0 licence.",
+      "source": "https://github.com/vercel-labs/fx0"
+    },
+    {
+      "id": "c2",
+      "text": "It writes a page as one HTML file with no build step.",
+      "source": "https://fx0.vercel.dev"
+    },
+    {
+      "id": "c3",
+      "text": "Five free prompts per IP address, then sign-in; model calls bill to your own AI Gateway.",
+      "source": "https://fx0.vercel.dev"
+    },
+    {
+      "id": "c4",
+      "text": "The copy it writes is placeholder text that you still edit.",
+      "source": "https://fx0.vercel.dev"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/vercel-labs/fx0",
+      "how_shown": "description only"
+    },
+    {
+      "claim": "c2",
+      "evidence": "owner_test",
+      "how_shown": "the build and the single HTML file shown in the proof scene"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://fx0.vercel.dev",
+      "how_shown": "spoken in the catch scene, read from the live app"
+    },
+    {
+      "claim": "c4",
+      "evidence": "owner_test",
+      "how_shown": "the placeholder copy in the built page, shown in the proof scene"
+    }
+  ],
+  "seo": {
+    "youtube": {
+      "title": "fx0 Design Agent: A Landing Page From One Sentence",
+      "description": "Starting a landing page from a blank file? Describe it in one sentence and the fx0 design agent writes the whole page as one HTML file you can open and edit by hand. No build step.\n\nThe catch: five free prompts per IP address. After that you sign in, and model calls bill to your own AI Gateway. The copy it writes is placeholder text, so you still write the words.\n\nOpen source under Apache-2.0, from Vercel Labs.\nhttps://github.com/vercel-labs/fx0\nhttps://fx0.vercel.dev",
+      "hashtags": [
+        "#Shorts",
+        "#WebDev",
+        "#LandingPage"
+      ],
+      "tags": [
+        "fx0",
+        "fx0 design agent",
+        "landing page generator",
+        "AI website builder",
+        "Vercel Labs"
+      ]
+    },
+    "tiktok": {
+      "caption": "fx0 design agent: one sentence, and it writes the whole landing page as one HTML file you can edit by hand. The catch: five free prompts, then you sign in.",
+      "hashtags": [
+        "#WebDev",
+        "#LandingPage",
+        "#OpenSource"
+      ]
+    },
+    "instagram": {
+      "caption": "fx0 design agent: next landing page, skip the blank file. Describe it in one sentence and it writes the page as one HTML file you can edit by hand, with no build step.\n\nThe catch: five free prompts, then sign in, and the copy is placeholder text you still write. Open source under Apache-2.0.",
+      "hashtags": [
+        "#WebDev",
+        "#LandingPage",
+        "#OpenSource"
+      ]
+    },
+    "facebook": {
+      "caption": "fx0 design agent: starting a landing page from a blank file takes hours. Describe it in one sentence and it writes the page as one HTML file you can edit yourself. Five free prompts, then sign in. Open source under Apache-2.0.",
+      "hashtags": [
+        "#WebDev",
+        "#OpenSource"
+      ]
+    },
+    "x": {
+      "text": "fx0 design agent: one sentence in, one HTML landing page out. Five free prompts, then sign in. Open source from Vercel Labs: https://github.com/vercel-labs/fx0",
+      "hashtags": [
+        "#WebDev"
+      ]
+    }
+  },
+  "review": {
+    "reviewed_at": "2026-10-21T09:00:00Z",
+    "expires_at": "2026-10-28",
+    "reviewer": "agent; facts re-checked against the GitHub API on 2026-10-21; owner approval pending"
+  },
+  "voice": {
+    "synthetic": true
+  }
+}

@@ -1,0 +1,273 @@
+{
+ "id": "meta-hackathon-credits-01",
+ "capture": "captures/meta-hackathon-credits-01",
+ "title": "Meta's hackathon: $150 toward model usage if you're selected",
+ "niche": "AI developer programmes and free model usage",
+ "lang": "en-us",
+ "style": "midnight",
+ "status": "v2 new 2026-10-22: judged news (deadline 2026-10-25); review before scheduling",
+ "production_category": "news",
+ "keywords": [
+  "Meta Model API",
+  "Meta hackathon",
+  "Muse Spark",
+  "AI developer",
+  "API usage"
+ ],
+ "facts": {
+  "deadline": "Applications close Oct 25, 2026, 11:59 PM ET, or earlier if all 20,000 spots fill (dev.meta.ai, captured 2026-10-22)",
+  "usage": "Each selected participant gets $150 toward Meta Model API usage (Meta for Developers post, 2026-10-13)",
+  "prize": "$1,000,000 cash prize pool across an indie track and a startup track (dev.meta.ai, captured 2026-10-22)",
+  "dates": "Hackathon Oct 26 to Nov 4, 2026; virtual and worldwide; free to enter if selected (dev.meta.ai)"
+ },
+ "sources": [
+  "https://dev.meta.ai/events/global-hackathon",
+  "https://x.com/MetaforDevs/status/2110045152601633114"
+ ],
+ "verify_before_render": [
+  "Re-open dev.meta.ai/events/global-hackathon on render day: the deadline, the 20,000 cap and the dates must match the capture.",
+  "Re-open the Meta for Developers post on render day: the $150 usage line must still say 'each selected participant'.",
+  "If applications have closed or the terms changed, do not render; rewrite or drop the short."
+ ],
+ "treatment": {
+  "audience": "indie developers and small teams with an app idea and no model budget",
+  "viewer_job": "decide today whether to apply before the deadline, knowing what is free and what is not",
+  "intent": "search",
+  "hook_mechanic": "open on the official page's own headline and the apply button, so the viewer sees the offer on the source itself",
+  "open_loop": {
+   "plant": "free for everyone?",
+   "payoff_scene": "catch"
+  },
+  "proof_moment": "dates",
+  "selected_cover": 0,
+  "archetype": "spotlight",
+  "cover_concepts": [
+   {
+    "text": "APPLY BY OCT 25",
+    "visual": "official page key-dates section",
+    "gap": "what closes first?"
+   },
+   {
+    "text": "$150 IF PICKED",
+    "visual": "official page headline and Apply now button",
+    "gap": "free for everyone?"
+   },
+   {
+    "text": "META HACKATHON CATCH",
+    "visual": "official page prize and rules lines",
+    "gap": "what is the catch?"
+   }
+  ],
+  "structure": [
+   {
+    "scene": "hook",
+    "beat": "hook"
+   },
+   {
+    "scene": "dates",
+    "beat": "proof"
+   },
+   {
+    "scene": "prize",
+    "beat": "proof"
+   },
+   {
+    "scene": "catch",
+    "beat": "catch"
+   },
+   {
+    "scene": "cta",
+    "beat": "close"
+   }
+  ]
+ },
+ "research_basis": [
+  "research/reference-study/2026-10-21.md",
+  "research/radar/radar-2026-10-21.md",
+  "research/social/decode-2026-10-18.md"
+ ],
+ "viewer": {
+  "who": "indie developers and small teams who have an app idea",
+  "problem": "they want to try Meta's newest models but do not have budget for model calls this month"
+ },
+ "idea": "Meta's hackathon can pay for your model calls, but only if you are selected and you apply before Oct 25.",
+ "claims": [
+  {
+   "id": "c1",
+   "text": "Applications close Oct 25, 2026 at 11:59 PM ET, or earlier if all 20,000 spots fill.",
+   "source": "https://dev.meta.ai/events/global-hackathon"
+  },
+  {
+   "id": "c2",
+   "text": "Each selected participant gets $150 toward Meta Model API usage.",
+   "source": "https://x.com/MetaforDevs/status/2110045152601633114"
+  },
+  {
+   "id": "c3",
+   "text": "The hackathon is ten days, virtual and worldwide, with a $1,000,000 prize pool across an indie track and a startup track.",
+   "source": "https://dev.meta.ai/events/global-hackathon"
+  },
+  {
+   "id": "c4",
+   "text": "Official rules are published before the hackathon starts on Oct 26 and must be accepted by selected participants.",
+   "source": "https://dev.meta.ai/events/global-hackathon"
+  }
+ ],
+ "proof_plan": [
+  {
+   "claim": "c1",
+   "evidence": "capture:desktop-full.jpg",
+   "how_shown": "camera on the key-dates section of the official page"
+  },
+  {
+   "claim": "c2",
+   "evidence": "source:https://x.com/MetaforDevs/status/2110045152601633114",
+   "how_shown": "spoken in the catch scene; the page itself does not state the figure"
+  },
+  {
+   "claim": "c3",
+   "evidence": "capture:desktop-top.jpg",
+   "how_shown": "camera on the headline and the prize line in the hook"
+  },
+  {
+   "claim": "c4",
+   "evidence": "capture:desktop-full.jpg",
+   "how_shown": "spoken in the catch scene; visible in the official rules line of the page"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "page",
+   "image": "desktop-top.jpg",
+   "heading": "META HACKATHON: *IF YOU'RE PICKED*",
+   "camera": [
+    {
+     "region": "title_come-and-build-the-future-of-sup",
+     "zoom": 1.4,
+     "at": "headline"
+    },
+    {
+     "region": "btn_apply-now",
+     "zoom": 2.0,
+     "at": "apply"
+    }
+   ],
+   "say": "Meta's hackathon can cover your model calls. Here is the official page."
+  },
+  {
+   "id": "dates",
+   "type": "page",
+   "image": "desktop-full.jpg",
+   "heading": "APPLY BY *OCT 25*",
+   "camera": [
+    {
+     "region": "title_key-dates",
+     "zoom": 1.6,
+     "at": "dates"
+    }
+   ],
+   "say": "Applications close on October 25, just before midnight Eastern. They can close sooner if the spots fill up."
+  },
+  {
+   "id": "prize",
+   "type": "stat",
+   "value": "$1M",
+   "label": "cash prize pool, two tracks",
+   "source": "https://dev.meta.ai/events/global-hackathon",
+   "retrieved_at": "2026-10-22",
+   "say": "The prize pool is 1 million dollars across two tracks.",
+   "background": {
+    "img": "desktop-top.jpg"
+   }
+  },
+  {
+   "id": "catch",
+   "type": "verdict",
+   "heading": "THE *CATCH*",
+   "cons": [
+    "Only selected applicants get the money",
+    "Rules to accept before Oct 26"
+   ],
+   "pros": [
+    "$150 toward Meta Model API usage",
+    "Free to enter if picked"
+   ],
+   "item_at": [
+    "selected",
+    "rules",
+    "dollars",
+    "picked"
+   ],
+   "say": "The catch: only selected applicants get the 150 dollars. The official rules come before October 26, and you must accept them if you are picked."
+  },
+  {
+   "id": "cta",
+   "type": "endcard",
+   "keyword": "APPLY",
+   "say": "What would you build with a free budget for model calls? Tell me in the comments."
+  }
+ ],
+ "seo": {
+  "youtube": {
+   "title": "Meta hackathon: $150 toward model usage if you're picked",
+   "description": "Meta hackathon: selected builders get $150 toward Meta Model API usage. Want to build without paying for model calls?\n\nThe catch: only selected applicants get the $150, applications close October 25 at 11:59 PM ET (or earlier if the spots fill), and the official rules are published before October 26.\n\nSource: https://dev.meta.ai/events/global-hackathon\nMeta for Developers post: https://x.com/MetaforDevs/status/2110045152601633114",
+   "hashtags": [
+    "#Shorts",
+    "#MetaHackathon",
+    "#MetaAPI",
+    "#DeveloperTools"
+   ],
+   "tags": [
+    "Meta hackathon",
+    "Meta Model API",
+    "Muse Spark",
+    "AI developer hackathon",
+    "API usage"
+   ]
+  },
+  "tiktok": {
+   "caption": "Meta hackathon: each selected builder gets $150 toward model usage. Apply before Oct 25, and read the catch first.",
+   "hashtags": [
+    "#MetaHackathon",
+    "#DeveloperTools",
+    "#IndieDev"
+   ]
+  },
+  "instagram": {
+   "caption": "Meta hackathon: each selected builder gets $150 toward model usage. You still have to be picked, and applications close Oct 25 at 11:59 PM ET.\n\nIf you've been sitting on an app idea that needs model calls, this is the one to check today.",
+   "hashtags": [
+    "#MetaHackathon",
+    "#MetaAPI",
+    "#DeveloperTools"
+   ]
+  },
+  "facebook": {
+   "caption": "Meta hackathon: selected participants get $150 toward Meta Model API usage to build with Meta's models. Applications close October 25 at 11:59 PM ET. Only selected applicants get the $150, so read the official page before you apply.",
+   "hashtags": [
+    "#MetaHackathon",
+    "#DeveloperTools"
+   ]
+  },
+  "x": {
+   "text": "Meta hackathon: $150 toward Meta Model API usage per selected builder. Applications close Oct 25, 11:59 PM ET. https://dev.meta.ai/events/global-hackathon",
+   "hashtags": [
+    "#MetaAPI"
+   ]
+  },
+  "keyword": "Meta hackathon",
+  "aliases": [
+   "Meta Model API",
+   "Meta AI hackathon"
+  ]
+ },
+ "review": {
+  "reviewed_at": "2026-10-22T10:50:00Z",
+  "expires_at": "2026-10-24",
+  "reviewer": "agent; facts checked against dev.meta.ai capture and the Meta for Developers post on 2026-10-22; owner approval pending"
+ },
+ "voice": {
+  "synthetic": true
+ },
+ "voice_seed": 1
+}

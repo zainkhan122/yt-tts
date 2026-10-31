@@ -1,0 +1,167 @@
+{
+  "id": "news-gpt6-intelligent-ui-01",
+  "capture": "captures/news-gpt6-intelligent-ui-01",
+  "title": "GPT-6 Intelligent UI: ChatGPT Answers With Interactive Tools",
+  "niche": "AI product feature",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "Owner authorized batch production after the accepted SolidCraft r3 pilot (2026-10-13). Render only; no Buffer scheduling or platform posting. Approved Option-3 Chatterbox flow voice; no on-screen credit captions.",
+  "production_category": "news",
+  "keywords": [
+    "GPT-6",
+    "Intelligent UI",
+    "interactive answers",
+    "ChatGPT tools"
+  ],
+  "facts": {
+    "announced": "2026-10-07",
+    "paid_rollout": "2026-10-07",
+    "free_go_rollout": "2026-10-08",
+    "source": "OpenAI announcement"
+  },
+  "credits_on_screen": "Original studio mockups based on the OpenAI article, visibly labeled “illustrative mockup — not a screenshot.” No on-screen credit captions.",
+  "sources": [
+    "https://openai.com/index/gpt-6-for-everyone/"
+  ],
+  "verify_before_render": [
+    "OpenAI announcement dated Oct 7, 2026: Intelligent UI combines text, visuals and interactive elements; official examples include a bicycle breakdown, calculators, bill splitters and games.",
+    "Availability began with paid tiers; Free/Go expansion began the following day. Phrase rollout as gradual, not guaranteed for every account.",
+    "Bike and calculator visuals are original concept mockups, not product screenshots. Keep the disclosure visible.",
+    "No on-screen credits; link official source in post/description."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "concept-bicycle.jpg",
+      "heading": "A TOOL, NOT JUST *TEXT*",
+      "say": "GPT-6 Intelligent UI lets ChatGPT answer with a tool, not just a paragraph."
+    },
+    {
+      "id": "feature",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "url": "openai.com/index/gpt-6-for-everyone/",
+      "say": "OpenAI calls it Intelligent UI: text, visuals and interactive controls in one response."
+    },
+    {
+      "id": "example",
+      "type": "steps",
+      "heading": "THE OFFICIAL *EXAMPLE*",
+      "background": {
+        "image": "desktop-full.jpg"
+      },
+      "steps": [
+        "Ask about a bicycle",
+        "Tap through its systems",
+        "See visuals with the answer"
+      ],
+      "step_at": [
+        "ask",
+        "tap",
+        "visuals"
+      ],
+      "say": "Its official example turns a seven-speed bicycle question into a visual breakdown with selectable systems."
+    },
+    {
+      "id": "tools",
+      "type": "image",
+      "image": "concept-calculator.jpg",
+      "heading": "TOOLS INSIDE *CHAT*",
+      "say": "OpenAI also names calculators, bill splitters and small games created for the task."
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE *CATCH*",
+      "pros": [
+        "Text + visuals + controls",
+        "Gradual rollout"
+      ],
+      "cons": [
+        "Not every answer is interactive",
+        "Availability varies by account"
+      ],
+      "item_at": [
+        "controls",
+        "every",
+        "rollout",
+        "availability"
+      ],
+      "say": "Controls and visuals make the answer usable, but not every prompt becomes an app. Rollout is gradual, and availability varies by account."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "UI",
+      "say": "Would you use an interactive answer? Comment UI for the official article."
+    }
+  ],
+  "seo": {
+    "keyword": "GPT-6 Intelligent UI",
+    "aliases": [
+      "interactive ChatGPT",
+      "ChatGPT visual answers"
+    ],
+    "onscreen_first3s": "GPT-6 INTELLIGENT UI / ANSWERS YOU CAN USE",
+    "youtube": {
+      "title": "GPT-6 Intelligent UI: ChatGPT Answers With Interactive Tools",
+      "description": "OpenAI’s GPT-6 Intelligent UI can combine text, visuals and interactive elements in ChatGPT responses. Official examples include an interactive bicycle breakdown, calculators, bill splitters and games. The visuals here are original concept mockups, not product screenshots.\nhttps://openai.com/index/gpt-6-for-everyone/",
+      "hashtags": [
+        "#Shorts",
+        "#ChatGPT",
+        "#OpenAI",
+        "#AI"
+      ],
+      "tags": [
+        "GPT-6 Intelligent UI",
+        "ChatGPT interactive UI",
+        "GPT-6",
+        "AI tools"
+      ]
+    },
+    "tiktok": {
+      "caption": "GPT-6 Intelligent UI gives ChatGPT interactive visuals and tools—not just paragraphs. These are illustrative mockups, not product screenshots.",
+      "hashtags": [
+        "#ChatGPT",
+        "#OpenAI",
+        "#AI"
+      ]
+    },
+    "instagram": {
+      "caption": "GPT-6 Intelligent UI gives ChatGPT interactive visuals and tools—not just paragraphs. These are illustrative mockups, not product screenshots.",
+      "hashtags": [
+        "#ChatGPT",
+        "#OpenAI",
+        "#AI"
+      ]
+    },
+    "facebook": {
+      "caption": "GPT-6 Intelligent UI gives ChatGPT interactive visuals and tools—not just paragraphs. These are illustrative mockups, not product screenshots.",
+      "hashtags": [
+        "#ChatGPT",
+        "#OpenAI",
+        "#AI"
+      ]
+    },
+    "x": {
+      "text": "GPT-6 Intelligent UI gives ChatGPT interactive visuals and tools—not just paragraphs. These are illustrative mockups, not product screenshots. https://openai.com/index/gpt-6-for-everyone/",
+      "hashtags": [
+        "#ChatGPT"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "GPT-6 Intelligent UI: ChatGPT Answers With Interactive Tools"
+    ],
+    "caption": "GPT-6 Intelligent UI gives ChatGPT interactive visuals and tools—not just paragraphs. These are illustrative mockups, not product screenshots.",
+    "hashtags": [
+      "#Shorts",
+      "#ChatGPT",
+      "#OpenAI",
+      "#AI"
+    ],
+    "pinned_comment": "Official announcement: https://openai.com/index/gpt-6-for-everyone/. Bike and bill-splitter visuals are original illustrative mockups, not ChatGPT screenshots."
+  }
+}

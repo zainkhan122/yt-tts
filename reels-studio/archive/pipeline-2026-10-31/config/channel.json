@@ -1,0 +1,52 @@
+{
+  "_note": "Channel defaults (SSOT for brand + voice). Briefs inherit these unless they override.",
+  "brand": {
+    "handle": "@hypeless",
+    "name": "Hypeless",
+    "tagline": "AI tools, minus the hype",
+    "accent": "#FFD60A",
+    "accent2": "#38BDF8",
+    "cta_button": "Follow",
+    "logo": "logo.png",
+    "_approved": "2026-10-08 by user (free on YouTube + TikTok when checked; check IG/X/FB at sign-up)"
+  },
+  "voice": "am_michael",
+  "speed": 1.15,
+  "lang": "en-us",
+  "style": "midnight",
+  "lexicon": {
+    "GitHub": "git hub",
+    "Kokoro": "ko-ko-ro",
+    "Claude": "clawed",
+    "GPT": "G P T",
+    "MCP": "M C P",
+    "LLM": "L L M",
+    "API": "A P I",
+    "UI": "U I",
+    "fal": "fal"
+  },
+  "voice_fx": "none",
+  "voice_blend": {},
+  "_voice_note": "APPROVED VOICE (2026-10-09): Chatterbox (MIT) cloning the Kokoro am_michael reference clip, exaggeration 0.7, cfg 0.4, flow reading (tts block). 'voice'/'speed' below are only the Kokoro settings for the reference clip and local previews (REELS_VOICE_PREVIEW=kokoro). Decision record: research/voice-decision.md",
+  "tts": {
+    "engine": "chatterbox",
+    "ref_wav": "brand/voice/michael-ref.wav",
+    "ref_text": "Okay, this one genuinely surprised me. Meta just shipped an AI that does your chores, and honestly? It's kind of wild. Let me show you how it works.",
+    "ref_kokoro": {
+      "voice": "am_michael",
+      "speed": 1.0,
+      "lang": "en-us"
+    },
+    "exaggeration": 0.7,
+    "cfg": 0.4,
+    "flow": true,
+    "chunk_chars": 280,
+    "join_gap": 0.06,
+    "seed": 7,
+    "max_retries": 2,
+    "min_match": 0.85,
+    "_approved": "2026-10-09 by owner: voice-lab option 3 (8-chatterbox-michael-flow). Default for every video from now on; the QA gate 'approved_voice' refuses to ship anything else.",
+    "min_melody_st": 12.0,
+    "_liveliness": "Each flow chunk is re-generated (other seed, max_retries) if whisper match < min_match or melody < min_melody_st; the clearest, liveliest take wins."
+  }
+}

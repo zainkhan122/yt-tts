@@ -1,0 +1,210 @@
+{
+  "id": "tool-ltx25-01",
+  "capture": "captures/tool-ltx25-01",
+  "title": "LTX 2.5: Open-Weights Video + Audio in One Model",
+  "niche": "tech / AI video",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "2026-10-12: original script from checked primary sources (ltx.io/model/ltx-2-5 + prior LTX-2.5 notes in research/maintenance/2026-10-12-batch-2.json). Hardware figures attributed to the launch material; licence terms stated as published. Showcase footage on the page is synthetic (the page says so). | On-screen browser chrome shows a concise source domain; full source URLs stay in descriptions.",
+  "keywords": [
+    "LTX 2.5",
+    "LTX",
+    "open weights",
+    "video",
+    "audio",
+    "multishot"
+  ],
+  "facts": {
+    "params_b": 22,
+    "i2v_seconds_gb200": 6.8,
+    "api_seconds": 23.7,
+    "family_downloads_m": 33,
+    "checked": "2026-10-12"
+  },
+  "credits_on_screen": "Screens: own capture of ltx.io/model/ltx-2-5 (2026-10-12). Showcase media belongs to LTX; the page states all showcase clips are entirely synthetic and no actor has performed — we only reuse the page's own published imagery. Hardware timings are from the launch material.",
+  "sources": [
+    "https://ltx.io/model/ltx-2-5"
+  ],
+  "verify_before_render": [
+    "LTX-2.5 released 2026-08-11: 22B open-weights video+audio 'world' model; a 10-second image-to-video render in 6.8 s on 2xGB200 (about 23.7 s through the API); native multishot with consistent characters and voice; diffusion decoder; Gemma 4 12B encoder; LTX-2.x Community Licence (free below $10M revenue; NOT an OSI licence); ComfyUI support from day one; the family has passed 33M downloads. The HF card is gated (auth) — the product page ltx.io/model/ltx-2-5 is the capture surface. Do not invent pricing.",
+    "Region names used here exist in captures/tool-ltx25-01/manifest.json and sit inside the desktop-top viewport (y+h <= 900 CSS): title_ltx-2-5-a-stronger-foundation-fo {305,171,669,127}, btn_download-open-weights {441,407,262,47}, btn_try-now {719,407,121,47}. All other harvested regions sit deeper than the fold and must not be used in page scenes.",
+    "No on-screen credit captions. Option 3 Chatterbox Michael continuous-flow voice required."
+  ],
+  "production_category": "tool",
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "desktop-top.jpg",
+      "heading": "ONE MODEL, VIDEO *AND* AUDIO",
+      "say": "{LTX 2.5|LTX two point five} is a twenty two billion parameter video model that generates sound too — and you can take the weights home.",
+      "url": "ltx.io"
+    },
+    {
+      "id": "foundation",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "url": "ltx.io",
+      "camera": [
+        {
+          "region": "title_ltx-2-5-a-stronger-foundation-fo",
+          "zoom": 1.6,
+          "at": "foundation"
+        }
+      ],
+      "cursor": [
+        {
+          "region": "btn_download-open-weights",
+          "at": "download",
+          "state": "⬇ Open weights"
+        }
+      ],
+      "say": "The page calls it a stronger foundation, and you can download the open weights straight from the hero.",
+      "heading": "A STRONGER *FOUNDATION*"
+    },
+    {
+      "id": "changed",
+      "type": "steps",
+      "heading": "WHAT *CHANGED* IN 2.5",
+      "background": {
+        "image": "desktop-full.jpg"
+      },
+      "steps": [
+        "Native multi-shot, consistent characters",
+        "Cleaner motion, stronger prompt adherence",
+        "Auto duration, better results per compute",
+        "Refine, restore, SDR-to-HDR"
+      ],
+      "say": "Version two point five brings native multi-shot with consistent characters and voice, cleaner motion, stronger prompt adherence, auto duration, and post-production tools — refine, restore, even SDR to HDR.",
+      "url": "ltx.io"
+    },
+    {
+      "id": "speed",
+      "type": "stat",
+      "heading": "TEN SECONDS IN *6.8*",
+      "value": 6.8,
+      "decimals": 1,
+      "suffix": " s per 10 s clip",
+      "label": "image-to-video on 2×GB200 · ~23.7 s via API",
+      "icon": false,
+      "at": "six",
+      "say": "An image to a ten second clip in six point eight seconds on two GB200s. Through the API, about twenty four.",
+      "url": "ltx.io"
+    },
+    {
+      "id": "open",
+      "type": "stat",
+      "heading": "*22 BILLION* PARAMETERS, OPEN WEIGHTS",
+      "value": 22,
+      "decimals": 0,
+      "suffix": "B parameters",
+      "label": "video + audio · diffusion decoder · Gemma 4 12B encoder",
+      "icon": false,
+      "at": "twenty",
+      "say": "Twenty two billion parameters, open weights, with a diffusion decoder and a Gemma four twelve B text encoder.",
+      "url": "ltx.io"
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE *CATCH*",
+      "cons": [
+        "Community licence, not OSI",
+        "Free only under $10M revenue",
+        "GB200-class GPUs for the fast path"
+      ],
+      "pros": [
+        "Open weights you can download",
+        "Video plus audio in one model",
+        "ComfyUI support from day one"
+      ],
+      "item_at": [
+        "licence",
+        "revenue",
+        "gpus",
+        "weights",
+        "audio",
+        "comfyui"
+      ],
+      "say": "The catches: the licence is community, not OSI; free only under ten million dollars revenue; and the fast path wants GB200 class GPUs. The good: open weights, video and audio in one model, and ComfyUI support from day one.",
+      "url": "ltx.io"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "LTX",
+      "say": "Would you run this one locally? Comment LTX and I will pin the model page.",
+      "url": "ltx.io"
+    }
+  ],
+  "seo": {
+    "keyword": "LTX 2.5",
+    "aliases": [
+      "LTX-2.5",
+      "LTX open weights",
+      "LTX Studio model"
+    ],
+    "onscreen_first3s": "LTX 2.5",
+    "youtube": {
+      "title": "LTX 2.5: Open-Weights Video + Audio in One Model",
+      "description": "LTX-2.5 (released 11 August 2026) is a 22B open-weights video and audio model: a 10-second image-to-video clip renders in 6.8 s on 2xGB200 (~23.7 s via API), with native multi-shot, consistent characters and voice, a diffusion decoder and a Gemma 4 12B encoder. The LTX-2.x Community Licence is free below $10M revenue but is not an OSI licence; ComfyUI support arrived day one; the model family has passed 33M downloads.\nSource: https://ltx.io/model/ltx-2-5",
+      "hashtags": [
+        "#Shorts",
+        "#AIVideo",
+        "#OpenSource",
+        "#LTX"
+      ],
+      "tags": [
+        "LTX 2.5",
+        "LTX-2.5",
+        "open weights video model",
+        "AI video generator",
+        "LTX Studio",
+        "ComfyUI",
+        "video with audio AI",
+        "open source AI video"
+      ]
+    },
+    "tiktok": {
+      "caption": "LTX 2.5: 22B open-weights video AND audio — a 10-second clip in 6.8 s on 2×GB200, native multi-shot, ComfyUI day one. Free below $10M revenue.",
+      "hashtags": [
+        "#AIVideo",
+        "#OpenSource",
+        "#LTX"
+      ]
+    },
+    "instagram": {
+      "caption": "LTX 2.5 generates video and audio in one 22B open-weights model: 10 seconds in 6.8 s on 2×GB200, native multi-shot with consistent characters, and post-production tools built in. Save this for your video stack.",
+      "hashtags": [
+        "#AIVideo",
+        "#OpenSource",
+        "#LTX"
+      ]
+    },
+    "facebook": {
+      "caption": "LTX 2.5 is a 22B open-weights video and audio model — 10-second clips in 6.8 s on 2×GB200, with multi-shot consistency and a community licence free below $10M revenue.",
+      "hashtags": [
+        "#AIVideo",
+        "#OpenSource"
+      ]
+    },
+    "x": {
+      "text": "LTX 2.5: 22B open-weights video + audio. 10 s i2v in 6.8 s on 2×GB200 (~23.7 s API), native multi-shot, diffusion decoder, Gemma 4 12B encoder. Community licence (free <$10M rev); ComfyUI day one.",
+      "hashtags": [
+        "#AI"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "LTX 2.5: Open-Weights Video + Audio in One Model"
+    ],
+    "caption": "LTX 2.5 is a 22B open-weights model that generates video and audio together — a 10-second image-to-video clip in 6.8 seconds on 2×GB200, native multi-shot with consistent characters and voice, and post-production tools like restore and SDR-to-HDR built in. Community licence, free below $10M revenue.",
+    "hashtags": [
+      "#AIVideo",
+      "#OpenSource",
+      "#LTX"
+    ],
+    "pinned_comment": "Model page: https://ltx.io/model/ltx-2-5 · the community licence is free below $10M revenue (not OSI)"
+  }
+}

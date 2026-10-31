@@ -1,0 +1,196 @@
+{
+  "id": "news-clef-01",
+  "capture": "captures/news-clef-01",
+  "title": "Cloudflare Clef: a 27B Model That Can't Ramble",
+  "niche": "tech / AI news",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "2026-10-12: original script from checked primary sources (model card read 2026-10-12). Latency and adoption details labelled community-reported; licence and architecture facts from the card itself. | On-screen browser chrome shows a concise source domain; full source URLs stay in descriptions.",
+  "keywords": [
+    "Cloudflare Clef",
+    "clef",
+    "decision model",
+    "Qwen",
+    "Workers AI",
+    "Apache"
+  ],
+  "facts": {
+    "params_b": 27,
+    "flash_params_b": 9,
+    "flash_ms": 39,
+    "checked": "2026-10-12"
+  },
+  "credits_on_screen": "Screens: own capture of huggingface.co/Cloudflare/clef (2026-10-12). Model art, card images and demo media are Cloudflare's own published assets, credited on screen. The ~39 ms latency figure is community-reported, not a Cloudflare benchmark claim.",
+  "sources": [
+    "https://huggingface.co/Cloudflare/clef"
+  ],
+  "verify_before_render": [
+    "Model card read 2026-10-12: Clef is a 27B multimodal DECISION model post-trained from Qwen/Qwen3.8-27B; a joint schema head returns a probability for every allowed option of every typed question in one forward pass — no free-form text and no output parsing; Apache-2.0; clef-flash 9B (on Qwen3.5-9B) with roughly 39 ms median per community notes — always voiced as community-reported; Jev / SystemOne compatible; runs on Cloudflare Workers AI; RL fine-tune path exists. Card had about 2.0k likes and was top-3 on the trending radar at capture time.",
+    "Region names used here exist in captures/news-clef-01/manifest.json and sit inside the desktop-top viewport (y+h <= 900 CSS): repo_title {134,99,48,32}. The readme/title_clef regions sit below the fold (y > 1200) and must NOT be used in page scenes.",
+    "No on-screen credit captions. Option 3 Chatterbox Michael continuous-flow voice required."
+  ],
+  "production_category": "news",
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "og-image.png",
+      "heading": "A MODEL THAT CANNOT *RAMBLE*",
+      "say": "Cloudflare Clef does not write answers at all. It picks from the options you give it — in one pass.",
+      "url": "huggingface.co"
+    },
+    {
+      "id": "card",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "url": "huggingface.co",
+      "camera": [
+        {
+          "region": "repo_title",
+          "zoom": 2.4,
+          "at": "clef"
+        }
+      ],
+      "say": "Clef is a twenty seven billion parameter model, post-trained from Qwen three point eight twenty seven B — and it is Apache licensed.",
+      "heading": "POST-TRAINED FROM *QWEN3.8-27B*"
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "HOW A *DECISION* MODEL WORKS",
+      "background": {
+        "image": "desktop-full.jpg"
+      },
+      "steps": [
+        "Declare the allowed options first",
+        "One pass scores every option",
+        "No free-form text, no parsing"
+      ],
+      "say": "You declare the options once. Every question, every allowed choice, gets a probability in a single forward pass. There is no free-form text, and nothing to parse.",
+      "url": "huggingface.co"
+    },
+    {
+      "id": "flash",
+      "type": "stat",
+      "heading": "*39 MILLISECONDS* TO DECIDE",
+      "value": 39,
+      "decimals": 0,
+      "suffix": " ms median",
+      "label": "clef-flash 9B · community-reported",
+      "icon": false,
+      "at": "thirty",
+      "say": "The flash variant, nine billion parameters, answers in about thirty nine milliseconds by community reports.",
+      "url": "huggingface.co"
+    },
+    {
+      "id": "agents",
+      "type": "image",
+      "image": "xnuawpumwzus5exw-snlk.png",
+      "heading": "BUILT FOR *SYSTEMONE-STYLE* AGENTS",
+      "say": "It is designed to slot into structured decision systems, and it runs on Cloudflare's Workers AI.",
+      "url": "huggingface.co"
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE *TRADE-OFFS*",
+      "cons": [
+        "No free-form text, by design",
+        "You declare every allowed option",
+        "27B needs real hosting"
+      ],
+      "pros": [
+        "~39 ms with the 9B flash variant",
+        "Apache-2.0 licence",
+        "Zero output parsing"
+      ],
+      "item_at": [
+        "text",
+        "option",
+        "hosting",
+        "thirty",
+        "apache",
+        "parsing"
+      ],
+      "say": "The trade-offs: by design it refuses free-form text, you declare every option up front, and a twenty seven billion model needs real hosting. But the flash variant answers in about thirty nine milliseconds, the licence is Apache, and there is no parsing step at all.",
+      "url": "huggingface.co"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "CLEF",
+      "say": "Would you put probabilities in your agent instead of paragraphs? Comment Clef and I will pin the model card.",
+      "url": "huggingface.co"
+    }
+  ],
+  "seo": {
+    "keyword": "Cloudflare Clef",
+    "aliases": [
+      "Clef model",
+      "clef-flash",
+      "decision model"
+    ],
+    "onscreen_first3s": "CLOUDFLARE CLEF",
+    "youtube": {
+      "title": "Cloudflare Clef: a 27B Model That Can't Ramble",
+      "description": "Cloudflare Clef is a 27B multimodal decision model post-trained from Qwen/Qwen3.8-27B. Instead of writing text, a joint schema head returns a probability for every allowed option of every typed question in one forward pass — no output parsing at all. Apache-2.0; clef-flash (9B) runs at ~39 ms median per community reports; Jev/SystemOne compatible; available on Workers AI.\nSource: https://huggingface.co/Cloudflare/clef",
+      "hashtags": [
+        "#Shorts",
+        "#AI",
+        "#OpenSource",
+        "#Cloudflare"
+      ],
+      "tags": [
+        "Cloudflare Clef",
+        "clef model",
+        "decision model",
+        "Qwen3.8-27B",
+        "Workers AI",
+        "Apache-2.0",
+        "AI agents",
+        "open source AI"
+      ]
+    },
+    "tiktok": {
+      "caption": "Cloudflare Clef doesn't write answers — it returns a probability for every allowed option in one forward pass. 27B, Apache-2.0, and a 9B flash variant at ~39 ms per community reports.",
+      "hashtags": [
+        "#AI",
+        "#OpenSource",
+        "#Cloudflare"
+      ]
+    },
+    "instagram": {
+      "caption": "Cloudflare Clef: a 27B decision model with no free-form text to parse — probabilities for every allowed option in a single forward pass. Apache-2.0, Workers AI, ~39 ms flash variant. Save this for your agent stack.",
+      "hashtags": [
+        "#AI",
+        "#OpenSource",
+        "#Cloudflare"
+      ]
+    },
+    "facebook": {
+      "caption": "Cloudflare Clef is a 27B decision model that returns probabilities instead of prose: every allowed option for every typed question, in one forward pass, with no output parsing.",
+      "hashtags": [
+        "#AI",
+        "#OpenSource"
+      ]
+    },
+    "x": {
+      "text": "Cloudflare Clef: a 27B decision model answering with probabilities for every allowed option in one forward pass — no free-form text, no parsing. Apache-2.0; 9B flash ~39 ms; Workers AI.",
+      "hashtags": [
+        "#AI"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "Cloudflare Clef: a 27B Model That Can't Ramble"
+    ],
+    "caption": "Cloudflare Clef is a 27B decision model that returns probabilities instead of prose: every allowed option for every typed question, in one forward pass, with no output parsing. Apache-2.0; the 9B flash variant answers in about 39 ms per community reports.",
+    "hashtags": [
+      "#AI",
+      "#OpenSource",
+      "#Cloudflare"
+    ],
+    "pinned_comment": "Model card: https://huggingface.co/Cloudflare/clef · ~39 ms is community-reported, not a Cloudflare benchmark"
+  }
+}

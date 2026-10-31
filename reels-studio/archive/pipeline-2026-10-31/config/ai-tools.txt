@@ -1,0 +1,72 @@
+# AI tools / products lexicon for tools/idea_feed.py (case-insensitive, whole-word phrase match on post titles + captions).
+# One product per line: Canonical name|alias|alias. Add new tools whenever a watchlist channel covers one we missed.
+# Lines tagged "[platform]" are big assistants: they surface in a separate "platform news" list with sample titles,
+# because "ChatGPT" alone is not a topic; the feature inside the title is (e.g. "ChatGPT Intelligent UI").
+ChatGPT|Chat GPT|ChatGPT 6 [platform]
+Claude [platform]
+Gemini [platform]
+Grok [platform]
+Meta AI [platform]
+Copilot|Microsoft Copilot [platform]
+GPT-6|GPT 6|GPT-6 Astra|GPT 6 Astra|GPT-6 Sol|GPT-6 Luna|GPT-6.1
+Claude Docs|Claude Slides|Claude Design|Claude Motion|Claude Dashboards
+Meta Muse|Muse from Meta|Muse app|Muse Spark
+Hark Pro|Hark AI
+Google Playground
+Seedance|Seedance 2.0
+Hailuo|Hailuo AI|MiniMax video
+Kling|Kling AI|Kling 3.0
+Veo|Veo 3|Veo 3.1|Google Veo
+Google Flow|Flow by Google
+Sora|Sora 2
+Runway|Runway Gen-4|Runway Gen-4.5
+Pika|Pika Labs
+Luma|Dream Machine|Luma Ray
+Vidu
+PixVerse
+Wan 2.2|Wan 2.6|Wan video
+LTX Video|LTX-2
+HeyGen
+Synthesia
+Higgsfield|Higgsfield AI
+Midjourney
+Nano Banana|Nano Banana 2|Nano Banana 2.1
+Ideogram
+Recraft
+Krea|Krea AI
+Leonardo AI
+Freepik AI
+Adobe Firefly|Firefly
+Canva AI|Magic Studio
+CapCut
+Descript
+Opus Clip|OpusClip
+ElevenLabs|Eleven Labs
+Suno
+Udio
+NotebookLM
+Perplexity|Perplexity Comet|Comet browser
+Manus
+Genspark
+Lovable
+Bolt.new
+v0|v0.dev
+Replit Agent
+Gamma|Gamma AI
+Napkin AI
+Granola
+Cursor
+Windsurf
+Codex|OpenAI Codex
+Claude Code
+Gemini CLI
+OpenClaw
+DeepSeek|DeepSeek V4|DeepSeek V4.1
+Qwen|Qwen3
+Kimi|Kimi K3
+Mistral|Mistral Large 4|Le Chat
+Llama
+Ollama
+LM Studio
+ComfyUI
+Stable Diffusion

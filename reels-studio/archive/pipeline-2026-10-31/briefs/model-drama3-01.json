@@ -1,0 +1,182 @@
+{
+  "id": "model-drama3-01",
+  "capture": "captures/model-drama3-01",
+  "title": "Drama 3: Sixteen Voices in One Script",
+  "niche": "AI voice / TTS",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "Owner selected this topic on 2026-10-16 (Top-10 pick). Default flow: render + frame-level QA, then Buffer scheduled send on YouTube/Instagram/Facebook. Approved Option-3 Chatterbox flow voice; no on-screen credit captions.",
+  "production_category": "model",
+  "keywords": [
+    "Drama 3",
+    "Fish Audio",
+    "TTS",
+    "voice cloning",
+    "AI voices"
+  ],
+  "facts": {
+    "total_params": "35B",
+    "active_params": "3B",
+    "max_speakers": 16,
+    "license": "Fish Audio Community License",
+    "checked": "2026-10-16, HF model card + API"
+  },
+  "credits_on_screen": "Own cast and skills cards created for this video. Source links in post/description only. No on-screen credits.",
+  "sources": [
+    "https://huggingface.co/fishaudio/drama-3",
+    "https://huggingface.co/api/models/fishaudio/drama-3"
+  ],
+  "verify_before_render": [
+    "HF card+API 2026-10-16: 35B/3B-active TTS MoE; speaker tags carry up to 16 characters in one text; voice cloning from a reference clip; point tags like [sighs]/[laughs]; edit-by-rewriting. Fish Audio Community License — never call it Apache.",
+    "Vendor serving figures (H200): first audio under 100 ms p50 single stream; attributed if mentioned. We generated no audio.",
+    "Self-hosting needs a serious GPU; playground exists. Visuals are our own cards. No on-screen credit captions."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "cast-card.png",
+      "heading": "A CAST IN *ONE SCRIPT*",
+      "sub": "Drama 3 · Fish Audio TTS",
+      "say": "One script, a whole cast of characters, each with their own voice."
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "image": "skills-card.png",
+      "heading": "MEET *DRAMA 3*",
+      "sub": "Fish Audio · community licence",
+      "say": "This is Drama three from Fish Audio, a speech model built for scenes, not just narration."
+    },
+    {
+      "id": "cast",
+      "type": "stat",
+      "heading": "ONE TEXT, *16 VOICES*",
+      "value": 16,
+      "decimals": 0,
+      "suffix": " voices",
+      "label": "characters in a single text",
+      "at": "sixteen",
+      "say": "A single text can carry sixteen different characters, each tagged in the script."
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "DIRECT THE *SCENE*",
+      "steps": [
+        "Tag each speaker",
+        "Drop in [sighs], [laughs]",
+        "Clone a voice from a clip"
+      ],
+      "step_at": [
+        "speaker",
+        "sighs",
+        "Clone"
+      ],
+      "say": "Tag each speaker, drop in directions like sighs and laughs, or clone a voice from a short clip."
+    },
+    {
+      "id": "run",
+      "type": "terminal",
+      "heading": "SERVE IT *YOURSELF*",
+      "lines": [
+        "sgl-omni serve --model-path fishaudio/drama-3"
+      ],
+      "say": "Serve it with S G Lang Omni from day one, or try it in Fish Audio's playground."
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "BEFORE YOU *CAST IT*",
+      "cons": [
+        "Self-hosting wants a big GPU",
+        "Community licence, not Apache"
+      ],
+      "pros": [
+        "Edits by rewriting text",
+        "First audio lands fast"
+      ],
+      "item_at": [
+        "graphics",
+        "licence",
+        "rewrites",
+        "fast"
+      ],
+      "say": "The catches: self-hosting wants a serious graphics card, and the licence is Fish Audio's community terms, not Apache. In return, edits are just rewrites, and the first audio lands fast."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "DRAMA",
+      "say": "What scene would you voice first? Comment DRAMA and I will pin the model card."
+    }
+  ],
+  "seo": {
+    "keyword": "Drama 3",
+    "aliases": [
+      "AI audio",
+      "voice acting"
+    ],
+    "onscreen_first3s": "A CAST IN ONE SCRIPT",
+    "youtube": {
+      "title": "Drama 3: Sixteen Voices in One Script",
+      "description": "Fish Audio's Drama 3 is a 35B (3B active) text-to-speech model built for multi-character scenes: speaker tags carry up to 16 characters in one text, with voice cloning and in-line direction tags like [sighs] and [laughs]. Fish Audio Community License. Catches: self-hosting needs a serious GPU; vendor streaming figures were measured on an H200.\nSource: https://huggingface.co/fishaudio/drama-3",
+      "hashtags": [
+        "#Shorts",
+        "#AI",
+        "#TTS",
+        "#VoiceAI"
+      ],
+      "tags": [
+        "Drama 3",
+        "Fish Audio",
+        "text to speech",
+        "voice cloning",
+        "AI voices"
+      ]
+    },
+    "tiktok": {
+      "caption": "Drama 3: one script, sixteen voices. Fish Audio's scene-first TTS with cloning and [sighs]/[laughs] direction tags. Community licence; self-hosting wants a big GPU.",
+      "hashtags": [
+        "#AI",
+        "#TTS",
+        "#VoiceAI"
+      ]
+    },
+    "instagram": {
+      "caption": "Sixteen characters, one script, each with a cloned voice: Drama 3 is TTS built for scenes, not narration. Save this if you make audio content.",
+      "hashtags": [
+        "#AI",
+        "#TTS",
+        "#VoiceAI"
+      ]
+    },
+    "facebook": {
+      "caption": "Drama 3 (Fish Audio): multi-character TTS, up to 16 speakers per text, voice cloning, edit-by-rewriting. Community License.",
+      "hashtags": [
+        "#AI",
+        "#TTS"
+      ]
+    },
+    "x": {
+      "text": "Sixteen voices in one script: Fish Audio's Drama 3 does scene-first TTS with cloning and direction tags. https://huggingface.co/fishaudio/drama-3",
+      "hashtags": [
+        "#AI",
+        "#TTS"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "Drama 3: Sixteen Voices in One Script"
+    ],
+    "caption": "Fish Audio's Drama 3 treats speech as a scene, not a paragraph: speaker tags carry up to 16 characters in a single text, point tags like [sighs] and [laughs] direct the performance, and edits are done by rewriting text. Fish Audio Community License. Catches: self-hosting wants a serious GPU (vendor streaming numbers are from an H200).",
+    "hashtags": [
+      "#Shorts",
+      "#AI",
+      "#TTS",
+      "#VoiceAI"
+    ],
+    "pinned_comment": "Model card: https://huggingface.co/fishaudio/drama-3 — we generated no audio for this video; visuals are our own cards."
+  }
+}
