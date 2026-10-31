@@ -109,7 +109,7 @@
     <g>
       <rect x="460" y="190" width="180" height="90" rx="12" fill="#f1ecfc" stroke="#7a4fd6" stroke-width="2"/>
       <text x="550" y="218" text-anchor="middle" font-size="13" font-weight="700" fill="#1b2430">6 MAKE THE MEDIA</text>
-      <text x="550" y="238" text-anchor="middle" font-size="12" fill="#5b6777">Maker assets + our graphics</text>
+      <text x="550" y="238" text-anchor="middle" font-size="12" fill="#5b6777">Maker media, animated; own graphics</text>
       <text x="550" y="258" text-anchor="middle" font-size="11" fill="#7a4fd6">agent judgment, per tool</text>
     </g>
     <g>
@@ -343,7 +343,19 @@
 
 <!-- 9. WHAT IS NOT DONE -->
 <section>
-  <h2>9. Status</h2>
+  <h2>9. Motion and graphics design (new stage, 31 Oct)</h2>
+<p>Runs inside step 6, after the maker media is captured and before the render. I design the motion for each video from the tool's own media and from real data. Nothing is a shared template.</p>
+<ul>
+<li><b>Need-based.</b> Every motion shows what the tool does: a crop onto the feature, a side-by-side comparison, a before and after. Decorative motion is cut.</li>
+<li><b>Own media, cut down.</b> Crop the relevant region, zoom, pan. A full static screenshot may not be held more than about 1 s.</li>
+<li><b>Change often.</b> A visual change at least every 5 s. A scene that is a text card carrying the scene alone fails.</li>
+<li><b>Real data only.</b> Waveforms come from the audio files (reference and cloned). Charts use numbers the tool or the maker published, with the source named. No invented figures.</li>
+<li><b>Tool-specific.</b> Each graphic names an element of that tool. The same template is not reused across videos.</li>
+<li><b>Hook.</b> The first frame shows the benefit, with the motion already moving.</li>
+</ul>
+<p><b>Check:</b> the viewer panel has a motion line (tools/viewer_panel.py). The panel is filed as PASS or FAIL. A FAIL returns the video to step 6. The render check still blocks text overlap.</p>
+<p><b>Built and checked on VoiceStudio:</b> crop-zoom onto the voice-sample card, the dubbing panels and the hardware rows; a split scene with the reference and the cloned waveforms drawn from the real audio envelopes; the hook headline overlap found by the render check and fixed.</p>
+<h2>10. Status</h2>
   <ul>
     <li><b>Done:</b> the single thresholds source and one-command preflight, committed locally as <code>32740c0</code> (not pushed; this session has no git credentials).</li>
     <li><b>Not done:</b> this plan. Nothing in the code has changed for it yet.</li>

@@ -36,6 +36,7 @@ BARS = [
     "real product media (capture/demo/UI) in >= 60% of scenes; cards support, never carry",
     "one idea per scene; a visual change every 4-5 s; hook claim in sentence one",
     "honest catch in plain user-impact words; spoken CTA before the end",
+    "motion: a visual change at least every 5 s; real media cropped or animated to the feature (no full static screenshot held over 1 s); each graphic names a tool-specific element; comparisons and charts use real data only",
 ]
 
 
