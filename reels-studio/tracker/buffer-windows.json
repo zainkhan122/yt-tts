@@ -1,0 +1,56 @@
+{
+  "fetched_at": "2026-10-31T11:43:35Z",
+  "source": "Buffer channel.postingSchedule (read-only)",
+  "max_age_days": 8,
+  "platforms": {
+    "facebook": {
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "name": "Hypeless Ai",
+      "timezone": "America/New_York",
+      "days": {},
+      "clocks_by_use": [],
+      "problems": [
+        "unknown day 'mon'",
+        "unknown day 'tue'",
+        "unknown day 'wed'",
+        "unknown day 'thu'",
+        "unknown day 'fri'",
+        "unknown day 'sat'",
+        "unknown day 'sun'"
+      ]
+    },
+    "youtube": {
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "name": "Hypeless Ai",
+      "timezone": "America/New_York",
+      "days": {},
+      "clocks_by_use": [],
+      "problems": [
+        "unknown day 'mon'",
+        "unknown day 'tue'",
+        "unknown day 'wed'",
+        "unknown day 'thu'",
+        "unknown day 'fri'",
+        "unknown day 'sat'",
+        "unknown day 'sun'"
+      ]
+    },
+    "instagram": {
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "name": "hypelessai.ai",
+      "timezone": "America/New_York",
+      "days": {},
+      "clocks_by_use": [],
+      "problems": [
+        "unknown day 'mon'",
+        "unknown day 'tue'",
+        "unknown day 'wed'",
+        "unknown day 'thu'",
+        "unknown day 'fri'",
+        "unknown day 'sat'",
+        "unknown day 'sun'"
+      ]
+    }
+  },
+  "skipped": []
+}
