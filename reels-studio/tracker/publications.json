@@ -3064,6 +3064,31 @@
       "updated_at": "2026-10-16T04:44:41Z",
       "video_id": "repo-solidglass-01"
     },
+    "repo-voicestudio-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-11-01T20:11:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:473feda9e489a4b14c61a962dc1d9ea11813b054ac53d7a40efa5a1d96d2d318",
+        "asset_id": 695873927,
+        "asset_size": 7932378,
+        "kit_asset_id": 695873997,
+        "kit_digest": "sha256:a8fd85530359304797b99daf5888c48a6479a4137982b66c01e76d9704cf6c35",
+        "media_path": "media/695873927/repo-voicestudio-01.mp4",
+        "release_tag": "renders-2026-10-31-r2",
+        "video_id": "repo-voicestudio-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/695873927/repo-voicestudio-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "d88511a2e593104cf4a3b775af7a4a686c16ee1db3d1d08533e2c2ad03feb727",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Open-source voice cloning and dubbing on your computer.\n\n#voicecloning #aidubbing #localai",
+      "title": "Clone and dub voices on your own machine (open source)",
+      "updated_at": "2026-10-31T16:35:06Z",
+      "video_id": "repo-voicestudio-01"
+    },
     "repo-vvv-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6adf35fa551b0b514a63c2f2",
