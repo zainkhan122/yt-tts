@@ -264,7 +264,7 @@
       "priority": 100,
       "release_tag": "renders-2026-10-10",
       "reviewed_at": "2026-10-11T05:29:03Z",
-      "title": "Pomelli: Free AI Product Photos—with a Catch",
+      "title": "Pomelli: Free AI Product Photos\u2014with a Catch",
       "video_id": "tool-pomelli-01",
       "youtube_ai_generated": true
     },
@@ -755,7 +755,7 @@
       "priority": 15,
       "release_tag": "renders-2026-10-15",
       "reviewed_at": "2026-10-15T12:42:11Z",
-      "title": "LFM2.5: 24B Brain, 2B at Work — a Local Agent Model",
+      "title": "LFM2.5: 24B Brain, 2B at Work \u2014 a Local Agent Model",
       "video_id": "model-lfm25-01",
       "youtube_ai_generated": false
     },
@@ -1395,6 +1395,30 @@
       "reviewed_at": "2026-10-31T04:09:07Z",
       "title": "Android TV debloat: remove ads over Wi-Fi, no root",
       "video_id": "repo-cleanyourtv-01",
+      "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-10-31T16:27:28Z",
+      "approval": "approved",
+      "asset_digest": "sha256:473feda9e489a4b14c61a962dc1d9ea11813b054ac53d7a40efa5a1d96d2d318",
+      "asset_id": 695873927,
+      "asset_size": 7932378,
+      "brief_sha256": "f50d9d1cf388a6b65e1aba70eebbf2819ac7dd5c246a1ebd87d5c879db926d17",
+      "category": "repo",
+      "expires_at": "2026-11-07T00:00:00Z",
+      "kit_asset_id": 695873997,
+      "kit_digest": "sha256:a8fd85530359304797b99daf5888c48a6479a4137982b66c01e76d9704cf6c35",
+      "media_path": "media/695873927/repo-voicestudio-01.mp4",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "priority": 100,
+      "release_tag": "renders-2026-10-31-r2",
+      "reviewed_at": "2026-10-31T16:27:33Z",
+      "title": "Clone and dub voices on your own machine (open source)",
+      "video_id": "repo-voicestudio-01",
       "youtube_ai_generated": false
     }
   ],
