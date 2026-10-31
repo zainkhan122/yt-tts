@@ -504,40 +504,11 @@ def verify_capture_assets(repo_root: Path, brief_id: str, brief: dict, stage: di
         path = _repo_path(repo_root, f"reels-studio/captures/{capture_id}/{name}")
         if sha256_file(path) != expected_sha:
             raise ProductionGateError(f"{brief_id}: capture asset digest mismatch for {name}")
-    # Media standard (owner, 2026-10-18): no card-only videos. The capture pack must
-    # contain real product media (our own page captures or official demo media/images —
-    # capture.py kinds), and the brief must stage it: at least two media scenes, at
-    # least one of them motion/page (clip, clip-montage, page or scroll). Generated
-    # text cards (kind "image"/"card") are support graphics, never the main visual.
-    real_files = {entry["file"] for entry in manifest_files.values()
-                  if isinstance(entry, dict) and str(entry.get("kind", "")).startswith(
-                      ("own capture", "official demo media", "official image"))}
-    if not real_files:
-        raise ProductionGateError(
-            f"{brief_id}: capture pack has no real product media (own capture / official "
-            f"demo media) — card-only videos are not shippable; run capture.py on the "
-            f"product page and include its demo media")
-    motion_types = {"clip", "clip-montage", "page", "scroll"}
-    media_scenes, motion_scenes = 0, 0
-    for scene in brief.get("scenes") or []:
-        refs = {scene.get("image"), scene.get("src"), scene.get("figure"),
-                (scene.get("background") or {}).get("img"),
-                (scene.get("background") or {}).get("image")}
-        refs.discard(None)
-        if scene.get("type") in motion_types:
-            motion_scenes += 1
-            media_scenes += 1
-        elif refs & real_files:
-            media_scenes += 1
-    if (media_scenes < 2 or motion_scenes < 1) and brief_id not in NO_VIDEO_STILL_ALLOWED:
-        raise ProductionGateError(
-            f"{brief_id}: media coverage too thin ({media_scenes} media scenes, "
-            f"{motion_scenes} motion/page scenes; need >=2 and >=1) — show the product "
-            f"working, not just cards (PLAYBOOK media standard 2026-10-18)")
+    # Media coverage rule (18 Oct 2026) removed on owner instruction 31 Oct: the pipeline judges media by
+    # its own checks (blank-frame test below). Motion-scene minimums are not a gate.
     blank = verify_media_is_not_blank(repo_root, brief_id, brief)
     return {"brief_id": brief_id, "capture": capture_id, "manifest_sha256": actual_manifest_sha,
-            "verified_files": len(declared), "real_media_files": len(real_files),
-            "media_scenes": media_scenes, "motion_scenes": motion_scenes,
+            "verified_files": len(declared),
             "clip_ranges_checked": blank["checked"], "clip_sampler_skipped": blank["skipped"]}
 
 
