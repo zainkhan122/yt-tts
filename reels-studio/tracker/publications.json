@@ -1546,6 +1546,31 @@
       "updated_at": "2026-10-31T04:18:35Z",
       "video_id": "repo-cleanyourtv-01"
     },
+    "repo-cleanyourtv-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-11-01T01:05:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:a6077ce4544e88cb60f383742c11f3eff4b9150bfee8d4c22f23377b4add02de",
+        "asset_id": 694309194,
+        "asset_size": 10220168,
+        "kit_asset_id": 694309278,
+        "kit_digest": "sha256:3381bbe64ef5fbddd5282e9c82975196c718078adf6b3e2af8ffe4f0688901f9",
+        "media_path": "media/694309194/repo-cleanyourtv-01.mp4",
+        "release_tag": "renders-2026-10-31",
+        "video_id": "repo-cleanyourtv-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/694309194/repo-cleanyourtv-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "50a94fb4980dfb2cdff6692879a9dfbfec95e9774a885569b26f0555b447e7ac",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "A cleaner Android TV home screen over Wi-Fi, no root. Each step can be undone.\n\n#androidtv #googletv #smarttv",
+      "title": "Android TV debloat: remove ads over Wi-Fi, no root",
+      "updated_at": "2026-10-31T04:18:40Z",
+      "video_id": "repo-cleanyourtv-01"
+    },
     "repo-cleanyourtv-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6ae56c1eeaa24d6f9a55b21a",
