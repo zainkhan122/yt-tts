@@ -2142,9 +2142,11 @@
     },
     "repo-impeccable-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6ae56b8aceb491e585d83672",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-10-31T16:08:00Z",
+      "due_at": "2026-10-31T16:08:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:07df2019167f1106493678094d19d9d8ff725bb1b1d2e58cc9b8d7c8fef1fb45",
         "asset_id": 694309088,
@@ -2159,10 +2161,11 @@
       "notify_subscribers": false,
       "payload_sha256": "9f4cbb680d6d70d135aba453090e080417989c910c7a7ed1fdc256d7e2ba6877",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Impeccable gives your coding agent a design vocabulary: install it, then steer the design with a few commands. Apache-2.0.\n\n#claudecode #frontenddesign #webdesign",
       "title": "impeccable coding agent: the same AI, a different design",
-      "updated_at": "2026-10-31T04:16:08Z",
+      "updated_at": "2026-10-31T04:16:10Z",
       "video_id": "repo-impeccable-01"
     },
     "repo-impeccable-01:youtube": {
