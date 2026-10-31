@@ -43,7 +43,28 @@
       "heading": "CLONE A VOICE ON YOUR MACHINE",
       "sub": "VoiceStudio · open source",
       "say": "Want a voice clone without sending your audio to the cloud?",
-      "url": "github.com/debpalash/VoiceStudio"
+      "url": "github.com/debpalash/VoiceStudio",
+      "focus": [
+        {
+          "box": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "at": 0.0,
+          "pad": 0.95
+        },
+        {
+          "box": [
+            0.7,
+            0.15,
+            0.27,
+            0.3
+          ],
+          "at": 1.6
+        }
+      ]
     },
     {
       "id": "name",
