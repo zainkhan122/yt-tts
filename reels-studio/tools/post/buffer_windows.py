@@ -23,7 +23,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / "tools" / "post"))
+sys.path[:0] = [str(ROOT), str(ROOT / "tools" / "post")]  # buffer_api imports lib.secrets
 OUT = ROOT / "tracker" / "buffer-windows.json"
 PLATFORMS = {"youtube": "youtube", "instagram": "instagram", "facebook": "facebook"}
 MAX_AGE_DAYS = 8          # weekly refresh + one day of slack
