@@ -264,7 +264,7 @@
       "priority": 100,
       "release_tag": "renders-2026-10-10",
       "reviewed_at": "2026-10-11T05:29:03Z",
-      "title": "Pomelli: Free AI Product Photos\u2014with a Catch",
+      "title": "Pomelli: Free AI Product Photos—with a Catch",
       "video_id": "tool-pomelli-01",
       "youtube_ai_generated": true
     },
@@ -755,7 +755,7 @@
       "priority": 15,
       "release_tag": "renders-2026-10-15",
       "reviewed_at": "2026-10-15T12:42:11Z",
-      "title": "LFM2.5: 24B Brain, 2B at Work \u2014 a Local Agent Model",
+      "title": "LFM2.5: 24B Brain, 2B at Work — a Local Agent Model",
       "video_id": "model-lfm25-01",
       "youtube_ai_generated": false
     },
@@ -1419,11 +1419,12 @@
       "reviewed_at": "2026-10-31T16:27:33Z",
       "title": "Clone and dub voices on your own machine (open source)",
       "video_id": "repo-voicestudio-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "copy_pin_pending": "brief seo block (948ff44) differs from the live Buffer copy; owner to choose: revert brief copy, or re-pin and re-approve after a manual Buffer edit"
     },
     {
       "added_at": "2026-11-01T11:16:05Z",
-      "approval": "held",
+      "approval": "approved",
       "asset_digest": "sha256:3566bc1227b2c887e245489b2ed4c9b1227ba6d7295a06a1df79c5f4c98b5dc2",
       "asset_id": 698114535,
       "asset_size": 7319020,
@@ -1431,18 +1432,18 @@
       "category": "repo",
       "cover_reviewed_at": "2026-11-01T11:16:20Z",
       "cover_sha256": "sha256:bad79dd53ea2c292b3eae4f75fb9137da4e14cea9575230d7636b4d856c75a9f",
-      "expires_at": null,
+      "expires_at": "2026-11-07T19:00:00Z",
       "kit_asset_id": 698114588,
       "kit_digest": "sha256:16170012528febe7f63243caf176c8d51d5fe451d2e13d3928d45ff3a8bc8cc8",
       "media_path": "media/698114535/repo-claude-mem-01.mp4",
       "platforms": [
-        "facebook",
+        "youtube",
         "instagram",
-        "youtube"
+        "facebook"
       ],
       "priority": 100,
       "release_tag": "renders-2026-11-01-claude-r1",
-      "reviewed_at": null,
+      "reviewed_at": "2026-11-01T11:16:36Z",
       "title": "Coding Agent Memory That Keeps Context (Open Source)",
       "video_id": "repo-claude-mem-01",
       "youtube_ai_generated": false

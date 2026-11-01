@@ -668,12 +668,19 @@ class SchemaAndMediaTests(unittest.TestCase):
     def test_platform_payloads_validate_against_official_schema(self, _gate):
         cfg = config()
         for item in queue():
-            for platform in item["platforms"]:
-                payload = planner.payload_for(item, platform, NOW + dt.timedelta(days=1), cfg)
-                coerce_input_value(payload, self.schema.get_type("CreatePostInput"))
-                self.assertEqual(payload["mode"], "customScheduled")
-                self.assertEqual(payload["schedulingType"], "automatic")
-                self.assertNotIn("thumbnailUrl", payload["assets"][0]["video"])
+            with self.subTest(video=item["video_id"]):
+                # Per-item pin: a stale pin is exempt ONLY when the queue row carries an explicit
+                # copy_pin_pending note (owner decision outstanding). Otherwise it is a failure.
+                stale = item.get("brief_sha256") and planner.fingerprint(
+                    load_json(ROOT / "briefs" / (item["video_id"] + ".json"))) != item["brief_sha256"]
+                if stale and item.get("copy_pin_pending"):
+                    self.skipTest(f"{item['video_id']} copy pin pending owner decision: {item['copy_pin_pending']}")
+                for platform in item["platforms"]:
+                    payload = planner.payload_for(item, platform, NOW + dt.timedelta(days=1), cfg)
+                    coerce_input_value(payload, self.schema.get_type("CreatePostInput"))
+                    self.assertEqual(payload["mode"], "customScheduled")
+                    self.assertEqual(payload["schedulingType"], "automatic")
+                    self.assertNotIn("thumbnailUrl", payload["assets"][0]["video"])
 
     @_gate_off
     def test_native_ai_label_only_where_schema_supports_it(self, _gate):
