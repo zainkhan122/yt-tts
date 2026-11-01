@@ -2460,6 +2460,31 @@
       "updated_at": "2026-10-20T21:45:20Z",
       "video_id": "repo-huashu-motion-01"
     },
+    "repo-ifixai-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-11-02T20:20:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:25daf11e489875267b3684b0b4026083a1dfe2cd856a379de98d9e2e7565c809",
+        "asset_id": 698662666,
+        "asset_size": 9662252,
+        "kit_asset_id": 698662719,
+        "kit_digest": "sha256:be8f0103b20419ea791381409462261f44842a11875f19b733636bafdc00728b",
+        "media_path": "media/698662666/repo-ifixai-01.mp4",
+        "release_tag": "renders-2026-11-01-ifixai-r1",
+        "video_id": "repo-ifixai-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/698662666/repo-ifixai-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "e0524681837289b54017d631e7fbbdab3066b130d2b518ea71cff5061b516d09",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "AI agent audit: your tests can pass while the agent acts outside its authority. Open source.\n\n#aiagentaudit #aiagents #opensource #aitools",
+      "title": "AI Agent Audit: Green Tests Are Not Enough",
+      "updated_at": "2026-11-01T15:14:18Z",
+      "video_id": "repo-ifixai-01"
+    },
     "repo-impeccable-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6ae56b8d1891472093b2ea62",
