@@ -1520,9 +1520,11 @@
     },
     "repo-claude-mem-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6ae72141ab019b9087567b3f",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-11-01T21:10:00Z",
+      "due_at": "2026-11-01T21:10:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:3566bc1227b2c887e245489b2ed4c9b1227ba6d7295a06a1df79c5f4c98b5dc2",
         "asset_id": 698114535,
@@ -1537,10 +1539,11 @@
       "notify_subscribers": false,
       "payload_sha256": "b6e47120f806385859c60526ba59eb5955b697ee79033cec067525f6b5c5f691",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Coding agent memory, open source: your next session starts with the useful context.\n\n#codingagentmemory #claudecode #opensource #localai",
       "title": "Coding Agent Memory That Keeps Context (Open Source)",
-      "updated_at": "2026-11-01T11:23:44Z",
+      "updated_at": "2026-11-01T11:23:46Z",
       "video_id": "repo-claude-mem-01"
     },
     "repo-cleanyourtv-01:facebook": {
