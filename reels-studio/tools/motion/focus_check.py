@@ -25,6 +25,14 @@ def check_scene(s):
         if band and not (y < band[1] and y + h > band[0]):
             continue
         for lo, hi in keep:
+            # a box edge inside a label span shows a stub of that label at the card edge
+            # (seen 31 Oct: pad 0.9 showed RECORD as "D ion"); edges must sit in the gaps
+            if lo < x < hi or lo < x + w < hi:
+                problems.append(
+                    f"{s['id']} @{st['at']}s: box edge at x {x:.2f} or {x + w:.2f} lands inside label {lo:.2f}-{hi:.2f}")
+            if st.get("pad", 1.0) != 1.0:
+                problems.append(f"{s['id']} @{st['at']}s: pad {st['pad']} shows neighbouring labels; use pad 1.0")
+                break
             overlaps = x < hi and x + w > lo
             contains = x <= lo and x + w >= hi
             if overlaps and not contains:

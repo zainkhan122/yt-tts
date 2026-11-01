@@ -164,7 +164,7 @@ MEASURE_JS = r"""
     card: el.querySelector(".sp-vcard") ? box(el.querySelector(".sp-vcard")) : null,
     fillBox: el.querySelector(".sp-vfill") ? box(el.querySelector(".sp-vfill")) : null}));
   return {capCollisions, capFill, dims, clips,
-          cap, surfaces: pick(".sp-imgcard, .sp-vcard, .sp-browser, .sp-term, .sp-steps, .sp-vcardx, .sp-stat, .sp-question, #endcard"),
+          cap, overlayCards: [...document.querySelectorAll("[data-caption-overlay]")].filter(vis).map((el) => ({box: box(el), limit: parseFloat(el.dataset.captionOverlay)})), surfaces: pick(".sp-imgcard:not([data-caption-overlay]), .sp-vcard, .sp-browser, .sp-term, .sp-steps, .sp-vcardx, .sp-stat, .sp-question, #endcard"),
           overlays: pick(".arch-stamp, .arch-kicker, .sp-chip, #arch-hud, .arch-rail"),
           arch: document.querySelector("#root").dataset.archetype,
           captionPlates: [...document.querySelectorAll("#cap-zone .cg")].filter(vis).length};
@@ -222,6 +222,12 @@ def audit(brief_path, out_dir=None, keep=False):
                         problems.append(f"{label}: overlaps caption box {m['cap']}")
                     rows.append({"scene": sid, "t": t, "el": str(s["sel"]), "bottom": round(bx["y"] + bx["h"]),
                                  "cap": bool(m["cap"]) and intersects(bx, m["cap"])})
+                # opt-in caption-overlay cards: may run under the captions, but only to their own
+                # brief-set bottom (card_bottom); the scrim keeps the text legible
+                for oc in m.get("overlayCards", []):
+                    bottom = oc["box"]["y"] + oc["box"]["h"]
+                    if bottom > oc["limit"] + 1:
+                        problems.append(f"{sid} @{t}s overlay card: bottom {bottom:.0f} > card_bottom")
                 for c in m["clips"]:
                     # Only a clip WITHOUT a fill layer can leave a dead band: with fill-blur the
                     # blurred copy of the footage covers the whole stage behind the card.
