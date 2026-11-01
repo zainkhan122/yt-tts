@@ -1546,6 +1546,31 @@
       "updated_at": "2026-11-01T11:23:46Z",
       "video_id": "repo-claude-mem-01"
     },
+    "repo-claude-mem-01:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-11-01T22:05:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:3566bc1227b2c887e245489b2ed4c9b1227ba6d7295a06a1df79c5f4c98b5dc2",
+        "asset_id": 698114535,
+        "asset_size": 7319020,
+        "kit_asset_id": 698114588,
+        "kit_digest": "sha256:16170012528febe7f63243caf176c8d51d5fe451d2e13d3928d45ff3a8bc8cc8",
+        "media_path": "media/698114535/repo-claude-mem-01.mp4",
+        "release_tag": "renders-2026-11-01-claude-r1",
+        "video_id": "repo-claude-mem-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/698114535/repo-claude-mem-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "745408e05776fc903d52ea04f1830177988508dd52ee05e0808af3b1a813e412",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "Coding agent memory that saves decisions and fixes from each session and loads them into the next one. Open source.\nTool page: https://github.com/thedotmack/claude-mem\n#shorts #codingagentmemory #claudecode #opensource\n\n#shorts #codingagentmemory #claudecode #opensource",
+      "title": "Coding Agent Memory That Keeps Context (Open Source)",
+      "updated_at": "2026-11-01T11:23:47Z",
+      "video_id": "repo-claude-mem-01"
+    },
     "repo-cleanyourtv-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6ae56c1bb84259308bb93556",
