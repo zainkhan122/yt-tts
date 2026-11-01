@@ -179,7 +179,7 @@ def check_layout(brief_id, brief_path):
 def _browser_env():
     import os
     env = dict(os.environ)
-    libs = Path.home() / "libs" / "root"
+    libs = Path.home() / ".local" / "share" / "reels-browser" / "root"
     if libs.exists():  # user-space system libraries for headless Chromium (tools/browser_setup.py)
         found = sorted({str(p.parent) for p in libs.rglob("*.so*")})
         env["LD_LIBRARY_PATH"] = ":".join(found + [env.get("LD_LIBRARY_PATH", "")])

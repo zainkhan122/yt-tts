@@ -9,7 +9,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-LIBS = Path.home() / "libs"
+LIBS = Path.home() / ".local" / "share" / "reels-browser"
 PKGS = ["libnspr4", "libnss3", "libasound2t64", "libatk1.0-0t64", "libatk-bridge2.0-0t64", "libcups2t64",
         "libxkbcommon0", "libxcomposite1", "libxdamage1", "libxrandr2", "libgbm1", "libpango-1.0-0",
         "libcairo2", "libatspi2.0-0t64", "libavahi-common3", "libavahi-client3", "libdbus-1-3", "libxi6",
