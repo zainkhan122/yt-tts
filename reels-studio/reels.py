@@ -187,6 +187,14 @@ def cmd_cloud(a):
         delivery.validate_ids(ids)
     except delivery.DeliveryError as exc:
         raise SystemExit(f"cloud preflight: {exc}") from exc
+    # Lesson 2026-10-31: cloud renders run from origin main. Refuse to dispatch unless origin matches local
+    # and the brief/receipt are committed (otherwise the run renders an old brief).
+    if a.receipt:
+        sys.path.insert(0, str(ROOT / "tools"))
+        import preflight as _pf
+        for r in _pf.check_dispatch_head(ids[0], a.receipt.removeprefix("reels-studio/")):
+            if r["status"] == "BLOCK":
+                raise SystemExit(f"cloud preflight: {r['detail']} ({r['fix']})")
     missing = [i for i in ids if not (ROOT / "briefs" / f"{i}.json").exists()]
     if missing:
         raise SystemExit(f"no brief for: {', '.join(missing)} (briefs must be committed: python3 reels.py sync)")

@@ -96,6 +96,39 @@ def check_render(brief_id):
     return [_result("render", "PASS", f"{mp4s[0].name} with QA manifest")]
 
 
+def check_motion(brief_id, brief_path):
+    """Lesson 2026-10-31: focus boxes must not cut labels; no scene may hold still > 4.5 s."""
+    import subprocess
+    script = ROOT / "tools" / "motion" / "focus_check.py"
+    r = subprocess.run([sys.executable, str(script), str(brief_path)], capture_output=True, text=True)
+    if r.returncode == 0:
+        return [_result("motion", "PASS", "focus boxes keep labels whole; no long holds")]
+    detail = (r.stdout.strip().splitlines() or ["focus check failed"])[0]
+    return [_result("motion", "BLOCK", detail, "fix focus boxes or scene timing in the brief")]
+
+
+def check_dispatch_head(brief_id, receipt_rel):
+    """Lesson 2026-10-31: cloud renders run from origin main. Brief and receipt must be pushed first."""
+    import subprocess
+    git = ["git", "-C", str(ROOT.parent)]
+    try:
+        head = subprocess.run(git + ["ls-remote", "origin", "main"], capture_output=True, text=True, timeout=60)
+    except Exception as exc:
+        return [_result("dispatch_head", "NOTE", f"cannot reach origin: {exc}", "push, then dispatch")]
+    if head.returncode != 0 or not head.stdout.strip():
+        return [_result("dispatch_head", "NOTE", "origin not readable from here (check remote or token)", "verify origin main before dispatch")]
+    remote_sha = head.stdout.split()[0]
+    local = subprocess.run(git + ["rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
+    if remote_sha != local:
+        return [_result("dispatch_head", "BLOCK", f"origin main {remote_sha[:7]} != local {local[:7]}", "push before dispatch")]
+    rel = f"reels-studio/briefs/{brief_id}.json"
+    for path in (rel, f"reels-studio/{receipt_rel}"):
+        diff = subprocess.run(git + ["diff", "--quiet", "HEAD", "--", path], capture_output=True)
+        if diff.returncode != 0:
+            return [_result("dispatch_head", "BLOCK", f"{path} has uncommitted changes", "commit and push")]
+    return [_result("dispatch_head", "PASS", "origin main matches local; brief and receipt committed")]
+
+
 def preflight(brief_id):
     path = ROOT / "briefs" / f"{brief_id}.json"
     if not path.exists():
@@ -105,7 +138,8 @@ def preflight(brief_id):
     except (OSError, ValueError) as exc:
         return {"id": brief_id, "verdict": "BLOCK", "results": [_result("brief", "BLOCK", f"unreadable: {exc}", "fix the JSON")]}
     results = (check_lint(brief_id, path) + check_studio_rules(brief)
-               + check_queue_pin(brief_id, brief) + check_render(brief_id))
+               + check_queue_pin(brief_id, brief) + check_render(brief_id)
+               + check_motion(brief_id, path))
     verdict = "BLOCK" if any(r["status"] == "BLOCK" for r in results) else "PASS"
     return {"id": brief_id, "verdict": verdict, "results": results}
 
