@@ -1420,6 +1420,32 @@
       "title": "Clone and dub voices on your own machine (open source)",
       "video_id": "repo-voicestudio-01",
       "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-11-01T11:16:05Z",
+      "approval": "held",
+      "asset_digest": "sha256:3566bc1227b2c887e245489b2ed4c9b1227ba6d7295a06a1df79c5f4c98b5dc2",
+      "asset_id": 698114535,
+      "asset_size": 7319020,
+      "brief_sha256": "1d138c84a195de93aa218f898bcbd80b36866a988129842349f4a62c9045f6f8",
+      "category": "repo",
+      "cover_reviewed_at": "2026-11-01T11:16:20Z",
+      "cover_sha256": "sha256:bad79dd53ea2c292b3eae4f75fb9137da4e14cea9575230d7636b4d856c75a9f",
+      "expires_at": null,
+      "kit_asset_id": 698114588,
+      "kit_digest": "sha256:16170012528febe7f63243caf176c8d51d5fe451d2e13d3928d45ff3a8bc8cc8",
+      "media_path": "media/698114535/repo-claude-mem-01.mp4",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "priority": 100,
+      "release_tag": "renders-2026-11-01-claude-r1",
+      "reviewed_at": null,
+      "title": "Coding Agent Memory That Keeps Context (Open Source)",
+      "video_id": "repo-claude-mem-01",
+      "youtube_ai_generated": false
     }
   ],
   "schema_version": 1
