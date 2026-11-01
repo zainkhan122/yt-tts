@@ -39,7 +39,8 @@
           "finding": "Handled inside its authority",
           "severity": "Passed"
         }
-      ]
+      ],
+      "title": "Green is not enough"
     },
     {
       "n": 2,
@@ -58,7 +59,8 @@
         "Oversight Atrophy",
         "Frankness Correctness Link",
         "Stakeholder Conflict"
-      ]
+      ],
+      "title": "Audited by category"
     },
     {
       "n": 3,
@@ -74,7 +76,8 @@
         "Connect your agent",
         "Simulate",
         "Audit"
-      ]
+      ],
+      "title": "Connect, then audit"
     },
     {
       "n": 4,
@@ -86,7 +89,8 @@
         "kind": "chart",
         "intent": "the maker's own audit-volume chart, shown as proof that the tool is in active use; no figure spoken"
       },
-      "asset": "captures/repo-ifixai-01/maker/audits_chart.png"
+      "asset": "captures/repo-ifixai-01/maker/audits_chart.png",
+      "title": "Free to run yourself"
     },
     {
       "n": 5,
@@ -101,7 +105,8 @@
       "tiers": [
         "Free: open-source engine",
         "Paid: hosted audits and reports"
-      ]
+      ],
+      "title": "Free engine, paid audits"
     }
   ],
   "catch": "Hosted audits and reports are paid. The free engine is self-hosted, so you run it with your own model keys.",
@@ -110,5 +115,81 @@
     "no_urls": true,
     "no_legal_terms": true,
     "max_chars_per_point": 180
+  },
+  "cta": "Do your agent's green tests match what it really did? Comment AUDIT and I'll pin the link.",
+  "brief_meta": {
+    "title": "iFixAi: audit what your AI agent really does",
+    "niche": "AI coding tools",
+    "keywords": [
+      "AI agent audit",
+      "agent audit",
+      "AI agent trust",
+      "open source AI agent"
+    ],
+    "idea": "iFixAi audits an AI agent beyond its tests, for hidden information and actions taken outside its authority.",
+    "viewer": {
+      "who": "developers and teams running AI agents",
+      "problem": "an agent passes its tests but still acts outside its authority",
+      "job": "check what the agent really did, not just whether tests pass"
+    }
+  },
+  "seo": {
+    "keyword": "AI agent audit",
+    "aliases": [
+      "agent audit",
+      "AI agent trust"
+    ],
+    "onscreen_first3s": "AI AGENT AUDIT",
+    "youtube": {
+      "title": "AI Agent Audit: Green Tests Are Not Enough",
+      "description": "An open-source AI agent audit that checks what your agent really did, beyond its tests.\nTool page: https://www.ifixai.ai/",
+      "tags": [
+        "AI agent audit",
+        "agent audit",
+        "AI agent trust",
+        "open source AI agent",
+        "agent evals",
+        "AI agent safety",
+        "AI agent testing",
+        "coding agent audit"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#aiagents",
+        "#aiagentaudit",
+        "#opensource"
+      ]
+    },
+    "instagram": {
+      "caption": "AI agent audit: your tests can pass while the agent acts outside its authority. Open source.",
+      "hashtags": [
+        "#aiagentaudit",
+        "#aiagents",
+        "#opensource",
+        "#aitools"
+      ]
+    },
+    "facebook": {
+      "caption": "AI agent audit: your tests can pass while your agent acts outside its authority. Open source.",
+      "hashtags": [
+        "#aiagentaudit",
+        "#aiagents",
+        "#opensource"
+      ]
+    },
+    "tiktok": {
+      "caption": "AI agent audit: green tests can hide what your agent really did. Open source.",
+      "hashtags": [
+        "#aiagentaudit",
+        "#aiagents",
+        "#opensource"
+      ]
+    },
+    "x": {
+      "text": "AI agent audit: green tests can hide what your agent really did.",
+      "hashtags": [
+        "#aiagentaudit"
+      ]
+    }
   }
 }
