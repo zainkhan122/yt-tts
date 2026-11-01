@@ -191,5 +191,9 @@
         "#aiagentaudit"
       ]
     }
+  },
+  "cover": {
+    "text": "GREEN TESTS? CHECK WHAT IT DID",
+    "note": "must match covers/repo-ifixai-01/selection.json text and covers/system/specs headline"
   }
 }

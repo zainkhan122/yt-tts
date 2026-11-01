@@ -84,7 +84,7 @@ def build(plan_path):
             "proof_moment": "point1",
             "selected_cover": 0,
             "archetype": "spotlight",
-            "cover_concepts": [{"text": seo["onscreen_first3s"], "visual": "plan-1 findings graphic"}],
+            "cover_concepts": [{"text": plan["cover"]["text"], "visual": "maker audit chart (cover-hero.jpg)"}],
         },
         "review": {"reviewed_at": "2026-11-01T12:30:00Z", "expires_at": "2026-11-08", "reviewer": "agent; plan from maker site and README on 2026-11-01; owner approval of plan given", "notes": "Five points approved by owner 2026-11-01 (point 1 spoken line per owner wording)."},
         "motion_standard": 2,
