@@ -114,9 +114,11 @@ def check_dispatch_head(brief_id, receipt_rel):
     try:
         head = subprocess.run(git + ["ls-remote", "origin", "main"], capture_output=True, text=True, timeout=60)
     except Exception as exc:
-        return [_result("dispatch_head", "NOTE", f"cannot reach origin: {exc}", "push, then dispatch")]
+        return [_result("dispatch_head", "BLOCK", f"cannot reach origin: {exc}", "fix the origin remote, then dispatch")]
     if head.returncode != 0 or not head.stdout.strip():
-        return [_result("dispatch_head", "NOTE", "origin not readable from here (check remote or token)", "verify origin main before dispatch")]
+        # A cloud run renders origin main. If origin cannot be read we cannot prove it is the code we
+        # reviewed, so this is a BLOCK (lesson 6, 1 Nov: origin lost after a restore).
+        return [_result("dispatch_head", "BLOCK", "origin main not readable (remote or token)", "re-add origin without credentials; confirm GH token; then dispatch")]
     remote_sha = head.stdout.split()[0]
     local = subprocess.run(git + ["rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
     if remote_sha != local:
@@ -242,6 +244,121 @@ def check_workspace(brief_id):
     return [_result("workspace", "PASS", f"workspace {report.get('workspace_saved_bytes')} bytes within budget")]
 
 
+MEDIA_EXT = (".mp4", ".jpg", ".jpeg", ".png", ".webp", ".mp3", ".wav", ".svg", ".gif")
+
+
+def _asset_refs(node, out):
+    """Every local media file a brief references (scene image/src, capture files)."""
+    if isinstance(node, dict):
+        for v in node.values():
+            _asset_refs(v, out)
+    elif isinstance(node, list):
+        for v in node:
+            _asset_refs(v, out)
+    elif isinstance(node, str) and node.lower().endswith(MEDIA_EXT) and "/" not in node and "://" not in node:
+        out.add(node)
+    return out
+
+
+def _capture_id(brief):
+    """Briefs store `capture` as captures/<id> or <id>; the pack id is the last path part."""
+    raw = (brief.get("capture") or "").strip().rstrip("/")
+    return raw.split("/")[-1] if raw else ""
+
+
+def _push_record(cap):
+    path = ROOT / "tracker" / "capture-pushes.json"
+    if not path.exists():
+        return None
+    return json.loads(path.read_text(encoding="utf-8")).get(cap)
+
+
+def check_assets_present(brief_id, brief):
+    """Failure 1 Nov (run 41311570435): anim-point4.mp4 was missing from the checkout. The cloud renders from
+    the capture-packs release, so a file is safe when the pushed pack records it (tracker/capture-pushes.json).
+    A file absent locally but recorded in the pushed pack is pulled by the build stage; a file neither local
+    nor recorded in a push is a BLOCK (the render would have nothing to read)."""
+    cap = _capture_id(brief)
+    if not cap:
+        return [_result("assets", "BLOCK", "brief has no capture pack id", "set capture to captures/<id>")]
+    refs = sorted(_asset_refs({k: v for k, v in brief.items() if k in ("scenes", "cover", "post", "seo")}, set()))
+    base = ROOT / "captures" / cap
+    missing = [r for r in refs if not (base / r).exists()]
+    if not missing:
+        return [_result("assets", "PASS", f"{len(refs)} referenced media file(s) on disk")]
+    record = _push_record(cap)
+    recorded = set(record["files"]) if record else set()
+    unproven = [m for m in missing if m not in recorded]
+    if unproven:
+        return [_result("assets", "BLOCK",
+                        f"missing in captures/{cap} and not in its pushed release pack: " + ", ".join(unproven),
+                        f"rebuild the asset, or push the pack after it exists: python3 tools/capture_store.py push {cap}")]
+    return [_result("assets", "NOTE", f"{len(missing)} file(s) absent locally, recorded in the pushed pack; "
+                                      "the build stage pulls them", "")]
+
+
+def check_capture_pack_release(brief_id, brief, fetch_release=None):
+    """The cloud render pulls captures from the capture-packs release, not from git. Two proofs:
+    1. the release asset exists (presence);
+    2. the local files match the bytes last pushed (tracker/capture-pushes.json, written by capture_store push).
+    Content, not mtime: a workspace restore changes mtimes without changing the files."""
+    cap = _capture_id(brief)
+    if not cap:
+        return []
+    try:
+        rel = (fetch_release or _capture_release)()
+    except Exception as exc:
+        return [_result("capture_release", "BLOCK", f"capture-packs release unreadable: {exc}",
+                        "check the GitHub token, then re-run preflight")]
+    if not any(a.get("name") == f"{cap}.tar" for a in rel.get("assets", [])):
+        return [_result("capture_release", "BLOCK", f"{cap}.tar is not in the capture-packs release",
+                        f"python3 tools/capture_store.py push {cap}")]
+    pushes_path = ROOT / "tracker" / "capture-pushes.json"
+    pushes = json.loads(pushes_path.read_text(encoding="utf-8")) if pushes_path.exists() else {}
+    record = pushes.get(cap)
+    if not record:
+        return [_result("capture_release", "NOTE", f"{cap}.tar in release; no push record yet (content not proven)",
+                        f"python3 tools/capture_store.py push {cap} once to record the content")]
+    import capture_store  # noqa: E402  (digest helper shared with the push)
+    local = capture_store.file_digests(ROOT / "captures" / cap) if (ROOT / "captures" / cap).exists() else {}
+    changed = sorted(k for k in set(local) | set(record["files"]) if local.get(k) != record["files"].get(k))
+    if changed:
+        return [_result("capture_release", "BLOCK",
+                        f"captures/{cap} differs from the pushed release copy: " + ", ".join(changed[:6]),
+                        f"python3 tools/capture_store.py push {cap} (a stale pack would render old media)")]
+    return [_result("capture_release", "PASS", f"{cap}.tar in release; local files match the pushed bytes")]
+
+
+def _capture_release():
+    sys.path.insert(0, str(ROOT / "tools"))
+    import capture_store
+    return capture_store.release()
+
+
+def check_cover(brief_id):
+    """Failure 1 Nov: the cloud gate requires the brief cover text to equal the selected cover text, and
+    the cover file must be the one that was reviewed (sha256). Both are checked before dispatch."""
+    import hashlib
+    sel_path = ROOT / "covers" / brief_id / "selection.json"
+    if not sel_path.exists():
+        return [_result("cover", "BLOCK", "no reviewed cover selection", "extract and approve the cover, then re-run")]
+    sel = json.loads(sel_path.read_text(encoding="utf-8"))
+    cover = ROOT / "covers" / brief_id / sel.get("file", "cover-selected.jpg")
+    if not cover.exists():
+        return [_result("cover", "BLOCK", f"selected cover file missing: {cover.name}", "re-run the cover system")]
+    digest = hashlib.sha256(cover.read_bytes()).hexdigest()
+    if digest != sel.get("sha256"):
+        return [_result("cover", "BLOCK", "cover file changed since it was reviewed (sha mismatch)",
+                        "review the new cover and update selection.json")]
+    plan_path = ROOT / "videos" / brief_id / "plan.json"
+    if plan_path.exists():
+        plan_text = (json.loads(plan_path.read_text(encoding="utf-8")).get("cover") or {}).get("text")
+        if plan_text != sel.get("text"):
+            return [_result("cover", "BLOCK", f"plan cover text {plan_text!r} != selected cover {sel.get('text')!r}",
+                            "set plan.cover.text to the reviewed cover text and regenerate the brief")]
+    return [_result("cover", "PASS", "selected cover matches the reviewed sha and plan text")]
+
+
 def preflight(brief_id):
     path = ROOT / "briefs" / f"{brief_id}.json"
     if not path.exists():
@@ -254,7 +371,9 @@ def preflight(brief_id):
                + check_queue_pin(brief_id, brief) + check_render(brief_id)
                + check_motion(brief_id, path) + check_media_aspect(brief_id, brief)
                + check_policy(brief_id, brief) + check_layout(brief_id, path)
-               + check_tracked(brief_id) + check_workspace(brief_id))
+               + check_tracked(brief_id) + check_workspace(brief_id)
+               + check_assets_present(brief_id, brief) + check_capture_pack_release(brief_id, brief)
+               + check_cover(brief_id))
     verdict = "BLOCK" if any(r["status"] == "BLOCK" for r in results) else "PASS"
     return {"id": brief_id, "verdict": verdict, "results": results}
 

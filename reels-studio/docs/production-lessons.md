@@ -30,6 +30,12 @@ whenever a new failure teaches us something, and point the row at a real functio
 | 22 | Unit tests missing `yt-dlp` or `pynacl` failed the YouTube worker's safety step. | `tools/youtube/requirements.txt`; `tests/test_pipeline_gates.py` checks `yt-dlp` is listed |
 | 23 | `post.yml` exits 1 on legacy `tool-*` rows marked uncertain even when the new posts are created. | `tools/post/publisher.py` `blocking()`: uncertain rows are listed for review and do not fail the run; failed and channel-level issues still do (`tests/test_pipeline_gates.py` PublisherExitTests) |
 
+## Failures, 26 Oct to 1 Nov, and the code that now prevents them
+
+The full list with status is `config/failure_ledger.json`; `tests/test_failure_ledger.py` fails if an
+"enforced" row points at code that does not exist. Open rows are listed there, not hidden.
+One command runs the whole chain: `docs/make-shorts.md`.
+
 ## Per-video checklist (in order; stop at the first BLOCK)
 
 1. `python3 tools/preflight.py <brief-id>` → every check PASS. This covers lint, studio rules, queue pin, render, motion, media aspect, policy, local layout audit, tracked files and workspace.

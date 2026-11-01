@@ -19,7 +19,10 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parents[2]
 CAP = ROOT / "captures" / "repo-claude-mem-01"
 FONT = ROOT / "templates" / "_base" / "fonts" / "Anton.ttf"
-FF = "/home/user/.local/lib/python3.13/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2"
+# Resolved at run time: a hard-coded binary path broke when the package version changed (1 Nov).
+def _ffmpeg() -> str:
+    import imageio_ffmpeg
+    return imageio_ffmpeg.get_ffmpeg_exe()
 FPS = 30
 PERIOD = 3.0                       # one full loop, seconds
 DUR = 21.1                         # the tool's own animation length
@@ -84,7 +87,7 @@ def main():
     bg.save(tmp / "bg.png")
     out = CAP / "loop-scene.mp4"
     cmd = [
-        FF, "-y", "-loglevel", "error",
+        _ffmpeg(), "-y", "-loglevel", "error",
         "-loop", "1", "-framerate", str(FPS), "-i", str(tmp / "bg.png"),
         "-i", str(CAP / "cm-preview.mp4"),
         "-framerate", str(FPS), "-i", str(tmp / "f%04d.png"),

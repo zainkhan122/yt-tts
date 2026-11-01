@@ -71,6 +71,26 @@ def push(ids):
         if st >= 300:
             raise SystemExit(f"upload failed for {name} ({st}): {asset.get('message')}")
         print(f"pushed {name} ({len(buf.getvalue()) / 1e6:.1f} MB)")
+        record_push(cid, src)
+
+
+PUSHES = ROOT / "tracker" / "capture-pushes.json"
+
+
+def file_digests(src):
+    """{relative path: sha256} for every file in a capture pack."""
+    import hashlib
+    return {str(p.relative_to(src)): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(src.rglob("*")) if p.is_file()}
+
+
+def record_push(cid, src):
+    """Remember exactly which bytes were uploaded, so preflight can prove the release copy is current
+    (a file mtime cannot: a workspace restore changes mtimes without changing content)."""
+    data = json.loads(PUSHES.read_text(encoding="utf-8")) if PUSHES.exists() else {}
+    data[cid] = {"asset": f"{cid}.tar", "files": file_digests(src)}
+    PUSHES.parent.mkdir(parents=True, exist_ok=True)
+    PUSHES.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
 def pack_complete(dst):

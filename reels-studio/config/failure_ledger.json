@@ -1,0 +1,194 @@
+{
+  "_about": "Every failure from the 26 Oct to 1 Nov 2026 runs, the code that now prevents it, and its status. status=enforced means a function, test or workflow step exists and tests/test_failure_ledger.py resolves it. status=open means no code yet; it is listed, not hidden. Add a row whenever a run fails for a reason that could be checked in code.",
+  "entries": [
+    {
+      "id": "F01",
+      "date": "2026-11-01",
+      "run": "41308273894",
+      "failure": "Cloud gate: brief cover text != selected cover text.",
+      "fix": "Plan cover text is the single source; preflight compares plan text, selection text and the reviewed sha.",
+      "status": "enforced",
+      "enforced_by": "tools/preflight.py::check_cover"
+    },
+    {
+      "id": "F02",
+      "date": "2026-11-01",
+      "run": "41311570435",
+      "failure": "Render checkout lacked anim-point4.mp4 (captures are gitignored; MP4s never tracked).",
+      "fix": "Every media file a brief names must exist locally (check_assets_present); the capture-packs release copy must exist (check_capture_pack_release).",
+      "status": "enforced",
+      "enforced_by": "tools/preflight.py::check_assets_present"
+    },
+    {
+      "id": "F03",
+      "date": "2026-11-01",
+      "run": "capture-pack",
+      "failure": "A capture pack pushed before local files changed would render stale media.",
+      "fix": "preflight compares local file digests with the bytes last pushed (tracker/capture-pushes.json, written by capture_store push). A workspace restore changes mtimes only and does not block.",
+      "status": "enforced",
+      "enforced_by": "tools/preflight.py::check_capture_pack_release"
+    },
+    {
+      "id": "F04",
+      "date": "2026-11-01",
+      "run": "storage",
+      "failure": "Three MP4s tracked in git; storage audit ok:false blocked preflight.",
+      "fix": "Storage audit blocks over-budget workspaces and tracked videos; the driver never commits MP4s (it commits only briefs, plans, receipts).",
+      "status": "enforced",
+      "enforced_by": "tools/preflight.py::check_workspace"
+    },
+    {
+      "id": "F05",
+      "date": "2026-11-01",
+      "run": "receipt",
+      "failure": "Production receipts were typed by hand; a stale brief hash or word count failed the gate.",
+      "fix": "Receipts are built from the brief and capture manifest and validated before they are written.",
+      "status": "enforced",
+      "enforced_by": "tools/receipt_build.py::build"
+    },
+    {
+      "id": "F06",
+      "date": "2026-10-31",
+      "run": "origin",
+      "failure": "origin remote lost after a restore; dispatch check only noted it, so a stale render could start.",
+      "fix": "Unreadable origin is a BLOCK for cloud dispatch.",
+      "status": "enforced",
+      "enforced_by": "tools/preflight.py::check_dispatch_head"
+    },
+    {
+      "id": "F07",
+      "date": "2026-11-01",
+      "run": "push",
+      "failure": "git push rejected after the cloud run pushed render-attempt commits to origin main.",
+      "fix": "The source stage rebases on origin with autostash before pushing, then checks origin == HEAD.",
+      "status": "enforced",
+      "enforced_by": "tools/make_shorts.py::stage_source"
+    },
+    {
+      "id": "F08",
+      "date": "2026-11-01",
+      "run": "local-process",
+      "failure": "A dispatch piped into head -1 killed the local process after the cloud run was created.",
+      "fix": "Every subprocess writes to a log file under /var/tmp/reels/make-shorts; nothing is piped into head.",
+      "status": "enforced",
+      "enforced_by": "tools/make_shorts.py::run"
+    },
+    {
+      "id": "F09",
+      "date": "2026-11-01",
+      "run": "dispatch",
+      "failure": "Repeat dispatch within 6 h created a duplicate render and blocked the next one.",
+      "fix": "reels.py cloud refuses a repeat within 6 h unless --redispatch REASON is given; the driver never passes it.",
+      "status": "enforced",
+      "enforced_by": "reels.py::cmd_cloud"
+    },
+    {
+      "id": "F10",
+      "date": "2026-11-01",
+      "run": "tests",
+      "failure": "pytest collected archive/ tests; yt-dlp missing from PATH failed a test.",
+      "fix": "pytest.ini limits testpaths and skips archive; tests/conftest.py puts ~/.local/bin on PATH.",
+      "status": "enforced",
+      "enforced_by": "pytest.ini"
+    },
+    {
+      "id": "F11",
+      "date": "2026-11-01",
+      "run": "ffmpeg",
+      "failure": "Hard-coded ffmpeg path in claude_mem_loop.py no longer existed after a package update.",
+      "fix": "Resolved at run time with imageio_ffmpeg.get_ffmpeg_exe().",
+      "status": "enforced",
+      "enforced_by": "tools/motion/claude_mem_loop.py::_ffmpeg"
+    },
+    {
+      "id": "F12",
+      "date": "2026-11-01",
+      "run": "git",
+      "failure": "Gitignored spec files were silently skipped by git add; preflight tracked gate blocked late.",
+      "fix": "The source stage uses git add -f on the exact files it needs, then commits only if something is staged.",
+      "status": "enforced",
+      "enforced_by": "tools/make_shorts.py::stage_source"
+    },
+    {
+      "id": "F13",
+      "date": "2026-11-01",
+      "run": "post",
+      "failure": "A schedule run created Buffer posts before the cadence fix (claude-mem), and an earlier run wrote to Buffer without owner go.",
+      "fix": "The driver dispatches dry-run and verify first; schedule runs only when the request says schedule (or --schedule).",
+      "status": "enforced",
+      "enforced_by": "tools/make_shorts.py::stage_buffer"
+    },
+    {
+      "id": "F14",
+      "date": "2026-10-31",
+      "run": "post-cadence",
+      "failure": "Two videos got the same post time.",
+      "fix": "Cadence skips any bracket held by a scheduled post on the channel.",
+      "status": "enforced",
+      "enforced_by": "tools/post/cadence.py::plan"
+    },
+    {
+      "id": "F15",
+      "date": "2026-10-31",
+      "run": "queue",
+      "failure": "Queue approved a video whose brief changed afterwards.",
+      "fix": "queue pin blocks when the brief hash differs from the approved one.",
+      "status": "enforced",
+      "enforced_by": "tools/preflight.py::check_queue_pin"
+    },
+    {
+      "id": "F16",
+      "date": "2026-11-01",
+      "run": "viewer-panel",
+      "failure": "viewer_panel.py --help treated the flag as an MP4 path.",
+      "fix": "The driver always passes the MP4 path; the panel verdict must be written by a reviewer (PASS/FAIL file).",
+      "status": "enforced",
+      "enforced_by": "tools/make_shorts.py::stage_panel"
+    },
+    {
+      "id": "F17",
+      "date": "2026-10-31",
+      "run": "queue-cover",
+      "failure": "YouTube Shorts cover not approved after post was sent.",
+      "fix": "queue approve requires cover_sha256 for YouTube; the driver waits for cover approval before queueing.",
+      "status": "enforced",
+      "enforced_by": "tools/make_shorts.py::stage_cover"
+    },
+    {
+      "id": "F18",
+      "date": "2026-11-01",
+      "run": "render-log",
+      "failure": "Cloud render failure was only visible after a long wait; the cause was in the log.",
+      "fix": "The driver tails the log on failure and stops the batch at that stage.",
+      "status": "enforced",
+      "enforced_by": "tools/make_shorts.py::run"
+    },
+    {
+      "id": "F19",
+      "date": "2026-11-01",
+      "run": "cover_system",
+      "failure": "cover_system.py returned rc 2 on a repeat run and rc 0 on identical inputs.",
+      "fix": "Not yet fixed: the driver checks the return code, but the tool itself is not made deterministic.",
+      "status": "open",
+      "enforced_by": ""
+    },
+    {
+      "id": "F20",
+      "date": "2026-11-01",
+      "run": "post-dry-run",
+      "failure": "dry-run reported No new posts planned because the queue was at capacity, which looked like a bug.",
+      "fix": "Not yet fixed: the driver prints the planner notes; the capacity message should be made clearer in the tool itself.",
+      "status": "open",
+      "enforced_by": ""
+    },
+    {
+      "id": "F21",
+      "date": "2026-11-01",
+      "run": "hook",
+      "failure": "SEO warning SP010: the keyword is not spoken in the first ~10 s of the iFixAi script.",
+      "fix": "Warning only; the owner decides whether it becomes a block. Not changed.",
+      "status": "open",
+      "enforced_by": ""
+    }
+  ]
+}
