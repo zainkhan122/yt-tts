@@ -19,7 +19,7 @@ from tools.post import buffer_windows
 DAYS = ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
 
 
-def random_offset_minutes(platform, day, slot_idx, cfg):
+def random_offset_minutes(platform, day, slot_idx, cfg, salt=0):
     """Deterministic random offset (5-20 min) from a best-time bracket.
 
     Owner 2026-10-30: the 150-minute minimum gap was removed. Each best-time slot gets a
@@ -29,7 +29,9 @@ def random_offset_minutes(platform, day, slot_idx, cfg):
     rules = cfg["schedule"].get("random_gap_minutes", {})
     lo = int(rules.get("min", 5))
     hi = int(rules.get("max", 20))
-    seed = f"{platform}:{day.isoformat()}:{slot_idx}".encode()
+    # salt = posts already on this channel: without it every video got the same offset and the
+    # same clock (31 Oct double-book with VoiceStudio). Dry-run and live still agree.
+    seed = f"{platform}:{day.isoformat()}:{slot_idx}:{salt}".encode()
     digest = hashlib.sha256(seed).hexdigest()
     return int(digest[:8], 16) % (hi - lo + 1) + lo
 
@@ -194,10 +196,11 @@ def plan(items, records, channels, posts, cfg, now, preview=False, pilot=False, 
                 todays_events = [t for t in events.values() if t.astimezone(zone).date() == day]
                 if len(todays_events) >= day_target:
                     break
+                # Owner 2026-10-31: deterministic random 5-20 min offset to the best-time bracket.
+                # The gap check runs on the FINAL time (after the offset), not the bracket start.
+                due = due + dt.timedelta(minutes=random_offset_minutes(platform, day, idx, cfg, salt=len(events)))
                 if any(abs((due-t).total_seconds()) < settings["minimum_gap_minutes"]*60 for t in events.values()):
                     continue
-                # Owner 2026-10-31: apply deterministic random 5-20 min offset to the best-time bracket
-                due = due + dt.timedelta(minutes=random_offset_minutes(platform, day, idx, cfg))
                 if platform == "youtube" and any(abs((due-t).total_seconds()) < settings.get("short_long_gap_minutes",120)*60 for t in long_events):
                     notes.append(f"youtube: skip {iso(due)} to protect long-video spacing")
                     continue
