@@ -73,10 +73,23 @@ def push(ids):
         print(f"pushed {name} ({len(buf.getvalue()) / 1e6:.1f} MB)")
 
 
+def pack_complete(dst):
+    """True only when the manifest AND every file it lists are on disk.
+
+    A manifest committed to git used to count as 'present', so the download was skipped and any
+    MP4 not in git was missing at render time (run 41311570435, 1 Nov)."""
+    man = dst / "manifest.json"
+    if not man.exists():
+        return False
+    files = (json.loads(man.read_text(encoding="utf-8")).get("files") or {})
+    return all((dst / e["file"]).exists() for e in files.values()
+               if isinstance(e, dict) and e.get("file"))
+
+
 def pull(cid):
     dst = ROOT / "captures" / cid
-    if (dst / "manifest.json").exists():
-        print(f"captures/{cid} already present")
+    if pack_complete(dst):
+        print(f"captures/{cid} already present (every listed file on disk)")
         return
     rel = release()
     asset = next((a for a in rel.get("assets", []) if a["name"] == f"{cid}.tar"), None)
