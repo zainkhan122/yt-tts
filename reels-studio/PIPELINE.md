@@ -112,6 +112,8 @@ Hands-on evidence ladder (best first):
 
 Never used: other creators' clips (copyright + "reused content" demonetization).
 
+A missing maker video never blocks a video. When the maker has no video, use the maker's own screenshots, UI and README/docs images, and build the rest as our own per-tool graphics, animations and charts (owner, 1 Nov 2026).
+
 ## 4. Script: structure and rules (from the social scan)
 
 | Beat | Time | Job |
