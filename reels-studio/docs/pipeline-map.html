@@ -254,8 +254,32 @@
 <section>
   <h2>6a. Motion and graphics stage (new, 31 Oct)</h2>
 <p>Inside Assets. For each video I design the motion from the tool's own media (crops, zooms, side-by-side panels) and from real data (audio envelopes, published figures). Each scene shows what the tool does, and motion changes at least every 5 s. The rules are in plan section 9. The viewer panel checks them (motion line); a FAIL returns the video to Assets.</p>
-<h2>7. Decisions needed from you</h2>
+</section>
+
+<section>
+</section>
+<section>
+  <h2>6b. Lessons from 31 Oct–1 Nov and the checks they added</h2>
+  <table>
+    <tr><th>Lesson</th><th>Check now in the pipeline</th></tr>
+    <tr><td>Scrim darkened the media (three renders)</td><td>Frame sheet before dispatch; scrim removed</td></tr>
+    <tr><td>Renders sent before a local check (cloud cycle per try)</td><td>Local browser audit (<code>layout_audit</code>) first, then one dispatch</td></tr>
+    <tr><td>Duplicate-guard confusion after a piped dispatch</td><td>Dispatch to a log file; read the run id from it</td></tr>
+    <tr><td>New motion rule broke published briefs in CI</td><td>Versioned <code>motion_standard</code>; published briefs not re-judged</td></tr>
+    <tr><td>One stale copy pin blocked every video</td><td>Per-item test; exemption only with a visible <code>copy_pin_pending</code> note</td></tr>
+    <tr><td>Two videos at the same post time</td><td>Gap check on the final time; offset salted per post</td></tr>
+    <tr><td>Shorts cover needed a separate approval</td><td><code>cover_ctl</code> preview, then approve the digest; worker sets it after send</td></tr>
+    <tr><td>CI missing <code>yt-dlp</code>/<code>pynacl</code></td><td>Requirements listed; same set as the test job</td></tr>
+    <tr><td>Legacy uncertain rows make <code>post.yml</code> exit 1</td><td>Open (decision 3)</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>7. Decisions needed from you</h2>
   <ol>
+    <li>VoiceStudio copy: revert the brief copy to the live Buffer copy, or edit Buffer by hand and re-pin (copy pin pending).</li>
+    <li>Grandfathering: published briefs stay on the earlier motion standard. Approve, or schedule re-renders for the outclass videos under the new standard.</li>
+    <li>Legacy <code>tool-*</code> uncertain rows: inspect each in Buffer, then close them so <code>post.yml</code> exits clean.</li>
     <li>Approve the single preflight command and the media-mode field (replaces the hard-coded bypass set).</li>
     <li>Approve normalised alignment for numerals and units (threshold unchanged).</li>
     <li>Approve the publish-existing path with a digest check, so QA-passed renders are not re-rendered.</li>
