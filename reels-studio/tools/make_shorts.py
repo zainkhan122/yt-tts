@@ -42,6 +42,7 @@ ROOT = Path(__file__).resolve().parents[1]      # reels-studio/
 REPO = ROOT.parent                              # git repo root
 TZ = ZoneInfo("Asia/Karachi")
 STATE = ROOT / "tracker" / "make-shorts-state.json"
+APPROVALS = ROOT / "config" / "topic-approvals.json"
 LOGS = Path("/var/tmp/reels/make-shorts")
 STAGES = ["select", "build", "gate", "source", "render", "fetch", "panel", "cover", "queue", "buffer"]
 WORDS = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8,
@@ -107,13 +108,43 @@ def _valid_plan(plan_path: Path) -> str | None:
     return lines[-1] if lines else "video_plan failed"
 
 
+def plan_sha(plan_path: Path) -> str:
+    return hashlib.sha256(plan_path.read_bytes()).hexdigest()
+
+
+def topic_approved(vid: str, plan_path: Path) -> bool:
+    """Owner decision (1 Nov 2026): topics are approved by the owner, always. The approval is bound to the
+    plan's sha256, so an edited plan needs a new approval."""
+    if not APPROVALS.exists():
+        return False
+    rec = json.loads(APPROVALS.read_text(encoding="utf-8")).get("approved", {}).get(vid)
+    return bool(rec) and rec.get("plan_sha256") == plan_sha(plan_path)
+
+
+def approve_topic(vid: str, note: str) -> None:
+    plan = ROOT / "videos" / vid / "plan.json"
+    if not plan.exists():
+        raise SystemExit(f"no plan for {vid}")
+    reason = _valid_plan(plan)
+    if reason:
+        raise SystemExit(f"{vid}: plan is not valid, so it cannot be approved: {reason}")
+    if not note.strip():
+        raise SystemExit("an approval needs a note quoting the owner's words")
+    data = json.loads(APPROVALS.read_text(encoding="utf-8")) if APPROVALS.exists() else {"approved": {}}
+    data["approved"][vid] = {"plan_sha256": plan_sha(plan), "approved_by": "owner",
+                             "at": dt.datetime.now(TZ).replace(microsecond=0).isoformat(), "note": note.strip()}
+    APPROVALS.parent.mkdir(parents=True, exist_ok=True)
+    APPROVALS.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"approved {vid} (plan {data['approved'][vid]['plan_sha256'][:12]})")
+
+
 def stage_select(st: dict, count: int) -> list[str]:
     queued = set()
     qpath = ROOT / "queue" / "publish.json"
     if qpath.exists():
         queued = {i["video_id"] for i in json.loads(qpath.read_text(encoding="utf-8")).get("items", [])}
     busy = {v for b in st.get("batches", []) for v in b.get("ids", []) if b.get("status") != "done"}
-    ready, rejected = [], []
+    ready, rejected, unapproved = [], [], []
     for p in sorted((ROOT / "videos").glob("*/plan.json")):
         vid = p.parent.name
         if vid in queued or vid in busy:
@@ -123,10 +154,17 @@ def stage_select(st: dict, count: int) -> list[str]:
             rejected.append(f"{vid}: {reason}")
             continue
         prio = json.loads(p.read_text(encoding="utf-8")).get("priority", 100)
+        if not topic_approved(vid, p):
+            unapproved.append(vid)
+            continue
         ready.append((prio, vid))
     ready.sort()
     if len(ready) < count:
-        msg = [f"need {count} ready plan(s), found {len(ready)}. Author videos/<id>/plan.json for the missing ones."]
+        msg = []
+        if unapproved:
+            msg.append("WAIT (owner approval of topics is required): " + ", ".join(sorted(unapproved)) +
+                       ". Ask the owner; after a yes run: python3 tools/make_shorts.py --approve-topic <id> --note '<owner words>'")
+        msg.append(f"need {count} approved ready plan(s), found {len(ready)}. Author videos/<id>/plan.json for any missing.")
         msg += [f"  rejected: {r}" for r in rejected]
         raise Stop("\n".join(msg))
     return [vid for _, vid in ready[:count]]
@@ -331,8 +369,13 @@ def main(argv=None) -> int:
     ap.add_argument("--resume", action="store_true")
     ap.add_argument("--status", action="store_true")
     ap.add_argument("--approve-cover", action="append", default=[], metavar="ID")
+    ap.add_argument("--approve-topic", metavar="ID", help="record the OWNER's approval of a topic (plan must be valid)")
+    ap.add_argument("--note", default="", help="the owner's words, quoted")
     args = ap.parse_args(argv)
 
+    if args.approve_topic:
+        approve_topic(args.approve_topic, args.note)
+        return 0
     st = load_state()
     if args.status:
         open_ = [b for b in st.get("batches", []) if b.get("status") != "done"]

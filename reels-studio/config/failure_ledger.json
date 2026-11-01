@@ -189,6 +189,24 @@
       "fix": "Warning only; the owner decides whether it becomes a block. Not changed.",
       "status": "open",
       "enforced_by": ""
+    },
+    {
+      "id": "F22",
+      "date": "2026-11-02",
+      "run": "owner-decision",
+      "failure": "Topics were chosen without an explicit owner approval record.",
+      "fix": "select only takes topics with an owner approval bound to the plan sha256 (config/topic-approvals.json); the approve command requires the owner's words.",
+      "status": "enforced",
+      "enforced_by": "tools/make_shorts.py::topic_approved"
+    },
+    {
+      "id": "F23",
+      "date": "2026-11-02",
+      "run": "owner-decision",
+      "failure": "Published briefs kept failing new cloud-source checks they never needed.",
+      "fix": "config/legacy-briefs.json (from tracker/publications.json, sent or published_manual) turns those checks into notes for legacy briefs.",
+      "status": "enforced",
+      "enforced_by": "tools/preflight.py::_cloud_source_checks"
     }
   ]
 }

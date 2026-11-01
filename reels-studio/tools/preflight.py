@@ -359,6 +359,25 @@ def check_cover(brief_id):
     return [_result("cover", "PASS", "selected cover matches the reviewed sha and plan text")]
 
 
+def legacy_ids():
+    path = ROOT / "config" / "legacy-briefs.json"
+    return set(json.loads(path.read_text(encoding="utf-8")).get("briefs", {})) if path.exists() else set()
+
+
+def _cloud_source_checks(brief_id, brief):
+    """Assets, capture-pack release and cover. For a LEGACY brief (its video already went out) these are
+    NOTE, not BLOCK: it is not re-dispatched from the old brief, and a new render is a new decision."""
+    results = check_assets_present(brief_id, brief) + check_capture_pack_release(brief_id, brief) + check_cover(brief_id)
+    if brief_id not in legacy_ids():
+        return results
+    for r in results:
+        if r["status"] == "BLOCK":
+            r["status"] = "NOTE"
+            r["detail"] = "legacy (already published): " + r["detail"]
+            r["fix"] = "only needed if this brief is ever re-rendered"
+    return results
+
+
 def preflight(brief_id):
     path = ROOT / "briefs" / f"{brief_id}.json"
     if not path.exists():
@@ -372,8 +391,7 @@ def preflight(brief_id):
                + check_motion(brief_id, path) + check_media_aspect(brief_id, brief)
                + check_policy(brief_id, brief) + check_layout(brief_id, path)
                + check_tracked(brief_id) + check_workspace(brief_id)
-               + check_assets_present(brief_id, brief) + check_capture_pack_release(brief_id, brief)
-               + check_cover(brief_id))
+               + _cloud_source_checks(brief_id, brief))
     verdict = "BLOCK" if any(r["status"] == "BLOCK" for r in results) else "PASS"
     return {"id": brief_id, "verdict": verdict, "results": results}
 

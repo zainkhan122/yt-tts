@@ -10,9 +10,16 @@ Run it in the background for long stages (cloud render takes minutes): `start_pr
 batch with `--status`. Every subprocess writes a log under `/var/tmp/reels/make-shorts/`.
 
 ## What the agent must do first
-The code cannot judge topics, scripts or frames. Before the one line can produce N videos, there must be N
-valid plans in `videos/<id>/plan.json` (`tools/video_plan.py` PASS) with a reviewed cover in
-`covers/<id>/selection.json`. If not, the batch stops at `select` and lists what is missing.
+- **Topics are approved by the owner, always.** Ask, then record the owner's words:
+  `python3 tools/make_shorts.py --approve-topic <id> --note "<owner's words>"`. The approval is bound to the
+  plan's sha256; an edited plan must be approved again. `select` stops and lists unapproved topics.
+- N valid plans in `videos/<id>/plan.json` (`tools/video_plan.py` PASS), and a reviewed cover in
+  `covers/<id>/selection.json`.
+
+## Legacy briefs
+`python3 tools/mark_legacy.py` regenerates `config/legacy-briefs.json` from `tracker/publications.json`: a
+brief is legacy when a platform record is `sent` or `published_manual`. For legacy briefs the cloud-source
+checks (assets, capture-pack release, cover) are notes, not blocks. `scheduled` and `uncertain` are not legacy.
 
 ## Stages
 | # | Stage | Stops when |

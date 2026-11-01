@@ -43,14 +43,23 @@ def _tree(tmp_path, monkeypatch, plans, queued=(), busy=()):
     (tmp_path / "queue").mkdir()
     (tmp_path / "queue" / "publish.json").write_text(json.dumps({"items": [{"video_id": q} for q in queued]}))
     monkeypatch.setattr(ms, "_valid_plan", lambda p: None)  # the plan checker is tested by its own suite
+    monkeypatch.setattr(ms, "APPROVALS", tmp_path / "config" / "topic-approvals.json")
+    _approve_all(tmp_path, plans)
     return {"batches": [{"status": "open", "ids": list(busy)}]} if busy else {}
+
+
+def _approve_all(tmp_path, plans):
+    (tmp_path / "config").mkdir(exist_ok=True)
+    rec = {vid: {"plan_sha256": ms.plan_sha(tmp_path / "videos" / vid / "plan.json"), "approved_by": "owner",
+                 "note": "test"} for vid in plans}
+    (tmp_path / "config" / "topic-approvals.json").write_text(json.dumps({"approved": rec}))
 
 
 def test_select_stops_when_short(tmp_path, monkeypatch):
     st = _tree(tmp_path, monkeypatch, {"tool-a-01": 100, "repo-b-01": 100})
     with pytest.raises(ms.Stop) as exc:
         ms.stage_select(st, 3)
-    assert "need 3 ready plan(s), found 2" in str(exc.value)
+    assert "need 3 approved ready plan(s), found 2" in str(exc.value)
 
 
 def test_select_skips_queued_and_busy_and_orders_by_priority(tmp_path, monkeypatch):
@@ -243,3 +252,57 @@ def test_unreadable_origin_blocks_dispatch(monkeypatch):
     monkeypatch.setattr(subprocess, "run", lambda *a, **k: R())
     res = pf.check_dispatch_head("repo-x-01", "research/production/receipts/x.json")
     assert res[0]["status"] == "BLOCK"
+
+
+def test_select_waits_for_owner_topic_approval(tmp_path, monkeypatch):
+    st = _tree(tmp_path, monkeypatch, {"repo-a-01": 100})
+    (tmp_path / "config" / "topic-approvals.json").write_text(json.dumps({"approved": {}}))
+    with pytest.raises(ms.Stop) as exc:
+        ms.stage_select(st, 1)
+    assert "owner approval of topics is required" in str(exc.value) and "repo-a-01" in str(exc.value)
+
+
+def test_topic_approval_is_bound_to_plan_hash(tmp_path, monkeypatch):
+    st = _tree(tmp_path, monkeypatch, {"repo-a-01": 100})
+    assert ms.stage_select(st, 1) == ["repo-a-01"]
+    (tmp_path / "videos" / "repo-a-01" / "plan.json").write_text('{"priority": 1, "edited": true}')
+    with pytest.raises(ms.Stop):  # edited plan -> approval no longer matches
+        ms.stage_select(st, 1)
+
+
+def test_approve_topic_needs_note_and_valid_plan(tmp_path, monkeypatch):
+    _tree(tmp_path, monkeypatch, {"repo-a-01": 100})
+    monkeypatch.setattr(ms, "APPROVALS", tmp_path / "config" / "topic-approvals.json")
+    with pytest.raises(SystemExit):
+        ms.approve_topic("repo-a-01", "")
+    ms.approve_topic("repo-a-01", "yes, make it")
+    assert ms.topic_approved("repo-a-01", tmp_path / "videos" / "repo-a-01" / "plan.json")
+
+
+# ---------- legacy briefs (owner decision 2) ---------------------------------------------
+
+def test_legacy_mark_uses_sent_and_manual_only(tmp_path):
+    import mark_legacy as ml
+    pubs = {"records": {
+        "a:youtube": {"state": "sent"}, "a:instagram": {"state": "sent"},
+        "b:facebook": {"state": "scheduled"}, "c:youtube": {"state": "uncertain"},
+        "d:youtube": {"state": "published_manual"}}}
+    assert ml.compute(pubs) == {"a": ["instagram", "youtube"], "d": ["youtube"]}
+
+
+def test_legacy_brief_turns_cloud_source_blocks_into_notes(ws, monkeypatch):
+    (ws / "config").mkdir(exist_ok=True)
+    (ws / "config" / "legacy-briefs.json").write_text(json.dumps({"briefs": {"repo-x-01": ["youtube"]}}))
+    brief = {"capture": "captures/repo-x-01", "scenes": [{"src": "gone.mp4"}]}
+    monkeypatch.setattr(pf, "check_capture_pack_release", lambda *a, **k: [pf._result("capture_release", "BLOCK", "x", "y")])
+    monkeypatch.setattr(pf, "check_cover", lambda *a, **k: [pf._result("cover", "BLOCK", "no cover", "y")])
+    res = pf._cloud_source_checks("repo-x-01", brief)
+    assert all(r["status"] == "NOTE" for r in res), res
+
+
+def test_non_legacy_brief_keeps_blocks(ws, monkeypatch):
+    brief = {"capture": "captures/repo-x-01", "scenes": [{"src": "gone.mp4"}]}
+    monkeypatch.setattr(pf, "check_capture_pack_release", lambda *a, **k: [pf._result("capture_release", "PASS", "ok", "")])
+    monkeypatch.setattr(pf, "check_cover", lambda *a, **k: [pf._result("cover", "PASS", "ok", "")])
+    res = pf._cloud_source_checks("repo-x-01", brief)
+    assert any(r["status"] == "BLOCK" for r in res)
