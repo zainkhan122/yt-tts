@@ -479,6 +479,10 @@ def main():
             # fails on any issue, and channel-level problems always fail.
             requested = set(args.video_ids or [])
             def blocking(issue):
+                # 1 Nov (lesson 23): an "uncertain" row is a Buffer receipt the operator must inspect.
+                # It is listed for review; it does not fail the run, because nothing new was created.
+                if issue.get("state") == "uncertain":
+                    return False
                 vid = str(issue.get("key", "")).split(":")[0]
                 return (not requested) or vid in requested or issue.get("state") == "channel_blocked"
             report["held_for_review"] = [i for i in report["issues"] if not blocking(i)]

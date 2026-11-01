@@ -72,5 +72,28 @@ class PublisherExitTests(unittest.TestCase):
         self.assertIn("def blocking(issue)", src)
 
 
+class CadenceBracketTests(unittest.TestCase):
+    """1 Nov: a bracket held by another video on the same channel must not be reused."""
+
+    def test_second_video_moves_off_taken_bracket(self):
+        import datetime as dt
+        from tools.post import planner
+        from tools.post.common import load_json
+        cfg = load_json(ROOT / "config/publishing.json")
+        items = [i for i in load_json(ROOT / "queue/publish.json")["items"] if i["video_id"] == "repo-claude-mem-01"]
+        chans = [{"id": v["buffer_id"], "serviceId": v["service_id"]} for v in cfg["buffer"]["channels"].values()]
+        now = dt.datetime(2026, 11, 1, 11, 40, tzinfo=dt.timezone.utc)
+        rows, _ = planner.plan(items, {}, chans, [], cfg, now, preview=True)
+        yt = next(r for r in rows if r["platform"] == "youtube")
+        taken = dt.datetime.fromisoformat(yt["due_at"].replace("Z", "+00:00"))
+        records = {"other:youtube": {"video_id": "repo-voicestudio-01", "platform": "youtube", "state": "sent",
+                                     "due_at": (taken - dt.timedelta(minutes=3)).isoformat(),
+                                     "category": "repo", "buffer_post_id": "x1"}}
+        rows2, _ = planner.plan(items, records, chans, [], cfg, now, preview=True)
+        moved = [dt.datetime.fromisoformat(r["due_at"].replace("Z", "+00:00")) for r in rows2 if r["platform"] == "youtube"]
+        self.assertTrue(moved, "claude-mem should still get a YouTube slot")
+        self.assertTrue(all(abs((m - taken).total_seconds()) >= 1800 for m in moved))
+
 if __name__ == "__main__":
     unittest.main()
+

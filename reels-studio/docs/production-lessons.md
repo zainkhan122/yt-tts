@@ -28,7 +28,7 @@ whenever a new failure teaches us something, and point the row at a real functio
 | 20 | Two videos got the same post time. | `tools/post/cadence.py`: a bracket held by any scheduled post on the channel is skipped; the gap check runs on the final time |
 | 21 | A YouTube Shorts cover is approved separately after the post is sent. | `tools/post/queue_ctl.py approve` requires `cover_sha256` for YouTube items |
 | 22 | Unit tests missing `yt-dlp` or `pynacl` failed the YouTube worker's safety step. | `tools/youtube/requirements.txt`; `tests/test_pipeline_gates.py` checks `yt-dlp` is listed |
-| 23 | `post.yml` exits 1 on legacy `tool-*` rows marked uncertain even when the new posts are created. | **Open.** `tools/post/publisher.py` already fails a run only for requested videos; the workflow exit path still reports legacy rows. Fix pending. |
+| 23 | `post.yml` exits 1 on legacy `tool-*` rows marked uncertain even when the new posts are created. | `tools/post/publisher.py` `blocking()`: uncertain rows are listed for review and do not fail the run; failed and channel-level issues still do (`tests/test_pipeline_gates.py` PublisherExitTests) |
 
 ## Per-video checklist (in order; stop at the first BLOCK)
 
