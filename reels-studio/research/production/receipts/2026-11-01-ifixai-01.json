@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-01-ifixai-01",
+  "created_at": "2026-11-01T12:48:27Z",
+  "briefs": {
+    "repo-ifixai-01": {
+      "brief_sha256": "1148fcd53e0645b2150b7930e8f50a5068c90ec3e857919a42552af371102abf",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "677ddbbe30c4fa75e0433ee607661e8de35896935f6482fc46aeb4a47d60fd77",
+          "word_count": 124
+        },
+        "assets": {
+          "capture_id": "repo-ifixai-01",
+          "manifest_sha256": "5c8c3d31a88e2fcfe433f4779148521d2a8c2ab0013891b9b44863e371519c51",
+          "files": [
+            {
+              "path": "plan-1.jpg",
+              "sha256": "aff8769c678979223f84009c82a81a244f1e8d0aaf5fda8581ef9aef3cdfe53d"
+            },
+            {
+              "path": "plan-2.jpg",
+              "sha256": "e7f0c45c7026843f7c8114dd8082d57c73fb7608a56f8f2674eab7a2542032a2"
+            },
+            {
+              "path": "plan-3.jpg",
+              "sha256": "516bb9bc74e52a2691682b3c000eab330e59aff0adc10913b646e4b7e9d63ea4"
+            },
+            {
+              "path": "plan-4.jpg",
+              "sha256": "77d24851c1d468a9b8e5aef0c793a83f4925c7866fd06b17278f881a3b558dbe"
+            },
+            {
+              "path": "plan-5.jpg",
+              "sha256": "649c3130b88fa5b18052a26db4d42db06f34bfd923f6f342633f677327a7b0c1"
+            },
+            {
+              "path": "cover-hero.jpg",
+              "sha256": "eee5957b9878f44571a10829ee9be4c6e57dbe2944abf24b2268966d191c7df4"
+            },
+            {
+              "path": "maker/audits_chart.png",
+              "sha256": "eee5957b9878f44571a10829ee9be4c6e57dbe2944abf24b2268966d191c7df4"
+            },
+            {
+              "path": "maker/hero-audit-light.svg",
+              "sha256": "fc177a3d8c9a0674c1d9692e9dcc4182ff0525136a05178fe33a8b76e829540d"
+            }
+          ],
+          "cover_sha256": "c8743137e527a153982d53a4f72a4de1a9ec7ddffbe1ced7939ccd5a01004dc1",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-ifixai-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}
