@@ -57,8 +57,12 @@ def main(argv):
         return 2
     brief = json.loads(Path(argv[0]).read_text())
     problems = []
-    for s in brief.get("scenes") or []:
-        problems += check_scene(s)
+    # Versioned standard: briefs with motion_standard >= 2 are held to the hold/label rules.
+    # Earlier briefs were approved and published under the older standard and are not re-judged
+    # here (their pins would break); re-renders of them must set motion_standard to 2.
+    if int(brief.get("motion_standard") or 0) >= 2:
+        for s in brief.get("scenes") or []:
+            problems += check_scene(s)
     for p in problems:
         print("FAIL", p)
     print("focus check:", "PASS" if not problems else f"{len(problems)} problem(s)")

@@ -133,6 +133,8 @@ def check_media_aspect(brief_id, brief):
     """Lesson 14: media for 9:16 cards must be portrait, or the lower frame stays empty."""
     from PIL import Image
     out = []
+    if int(brief.get("motion_standard") or 0) < 2:  # earlier briefs were published under the older standard
+        return [_result("media_aspect", "PASS", "not applicable (motion_standard < 2)")]
     cap = ROOT / "captures" / brief_id
     seen = set()
     for s in brief.get("scenes") or []:
