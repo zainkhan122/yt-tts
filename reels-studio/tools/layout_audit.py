@@ -164,6 +164,7 @@ MEASURE_JS = r"""
     card: el.querySelector(".sp-vcard") ? box(el.querySelector(".sp-vcard")) : null,
     fillBox: el.querySelector(".sp-vfill") ? box(el.querySelector(".sp-vfill")) : null}));
   return {capCollisions, capFill, dims, clips,
+          scrims: document.querySelectorAll(".sp-imgcard .sp-scrim").length,
           cap, overlayCards: [...document.querySelectorAll("[data-caption-overlay]")].filter(vis).map((el) => ({box: box(el), limit: parseFloat(el.dataset.captionOverlay)})), surfaces: pick(".sp-imgcard:not([data-caption-overlay]), .sp-vcard, .sp-browser, .sp-term, .sp-steps, .sp-vcardx, .sp-stat, .sp-question, #endcard"),
           overlays: pick(".arch-stamp, .arch-kicker, .sp-chip, #arch-hud, .arch-rail"),
           arch: document.querySelector("#root").dataset.archetype,
@@ -222,6 +223,9 @@ def audit(brief_path, out_dir=None, keep=False):
                         problems.append(f"{label}: overlaps caption box {m['cap']}")
                     rows.append({"scene": sid, "t": t, "el": str(s["sel"]), "bottom": round(bx["y"] + bx["h"]),
                                  "cap": bool(m["cap"]) and intersects(bx, m["cap"])})
+                if m.get("scrims"):
+                    # Lesson 15 (1 Nov): a dark overlay over a card hid the tool's media in three renders.
+                    problems.append(f"{sid} @{t}s: {m['scrims']} scrim(s) over card media; captions need space, not shade")
                 # opt-in caption-overlay cards: may run under the captions, but only to their own
                 # brief-set bottom (card_bottom); the scrim keeps the text legible
                 for oc in m.get("overlayCards", []):

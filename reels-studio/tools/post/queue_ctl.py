@@ -90,6 +90,13 @@ def main():
             if not now < expiry <= now + dt.timedelta(days=14):
                 raise SystemExit("Review expiry must be in the next 14 days (use shorter windows for news/pricing)")
             missing = [v for v in args.video_ids if not panel_passed(v)]
+            # Lesson 21 (1 Nov): a YouTube Short's cover is reviewed before queueing, not after the send.
+            platforms_now = args.platforms or [pl for i in data["items"] if i["video_id"] in args.video_ids for pl in i.get("platforms", [])]
+            no_cover = [i["video_id"] for i in data["items"] if i["video_id"] in args.video_ids
+                        and "youtube" in (args.platforms or i.get("platforms", [])) and not i.get("cover_sha256")]
+            if no_cover:
+                raise SystemExit("Shorts cover not approved for: " + ", ".join(no_cover) +
+                                 " — run tools/youtube/cover_ctl.py extract <id>, look at the preview, then cover_ctl approve <id>")
             if missing:
                 raise SystemExit("Viewer panel has not PASSed for: " + ", ".join(missing) +
                                  " — run tools/viewer_panel.py on the render, fill it honestly, "

@@ -155,6 +155,54 @@ def check_media_aspect(brief_id, brief):
     return out
 
 
+def check_layout(brief_id, brief_path):
+    """Lessons 15, 16 (1 Nov): the layout audit runs locally in a real browser before any cloud dispatch.
+    No browser or any layout problem (overlap, empty stage, scrim over media) blocks the dispatch."""
+    import subprocess
+    script = ROOT / "tools" / "layout_audit.py"
+    try:
+        r = subprocess.run([sys.executable, str(script), str(brief_path)], capture_output=True, text=True,
+                           timeout=900, env=_browser_env())
+    except subprocess.TimeoutExpired:
+        return [_result("layout", "BLOCK", "layout audit timed out", "run tools/layout_audit.py locally and fix the scene")]
+    out = (r.stdout + r.stderr).strip()
+    if r.returncode == 0 and "FAIL" not in r.stdout:
+        return [_result("layout", "PASS", "local browser layout audit: no overlap, no empty stage, no scrim over media")]
+    if "playwright" in out.lower() and ("ModuleNotFoundError" in out or "Executable doesn't exist" in out or "error while loading shared libraries" in out):
+        return [_result("layout", "BLOCK", "local browser unavailable for the layout audit",
+                        "run tools/browser_setup.py once (user-space Chromium), then re-run preflight")]
+    fails = [ln.strip() for ln in r.stdout.splitlines() if ln.strip().startswith("FAIL")]
+    return [_result("layout", "BLOCK", fails[0] if fails else (out.splitlines() or ["layout audit failed"])[-1],
+                    "fix the scene and re-run tools/layout_audit.py until it prints OK")]
+
+
+def _browser_env():
+    import os
+    env = dict(os.environ)
+    libs = Path.home() / "libs" / "root"
+    if libs.exists():  # user-space system libraries for headless Chromium (tools/browser_setup.py)
+        found = sorted({str(p.parent) for p in libs.rglob("*.so*")})
+        env["LD_LIBRARY_PATH"] = ":".join(found + [env.get("LD_LIBRARY_PATH", "")])
+    return env
+
+
+def check_policy(brief_id, brief):
+    """Lessons 18, 19: new briefs use the current motion standard; a queued copy with a pending pin is blocked."""
+    out = []
+    queued = [i for i in (json.loads(QUEUE.read_text(encoding="utf-8")).get("items", []) if QUEUE.exists() else [])
+              if i.get("video_id") == brief_id]
+    if not queued and int(brief.get("motion_standard") or 0) < 2:
+        out.append(_result("policy", "BLOCK", "new brief without motion_standard: 2",
+                           "set \"motion_standard\": 2 so the hold, label and media-aspect rules apply"))
+    for item in queued:
+        if item.get("copy_pin_pending"):
+            out.append(_result("policy", "BLOCK", f"copy pin pending: {item['copy_pin_pending']}",
+                               "owner decision needed before this video can be dispatched or scheduled"))
+    if not out:
+        out.append(_result("policy", "PASS", "motion standard and copy pins in order"))
+    return out
+
+
 def preflight(brief_id):
     path = ROOT / "briefs" / f"{brief_id}.json"
     if not path.exists():
@@ -165,7 +213,8 @@ def preflight(brief_id):
         return {"id": brief_id, "verdict": "BLOCK", "results": [_result("brief", "BLOCK", f"unreadable: {exc}", "fix the JSON")]}
     results = (check_lint(brief_id, path) + check_studio_rules(brief)
                + check_queue_pin(brief_id, brief) + check_render(brief_id)
-               + check_motion(brief_id, path) + check_media_aspect(brief_id, brief))
+               + check_motion(brief_id, path) + check_media_aspect(brief_id, brief)
+               + check_policy(brief_id, brief) + check_layout(brief_id, path))
     verdict = "BLOCK" if any(r["status"] == "BLOCK" for r in results) else "PASS"
     return {"id": brief_id, "verdict": verdict, "results": results}
 

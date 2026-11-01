@@ -195,6 +195,26 @@ def cmd_cloud(a):
         for r in _pf.check_dispatch_head(ids[0], a.receipt.removeprefix("reels-studio/")):
             if r["status"] == "BLOCK":
                 raise SystemExit(f"cloud preflight: {r['detail']} ({r['fix']})")
+    # Lessons 15-17 (1 Nov): one gate. The full preflight (lint, rules, pins, motion, policy, dispatch
+    # head, local browser layout audit) must pass for every brief before any cloud minute is spent.
+    sys.path.insert(0, str(ROOT / "tools"))
+    import preflight as _pf_full
+    blocked = []
+    for brief_id in ids:
+        verdict = _pf_full.preflight(brief_id)
+        blocked += [f"{brief_id}: {x['check']}: {x['detail']} ({x['fix']})" for x in verdict["results"] if x["status"] == "BLOCK"]
+    if blocked:
+        raise SystemExit("cloud preflight BLOCKED:\n  " + "\n  ".join(blocked))
+    # Lesson 17: a repeat dispatch of the same brief within 6 hours is refused (duplicate guard was hit
+    # after a piped command had already dispatched). Use --redispatch only with a reason.
+    dlog_path = ROOT / "tracker" / "dispatch-log.json"
+    dlog = json.loads(dlog_path.read_text()) if dlog_path.exists() else {"runs": []}
+    now_ts = time.time()
+    if not getattr(a, "redispatch", False):
+        recent = [x for x in dlog["runs"] if x["brief"] in ids and now_ts - x["ts"] < 6 * 3600]
+        if recent:
+            raise SystemExit(f"cloud preflight: {recent[-1]['brief']} was dispatched in run {recent[-1].get('run_id')} "
+                             f"at {recent[-1]['at']}; inspect that run before dispatching again (or --redispatch REASON)")
     missing = [i for i in ids if not (ROOT / "briefs" / f"{i}.json").exists()]
     if missing:
         raise SystemExit(f"no brief for: {', '.join(missing)} (briefs must be committed: python3 reels.py sync)")
@@ -237,6 +257,11 @@ def cmd_cloud(a):
         "production_receipt": a.receipt, "publish_release": "true" if a.publish_release else "false"
     })
     receipt_doc.update({"run_id": run_id, "status": "dispatched_not_verified"})
+    for brief_id in ids:
+        dlog["runs"].append({"brief": brief_id, "run_id": run_id, "ts": now_ts,
+                             "at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(now_ts))})
+    dlog_path.parent.mkdir(parents=True, exist_ok=True)
+    dlog_path.write_text(json.dumps(dlog, indent=2) + "\n")
     save_receipt()
     print(f"cloud render started: https://github.com/{gh_actions.REPO}/actions/runs/{run_id}  ({len(ids)} video(s))")
     if not a.wait:
@@ -457,6 +482,7 @@ def main():
     p.add_argument("--no-record", action="store_true", help="print only; do not write manifests/<id>/manifest.json")
     p = sub.add_parser("cloud", help="render on GitHub Actions; keep a short-lived artifact by default, public Release is opt-in")
     p.add_argument("briefs", nargs="+", help="brief ids or paths (briefs/<id>.json)")
+    p.add_argument("--redispatch", default="", metavar="REASON", help="allow a repeat dispatch of a brief dispatched in the last 6 h (reason required)")
     p.add_argument("--tag", default="", help="GitHub Release tag (default: renders-YYYY-MM-DD in Asia/Karachi)")
     p.add_argument("--quality", default="looks")
     p.add_argument("--crf", default="23")

@@ -474,6 +474,15 @@ def main():
                 if problem:
                     report["issues"].append({"key": platform, "state": "channel_blocked", "error": problem})
             report["receipts"] = [{"key": k, **{f:r.get(f) for f in ("state","buffer_post_id","external_url","sent_at","due_at")}} for k,r in journal.records.items()]
+            # Lesson 23 (1 Nov): old rows for OTHER videos (legacy tool-* uncertain rows) must not fail
+            # this run. They are listed as held for owner review. A run with no video filter still
+            # fails on any issue, and channel-level problems always fail.
+            requested = set(args.video_ids or [])
+            def blocking(issue):
+                vid = str(issue.get("key", "")).split(":")[0]
+                return (not requested) or vid in requested or issue.get("state") == "channel_blocked"
+            report["held_for_review"] = [i for i in report["issues"] if not blocking(i)]
+            report["issues"] = [i for i in report["issues"] if blocking(i)]
             if report["issues"]:
                 exit_code = 1
         except Deferred as exc:
