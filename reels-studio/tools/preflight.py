@@ -203,6 +203,45 @@ def check_policy(brief_id, brief):
     return out
 
 
+def check_tracked(brief_id):
+    """Lesson 9: gitignored spec/selection files are silently skipped by `git add`.
+
+    Every file a cloud run reads must be tracked (or be a machine-written file that is
+    deliberately ignored, which is not listed here). `git ls-files` reports tracked files
+    only, so an ignored or untracked spec is caught before dispatch.
+    """
+    import subprocess
+    required = [f"briefs/{brief_id}.json", "queue/publish.json", "config/selection.json"]
+    required += [str(p.relative_to(ROOT)) for p in (ROOT / "research" / "production" / "receipts").glob(f"*{brief_id.replace('repo-', '')}*.json")]
+    missing = []
+    for rel in required:
+        if not (ROOT / rel).exists():
+            continue
+        out = subprocess.run(["git", "ls-files", "--error-unmatch", rel], cwd=ROOT,
+                             capture_output=True, text=True)
+        if out.returncode != 0:
+            missing.append(rel)
+    if missing:
+        return [_result("tracked", "BLOCK", "not tracked by git (ignored or untracked): " + ", ".join(missing),
+                        "git add -f the listed files, commit and push before dispatch")]
+    return [_result("tracked", "PASS", f"{len(required)} spec files tracked")]
+
+
+def check_workspace(brief_id):
+    """Lesson 12: the workspace snapshot cap (128 MB / 10,000 files) is a hard gate, not a note."""
+    sys.path.insert(0, str(ROOT / "tools" / "maintenance"))
+    try:
+        import storage  # noqa: E402
+        report = storage.audit()
+    except Exception as exc:  # the audit itself must not pass silently
+        return [_result("workspace", "BLOCK", f"storage audit failed to run: {exc}", "fix tools/maintenance/storage.py")]
+    if not report.get("ok"):
+        return [_result("workspace", "BLOCK",
+                        f"workspace {report.get('workspace_saved_bytes')} bytes over budget or limit",
+                        "python3 tools/maintenance/storage.py audit; remove local MP4s/frames already in a release")]
+    return [_result("workspace", "PASS", f"workspace {report.get('workspace_saved_bytes')} bytes within budget")]
+
+
 def preflight(brief_id):
     path = ROOT / "briefs" / f"{brief_id}.json"
     if not path.exists():
@@ -214,7 +253,8 @@ def preflight(brief_id):
     results = (check_lint(brief_id, path) + check_studio_rules(brief)
                + check_queue_pin(brief_id, brief) + check_render(brief_id)
                + check_motion(brief_id, path) + check_media_aspect(brief_id, brief)
-               + check_policy(brief_id, brief) + check_layout(brief_id, path))
+               + check_policy(brief_id, brief) + check_layout(brief_id, path)
+               + check_tracked(brief_id) + check_workspace(brief_id))
     verdict = "BLOCK" if any(r["status"] == "BLOCK" for r in results) else "PASS"
     return {"id": brief_id, "verdict": verdict, "results": results}
 

@@ -192,10 +192,17 @@ def plan(items, records, channels, posts, cfg, now, preview=False, pilot=False, 
             kinds = [cat for _, cat in known_categories[day]]
             slots = [at_local(day, clock, profile.get("timezone", settings["timezone"])) for clock in clocks]
             slots = [t for t in slots if t and earliest <= t <= end]
-            for idx, due in enumerate(slots):
+            bracket = dt.timedelta(minutes=int((settings.get("best_times") or {}).get("buffer_bracket_minutes", 30)))
+            for idx, base in enumerate(slots):
                 todays_events = [t for t in events.values() if t.astimezone(zone).date() == day]
                 if len(todays_events) >= day_target:
                     break
+                # 1 Nov 2026: a bracket already held by ANY scheduled post on this channel (another
+                # video's record or a Buffer post) is not reused. Before this check the claude-mem
+                # dry-run proposed VoiceStudio's exact slots, because only a 5-minute gap was checked.
+                if any(abs((base - t).total_seconds()) < bracket.total_seconds() for t in events.values()):
+                    continue
+                due = base
                 # Owner 2026-10-31: deterministic random 5-20 min offset to the best-time bracket.
                 # The gap check runs on the FINAL time (after the offset), not the bracket start.
                 due = due + dt.timedelta(minutes=random_offset_minutes(platform, day, idx, cfg, salt=len(events)))
