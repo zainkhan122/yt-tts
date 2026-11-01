@@ -215,7 +215,13 @@
       "src": "anim-catch.mp4",
       "in": 0.0,
       "out": 14.0,
-      "say": "Hosted audits and reports are paid. The free engine is self-hosted, so you run it with your own model keys. Do your agent's green tests match what it really did? Comment AUDIT and I'll pin the link."
+      "say": "Hosted audits and reports are paid. The free engine is self-hosted, so you run it with your own model keys."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "AUDIT",
+      "say": "Do your agent's green tests match what it really did? Comment AUDIT and I'll pin the link."
     }
   ],
   "seo": {

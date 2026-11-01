@@ -57,7 +57,12 @@ def build(plan_path):
     scenes.append({
         "id": "catch", "type": "clip", "src": plan["catch_visual"]["animation"],
         "in": 0.0, "out": 14.0,
-        "say": plan["catch"] + " " + plan["cta"],
+        "say": plan["catch"],
+    })
+    # Outro: question + keyword chip + follow card with the channel logo (the template's endcard).
+    cta_kw = plan["cta_keyword"]
+    scenes.append({
+        "id": "cta", "type": "endcard", "keyword": cta_kw, "say": plan["cta"],
     })
     brief = {
         "id": vid,
