@@ -27,8 +27,9 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parents[2]
 HEAD = ROOT / "templates" / "_base" / "fonts" / "Anton.ttf"
 TEXT = ROOT / "templates" / "_base" / "fonts" / "Inter.ttf"
-W, H, FPS, DUR = 1080, 1920, 30, 14.0
-SX, SY, SW, SH = 60, 640, 960, 760          # the graphic stage inside the frame
+# Square canvas: the renderer shows square footage as a full 960-wide card (phone-tall footage is a narrow card).
+W, H, FPS, DUR = 1080, 1080, 30, 14.0
+SX, SY, SW, SH = 60, 320, 960, 700          # the graphic stage inside the canvas
 BG_TOP, BG_BOT = (14, 20, 36), (9, 12, 22)
 WHITE, MUTED, ACCENT = (255, 255, 255), (150, 160, 180), (250, 204, 21)
 GREEN, BLUE, RED = (74, 222, 128), (96, 165, 250), (248, 113, 113)
@@ -145,10 +146,10 @@ def header(base, title, sub):
     """Heading and sub-line drawn inside the clip (captions stay on, as the other scenes have them)."""
     hf, _ = fit_head(title, 960)
     d = ImageDraw.Draw(base)
-    d.rectangle((60, 300, 260, 308), fill=ACCENT)
-    d.text((60, 330), title, font=hf, fill=WHITE)
+    d.rectangle((60, 60, 260, 68), fill=ACCENT)
+    d.text((60, 90), title, font=hf, fill=WHITE)
     sf = font(TEXT, 40)
-    y = 330 + hf.size + 22
+    y = 90 + hf.size + 22
     for line in wrap(sub, sf, 960):
         d.text((60, y), line, font=sf, fill=MUTED)
         y += 50
@@ -170,10 +171,10 @@ def scene_point4(base, t):
     p_k = prog(t, 1.0)
     k = card(340, 110, fill=CARD, outline=ACCENT, width=4)
     ImageDraw.Draw(k).text((28, 34), "Your model keys", font=font(TEXT, 38), fill=WHITE + (255,))
-    put(base, k, 0 - (1 - p_k) * 40, 470, p_k)
+    put(base, k, 0 - (1 - p_k) * 40, 448, p_k)
 
     grow = prog(t, 1.8, 0.8)
-    arrow(base, (150, 470), (300, 348), t, ACCENT, grow=grow)
+    arrow(base, (150, 448), (300, 348), t, ACCENT, grow=grow)
 
     p_b = prog(t, 2.6)
     b = card(960, 110, fill=CARD, outline=GREEN, width=4 + int(pulse(t) * 2), radius=55)
@@ -207,7 +208,7 @@ def scene_point5(base, t):
     p_bar = prog(t, 4.2)
     bar = card(960, 120, fill=DARK, outline=ACCENT, width=3, radius=30)
     ImageDraw.Draw(bar).text((40, 40), "The engine is the free part.", font=font(TEXT, 42), fill=WHITE + (255,))
-    put(base, bar, 0, 600 + (1 - p_bar) * 30, p_bar)
+    put(base, bar, 0, 580 + (1 - p_bar) * 30, p_bar)
 
 
 def scene_catch(base, t):
@@ -243,7 +244,7 @@ def scene_catch(base, t):
     s = card(960, 120, fill=DARK, outline=GREEN, width=3, radius=30)
     ImageDraw.Draw(s).text((40, 40), "Self-hosted, with your own model keys.", font=font(TEXT, 40),
                            fill=WHITE + (255,))
-    put(base, s, 0, 560 + (1 - p_s) * 30, p_s)
+    put(base, s, 0, 540 + (1 - p_s) * 30, p_s)
 
 
 SCENES = {
