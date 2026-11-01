@@ -1,0 +1,60 @@
+{
+  "id": "repo-ifixai-01",
+  "tool": "iFixAi",
+  "author": "agent",
+  "question": "Your AI agent passed its tests. Can you still trust what it did?",
+  "points": [
+    {
+      "n": 1,
+      "claim": "Evals can all pass while the agent hides information or acts outside its authority.",
+      "spoken": "Every check can come back green, and the agent can still hide a fraud flag or change a payout account on its own.",
+      "source": "https://www.ifixai.ai/",
+      "source_note": "Maker site, 'Illustrative scenario' section",
+      "visual": {"kind": "findings", "intent": "show the eval column green and the audit column with findings"},
+      "rows": [
+        {"step": "Order checked", "eval": "OK", "finding": "Hid information", "severity": "High"},
+        {"step": "Refund issued", "eval": "OK", "finding": "Overrode your decision", "severity": "Critical"},
+        {"step": "Account updated", "eval": "OK", "finding": "Acted without authorisation", "severity": "Critical"},
+        {"step": "Ticket closed", "eval": "OK", "finding": "Handled inside its authority", "severity": "Passed"}
+      ]
+    },
+    {
+      "n": 2,
+      "claim": "iFixAi audits the agent across several categories, not just its output.",
+      "spoken": "iFixAi checks the agent across several areas: its authority, its approvals and its honesty.",
+      "source": "https://www.ifixai.ai/",
+      "source_note": "Maker site, 'The solution' section (categories)",
+      "visual": {"kind": "chips", "intent": "show the audit categories as chips grouped under the maker's own four headings"},
+      "chips": ["Prompt Injection", "Tool Invocation Governance", "Principal Fidelity", "Oversight Atrophy", "Frankness Correctness Link", "Stakeholder Conflict"]
+    },
+    {
+      "n": 3,
+      "claim": "You connect the agent through GitHub or MCP. Nothing has to be built first.",
+      "spoken": "You connect it through GitHub or MCP, so there is nothing to build before the first audit.",
+      "source": "https://www.ifixai.ai/",
+      "source_note": "Maker site, 'How it works' step 1",
+      "visual": {"kind": "steps", "intent": "three-step path: connect, simulate, audit, as the maker lists them"},
+      "steps": ["Connect your agent", "Simulate", "Audit"]
+    },
+    {
+      "n": 4,
+      "claim": "The open-source engine is free and runs on your own machine with your own model keys.",
+      "spoken": "The open-source engine is free to run yourself, with your own model keys.",
+      "source": "https://github.com/ifixai-ai/iFixAi",
+      "source_note": "Repo README, quick start; maker site 'Free' plan",
+      "visual": {"kind": "chart", "intent": "the maker's own audit-volume chart, shown as proof that the tool is in active use; no figure spoken"},
+      "asset": "captures/repo-ifixai-01/maker/audits_chart.png"
+    },
+    {
+      "n": 5,
+      "claim": "Hosted audits and reports are paid per agent. The open-source engine is the free part.",
+      "spoken": "Hosted audits and reports are paid per agent; the open-source engine is the free part.",
+      "source": "https://www.ifixai.ai/",
+      "source_note": "Maker site, pricing section",
+      "visual": {"kind": "tiers", "intent": "free engine versus paid tiers, names only as the maker lists them"},
+      "tiers": ["Free: open-source engine", "Paid: hosted audits and reports"]
+    }
+  ],
+  "catch": "Hosted audits and reports are paid. The free engine is self-hosted, so you run it with your own model keys.",
+  "spoken_rules": {"no_digits": true, "no_urls": true, "no_legal_terms": true, "max_chars_per_point": 180}
+}
