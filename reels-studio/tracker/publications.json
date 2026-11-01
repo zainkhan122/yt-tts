@@ -1518,6 +1518,31 @@
       "updated_at": "2026-10-18T04:47:20Z",
       "video_id": "repo-blender-mcp-01"
     },
+    "repo-claude-mem-01:facebook": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-11-01T22:19:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:3566bc1227b2c887e245489b2ed4c9b1227ba6d7295a06a1df79c5f4c98b5dc2",
+        "asset_id": 698114535,
+        "asset_size": 7319020,
+        "kit_asset_id": 698114588,
+        "kit_digest": "sha256:16170012528febe7f63243caf176c8d51d5fe451d2e13d3928d45ff3a8bc8cc8",
+        "media_path": "media/698114535/repo-claude-mem-01.mp4",
+        "release_tag": "renders-2026-11-01-claude-r1",
+        "video_id": "repo-claude-mem-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/698114535/repo-claude-mem-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "0ed9181ef56c5ea652691c56ea7d46848cd42936f7877ccc56017431f68262ef",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "Coding agent memory, open source: decisions and fixes carry over to your next session.\n\nAI-generated narration.\n\n#codingagentmemory #claudecode #opensource",
+      "title": "Coding Agent Memory That Keeps Context (Open Source)",
+      "updated_at": "2026-11-01T11:23:50Z",
+      "video_id": "repo-claude-mem-01"
+    },
     "repo-claude-mem-01:instagram": {
       "attempts": 1,
       "buffer_post_id": "6ae72141ab019b9087567b3f",
