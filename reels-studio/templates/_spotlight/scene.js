@@ -593,12 +593,6 @@
             const im = A.mk("img", "", inn);
             im.src = "assets/" + s.img.file;
             focusMotion(im, 960, cardH, s.img.w, s.img.h, s.focus, t0, t1);
-            if (s.card_bottom) {
-              const scrim = A.mk("div", "sp-scrim", card);
-              Object.assign(scrim.style, { position: "absolute", left: "0px", right: "0px", bottom: "0px",
-                height: "520px", pointerEvents: "none",
-                background: "linear-gradient(to bottom, rgba(8,12,24,0) 0%, rgba(8,12,24,0.82) 42%, rgba(8,12,24,0.95) 100%)" });
-            }
             if (cover) {  // frame 0 is the cover: the tool visual is on screen from the first frame
               card.style.opacity = "1";
               tl.fromTo(card, { scale: 0.94 }, { scale: 1, duration: 0.36, ease: "power3.out" }, 0);
