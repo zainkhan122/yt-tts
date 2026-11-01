@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "batch_id": "2026-11-01-ifixai-01",
-  "created_at": "2026-11-01T13:03:39Z",
+  "created_at": "2026-11-01T13:29:04Z",
   "briefs": {
     "repo-ifixai-01": {
-      "brief_sha256": "ce25db7ce8f99818af2b1a3f53dde21aa1b9fb4b971af3a8dac80448039201ff",
+      "brief_sha256": "729fa3a9a112cbd29373617e696911b320cee1907a57c625cb1c49c70eebefc6",
       "stages": {
         "script": {
           "status": "complete",
@@ -13,7 +13,7 @@
         },
         "assets": {
           "capture_id": "repo-ifixai-01",
-          "manifest_sha256": "5c8c3d31a88e2fcfe433f4779148521d2a8c2ab0013891b9b44863e371519c51",
+          "manifest_sha256": "b978694841e6a072318fa27acec4ef0dd48d82d94798cb6c44e12bcdf9e5fa94",
           "files": [
             {
               "path": "plan-1.jpg",
@@ -28,27 +28,23 @@
               "sha256": "516bb9bc74e52a2691682b3c000eab330e59aff0adc10913b646e4b7e9d63ea4"
             },
             {
-              "path": "plan-4.jpg",
-              "sha256": "77d24851c1d468a9b8e5aef0c793a83f4925c7866fd06b17278f881a3b558dbe"
+              "path": "anim-point4.mp4",
+              "sha256": "e382816024c9e0bf1c7ed983407c822d2b599ec4546443077b8925a2d6c708a2"
             },
             {
-              "path": "plan-5.jpg",
-              "sha256": "649c3130b88fa5b18052a26db4d42db06f34bfd923f6f342633f677327a7b0c1"
+              "path": "anim-point5.mp4",
+              "sha256": "0ee6b52d18d91d67a87e23fdd690f311e0ad5af020d89f3a9f06a90b89040c84"
+            },
+            {
+              "path": "anim-catch.mp4",
+              "sha256": "45578d28d884e361436b78b22afba92994b47be6e650cf0aa3692ec3ca521539"
             },
             {
               "path": "cover-hero.jpg",
-              "sha256": "eee5957b9878f44571a10829ee9be4c6e57dbe2944abf24b2268966d191c7df4"
-            },
-            {
-              "path": "maker/audits_chart.png",
-              "sha256": "eee5957b9878f44571a10829ee9be4c6e57dbe2944abf24b2268966d191c7df4"
-            },
-            {
-              "path": "maker/hero-audit-light.svg",
-              "sha256": "fc177a3d8c9a0674c1d9692e9dcc4182ff0525136a05178fe33a8b76e829540d"
+              "sha256": "7157eb04a0f8359d50d13384d0166469715168386a640debdca27fa7ce97e5cd"
             }
           ],
-          "cover_sha256": "c8743137e527a153982d53a4f72a4de1a9ec7ddffbe1ced7939ccd5a01004dc1",
+          "cover_sha256": "81b31b3bd6ca149065a7ea83e6256d0b51ed58f729f60fe9f5315d086da86737",
           "status": "complete",
           "evidence": [
             "reels-studio/captures/repo-ifixai-01/manifest.json"

@@ -128,6 +128,8 @@ def build(plan_path):
     keep = {}
     for p in plan["points"]:
         kind = p["visual"]["kind"]
+        if kind == "animation":          # built by tools/motion/make_ifixai_anim.py, not a card
+            continue
         drawers = {"findings": draw_findings, "chips": draw_chips, "steps": draw_steps,
                    "tiers": draw_tiers, "chart": draw_chart}
         if kind not in drawers:

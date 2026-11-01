@@ -29,6 +29,7 @@ VISUAL_KINDS = {
     "tiers": ("tiers",),
     "clip": ("asset",),
     "diagram": ("intent",),
+    "animation": ("animation",),
 }
 LEGAL = re.compile(r"\b(licen[cs]e[ds]?|licensing|terms|privacy|legal|copyright|gdpr|tos)\b", re.I)
 MAX_CHARS = 180
@@ -60,10 +61,15 @@ def check(plan):
         kind = vis.get("kind")
         add(kind in VISUAL_KINDS, f"point {n}: visual kind '{kind}' is known")
         for field in VISUAL_KINDS.get(kind, ()):
-            add(bool(p.get(field)) if field != "intent" else bool(vis.get("intent")),
-                f"point {n}: visual has '{field}'")
+            ok = bool(vis.get(field)) if field in ("intent", "animation") else bool(p.get(field))
+            add(ok, f"point {n}: visual has '{field}'")
+        sub = p.get("sub", "")
+        add(bool(sub) and len(sub) <= 90 and sub.rstrip()[-1:] in ".!?", f"point {n}: sub-line written, complete, at most 90 characters")
         if p.get("asset"):
             add((ROOT / p["asset"]).exists(), f"point {n}: asset exists {p['asset']}")
+    cv = plan.get("catch_visual") or {}
+    add(cv.get("kind") in VISUAL_KINDS, "catch visual kind is known")
+    add(bool(plan.get("catch_sub")), "catch sub-line written")
     catch = plan.get("catch", "")
     add(bool(catch), "catch line written (cost, limit or what it cannot do)")
     add(not re.search(r"https?://", catch), "no URL in catch line")

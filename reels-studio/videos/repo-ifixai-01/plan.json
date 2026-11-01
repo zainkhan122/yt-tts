@@ -40,7 +40,8 @@
           "severity": "Passed"
         }
       ],
-      "title": "Green is not enough"
+      "title": "Green is not enough",
+      "sub": "Evals can all pass while the agent hides information or acts outside its authority."
     },
     {
       "n": 2,
@@ -60,7 +61,8 @@
         "Frankness Correctness Link",
         "Stakeholder Conflict"
       ],
-      "title": "Audited by category"
+      "title": "Audited by category",
+      "sub": "Several categories, not just the output the agent gives you."
     },
     {
       "n": 3,
@@ -77,7 +79,8 @@
         "Simulate",
         "Audit"
       ],
-      "title": "Connect, then audit"
+      "title": "Connect, then audit",
+      "sub": "Connect through GitHub or MCP. Nothing has to be built first."
     },
     {
       "n": 4,
@@ -86,11 +89,12 @@
       "source": "https://github.com/ifixai-ai/iFixAi",
       "source_note": "Repo README, quick start; maker site 'Free' plan",
       "visual": {
-        "kind": "chart",
-        "intent": "the maker's own audit-volume chart, shown as proof that the tool is in active use; no figure spoken"
+        "kind": "animation",
+        "animation": "anim-point4.mp4",
+        "intent": "a flow: your model keys and your machine run the free engine; the badge says free; no figures"
       },
-      "asset": "captures/repo-ifixai-01/maker/audits_chart.png",
-      "title": "Free to run yourself"
+      "title": "Free to run yourself",
+      "sub": "The open-source engine runs on your own machine with your own model keys."
     },
     {
       "n": 5,
@@ -99,14 +103,12 @@
       "source": "https://www.ifixai.ai/",
       "source_note": "Maker site, pricing section",
       "visual": {
-        "kind": "tiers",
-        "intent": "free engine versus paid tiers, names only as the maker lists them"
+        "kind": "animation",
+        "animation": "anim-point5.mp4",
+        "intent": "side-by-side: free engine on the left, paid hosted tier on the right, as the maker lists them"
       },
-      "tiers": [
-        "Free: open-source engine",
-        "Paid: hosted audits and reports"
-      ],
-      "title": "Free engine, paid audits"
+      "title": "Free engine, paid audits",
+      "sub": "The open-source engine is free. Hosted audits and reports are paid per agent."
     }
   ],
   "catch": "Hosted audits and reports are paid. The free engine is self-hosted, so you run it with your own model keys.",
@@ -195,5 +197,11 @@
   "cover": {
     "text": "GREEN TESTS? CHECK WHAT IT DID",
     "note": "must match covers/repo-ifixai-01/selection.json text and covers/system/specs headline"
-  }
+  },
+  "catch_visual": {
+    "kind": "animation",
+    "animation": "anim-catch.mp4",
+    "intent": "the agent connects to the free self-hosted engine; hosted audits and reports sit behind the paid tier"
+  },
+  "catch_sub": "Hosted audits and reports are paid per agent."
 }

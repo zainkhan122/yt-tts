@@ -1,18 +1,36 @@
 {
   "brief": "repo-ifixai-01",
-  "headline": ["GREEN TESTS?", "CHECK WHAT IT DID"],
+  "headline": [
+    "GREEN TESTS?",
+    "CHECK WHAT IT DID"
+  ],
   "headline_size": 128,
-  "accent": [250, 204, 21],
-  "bg_top": [14, 20, 36],
+  "accent": [
+    250,
+    204,
+    21
+  ],
+  "bg_top": [
+    14,
+    20,
+    36
+  ],
   "hero": {
     "img": "cover-hero.jpg",
-    "box": [0, 0, 1321, 795],
+    "box": [
+      0,
+      0,
+      1321,
+      795
+    ],
     "width": 940,
     "x": 70,
     "y": 690
   },
-  "cue": {"type": "none"},
+  "cue": {
+    "type": "none"
+  },
   "logo_px": 120,
-  "source_note": "cover-hero.jpg is the maker's own audit chart (captures/repo-ifixai-01/maker/audits_chart.png), native pixels, no figure in the headline.",
+  "source_note": "cover-hero.jpg is an own graphic: the audit findings card (crop of captures/repo-ifixai-01/plan-1.jpg). No maker chart, no figure.",
   "review": "draft 1 Nov 2026: cover for owner review"
 }

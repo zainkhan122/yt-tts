@@ -75,7 +75,7 @@
       "type": "image",
       "image": "plan-1.jpg",
       "heading": "GREEN IS NOT ENOUGH",
-      "sub": "Evals can all pass while the agent hides information or acts",
+      "sub": "Evals can all pass while the agent hides information or acts outside its authority.",
       "say": "Your agent gives you green for all points, but your app is still not behaving.",
       "focus": [
         {
@@ -116,7 +116,7 @@
       "type": "image",
       "image": "plan-2.jpg",
       "heading": "AUDITED BY CATEGORY",
-      "sub": "iFixAi audits the agent across several categories, not just ",
+      "sub": "Several categories, not just the output the agent gives you.",
       "say": "iFixAi checks the agent across several areas: its authority, its approvals and its honesty.",
       "focus": [
         {
@@ -157,7 +157,7 @@
       "type": "image",
       "image": "plan-3.jpg",
       "heading": "CONNECT, THEN AUDIT",
-      "sub": "You connect the agent through GitHub or MCP. Nothing has to ",
+      "sub": "Connect through GitHub or MCP. Nothing has to be built first.",
       "say": "You connect it through GitHub or MCP, so there is nothing to build before the first audit.",
       "focus": [
         {
@@ -195,126 +195,27 @@
     },
     {
       "id": "point4",
-      "type": "image",
-      "image": "plan-4.jpg",
-      "heading": "FREE TO RUN YOURSELF",
-      "sub": "The open-source engine is free and runs on your own machine ",
-      "say": "The open-source engine is free to run yourself, with your own model keys.",
-      "focus": [
-        {
-          "box": [
-            0.0,
-            0.257,
-            1.0,
-            0.486
-          ],
-          "at": 0.0,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.277,
-            1.0,
-            0.446
-          ],
-          "at": 2.2,
-          "pad": 1.0
-        }
-      ],
-      "keep_visible": [
-        [
-          0.0,
-          1.0
-        ]
-      ],
-      "keep_band": [
-        0.7,
-        0.95
-      ],
-      "card_bottom": 1440
+      "type": "clip",
+      "src": "anim-point4.mp4",
+      "in": 0.0,
+      "out": 14.0,
+      "say": "The open-source engine is free to run yourself, with your own model keys."
     },
     {
       "id": "point5",
-      "type": "image",
-      "image": "plan-5.jpg",
-      "heading": "FREE ENGINE, PAID AUDITS",
-      "sub": "Hosted audits and reports are paid per agent. The open-sourc",
-      "say": "Hosted audits and reports are paid per agent; the open-source engine is the free part.",
-      "focus": [
-        {
-          "box": [
-            0.0,
-            0.306,
-            1.0,
-            0.388
-          ],
-          "at": 0.0,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.326,
-            1.0,
-            0.348
-          ],
-          "at": 2.2,
-          "pad": 1.0
-        }
-      ],
-      "keep_visible": [
-        [
-          0.0,
-          1.0
-        ]
-      ],
-      "keep_band": [
-        0.7,
-        0.95
-      ],
-      "card_bottom": 1440
+      "type": "clip",
+      "src": "anim-point5.mp4",
+      "in": 0.0,
+      "out": 14.0,
+      "say": "Hosted audits and reports are paid per agent; the open-source engine is the free part."
     },
     {
       "id": "catch",
-      "type": "image",
-      "image": "plan-5.jpg",
-      "heading": "THE CATCH",
-      "sub": "hosted audits are paid",
-      "say": "Hosted audits and reports are paid. The free engine is self-hosted, so you run it with your own model keys. Do your agent's green tests match what it really did? Comment AUDIT and I'll pin the link.",
-      "focus": [
-        {
-          "box": [
-            0.0,
-            0.306,
-            1.0,
-            0.388
-          ],
-          "at": 0.0,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.326,
-            1.0,
-            0.348
-          ],
-          "at": 2.2,
-          "pad": 1.0
-        }
-      ],
-      "keep_visible": [
-        [
-          0.0,
-          1.0
-        ]
-      ],
-      "keep_band": [
-        0.7,
-        0.95
-      ],
-      "card_bottom": 1440
+      "type": "clip",
+      "src": "anim-catch.mp4",
+      "in": 0.0,
+      "out": 14.0,
+      "say": "Hosted audits and reports are paid. The free engine is self-hosted, so you run it with your own model keys. Do your agent's green tests match what it really did? Comment AUDIT and I'll pin the link."
     }
   ],
   "seo": {
@@ -437,12 +338,12 @@
     {
       "claim": "c4",
       "evidence": "source:https://github.com/ifixai-ai/iFixAi",
-      "how_shown": "the maker's own audit-volume chart, shown as proof that the tool is in active use; no figure spoken"
+      "how_shown": "a flow: your model keys and your machine run the free engine; the badge says free; no figures"
     },
     {
       "claim": "c5",
       "evidence": "source:https://www.ifixai.ai/",
-      "how_shown": "free engine versus paid tiers, names only as the maker lists them"
+      "how_shown": "side-by-side: free engine on the left, paid hosted tier on the right, as the maker lists them"
     }
   ],
   "treatment": {
@@ -460,7 +361,7 @@
     "cover_concepts": [
       {
         "text": "GREEN TESTS? CHECK WHAT IT DID",
-        "visual": "maker audit chart (cover-hero.jpg)"
+        "visual": "own graphic: audit findings (cover-hero.jpg)"
       }
     ]
   },

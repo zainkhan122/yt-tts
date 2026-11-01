@@ -40,19 +40,24 @@ def build(plan_path):
     }]
     for p in plan["points"]:
         key = f"plan-{p['n']}"
+        if p["visual"]["kind"] == "animation":
+            # Own animated graphic (tools/motion/make_ifixai_anim.py); captions stay on.
+            scenes.append({
+                "id": f"point{p['n']}", "type": "clip", "src": p["visual"]["animation"],
+                "in": 0.0, "out": 14.0, "say": p["spoken"],
+            })
+            continue
         scenes.append({
             "id": f"point{p['n']}", "type": "image", "image": f"{key}.jpg",
-            "heading": p["title"].upper(), "sub": p["claim"][:60],
+            "heading": p["title"].upper(), "sub": p["sub"],
             "say": p["spoken"],
             "focus": scene_focus(keep[key]),
             "keep_visible": [[0.0, 1.0]], "keep_band": [0.7, 0.95], "card_bottom": 1440,
         })
     scenes.append({
-        "id": "catch", "type": "image", "image": "plan-5.jpg",
-        "heading": "THE CATCH", "sub": "hosted audits are paid",
+        "id": "catch", "type": "clip", "src": plan["catch_visual"]["animation"],
+        "in": 0.0, "out": 14.0,
         "say": plan["catch"] + " " + plan["cta"],
-        "focus": scene_focus(keep["plan-5"]),
-        "keep_visible": [[0.0, 1.0]], "keep_band": [0.7, 0.95], "card_bottom": 1440,
     })
     brief = {
         "id": vid,
@@ -84,7 +89,7 @@ def build(plan_path):
             "proof_moment": "point1",
             "selected_cover": 0,
             "archetype": "spotlight",
-            "cover_concepts": [{"text": plan["cover"]["text"], "visual": "maker audit chart (cover-hero.jpg)"}],
+            "cover_concepts": [{"text": plan["cover"]["text"], "visual": "own graphic: audit findings (cover-hero.jpg)"}],
         },
         "review": {"reviewed_at": "2026-11-01T12:30:00Z", "expires_at": "2026-11-08", "reviewer": "agent; plan from maker site and README on 2026-11-01; owner approval of plan given", "notes": "Five points approved by owner 2026-11-01 (point 1 spoken line per owner wording)."},
         "motion_standard": 2,

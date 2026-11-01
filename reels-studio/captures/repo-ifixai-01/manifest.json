@@ -3,52 +3,47 @@
   "url": "https://github.com/ifixai-ai/iFixAi",
   "captured": "2026-11-01",
   "facts": {
-    "source": "maker site, README and repo docs, read 2026-11-01"
+    "source": "maker site and README, read 2026-11-01; no maker chart is used"
   },
   "files": {
     "plan-1": {
       "file": "plan-1.jpg",
       "sha256": "aff8769c678979223f84009c82a81a244f1e8d0aaf5fda8581ef9aef3cdfe53d",
-      "kind": "own graphic or cover hero"
+      "kind": "own graphic: findings card built from the plan"
     },
     "plan-2": {
       "file": "plan-2.jpg",
       "sha256": "e7f0c45c7026843f7c8114dd8082d57c73fb7608a56f8f2674eab7a2542032a2",
-      "kind": "own graphic or cover hero"
+      "kind": "own graphic: category chips built from the plan"
     },
     "plan-3": {
       "file": "plan-3.jpg",
       "sha256": "516bb9bc74e52a2691682b3c000eab330e59aff0adc10913b646e4b7e9d63ea4",
-      "kind": "own graphic or cover hero"
+      "kind": "own graphic: connect-then-audit steps built from the plan"
     },
-    "plan-4": {
-      "file": "plan-4.jpg",
-      "sha256": "77d24851c1d468a9b8e5aef0c793a83f4925c7866fd06b17278f881a3b558dbe",
-      "kind": "own graphic or cover hero"
+    "anim-point4": {
+      "file": "anim-point4.mp4",
+      "sha256": "e382816024c9e0bf1c7ed983407c822d2b599ec4546443077b8925a2d6c708a2",
+      "kind": "own animated graphic built from the plan (tools/motion/make_ifixai_anim.py)"
     },
-    "plan-5": {
-      "file": "plan-5.jpg",
-      "sha256": "649c3130b88fa5b18052a26db4d42db06f34bfd923f6f342633f677327a7b0c1",
-      "kind": "own graphic or cover hero"
+    "anim-point5": {
+      "file": "anim-point5.mp4",
+      "sha256": "0ee6b52d18d91d67a87e23fdd690f311e0ad5af020d89f3a9f06a90b89040c84",
+      "kind": "own animated graphic: side-by-side free vs paid, built from the plan"
+    },
+    "anim-catch": {
+      "file": "anim-catch.mp4",
+      "sha256": "45578d28d884e361436b78b22afba92994b47be6e650cf0aa3692ec3ca521539",
+      "kind": "own animated graphic: the catch, built from the plan"
     },
     "cover-hero": {
       "file": "cover-hero.jpg",
-      "sha256": "eee5957b9878f44571a10829ee9be4c6e57dbe2944abf24b2268966d191c7df4",
-      "kind": "own graphic or cover hero"
-    },
-    "audits-chart": {
-      "file": "maker/audits_chart.png",
-      "sha256": "eee5957b9878f44571a10829ee9be4c6e57dbe2944abf24b2268966d191c7df4",
-      "kind": "maker media"
-    },
-    "audits-chart-svg": {
-      "file": "maker/hero-audit-light.svg",
-      "sha256": "fc177a3d8c9a0674c1d9692e9dcc4182ff0525136a05178fe33a8b76e829540d",
-      "kind": "maker media"
+      "sha256": "7157eb04a0f8359d50d13384d0166469715168386a640debdca27fa7ce97e5cd",
+      "kind": "own graphic: crop of the findings card (plan-1), no figure"
     }
   },
-  "credits": "maker logo and chart are the maker's own; graphics built by the pipeline",
-  "policy": "maker media only, plus own graphics restating the maker's scenario",
+  "credits": "all graphics are the pipeline's own, built from the plan text",
+  "policy": "own graphics and animations only; no maker figures on screen",
   "maker_video": null,
   "sha256": null
 }
