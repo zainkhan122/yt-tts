@@ -22,6 +22,11 @@ class FocusCheckTests(unittest.TestCase):
         probs = fc.check_scene(self.scene([([0.0, 0.1, 0.72, 0.8], 0.0), ([0.28, 0.1, 0.72, 0.8], 2.0)]))
         self.assertEqual(probs, [])
 
+    def test_feed_only_box_outside_label_band_is_not_flagged(self):
+        s = self.scene([([0.25, 0.02, 0.6, 0.44], 0.0), ([0.0, 0.02, 1.0, 0.44], 2.0)])
+        s["keep_band"] = [0.7, 0.95]
+        self.assertEqual(fc.check_scene(s), [])
+
     def test_static_scene_is_caught(self):
         long_line = " ".join(["word"] * 20)  # about 8 s at the estimate
         probs = fc.check_scene(self.scene([([0, 0, 1, 1], 0.0)], say=long_line))

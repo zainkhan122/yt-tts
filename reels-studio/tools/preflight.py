@@ -129,6 +129,30 @@ def check_dispatch_head(brief_id, receipt_rel):
     return [_result("dispatch_head", "PASS", "origin main matches local; brief and receipt committed")]
 
 
+def check_media_aspect(brief_id, brief):
+    """Lesson 14: media for 9:16 cards must be portrait, or the lower frame stays empty."""
+    from PIL import Image
+    out = []
+    cap = ROOT / "captures" / brief_id
+    seen = set()
+    for s in brief.get("scenes") or []:
+        if s.get("type") != "image" or not s.get("image") or s["image"] in seen:
+            continue
+        seen.add(s["image"])
+        path = cap / s["image"]
+        if not path.exists():
+            out.append(_result("media_aspect", "BLOCK", f"{s['image']} missing from capture pack", "rebuild the kit"))
+            continue
+        w_, h_ = Image.open(path).size
+        if w_ > h_ and not brief.get("media_aspect_landscape_ok"):
+            out.append(_result("media_aspect", "BLOCK",
+                               f"{s['image']} is landscape {w_}x{h_}; the card leaves the lower frame empty",
+                               "rebuild at 1080x1440 (portrait) or set media_aspect_landscape_ok with a reason"))
+    if not out:
+        out.append(_result("media_aspect", "PASS", "image scenes use portrait media"))
+    return out
+
+
 def preflight(brief_id):
     path = ROOT / "briefs" / f"{brief_id}.json"
     if not path.exists():
@@ -139,7 +163,7 @@ def preflight(brief_id):
         return {"id": brief_id, "verdict": "BLOCK", "results": [_result("brief", "BLOCK", f"unreadable: {exc}", "fix the JSON")]}
     results = (check_lint(brief_id, path) + check_studio_rules(brief)
                + check_queue_pin(brief_id, brief) + check_render(brief_id)
-               + check_motion(brief_id, path))
+               + check_motion(brief_id, path) + check_media_aspect(brief_id, brief))
     verdict = "BLOCK" if any(r["status"] == "BLOCK" for r in results) else "PASS"
     return {"id": brief_id, "verdict": verdict, "results": results}
 

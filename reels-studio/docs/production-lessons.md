@@ -17,6 +17,8 @@ Update this table whenever a new failure teaches us something.
 | 10 | Stale local render files block preflight (no QA manifest). Delete a render folder before re-rendering. | `preflight` render check |
 | 11 | Panel is the last gate, so one cycle costs about 15 minutes. Check locally first: focus steps, contact sheet, receipt, origin head. | Local-first order in the checklist |
 | 12 | Workspace snapshot limit (128 MB / 10,000 files). Keep only current renders locally; the GitHub release holds the rest. | Cleanup after every render: compare sha with release asset before deleting a local copy |
+| 13 | Pans that stop on a node show a sliver of the neighbouring node at the card edge. Each focus step must show whole labels, or none at the edge (check `keep_visible` on every step, including the ends). | `focus_check.py` (partial overlap); extend to sub-labels at 1:1 later |
+| 14 | A landscape image leaves the lower third of a 9:16 frame empty. Build kit images at the card's portrait proportion so the media fills the middle of the frame. | Kit spec: diagram and feed images at 1080×1400 or taller; check in the local contact sheet before dispatch |
 
 ## Per-video checklist (in order; stop at the first failure)
 

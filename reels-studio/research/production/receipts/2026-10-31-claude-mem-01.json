@@ -4,7 +4,7 @@
   "created_at": "2026-10-31T20:30:00Z",
   "briefs": {
     "repo-claude-mem-01": {
-      "brief_sha256": "48ee82fad6bb886435f49104a5f10c5079b25e1d60e95c39000165ac23ccf12a",
+      "brief_sha256": "f3831ba79edf2f2950f8c07555be5dd362de28ea24f0713f4e630aab957a3062",
       "stages": {
         "script": {
           "status": "complete",
@@ -14,7 +14,7 @@
         "assets": {
           "status": "complete",
           "capture_id": "repo-claude-mem-01",
-          "manifest_sha256": "cb775468cffbd360d5d3833df3ce5603b82991ceba5c1ba3715ff0706bfecf9e",
+          "manifest_sha256": "8a911626822136516f99acffbd486d1b91fc053c394d66faf574855f47185551",
           "files": [
             {
               "path": "claude-mem-logo-for-light-mode.webp",
@@ -38,7 +38,7 @@
             },
             {
               "path": "img-2.jpg",
-              "sha256": "d3c15a26d2be36695ee82fb9eaf49b4822cdda9ba6506b33a3ededc4ab36d877"
+              "sha256": "87aca30ca65cb834337e87a676f21e3f6f1e8707ebc88c946f36fe0c31289db5"
             },
             {
               "path": "img-3.jpg",

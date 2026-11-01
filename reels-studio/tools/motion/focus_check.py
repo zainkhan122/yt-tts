@@ -19,8 +19,11 @@ def check_scene(s):
     problems = []
     steps = s.get("focus") or []
     keep = s.get("keep_visible") or []
+    band = s.get("keep_band")  # [y0, y1] normalised: where the labels sit; boxes outside it may cut freely
     for st in steps:
-        x, _, w, _ = st["box"]
+        x, y, w, h = st["box"]
+        if band and not (y < band[1] and y + h > band[0]):
+            continue
         for lo, hi in keep:
             overlaps = x < hi and x + w > lo
             contains = x <= lo and x + w >= hi
