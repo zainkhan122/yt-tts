@@ -304,3 +304,11 @@ def test_non_legacy_brief_keeps_blocks(ws, monkeypatch):
     monkeypatch.setattr(pf, "check_cover", lambda *a, **k: [pf._result("cover", "PASS", "ok", "")])
     res = pf._cloud_source_checks("repo-x-01", brief)
     assert any(r["status"] == "BLOCK" for r in res)
+
+
+def test_build_generates_brief_before_pulling_capture():
+    """Regression (2 Nov): stage_build read briefs/<id>.json before brief_from_plan had written it."""
+    import inspect
+    import make_shorts
+    src = inspect.getsource(make_shorts.stage_build)
+    assert src.index("brief_from_plan") < src.index('capture_store.py", "pull"')

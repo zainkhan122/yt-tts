@@ -167,13 +167,14 @@ def stage_select(st: dict, count: int) -> list[str]:
 
 def stage_build(st: dict, batch: dict) -> None:
     for vid in batch["ids"]:
-        cap = json.loads((ROOT / "briefs" / f"{vid}.json").read_text(encoding="utf-8"))["capture"].rstrip("/").split("/")[-1]
-        run([sys.executable, "tools/capture_store.py", "pull", cap], log=f"{batch['id']}-pull-{cap}")  # no-op when complete
         plan = ROOT / "videos" / vid / "plan.json"
         reason = _valid_plan(plan)
         if reason:
             raise Stop(f"{vid}: plan no longer valid: {reason}")
+        # The brief is generated from the plan first; only then does it name the capture pack to pull.
         run([sys.executable, "tools/brief_from_plan.py", f"videos/{vid}/plan.json"], log=f"{batch['id']}-brief-{vid}")
+        cap = json.loads((ROOT / "briefs" / f"{vid}.json").read_text(encoding="utf-8"))["capture"].rstrip("/").split("/")[-1]
+        run([sys.executable, "tools/capture_store.py", "pull", cap], log=f"{batch['id']}-pull-{cap}")  # no-op when complete
     receipt_rel = f"reels-studio/research/production/receipts/{batch['id']}.json"
     run([sys.executable, "tools/receipt_build.py", batch["id"], *batch["ids"]], log=f"{batch['id']}-receipt")
     batch["receipt"] = receipt_rel
