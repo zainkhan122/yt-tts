@@ -1,6 +1,6 @@
 # Shorts performance — 2026-11-02
 
-Source: Buffer Insights snapshot `2026-11-02T13:30:18Z` (complete: **True**) · videos analysed: **50** · mature (≥7d): **41** · developing: **3** · too early (<2d): **6**
+Source: Buffer Insights snapshot `2026-11-02T14:02:20Z` (complete: **True**) · videos analysed: **50** · mature (≥7d): **41** · developing: **3** · too early (<2d): **6**
 
 Metrics are ranked within each platform and never compared across platforms. Verdicts use mature videos only; everything else is labelled descriptive.
 
@@ -11,7 +11,7 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 | `repo-harp-01` (mature) | 8.7d | 240 | 1.2% | 0 | 0 | — | 0 |
 | `list-free-video-ai-01` (mature) | 22.8d | 182 | 0% | 0 | 0 | — | 0 |
 | `repo-ai-newtab-01` (mature) | 22.6d | 169 | 0% | 0 | 0 | — | 0 |
-| `repo-edge0-01` (early) | 1.8d | 124 | 0% | 0 | 0 | — | 116.0 |
+| `repo-edge0-01` (early) | 1.8d | 124 | 0% | 0 | 0 | — | 113.6 |
 | `repo-solidglass-01` (mature) | 17.8d | 118 | 0% | 0 | 0 | — | 0 |
 
 ## instagram — top by views
@@ -21,15 +21,15 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 | `news-gpt61-astra-01` (mature) | 21.1d | 308 | 0.7% | 0 | 0 | 0 | 0 |
 | `repo-opencr-01` (mature) | 20.2d | 269 | 2.1% | 0 | 2 | 1 | 0 |
 | `model-embeddinggemma2-01` (mature) | 18.0d | 236 | 4.7% | 0 | 7 | 1 | 0 |
-| `news-muse-spark-01` (mature) | 16.6d | 221 | 2.5% | 0 | 1 | 3 | 0 |
+| `news-muse-spark-01` (mature) | 16.7d | 221 | 2.5% | 0 | 1 | 3 | 0 |
 | `tool-higgsfield-01` (mature) | 19.8d | 219 | 1.6% | 0 | 1 | 2 | 0 |
 
 ## youtube — top by views
 
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| `tool-qwen38-01` (mature) | 20.9d | 1,705 | 0.7% | 0 | — | — | 39.3 |
-| `repo-coop-anything-01` (mature) | 13.7d | 1,083 | 1.3% | 3 | — | — | 73.0 |
+| `tool-qwen38-01` (mature) | 20.9d | 1,705 | 0.7% | 0 | — | — | 38.5 |
+| `repo-coop-anything-01` (mature) | 13.8d | 1,083 | 1.3% | 3 | — | — | 71.5 |
 | `repo-ds4-01` (mature) | 20.7d | 1,022 | 0.9% | 0 | — | — | 0 |
 | `tool-ltx25-01` (mature) | 20.8d | 434 | 0.5% | 0 | — | — | 2.8 |
 | `tool-openmontage-01` (mature) | 20.6d | 351 | 0.6% | 0 | — | — | 2.8 |
