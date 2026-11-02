@@ -174,7 +174,32 @@ def build(plan_path):
         keep["plan-catch"] = [round(max(0, top - 20) / H, 3), round(min(end + 20, H) / H, 3)]
         print("wrote", out.relative_to(ROOT), "keep", keep["plan-catch"])
     (cap / "plan-keep.json").write_text(json.dumps(keep, indent=2), encoding="utf-8")
+    write_manifest(plan, cap)
     return keep
+
+
+def write_manifest(plan, cap):
+    """captures/<id>/manifest.json: every kit image with its sha256, read by tools/receipt_build.py.
+    The facts are the plan's own sources, so the receipt can show where each card's words came from."""
+    import datetime as dt
+    import hashlib
+    files = {}
+    for path in sorted(cap.glob("plan-*.jpg")):
+        n = path.stem.removeprefix("plan-")
+        kind = "own graphic: card built from the plan's visual spec"
+        if n == "catch":
+            kind = "own graphic: catch card built from the plan's catch visual"
+        files[path.stem] = {"file": path.name, "sha256": hashlib.sha256(path.read_bytes()).hexdigest(), "kind": kind}
+    sources = [p["source"] for p in plan["points"]]
+    manifest = {
+        "id": plan["id"],
+        "url": plan.get("repo_url") or sources[0],
+        "captured": dt.date.today().isoformat(),
+        "facts": {"source": "maker README and repo page, read on the day of the plan", "sources": sources},
+        "files": files,
+    }
+    (cap / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print("wrote", (cap / "manifest.json").relative_to(ROOT), len(files), "files")
 
 
 if __name__ == "__main__":

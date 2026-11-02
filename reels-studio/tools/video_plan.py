@@ -101,6 +101,8 @@ def check_packaging(plan):
     add(isinstance(cta, str) and 0 < len(cta) <= 140 and not re.search(r"https?://", cta), "packaging: cta written, no URL, at most 140 characters")
     cov = plan.get("cover") or {}
     add(isinstance(cov.get("text"), str) and 0 < len(cov.get("text", "")) <= 40, "packaging: cover text 1-40 characters")
+    words = (cov.get("text") or "").split() if isinstance(cov.get("text"), str) else []
+    add(1 <= len(words) <= 8, "packaging: cover text is 1-8 words (two headline lines; cover_lab checks 4 per concept)")
 
     seo = plan.get("seo") or {}
     add(isinstance(seo.get("keyword"), str) and bool(seo.get("keyword")), "packaging: seo.keyword present")
