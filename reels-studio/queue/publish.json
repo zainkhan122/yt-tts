@@ -264,7 +264,7 @@
       "priority": 100,
       "release_tag": "renders-2026-10-10",
       "reviewed_at": "2026-10-11T05:29:03Z",
-      "title": "Pomelli: Free AI Product Photos\u2014with a Catch",
+      "title": "Pomelli: Free AI Product Photos—with a Catch",
       "video_id": "tool-pomelli-01",
       "youtube_ai_generated": true
     },
@@ -755,7 +755,7 @@
       "priority": 15,
       "release_tag": "renders-2026-10-15",
       "reviewed_at": "2026-10-15T12:42:11Z",
-      "title": "LFM2.5: 24B Brain, 2B at Work \u2014 a Local Agent Model",
+      "title": "LFM2.5: 24B Brain, 2B at Work — a Local Agent Model",
       "video_id": "model-lfm25-01",
       "youtube_ai_generated": false
     },
@@ -1227,78 +1227,6 @@
       "reviewed_at": "2026-10-28T15:52:21Z",
       "title": "Halo: an AI overlay that whispers what to say on calls",
       "video_id": "repo-halo-01",
-      "youtube_ai_generated": false
-    },
-    {
-      "added_at": "2026-10-30T04:19:46Z",
-      "approval": "approved",
-      "asset_digest": "sha256:c971135c03a53b4537cd332d151c13639d2889ca3c490dea4ea0dffa57064cb9",
-      "asset_id": 690899291,
-      "asset_size": 8748201,
-      "brief_sha256": "0b2f98a9ec7242fefcab1dda979431595a803f8a29efde0659194cda6d1bc503",
-      "category": "tool",
-      "expires_at": "2026-11-06T12:00:00Z",
-      "kit_asset_id": 690899344,
-      "kit_digest": "sha256:6fe91fe1691a123bc1a246584d4dbf6cd8e8af5aed335aa20b80bcc9149c67a8",
-      "media_path": "media/690899291/tool-gpt6-01.mp4",
-      "platforms": [
-        "facebook",
-        "instagram",
-        "youtube"
-      ],
-      "priority": 50,
-      "release_tag": "renders-2026-10-30",
-      "reviewed_at": "2026-10-30T04:23:17Z",
-      "title": "This AI Played Minecraft for 141 Hours Straight",
-      "video_id": "tool-gpt6-01",
-      "youtube_ai_generated": false
-    },
-    {
-      "added_at": "2026-10-30T04:19:47Z",
-      "approval": "approved",
-      "asset_digest": "sha256:3bd23e08c31994008289d73587038834f96feef6cc34281d0e82f3c78ee6e49d",
-      "asset_id": 690899399,
-      "asset_size": 7569777,
-      "brief_sha256": "4a97714f93bdc6650501b8b862a13dd15eb7a68d311a57ed82714391666c2994",
-      "category": "tool",
-      "expires_at": "2026-11-06T12:00:00Z",
-      "kit_asset_id": 690899472,
-      "kit_digest": "sha256:d9be20a8d0352168849b3d15ff134d7e36a52dd3e1951217916edad292a902c1",
-      "media_path": "media/690899399/tool-claude-code-01.mp4",
-      "platforms": [
-        "facebook",
-        "instagram",
-        "youtube"
-      ],
-      "priority": 50,
-      "release_tag": "renders-2026-10-30",
-      "reviewed_at": "2026-10-30T04:23:17Z",
-      "title": "This AI Coding Agent Is Everywhere Right Now",
-      "video_id": "tool-claude-code-01",
-      "youtube_ai_generated": false
-    },
-    {
-      "added_at": "2026-10-30T04:19:48Z",
-      "approval": "approved",
-      "asset_digest": "sha256:9ea86e6f56f4dc2913e2706d98f545d6488ebb530dfb82525ecd1786321d8ff8",
-      "asset_id": 690899524,
-      "asset_size": 4733079,
-      "brief_sha256": "b905ff9f742a2e78e0910be67dae7a4b3f405e01b600688a6effa2eb9759fa4d",
-      "category": "tool",
-      "expires_at": "2026-11-06T12:00:00Z",
-      "kit_asset_id": 690899596,
-      "kit_digest": "sha256:a3ba9f76c7600e0435c85448313163e245dbf7f2ecb8de320569c2d17e32fd3b",
-      "media_path": "media/690899524/tool-heygen-01.mp4",
-      "platforms": [
-        "facebook",
-        "instagram",
-        "youtube"
-      ],
-      "priority": 50,
-      "release_tag": "renders-2026-10-30",
-      "reviewed_at": "2026-10-30T04:23:17Z",
-      "title": "AI video generator for avatar-based content creation",
-      "video_id": "tool-heygen-01",
       "youtube_ai_generated": false
     },
     {
