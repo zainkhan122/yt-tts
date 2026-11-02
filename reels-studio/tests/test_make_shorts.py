@@ -312,3 +312,11 @@ def test_build_generates_brief_before_pulling_capture():
     import make_shorts
     src = inspect.getsource(make_shorts.stage_build)
     assert src.index("brief_from_plan") < src.index('capture_store.py", "pull"')
+
+
+def test_build_pulls_capture_pack_only_when_missing():
+    """Regression (2 Nov): a kit built locally was pulled from the store before it had been pushed."""
+    import inspect
+    import make_shorts
+    src = inspect.getsource(make_shorts.stage_build)
+    assert "exists()" in src and src.index("exists()") < src.index('capture_store.py", "pull"')

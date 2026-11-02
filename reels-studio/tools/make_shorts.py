@@ -174,7 +174,10 @@ def stage_build(st: dict, batch: dict) -> None:
         # The brief is generated from the plan first; only then does it name the capture pack to pull.
         run([sys.executable, "tools/brief_from_plan.py", f"videos/{vid}/plan.json"], log=f"{batch['id']}-brief-{vid}")
         cap = json.loads((ROOT / "briefs" / f"{vid}.json").read_text(encoding="utf-8"))["capture"].rstrip("/").split("/")[-1]
-        run([sys.executable, "tools/capture_store.py", "pull", cap], log=f"{batch['id']}-pull-{cap}")  # no-op when complete
+        # Pull only restores a pack that is missing from the workspace. A pack built here (kit cards) is
+        # not in the store yet; the source stage pushes it. Pulling it now would stop the batch for nothing.
+        if not (ROOT / "captures" / cap).exists():
+            run([sys.executable, "tools/capture_store.py", "pull", cap], log=f"{batch['id']}-pull-{cap}")
     receipt_rel = f"reels-studio/research/production/receipts/{batch['id']}.json"
     run([sys.executable, "tools/receipt_build.py", batch["id"], *batch["ids"]], log=f"{batch['id']}-receipt")
     batch["receipt"] = receipt_rel
