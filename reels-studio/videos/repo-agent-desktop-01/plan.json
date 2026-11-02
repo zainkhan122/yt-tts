@@ -1,0 +1,89 @@
+{
+ "id": "repo-agent-desktop-01",
+ "tool": "agent-desktop",
+ "author": "agent",
+ "question": "Can an AI agent use my computer for me without guessing from screenshots?",
+ "points": [
+  {
+   "n": 1,
+   "claim": "agent-desktop reads apps through the OS accessibility tree, not pixel matching.",
+   "spoken": "It reads your apps through the accessibility tree, the same structure screen readers use.",
+   "source": "https://github.com/vercel-labs/agent-desktop",
+   "source_note": "README intro: 'through the OS accessibility tree... with no pixel matching'",
+   "visual": {
+    "kind": "steps",
+    "intent": "three-step loop as the README gives it"
+   },
+   "steps": [
+    "Snapshot the app",
+    "Act on a ref",
+    "Snapshot again to check"
+   ],
+   "title": "Read the UI, not pixels",
+   "sub": "Every snapshot lists the elements the agent can act on."
+  },
+  {
+   "n": 2,
+   "claim": "Each actionable element gets a ref, so the agent acts on a target, not a guess.",
+   "spoken": "Every element gets a ref, so the agent clicks a target instead of a guessed spot.",
+   "source": "https://github.com/vercel-labs/agent-desktop",
+   "source_note": "README quick start: 'a snapshot returns JSON with a ref for every element'",
+   "visual": {
+    "kind": "chips",
+    "intent": "the three platforms the README's support table lists"
+   },
+   "chips": [
+    "macOS",
+    "Windows",
+    "Linux"
+   ],
+   "title": "A ref for every element",
+   "sub": "The same loop runs on macOS, Windows and Linux."
+  },
+  {
+   "n": 3,
+   "claim": "When the UI changes, a stale ref fails safely and the agent must snapshot again.",
+   "spoken": "If the screen changes, the old reference fails safely, and the agent takes a fresh snapshot.",
+   "source": "https://github.com/vercel-labs/agent-desktop",
+   "source_note": "README: 'When the UI changes, an action returns STALE_REF... take a new snapshot'",
+   "visual": {
+    "kind": "steps",
+    "intent": "failure path: act, stale ref, new snapshot, retry"
+   },
+   "steps": [
+    "Act on a ref",
+    "Ref is stale",
+    "Take a new snapshot"
+   ],
+   "title": "Stale refs fail safely",
+   "sub": "A changed screen returns an error, not a wrong click."
+  },
+  {
+   "n": 4,
+   "claim": "It installs with one npm command and is open source.",
+   "spoken": "It installs with one npm command, and the source is open for anyone to read.",
+   "source": "https://github.com/vercel-labs/agent-desktop",
+   "source_note": "README installation: 'npm install -g agent-desktop'; repo is open source",
+   "visual": {
+    "kind": "steps",
+    "intent": "install command, then the version check, as the README shows"
+   },
+   "title": "One command to install",
+   "sub": "Install with npm, then check the version.",
+   "steps": [
+    "npm install -g agent-desktop",
+    "agent-desktop version"
+   ]
+  }
+ ],
+ "catch": "On macOS it needs Accessibility permission first, and it reads only what the OS exposes.",
+ "catch_sub": "Grant Accessibility permission, then it can read the app.",
+ "catch_visual": {
+  "kind": "steps",
+  "intent": "permission step before any command runs",
+  "steps": [
+   "Grant Accessibility permission",
+   "Then run the snapshot"
+  ]
+ }
+}
