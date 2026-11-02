@@ -1,0 +1,91 @@
+{
+ "id": "repo-bla-01",
+ "tool": "BLA",
+ "author": "agent",
+ "question": "Can an AI agent read my app's code, and how do I stop it?",
+ "points": [
+  {
+   "n": 1,
+   "claim": "AI reverse-engineering agents can open a shipped build and study it.",
+   "spoken": "AI agents can open a shipped app and study how it works.",
+   "source": "https://github.com/qybaihe/bla",
+   "source_note": "README: protects builds against AI reverse-engineering agents such as REA",
+   "visual": {
+    "kind": "steps",
+    "intent": "the threat"
+   },
+   "title": "The threat",
+   "sub": "A shipped build can be read by an agent.",
+   "steps": [
+    "You ship a build",
+    "An AI agent opens it",
+    "It studies the logic"
+   ]
+  },
+  {
+   "n": 2,
+   "claim": "BLA targets compiled binaries, Electron apps, JavaScript bundles, Python and WebAssembly.",
+   "spoken": "It protects compiled apps, Electron apps, JavaScript bundles, Python and WebAssembly.",
+   "source": "https://github.com/qybaihe/bla",
+   "source_note": "README intro: binaries, Electron apps, JS bundles, Python, WebAssembly",
+   "visual": {
+    "kind": "chips",
+    "intent": "formats covered"
+   },
+   "title": "What it covers",
+   "sub": "Five kinds of build.",
+   "chips": [
+    "Binaries",
+    "Electron",
+    "JS bundles",
+    "Python",
+    "WebAssembly"
+   ]
+  },
+  {
+   "n": 3,
+   "claim": "The analyzer runs into resource budgets and decoys, while users see the same behaviour.",
+   "spoken": "The analyst runs into decoys and spends its budget, while your users see the same app.",
+   "source": "https://github.com/qybaihe/bla",
+   "source_note": "README tagline: resource budgets, decoys, same runtime behaviour",
+   "visual": {
+    "kind": "steps",
+    "intent": "how it slows the analyst"
+   },
+   "title": "How it slows an analyst",
+   "sub": "Your users are not affected.",
+   "steps": [
+    "Analyst hits a budget",
+    "Analyst follows a decoy",
+    "Users see the same app"
+   ]
+  },
+  {
+   "n": 4,
+   "claim": "You harden your own build with one command.",
+   "spoken": "Harden your own build with one command, or ask your agent to do it.",
+   "source": "https://github.com/qybaihe/bla",
+   "source_note": "README quick start: bla harden .",
+   "visual": {
+    "kind": "steps",
+    "intent": "the command"
+   },
+   "title": "One command",
+   "sub": "Run it on the build you ship.",
+   "steps": [
+    "Run bla harden",
+    "Ship the hardened build"
+   ]
+  }
+ ],
+ "catch": "Its token and cost numbers are internal estimates, not measured results.",
+ "catch_sub": "The README says so.",
+ "catch_visual": {
+  "kind": "steps",
+  "intent": "honesty",
+  "steps": [
+   "Estimates",
+   "Measured runtime checks"
+  ]
+ }
+}

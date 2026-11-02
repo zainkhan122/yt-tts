@@ -1,0 +1,91 @@
+{
+ "id": "repo-stack-diagram-01",
+ "tool": "stack-diagram",
+ "author": "agent",
+ "question": "Can AI draw my system diagram from one sentence?",
+ "points": [
+  {
+   "n": 1,
+   "claim": "Describe your stack in one sentence and an architecture diagram comes back.",
+   "spoken": "Describe your stack in one sentence, and the agent draws the architecture.",
+   "source": "https://github.com/caru-ini/stack-diagram",
+   "source_note": "README: 'Describe your stack in a sentence. Get an architecture diagram'",
+   "visual": {
+    "kind": "steps",
+    "intent": "sentence to diagram"
+   },
+   "title": "One sentence in",
+   "sub": "The diagram comes from your words.",
+   "steps": [
+    "Describe the stack",
+    "The agent draws it",
+    "You get the diagram"
+   ]
+  },
+  {
+   "n": 2,
+   "claim": "Each service gets its official logo.",
+   "spoken": "It uses each service's official logo, so the diagram looks like the real stack.",
+   "source": "https://github.com/caru-ini/stack-diagram",
+   "source_note": "README: 'official logos'; examples with Next.js, Neon, Clerk, Stripe",
+   "visual": {
+    "kind": "chips",
+    "intent": "logos used in the README examples"
+   },
+   "title": "Official logos",
+   "sub": "Each tool in its own colours.",
+   "chips": [
+    "Next.js",
+    "Postgres",
+    "Stripe",
+    "GitHub Actions"
+   ]
+  },
+  {
+   "n": 3,
+   "claim": "The result is one HTML file that renders offline, in light and dark themes.",
+   "spoken": "The result is one HTML file with the logos inside, and it renders in light and dark.",
+   "source": "https://github.com/caru-ini/stack-diagram",
+   "source_note": "README: one HTML file with fonts and logos inlined; light and dark",
+   "visual": {
+    "kind": "chips",
+    "intent": "what you get"
+   },
+   "title": "One file to share",
+   "sub": "Fonts and logos are inside the file.",
+   "chips": [
+    "One HTML file",
+    "Works offline",
+    "Light and dark"
+   ]
+  },
+  {
+   "n": 4,
+   "claim": "It runs as a skill in Claude Code, Codex and Cursor.",
+   "spoken": "It runs as a skill in Claude Code, Codex and Cursor, with one install command.",
+   "source": "https://github.com/caru-ini/stack-diagram",
+   "source_note": "README: npx skills add; works with Claude Code, Codex, Cursor",
+   "visual": {
+    "kind": "chips",
+    "intent": "where it runs"
+   },
+   "title": "Install as a skill",
+   "sub": "One command adds it.",
+   "chips": [
+    "Claude Code",
+    "Codex",
+    "Cursor"
+   ]
+  }
+ ],
+ "catch": "It draws what you describe, so a vague sentence gives a vague diagram.",
+ "catch_sub": "Describe the stack clearly.",
+ "catch_visual": {
+  "kind": "steps",
+  "intent": "limit",
+  "steps": [
+   "Clear sentence",
+   "Right diagram"
+  ]
+ }
+}
