@@ -171,7 +171,8 @@ def stage_build(st: dict, batch: dict) -> None:
         reason = _valid_plan(plan)
         if reason:
             raise Stop(f"{vid}: plan no longer valid: {reason}")
-        # The brief is generated from the plan first; only then does it name the capture pack to pull.
+        # The kit cards come from the plan's own visual spec; the brief is then mapped from plan + kit.
+        run([sys.executable, "tools/motion/build_plan_kit.py", f"videos/{vid}/plan.json"], log=f"{batch['id']}-kit-{vid}")
         run([sys.executable, "tools/brief_from_plan.py", f"videos/{vid}/plan.json"], log=f"{batch['id']}-brief-{vid}")
         cap = json.loads((ROOT / "briefs" / f"{vid}.json").read_text(encoding="utf-8"))["capture"].rstrip("/").split("/")[-1]
         # Pull only restores a pack that is missing from the workspace. A pack built here (kit cards) is

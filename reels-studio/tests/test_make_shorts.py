@@ -320,3 +320,10 @@ def test_build_pulls_capture_pack_only_when_missing():
     import make_shorts
     src = inspect.getsource(make_shorts.stage_build)
     assert "exists()" in src and src.index("exists()") < src.index('capture_store.py", "pull"')
+
+
+def test_build_makes_the_kit_before_the_brief():
+    import inspect
+    import make_shorts
+    src = inspect.getsource(make_shorts.stage_build)
+    assert src.index("build_plan_kit") < src.index("brief_from_plan")
