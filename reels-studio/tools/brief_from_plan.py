@@ -2,17 +2,28 @@
 """Generate briefs/<id>.json from videos/<id>/plan.json. The plan is the brain; this only maps it.
 
 Scene order is fixed by the format, not by the content:
-  hook (viewer question) -> one scene per plan point -> catch + call to action.
-Every spoken line, heading, image and SEO string is copied from the plan. Nothing about the tool
-is written here. Run tools/video_plan.py and tools/motion/build_plan_kit.py first.
+  hook (viewer question) -> one scene per plan point -> catch -> call to action.
+Every spoken line, heading, image, SEO string and claim is copied from the plan. Nothing about any
+tool is written here, and nothing is claimed that the plan does not say.
+
+Prerequisites (each is checked, and the build stops with the missing item named):
+  1. tools/video_plan.py passes for the plan (PLAN PASS), including the packaging fields.
+  2. tools/motion/build_plan_kit.py has written captures/<id>/plan-<n>.jpg, plan-catch.jpg (when the
+     catch is a card) and captures/<id>/plan-keep.json.
+  3. Any point or catch that uses an animation names a file that exists in captures/<id>/.
 
 Usage: python3 tools/brief_from_plan.py videos/<id>/plan.json
 """
+import datetime as dt
 import json
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+class BuildError(SystemExit):
+    pass
 
 
 def scene_focus(band):
@@ -25,45 +36,65 @@ def scene_focus(band):
     ]
 
 
+def _keep_for(keep, key, vid):
+    if key not in keep:
+        raise BuildError(f"{vid}: plan-keep.json has no band for {key}; re-run tools/motion/build_plan_kit.py")
+    return keep[key]
+
+
+def _card_scene(scene_id, key, heading, sub, say, keep, vid):
+    return {
+        "id": scene_id, "type": "image", "image": f"{key}.jpg",
+        "heading": heading, "sub": sub, "say": say,
+        "focus": scene_focus(_keep_for(keep, key, vid)),
+        "keep_visible": [[0.0, 1.0]], "keep_band": [0.7, 0.95], "card_bottom": 1440,
+    }
+
+
+def _animation_file(vid, name):
+    path = ROOT / "captures" / vid / name
+    if not path.exists():
+        raise BuildError(f"{vid}: animation '{name}' not found in captures/{vid}/; build it or use a card visual")
+    return name
+
+
 def build(plan_path):
     plan = json.loads(Path(plan_path).read_text(encoding="utf-8"))
     vid = plan["id"]
-    keep = json.loads((ROOT / "captures" / vid / "plan-keep.json").read_text(encoding="utf-8"))
+    keep_path = ROOT / "captures" / vid / "plan-keep.json"
+    if not keep_path.exists():
+        raise BuildError(f"{vid}: captures/{vid}/plan-keep.json missing; run tools/motion/build_plan_kit.py first")
+    keep = json.loads(keep_path.read_text(encoding="utf-8"))
     seo = plan["seo"]
     meta = plan["brief_meta"]
-    scenes = [{
-        "id": "hook", "type": "image", "image": "plan-1.jpg",
-        "heading": seo["onscreen_first3s"], "sub": "iFixAi · open source",
-        "say": plan["question"],
-        "focus": scene_focus(keep["plan-1"]),
-        "keep_visible": [[0.0, 1.0]], "keep_band": [0.7, 0.95], "card_bottom": 1440,
-    }]
+    brand = plan["brand_line"]
+
+    scenes = [_card_scene("hook", "plan-1", seo["onscreen_first3s"], brand, plan["question"], keep, vid)]
+    scenes[0]["keep_visible"] = [[0.0, 1.0]]
     for p in plan["points"]:
         key = f"plan-{p['n']}"
         if p["visual"]["kind"] == "animation":
-            # Own animated graphic (tools/motion/make_ifixai_anim.py); captions stay on.
             scenes.append({
-                "id": f"point{p['n']}", "type": "clip", "src": p["visual"]["animation"],
+                "id": f"point{p['n']}", "type": "clip",
+                "src": _animation_file(vid, p["visual"]["animation"]),
                 "in": 0.0, "out": 14.0, "say": p["spoken"],
             })
             continue
-        scenes.append({
-            "id": f"point{p['n']}", "type": "image", "image": f"{key}.jpg",
-            "heading": p["title"].upper(), "sub": p["sub"],
-            "say": p["spoken"],
-            "focus": scene_focus(keep[key]),
-            "keep_visible": [[0.0, 1.0]], "keep_band": [0.7, 0.95], "card_bottom": 1440,
-        })
-    scenes.append({
-        "id": "catch", "type": "clip", "src": plan["catch_visual"]["animation"],
-        "in": 0.0, "out": 14.0,
-        "say": plan["catch"],
-    })
+        scenes.append(_card_scene(f"point{p['n']}", key, p["title"].upper(), p["sub"], p["spoken"], keep, vid))
+
+    cv = plan["catch_visual"]
+    if cv["kind"] == "animation":
+        catch_scene = {"id": "catch", "type": "clip", "src": _animation_file(vid, cv["animation"]),
+                       "in": 0.0, "out": 14.0, "say": plan["catch"]}
+    else:
+        catch_scene = _card_scene("catch", "plan-catch", plan.get("catch_title", "The catch").upper(),
+                                  plan["catch_sub"], plan["catch"], keep, vid)
+    scenes.append(catch_scene)
+
     # Outro: question + keyword chip + follow card with the channel logo (the template's endcard).
-    cta_kw = plan["cta_keyword"]
-    scenes.append({
-        "id": "cta", "type": "endcard", "keyword": cta_kw, "say": plan["cta"],
-    })
+    scenes.append({"id": "cta", "type": "endcard", "keyword": plan["cta_keyword"], "say": plan["cta"]})
+
+    today = dt.date.today().isoformat()
     brief = {
         "id": vid,
         "capture": f"captures/{vid}",
@@ -72,11 +103,17 @@ def build(plan_path):
         "lang": "en-us",
         "style": "explainer",
         "status": "draft",
-        "production_category": "repo",
+        "production_category": plan.get("production_category", "repo"),
         "keywords": meta["keywords"],
-        "facts": {"method": "tool's own maker site and README, read on the day of the plan", "limits": "hosted audits are paid per agent; the open-source engine is free to self-host"},
+        "facts": {
+            "method": "tool's own README and repo page, read on the day of the plan",
+            "limits": plan["catch"],
+        },
         "sources": [p["source"] for p in plan["points"]],
-        "verify_before_render": [f"Every point cites its source in the plan ({vid}/plan.json).", "Kit images built from the plan and the maker's own audit chart only."],
+        "verify_before_render": [
+            f"Every point cites its source in the plan ({vid}/plan.json).",
+            "Kit images are drawn from the plan's own visual spec only.",
+        ],
         "scenes": scenes,
         "seo": seo,
         "post": {"cta": plan["cta"], "hashtags": ["#shorts"]},
@@ -84,19 +121,27 @@ def build(plan_path):
         "viewer": meta["viewer"],
         "idea": meta["idea"],
         "claims": [{"id": f"c{p['n']}", "text": p["claim"], "source": p["source"]} for p in plan["points"]],
-        "proof_plan": [{"claim": f"c{p['n']}", "evidence": "source:" + p["source"], "how_shown": p["visual"]["intent"]} for p in plan["points"]],
+        "proof_plan": [{"claim": f"c{p['n']}", "evidence": "source:" + p["source"],
+                        "how_shown": p["visual"]["intent"]} for p in plan["points"]],
         "treatment": {
             "audience": meta["viewer"]["who"],
             "viewer_job": meta["viewer"]["job"],
             "intent": "search",
-            "hook_mechanic": "question about a green test that hides a problem",
+            "hook_mechanic": plan.get("hook_mechanic", "viewer question about the tool's first claim"),
             "open_loop": {"plant": plan["question"], "payoff_scene": "point1"},
             "proof_moment": "point1",
             "selected_cover": 0,
             "archetype": "spotlight",
-            "cover_concepts": [{"text": plan["cover"]["text"], "visual": "own graphic: audit findings (cover-hero.jpg)"}],
+            "cover_concepts": [{"text": plan["cover"]["text"], "visual": plan["cover"].get("visual", "own graphic from the plan")}],
         },
-        "review": {"reviewed_at": "2026-11-01T12:30:00Z", "expires_at": "2026-11-08", "reviewer": "agent; plan from maker site and README on 2026-11-01; owner approval of plan given", "notes": "Five points approved by owner 2026-11-01 (point 1 spoken line per owner wording)."},
+        # Honest review state: the plan was written by the agent from the maker's own material. The
+        # owner approved the TOPIC; nothing here says the owner approved this plan or its copy.
+        "review": {
+            "reviewed_at": today,
+            "expires_at": None,
+            "reviewer": "agent: plan written from the maker's README and repo page",
+            "notes": "Topic approved by owner (config/topic-approvals.json). Plan and copy await owner review at the cover gate.",
+        },
         "motion_standard": 2,
     }
     out = ROOT / "briefs" / f"{vid}.json"
@@ -109,4 +154,8 @@ if __name__ == "__main__":
     if len(sys.argv) != 2:
         print(__doc__)
         sys.exit(2)
-    build(sys.argv[1])
+    try:
+        build(sys.argv[1])
+    except BuildError as exc:
+        print(f"BLOCK: {exc.code}", file=sys.stderr)
+        sys.exit(1)

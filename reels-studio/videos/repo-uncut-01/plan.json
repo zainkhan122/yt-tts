@@ -88,5 +88,83 @@
    "Provider limit",
    "Clear error"
   ]
+ },
+ "brand_line": "UNCUT · coding agent harness",
+ "cover": {
+  "text": "NO HIDDEN CUTS?"
+ },
+ "cta": "Would you run a coding agent in a pipeline? Comment UNCUT and I'll pin the repo link.",
+ "cta_keyword": "UNCUT",
+ "seo": {
+  "onscreen_first3s": "NO HIDDEN CUTS",
+  "youtube": {
+   "title": "UNCUT: A Coding Agent in One Small Binary",
+   "description": "UNCUT is a lossless, headless coding agent harness: one static binary, four tools, plain stdin and stdout. It sends the whole conversation on every call, never truncates file output, and exits with an error rather than passing off a partial answer.\nRepo: https://github.com/Balanov/uncut",
+   "tags": [
+    "UNCUT",
+    "coding agent",
+    "headless AI agent",
+    "Go binary",
+    "CLI AI agent",
+    "lossless context"
+   ],
+   "hashtags": [
+    "#Shorts",
+    "#CodingAgent",
+    "#CLI",
+    "#OpenSource"
+   ]
+  },
+  "tiktok": {
+   "caption": "UNCUT: a headless coding agent in one static binary, with no silent cuts.",
+   "hashtags": [
+    "#CodingAgent",
+    "#CLI",
+    "#OpenSource"
+   ]
+  },
+  "instagram": {
+   "caption": "A coding agent in one static binary with no silent cuts. Plain text in, plain text out. Save this for your next pipeline.",
+   "hashtags": [
+    "#CodingAgent",
+    "#CLI",
+    "#OpenSource",
+    "#DevTools"
+   ]
+  },
+  "facebook": {
+   "caption": "UNCUT is a headless coding agent harness: one static binary, no hidden truncation. Open source.",
+   "hashtags": [
+    "#CodingAgent",
+    "#CLI"
+   ]
+  },
+  "x": {
+   "text": "UNCUT: a headless coding agent in one static binary, with no silent cuts.",
+   "hashtags": [
+    "#CLI"
+   ]
+  },
+  "keyword": "headless coding agent",
+  "aliases": [
+   "CLI AI agent",
+   "lossless AI agent"
+  ]
+ },
+ "brief_meta": {
+  "title": "UNCUT: a lossless coding agent in one binary",
+  "niche": "developer tools",
+  "keywords": [
+   "headless coding agent",
+   "CLI AI agent",
+   "lossless AI agent",
+   "UNCUT"
+  ],
+  "idea": "UNCUT is a headless coding agent that never silently truncates its context or output.",
+  "viewer": {
+   "who": "engineers running agents in CI or shell pipelines",
+   "problem": "agents that silently truncate output",
+   "job": "decide whether a small lossless harness fits their pipeline"
+  }
  }
 }

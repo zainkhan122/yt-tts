@@ -364,10 +364,14 @@ def legacy_ids():
     return set(json.loads(path.read_text(encoding="utf-8")).get("briefs", {})) if path.exists() else set()
 
 
-def _cloud_source_checks(brief_id, brief):
+def _cloud_source_checks(brief_id, brief, *, with_release=True, with_cover=True):
     """Assets, capture-pack release and cover. For a LEGACY brief (its video already went out) these are
     NOTE, not BLOCK: it is not re-dispatched from the old brief, and a new render is a new decision."""
-    results = check_assets_present(brief_id, brief) + check_capture_pack_release(brief_id, brief) + check_cover(brief_id)
+    results = check_assets_present(brief_id, brief)
+    if with_release:
+        results += check_capture_pack_release(brief_id, brief)
+    if with_cover:
+        results += check_cover(brief_id)
     if brief_id not in legacy_ids():
         return results
     for r in results:
@@ -378,22 +382,43 @@ def _cloud_source_checks(brief_id, brief):
     return results
 
 
-def preflight(brief_id):
+# Phases. Each later phase adds the checks that only become true after the previous stage:
+#   pre       before the source stage: content, layout, assets on disk. Tracked/release/head/cover cannot
+#             be true yet (they are produced by commit, push and render), so they are not run here.
+#   dispatch  before a cloud render: the brief is committed, the capture pack is in the release, and
+#             origin main equals HEAD (lessons 5, 6). The cover is not checked: it is extracted from the
+#             render and approved after it.
+#   full      before queueing: everything, including the reviewed cover matching the plan text.
+PHASES = ("pre", "dispatch", "full")
+
+
+def preflight(brief_id, phase="full", receipt_rel=None):
+    if phase not in PHASES:
+        raise ValueError(f"unknown phase {phase!r}")
     path = ROOT / "briefs" / f"{brief_id}.json"
     if not path.exists():
-        return {"id": brief_id, "verdict": "BLOCK", "results": [_result("brief", "BLOCK", "brief file not found", "check the id")]}
+        return {"id": brief_id, "phase": phase, "verdict": "BLOCK", "results": [_result("brief", "BLOCK", "brief file not found", "check the id")]}
     try:
         brief = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, ValueError) as exc:
-        return {"id": brief_id, "verdict": "BLOCK", "results": [_result("brief", "BLOCK", f"unreadable: {exc}", "fix the JSON")]}
+        return {"id": brief_id, "phase": phase, "verdict": "BLOCK", "results": [_result("brief", "BLOCK", f"unreadable: {exc}", "fix the JSON")]}
     results = (check_lint(brief_id, path) + check_studio_rules(brief)
                + check_queue_pin(brief_id, brief) + check_render(brief_id)
                + check_motion(brief_id, path) + check_media_aspect(brief_id, brief)
                + check_policy(brief_id, brief) + check_layout(brief_id, path)
-               + check_tracked(brief_id) + check_workspace(brief_id)
-               + _cloud_source_checks(brief_id, brief))
+               + check_workspace(brief_id))
+    if phase == "pre":
+        results += _cloud_source_checks(brief_id, brief, with_release=False, with_cover=False)
+    else:
+        results += check_tracked(brief_id)
+        results += _cloud_source_checks(brief_id, brief, with_release=True, with_cover=(phase == "full"))
+        if phase == "dispatch":
+            if not receipt_rel:
+                results.append(_result("dispatch_head", "BLOCK", "no production receipt named for this dispatch", "build the receipt first"))
+            else:
+                results += check_dispatch_head(brief_id, receipt_rel)
     verdict = "BLOCK" if any(r["status"] == "BLOCK" for r in results) else "PASS"
-    return {"id": brief_id, "verdict": verdict, "results": results}
+    return {"id": brief_id, "phase": phase, "verdict": verdict, "results": results}
 
 
 def main(argv=None):

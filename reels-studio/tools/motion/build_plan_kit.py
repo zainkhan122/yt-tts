@@ -150,6 +150,29 @@ def build(plan_path):
         img.save(out, quality=92)
         keep[f"plan-{p['n']}"] = [round(max(0, top - 20) / H, 3), round(min(end + 20, H) / H, 3)]
         print("wrote", out.relative_to(ROOT), "keep", keep[f"plan-{p['n']}"])
+    # The catch card, drawn from catch_visual the same way as a point (unless it is an animation file).
+    cv = plan.get("catch_visual") or {}
+    if cv.get("kind") and cv["kind"] != "animation":
+        catch_pt = {"n": "catch", "title": plan.get("catch_title", "The catch"), "sub": plan.get("catch_sub", ""),
+                    "visual": cv, **{k: v for k, v in cv.items() if k not in ("kind", "intent")}}
+        kind = cv["kind"]
+        drawers = {"findings": draw_findings, "chips": draw_chips, "steps": draw_steps, "tiers": draw_tiers, "chart": draw_chart}
+        if kind not in drawers:
+            raise SystemExit(f"catch visual kind '{kind}' has no drawer")
+
+        def render_catch(top):
+            im = Image.new("RGB", (W, H), BG)
+            dr = ImageDraw.Draw(im)
+            header(dr, catch_pt["title"])
+            return im, drawers[kind](im, dr, catch_pt, top)
+
+        _, measured_end = render_catch(250)
+        top = max(250, (H - (measured_end - 250)) // 2)
+        img, end = render_catch(top)
+        out = cap / "plan-catch.jpg"
+        img.save(out, quality=92)
+        keep["plan-catch"] = [round(max(0, top - 20) / H, 3), round(min(end + 20, H) / H, 3)]
+        print("wrote", out.relative_to(ROOT), "keep", keep["plan-catch"])
     (cap / "plan-keep.json").write_text(json.dumps(keep, indent=2), encoding="utf-8")
     return keep
 

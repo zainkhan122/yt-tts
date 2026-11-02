@@ -73,6 +73,64 @@ def check(plan):
     catch = plan.get("catch", "")
     add(bool(catch), "catch line written (cost, limit or what it cannot do)")
     add(not re.search(r"https?://", catch), "no URL in catch line")
+    res += check_packaging(plan)
+    return res
+
+
+PACKAGING_KEYS = ("brand_line", "seo", "brief_meta", "cover", "cta", "cta_keyword")
+
+
+def check_packaging(plan):
+    """Everything brief_from_plan needs, checked here so a plan fails at authoring time, not at build.
+
+    The copy itself is run through the studio's own copy rules (studio/rules.py), so the wording
+    that reaches preflight has already been checked.
+    """
+    res = []
+
+    def add(ok, msg):
+        res.append(("PASS" if ok else "BLOCK", msg))
+
+    for key in PACKAGING_KEYS:
+        add(bool(plan.get(key)), f"packaging: '{key}' written")
+    bl = plan.get("brand_line", "")
+    add(isinstance(bl, str) and 0 < len(bl) <= 40, "packaging: brand_line 1-40 characters")
+    kw = plan.get("cta_keyword", "")
+    add(isinstance(kw, str) and bool(re.fullmatch(r"[A-Z]{2,12}", kw)), "packaging: cta_keyword is one capital word, 2-12 letters")
+    cta = plan.get("cta", "")
+    add(isinstance(cta, str) and 0 < len(cta) <= 140 and not re.search(r"https?://", cta), "packaging: cta written, no URL, at most 140 characters")
+    cov = plan.get("cover") or {}
+    add(isinstance(cov.get("text"), str) and 0 < len(cov.get("text", "")) <= 40, "packaging: cover text 1-40 characters")
+
+    seo = plan.get("seo") or {}
+    add(isinstance(seo.get("keyword"), str) and bool(seo.get("keyword")), "packaging: seo.keyword present")
+    add(isinstance(seo.get("onscreen_first3s"), str) and 0 < len(seo.get("onscreen_first3s", "")) <= 30, "packaging: seo.onscreen_first3s 1-30 characters")
+    for platform in ("youtube", "tiktok", "instagram", "facebook", "x"):
+        block = seo.get(platform)
+        add(isinstance(block, dict), f"packaging: seo.{platform} present")
+    yt = seo.get("youtube") or {}
+    add(isinstance(yt.get("title"), str) and bool(yt.get("title")), "packaging: seo.youtube.title present")
+    add(isinstance(yt.get("description"), str) and bool(yt.get("description")), "packaging: seo.youtube.description present")
+    add(isinstance(yt.get("tags"), list) and len(yt.get("tags", [])) >= 3, "packaging: seo.youtube.tags at least 3")
+
+    meta = plan.get("brief_meta") or {}
+    for key in ("title", "niche", "idea"):
+        add(bool(meta.get(key)), f"packaging: brief_meta.{key} present")
+    add(isinstance(meta.get("keywords"), list) and len(meta.get("keywords", [])) >= 2, "packaging: brief_meta.keywords at least 2")
+    viewer = meta.get("viewer") or {}
+    add(all(viewer.get(k) for k in ("who", "problem", "job")), "packaging: brief_meta.viewer has who, problem and job")
+
+    # Platform copy rules (length, hashtags, credit words, placeholders, https links).
+    try:
+        import sys as _sys
+        from pathlib import Path as _P
+        _sys.path.insert(0, str(ROOT))
+        from studio import rules as _rules
+        findings = _rules.check_copy({"id": plan.get("id", "?"), "seo": seo, "voice": {"synthetic": True}})
+        errors = [f for f in findings if f.level == "error"]
+        add(not errors, f"copy rules: {len(errors)} problem(s)" + ("" if not errors else ": " + "; ".join(f.code + " " + f.message for f in errors[:4])))
+    except Exception as exc:  # the checker itself must not hide a failure
+        add(False, f"copy rules could not run: {exc}")
     return res
 
 

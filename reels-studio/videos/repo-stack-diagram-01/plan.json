@@ -87,5 +87,83 @@
    "Clear sentence",
    "Right diagram"
   ]
+ },
+ "brand_line": "stack-diagram · agent skill",
+ "cover": {
+  "text": "DRAW MY STACK?"
+ },
+ "cta": "Would you draw your stack in one sentence? Comment STACK and I'll pin the link.",
+ "cta_keyword": "STACK",
+ "seo": {
+  "onscreen_first3s": "DRAW YOUR STACK",
+  "youtube": {
+   "title": "stack-diagram: Draw Your Stack From One Sentence",
+   "description": "stack-diagram is an agent skill. Describe your stack in a sentence and get an architecture diagram with official logos. It runs in Claude Code, Codex and Cursor, and the result is one HTML file.\nRepo: https://github.com/caru-ini/stack-diagram",
+   "tags": [
+    "stack-diagram",
+    "architecture diagram",
+    "AI diagram",
+    "Claude Code skill",
+    "system design",
+    "Cursor skill"
+   ],
+   "hashtags": [
+    "#Shorts",
+    "#SystemDesign",
+    "#ClaudeCode",
+    "#DevTools"
+   ]
+  },
+  "tiktok": {
+   "caption": "stack-diagram: one sentence in, an architecture diagram with official logos out.",
+   "hashtags": [
+    "#SystemDesign",
+    "#DevTools",
+    "#ClaudeCode"
+   ]
+  },
+  "instagram": {
+   "caption": "Describe your stack in one sentence. Get an architecture diagram with official logos. Save this for your next design.",
+   "hashtags": [
+    "#SystemDesign",
+    "#DevTools",
+    "#ClaudeCode",
+    "#AITools"
+   ]
+  },
+  "facebook": {
+   "caption": "stack-diagram draws your system architecture from one sentence, with the official logo of each service.",
+   "hashtags": [
+    "#SystemDesign",
+    "#DevTools"
+   ]
+  },
+  "x": {
+   "text": "stack-diagram: describe your stack in one sentence and get an architecture diagram.",
+   "hashtags": [
+    "#DevTools"
+   ]
+  },
+  "keyword": "architecture diagram AI",
+  "aliases": [
+   "stack diagram",
+   "system design diagram"
+  ]
+ },
+ "brief_meta": {
+  "title": "stack-diagram: an architecture diagram from one sentence",
+  "niche": "AI coding tools",
+  "keywords": [
+   "architecture diagram AI",
+   "stack diagram",
+   "system design diagram",
+   "Claude Code skill"
+  ],
+  "idea": "stack-diagram turns one sentence about a stack into an architecture diagram with official logos.",
+  "viewer": {
+   "who": "developers and architects sketching systems",
+   "problem": "drawing a stack diagram by hand takes too long",
+   "job": "make a clear diagram of a stack quickly"
+  }
  }
 }

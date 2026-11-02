@@ -180,15 +180,21 @@ def stage_build(st: dict, batch: dict) -> None:
     batch["receipt"] = receipt_rel
 
 
-def stage_gate(batch: dict) -> None:
+def _preflight_or_stop(batch: dict, phase: str, receipt_rel: str | None = None) -> None:
+    """Run the preflight phase for every brief in the batch; any BLOCK stops the batch with the fix named."""
     sys.path.insert(0, str(ROOT / "tools"))
     import preflight as pf
     blocked = []
     for vid in batch["ids"]:
-        verdict = pf.preflight(vid)
+        verdict = pf.preflight(vid, phase=phase, receipt_rel=receipt_rel)
         blocked += [f"{vid}: {x['check']}: {x['detail']} -> {x['fix']}" for x in verdict["results"] if x["status"] == "BLOCK"]
     if blocked:
-        raise Stop("preflight BLOCKED:\n  " + "\n  ".join(blocked))
+        raise Stop(f"preflight BLOCKED ({phase}):\n  " + "\n  ".join(blocked))
+
+
+def stage_gate(batch: dict) -> None:
+    """Before the source stage: content gates only (tracked, release and cover are produced later)."""
+    _preflight_or_stop(batch, "pre")
 
 
 def stage_source(batch: dict) -> None:
@@ -213,6 +219,8 @@ def stage_source(batch: dict) -> None:
 
 
 def stage_render(batch: dict) -> None:
+    # Dispatch gate: brief committed, capture pack in the release, origin main == HEAD (lessons 5, 6).
+    _preflight_or_stop(batch, "dispatch", receipt_rel=batch["receipt"])
     tag = f"renders-{batch['id']}"
     cmd = [sys.executable, "reels.py", "cloud", *batch["ids"], "--receipt", batch["receipt"],
            "--tag", tag, "--publish-release", "--wait"]
@@ -286,6 +294,8 @@ def stage_cover(batch: dict, approved: set[str]) -> None:
 
 
 def stage_queue(batch: dict) -> None:
+    # Full gate after the reviewed cover: nothing reaches the queue with a cover that differs from review.
+    _preflight_or_stop(batch, "full", receipt_rel=batch["receipt"])
     now = dt.datetime.now(TZ).replace(microsecond=0)
     until = (now + dt.timedelta(days=7)).replace(hour=0, minute=0, second=0).isoformat()
     for vid in batch["ids"]:

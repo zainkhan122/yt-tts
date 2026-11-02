@@ -89,5 +89,83 @@
    "Game effects",
    "Not photo edits"
   ]
+ },
+ "brand_line": "pixelfx · game effects",
+ "cover": {
+  "text": "244 PIXEL EFFECTS"
+ },
+ "cta": "Would you use code-made pixel effects in your game? Comment PIXEL and I'll pin the link.",
+ "cta_keyword": "PIXEL",
+ "seo": {
+  "onscreen_first3s": "244 PIXEL EFFECTS",
+  "youtube": {
+   "title": "pixelfx: 244 Pixel-Art Effects You Can Read and Edit",
+   "description": "pixelfx is an open-source library of 244 pixel-art effects, each one a small piece of code. Recolour, mirror and export sprite sheets, and use the included Claude Code skill to make new effects.\nGallery: https://patch-gg.github.io/pixelfx/\nRepo: https://github.com/patch-gg/pixelfx",
+   "tags": [
+    "pixelfx",
+    "pixel art effects",
+    "sprite sheet",
+    "game VFX",
+    "pixel art",
+    "Claude Code skill"
+   ],
+   "hashtags": [
+    "#Shorts",
+    "#PixelArt",
+    "#GameDev",
+    "#OpenSource"
+   ]
+  },
+  "tiktok": {
+   "caption": "pixelfx: 244 pixel-art effects, each one a small piece of code you can edit.",
+   "hashtags": [
+    "#PixelArt",
+    "#GameDev",
+    "#OpenSource"
+   ]
+  },
+  "instagram": {
+   "caption": "244 pixel-art effects, each one readable code. Recolour, mirror and export sprite sheets. Save this for your next game.",
+   "hashtags": [
+    "#PixelArt",
+    "#GameDev",
+    "#OpenSource",
+    "#IndieGameDev"
+   ]
+  },
+  "facebook": {
+   "caption": "pixelfx: an open-source library of pixel-art effects for games, with a Claude Code skill to make new ones.",
+   "hashtags": [
+    "#PixelArt",
+    "#GameDev"
+   ]
+  },
+  "x": {
+   "text": "pixelfx: 244 pixel-art effects, each one a small piece of code you can edit.",
+   "hashtags": [
+    "#GameDev"
+   ]
+  },
+  "keyword": "pixel art effects",
+  "aliases": [
+   "sprite sheet export",
+   "game VFX code"
+  ]
+ },
+ "brief_meta": {
+  "title": "pixelfx: 244 pixel-art effects as code",
+  "niche": "game dev tools",
+  "keywords": [
+   "pixel art effects",
+   "sprite sheet export",
+   "game VFX code",
+   "pixelfx"
+  ],
+  "idea": "pixelfx is a library of pixel-art effects written as small pieces of code.",
+  "viewer": {
+   "who": "indie game developers and pixel artists",
+   "problem": "pixel effects are slow to make by hand",
+   "job": "see whether the library fits their game"
+  }
  }
 }

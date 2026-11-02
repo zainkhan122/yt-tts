@@ -87,5 +87,83 @@
    "Estimates",
    "Measured runtime checks"
   ]
+ },
+ "brand_line": "BLA · defensive tool",
+ "cover": {
+  "text": "CAN AI READ YOUR BUILD?"
+ },
+ "cta": "Would you harden your build against AI analysis? Comment BLA and I'll pin the repo link.",
+ "cta_keyword": "BLA",
+ "seo": {
+  "onscreen_first3s": "AI READS YOUR BUILD",
+  "youtube": {
+   "title": "BLA: Slow Down AI Reverse-Engineering Agents",
+   "description": "BLA is a defensive tool for software you own. It pushes AI reverse-engineering agents onto decoys and resource budgets, while your users see the same runtime behaviour. It covers binaries, Electron apps, JavaScript bundles, Python and WebAssembly.\nRepo: https://github.com/qybaihe/bla",
+   "tags": [
+    "BLA",
+    "reverse engineering defense",
+    "AI reverse engineering",
+    "software protection",
+    "Electron security",
+    "WebAssembly protection"
+   ],
+   "hashtags": [
+    "#Shorts",
+    "#Security",
+    "#ReverseEngineering",
+    "#OpenSource"
+   ]
+  },
+  "tiktok": {
+   "caption": "BLA pushes AI reverse-engineering agents onto decoys. For software you own.",
+   "hashtags": [
+    "#Security",
+    "#ReverseEngineering",
+    "#OpenSource"
+   ]
+  },
+  "instagram": {
+   "caption": "Can an AI agent read the app you ship? BLA is a defensive tool for your own builds. Save this for later.",
+   "hashtags": [
+    "#Security",
+    "#ReverseEngineering",
+    "#OpenSource",
+    "#DevTools"
+   ]
+  },
+  "facebook": {
+   "caption": "BLA is a defensive tool that makes AI reverse-engineering agents work harder, for software you own.",
+   "hashtags": [
+    "#Security",
+    "#DevTools"
+   ]
+  },
+  "x": {
+   "text": "BLA: slow down AI reverse-engineering agents on the builds you ship. Defensive, for software you own.",
+   "hashtags": [
+    "#Security"
+   ]
+  },
+  "keyword": "reverse engineering defense",
+  "aliases": [
+   "AI reverse engineering",
+   "software protection"
+  ]
+ },
+ "brief_meta": {
+  "title": "BLA: harden your build against AI reverse engineering",
+  "niche": "developer security",
+  "keywords": [
+   "reverse engineering defense",
+   "AI reverse engineering",
+   "software protection",
+   "BLA tool"
+  ],
+  "idea": "BLA hardens shipped builds against AI reverse-engineering agents by making their analysis costly.",
+  "viewer": {
+   "who": "developers shipping Electron apps, JavaScript bundles or binaries",
+   "problem": "a shipped build can be studied by an AI agent",
+   "job": "decide whether to harden a build"
+  }
  }
 }

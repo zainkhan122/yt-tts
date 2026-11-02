@@ -61,7 +61,7 @@
   {
    "n": 4,
    "claim": "It installs with one npm command and is open source.",
-   "spoken": "It installs with one npm command, and the source is open for anyone to read.",
+   "spoken": "Install it with one npm command. The source is open for anyone to read.",
    "source": "https://github.com/vercel-labs/agent-desktop",
    "source_note": "README installation: 'npm install -g agent-desktop'; repo is open source",
    "visual": {
@@ -85,5 +85,84 @@
    "Grant Accessibility permission",
    "Then run the snapshot"
   ]
+ },
+ "brand_line": "agent-desktop · open source",
+ "cover": {
+  "text": "CAN AI USE YOUR PC?",
+  "visual": "own graphic from the plan's steps card"
+ },
+ "cta": "Would you let an agent use your desktop? Comment DESKTOP and I'll pin the repo link.",
+ "cta_keyword": "DESKTOP",
+ "seo": {
+  "onscreen_first3s": "AI USES YOUR APPS",
+  "youtube": {
+   "title": "agent-desktop: Let AI Use Your Desktop Apps",
+   "description": "agent-desktop lets an AI agent read and operate desktop apps through the OS accessibility tree. Each element gets a ref, so the agent acts on a target instead of a pixel guess. Open source, installs with npm.\nRepo: https://github.com/vercel-labs/agent-desktop",
+   "tags": [
+    "agent-desktop",
+    "AI computer use",
+    "desktop automation",
+    "accessibility tree",
+    "AI agents",
+    "open source AI agent"
+   ],
+   "hashtags": [
+    "#Shorts",
+    "#AIAgents",
+    "#DesktopAutomation",
+    "#OpenSource"
+   ]
+  },
+  "tiktok": {
+   "caption": "agent-desktop: AI reads your apps through the accessibility tree, not screenshots. Open source.",
+   "hashtags": [
+    "#AIAgents",
+    "#DesktopAutomation",
+    "#OpenSource"
+   ]
+  },
+  "instagram": {
+   "caption": "Can an AI agent use your computer without guessing from screenshots? agent-desktop reads apps through the accessibility tree. Save this for your next agent build.",
+   "hashtags": [
+    "#AIAgents",
+    "#DesktopAutomation",
+    "#OpenSource",
+    "#AITools"
+   ]
+  },
+  "facebook": {
+   "caption": "agent-desktop lets an AI agent read and operate desktop apps through the accessibility tree, with a ref for every element. Open source.",
+   "hashtags": [
+    "#AIAgents",
+    "#DesktopAutomation"
+   ]
+  },
+  "x": {
+   "text": "agent-desktop: AI agents read your desktop apps through the accessibility tree, not pixels.",
+   "hashtags": [
+    "#AIAgents"
+   ]
+  },
+  "keyword": "AI computer use",
+  "aliases": [
+   "desktop automation",
+   "agent-desktop"
+  ]
+ },
+ "brief_meta": {
+  "title": "agent-desktop: computer use through the accessibility tree",
+  "niche": "AI coding tools",
+  "keywords": [
+   "AI computer use",
+   "desktop automation",
+   "agent-desktop",
+   "accessibility tree"
+  ],
+  "idea": "agent-desktop lets an agent read and act on desktop apps through the OS accessibility tree.",
+  "viewer": {
+   "who": "developers building or testing AI agents",
+   "problem": "agents that guess from screenshots break when the screen changes",
+   "job": "decide whether a desktop agent tool is worth trying"
+  }
  }
 }

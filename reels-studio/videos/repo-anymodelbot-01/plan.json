@@ -89,5 +89,83 @@
    "Pay per token",
    "No app subscription"
   ]
+ },
+ "brand_line": "AnyModelBot · open source",
+ "cover": {
+  "text": "YOUR OWN AI BOT?"
+ },
+ "cta": "Would you run your own AI bot? Comment BOT and I'll pin the repo link.",
+ "cta_keyword": "BOT",
+ "seo": {
+  "onscreen_first3s": "YOUR OWN AI BOT",
+  "youtube": {
+   "title": "AnyModelBot: Run Your Own AI Bot on Any Model",
+   "description": "AnyModelBot is an open-source, local-first AI agent app. Your chats, memory and keys stay on your device, and one account gives access to many models. You pay per use.\nRepo: https://github.com/modelflare-ai/AnyModelBot",
+   "tags": [
+    "AnyModelBot",
+    "local AI agent",
+    "AI chat bot",
+    "self hosted AI",
+    "open source AI",
+    "AI agents"
+   ],
+   "hashtags": [
+    "#Shorts",
+    "#AIAgents",
+    "#SelfHosted",
+    "#OpenSource"
+   ]
+  },
+  "tiktok": {
+   "caption": "AnyModelBot: a local-first AI bot on any model. Your chats and keys stay on your device.",
+   "hashtags": [
+    "#AIAgents",
+    "#SelfHosted",
+    "#OpenSource"
+   ]
+  },
+  "instagram": {
+   "caption": "Your own AI bot, on your own computer, with any model. Chats and keys stay local. Save this for later.",
+   "hashtags": [
+    "#AIAgents",
+    "#SelfHosted",
+    "#OpenSource",
+    "#AITools"
+   ]
+  },
+  "facebook": {
+   "caption": "AnyModelBot is an open-source, local-first AI agent you run yourself. You pay per use for models.",
+   "hashtags": [
+    "#AIAgents",
+    "#SelfHosted"
+   ]
+  },
+  "x": {
+   "text": "AnyModelBot: a local-first AI bot on any model, with your chats and keys on your device.",
+   "hashtags": [
+    "#AIAgents"
+   ]
+  },
+  "keyword": "local AI bot",
+  "aliases": [
+   "self hosted AI agent",
+   "AnyModelBot"
+  ]
+ },
+ "brief_meta": {
+  "title": "AnyModelBot: a local-first AI bot on any model",
+  "niche": "AI tools",
+  "keywords": [
+   "local AI bot",
+   "self hosted AI agent",
+   "AnyModelBot",
+   "any model AI"
+  ],
+  "idea": "AnyModelBot runs a personal AI agent on your own machine, with models from many vendors.",
+  "viewer": {
+   "who": "people who want a personal AI bot they control",
+   "problem": "chat bots that lock you into one model and one vendor",
+   "job": "see whether a local-first bot fits"
+  }
  }
 }

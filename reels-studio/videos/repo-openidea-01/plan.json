@@ -98,5 +98,83 @@
    "Maker's numbers",
    "Check yourself"
   ]
+ },
+ "brand_line": "OpenIDEA · native IDE",
+ "cover": {
+  "text": "INTELLIJ KEYS, RUST CORE"
+ },
+ "cta": "Would you switch to a native IntelliJ-style IDE? Comment IDE and I'll pin the repo link.",
+ "cta_keyword": "IDE",
+ "seo": {
+  "onscreen_first3s": "INTELLIJ KEYS, RUST",
+  "youtube": {
+   "title": "OpenIDEA: An IntelliJ-Style IDE Rebuilt in Rust",
+   "description": "OpenIDEA brings the IntelliJ IDEA keymap, tool windows and search-everything habits to a native app with a Rust core. It covers editor, debugger, Git, terminal, database and HTTP clients for 60+ languages. The benchmark in the README is the maker's own, on one project.\nRepo: https://github.com/l0ng-ai/openidea",
+   "tags": [
+    "OpenIDEA",
+    "IntelliJ alternative",
+    "Rust IDE",
+    "native IDE",
+    "IntelliJ keymap",
+    "code editor"
+   ],
+   "hashtags": [
+    "#Shorts",
+    "#IDE",
+    "#Rust",
+    "#OpenSource"
+   ]
+  },
+  "tiktok": {
+   "caption": "OpenIDEA: an IntelliJ-style keymap in a native IDE with a Rust core.",
+   "hashtags": [
+    "#IDE",
+    "#Rust",
+    "#OpenSource"
+   ]
+  },
+  "instagram": {
+   "caption": "The IDE you know, rebuilt in Rust. IntelliJ-style keymap in a native app. Save this for your next setup.",
+   "hashtags": [
+    "#IDE",
+    "#Rust",
+    "#OpenSource",
+    "#DevTools"
+   ]
+  },
+  "facebook": {
+   "caption": "OpenIDEA brings IntelliJ's keymap and tool windows to a native app with a Rust core. Open source.",
+   "hashtags": [
+    "#IDE",
+    "#DevTools"
+   ]
+  },
+  "x": {
+   "text": "OpenIDEA: IntelliJ's keymap and tool windows in a native app with a Rust core.",
+   "hashtags": [
+    "#Rust"
+   ]
+  },
+  "keyword": "Rust IDE",
+  "aliases": [
+   "IntelliJ alternative",
+   "native IDE"
+  ]
+ },
+ "brief_meta": {
+  "title": "OpenIDEA: IntelliJ-style keymap in a Rust-built IDE",
+  "niche": "developer tools",
+  "keywords": [
+   "Rust IDE",
+   "IntelliJ alternative",
+   "native IDE",
+   "OpenIDEA"
+  ],
+  "idea": "OpenIDEA is a native, Rust-built IDE that keeps the IntelliJ keymap and tool windows.",
+  "viewer": {
+   "who": "developers used to IntelliJ shortcuts",
+   "problem": "heavy IDEs are slow to open",
+   "job": "decide whether to try a lighter IDE"
+  }
  }
 }
