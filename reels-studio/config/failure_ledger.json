@@ -207,6 +207,15 @@
       "fix": "config/legacy-briefs.json (from tracker/publications.json, sent or published_manual) turns those checks into notes for legacy briefs.",
       "status": "enforced",
       "enforced_by": "tools/preflight.py::_cloud_source_checks"
+    },
+    {
+      "id": "F24",
+      "date": "2026-11-02",
+      "run": "radar",
+      "failure": "Radar excluded topics for ToS, piracy or scraping reasons, against the owner's rule.",
+      "fix": "RISK holds only the sexual/uncensored flag; tests/test_trend_radar_rules.py enforces it.",
+      "status": "enforced",
+      "enforced_by": "tests/test_trend_radar_rules.py"
     }
   ]
 }

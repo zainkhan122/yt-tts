@@ -20,7 +20,7 @@ Stages and what they need (a stop is shown as STOP, a human-judgment wait as WAI
   7 panel      viewer_panel frames -> WAIT until research/production/viewer-panel-<id>.md says PASS
   8 cover      cover_ctl extract -> WAIT until the cover is approved (--approve-cover <id>)
   9 queue      queue_ctl enqueue + approve (reviewed-until +7 days) -> commit + push
- 10 buffer     post.yml dry-run, then verify, then schedule ONLY with "and schedule" / --schedule
+ 10 buffer     post.yml dry-run, verify, then schedule (part of the request)
 
 The agent writes the plans (topic judgment, script, visual plan), reviews the frames and cover, and
 passes the verdicts. The code enforces every fact that can be checked; it does not write judgments.
@@ -68,7 +68,7 @@ def save_state(st: dict) -> None:
 
 
 def parse_request(text: str) -> tuple[int, bool]:
-    """'make 3 shorts today' -> (3, False); 'make five shorts and schedule' -> (5, True)."""
+    """'make 3 shorts today' -> (3, True). Scheduling is part of the request (owner, 2 Nov 2026)."""
     t = text.lower()
     m = re.search(r"\b(\d+|one|two|three|four|five|six|seven|eight|nine|ten)\b\s+shorts?", t)
     if not m:
@@ -77,7 +77,7 @@ def parse_request(text: str) -> tuple[int, bool]:
     count = int(raw) if raw.isdigit() else WORDS[raw]
     if not 1 <= count <= 10:
         raise SystemExit("count must be between 1 and 10 per batch")
-    return count, bool(re.search(r"\bschedul", t))
+    return count, True
 
 
 def run(cmd: list[str], *, cwd: Path = ROOT, log: str, env: dict | None = None, timeout: int = 1800) -> int:
@@ -112,30 +112,25 @@ def plan_sha(plan_path: Path) -> str:
     return hashlib.sha256(plan_path.read_bytes()).hexdigest()
 
 
-def topic_approved(vid: str, plan_path: Path) -> bool:
-    """Owner decision (1 Nov 2026): topics are approved by the owner, always. The approval is bound to the
-    plan's sha256, so an edited plan needs a new approval."""
+def topic_approved(vid: str) -> bool:
+    """Owner decision (1 Nov 2026): the owner approves every topic before anything is built. Approval is
+    recorded per topic id, because it comes before the plan is written."""
     if not APPROVALS.exists():
         return False
-    rec = json.loads(APPROVALS.read_text(encoding="utf-8")).get("approved", {}).get(vid)
-    return bool(rec) and rec.get("plan_sha256") == plan_sha(plan_path)
+    return vid in json.loads(APPROVALS.read_text(encoding="utf-8")).get("approved", {})
 
 
 def approve_topic(vid: str, note: str) -> None:
-    plan = ROOT / "videos" / vid / "plan.json"
-    if not plan.exists():
-        raise SystemExit(f"no plan for {vid}")
-    reason = _valid_plan(plan)
-    if reason:
-        raise SystemExit(f"{vid}: plan is not valid, so it cannot be approved: {reason}")
+    if not PLAN_RE.match(vid):
+        raise SystemExit(f"bad topic id {vid!r}")
     if not note.strip():
-        raise SystemExit("an approval needs a note quoting the owner's words")
+        raise SystemExit("an approval needs the owner's words in the note")
     data = json.loads(APPROVALS.read_text(encoding="utf-8")) if APPROVALS.exists() else {"approved": {}}
-    data["approved"][vid] = {"plan_sha256": plan_sha(plan), "approved_by": "owner",
+    data["approved"][vid] = {"approved_by": "owner",
                              "at": dt.datetime.now(TZ).replace(microsecond=0).isoformat(), "note": note.strip()}
     APPROVALS.parent.mkdir(parents=True, exist_ok=True)
     APPROVALS.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"approved {vid} (plan {data['approved'][vid]['plan_sha256'][:12]})")
+    print(f"approved topic {vid}")
 
 
 def stage_select(st: dict, count: int) -> list[str]:
@@ -154,7 +149,7 @@ def stage_select(st: dict, count: int) -> list[str]:
             rejected.append(f"{vid}: {reason}")
             continue
         prio = json.loads(p.read_text(encoding="utf-8")).get("priority", 100)
-        if not topic_approved(vid, p):
+        if not topic_approved(vid):
             unapproved.append(vid)
             continue
         ready.append((prio, vid))
@@ -309,7 +304,7 @@ def stage_queue(batch: dict) -> None:
 
 
 def stage_buffer(batch: dict, schedule: bool) -> None:
-    """Dry-run first, then verify. Scheduling runs only when the request said 'schedule'."""
+    """Dry-run, then verify, then schedule. Scheduling is part of the request; schedule=False is a rehearsal."""
     sys.path.insert(0, str(ROOT / "tools"))
     import gh_actions
     ids = ",".join(batch["ids"])
@@ -343,7 +338,7 @@ def drive(st: dict, batch: dict) -> str:
         "panel": lambda: stage_panel(batch),
         "cover": lambda: stage_cover(batch, set(batch.get("covers_approved", []))),
         "queue": lambda: stage_queue(batch),
-        "buffer": lambda: stage_buffer(batch, batch["schedule"]),  # dry-run + verify always; schedule only if asked
+        "buffer": lambda: stage_buffer(batch, batch["schedule"]),
     }
     for name in STAGES:
         if name in batch["stages_done"]:
@@ -363,9 +358,9 @@ def drive(st: dict, batch: dict) -> str:
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("request", nargs="?", default="", help="e.g. 'make 3 shorts today' or 'make 3 shorts today and schedule'")
+    ap.add_argument("request", nargs="?", default="", help="e.g. 'make 3 shorts today'")
     ap.add_argument("--count", type=int)
-    ap.add_argument("--schedule", action="store_true")
+    ap.add_argument("--no-schedule", action="store_true", help="rehearsal only: stop after the read-only Buffer checks")
     ap.add_argument("--resume", action="store_true")
     ap.add_argument("--status", action="store_true")
     ap.add_argument("--approve-cover", action="append", default=[], metavar="ID")
@@ -388,9 +383,9 @@ def main(argv=None) -> int:
             return 0
         batch = open_[-1]
     else:
-        count, asked_schedule = parse_request(args.request) if args.request else (args.count, False)
+        count, asked_schedule = parse_request(args.request) if args.request else (args.count, True)
         count = args.count or count
-        batch = open_batch(st, count, args.schedule or asked_schedule)
+        batch = open_batch(st, count, asked_schedule and not args.no_schedule)
     batch.setdefault("covers_approved", []).extend(v for v in args.approve_cover if v not in batch.get("covers_approved", []))
     try:
         drive(st, batch)

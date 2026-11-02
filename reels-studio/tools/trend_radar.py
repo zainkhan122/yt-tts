@@ -3,8 +3,8 @@
 Trend radar for the AI-tools niche: what is new and rising, from free public APIs (no scraping):
   * GitHub search API  - new AI repos (created in the last N days) ranked by stars/day
   * Hugging Face API   - trending models and trending Spaces (free "try it" apps)
-Every item gets RISK FLAGS (uncensored/NSFW, ToS bypass, "free API key" abuse, bot evasion, crack/leak).
-Flagged items are never put into briefs: promoting them can cost the channel (and its viewers).
+Every item gets a RISK FLAG only for sexual or uncensored content (owner rule: no ToS, legal or licence exclusions).
+Flagged items are never put into briefs.
 
   python3 tools/trend_radar.py --days 14            # writes research/radar/radar-YYYY-MM-DD.md
   python3 tools/trend_radar.py --days 14 --brief    # + briefs/draft-trending-repos-YYYY-MM-DD.json (placeholders only; a human writes the copy)
@@ -20,12 +20,10 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+# Owner rule (30 Oct 2026): TOS, legal, licence and privacy are not a reason to exclude a topic.
+# The only flag left is content the channel does not run (sexual content).
 RISK = {
     "nsfw/uncensored": r"uncensor|nsfw|nude|porn|hentai|abliterat",
-    "ToS bypass / free-key abuse": r"no api key|without (an? )?api key|free (unlimited )?(gpt|claude|api)|reverse[- ]?proxy|api[- ]?key (leak|free)|keygen|crack|jailbreak|bypass",
-    "bot / detection evasion": r"undetect|anti[- ]?bot|captcha|stealth|evad",
-    "scraping personal data": r"scrape (instagram|linkedin|tiktok|facebook)|osint|doxx",
-    "piracy": r"repack|warez|pirat|torrent|steamrip|fitgirl|free (movies|tv|games|media|anime)\b|watch .* free|cracked",  # high views, but promotes infringement
 }
 AI = re.compile(r"\b(ai|llm|llms|agent|agents|gpt|claude|gemini|mcp|diffusion|model|rag|voice|tts|video|image)\b", re.I)
 

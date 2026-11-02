@@ -18,9 +18,9 @@ import receipt_build as rb  # noqa: E402
 # ---------- request parsing -------------------------------------------------------------
 
 @pytest.mark.parametrize("text,expected", [
-    ("make 3 shorts today", (3, False)),
-    ("make five shorts and schedule", (5, True)),
-    ("Make 1 short today and schedule it", (1, True)),
+    ("make 3 shorts today", (3, True)),
+    ("make five shorts today", (5, True)),
+    ("Make 1 short today", (1, True)),
 ])
 def test_parse_request(text, expected):
     assert ms.parse_request(text) == expected
@@ -262,21 +262,19 @@ def test_select_waits_for_owner_topic_approval(tmp_path, monkeypatch):
     assert "owner approval of topics is required" in str(exc.value) and "repo-a-01" in str(exc.value)
 
 
-def test_topic_approval_is_bound_to_plan_hash(tmp_path, monkeypatch):
-    st = _tree(tmp_path, monkeypatch, {"repo-a-01": 100})
-    assert ms.stage_select(st, 1) == ["repo-a-01"]
-    (tmp_path / "videos" / "repo-a-01" / "plan.json").write_text('{"priority": 1, "edited": true}')
-    with pytest.raises(ms.Stop):  # edited plan -> approval no longer matches
-        ms.stage_select(st, 1)
+def test_topic_approval_is_per_topic_id(tmp_path, monkeypatch):
+    st = _tree(tmp_path, monkeypatch, {"repo-a-01": 100, "repo-b-01": 100})
+    (tmp_path / "config" / "topic-approvals.json").write_text(json.dumps({"approved": {"repo-b-01": {"approved_by": "owner"}}}))
+    assert ms.stage_select(st, 1) == ["repo-b-01"]   # only the approved topic is selected
 
 
-def test_approve_topic_needs_note_and_valid_plan(tmp_path, monkeypatch):
+def test_approve_topic_needs_owner_words(tmp_path, monkeypatch):
     _tree(tmp_path, monkeypatch, {"repo-a-01": 100})
     monkeypatch.setattr(ms, "APPROVALS", tmp_path / "config" / "topic-approvals.json")
     with pytest.raises(SystemExit):
         ms.approve_topic("repo-a-01", "")
     ms.approve_topic("repo-a-01", "yes, make it")
-    assert ms.topic_approved("repo-a-01", tmp_path / "videos" / "repo-a-01" / "plan.json")
+    assert ms.topic_approved("repo-a-01")
 
 
 # ---------- legacy briefs (owner decision 2) ---------------------------------------------
