@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-04-shorts-01",
+  "created_at": "2026-11-04T17:37:29Z",
+  "briefs": {
+    "repo-craft-anything-01": {
+      "brief_sha256": "19f27586bb38a3d449ec3cc315b74bb7ac444990f2da5a858272f18c6f288107",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "f70afb3915d4e04e9f77157c3fe0edd3c0b95e00c0bfb10e2548c5b463d5a2c1",
+          "word_count": 110
+        },
+        "assets": {
+          "capture_id": "repo-craft-anything-01",
+          "manifest_sha256": "04e8ddc6b125a2c1e45ec845154cbdc3eeff742dd217b2c6fa891384818c5dca",
+          "files": [
+            {
+              "path": "plan-1.jpg",
+              "sha256": "7e2ed569893b4f671ad2294da0e562cfede61b70bad2b313d2fe5454d5c9f605"
+            },
+            {
+              "path": "plan-2.jpg",
+              "sha256": "c2f2530f641fd432dbf5f6f82874bb25cb409ae92b8b21f6757132e53807b75b"
+            },
+            {
+              "path": "plan-3.jpg",
+              "sha256": "655b122475862144a7dfeec7d229a30d215ab3033a463664b3988e3d7165f15d"
+            },
+            {
+              "path": "plan-4.jpg",
+              "sha256": "562e48a6d48feaf02a3bd81b5eb565f43f403a9fcbb6cb264f2d983731d5730d"
+            },
+            {
+              "path": "plan-catch.jpg",
+              "sha256": "e533ccdb038692fa4505f2ebaa7e63f0b293d1b8115e1f8029b45c5e200ba165"
+            }
+          ],
+          "cover_sha256": "1f849a59363952fa6f1d59f1a07a0679615c3385603772c4a0afbdb960adb7ad",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-craft-anything-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}
