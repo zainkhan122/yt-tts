@@ -32,9 +32,9 @@
       "id": "hook",
       "type": "image",
       "image": "plan-1.jpg",
-      "heading": "AI STUDIES, THEN BUILDS",
+      "heading": "CRAFT ANYTHING STUDIES APPS",
       "sub": "craft-anything · open source",
-      "say": "Can an AI study any app and build its own version?",
+      "say": "Can Craft Anything study an app and build its own version?",
       "focus": [
         {
           "box": [
@@ -282,11 +282,11 @@
     }
   ],
   "seo": {
-    "keyword": "craft anything ai",
-    "onscreen_first3s": "AI STUDIES, THEN BUILDS",
+    "keyword": "craft anything",
+    "onscreen_first3s": "CRAFT ANYTHING STUDIES APPS",
     "youtube": {
       "title": "Craft Anything: AI Studies an App, Then Builds Its Own",
-      "description": "Craft Anything studies a website, app or game with real inspection tools, then has a coding agent build a new version. Each build is checked against the original and refined until it is close. Open source, written in Rust, early alpha.\nRepo: https://github.com/storytold/craft-anything",
+      "description": "Craft Anything studies an app with real tools, then builds its own version. A coding agent writes the new project, and each build is checked against the original until it is close. Open source, written in Rust, early alpha. Repo: https://github.com/storytold/craft-anything #Shorts #CraftAnything #OpenSource #RustLang #AIAgents",
       "tags": [
         "craft anything",
         "AI coding agents",
@@ -296,47 +296,47 @@
       ],
       "hashtags": [
         "#Shorts",
+        "#CraftAnything",
         "#OpenSource",
         "#RustLang",
-        "#AIAgents",
-        "#CodingAgents"
+        "#AIAgents"
       ]
     },
     "tiktok": {
       "caption": "Craft Anything studies an app with real tools, then has an agent build its own version. Open source.",
       "hashtags": [
+        "#CraftAnything",
         "#OpenSource",
         "#RustLang",
         "#CodingAgents",
-        "#ReverseEngineering",
         "#AIAgents"
       ]
     },
     "instagram": {
-      "caption": "Can an AI study an app and build its own version? Craft Anything checks each build against the original. Open source.",
+      "caption": "Craft Anything studies an app, then has an agent build its own version. It checks each build against the original. Open source.",
       "hashtags": [
+        "#CraftAnything",
         "#OpenSource",
         "#RustLang",
         "#CodingAgents",
-        "#ReverseEngineering",
         "#AIAgents"
       ]
     },
     "facebook": {
       "caption": "Craft Anything studies an app with real tools, then builds a new version and checks it against the original. Open source.",
       "hashtags": [
+        "#CraftAnything",
         "#OpenSource",
         "#RustLang",
         "#CodingAgents",
-        "#ReverseEngineering",
         "#AIAgents"
       ]
     },
     "x": {
       "text": "Craft Anything studies an app with real tools, then has an agent build a new one and checks it against the original. Open source.",
       "hashtags": [
-        "#OpenSource",
-        "#RustLang"
+        "#CraftAnything",
+        "#OpenSource"
       ]
     }
   },
@@ -405,7 +405,7 @@
     "intent": "search",
     "hook_mechanic": "viewer question about the tool's first claim",
     "open_loop": {
-      "plant": "Can an AI study any app and build its own version?",
+      "plant": "Can Craft Anything study an app and build its own version?",
       "payoff_scene": "point1"
     },
     "proof_moment": "point1",
