@@ -132,7 +132,7 @@ def check_packaging(plan):
         from pathlib import Path as _P
         _sys.path.insert(0, str(ROOT))
         from studio import rules as _rules
-        findings = _rules.check_copy({"id": plan.get("id", "?"), "seo": seo, "voice": {"synthetic": True}})
+        findings = _rules.check_copy({"id": plan.get("id", "?"), "seo": seo, "voice": {"synthetic": True}, "qa_gates": True})  # new plans are new batches (owner, 4 Nov)
         errors = [f for f in findings if f.level == "error"]
         add(not errors, f"copy rules: {len(errors)} problem(s)" + ("" if not errors else ": " + "; ".join(f.code + " " + f.message for f in errors[:4])))
     except Exception as exc:  # the checker itself must not hide a failure

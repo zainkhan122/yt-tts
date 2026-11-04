@@ -73,6 +73,7 @@ jobs:
             /reels-studio/lib/
             /reels-studio/tools/validate_dispatch.py
             /reels-studio/tools/production_gate.py
+            /reels-studio/tools/short_qa.py
             /reels-studio/tools/seo_pack.py
             /reels-studio/tools/publish_verified_batch.py
             /reels-studio/tools/render_attempts.py
@@ -82,6 +83,7 @@ jobs:
             /reels-studio/tracker/buffer-insights.json
             /reels-studio/config/channel.json
             /reels-studio/config/gates.json
+            /reels-studio/config/qa-thresholds.json
             /reels-studio/brand/voice/michael-ref.wav
             /reels-studio/cloud/setup-render.sh
             /reels-studio/setup/setup-whisper.sh

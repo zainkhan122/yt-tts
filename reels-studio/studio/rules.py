@@ -18,6 +18,7 @@ YOUTUBE_TITLE_MAX = 100
 
 # (min, max) hashtags per platform for the final text.
 HASHTAG_RANGE = {"youtube": (2, 5), "tiktok": (2, 5), "instagram": (2, 5), "facebook": (1, 3), "x": (0, 2)}
+NEW_BATCH_HASHTAGS = 5
 
 GENERIC_TAGS = {
     "#ai", "#coding", "#video", "#tech", "#viral", "#fyp", "#foryou", "#foryoupage", "#trending",
@@ -234,6 +235,9 @@ def check_copy(brief, *, disclosure=DISCLOSURE_TEXT):
             elif str(t).lower() in GENERIC_TAGS:
                 _err(out, "C022", where, f"generic hashtag {t!r}; use a niche tag for this viewer")
         lo, hi = HASHTAG_RANGE[platform]
+        if brief.get("qa_gates") is True and platform != "x":
+            # Owner decision (4 Nov 2026): new batches carry exactly 5 hashtags. Older briefs keep their range.
+            lo, hi = NEW_BATCH_HASHTAGS, NEW_BATCH_HASHTAGS
         if not lo <= len(tags) <= hi:
             _err(out, "C023", where, f"{len(tags)} hashtags; want {lo}–{hi}")
         if platform == "youtube" and REQUIRED_YT_TAG not in {str(t).lower() for t in tags}:
