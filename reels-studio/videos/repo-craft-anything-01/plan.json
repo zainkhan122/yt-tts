@@ -11,14 +11,14 @@
    "source": "https://github.com/storytold/craft-anything",
    "source_note": "README 'How it works', step 1: Study: inspect the original: its pages at every width, its code, its files, how it runs.",
    "visual": {
-    "kind": "steps",
-    "intent": "study stage as the README lists it"
+    "kind": "media",
+    "file": "workbench.png",
+    "band": [
+     0.0,
+     0.6
+    ],
+    "intent": "the workbench: the tool's own inspection panels"
    },
-   "steps": [
-    "Inspect pages at every width",
-    "Read the code and files",
-    "See how it runs"
-   ],
    "title": "Study before it builds",
    "sub": "It inspects the original first, using real tools, not guesses."
   },
@@ -29,16 +29,16 @@
    "source": "https://github.com/storytold/craft-anything",
    "source_note": "README 'How it works', step 2: Build: a coding agent builds a new project, in the language, framework or engine your request names.",
    "visual": {
-    "kind": "steps",
-    "intent": "build stage: name the stack, agent builds, check and refine"
+    "kind": "media",
+    "file": "project-game.png",
+    "band": [
+     0.0,
+     0.7
+    ],
+    "intent": "a finished build: the snake game and its Study/Build/Check/Ready progress"
    },
    "title": "Then an agent builds",
-   "sub": "You name the stack, and the agent builds the new project in it.",
-   "steps": [
-    "Name the stack",
-    "Agent builds the project",
-    "Check and refine"
-   ]
+   "sub": "You name the stack, and the agent builds the new project in it."
   },
   {
    "n": 3,
@@ -47,14 +47,14 @@
    "source": "https://github.com/storytold/craft-anything",
    "source_note": "README feature table: Checked, not guessed: pages at three screen widths; refined until it's close.",
    "visual": {
-    "kind": "steps",
-    "intent": "check stage: compare, list, refine"
+    "kind": "media",
+    "file": "project-website.png",
+    "band": [
+     0.2,
+     0.9
+    ],
+    "intent": "the website build with its check list"
    },
-   "steps": [
-    "Pages at three widths",
-    "Compare with the original",
-    "List what still differs"
-   ],
    "title": "Checked, not guessed",
    "sub": "Anything that does not match is listed until the build is close."
   },
@@ -65,13 +65,14 @@
    "source": "https://github.com/storytold/craft-anything",
    "source_note": "README feature table: 320 tools, each one a CLI command and an MCP tool; no AI is needed to inspect.",
    "visual": {
-    "kind": "chips",
-    "intent": "the two ways an agent reaches the same engine"
+    "kind": "media",
+    "file": "workbench.png",
+    "band": [
+     0.3,
+     0.9
+    ],
+    "intent": "the workbench's tool list: the tools an agent can call"
    },
-   "chips": [
-    "CLI",
-    "MCP"
-   ],
    "title": "Agents drive the same engine",
    "sub": "Any agent can call the tools the app uses, with no AI needed to inspect."
   }
@@ -79,12 +80,13 @@
  "catch": "It is early alpha, so every build still needs checking against the original.",
  "catch_sub": "Early alpha: check the build against the original.",
  "catch_visual": {
-  "kind": "steps",
-  "intent": "what the owner still checks",
-  "steps": [
-   "Early alpha",
-   "Check the build against the original"
-  ]
+  "kind": "media",
+  "file": "project-website.png",
+  "band": [
+   0.6,
+   1.0
+  ],
+  "intent": "the build's check list: what the owner still checks"
  },
  "brand_line": "craft-anything · open source",
  "cover": {
@@ -192,5 +194,14 @@
    "problem": "agents that build from a description drift from the real thing",
    "job": "decide whether an agent-driven rebuild tool is worth trying"
   }
+ },
+ "hook_visual": {
+  "kind": "media",
+  "file": "make.png",
+  "band": [
+   0.0,
+   1.0
+  ],
+  "intent": "the maker's request form: the first real screen"
  }
 }

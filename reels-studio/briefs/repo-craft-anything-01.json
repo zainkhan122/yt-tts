@@ -31,7 +31,7 @@
     {
       "id": "hook",
       "type": "image",
-      "image": "plan-1.jpg",
+      "image": "plan-hook.jpg",
       "heading": "CRAFT ANYTHING STUDIES APPS",
       "sub": "craft-anything · open source",
       "say": "Can Craft Anything study an app and build its own version?",
@@ -39,9 +39,9 @@
         {
           "box": [
             0.0,
-            0.269,
+            0.206,
             1.0,
-            0.462
+            0.588
           ],
           "at": 0.0,
           "pad": 1.0
@@ -49,11 +49,31 @@
         {
           "box": [
             0.0,
-            0.289,
+            0.226,
             1.0,
-            0.422
+            0.274
           ],
-          "at": 2.2,
+          "at": 1.4,
+          "pad": 1.0
+        },
+        {
+          "box": [
+            0.0,
+            0.5,
+            1.0,
+            0.274
+          ],
+          "at": 2.8,
+          "pad": 1.0
+        },
+        {
+          "box": [
+            0.0,
+            0.363,
+            1.0,
+            0.274
+          ],
+          "at": 4.2,
           "pad": 1.0
         }
       ],
@@ -80,9 +100,9 @@
         {
           "box": [
             0.0,
-            0.269,
+            0.325,
             1.0,
-            0.462
+            0.349
           ],
           "at": 0.0,
           "pad": 1.0
@@ -90,11 +110,31 @@
         {
           "box": [
             0.0,
-            0.289,
+            0.345,
             1.0,
-            0.422
+            0.155
           ],
-          "at": 2.2,
+          "at": 1.4,
+          "pad": 1.0
+        },
+        {
+          "box": [
+            0.0,
+            0.499,
+            1.0,
+            0.155
+          ],
+          "at": 2.8,
+          "pad": 1.0
+        },
+        {
+          "box": [
+            0.0,
+            0.422,
+            1.0,
+            0.155
+          ],
+          "at": 4.2,
           "pad": 1.0
         }
       ],
@@ -121,9 +161,9 @@
         {
           "box": [
             0.0,
-            0.269,
+            0.283,
             1.0,
-            0.462
+            0.433
           ],
           "at": 0.0,
           "pad": 1.0
@@ -131,11 +171,31 @@
         {
           "box": [
             0.0,
-            0.289,
+            0.303,
             1.0,
-            0.422
+            0.196
           ],
-          "at": 2.2,
+          "at": 1.4,
+          "pad": 1.0
+        },
+        {
+          "box": [
+            0.0,
+            0.499,
+            1.0,
+            0.196
+          ],
+          "at": 2.8,
+          "pad": 1.0
+        },
+        {
+          "box": [
+            0.0,
+            0.401,
+            1.0,
+            0.196
+          ],
+          "at": 4.2,
           "pad": 1.0
         }
       ],
@@ -162,9 +222,9 @@
         {
           "box": [
             0.0,
-            0.269,
+            0.302,
             1.0,
-            0.462
+            0.396
           ],
           "at": 0.0,
           "pad": 1.0
@@ -172,11 +232,31 @@
         {
           "box": [
             0.0,
-            0.289,
+            0.322,
             1.0,
-            0.422
+            0.178
           ],
-          "at": 2.2,
+          "at": 1.4,
+          "pad": 1.0
+        },
+        {
+          "box": [
+            0.0,
+            0.5,
+            1.0,
+            0.178
+          ],
+          "at": 2.8,
+          "pad": 1.0
+        },
+        {
+          "box": [
+            0.0,
+            0.411,
+            1.0,
+            0.178
+          ],
+          "at": 4.2,
           "pad": 1.0
         }
       ],
@@ -203,9 +283,9 @@
         {
           "box": [
             0.0,
-            0.427,
+            0.325,
             1.0,
-            0.146
+            0.349
           ],
           "at": 0.0,
           "pad": 1.0
@@ -213,11 +293,31 @@
         {
           "box": [
             0.0,
-            0.447,
+            0.345,
             1.0,
-            0.106
+            0.155
           ],
-          "at": 2.2,
+          "at": 1.4,
+          "pad": 1.0
+        },
+        {
+          "box": [
+            0.0,
+            0.499,
+            1.0,
+            0.155
+          ],
+          "at": 2.8,
+          "pad": 1.0
+        },
+        {
+          "box": [
+            0.0,
+            0.422,
+            1.0,
+            0.155
+          ],
+          "at": 4.2,
           "pad": 1.0
         }
       ],
@@ -244,9 +344,9 @@
         {
           "box": [
             0.0,
-            0.33,
+            0.372,
             1.0,
-            0.34
+            0.256
           ],
           "at": 0.0,
           "pad": 1.0
@@ -254,11 +354,31 @@
         {
           "box": [
             0.0,
-            0.35,
+            0.392,
             1.0,
-            0.3
+            0.108
           ],
-          "at": 2.2,
+          "at": 1.4,
+          "pad": 1.0
+        },
+        {
+          "box": [
+            0.0,
+            0.5,
+            1.0,
+            0.108
+          ],
+          "at": 2.8,
+          "pad": 1.0
+        },
+        {
+          "box": [
+            0.0,
+            0.446,
+            1.0,
+            0.108
+          ],
+          "at": 4.2,
           "pad": 1.0
         }
       ],
@@ -381,22 +501,22 @@
     {
       "claim": "c1",
       "evidence": "source:https://github.com/storytold/craft-anything",
-      "how_shown": "study stage as the README lists it"
+      "how_shown": "the workbench: the tool's own inspection panels"
     },
     {
       "claim": "c2",
       "evidence": "source:https://github.com/storytold/craft-anything",
-      "how_shown": "build stage: name the stack, agent builds, check and refine"
+      "how_shown": "a finished build: the snake game and its Study/Build/Check/Ready progress"
     },
     {
       "claim": "c3",
       "evidence": "source:https://github.com/storytold/craft-anything",
-      "how_shown": "check stage: compare, list, refine"
+      "how_shown": "the website build with its check list"
     },
     {
       "claim": "c4",
       "evidence": "source:https://github.com/storytold/craft-anything",
-      "how_shown": "the two ways an agent reaches the same engine"
+      "how_shown": "the workbench's tool list: the tools an agent can call"
     }
   ],
   "treatment": {
