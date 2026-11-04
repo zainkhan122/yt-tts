@@ -151,44 +151,15 @@ def is_blank(path, min_std=4.0, min_ink=0.001, min_edge=0.006):
 NO_VIDEO_STILL_ALLOWED = {"repo-deeptutor-01", "repo-impeccable-01", "repo-edge0-01", "repo-cleanyourtv-01"}
 ALLOW_SHARED_COVER_SOURCES = False  # set in main() for NO_VIDEO_STILL_ALLOWED briefs
 
-def pick_images(brief, count, root=ROOT):
-    """Different real capture image per concept; fall back to the hook image only when the pack is thin.
-
-    Order matters: the media the brief actually stages on screen comes first, so a cover
-    sells what the film shows; near-blank frames are skipped instead of becoming covers.
-    """
-    cap = Path(root) / str(brief.get("capture", ""))
-    candidates = []
-    if cap.exists():
-        staged = []
-        for s in brief.get("scenes", []):
-            for key in ("image", "figure", "src"):
-                v = s.get(key)
-                if isinstance(v, str) and v.lower().endswith((".jpg", ".jpeg", ".png")):
-                    p = cap / v
-                    if p.exists() and p not in staged:
-                        staged.append(p)
-        preferred = ["desktop-top.jpg", "desktop-mid.jpg", "desktop-full.jpg", "readme-top.png",
-                     "app.png", "og.png"]
-        candidates += staged + [cap / n for n in preferred if (cap / n).exists()]
-        for p in staged + sorted(cap.glob("*.png")) + sorted(cap.glob("*.jpg")):
-            # every accepted view counts, including scrolled desktop shots (desktop-mid.jpg);
-            # only the QA sheet is noise. Near-blank frames are dropped by is_blank() below.
-            if p not in candidates and p.name not in ("sheet.jpg",):
-                candidates.append(p)
-        seen, ordered = set(), []
-        for p in candidates:  # staged media first, then the standard shots, no repeats
-            if p not in seen:
-                seen.add(p)
-                ordered.append(p)
-        usable = [p for p in ordered if not is_blank(p)]
-        if not usable:
-            raise SystemExit(f"cover source media is unusable: every image under {cap} is "
-                             f"near-blank (capture the product again before designing covers)")
-        candidates = usable
-    if not candidates:
-        raise SystemExit(f"cover source media missing: no capture images under {cap} (pull the capture pack first)")
-    return [candidates[i % len(candidates)] for i in range(count)]
+def concept_source(concept, brief, root=ROOT):
+    """Each concept names its own media (COVER-RULES.md): a tool asset in captures/<id>/, or a designed
+    graphic in covers/<id>/. Nothing else is ever used as cover media."""
+    m = concept["media"]
+    folder = "captures" if m["kind"] == "tool_media" else "covers"
+    path = Path(root) / folder / brief["id"] / m["file"]
+    if not path.exists():
+        raise SystemExit(f"cover media missing for {brief['id']}: {path} (run covers/system/draw_designs.py or pull the capture pack)")
+    return path
 
 
 def make_concepts(brief, out_dir, root=ROOT):
@@ -207,15 +178,19 @@ def make_concepts(brief, out_dir, root=ROOT):
     accent = ACCENTS.get(arch, ACCENTS["spotlight"])
     out_dir.mkdir(parents=True, exist_ok=True)
     concepts = tr["cover_concepts"]
-    sources = pick_images(brief, len(concepts), root=root)
+    import cover_rules
+    rule_problems = cover_rules.concepts_problems(concepts, Path(root) / "captures" / brief["id"],
+                                                  Path(root) / "covers" / brief["id"])
+    if rule_problems:
+        raise SystemExit("cover rules (COVER-RULES.md) failed before rendering:\n  " + "\n  ".join(rule_problems))
     kicker = {"quest": "MISSION BRIEF", "myth-bust": "CLAIM", "warning": "WARNING",
               # a cover is not episode one of a series: "STEP 1" read like a tutorial part number
               "workflow": "WORKFLOW", "duel": "SIDE A", "demo-first": "DEMO", "spotlight": ""}.get(arch, "")
     made, report = [], []
     for i, concept in enumerate(concepts):
         text = concept["text"]
-        src = sources[i]
-        layout = LAYOUTS[i % len(LAYOUTS)]
+        src = concept_source(concept, brief, root)
+        layout = concept["layout"]
         with Image.open(src) as sim:
             sim.load()
             base = Image.new("RGB", (W, H), (7, 11, 22))
@@ -285,7 +260,10 @@ def make_concepts(brief, out_dir, root=ROOT):
 
 def audit(report):
     """A cover set is only useful if the three concepts are really three different designs."""
+    import cover_rules
     problems = []
+    if len(report) != cover_rules.CONCEPTS:
+        problems.append(f"a cover set needs {cover_rules.CONCEPTS} concepts, rendered {len(report)}")
     layouts = [c["layout"] for c in report]
     if len(set(layouts)) != len(layouts):
         problems.append(f"concepts reuse a layout: {layouts}")
@@ -297,8 +275,7 @@ def audit(report):
         problems.append(f"concepts share capture images ({', '.join(sorted(dupes))}); "
                         f"each concept needs its own real media")
     for c in report:
-        if c["words"] > 4:
-            problems.append(f"concept {c['concept']} text has {c['words']} words (max 4)")
+        problems += [f"concept {c['concept']}: {p}" for p in cover_rules.headline_problems(c["text"])]
         if min(c["contrast_white"], c["contrast_accent"]) < 4.5:
             problems.append(f"concept {c['concept']} contrast {c['contrast_white']}:1 / "
                             f"{c['contrast_accent']}:1 below 4.5 against its plate")

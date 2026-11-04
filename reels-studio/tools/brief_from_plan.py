@@ -130,9 +130,10 @@ def build(plan_path):
             "hook_mechanic": plan.get("hook_mechanic", "viewer question about the tool's first claim"),
             "open_loop": {"plant": plan["question"], "payoff_scene": "point1"},
             "proof_moment": "point1",
-            "selected_cover": 0,
+            "selected_cover": [c["text"] for c in plan["cover"]["concepts"]].index(plan["cover"]["text"]),
             "archetype": "spotlight",
-            "cover_concepts": [{"text": plan["cover"]["text"], "visual": plan["cover"].get("visual", "own graphic from the plan")}],
+            # the three concepts come from the plan (COVER-RULES.md); never one concept
+            "cover_concepts": [dict(c) for c in plan["cover"]["concepts"]],
         },
         # Honest review state: the plan was written by the agent from the maker's own material. The
         # owner approved the TOPIC; nothing here says the owner approved this plan or its copy.
@@ -143,6 +144,7 @@ def build(plan_path):
             "notes": "Topic approved by owner (config/topic-approvals.json). Plan and copy await owner review at the cover gate.",
         },
         "motion_standard": 2,
+        "qa_gates": True,  # new batches: Short QA gates apply (tools/short_qa.py)
     }
     out = ROOT / "briefs" / f"{vid}.json"
     out.write_text(json.dumps(brief, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

@@ -335,6 +335,51 @@ def _capture_release():
     return capture_store.release()
 
 
+def check_short_qa_plan(brief_id, brief):
+    """FINDINGS 3A + HOOKS 5, plan level: the gates that can be read from the brief before render."""
+    sys.path.insert(0, str(ROOT / "tools"))
+    import short_qa
+    if not short_qa.gates_apply(brief):
+        return [_result("qa_plan", "PASS", "legacy brief (no qa_gates flag): Short QA gates not applied")]
+    out = []
+    for r in short_qa.plan_results(brief):
+        if r["status"] == "BLOCK":
+            out.append(_result(f"qa:{r['gate']}", "BLOCK", f"{r['detail']} (value {r['value']}, limit {r['limit']})", r["fix"]))
+    if not out:
+        out.append(_result("qa_plan", "PASS", "all plan-level Short QA gates pass"))
+    return out
+
+
+def check_media_fallback(brief_id, brief):
+    """Owner rule: a tool with no media does not fail the Short. The build turns each such scene into a generated
+    feature card (tools/feature_card.py). Preflight only confirms the card exists in the pack."""
+    sys.path.insert(0, str(ROOT / "tools"))
+    import feature_card
+    import short_qa
+    if not short_qa.gates_apply(brief):
+        return [_result("media_fallback", "PASS", "legacy brief (no qa_gates flag): media fallback not applied")]
+    cap = _capture_id(brief)
+    if not cap:
+        return [_result("media_fallback", "BLOCK", "brief has no capture pack id", "set capture to captures/<id>")]
+    cap_dir = ROOT / "captures" / cap
+    pushed = feature_card.pushed_files(cap)
+    missing, orphan = [], []
+    for s in brief.get("scenes") or []:
+        ref = feature_card.media_missing(s, cap, cap_dir, pushed)
+        if ref is None:
+            if s.get("generated") and not (cap_dir / s.get("image", "")).exists():
+                orphan.append(s.get("id"))
+            continue
+        missing.append(f"{s.get('id')}:{ref}")
+    if orphan:
+        return [_result("media_fallback", "BLOCK", "generated card missing from the pack: " + ", ".join(map(str, orphan)),
+                        "rerun: python3 tools/feature_card.py " + brief_id)]
+    if missing:
+        return [_result("media_fallback", "BLOCK", "no media for: " + ", ".join(missing),
+                        f"run the build (tools/feature_card.py {brief_id} generates a card for each)")]
+    return [_result("media_fallback", "PASS", "every scene has media (tool media or a generated card)")]
+
+
 def check_cover(brief_id):
     """Failure 1 Nov: the cloud gate requires the brief cover text to equal the selected cover text, and
     the cover file must be the one that was reviewed (sha256). Both are checked before dispatch."""
@@ -350,6 +395,19 @@ def check_cover(brief_id):
     if digest != sel.get("sha256"):
         return [_result("cover", "BLOCK", "cover file changed since it was reviewed (sha mismatch)",
                         "review the new cover and update selection.json")]
+    # COVER-RULES.md at the gate too: the brief's three concepts must pass the same rules as authoring
+    import cover_rules
+    brief_path = ROOT / "briefs" / f"{brief_id}.json"
+    concepts = []
+    if brief_path.exists():
+        concepts = (json.loads(brief_path.read_text(encoding="utf-8")).get("treatment") or {}).get("cover_concepts") or []
+    rule_problems = cover_rules.concepts_problems(concepts, ROOT / "captures" / brief_id, ROOT / "covers" / brief_id)
+    if rule_problems:
+        return [_result("cover", "BLOCK", "cover rules (COVER-RULES.md): " + "; ".join(rule_problems[:3]),
+                        "fix the concepts in the plan and re-run the cover lab")]
+    if sel.get("text") not in [c.get("text") for c in concepts]:
+        return [_result("cover", "BLOCK", "selected cover text is not one of the brief's concepts",
+                        "re-run tools/cover_lab.py and re-approve the cover")]
     plan_path = ROOT / "videos" / brief_id / "plan.json"
     if plan_path.exists():
         plan_text = (json.loads(plan_path.read_text(encoding="utf-8")).get("cover") or {}).get("text")
@@ -406,7 +464,7 @@ def preflight(brief_id, phase="full", receipt_rel=None):
                + check_queue_pin(brief_id, brief) + check_render(brief_id)
                + check_motion(brief_id, path) + check_media_aspect(brief_id, brief)
                + check_policy(brief_id, brief) + check_layout(brief_id, path)
-               + check_workspace(brief_id))
+               + check_workspace(brief_id) + check_short_qa_plan(brief_id, brief) + check_media_fallback(brief_id, brief))
     if phase == "pre":
         results += _cloud_source_checks(brief_id, brief, with_release=False, with_cover=False)
     else:

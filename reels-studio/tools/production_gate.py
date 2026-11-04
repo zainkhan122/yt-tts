@@ -376,6 +376,16 @@ def validate_receipt(
             "cover_sha256": assets.get("cover_sha256") or None,
         }
 
+    # Short QA plan gates (FINDINGS 3A): applied to new batches only (brief flag qa_gates), before any asset is pulled.
+    sys.path.insert(0, str(root / "reels-studio"))
+    from tools import short_qa
+    for brief_id in brief_ids:
+        brief = json.loads(_repo_path(root, f"reels-studio/briefs/{brief_id}.json").read_text(encoding="utf-8"))
+        if short_qa.gates_apply(brief):
+            blocks = [r for r in short_qa.plan_results(brief) if r["status"] == "BLOCK"]
+            if blocks:
+                raise ProductionGateError(f"{brief_id}: Short QA plan gates failed - " + "; ".join(
+                    f"{r['gate']} {r['value']} (limit {r['limit']})" for r in blocks))
     if verify_assets:
         for brief_id in brief_ids:
             item = receipt_briefs[brief_id]

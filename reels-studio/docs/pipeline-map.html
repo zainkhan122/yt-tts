@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Hypeless pipeline: how it works, every gate, and what to cut</title>
+<title>Hypeless pipeline: how it works, every gate, and what to cut (updated 4 Nov 2026)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   :root { --ink:#0f172a; --mut:#64748b; --line:#e2e8f0; --bg:#f8fafc; --card:#ffffff;
@@ -33,15 +33,64 @@
   .callout.green { border-color:var(--green); background:#f0fdf4; }
   ol li, ul li { margin:4px 0; }
   svg text { font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .st { display:inline-block; padding:1px 8px; border-radius:6px; font-size:12px; font-weight:600; margin-right:4px; }
+  .st.done { background:#dcfce7; color:#166534; } .st.part { background:#fef9c3; color:#854d0e; }
+  .st.open { background:#fee2e2; color:#991b1b; } .st.unc { background:#e0e7ff; color:#3730a3; }
+  .note4 { display:block; margin-top:4px; color:#334155; font-size:13px; }
   @media (max-width: 900px) { .kpis { grid-template-columns:repeat(2,1fr); } header { padding:26px; } }
 </style>
 </head>
 <body>
 <header>
   <h1>Hypeless pipeline: how it works, every gate, and what to cut</h1>
-  <p>Audit of the current system as of 31 Oct 2026, built from the code and this week's runs. Each gate is listed with what it protects, what it costs, and a verdict: keep, simplify, or remove.</p>
+  <p>Audit of the system as of 31 Oct 2026, updated 4 Nov 2026. The 31 Oct text is kept as the baseline. Status notes dated 4 Nov show what changed, what is still open, and what the code actually does now. Each gate keeps its verdict: keep, simplify, or remove.</p>
 </header>
 <main>
+
+<section>
+  <h2>0. What changed since 31 Oct (status at 4 Nov 2026)</h2>
+  <p class="sub">Shorts pipeline folder: <code>shorts-pipeline/</code> (the clean copy, data removed). Status: <span class="st done">done</span> in code and tested; <span class="st unc">uncommitted</span> in code, tests pass; <span class="st part">partial</span>; <span class="st open">open</span> not started or not in code.</p>
+  <table>
+    <tr><th style="width:30%">Change</th><th>Where it lives (pipeline folder)</th><th style="width:14%">Status</th></tr>
+    <tr><td>Short QA plan gates for new batches (before any asset is pulled)</td><td><code>tools/short_qa.py</code> plan_results, called from <code>preflight.check_short_qa_plan</code> and <code>production_gate</code></td><td><span class="st done">done</span></td></tr>
+    <tr><td>Short QA video gates on the rendered MP4, run in <code>make_shorts</code> fetch</td><td><code>tools/short_qa.py</code> video_results, run by <code>make_shorts.py</code> (only when <code>qa_gates</code> is true)</td><td><span class="st done">done</span><span class="note4">Renders so far: all three BLOCK on visual gates. See section 7.</span></td></tr>
+    <tr><td>Media fallback: a tool with no media gets a generated feature card, not a failed Short</td><td><code>tools/feature_card.py</code>, called in build; <code>preflight.check_media_fallback</code></td><td><span class="st done">done</span></td></tr>
+    <tr><td>Hashtags: 5 per platform (overrides PLAYBOOK section 1 "3 or fewer")</td><td><code>config/qa-thresholds.json</code> (<code>hashtags_per_platform</code>), <code>tools/seo_pack.py</code> rule SP042</td><td><span class="st done">done</span></td></tr>
+    <tr><td>New batches only: <code>qa_gates</code> flag written by <code>brief_from_plan</code></td><td><code>brief_from_plan.py</code>, <code>short_qa.gates_apply</code>. Older briefs are not gated, not re-tagged, not re-measured</td><td><span class="st done">done</span></td></tr>
+    <tr><td>Production gate plan check (validate_receipt) for flagged briefs</td><td><code>tools/production_gate.py</code> around line 379</td><td><span class="st unc">uncommitted</span><span class="note4">Existing tests pass. No dedicated test yet.</span></td></tr>
+    <tr><td>Pipeline map generator (writes <code>docs/pipeline-stages.html</code> from the code)</td><td><code>tools/pipeline_map.py</code>, <code>tests/test_pipeline_map.py</code></td><td><span class="st unc">uncommitted</span><span class="note4">Runs and passes its test.</span></td></tr>
+    <tr><td>Clean pipeline folder: topic discovery, agent, voice lab, analytics refresh and run data left out</td><td><code>shorts-pipeline/</code> (see section 0a)</td><td><span class="st done">done</span><span class="note4">Voice reference is rebuilt by the code from Kokoro if the WAV is missing. Nothing else is needed from the owner for the pipeline to run.</span></td></tr>
+    <tr><td>One source for thresholds</td><td><code>config/qa-thresholds.json</code> (Short QA), <code>config/gates.json</code> (production gate, TTS). <code>lib/pipeline.py</code> still has its own <code>MIN_FLOW_MATCH</code> constant</td><td><span class="st part">partial</span></td></tr>
+    <tr><td>TTS alignment: numbers and numerals compared on equal terms</td><td><code>lib/pipeline.py</code> (number-word and numeral canonicalisation). Threshold 0.85 in <code>config/gates.json</code> (<code>tts_chunk_match_min</code>)</td><td><span class="st done">present</span><span class="note4">Date of introduction not checked on 4 Nov.</span></td></tr>
+    <tr><td>Card cap: a verdict or stat card lasts at most 2 s</td><td><code>short_qa.plan_results</code> gate <code>card_max_2s</code> (config <code>card_max_s</code>, <code>card_scene_types</code>). Blocks new batches</td><td><span class="st done">done</span></td></tr>
+    <tr><td>Hook names a familiar product or platform</td><td><code>short_qa</code> gate <code>hook_familiar_anchor</code> (list in <code>hook_familiar_anchors</code>). Warning only</td><td><span class="st done">done</span><span class="note4">Warning, not a block (the rule is a judgment, so it stays advisory).</span></td></tr>
+    <tr><td>Description: one paragraph; length within the reference middle 50% (263 to 569 chars)</td><td><code>seo_pack</code> SP110 and SP111 (warnings). Range in config <code>description_chars_ref</code></td><td><span class="st done">done</span><span class="note4">Warnings.</span></td></tr>
+    <tr><td>TTS delivery measures: first-3-second pace, phrases per video, pauses of 0.35 s or more</td><td><code>short_qa.timing_results</code> records <code>measure_first3s_wpm</code> and <code>measure_phrases</code> (info, never a block)</td><td><span class="st part">measured, not gated</span><span class="note4">The targets (220 wpm, 12-word phrases, 8 breaths) are not gates until you approve them.</span></td></tr>
+    <tr><td>Hook claim or payoff in the first sentence</td><td>Not checked in code. Only the number or tool name in on-screen text is checked (<code>hook_anchor</code>)</td><td><span class="st open">open</span></td></tr>
+    <tr><td>Vision reads (frame 0, contact sheets) inside Short QA</td><td>Not wired. Vision output stays advisory by rule, and no vision key is set up in this folder</td><td><span class="st open">open</span></td></tr>
+    <tr><td>Cut detector hand-check (caveat 1) and <code>frame_change_min</code> calibration</td><td>Not done. The reference videos were deleted; <code>frame_change_min</code> is 2.0 and uncalibrated</td><td><span class="st open">open</span></td></tr>
+    <tr><td>Card replacements sourced from captures (rule B, screens from captures)</td><td>Policy only. Not enforced in code beyond <code>card_max_2s</code></td><td><span class="st part">partial</span></td></tr>
+    <tr><td>Description: "free" or "open source" when true; comment keyword in the spoken line, not the description</td><td>Not checked in code</td><td><span class="st open">open</span></td></tr>
+    <tr><td>Script length of 110 to 125 words for about 40 s (rule E)</td><td>Covered only by <code>duration_est</code> (29 to 55 s). No separate words-per-second gate</td><td><span class="st part">partial</span></td></tr>
+    <tr><td>Reference table re-run with the YouTube channels (FINDINGS section 4, step 4)</td><td>Blocked: no YouTube reference data in this workspace</td><td><span class="st open">open</span></td></tr>
+    <tr><td>Declared <code>media_mode</code> per brief (replaces the hard-coded set)</td><td>Not in code</td><td><span class="st open">open</span></td></tr>
+    <tr><td>Publish-existing path with digest check</td><td>Not in code</td><td><span class="st open">open</span></td></tr>
+    <tr><td>Accepted-risk record (owner_accepted_risk)</td><td>Not in code</td><td><span class="st open">open</span></td></tr>
+    <tr><td>Split pins (media and copy pinned separately)</td><td>Not in code</td><td><span class="st open">open</span></td></tr>
+    <tr><td>Single preflight before any cloud dispatch</td><td><code>tools/preflight.py</code> has the new checks, but copy rules still run at a later stage</td><td><span class="st part">partial</span></td></tr>
+    <tr><td>GitHub Actions loop: keep 1 to 5 backlog Shorts; schedule 1 to 2 backlog Shorts on days with no new Short; generate when the backlog drops to 1</td><td>Not found in the pipeline folder</td><td><span class="st open">open</span></td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>0a. Pipeline folder: what was cut and why (4 Nov)</h2>
+  <p class="sub">The folder holds the systems that make Shorts and their configuration. It holds no videos, renders, captures, covers, research, trackers, queue snapshots, or briefs. Run data is created by the code at run time.</p>
+  <table>
+    <tr><th style="width:30%">Kept</th><th>Left out (and where it lives)</th></tr>
+    <tr><td><code>tools/</code> Shorts stages (make_shorts, preflight, production_gate, short_qa, feature_card, seo_pack, brief_lint, brief_from_plan, video_plan, receipt_build, capture, cover, post, youtube), <code>lib/</code>, <code>templates/</code>, <code>studio/rules.py</code>, <code>config/</code> (thresholds and channel settings), <code>cloud/</code> setup, <code>reels.py</code> (Shorts commands only), 5 GitHub Actions workflows (render, render-validation, post, queue-release, youtube), tests (the ones for kept code), docs for the Shorts rules</td><td>Topic discovery (trend radar, need miner, idea feed, search probe, sources, demand, reference analysis, channel study and decode, voice study, social scan, socialinsider probe, rerank backlog); <code>tools/agent/</code> and agent workflows; <code>voice-lab/</code>; analytics refresh workflows and their tools (performance, buffer insights, buffer windows, daily counts); <code>tools/context/</code>; <code>archive/</code>; <code>research/</code>, <code>tracker/</code>, <code>queue/</code>, <code>videos/</code>, <code>briefs/</code>, <code>captures/</code>, <code>renders/</code>, <code>covers/</code> (all data); the approved voice reference WAV and the brand banners</td></tr>
+  </table>
+  <div class="callout"><b>Voice:</b> <code>brand/voice/michael-ref.wav</code> is not shipped. <code>ChatterboxVoice</code> (lib/pipeline.py) rebuilds it from Kokoro (am_michael, same text and trim) when it is missing. The rebuild has no hash check against the approved take. The logo files in <code>brand/logo/</code> are included. Keys are not included.</div>
+</section>
 
 <section>
   <h2>1. The system at a glance</h2>
@@ -68,11 +117,11 @@
 
       <rect x="195" y="40" width="150" height="70" rx="12" fill="#2563eb"/>
       <text x="270" y="68" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">2 Select</text>
-      <text x="270" y="89" text-anchor="middle" fill="#dbeafe" font-size="12">score ≥ 60, backlog</text>
+      <text x="270" y="89" text-anchor="middle" fill="#dbeafe" font-size="12">plans in videos/ (topic judgment outside the folder)</text>
 
       <rect x="380" y="40" width="150" height="70" rx="12" fill="#2563eb"/>
       <text x="455" y="68" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">3 Brief lint</text>
-      <text x="455" y="89" text-anchor="middle" fill="#dbeafe" font-size="12">35 BL rules</text>
+      <text x="455" y="89" text-anchor="middle" fill="#dbeafe" font-size="12">23 BL rule IDs</text>
 
       <rect x="565" y="40" width="150" height="70" rx="12" fill="#2563eb"/>
       <text x="640" y="68" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">4 Copy check</text>
@@ -116,7 +165,7 @@
     <path d="M1060 110 V162" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)" fill="none"/>
     <path d="M160 197 H195 M345 197 H380 M530 197 H565 M715 197 H750 M900 197 H935" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)" fill="none"/>
     <path d="M825 232 V262 H85 V162" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
-    <text x="455" y="278" text-anchor="middle" font-size="12" fill="#64748b">failed QA: fix the source and re-render (a new render dispatch)</text>
+    <text x="455" y="278" text-anchor="middle" font-size="12" fill="#64748b">failed QA: fix the source and re-render (a new render dispatch). 4 Nov: Short QA plan gates run before assets; video gates run after the render (new batches only)</text>
 
     <!-- lane 3: publish -->
     <text x="10" y="330" font-size="13" fill="#64748b" font-weight="600">PUBLISH (Buffer)</text>
@@ -153,16 +202,16 @@
     <text x="30" y="510" font-size="13" fill="#334155">• post.yml: one run at a time (concurrency), mode dry-run / schedule / reconcile / verify / inventory</text>
     <text x="30" y="530" font-size="13" fill="#334155">• Dispatch guard: identical render inputs are refused (duplicate-render protection)</text>
   </svg>
-  <p class="sub" style="margin-top:10px">Stage numbers match the tables below. Dashed line = failed QA sends the video back to production; nothing reaches Buffer until a human approves it.</p>
+  <p class="sub" style="margin-top:10px">Stage numbers match the tables below. 4 Nov: where the new checks sit is in section 0 and table 2a. Dashed line = failed QA sends the video back to production; nothing reaches Buffer until a human approves it.</p>
 </section>
 
 <section>
   <h2>2. What each stage checks</h2>
   <table>
     <tr><th style="width:18%">Stage</th><th>Automatic checks (where they run)</th><th style="width:14%">Blocks on fail</th></tr>
-    <tr><td>1 Discover</td><td>Radar sources from the registry (GitHub, Hugging Face, TikTok, YouTube, GitTrend); dedupe in sources.csv (33 unique rows plus gittrend)</td><td>Source skipped</td></tr>
+    <tr><td>1 Discover</td><td>Radar sources from the registry (GitHub, Hugging Face, TikTok, YouTube, GitTrend); dedupe in sources.csv (33 unique rows plus gittrend). <span class="note4"><b>4 Nov:</b> not in the pipeline folder. The discovery tools were left out; the folder starts from approved plans.</span></td><td>Source skipped</td></tr>
     <tr><td>2 Select</td><td>Topic score integer ≥ 60 (<code>production_gate</code>); rubric sum equals backlog score; facts ≤ 24 h old; primary sources ≤ 72 h old; SELECT must cite Buffer posts used as evidence</td><td>Yes</td></tr>
-    <tr><td>3 Brief lint</td><td>35 BL rules: required keys, beat order (hook, name, how, proof, catch, cta), media coverage (≥ 2 media scenes and ≥ 1 motion), card-type proof, capture manifest presence</td><td>Yes (errors); warnings ignored</td></tr>
+    <tr><td>3 Brief lint</td><td>35 BL rules: required keys, beat order (hook, name, how, proof, catch, cta), media coverage (≥ 2 media scenes and ≥ 1 motion), card-type proof, capture manifest presence. <span class="note4"><b>4 Nov:</b> the pipeline folder has 23 BL rule IDs (35 was the 31 Oct count over the full repo; the difference is not reconciled). New batches also run the Short QA plan gates (section 2a).</span></td><td>Yes (errors); warnings ignored</td></tr>
     <tr><td>4 Copy check</td><td>copy rules (C0xx): title length, hashtags count and format, generic-tag ban, #Shorts for YouTube, AI-disclosure present on Facebook, identical copy across platforms (C040)</td><td>Yes</td></tr>
     <tr><td>5 Assets</td><td>Capture pack hashes match the manifest; cover contract (designed cover, hook visible); cover-lab blank check</td><td>Yes</td></tr>
     <tr><td>6 Human review</td><td>Viewer panel with <code>Panel result: PASS</code> file in research/production; owner approval recorded</td><td>Yes (per video)</td></tr>
@@ -179,18 +228,27 @@
     <tr><td>17 Schedule</td><td>≤ 9 creates per run; ≥ 3 s between API calls; journal write before each provider call</td><td>Yes</td></tr>
     <tr><td>18 Reconcile</td><td>Receipts, drift check, unique post IDs; uncertain rows held for inspection</td><td>Held</td></tr>
   </table>
+  <h3>2a. Shorts QA stages added on 4 Nov (new batches only)</h3>
+  <table>
+    <tr><th style="width:18%">make_shorts stage</th><th>Check (code name)</th><th style="width:14%">Blocks on fail</th></tr>
+    <tr><td>2 build</td><td>Feature card for any tool with no media (<code>feature_card.py</code>); brief written with <code>qa_gates: true</code> (<code>brief_from_plan.py</code>)</td><td>Card failure stops the batch; a missing tool media never fails the Short</td></tr>
+    <tr><td>3 gate</td><td>Blocking plan gates (<code>short_qa.plan_results</code>): <code>duration_est</code>, <code>scenes</code>, <code>hook_anchor</code>, <code>hook_phrase</code>, <code>frame0_media</code>, <code>cta_last_15pct</code>, <code>visual_change_speech</code>, <code>graphic_only_share</code>, <code>static_scene_len</code>, <code>motion_gap</code>, <code>card_max_2s</code>. Warning: <code>hook_familiar_anchor</code>. Plus media fallback (<code>check_media_fallback</code>) and the production gate plan check. SEO warnings SP110 and SP111 (description)</td><td>Yes (the 11 blocking gates; the warnings do not block)</td></tr>
+    <tr><td>3 gate (SEO)</td><td>Hashtags: exactly 5 per platform (SP042, <code>config/qa-thresholds.json</code>)</td><td>Yes</td></tr>
+    <tr><td>6 fetch</td><td>Blocking video gates on the MP4 (<code>short_qa.video_results</code>): <code>duration</code>, <code>speech_wpm</code>, <code>longest_pause</code>, <code>speech_timing</code>, <code>hook_speech_start</code>, <code>hook_first_phrase_end</code>, <code>graphic_only_share</code>, <code>visual_change_speech</code>, <code>motion_gap</code>. Info only: <code>measure_first3s_wpm</code>, <code>measure_phrases</code>. The record is written as <code>&lt;id&gt;-qa.json</code></td><td>Yes (the batch stops before the panel stage)</td></tr>
+  </table>
+  <p class="sub">Vision output (the frame reads) is advisory. The numbers and gates are in code (<code>config/qa-thresholds.json</code>).</p>
 </section>
 
 <section>
   <h2>3. Gate inventory (counts from the code)</h2>
   <div class="kpis">
-    <div class="kpi"><b>35</b><span>brief lint rules (BL)</span></div>
-    <div class="kpi"><b>17</b><span>copy rules (C0xx)</span></div>
-    <div class="kpi"><b>97</b><span>hard-stop raise sites in production gate</span></div>
-    <div class="kpi"><b>6+</b><span>media QA checks per render</span></div>
-    <div class="kpi"><b>4 + 1</b><span>cron checks a day, plus manual runs</span></div>
+    <div class="kpi"><b>23</b><span>brief lint rule IDs (BL), 4 Nov. 31 Oct: 35 (full repo)</span></div>
+    <div class="kpi"><b>17</b><span>copy rules (C0xx), 4 Nov, unchanged</span></div>
+    <div class="kpi"><b>25</b><span>SP rule IDs (SEO and copy), 4 Nov</span></div>
+    <div class="kpi"><b>76</b><span>raise lines in production_gate.py, 4 Nov. 31 Oct: 97 (method not reconciled)</span></div>
+    <div class="kpi"><b>11 + 9</b><span>blocking Short QA checks: plan + video (plus 1 warning and 2 info measures)</span></div>
   </div>
-  <p class="sub" style="margin-top:14px">Thresholds are defined in three places: <code>lib/pipeline.py</code>, <code>tools/production_gate.py</code> and <code>config/channel.json</code>. They must be kept in step by hand.</p>
+  <p class="sub" style="margin-top:14px">4 Nov: thresholds for Short QA are in <code>config/qa-thresholds.json</code>; production and TTS thresholds are in <code>config/gates.json</code>. <code>lib/pipeline.py</code> still has its own <code>MIN_FLOW_MATCH</code> constant, and <code>config/channel.json</code> holds channel settings. Keep these in step until they are merged. The 31 Oct text said three places; that is still true for the minimum-match constant.</p>
 </section>
 
 <section>
@@ -200,16 +258,16 @@
   <table>
     <tr><th style="width:24%">Gate</th><th>What it protects</th><th>What it cost this week</th><th style="width:14%">Verdict</th></tr>
 
-    <tr><td>Viewer panel PASS (human)</td><td>Whether a viewer would stay. Automatic QA cannot measure this.</td><td>Low. One record per video.</td><td><span class="tag keep">keep</span></td></tr>
+    <tr><td>Viewer panel PASS (human)</td><td>Whether a viewer would stay. Automatic QA cannot measure this.</td><td>Low. One record per video.</td><td><span class="tag keep">keep</span><span class="note4"><b>4 Nov:</b> unchanged. Still required for each video.</span></td></tr>
     <tr><td>Owner approval and expiry ≤ 14 days</td><td>Public posting needs an accountable decision and a fresh review window.</td><td>Low.</td><td><span class="tag keep">keep</span></td></tr>
     <tr><td>Kill switch and one-run concurrency (post.yml)</td><td>Stops posting if anything is wrong; prevents two runs racing.</td><td>None.</td><td><span class="tag keep">keep</span></td></tr>
-    <tr><td>Duplicate-render guard</td><td>Prevents paying for the same render twice.</td><td><b>High.</b> Blocked publishing of four QA-passed videos. Forced a manual release upload. The guard needs an explicit "publish an existing QA-passed artifact" path, not a dead end.</td><td><span class="tag simplify">simplify</span></td></tr>
-    <tr><td>TTS per-chunk alignment at 92%</td><td>Words spoken match the script.</td><td><b>High.</b> Five Edge0 renders failed at 77–92%. Whisper writes numerals as digits, so the score dropped on correct speech. Threshold was lowered to 85% (owner approved). Better fix: normalise numbers and abbreviations before comparing.</td><td><span class="tag simplify">simplify</span></td></tr>
-    <tr><td>Media coverage (≥ 2 media scenes, ≥ 1 motion)</td><td>Videos should show real material, not text cards.</td><td><b>Medium.</b> Blocked still-graphic briefs. Fixed with a hard-coded set of five IDs in three files. That's brittle.</td><td><span class="tag simplify">simplify</span></td></tr>
-    <tr><td>Hard-coded NO_VIDEO_STILL_ALLOWED set</td><td>Lets specific briefs bypass media coverage.</td><td><b>Medium.</b> Lives in three files and drifts. Replace with a declared <code>media_mode</code> per brief (video, capture, graphic) and one rule.</td><td><span class="tag simplify">simplify</span></td></tr>
-    <tr><td>claim_verifiable hard gate</td><td>Facts in the video are checked before publish.</td><td><b>Medium.</b> Blocked a claim-based topic until the gate was retired (31 Oct).<code>owner_accepted_risk</code> with reason and date.</td><td><span class="tag simplify">simplify</span></td></tr>
-    <tr><td>Copy identical across platforms (C040)</td><td>Each platform gets its own text.</td><td><b>Medium.</b> Found only at Buffer dry-run, after rendering. It should fail at brief lint. The rule is good; the timing is wrong.</td><td><span class="tag simplify">move earlier</span></td></tr>
-    <tr><td>Brief sha pinned in queue</td><td>Stops a changed brief going out under an old approval.</td><td><b>Medium.</b> Any copy edit (even a comma) invalidates queue items and forced a manual hash update. Pin media and copy separately, so copy edits need only a re-check.</td><td><span class="tag simplify">simplify</span></td></tr>
+    <tr><td>Duplicate-render guard</td><td>Prevents paying for the same render twice.</td><td><b>High.</b> Blocked publishing of four QA-passed videos. Forced a manual release upload. The guard needs an explicit "publish an existing QA-passed artifact" path, not a dead end.</td><td><span class="tag simplify">simplify</span><span class="note4"><b>4 Nov:</b> unchanged. The publish-existing path is not started (section 6, item 5).</span></td></tr>
+    <tr><td>TTS per-chunk alignment at 92%</td><td>Words spoken match the script.</td><td><b>High.</b> Five Edge0 renders failed at 77–92%. Whisper writes numerals as digits, so the score dropped on correct speech. Threshold was lowered to 85% (owner approved). Better fix: normalise numbers and abbreviations before comparing.</td><td><span class="tag simplify">simplify</span><span class="note4"><b>4 Nov:</b> the threshold is 0.85 in <code>config/gates.json</code>; numeral canonicalisation is in <code>lib/pipeline.py</code>.</span></td></tr>
+    <tr><td>Media coverage (≥ 2 media scenes, ≥ 1 motion)</td><td>Videos should show real material, not text cards.</td><td><b>Medium.</b> Blocked still-graphic briefs. Fixed with a hard-coded set of five IDs in three files. That's brittle.</td><td><span class="tag simplify">simplify</span><span class="note4"><b>4 Nov:</b> new batches get a generated feature card when a tool has no media, so this no longer fails the Short. It was not re-checked whether the brief-lint media rule still runs on new briefs.</span></td></tr>
+    <tr><td>Hard-coded NO_VIDEO_STILL_ALLOWED set</td><td>Lets specific briefs bypass media coverage.</td><td><b>Medium.</b> Lives in three files and drifts. Replace with a declared <code>media_mode</code> per brief (video, capture, graphic) and one rule.</td><td><span class="tag simplify">simplify</span><span class="note4"><b>4 Nov:</b> still present in <code>tools/cover_lab.py</code> and <code>tools/production_gate.py</code>. Not changed.</span></td></tr>
+    <tr><td>claim_verifiable hard gate</td><td>Facts in the video are checked before publish.</td><td><b>Medium.</b> Blocked a claim-based topic until the gate was retired (31 Oct).<code>owner_accepted_risk</code> with reason and date.</td><td><span class="tag simplify">simplify</span><span class="note4"><b>4 Nov:</b> no owner_accepted_risk field in code; it appears only in tests.</span></td></tr>
+    <tr><td>Copy identical across platforms (C040)</td><td>Each platform gets its own text.</td><td><b>Medium.</b> Found only at Buffer dry-run, after rendering. It should fail at brief lint. The rule is good; the timing is wrong.</td><td><span class="tag simplify">move earlier</span><span class="note4"><b>4 Nov:</b> the rule is still in <code>studio/rules.py</code>; not moved to brief lint.</span></td></tr>
+    <tr><td>Brief sha pinned in queue</td><td>Stops a changed brief going out under an old approval.</td><td><b>Medium.</b> Any copy edit (even a comma) invalidates queue items and forced a manual hash update. Pin media and copy separately, so copy edits need only a re-check.</td><td><span class="tag simplify">simplify</span><span class="note4"><b>4 Nov:</b> not changed; split pins not started.</span></td></tr>
     <tr><td>Loudness −14 ± 1 LUFS and peak ≤ −1 dBFS</td><td>Platform-safe audio.</td><td>Two renders failed on peak; fixed in the audio chain (limiter and post-encode guard). Working.</td><td><span class="tag keep">keep</span></td></tr>
     <tr><td>Resolution, fps, codec, duration checks</td><td>Format compliance.</td><td>No failures this week.</td><td><span class="tag keep">keep</span></td></tr>
     <tr><td>Frame-0 hook visible</td><td>Thumbnail and first-frame hook on Shorts and Reels.</td><td>Low.</td><td><span class="tag keep">keep</span></td></tr>
@@ -217,9 +275,9 @@
     <tr><td>hyperframes lint and check</td><td>Layout and contrast errors in the video.</td><td>Low.</td><td><span class="tag keep">keep</span></td></tr>
     <tr><td>Topic score ≥ 60 and rubric equals backlog</td><td>Only worthwhile topics get made.</td><td>Low.</td><td><span class="tag keep">keep</span></td></tr>
     <tr><td>Facts ≤ 24 h, primary sources ≤ 72 h</td><td>Currency of facts.</td><td>Low. Needs a 21 Oct reference refresh, which is a process gap, not a code gap.</td><td><span class="tag keep">keep</span></td></tr>
-    <tr><td>Plan: 150-minute gap rule</td><td>Spacing between posts.</td><td>Removed by owner on 30 Oct. Docs still mention it. Clean up.</td><td><span class="tag simplify">clean up</span></td></tr>
+    <tr><td>Plan: 150-minute gap rule</td><td>Spacing between posts.</td><td>Removed by owner on 30 Oct. Docs still mention it. Clean up.</td><td><span class="tag simplify">clean up</span><span class="note4"><b>4 Nov:</b> the docs still say so: <code>POSTING-RULES.md</code> lines 13 and 16 give a 150-minute grid and minimum spacing. The test file says the rule was removed on 30 Oct. The docs need fixing.</span></td></tr>
     <tr><td>Plan: ≤ 9 creates per run</td><td>Rate-limit safety for Buffer.</td><td>Split one batch across runs. Fine, but document it.</td><td><span class="tag keep">keep</span></td></tr>
-    <tr><td>Untracked gate receipts in research/maintenance/gates/</td><td>Audit trail.</td><td>Clutter: many uncommitted gate files.</td><td><span class="tag remove">remove clutter</span></td></tr>
+    <tr><td>Untracked gate receipts in research/maintenance/gates/</td><td>Audit trail.</td><td>Clutter: many uncommitted gate files.</td><td><span class="tag remove">remove clutter</span><span class="note4"><b>4 Nov:</b> the pipeline folder has none (data is not shipped). The clutter is still in <code>reels-studio</code>.</span></td></tr>
   </table>
 </section>
 
@@ -239,15 +297,16 @@
 <section>
   <h2>6. Target pipeline (proposed)</h2>
   <ol>
-    <li><b>One preflight, before any cloud dispatch.</b> Brief lint, copy rules (including C040), media mode, capture hashes, and thresholds run locally in one command. Anything that would fail in the cloud fails here, in seconds.</li>
-    <li><b>Declared media mode per brief</b> (<code>video</code>, <code>capture</code>, <code>graphic</code>) replaces the hard-coded bypass set. The gate checks the mode, not the ID.</li>
-    <li><b>Normalised alignment.</b> Numerals, units, and abbreviations are normalised on both sides before the match score. The threshold stays at the approved level.</li>
-    <li><b>Split pins.</b> Media and copy are pinned separately. A copy edit needs a re-check, not a re-render or re-enqueue.</li>
-    <li><b>Publish-existing path.</b> A QA-passed artifact can be promoted to the release with a digest check, without re-rendering. Re-renders stay blocked for identical inputs.</li>
-    <li><b>Accepted-risk record.</b> Gates such as claim_verifiable can be overridden only with a named owner decision, reason, and date, written to the receipt.</li>
-    <li><b>Single source of thresholds</b>, read by pipeline, gate, and channel config.</li>
-    <li><b>Clean runs.</b> Gate receipts go to one tracked folder; the remote is restored by a setup script.</li>
+    <li><span class="st part">partial</span><b>One preflight, before any cloud dispatch.</b> Brief lint, copy rules (including C040), media mode, capture hashes, and thresholds run locally in one command. Anything that would fail in the cloud fails here, in seconds.</li>
+    <li><span class="st open">open</span><b>Declared media mode per brief</b> (<code>video</code>, <code>capture</code>, <code>graphic</code>) replaces the hard-coded bypass set. The gate checks the mode, not the ID.</li>
+    <li><span class="st done">present</span><b>Normalised alignment.</b> Numerals, units, and abbreviations are normalised on both sides before the match score. The threshold stays at the approved level.</li>
+    <li><span class="st open">open</span><b>Split pins.</b> Media and copy are pinned separately. A copy edit needs a re-check, not a re-render or re-enqueue.</li>
+    <li><span class="st open">open</span><b>Publish-existing path.</b> A QA-passed artifact can be promoted to the release with a digest check, without re-rendering. Re-renders stay blocked for identical inputs.</li>
+    <li><span class="st open">open</span><b>Accepted-risk record.</b> Gates such as claim_verifiable can be overridden only with a named owner decision, reason, and date, written to the receipt.</li>
+    <li><span class="st part">partial</span><b>Single source of thresholds</b>, read by pipeline, gate, and channel config.</li>
+    <li><span class="st part">partial</span><b>Clean runs.</b> Gate receipts go to one tracked folder; the remote is restored by a setup script.</li>
   </ol>
+  <p class="sub" style="margin-top:10px">4 Nov: the clean pipeline folder is delivered. The remote-restore setup script is not verified. The expected effect below is still a forecast, not a measured result.</p>
   <div class="callout green"><b>Expected effect:</b> the same quality bar, with fewer failed cloud runs. Most of this week's failures would have been caught locally, in seconds, instead of in 15-minute cloud runs.</div>
 </section>
 
@@ -277,16 +336,21 @@
 <section>
   <h2>7. Decisions needed from you</h2>
   <ol>
-    <li>VoiceStudio copy: revert the brief copy to the live Buffer copy, or edit Buffer by hand and re-pin (copy pin pending).</li>
-    <li>Grandfathering: published briefs stay on the earlier motion standard. Approve, or schedule re-renders for the outclass videos under the new standard.</li>
-    <li>Legacy <code>tool-*</code> uncertain rows: inspect each in Buffer, then close them so <code>post.yml</code> exits clean.</li>
-    <li>Approve the single preflight command and the media-mode field (replaces the hard-coded bypass set).</li>
-    <li>Approve normalised alignment for numerals and units (threshold unchanged).</li>
-    <li>Approve the publish-existing path with a digest check, so QA-passed renders are not re-rendered.</li>
-    <li>Accepted-risk record for claim_verifiable: not approved (31 Oct); the claim check is per pick now.</li>
-    <li>Confirm the 14-day expiry and the panel PASS rule stay as they are.</li>
+    <li><span class="st open">open</span>VoiceStudio copy: revert the brief copy to the live Buffer copy, or edit Buffer by hand and re-pin (copy pin pending).</li>
+    <li><span class="st open">open</span>Grandfathering: published briefs stay on the earlier motion standard. Approve, or schedule re-renders for the outclass videos under the new standard.</li>
+    <li><span class="st open">open</span>Legacy <code>tool-*</code> uncertain rows: inspect each in Buffer, then close them so <code>post.yml</code> exits clean.</li>
+    <li><span class="st open">open</span>Approve the single preflight command and the media-mode field (replaces the hard-coded bypass set).</li>
+    <li><span class="st done">present</span>Approve normalised alignment for numerals and units (threshold unchanged). Code has it; confirm.</li>
+    <li><span class="st open">open</span>Approve the publish-existing path with a digest check, so QA-passed renders are not re-rendered.</li>
+    <li><span class="st open">open</span>Accepted-risk record for claim_verifiable: not approved (31 Oct); the claim check is per pick now.</li>
+    <li><span class="st open">open</span>Confirm the 14-day expiry and the panel PASS rule stay as they are.</li>
+    <li><span class="st open">open</span><b>New, 4 Nov:</b> the visual-change gate. All three current renders (ifixai, rea, voicestudio) BLOCK at every threshold from 0.5 to 8.0. Their table (visual change in speech 27%, 19%, 30%; still share 73%, 82%, 71%; longest still 3.75 s, 5.00 s, 3.00 s) was in the research folder, which is now stripped; these numbers are the record. The 75% speech gate and the <code>frame_change_min</code> of 2.0 are not calibrated. Decide: calibrate on reference videos, or keep the gate and change how our videos are made.</li>
+    <li><span class="st open">open</span><b>New, 4 Nov:</b> the approved voice take. The code rebuilds the reference from Kokoro, but nothing checks the rebuilt file against the approved one. Decide: store the approved take's hash in config and fail on a mismatch, or accept the rebuild.</li>
+    <li><span class="st done">done</span><b>4 Nov:</b> <code>reels-studio</code> stripped of data (renders, captures, covers, research, archive, tracker, briefs, videos, queue, topics, brand banners and voice). 647 tracked files are removed from the working tree and stay in git history. Six untracked files went into <code>/home/user/reels-studio-untracked-backup.tar.gz</code>. The deletions are not committed. The 73 MB zip is deleted.</li>
+    <li><span class="st open">open</span><b>New, 4 Nov:</b> the GitHub Actions backlog loop (keep 1 to 5 backlog Shorts; 1 to 2 on days with no new Short; generate when the backlog drops to 1). Not built in the pipeline folder.</li>
+    <li><span class="st open">open</span><b>Carried from earlier:</b> <code>frame_change_min</code> calibration, plan SEO and CTA fields, covers for review, the 150-minute clean-up in POSTING-RULES, and the old <code>production_gate</code> and pipeline map changes (now committed or not: see section 0).</li>
   </ol>
-  <div class="callout">Nothing in this document changes the code. Each item above is a proposal for you to approve before work starts.</div>
+  <div class="callout">4 Nov: the gate work in section 0 is in code. Items marked open are proposals for you to approve before work starts.</div>
 </section>
 
 </main>

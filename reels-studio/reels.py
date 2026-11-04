@@ -3,11 +3,7 @@
 Reels Studio - professional vertical-video generator (HyperFrames + free tools)
 
   python3 reels.py doctor                                   # is everything installed + healthy?
-  python3 reels.py radar  [--days 14] [--brief]             # trending AI repos/models/apps -> idea sheet (+ draft brief)
   python3 reels.py capture <id> --url <site-or-repo>        # site/repo -> credited asset pack in captures/<id>/
-  python3 reels.py social --account <tiktok/yt url> --top 2  # competitors' scripts, hooks, pacing, CTAs -> research/social/
-  python3 tools/channel_study.py meta|visual|transcribe|report # deep study of benchmark accounts (20-30 videos each)
-  python3 tools/idea_feed.py --days 7                        # topics the watchlist channels are covering (consensus) -> backlog
   python3 reels.py make   briefs/x.json --receipt research/production/receipts/<batch>.json --quality looks --crf 26
   python3 reels.py make   briefs/x.json --no-render         # fast iteration: build + lint + check only; receipt not required
   python3 reels.py batch  briefs/a.json briefs/b.json ... --receipt research/production/receipts/<batch>.json
@@ -95,7 +91,6 @@ def cmd_doctor(a):
     mods = [m for m in ("numpy", "scipy", "soundfile", "kokoro_onnx") if subprocess.run([sys.executable, "-c", f"import {m}"], capture_output=True).returncode != 0]
     row("python deps", not mods, "missing: " + ",".join(mods) if mods else "numpy scipy soundfile kokoro_onnx")
     row("(opt) Kokoro model cached", pipeline.KOKORO_MODEL.exists(), "auto-downloads on first make" if not pipeline.KOKORO_MODEL.exists() else "")
-    row("(opt) yt-dlp (social scan)", shutil.which("yt-dlp") is not None, "" if shutil.which("yt-dlp") else "pip install yt-dlp")
     row("(opt) tesseract (on-screen text)", shutil.which("tesseract") is not None, "" if shutil.which("tesseract") else "apt-get install tesseract-ocr")
     wc = pipeline.HF_CACHE / "whisper/whisper.cpp/build/bin/whisper-cli"
     row("whisper-cli (QA)", wc.exists(), "" if wc.exists() else "run setup/setup-whisper.sh")
@@ -428,23 +423,6 @@ def cmd_capture(a):
     subprocess.run(args, check=True)
 
 
-def cmd_social(rest):
-    subprocess.run([sys.executable, "-u", str(ROOT / "tools/social_scan.py"), *rest], check=True)  # -u: live log
-
-
-def cmd_radar(a):
-    """Both discovery scans: AI tools + AI news from the watchlist channels (idea feed), then GitHub/HF repos.
-    Daily mix (PIPELINE.md §1): not hardcoded — strongest researched topics win; owner approves."""
-    if not a.repos_only:
-        subprocess.run([sys.executable, str(ROOT / "tools/idea_feed.py"), "--days", str(min(a.days, 7)), "--per-channel", "15"], check=True)
-    if not a.tools_only:
-        args = [sys.executable, str(ROOT / "tools/trend_radar.py"), "--days", str(a.days)]
-        if a.brief:
-            args.append("--brief")
-        subprocess.run(args, check=True)
-    print("\nmix rule: editorial (no fixed split). Shortlist -> owner approval -> briefs.")
-
-
 def main():
     if len(sys.argv) > 1 and sys.argv[1] == "post":
         return subprocess.call([sys.executable, str(ROOT / "tools/post/publisher.py"), *sys.argv[2:]])
@@ -509,13 +487,6 @@ def main():
     p.add_argument("id")
     p.add_argument("--url", required=True)
     p.add_argument("--repo")
-    p = sub.add_parser("radar")
-    p.add_argument("--days", type=int, default=14)
-    p.add_argument("--brief", action="store_true", help="also write a draft ranked-list brief from the top repos")
-    p.add_argument("--tools-only", action="store_true", help="only the watchlist idea feed (AI tools + news)")
-    p.add_argument("--repos-only", action="store_true", help="only the GitHub/HF repo radar")
-    if len(sys.argv) > 1 and sys.argv[1] == "social":  # pass-through to tools/social_scan.py
-        return cmd_social(sys.argv[2:])
     a = ap.parse_args()
 
     if a.cmd == "doctor":
@@ -536,8 +507,6 @@ def main():
         return cmd_gates(a)
     if a.cmd == "renders":
         return subprocess.run([sys.executable, str(ROOT / "tools" / "publish_release.py"), "--list"]).returncode
-    if a.cmd == "radar":
-        return cmd_radar(a)
     if a.cmd == "capture":
         return cmd_capture(a)
     if a.cmd in {"make", "batch"}:

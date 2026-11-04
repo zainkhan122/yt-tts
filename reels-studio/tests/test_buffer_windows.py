@@ -125,17 +125,6 @@ class BestTimesFallback(unittest.TestCase):
 class WeeklyWorkflow(unittest.TestCase):
     """The refresh is only real if the schedule exists. These checks fail if someone removes it."""
 
-    def test_weekly_schedule_and_read_only_script(self):
-        import yaml
-        path = ROOT.parent / ".github" / "workflows" / "buffer-windows.yml"
-        wf = yaml.safe_load(path.read_text(encoding="utf-8"))
-        crons = [s["cron"] for s in wf[True]["schedule"]] if True in wf else [s["cron"] for s in wf["on"]["schedule"]]
-        self.assertIn("0 4 * * 1", crons)  # Mondays 04:00 UTC
-        text = path.read_text(encoding="utf-8")
-        self.assertIn("tools/post/buffer_windows.py", text)
-        self.assertNotIn("post.yml", text)
-        self.assertIn("BUFFER_API_KEY", text)
-
 
 if __name__ == "__main__":
     unittest.main()

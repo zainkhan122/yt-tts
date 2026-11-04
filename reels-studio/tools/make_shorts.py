@@ -174,6 +174,8 @@ def stage_build(st: dict, batch: dict) -> None:
         # The kit cards come from the plan's own visual spec; the brief is then mapped from plan + kit.
         run([sys.executable, "tools/motion/build_plan_kit.py", f"videos/{vid}/plan.json"], log=f"{batch['id']}-kit-{vid}")
         run([sys.executable, "tools/brief_from_plan.py", f"videos/{vid}/plan.json"], log=f"{batch['id']}-brief-{vid}")
+        # Media fallback (owner rule): a scene with no tool media gets a generated feature card, never a failure.
+        run([sys.executable, "tools/feature_card.py", vid], log=f"{batch['id']}-media-{vid}")
         cap = json.loads((ROOT / "briefs" / f"{vid}.json").read_text(encoding="utf-8"))["capture"].rstrip("/").split("/")[-1]
         # Pull only restores a pack that is missing from the workspace. A pack built here (kit cards) is
         # not in the store yet; the source stage pushes it. Pulling it now would stop the batch for nothing.
@@ -272,6 +274,13 @@ def stage_fetch(batch: dict) -> None:
         for name in (f"{vid}.mp4", f"{vid}-kit.zip"):
             batch.setdefault("digests", {})[name] = download_release_asset(batch["tag"], name, dest / name)
     batch["fetched"] = str(dest)
+    # Measured gates on every finished MP4 (FINDINGS 3A). A BLOCK stops the batch before panel/cover/queue.
+    for vid in batch["ids"]:
+        brief = json.loads((ROOT / "briefs" / f"{vid}.json").read_text(encoding="utf-8"))
+        if brief.get("qa_gates") is not True:  # owner 4 Nov 2026: new batches only
+            continue
+        run([sys.executable, "tools/short_qa.py", "video", str(dest / f"{vid}.mp4"), "--kit", str(dest / f"{vid}-kit.zip")],
+            log=f"{batch['id']}-qa-{vid}")
 
 
 def stage_panel(batch: dict) -> None:

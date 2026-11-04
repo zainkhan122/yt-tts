@@ -145,10 +145,21 @@ def ws(tmp_path, monkeypatch):
     cov.mkdir(parents=True)
     (cov / "cover-selected.jpg").write_bytes(b"cover")
     sha = hashlib.sha256(b"cover").hexdigest()
-    (cov / "selection.json").write_text(json.dumps({"file": "cover-selected.jpg", "sha256": sha, "text": "HEAD TEXT"}))
+    # the cover rules (COVER-RULES.md): three concepts with real designed files behind them
+    from PIL import Image
+    concepts = []
+    for i, (layout, text) in enumerate([("bleed", "THE HEAD TEXT HERE"), ("window", "THE SECOND CONCEPT HERE"),
+                                        ("split", "THE THIRD CONCEPT HERE")]):
+        Image.new("RGB", (1200, 1200)).save(cov / f"d{i}.png")
+        concepts.append({"text": text, "layout": layout,
+                         "media": {"kind": "designed", "file": f"d{i}.png", "design": "a window of the tool's own UI"}})
+    brief_dir = tmp_path / "briefs"
+    brief_dir.mkdir()
+    (brief_dir / "repo-x-01.json").write_text(json.dumps({"treatment": {"cover_concepts": concepts}}))
+    (cov / "selection.json").write_text(json.dumps({"file": "cover-selected.jpg", "sha256": sha, "text": "THE HEAD TEXT HERE"}))
     vid = tmp_path / "videos" / "repo-x-01"
     vid.mkdir(parents=True)
-    (vid / "plan.json").write_text(json.dumps({"cover": {"text": "HEAD TEXT"}}))
+    (vid / "plan.json").write_text(json.dumps({"cover": {"text": "THE HEAD TEXT HERE"}}))
     return tmp_path
 
 

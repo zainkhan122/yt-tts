@@ -20,6 +20,8 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
 ROOT = Path(__file__).resolve().parents[1]
 VISUAL_KINDS = {
     "findings": ("rows",),
@@ -99,10 +101,12 @@ def check_packaging(plan):
     add(isinstance(kw, str) and bool(re.fullmatch(r"[A-Z]{2,12}", kw)), "packaging: cta_keyword is one capital word, 2-12 letters")
     cta = plan.get("cta", "")
     add(isinstance(cta, str) and 0 < len(cta) <= 140 and not re.search(r"https?://", cta), "packaging: cta written, no URL, at most 140 characters")
-    cov = plan.get("cover") or {}
-    add(isinstance(cov.get("text"), str) and 0 < len(cov.get("text", "")) <= 40, "packaging: cover text 1-40 characters")
-    words = (cov.get("text") or "").split() if isinstance(cov.get("text"), str) else []
-    add(1 <= len(words) <= 8, "packaging: cover text is 1-8 words (two headline lines; cover_lab checks 4 per concept)")
+    # Cover rules live in tools/cover_rules.py (COVER-RULES.md). Three concepts, 4-5 word all-caps
+    # headlines, one usable tool asset or a designed graphic per concept. Checked here, at authoring.
+    import cover_rules
+    pid = str(plan.get("id", ""))
+    cover_problems = cover_rules.plan_cover_problems(plan, ROOT / "captures" / pid, ROOT / "covers" / pid)
+    add(not cover_problems, "packaging: cover rules (COVER-RULES.md): " + ("; ".join(cover_problems) or "ok"))
 
     seo = plan.get("seo") or {}
     add(isinstance(seo.get("keyword"), str) and bool(seo.get("keyword")), "packaging: seo.keyword present")

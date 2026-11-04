@@ -20,11 +20,13 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+_QA = json.loads((Path(__file__).resolve().parents[1] / "config" / "qa-thresholds.json").read_text(encoding="utf-8"))
+HASHTAGS_EXACT = int(_QA["hashtags_per_platform"])  # owner decision 4 Nov 2026: 5 hashtags (overrides PLAYBOOK §1 "<=3")
 RULES = {  # platform: (main field, hard max chars, soft max chars, hashtags min, hashtags max, keyword within first N words)
-    "youtube": ("title", 100, 60, 3, 5, 4),
-    "tiktok": ("caption", 4000, 300, 3, 5, 8),
-    "instagram": ("caption", 2200, 400, 1, 5, 10),
-    "facebook": ("caption", 5000, 400, 1, 5, 10),
+    "youtube": ("title", 100, 60, HASHTAGS_EXACT, HASHTAGS_EXACT, 4),
+    "tiktok": ("caption", 4000, 300, HASHTAGS_EXACT, HASHTAGS_EXACT, 8),
+    "instagram": ("caption", 2200, 400, HASHTAGS_EXACT, HASHTAGS_EXACT, 10),
+    "facebook": ("caption", 5000, 400, HASHTAGS_EXACT, HASHTAGS_EXACT, 10),
     "x": ("text", 280, 240, 0, 2, 12),
 }
 GENERIC_TAGS = {"#ai", "#coding", "#video", "#tech", "#technology", "#viral", "#fyp", "#foryou", "#foryoupage", "#trending", "#programming"}
@@ -41,10 +43,13 @@ RULE_IDS = {
     "SP031": ("warning", "field within the recommended character limit"),
     "SP040": ("error", "hashtag count within the platform maximum"),
     "SP041": ("warning", "hashtag count within the recommended range"),
+    "SP042": ("error", "hashtag count is exactly the owner's count (config/qa-thresholds.json hashtags_per_platform)"),
     "SP050": ("error", "hashtags are well formed"),
     "SP051": ("warning", "no generic tags (#fyp/#viral)"),
     "SP060": ("error", "keyword within the first N words of the field"),
     "SP070": ("error", "youtube: #Shorts in the description hashtags"),
+    "SP110": ("warning", "youtube: description is one paragraph"),
+    "SP111": ("warning", "youtube: description length within the reference middle 50%"),
     "SP090": ("error", "no generic hashtags (#AI, #Coding, #Video, #Tech, #Viral...) — niche tags only"),
     "SP091": ("error", "no credits/attribution/capture-note text in visible copy (credits live in the kit)"),
     "SP071": ("error", "youtube: keyword in the first 150 chars of the description"),
@@ -130,6 +135,8 @@ def check(brief_path_or_text):
             add("SP031", f"{plat}: {field} {n} chars > recommended {soft}")
         if not (hmin <= len(tags) <= hmax):
             add("SP040" if plat in ("instagram", "x") and len(tags) > hmax else "SP041", f"{plat}: {len(tags)} hashtags (want {hmin}-{hmax})")
+        if plat != "x" and b.get("qa_gates") is True and len(tags) != HASHTAGS_EXACT:
+            add("SP042", f"{plat}: {len(tags)} hashtags; the owner's count is {HASHTAGS_EXACT}")
         if any(not re.fullmatch(r"#\w+", t) for t in tags):
             add("SP050", f"{plat}: malformed hashtag in {tags}")
         if any(t.lower() in GENERIC_TAGS for t in tags if not (plat == "youtube" and t.lower() == "#shorts")):
@@ -150,6 +157,12 @@ def check(brief_path_or_text):
             desc = p.get("description", "")
             if kws and not has_kw(desc[:150], kws):
                 add("SP071", "youtube: keyword not in the first 150 chars of the description")
+            # HOOKS section 5.8 (warnings): one paragraph, and the reference middle-50% length.
+            if "\n" in desc.strip():
+                add("SP110", "youtube: description has more than one paragraph; the references use one paragraph")
+            lo, hi = _QA.get("description_chars_ref", [263, 569])
+            if desc and not (lo <= len(desc) <= hi):
+                add("SP111", f"youtube: description {len(desc)} chars; reference middle 50% is {lo}-{hi}")
             if len(",".join(p.get("tags", []))) > 500:
                 add("SP072", "youtube: backend tags exceed 500 chars")
         blocks.append((plat, p, text, tags))

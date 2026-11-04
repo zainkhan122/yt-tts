@@ -1,5 +1,8 @@
 # Reels Studio PLAYBOOK: the end-to-end plan
 
+> **Shorts pipeline folder (4 Nov 2026).** This copy is the Shorts-only pipeline. Sections on topic discovery, channel study, social scan, voice study and the agent describe tools that are **not in this folder**. Those sections are kept as history. Shorts QA gates, the 5-hashtag rule and the new-batch flag are in `config/qa-thresholds.json` and `pipeline-map.html`.
+
+
 How we go from "a new tool appeared" to "a highly professional video posted on YouTube, TikTok, Instagram, Facebook and X". Built on evidence:
 - **270 videos** (30 each) from 9 benchmark TikTok accounts, with transcripts and frame-level visual analysis;
 - an 11-video pilot scan;
@@ -55,7 +58,7 @@ decoded Script+Voice+Cover+Media+Heading+Description for the top-2/bottom-1 late
   visual), with giant word-by-word captions from the first spoken word. No intros.
 - **Spoken CTA:** 62% of top-tier scripts ask (comment/save/follow) vs 33% of bottom-tier.
 - **Heading:** "Name: outcome" or a descriptive benefit sentence, sentence case, no caps-bait.
-- **TikTok description is a ~400-char keyword mini-article**, hashtags ≤3, link optional.
+- **TikTok description is a ~400-char keyword mini-article**, hashtags exactly 5 (owner decision 4 Nov 2026; was ≤3; set in `config/qa-thresholds.json`), link optional.
   Per-platform package shapes stay as §9 — the same video scored 149.2K on TikTok vs 228 on
   YouTube Shorts, so packages are adapted per platform, never copied across.
 - Anchor the tool to something familiar (Spotify, Windows, Claude…) in the first sentence.
@@ -314,8 +317,8 @@ never the thing we optimise for. Before any scene is written, every brief carrie
   `open_loop` (question planted in second one, `payoff_scene` where it pays off,
   target ~70% through), `proof_moment` (the scene where the skeptic converts —
   real product evidence, never a card claim).
-- **Covers are designed, not grabbed.** 3 `cover_concepts` (<= 4-word text, real
-  media visual, the curiosity `gap` each opens). `tools/cover_lab.py` renders all
+- **Covers are designed, not grabbed.** 3 `cover_concepts` (4–5 word all-caps headline, click-baited and intent-seeking; see `COVER-RULES.md`; real
+  media visual, the curiosity `gap` each opens). Usable real media source: any of the tool's own logo, chart, diagram, etc. No license requirement is needed. If no usable media exists, make own media based on the tool. `tools/cover_lab.py` renders all
   three (bleed / window / split, each on its own real capture image), measures text
   contrast against the actual plate (>= 4.5:1) and fails a set that is one design
   three times. The viewer panel judges them cold, the winner is pinned in
@@ -421,3 +424,12 @@ ourselves and never promise DMs.
 | Promoting harmful tools | radar risk flags (NSFW, ToS bypass, bot evasion, piracy, scraping) + manual check |
 | Fact errors | primary sources only; numbers refreshed on render day; catch line |
 | Sandbox resets / limits | one-click bootstrap, one heavy job per session, GitHub SSOT (**needs a token each session**) |
+
+## Short QA (measured gates, 4 Nov 2026)
+
+- Numbers live in `config/qa-thresholds.json` only (owner-approved FINDINGS section 3A, plus 5 hashtags and the 75% visual-change gate from the start).
+- **Plan level** (`tools/short_qa.py plan <id>`, run by `preflight`): duration estimate, hook anchor (number or tool name in the hook's on-screen text), first phrase length, frame-0 media, call to action in the last 15%, visual change on speech scenes, static share, static scene length, motion gap.
+- **Video level** (`tools/short_qa.py video <mp4> --kit <kit.zip>`, run by `make_shorts` fetch): duration, words per minute, longest pause, hook start, first phrase end (from the kit's own word timings), and visual change during speech, static share and motion gap (frame change from ffmpeg). Writes `<name>-qa.json` next to the MP4. A BLOCK stops the batch before panel, cover and queue.
+- **No tool media** (owner rule): `tools/feature_card.py <id>` (called by `make_shorts` build) draws a feature card per scene that has no media, from the plan's feature points, and moves its focus boxes with the spoken words. It never fails the Short for missing tool media.
+- Vision reads are advisory and do not gate.
+- Hashtags: exactly 5 on YouTube, TikTok, Instagram and Facebook (`SP042`). X keeps its 0–2 limit.
