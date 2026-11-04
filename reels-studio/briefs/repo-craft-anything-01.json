@@ -30,369 +30,68 @@
   "scenes": [
     {
       "id": "hook",
-      "type": "image",
-      "image": "plan-hook.jpg",
+      "type": "steps",
       "heading": "CRAFT ANYTHING STUDIES APPS",
-      "sub": "craft-anything · open source",
-      "say": "Can Craft Anything study an app and build its own version?",
-      "focus": [
-        {
-          "box": [
-            0.0,
-            0.206,
-            1.0,
-            0.588
-          ],
-          "at": 0.0,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.226,
-            1.0,
-            0.274
-          ],
-          "at": 1.4,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.5,
-            1.0,
-            0.274
-          ],
-          "at": 2.8,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.363,
-            1.0,
-            0.274
-          ],
-          "at": 4.2,
-          "pad": 1.0
-        }
+      "steps": [
+        "Study the original",
+        "Build its own version",
+        "Check it against the original"
       ],
-      "keep_visible": [
-        [
-          0.0,
-          1.0
-        ]
-      ],
-      "keep_band": [
-        0.7,
-        0.95
-      ],
-      "card_bottom": 1440
+      "say": "Can Craft Anything study an app and build its own version?"
     },
     {
       "id": "point1",
-      "type": "image",
-      "image": "plan-1.jpg",
+      "type": "steps",
       "heading": "STUDY BEFORE IT BUILDS",
-      "sub": "It inspects the original first, using real tools, not guesses.",
-      "say": "It studies the original first, with real inspection tools, before any AI writes a line.",
-      "focus": [
-        {
-          "box": [
-            0.0,
-            0.325,
-            1.0,
-            0.349
-          ],
-          "at": 0.0,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.345,
-            1.0,
-            0.155
-          ],
-          "at": 1.4,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.499,
-            1.0,
-            0.155
-          ],
-          "at": 2.8,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.422,
-            1.0,
-            0.155
-          ],
-          "at": 4.2,
-          "pad": 1.0
-        }
+      "steps": [
+        "Inspect pages at every width",
+        "Read the code and files",
+        "See how it runs"
       ],
-      "keep_visible": [
-        [
-          0.0,
-          1.0
-        ]
-      ],
-      "keep_band": [
-        0.7,
-        0.95
-      ],
-      "card_bottom": 1440
+      "say": "It studies the original first, with real inspection tools, before any AI writes a line."
     },
     {
       "id": "point2",
-      "type": "image",
-      "image": "plan-2.jpg",
+      "type": "steps",
       "heading": "THEN AN AGENT BUILDS",
-      "sub": "You name the stack, and the agent builds the new project in it.",
-      "say": "Then a coding agent builds a new project, in the language or framework you ask for.",
-      "focus": [
-        {
-          "box": [
-            0.0,
-            0.283,
-            1.0,
-            0.433
-          ],
-          "at": 0.0,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.303,
-            1.0,
-            0.196
-          ],
-          "at": 1.4,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.499,
-            1.0,
-            0.196
-          ],
-          "at": 2.8,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.401,
-            1.0,
-            0.196
-          ],
-          "at": 4.2,
-          "pad": 1.0
-        }
+      "steps": [
+        "Name the stack",
+        "Agent builds the project",
+        "Check and refine"
       ],
-      "keep_visible": [
-        [
-          0.0,
-          1.0
-        ]
-      ],
-      "keep_band": [
-        0.7,
-        0.95
-      ],
-      "card_bottom": 1440
+      "say": "Then a coding agent builds a new project, in the language or framework you ask for."
     },
     {
       "id": "point3",
-      "type": "image",
-      "image": "plan-3.jpg",
+      "type": "steps",
       "heading": "CHECKED, NOT GUESSED",
-      "sub": "Anything that does not match is listed until the build is close.",
-      "say": "Every build is checked against the original, at three screen widths, and mismatches are listed.",
-      "focus": [
-        {
-          "box": [
-            0.0,
-            0.302,
-            1.0,
-            0.396
-          ],
-          "at": 0.0,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.322,
-            1.0,
-            0.178
-          ],
-          "at": 1.4,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.5,
-            1.0,
-            0.178
-          ],
-          "at": 2.8,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.411,
-            1.0,
-            0.178
-          ],
-          "at": 4.2,
-          "pad": 1.0
-        }
+      "steps": [
+        "Pages at three widths",
+        "Compare with the original",
+        "List what still differs"
       ],
-      "keep_visible": [
-        [
-          0.0,
-          1.0
-        ]
-      ],
-      "keep_band": [
-        0.7,
-        0.95
-      ],
-      "card_bottom": 1440
+      "say": "Every build is checked against the original, at three screen widths, and mismatches are listed."
     },
     {
       "id": "point4",
-      "type": "image",
-      "image": "plan-4.jpg",
+      "type": "steps",
       "heading": "AGENTS DRIVE THE SAME ENGINE",
-      "sub": "Any agent can call the tools the app uses, with no AI needed to inspect.",
-      "say": "Every tool is a command line call and an MCP tool, so an agent can drive the same engine the app uses.",
-      "focus": [
-        {
-          "box": [
-            0.0,
-            0.325,
-            1.0,
-            0.349
-          ],
-          "at": 0.0,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.345,
-            1.0,
-            0.155
-          ],
-          "at": 1.4,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.499,
-            1.0,
-            0.155
-          ],
-          "at": 2.8,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.422,
-            1.0,
-            0.155
-          ],
-          "at": 4.2,
-          "pad": 1.0
-        }
+      "steps": [
+        "A command line call",
+        "An MCP tool",
+        "The same engine the app uses"
       ],
-      "keep_visible": [
-        [
-          0.0,
-          1.0
-        ]
-      ],
-      "keep_band": [
-        0.7,
-        0.95
-      ],
-      "card_bottom": 1440
+      "say": "Every tool is a command line call and an MCP tool, so an agent can drive the same engine the app uses."
     },
     {
       "id": "catch",
-      "type": "image",
-      "image": "plan-catch.jpg",
+      "type": "steps",
       "heading": "THE CATCH",
-      "sub": "Early alpha: check the build against the original.",
-      "say": "It is early alpha, so every build still needs checking against the original.",
-      "focus": [
-        {
-          "box": [
-            0.0,
-            0.372,
-            1.0,
-            0.256
-          ],
-          "at": 0.0,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.392,
-            1.0,
-            0.108
-          ],
-          "at": 1.4,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.5,
-            1.0,
-            0.108
-          ],
-          "at": 2.8,
-          "pad": 1.0
-        },
-        {
-          "box": [
-            0.0,
-            0.446,
-            1.0,
-            0.108
-          ],
-          "at": 4.2,
-          "pad": 1.0
-        }
+      "steps": [
+        "Early alpha",
+        "Check the build against the original"
       ],
-      "keep_visible": [
-        [
-          0.0,
-          1.0
-        ]
-      ],
-      "keep_band": [
-        0.7,
-        0.95
-      ],
-      "card_bottom": 1440
+      "say": "It is early alpha, so every build still needs checking against the original."
     },
     {
       "id": "cta",
@@ -501,22 +200,22 @@
     {
       "claim": "c1",
       "evidence": "source:https://github.com/storytold/craft-anything",
-      "how_shown": "the workbench: the tool's own inspection panels"
+      "how_shown": "study stage, as the README lists it: three steps lit as they are said"
     },
     {
       "claim": "c2",
       "evidence": "source:https://github.com/storytold/craft-anything",
-      "how_shown": "a finished build: the snake game and its Study/Build/Check/Ready progress"
+      "how_shown": "build stage: name the stack, the agent builds, then check and refine"
     },
     {
       "claim": "c3",
       "evidence": "source:https://github.com/storytold/craft-anything",
-      "how_shown": "the website build with its check list"
+      "how_shown": "check stage: three widths, compare, list what differs"
     },
     {
       "claim": "c4",
       "evidence": "source:https://github.com/storytold/craft-anything",
-      "how_shown": "the workbench's tool list: the tools an agent can call"
+      "how_shown": "the two ways an agent reaches the same engine"
     }
   ],
   "treatment": {
