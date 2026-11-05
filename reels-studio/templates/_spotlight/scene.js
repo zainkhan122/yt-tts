@@ -660,7 +660,49 @@
             A.endCard(tl, E("follow_in", t0 + 1.2), null);
           }
 
-          const BUILD = { clip: sClip, "clip-montage": sMontage, page: sPage, scroll: sScroll, steps: sSteps, terminal: sTerminal,
+          // flow: boxes joined by arrows, lit in step with the voice (no image, drawn from the words).
+          function sFlow(s, root, t0, t1) {
+            heading(root, s.heading || "", t0 + 0.05, { instant: s.id === FIRST });
+            const nodes = s.nodes || [];
+            const cover = s.id === FIRST;
+            const top = cover ? COVER_STAGE_TOP : 470, bottom = STAGE_BOTTOM;
+            const NH = 132, GAP = Math.max(56, Math.min(96, Math.floor((bottom - top - nodes.length * NH) / Math.max(1, nodes.length - 1)))), W = 860;
+            const total = nodes.length * NH + Math.max(0, nodes.length - 1) * GAP;
+            const y0 = top + Math.max(0, Math.floor((bottom - top - total) / 2));
+            const boxes = nodes.map((txt, k) => {
+              const y = y0 + k * (NH + GAP);
+              const box = A.mk("div", "sp-flow-node", root);
+              Object.assign(box.style, { position: "absolute", left: "110px", top: y + "px", width: W + "px", height: NH + "px",
+                border: "4px solid #2a3a4f", borderRadius: "22px", background: "rgba(12,16,24,0.92)",
+                display: "flex", alignItems: "center", gap: "26px", padding: "0 34px", boxSizing: "border-box", opacity: "0" });
+              const num = A.mk("div", "", box, String(k + 1));
+              Object.assign(num.style, { flex: "0 0 auto", width: "62px", height: "62px", borderRadius: "50%", background: "#2a3a4f",
+                color: "#fff", font: "800 34px/62px sans-serif", textAlign: "center" });
+              const tx = A.mk("div", "", box, txt);
+              Object.assign(tx.style, { color: "#fff", font: "800 46px/1.12 sans-serif", textTransform: "uppercase" });
+              const tk = E(`${s.id}_node${k}`, t0 + 0.2 + k * 1.2);
+              tl.fromTo(box, { opacity: 0, y: 26, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(1.5)", immediateRender: false }, tk);
+              const tn = k + 1 < nodes.length ? E(`${s.id}_node${k + 1}`, t1) : t1;
+              tl.to(box, { borderColor: "#ffd60a", boxShadow: "0 0 46px rgba(255,214,10,0.55)", duration: 0.2, immediateRender: false }, tk + 0.2);
+              tl.to(box, { borderColor: "#2a3a4f", boxShadow: "0 0 0 rgba(0,0,0,0)", duration: 0.2, immediateRender: false }, Math.max(tk + 0.5, tn - 0.05));
+              tl.to(num, { background: "#ffd60a", color: "#0b0f17", duration: 0.2, immediateRender: false }, tk + 0.2);
+              return box;
+            });
+            nodes.slice(0, -1).forEach((_, k) => {
+              const ay = y0 + k * (NH + GAP) + NH + 6;
+              const line = A.mk("div", "sp-flow-arrow", root);
+              Object.assign(line.style, { position: "absolute", left: (110 + W / 2 - 3) + "px", top: ay + "px", width: "6px",
+                height: (GAP - 12) + "px", background: "#ffd60a", transformOrigin: "50% 0%", transform: "scaleY(0)" });
+              const head = A.mk("div", "sp-flow-head", root);
+              Object.assign(head.style, { position: "absolute", left: (110 + W / 2 - 16) + "px", top: (ay + GAP - 20) + "px",
+                width: "0", height: "0", borderLeft: "16px solid transparent", borderRight: "16px solid transparent",
+                borderTop: "20px solid #ffd60a", opacity: "0" });
+              const ta = E(`${s.id}_arrow${k}`, t0 + 1.0 + k * 1.2);
+              tl.fromTo(line, { scaleY: 0 }, { scaleY: 1, duration: 0.35, ease: "power2.out", immediateRender: false }, ta);
+              tl.fromTo(head, { opacity: 0 }, { opacity: 1, duration: 0.15, immediateRender: false }, ta + 0.3);
+            });
+          }
+          const BUILD = { clip: sClip, "clip-montage": sMontage, page: sPage, scroll: sScroll, steps: sSteps, flow: sFlow, terminal: sTerminal,
                           verdict: sVerdict, stat: sStat, image: sImage, split: sSplit, endcard: sEnd };
           for (const s of X.scenes || []) {
             const fn = BUILD[s.type];

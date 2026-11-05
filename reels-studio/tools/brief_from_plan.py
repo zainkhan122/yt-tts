@@ -51,6 +51,11 @@ def _card_scene(scene_id, key, heading, sub, say, keep, vid):
     }
 
 
+def _flow_scene(scene_id, heading, nodes, say):
+    """Boxes joined by arrows, drawn by the template and lit as the voice says each box's words."""
+    return {"id": scene_id, "type": "flow", "heading": heading, "nodes": list(nodes), "say": say}
+
+
 def _animation_file(vid, name):
     path = ROOT / "captures" / vid / name
     if not path.exists():
@@ -62,15 +67,17 @@ def build(plan_path):
     plan = json.loads(Path(plan_path).read_text(encoding="utf-8"))
     vid = plan["id"]
     keep_path = ROOT / "captures" / vid / "plan-keep.json"
-    if not keep_path.exists():
-        raise BuildError(f"{vid}: captures/{vid}/plan-keep.json missing; run tools/motion/build_plan_kit.py first")
-    keep = json.loads(keep_path.read_text(encoding="utf-8"))
+    keep = json.loads(keep_path.read_text(encoding="utf-8")) if keep_path.exists() else {}
     seo = plan["seo"]
     meta = plan["brief_meta"]
     brand = plan["brand_line"]
 
-    scenes = [_card_scene("hook", "plan-1", seo["onscreen_first3s"], brand, plan["question"], keep, vid)]
-    scenes[0]["keep_visible"] = [[0.0, 1.0]]
+    hook_vis = plan.get("hook_visual") or {}
+    if hook_vis.get("kind") == "steps":
+        scenes = [_flow_scene("hook", seo["onscreen_first3s"], hook_vis["steps"], plan["question"])]
+    else:
+        scenes = [_card_scene("hook", "plan-1", seo["onscreen_first3s"], brand, plan["question"], keep, vid)]
+        scenes[0]["keep_visible"] = [[0.0, 1.0]]
     for p in plan["points"]:
         key = f"plan-{p['n']}"
         if p["visual"]["kind"] == "animation":
@@ -80,12 +87,17 @@ def build(plan_path):
                 "in": 0.0, "out": 14.0, "say": p["spoken"],
             })
             continue
+        if p["visual"]["kind"] == "steps":  # drawn by the template, lit as the voice says each step
+            scenes.append(_flow_scene(f"point{p['n']}", p["title"].upper(), p["steps"], p["spoken"]))
+            continue
         scenes.append(_card_scene(f"point{p['n']}", key, p["title"].upper(), p["sub"], p["spoken"], keep, vid))
 
     cv = plan["catch_visual"]
     if cv["kind"] == "animation":
         catch_scene = {"id": "catch", "type": "clip", "src": _animation_file(vid, cv["animation"]),
                        "in": 0.0, "out": 14.0, "say": plan["catch"]}
+    elif cv["kind"] == "steps":
+        catch_scene = _flow_scene("catch", plan.get("catch_title", "The catch").upper(), cv["steps"], plan["catch"])
     else:
         catch_scene = _card_scene("catch", "plan-catch", plan.get("catch_title", "The catch").upper(),
                                   plan["catch_sub"], plan["catch"], keep, vid)

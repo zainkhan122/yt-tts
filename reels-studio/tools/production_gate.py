@@ -530,8 +530,9 @@ def asset_digest_receipt(repo_root: Path, capture_id: str) -> dict:
     manifest_path = _repo_path(repo_root, f"reels-studio/captures/{capture_id}/manifest.json")
     manifest, raw = _load_json(manifest_path, f"capture manifest for {capture_id}")
     files = manifest.get("files")
-    if not isinstance(files, dict) or not files:
-        raise ProductionGateError(f"capture manifest for {capture_id} contains no assets")
+    if not isinstance(files, dict):
+        raise ProductionGateError(f"capture manifest for {capture_id} has no files map")
+    # An explicit empty map: the video uses no captured media; every visual is drawn by the template.
     rows = []
     for entry in files.values():
         if not isinstance(entry, dict) or not isinstance(entry.get("file"), str):

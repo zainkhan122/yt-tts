@@ -305,6 +305,15 @@ def events(b, T, D, cfg):
             if s.get("figure"):
                 fk = s.get("figure_step", max(0, len(steps) - 2))
                 ev[f"{sid}_figure"] = ev.get(f"{sid}_step{min(fk, len(steps) - 1)}", t0 + 1.0)
+        elif typ == "flow":
+            # Boxes light as the voice says their words; each arrow draws just before the next box.
+            nodes = s.get("nodes", [])
+            ts = seq_anchors(seg, nodes, seg["start"], seg["end"] - 0.3,
+                             {k: [p] for k, p in enumerate(s.get("node_at", [])) if p})
+            for k, t in enumerate(ts):
+                ev[f"{sid}_node{k}"] = round(max(t0 + 0.15, t - 0.12), 3)
+            for k in range(len(nodes) - 1):
+                ev[f"{sid}_arrow{k}"] = round(max(t0 + 0.2, ts[k + 1] - 0.45), 3)
         elif typ == "terminal":
             lines = s.get("lines", [])
             avail = max(1.2, (t1 - t0) - 0.9 - 0.35 * len(lines))
@@ -474,6 +483,9 @@ def sfx(b, T, D, ev, cfg):
         elif typ == "steps":
             for k, _ in enumerate(s.get("steps", [])):
                 out.append(("pop", ev[f"{sid}_step{k}"], 0.55))
+        elif typ == "flow":
+            for k, _ in enumerate(s.get("nodes", [])):
+                out.append(("pop", ev[f"{sid}_node{k}"], 0.55))
         elif typ == "terminal":
             for k, line in enumerate(s.get("lines", [])):
                 a, z = ev[f"{sid}_type{k}"], ev[f"{sid}_type{k}_end"]

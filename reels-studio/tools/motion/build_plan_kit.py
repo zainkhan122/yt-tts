@@ -128,7 +128,7 @@ def build(plan_path):
     keep = {}
     for p in plan["points"]:
         kind = p["visual"]["kind"]
-        if kind == "animation":          # built by tools/motion/make_ifixai_anim.py, not a card
+        if kind in ("animation", "steps"):  # animation: built by make_ifixai_anim; steps: drawn by the template
             continue
         drawers = {"findings": draw_findings, "chips": draw_chips, "steps": draw_steps,
                    "tiers": draw_tiers, "chart": draw_chart}
@@ -152,7 +152,7 @@ def build(plan_path):
         print("wrote", out.relative_to(ROOT), "keep", keep[f"plan-{p['n']}"])
     # The catch card, drawn from catch_visual the same way as a point (unless it is an animation file).
     cv = plan.get("catch_visual") or {}
-    if cv.get("kind") and cv["kind"] != "animation":
+    if cv.get("kind") and cv["kind"] not in ("animation", "steps"):
         catch_pt = {"n": "catch", "title": plan.get("catch_title", "The catch"), "sub": plan.get("catch_sub", ""),
                     "visual": cv, **{k: v for k, v in cv.items() if k not in ("kind", "intent")}}
         kind = cv["kind"]
@@ -184,6 +184,15 @@ def write_manifest(plan, cap):
     import datetime as dt
     import hashlib
     files = {}
+    # The cover concepts may use the tool's own screenshots. Listed here as cover-only sources, so the
+    # receipt hashes every file in the pack. The video itself uses none of them.
+    cover_only = {c["media"]["file"] for c in (plan.get("cover") or {}).get("concepts", [])
+                  if (c.get("media") or {}).get("kind") == "tool_media"}
+    for name in sorted(cover_only):
+        path = cap / name
+        if path.exists():
+            files[path.stem] = {"file": path.name, "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+                                "kind": "cover source only: the tool's own screenshot, used on the cover, not in the video"}
     for path in sorted(cap.glob("plan-*.jpg")):
         n = path.stem.removeprefix("plan-")
         kind = "own graphic: card built from the plan's visual spec"

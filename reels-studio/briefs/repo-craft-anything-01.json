@@ -30,9 +30,9 @@
   "scenes": [
     {
       "id": "hook",
-      "type": "steps",
+      "type": "flow",
       "heading": "CRAFT ANYTHING STUDIES APPS",
-      "steps": [
+      "nodes": [
         "Study the original",
         "Build its own version",
         "Check it against the original"
@@ -41,9 +41,9 @@
     },
     {
       "id": "point1",
-      "type": "steps",
+      "type": "flow",
       "heading": "STUDY BEFORE IT BUILDS",
-      "steps": [
+      "nodes": [
         "Inspect pages at every width",
         "Read the code and files",
         "See how it runs"
@@ -52,9 +52,9 @@
     },
     {
       "id": "point2",
-      "type": "steps",
+      "type": "flow",
       "heading": "THEN AN AGENT BUILDS",
-      "steps": [
+      "nodes": [
         "Name the stack",
         "Agent builds the project",
         "Check and refine"
@@ -63,9 +63,9 @@
     },
     {
       "id": "point3",
-      "type": "steps",
+      "type": "flow",
       "heading": "CHECKED, NOT GUESSED",
-      "steps": [
+      "nodes": [
         "Pages at three widths",
         "Compare with the original",
         "List what still differs"
@@ -74,9 +74,9 @@
     },
     {
       "id": "point4",
-      "type": "steps",
+      "type": "flow",
       "heading": "AGENTS DRIVE THE SAME ENGINE",
-      "steps": [
+      "nodes": [
         "A command line call",
         "An MCP tool",
         "The same engine the app uses"
@@ -85,9 +85,9 @@
     },
     {
       "id": "catch",
-      "type": "steps",
+      "type": "flow",
       "heading": "THE CATCH",
-      "steps": [
+      "nodes": [
         "Early alpha",
         "Check the build against the original"
       ],
@@ -258,7 +258,7 @@
     ]
   },
   "review": {
-    "reviewed_at": "2026-11-04",
+    "reviewed_at": "2026-11-05",
     "expires_at": null,
     "reviewer": "agent: plan written from the maker's README and repo page",
     "notes": "Topic approved by owner (config/topic-approvals.json). Plan and copy await owner review at the cover gate."
