@@ -1778,9 +1778,11 @@
     },
     "repo-craft-anything-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6aec9cb2a3148845e4090cd1",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-11-05T18:20:00Z",
+      "due_at": "2026-11-05T18:20:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:62b09965bec53b65aad4ecabb041d946c53b47c1c30380b07114738caa018c63",
         "asset_id": 713786996,
@@ -1795,10 +1797,11 @@
       "notify_subscribers": true,
       "payload_sha256": "c736a4ecfaf7e41d2c00a8a35410a98f014bbcf28067aba7366f3424dd5d9a72",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Craft Anything studies an app with real tools, then builds its own version. A coding agent writes the new project, and each build is checked against the original until it is close. Open source, written in Rust, early alpha. Repo: https://github.com/storytold/craft-anything #Shorts #CraftAnything #OpenSource #RustLang #AIAgents\n\n#Shorts #CraftAnything #OpenSource #RustLang #AIAgents",
       "title": "Craft Anything: AI Studies an App, Then Builds Its Own",
-      "updated_at": "2026-11-05T15:11:44Z",
+      "updated_at": "2026-11-05T15:11:47Z",
       "video_id": "repo-craft-anything-01"
     },
     "repo-deeptutor-01:facebook": {
