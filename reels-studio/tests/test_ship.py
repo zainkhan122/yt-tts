@@ -1,7 +1,4 @@
-"""Tests for tools/ship.py: every link in the brief -> receipt -> queue -> artifact -> panel chain.
-
-Each test builds a throwaway repo tree, so the real repo is never touched.
-"""
+"""Tests for tools/ship.py. The queue item is the only state; each test breaks one link."""
 import json
 import sys
 from pathlib import Path
@@ -14,38 +11,55 @@ import ship  # noqa: E402
 from post.common import fingerprint  # noqa: E402
 
 VID = "repo-test-01"
-MP4 = b"fake-mp4-bytes-v1"
-COVER = b"fake-cover-bytes"
+PASS_PANEL = "# Viewer panel\n\nPanel result: PASS (owner override)\n"
 
 
 @pytest.fixture
 def tree(tmp_path):
-    """A complete, consistent tree for one video. Tests break one link at a time."""
+    """A consistent tree: brief, receipt, approved and reviewed queue item, PASS panel."""
     brief = {"id": VID, "seo": {"youtube": {"title": "t"}}, "post": {"hashtags": ["#Shorts"]}}
     (tmp_path / "briefs").mkdir()
-    (tmp_path / "briefs" / f"{VID}.json").write_text(json.dumps(brief), encoding="utf-8")
+    bp = tmp_path / "briefs" / f"{VID}.json"
+    bp.write_text(json.dumps(brief), encoding="utf-8")
     rec = tmp_path / "research" / "production" / "receipts"
     rec.mkdir(parents=True)
     (rec / "2026-11-05-shorts-01.json").write_text(json.dumps(
-        {"briefs": {VID: {"brief_sha256": ship.sha256_file(tmp_path / "briefs" / f"{VID}.json")}}}), encoding="utf-8")
-    (tmp_path / "queue").mkdir()
+        {"briefs": {VID: {"brief_sha256": ship.sha256_file(bp)}}}), encoding="utf-8")
+    (tmp_path / "research" / "production" / f"viewer-panel-{VID}.md").write_text(PASS_PANEL, encoding="utf-8")
     mp4 = tmp_path / "video.mp4"
-    mp4.write_bytes(MP4)
+    mp4.write_bytes(b"mp4-v1")
     cover = tmp_path / "cover.jpg"
-    cover.write_bytes(COVER)
-    ship.review(VID, mp4, "42048880432", cover, root=tmp_path)
-    (tmp_path / "queue" / "publish.json").write_text(json.dumps({"items": [{
-        "video_id": VID, "brief_sha256": fingerprint(brief),
+    cover.write_bytes(b"cover-v1")
+    (tmp_path / "queue").mkdir()
+    item = {
+        "video_id": VID, "approval": "held", "platforms": ["youtube", "instagram"],
+        "brief_sha256": fingerprint(brief),
         "asset_digest": "sha256:" + ship.sha256_file(mp4),
-        "cover_sha256": ship.sha256_file(cover), "platforms": ["youtube", "instagram"],
-    }]}), encoding="utf-8")
-    (tmp_path / "research" / "production" / f"viewer-panel-{VID}.md").write_text(
-        "# Viewer panel\n\nPanel result: PASS (owner override)\n", encoding="utf-8")
+        "cover_sha256": ship.sha256_file(cover),
+    }
+    (tmp_path / "queue" / "publish.json").write_text(json.dumps({"items": [item]}), encoding="utf-8")
+    ship.review(VID, mp4, "42048880432", cover, root=tmp_path)
+    # approval as queue_ctl would record it
+    q = json.loads((tmp_path / "queue" / "publish.json").read_text(encoding="utf-8"))
+    q["items"][0]["approval"] = "approved"
+    (tmp_path / "queue" / "publish.json").write_text(json.dumps(q), encoding="utf-8")
+    ship.record_approval(VID, root=tmp_path)
     return tmp_path
+
+
+def _queue(root):
+    return json.loads((root / "queue" / "publish.json").read_text(encoding="utf-8"))
+
+
+def _set(root, **fields):
+    q = _queue(root)
+    q["items"][0].update(fields)
+    (root / "queue" / "publish.json").write_text(json.dumps(q), encoding="utf-8")
 
 
 def test_consistent_tree_passes(tree):
     assert ship.check(VID, root=tree) == []
+    assert ship.check_all(root=tree) == {}
 
 
 def test_brief_edited_after_receipt_is_drift(tree):
@@ -54,70 +68,89 @@ def test_brief_edited_after_receipt_is_drift(tree):
     b["post"]["hashtags"] = ["#changed"]
     p.write_text(json.dumps(b), encoding="utf-8")
     errs = ship.check(VID, root=tree)
-    assert any("receipt" in e and "edited after receipt" in e for e in errs)
+    assert any("edited after receipt" in e for e in errs)
     assert any(e.startswith("queue: brief_sha256") for e in errs)
 
 
-def test_scheduled_file_differs_from_reviewed_file_is_drift(tree):
-    # This is the 5 Nov failure: reviewed one render, scheduled a re-render.
-    q = tree / "queue" / "publish.json"
-    d = json.loads(q.read_text(encoding="utf-8"))
-    d["items"][0]["asset_digest"] = "sha256:" + "0" * 64
-    q.write_text(json.dumps(d), encoding="utf-8")
-    errs = ship.check(VID, root=tree)
-    assert any(e.startswith("artifact: release asset") for e in errs)
-
-
-def test_unreviewed_video_is_drift(tree):
-    (tree / "research" / "production" / "reviewed" / f"{VID}.json").unlink()
-    errs = ship.check(VID, root=tree)
-    assert any(e.startswith("review: no review record") for e in errs)
-
-
-def test_cover_mismatch_is_drift(tree):
-    q = tree / "queue" / "publish.json"
-    d = json.loads(q.read_text(encoding="utf-8"))
-    d["items"][0]["cover_sha256"] = "f" * 64
-    q.write_text(json.dumps(d), encoding="utf-8")
-    assert any(e.startswith("cover: queued cover differs") for e in ship.check(VID, root=tree))
-
-
-def test_missing_cover_blocks_youtube(tree):
-    q = tree / "queue" / "publish.json"
-    d = json.loads(q.read_text(encoding="utf-8"))
-    d["items"][0]["cover_sha256"] = None
-    q.write_text(json.dumps(d), encoding="utf-8")
-    assert any(e.startswith("cover: youtube is scheduled") for e in ship.check(VID, root=tree))
-
-
-def test_panel_fail_blocks(tree):
-    (tree / "research" / "production" / f"viewer-panel-{VID}.md").write_text(
-        "Panel result: FAIL\n", encoding="utf-8")
-    assert any(e.startswith("panel: verdict is FAIL") for e in ship.check(VID, root=tree))
-
-
-def test_panel_words_without_verdict_line_do_not_pass(tree):
-    # Free text saying PASS is not a verdict. Only the "Panel result:" line counts.
-    (tree / "research" / "production" / f"viewer-panel-{VID}.md").write_text(
-        "All checks PASS and it is great.\n", encoding="utf-8")
-    assert any(e.startswith("panel: verdict is missing") for e in ship.check(VID, root=tree))
-
-
 def test_only_latest_receipt_governs(tree):
-    # An older receipt pinning a previous brief version is history, not drift.
     old = tree / "research" / "production" / "receipts" / "2026-11-04-shorts-01.json"
     old.write_text(json.dumps({"briefs": {VID: {"brief_sha256": "0" * 64}}}), encoding="utf-8")
     assert ship.check(VID, root=tree) == []
 
 
-def test_not_queued_is_reported(tree):
-    (tree / "queue" / "publish.json").write_text(json.dumps({"items": []}), encoding="utf-8")
-    assert ship.check(VID, root=tree) == ["queue: item not queued (nothing to ship yet)"]
+def test_review_refuses_a_file_that_is_not_the_released_asset(tree):
+    other = tree / "other.mp4"
+    other.write_bytes(b"re-render")
+    with pytest.raises(SystemExit):
+        ship.review(VID, other, "42999999999", None, root=tree)
 
 
 def test_review_rejects_non_numeric_run(tree):
     with pytest.raises(SystemExit):
-        ship.review(VID, tree / "video.mp4", "run-42", None)
+        ship.review(VID, tree / "video.mp4", "run-42", None, root=tree)
+
+
+def test_not_reviewed_is_drift(tree):
+    _set(tree, review=None)
+    assert any(e.startswith("review: not reviewed") for e in ship.check(VID, root=tree))
+
+
+def test_asset_replaced_after_review_is_drift(tree):
+    _set(tree, asset_digest="sha256:" + "0" * 64)
+    assert any(e.startswith("artifact:") for e in ship.check(VID, root=tree))
+
+
+def test_cover_mismatch_is_drift(tree):
+    _set(tree, cover_sha256="f" * 64)
+    assert any(e.startswith("cover: queued cover differs") for e in ship.check(VID, root=tree))
+
+
+def test_youtube_without_cover_is_drift(tree):
+    _set(tree, cover_sha256=None)
+    assert any(e.startswith("cover: youtube is scheduled") for e in ship.check(VID, root=tree))
+
+
+def test_panel_fail_blocks(tree):
+    (tree / "research" / "production" / f"viewer-panel-{VID}.md").write_text("Panel result: FAIL\n", encoding="utf-8")
+    assert any(e.startswith("panel: verdict is FAIL") for e in ship.check(VID, root=tree))
+
+
+def test_panel_free_text_is_not_a_verdict(tree):
+    (tree / "research" / "production" / f"viewer-panel-{VID}.md").write_text(
+        "All checks PASS and it is great.\n", encoding="utf-8")
+    assert any(e.startswith("panel: verdict is missing") for e in ship.check(VID, root=tree))
+
+
+def test_panel_edited_after_approval_is_drift(tree):
+    (tree / "research" / "production" / f"viewer-panel-{VID}.md").write_text(
+        PASS_PANEL + "\nnew note\n", encoding="utf-8")
+    assert any(e.startswith("panel: panel file changed after approval") for e in ship.check(VID, root=tree))
+
+
+def test_approved_without_pinned_panel_is_drift(tree):
+    _set(tree, approved_panel_sha=None)
+    assert any(e.startswith("panel: approved without") for e in ship.check(VID, root=tree))
+
+
+def test_legacy_items_are_listed_not_checked(tree):
+    _set(tree, ship_legacy=True, review=None, approved_panel_sha=None)
+    assert ship.check(VID, root=tree) == []
+    assert ship.check_all(root=tree) == {}
+
+
+def test_check_all_reports_unreviewed_approved_item(tree):
+    _set(tree, review=None)
+    assert VID in ship.check_all(root=tree)
+
+
+def test_held_item_is_not_checked_by_check_all(tree):
+    _set(tree, approval="held", review=None)
+    assert ship.check_all(root=tree) == {}
+
+
+def test_not_queued_is_reported(tree):
+    (tree / "queue" / "publish.json").write_text(json.dumps({"items": []}), encoding="utf-8")
+    assert ship.check(VID, root=tree) == ["queue: item not queued"]
 
 
 def test_bad_video_id_rejected():

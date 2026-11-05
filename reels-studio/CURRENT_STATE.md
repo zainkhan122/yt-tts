@@ -52,12 +52,9 @@ Authoritative for the present. Older state lives in the history of this file and
 - Local workspace keeps only: `uploads/` (deliverables and `gh_token.txt`) and hidden folders (`.gen-repo/repo` working clone, `.graphics-work` scratch, `.config`, `.hyperframes`).
 - Work happens in the clone, is committed and pushed to `origin/main`. Re-add `origin` if a restore removes it.
 
-## Ship guard (built 5 Nov 2026)
+## Ship state (5 Nov 2026)
 
-- `tools/ship.py` proves that the scheduled file is the reviewed file. It checks brief, receipt, queue item, release asset digest, cover, and the viewer-panel verdict line.
-- `tools/post/queue_ctl.py approve` now refuses any drift. Nothing is written to the queue when the guard fails.
-- Hash definitions: receipts pin raw file bytes; queue pins canonical JSON (`common.fingerprint`). Each link is compared with its own definition.
-- Flow to ship one Short: render (cloud, artifact) -> `ship.py review <id> --mp4 <file> --run <run_id> [--cover <file>]` -> viewer panel verdict line -> `queue_ctl enqueue/approve` (guard runs here) -> `post.yml` dry-run, verify, schedule.
-- Known gap: the review step is still manual. The next step is to make `review` run automatically from the cloud artifact so a review record cannot be skipped.
-- Live item `repo-craft-anything-01` fails the guard: "no review record". Its scheduled file (run 42048880432) has not been reviewed.
-- Existing test collection errors (`tests/test_youtube.py` and two others) are pre-existing and separate from the guard. Guard tests: `tests/test_ship.py` (12 pass).
+- The single state is `queue/publish.json`. Read `reels-studio/STATE.md`.
+- `tools/ship.py` checks every link: brief, receipt, review, release asset digest, cover, panel. `queue_ctl approve` refuses drift. CI runs `ship.py check-all` on each push.
+- Items approved before the guard are marked `ship_legacy` with a reason (52 items). `repo-craft-anything-01` is one of them. It stays scheduled, as the owner decided, and is not reviewed under the guard.
+- Next: `ship.py review` should run automatically from the cloud artifact, so no review can be skipped.

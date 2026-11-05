@@ -24,7 +24,9 @@
       "release_tag": "renders-2026-10-09",
       "reviewed_at": "2026-10-10T11:16:02Z",
       "title": "Claude Slides, Docs & Design Are Now Free",
-      "video_id": "news-claude-free-01"
+      "video_id": "news-claude-free-01",
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-10T00:00:00Z",
@@ -52,7 +54,9 @@
       "reviewed_at": "2026-10-10T12:00:43Z",
       "title": "3 Free AI Video Generators (Real Daily Limits)",
       "video_id": "list-free-video-ai-01",
-      "youtube_ai_generated": true
+      "youtube_ai_generated": true,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-10T00:00:00Z",
@@ -78,7 +82,9 @@
       "release_tag": "renders-2026-10-09",
       "reviewed_at": "2026-10-10T11:25:24Z",
       "title": "AI Homepage That Writes Itself (Claude Chrome Extension)",
-      "video_id": "repo-ai-newtab-01"
+      "video_id": "repo-ai-newtab-01",
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-10T00:00:00Z",
@@ -183,7 +189,9 @@
       "reviewed_at": "2026-10-11T05:29:03Z",
       "title": "Claude Haiku 5.5: Cheap API, One Price Catch",
       "video_id": "news-haiku-55-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-10T12:16:50Z",
@@ -210,7 +218,9 @@
       "reviewed_at": "2026-10-11T05:29:03Z",
       "title": "Gemini Agent Works After You Close Your Laptop",
       "video_id": "news-gemini-agent-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-10T12:16:51Z",
@@ -238,7 +248,9 @@
       "reviewed_at": "2026-10-11T05:29:03Z",
       "title": "Mosa: Your AI Tools in One Visual Workflow",
       "video_id": "tool-mosa-01",
-      "youtube_ai_generated": true
+      "youtube_ai_generated": true,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-10T12:16:52Z",
@@ -264,9 +276,11 @@
       "priority": 100,
       "release_tag": "renders-2026-10-10",
       "reviewed_at": "2026-10-11T05:29:03Z",
-      "title": "Pomelli: Free AI Product Photos\u2014with a Catch",
+      "title": "Pomelli: Free AI Product Photos—with a Catch",
       "video_id": "tool-pomelli-01",
-      "youtube_ai_generated": true
+      "youtube_ai_generated": true,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-10T12:16:53Z",
@@ -293,7 +307,9 @@
       "reviewed_at": "2026-10-11T05:29:03Z",
       "title": "Whistle: Offline Speech-to-Text in 16.9 MB",
       "video_id": "repo-whistle-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-12T07:49:48Z",
@@ -319,7 +335,9 @@
       "reviewed_at": "2026-10-12T07:50:12Z",
       "title": "GPT-6.1 Astra: Why OpenAI Scrapped It",
       "video_id": "news-gpt61-astra-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-12T07:49:49Z",
@@ -349,7 +367,9 @@
       "reviewed_at": "2026-10-12T07:50:12Z",
       "title": "Qwen3.8-27B: 127 Tok/s on One RTX 3090",
       "video_id": "tool-qwen38-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-12T07:49:50Z",
@@ -379,7 +399,9 @@
       "reviewed_at": "2026-10-12T07:50:12Z",
       "title": "Nano Banana 2.1: Half-Price Images, One Catch",
       "video_id": "news-nano-banana-21-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-12T07:49:51Z",
@@ -409,7 +431,9 @@
       "reviewed_at": "2026-10-12T07:50:12Z",
       "title": "OpenMontage: Turn Your AI Coder Into a Video Studio",
       "video_id": "tool-openmontage-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-12T07:49:52Z",
@@ -439,7 +463,9 @@
       "reviewed_at": "2026-10-12T07:50:12Z",
       "title": "DeepSeek 4 Local Engine: 23k Stars, MIT",
       "video_id": "repo-ds4-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-12T11:03:22Z",
@@ -469,7 +495,9 @@
       "reviewed_at": "2026-10-12T11:04:35Z",
       "title": "GPT-6.1 Sol: OpenAI's Cheapest Frontier Model Yet",
       "video_id": "news-gpt61-sol-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-12T11:03:24Z",
@@ -499,7 +527,9 @@
       "reviewed_at": "2026-10-12T11:04:35Z",
       "title": "Open Code Review: Alibaba's AI Code Reviewer, Free",
       "video_id": "repo-opencr-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-12T11:03:25Z",
@@ -529,7 +559,9 @@
       "reviewed_at": "2026-10-12T11:04:35Z",
       "title": "Higgsfield Shipped SIX AI Video Releases in Eight Days",
       "video_id": "tool-higgsfield-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-12T11:03:26Z",
@@ -559,7 +591,9 @@
       "reviewed_at": "2026-10-12T11:04:35Z",
       "title": "Cloudflare Clef: a 27B Model That Can't Ramble",
       "video_id": "news-clef-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-12T11:03:28Z",
@@ -589,7 +623,9 @@
       "reviewed_at": "2026-10-12T11:04:35Z",
       "title": "LTX 2.5: Open-Weights Video + Audio in One Model",
       "video_id": "tool-ltx25-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-13T22:53:22Z",
@@ -613,7 +649,9 @@
       "reviewed_at": "2026-10-13T23:03:01Z",
       "title": "EmbeddingGemma 2: One Space for 5 Modalities",
       "video_id": "model-embeddinggemma2-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-13T22:53:22Z",
@@ -637,7 +675,9 @@
       "reviewed_at": "2026-10-13T23:03:01Z",
       "title": "GPT-6 Intelligent UI: ChatGPT Answers With Interactive Tools",
       "video_id": "news-gpt6-intelligent-ui-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-13T22:53:22Z",
@@ -661,7 +701,9 @@
       "reviewed_at": "2026-10-13T23:03:01Z",
       "title": "ManimGX: Manim-Style Python on a Rust GPU Engine",
       "video_id": "repo-manimgx-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-13T22:53:22Z",
@@ -685,7 +727,9 @@
       "reviewed_at": "2026-10-13T23:03:01Z",
       "title": "Qwen Image 2.1 Turbo: The Eight-Step Checkpoint",
       "video_id": "tool-qwen-image-21-turbo-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-15T12:41:53Z",
@@ -709,7 +753,9 @@
       "reviewed_at": "2026-10-15T12:42:11Z",
       "title": "Indra OCR: 18 MB Local OCR, 49 Pages a Second on CPU",
       "video_id": "repo-indra-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-15T12:41:54Z",
@@ -733,7 +779,9 @@
       "reviewed_at": "2026-10-15T12:42:11Z",
       "title": "Solid Glass: the Glass UI You Can Actually Read",
       "video_id": "repo-solidglass-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-15T12:41:55Z",
@@ -755,9 +803,11 @@
       "priority": 15,
       "release_tag": "renders-2026-10-15",
       "reviewed_at": "2026-10-15T12:42:11Z",
-      "title": "LFM2.5: 24B Brain, 2B at Work \u2014 a Local Agent Model",
+      "title": "LFM2.5: 24B Brain, 2B at Work — a Local Agent Model",
       "video_id": "model-lfm25-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-16T10:28:59Z",
@@ -781,7 +831,9 @@
       "reviewed_at": "2026-10-16T10:29:08Z",
       "title": "MiniCPM-V 4.7: a Vision Model That Runs on Your Phone",
       "video_id": "model-minicpmv47-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-16T10:29:00Z",
@@ -805,7 +857,9 @@
       "reviewed_at": "2026-10-16T10:29:08Z",
       "title": "Muse Spark Open: Meta's 816B Giant Needs 1 TB of RAM",
       "video_id": "news-muse-spark-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-16T10:29:02Z",
@@ -829,7 +883,9 @@
       "reviewed_at": "2026-10-16T10:29:08Z",
       "title": "Scout: Tell It the Task, It Browses for You",
       "video_id": "repo-scout-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-16T10:29:06Z",
@@ -853,7 +909,9 @@
       "reviewed_at": "2026-10-16T10:29:08Z",
       "title": "Drama 3: Sixteen Voices in One Script",
       "video_id": "model-drama3-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-16T10:29:07Z",
@@ -877,7 +935,9 @@
       "reviewed_at": "2026-10-16T10:29:08Z",
       "title": "Graphicle: a Map and Memory for Your Coding Agent",
       "video_id": "repo-graphicle-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-17T20:29:53Z",
@@ -900,7 +960,9 @@
       "reviewed_at": "2026-10-18T15:50:48Z",
       "title": "AI Inside Blender: It Builds Scenes From Chat | MCP for Blender Pro",
       "video_id": "repo-blender-mcp-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-17T20:29:54Z",
@@ -924,7 +986,9 @@
       "reviewed_at": "2026-10-18T15:50:49Z",
       "title": "Your Coding Agent Can't Hear. Earshot Fixes That (Free, CPU-Only)",
       "video_id": "repo-earshot-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-18T12:24:03Z",
@@ -949,7 +1013,9 @@
       "reviewed_at": "2026-10-18T15:05:37Z",
       "title": "Co-op Anything: Turn Any Single-Player Game Into Co-op With AI",
       "video_id": "repo-coop-anything-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-19T16:48:32Z",
@@ -973,7 +1039,9 @@
       "reviewed_at": "2026-10-19T16:48:35Z",
       "title": "leanrea: One Tiny Skill Replaces 207 Reverse-Engineering Tools",
       "video_id": "repo-leanrea-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-19T16:48:34Z",
@@ -997,7 +1065,9 @@
       "reviewed_at": "2026-10-19T16:48:35Z",
       "title": "WhatsApp MCP: Your AI Can Now Search Your Own Chats",
       "video_id": "repo-whatsapp-mcp-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-20T10:10:24Z",
@@ -1028,7 +1098,9 @@
       "reviewed_at": "2026-10-20T10:21:07Z",
       "title": "Your Coding Agent Can Now Shoot Your Launch Film (huashu-motion)",
       "video_id": "repo-huashu-motion-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-20T10:10:25Z",
@@ -1059,7 +1131,9 @@
       "reviewed_at": "2026-10-20T10:25:01Z",
       "title": "humanizer: The AI That Rewrites AI Text to Sound Like You",
       "video_id": "model-humanizer-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-20T17:18:32Z",
@@ -1083,7 +1157,9 @@
       "reviewed_at": "2026-10-21T08:42:40Z",
       "title": "fx0: One Sentence In, A Finished Page Out (Design Agent)",
       "video_id": "tool-fx0-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-21T06:54:59Z",
@@ -1107,7 +1183,9 @@
       "reviewed_at": "2026-10-21T08:42:40Z",
       "title": "Scrawl: Show Your Agent the Bug Instead of Describing It",
       "video_id": "tool-scrawl-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-22T15:05:59Z",
@@ -1131,7 +1209,9 @@
       "reviewed_at": "2026-10-22T15:05:59Z",
       "title": "Meta hackathon: $150 toward model usage if you're picked",
       "video_id": "meta-hackathon-credits-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-24T15:12:26Z",
@@ -1155,7 +1235,9 @@
       "reviewed_at": "2026-10-24T15:13:02Z",
       "title": "Harp: one sidebar for many agents, showing which needs you",
       "video_id": "repo-harp-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-26T11:11:48Z",
@@ -1179,7 +1261,9 @@
       "reviewed_at": "2026-10-26T11:11:49Z",
       "title": "vvv: a video template built once, reused by coding agents",
       "video_id": "repo-vvv-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-28T15:50:19Z",
@@ -1203,7 +1287,9 @@
       "reviewed_at": "2026-10-28T15:52:21Z",
       "title": "Koubo: one photo, one sentence, a full AI presenter",
       "video_id": "repo-koubo-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-28T15:50:20Z",
@@ -1227,7 +1313,9 @@
       "reviewed_at": "2026-10-28T15:52:21Z",
       "title": "Halo: an AI overlay that whispers what to say on calls",
       "video_id": "repo-halo-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-31T04:09:02Z",
@@ -1251,7 +1339,9 @@
       "reviewed_at": "2026-10-31T04:09:07Z",
       "title": "local AI model: Edge0 runs 35B in 3 GB on a Mac",
       "video_id": "repo-edge0-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-31T04:09:03Z",
@@ -1275,7 +1365,9 @@
       "reviewed_at": "2026-10-31T04:09:07Z",
       "title": "AI tutor with a memory you can edit: DeepTutor",
       "video_id": "repo-deeptutor-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-31T04:09:05Z",
@@ -1299,7 +1391,9 @@
       "reviewed_at": "2026-10-31T04:09:07Z",
       "title": "impeccable coding agent: the same AI, a different design",
       "video_id": "repo-impeccable-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-31T04:09:06Z",
@@ -1323,7 +1417,9 @@
       "reviewed_at": "2026-10-31T04:09:07Z",
       "title": "Android TV debloat: remove ads over Wi-Fi, no root",
       "video_id": "repo-cleanyourtv-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-10-31T16:27:28Z",
@@ -1347,7 +1443,9 @@
       "reviewed_at": "2026-10-31T16:27:33Z",
       "title": "Clone and dub voices on your own machine (open source)",
       "video_id": "repo-voicestudio-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-11-01T11:16:05Z",
@@ -1373,7 +1471,9 @@
       "reviewed_at": "2026-11-01T11:16:36Z",
       "title": "Coding Agent Memory That Keeps Context (Open Source)",
       "video_id": "repo-claude-mem-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-11-01T15:09:14Z",
@@ -1399,7 +1499,9 @@
       "reviewed_at": "2026-11-01T15:09:25Z",
       "title": "AI Agent Audit: Green Tests Are Not Enough",
       "video_id": "repo-ifixai-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     },
     {
       "added_at": "2026-11-05T15:03:34Z",
@@ -1425,7 +1527,9 @@
       "reviewed_at": "2026-11-05T15:03:43Z",
       "title": "Craft Anything: AI Studies an App, Then Builds Its Own",
       "video_id": "repo-craft-anything-01",
-      "youtube_ai_generated": false
+      "youtube_ai_generated": false,
+      "ship_legacy": true,
+      "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py"
     }
   ],
   "schema_version": 1

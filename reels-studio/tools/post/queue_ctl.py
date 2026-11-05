@@ -115,6 +115,8 @@ def main():
                 continue
             i["approval"] = "approved" if args.cmd == "approve" else "held"
             if args.cmd == "approve":
+                i["approved_panel_sha"] = ship.panel_sha(i["video_id"], ROOT)  # pin the panel that justified approval
+            if args.cmd == "approve":
                 if i["category"] == "news" and expiry > now + dt.timedelta(hours=72):
                     raise SystemExit("News needs a fresh review within 72 hours")
                 read_kit(cfg, i)
