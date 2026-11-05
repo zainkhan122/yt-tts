@@ -1,4 +1,4 @@
-# Viewer panel: repo-craft-anything-01 — **FAIL**
+# Viewer panel: repo-craft-anything-01 — **FAIL, owner override**
 
 Video: `repo-craft-anything-01.mp4` (cloud run 42038109244, 36.0 s, 9/9 cloud QA, local `short_qa` PASS).
 Reviewed by opening all 7 extracted frames (2.6 / 7.7 / 12.9 / 18.0 / 23.2 / 28.3 / 33.5 s).
@@ -28,4 +28,8 @@ Evidence: `viewer-panel.md` and `frames/` from `tools/viewer_panel.py`.
 - Owner to decide the real-media rule: either accept generated-only (waive rule 3 for this batch, recorded in writing) or approve real tool captures.
 - Consider stronger motion or visual proof in the hook and CTA (text-led now).
 
-Panel result: FAIL
+## Owner override (5 Nov 2026)
+
+The panel found the failures above. The owner, after reading this review, chose to override the panel for this batch and to schedule it on Buffer. Owner words: "override". The override waives panel rules 1 and 2 for this batch, including the real-media rule, and is recorded here as the owner's decision, not as a panel PASS. The 12.9 s near-blank frame remains unfixed.
+
+Panel result: PASS (owner override; panel findings above stand)
