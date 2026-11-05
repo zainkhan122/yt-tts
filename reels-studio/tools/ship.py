@@ -29,8 +29,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "tools" / "post"))
-from common import fingerprint  # noqa: E402  (canonical hash used by the queue)
+sys.path.insert(0, str(ROOT / "tools"))
+from brief_identity import identity  # noqa: E402  (the one brief identity)
 
 VALID_ID = re.compile(r"^[a-z0-9][a-z0-9_-]{2,80}$")
 PANEL_LINE = re.compile(r"^Panel result:\s*(PASS|FAIL)\b", re.MULTILINE)
@@ -119,11 +119,12 @@ def panel_sha(video_id: str, root: Path) -> str | None:
 
 
 def latest_receipt_pin(video_id: str, root: Path):
+    """(receipt name, brief_identity_sha256) from the latest receipt that pins this brief."""
     pinned = None
     for rp in sorted((root / "research" / "production" / "receipts").glob("*.json")):
         entry = (_load(rp).get("briefs") or {}).get(video_id)
         if entry:
-            pinned = (rp.name, entry.get("brief_sha256"))  # latest by name governs
+            pinned = (rp.name, entry.get("brief_identity_sha256"))  # latest by name governs
     return pinned
 
 
@@ -168,18 +169,17 @@ def check(video_id: str, *, root: Path = ROOT, live: bool = False) -> list[str]:
     brief_path = root / "briefs" / f"{video_id}.json"
     if not brief_path.exists():
         return [f"brief missing: briefs/{video_id}.json"]
-    # Two hash definitions are pinned on purpose: receipts pin raw file bytes (receipt_build.py),
-    # the queue pins canonical JSON (common.fingerprint). Each is compared with its own definition.
-    brief_bytes = sha256_file(brief_path)
-    brief_canon = fingerprint(_load(brief_path))
+    brief_id_now = identity(_load(brief_path))
 
     pin = latest_receipt_pin(video_id, root)
     if pin is None:
         errors.append("receipt: no receipt pins this brief")
-    elif pin[1] != brief_bytes:
-        errors.append(f"receipt {pin[0]}: brief_sha256 {str(pin[1])[:12]} != brief file {brief_bytes[:12]} (brief edited after receipt)")
-    if item.get("brief_sha256") != brief_canon:
-        errors.append(f"queue: brief_sha256 {str(item.get('brief_sha256'))[:12]} != brief canonical {brief_canon[:12]}")
+    elif pin[1] is None:
+        errors.append(f"receipt {pin[0]}: no brief_identity_sha256 (receipt predates the identity pin; rebuild it)")
+    elif pin[1] != brief_id_now:
+        errors.append(f"receipt {pin[0]}: brief identity {str(pin[1])[:12]} != brief {brief_id_now[:12]} (brief edited after receipt)")
+    if item.get("brief_sha256") != brief_id_now:
+        errors.append(f"queue: brief identity {str(item.get('brief_sha256'))[:12]} != brief {brief_id_now[:12]}")
 
     review_rec = item.get("review")
     if not review_rec:
@@ -254,6 +254,56 @@ def record_approval(video_id: str, *, root: Path = ROOT) -> None:
     _save(_queue_path(root), queue)
 
 
+def next_action(video_id: str, *, root: Path = ROOT) -> str:
+    """The single next step for a Short, derived from the queue state and the guard. Read-only."""
+    _valid(video_id)
+    queue = _load(_queue_path(root))
+    item = _item(queue, video_id)
+    if item is None:
+        return "render in the cloud (reels.py cloud --publish-release --wait), then queue_ctl enqueue"
+    if item.get("ship_legacy"):
+        return "none: legacy item (scheduled before the guard)"
+    if item.get("approval") == "approved":
+        errs = check(video_id, root=root)
+        return "approved and consistent: wait for post.yml schedule" if not errs else "fix drift: " + "; ".join(errs)
+    if not item.get("review"):
+        return "pin review: python3 tools/ship.py pin-held"
+    errs = check(video_id, root=root)
+    if errs:
+        panel_errs = [e for e in errs if e.startswith("panel")]
+        other = [e for e in errs if not e.startswith("panel")]
+        if other:
+            return "fix drift: " + "; ".join(other)
+        return "viewer panel: review the frames, then write Video sha256 and Panel result in " + \
+               f"research/production/viewer-panel-{video_id}.md ({'; '.join(panel_errs)})"
+    return ("ready: python3 tools/post/queue_ctl.py approve " + video_id +
+            " --reviewed-until <ISO time within 14 days> --platforms " + " ".join(item.get("platforms") or []))
+
+
+def render_status(*, root: Path = ROOT) -> str:
+    """Deterministic status view of the queue. Generated, never edited by hand."""
+    queue = _load(_queue_path(root))
+    items = queue.get("items", [])
+    lines = ["# Shorts status (generated from queue/publish.json)", "",
+             "Do not edit by hand. Regenerate: `python3 tools/ship.py status --write`. CI fails if this file is stale.", ""]
+    counts: dict[str, int] = {}
+    for i in items:
+        key = "legacy" if i.get("ship_legacy") else i.get("approval", "unknown")
+        counts[key] = counts.get(key, 0) + 1
+    lines.append("## Counts")
+    lines += [f"- {k}: {v}" for k, v in sorted(counts.items())]
+    lines += ["", "## Open items (not legacy, not yet approved)", "", "| Short | Next action |", "|---|---|"]
+    open_items = [i for i in items if not i.get("ship_legacy") and i.get("approval") != "approved"]
+    for i in open_items:
+        lines.append(f"| {i['video_id']} | {next_action(i['video_id'], root=root)} |")
+    if not open_items:
+        lines.append("| (none) | |")
+    bad = check_all(root=root)
+    lines += ["", "## Approved items that disagree with their pins", ""]
+    lines += [f"- {v}: " + "; ".join(e) for v, e in bad.items()] or ["- none"]
+    return "\n".join(lines) + "\n"
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -266,9 +316,33 @@ def main(argv=None) -> int:
     c.add_argument("video_id")
     c.add_argument("--live", action="store_true")
     sub.add_parser("pin-held")
+    nx = sub.add_parser("next")
+    nx.add_argument("video_id")
+    st = sub.add_parser("status")
+    st.add_argument("--write", action="store_true")
+    st.add_argument("--check", action="store_true")
     ca = sub.add_parser("check-all")
     ca.add_argument("--live", action="store_true")
     args = ap.parse_args(argv)
+    if args.cmd == "next":
+        print(next_action(args.video_id))
+        return 0
+    if args.cmd == "status":
+        text = render_status()
+        target = ROOT / "STATUS.md"
+        if args.write:
+            target.write_text(text, encoding="utf-8")
+            print("wrote STATUS.md")
+            return 0
+        if args.check:
+            current = target.read_text(encoding="utf-8") if target.exists() else ""
+            if current != text:
+                print("STATUS.md is stale: run python3 tools/ship.py status --write")
+                return 1
+            print("STATUS.md is current")
+            return 0
+        print(text, end="")
+        return 0
     if args.cmd == "pin-held":
         print("pinned: " + (", ".join(pin_held()) or "none"))
         return 0

@@ -11,6 +11,10 @@ on:
       - 'reels-studio/research/production/**'
       - 'reels-studio/tools/ship.py'
       - 'reels-studio/tools/post/**'
+      - 'reels-studio/STATUS.md'
+      - 'reels-studio/tools/brief_identity.py'
+      - 'reels-studio/tools/brief_from_plan.py'
+      - 'reels-studio/tools/receipt_build.py'
       - 'reels-studio/tests/test_ship.py'
       - '.github/workflows/ship-state.yml'
   pull_request:
@@ -40,6 +44,8 @@ jobs:
           python -m pip install --quiet -r tools/post/requirements.txt
       - name: Ship guard and publishing tests
         run: python -m pytest -q tests/test_ship.py tests/test_publishing.py tests/test_youtube.py tests/test_oauth_handoff.py
+      - name: Generated status is current
+        run: python tools/ship.py status --check
       - name: Every approved Short agrees with its pins (live release digests)
         env:
           GH_TOKEN: ${{ github.token }}

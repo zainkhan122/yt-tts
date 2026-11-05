@@ -18,6 +18,7 @@ from __future__ import annotations
 import datetime as dt
 import hashlib
 import json
+from brief_identity import identity  # noqa: E402  (same directory)
 import re
 import sys
 from pathlib import Path
@@ -57,7 +58,10 @@ def build_brief_entry(brief_id: str) -> dict:
     assets["status"] = "complete"
     assets["evidence"] = [f"reels-studio/captures/{capture}/manifest.json"]
     return {
+        # brief_sha256 = raw file bytes (legacy, kept for old readers). brief_identity_sha256 is the
+        # one identity the ship guard checks (tools/brief_identity.py).
         "brief_sha256": hashlib.sha256(raw).hexdigest(),
+        "brief_identity_sha256": identity(brief),
         "stages": {
             "script": {
                 "status": "complete",

@@ -8,7 +8,7 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 import ship  # noqa: E402
-from post.common import fingerprint  # noqa: E402
+from brief_identity import identity  # noqa: E402
 
 VID = "repo-test-01"
 def panel_text(video_sha, verdict="PASS"):
@@ -25,7 +25,7 @@ def tree(tmp_path):
     rec = tmp_path / "research" / "production" / "receipts"
     rec.mkdir(parents=True)
     (rec / "2026-11-05-shorts-01.json").write_text(json.dumps(
-        {"briefs": {VID: {"brief_sha256": ship.sha256_file(bp)}}}), encoding="utf-8")
+        {"briefs": {VID: {"brief_sha256": ship.sha256_file(bp), "brief_identity_sha256": identity(brief)}}}), encoding="utf-8")
     mp4 = tmp_path / "video.mp4"
     mp4.write_bytes(b"mp4-v1")
     (tmp_path / "research" / "production" / f"viewer-panel-{VID}.md").write_text(
@@ -35,7 +35,7 @@ def tree(tmp_path):
     (tmp_path / "queue").mkdir()
     item = {
         "video_id": VID, "approval": "held", "platforms": ["youtube", "instagram"],
-        "brief_sha256": fingerprint(brief),
+        "brief_sha256": identity(brief),
         "asset_digest": "sha256:" + ship.sha256_file(mp4),
         "cover_sha256": ship.sha256_file(cover),
     }
@@ -72,12 +72,25 @@ def test_brief_edited_after_receipt_is_drift(tree):
     p.write_text(json.dumps(b), encoding="utf-8")
     errs = ship.check(VID, root=tree)
     assert any("edited after receipt" in e for e in errs)
-    assert any(e.startswith("queue: brief_sha256") for e in errs)
+    assert any(e.startswith("queue: brief identity") for e in errs)
 
 
 def test_only_latest_receipt_governs(tree):
     old = tree / "research" / "production" / "receipts" / "2026-11-04-shorts-01.json"
-    old.write_text(json.dumps({"briefs": {VID: {"brief_sha256": "0" * 64}}}), encoding="utf-8")
+    old.write_text(json.dumps({"briefs": {VID: {"brief_identity_sha256": "0" * 64}}}), encoding="utf-8")
+    assert ship.check(VID, root=tree) == []
+
+
+def test_receipt_without_identity_is_drift(tree):
+    rp = tree / "research" / "production" / "receipts" / "2026-11-05-shorts-01.json"
+    rp.write_text(json.dumps({"briefs": {VID: {"brief_sha256": "x"}}}), encoding="utf-8")
+    assert any("predates the identity pin" in e for e in ship.check(VID, root=tree))
+
+
+def test_identity_is_format_independent(tree):
+    p = tree / "briefs" / f"{VID}.json"
+    b = json.loads(p.read_text(encoding="utf-8"))
+    p.write_text(json.dumps(b, indent=8, sort_keys=True), encoding="utf-8")  # same content, new bytes
     assert ship.check(VID, root=tree) == []
 
 
@@ -211,3 +224,30 @@ def test_not_queued_is_reported(tree):
 def test_bad_video_id_rejected():
     with pytest.raises(SystemExit):
         ship._valid("../etc")
+
+
+def test_next_for_unqueued_video_is_render(tree):
+    assert ship.next_action("never-queued-01", root=tree).startswith("render in the cloud")
+
+
+def test_next_for_held_unpinned_is_pin(tree):
+    q = _queue(tree)
+    q["items"].append({"video_id": "held-z-01", "approval": "held", "asset_digest": "sha256:" + "3" * 64})
+    (tree / "queue" / "publish.json").write_text(json.dumps(q), encoding="utf-8")
+    assert ship.next_action("held-z-01", root=tree).startswith("pin review")
+
+
+def test_next_for_approved_consistent_is_wait(tree):
+    assert ship.next_action(VID, root=tree).startswith("approved and consistent")
+
+
+def test_next_for_missing_panel_asks_for_panel(tree):
+    _set(tree, approval="held", approved_panel_sha=None)
+    (tree / "research" / "production" / f"viewer-panel-{VID}.md").write_text("", encoding="utf-8")
+    assert ship.next_action(VID, root=tree).startswith("viewer panel")
+
+
+def test_status_render_is_deterministic(tree):
+    assert ship.render_status(root=tree) == ship.render_status(root=tree)
+    text = ship.render_status(root=tree)
+    assert "## Counts" in text and "Do not edit by hand" in text

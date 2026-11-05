@@ -175,9 +175,34 @@ def build(plan_path):
         "qa_gates": True,  # new batches: Short QA gates apply (tools/short_qa.py)
     }
     out = ROOT / "briefs" / f"{vid}.json"
+    existing = json.loads(out.read_text(encoding="utf-8")) if out.exists() else None
+    brief = merge_brief(existing, brief)
     out.write_text(json.dumps(brief, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print("wrote", out.relative_to(ROOT), "scenes", len(scenes))
     return out
+
+
+# Fields an operator sets by hand or that record a human/agent decision. Regeneration keeps them.
+KEEP_IF_PRESENT = ("status", "review", "voice_seed", "renderer", "graphics", "qa_gates")
+
+
+def merge_brief(existing, generated: dict) -> dict:
+    """Regenerating a brief must never silently change what renders or who approved it.
+
+    - Keys the generator does not produce (renderer, graphics, voice_seed, notes...) are kept.
+    - Keys in KEEP_IF_PRESENT keep the existing value when one exists.
+    - Everything else comes from the plan, so the plan stays the source for copy and scenes.
+    """
+    if existing is None:
+        return generated
+    merged = dict(generated)
+    for key, value in existing.items():
+        if key not in generated:
+            merged[key] = value
+    for key in KEEP_IF_PRESENT:
+        if key in existing:
+            merged[key] = existing[key]
+    return merged
 
 
 if __name__ == "__main__":
