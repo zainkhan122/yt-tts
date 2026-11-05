@@ -1,6 +1,6 @@
 > **Operating decision — 2026-10-11:** the interactive Arena agent leads research, writing, assets, editing and QA. Optional producer/critic automation is **paused by the owner and NOT qualified for activation**. Existing deterministic rendering, approved-queue posting, metadata and duplicate protections remain intact. See `config/operating-policy.json` and `RESUME.md`.
 
-> **Resume / current authority:** read [`CURRENT_STATE.md`](CURRENT_STATE.md) and [`RESUME.md`](RESUME.md) before running commands. Historical phase notes are not current activation flags.
+> **Resume / current authority:** read [`HANDOFF-2026-11-05.md`](HANDOFF-2026-11-05.md), then [`CURRENT_STATE.md`](CURRENT_STATE.md) and [`RESUME.md`](RESUME.md) before running commands. Historical phase notes are not current activation flags.
 
 # Reels Studio: professional vertical-video generator (HyperFrames + free tools)
 
@@ -222,3 +222,12 @@ Rules that keep renders deterministic:
 The optional free-only OpenRouter system is a **shadow comparison lab**, not the daily production engine. It has versioned evidence/tools/prompts, an independent critic, locked Option-3 rendering and hard gates. Current measured outcome is **OFF / UNQUALIFIED**: drafts have factual/editorial weaknesses, the critic is rate-limited, and audio access has an unmet balance requirement. No candidate reached full paired video/audio comparison or social publication.
 
 Read [`research/pilots/PILOT_REPORT.md`](research/pilots/PILOT_REPORT.md), [`agent/ACCEPTANCE.md`](agent/ACCEPTANCE.md) and [`docs/SECURITY-BOUNDARIES.md`](docs/SECURITY-BOUNDARIES.md). Source/checkpoints are preserved for exact operational resumption; model scores never enable publishing.
+
+
+## Graphics renderer (2026-11-05)
+Visuals can be generated from the voice instead of from Hyperframes templates. Set `renderer: "graphics"` and `graphics.dir` in a brief.
+- Code: `graphics/` (engine v2 in `templates/engine.js`, `cues.py`, `beats.py`, `features.py`, `stage.py`, `render.py`, tests).
+- The beat plan has one scene per brief scene, with one archetype each. Lint checks it against the feature sheet and the script fingerprint, and it fails closed.
+- Pipeline entry: `lib/pipeline.py` `Job.graphics_render()`. Output is `work/video.mp4`, so QA and the kit step are unchanged.
+- Local smoke test (no voice): `python3 -m graphics.smoke_brief <out.mp4> <vo.wav>`.
+- Status and blockers: see `HANDOFF-2026-11-05.md`.

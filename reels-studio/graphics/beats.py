@@ -46,10 +46,20 @@ def _texts(payload) -> list[str]:
     return out
 
 
+def script_tokens(text_or_words) -> list[str]:
+    """Normalized spoken tokens: lowercase a-z and 0-9 runs. Punctuation and casing never change the fingerprint."""
+    if isinstance(text_or_words, str):
+        return re.findall(r"[a-z0-9]+", text_or_words.lower())
+    out: list[str] = []
+    for w in text_or_words:
+        out += re.findall(r"[a-z0-9]+", str(w[0]).lower())
+    return out
+
+
 def script_fingerprint(words: list[list]) -> str:
-    """sha256 of the spoken word sequence. A beat plan is only valid for the script it was written for."""
+    """sha256 of the normalized spoken tokens. A beat plan is valid only for the script it was written for."""
     import hashlib
-    return "sha256:" + hashlib.sha256(" ".join(str(w[0]) for w in words).encode("utf-8")).hexdigest()
+    return "sha256:" + hashlib.sha256(" ".join(script_tokens(words)).encode("utf-8")).hexdigest()
 
 
 def lint_beats(beats: dict, phrases: list[dict], sheet: dict, script_fp: str | None = None) -> list[Violation]:
@@ -62,7 +72,7 @@ def lint_beats(beats: dict, phrases: list[dict], sheet: dict, script_fp: str | N
         v.append(Violation("B0", f"beat plan is for script {beats.get('script_sha256')!r}, "
                                  f"the voice is {script_fp!r}; re-plan the beats"))
 
-    # B1 coverage: exactly one scene per phrase, in order.
+    # B1 coverage: exactly one scene per phrase, in order (phrases are the brief's scenes, in voice order).
     if len(scenes) != len(phrases):
         v.append(Violation("B1", f"{len(scenes)} scenes for {len(phrases)} phrases"))
     for k, s in enumerate(scenes):

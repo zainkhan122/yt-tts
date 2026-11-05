@@ -264,5 +264,10 @@
     "notes": "Topic approved by owner (config/topic-approvals.json). Plan and copy await owner review at the cover gate."
   },
   "motion_standard": 2,
-  "qa_gates": true
+  "qa_gates": true,
+  "renderer": "graphics",
+  "graphics": {
+    "dir": "briefs/graphics/repo-craft-anything-01",
+    "note": "beat plan bound to the brief scenes; lint is fail-closed on script or scene mismatch"
+  }
 }

@@ -1,6 +1,6 @@
 # Resume Hypeless safely — read this before doing work
 
-> **Start here: `HANDOFF-2026-10-26.md`** (latest state, owner standing orders, what is live, what is held, what was deleted). The sections below are older history.
+> **Start here: `HANDOFF-2026-11-05.md`** (latest state, owner standing orders, what is live, what is blocked and why). `HANDOFF-2026-10-26.md` is superseded. The sections below are older history.
 
 ## Latest owner decision — 2026-10-11
 

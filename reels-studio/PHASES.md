@@ -338,3 +338,8 @@ image-hook videos or edit their 24 Buffer rows. The new code does not rewrite im
 existing Buffer media; the older small-font frame remains on those scheduled files. Any later rollout
 to them would require an explicit change of scope, then re-render/re-pin/in-place refresh (sent posts
 remain immutable). Detailed comparison and scope: `research/maintenance/2026-10-12-cover-type-fix.txt`.
+
+
+## 2026-11-05: graphics renderer
+- Done: engine v2, cue binding to TTS words, fail-closed beat lint, pipeline branch, cloud setup, brief renderer set for `repo-craft-anything-01`.
+- Blocked: cloud dispatch (capture and cover packs missing from `main`, stale receipt, cover needs re-approval). See `HANDOFF-2026-11-05.md`.

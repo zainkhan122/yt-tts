@@ -1,182 +1,109 @@
 {
+  "tool": "craft-anything",
+  "script_sha256": "sha256:f38f4af3ca6388c864eb396c1c5ec19145833cc66f184d285a928b75999d90cc",
   "handle": "@hypeless",
   "scenes": [
     {
+      "scene_id": "hook",
       "phrase": 0,
       "archetype": "concept_card",
+      "headline": "CRAFT ANYTHING",
       "feature_id": null,
-      "headline": "Craft Anything",
-      "depicts": "rebuild app",
+      "depicts": "craft anything rebuild an app",
       "payload": {
-        "big": "REBUILD AN APP?",
-        "sub": "Craft Anything"
+        "big": "CAN CRAFT ANYTHING REBUILD AN APP?",
+        "sub": "Study it. Build it. Check it."
       },
       "cue_word": "rebuild"
     },
     {
+      "scene_id": "point1",
       "phrase": 1,
       "archetype": "chip_grid",
+      "headline": "STUDY BEFORE IT BUILDS",
       "feature_id": "f1",
-      "headline": "Studies the original",
-      "depicts": "studies the original",
+      "depicts": "studies the original with real inspection tools before AI writes",
       "payload": {
         "chips": [
-          "Pages at every width",
-          "Its code",
-          "Its files",
-          "How it runs"
+          "Studies the original",
+          "Real inspection tools",
+          "Before any AI writes"
         ],
-        "highlight": 0
+        "highlight": 1
       }
     },
     {
+      "scene_id": "point2",
       "phrase": 2,
-      "archetype": "stat_pop",
-      "feature_id": "f2",
-      "headline": "Real inspection tools",
-      "depicts": "inspection tools",
-      "payload": {
-        "value": 320,
-        "suffix": "+",
-        "sub": "tools to inspect it"
-      },
-      "cue_word": "tools"
-    },
-    {
-      "phrase": 3,
-      "archetype": "toggle_steps",
-      "feature_id": "f5",
-      "headline": "No AI to inspect",
-      "depicts": "AI writes a line",
-      "payload": {
-        "steps": [
-          "Inspect with tools",
-          "No AI needed to inspect",
-          "Agent writes last"
-        ]
-      }
-    },
-    {
-      "phrase": 4,
       "archetype": "flow_link",
+      "headline": "THEN AN AGENT BUILDS",
       "feature_id": "f4",
-      "headline": "An agent builds",
-      "depicts": "coding agent builds new project",
+      "depicts": "coding agent builds a new project in your language",
       "payload": {
         "nodes": [
           "Coding agent",
-          "New project"
-        ],
-        "edge_label": "builds"
-      }
-    },
-    {
-      "phrase": 5,
-      "archetype": "terminal_type",
-      "feature_id": "f4",
-      "headline": "Any language you ask",
-      "depicts": "language framework ask",
-      "payload": {
-        "lines": [
-          "$ craft-anything-cli rebuild",
-          "language: the one you ask for"
+          "New project",
+          "Your language"
         ]
       }
     },
     {
-      "phrase": 6,
-      "archetype": "toggle_steps",
-      "feature_id": "f3",
-      "headline": "Checked, not guessed",
-      "depicts": "build checked against original",
-      "payload": {
-        "steps": [
-          "Pages at three widths",
-          "A game's self-test",
-          "An app's runs"
-        ]
-      }
-    },
-    {
-      "phrase": 7,
+      "scene_id": "point3",
+      "phrase": 3,
       "archetype": "stat_pop",
+      "headline": "CHECKED, NOT GUESSED",
       "feature_id": "f3",
-      "headline": "Three screen widths",
-      "depicts": "three screen widths",
+      "depicts": "three screen widths checked against the original, mismatches listed",
       "payload": {
         "value": 3,
-        "suffix": "",
-        "sub": "screen widths, every build"
-      }
+        "unit": "SCREEN WIDTHS",
+        "sub": "Mismatches are listed"
+      },
+      "cue_word": "three"
     },
     {
-      "phrase": 8,
-      "archetype": "flow_link",
+      "scene_id": "point4",
+      "phrase": 4,
+      "archetype": "terminal_type",
+      "headline": "AGENTS DRIVE THE SAME ENGINE",
       "feature_id": "f2",
-      "headline": "Tools are CLI and MCP",
-      "depicts": "tool command line call MCP",
+      "depicts": "command line call and MCP tool so an agent drives the same engine",
       "payload": {
-        "nodes": [
-          "CLI command",
-          "MCP tool"
-        ],
-        "edge_label": "same tool"
-      }
-    },
-    {
-      "phrase": 9,
-      "archetype": "toggle_steps",
-      "feature_id": "f2",
-      "headline": "Same engine as the app",
-      "depicts": "agent drive same engine app",
-      "payload": {
-        "steps": [
-          "Any agent can drive it",
-          "The same engine",
-          "The app uses it too"
+        "lines": [
+          "$ command line call",
+          "$ MCP tool for the agent",
+          "same engine the app uses"
         ]
       }
     },
     {
-      "phrase": 10,
-      "archetype": "chip_grid",
+      "scene_id": "catch",
+      "phrase": 5,
+      "archetype": "toggle_steps",
+      "headline": "THE CATCH",
       "feature_id": "f6",
-      "headline": "Early alpha",
-      "depicts": "early alpha checking",
+      "depicts": "early alpha, checking against the original",
       "payload": {
-        "chips": [
+        "steps": [
           "Early alpha",
-          "Check every build",
-          "Against the original"
-        ],
-        "highlight": 0
+          "Checking against the original"
+        ]
       }
     },
     {
-      "phrase": 11,
-      "archetype": "concept_card",
-      "feature_id": null,
-      "headline": "Would you let an AI?",
-      "depicts": "let AI rebuild app studied",
-      "payload": {
-        "big": "WOULD YOU?",
-        "sub": "Let an AI rebuild an app it studied?"
-      }
-    },
-    {
-      "phrase": 12,
+      "scene_id": "cta",
+      "phrase": 6,
       "archetype": "cta_stack",
+      "headline": "YOUR CALL",
       "feature_id": null,
-      "headline": "Comment CRAFT",
-      "depicts": "comment craft repo link",
+      "depicts": "comment craft and pin the repo link",
       "payload": {
         "lines": [
+          "Would you let an AI rebuild it?",
           "Comment CRAFT",
-          "for the repo link",
-          "Follow for more"
+          "Pin the repo link"
         ]
       }
     }
-  ],
-  "script_sha256": "sha256:2c91144666a913d9de7276b450a982392b82fc085f8865f4018287440b8f21f1"
+  ]
 }

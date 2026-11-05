@@ -14,7 +14,8 @@ published only with read-back evidence.
 | Brief | a human (with the guidelines) | `briefs/*.json` | Script, claims with dated sources, shot plan, captions. No `template` field. |
 | Shot plan | `studio/shotplan.py` | `tests/test_shotplan.py` | Validates timing, real-media share (≥55%), text share (≤20%), sourced stats, callouts on real media, and that captures exist. |
 | Studio rules | `studio/rules.py`, `studio/check.py` | `tests/test_studio.py` | Copy rules, URL and disclosure rules, licence badge, per-platform assembly. |
-| Draw and render | `studio/draw.py`, `lib/pipeline.py` | renders in CI | Draws the schedule for the day (random 1–5 videos). Renders with `DEFAULT_SKIN` (`tool-spotlight`). |
+| Draw and render | `studio/draw.py`, `lib/pipeline.py` | renders in CI | Draws the schedule for the day (random 1–5 videos). Renders with `DEFAULT_SKIN` (`tool-spotlight`), or with the graphics renderer when the brief sets `renderer: "graphics"` (`graphics/`, fail-closed beat lint, Playwright). |
+| Graphics | `graphics/` | CI (Playwright, `cloud/setup-render.sh`) | Beat plan bound to the brief's scenes and the TTS word timings. Seven archetypes, animations timed to the words. |
 | Covers | Cover Lab (`tools/cover_lab.py`) | renders | One cover per short, from the product's real media. |
 | Publishing | `tools/post/` (planner, publisher, cadence) | Buffer via `post.yml` | Plans and schedules at each channel's best times. Writes to Buffer only after a dry run. Read-back verified. |
 | Production gate | `tools/production_gate.py` | `research/production/receipts/` | Blocks publishing unless receipts and hashes match. |
@@ -48,6 +49,7 @@ published only with read-back evidence.
 ## Tests
 Run modules by name (discovery with `-s tests -t .` is not supported):
 
+    python3 -m pytest -q graphics/tests tests/test_gates.py tests/test_pipeline.py   # graphics engine, gates, pipeline
     python3 -m unittest tests.test_studio tests.test_shotplan tests.test_topics tests.test_publishing tests.test_brief_lint tests.test_creative tests.test_best_times tests.test_production_gate tests.test_copy_rules
 
 Rendering and the `tool-spotlight` skin test run in CI (`render-validation.yml`). Local tooling

@@ -286,3 +286,11 @@ python3 reels.py cloud <id> [<id2> ...] --receipt reels-studio/research/producti
   --quality looks --crf 23 --wait                                  # GitHub render -> one-day artifacts; no Release by default
 # A permanent Release, git push, Buffer schedule/post, or platform upload is a separate owner-authorized action.
 ```
+
+
+## Renderer switch (2026-11-05)
+`Job.gates_and_render()` checks `brief["renderer"]`:
+- absent or `hyperframes`: the existing path (`hyperframes lint`, `check`, `render`).
+- `graphics`: `Job.graphics_render()` calls `graphics.stage.render_for_pipeline`. Inputs: the voice word timings per scene (`timing[sid]["words"]`), the scene order, and the brief's `graphics.dir` (`features.json`, `beats.json`, `source.md`). It writes `work/video.mp4`.
+- Lint is fail-closed: feature sheet (F*) and beat plan (B*, including B0 script fingerprint and B9 scene binding). A failure raises `GraphicsError` and nothing renders.
+- The cloud runner needs `playwright==1.64.1` and Chromium (`cloud/setup-render.sh`).

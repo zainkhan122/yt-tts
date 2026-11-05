@@ -9,10 +9,10 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from .beats import lint_beats, scene_list, script_fingerprint
+from .beats import Violation, lint_beats, scene_list, script_fingerprint
 from .features import lint_feature_sheet
 from .render import render
-from .timing import chunk_phrases, close_gaps
+from .timing import close_gaps
 
 
 class GraphicsError(RuntimeError):
@@ -30,12 +30,28 @@ def flatten_words(timing: dict, order: list[str]) -> list[list]:
     return words
 
 
-def plan_scenes(sheet: dict, source_text: str, beats: dict, words: list[list], duration: float):
+def segments_from_timing(timing: dict, order: list[str]) -> list[dict]:
+    """One phrase per brief scene, in voice order. The scene's own words set its on-screen span."""
+    segs = []
+    for sid in order:
+        ws = timing[sid].get("words") or []
+        if not ws:
+            raise GraphicsError("words", [{"rule": "G1", "detail": f"scene {sid} has no word timings"}])
+        segs.append({"sid": sid, "text": " ".join(str(w[0]) for w in ws), "words": ws,
+                     "t0": round(float(ws[0][1]), 3), "t1": round(float(ws[-1][2]), 3)})
+    return segs
+
+
+def plan_scenes(sheet: dict, source_text: str, beats: dict, phrases: list[dict], duration: float, words: list[list]):
     f_viol = lint_feature_sheet(sheet, source_text)
     if f_viol:
         raise GraphicsError("feature_sheet", [v.as_dict() for v in f_viol])
-    phrases = close_gaps(chunk_phrases(words), duration)
+    phrases = close_gaps(phrases, duration)
     b_viol = lint_beats(beats, phrases, sheet, script_fp=script_fingerprint(words))
+    # B9 each beat is bound to the brief scene it was written for (voice order must not drift).
+    for k, (sc, ph) in enumerate(zip(beats.get("scenes", []), phrases)):
+        if sc.get("scene_id") is not None and sc["scene_id"] != ph["sid"]:
+            b_viol.append(Violation("B9", f"beat {k} is for scene {sc['scene_id']!r}, voice has {ph['sid']!r}"))
     if b_viol:
         raise GraphicsError("beat_plan", [v.as_dict() for v in b_viol])
     doc = {"width": 1080, "height": 1920, "handle": beats.get("handle", ""), "scenes": scene_list(beats, phrases)}
@@ -51,7 +67,8 @@ def render_for_pipeline(graphics_dir: Path, timing: dict, order: list[str], vo_w
     words = flatten_words(timing, order)
     if not words:
         raise GraphicsError("words", [{"rule": "G0", "detail": "no word timings from the voice stage"}])
-    doc, phrases = plan_scenes(sheet, source, beats, words, duration)
+    phrases = segments_from_timing(timing, order)
+    doc, phrases = plan_scenes(sheet, source, beats, phrases, duration, words)
     work.mkdir(parents=True, exist_ok=True)
     (work / "scenes.json").write_text(json.dumps(doc, indent=1, ensure_ascii=False), encoding="utf-8")
     info = render(doc, vo_wav, out_mp4, work, duration)

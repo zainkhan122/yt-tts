@@ -77,6 +77,7 @@
       var r = { wrap: el("div", "cc", root) };
       r.ripple = el("div", "ripple", r.wrap);
       r.big = el("div", "big", r.wrap);
+      if (String(s.payload.big).length > 24) { r.big.className += " big-long"; }
       r.letters = [];
       String(s.payload.big).split(" ").forEach(function (word) {
         var ws = el("span", "wd", r.big);
@@ -199,6 +200,7 @@
       var r = { wrap: el("div", "flow", root), nodes: [], conns: [] };
       r.label = el("div", "edge-label", r.wrap, s.payload.edge_label || "");
       r.row = el("div", "flow-row", r.wrap);
+      if (s.payload.nodes.length >= 3) { r.row.className += " flow-3"; }
       s.payload.nodes.forEach(function (text, i) {
         var n = el("div", "node", r.row);
         icon(s.icons[i] || "dot", el("div", "node-ic", n), i === 0 ? Y : BLUE);

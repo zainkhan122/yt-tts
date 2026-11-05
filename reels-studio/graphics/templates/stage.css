@@ -88,3 +88,11 @@ html, body { margin: 0; padding: 0; background: #0C0E13; }
 .caption { position: absolute; left: 60px; right: 60px; top: 1480px; height: 170px; display: flex; flex-wrap: wrap; column-gap: 22px; align-content: center; justify-content: center; text-align: center; font-size: 98px; font-weight: 900; text-transform: uppercase; line-height: 1.05; text-shadow: 0 6px 0 rgba(0,0,0,0.6); }
 .cw { color: #FFFFFF; display: inline-block; }
 .cw-on { color: #FFD60A; }
+
+/* three-node flows and long concept titles fit the 1080 frame */
+.flow-3 .node { width: 262px; height: 270px; }
+.flow-3 .node-t { font-size: 40px; }
+.flow-3 .node-ic { width: 104px; height: 104px; }
+.flow-3 .conn { width: 64px; }
+.flow-3 .conn-svg { width: 64px; }
+.big-long { font-size: 128px; }
