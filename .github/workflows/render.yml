@@ -138,8 +138,65 @@ jobs:
           PRODUCTION_RECEIPT: ${{ inputs.production_receipt }}
           RECORD_ATTEMPT: 'true'
         run: python3 reels-studio/tools/validate_dispatch.py >> "$GITHUB_OUTPUT"
-  render:
+  voice:
+    # Early gate (owner, 5 Nov 2026): TTS + per-chunk alignment QA run here, once. A bad voice fails
+    # this job, before the video render starts. The checked audio is handed to the render job.
     needs: plan
+    if: ${{ inputs.rebuild_scenes == '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: true
+      max-parallel: 10
+      matrix:
+        brief: ${{ fromJSON(needs.plan.outputs.briefs) }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BRIEF: reels-studio/briefs/${{ matrix.brief }}.json
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /reels-studio/
+            /.github/workflows/
+          sparse-checkout-cone-mode: false
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/hyperframes
+            ~/.cache/puppeteer
+            ~/.cache/huggingface
+            ~/.cache/pip
+          key: hf-0.8.137-cbx-${{ runner.os }}-${{ hashFiles('reels-studio/setup/setup-whisper.sh', 'reels-studio/setup/setup-sandbox.sh', 'reels-studio/cloud/setup-render.sh') }}
+      - name: Toolchain
+        run: bash reels-studio/cloud/setup-render.sh
+      - name: Capture pack
+        run: python3 reels-studio/tools/capture_store.py pull-for "$BRIEF"
+      - name: Create per-brief receipt
+        run: |
+          BRIEF_ID=$(basename "$BRIEF" .json)
+          RECEIPT_PATH="${{ inputs.production_receipt }}"
+          if command -v jq &>/dev/null; then
+            jq --arg id "$BRIEF_ID" --arg out "per-brief-$BRIEF_ID" '.briefs |= {$id: .[$id]} | .batch_id = $out' "$RECEIPT_PATH" > "reels-studio/research/production/receipts/per-brief-$BRIEF_ID.json"
+          else
+            python3 -c "import json,sys; d=json.load(open(sys.argv[1])); bid=sys.argv[2]; d['briefs']={bid:d['briefs'][bid]}; json.dump(d,open(f\"/tmp/receipt-{bid}.json\",\"w\"),indent=2)" "$RECEIPT_PATH" "$BRIEF_ID"
+          fi
+      - name: Voice (synthesis + alignment QA, saved for the render job)
+        run: |
+          python3 reels-studio/reels.py make "$BRIEF" --quality "${{ inputs.quality }}" --crf "${{ inputs.crf }}" \
+            --receipt "reels-studio/research/production/receipts/per-brief-${{ matrix.brief }}.json" \
+            --voice-out "voice-handoff/${{ matrix.brief }}" --no-render
+      - name: Upload voice handoff
+        uses: actions/upload-artifact@v4
+        with:
+          name: voice-${{ matrix.brief }}
+          path: voice-handoff/${{ matrix.brief }}
+          retention-days: 2
+          if-no-files-found: error
+
+  render:
+    needs: [plan, voice]
+    if: ${{ !cancelled() && needs.plan.result == 'success' && (needs.voice.result == 'success' || needs.voice.result == 'skipped') }}
     name: render ${{ matrix.brief }}
     runs-on: ubuntu-latest
     timeout-minutes: 80
@@ -181,7 +238,13 @@ jobs:
           fi
       - name: Reviewed cover pack (the panel's pick, byte-identical)
         run: python3 reels-studio/tools/cover_store.py pull-for "$BRIEF"
-      - name: Render (voice, QA gates, video)
+      - name: Checked voice from the voice job
+        if: ${{ inputs.rebuild_scenes == '' }}
+        uses: actions/download-artifact@v4
+        with:
+          name: voice-${{ matrix.brief }}
+          path: voice-handoff/${{ matrix.brief }}
+      - name: Render (voice reused, QA gates, video)
         env:
           REBUILD_SCENES: ${{ inputs.rebuild_scenes }}
           REBUILD_REASON: ${{ inputs.rebuild_reason }}
@@ -191,7 +254,7 @@ jobs:
           if [ -n "$REBUILD_SCENES" ]; then
             extra=(--rebuild-scenes "$REBUILD_SCENES" --rebuild-reason "$REBUILD_REASON" --from-tag "${FROM_TAG:-${{ needs.plan.outputs.tag }}}")
           else
-            extra=(--receipt "reels-studio/research/production/receipts/per-brief-${{ matrix.brief }}.json")
+            extra=(--receipt "reels-studio/research/production/receipts/per-brief-${{ matrix.brief }}.json" --voice-in "voice-handoff/${{ matrix.brief }}")
           fi
           python3 reels-studio/reels.py make "$BRIEF" --quality "${{ inputs.quality }}" --crf "${{ inputs.crf }}" "${extra[@]}"
       - name: SEO pack (gate)

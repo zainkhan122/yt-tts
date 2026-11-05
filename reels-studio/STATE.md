@@ -51,7 +51,7 @@ Regenerating a brief (`tools/brief_from_plan.py`) keeps operator fields: rendere
 
 ## Not done (honest)
 
-- The voice step still runs inside the render job, after toolchain setup. A bad TTS seed costs a full cloud attempt. Splitting voice into its own early job needs a change to the cloud workflow and to how `make` passes voice between stages. It needs a cloud run to verify.
+- Voice fast-fail (built, not yet cloud-verified): `render.yml` has a `voice` job before `render`. It runs `make --voice-out`, which does TTS and the alignment QA once, and uploads `vo.wav` and `voice.json` (timing, order, duration, engine, sha256). The `render` job downloads them and runs `make --voice-in`, so the audio that passed QA is the audio that renders. A changed `vo.wav` is refused. Rebuilds skip the voice job. Needs one cloud run to prove it end to end.
 
 ## Not in the state (on purpose)
 

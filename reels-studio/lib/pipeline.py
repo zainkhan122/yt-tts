@@ -35,6 +35,7 @@ from scipy.signal import resample_poly
 
 from . import scenes as scenelib
 from . import synth
+from . import voice_handoff
 
 ROOT = Path(__file__).resolve().parent.parent
 TPL_DIR = ROOT / "templates"
@@ -1139,11 +1140,18 @@ def measure(path):
 
 # ------------------------------------------------------------------ job
 class Job:
-    def __init__(self, brief_path, quality="draft", crf=None, check=True, render=True, keep_work=False, rebuild=None):
+    def __init__(self, brief_path, quality="draft", crf=None, check=True, render=True, keep_work=False, rebuild=None,
+                 voice_in=None, voice_out=None):
         """rebuild: {scenes: [ids], reason: str, manifest: previous manifest dict,
         mp4: previous published mp4 path, voiceover: previous kit voiceover.mp3 path,
         from_tag: str} - re-render only the named scenes and reuse the published audio."""
         self.rebuild = rebuild
+        # Voice handoff (cloud): voice_out = synthesize + QA, save the checked voice, stop.
+        # voice_in = load that saved voice and skip synthesis, so the render uses the checked audio.
+        self.voice_in = Path(voice_in) if voice_in else None
+        self.voice_out = Path(voice_out) if voice_out else None
+        if self.voice_in and self.voice_out:
+            raise SystemExit("voice_in and voice_out are different jobs; pass one")
         self.brief_path = Path(brief_path).resolve()
         self.brief = json.loads(self.brief_path.read_text(encoding="utf-8"))
         # channel defaults (config/channel.json): brand, voice, speed, lang, style. The brief wins on any key it sets
@@ -1817,6 +1825,23 @@ class Job:
             raise SystemExit(f"rebuild verification FAILED (frames ok={frames_ok['ok']}, duration ok={dur['ok']}, "
                              f"audio identical={audio_ok}) - refusing to publish; see {self.log}")
 
+    def save_voice_handoff(self, directory):
+        """Write the voice that passed QA so the render job can reuse exactly these bytes."""
+        meta = voice_handoff.write_handoff(directory, self.vo_path, timing=self.timing, order=self.order,
+                                           duration=self.D, engine=self.voice_engine)
+        self.stage("voice-handoff", dir=str(directory), vo_sha256=meta["vo_sha256"], engine=meta["engine"],
+                   duration=f"{meta['duration']:.2f}s")
+
+    def load_voice_handoff(self, directory):
+        h = voice_handoff.read_handoff(directory)  # refuses changed or mismatched audio
+        self.timing, self.order, self.D = h["timing"], h["order"], h["duration"]
+        self.voice_engine = h["engine"]
+        self.vo_path = self.work / "vo.wav"
+        shutil.copy2(h["wav"], self.vo_path)
+        self.vo, _sr = sf.read(self.vo_path, dtype="float32")
+        self.stage("voice", engine=h["engine"], reused_handoff=True, vo_sha256=h["vo_sha256"],
+                   duration=f"{self.D:.2f}s", note="audio reused from the voice job; not re-synthesized")
+
     # ---------------------------------------------------------------
     def run_all(self):
         t0 = time.time()
@@ -1833,7 +1858,13 @@ class Job:
                 self.qa_and_kit(mp4)
                 self.verify_rebuild(mp4)
         else:
-            self.voice_and_layout()
+            if self.voice_in:
+                self.load_voice_handoff(self.voice_in)
+            else:
+                self.voice_and_layout()
+            if self.voice_out:
+                self.save_voice_handoff(self.voice_out)
+                return {"voice_out": str(self.voice_out), "voice_sha256": voice_handoff.read_handoff(self.voice_out)["vo_sha256"]}
             release_tts()
             _trim_memory()
             self.word_timings()

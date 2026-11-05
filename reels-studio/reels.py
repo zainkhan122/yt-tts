@@ -442,6 +442,8 @@ def main():
         p.add_argument("--rebuild-reason", default="", help="why this rebuild (recorded in the manifest)")
         p.add_argument("--from-tag", default="", help="release tag holding the previous kit+mp4 for a rebuild")
         p.add_argument("--receipt", default="", help="production receipt (script and assets); required for any non-rebuild video render")
+        p.add_argument("--voice-out", default="", help="voice job: synthesize, run the voice QA, save the checked voice here, stop")
+        p.add_argument("--voice-in", default="", help="render job: reuse the checked voice saved by the voice job (no synthesis)")
     sub.add_parser("templates")
     sub.add_parser("doctor")
     p = sub.add_parser("new")
@@ -536,7 +538,10 @@ def main():
     results, t0 = [], time.time()
     for bp in a.briefs:
         try:
-            job = pipeline.Job(bp, quality=a.quality, crf=a.crf, check=not a.no_check, render=not a.no_render, keep_work=a.keep_work, rebuild=rebuild)
+            if (a.voice_in or a.voice_out) and a.cmd != "make":
+                raise SystemExit("voice handoff applies to make, one brief at a time")
+            job = pipeline.Job(bp, quality=a.quality, crf=a.crf, check=not a.no_check, render=not a.no_render, keep_work=a.keep_work, rebuild=rebuild,
+                               voice_in=a.voice_in or None, voice_out=a.voice_out or None)
             m = job.run_all()
             results.append((bp, "ok", m.get("qa", {}).get("checks")))
         except (SystemExit, Exception) as e:
