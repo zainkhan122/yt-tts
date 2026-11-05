@@ -1778,9 +1778,11 @@
     },
     "repo-craft-anything-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6aec9cb9a7861b50b12d93e6",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-11-05T22:11:00Z",
+      "due_at": "2026-11-05T22:11:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:62b09965bec53b65aad4ecabb041d946c53b47c1c30380b07114738caa018c63",
         "asset_id": 713786996,
@@ -1795,10 +1797,11 @@
       "notify_subscribers": false,
       "payload_sha256": "a9538e144b56c58b93515c6a946d8f99b11a0a8d60d52e594b160421dd24f56b",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Craft Anything studies an app with real tools, then builds a new version and checks it against the original. Open source.\n\nAI-generated narration.\n\n#CraftAnything #OpenSource #RustLang #CodingAgents #AIAgents",
       "title": "Craft Anything: AI Studies an App, Then Builds Its Own",
-      "updated_at": "2026-11-05T15:11:52Z",
+      "updated_at": "2026-11-05T15:11:53Z",
       "video_id": "repo-craft-anything-01"
     },
     "repo-craft-anything-01:instagram": {
