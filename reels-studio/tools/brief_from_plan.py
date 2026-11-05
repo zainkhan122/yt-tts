@@ -1,3 +1,4 @@
+import re
 #!/usr/bin/env python3
 """Generate briefs/<id>.json from videos/<id>/plan.json. The plan is the brain; this only maps it.
 
@@ -25,6 +26,21 @@ ROOT = Path(__file__).resolve().parents[1]
 class BuildError(SystemExit):
     pass
 
+
+
+def _post_hashtags(plan: dict) -> list[str]:
+    """Hashtags come from the plan's own YouTube SEO description (niche tags, #shorts included).
+    Falls back to ["#shorts"] only when the plan has none. Capped at five (owner rule)."""
+    desc = ((plan.get("seo") or {}).get("youtube") or {}).get("description", "")
+    tags: list[str] = []
+    for h in re.findall(r"#\w+", desc):
+        if h.lower() not in [t.lower() for t in tags]:
+            tags.append(h)
+    if not tags:
+        return ["#shorts"]
+    if "#shorts" not in [t.lower() for t in tags]:
+        tags = ["#shorts", *tags]
+    return tags[:5]
 
 def scene_focus(band):
     """Two focus steps on the card: the whole band, then a slightly tighter view of it (a visible move)."""
@@ -128,7 +144,7 @@ def build(plan_path):
         ],
         "scenes": scenes,
         "seo": seo,
-        "post": {"cta": plan["cta"], "hashtags": ["#shorts"]},
+        "post": {"cta": plan["cta"], "hashtags": _post_hashtags(plan)},
         "research_basis": [f"videos/{vid}/plan.json"],
         "viewer": meta["viewer"],
         "idea": meta["idea"],
