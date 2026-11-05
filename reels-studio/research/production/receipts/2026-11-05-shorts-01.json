@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "batch_id": "2026-11-05-shorts-01",
-  "created_at": "2026-11-05T03:02:27Z",
+  "created_at": "2026-11-05T12:20:23Z",
   "briefs": {
     "repo-craft-anything-01": {
-      "brief_sha256": "d49c082360766853e5114518cd0415fd2508e2886ed2f3c09b4d592dc072c5e2",
+      "brief_sha256": "d373e9cc5320f0a2faf07413e2645412016c13b3afc86dcab5876652af8e6309",
       "stages": {
         "script": {
           "status": "complete",
@@ -13,22 +13,22 @@
         },
         "assets": {
           "capture_id": "repo-craft-anything-01",
-          "manifest_sha256": "a92a7754f8e674a4432b7cd5a34af5027f979c8d1118de9e2d7936f8e6d461ee",
+          "manifest_sha256": "75fb55521cb0d3b502291d3ed3eee2eeaa0e9aec4e175d6968587bae65a454a2",
           "files": [
             {
-              "path": "make.png",
-              "sha256": "1d16f7dd3e094b6340081dd0bf42595deef895c126f16723b966c66a7e846fef"
+              "path": "desktop-top.jpg",
+              "sha256": "9a0bb98325f7803d59022fc1c31e58d65bbe85759c091636dcfc2809250db92c"
             },
             {
-              "path": "project-website.png",
-              "sha256": "fcb482c23136953897bcbddb22f9eb2553a88a007440dd7e42f419bfe3df7b38"
+              "path": "desktop-full.jpg",
+              "sha256": "3402ba29562770370180116166fb64d88a09afab226dbd398a7985d887284544"
             },
             {
-              "path": "workbench.png",
-              "sha256": "ac7d74860103dd43bde604d323f2ac345dab4ed2f6652d22cd6446608465cfba"
+              "path": "mobile.png",
+              "sha256": "910d29674b35121b6078bdd1a1e102ecd95bb0093536c2842fefd8f6cf9b32d4"
             }
           ],
-          "cover_sha256": "1f849a59363952fa6f1d59f1a07a0679615c3385603772c4a0afbdb960adb7ad",
+          "cover_sha256": "9fbee12e6aa663d011431d5a83317b205103474f9a94a6531cf25231bc955031",
           "status": "complete",
           "evidence": [
             "reels-studio/captures/repo-craft-anything-01/manifest.json"

@@ -235,24 +235,27 @@
         "layout": "bleed",
         "text": "CAN AI RECREATE ANY APP?",
         "media": {
-          "kind": "tool_media",
-          "file": "make.png"
+          "kind": "designed",
+          "file": "cover-src-1.png",
+          "design": "Magnifier over the original's pages at three widths: the study step, drawn from the tool's own inspection feature."
         }
       },
       {
         "layout": "window",
         "text": "CHECKED AGAINST THE ORIGINAL",
         "media": {
-          "kind": "tool_media",
-          "file": "project-website.png"
+          "kind": "designed",
+          "file": "cover-src-2.png",
+          "design": "Original and build side by side with a mismatch diff: the check-against-original feature, drawn, not captured."
         }
       },
       {
         "layout": "split",
         "text": "STUDY FIRST, THEN BUILD",
         "media": {
-          "kind": "tool_media",
-          "file": "workbench.png"
+          "kind": "designed",
+          "file": "cover-src-3.png",
+          "design": "Three steps, Study then Build then Check, joined by arrows: the tool's own three-step flow, drawn."
         }
       }
     ]
