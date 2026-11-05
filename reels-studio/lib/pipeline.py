@@ -1501,7 +1501,10 @@ class Job:
         gdir = root / self.brief["graphics"]["dir"]
         mp4 = self.work / "video.mp4"
         try:
-            info = render_for_pipeline(gdir, self.timing, self.order, self.vo_path, mp4, self.work / "graphics", self.D)
+            # The final mix (voice + music + sfx, loudness-normalized by audio()) is the soundtrack, not the bare voice.
+            mix = self.proj / "assets" / "mix.wav"
+            audio_path = mix if mix.exists() else self.vo_path
+            info = render_for_pipeline(gdir, self.timing, self.order, audio_path, mp4, self.work / "graphics", self.D)
         except GraphicsError as e:
             raise SystemExit(f"graphics {e.stage} failed (fail-closed, nothing rendered): {e}")
         self.stage("render", renderer="graphics", secs=info.get("secs"), phrases=info.get("phrases"),
