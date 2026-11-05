@@ -35,3 +35,12 @@ Authoritative for the present. Older state lives in the history of this file and
 - Deliverables for owner: `/home/user/uploads/repo-craft-anything-01/` (video.mp4, cover.jpg, script.md, description.md, seo.md).
 - OPEN: the description has only `#shorts`. The owner rule is five niche hashtags. Fix in the plan, then re-approve the topic and rebuild the receipt before queueing.
 - NOT DONE (owner gate): queue, approve, Buffer schedule. Nothing is queued or scheduled.
+
+## 2026-11-05 update: repo-craft-anything-01 scheduled (owner go)
+
+- Hashtags: brief builder now takes post hashtags from the plan's SEO description (`#Shorts #CraftAnything #OpenSource #RustLang #AIAgents`).
+- Viewer panel: FAIL on the first render (near-blank frame at 12.9 s; real-media rule vs no-tool-media rule). Owner override recorded in `research/production/viewer-panel-repo-craft-anything-01.md`. Findings stay on file.
+- Render attempts: 42038109244 (hashtag fix, no release), 42045217486 and 42047256857 (voice_seed 1 and 2 failed TTS alignment, 0% matched), 42048880432 (`voice_seed` 0 explicit, publish-release, QA passed, release `renders-2026-11-05`).
+- Queue: enqueued and approved (`reviewed-until` 2026-11-12, platforms youtube/instagram/facebook). Cover approved, sha `9fbee12e6aa6`.
+- Buffer: dry-run success, verify success, schedule success. Due times (UTC): YouTube 2026-11-05 18:20, Instagram 21:18, Facebook 22:11 (PKT +5: 23:20, 02:18, 03:11 on 6 Nov).
+- Open: 12.9 s near-blank frame is still in the video. Real-media rule is waived for this batch only. Decide before the next batch.
