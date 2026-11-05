@@ -681,7 +681,8 @@
               const tx = A.mk("div", "", box, txt);
               Object.assign(tx.style, { color: "#fff", font: "800 46px/1.12 sans-serif", textTransform: "uppercase" });
               const tk = E(`${s.id}_node${k}`, t0 + 0.2 + k * 1.2);
-              tl.fromTo(box, { opacity: 0, y: 26, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(1.5)", immediateRender: false }, tk);
+              if (cover && k === 0) { box.style.opacity = "1"; }  // hook: the first box is on screen from frame 0
+              else tl.fromTo(box, { opacity: 0, y: 26, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(1.5)", immediateRender: false }, tk);
               const tn = k + 1 < nodes.length ? E(`${s.id}_node${k + 1}`, t1) : t1;
               tl.to(box, { borderColor: "#ffd60a", boxShadow: "0 0 46px rgba(255,214,10,0.55)", duration: 0.2, immediateRender: false }, tk + 0.2);
               tl.to(box, { borderColor: "#2a3a4f", boxShadow: "0 0 0 rgba(0,0,0,0)", duration: 0.2, immediateRender: false }, Math.max(tk + 0.5, tn - 0.05));
@@ -700,7 +701,20 @@
               const ta = E(`${s.id}_arrow${k}`, t0 + 1.0 + k * 1.2);
               tl.fromTo(line, { scaleY: 0 }, { scaleY: 1, duration: 0.35, ease: "power2.out", immediateRender: false }, ta);
               tl.fromTo(head, { opacity: 0 }, { opacity: 1, duration: 0.15, immediateRender: false }, ta + 0.3);
+              // A light travels down the arrow over and over after it is drawn: motion the whole time the arrow is on screen.
+              const dot = A.mk("div", "sp-flow-dot", root);
+              Object.assign(dot.style, { position: "absolute", left: (110 + W / 2 - 9) + "px", top: (ay + 4) + "px", width: "18px",
+                height: "18px", borderRadius: "50%", background: "#fff", boxShadow: "0 0 18px #ffd60a", opacity: "0" });
+              const span = Math.max(0, t1 - (ta + 0.5));
+              const period = 0.8, reps = Math.max(0, Math.floor(span / period) - 1);
+              if (reps > 0) tl.fromTo(dot, { y: 0, opacity: 1 }, { y: GAP - 36, opacity: 0.9, duration: period, ease: "none", repeat: reps, immediateRender: false }, ta + 0.5);
             });
+            // A bright sweep crosses the stage in a loop for the whole scene, so the picture never sits still.
+            const scan = A.mk("div", "sp-flow-scan", root);
+            Object.assign(scan.style, { position: "absolute", left: "0px", top: (top) + "px", width: "1080px", height: "5px",
+                background: "linear-gradient(90deg, rgba(255,214,10,0), rgba(255,214,10,0.9), rgba(255,214,10,0))", opacity: "0.55" });
+            const sweepReps = Math.max(0, Math.floor((t1 - t0) / 2.4) - 1);
+            if (sweepReps > 0) tl.fromTo(scan, { y: 0 }, { y: bottom - top, duration: 2.4, ease: "none", repeat: sweepReps, immediateRender: false }, t0 + 0.1);
           }
           const BUILD = { clip: sClip, "clip-montage": sMontage, page: sPage, scroll: sScroll, steps: sSteps, flow: sFlow, terminal: sTerminal,
                           verdict: sVerdict, stat: sStat, image: sImage, split: sSplit, endcard: sEnd };
