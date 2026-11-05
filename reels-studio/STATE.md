@@ -51,7 +51,7 @@ Regenerating a brief (`tools/brief_from_plan.py`) keeps operator fields: rendere
 
 ## Not done (honest)
 
-- Voice fast-fail (built, not yet cloud-verified): `render.yml` has a `voice` job before `render`. It runs `make --voice-out`, which does TTS and the alignment QA once, and uploads `vo.wav` and `voice.json` (timing, order, duration, engine, sha256). The `render` job downloads them and runs `make --voice-in`, so the audio that passed QA is the audio that renders. A changed `vo.wav` is refused. Rebuilds skip the voice job. Needs one cloud run to prove it end to end.
+- Voice fast-fail (`a746fb3`): `render.yml` has a `voice` job before `render`. It runs `make --voice-out`, which does TTS and the alignment QA once, and uploads `vo.wav` and `voice.json` (timing, order, duration, engine, sha256). The `render` job downloads them and runs `make --voice-in`, so the audio that passed QA is the audio that renders. A changed `vo.wav` is refused. Rebuilds skip the voice job. Cloud check: run `42084313401` failed fast at the voice step (chunk 1 alignment 0.0%, minimum 85%); render was skipped. The success path (download and reuse) is NOT yet verified. A retry with identical inputs is refused by the duplicate-input guard. It needs a source or voice-seed change, which is the owner's decision because it changes the scheduled item's brief.
 
 ## Not in the state (on purpose)
 
