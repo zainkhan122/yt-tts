@@ -1,0 +1,182 @@
+{
+  "handle": "@hypeless",
+  "scenes": [
+    {
+      "phrase": 0,
+      "archetype": "concept_card",
+      "feature_id": null,
+      "headline": "Craft Anything",
+      "depicts": "rebuild app",
+      "payload": {
+        "big": "REBUILD AN APP?",
+        "sub": "Craft Anything"
+      },
+      "cue_word": "rebuild"
+    },
+    {
+      "phrase": 1,
+      "archetype": "chip_grid",
+      "feature_id": "f1",
+      "headline": "Studies the original",
+      "depicts": "studies the original",
+      "payload": {
+        "chips": [
+          "Pages at every width",
+          "Its code",
+          "Its files",
+          "How it runs"
+        ],
+        "highlight": 0
+      }
+    },
+    {
+      "phrase": 2,
+      "archetype": "stat_pop",
+      "feature_id": "f2",
+      "headline": "Real inspection tools",
+      "depicts": "inspection tools",
+      "payload": {
+        "value": 320,
+        "suffix": "+",
+        "sub": "tools to inspect it"
+      },
+      "cue_word": "tools"
+    },
+    {
+      "phrase": 3,
+      "archetype": "toggle_steps",
+      "feature_id": "f5",
+      "headline": "No AI to inspect",
+      "depicts": "AI writes a line",
+      "payload": {
+        "steps": [
+          "Inspect with tools",
+          "No AI needed to inspect",
+          "Agent writes last"
+        ]
+      }
+    },
+    {
+      "phrase": 4,
+      "archetype": "flow_link",
+      "feature_id": "f4",
+      "headline": "An agent builds",
+      "depicts": "coding agent builds new project",
+      "payload": {
+        "nodes": [
+          "Coding agent",
+          "New project"
+        ],
+        "edge_label": "builds"
+      }
+    },
+    {
+      "phrase": 5,
+      "archetype": "terminal_type",
+      "feature_id": "f4",
+      "headline": "Any language you ask",
+      "depicts": "language framework ask",
+      "payload": {
+        "lines": [
+          "$ craft-anything-cli rebuild",
+          "language: the one you ask for"
+        ]
+      }
+    },
+    {
+      "phrase": 6,
+      "archetype": "toggle_steps",
+      "feature_id": "f3",
+      "headline": "Checked, not guessed",
+      "depicts": "build checked against original",
+      "payload": {
+        "steps": [
+          "Pages at three widths",
+          "A game's self-test",
+          "An app's runs"
+        ]
+      }
+    },
+    {
+      "phrase": 7,
+      "archetype": "stat_pop",
+      "feature_id": "f3",
+      "headline": "Three screen widths",
+      "depicts": "three screen widths",
+      "payload": {
+        "value": 3,
+        "suffix": "",
+        "sub": "screen widths, every build"
+      }
+    },
+    {
+      "phrase": 8,
+      "archetype": "flow_link",
+      "feature_id": "f2",
+      "headline": "Tools are CLI and MCP",
+      "depicts": "tool command line call MCP",
+      "payload": {
+        "nodes": [
+          "CLI command",
+          "MCP tool"
+        ],
+        "edge_label": "same tool"
+      }
+    },
+    {
+      "phrase": 9,
+      "archetype": "toggle_steps",
+      "feature_id": "f2",
+      "headline": "Same engine as the app",
+      "depicts": "agent drive same engine app",
+      "payload": {
+        "steps": [
+          "Any agent can drive it",
+          "The same engine",
+          "The app uses it too"
+        ]
+      }
+    },
+    {
+      "phrase": 10,
+      "archetype": "chip_grid",
+      "feature_id": "f6",
+      "headline": "Early alpha",
+      "depicts": "early alpha checking",
+      "payload": {
+        "chips": [
+          "Early alpha",
+          "Check every build",
+          "Against the original"
+        ],
+        "highlight": 0
+      }
+    },
+    {
+      "phrase": 11,
+      "archetype": "concept_card",
+      "feature_id": null,
+      "headline": "Would you let an AI?",
+      "depicts": "let AI rebuild app studied",
+      "payload": {
+        "big": "WOULD YOU?",
+        "sub": "Let an AI rebuild an app it studied?"
+      }
+    },
+    {
+      "phrase": 12,
+      "archetype": "cta_stack",
+      "feature_id": null,
+      "headline": "Comment CRAFT",
+      "depicts": "comment craft repo link",
+      "payload": {
+        "lines": [
+          "Comment CRAFT",
+          "for the repo link",
+          "Follow for more"
+        ]
+      }
+    }
+  ],
+  "script_sha256": "sha256:2c91144666a913d9de7276b450a982392b82fc085f8865f4018287440b8f21f1"
+}

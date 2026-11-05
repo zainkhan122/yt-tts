@@ -39,4 +39,7 @@ if [ ! -f "$HOME/.cache/hyperframes/tts/models/kokoro-v1.0.onnx" ]; then
   hyperframes tts "warm up" -o /tmp/warmup.wav >/dev/null 2>&1 || true
 fi
 ls -la "$HOME/.cache/hyperframes/tts/models/" 2>/dev/null | tail -2 || true
+echo "== graphics engine: Playwright Chromium + system libraries (renderer=graphics)"
+python3 -m pip install -q "playwright==1.64.1" imageio-ffmpeg
+python3 -m playwright install --with-deps chromium
 echo "CLOUD_SETUP_DONE nproc=$(nproc) mem=$(free -g | awk '/Mem/{print $2}')G"

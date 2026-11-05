@@ -23,6 +23,7 @@ import os
 import re
 import shutil
 import subprocess
+import sys
 import time
 from pathlib import Path
 
@@ -1491,7 +1492,25 @@ class Job:
         return "\n".join(parts)
 
     # 7-8 -------------------------------------------------------------
+    def graphics_render(self):
+        """renderer = "graphics": visuals come from the beat plan and the voice's word timings (graphics/ package)."""
+        root = Path(__file__).resolve().parents[1]
+        if str(root) not in sys.path:
+            sys.path.insert(0, str(root))
+        from graphics.stage import GraphicsError, render_for_pipeline
+        gdir = root / self.brief["graphics"]["dir"]
+        mp4 = self.work / "video.mp4"
+        try:
+            info = render_for_pipeline(gdir, self.timing, self.order, self.vo_path, mp4, self.work / "graphics", self.D)
+        except GraphicsError as e:
+            raise SystemExit(f"graphics {e.stage} failed (fail-closed, nothing rendered): {e}")
+        self.stage("render", renderer="graphics", secs=info.get("secs"), phrases=info.get("phrases"),
+                   scenes=info.get("scenes"), cue_fallbacks=info.get("cue_fallbacks"), mb=round(mp4.stat().st_size / 1e6, 2))
+        return mp4
+
     def gates_and_render(self):
+        if self.brief.get("renderer") == "graphics":
+            return self.graphics_render() if self.do_render else None
         lint, out, secs = run(["hyperframes", "lint", "."], cwd=self.proj, log=self.log, check=False)
         summary = hyperframes_lint_summary(out)
         errs, warns = summary if summary is not None else (None, None)
