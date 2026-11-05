@@ -666,6 +666,13 @@
             const nodes = s.nodes || [];
             const cover = s.id === FIRST;
             const top = cover ? COVER_STAGE_TOP : 470, bottom = STAGE_BOTTOM;
+            // A grid that drifts the whole time the scene is on screen: the picture keeps moving under the voice.
+            const grid = A.mk("div", "sp-flow-grid", root);
+            Object.assign(grid.style, { position: "absolute", left: "-120px", top: "-120px", width: "1320px", height: "1680px",
+                backgroundImage: "linear-gradient(rgba(255,214,10,0.22) 3px, transparent 3px), linear-gradient(90deg, rgba(255,214,10,0.22) 3px, transparent 3px)",
+                backgroundSize: "64px 64px", opacity: "0.9" });
+            const gridReps = Math.max(0, Math.floor((t1 - t0) / 1.0) - 1);
+            if (gridReps > 0) tl.fromTo(grid, { x: 0, y: 0 }, { x: 64, y: 64, duration: 1.0, ease: "none", repeat: gridReps, immediateRender: false }, t0);
             const NH = 132, GAP = Math.max(56, Math.min(96, Math.floor((bottom - top - nodes.length * NH) / Math.max(1, nodes.length - 1)))), W = 860;
             const total = nodes.length * NH + Math.max(0, nodes.length - 1) * GAP;
             const y0 = top + Math.max(0, Math.floor((bottom - top - total) / 2));

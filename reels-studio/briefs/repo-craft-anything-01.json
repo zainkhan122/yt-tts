@@ -37,7 +37,7 @@
         "Build its own version",
         "Check it against the original"
       ],
-      "say": "Can Craft Anything study an app and build its own version?"
+      "say": "Can Craft Anything rebuild an app?"
     },
     {
       "id": "point1",
@@ -224,7 +224,7 @@
     "intent": "search",
     "hook_mechanic": "viewer question about the tool's first claim",
     "open_loop": {
-      "plant": "Can Craft Anything study an app and build its own version?",
+      "plant": "Can Craft Anything rebuild an app?",
       "payoff_scene": "point1"
     },
     "proof_moment": "point1",
