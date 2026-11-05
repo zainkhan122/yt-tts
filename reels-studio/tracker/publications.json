@@ -1776,6 +1776,31 @@
       "updated_at": "2026-10-19T22:30:14Z",
       "video_id": "repo-coop-anything-01"
     },
+    "repo-craft-anything-01:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-11-05T18:20:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:62b09965bec53b65aad4ecabb041d946c53b47c1c30380b07114738caa018c63",
+        "asset_id": 713786996,
+        "asset_size": 11944024,
+        "kit_asset_id": 713787094,
+        "kit_digest": "sha256:9aa4294c20a3b1e9c5c6b6ed2c486c1a46a4fd9abe0845b2d746fd06d8cc9ff4",
+        "media_path": "media/713786996/repo-craft-anything-01.mp4",
+        "release_tag": "renders-2026-11-05",
+        "video_id": "repo-craft-anything-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/713786996/repo-craft-anything-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "c736a4ecfaf7e41d2c00a8a35410a98f014bbcf28067aba7366f3424dd5d9a72",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "Craft Anything studies an app with real tools, then builds its own version. A coding agent writes the new project, and each build is checked against the original until it is close. Open source, written in Rust, early alpha. Repo: https://github.com/storytold/craft-anything #Shorts #CraftAnything #OpenSource #RustLang #AIAgents\n\n#Shorts #CraftAnything #OpenSource #RustLang #AIAgents",
+      "title": "Craft Anything: AI Studies an App, Then Builds Its Own",
+      "updated_at": "2026-11-05T15:11:44Z",
+      "video_id": "repo-craft-anything-01"
+    },
     "repo-deeptutor-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6ae56b96eaa24d6f9a559abd",
