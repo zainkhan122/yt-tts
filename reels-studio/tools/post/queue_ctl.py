@@ -89,6 +89,15 @@ def main():
             expiry = parse_time(args.reviewed_until)
             if not now < expiry <= now + dt.timedelta(days=14):
                 raise SystemExit("Review expiry must be in the next 14 days (use shorter windows for news/pricing)")
+            # Ship guard (owner rule 5 Nov 2026): the scheduled file must be the reviewed file,
+            # and brief, receipt, cover and panel must agree. Any drift refuses approval.
+            sys.path.insert(0, str(ROOT / "tools"))
+            import ship
+            drift = {v: ship.check(v, root=ROOT) for v in args.video_ids}
+            drift = {v: e for v, e in drift.items() if e}
+            if drift:
+                raise SystemExit("Ship guard refused approval:\n" + "\n".join(
+                    f"  {v}:\n    - " + "\n    - ".join(e) for v, e in drift.items()))
             missing = [v for v in args.video_ids if not panel_passed(v)]
             # Lesson 21 (1 Nov): a YouTube Short's cover is reviewed before queueing, not after the send.
             platforms_now = args.platforms or [pl for i in data["items"] if i["video_id"] in args.video_ids for pl in i.get("platforms", [])]
