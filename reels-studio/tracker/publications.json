@@ -1776,6 +1776,31 @@
       "updated_at": "2026-10-19T22:30:14Z",
       "video_id": "repo-coop-anything-01"
     },
+    "repo-craft-anything-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-11-05T21:18:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:62b09965bec53b65aad4ecabb041d946c53b47c1c30380b07114738caa018c63",
+        "asset_id": 713786996,
+        "asset_size": 11944024,
+        "kit_asset_id": 713787094,
+        "kit_digest": "sha256:9aa4294c20a3b1e9c5c6b6ed2c486c1a46a4fd9abe0845b2d746fd06d8cc9ff4",
+        "media_path": "media/713786996/repo-craft-anything-01.mp4",
+        "release_tag": "renders-2026-11-05",
+        "video_id": "repo-craft-anything-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/713786996/repo-craft-anything-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "1f7eab1aafadbdf5530d2824962c9894090b17d174cee2b3f52e982403b67a1a",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Craft Anything studies an app, then has an agent build its own version. It checks each build against the original. Open source.\n\n#CraftAnything #OpenSource #RustLang #CodingAgents #AIAgents",
+      "title": "Craft Anything: AI Studies an App, Then Builds Its Own",
+      "updated_at": "2026-11-05T15:11:48Z",
+      "video_id": "repo-craft-anything-01"
+    },
     "repo-craft-anything-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6aec9cb2a3148845e4090cd1",
