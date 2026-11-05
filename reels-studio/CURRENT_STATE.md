@@ -57,4 +57,5 @@ Authoritative for the present. Older state lives in the history of this file and
 - The single state is `queue/publish.json`. Read `reels-studio/STATE.md`.
 - `tools/ship.py` checks every link: brief, receipt, review, release asset digest, cover, panel. `queue_ctl approve` refuses drift. CI runs `ship.py check-all` on each push.
 - Items approved before the guard are marked `ship_legacy` with a reason (52 items). `repo-craft-anything-01` is one of them. It stays scheduled, as the owner decided, and is not reviewed under the guard.
-- Next: `ship.py review` should run automatically from the cloud artifact, so no review can be skipped.
+- Review is automatic: enqueue pins the MP4 identity from the release asset digest. The viewer panel must state the same `Video sha256`. Approval pins the panel and cover. `check-all --live` compares with GitHub.
+- Test suite: `tests/test_ship.py` (29 tests). The three files that used to fail to collect now pass (dependencies from `tools/post/requirements.txt`). Fifteen tests still fail in the full suite: `test_plan_pipeline` (missing generated captures), `test_creative_application` (5), `test_audio_analysis`, `test_gates_single_source` (cover-rules text lint), and `test_topic_signals` (needs network). They are outside the ship guard and are not fixed here.

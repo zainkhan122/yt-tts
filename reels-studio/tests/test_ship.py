@@ -11,7 +11,8 @@ import ship  # noqa: E402
 from post.common import fingerprint  # noqa: E402
 
 VID = "repo-test-01"
-PASS_PANEL = "# Viewer panel\n\nPanel result: PASS (owner override)\n"
+def panel_text(video_sha, verdict="PASS"):
+    return f"# Viewer panel\n\nVideo sha256: {video_sha}\nPanel result: {verdict}\n"
 
 
 @pytest.fixture
@@ -25,9 +26,10 @@ def tree(tmp_path):
     rec.mkdir(parents=True)
     (rec / "2026-11-05-shorts-01.json").write_text(json.dumps(
         {"briefs": {VID: {"brief_sha256": ship.sha256_file(bp)}}}), encoding="utf-8")
-    (tmp_path / "research" / "production" / f"viewer-panel-{VID}.md").write_text(PASS_PANEL, encoding="utf-8")
     mp4 = tmp_path / "video.mp4"
     mp4.write_bytes(b"mp4-v1")
+    (tmp_path / "research" / "production" / f"viewer-panel-{VID}.md").write_text(
+        panel_text(ship.sha256_file(mp4)), encoding="utf-8")
     cover = tmp_path / "cover.jpg"
     cover.write_bytes(b"cover-v1")
     (tmp_path / "queue").mkdir()
@@ -38,7 +40,8 @@ def tree(tmp_path):
         "cover_sha256": ship.sha256_file(cover),
     }
     (tmp_path / "queue" / "publish.json").write_text(json.dumps({"items": [item]}), encoding="utf-8")
-    ship.review(VID, mp4, "42048880432", cover, root=tmp_path)
+    item["review"] = ship.release_review(item["asset_digest"], mp4.stat().st_size)
+    (tmp_path / "queue" / "publish.json").write_text(json.dumps({"items": [item]}), encoding="utf-8")
     # approval as queue_ctl would record it
     q = json.loads((tmp_path / "queue" / "publish.json").read_text(encoding="utf-8"))
     q["items"][0]["approval"] = "approved"
@@ -78,6 +81,53 @@ def test_only_latest_receipt_governs(tree):
     assert ship.check(VID, root=tree) == []
 
 
+def test_panel_for_a_different_file_is_drift(tree):
+    (tree / "research" / "production" / f"viewer-panel-{VID}.md").write_text(panel_text("a" * 64), encoding="utf-8")
+    assert any("reviewed a different file" in e for e in ship.check(VID, root=tree))
+
+
+def test_panel_without_video_sha_is_drift(tree):
+    (tree / "research" / "production" / f"viewer-panel-{VID}.md").write_text("Panel result: PASS\n", encoding="utf-8")
+    assert any("reviewed a different file" in e for e in ship.check(VID, root=tree))
+
+
+def test_release_review_pins_digest():
+    r = ship.release_review("sha256:" + "ab" * 32, 123)
+    assert r["mp4_sha256"] == "ab" * 32 and r["source"] == "release-digest" and r["mp4_bytes"] == 123
+
+
+@pytest.mark.parametrize("bad", [None, "", "md5:abc", "sha256:xyz"])
+def test_release_review_refuses_missing_or_bad_digest(bad):
+    with pytest.raises(SystemExit):
+        ship.release_review(bad, 1)
+
+
+def test_live_digest_mismatch_is_drift(tree, monkeypatch):
+    _set(tree, release_tag="renders-2026-11-05")
+    monkeypatch.setattr(ship, "live_asset_digest", lambda tag, name: "sha256:" + "f" * 64)
+    assert any(e.startswith("release: live asset digest") for e in ship.check(VID, root=tree, live=True))
+
+
+def test_live_digest_match_passes(tree, monkeypatch):
+    _set(tree, release_tag="renders-2026-11-05")
+    monkeypatch.setattr(ship, "live_asset_digest", lambda tag, name: _queue(tree)["items"][0]["asset_digest"])
+    assert ship.check(VID, root=tree, live=True) == []
+
+
+def test_pin_held_backfills_only_held_unpinned_items(tree):
+    q = _queue(tree)
+    q["items"].append({"video_id": "held-x-01", "approval": "held", "asset_digest": "sha256:" + "1" * 64, "asset_size": 5})
+    q["items"].append({"video_id": "held-y-01", "approval": "held", "asset_digest": None})
+    (tree / "queue" / "publish.json").write_text(json.dumps(q), encoding="utf-8")
+    with pytest.raises(SystemExit):
+        ship.pin_held(root=tree)  # held-y has no usable digest: refuse the whole pin, pin nothing
+    q = _queue(tree)
+    q["items"][2]["asset_digest"] = "sha256:" + "2" * 64  # held-y (items[0] is the approved fixture item)
+    (tree / "queue" / "publish.json").write_text(json.dumps(q), encoding="utf-8")
+    assert ship.pin_held(root=tree) == ["held-x-01", "held-y-01"]
+    assert ship.pin_held(root=tree) == []
+
+
 def test_review_refuses_a_file_that_is_not_the_released_asset(tree):
     other = tree / "other.mp4"
     other.write_bytes(b"re-render")
@@ -100,9 +150,14 @@ def test_asset_replaced_after_review_is_drift(tree):
     assert any(e.startswith("artifact:") for e in ship.check(VID, root=tree))
 
 
-def test_cover_mismatch_is_drift(tree):
+def test_cover_changed_after_approval_is_drift(tree):
     _set(tree, cover_sha256="f" * 64)
-    assert any(e.startswith("cover: queued cover differs") for e in ship.check(VID, root=tree))
+    assert any(e.startswith("cover: changed after approval") for e in ship.check(VID, root=tree))
+
+
+def test_approved_without_pinned_cover_is_drift(tree):
+    _set(tree, approved_cover_sha=None)
+    assert any(e.startswith("cover: approved without") for e in ship.check(VID, root=tree))
 
 
 def test_youtube_without_cover_is_drift(tree):
@@ -122,8 +177,8 @@ def test_panel_free_text_is_not_a_verdict(tree):
 
 
 def test_panel_edited_after_approval_is_drift(tree):
-    (tree / "research" / "production" / f"viewer-panel-{VID}.md").write_text(
-        PASS_PANEL + "\nnew note\n", encoding="utf-8")
+    f = tree / "research" / "production" / f"viewer-panel-{VID}.md"
+    f.write_text(f.read_text(encoding="utf-8") + "\nnew note\n", encoding="utf-8")
     assert any(e.startswith("panel: panel file changed after approval") for e in ship.check(VID, root=tree))
 
 

@@ -4,7 +4,8 @@
 State of a Short (the queue item is the only state; every other file is an input pinned by hash):
 
   enqueued (approval=held)      enqueue pins brief canonical hash and the release asset digest
-  reviewed (item.review set)    `ship.py review` proves the local MP4 is the released asset
+  pinned (item.review set)      enqueue pins the MP4 identity from the release asset digest (automatic);
+                                 the viewer panel must state the same sha256 ("Video sha256: <hex>")
   approved (approval=approved)  queue_ctl approve runs check() and pins the panel file hash
   scheduled                     post.yml writes Buffer receipts (derived log, never read for decisions)
 
@@ -12,8 +13,10 @@ Items with ship_legacy=true were scheduled before this guard existed. They are l
 
 Commands:
   python3 tools/ship.py review <video_id> --mp4 <file> --run <actions_run_id> [--cover <file>]
-  python3 tools/ship.py check <video_id>        exit 0 only if every link agrees
-  python3 tools/ship.py check-all               check every approved, non-legacy item (CI runs this)
+  python3 tools/ship.py check <video_id> [--live]   exit 0 only if every link agrees
+  python3 tools/ship.py check-all [--live]          check every approved, non-legacy item (CI runs this)
+  python3 tools/ship.py pin-held                    pin review for held items enqueued before this change
+  --live compares the queued digest with the digest GitHub reports for the release asset right now.
 
 Rules: gates are code. Vision and human notes are advisory. Free text is never a verdict:
 the panel verdict is read only from its own "Panel result:" line.
@@ -31,6 +34,7 @@ from common import fingerprint  # noqa: E402  (canonical hash used by the queue)
 
 VALID_ID = re.compile(r"^[a-z0-9][a-z0-9_-]{2,80}$")
 PANEL_LINE = re.compile(r"^Panel result:\s*(PASS|FAIL)\b", re.MULTILINE)
+PANEL_SHA = re.compile(r"^Video sha256:\s*([0-9a-f]{64})\b", re.MULTILINE)
 
 
 def sha256_file(path: Path) -> str:
@@ -76,6 +80,39 @@ def panel_verdict(video_id: str, root: Path) -> str | None:
     return found[-1] if found else None
 
 
+def panel_video_sha(video_id: str, root: Path) -> str | None:
+    f = panel_file(video_id, root)
+    if not f:
+        return None
+    found = PANEL_SHA.findall(f.read_text(encoding="utf-8", errors="replace"))
+    return found[-1] if found else None
+
+
+def release_review(asset_digest: str | None, asset_bytes: int | None) -> dict:
+    """Automatic review at enqueue: the release asset's own sha256 digest identifies the bytes."""
+    if not asset_digest or not asset_digest.startswith("sha256:") or len(asset_digest) != 71:
+        raise SystemExit(f"release asset has no usable sha256 digest ({asset_digest!r}); cannot pin the review")
+    return {"mp4_sha256": asset_digest[7:], "mp4_bytes": asset_bytes, "source": "release-digest",
+            "run_id": None, "cover_sha256": None}
+
+
+def live_asset_digest(tag: str, name: str) -> str | None:
+    """Digest GitHub reports for a release asset right now (needs GH_TOKEN or GITHUB_TOKEN)."""
+    import os
+    import urllib.request
+    repo = os.environ.get("GITHUB_REPOSITORY", "zainkhan122/yt-tts")
+    token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN") or ""
+    req = urllib.request.Request(f"https://api.github.com/repos/{repo}/releases/tags/{tag}",
+                                 headers={"Accept": "application/vnd.github+json",
+                                          **({"Authorization": f"Bearer {token}"} if token else {})})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        data = json.loads(r.read().decode("utf-8"))
+    for a in data.get("assets", []):
+        if a.get("name") == name:
+            return a.get("digest")
+    return None
+
+
 def panel_sha(video_id: str, root: Path) -> str | None:
     f = panel_file(video_id, root)
     return sha256_file(f) if f else None
@@ -116,7 +153,7 @@ def review(video_id: str, mp4: Path, run_id: str, cover: Path | None = None, *, 
     return item["review"]
 
 
-def check(video_id: str, *, root: Path = ROOT) -> list[str]:
+def check(video_id: str, *, root: Path = ROOT, live: bool = False) -> list[str]:
     """Return drift errors. Empty list means every link agrees."""
     _valid(video_id)
     qp = _queue_path(root)
@@ -156,6 +193,16 @@ def check(video_id: str, *, root: Path = ROOT) -> list[str]:
             elif review_rec.get("cover_sha256") and review_rec["cover_sha256"] != item["cover_sha256"]:
                 errors.append("cover: queued cover differs from the reviewed cover")
 
+    if review_rec:
+        pv = panel_video_sha(video_id, root)
+        if pv != review_rec.get("mp4_sha256"):
+            errors.append(f"panel: panel states video sha256 {str(pv)[:12]} but the released file is {review_rec.get('mp4_sha256','')[:12]} (reviewed a different file)")
+    if live and item.get("release_tag"):
+        name = f"{video_id}.mp4"
+        now = live_asset_digest(item["release_tag"], name)
+        if now != item.get("asset_digest"):
+            errors.append(f"release: live asset digest {str(now)[:19]} != queued {str(item.get('asset_digest'))[:19]} (asset replaced on GitHub)")
+
     verdict = panel_verdict(video_id, root)
     if verdict != "PASS":
         errors.append(f"panel: verdict is {verdict or 'missing'} (approval needs PASS)")
@@ -164,19 +211,38 @@ def check(video_id: str, *, root: Path = ROOT) -> list[str]:
             errors.append("panel: approved without a pinned panel record")
         elif item["approved_panel_sha"] != panel_sha(video_id, root):
             errors.append("panel: panel file changed after approval")
+        if "youtube" in (item.get("platforms") or []):
+            if not item.get("approved_cover_sha"):
+                errors.append("cover: approved without a pinned cover")
+            elif item["approved_cover_sha"] != item.get("cover_sha256"):
+                errors.append("cover: changed after approval")
     return errors
 
 
-def check_all(*, root: Path = ROOT) -> dict[str, list[str]]:
+def check_all(*, root: Path = ROOT, live: bool = False) -> dict[str, list[str]]:
     queue = _load(_queue_path(root))
     out = {}
     for i in queue.get("items", []):
         if i.get("ship_legacy") or i.get("approval") != "approved":
             continue
-        errs = check(i["video_id"], root=root)
+        errs = check(i["video_id"], root=root, live=live)
         if errs:
             out[i["video_id"]] = errs
     return out
+
+
+def pin_held(*, root: Path = ROOT) -> list[str]:
+    """Pin the review for held items that were enqueued before automatic pinning existed."""
+    qp = _queue_path(root)
+    queue = _load(qp)
+    pinned = []
+    for i in queue.get("items", []):
+        if i.get("approval") == "held" and not i.get("review") and not i.get("ship_legacy"):
+            i["review"] = release_review(i.get("asset_digest"), i.get("asset_size"))
+            pinned.append(i["video_id"])
+    if pinned:
+        _save(qp, queue)
+    return pinned
 
 
 def record_approval(video_id: str, *, root: Path = ROOT) -> None:
@@ -184,6 +250,7 @@ def record_approval(video_id: str, *, root: Path = ROOT) -> None:
     queue = _load(_queue_path(root))
     item = _item(queue, video_id)
     item["approved_panel_sha"] = panel_sha(video_id, root)
+    item["approved_cover_sha"] = item.get("cover_sha256")
     _save(_queue_path(root), queue)
 
 
@@ -197,16 +264,22 @@ def main(argv=None) -> int:
     r.add_argument("--cover", type=Path)
     c = sub.add_parser("check")
     c.add_argument("video_id")
-    sub.add_parser("check-all")
+    c.add_argument("--live", action="store_true")
+    sub.add_parser("pin-held")
+    ca = sub.add_parser("check-all")
+    ca.add_argument("--live", action="store_true")
     args = ap.parse_args(argv)
+    if args.cmd == "pin-held":
+        print("pinned: " + (", ".join(pin_held()) or "none"))
+        return 0
     if args.cmd == "review":
         print(json.dumps(review(args.video_id, args.mp4, args.run, args.cover), indent=2))
         return 0
     if args.cmd == "check":
-        errors = check(args.video_id)
+        errors = check(args.video_id, live=args.live)
         print("OK" if not errors else "DRIFT:\n  - " + "\n  - ".join(errors))
         return 0 if not errors else 1
-    bad = check_all()
+    bad = check_all(live=args.live)
     for vid, errs in bad.items():
         print(f"{vid}:\n  - " + "\n  - ".join(errs))
     print("OK: all approved items agree" if not bad else f"DRIFT in {len(bad)} item(s)")

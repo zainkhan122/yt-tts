@@ -16,6 +16,8 @@ sys.path.insert(0, str(ROOT))
 from lib.secrets import gh_token
 from tools.post.common import config, fingerprint, iso, load_json, now_utc, parse_time, save_json, valid_id
 from tools.post.media import read_kit
+sys.path.insert(0, str(ROOT / "tools"))
+import ship  # noqa: E402  (ship state: release pin, guard)
 
 
 def panel_passed(video_id):
@@ -79,6 +81,8 @@ def main():
                 "youtube_ai_generated": bool(b.get("contains_synthetic_media", False))}
         if b.get("contains_synthetic_media"):
             item["facebook_disclosure"] = "AI-generated narration and example imagery."
+        # Automatic review (STATE.md): the release asset digest pins the exact bytes at enqueue.
+        item["review"] = ship.release_review(a.get("digest"), a.get("size"))
         read_kit(cfg, item)
         data["items"].append(item)
     elif args.cmd in {"approve", "hold"}:
@@ -91,8 +95,6 @@ def main():
                 raise SystemExit("Review expiry must be in the next 14 days (use shorter windows for news/pricing)")
             # Ship guard (owner rule 5 Nov 2026): the scheduled file must be the reviewed file,
             # and brief, receipt, cover and panel must agree. Any drift refuses approval.
-            sys.path.insert(0, str(ROOT / "tools"))
-            import ship
             drift = {v: ship.check(v, root=ROOT) for v in args.video_ids}
             drift = {v: e for v, e in drift.items() if e}
             if drift:
@@ -116,6 +118,7 @@ def main():
             i["approval"] = "approved" if args.cmd == "approve" else "held"
             if args.cmd == "approve":
                 i["approved_panel_sha"] = ship.panel_sha(i["video_id"], ROOT)  # pin the panel that justified approval
+                i["approved_cover_sha"] = i.get("cover_sha256")  # pin the cover that was approved
             if args.cmd == "approve":
                 if i["category"] == "news" and expiry > now + dt.timedelta(hours=72):
                     raise SystemExit("News needs a fresh review within 72 hours")
