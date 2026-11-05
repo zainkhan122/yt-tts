@@ -264,7 +264,7 @@
       "priority": 100,
       "release_tag": "renders-2026-10-10",
       "reviewed_at": "2026-10-11T05:29:03Z",
-      "title": "Pomelli: Free AI Product Photos—with a Catch",
+      "title": "Pomelli: Free AI Product Photos\u2014with a Catch",
       "video_id": "tool-pomelli-01",
       "youtube_ai_generated": true
     },
@@ -755,7 +755,7 @@
       "priority": 15,
       "release_tag": "renders-2026-10-15",
       "reviewed_at": "2026-10-15T12:42:11Z",
-      "title": "LFM2.5: 24B Brain, 2B at Work — a Local Agent Model",
+      "title": "LFM2.5: 24B Brain, 2B at Work \u2014 a Local Agent Model",
       "video_id": "model-lfm25-01",
       "youtube_ai_generated": false
     },
@@ -1399,6 +1399,32 @@
       "reviewed_at": "2026-11-01T15:09:25Z",
       "title": "AI Agent Audit: Green Tests Are Not Enough",
       "video_id": "repo-ifixai-01",
+      "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-11-05T15:03:34Z",
+      "approval": "approved",
+      "asset_digest": "sha256:62b09965bec53b65aad4ecabb041d946c53b47c1c30380b07114738caa018c63",
+      "asset_id": 713786996,
+      "asset_size": 11944024,
+      "brief_sha256": "fb7bc13c213df1481af774daab1bfc4ebc476d34527a9f110162757d66d30bb3",
+      "category": "repo",
+      "cover_reviewed_at": "2026-11-05T15:03:39Z",
+      "cover_sha256": "sha256:9fbee12e6aa663d011431d5a83317b205103474f9a94a6531cf25231bc955031",
+      "expires_at": "2026-11-12T10:00:00Z",
+      "kit_asset_id": 713787094,
+      "kit_digest": "sha256:9aa4294c20a3b1e9c5c6b6ed2c486c1a46a4fd9abe0845b2d746fd06d8cc9ff4",
+      "media_path": "media/713786996/repo-craft-anything-01.mp4",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "priority": 100,
+      "release_tag": "renders-2026-11-05",
+      "reviewed_at": "2026-11-05T15:03:43Z",
+      "title": "Craft Anything: AI Studies an App, Then Builds Its Own",
+      "video_id": "repo-craft-anything-01",
       "youtube_ai_generated": false
     }
   ],
