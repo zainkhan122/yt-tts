@@ -44,3 +44,10 @@ Authoritative for the present. Older state lives in the history of this file and
 - Queue: enqueued and approved (`reviewed-until` 2026-11-12, platforms youtube/instagram/facebook). Cover approved, sha `9fbee12e6aa6`.
 - Buffer: dry-run success, verify success, schedule success. Due times (UTC): YouTube 2026-11-05 18:20, Instagram 21:18, Facebook 22:11 (PKT +5: 23:20, 02:18, 03:11 on 6 Nov).
 - Open: 12.9 s near-blank frame is still in the video. Real-media rule is waived for this batch only. Decide before the next batch.
+
+## Source of truth (owner rule, 5 Nov 2026)
+
+- The repo `zainkhan122/yt-tts/reels-studio` is the single source of truth for pipeline code, graphics engine, briefs, receipts, queue and docs.
+- No parallel local copy. The old `/home/user/shorts-pipeline` copy was removed after its unique files (graphics fixtures, README, PLAN-REVIEW, pipeline map) were committed to the repo at `e61cc07`.
+- Local workspace keeps only: `uploads/` (deliverables and `gh_token.txt`) and hidden folders (`.gen-repo/repo` working clone, `.graphics-work` scratch, `.config`, `.hyperframes`).
+- Work happens in the clone, is committed and pushed to `origin/main`. Re-add `origin` if a restore removes it.
