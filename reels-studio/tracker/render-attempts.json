@@ -1065,9 +1065,9 @@
       "capture_id": "repo-poki-01",
       "cover_sha256": "aa6277d5bc3bad7a427d0c7a11b0a2d7ea9faee7a7028fbda2cb4c0e9ebf798a",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=skipped publish=skipped",
       "fingerprint": "5175a41e7c24c0d0da2eaf12ca34a4397dd67663845dfa7f1d976c5c9fadc533",
-      "finished_at": null,
+      "finished_at": "2026-11-06T18:56:53Z",
       "from_tag": "",
       "graphics_sha256": "ce47a0df2b19315f00395cc7946deb7b86378277f6e319fddcae3c2ae10f3b46",
       "quality": "looks",
@@ -1075,7 +1075,7 @@
       "renderer_sha256": "df07e3fe37a41a380bdd6d8c5e5e76f81d8cec6b7330d8744f5fd4d843db6271",
       "run_id": "42266164457",
       "started_at": "2026-11-06T17:56:26Z",
-      "status": "started",
+      "status": "failed",
       "voice_seed": 0
     },
     "53da65aeed363feb7b57adbbdf74f5799161fb897cc13ff5570a3cb2034aabc8": {
