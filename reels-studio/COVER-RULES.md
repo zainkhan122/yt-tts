@@ -16,20 +16,9 @@ viewer stop, read the headline, and want the answer. These rules apply to every 
 
 ## 2. Graphic (the visual that sits with the headline)
 
-The graphic must be **highly related to the tool**: what it does, shown in its own world.
-
-- **First choice: the tool's own media.** Logo, chart, diagram, screenshot, or demo frame from the
-  repo or its README. No licence requirement. It can be used if it is:
-  - sharp at cover size (at least 1080 px wide on its longest side, no visible blur or heavy compression),
-  - readable at phone size (the tool's name or main subject is clear without zoom),
-  - not cluttered with unrelated text or other products.
-- **Fallback: a designed graphic built from the tool's world.** Use this when the tool's own media
-  is missing, low quality, or unclear. Examples of the composition:
-  - a laptop with a few windows open (browser, code editor, video editor, terminal) and the tool's
-    agent or logo drawn on the left or right side.
-  - a hand-built diagram of the tool's flow (input → agent → result).
-  The fallback must be drawn from what the tool actually does, not a generic AI picture.
-- The graphic is the main visual. Generated text cards are never the main visual.
+- First choice is a designed graphic built from the tool's actual flow.
+- A generic AI picture is an automatic fail.
+- No fallback.
 
 ## 3. Layout
 

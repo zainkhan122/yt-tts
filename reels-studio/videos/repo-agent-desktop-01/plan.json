@@ -2,12 +2,12 @@
   "id": "repo-agent-desktop-01",
   "tool": "agent-desktop",
   "author": "agent",
-  "question": "Can an AI use your computer right now, without screenshots?",
+  "question": "Ever wanted an AI to click around your computer for you?",
   "points": [
     {
       "n": 1,
       "claim": "Install it with one npm command.",
-      "spoken": "Install it with one line: npm install -g agent-desktop.",
+      "spoken": "It's called agent-desktop, and it's open source. Install it with one line: npm install -g agent-desktop.",
       "source": "https://github.com/vercel-labs/agent-desktop",
       "source_note": "README install: 'npm install -g agent-desktop'",
       "visual": {
@@ -15,7 +15,7 @@
         "intent": "the one install command, then the version check"
       },
       "title": "One command to install",
-      "sub": "Install with npm, then run one snapshot.",
+      "sub": "Install with npm, then take a snapshot.",
       "steps": [
         "npm install -g agent-desktop",
         "Run a snapshot"
@@ -24,7 +24,7 @@
     {
       "n": 2,
       "claim": "A snapshot lists every element the agent can act on, each with a ref.",
-      "spoken": "Run snapshot on an app, and you get every button and field, each with a ref you can click.",
+      "spoken": "Then take a snapshot of an app. You get every button and field, each with a ref you can click.",
       "source": "https://github.com/vercel-labs/agent-desktop",
       "source_note": "README quick start: 'a ref for every element the agent can act on'",
       "visual": {
@@ -37,7 +37,7 @@
     {
       "n": 3,
       "claim": "The agent clicks a ref, not a guessed spot on the screen.",
-      "spoken": "Your agent clicks a ref, not a guessed spot on screen.",
+      "spoken": "The agent clicks a ref, not a guessed spot on the screen.",
       "source": "https://github.com/vercel-labs/agent-desktop",
       "source_note": "README intro: 'without screenshots or pixel matching'",
       "visual": {
@@ -55,7 +55,7 @@
     {
       "n": 4,
       "claim": "If the screen changes, an old ref returns STALE_REF and the agent takes a new snapshot.",
-      "spoken": "If the screen changes, you get a stale ref error, so the agent snapshots again.",
+      "spoken": "If the screen changes, the old ref fails with a stale ref error. The agent just takes a new snapshot.",
       "source": "https://github.com/vercel-labs/agent-desktop",
       "source_note": "README: 'returns STALE_REF... take a new snapshot and use its refs'",
       "visual": {
@@ -71,15 +71,14 @@
       ]
     }
   ],
-  "catch": "Same commands on macOS, Windows and Linux, so you learn it once.",
-  "catch_sub": "One loop on every desktop.",
+  "catch": "The catch: you need Node.js and npm installed first.",
+  "catch_sub": "Node.js and npm come first.",
   "catch_visual": {
     "kind": "chips",
-    "intent": "the three platforms in the README",
+    "intent": "the two things you install first",
     "chips": [
-      "macOS",
-      "Windows",
-      "Linux"
+      "Node.js",
+      "npm"
     ]
   },
   "brand_line": "agent-desktop · open source",
@@ -119,7 +118,7 @@
       }
     ]
   },
-  "cta": "Would you let an AI use your desktop? Comment DESKTOP and I'll send you the repo link.",
+  "cta": "Would you let an AI drive your desktop? Comment DESKTOP and I'll pin the link.",
   "cta_keyword": "DESKTOP",
   "seo": {
     "onscreen_first3s": "AI USES YOUR PC",

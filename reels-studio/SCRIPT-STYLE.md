@@ -115,3 +115,27 @@ These six scripts were approved by the owner. Use them as the reference for tone
 - [ ] The close restates the benefit and ends with the keyword CTA.
 - [ ] 100–125 words. No sources, licence or legal text, citations or links in speech.
 - [ ] No promotional adjectives, no preamble, no feature list.
+
+## 7. Friend voice (from the TikTok reference study, 6 Nov 2026)
+
+Source: `research/reference-study/tiktok-latest10-2026-11-06.md`. The reference channels start
+like one friend telling another friend something. Our scripts do the same.
+
+- **Open like a friend, not a bot.** Start with a plain question about the viewer's own problem or
+  want. Say it the way you would say it in person.
+- **Banned bot openers:** "Introducing", "Discover", "Unlock", "Are you looking for", "In this
+  video", "Let's dive in", "Here's how", "Did you know", "Imagine".
+- **Hook patterns the references use (pick one per script):**
+  1. A question about the viewer's own problem: "how do hackers bypass youtube ads?"
+  2. A contrast with a true number, then the claim: "A 2.8 trillion parameter model needs a data
+     center full of GPUs." Then: it runs on a laptop.
+  3. A command that names a pain or a harm: "Stop your Smart TV from spying on you."
+  4. A problem-first line that names the viewer's task.
+- **What they sell:** one outcome the viewer can have today, in one sentence. Then one concrete
+  proof (a number, a time, a price, or a named tool) and one real requirement (the catch).
+- **Comments and subs:** the close restates the benefit, asks a question the viewer can answer,
+  and gives the keyword. A question people want to answer earns the comments.
+- **Tone:** "you" and "I" are fine. Short and medium sentences in a mix. No corporate phrasing.
+- **Read-aloud check:** read the script out loud. If it sounds like a product page or a list of
+  features, rewrite it as one friend explaining to another.
+

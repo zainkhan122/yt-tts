@@ -1,6 +1,6 @@
 {
   "tool": "agent-desktop",
-  "script_sha256": "sha256:20e7aae9f1506ec74cc3e0fcf96d026696be89f2d3828c3e682f89ac86b203d4",
+  "script_sha256": "sha256:f8a7bf7290e5d5e93ad8c93e683a57dbddc2ca4fc12d24b9184d3b90e83d597a",
   "handle": "@agent",
   "scenes": [
     {
@@ -71,7 +71,7 @@
       "archetype": "toggle_steps",
       "headline": "STALE REFS RETRY",
       "feature_id": "f3",
-      "depicts": "screen changes stale ref error agent snapshots again",
+      "depicts": "screen changes stale ref error agent just takes a new snapshot",
       "payload": {
         "steps": [
           "Act on a ref",
@@ -88,18 +88,17 @@
       "scene_id": "catch",
       "phrase": 5,
       "archetype": "chip_grid",
-      "headline": "SAME ON EVERY DESKTOP",
-      "feature_id": "f6",
-      "depicts": "same commands on macOS Windows and Linux",
+      "headline": "NEED NODE.JS FIRST",
+      "feature_id": "f4",
+      "depicts": "you need Node.js and npm installed first",
       "payload": {
         "chips": [
-          "macOS",
-          "Windows",
-          "Linux"
+          "Node.js",
+          "npm"
         ],
         "highlight": 0
       },
-      "cue_word": "Linux"
+      "cue_word": "Node.js"
     },
     {
       "scene_id": "cta",

@@ -34,7 +34,7 @@
         "Snapshot",
         "Click a ref"
       ],
-      "say": "Can an AI use your computer right now, without screenshots?"
+      "say": "Ever wanted an AI to click around your computer for you?"
     },
     {
       "id": "point1",
@@ -44,7 +44,7 @@
         "npm install -g agent-desktop",
         "Run a snapshot"
       ],
-      "say": "Install it with one line: npm install -g agent-desktop."
+      "say": "It's called agent-desktop, and it's open source. Install it with one line: npm install -g agent-desktop."
     },
     {
       "id": "point2",
@@ -55,7 +55,7 @@
         "Accessibility tree",
         "Refs"
       ],
-      "say": "Run snapshot on an app, and you get every button and field, each with a ref you can click."
+      "say": "Then take a snapshot of an app. You get every button and field, each with a ref you can click."
     },
     {
       "id": "point3",
@@ -64,7 +64,7 @@
       "nodes": [
         "act on a ref"
       ],
-      "say": "Your agent clicks a ref, not a guessed spot on screen."
+      "say": "The agent clicks a ref, not a guessed spot on the screen."
     },
     {
       "id": "point4",
@@ -72,26 +72,26 @@
       "heading": "STALE REFS RETRY",
       "nodes": [
         "act on a ref",
-        "STALE REF"
+        "STALE REF",
+        "new snapshot"
       ],
-      "say": "If the screen changes, you get a stale ref error, so the agent snapshots again."
+      "say": "If the screen changes, the old ref fails with a stale ref error. The agent just takes a new snapshot."
     },
     {
       "id": "catch",
       "type": "flow",
-      "heading": "SAME ON EVERY DESKTOP",
+      "heading": "NEED NODE.JS FIRST",
       "nodes": [
-        "macOS",
-        "Windows",
-        "Linux"
+        "Node.js",
+        "npm"
       ],
-      "say": "Same commands on macOS, Windows and Linux, so you learn it once."
+      "say": "The catch: you need Node.js and npm installed first."
     },
     {
       "id": "cta",
       "type": "endcard",
       "keyword": "DESKTOP",
-      "say": "Would you let an AI use your desktop? Comment DESKTOP and I'll send you the repo link."
+      "say": "Would you let an AI drive your desktop? Comment DESKTOP and I'll pin the link."
     }
   ],
   "seo": {
@@ -159,7 +159,7 @@
     ]
   },
   "post": {
-    "cta": "Would you let an AI use your desktop? Comment DESKTOP and I'll send you the repo link.",
+    "cta": "Would you let an AI drive your desktop? Comment DESKTOP and I'll pin the link.",
     "hashtags": [
       "#Shorts",
       "#AIAgents",
@@ -227,7 +227,7 @@
     "intent": "search",
     "hook_mechanic": "viewer question about using their own computer right now",
     "open_loop": {
-      "plant": "Can an AI use your computer right now, without screenshots?",
+      "plant": "Ever wanted an AI to click around your computer for you?",
       "payoff_scene": "point1"
     },
     "proof_moment": "point1",
