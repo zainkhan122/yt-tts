@@ -15,7 +15,7 @@ ARCHETYPES: dict[str, dict] = {
     "stat_pop":     {"req": ["value", "sub"], "opt": ["suffix", "unit"], "script_ok": False, "facts": True},
     "chip_grid":    {"req": ["chips"], "opt": ["highlight"], "script_ok": False, "facts": True},
     "flow_link":    {"req": ["nodes"], "opt": ["edge_label"], "script_ok": False, "facts": True},
-    "terminal_type": {"req": ["lines"], "opt": [], "script_ok": False, "facts": True},
+    "terminal_type": {"req": ["lines"], "opt": ["title"], "script_ok": False, "facts": True},
     "toggle_steps": {"req": ["steps"], "opt": ["done"], "script_ok": False, "facts": True},
     "cta_stack":    {"req": ["lines"], "opt": [], "script_ok": True, "facts": False},
 }
