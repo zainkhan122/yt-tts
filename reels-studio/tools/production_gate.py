@@ -342,7 +342,11 @@ def validate_receipt(
             if assets.get("capture_id") != capture_id:
                 raise ProductionGateError(f"{brief_id}: ASSETS capture_id does not match the brief")
             file_hashes = assets.get("files")
-            if not isinstance(file_hashes, list) or not file_hashes:
+            if not isinstance(file_hashes, list):
+                raise ProductionGateError(f"{brief_id}: ASSETS must hash the files in its capture pack")
+            # Graphics-only briefs use no captured media: every visual is generated from the beat plan,
+            # so an explicit empty files map is the correct pack (owner, 6 Nov 2026).
+            if not file_hashes and brief.get("renderer") != "graphics":
                 raise ProductionGateError(f"{brief_id}: ASSETS must hash the files in its capture pack")
             names = set()
             for entry in file_hashes:
@@ -499,7 +503,12 @@ def verify_capture_assets(repo_root: Path, brief_id: str, brief: dict, stage: di
     if actual_manifest_sha != stage.get("manifest_sha256"):
         raise ProductionGateError(f"{brief_id}: downloaded capture manifest digest changed")
     manifest_files = manifest.get("files")
-    if not isinstance(manifest_files, dict) or not manifest_files:
+    if not isinstance(manifest_files, dict):
+        raise ProductionGateError(f"{brief_id}: capture manifest has no files map")
+    if not manifest_files:
+        if brief.get("renderer") == "graphics":
+            # Graphics-only brief: no captured media to verify (see ASSETS rule above).
+            return {"brief_id": brief_id, "capture": capture_id, "verified_files": 0, "graphics_only": True}
         raise ProductionGateError(f"{brief_id}: capture manifest lists no assets")
     file_hashes = stage.get("files") or []
     declared = {entry["path"]: entry["sha256"] for entry in file_hashes}
