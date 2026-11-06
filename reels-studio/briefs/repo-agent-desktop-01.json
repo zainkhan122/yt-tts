@@ -15,7 +15,7 @@
   ],
   "facts": {
     "method": "tool's own README, read on the day of the plan",
-    "limits": "On macOS it needs the Accessibility permission first."
+    "limits": "Commands and features are taken from the README."
   },
   "sources": [
     "https://github.com/vercel-labs/agent-desktop"
@@ -28,79 +28,77 @@
     {
       "id": "hook",
       "type": "flow",
-      "heading": "AGENT-DESKTOP: AI RUNS YOUR PC?",
+      "heading": "AGENT-DESKTOP: AI USES YOUR PC NOW",
       "nodes": [
-        "Read the UI",
-        "Act on a ref",
-        "Snapshot again"
+        "Install",
+        "Snapshot",
+        "Click a ref"
       ],
-      "say": "Can an AI agent use my computer for me without guessing from screenshots?"
+      "say": "Can an AI use your computer right now, without screenshots?"
     },
     {
       "id": "point1",
       "type": "flow",
-      "heading": "READS THE ACCESSIBILITY TREE",
+      "heading": "ONE LINE TO INSTALL",
       "nodes": [
-        "Your app",
-        "Accessibility tree",
-        "JSON"
+        "npm install -g agent-desktop",
+        "Run a snapshot"
       ],
-      "say": "It reads your apps through the accessibility tree, the same structure screen readers use."
+      "say": "Install it with one line: npm install -g agent-desktop."
     },
     {
       "id": "point2",
       "type": "flow",
-      "heading": "A REF FOR EVERY ELEMENT",
+      "heading": "EVERY BUTTON GETS A REF",
       "nodes": [
-        "@s8f3k2p9:e8",
-        "@s8f3k2p9:e9",
-        "@s8f3k2p9:e10"
+        "Your app",
+        "Accessibility tree",
+        "Refs"
       ],
-      "say": "Every element gets a ref, so the agent clicks a target instead of a guessed spot."
+      "say": "Run snapshot on an app, and you get every button and field, each with a ref you can click."
     },
     {
       "id": "point3",
       "type": "flow",
-      "heading": "STALE REFS FAIL SAFELY",
+      "heading": "CLICK A REF, NOT A PIXEL",
       "nodes": [
-        "act on a ref",
-        "STALE REF"
+        "act on a ref"
       ],
-      "say": "If the screen changes, an old ref fails safely. Take a new snapshot."
+      "say": "Your agent clicks a ref, not a guessed spot on screen."
     },
     {
       "id": "point4",
       "type": "flow",
-      "heading": "ONE COMMAND TO INSTALL",
+      "heading": "STALE REFS RETRY",
       "nodes": [
-        "npm install -g agent-desktop",
-        "Grant Accessibility on macOS",
-        "Snapshot an app"
+        "act on a ref",
+        "STALE REF"
       ],
-      "say": "Install it with one npm command. The source is open for anyone to read."
+      "say": "If the screen changes, you get a stale ref error, so the agent snapshots again."
     },
     {
       "id": "catch",
       "type": "flow",
-      "heading": "MACOS NEEDS ONE GRANT",
+      "heading": "SAME ON EVERY DESKTOP",
       "nodes": [
-        "Accessibility permission",
-        "Then snapshot"
+        "macOS",
+        "Windows",
+        "Linux"
       ],
-      "say": "On macOS, you grant Accessibility permission first."
+      "say": "Same commands on macOS, Windows and Linux, so you learn it once."
     },
     {
       "id": "cta",
       "type": "endcard",
       "keyword": "DESKTOP",
-      "say": "Would you let an agent use your desktop? Comment DESKTOP and I'll pin the repo link."
+      "say": "Would you let an AI use your desktop? Comment DESKTOP and I'll send you the repo link."
     }
   ],
   "seo": {
-    "onscreen_first3s": "AI USES YOUR APPS",
+    "onscreen_first3s": "AI USES YOUR PC",
     "youtube": {
-      "title": "agent-desktop: Let AI Use Your Desktop Apps",
-      "description": "agent-desktop lets an AI agent read and operate desktop apps through the OS accessibility tree. Each element gets a ref, so the agent acts on a target instead of a pixel guess. Open source, installs with npm.\nRepo: https://github.com/vercel-labs/agent-desktop",
+      "title": "AI Can Use Your PC Now: agent-desktop (npm install)",
+      "description": "Install agent-desktop with one npm command, then let an AI agent click your apps by ref, not by screenshot. Snapshot an app, act on a ref, and retry when the screen changes.\nInstall: npm install -g agent-desktop\nRepo: https://github.com/vercel-labs/agent-desktop\n#Shorts #AIAgents #DesktopAutomation #OpenSource #ComputerUse",
       "tags": [
         "agent-desktop",
         "AI computer use",
@@ -118,7 +116,7 @@
       ]
     },
     "tiktok": {
-      "caption": "agent-desktop: AI reads your apps through the accessibility tree, not screenshots. Open source.",
+      "caption": "AI can use your PC now: one npm command, then it clicks by ref, not screenshots. Repo in bio.",
       "hashtags": [
         "#AIAgents",
         "#DesktopAutomation",
@@ -128,7 +126,7 @@
       ]
     },
     "instagram": {
-      "caption": "Can an AI agent use your computer without guessing from screenshots? agent-desktop reads apps through the accessibility tree. Save this for your next agent build.",
+      "caption": "AI can use your computer right now. Install with one npm command, and it clicks buttons by ref, not by screenshot. Comment DESKTOP for the repo link.",
       "hashtags": [
         "#AIAgents",
         "#DesktopAutomation",
@@ -138,7 +136,7 @@
       ]
     },
     "facebook": {
-      "caption": "agent-desktop lets an AI agent read and operate desktop apps through the accessibility tree, with a ref for every element. Open source.",
+      "caption": "agent-desktop: install with one npm command, then let an AI agent click your apps by ref. Comment DESKTOP for the repo link.",
       "hashtags": [
         "#AIAgents",
         "#DesktopAutomation",
@@ -148,7 +146,7 @@
       ]
     },
     "x": {
-      "text": "agent-desktop: AI agents read your desktop apps through the accessibility tree, not pixels.",
+      "text": "AI can use your PC now: one npm command, then it clicks by ref, not screenshots.",
       "hashtags": [
         "#AIAgents",
         "#OpenSource"
@@ -161,7 +159,7 @@
     ]
   },
   "post": {
-    "cta": "Would you let an agent use your desktop? Comment DESKTOP and I'll pin the repo link.",
+    "cta": "Would you let an AI use your desktop? Comment DESKTOP and I'll send you the repo link.",
     "hashtags": [
       "#Shorts",
       "#AIAgents",
@@ -182,22 +180,22 @@
   "claims": [
     {
       "id": "c1",
-      "text": "agent-desktop reads apps through the OS accessibility tree, not pixel matching.",
+      "text": "Install it with one npm command.",
       "source": "https://github.com/vercel-labs/agent-desktop"
     },
     {
       "id": "c2",
-      "text": "Each actionable element gets a ref, so the agent acts on a target, not a guess.",
+      "text": "A snapshot lists every element the agent can act on, each with a ref.",
       "source": "https://github.com/vercel-labs/agent-desktop"
     },
     {
       "id": "c3",
-      "text": "When the UI changes, a stale ref fails safely and the agent must snapshot again.",
+      "text": "The agent clicks a ref, not a guessed spot on the screen.",
       "source": "https://github.com/vercel-labs/agent-desktop"
     },
     {
       "id": "c4",
-      "text": "It installs with one npm command and is open source.",
+      "text": "If the screen changes, an old ref returns STALE_REF and the agent takes a new snapshot.",
       "source": "https://github.com/vercel-labs/agent-desktop"
     }
   ],
@@ -205,31 +203,31 @@
     {
       "claim": "c1",
       "evidence": "source:https://github.com/vercel-labs/agent-desktop",
-      "how_shown": "three-step loop as the README gives it"
+      "how_shown": "the one install command, then the version check"
     },
     {
       "claim": "c2",
       "evidence": "source:https://github.com/vercel-labs/agent-desktop",
-      "how_shown": "the three platforms the README's support table lists"
+      "how_shown": "app to accessibility tree to refs, as the README describes"
     },
     {
       "claim": "c3",
       "evidence": "source:https://github.com/vercel-labs/agent-desktop",
-      "how_shown": "failure path: act, stale ref, new snapshot, retry"
+      "how_shown": "ref chips, one highlighted"
     },
     {
       "claim": "c4",
       "evidence": "source:https://github.com/vercel-labs/agent-desktop",
-      "how_shown": "install command, then the version check, as the README shows"
+      "how_shown": "act, stale ref, new snapshot, retry"
     }
   ],
   "treatment": {
     "audience": "developers building or testing AI agents",
     "viewer_job": "decide whether a desktop agent tool is worth trying",
     "intent": "search",
-    "hook_mechanic": "viewer question about the tool's first claim",
+    "hook_mechanic": "viewer question about using their own computer right now",
     "open_loop": {
-      "plant": "Can an AI agent use my computer for me without guessing from screenshots?",
+      "plant": "Can an AI use your computer right now, without screenshots?",
       "payoff_scene": "point1"
     },
     "proof_moment": "point1",
@@ -240,7 +238,7 @@
     "reviewed_at": "2026-11-06",
     "expires_at": null,
     "reviewer": "agent: plan written from the maker's README",
-    "notes": "Topic owner-approved 2 Nov 2026 (config/topic-approvals.json). Plan packaging fixed 6 Nov; claims unchanged except the catch, corrected to the README."
+    "notes": "Topic owner-approved 2 Nov 2026. Script rewritten 6 Nov after owner review (usage-first, no stage or permission lines); reference study in research/reference-study/tiktok-latest10-2026-11-06.md."
   },
   "motion_standard": 2,
   "qa_gates": true,

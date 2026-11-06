@@ -31,16 +31,16 @@
       "evidence_quote": "npm install -g agent-desktop"
     },
     {
-      "id": "f5",
-      "title": "macOS Accessibility grant",
-      "what": "On macOS, a guide walks through the Accessibility grant.",
-      "evidence_quote": "macOS: walks you through the Accessibility grant"
+      "id": "f6",
+      "title": "Same loop on three desktops",
+      "what": "The same loop runs on macOS, Windows and Linux.",
+      "evidence_quote": "on macOS, Windows, and Linux through the OS accessibility tree"
     }
   ],
   "risks": [
     {
-      "text": "On macOS it needs the Accessibility permission first",
-      "severity": "medium"
+      "text": "A changed screen makes an old ref fail with STALE_REF, so the agent must snapshot again",
+      "severity": "low"
     }
   ],
   "source_urls": [

@@ -1,45 +1,60 @@
 {
   "tool": "agent-desktop",
-  "script_sha256": "sha256:7485f2c02bf9e11f458bac209b31d91626bdf845fa31095501e5167e3a1a193f",
+  "script_sha256": "sha256:20e7aae9f1506ec74cc3e0fcf96d026696be89f2d3828c3e682f89ac86b203d4",
   "handle": "@agent",
   "scenes": [
     {
       "scene_id": "hook",
       "phrase": 0,
       "archetype": "concept_card",
-      "headline": "CAN AN AI USE YOUR PC?",
+      "headline": "AI USES YOUR PC NOW",
       "feature_id": null,
-      "depicts": "AI agent use my computer without guessing from screenshots",
+      "depicts": "an AI use your computer right now without screenshots",
       "payload": {
-        "big": "CAN AN AI USE YOUR PC?",
-        "sub": "No screenshots, no guessing"
+        "big": "AI USES YOUR PC NOW",
+        "sub": "No screenshots needed"
       },
       "cue_word": "computer"
     },
     {
       "scene_id": "point1",
       "phrase": 1,
-      "archetype": "flow_link",
-      "headline": "READS THE ACCESSIBILITY TREE",
-      "feature_id": "f1",
-      "depicts": "reads your apps through the accessibility tree",
+      "archetype": "terminal_type",
+      "headline": "ONE LINE TO INSTALL",
+      "feature_id": "f4",
+      "depicts": "install it with one line npm install agent-desktop",
       "payload": {
-        "nodes": [
-          "Your app",
-          "Accessibility tree",
-          "JSON"
-        ],
-        "edge_label": "reads"
+        "lines": [
+          "npm install -g agent-desktop",
+          "agent-desktop snapshot --app Finder -i"
+        ]
       },
-      "cue_word": "accessibility"
+      "cue_word": "npm"
     },
     {
       "scene_id": "point2",
       "phrase": 2,
+      "archetype": "flow_link",
+      "headline": "EVERY BUTTON GETS A REF",
+      "feature_id": "f1",
+      "depicts": "snapshot on an app every button and field each with a ref",
+      "payload": {
+        "nodes": [
+          "Your app",
+          "Accessibility tree",
+          "Refs"
+        ],
+        "edge_label": "reads"
+      },
+      "cue_word": "snapshot"
+    },
+    {
+      "scene_id": "point3",
+      "phrase": 3,
       "archetype": "chip_grid",
-      "headline": "A REF FOR EVERY ELEMENT",
+      "headline": "CLICK A REF, NOT A PIXEL",
       "feature_id": "f2",
-      "depicts": "every element gets a ref the agent clicks",
+      "depicts": "agent clicks a ref not a guessed spot",
       "payload": {
         "chips": [
           "@s8f3k2p9:e8",
@@ -48,55 +63,43 @@
         ],
         "highlight": 0
       },
-      "cue_word": "ref"
-    },
-    {
-      "scene_id": "point3",
-      "phrase": 3,
-      "archetype": "terminal_type",
-      "headline": "STALE REFS FAIL SAFELY",
-      "feature_id": "f3",
-      "depicts": "screen changes, old reference fails safely, fresh snapshot",
-      "payload": {
-        "lines": [
-          "act @s8f3k2p9:e8",
-          "STALE REF",
-          "take a new snapshot"
-        ]
-      },
-      "cue_word": "changes"
+      "cue_word": "clicks"
     },
     {
       "scene_id": "point4",
       "phrase": 4,
       "archetype": "toggle_steps",
-      "headline": "ONE COMMAND TO INSTALL",
-      "feature_id": "f4",
-      "depicts": "install it with one npm command",
+      "headline": "STALE REFS RETRY",
+      "feature_id": "f3",
+      "depicts": "screen changes stale ref error agent snapshots again",
       "payload": {
         "steps": [
-          "npm install -g agent-desktop",
-          "Grant Accessibility on macOS",
-          "Snapshot an app"
+          "Act on a ref",
+          "STALE REF",
+          "Take a new snapshot"
         ],
         "done": [
           0
         ]
       },
-      "cue_word": "npm"
+      "cue_word": "changes"
     },
     {
       "scene_id": "catch",
       "phrase": 5,
-      "archetype": "concept_card",
-      "headline": "MACOS NEEDS ONE GRANT",
-      "feature_id": null,
-      "depicts": "On macOS, you grant Accessibility permission first",
+      "archetype": "chip_grid",
+      "headline": "SAME ON EVERY DESKTOP",
+      "feature_id": "f6",
+      "depicts": "same commands on macOS Windows and Linux",
       "payload": {
-        "big": "GRANT ACCESSIBILITY FIRST",
-        "sub": "On macOS, once"
+        "chips": [
+          "macOS",
+          "Windows",
+          "Linux"
+        ],
+        "highlight": 0
       },
-      "cue_word": "Accessibility"
+      "cue_word": "Linux"
     },
     {
       "scene_id": "cta",
@@ -104,7 +107,7 @@
       "archetype": "cta_stack",
       "headline": "COMMENT DESKTOP",
       "feature_id": null,
-      "depicts": "Comment DESKTOP and I'll pin the repo link",
+      "depicts": "comment DESKTOP and send you the repo link",
       "payload": {
         "lines": [
           "COMMENT DESKTOP",
