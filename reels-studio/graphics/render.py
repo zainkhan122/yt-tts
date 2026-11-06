@@ -4,6 +4,7 @@ Frame t is drawn by window.setTime(t). Output is reproducible for the same input
 """
 from __future__ import annotations
 
+import base64
 import json
 import shutil
 import subprocess
@@ -17,6 +18,12 @@ W, H = 1080, 1920
 
 def build_stage_html(doc: dict) -> str:
     css = (TEMPLATES / "stage.css").read_text(encoding="utf-8")
+    # Embed the shipped font so frame capture does not depend on host font installs
+    # or a network request (stage.html is rendered from a local file).
+    font = TEMPLATES.parents[1] / "templates" / "_base" / "fonts" / "Inter.ttf"
+    encoded_font = base64.b64encode(font.read_bytes()).decode("ascii")
+    css = ("@font-face { font-family: StudioInter; src: url(data:font/ttf;base64," + encoded_font +
+           ") format('truetype'); font-weight: 100 900; font-style: normal; }\n") + css
     js = (TEMPLATES / "engine.js").read_text(encoding="utf-8")
     data = json.dumps(doc, ensure_ascii=False).replace("</", "<\\/")
     return (

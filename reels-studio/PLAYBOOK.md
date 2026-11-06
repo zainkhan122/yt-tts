@@ -316,10 +316,10 @@ never the thing we optimise for. Before any scene is written, every brief carrie
 - **Retention craft, written down.** `hook_mechanic` (the pattern interrupt),
   `open_loop` (question planted in second one, `payoff_scene` where it pays off,
   target ~70% through), `proof_moment` (the scene where the skeptic converts —
-  real product evidence, never a card claim).
+  a source-grounded, checkable feature or demonstration, not an unsupported card claim).
 - **Covers are designed, not grabbed.** 3 `cover_concepts` (4–5 word all-caps headline, click-baited and intent-seeking; see `COVER-RULES.md`; real
-  media visual, the curiosity `gap` each opens). Usable real media source: any of the tool's own logo, chart, diagram, etc. No license requirement is needed. If no usable media exists, make own media based on the tool. `tools/cover_lab.py` renders all
-  three (bleed / window / split, each on its own real capture image), measures text
+  designed tool-flow visual, and the curiosity `gap` each opens). Do not install a tool to take pictures. Original, source-grounded illustrations are the default. `tools/cover_lab.py` renders all
+  three (bleed / window / split with distinct visual sources), measures text
   contrast against the actual plate (>= 4.5:1) and fails a set that is one design
   three times. The viewer panel judges them cold, the winner is pinned in
   `selected_cover`, then `cover_lab.py --apply` freezes it: the renderer refuses to

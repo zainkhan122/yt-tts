@@ -147,7 +147,7 @@ class CoverLabTests(unittest.TestCase):
         cap = Path(tmp) / "captures" / "demo-01"
         cap.mkdir(parents=True)
         for name, colour in zip(("desktop-top.jpg", "desktop-full.jpg", "og.png"), colours):
-            im = Image.new("RGB", (640, 400), colour)
+            im = Image.new("RGB", (1200, 750), colour)
             pen = ImageDraw.Draw(im)  # real captures have blocks of UI; flat fills read as blank
             lighter = tuple(min(255, c + 30) for c in colour)
             pen.rectangle([0, 0, 120, 400], fill=lighter)
@@ -158,6 +158,10 @@ class CoverLabTests(unittest.TestCase):
             im.save(cap / name)
         b = {"id": "demo-01", "capture": "captures/demo-01", "scenes": [{"id": "hook", "image": "desktop-top.jpg"}],
              "treatment": treatment()}
+        for concept, layout, name, text in zip(b["treatment"]["cover_concepts"],
+                ("bleed", "window", "split"), ("desktop-top.jpg", "desktop-full.jpg", "og.png"),
+                ("CAN THIS AGENT SHOOT ADS?", "NO CREW FOR THIS SHOOT", "POINT AND EDIT THIS")):
+            concept.update(layout=layout, text=text, media={"kind": "tool_media", "file": name})
         return b
 
     def test_three_concepts_are_three_designs_on_three_media(self):
@@ -171,9 +175,9 @@ class CoverLabTests(unittest.TestCase):
             self.assertEqual(cover_lab.audit(report), [])
 
     def test_audit_catches_reused_layout_low_contrast_and_long_text(self):
-        rep = [{"concept": 0, "layout": "bleed", "source": "a.jpg", "contrast_white": 9, "contrast_accent": 9, "words": 3},
-               {"concept": 1, "layout": "bleed", "source": "b.jpg", "contrast_white": 2.1, "contrast_accent": 3.0, "words": 6},
-               {"concept": 2, "layout": "split", "source": "b.jpg", "contrast_white": 9, "contrast_accent": 9, "words": 3}]
+        rep = [{"concept": 0, "layout": "bleed", "source": "a.jpg", "contrast_white": 9, "contrast_accent": 9, "text": "CAN THIS AGENT SHOOT ADS?", "words": 5},
+               {"concept": 1, "layout": "bleed", "source": "b.jpg", "contrast_white": 2.1, "contrast_accent": 3.0, "text": "ONE TWO THREE FOUR FIVE SIX", "words": 6},
+               {"concept": 2, "layout": "split", "source": "b.jpg", "contrast_white": 9, "contrast_accent": 9, "text": "POINT AND EDIT THIS", "words": 4}]
         problems = cover_lab.audit(rep)
         # concepts 0/1 share a layout, 1 fails contrast AND word count, 1/2 share media
         self.assertTrue(any("reuse a layout" in p for p in problems))

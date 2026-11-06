@@ -68,8 +68,9 @@ def _item(queue: dict, video_id: str):
 
 
 def panel_file(video_id: str, root: Path) -> Path | None:
-    files = sorted((root / "research" / "production").glob(f"viewer-panel-*{video_id}*.md"))
-    return files[-1] if files else None
+    _valid(video_id)
+    path = root / "research" / "production" / f"viewer-panel-{video_id}.md"
+    return path if path.is_file() else None
 
 
 def panel_verdict(video_id: str, root: Path) -> str | None:
@@ -90,7 +91,7 @@ def panel_video_sha(video_id: str, root: Path) -> str | None:
 
 def release_review(asset_digest: str | None, asset_bytes: int | None) -> dict:
     """Automatic review at enqueue: the release asset's own sha256 digest identifies the bytes."""
-    if not asset_digest or not asset_digest.startswith("sha256:") or len(asset_digest) != 71:
+    if not isinstance(asset_digest, str) or not re.fullmatch(r"sha256:[0-9a-f]{64}", asset_digest):
         raise SystemExit(f"release asset has no usable sha256 digest ({asset_digest!r}); cannot pin the review")
     return {"mp4_sha256": asset_digest[7:], "mp4_bytes": asset_bytes, "source": "release-digest",
             "run_id": None, "cover_sha256": None}
@@ -154,7 +155,7 @@ def review(video_id: str, mp4: Path, run_id: str, cover: Path | None = None, *, 
     return item["review"]
 
 
-def check(video_id: str, *, root: Path = ROOT, live: bool = False) -> list[str]:
+def check(video_id: str, *, root: Path = ROOT, live: bool = False, platforms: list[str] | None = None) -> list[str]:
     """Return drift errors. Empty list means every link agrees."""
     _valid(video_id)
     qp = _queue_path(root)
@@ -165,6 +166,7 @@ def check(video_id: str, *, root: Path = ROOT, live: bool = False) -> list[str]:
     if item.get("ship_legacy"):
         return []  # explicitly grandfathered; see ship_legacy_reason
     errors: list[str] = []
+    selected_platforms = item.get("platforms") or [] if platforms is None else platforms
 
     brief_path = root / "briefs" / f"{video_id}.json"
     if not brief_path.exists():
@@ -187,7 +189,7 @@ def check(video_id: str, *, root: Path = ROOT, live: bool = False) -> list[str]:
     else:
         if item.get("asset_digest") != "sha256:" + review_rec.get("mp4_sha256", ""):
             errors.append("artifact: reviewed MP4 is not the released asset")
-        if "youtube" in (item.get("platforms") or []):
+        if "youtube" in selected_platforms:
             if not item.get("cover_sha256"):
                 errors.append("cover: youtube is scheduled but no cover is approved")
             elif review_rec.get("cover_sha256") and review_rec["cover_sha256"] != item["cover_sha256"]:
@@ -197,11 +199,18 @@ def check(video_id: str, *, root: Path = ROOT, live: bool = False) -> list[str]:
         pv = panel_video_sha(video_id, root)
         if pv != review_rec.get("mp4_sha256"):
             errors.append(f"panel: panel states video sha256 {str(pv)[:12]} but the released file is {review_rec.get('mp4_sha256','')[:12]} (reviewed a different file)")
+    if live and not item.get("release_tag"):
+        errors.append("release: missing release tag for live verification")
     if live and item.get("release_tag"):
+        from urllib.error import URLError
         name = f"{video_id}.mp4"
-        now = live_asset_digest(item["release_tag"], name)
-        if now != item.get("asset_digest"):
-            errors.append(f"release: live asset digest {str(now)[:19]} != queued {str(item.get('asset_digest'))[:19]} (asset replaced on GitHub)")
+        try:
+            now = live_asset_digest(item["release_tag"], name)
+        except (OSError, URLError, ValueError) as exc:
+            errors.append(f"release: live verification failed ({type(exc).__name__})")
+        else:
+            if now != item.get("asset_digest"):
+                errors.append(f"release: live asset digest {str(now)[:19]} != queued {str(item.get('asset_digest'))[:19]} (asset replaced on GitHub)")
 
     verdict = panel_verdict(video_id, root)
     if verdict != "PASS":
@@ -211,7 +220,7 @@ def check(video_id: str, *, root: Path = ROOT, live: bool = False) -> list[str]:
             errors.append("panel: approved without a pinned panel record")
         elif item["approved_panel_sha"] != panel_sha(video_id, root):
             errors.append("panel: panel file changed after approval")
-        if "youtube" in (item.get("platforms") or []):
+        if "youtube" in selected_platforms:
             if not item.get("approved_cover_sha"):
                 errors.append("cover: approved without a pinned cover")
             elif item["approved_cover_sha"] != item.get("cover_sha256"):

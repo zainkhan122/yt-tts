@@ -1,26 +1,23 @@
 {
   "tool": "agent-desktop",
-  "script_sha256": "sha256:f8a7bf7290e5d5e93ad8c93e683a57dbddc2ca4fc12d24b9184d3b90e83d597a",
-  "handle": "@agent",
+  "script_sha256": "sha256:57d80ef2abd0f98d3328faabbb3b520ab97219a586ad51116a83cf45bfa52530",
+  "handle": "@hypeless",
   "scenes": [
     {
       "scene_id": "hook",
       "phrase": 0,
-      "archetype": "flow_link",
-      "headline": "AI USES YOUR PC NOW",
-      "feature_id": "f1",
-      "depicts": "an AI use your computer right now without screenshots",
+      "archetype": "desktop_action",
+      "headline": "CAN AI CLICK YOUR APPS?",
+      "feature_id": "f2",
+      "depicts": "AI agent click desktop apps",
       "payload": {
-        "nodes": [
-          "Your task",
-          "AI agent",
-          "Your apps"
-        ],
-        "edge_label": "clicks",
+        "app": "YOUR DESKTOP APP",
+        "target": "Open Documents",
+        "ref": "@s8f3k2p9:e8",
+        "mode": "click",
         "cue_phrases": [
-          "AI",
-          "click",
-          "your computer"
+          "AI agent",
+          "click"
         ]
       },
       "cue_word": "computer"
@@ -29,18 +26,16 @@
       "scene_id": "point1",
       "phrase": 1,
       "archetype": "terminal_type",
-      "headline": "ONE LINE TO INSTALL",
+      "headline": "ONE COMMAND TO INSTALL",
       "feature_id": "f4",
-      "depicts": "install it with one line npm install agent-desktop",
+      "depicts": "Node.js npm install agent-desktop",
       "payload": {
         "lines": [
-          "npm install -g agent-desktop",
-          "agent-desktop snapshot --app Finder -i"
+          "npm install -g agent-desktop"
         ],
         "title": "agent-desktop",
         "cue_phrases": [
-          "npm install",
-          "agent-desktop"
+          "npm install"
         ]
       },
       "cue_word": "npm"
@@ -48,20 +43,17 @@
     {
       "scene_id": "point2",
       "phrase": 2,
-      "archetype": "flow_link",
-      "headline": "EVERY BUTTON GETS A REF",
-      "feature_id": "f1",
-      "depicts": "snapshot on an app every button and field each with a ref",
+      "archetype": "desktop_action",
+      "headline": "SNAPSHOT THE APP",
+      "feature_id": "f2",
+      "depicts": "snapshot app accessible elements ref",
       "payload": {
-        "nodes": [
-          "Your app",
-          "Accessibility tree",
-          "Refs"
-        ],
-        "edge_label": "reads",
+        "app": "YOUR DESKTOP APP",
+        "target": "Documents",
+        "ref": "@s8f3k2p9:e8",
+        "mode": "snapshot",
         "cue_phrases": [
           "snapshot",
-          "every button",
           "ref"
         ]
       },
@@ -70,21 +62,19 @@
     {
       "scene_id": "point3",
       "phrase": 3,
-      "archetype": "chip_grid",
-      "headline": "CLICK A REF, NOT A PIXEL",
+      "archetype": "terminal_type",
+      "headline": "CLICK, THEN CHECK",
       "feature_id": "f2",
-      "depicts": "agent clicks a ref not a guessed spot",
+      "depicts": "ref click command then snapshot check",
       "payload": {
-        "chips": [
-          "@s8f3k2p9:e8",
-          "@s8f3k2p9:e9",
-          "@s8f3k2p9:e10"
+        "title": "agent-desktop",
+        "lines": [
+          "agent-desktop click @s8f3k2p9:e8",
+          "agent-desktop snapshot --app Finder -i"
         ],
-        "highlight": 0,
         "cue_phrases": [
-          "clicks",
-          "ref",
-          "guessed spot"
+          "click command",
+          "another snapshot"
         ]
       },
       "cue_word": "clicks"
@@ -92,23 +82,19 @@
     {
       "scene_id": "point4",
       "phrase": 4,
-      "archetype": "toggle_steps",
-      "headline": "STALE REFS RETRY",
+      "archetype": "desktop_action",
+      "headline": "STALE REF? SNAPSHOT AGAIN",
       "feature_id": "f3",
-      "depicts": "screen changes stale ref error agent just takes a new snapshot",
+      "depicts": "stale ref new snapshot",
       "payload": {
-        "steps": [
-          "Act on a ref",
-          "STALE REF",
-          "Take a new snapshot"
-        ],
-        "done": [
-          0
-        ],
+        "app": "YOUR DESKTOP APP",
+        "target": "Documents",
+        "ref": "@s8f3k2p9:e8",
+        "new_ref": "@t4a6m1n7:e8",
+        "mode": "stale",
         "cue_phrases": [
-          "screen changes",
-          "stale ref",
-          "new snapshot"
+          "goes stale",
+          "fresh snapshot"
         ]
       },
       "cue_word": "changes"
@@ -117,15 +103,20 @@
       "scene_id": "catch",
       "phrase": 5,
       "archetype": "chip_grid",
-      "headline": "NEED NODE.JS FIRST",
-      "feature_id": "f4",
-      "depicts": "you need Node.js and npm installed first",
+      "headline": "THREE DESKTOP PLATFORMS",
+      "feature_id": "f6",
+      "depicts": "macOS Windows Linux desktop platforms",
       "payload": {
         "chips": [
-          "Node.js",
-          "npm"
+          "macOS",
+          "Windows",
+          "Linux"
         ],
-        "highlight": 0
+        "cue_phrases": [
+          "macOS",
+          "Windows",
+          "Linux"
+        ]
       },
       "cue_word": "Node.js"
     },
@@ -135,14 +126,19 @@
       "archetype": "flow_link",
       "headline": "COMMENT DESKTOP",
       "feature_id": "f7",
-      "depicts": "comment DESKTOP and send you the repo link",
+      "depicts": "comment DESKTOP pin the link",
       "payload": {
         "nodes": [
-          "Comment",
+          "Your task",
           "DESKTOP",
           "Repo link"
         ],
-        "edge_label": "sends"
+        "edge_label": "share",
+        "cue_phrases": [
+          "desktop task",
+          "Comment DESKTOP",
+          "link"
+        ]
       },
       "cue_word": "Comment"
     }

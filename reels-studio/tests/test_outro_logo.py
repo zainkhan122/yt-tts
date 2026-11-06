@@ -34,19 +34,18 @@ class OutroLogoTests(unittest.TestCase):
 
 class PanelGateTests(unittest.TestCase):
     def test_approve_requires_a_passed_panel(self):
-        from tools.post import queue_ctl
+        from tools import ship
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             prod = root / "research" / "production"
             prod.mkdir(parents=True)
-            with patch.object(queue_ctl, "ROOT", root):
-                self.assertFalse(queue_ctl.panel_passed("vid-01"))
-                (prod / "viewer-panel-2026-10-18-vid-01.md").write_text(
-                    "# panel\n## Panel result: FAIL\n", encoding="utf-8")
-                self.assertFalse(queue_ctl.panel_passed("vid-01"))
-                (prod / "viewer-panel-2026-10-18-vid-01-rebuild.md").write_text(
-                    "# panel\n## Panel result: PASS\n", encoding="utf-8")
-                self.assertTrue(queue_ctl.panel_passed("vid-01"))
+            self.assertIsNone(ship.panel_verdict("vid-01", root))
+            (prod / "viewer-panel-2026-10-18-vid-01.md").write_text(
+                "Panel result: PASS\n", encoding="utf-8")
+            self.assertIsNone(ship.panel_verdict("vid-01", root))
+            (prod / "viewer-panel-vid-01.md").write_text(
+                "Panel result: PASS\n", encoding="utf-8")
+            self.assertEqual(ship.panel_verdict("vid-01", root), "PASS")
 
 
 if __name__ == "__main__":

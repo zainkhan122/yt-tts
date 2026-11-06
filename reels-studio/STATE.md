@@ -4,7 +4,7 @@ Owner rule (5 Nov 2026): the GitHub repo is the single source of truth. Nothing 
 
 ## The one state
 
-`queue/publish.json`, one item per Short, is the only state. Every other file is an input that the item pins by hash.
+`queue/publish.json` is the authoritative queue and approval state, one item per Short. Briefs, receipts, panel records, releases, and publishing configuration are additional authoritative gate inputs; a queue entry alone does not authorize delivery.
 
 | Stage | Who writes it | What the item records |
 |---|---|---|
@@ -18,13 +18,13 @@ Owner rule (5 Nov 2026): the GitHub repo is the single source of truth. Nothing 
 
 `tools/brief_identity.py` defines it once: sha256 of the brief's canonical JSON. Receipts write it as `brief_identity_sha256`, the queue stores it as `brief_sha256`, and the guard checks both. Receipts without it are drift. Formatting does not change it. Content does.
 
-Regenerating a brief (`tools/brief_from_plan.py`) keeps operator fields: renderer, graphics, voice_seed, qa_gates, status, review, and any key the generator does not produce.
+Regenerating a brief (`tools/brief_from_plan.py`) keeps renderer, graphics, voice_seed, qa_gates and keys the generator does not produce. Status and review survive only if material plan-derived content is unchanged; changes reset the brief to draft and require a fresh review and receipt.
 
 ## Inputs pinned by the item
 
 - `briefs/<id>.json`: pinned two ways. Receipts pin raw file bytes. The queue pins canonical JSON (`common.fingerprint`). Each link is compared with its own definition.
 - `research/production/receipts/*.json`: the latest receipt that pins the brief governs.
-- `research/production/viewer-panel-<id>.md`: verdict comes only from its `Panel result: PASS|FAIL` line. Changing the file after approval is drift.
+- `research/production/viewer-panel-<id>.md`: the exact canonical filename is required for non-legacy approval; dated or similarly named panels do not substitute. Verdict comes only from its `Panel result: PASS|FAIL` line. Changing the file after approval is drift.
 - Cover: pinned at approval. A later change to the queued cover is drift.
 - Live release: `check-all --live` compares the queued digest with the digest GitHub reports now. A replaced asset is drift. CI runs this on every push.
 
@@ -33,8 +33,9 @@ Regenerating a brief (`tools/brief_from_plan.py`) keeps operator fields: rendere
 1. Nothing is approved unless `ship.check` passes. `queue_ctl approve` enforces this.
 2. The scheduled file must be the reviewed file. Its SHA-256 must equal the release asset digest.
 3. Items approved before the guard carry `ship_legacy: true` and a reason. They are listed, not checked. New items are never legacy.
-4. CI (`.github/workflows/ship-state.yml`) installs the declared requirements, runs the ship and publishing tests, and runs `ship.py check-all --live` on every push to `main`.
-5. Gates are code. Vision and human notes are advisory.
+4. Live delivery rechecks selected items and their live release digests before any new Buffer post. Legacy items remain grandfathered, but cannot be re-approved through queue_ctl.
+5. CI (`.github/workflows/ship-state.yml`) installs the declared requirements, runs the ship and publishing tests, and runs `ship.py check-all --live` on every push to `main`.
+6. Gates are code. Vision and human notes are advisory.
 
 ## Where to look
 

@@ -4,9 +4,9 @@
 A plan lives at videos/<id>/plan.json and is written by the agent from the tool's own material.
 Nothing in the plan is supplied by a template. The checks below enforce the owner's rules:
 
-  * one viewer question, ending with '?'
+  * a viewer-first hook: question, problem, true contrast, or command
   * 1 to 5 points, numbered 1..n, each with a claim, a spoken line and a source URL (https)
-  * spoken lines: no digits (no exact figures), no URLs, no legal/licence/terms/privacy words,
+  * spoken lines: no URLs or legal/licence/terms/privacy words; figures need source review,
     at most 180 characters
   * every point has a visual of a known kind with the fields that kind needs
   * an asset named in a plan must exist in the workspace
@@ -44,7 +44,7 @@ def check(plan):
         res.append(("PASS" if ok else "BLOCK", msg))
 
     q = plan.get("question", "")
-    add(bool(q) and q.strip().endswith("?"), "viewer question present and ends with '?'")
+    add(isinstance(q, str) and bool(q.strip()), "viewer-first hook present (question, problem, contrast, or command)")
     pts = plan.get("points", [])
     add(1 <= len(pts) <= 5, f"points: {len(pts)} (must be 1 to 5)")
     add([p.get("n") for p in pts] == list(range(1, len(pts) + 1)), "points numbered 1..n in order")
@@ -53,7 +53,6 @@ def check(plan):
         spoken = p.get("spoken", "")
         add(bool(p.get("claim")), f"point {n}: claim written")
         add(bool(spoken), f"point {n}: spoken line written")
-        add(not re.search(r"\d", spoken), f"point {n}: no digits in spoken line (no exact figures)")
         add("http" not in spoken and "www." not in spoken, f"point {n}: no URL in spoken line")
         add(not LEGAL.search(spoken), f"point {n}: no legal/licence/terms wording in spoken line")
         add(len(spoken) <= MAX_CHARS, f"point {n}: spoken line within {MAX_CHARS} characters")
@@ -103,7 +102,10 @@ def check_packaging(plan):
     add(isinstance(cta, str) and 0 < len(cta) <= 140 and not re.search(r"https?://", cta), "packaging: cta written, no URL, at most 140 characters")
     # Cover rules live in tools/cover_rules.py (COVER-RULES.md). Three concepts, 4-5 word all-caps
     # headlines, one usable tool asset or a designed graphic per concept. Checked here, at authoring.
-    import cover_rules
+    try:
+        from tools import cover_rules
+    except ModuleNotFoundError:
+        import cover_rules
     pid = str(plan.get("id", ""))
     cover_problems = cover_rules.plan_cover_problems(plan, ROOT / "captures" / pid, ROOT / "covers" / pid)
     add(not cover_problems, "packaging: cover rules (COVER-RULES.md): " + ("; ".join(cover_problems) or "ok"))

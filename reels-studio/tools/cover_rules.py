@@ -91,7 +91,7 @@ def concepts_problems(concepts, tool_dir=None, cover_dir=None):
     if len(concepts) != CONCEPTS:
         out.append(f"cover needs {CONCEPTS} concepts, found {len(concepts)}")
     layouts = [c.get("layout") for c in concepts if isinstance(c, dict)]
-    if sorted(layouts) != sorted(LAYOUTS):
+    if len(layouts) != len(LAYOUTS) or any(not isinstance(x, str) for x in layouts) or sorted(layouts) != sorted(LAYOUTS):
         out.append(f"concept layouts must be exactly {LAYOUTS}, found {layouts}")
     for i, c in enumerate(concepts):
         if not isinstance(c, dict):
@@ -100,7 +100,7 @@ def concepts_problems(concepts, tool_dir=None, cover_dir=None):
         out += [f"concept {i}: {p}" for p in headline_problems(c.get("text"))]
         out += [f"concept {i}: {p}" for p in media_problems(c.get("media"), tool_dir, cover_dir)]
     texts = [c.get("text") for c in concepts if isinstance(c, dict)]
-    if len(set(texts)) != len(texts):
+    if all(isinstance(text, str) for text in texts) and len(set(texts)) != len(texts):
         out.append("concept headlines must differ from each other")
     return out
 

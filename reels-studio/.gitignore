@@ -30,3 +30,6 @@ covers/
 
 # Cloud dispatch gate receipts: one local folder, not versioned (dispatch logs live in GitHub Actions)
 research/maintenance/gates/*-cloud-*.json
+
+# Local Python environment (never source)
+.venv/

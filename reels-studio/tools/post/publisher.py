@@ -29,6 +29,15 @@ from tools.post.state import Journal
 MEDIA_KEYS = ("video_id", "asset_id", "asset_size", "asset_digest", "kit_asset_id", "kit_digest", "media_path", "release_tag")
 
 
+def guard_selected_for_delivery(rows, *, root=ROOT):
+    """Recheck current state and live release bytes immediately before delivery."""
+    from tools import ship
+    for video_id in sorted({row["video_id"] for row in rows}):
+        errors = ship.check(video_id, root=root, live=True)
+        if errors:
+            raise ValueError(f"{video_id}: ship guard refused delivery: " + "; ".join(errors))
+
+
 def normalized_title(value):
     return re.sub(r"[^a-z0-9]+", "", (value or "").lower())
 
@@ -448,6 +457,8 @@ def main():
                 if dry:
                     report["notes"].insert(0, "Read-only preview: no provider writes; held videos may be included for planning")
                 selected = {r["video_id"] for r in rows}
+                if args.live:
+                    guard_selected_for_delivery(rows)
                 if args.verify_media or args.live:
                     verify_site(cfg, [i for i in items if i["video_id"] in selected])
                 if args.live:

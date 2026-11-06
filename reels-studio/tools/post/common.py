@@ -1,6 +1,5 @@
 """Shared publishing helpers. No TTS/render dependencies are imported here."""
 import datetime as dt
-import hashlib
 import json
 import re
 from pathlib import Path
@@ -59,7 +58,8 @@ def key(video_id, platform):
 
 
 def fingerprint(value):
-    return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+    from tools.brief_identity import identity
+    return identity(value)
 
 
 def media_url(item, cfg):

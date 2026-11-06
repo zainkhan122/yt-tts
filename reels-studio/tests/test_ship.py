@@ -251,3 +251,34 @@ def test_status_render_is_deterministic(tree):
     assert ship.render_status(root=tree) == ship.render_status(root=tree)
     text = ship.render_status(root=tree)
     assert "## Counts" in text and "Do not edit by hand" in text
+
+
+def test_panel_must_be_canonical_not_another_id_or_dated_file(tree):
+    canonical = tree / "research" / "production" / f"viewer-panel-{VID}.md"
+    canonical.unlink()
+    (canonical.parent / f"viewer-panel-{VID}-extra.md").write_text(panel_text("a" * 64))
+    assert ship.panel_file(VID, tree) is None
+    assert any("verdict is missing" in e for e in ship.check(VID, root=tree))
+
+
+def test_non_hex_release_digest_is_rejected():
+    with pytest.raises(SystemExit):
+        ship.release_review("sha256:" + "z" * 64, 1)
+
+
+def test_requested_platforms_are_checked_before_approval(tree):
+    _set(tree, approval="held", platforms=["instagram"], cover_sha256=None)
+    assert any(e.startswith("cover:") for e in ship.check(VID, root=tree, platforms=["youtube"]))
+
+
+def test_live_check_requires_release_tag(tree):
+    assert any("missing release tag" in e for e in ship.check(VID, root=tree, live=True))
+
+
+def test_delivery_rechecks_pins_before_any_mutation(tree, monkeypatch):
+    from tools.post.publisher import guard_selected_for_delivery
+    from tools import ship as delivery_ship
+    _set(tree, release_tag="renders-test", review=None)
+    monkeypatch.setattr(delivery_ship, "live_asset_digest", lambda tag, name: _queue(tree)["items"][0]["asset_digest"])
+    with pytest.raises(ValueError, match="ship guard refused delivery"):
+        guard_selected_for_delivery([{"video_id": VID}], root=tree)

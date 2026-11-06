@@ -2,17 +2,17 @@
   "id": "repo-agent-desktop-01",
   "tool": "agent-desktop",
   "author": "agent",
-  "question": "Ever wanted an AI to click around your computer for you?",
+  "question": "Want your AI agent to click through your desktop apps?",
   "points": [
     {
       "n": 1,
       "claim": "Install it with one npm command.",
-      "spoken": "It's called agent-desktop, and it's open source. Install it with one line: npm install -g agent-desktop.",
+      "spoken": "Agent-desktop gives your agent a way in. With Node.js and npm installed, run npm install -g agent-desktop.",
       "source": "https://github.com/vercel-labs/agent-desktop",
       "source_note": "README install: 'npm install -g agent-desktop'",
       "visual": {
         "kind": "steps",
-        "intent": "the one install command, then the version check"
+        "intent": "the npm install command, shown as an illustration"
       },
       "title": "One command to install",
       "sub": "Install with npm, then take a snapshot.",
@@ -23,26 +23,26 @@
     },
     {
       "n": 2,
-      "claim": "A snapshot lists every element the agent can act on, each with a ref.",
-      "spoken": "Then take a snapshot of an app. You get every button and field, each with a ref you can click.",
+      "claim": "A snapshot returns accessible elements with refs for elements the agent can act on.",
+      "spoken": "Take a snapshot of an app. It returns accessible elements and a ref for each one the agent can use.",
       "source": "https://github.com/vercel-labs/agent-desktop",
       "source_note": "README quick start: 'a ref for every element the agent can act on'",
       "visual": {
         "kind": "diagram",
         "intent": "app to accessibility tree to refs, as the README describes"
       },
-      "title": "Every button gets a ref",
-      "sub": "The agent reads the app, not the pixels."
+      "title": "Snapshot the accessible app",
+      "sub": "Accessible targets get refs."
     },
     {
       "n": 3,
-      "claim": "The agent clicks a ref, not a guessed spot on the screen.",
-      "spoken": "The agent clicks a ref, not a guessed spot on the screen.",
+      "claim": "An agent can click a ref and take another snapshot to verify.",
+      "spoken": "Pass that ref to the click command, then take another snapshot to check what changed.",
       "source": "https://github.com/vercel-labs/agent-desktop",
       "source_note": "README intro: 'without screenshots or pixel matching'",
       "visual": {
         "kind": "chips",
-        "intent": "ref chips, one highlighted"
+        "intent": "click a snapshot ref, then observe again"
       },
       "title": "Click a ref, not a pixel",
       "sub": "Every action targets one element.",
@@ -54,10 +54,10 @@
     },
     {
       "n": 4,
-      "claim": "If the screen changes, an old ref returns STALE_REF and the agent takes a new snapshot.",
-      "spoken": "If the screen changes, the old ref fails with a stale ref error. The agent just takes a new snapshot.",
+      "claim": "A stale or ambiguous ref needs a fresh snapshot and new refs.",
+      "spoken": "If a ref goes stale after the UI changes, take a fresh snapshot and use its new refs.",
       "source": "https://github.com/vercel-labs/agent-desktop",
-      "source_note": "README: 'returns STALE_REF... take a new snapshot and use its refs'",
+      "source_note": "README: returns STALE_REF or AMBIGUOUS_TARGET; take a new snapshot and use its refs",
       "visual": {
         "kind": "steps",
         "intent": "act, stale ref, new snapshot, retry"
@@ -71,57 +71,58 @@
       ]
     }
   ],
-  "catch": "The catch: you need Node.js and npm installed first.",
-  "catch_sub": "Node.js and npm come first.",
+  "catch": "It works on macOS, Windows, and Linux; your agent still has to run the loop.",
+  "catch_sub": "The agent runs the loop across three desktop platforms.",
   "catch_visual": {
     "kind": "chips",
-    "intent": "the two things you install first",
+    "intent": "three supported desktop platforms",
     "chips": [
-      "Node.js",
-      "npm"
+      "macOS",
+      "Windows",
+      "Linux"
     ]
   },
   "brand_line": "agent-desktop · open source",
   "cover": {
-    "text": "ONE COMMAND, AI RUNS APPS",
-    "visual": "designed graphic of an agent clicking a window",
+    "text": "CAN AI CLICK YOUR APPS?",
+    "visual": "Illustrated app, accessibility snapshot, and target ref",
     "concepts": [
       {
         "id": "c1",
         "layout": "bleed",
-        "text": "AI USES YOUR PC NOW",
+        "text": "CAN AI CLICK YOUR APPS?",
         "media": {
           "kind": "designed",
           "file": "cover-c1.png",
-          "design": "Full-bleed illustration: a laptop desk at night with a glowing agent cursor clicking one button in an app window."
+          "design": "An illustrated desktop app with its accessible target and a matching snapshot ref, showing the agent desktop action loop."
         }
       },
       {
         "id": "c2",
         "layout": "window",
-        "text": "ONE COMMAND, AI RUNS APPS",
+        "text": "YOUR APPS HAVE HIDDEN REFS",
         "media": {
           "kind": "designed",
           "file": "cover-c2.png",
-          "design": "Framed app window with a grid of buttons, each tagged, an agent cursor landing on one tag."
+          "design": "A stylized app button connected to its accessibility snapshot reference, not a screenshot of the actual product."
         }
       },
       {
         "id": "c3",
         "layout": "split",
-        "text": "STALE REF? AI RETRIES",
+        "text": "WHEN THE REF GOES STALE",
         "media": {
           "kind": "designed",
           "file": "cover-c3.png",
-          "design": "Split: top a red stale-ref warning tile, bottom a fresh green app window with a new ref."
+          "design": "An illustrated stale ref changing to a fresh snapshot ref, with a visible retry path."
         }
       }
     ]
   },
-  "cta": "Would you let an AI drive your desktop? Comment DESKTOP and I'll pin the link.",
+  "cta": "Which desktop task would you automate first? Comment DESKTOP and I'll pin the link.",
   "cta_keyword": "DESKTOP",
   "seo": {
-    "onscreen_first3s": "AI USES YOUR PC",
+    "onscreen_first3s": "CAN AI CLICK YOUR APPS?",
     "youtube": {
       "title": "AI Computer Use: Let an AI Click Your Apps",
       "description": "AI computer use with agent-desktop: install it with one npm command, then let an AI agent click your apps by ref, not by screenshot. Snapshot an app, act on a ref, and retry when the screen changes. Install: npm install -g agent-desktop. Repo: https://github.com/vercel-labs/agent-desktop #Shorts #AIComputerUse #AIAgents #DesktopAutomation #OpenSource",
@@ -199,5 +200,6 @@
       "problem": "agents that guess from screenshots break when the screen changes",
       "job": "decide whether a desktop agent tool is worth trying"
     }
-  }
+  },
+  "catch_title": "Three desktop platforms"
 }

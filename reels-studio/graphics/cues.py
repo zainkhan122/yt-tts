@@ -121,6 +121,7 @@ def _bind_items(items: list[str], words: list[list], t0: float, t1: float, d: fl
         if c is None:
             fallback.append(f"{prefix}{i}")
             c = t0 + 0.18 + i * (d * 0.55 / max(1, len(items)))
+            c = min(t1, max(t0, c, last if last is not None else t0))
         cues.append(round(c, 3))
         last = c
     return cues
@@ -143,6 +144,9 @@ def compute(scene: dict, words: list[list], t0: float, t1: float, cue_word: str 
             phrases = items
         cues = _bind_items(phrases, words, t0, t1, d, fallback, "item")
         icons = [icon_for(text) for text in items]
+        cue = cues[0] if cues else t0 + 0.15
+    elif arch == "desktop_action":
+        cues = _bind_items(payload.get("cue_phrases", []), words, t0, t1, d, fallback, "action")
         cue = cues[0] if cues else t0 + 0.15
     elif arch == "terminal_type":
         lines = payload.get("lines", [])

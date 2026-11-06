@@ -48,22 +48,26 @@ class PackagingRules(unittest.TestCase):
 
 class BriefBuilder(unittest.TestCase):
     def test_brief_comes_from_plan_only(self):
+        import tempfile
         import brief_from_plan as bfp
-        vid = "repo-agent-desktop-01"
-        cap = ROOT / "captures" / vid
-        self.assertTrue((cap / "plan-keep.json").exists(), "run build_plan_kit first")
-        # Build into the real location and keep it: the brief is a production artifact, not scratch.
-        out = bfp.build(ROOT / "videos" / vid / "plan.json")
-        brief = json.loads(out.read_text(encoding="utf-8"))
-        text = json.dumps(brief, ensure_ascii=False)
-        self.assertNotIn("iFixAi", text, "no iFixAi copy may leak into another video's brief")
-        self.assertNotIn("owner approval of plan given", text)
-        self.assertIsNone(brief["review"]["expires_at"])
-        self.assertIn("Topic approved by owner", brief["review"]["notes"])
-        kinds = [s["type"] for s in brief["scenes"]]
-        self.assertEqual(kinds[0], "image")
-        self.assertEqual(kinds[-1], "endcard")
-        self.assertEqual(brief["scenes"][-2]["id"], "catch")
+        plan = _plan()
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "briefs").mkdir()
+            plan_path = root / "plan.json"
+            plan_path.write_text(json.dumps(plan), encoding="utf-8")
+            existing = {"id": plan["id"], "renderer": "graphics", "graphics": {"dir": "briefs/graphics/example"},
+                        "status": "draft", "scenes": [{"id": "old", "say": "old"}]}
+            (root / "briefs" / (plan["id"] + ".json")).write_text(json.dumps(existing), encoding="utf-8")
+            with mock.patch.object(bfp, "ROOT", root):
+                out = bfp.build(plan_path)
+            brief = json.loads(out.read_text(encoding="utf-8"))
+            self.assertEqual(brief["scenes"][0]["say"], plan["question"])
+            self.assertEqual([s["say"] for s in brief["scenes"][1:-2]], [p["spoken"] for p in plan["points"]])
+            self.assertEqual(brief["scenes"][-2]["say"], plan["catch"])
+            self.assertEqual(brief["scenes"][-1]["say"], plan["cta"])
+            self.assertIsNone(brief["review"]["reviewer"])
+            self.assertEqual(brief["renderer"], "graphics")
 
     def test_missing_kit_names_the_fix(self):
         import brief_from_plan as bfp

@@ -212,7 +212,7 @@
       s.payload.nodes.forEach(function (text, i) {
         var n = el("div", "node", r.row);
         icon(s.icons[i] || "dot", el("div", "node-ic", n), i === 0 ? Y : BLUE);
-        fitNodeText(el("div", "node-t", n, text), n);
+        el("div", "node-t", n, text);
         r.nodes.push(n);
         if (i < s.payload.nodes.length - 1) {
           var cs = el("div", "conn", r.row);
@@ -232,6 +232,7 @@
     update: function (r, s, u, d) {
       var now = u + s.t0;
       r.nodes.forEach(function (n, i) {
+        if (!n._fitted) { fitNodeText(n.querySelector(".node-t"), n); n._fitted = true; }
         var t = now - s.cues[i];
         var p = easeOutBack(ramp(t, 0, 0.45));
         n.style.opacity = fmt(ramp(t, 0, 0.2));
@@ -254,6 +255,47 @@
     }
   };
 
+  /* Illustrated interaction, not a screenshot: a real task, a ref and its state.
+     The app is visible immediately; the ref and action respond to their own spoken cues. */
+  ARCH.desktop_action = {
+    build: function (root, s) {
+      var r = { wrap: el("div", "desk", root) };
+      var top = el("div", "desk-top", r.wrap);
+      el("span", "desk-dots", top, "●  ●  ●");
+      el("span", "desk-name", top, s.payload.app);
+      el("span", "desk-label", top, "ILLUSTRATION");
+      var body = el("div", "desk-body", r.wrap);
+      el("div", "desk-kicker", body, "ACCESSIBILITY SNAPSHOT");
+      r.target = el("div", "desk-target", body, s.payload.target);
+      var refline = el("div", "desk-refline", body);
+      el("span", "desk-ref-label", refline, "REF");
+      r.ref = el("div", "desk-ref", refline, s.payload.ref);
+      r.action = el("div", "desk-action", body, "");
+      r.cursor = el("div", "desk-cursor", body, "↖");
+      r.mode = s.payload.mode;
+      return r;
+    },
+    update: function (r, s, u) {
+      var now = s.t0 + u;
+      var first = ramp(now, s.cues[0], s.cues[0] + 0.25);
+      var second = ramp(now, s.cues[1], s.cues[1] + 0.25);
+      r.ref.style.opacity = fmt(0.45 + 0.55 * first);
+      r.target.style.borderColor = first > 0 ? "#6fe5c4" : "#526478";
+      r.target.style.boxShadow = "0 0 " + fmt(30 * first) + "px rgba(111,229,196," + fmt(0.18 * first) + ")";
+      r.ref.style.borderColor = first > 0 ? BLUE : EDGE;
+      r.cursor.style.opacity = fmt(r.mode === "click" ? first : 0);
+      r.cursor.style.transform = "translate(" + fmt((1 - first) * 90) + "px," + fmt((1 - first) * 65) + "px)";
+      if (r.mode === "stale") {
+        r.action.textContent = second > 0.5 ? "NEW SNAPSHOT" : (first > 0 ? "STALE_REF" : "REF IN USE");
+        r.action.style.color = second > 0.5 ? GREEN : (first > 0 ? "#FF8B80" : "#AAB7C9");
+        r.ref.textContent = second > 0.5 ? s.payload.new_ref : s.payload.ref;
+      } else {
+        r.action.textContent = second > 0.5 ? (r.mode === "click" ? "ACTION SENT" : "REF READY") : "READING APP";
+        r.action.style.color = second > 0.5 ? GREEN : "#AAB7C9";
+      }
+    }
+  };
+
   /* terminal_type: typed on the spoken words, syntax-coloured, with a live status line. */
   ARCH.terminal_type = {
     build: function (root, s) {
@@ -262,6 +304,7 @@
       el("span", "tl r", bar); el("span", "tl y", bar); el("span", "tl g", bar);
       el("span", "term-title", bar, (s.payload && s.payload.title) || "craft-anything");
       var body = el("div", "term-body", r.wrap);
+      el("div", "term-context", body, "COMMAND PREVIEW");
       s.payload.lines.forEach(function (text) {
         var node = el("div", "term-line", body);
         r.lines.push({ node: node, text: text });
@@ -273,24 +316,26 @@
     update: function (r, s, u, d) {
       var now = u + s.t0;
       var cps = 30, typedEnd = s.t0;
-      var active = null;
+      var active = null, lastStarted = null;
       r.lines.forEach(function (ln, i) {
         var t0 = s.cues[i] !== undefined ? s.cues[i] : s.cue;
         var n = Math.floor(clamp((now - t0) * cps, 0, ln.text.length));
         var shown = ln.text.slice(0, n);
         ln.node.innerHTML = "";
         colourise(ln.node, shown, ln.text.charAt(0) === "$");
+        if (n > 0) lastStarted = ln.node;
         if (n > 0 && n < ln.text.length) active = ln.node;
         if (n >= ln.text.length) typedEnd = Math.max(typedEnd, t0 + ln.text.length / cps);
       });
       if (!active) {
-        var last = r.lines[r.lines.length - 1];
-        active = last.node;
+        active = lastStarted || r.lines[0].node;
       }
       active.appendChild(r.caret);
       r.caret.style.opacity = (Math.floor(now * 2.5) % 2 === 0) ? "1" : "0";
-      var done = now > typedEnd + 0.15;
-      r.status.textContent = done ? "\u2713 done" : "\u25cf running";
+      var lastLine = r.lines[r.lines.length - 1];
+      var lastCue = s.cues[r.lines.length - 1];
+      var done = lastLine && now >= lastCue + lastLine.text.length / cps + 0.15;
+      r.status.textContent = done ? "\u2713 command shown" : "\u25cf typing";
       r.status.style.color = done ? GREEN : BLUE;
     }
   };
@@ -382,7 +427,7 @@
     stageEl = document.getElementById("stage");
     gridEl = el("div", "grid", stageEl); gridEl.id = "grid";
     glowEl = el("div", "glow", stageEl);
-    for (var p = 0; p < 26; p++) {
+    for (var p = 0; p < 10; p++) {
       var dot = el("div", "dot", stageEl);
       var seed = (p * 9301 + 49297) % 233280 / 233280;
       particles.push({ el: dot, x: seed * 1080, y: ((p * 7919) % 1920), v: 18 + (p % 7) * 9, s: 2 + (p % 3) * 2 });
@@ -397,7 +442,7 @@
       s._refs = ARCH[s.archetype].build(visual, s);
     });
     capEl = el("div", "caption", stageEl);
-    window.ready = true;
+    document.fonts.ready.then(function () { window.ready = true; });
   }
 
   function activeIndex(t) {
@@ -428,7 +473,7 @@
     D.scenes.forEach(function (s, i) { s._wrap.style.display = i === k ? "block" : "none"; });
     var s = D.scenes[k];
     var u = t - s.t0, d = Math.max(1e-6, s.t1 - s.t0);
-    var fade = Math.min(ramp(u, 0, 0.18), ramp(d - u, 0, 0.16));
+    var fade = Math.min(0.7 + 0.3 * ramp(u, 0, 0.18), 0.7 + 0.3 * ramp(d - u, 0, 0.16));
     s._head.style.opacity = fmt(fade);
     s._head.style.transform = "translateY(" + fmt((1 - easeOutCubic(ramp(u, 0, 0.3))) * 30) + "px)";
     s._visual.style.opacity = fmt(fade);
