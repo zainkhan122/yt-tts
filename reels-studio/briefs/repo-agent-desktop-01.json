@@ -63,11 +63,10 @@
       "type": "flow",
       "heading": "STALE REFS FAIL SAFELY",
       "nodes": [
-        "act",
-        "STALE REF",
-        "snapshot again"
+        "act on a ref",
+        "STALE REF"
       ],
-      "say": "If the screen changes, the old reference fails safely, and the agent takes a fresh snapshot."
+      "say": "If the screen changes, an old ref fails safely. Take a new snapshot."
     },
     {
       "id": "point4",

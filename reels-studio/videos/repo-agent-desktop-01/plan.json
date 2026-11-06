@@ -43,7 +43,7 @@
     {
       "n": 3,
       "claim": "When the UI changes, a stale ref fails safely and the agent must snapshot again.",
-      "spoken": "If the screen changes, the old reference fails safely, and the agent takes a fresh snapshot.",
+      "spoken": "If the screen changes, an old ref fails safely. Take a new snapshot.",
       "source": "https://github.com/vercel-labs/agent-desktop",
       "source_note": "README: 'When the UI changes, an action returns STALE_REF... take a new snapshot'",
       "visual": {
