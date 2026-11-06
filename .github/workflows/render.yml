@@ -71,6 +71,7 @@ jobs:
             /.github/workflows/render.yml
             /reels-studio/briefs/
             /reels-studio/lib/
+            /reels-studio/graphics/
             /reels-studio/tools/validate_dispatch.py
             /reels-studio/tools/production_gate.py
             /reels-studio/tools/short_qa.py
