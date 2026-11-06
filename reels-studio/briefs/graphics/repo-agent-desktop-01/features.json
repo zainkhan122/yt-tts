@@ -35,6 +35,12 @@
       "title": "Same loop on three desktops",
       "what": "The same loop runs on macOS, Windows and Linux.",
       "evidence_quote": "on macOS, Windows, and Linux through the OS accessibility tree"
+    },
+    {
+      "id": "f7",
+      "title": "Open source repo",
+      "what": "The code is open on GitHub, so the viewer can read it and try it.",
+      "evidence_quote": "https://github.com/vercel-labs/agent-desktop/releases"
     }
   ],
   "risks": [
