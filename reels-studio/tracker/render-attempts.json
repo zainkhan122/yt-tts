@@ -19,6 +19,26 @@
       "status": "failed",
       "voice_seed": 331782
     },
+    "028c6eaf7aec5032997c4751c1d90c941a9a849b6b33ef16b7f2d08478ceffae": {
+      "asset_files_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "asset_manifest_sha256": "07c51b1161f6b04f7075c4c390479d70229959399a72076d544f05936f06e042",
+      "brief_id": "repo-agent-desktop-01",
+      "brief_sha256": "4d9827ffc36e72407fc9eab25aaa3231489e597a6f2813eade06be3976b05689",
+      "capture_id": "repo-agent-desktop-01",
+      "cover_sha256": "4b2a51e0cfe4098bb24a009d85fae8cc2be875e1b80ce5fdb0987b89014c4982",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "028c6eaf7aec5032997c4751c1d90c941a9a849b6b33ef16b7f2d08478ceffae",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "2d4770c8732c55a3ec9ab6c4f537d4adcb4c63fe4bea29f759b676cbd8693011",
+      "run_id": "42180724068",
+      "started_at": "2026-11-06T07:25:06Z",
+      "status": "started",
+      "voice_seed": 0
+    },
     "06cd8ae1615dff02910c72050786137f3408f7fb992740a046cf155cf9486dbf": {
       "asset_files_sha256": "126eb73f070179427f0f546c1e4c849c4943be825a0dd640ef9104514ac60e0d",
       "asset_manifest_sha256": "c6a51f15b1e2bba709739f85153c8a3acfcffb8435f7e64f50134502496c0568",
