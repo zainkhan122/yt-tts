@@ -14,7 +14,7 @@ import json
 import sys
 from pathlib import Path
 
-from .beats import lint_beats, scene_list
+from .beats import lint_beats, scene_list, script_fingerprint
 from .features import lint_feature_sheet
 from .timing import chunk_phrases, close_gaps
 
@@ -34,7 +34,7 @@ def _plan(args):
     phrases = chunk_phrases(words)
     duration = args.duration if getattr(args, "duration", None) else round(words[-1][2] + 0.3, 3)
     closed = close_gaps(phrases, duration)
-    b_viol = lint_beats(beats, closed, sheet)
+    b_viol = lint_beats(beats, closed, sheet, script_fp=script_fingerprint(words))
     if b_viol:
         return None, b_viol, 3
     scenes = scene_list(beats, closed)

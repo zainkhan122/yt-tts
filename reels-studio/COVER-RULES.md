@@ -12,7 +12,7 @@ viewer stop, read the headline, and want the answer. These rules apply to every 
   - or open a specific, checkable gap ("NOW AI TO RUN YOUR PC").
 - **Honest.** No invented numbers, no "free" or "best" unless the repo shows it, no claim the video
   cannot prove. Click-bait that the video does not pay off is a failure, not a win.
-- Plain words. No hashtags, no emoji, no punctuation other than "?" or "!" where it reads naturally.
+- Plain words. No hashtags or emoji. Use only the supported punctuation: question mark, exclamation mark, apostrophe, comma or hyphen.
 
 ## 2. Graphic (the visual that sits with the headline)
 

@@ -16,25 +16,7 @@ sys.path.insert(0, str(ROOT))
 from lib.secrets import gh_token
 from tools.post.common import config, fingerprint, iso, load_json, now_utc, parse_time, save_json, valid_id
 from tools.post.media import read_kit
-sys.path.insert(0, str(ROOT / "tools"))
-import ship  # noqa: E402  (ship state: release pin, guard)
-
-
-def panel_passed(video_id):
-    """Watchability gate (owner 2026-10-18): a filled viewer panel with a PASS
-    verdict must be on file before a video may be approved for queueing. The 8
-    automatic QA gates measure technical validity only; this is the 'would a
-    viewer stay' check, and it fails closed."""
-    prod = ROOT / "research" / "production"
-    if not prod.exists():
-        return False
-    for f in sorted(prod.glob("viewer-panel-*.md")):
-        if video_id not in f.name:
-            continue
-        text = f.read_text(encoding="utf-8", errors="replace")
-        if "Panel result: PASS" in text and "Panel result: FAIL" not in text:
-            return True
-    return False
+from tools import ship  # noqa: E402  (ship state: release pin, guard)
 
 
 def main():
@@ -95,23 +77,14 @@ def main():
                 raise SystemExit("Review expiry must be in the next 14 days (use shorter windows for news/pricing)")
             # Ship guard (owner rule 5 Nov 2026): the scheduled file must be the reviewed file,
             # and brief, receipt, cover and panel must agree. Any drift refuses approval.
-            drift = {v: ship.check(v, root=ROOT) for v in args.video_ids}
+            legacy = [i["video_id"] for i in data["items"] if i["video_id"] in args.video_ids and i.get("ship_legacy")]
+            if legacy:
+                raise SystemExit("Legacy items cannot be re-approved; enqueue a new version: " + ", ".join(legacy))
+            drift = {v: ship.check(v, root=ROOT, platforms=args.platforms) for v in args.video_ids}
             drift = {v: e for v, e in drift.items() if e}
             if drift:
                 raise SystemExit("Ship guard refused approval:\n" + "\n".join(
                     f"  {v}:\n    - " + "\n    - ".join(e) for v, e in drift.items()))
-            missing = [v for v in args.video_ids if not panel_passed(v)]
-            # Lesson 21 (1 Nov): a YouTube Short's cover is reviewed before queueing, not after the send.
-            platforms_now = args.platforms or [pl for i in data["items"] if i["video_id"] in args.video_ids for pl in i.get("platforms", [])]
-            no_cover = [i["video_id"] for i in data["items"] if i["video_id"] in args.video_ids
-                        and "youtube" in (args.platforms or i.get("platforms", [])) and not i.get("cover_sha256")]
-            if no_cover:
-                raise SystemExit("Shorts cover not approved for: " + ", ".join(no_cover) +
-                                 " — run tools/youtube/cover_ctl.py extract <id>, look at the preview, then cover_ctl approve <id>")
-            if missing:
-                raise SystemExit("Viewer panel has not PASSed for: " + ", ".join(missing) +
-                                 " — run tools/viewer_panel.py on the render, fill it honestly, "
-                                 "and file it under research/production/ before queueing")
         for i in data["items"]:
             if i["video_id"] not in args.video_ids:
                 continue

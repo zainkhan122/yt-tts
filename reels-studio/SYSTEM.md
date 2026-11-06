@@ -35,8 +35,7 @@ published only with read-back evidence.
 - Open on the viewer's problem. Show how the tool helps in their next project.
 - Viewer-first script style is mandatory: see `SCRIPT-STYLE.md` (rules, hook sugar with an accuracy test, examples, self-check).
 - No promotional or robotic language. No fixed templates or formula copy.
-- Use the product's real media, animations, charts, stickers and captions where they best deliver the point.
-  Default to none of the repo-page scrolling or README display.
+- Build original, feature-specific animations from verified tool documentation and sync their actions to the approved TTS word timings. Do not install tools to capture pictures; product screenshots are not required. Avoid generic icon grids and repo-page scrolling.
 - Treatments change composition and pacing. They are not fixed scene lists.
 - Per-platform variants (title, caption, CTA verb). Never one caption everywhere.
 

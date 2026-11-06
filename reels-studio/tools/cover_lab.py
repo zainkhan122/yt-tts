@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Cover lab: three designed cover concepts per Short, from REAL product media.
+"""Cover lab: three designed cover concepts per Short from tool media or designed workflow graphics.
 
 Why: the shipped cover used to be a frame grab of the templated hook — same
 skin on every video. Covers are now designed (PLAYBOOK §8A): the brief's
-treatment carries 3 concepts (<=4-word text, real-media visual, curiosity
+treatment carries 3 concepts (4–5-word text, grounded visual, curiosity
 gap); this tool renders all three at 1080x1920 so the viewer panel can judge
 them cold and pick the winner (treatment.selected_cover).
 
@@ -14,7 +14,7 @@ them cold and pick the winner (treatment.selected_cover).
       (the pipeline then pins it into renders/<id>/cover.jpg and the queue)
 
 Effectiveness rules this tool enforces, not just reports:
-  * each concept uses a DIFFERENT real capture image when the pack has enough,
+  * each concept uses a different source visual unless an explicit exception applies,
   * each concept has a different layout id (bleed / window / split + archetype
     type treatment), so three concepts are never one design three times,
   * text contrast is measured against the pixels behind it (WCAG >= 4.5),
@@ -27,7 +27,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 W, H = 1080, 1920
-FONT = ROOT / "templates" / "_base" / "fonts" / "Anton.ttf"
+FONT = ROOT / "templates" / "_base" / "fonts" / "Inter.ttf"
 ACCENTS = {"demo-first": (74, 222, 128), "duel": (255, 106, 61),
            "myth-bust": (192, 132, 252), "quest": (251, 191, 36),
            "warning": (255, 93, 71), "workflow": (45, 212, 191),
@@ -64,6 +64,7 @@ def fit_text(draw, text, max_w, start=190):
     size = start
     while size > 40:
         f = ImageFont.truetype(str(FONT), size)
+        f.set_variation_by_name("Black")
         words, lines, cur = text.upper().split(), [], ""
         for w in words:
             t = (cur + " " + w).strip()
@@ -76,7 +77,7 @@ def fit_text(draw, text, max_w, start=190):
         if all(draw.textlength(l, font=f) <= max_w for l in lines) and len(lines) <= 3:
             return f, lines
         size -= 12
-    return ImageFont.truetype(str(FONT), 40), [text.upper()]
+    raise ValueError(f"headline cannot fit: {text!r}")
 
 
 def draw_text_block(base, lines, font, accent, y, draw, align="left", x=54):
@@ -178,7 +179,10 @@ def make_concepts(brief, out_dir, root=ROOT):
     accent = ACCENTS.get(arch, ACCENTS["spotlight"])
     out_dir.mkdir(parents=True, exist_ok=True)
     concepts = tr["cover_concepts"]
-    import cover_rules
+    try:
+        from tools import cover_rules
+    except ModuleNotFoundError:
+        import cover_rules
     rule_problems = cover_rules.concepts_problems(concepts, Path(root) / "captures" / brief["id"],
                                                   Path(root) / "covers" / brief["id"])
     if rule_problems:
@@ -191,50 +195,48 @@ def make_concepts(brief, out_dir, root=ROOT):
         text = concept["text"]
         src = concept_source(concept, brief, root)
         layout = concept["layout"]
+        # The headline always sits on the same opaque, measured plate inside the
+        # platform-safe band. Layout variety comes from the treatment of the source,
+        # not moving text into the UI exclusion zones or cropping away the evidence.
         with Image.open(src) as sim:
             sim.load()
-            base = Image.new("RGB", (W, H), (7, 11, 22))
-            scratch = ImageDraw.Draw(base)
-            f, lines = fit_text(scratch, text, W - 108)
-            lh = int(f.size * 1.04)
-            if layout == "bleed":  # poster on its own blurred ground
-                ground = cover_crop(sim, W, H).filter(ImageFilter.GaussianBlur(38))
-                base = Image.blend(ground, Image.new("RGB", (W, H), (6, 9, 20)), 0.62)
-                media = contain(sim, W - 72, 1180)
-                plate_h = lh * len(lines) + (150 if kicker else 108)
-                plate_top = H - 88 - plate_h
-                top = max(96, (plate_top - media.height) // 2)
-                base.paste(media, ((W - media.width) // 2, top))
-                d = ImageDraw.Draw(base)
-                d.rectangle([0, plate_top, W, H], fill=(6, 9, 20))
-                text_y = plate_top + (78 if kicker else 54)
-                ky = plate_top + 26
-                align = "left"
-            elif layout == "window":  # framed artifact under the headline
-                media = contain(sim, W - 108, 1180)
-                block = lh * len(lines) + 96 + media.height
-                text_y = max(112, (H - block) // 2)
-                align = "left"
-                ky = text_y - (96 if kicker else 60)
-            else:  # split: media band on top, headline under the accent rule
-                band = 1180
-                with Image.open(src) as im2:
-                    base.paste(cover_crop(im2, W, band, anchor="top"), (0, 0))
-                d = ImageDraw.Draw(base)
-                d.rectangle([0, band, W, band + 14], fill=accent)
-                text_y, align = band + 96, "left"
-                ky = band + 34
-            box = (54, text_y, W - 54, text_y + lh * len(lines))
-            plate = base.copy()  # the pixels the type will sit on, before any type lands
+            base = Image.new("RGB", (W, H), (8, 13, 22))
             d = ImageDraw.Draw(base)
-            y = draw_text_block(base, lines, f, accent, text_y, d, align=align)
-            if layout == "window":
-                base.paste(media, (54, y + 60))
-                d.rectangle([54, y + 60, 54 + media.width, y + 60 + media.height], outline=accent, width=8)
-        if kicker:
-            kf = ImageFont.truetype(str(ROOT / "templates/_base/fonts/JetBrainsMono.ttf"), 34)
-            d.rectangle([54, ky - 8, 54 + d.textlength(kicker, font=kf) + 40, ky + 50], fill=accent)
-            d.text((74, ky), kicker, font=kf, fill=(6, 8, 14))
+            d.rectangle((0, 0, W, 18), fill=accent)
+            d.text((64, 270), "FIELD NOTES  /  AI TOOLS", font=ImageFont.truetype(
+                str(ROOT / "templates/_base/fonts/JetBrainsMono.ttf"), 28), fill=(170, 183, 199))
+            f, lines = fit_text(d, text, W - 144, start=125)
+            lh = int(f.size * 1.09)
+            text_y = 338
+            box = (72, text_y, W - 72, text_y + lh * len(lines))
+            if box[3] > 820:
+                raise ValueError(f"headline exceeds safe headline band: {text!r}")
+            plate = base.copy()
+            draw_text_block(base, lines, f, accent, text_y, d, x=72)
+            d.rounded_rectangle((72, 830, 1008, 1540), radius=36,
+                                fill=(17, 25, 38), outline=(52, 67, 86), width=3)
+            if layout == "bleed":
+                # Large product visual, full panel, no accidental crop of a UI label.
+                media = contain(sim, 900, 660)
+                base.paste(media, ((W - media.width) // 2, 855 + (660 - media.height) // 2))
+            elif layout == "window":
+                # Framed app/window, with deliberately separate chrome.
+                d.rounded_rectangle((104, 880, 976, 1480), radius=28, fill=(6, 11, 18),
+                                    outline=accent, width=4)
+                d.line((104, 950, 976, 950), fill=(52, 67, 86), width=3)
+                for j, color in enumerate(((247, 111, 104), (247, 194, 90), (116, 207, 157))):
+                    d.ellipse((136+j*38, 907, 154+j*38, 925), fill=color)
+                media = contain(sim, 800, 480)
+                base.paste(media, ((W-media.width)//2, 978 + (480-media.height)//2))
+            else:
+                # Editorial split: visual on a tinted field, strong index rail.
+                d.rounded_rectangle((100, 858, 980, 1510), radius=26, fill=(24, 34, 49))
+                d.rectangle((100, 858, 115, 1510), fill=accent)
+                media = contain(sim, 816, 600)
+                base.paste(media, (145 + (816-media.width)//2, 884 + (600-media.height)//2))
+            d = ImageDraw.Draw(base)
+            d.text((72, 1570), "ILLUSTRATED WORKFLOW", font=ImageFont.truetype(
+                str(ROOT / "templates/_base/fonts/JetBrainsMono.ttf"), 22), fill=(130, 145, 163))
         p = out_dir / f"cover-{i + 1}.jpg"
         base.save(p, quality=92)
         bg = block_background(plate, box)
@@ -260,7 +262,10 @@ def make_concepts(brief, out_dir, root=ROOT):
 
 def audit(report):
     """A cover set is only useful if the three concepts are really three different designs."""
-    import cover_rules
+    try:
+        from tools import cover_rules
+    except ModuleNotFoundError:
+        import cover_rules
     problems = []
     if len(report) != cover_rules.CONCEPTS:
         problems.append(f"a cover set needs {cover_rules.CONCEPTS} concepts, rendered {len(report)}")
@@ -276,7 +281,9 @@ def audit(report):
                         f"each concept needs its own real media")
     for c in report:
         problems += [f"concept {c['concept']}: {p}" for p in cover_rules.headline_problems(c["text"])]
-        if min(c["contrast_white"], c["contrast_accent"]) < 4.5:
+        if c.get("text_box") and (c["text_box"][1] < cover_rules.SAFE_TOP or c["text_box"][3] > cover_rules.SAFE_BOTTOM):
+            problems.append(f"concept {c['concept']} headline outside safe area")
+        if min(c["contrast_white"], c["contrast_accent"]) < cover_rules.CONTRAST_MIN:
             problems.append(f"concept {c['concept']} contrast {c['contrast_white']}:1 / "
                             f"{c['contrast_accent']}:1 below 4.5 against its plate")
     return problems

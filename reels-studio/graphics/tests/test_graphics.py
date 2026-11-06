@@ -250,3 +250,31 @@ def test_scene_list_carries_cues_for_the_engine():
     b = _beats(ph)
     sc = scene_list(b, ph)
     assert "cue" in sc[0] and "cues" in sc[1] and "icons" in sc[1]
+
+
+def test_fallback_cues_never_go_backwards_or_past_scene():
+    words = [["late", 4.7, 4.9]]
+    sc = {"archetype": "chip_grid", "payload": {"chips": ["late", "unmatched"]}}
+    result = compute(sc, words, 0, 5)
+    assert result["cues"][0] <= result["cues"][1] <= 5
+    assert result["fallback"] == ["item1"]
+
+
+def test_desktop_action_requires_complete_safe_payload():
+    ph = _phrases()
+    b = _beats(ph)
+    b["scenes"][1]["archetype"] = "desktop_action"
+    b["scenes"][1]["payload"] = {"app": "Finder", "target": "Documents", "ref": "@s8f3k2p9:e8",
+                                   "mode": "stale", "cue_phrases": ["change", "snapshot"]}
+    errors = lint_beats(b, ph, sheet())
+    assert any(v.rule == "B6" and "new_ref" in v.detail for v in errors)
+    b["scenes"][1]["payload"]["new_ref"] = "@t4a6m1n7:e8"
+    assert not [v for v in lint_beats(b, ph, sheet()) if v.rule == "B6"]
+
+
+def test_desktop_action_binds_two_distinct_spoken_moments():
+    sc = {"archetype": "desktop_action", "payload": {"cue_phrases": ["stale", "fresh snapshot"]}}
+    words = [["stale", 1.0, 1.2], ["fresh", 2.0, 2.2], ["snapshot", 2.3, 2.5]]
+    cues = compute(sc, words, 0, 3)
+    assert cues["cues"] == [1.0, 2.0]
+    assert not cues["fallback"]

@@ -10,12 +10,23 @@ on:
       - 'reels-studio/briefs/**'
       - 'reels-studio/research/production/**'
       - 'reels-studio/tools/ship.py'
+      - 'reels-studio/tools/render_attempts.py'
+      - 'reels-studio/graphics/**'
+      - 'reels-studio/tools/cover_lab.py'
+      - 'reels-studio/tools/cover_rules.py'
+      - 'reels-studio/tools/video_plan.py'
+      - 'reels-studio/tests/test_creative_overhaul.py'
+      - 'reels-studio/tests/test_creative_application.py'
+      - 'reels-studio/tests/test_brief_merge.py'
+      - 'reels-studio/tools/youtube/cover_ctl.py'
       - 'reels-studio/tools/post/**'
       - 'reels-studio/STATUS.md'
       - 'reels-studio/tools/brief_identity.py'
       - 'reels-studio/tools/brief_from_plan.py'
       - 'reels-studio/tools/receipt_build.py'
       - 'reels-studio/tests/test_ship.py'
+      - 'reels-studio/tests/test_cover_approval_binding.py'
+      - 'reels-studio/tests/test_render_attempts.py'
       - '.github/workflows/ship-state.yml'
   pull_request:
     paths:
@@ -43,7 +54,7 @@ jobs:
           python -m pip install --quiet pytest
           python -m pip install --quiet -r tools/post/requirements.txt
       - name: Ship guard and publishing tests
-        run: python -m pytest -q tests/test_ship.py tests/test_publishing.py tests/test_youtube.py tests/test_oauth_handoff.py
+        run: python -m pytest -q tests/test_ship.py tests/test_cover_approval_binding.py tests/test_render_attempts.py tests/test_creative_overhaul.py tests/test_creative_application.py tests/test_brief_merge.py graphics/tests tests/test_publishing.py tests/test_youtube.py tests/test_oauth_handoff.py
       - name: Generated status is current
         run: python tools/ship.py status --check
       - name: Every approved Short agrees with its pins (live release digests)

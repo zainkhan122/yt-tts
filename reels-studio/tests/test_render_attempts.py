@@ -90,6 +90,24 @@ class RenderAttemptTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "unsafe symlink"):
             make_attempts(self.root, self.plan, self.briefs, self.hashes, self.asset_hashes)
 
+    def test_graphics_inputs_reject_traversal_missing_and_symlinks(self):
+        self.briefs["one"]["graphics"] = {"dir": "../outside"}
+        with self.assertRaisesRegex(ValueError, "relative"):
+            make_attempts(self.root, self.plan, self.briefs, self.hashes)
+        self.briefs["one"]["graphics"]["dir"] = "briefs/missing"
+        with self.assertRaisesRegex(ValueError, "missing"):
+            make_attempts(self.root, self.plan, self.briefs, self.hashes)
+        g = self.root / "reels-studio/briefs/graphics/one"
+        g.mkdir(parents=True)
+        (g / "beats.json").write_text("{}")
+        self.briefs["one"]["graphics"]["dir"] = "briefs/graphics/one"
+        first = make_attempts(self.root, self.plan, self.briefs, self.hashes)[0]["fingerprint"]
+        (g / "beats.json").write_text('{"changed":true}')
+        self.assertNotEqual(first, make_attempts(self.root, self.plan, self.briefs, self.hashes)[0]["fingerprint"])
+        (g / "alias").symlink_to(g / "beats.json")
+        with self.assertRaisesRegex(ValueError, "symlink"):
+            make_attempts(self.root, self.plan, self.briefs, self.hashes)
+
     def test_voice_seed_must_be_bounded_non_negative_integer(self):
         self.briefs["one"]["voice_seed"] = -1
         with self.assertRaisesRegex(ValueError, "between 0 and 1000000"):

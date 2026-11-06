@@ -9,8 +9,8 @@ tool is written here, and nothing is claimed that the plan does not say.
 
 Prerequisites (each is checked, and the build stops with the missing item named):
   1. tools/video_plan.py passes for the plan (PLAN PASS), including the packaging fields.
-  2. tools/motion/build_plan_kit.py has written captures/<id>/plan-<n>.jpg, plan-catch.jpg (when the
-     catch is a card) and captures/<id>/plan-keep.json.
+  2. For non-graphics briefs, tools/motion/build_plan_kit.py has written the required
+     plan cards and captures/<id>/plan-keep.json. Graphics briefs use the separate beat plan.
   3. Any point or catch that uses an animation names a file that exists in captures/<id>/.
 
 Usage: python3 tools/brief_from_plan.py videos/<id>/plan.json
@@ -82,45 +82,59 @@ def _animation_file(vid, name):
 def build(plan_path):
     plan = json.loads(Path(plan_path).read_text(encoding="utf-8"))
     vid = plan["id"]
+    out = ROOT / "briefs" / f"{vid}.json"
+    existing = json.loads(out.read_text(encoding="utf-8")) if out.exists() else None
     keep_path = ROOT / "captures" / vid / "plan-keep.json"
     keep = json.loads(keep_path.read_text(encoding="utf-8")) if keep_path.exists() else {}
     seo = plan["seo"]
     meta = plan["brief_meta"]
     brand = plan["brand_line"]
 
-    hook_vis = plan.get("hook_visual") or {}
-    if hook_vis.get("kind") == "steps":
-        scenes = [_flow_scene("hook", seo["onscreen_first3s"], hook_vis["steps"], plan["question"])]
+    if existing and existing.get("renderer") == "graphics":
+        # Graphics owns its visuals in beats.json; requiring generated card captures
+        # here is both unnecessary and a source of drift in a fresh checkout.
+        scenes = [_flow_scene("hook", seo["onscreen_first3s"], ["Your task"], plan["question"])]
+        for p in plan["points"]:
+            nodes = p.get("steps") or p.get("chips") or [p["title"]]
+            scenes.append(_flow_scene(f"point{p['n']}", p["title"].upper(), nodes, p["spoken"]))
+        cv = plan["catch_visual"]
+        nodes = cv.get("steps") or cv.get("chips") or [plan["catch_sub"]]
+        scenes.append(_flow_scene("catch", plan.get("catch_title", "The catch").upper(), nodes, plan["catch"]))
+        scenes.append({"id": "cta", "type": "endcard", "keyword": plan["cta_keyword"], "say": plan["cta"]})
     else:
-        scenes = [_card_scene("hook", "plan-1", seo["onscreen_first3s"], brand, plan["question"], keep, vid)]
-        scenes[0]["keep_visible"] = [[0.0, 1.0]]
-    for p in plan["points"]:
-        key = f"plan-{p['n']}"
-        if p["visual"]["kind"] == "animation":
-            scenes.append({
-                "id": f"point{p['n']}", "type": "clip",
-                "src": _animation_file(vid, p["visual"]["animation"]),
-                "in": 0.0, "out": 14.0, "say": p["spoken"],
-            })
-            continue
-        if p["visual"]["kind"] == "steps":  # drawn by the template, lit as the voice says each step
-            scenes.append(_flow_scene(f"point{p['n']}", p["title"].upper(), p["steps"], p["spoken"]))
-            continue
-        scenes.append(_card_scene(f"point{p['n']}", key, p["title"].upper(), p["sub"], p["spoken"], keep, vid))
+        hook_vis = plan.get("hook_visual") or {}
+        if hook_vis.get("kind") == "steps":
+            scenes = [_flow_scene("hook", seo["onscreen_first3s"], hook_vis["steps"], plan["question"])]
+        else:
+            scenes = [_card_scene("hook", "plan-1", seo["onscreen_first3s"], brand, plan["question"], keep, vid)]
+            scenes[0]["keep_visible"] = [[0.0, 1.0]]
+        for p in plan["points"]:
+            key = f"plan-{p['n']}"
+            if p["visual"]["kind"] == "animation":
+                scenes.append({
+                    "id": f"point{p['n']}", "type": "clip",
+                    "src": _animation_file(vid, p["visual"]["animation"]),
+                    "in": 0.0, "out": 14.0, "say": p["spoken"],
+                })
+                continue
+            if p["visual"]["kind"] == "steps":  # drawn by the template, lit as the voice says each step
+                scenes.append(_flow_scene(f"point{p['n']}", p["title"].upper(), p["steps"], p["spoken"]))
+                continue
+            scenes.append(_card_scene(f"point{p['n']}", key, p["title"].upper(), p["sub"], p["spoken"], keep, vid))
 
-    cv = plan["catch_visual"]
-    if cv["kind"] == "animation":
-        catch_scene = {"id": "catch", "type": "clip", "src": _animation_file(vid, cv["animation"]),
-                       "in": 0.0, "out": 14.0, "say": plan["catch"]}
-    elif cv["kind"] == "steps":
-        catch_scene = _flow_scene("catch", plan.get("catch_title", "The catch").upper(), cv["steps"], plan["catch"])
-    else:
-        catch_scene = _card_scene("catch", "plan-catch", plan.get("catch_title", "The catch").upper(),
-                                  plan["catch_sub"], plan["catch"], keep, vid)
-    scenes.append(catch_scene)
+        cv = plan["catch_visual"]
+        if cv["kind"] == "animation":
+            catch_scene = {"id": "catch", "type": "clip", "src": _animation_file(vid, cv["animation"]),
+                           "in": 0.0, "out": 14.0, "say": plan["catch"]}
+        elif cv["kind"] == "steps":
+            catch_scene = _flow_scene("catch", plan.get("catch_title", "The catch").upper(), cv["steps"], plan["catch"])
+        else:
+            catch_scene = _card_scene("catch", "plan-catch", plan.get("catch_title", "The catch").upper(),
+                                      plan["catch_sub"], plan["catch"], keep, vid)
+        scenes.append(catch_scene)
 
-    # Outro: question + keyword chip + follow card with the channel logo (the template's endcard).
-    scenes.append({"id": "cta", "type": "endcard", "keyword": plan["cta_keyword"], "say": plan["cta"]})
+        # Outro: question + keyword chip + follow card with the channel logo (the template's endcard).
+        scenes.append({"id": "cta", "type": "endcard", "keyword": plan["cta_keyword"], "say": plan["cta"]})
 
     today = dt.date.today().isoformat()
     brief = {
@@ -174,15 +188,13 @@ def build(plan_path):
         "motion_standard": 2,
         "qa_gates": True,  # new batches: Short QA gates apply (tools/short_qa.py)
     }
-    out = ROOT / "briefs" / f"{vid}.json"
-    existing = json.loads(out.read_text(encoding="utf-8")) if out.exists() else None
     brief = merge_brief(existing, brief)
     out.write_text(json.dumps(brief, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print("wrote", out.relative_to(ROOT), "scenes", len(scenes))
     return out
 
 
-# Fields an operator sets by hand or that record a human/agent decision. Regeneration keeps them.
+# Operator settings survive regeneration; approval/review are invalidated on material edits.
 KEEP_IF_PRESENT = ("status", "review", "voice_seed", "renderer", "graphics", "qa_gates")
 
 
@@ -190,7 +202,7 @@ def merge_brief(existing, generated: dict) -> dict:
     """Regenerating a brief must never silently change what renders or who approved it.
 
     - Keys the generator does not produce (renderer, graphics, voice_seed, notes...) are kept.
-    - Keys in KEEP_IF_PRESENT keep the existing value when one exists.
+    - Operator settings are retained; status/review are reset if plan content changed.
     - Everything else comes from the plan, so the plan stays the source for copy and scenes.
     """
     if existing is None:
@@ -202,6 +214,12 @@ def merge_brief(existing, generated: dict) -> dict:
     for key in KEEP_IF_PRESENT:
         if key in existing:
             merged[key] = existing[key]
+    # A review applies to a specific brief, not future edits to its claims or copy.
+    material = ("scenes", "seo", "post", "claims", "proof_plan", "treatment", "viewer", "idea", "facts")
+    if any(key in existing and key in generated and existing[key] != generated[key] for key in material):
+        merged["status"] = "draft"
+        merged["review"] = {"reviewed_at": None, "expires_at": None, "reviewer": None,
+                            "notes": "Plan changed; fresh review and receipt required."}
     return merged
 
 

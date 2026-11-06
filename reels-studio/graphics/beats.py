@@ -17,6 +17,7 @@ ARCHETYPES: dict[str, dict] = {
     "flow_link":    {"req": ["nodes"], "opt": ["edge_label", "cue_phrases"], "script_ok": False, "facts": True},
     "terminal_type": {"req": ["lines"], "opt": ["title", "cue_phrases"], "script_ok": False, "facts": True},
     "toggle_steps": {"req": ["steps"], "opt": ["done", "cue_phrases"], "script_ok": False, "facts": True},
+    "desktop_action": {"req": ["app", "target", "ref", "mode", "cue_phrases"], "opt": ["new_ref"], "script_ok": False, "facts": True},
     "cta_stack":    {"req": ["lines"], "opt": [], "script_ok": True, "facts": False},
 }
 SCRIPT_ARCHETYPES = {a for a, d in ARCHETYPES.items() if d["script_ok"]}
@@ -127,6 +128,18 @@ def lint_beats(beats: dict, phrases: list[dict], sheet: dict, script_fp: str | N
         for lkey in ("chips", "nodes", "steps", "lines"):
             if isinstance(payload.get(lkey), list) and len(payload[lkey]) > MAX_LIST:
                 v.append(Violation("B5", f"{tag}: '{lkey}' has more than {MAX_LIST} items"))
+
+        if arch == "desktop_action":
+            for key in ("app", "target", "ref", "mode"):
+                if not isinstance(payload.get(key), str) or not payload.get(key, "").strip():
+                    v.append(Violation("B6", f"{tag}: '{key}' must be a nonempty string"))
+            if payload.get("mode") not in ("snapshot", "click", "stale"):
+                v.append(Violation("B6", f"{tag}: unknown desktop action mode"))
+            if payload.get("mode") == "stale" and not isinstance(payload.get("new_ref"), str):
+                v.append(Violation("B6", f"{tag}: stale mode needs a new_ref"))
+            cp = payload.get("cue_phrases")
+            if not isinstance(cp, list) or len(cp) != 2 or any(not isinstance(x, str) or not x.strip() for x in cp):
+                v.append(Violation("B6", f"{tag}: desktop action needs two spoken cue phrases"))
 
         # B7 numbers are grounded: a stat must be the feature's own metric value.
         if arch == "stat_pop" and fid in feats:

@@ -1,8 +1,8 @@
 /* 1080x1920 stage. Safe zones: handle 60-100, headline 190-420, visual 470-1400, captions 1480-1640. */
 html, body { margin: 0; padding: 0; background: #0C0E13; }
-#stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: "DejaVu Sans", Arial, sans-serif; color: #F5F5F0;
+#stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: StudioInter, "DejaVu Sans", Arial, sans-serif; color: #F5F5F0;
   background: #0C0E13; }
-#grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.10) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.10) 2px, transparent 2px); background-size: 72px 72px; }
+#grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.035) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.035) 2px, transparent 2px); background-size: 72px 72px; }
 #stage .glow { position: absolute; left: -300px; top: 300px; width: 1700px; height: 1500px; border-radius: 50%;
   background: radial-gradient(closest-side, rgba(56,189,248,0.22), rgba(56,189,248,0) 70%), radial-gradient(closest-side at 30% 80%, rgba(255,214,10,0.16), rgba(255,214,10,0) 70%); }
 #stage .dot { position: absolute; left: 0; top: 0; border-radius: 50%; background: #FFD60A; box-shadow: 0 0 10px #FFD60A; }
@@ -96,3 +96,27 @@ html, body { margin: 0; padding: 0; background: #0C0E13; }
 .flow-3 .conn { width: 56px; }
 .flow-3 .conn-svg { width: 56px; }
 .big-long { font-size: 128px; }
+
+/* Desktop workflow vignette — an illustration, never presented as product footage. */
+.desk { width: 930px; min-height: 570px; border: 3px solid #4b596e; border-radius: 30px;
+  overflow: hidden; background: #111925; box-shadow: 0 32px 80px #0009; }
+.desk-top { height: 78px; display: flex; align-items: center; gap: 28px; padding: 0 32px;
+  background: #202b3a; font-size: 25px; letter-spacing: 1px; color: #aab7c9; }
+.desk-dots { color: #71d9c2; letter-spacing: 4px; font-size: 20px; }
+.desk-name { font-weight: 800; color: #f4f7fc; flex: 1; }
+.desk-label { font-size: 18px; letter-spacing: 2px; }
+.desk-body { position: relative; padding: 60px 52px 68px; }
+.desk-kicker { color: #91a9bb; font-size: 26px; font-weight: 800; letter-spacing: 3px; }
+.desk-target { color: #effffb; font-size: 62px; font-weight: 900; margin: 28px 0 0;
+  padding: 22px 28px; border: 3px solid #526478; border-radius: 20px;
+  background: linear-gradient(110deg, #233d44, #172b37); overflow-wrap: anywhere; }
+.desk-refline { position: relative; display: flex; align-items: center; gap: 24px; margin: 28px 0 0 24px; }
+.desk-refline:before { content: ""; position: absolute; width: 3px; height: 30px; background: #6fe5c4; top: -30px; left: 20px; }
+.desk-ref-label { color: #9ab9b8; font-size: 24px; letter-spacing: 3px; font-weight: 800; }
+.desk-ref { display: inline-block; border: 3px solid #2a3140; border-radius: 14px; padding: 16px 22px;
+  color: #8cdaff; background: #101e2a; font: 700 39px "DejaVu Sans Mono", monospace; }
+.desk-action { margin-top: 36px; font-size: 28px; letter-spacing: 2px; font-weight: 900; }
+.desk-cursor { position: absolute; right: 70px; top: 185px; font-size: 100px; color: #ffd60a;
+  text-shadow: 0 5px 15px #000; }
+
+.term-context { font: 700 25px "DejaVu Sans Mono", monospace; letter-spacing: 2px; color: #98a9bc; margin-bottom: 28px; }

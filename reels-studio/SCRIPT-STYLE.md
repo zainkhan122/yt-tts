@@ -17,8 +17,9 @@ the tool, and explains only what the viewer needs to decide whether to try it.
 
 ## 2. The rules (check every script against each one)
 
-1. **Hook (first sentence, 12 words or fewer):** the viewer's question, or a concrete promise
-   with a number when the number is true. The tool is named in the hook or the next sentence.
+1. **Hook (first sentence, 12 words or fewer):** start with the viewer’s question or problem,
+   a truthful number contrast, or a command naming a harm. The tool is named in the hook or
+   the next sentence. Never imply an unsupported outcome.
 2. **Name by about 7 seconds** (usually the second sentence): what it is, in plain words.
 3. **How it works, in order of use:** the first thing the viewer does, then the next. Short
    setup, real commands only when they are in the repo's own docs.
@@ -50,7 +51,8 @@ A plain question is good. Sugar makes it hit harder, if it stays accurate:
   machine and the repo says the build runs on a 16 GB Mac. Write "about 3 GB of memory" and keep
   the machine in the proof line.
 - Do not claim a result the brief does not show ("it's a lot faster" with no number).
-- Keep it under 12 words. The keyword must be spoken within the first 3 seconds.
+- Keep the hook under 12 words and establish the viewer’s task within the first 3 seconds.
+  The comment keyword belongs in the close, not necessarily the hook.
 
 ## 4. What to avoid (rejected for this channel)
 

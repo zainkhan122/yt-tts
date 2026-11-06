@@ -68,6 +68,8 @@ def approve(video_ids):
         # Bind the approval to the immutable kit the cloud worker will fetch, not to the local preview copy.
         live = fetch_kit_cover(item, cfg, PREVIEW_DIR / "_verify")
         digest = cover_digest(live)
+        if cover_digest(preview) != digest:
+            raise SystemExit(f"{video_id}: preview differs from the live kit cover; extract and review it again")
         validate_short_cover(live, digest)
         item["cover_sha256"] = digest
         item["cover_reviewed_at"] = stamp
