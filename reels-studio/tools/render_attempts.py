@@ -60,6 +60,16 @@ def renderer_fingerprint(repo_root: Path) -> str:
             raise ValueError(f"renderer fingerprint input is an unsafe symlink: {path.relative_to(root)}")
         if path.is_file():
             paths.append(path.relative_to(root).as_posix())
+    # The graphics renderer (engine, templates, lint, beat code) is render code too: a change there
+    # must count as a new render, or the duplicate guard blocks a fixed renderer as "identical".
+    graphics_root = root / "reels-studio/graphics"
+    if graphics_root.is_dir():
+        for path in graphics_root.rglob("*"):
+            if path.is_symlink():
+                raise ValueError(f"renderer fingerprint input is an unsafe symlink: {path.relative_to(root)}")
+            rel_parts = path.relative_to(graphics_root).parts
+            if path.is_file() and not ({"tests", "fixtures", "__pycache__"} & set(rel_parts)):
+                paths.append(path.relative_to(root).as_posix())
     for rel in sorted(set(paths)):
         path = root / rel
         if not path.is_file() or path.is_symlink():
