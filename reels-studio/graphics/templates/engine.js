@@ -252,7 +252,7 @@
       var r = { wrap: el("div", "term", root), lines: [] };
       var bar = el("div", "term-bar", r.wrap);
       el("span", "tl r", bar); el("span", "tl y", bar); el("span", "tl g", bar);
-      el("span", "term-title", bar, "craft-anything");
+      el("span", "term-title", bar, (s.payload && s.payload.title) || "craft-anything");
       var body = el("div", "term-body", r.wrap);
       s.payload.lines.forEach(function (text) {
         var node = el("div", "term-line", body);

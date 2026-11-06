@@ -27,7 +27,8 @@
         "lines": [
           "npm install -g agent-desktop",
           "agent-desktop snapshot --app Finder -i"
-        ]
+        ],
+        "title": "agent-desktop"
       },
       "cue_word": "npm"
     },
