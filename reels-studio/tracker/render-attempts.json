@@ -2316,9 +2316,9 @@
       "capture_id": "repo-agent-desktop-01",
       "cover_sha256": "4b2a51e0cfe4098bb24a009d85fae8cc2be875e1b80ce5fdb0987b89014c4982",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=failure publish=skipped",
       "fingerprint": "c3aa01c7675d7e63f74fd31a07ba4aa544adf316b653d9b623a7c89d51bd74bc",
-      "finished_at": null,
+      "finished_at": "2026-11-06T09:10:11Z",
       "from_tag": "",
       "graphics_sha256": "bb15b0a528ac521d4444dd9c1a93dcba8539c60c66e3ae6d5b45c9f70489119c",
       "quality": "looks",
@@ -2326,7 +2326,7 @@
       "renderer_sha256": "2d4770c8732c55a3ec9ab6c4f537d4adcb4c63fe4bea29f759b676cbd8693011",
       "run_id": "42184760580",
       "started_at": "2026-11-06T08:01:49Z",
-      "status": "started",
+      "status": "failed",
       "voice_seed": 0
     },
     "c3d09d260b1fe76210dfa68b8cb0f64fec5234fd0e0a41790780a310bd73a5fb": {
