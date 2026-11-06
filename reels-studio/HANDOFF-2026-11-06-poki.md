@@ -76,16 +76,18 @@ Primary keyword `AI iPhone automation`; on-screen first 3 s "CAN AI USE YOUR IPH
   GitHub token: `uploads/` is gitignored and absent from the clone, `/var/tmp/gh/token` and
   `~/.config/reels-studio/gh_token` do not exist, `GH_TOKEN` is unset. `tools/preflight.py` and
   `tools/capture_store.py` both stop with **401 Bad credentials**. Nothing was dispatched.
-- **No production receipt.** `tools/receipt_build.py` needs `captures/repo-poki-01/manifest.json`
-  and `covers/repo-poki-01/selection.json`. The capture pack needs `tools/capture_pw.py`
-  (playwright + Chromium, not installed here), and `selection.json` needs the owner's cover pick.
-- **Topic approval not recorded.** `config/topic-approvals.json` gets the entry only after the owner
-  approves the topic against the plan's sha256 (`make_shorts.py --approve-topic`).
+- **No production receipt.** `tools/receipt_build.py` needs `captures/repo-poki-01/manifest.json`.
+  The capture pack needs `tools/capture_pw.py` (playwright + Chromium, not installed here).
+
+Done at the end of the session, on the owner's word:
+- Topic approved: `python3 tools/make_shorts.py --approve-topic repo-poki-01 --note "..."` wrote the
+  entry in `config/topic-approvals.json`.
+- Cover picked: **c1** ("CAN AI USE YOUR IPHONE?", bleed). `covers/repo-poki-01/selection.json` +
+  `cover-selected.jpg` written, sha256 `aa6277d5…`; `tools/cover_store.py verify repo-poki-01` passes.
 
 ## 5. To finish (in order)
-1. Owner: approve the topic and pick the cover (c1 / c2 / c3).
-2. Owner: give a token (fine-grained, repo push + Actions dispatch) or run the two steps below.
-3. `git push` the commit (removes the three folders, deletes agent-desktop, adds repo-poki-01).
+1. Owner: give a token (fine-grained, repo push + Actions dispatch) or run the steps below.
+2. `git push` the commits (removes the three folders, deletes agent-desktop, adds repo-poki-01).
 4. Build the capture pack, then the receipt, then dispatch:
    ```sh
    python3 tools/capture_pw.py captures/repo-poki-01 --url https://github.com/JosssphZhou/poki
