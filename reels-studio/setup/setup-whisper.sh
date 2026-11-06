@@ -43,10 +43,12 @@ if ! command -v cmake >/dev/null || ! command -v c++ >/dev/null; then
 fi
 
 build_is_valid() {
+  # A cached binary built on another CPU dies with SIGILL (exit -4). Smoke-run it before trusting it.
   [ -x "$BIN" ] \
     && [ -f "$BUILD_STAMP" ] \
     && grep -Fxq "$WHISPER_COMMIT" "$BUILD_STAMP" \
-    && [ "$(git -C "$SRC" rev-parse HEAD 2>/dev/null || true)" = "$WHISPER_COMMIT" ]
+    && [ "$(git -C "$SRC" rev-parse HEAD 2>/dev/null || true)" = "$WHISPER_COMMIT" ] \
+    && "$BIN" -h >/dev/null 2>&1
 }
 
 if build_is_valid; then
@@ -61,7 +63,9 @@ else
     exit 2
   fi
   echo "== build whisper-cli only, -j$JOBS"
-  cmake -S "$SRC" -B "$SRC/build" -DCMAKE_BUILD_TYPE=Release \
+  # GGML_NATIVE=OFF: a portable build. The default compiles for the build machine's CPU, and a cache
+  # built on one runner then crashes (SIGILL) on another.
+  cmake -S "$SRC" -B "$SRC/build" -DCMAKE_BUILD_TYPE=Release -DGGML_NATIVE=OFF \
     -DBUILD_SHARED_LIBS=OFF -DWHISPER_BUILD_TESTS=OFF -DWHISPER_BUILD_SERVER=OFF >/dev/null
   cmake --build "$SRC/build" --config Release -j"$JOBS" --target whisper-cli
   printf '%s\n' "$WHISPER_COMMIT" > "$BUILD_STAMP.tmp"
