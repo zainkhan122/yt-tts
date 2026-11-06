@@ -111,6 +111,42 @@ def run(cmd, cwd=None, timeout=3600, log=None, check=True):
     return p, out, time.time() - t0
 
 
+def hf_transcribe(path, log):
+    """Transcribe a WAV into path.parent/transcript.json ([{text,start,end}]).
+
+    First: `hyperframes transcribe` (the gate's normal route). If that fails, fall back to whisper-cli
+    directly on a 16 kHz copy with word-level output, so the QA gate still runs and the failure is logged
+    with whisper-cli's own stderr (hyperframes hides it). Same transcript format either way.
+    """
+    path = Path(path)
+    p, out, secs = run(["hyperframes", "transcribe", path.name, "--model", os.environ.get("REELS_WHISPER_MODEL", "small.en"),
+                        "--no-runtime-install"], cwd=path.parent, log=log, check=False)
+    if p.returncode == 0 and (path.parent / "transcript.json").exists():
+        return secs
+    say(f"hyperframes transcribe exit {p.returncode}; falling back to whisper-cli directly")
+    home = Path.home() / ".cache" / "hyperframes" / "whisper"
+    cli = home / "whisper.cpp" / "build" / "bin" / "whisper-cli"
+    model = home / "models" / f"ggml-{os.environ.get('REELS_WHISPER_MODEL', 'small.en')}.bin"
+    wav16 = path.parent / "whisper-16k.wav"
+    base = path.parent / "whisper-out"
+    run(["ffmpeg", "-y", "-loglevel", "error", "-i", path.name, "-ar", "16000", "-ac", "1", "-c:a", "pcm_s16le", wav16.name],
+        cwd=path.parent, log=log)
+    p2, out2, secs2 = run([str(cli), "-m", str(model), "-f", str(wav16), "-ml", "1", "-sow", "-oj", "-of", str(base)],
+                          cwd=path.parent, log=log, check=False)
+    if p2.returncode != 0 or not Path(str(base) + ".json").exists():
+        raise RuntimeError("whisper QA: hyperframes exit %s and whisper-cli exit %s\nhyperframes: %s\nwhisper-cli: %s"
+                           % (p.returncode, p2.returncode, out[-1500:], out2[-1500:]))
+    data = json.loads(Path(str(base) + ".json").read_text(encoding="utf-8"))
+    words = []
+    for seg in data.get("transcription", []):
+        t = seg.get("text", "")
+        if t.strip():
+            off = seg.get("offsets", {})
+            words.append({"text": t.strip(), "start": round(off.get("from", 0) / 1000.0, 3), "end": round(off.get("to", 0) / 1000.0, 3)})
+    (path.parent / "transcript.json").write_text(json.dumps(words, ensure_ascii=False), encoding="utf-8")
+    return secs + secs2
+
+
 def iso_utc():
     return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
 
@@ -665,7 +701,7 @@ def quietest_cut(x, sr, a, b):
 
 def transcribe_words(wav_path, log):
     """[(norm_word, start, end)] via hyperframes transcribe (whisper.cpp small.en, word timestamps)."""
-    run(["hyperframes", "transcribe", wav_path.name, "--model", os.environ.get("REELS_WHISPER_MODEL", "small.en"), "--no-runtime-install"], cwd=wav_path.parent, log=log)
+    hf_transcribe(wav_path, log)
     tr = json.loads((wav_path.parent / "transcript.json").read_text())
     return [(norm_word(w["text"]), float(w.get("start", 0)), float(w.get("end", w.get("start", 0)))) for w in tr
             if w.get("text", "").strip() and norm_word(w["text"])]
@@ -990,8 +1026,7 @@ def words_waveform(text, audio, sr, start):
 
 def whisper_intelligibility(vo_path, timing, order, log):
     """QA, not timing: does whisper.cpp hear the words the script intended? (catches TTS slips)"""
-    _, _, secs = run(["hyperframes", "transcribe", vo_path.name, "--model", os.environ.get("REELS_WHISPER_MODEL", "small.en"), "--no-runtime-install"],
-                     cwd=vo_path.parent, log=log)
+    secs = hf_transcribe(vo_path, log)
     tr = json.loads((vo_path.parent / "transcript.json").read_text())
     heard = [w["text"] for w in tr if w.get("text", "").strip()]
     # Character-level comparison canonicalizes number words/ordinals against numerals (e.g.
@@ -1016,8 +1051,7 @@ def whisper_intelligibility(vo_path, timing, order, log):
 
 def refine_with_whisper(vo_path, timing, order, log):
     """Snap word times to whisper.cpp word timestamps (English only)."""
-    _, _, secs = run(["hyperframes", "transcribe", vo_path.name, "--model", os.environ.get("REELS_WHISPER_MODEL", "small.en"), "--no-runtime-install"],
-                     cwd=vo_path.parent, log=log)
+    secs = hf_transcribe(vo_path, log)
     tr_path = vo_path.parent / "transcript.json"
     tr = json.loads(tr_path.read_text())
     wwords = [(w["text"], float(w["start"]), float(w["end"])) for w in tr if w.get("text", "").strip()]
