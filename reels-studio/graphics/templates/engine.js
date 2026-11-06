@@ -195,6 +195,14 @@
   };
 
   /* flow_link: nodes pop in on their words; connectors draw between them; packets travel. */
+  /* Shrink a node label until it fits its box, so a long single word never spills past the border. */
+  function fitNodeText(t, box) {
+    var fs = parseFloat(getComputedStyle(t).fontSize);
+    var max = box.clientWidth - 40;
+    var guard = 0;
+    while (t.scrollWidth > max && fs > 24 && guard++ < 40) { fs -= 2; t.style.fontSize = fs + "px"; }
+  }
+
   ARCH.flow_link = {
     build: function (root, s) {
       var r = { wrap: el("div", "flow", root), nodes: [], conns: [] };
@@ -204,7 +212,7 @@
       s.payload.nodes.forEach(function (text, i) {
         var n = el("div", "node", r.row);
         icon(s.icons[i] || "dot", el("div", "node-ic", n), i === 0 ? Y : BLUE);
-        el("div", "node-t", n, text);
+        fitNodeText(el("div", "node-t", n, text), n);
         r.nodes.push(n);
         if (i < s.payload.nodes.length - 1) {
           var cs = el("div", "conn", r.row);

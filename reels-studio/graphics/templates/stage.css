@@ -90,9 +90,9 @@ html, body { margin: 0; padding: 0; background: #0C0E13; }
 .cw-on { color: #FFD60A; }
 
 /* three-node flows and long concept titles fit the 1080 frame */
-.flow-3 .node { width: 262px; height: 270px; }
+.flow-3 .node { width: 292px; height: 270px; }
 .flow-3 .node-t { font-size: 40px; }
 .flow-3 .node-ic { width: 104px; height: 104px; }
-.flow-3 .conn { width: 64px; }
-.flow-3 .conn-svg { width: 64px; }
+.flow-3 .conn { width: 56px; }
+.flow-3 .conn-svg { width: 56px; }
 .big-long { font-size: 128px; }
