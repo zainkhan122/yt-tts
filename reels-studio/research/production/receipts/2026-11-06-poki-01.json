@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-06-poki-01",
+  "created_at": "2026-11-06T16:57:04Z",
+  "briefs": {
+    "repo-poki-01": {
+      "brief_sha256": "5f9bebc722ebe60c12948cde44e3319ad0fa574d7a96f539a5b82f62057cf7a6",
+      "brief_identity_sha256": "703d2fc7406f5c61dc45c763dab7a12316a6b5852d64e5d6638b653bb81d14ca",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "a059d2dcf16ca73551336f43e42abefa70b348cf1a9036443fa1779321f212ec",
+          "word_count": 120
+        },
+        "assets": {
+          "capture_id": "repo-poki-01",
+          "manifest_sha256": "4c19d29ec5b2900f7b6f043243c2a860c6921a35b05f6763151283d4e34009b6",
+          "files": [
+            {
+              "path": "desktop-top.jpg",
+              "sha256": "ebbab065598954a665cd07c69c9a4ac0ff3862c49b55b417ae28a2c08ffe28ad"
+            },
+            {
+              "path": "desktop-full.jpg",
+              "sha256": "8c706a0f4174694f8a5e38cbfb53ad14dbebef95e264e1822182547374a568e2"
+            },
+            {
+              "path": "mobile.png",
+              "sha256": "a791a33cb697328ec0751a85671fcb48defe4e5d7c938ab2787e73cbb6d43398"
+            },
+            {
+              "path": "demo.mp4",
+              "sha256": "088db47b0872ddf6797da93f87d15455b270ff40786092a65cc679203ea5de69"
+            }
+          ],
+          "cover_sha256": "aa6277d5bc3bad7a427d0c7a11b0a2d7ea9faee7a7028fbda2cb4c0e9ebf798a",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-poki-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}
