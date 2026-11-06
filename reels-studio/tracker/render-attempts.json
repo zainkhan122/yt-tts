@@ -1548,6 +1548,27 @@
       "status": "render_only_success",
       "voice_seed": 0
     },
+    "73e0a74992c8e59aa0b2a6d89750dfad4778442bd7421151b52ede204e75f168": {
+      "asset_files_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "asset_manifest_sha256": "07c51b1161f6b04f7075c4c390479d70229959399a72076d544f05936f06e042",
+      "brief_id": "repo-agent-desktop-01",
+      "brief_sha256": "4d9827ffc36e72407fc9eab25aaa3231489e597a6f2813eade06be3976b05689",
+      "capture_id": "repo-agent-desktop-01",
+      "cover_sha256": "4b2a51e0cfe4098bb24a009d85fae8cc2be875e1b80ce5fdb0987b89014c4982",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "73e0a74992c8e59aa0b2a6d89750dfad4778442bd7421151b52ede204e75f168",
+      "finished_at": null,
+      "from_tag": "",
+      "graphics_sha256": "f1fd543b8499f926f851d4007197169becc8e3341054b77cb316f0359e6d1aac",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "1ad1872c1f84c0e09ba83d210e805ca2bea9340a644ab1d2b1c51ae3b22bf3de",
+      "run_id": "42219274709",
+      "started_at": "2026-11-06T12:39:02Z",
+      "status": "started",
+      "voice_seed": 0
+    },
     "76f9694dc3eed91a47b2e6da09a11b123caf8a4903e159e3e45182550043fc41": {
       "asset_files_sha256": "6c8cffcf5ed344e3dda7f4a0cf1176b8b3e424098df6afc37837cd26206466cc",
       "asset_manifest_sha256": "eab7492de01375af8940c3a4395a0e05039be8b7aaaad0f4e78b62070c279ed5",
