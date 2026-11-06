@@ -16,7 +16,12 @@
           "AI agent",
           "Your apps"
         ],
-        "edge_label": "clicks"
+        "edge_label": "clicks",
+        "cue_phrases": [
+          "AI",
+          "click",
+          "your computer"
+        ]
       },
       "cue_word": "computer"
     },
@@ -32,7 +37,11 @@
           "npm install -g agent-desktop",
           "agent-desktop snapshot --app Finder -i"
         ],
-        "title": "agent-desktop"
+        "title": "agent-desktop",
+        "cue_phrases": [
+          "npm install",
+          "agent-desktop"
+        ]
       },
       "cue_word": "npm"
     },
@@ -49,7 +58,12 @@
           "Accessibility tree",
           "Refs"
         ],
-        "edge_label": "reads"
+        "edge_label": "reads",
+        "cue_phrases": [
+          "snapshot",
+          "every button",
+          "ref"
+        ]
       },
       "cue_word": "snapshot"
     },
@@ -66,7 +80,12 @@
           "@s8f3k2p9:e9",
           "@s8f3k2p9:e10"
         ],
-        "highlight": 0
+        "highlight": 0,
+        "cue_phrases": [
+          "clicks",
+          "ref",
+          "guessed spot"
+        ]
       },
       "cue_word": "clicks"
     },
@@ -85,6 +104,11 @@
         ],
         "done": [
           0
+        ],
+        "cue_phrases": [
+          "screen changes",
+          "stale ref",
+          "new snapshot"
         ]
       },
       "cue_word": "changes"

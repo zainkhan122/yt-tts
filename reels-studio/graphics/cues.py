@@ -40,6 +40,9 @@ def norm(word: str) -> str:
     return re.sub(r"[^a-z0-9]", "", word.lower())
 
 
+_NSTOP = {re.sub(r"[^a-z0-9]", "", w) for w in _STOP}
+
+
 def tokens(text: str) -> list[str]:
     return [t for t in (norm(w) for w in text.split()) if len(t) > 2 and t not in _STOP]
 
@@ -75,6 +78,54 @@ def number_word_time(words: list[list], lo: float, hi: float, value=None):
     return None
 
 
+def _seq_match(text: str, words: list[list], lo: float, hi: float, not_before: float | None = None):
+    """Time of the spoken phrase that matches `text`, in order and after `not_before`.
+
+    A multi-word item binds to a run of consecutive spoken words (two or more matching in a row), so
+    "npm install" binds to the spoken "npm install", never to a stray "install". A single-word item
+    binds to its first distinctive spoken word. Returns None when the phrase is not spoken."""
+    target = [norm(w) for w in text.split()]
+    target = [t for t in target if t]
+    if not target:
+        return None
+    spoken = [(norm(w[0]), float(w[1])) for w in words
+              if lo <= float(w[1]) < hi and (not_before is None or float(w[1]) >= not_before)]
+    best_run, best_t = 0, None
+    for i in range(len(spoken)):
+        for j in range(len(target)):
+            k = 0
+            while i + k < len(spoken) and j + k < len(target) and spoken[i + k][0] == target[j + k]:
+                k += 1
+            if k > best_run:
+                # fire on the run's first distinctive word, not on a leading stop word ("its code" -> "code")
+                pos = next((p for p in range(i, i + k) if spoken[p][0] not in _NSTOP), i)
+                best_run, best_t = k, spoken[pos][1]
+    if best_run >= min(2, len(target)) and best_t is not None:
+        return best_t
+    if len(target) >= 2:  # a multi-word item may still bind to one distinctive word it shares
+        for tok in target:
+            if len(tok) >= 4 and tok not in _STOP:
+                for w, t in spoken:
+                    if w == tok:
+                        return t
+    return None
+
+
+def _bind_items(items: list[str], words: list[list], t0: float, t1: float, d: float, fallback: list[str],
+                prefix: str) -> list[float]:
+    """Bind each item to its own spoken phrase, in order; unmatched items get an even spread (recorded)."""
+    cues: list[float] = []
+    last = None
+    for i, text in enumerate(items):
+        c = _seq_match(text, words, t0, t1, not_before=last)
+        if c is None:
+            fallback.append(f"{prefix}{i}")
+            c = t0 + 0.18 + i * (d * 0.55 / max(1, len(items)))
+        cues.append(round(c, 3))
+        last = c
+    return cues
+
+
 def compute(scene: dict, words: list[list], t0: float, t1: float, cue_word: str | None = None) -> dict:
     """Returns the scene's cue times and icons. `words` are the phrase's own [text, start, end] items."""
     arch = scene["archetype"]
@@ -87,22 +138,18 @@ def compute(scene: dict, words: list[list], t0: float, t1: float, cue_word: str 
 
     if arch in ("chip_grid", "toggle_steps", "flow_link", "cta_stack"):
         items = (payload.get("chips") or payload.get("steps") or payload.get("nodes") or payload.get("lines") or [])
-        for i, text in enumerate(items):
-            c = _first_match(text, words, t0, t1)
-            if c is None:
-                fallback.append(f"item{i}")
-                c = t0 + 0.18 + i * (d * 0.55 / max(1, len(items)))
-            cues.append(round(c, 3))
-            icons.append(icon_for(text))
+        phrases = payload.get("cue_phrases") if isinstance(payload.get("cue_phrases"), list) else None
+        if not phrases or len(phrases) != len(items):  # the item's own wording unless the brief names the spoken phrase
+            phrases = items
+        cues = _bind_items(phrases, words, t0, t1, d, fallback, "item")
+        icons = [icon_for(text) for text in items]
         cue = cues[0] if cues else t0 + 0.15
     elif arch == "terminal_type":
         lines = payload.get("lines", [])
-        for i, text in enumerate(lines):
-            c = _first_match(text, words, t0, t1)
-            if c is None:
-                fallback.append(f"line{i}")
-                c = t0 + 0.15 + i * (d * 0.5 / max(1, len(lines)))
-            cues.append(round(c, 3))
+        phrases = payload.get("cue_phrases") if isinstance(payload.get("cue_phrases"), list) else None
+        if not phrases or len(phrases) != len(lines):
+            phrases = lines
+        cues = _bind_items(phrases, words, t0, t1, d, fallback, "line")
         cue = cues[0] if cues else t0 + 0.15
     elif arch == "stat_pop":
         c = None
