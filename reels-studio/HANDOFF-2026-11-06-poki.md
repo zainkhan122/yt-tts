@@ -71,13 +71,11 @@ Script (7 spoken lines, one per scene):
 
 Primary keyword `AI iPhone automation`; on-screen first 3 s "CAN AI USE YOUR IPHONE?".
 
-## 4. NOT done, and exactly why
-- **No MP4.** The render runs on GitHub Actions only (owner standing order). This session has no
-  GitHub token: `uploads/` is gitignored and absent from the clone, `/var/tmp/gh/token` and
-  `~/.config/reels-studio/gh_token` do not exist, `GH_TOKEN` is unset. `tools/preflight.py` and
-  `tools/capture_store.py` both stop with **401 Bad credentials**. Nothing was dispatched.
-- **No production receipt.** `tools/receipt_build.py` needs `captures/repo-poki-01/manifest.json`.
-  The capture pack needs `tools/capture_pw.py` (playwright + Chromium, not installed here).
+## 4. Token handling (owner instruction, 6 Nov)
+The owner supplied one fine-grained PAT. It is **not** printed, not in git, not in the repo:
+`~/.config/reels-studio/gh_token`, directory mode 700, file mode 600. The owner's uploaded copy was
+moved, not copied, so no second copy exists in the workspace. `lib/secrets.py` reads it; every helper
+uses `GH_TOKEN` in the environment only.
 
 Done at the end of the session, on the owner's word:
 - Topic approved: `python3 tools/make_shorts.py --approve-topic repo-poki-01 --note "..."` wrote the
@@ -106,3 +104,41 @@ Done at the end of the session, on the owner's word:
   `covers/repo-poki-01/draw_covers.py` to redraw.
 - Tests: `python3 -m pytest -q graphics/tests tests/test_gates.py tests/test_pipeline.py
   tests/test_cover_rules.py tests/test_plan_pipeline.py` → 55 passed, 4 pre-existing failures.
+
+## 7. Render: DONE (owner authorised the dispatch)
+Run **257** (`42260970838`) on `main` at `1ee28df`: **success**. plan ✓, voice ✓, render ✓,
+finalize-attempt ✓; `publish verified GitHub Release` skipped (artifact-only, as dispatched).
+
+| | |
+|---|---|
+| MP4 | `renders/repo-poki-01/repo-poki-01.mp4` (local, `renders/` is gitignored) |
+| sha256 | `72e3a71bf3914bf518a2e9982a619d5da789629ffde4e16e19e4b8d41b60a412` |
+| Format | 40.37 s, 1080×1920, 30 fps, H.264/AAC, −13.9 LUFS, −2.0 dBFS peak, 13.1 MB |
+| Artifact | `render-repo-poki-01` (13524909816), expires 2026-11-07; voice artifact 13526020792 |
+| Whisper | 99.8% character match; voice reused from the voice job (`8adab7da…`) |
+| `short_qa` plan gates | 11/11 PASS |
+| `short_qa` video gates | **PASS** — speech visual change 0.882, graphic-only 0.143, motion gap 0.5 s, WPM 178.9, longest pause 0.56 s |
+| Kit gates | 0 errors, 0 warnings |
+| Panel | `research/production/viewer-panel-repo-poki-01.md` — **PASS** with 4 findings |
+
+Packs in the `capture-packs` release: `repo-poki-01.tar` (3.3 MB, 4 assets + live GitHub facts) and
+`repo-poki-01-covers.tar` (256 KB). The cover pack was missing on run 255/`42257153709`, which is why
+that attempt failed before rendering; `tools/cover_store.py push repo-poki-01` is now part of the
+checklist below.
+
+### Findings worth one more render (owner's call)
+1. The point1 terminal sits empty for ~2.4 s before the first command types (lines are bound to "run the
+   setup script" and "start it"). Fix: earlier `cue_phrases` or a prompt line at the scene start.
+2. In point3 the outer flow nodes land before the middle one, so the flow reads out of order for ~1 s.
+3. The catch's third chip (Mac + Xcode) arrives last; it is the cost viewers care about.
+4. Cover asks "CAN AI USE YOUR IPHONE?", the first frame asks "CAN POKI USE YOUR IPHONE?". Cosmetic;
+   changing the cover changes the render input.
+
+Any of 1–3 needs a graphics edit plus a new dispatch. The duplicate guard will refuse identical inputs,
+so the change has to be real.
+
+## 8. Still not done
+- Nothing is queued, approved for publishing or scheduled. `queue/publish.json` is untouched.
+- No GitHub Release for the video (`publish_release` was false by design; artifacts expire 2026-11-07).
+- `tools/ship.py status` still shows the three pre-existing drift items (`tool-muse-01`, `repo-scm-01`,
+  `spotlight-papermorph-01`), untouched.
