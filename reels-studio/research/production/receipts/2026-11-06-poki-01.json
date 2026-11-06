@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "batch_id": "2026-11-06-poki-01",
-  "created_at": "2026-11-06T16:57:04Z",
+  "created_at": "2026-11-06T17:21:48Z",
   "briefs": {
     "repo-poki-01": {
       "brief_sha256": "5f9bebc722ebe60c12948cde44e3319ad0fa574d7a96f539a5b82f62057cf7a6",
@@ -14,19 +14,19 @@
         },
         "assets": {
           "capture_id": "repo-poki-01",
-          "manifest_sha256": "4c19d29ec5b2900f7b6f043243c2a860c6921a35b05f6763151283d4e34009b6",
+          "manifest_sha256": "ecba35352d0a519a40e64799dbab02d30c9b683582bb85db2c37150132b20be0",
           "files": [
             {
               "path": "desktop-top.jpg",
-              "sha256": "ebbab065598954a665cd07c69c9a4ac0ff3862c49b55b417ae28a2c08ffe28ad"
+              "sha256": "d9be57c806a23354a290795f0e7fc1cae2d8d79e72da1a71f22f37942c445aad"
             },
             {
               "path": "desktop-full.jpg",
-              "sha256": "8c706a0f4174694f8a5e38cbfb53ad14dbebef95e264e1822182547374a568e2"
+              "sha256": "01b74d687d590de0dc9f0616d342164ae78f9b6c441972de5f7818f91f050e52"
             },
             {
               "path": "mobile.png",
-              "sha256": "a791a33cb697328ec0751a85671fcb48defe4e5d7c938ab2787e73cbb6d43398"
+              "sha256": "997aba0dd4fbc29cfb04a81713161ad45ed01de229766d274fbdc0beffae10b0"
             },
             {
               "path": "demo.mp4",
