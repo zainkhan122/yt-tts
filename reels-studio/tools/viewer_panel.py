@@ -17,7 +17,7 @@ video may not be queued unless the panel passes.
 Panel rules (any one = FAIL, video returns to production):
   - a majority of personas would swipe away in the first 3 seconds;
   - any scene is an empty/placeholder stage or a text card carrying the scene alone;
-  - real product media (captured page / demo / UI) covers < 60% of scenes;
+  - main media (generated graphics built from the tool's flow, or optional tool media) covers < 60% of scenes;
   - a first-time viewer cannot say what the tool does for them after one watch.
 """
 import sys
@@ -33,7 +33,7 @@ PERSONAS = [
 BARS = [
     "first frame = the product/result (or face + one symbol), benefit legible muted",
     "giant captions from the first spoken word; never an empty or placeholder stage",
-    "real product media (capture/demo/UI) in >= 60% of scenes; cards support, never carry",
+    "main media (generated graphics built from the tool's flow; tool media optional) in >= 60% of scenes; cards support, never carry",
     "one idea per scene; a visual change every 4-5 s; hook claim in sentence one",
     "honest catch in plain user-impact words; spoken CTA before the end",
     "motion: a visual change at least every 5 s; real media cropped or animated to the feature (no full static screenshot held over 1 s); each graphic names a tool-specific element; comparisons and charts use real data only",
@@ -78,13 +78,13 @@ def main():
     for name, desc in PERSONAS:
         lines += [f"- **{name}** ({desc}): ", ]
     lines += ["", "## Scene-by-scene media check",
-              "- [ ] every scene has real media or a justified graphic (no empty stages)",
-              "- [ ] real product media covers >= 60% of scenes",
+              "- [ ] every scene has main media (a generated graphic or tool media); no empty stages",
+              "- [ ] main media (generated graphics or tool media) covers >= 60% of scenes",
               "- [ ] first frame sells the benefit muted, in the first 3 s",
               "- [ ] one-sentence takeaway a first-time viewer would repeat: ",
               "", "## Cover (judge cold, as it would appear in a stranger's feed)",
               "- [ ] cover concepts rendered by tools/cover_lab.py and opened (sheet.jpg): ",
-              "- [ ] winning concept readable muted at feed size (<= 4 words, real media): ",
+              "- [ ] winning concept readable muted at feed size (<= 4 words, designed graphic): ",
               "- [ ] selected_cover in the brief matches the winning concept: ",
               "- [ ] Would YOU tap this cover between two strangers' videos? why: ",
               "", "## Panel result: PASS / FAIL (fail = back to production, no queueing)", ""]

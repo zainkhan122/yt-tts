@@ -6,13 +6,17 @@
     {
       "scene_id": "hook",
       "phrase": 0,
-      "archetype": "concept_card",
+      "archetype": "flow_link",
       "headline": "AI USES YOUR PC NOW",
       "feature_id": null,
       "depicts": "an AI use your computer right now without screenshots",
       "payload": {
-        "big": "AI USES YOUR PC NOW",
-        "sub": "No screenshots needed"
+        "nodes": [
+          "Your task",
+          "AI agent",
+          "Your apps"
+        ],
+        "edge_label": "clicks"
       },
       "cue_word": "computer"
     },
@@ -104,15 +108,17 @@
     {
       "scene_id": "cta",
       "phrase": 6,
-      "archetype": "cta_stack",
+      "archetype": "flow_link",
       "headline": "COMMENT DESKTOP",
       "feature_id": null,
       "depicts": "comment DESKTOP and send you the repo link",
       "payload": {
-        "lines": [
-          "COMMENT DESKTOP",
-          "FOR THE REPO LINK"
-        ]
+        "nodes": [
+          "Comment",
+          "DESKTOP",
+          "Repo link"
+        ],
+        "edge_label": "sends"
       },
       "cue_word": "Comment"
     }

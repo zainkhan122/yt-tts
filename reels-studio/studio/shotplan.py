@@ -18,8 +18,9 @@ from pathlib import Path
 
 from studio.rules import Finding
 
-KINDS = ("capture", "video", "chart", "stat", "callout", "sticker", "text")
-REAL_KINDS = ("capture", "video")
+KINDS = ("capture", "video", "chart", "stat", "callout", "sticker", "text", "graphic")
+# Main media = generated graphics built from the tool's flow, or tool media (optional). Owner rule, 6 Nov 2026.
+REAL_KINDS = ("capture", "video", "graphic")
 MOTIONS = ("static", "push-in", "pan", "scroll", "cut")
 MIN_BEAT_S, MAX_BEAT_S = 0.8, 7.0
 MIN_REAL_SHARE = 0.55
@@ -81,8 +82,8 @@ def check_plan(plan, *, captures_dir=None, claims=None):
             _f(out, "SP015", f"{pid} beat {i + 1}", f"unknown kind {b.get('kind')!r}; allowed {KINDS}")
 
     # SP006: first second shows something real.
-    if beats and beats[0].get("kind") not in ("capture", "video", "chart", "stat"):
-        _f(out, "SP006", f"{pid} beat 1", "the first beat must show real media, a chart or a sourced stat")
+    if beats and beats[0].get("kind") not in ("capture", "video", "chart", "stat", "graphic"):
+        _f(out, "SP006", f"{pid} beat 1", "the first beat must show main media (a generated graphic, tool media, a chart or a sourced stat)")
 
     # SP003: real media share.
     def _is_real(b):
@@ -93,7 +94,7 @@ def check_plan(plan, *, captures_dir=None, claims=None):
     real_time = sum(b["t1"] - b["t0"] for b in valid if _is_real(b))
     text_time = sum(b["t1"] - b["t0"] for b in valid if b["kind"] == "text")
     if duration and real_time / duration < MIN_REAL_SHARE:
-        _f(out, "SP003", pid, f"real media is {real_time / duration:.0%} of the run; need {MIN_REAL_SHARE:.0%}+")
+        _f(out, "SP003", pid, f"main media (generated graphic or tool media) is {real_time / duration:.0%} of the run; need {MIN_REAL_SHARE:.0%}+")
     if duration and text_time / duration > MAX_TEXT_SHARE:
         _f(out, "SP005", pid, f"text cards are {text_time / duration:.0%} of the run; max {MAX_TEXT_SHARE:.0%}")
 

@@ -254,7 +254,7 @@ github.signals 117K, ...): audio-only, vocals separated from music (UVR MDX-Net)
 gates measure technical validity, NOT watchability; an "8/8" never again substitutes for
 watching the video. Hard rules, enforced in `production_gate.verify_capture_assets`
 (cloud render refuses otherwise) and warned early by brief_lint BL110/BL111:
-- the capture pack must contain **real product media** — our own captures of the product
+- main media is a **generated graphic built from the tool's flow** (owner rule, 6 Nov 2026); tool media (captures, README images) is optional
   page/UI (`capture.py`, kind "own capture") and/or official demo media/images;
 - **≥2 media scenes, ≥1 of them motion/page** (clip, clip-montage, page, scroll);
 - generated text cards are support graphics only — never the main visual, never the cover;
@@ -262,7 +262,7 @@ watching the video. Hard rules, enforced in `production_gate.verify_capture_asse
 **Viewer panel (mandatory before queueing):** `tools/viewer_panel.py <render-dir>` extracts
 one frame per scene; the reviewing agent scores the five personas against the decode bars
 and writes the verdict into `viewer-panel.md` in the render folder. Majority-swipe in the
-first 3 s, any empty/card-only scene, <60% real-media scenes, or no one-sentence takeaway
+first 3 s, any empty/card-only scene, <60% main-media scenes (generated graphics or tool media), or no one-sentence takeaway
 = FAIL and the video returns to production. Filled panels for shipped videos live with
 their production records (`research/production/`). **Enforced, not aspirational:**
 `queue_ctl.py approve` refuses any video without a PASS panel on file

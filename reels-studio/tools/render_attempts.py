@@ -79,6 +79,12 @@ def renderer_fingerprint(repo_root: Path) -> str:
     return _sha(encoded)
 
 
+def root_for_graphics(repo_root: Path, gdir: str):
+    """Resolve a brief's graphics dir (relative to reels-studio/); None when absent."""
+    p = (Path(repo_root).resolve() / "reels-studio" / gdir)
+    return p if p.is_dir() else None
+
+
 def make_attempts(repo_root: Path, plan: dict, loaded_briefs: dict[str, dict], brief_hashes: dict[str, str],
                   asset_hashes: dict[str, object] | None = None) -> list[dict]:
     code_sha = renderer_fingerprint(repo_root)
@@ -101,6 +107,15 @@ def make_attempts(repo_root: Path, plan: dict, loaded_briefs: dict[str, dict], b
             asset_manifest_sha = asset
             asset_files_sha = None
             capture_id = None
+        # The graphics beat plan (beats, features, source, timing) is a render input: changing a scene is a new render.
+        gdir = (brief.get("graphics") or {}).get("dir") if isinstance(brief.get("graphics"), dict) else None
+        graphics_sha = None
+        if gdir:
+            gpath = root_for_graphics(repo_root, gdir)
+            if gpath is not None:
+                rows = [{"path": f.relative_to(gpath).as_posix(), "sha256": _sha(f.read_bytes())}
+                        for f in sorted(gpath.rglob("*")) if f.is_file() and not f.is_symlink()]
+                graphics_sha = _sha(json.dumps(rows, sort_keys=True, separators=(",", ":")).encode("utf-8"))
         payload = {
             "brief_id": brief_id,
             "brief_sha256": brief_hashes[brief_id],
@@ -115,6 +130,8 @@ def make_attempts(repo_root: Path, plan: dict, loaded_briefs: dict[str, dict], b
             "rebuild_scenes": list(plan.get("rebuild_scenes") or []),
             "from_tag": plan.get("from_tag", ""),
         }
+        if graphics_sha:
+            payload["graphics_sha256"] = graphics_sha
         fingerprint = _sha(json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8"))
         attempts.append({**payload, "fingerprint": fingerprint})
     return attempts

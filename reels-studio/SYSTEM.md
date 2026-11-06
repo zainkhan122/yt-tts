@@ -12,11 +12,11 @@ published only with read-back evidence.
 | Radar | `tools/trend_radar.py` | `research/radar/` | Surface candidates. Flags risky items. Writes no copy or angle. |
 | Topic choice | `studio/select.py` + `config/selection.json` | `intake/YYYY-MM-DD-selection.json` | Agent judges each pick from the last 24 h (classification, viewer gain, autocomplete demand, Buffer and yt-dlp reference insights, competition, media plan). Code draws the daily pick count at random (2 to 7), checks each judgment record, and checks each claim has a source line or owner approval. No weights, no fixed mix. (Retired 31 Oct 2026: studio/topics.py, topic-mix.json.) |
 | Brief | a human (with the guidelines) | `briefs/*.json` | Script, claims with dated sources, shot plan, captions. No `template` field. |
-| Shot plan | `studio/shotplan.py` | `tests/test_shotplan.py` | Validates timing, real-media share (≥55%), text share (≤20%), sourced stats, callouts on real media, and that captures exist. |
+| Shot plan | `studio/shotplan.py` | `tests/test_shotplan.py` | Validates timing, main-media share (generated graphics or tool media, ≥55%), text share (≤20%), sourced stats, callouts on real media, and that captures exist. |
 | Studio rules | `studio/rules.py`, `studio/check.py` | `tests/test_studio.py` | Copy rules, URL and disclosure rules, licence badge, per-platform assembly. |
 | Draw and render | `studio/draw.py`, `lib/pipeline.py` | renders in CI | Draws the schedule for the day (random 1–5 videos). Renders with `DEFAULT_SKIN` (`tool-spotlight`), or with the graphics renderer when the brief sets `renderer: "graphics"` (`graphics/`, fail-closed beat lint, Playwright). |
 | Graphics | `graphics/` | CI (Playwright, `cloud/setup-render.sh`) | Beat plan bound to the brief's scenes and the TTS word timings. Seven archetypes, animations timed to the words. |
-| Covers | Cover Lab (`tools/cover_lab.py`) | renders | One cover per short, from the product's real media. |
+| Covers | Cover Lab (`tools/cover_lab.py`) | renders | One designed cover per short, built from the tool's flow. |
 | Publishing | `tools/post/` (planner, publisher, cadence) | Buffer via `post.yml` | Plans and schedules at each channel's best times. Writes to Buffer only after a dry run. Read-back verified. |
 | Production gate | `tools/production_gate.py` | `research/production/receipts/` | Blocks publishing unless receipts and hashes match. |
 
