@@ -18,6 +18,9 @@ ARCHETYPES: dict[str, dict] = {
     "terminal_type": {"req": ["lines"], "opt": ["title", "cue_phrases"], "script_ok": False, "facts": True},
     "toggle_steps": {"req": ["steps"], "opt": ["done", "cue_phrases"], "script_ok": False, "facts": True},
     "cta_stack":    {"req": ["lines"], "opt": [], "script_ok": True, "facts": False},
+    # The brand end-card: real logo, follow button, cursor press (same press time as the audio click).
+    "endcard":      {"req": ["keyword"], "opt": ["follow", "lines", "cue_phrases", "prompt"],
+                     "script_ok": True, "facts": False},
 }
 SCRIPT_ARCHETYPES = {a for a, d in ARCHETYPES.items() if d["script_ok"]}
 MAX_TEXT = 42

@@ -3,6 +3,12 @@
 Every list item (chip, step, node, terminal line, CTA pill) is bound to the first spoken word in its
 phrase that matches its own wording. A number is bound to the spoken number word. Anything unmatched
 falls back to an even spread across the phrase, and the fallback is recorded so the QA report shows it.
+
+Two rules keep the picture on the voice instead of behind it (owner, 6 Nov 2026):
+  * the FIRST item of a scene lands at the scene's first word, not on a late cue phrase, so no scene
+    opens on an empty stage;
+  * the end-card's follow press uses the pipeline's own `press` time, the same number the click SFX
+    uses, so the click and the cursor press are one event.
 """
 from __future__ import annotations
 
@@ -90,17 +96,23 @@ def _seq_match(text: str, words: list[list], lo: float, hi: float, not_before: f
         return None
     spoken = [(norm(w[0]), float(w[1])) for w in words
               if lo <= float(w[1]) < hi and (not_before is None or float(w[1]) >= not_before)]
-    best_run, best_t = 0, None
+    # Best run wins; a run that starts on the item's own first word gets a bonus, so "Add the Poki MCP
+    # server" fires on "Add" (10.29) and not on the "MCP server" that happens to match two words later.
+    best_key, best_run, best_t = None, 0, None
     for i in range(len(spoken)):
         for j in range(len(target)):
             k = 0
             while i + k < len(spoken) and j + k < len(target) and spoken[i + k][0] == target[j + k]:
                 k += 1
-            if k > best_run:
-                # fire on the run's first distinctive word, not on a leading stop word ("its code" -> "code")
-                pos = next((p for p in range(i, i + k) if spoken[p][0] not in _NSTOP), i)
-                best_run, best_t = k, spoken[pos][1]
-    if best_run >= min(2, len(target)) and best_t is not None:
+            if not k:
+                continue
+            key = (k + (1 if j == 0 else 0), -spoken[i][1])
+            if best_key is None or key > best_key:
+                # fire on the run's FIRST spoken word: the picture must land with the phrase, not after it
+                best_key, best_run, best_t = key, k, spoken[i][1]
+    # A run that begins the item's own wording counts even at one word ("Add …" -> the spoken "add");
+    # a lone match in the middle of the item does not (it would hop onto an unrelated word).
+    if best_key is not None and best_key[0] >= min(2, len(target)) and best_t is not None:
         return best_t
     if len(target) >= 2:  # a multi-word item may still bind to one distinctive word it shares
         for tok in target:
@@ -121,8 +133,18 @@ def _bind_items(items: list[str], words: list[list], t0: float, t1: float, d: fl
         if c is None:
             fallback.append(f"{prefix}{i}")
             c = t0 + 0.18 + i * (d * 0.55 / max(1, len(items)))
-        cues.append(round(c, 3))
+        c = round(c, 3)
+        if last is not None and c <= last:  # two items never fire on the same frame
+            c = round(last + 0.35, 3)
+        cues.append(c)
         last = c
+    return cues
+
+
+def _lead(cues: list[float], t0: float, lead: float = 0.10) -> list[float]:
+    """The first item is on screen when the scene opens; the rest stay bound to their own words."""
+    if cues and cues[0] > t0 + lead:
+        cues = [round(t0 + lead, 3)] + list(cues[1:])
     return cues
 
 
@@ -136,19 +158,43 @@ def compute(scene: dict, words: list[list], t0: float, t1: float, cue_word: str 
     cues: list[float] = []
     icons: list[str] = []
 
+    if arch == "endcard":
+        # Keyword chip on the spoken keyword, follow press on the CTA word. stage.plan_scenes overrides
+        # both with the pipeline's own event times when it has them (events from the template).
+        c = _first_match(payload.get("keyword") or "", words, t0, t1)
+        if c is None:
+            c = _first_match("comment", words, t0, t1)
+        if c is None:
+            fallback.append("keyword")
+            c = t0 + 0.3
+        cue = c
+        press = _first_match("follow", words, t0, t1) or _first_match("comment", words, t0, t1)
+        press = max(press or 0.0, c + 1.2)  # the card is up, the keyword has landed, then the press
+        press = min(t1 - 0.9, press)
+        cues = [round(float(press), 3)]
+        return {"cue": round(float(cue), 3), "cues": cues, "icons": [], "fallback": fallback}
+
     if arch in ("chip_grid", "toggle_steps", "flow_link", "cta_stack"):
         items = (payload.get("chips") or payload.get("steps") or payload.get("nodes") or payload.get("lines") or [])
         phrases = payload.get("cue_phrases") if isinstance(payload.get("cue_phrases"), list) else None
-        if not phrases or len(phrases) != len(items):  # the item's own wording unless the brief names the spoken phrase
+        if not phrases:  # the item's own wording unless the brief names the spoken phrase
             phrases = items
-        cues = _bind_items(phrases, words, t0, t1, d, fallback, "item")
+        elif len(phrases) < len(items):  # a short list names the first items only; the rest bind by wording
+            phrases = list(phrases) + items[len(phrases):]
+        elif len(phrases) > len(items):
+            phrases = list(phrases[:len(items)])
+        cues = _lead(_bind_items(phrases, words, t0, t1, d, fallback, "item"), t0)
         icons = [icon_for(text) for text in items]
         cue = cues[0] if cues else t0 + 0.15
     elif arch == "terminal_type":
         lines = payload.get("lines", [])
         phrases = payload.get("cue_phrases") if isinstance(payload.get("cue_phrases"), list) else None
-        if not phrases or len(phrases) != len(lines):
+        if not phrases:
             phrases = lines
+        elif len(phrases) < len(lines):
+            phrases = list(phrases) + lines[len(phrases):]
+        elif len(phrases) > len(lines):
+            phrases = list(phrases[:len(lines)])
         cues = _bind_items(phrases, words, t0, t1, d, fallback, "line")
         cue = cues[0] if cues else t0 + 0.15
     elif arch == "stat_pop":

@@ -1546,7 +1546,10 @@ class Job:
             # The final mix (voice + music + sfx, loudness-normalized by audio()) is the soundtrack, not the bare voice.
             mix = self.proj / "assets" / "mix.wav"
             audio_path = mix if mix.exists() else self.vo_path
-            info = render_for_pipeline(gdir, self.timing, self.order, audio_path, mp4, self.work / "graphics", self.D)
+            # events: the template's own time map (press / keyword / …). The graphics visuals take the
+            # end-card press from the same number the click SFX fires on, so picture and sound agree.
+            info = render_for_pipeline(gdir, self.timing, self.order, audio_path, mp4, self.work / "graphics",
+                                       self.D, events=getattr(self, "events", {}) or {})
         except GraphicsError as e:
             raise SystemExit(f"graphics {e.stage} failed (fail-closed, nothing rendered): {e}")
         self.stage("render", renderer="graphics", secs=info.get("secs"), phrases=info.get("phrases"),

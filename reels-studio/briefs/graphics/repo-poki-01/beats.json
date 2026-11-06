@@ -34,8 +34,8 @@
       "depicts": "clone it and run the setup script then start the server",
       "payload": {
         "lines": [
-          "./bin/setup",
-          "npm start"
+          "$ ./bin/setup",
+          "$ npm start"
         ],
         "title": "poki",
         "cue_phrases": [
@@ -58,11 +58,7 @@
           "Pick Claude Code or Codex",
           "Your own subscription"
         ],
-        "done": 2,
-        "cue_phrases": [
-          "Claude Code or Codex",
-          "your own subscription"
-        ]
+        "done": 2
       },
       "cue_word": "server"
     },
@@ -76,13 +72,14 @@
       "payload": {
         "nodes": [
           "Your task",
-          "Taps and types",
-          "Result on screen"
+          "Searches the web",
+          "Taps and types"
         ],
         "edge_label": "works the screen",
         "cue_phrases": [
           "Give it a task",
-          "taps and types"
+          "searching the web",
+          "It taps and types"
         ]
       },
       "cue_word": "task"
@@ -120,15 +117,13 @@
     {
       "scene_id": "cta",
       "phrase": 6,
-      "archetype": "cta_stack",
+      "archetype": "endcard",
       "headline": "HAND YOUR PHONE TO AI",
       "feature_id": null,
-      "depicts": "hand your phone to an agent and comment the keyword",
+      "depicts": "comment the keyword and follow to get the repo",
       "payload": {
-        "lines": [
-          "Comment IPHONE",
-          "Repo pinned to the comment"
-        ]
+        "keyword": "IPHONE",
+        "follow": "Follow"
       },
       "cue_word": "IPHONE"
     }

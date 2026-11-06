@@ -273,25 +273,35 @@
     update: function (r, s, u, d) {
       var now = u + s.t0;
       var cps = 30, typedEnd = s.t0;
-      var active = null;
+      var active = null, firstIdle = null;
       r.lines.forEach(function (ln, i) {
         var t0 = s.cues[i] !== undefined ? s.cues[i] : s.cue;
         var n = Math.floor(clamp((now - t0) * cps, 0, ln.text.length));
+        // The shell prompt is on screen from the scene's first frame, so the window reads as "ready",
+        // never as an empty box waiting for the voice.
+        if (i === 0 && ln.text.charAt(0) === "$") n = Math.max(n, 2);
+        if (n === 0 && !firstIdle) firstIdle = ln.node;
         var shown = ln.text.slice(0, n);
         ln.node.innerHTML = "";
         colourise(ln.node, shown, ln.text.charAt(0) === "$");
         if (n > 0 && n < ln.text.length) active = ln.node;
         if (n >= ln.text.length) typedEnd = Math.max(typedEnd, t0 + ln.text.length / cps);
       });
-      if (!active) {
-        var last = r.lines[r.lines.length - 1];
-        active = last.node;
-      }
+      // The prompt is alive from the scene's first frame: the caret waits on the next empty line, so the
+      // window is never a blank box before the first command is spoken.
+      if (!active) active = firstIdle || r.lines[r.lines.length - 1].node;
       active.appendChild(r.caret);
       r.caret.style.opacity = (Math.floor(now * 2.5) % 2 === 0) ? "1" : "0";
-      var done = now > typedEnd + 0.15;
-      r.status.textContent = done ? "\u2713 done" : "\u25cf running";
-      r.status.style.color = done ? GREEN : BLUE;
+      var allTyped = r.lines.every(function (ln, i) {
+        var t0 = s.cues[i] !== undefined ? s.cues[i] : s.cue;
+        return now >= t0 + ln.text.length / cps;
+      });
+      var started = r.lines.some(function (ln, i) {
+        var t0 = s.cues[i] !== undefined ? s.cues[i] : s.cue;
+        return now >= t0;
+      });
+      r.status.textContent = allTyped && now > typedEnd + 0.15 ? "\u2713 done" : (started ? "\u25cf running" : "\u25cf waiting");
+      r.status.style.color = allTyped && now > typedEnd + 0.15 ? GREEN : BLUE;
     }
   };
   function colourise(node, text, isCmd) {
@@ -375,6 +385,84 @@
     }
   };
 
+  /* endcard: the brand end-card. Real logo (never a text initial), handle, the CTA keyword, a Follow
+   button, and a cursor that presses it. The press fires on the pipeline's own `press` time, the same
+   number the click SFX uses, so what you hear and what you see are one event. */
+  ARCH.endcard = {
+    build: function (root, s) {
+      var b = (D && D.brand) || {};
+      var p = s.payload || {};
+      var r = { wrap: el("div", "ec", root) };
+      r.card = el("div", "ec-card", r.wrap);
+      var av = el("div", "ec-av", r.card);
+      if (b.logo) {
+        var img = document.createElement("img");
+        img.src = b.logo; img.alt = b.name || "";
+        av.appendChild(img);
+      } else {
+        el("span", "ec-initial", av, String(b.name || "H").slice(0, 1));
+      }
+      r.name = el("div", "ec-name", r.card, b.name || "");
+      var badge = el("span", "ec-badge", r.name);
+      badge.innerHTML = '<svg viewBox="0 0 24 24" width="30" height="30"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#0C0E13" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      el("div", "ec-handle", r.card, b.handle || D.handle || "");
+      if (b.tagline) el("div", "ec-tag", r.card, b.tagline);
+      r.kw = el("div", "ec-kw", r.card);
+      el("span", "ec-kw-ic", r.kw, "comment");
+      el("span", "ec-kw-t", r.kw, p.keyword ? String(p.keyword).toUpperCase() : "");
+      r.btn = el("div", "ec-btn", r.card);
+      r.lbl = el("span", "ec-lbl", r.btn, p.follow || b.cta_button || "Follow");
+      r.done = el("div", "ec-done", r.btn);
+      el("span", "ec-done-t", r.done, "Following");
+      r.ring = el("div", "ec-ring", r.btn);
+      r.cur = svg(24, 24, r.btn, "ec-cursor");  // parented to the button so it always lands on it
+      var path = document.createElementNS(NS, "path");
+      path.setAttribute("d", "M4 2l15 9.2-6.6 1.3 3.9 7.4-2.8 1.5-3.9-7.5L4 18.8z");
+      path.setAttribute("fill", "#FFFFFF");
+      path.setAttribute("stroke", "#0C0E13");
+      path.setAttribute("stroke-width", "1.2");
+      path.setAttribute("stroke-linejoin", "round");
+      r.cur.appendChild(path);
+      return r;
+    },
+    update: function (r, s, u, d) {
+      var now = u + s.t0;
+      var ev = s.ev || {};
+      var pr = (typeof ev.press === "number" ? ev.press : s.t0 + Math.max(1.2, Math.min(d * 0.62, d - 1.1))) - s.t0;
+      var kw = (typeof ev.keyword === "number" ? ev.keyword : s.cue) - s.t0;
+
+      // the card lands on the first word of the CTA
+      var cin = easeOutBack(ramp(u, 0, 0.5));
+      r.card.style.opacity = fmt(ramp(u, 0, 0.2));
+      r.card.style.transform = "translateY(" + fmt((1 - cin) * 110) + "px) scale(" + fmt(0.94 + 0.06 * cin, 3) + ")";
+
+      // keyword chip pops on the spoken keyword, then keeps breathing
+      var kp = easeOutBack(ramp(u, kw, kw + 0.42));
+      r.kw.style.opacity = fmt(ramp(u, kw, kw + 0.16));
+      r.kw.style.transform = "translateY(" + fmt((1 - kp) * 44) + "px) scale(" + fmt(0.86 + 0.14 * kp + 0.012 * Math.sin(u * 3.1), 3) + ")";
+
+      // cursor: arrives, presses, leaves
+      var arrive = easeOutCubic(ramp(u, pr - 0.6, pr));
+      var leave = ramp(u, pr + 0.55, pr + 0.85);
+      r.cur.style.opacity = fmt(ramp(u, pr - 0.62, pr - 0.42) * (1 - leave));
+      r.cur.style.transform = "translate(" + fmt((1 - arrive) * 210) + "px," + fmt((1 - arrive) * 250) + "px) scale(1)";
+
+      var down = ramp(u, pr - 0.12, pr - 0.02) * (1 - ramp(u, pr + 0.02, pr + 0.2));
+      var back = easeOutBack(ramp(u, pr + 0.04, pr + 0.26));
+      var bscale = 1 - 0.09 * down + 0.012 * (u > pr + 0.04 ? 0 : Math.sin(u * 3.2));
+      r.btn.style.transform = "scale(" + fmt(bscale * (0.96 + 0.04 * easeOutBack(ramp(u, 0.16, 0.52))), 3) + ")";
+      r.btn.style.boxShadow = "0 0 " + fmt(18 + 26 * (0.5 + 0.5 * Math.sin(u * 3.2))) + "px rgba(255,214,10," + fmt(0.35 + 0.1 * Math.sin(u * 3.2)) + ")";
+      r.lbl.style.opacity = fmt(1 - ramp(u, pr + 0.02, pr + 0.1));
+      r.done.style.opacity = fmt(ramp(u, pr + 0.03, pr + 0.12));
+      r.done.style.transform = "scale(" + fmt(0.9 + 0.1 * back) + ")";
+      r.ring.style.opacity = fmt(ramp(u, pr, pr + 0.03) * (1 - ramp(u, pr + 0.3, pr + 0.62)));
+      r.ring.style.transform = "scale(" + fmt(0.7 + 1.5 * easeOutCubic(ramp(u, pr, pr + 0.55)), 3) + ")";
+
+      // idle life so the last frame is never frozen
+      r.wrap.style.transform = "translateY(" + fmt(Math.sin(u * 1.6) * 5) + "px)";
+    }
+  };
+
   /* ---------- stage ---------- */
   var stageEl, gridEl, glowEl, capEl, handleEl, particles = [];
 
@@ -410,7 +498,9 @@
     var words = s.words || [];
     var cur = -1;
     for (var i = 0; i < words.length; i++) if (t >= words[i][1]) cur = i;
-    var start = Math.max(0, Math.min(cur - 1, words.length - 4));
+    // The word being said is the FIRST word on screen (owner, 6 Nov 2026: kinetic text read one word
+    // behind because the line led with the previous word). Three words of look-ahead follow it.
+    var start = Math.max(0, Math.min(cur, words.length - 4));
     var end = Math.min(words.length, start + 4);
     capEl.innerHTML = "";
     for (var j = start; j < end; j++) {

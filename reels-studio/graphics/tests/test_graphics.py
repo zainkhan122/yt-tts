@@ -221,7 +221,9 @@ def test_list_items_fire_on_their_own_spoken_word():
              ["its", 2.2, 2.3], ["code", 2.3, 2.6], ["its", 2.7, 2.8], ["files", 2.8, 3.2]]
     sc = {"archetype": "chip_grid", "payload": {"chips": ["Pages at every width", "Its code", "Its files"]}}
     c = compute(sc, words, 0.9, 3.4)
-    assert c["cues"][0] == 1.0 and c["cues"][1] == 2.3 and c["cues"][2] == 2.8
+    # each chip fires on the first word of its own spoken phrase (owner, 6 Nov 2026: firing on a later
+    # word inside the phrase read as the picture lagging the voice)
+    assert c["cues"][0] == 1.0 and c["cues"][1] == 2.2 and c["cues"][2] == 2.7
     assert c["fallback"] == []
 
 
