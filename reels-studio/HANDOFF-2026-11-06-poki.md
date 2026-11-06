@@ -142,3 +142,51 @@ so the change has to be real.
 - No GitHub Release for the video (`publish_release` was false by design; artifacts expire 2026-11-07).
 - `tools/ship.py status` still shows the three pre-existing drift items (`tool-muse-01`, `repo-scm-01`,
   `spotlight-papermorph-01`), untouched.
+
+## 9. Owner review of run 257: sync + end-card fix (this section)
+
+Owner, on the run-257 MP4: *"animations, TTS, kinetic text is out of sync. Outro is shit"* and
+*"this pipeline already using an outro with channel logo and click on follow animation, where is that???"*
+
+### Where the end-card was
+It existed, but only in the HyperFrames template path — `templates/_base/base.js` `endCard()` (logo,
+name + verified badge, handle, tagline, Follow button, cursor press) with `#endcard` styled in
+`templates/_base/base.css`, its press time shared with the click SFX through `DATA.events.press`.
+`repo-poki-01` renders with `renderer: graphics`, and the graphics engine (`graphics/templates/engine.js`)
+had **no end-card at all**: the CTA was three stacked pills. The mix still played the template's
+`click` SFX at `ev["press"]` (38.65 s), so the finished video had a click with nothing to click.
+
+### What was wrong with the sync (measured, not guessed)
+Audio drift was **not** the cause: VO vs kit word timings best shift **+10 ms**, final mix vs VO
+waveform **0 ms** (corr 0.918). The defects were cue-level and structural:
+1. every list bound its items to *later* words inside the phrase (`_seq_match` preferred the item's
+   "distinctive" word), so pictures trailed the voice;
+2. `cue_phrases` shorter than the item list was silently ignored, which is why point2's ticks and
+   point3's nodes fired out of order (`result` before `taps and types`);
+3. the first item of a scene waited for its own cue phrase, so scenes opened on an empty stage
+   (terminal: 2.4 s of blank window);
+4. the caption line led with the **previous** word (window started at `cur - 1`), which reads as one
+   word behind.
+
+### The fix (commit `21ab236`, receipt `cc1d3f1`)
+- `graphics/templates/engine.js` — new `ARCH.endcard`: real brand logo (data URI from
+  `brand/logo/avatar-1080.png`, never a text initial), name + badge, handle, tagline, the spoken
+  keyword chip, Follow button, cursor that arrives and presses (scale dip, ring, label → "Following").
+  Terminal shows a live `$` prompt + "waiting" status from the first frame. Caption window starts on
+  the spoken word.
+- `graphics/stage.py` — `brand_block()`, `_attach_events()`; `render_for_pipeline(..., events=…)`.
+- `lib/pipeline.py` — passes `self.events` into the graphics render, so the press is the *same number*
+  the click SFX uses (verified: doc `ev.press` = 38.65 = audio `press`).
+- `graphics/cues.py` — first item lands at the scene's first word; item binding takes the run that
+  starts the item's own wording and fires on the run's first word; no two items on one frame; a short
+  `cue_phrases` list no longer disables all of them; `endcard` binds keyword + press.
+- `briefs/graphics/repo-poki-01/beats.json` — CTA is now `endcard` (`keyword: IPHONE`); terminal lines
+  carry their `$`; flow nodes follow the sentence ("Your task" → "Searches the web" → "Taps and types").
+- `graphics/tests` — 28 pass (one expectation updated deliberately: an item fires on the first word of
+  its phrase). Full suite: 621 passed, 9 pre-existing failures (cover lab, workspace budget, network).
+
+### Verification before dispatch
+The new document was rendered locally against the existing mix (`/tmp/preview.mp4`, preview only,
+never published) and checked frame by frame: card at 35.2 s, keyword chip 36.9 s, cursor 38.4 s,
+press + ring + "Following" 38.8 s, hold to the last frame; terminal prompt at 4.2 s; ticks at
+10.4/12.0; nodes 16.2/18.0/21.4; chips 27.4/30.9/33.5 — every element in spoken order, no fallbacks.
