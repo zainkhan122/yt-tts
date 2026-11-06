@@ -231,8 +231,40 @@
       "payoff_scene": "point1"
     },
     "proof_moment": "point1",
-    "selected_cover": 0,
-    "archetype": "concept_card"
+    "selected_cover": 1,
+    "archetype": "concept_card",
+    "cover_concepts": [
+      {
+        "id": "c1",
+        "layout": "bleed",
+        "text": "AI USES YOUR PC NOW",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c1.png",
+          "design": "Full-bleed illustration: a laptop desk at night with a glowing agent cursor clicking one button in an app window."
+        }
+      },
+      {
+        "id": "c2",
+        "layout": "window",
+        "text": "ONE COMMAND, AI RUNS APPS",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c2.png",
+          "design": "Framed app window with a grid of buttons, each tagged, an agent cursor landing on one tag."
+        }
+      },
+      {
+        "id": "c3",
+        "layout": "split",
+        "text": "STALE REF? AI RETRIES",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c3.png",
+          "design": "Split: top a red stale-ref warning tile, bottom a fresh green app window with a new ref."
+        }
+      }
+    ]
   },
   "review": {
     "reviewed_at": "2026-11-06",

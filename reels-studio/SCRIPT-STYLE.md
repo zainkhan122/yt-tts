@@ -139,3 +139,35 @@ like one friend telling another friend something. Our scripts do the same.
 - **Read-aloud check:** read the script out loud. If it sounds like a product page or a list of
   features, rewrite it as one friend explaining to another.
 
+### 7a. Examples (use these for ease)
+
+**Bot opener vs friend opener (same tool, same facts):**
+- Bot: "Introducing agent-desktop, a powerful tool for AI computer use." (rejected)
+- Friend: "Ever wanted an AI to click around your computer for you?" (use)
+- Bot: "In this video, we will explore how to install agent-desktop." (rejected)
+- Friend: "It's called agent-desktop, and it's open source. Install it with one line: npm install -g agent-desktop." (use)
+
+**Hook patterns, one per script (examples from the reference study, reworded in our own words):**
+- Question about the viewer's problem: "Ever had an AI tutor forget everything you studied last week?"
+- Number contrast, then the claim: "A 2.8 trillion parameter model needs a data center full of GPUs." Then: "It runs on a basic laptop."
+- Command that names a pain: "Stop your Smart TV from spying on you."
+- Problem-first, tool named next: "Your AI keeps clicking the wrong button? Here's the fix." (only if the fix is true)
+
+**Proof and catch, as the viewer feels them:**
+- Proof: "Each button and field gets its own ref, so the agent clicks the one you mean."
+- Catch as user impact: "The catch: you need Node.js and npm installed first."
+- Catch as a real requirement (paraphrase, not copied): "You will need a fast SSD with a lot of free space." Only if the brief states it.
+
+**Close: benefit, then a question, then the keyword:**
+- "Would you let an AI drive your desktop? Comment DESKTOP and I'll pin the link."
+- "Which app would you take apart first? Comment REA and I'll pin the link."
+
+**Full approved example (repo-agent-desktop-01, owner cover approved 6 Nov):**
+1. "Ever wanted an AI to click around your computer for you?"
+2. "It's called agent-desktop, and it's open source. Install it with one line: npm install -g agent-desktop."
+3. "Then take a snapshot of an app. You get every button and field, each with a ref you can click."
+4. "The agent clicks a ref, not a guessed spot on the screen."
+5. "If the screen changes, the old ref fails with a stale ref error. The agent just takes a new snapshot."
+6. "The catch: you need Node.js and npm installed first."
+7. "Would you let an AI drive your desktop? Comment DESKTOP and I'll pin the link."
+
