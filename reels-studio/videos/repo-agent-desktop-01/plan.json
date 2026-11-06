@@ -1,168 +1,208 @@
 {
- "id": "repo-agent-desktop-01",
- "tool": "agent-desktop",
- "author": "agent",
- "question": "Can an AI agent use my computer for me without guessing from screenshots?",
- "points": [
-  {
-   "n": 1,
-   "claim": "agent-desktop reads apps through the OS accessibility tree, not pixel matching.",
-   "spoken": "It reads your apps through the accessibility tree, the same structure screen readers use.",
-   "source": "https://github.com/vercel-labs/agent-desktop",
-   "source_note": "README intro: 'through the OS accessibility tree... with no pixel matching'",
-   "visual": {
-    "kind": "steps",
-    "intent": "three-step loop as the README gives it"
-   },
-   "steps": [
-    "Snapshot the app",
-    "Act on a ref",
-    "Snapshot again to check"
-   ],
-   "title": "Read the UI, not pixels",
-   "sub": "Every snapshot lists the elements the agent can act on."
-  },
-  {
-   "n": 2,
-   "claim": "Each actionable element gets a ref, so the agent acts on a target, not a guess.",
-   "spoken": "Every element gets a ref, so the agent clicks a target instead of a guessed spot.",
-   "source": "https://github.com/vercel-labs/agent-desktop",
-   "source_note": "README quick start: 'a snapshot returns JSON with a ref for every element'",
-   "visual": {
-    "kind": "chips",
-    "intent": "the three platforms the README's support table lists"
-   },
-   "chips": [
-    "macOS",
-    "Windows",
-    "Linux"
-   ],
-   "title": "A ref for every element",
-   "sub": "The same loop runs on macOS, Windows and Linux."
-  },
-  {
-   "n": 3,
-   "claim": "When the UI changes, a stale ref fails safely and the agent must snapshot again.",
-   "spoken": "If the screen changes, the old reference fails safely, and the agent takes a fresh snapshot.",
-   "source": "https://github.com/vercel-labs/agent-desktop",
-   "source_note": "README: 'When the UI changes, an action returns STALE_REF... take a new snapshot'",
-   "visual": {
-    "kind": "steps",
-    "intent": "failure path: act, stale ref, new snapshot, retry"
-   },
-   "steps": [
-    "Act on a ref",
-    "Ref is stale",
-    "Take a new snapshot"
-   ],
-   "title": "Stale refs fail safely",
-   "sub": "A changed screen returns an error, not a wrong click."
-  },
-  {
-   "n": 4,
-   "claim": "It installs with one npm command and is open source.",
-   "spoken": "Install it with one npm command. The source is open for anyone to read.",
-   "source": "https://github.com/vercel-labs/agent-desktop",
-   "source_note": "README installation: 'npm install -g agent-desktop'; repo is open source",
-   "visual": {
-    "kind": "steps",
-    "intent": "install command, then the version check, as the README shows"
-   },
-   "title": "One command to install",
-   "sub": "Install with npm, then check the version.",
-   "steps": [
-    "npm install -g agent-desktop",
-    "agent-desktop version"
-   ]
-  }
- ],
- "catch": "On macOS it needs Accessibility permission first, and it reads only what the OS exposes.",
- "catch_sub": "Grant Accessibility permission, then it can read the app.",
- "catch_visual": {
-  "kind": "steps",
-  "intent": "permission step before any command runs",
-  "steps": [
-   "Grant Accessibility permission",
-   "Then run the snapshot"
-  ]
- },
- "brand_line": "agent-desktop · open source",
- "cover": {
-  "text": "AI RUNS YOUR PC?",
-  "visual": "own graphic from the plan's steps card"
- },
- "cta": "Would you let an agent use your desktop? Comment DESKTOP and I'll pin the repo link.",
- "cta_keyword": "DESKTOP",
- "seo": {
-  "onscreen_first3s": "AI USES YOUR APPS",
-  "youtube": {
-   "title": "agent-desktop: Let AI Use Your Desktop Apps",
-   "description": "agent-desktop lets an AI agent read and operate desktop apps through the OS accessibility tree. Each element gets a ref, so the agent acts on a target instead of a pixel guess. Open source, installs with npm.\nRepo: https://github.com/vercel-labs/agent-desktop",
-   "tags": [
-    "agent-desktop",
-    "AI computer use",
-    "desktop automation",
-    "accessibility tree",
-    "AI agents",
-    "open source AI agent"
-   ],
-   "hashtags": [
-    "#Shorts",
-    "#AIAgents",
-    "#DesktopAutomation",
-    "#OpenSource"
-   ]
-  },
-  "tiktok": {
-   "caption": "agent-desktop: AI reads your apps through the accessibility tree, not screenshots. Open source.",
-   "hashtags": [
-    "#AIAgents",
-    "#DesktopAutomation",
-    "#OpenSource"
-   ]
-  },
-  "instagram": {
-   "caption": "Can an AI agent use your computer without guessing from screenshots? agent-desktop reads apps through the accessibility tree. Save this for your next agent build.",
-   "hashtags": [
-    "#AIAgents",
-    "#DesktopAutomation",
-    "#OpenSource",
-    "#AITools"
-   ]
-  },
-  "facebook": {
-   "caption": "agent-desktop lets an AI agent read and operate desktop apps through the accessibility tree, with a ref for every element. Open source.",
-   "hashtags": [
-    "#AIAgents",
-    "#DesktopAutomation"
-   ]
-  },
-  "x": {
-   "text": "agent-desktop: AI agents read your desktop apps through the accessibility tree, not pixels.",
-   "hashtags": [
-    "#AIAgents"
-   ]
-  },
-  "keyword": "AI computer use",
-  "aliases": [
-   "desktop automation",
-   "agent-desktop"
-  ]
- },
- "brief_meta": {
-  "title": "agent-desktop: computer use through the accessibility tree",
-  "niche": "AI coding tools",
-  "keywords": [
-   "AI computer use",
-   "desktop automation",
-   "agent-desktop",
-   "accessibility tree"
+  "id": "repo-agent-desktop-01",
+  "tool": "agent-desktop",
+  "author": "agent",
+  "question": "Can an AI agent use my computer for me without guessing from screenshots?",
+  "points": [
+    {
+      "n": 1,
+      "claim": "agent-desktop reads apps through the OS accessibility tree, not pixel matching.",
+      "spoken": "It reads your apps through the accessibility tree, the same structure screen readers use.",
+      "source": "https://github.com/vercel-labs/agent-desktop",
+      "source_note": "README intro: 'through the OS accessibility tree... with no pixel matching'",
+      "visual": {
+        "kind": "steps",
+        "intent": "three-step loop as the README gives it"
+      },
+      "steps": [
+        "Snapshot the app",
+        "Act on a ref",
+        "Snapshot again to check"
+      ],
+      "title": "Read the UI, not pixels",
+      "sub": "Every snapshot lists the elements the agent can act on."
+    },
+    {
+      "n": 2,
+      "claim": "Each actionable element gets a ref, so the agent acts on a target, not a guess.",
+      "spoken": "Every element gets a ref, so the agent clicks a target instead of a guessed spot.",
+      "source": "https://github.com/vercel-labs/agent-desktop",
+      "source_note": "README quick start: 'a snapshot returns JSON with a ref for every element'",
+      "visual": {
+        "kind": "chips",
+        "intent": "the three platforms the README's support table lists"
+      },
+      "chips": [
+        "macOS",
+        "Windows",
+        "Linux"
+      ],
+      "title": "A ref for every element",
+      "sub": "The same loop runs on macOS, Windows and Linux."
+    },
+    {
+      "n": 3,
+      "claim": "When the UI changes, a stale ref fails safely and the agent must snapshot again.",
+      "spoken": "If the screen changes, the old reference fails safely, and the agent takes a fresh snapshot.",
+      "source": "https://github.com/vercel-labs/agent-desktop",
+      "source_note": "README: 'When the UI changes, an action returns STALE_REF... take a new snapshot'",
+      "visual": {
+        "kind": "steps",
+        "intent": "failure path: act, stale ref, new snapshot, retry"
+      },
+      "steps": [
+        "Act on a ref",
+        "Ref is stale",
+        "Take a new snapshot"
+      ],
+      "title": "Stale refs fail safely",
+      "sub": "A changed screen returns an error, not a wrong click."
+    },
+    {
+      "n": 4,
+      "claim": "It installs with one npm command and is open source.",
+      "spoken": "Install it with one npm command. The source is open for anyone to read.",
+      "source": "https://github.com/vercel-labs/agent-desktop",
+      "source_note": "README installation: 'npm install -g agent-desktop'; repo is open source",
+      "visual": {
+        "kind": "steps",
+        "intent": "install command, then the version check, as the README shows"
+      },
+      "title": "One command to install",
+      "sub": "Install with npm, then check the version.",
+      "steps": [
+        "npm install -g agent-desktop",
+        "agent-desktop version"
+      ]
+    }
   ],
-  "idea": "agent-desktop lets an agent read and act on desktop apps through the OS accessibility tree.",
-  "viewer": {
-   "who": "developers building or testing AI agents",
-   "problem": "agents that guess from screenshots break when the screen changes",
-   "job": "decide whether a desktop agent tool is worth trying"
+  "catch": "On macOS, you grant Accessibility permission first.",
+  "catch_sub": "The README walks you through the Accessibility grant.",
+  "catch_visual": {
+    "kind": "steps",
+    "intent": "permission step before any command runs",
+    "steps": [
+      "Grant Accessibility permission",
+      "Then run the snapshot"
+    ]
+  },
+  "brand_line": "agent-desktop · open source",
+  "cover": {
+    "text": "AI RUNS YOUR PC?",
+    "visual": "designed graphic: an accessibility-tree window with refs",
+    "concepts": [
+      {
+        "id": "c1",
+        "layout": "bleed",
+        "text": "AI RUNS YOUR PC?",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c1.png",
+          "design": "Full-bleed window of a desktop app drawn as its accessibility tree: each row shows a ref id such as @s8f3k2p9:e8, the acting element is highlighted."
+        }
+      },
+      {
+        "id": "c2",
+        "layout": "window",
+        "text": "AGENTS CLICK REFS, NOT PIXELS",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c2.png",
+          "design": "A framed desktop window with the snapshot JSON panel beside it, showing a ref for each button; the cursor lands on one ref, not a pixel guess."
+        }
+      },
+      {
+        "id": "c3",
+        "layout": "split",
+        "text": "STALE REF? SNAPSHOT AGAIN",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c3.png",
+          "design": "Split layout: top shows a ref that failed with STALE_REF, bottom shows the fresh snapshot with a new ref id and the retry."
+        }
+      }
+    ]
+  },
+  "cta": "Would you let an agent use your desktop? Comment DESKTOP and I'll pin the repo link.",
+  "cta_keyword": "DESKTOP",
+  "seo": {
+    "onscreen_first3s": "AI USES YOUR APPS",
+    "youtube": {
+      "title": "agent-desktop: Let AI Use Your Desktop Apps",
+      "description": "agent-desktop lets an AI agent read and operate desktop apps through the OS accessibility tree. Each element gets a ref, so the agent acts on a target instead of a pixel guess. Open source, installs with npm.\nRepo: https://github.com/vercel-labs/agent-desktop",
+      "tags": [
+        "agent-desktop",
+        "AI computer use",
+        "desktop automation",
+        "accessibility tree",
+        "AI agents",
+        "open source AI agent"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#AIAgents",
+        "#DesktopAutomation",
+        "#OpenSource",
+        "#ComputerUse"
+      ]
+    },
+    "tiktok": {
+      "caption": "agent-desktop: AI reads your apps through the accessibility tree, not screenshots. Open source.",
+      "hashtags": [
+        "#AIAgents",
+        "#DesktopAutomation",
+        "#OpenSource",
+        "#AITools",
+        "#ComputerUse"
+      ]
+    },
+    "instagram": {
+      "caption": "Can an AI agent use your computer without guessing from screenshots? agent-desktop reads apps through the accessibility tree. Save this for your next agent build.",
+      "hashtags": [
+        "#AIAgents",
+        "#DesktopAutomation",
+        "#OpenSource",
+        "#AITools",
+        "#ComputerUse"
+      ]
+    },
+    "facebook": {
+      "caption": "agent-desktop lets an AI agent read and operate desktop apps through the accessibility tree, with a ref for every element. Open source.",
+      "hashtags": [
+        "#AIAgents",
+        "#DesktopAutomation",
+        "#OpenSource",
+        "#AITools",
+        "#ComputerUse"
+      ]
+    },
+    "x": {
+      "text": "agent-desktop: AI agents read your desktop apps through the accessibility tree, not pixels.",
+      "hashtags": [
+        "#AIAgents",
+        "#OpenSource"
+      ]
+    },
+    "keyword": "AI computer use",
+    "aliases": [
+      "desktop automation",
+      "agent-desktop"
+    ]
+  },
+  "brief_meta": {
+    "title": "agent-desktop: computer use through the accessibility tree",
+    "niche": "AI coding tools",
+    "keywords": [
+      "AI computer use",
+      "desktop automation",
+      "agent-desktop",
+      "accessibility tree"
+    ],
+    "idea": "agent-desktop lets an agent read and act on desktop apps through the OS accessibility tree.",
+    "viewer": {
+      "who": "developers building or testing AI agents",
+      "problem": "agents that guess from screenshots break when the screen changes",
+      "job": "decide whether a desktop agent tool is worth trying"
+    }
   }
- }
 }

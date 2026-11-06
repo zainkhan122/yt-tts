@@ -1,0 +1,49 @@
+{
+  "tool": {
+    "name": "agent-desktop",
+    "repo_url": "https://github.com/vercel-labs/agent-desktop",
+    "category": "AI computer use",
+    "license": "Apache-2.0"
+  },
+  "features": [
+    {
+      "id": "f1",
+      "title": "Reads the accessibility tree",
+      "what": "Reads a desktop app's accessibility tree and returns it as JSON.",
+      "evidence_quote": "It reads the accessibility tree of a desktop app and returns it as JSON"
+    },
+    {
+      "id": "f2",
+      "title": "A ref for every element",
+      "what": "Each element the agent can act on gets a ref.",
+      "evidence_quote": "with a ref for every element the agent can act on"
+    },
+    {
+      "id": "f3",
+      "title": "Stale refs fail safely",
+      "what": "A changed UI returns STALE_REF, so the agent takes a new snapshot.",
+      "evidence_quote": "returns `STALE_REF` or `AMBIGUOUS_TARGET`: take a new snapshot and use its refs."
+    },
+    {
+      "id": "f4",
+      "title": "One npm command",
+      "what": "Installs globally with one npm command.",
+      "evidence_quote": "npm install -g agent-desktop"
+    },
+    {
+      "id": "f5",
+      "title": "macOS Accessibility grant",
+      "what": "On macOS, a guide walks through the Accessibility grant.",
+      "evidence_quote": "macOS: walks you through the Accessibility grant"
+    }
+  ],
+  "risks": [
+    {
+      "text": "On macOS it needs the Accessibility permission first",
+      "severity": "medium"
+    }
+  ],
+  "source_urls": [
+    "https://github.com/vercel-labs/agent-desktop"
+  ]
+}
