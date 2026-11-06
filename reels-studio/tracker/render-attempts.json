@@ -1057,6 +1057,27 @@
       "status": "failed",
       "voice_seed": 0
     },
+    "5175a41e7c24c0d0da2eaf12ca34a4397dd67663845dfa7f1d976c5c9fadc533": {
+      "asset_files_sha256": "1032ce34000c437563c33ba6853e5282f665064d9789406dad4a98fced1c4831",
+      "asset_manifest_sha256": "ecba35352d0a519a40e64799dbab02d30c9b683582bb85db2c37150132b20be0",
+      "brief_id": "repo-poki-01",
+      "brief_sha256": "5f9bebc722ebe60c12948cde44e3319ad0fa574d7a96f539a5b82f62057cf7a6",
+      "capture_id": "repo-poki-01",
+      "cover_sha256": "aa6277d5bc3bad7a427d0c7a11b0a2d7ea9faee7a7028fbda2cb4c0e9ebf798a",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "5175a41e7c24c0d0da2eaf12ca34a4397dd67663845dfa7f1d976c5c9fadc533",
+      "finished_at": null,
+      "from_tag": "",
+      "graphics_sha256": "ce47a0df2b19315f00395cc7946deb7b86378277f6e319fddcae3c2ae10f3b46",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "df07e3fe37a41a380bdd6d8c5e5e76f81d8cec6b7330d8744f5fd4d843db6271",
+      "run_id": "42266164457",
+      "started_at": "2026-11-06T17:56:26Z",
+      "status": "started",
+      "voice_seed": 0
+    },
     "53da65aeed363feb7b57adbbdf74f5799161fb897cc13ff5570a3cb2034aabc8": {
       "asset_files_sha256": "cf3809e81b1dfb4784e9eb6e864cd252fc75951fe7fcfeefcb48fcf965bd45e3",
       "asset_manifest_sha256": "c554383d4456ea36afcfc7cc6f8226482f653ebc7b2ed21918f3759382742a3b",
