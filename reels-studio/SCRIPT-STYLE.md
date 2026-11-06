@@ -162,7 +162,7 @@ like one friend telling another friend something. Our scripts do the same.
 - "Would you let an AI drive your desktop? Comment DESKTOP and I'll pin the link."
 - "Which app would you take apart first? Comment REA and I'll pin the link."
 
-**Full approved example (repo-agent-desktop-01, owner cover approved 6 Nov):**
+**Full approved example (agent-desktop short, 6 Nov 2026):**
 1. "Ever wanted an AI to click around your computer for you?"
 2. "It's called agent-desktop, and it's open source. Install it with one line: npm install -g agent-desktop."
 3. "Then take a snapshot of an app. You get every button and field, each with a ref you can click."

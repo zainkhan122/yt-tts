@@ -16,8 +16,15 @@ import video_plan  # noqa: E402
 PLANS = sorted(ROOT.glob("videos/*/plan.json"))
 
 
+VID = "repo-craft-anything-01"   # a plan that still has a brief; the removed shorts must not be pinned here
+
+
+def _plan_path():
+    return ROOT / "videos" / VID / "plan.json"
+
+
 def _plan():
-    return json.loads((ROOT / "videos/repo-agent-desktop-01/plan.json").read_text(encoding="utf-8"))
+    return json.loads(_plan_path().read_text(encoding="utf-8"))
 
 
 class PackagingRules(unittest.TestCase):
@@ -49,7 +56,7 @@ class PackagingRules(unittest.TestCase):
 class BriefBuilder(unittest.TestCase):
     def test_brief_comes_from_plan_only(self):
         import brief_from_plan as bfp
-        vid = "repo-agent-desktop-01"
+        vid = _plan_path().parent.name
         cap = ROOT / "captures" / vid
         self.assertTrue((cap / "plan-keep.json").exists(), "run build_plan_kit first")
         # Build into the real location and keep it: the brief is a production artifact, not scratch.
@@ -78,8 +85,8 @@ class PreflightPhases(unittest.TestCase):
         import brief_from_plan as bfp
         import preflight as pf
         self.pf = importlib.reload(pf)
-        if not (ROOT / "briefs/repo-agent-desktop-01.json").exists():
-            bfp.build(ROOT / "videos/repo-agent-desktop-01/plan.json")
+        if not (ROOT / "briefs/repo-craft-anything-01.json").exists():
+            bfp.build(ROOT / "videos/repo-craft-anything-01/plan.json")
 
     def test_pre_phase_does_not_need_tracking_release_or_cover(self):
         calls = []
@@ -87,7 +94,7 @@ class PreflightPhases(unittest.TestCase):
              mock.patch.object(self.pf, "check_capture_pack_release", side_effect=lambda *a: calls.append("release") or []), \
              mock.patch.object(self.pf, "check_cover", side_effect=lambda v: calls.append("cover") or []), \
              mock.patch.object(self.pf, "check_dispatch_head", side_effect=lambda *a: calls.append("head") or []):
-            self.pf.preflight("repo-agent-desktop-01", phase="pre")
+            self.pf.preflight("repo-craft-anything-01", phase="pre")
         self.assertEqual(calls, [])
 
     def test_dispatch_phase_runs_head_and_release_but_not_cover(self):
@@ -96,23 +103,23 @@ class PreflightPhases(unittest.TestCase):
              mock.patch.object(self.pf, "check_capture_pack_release", side_effect=lambda *a: calls.append("release") or []), \
              mock.patch.object(self.pf, "check_cover", side_effect=lambda v: calls.append("cover") or []), \
              mock.patch.object(self.pf, "check_dispatch_head", side_effect=lambda *a: calls.append("head") or []):
-            self.pf.preflight("repo-agent-desktop-01", phase="dispatch", receipt_rel="research/production/receipts/x.json")
+            self.pf.preflight("repo-craft-anything-01", phase="dispatch", receipt_rel="research/production/receipts/x.json")
         self.assertEqual(calls, ["tracked", "release", "head"])
 
     def test_dispatch_without_receipt_is_blocked(self):
-        res = self.pf.preflight("repo-agent-desktop-01", phase="dispatch")
+        res = self.pf.preflight("repo-craft-anything-01", phase="dispatch")
         self.assertEqual(res["verdict"], "BLOCK")
         self.assertTrue(any("receipt" in r["detail"] for r in res["results"] if r["check"] == "dispatch_head"))
 
     def test_full_phase_includes_cover(self):
         calls = []
         with mock.patch.object(self.pf, "check_cover", side_effect=lambda v: calls.append("cover") or []):
-            self.pf.preflight("repo-agent-desktop-01", phase="full", receipt_rel="r.json")
+            self.pf.preflight("repo-craft-anything-01", phase="full", receipt_rel="r.json")
         self.assertEqual(calls, ["cover"])
 
     def test_unknown_phase_rejected(self):
         with self.assertRaises(ValueError):
-            self.pf.preflight("repo-agent-desktop-01", phase="later")
+            self.pf.preflight("repo-craft-anything-01", phase="later")
 
 
 class DriverOrder(unittest.TestCase):

@@ -1,0 +1,67 @@
+{
+  "tool": {
+    "name": "Poki",
+    "repo_url": "https://github.com/JosssphZhou/poki",
+    "category": "iPhone automation / MCP server",
+    "license": "AGPL-3.0"
+  },
+  "features": [
+    {
+      "id": "f1",
+      "title": "Drives a real iPhone",
+      "what": "Reads the screen and acts on a real iPhone or an iOS simulator through a local server.",
+      "evidence_quote": "Poki uses your iPhone like you do"
+    },
+    {
+      "id": "f2",
+      "title": "Your own MCP client",
+      "what": "Runs as an MCP server inside Claude Code, Codex or another MCP client on your own subscription.",
+      "evidence_quote": "Connect Poki MCP and use your own subscription."
+    },
+    {
+      "id": "f3",
+      "title": "Taps, types and scrolls",
+      "what": "Sends taps, swipes, hardware keys and text to a simulator or a paired physical device.",
+      "evidence_quote": "Send taps, swipes, hardware keys, and Unicode text across simulators and paired physical devices."
+    },
+    {
+      "id": "f4",
+      "title": "Remembers past tasks",
+      "what": "Poki Agent keeps past tasks and runs the same job faster on repeat.",
+      "evidence_quote": "Poki Agent remembers past tasks and runs them faster on repeat."
+    },
+    {
+      "id": "f5",
+      "title": "Two commands to start",
+      "what": "Clone the repo, run the setup script, then start the server locally.",
+      "evidence_quote": "./bin/setup npm start"
+    },
+    {
+      "id": "f6",
+      "title": "Controls the real phone",
+      "risk": true,
+      "what": "It acts on the real iPhone, so messages and payments go through if asked, and screen contents go to your model service.",
+      "evidence_quote": "Poki controls your real iPhone."
+    },
+    {
+      "id": "f7",
+      "title": "Needs macOS and Xcode",
+      "risk": true,
+      "what": "Runs on macOS with full Xcode, Rust, Node and ffmpeg installed.",
+      "evidence_quote": "Requires macOS 15 or later, full Xcode, Rust, Node.js 24+, and ffmpeg."
+    }
+  ],
+  "risks": [
+    {
+      "text": "acts on the real phone; screen contents go to the model service",
+      "severity": "high"
+    },
+    {
+      "text": "needs macOS with full Xcode",
+      "severity": "medium"
+    }
+  ],
+  "source_urls": [
+    "https://github.com/JosssphZhou/poki"
+  ]
+}
