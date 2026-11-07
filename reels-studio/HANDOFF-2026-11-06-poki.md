@@ -137,6 +137,24 @@ checklist below.
 Any of 1–3 needs a graphics edit plus a new dispatch. The duplicate guard will refuse identical inputs,
 so the change has to be real.
 
+### Render 259 (the fixed build) — DONE
+First attempt, run `42266164457`, was **cancelled at the 60-minute job limit**: that runner took 19 min
+just to install the toolchain, then was still synthesising at 60 min. Nothing was rendered, and the
+attempt was recorded `failed`, which locks the input fingerprint. The retry needed a real change, so it
+came with one: the concept title's per-letter stagger is now capped (`8b50d96`), i.e. a 21-letter title
+is fully up 0.34 s after its cue instead of 0.8 s. That is the last piece of "kinetic text is out of
+sync".
+
+| | |
+|---|---|
+| Run | **259** (`42341933288`) on `8b50d96`, all jobs success, `publish` skipped (artifact-only) |
+| MP4 | `renders/repo-poki-01/repo-poki-01.mp4` (13.06 MB, 40.37 s) |
+| sha256 | `c8b9d5752924ffe8a8166d4186570a0175e7cc2c3cc0dd6360032173b0894912` |
+| Voice | re-synthesised by the voice job, `vo_sha256 04692c95…`; whisper char match 99.8 % |
+| `short_qa video` | **PASS** — visual change 0.868, graphic-only 0.168, motion gap 0.75 s, WPM 178.9, longest pause 0.56 s |
+| Panel | `research/production/viewer-panel-repo-poki-01.md` round 2 — **PASS**, round-1 findings 1–2 fixed |
+| Cue fallbacks | none (7 phrases, 7 scenes) |
+
 ## 8. Still not done
 - Nothing is queued, approved for publishing or scheduled. `queue/publish.json` is untouched.
 - No GitHub Release for the video (`publish_release` was false by design; artifacts expire 2026-11-07).
