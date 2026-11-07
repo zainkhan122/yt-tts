@@ -556,9 +556,9 @@
       "capture_id": "repo-unslop-01",
       "cover_sha256": "3f4f370d41049bff223bf49d7276f4fb0288953467f7ceaf34673cead2e0b7ce",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=success",
       "fingerprint": "275ac1153551218247954fce0d36b430a664f68845cbc00dc7385267efc55d4d",
-      "finished_at": null,
+      "finished_at": "2026-11-07T08:36:19Z",
       "from_tag": "",
       "graphics_sha256": "f174e7486702ddb7234a6b78f39a13d9dafcbc6236b986d50a35768fcb0b82f5",
       "quality": "looks",
@@ -566,7 +566,7 @@
       "renderer_sha256": "1717e2c74d7195432d818c01c01237621b0cd71d65ef20c49552d65355061a2b",
       "run_id": "42354550282",
       "started_at": "2026-11-07T08:13:40Z",
-      "status": "started",
+      "status": "success",
       "voice_seed": 0
     },
     "28d11b57a09cb414d3d435bb46d94ab7f85f3721318dab0c10a58991f0a898c2": {
@@ -654,9 +654,9 @@
       "capture_id": "repo-reavideo-01",
       "cover_sha256": "c41436e513c53361989f2ab68e05534ecfe7ac95f2902dac4f48df2e88c1b546",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=success",
       "fingerprint": "2e6437e548d675a9e4c20bda67e2a2fed390548e86dedb6eb848c044f5e0ea4a",
-      "finished_at": null,
+      "finished_at": "2026-11-07T08:36:19Z",
       "from_tag": "",
       "graphics_sha256": "c6762a37b924103a233c2ae8aaec0f2d8c9d5ed60a0410f738e9ba1f8a538ac7",
       "quality": "looks",
@@ -664,7 +664,7 @@
       "renderer_sha256": "1717e2c74d7195432d818c01c01237621b0cd71d65ef20c49552d65355061a2b",
       "run_id": "42354550282",
       "started_at": "2026-11-07T08:13:40Z",
-      "status": "started",
+      "status": "success",
       "voice_seed": 0
     },
     "2f3e1b5c5fa77b4c2fb3be0cf3d81c7ba5321cd7c484c7783ab8770e627cecb4": {
@@ -695,9 +695,9 @@
       "capture_id": "repo-dshgo-01",
       "cover_sha256": "d3b8b80aceceb01f2a9ef537e897b17a9628e534ecdce14fb126cddb41a18ed2",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=success",
       "fingerprint": "3087c8e35320447d1a7e0646b39c9476e49d15268761905fe3ff6915cb1a4456",
-      "finished_at": null,
+      "finished_at": "2026-11-07T08:36:19Z",
       "from_tag": "",
       "graphics_sha256": "13a987e1617a339f34b9ab4947023ff7a964317094482307815d5c7bbeb107ab",
       "quality": "looks",
@@ -705,7 +705,7 @@
       "renderer_sha256": "1717e2c74d7195432d818c01c01237621b0cd71d65ef20c49552d65355061a2b",
       "run_id": "42354550282",
       "started_at": "2026-11-07T08:13:40Z",
-      "status": "started",
+      "status": "success",
       "voice_seed": 0
     },
     "31204f54adb4c630fce705661b4ff3032fc6c90e7e2359e8c6a7b282c79a4129": {
@@ -754,9 +754,9 @@
       "capture_id": "repo-sand3d-01",
       "cover_sha256": "94c5ca959f726f1d5b53dee442a13f22a68a0873a439080329a65e9aac96e9cc",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=success",
       "fingerprint": "32a875e7023d70620a80742b21f0bc8ff7effc7080a8b16228a14294f5d253e6",
-      "finished_at": null,
+      "finished_at": "2026-11-07T08:36:19Z",
       "from_tag": "",
       "graphics_sha256": "56609de5b736e6b187d0a803d3a6452e6a62ef53d2c8d12f8a06f1b70a4cd444",
       "quality": "looks",
@@ -764,7 +764,7 @@
       "renderer_sha256": "1717e2c74d7195432d818c01c01237621b0cd71d65ef20c49552d65355061a2b",
       "run_id": "42354550282",
       "started_at": "2026-11-07T08:13:40Z",
-      "status": "started",
+      "status": "success",
       "voice_seed": 0
     },
     "334247f333eca7a0cf50a3b78f597c9da4add85c20791674bce5e57e8cc9ec28": {
