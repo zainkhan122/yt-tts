@@ -1,0 +1,123 @@
+{
+ "name": "design-review",
+ "tool": "unslop",
+ "note": "Per-tool template: a light 'design studio' plate. Its whole vocabulary is fabricated app screens and design-review artifacts (audit marks, direction card, pass stack, before/after), drawn on a paper plate with hard cuts and camera punch-ins. Archetypes here belong to this tool only; another tool gets its own template.",
+ "palette": {
+  "paper": "#F4F0E8",
+  "ink": "#14161F",
+  "muted": "#6E6A63",
+  "hair": "#DED6C6",
+  "accent": "#6C4CF1",
+  "accent2": "#E4572E",
+  "slop": "#7C3AED"
+ },
+ "archetypes": {
+  "ui_screen": {
+   "req": [
+    "pages"
+   ],
+   "opt": [
+    "eyebrow",
+    "accent_word",
+    "cue_phrases",
+    "cam",
+    "label"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "audit_marks": {
+   "req": [
+    "marks"
+   ],
+   "opt": [
+    "page",
+    "eyebrow",
+    "accent_word",
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "direction_card": {
+   "req": [
+    "lines"
+   ],
+   "opt": [
+    "eyebrow",
+    "accent_word",
+    "cue_phrases",
+    "label"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "pass_stack": {
+   "req": [
+    "passes"
+   ],
+   "opt": [
+    "pages",
+    "eyebrow",
+    "accent_word",
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "stack_chips": {
+   "req": [
+    "chips"
+   ],
+   "opt": [
+    "command",
+    "eyebrow",
+    "accent_word",
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "boundary_rows": {
+   "req": [
+    "rows"
+   ],
+   "opt": [
+    "eyebrow",
+    "accent_word",
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "split_compare": {
+   "req": [
+    "before",
+    "after"
+   ],
+   "opt": [
+    "eyebrow",
+    "accent_word",
+    "labels",
+    "cue_phrases",
+    "cam"
+   ],
+   "facts": false,
+   "script_ok": true
+  },
+  "endcard": {
+   "req": [
+    "keyword"
+   ],
+   "opt": [
+    "follow",
+    "lines",
+    "cue_phrases",
+    "prompt"
+   ],
+   "facts": false,
+   "script_ok": true
+  }
+ },
+ "max_text": 64
+}

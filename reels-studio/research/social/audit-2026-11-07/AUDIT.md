@@ -511,3 +511,46 @@ audio and transcript metrics, plus `rows_ig` / `ig_extras`) · `script_metrics.j
 `analyze.py` (20 fps analyser) · `script_audit.py` (script register analyser) · `aggregate.py` (group statistics; accepts
 `"name=/dir"` groups) · `sheets/*.jpg` (12–18-frame strips — TikTok, ours, and the six IG files).*
 *Reference clips are deliberately not committed (third-party media); re-fetch them with the owner's signed links.*
+
+---
+
+## 10. What the rebuild did with this audit (2026-11-07)
+
+One unscheduled Short — `repo-unslop-02` — was rebuilt end to end against P0-A and P0-S. The other six stay untouched.
+Everything below is implemented, not proposed.
+
+### 10.1 The animation decision: per tool, not per tier
+
+The owner's ruling was that there is no fixed animation tier; the language is chosen per tool to suit it. That is now a
+mechanism, not a promise: `graphics/templates/<name>/{stage.css,engine.js,template.json}`. A brief names its template
+(`"template": "design-review"`); `graphics/beats.py:archetypes(name)` merges that template's archetypes over the eight
+defaults, `graphics/stage.py` carries the name into the scene document, and `graphics/render.py:template_dir` serves that
+directory's CSS and engine. `repo-unslop-02` uses `design-review`: paper `#F4F0E8`, ink `#14161F`, violet `#6C4CF1`,
+red `#E4572E` for annotations, fabricated product surfaces inside a browser window, hard cuts, a camera that never sits
+still (1.00 → 1.085 push plus a lateral drift), and nine named passes as a rail.
+
+### 10.2 P0-A items, as built
+
+| Item | What the rebuild does |
+|---|---|
+| M19 artifact per tool (D2: fabricated, never captured) | Every screen is drawn in the template's own vocabulary: a browser window, a fabricated "Nimbus" product page with three variants (`slop`, `mid`, `clean`), and an annotation layer. No screen recording anywhere. |
+| M20 beat density (≤ ~2.5 s without a change) | Eight scenes / 42 s. Measured on the rendered preview: longest run without a visible change 3.4 s, mean frame-to-frame change 2.85, hard cuts on scene boundaries only. |
+| M21 hard cuts, no cross-fades | The engine has no transitions: a scene is present from its first frame; pages inside a scene are replaced, not faded. |
+| M22 camera | Every artifact gets a push (`scale 1.00 → 1.085`, eased over the scene) plus a 9 px lateral drift, `transform-origin 50% 0` so a scaled artifact never climbs into the headline. |
+| M23 type registers | Three registers held apart: heavy sans for the headline, italic serif for the accented word, mono for anything the tool says (urls, commands, pass names, captions). |
+| M24 callouts land on the thing | `audit_marks` measures the real element (`.badges`, `.hero h1`, `.cta`, `.cards`) at first draw and hangs each red label off it, flipping side so a label never covers its target. |
+| M25 copyable action on screen | The terminal types `/unslop this dashboard` character by character under a blinking caret, then the stack tiles light up as they are spoken. |
+
+### 10.3 P0-S items, as built
+
+Consequence-led hook, 142 words at ~208 wpm (215 allowed), comment CTA kept, the concession as three flat statements under
+the eyebrow *what to expect* (no "the catch" section), `copyable_action` spoken and typed, every claim traceable to the
+README with our own wording. Details and the owner's rulings: `SCRIPT-AUDIT.md` §9.
+
+### 10.4 Measured, not asserted
+
+```
+python3 research/production/batch-2026-11-09/build.py repo-unslop-02   -> PLAN PASS, features ok, beats ok, 8 scenes
+python3 tools/short_qa.py plan repo-unslop-02                          -> PASS (1 WARN: hook familiarity)
+```
+

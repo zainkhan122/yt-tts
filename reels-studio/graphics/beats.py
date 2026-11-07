@@ -5,7 +5,9 @@ checked here, deterministically. Lint rules (B*) are hard: a failing plan does n
 """
 from __future__ import annotations
 
+import json
 import re
+from pathlib import Path
 
 from .features import Violation, feature_index
 
@@ -23,6 +25,29 @@ ARCHETYPES: dict[str, dict] = {
                      "script_ok": True, "facts": False},
 }
 SCRIPT_ARCHETYPES = {a for a, d in ARCHETYPES.items() if d["script_ok"]}
+TEMPLATES = Path(__file__).resolve().parent / "templates"
+
+
+def archetypes(template: str | None = None) -> dict[str, dict]:
+    """The archetype vocabulary for a beat plan.
+
+    The default vocabulary is the eight archetypes above. A per-tool template adds its own, declared
+    in `graphics/templates/<template>/template.json`; they are merged on top and linted identically.
+    """
+    if not template or template == "default":
+        return ARCHETYPES
+    cfg_path = TEMPLATES / template / "template.json"
+    if not cfg_path.exists():
+        raise FileNotFoundError(f"unknown graphics template {template!r}: {cfg_path}")
+    cfg = json.loads(cfg_path.read_text(encoding="utf-8"))
+    merged = dict(ARCHETYPES)
+    max_text = int(cfg.get("max_text") or MAX_TEXT)
+    for name, spec in (cfg.get("archetypes") or {}).items():
+        merged[name] = {"req": list(spec.get("req") or []), "opt": list(spec.get("opt") or []),
+                        "script_ok": bool(spec.get("script_ok", False)),
+                        "facts": bool(spec.get("facts", False)),
+                        "max_text": int(spec.get("max_text") or max_text)}
+    return merged
 MAX_TEXT = 42
 MAX_LIST = 6
 _STOP = set("a an the and or of to in on for with is it its be by as at from that this so any "
@@ -69,6 +94,7 @@ def lint_beats(beats: dict, phrases: list[dict], sheet: dict, script_fp: str | N
     v: list[Violation] = []
     scenes = beats.get("scenes", [])
     feats = feature_index(sheet)
+    ARCH = archetypes(beats.get("template"))
 
     # B0 the beat plan belongs to this exact script (fingerprint of the spoken words).
     if script_fp is not None and beats.get("script_sha256") != script_fp:
@@ -87,7 +113,7 @@ def lint_beats(beats: dict, phrases: list[dict], sheet: dict, script_fp: str | N
     for k, s in enumerate(scenes):
         arch = s.get("archetype")
         tag = f"scene {k}"
-        spec = ARCHETYPES.get(arch)
+        spec = ARCH.get(arch)
         if spec is None:
             v.append(Violation("B8", f"{tag}: unknown archetype {arch!r}"))
             continue
@@ -125,8 +151,9 @@ def lint_beats(beats: dict, phrases: list[dict], sheet: dict, script_fp: str | N
             if isinstance(text, str):
                 if _URL.search(text) or _MD.search(text) or _EMOJI.search(text):
                     v.append(Violation("B5", f"{tag}: URL, markdown or emoji in payload: {text!r}"))
-                if len(text) > MAX_TEXT:
-                    v.append(Violation("B5", f"{tag}: text longer than {MAX_TEXT} chars"))
+                limit = spec.get("max_text", MAX_TEXT)
+                if len(text) > limit:
+                    v.append(Violation("B5", f"{tag}: text longer than {limit} chars"))
         for lkey in ("chips", "nodes", "steps", "lines"):
             if isinstance(payload.get(lkey), list) and len(payload[lkey]) > MAX_LIST:
                 v.append(Violation("B5", f"{tag}: '{lkey}' has more than {MAX_LIST} items"))

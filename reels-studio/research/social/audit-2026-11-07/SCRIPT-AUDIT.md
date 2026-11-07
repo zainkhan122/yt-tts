@@ -282,3 +282,30 @@ No code was changed. When the owner approves a rebuild, the script rules map ont
 
 *Files: this document; `script_audit.py` (the analyser); `script_metrics.json` (per-video and per-group numbers);
 `AUDIT.md` (the visual/audio audit this sits beside); `measurements.json` (frame, audio and transcript data).*
+
+---
+
+## 9. Owner rulings (2026-11-07) — the four questions above, answered
+
+These are binding. They move S1–S8 from recommendations to rules, and they are encoded in the rebuild
+(`repo-unslop-02`, see `briefs/graphics/repo-unslop-02/README.md`).
+
+| # | Question | Ruling | What it changes |
+|---|---|---|---|
+| 1 | Length vs pace | **215 wpm is allowed.** Do not drop a demo item to fit 211. | `config/qa-thresholds.json` target band becomes 195–215 wpm; 145–165 words over ~42–50 s. The built Short is 142 words at ~208 wpm actual. |
+| 2 | The comment CTA | **Keep it.** | `cta_type: comment` stays a valid spec field. The rebuilt Short still ends "Comment UNSLOP and I'll pin the repo." |
+| 3 | The catch section | **Keep the concession, but it is no longer a "problem" beat.** One honest sentence inside the payoff; no section titled "The catch". | The scene keeps its own slot (the viewer still needs to know the limits) but its eyebrow reads *what to expect*, not *the catch*, and it is written as a plain statement of fact, not a warning. SR6 satisfied without losing the honesty. |
+| 4 | Copyable action vs README traceability | **"Every claim from the README" means do not invent. Verbatim quoting is not required.** A copyable action is a usage instruction, not a claim. | `copyable_action` is now a required brief field and is spoken + typed on screen (`/unslop this dashboard`). Claims may be paraphrased freely as long as the fact traces to the README. |
+
+### 9.1 What the rulings resolve
+
+- **S1/S2 (register, consequence-led):** unchanged in intent, now measurable with the 215 wpm ceiling.
+- **S3/S4 (word budget):** 142 words / ~42 s satisfies the new band without cutting a demo item.
+- **S5 (`copyable_action`):** added to the brief and to the animation (the command types itself character by character).
+- **S6 (no "the catch"):** eyebrow is *what to expect*; the concession is three flat statements, no warning framing.
+- **S7 (comment CTA):** kept, and it is the only ask in the video.
+- **S8 (claims):** every spoken claim traces to the README; the wording is ours. The one claim we cannot paraphrase into a
+  spoken point is the licence (CC BY 4.0, @heydamir) — it lives in the description and the `source` field, because the
+  plan lint bans licence language inside spoken lines.
+
+*Status: encoded. `python3 tools/short_qa.py plan repo-unslop-02` → PASS (11/12, one WARN on hook familiarity).*

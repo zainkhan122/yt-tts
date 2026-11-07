@@ -78,6 +78,8 @@ def plan_scenes(sheet: dict, source_text: str, beats: dict, phrases: list[dict],
     if b_viol:
         raise GraphicsError("beat_plan", [v.as_dict() for v in b_viol])
     doc = {"width": 1080, "height": 1920, "handle": beats.get("handle", ""), "scenes": scene_list(beats, phrases)}
+    if beats.get("template"):
+        doc["template"] = beats["template"]  # per-tool template: its own archetypes, css and engine
     if any(s.get("archetype") == "endcard" for s in doc["scenes"]):
         doc["brand"] = brand_block()
         _attach_events(doc, events or {})

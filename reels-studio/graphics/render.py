@@ -15,9 +15,25 @@ FPS = 30
 W, H = 1080, 1920
 
 
+def template_dir(name: str | None = None) -> Path:
+    """A brief may name its own per-tool template directory under graphics/templates/.
+
+    The default template is the two files at the templates root. A template is a directory holding
+    `stage.css`, `engine.js` and `template.json` (which declares its own archetypes). This is the
+    per-tool animation tier: the vocabulary belongs to the tool, not to the pipeline.
+    """
+    if not name or name == "default":
+        return TEMPLATES
+    d = TEMPLATES / name
+    if not (d / "engine.js").exists():
+        raise FileNotFoundError(f"unknown graphics template {name!r} (expected {d})")
+    return d
+
+
 def build_stage_html(doc: dict) -> str:
-    css = (TEMPLATES / "stage.css").read_text(encoding="utf-8")
-    js = (TEMPLATES / "engine.js").read_text(encoding="utf-8")
+    d = template_dir(doc.get("template"))
+    css = (d / "stage.css").read_text(encoding="utf-8")
+    js = (d / "engine.js").read_text(encoding="utf-8")
     data = json.dumps(doc, ensure_ascii=False).replace("</", "<\\/")
     return (
         "<!doctype html><html><head><meta charset='utf-8'>"
