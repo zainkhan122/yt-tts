@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
   "batch_id": "2026-11-09-shorts-01",
-  "created_at": "2026-11-07T17:15:08Z",
+  "created_at": "2026-11-07T17:50:29Z",
   "briefs": {
     "repo-unslop-02": {
-      "brief_sha256": "199c32168713880ba2cd740f76677f81c9abfd85bbb2bf60763cf80c93d52cab",
-      "brief_identity_sha256": "fbb321a6937bae396109355b8bee546865825f70b733a30ac4780cbbcbf3612d",
+      "brief_sha256": "19a94abaed7b49f7b5ba1e87b14e04383f41ffbe7122feb80d1ab7611ff9c9a8",
+      "brief_identity_sha256": "dbafac413c4363f4ab05414a45cab32587cd1e976f07b216b38fd18baa0ee6ad",
       "stages": {
         "script": {
           "status": "complete",
-          "script_sha256": "32f2a0afd66fcbda0c2a73cc1e41d5cb8b6382ed362d4eafe580c35728c801af",
-          "word_count": 142
+          "script_sha256": "5513200577e9d7b45684bec789bd6497c47daa856e4210831bfce9f4cdce332b",
+          "word_count": 141
         },
         "assets": {
           "capture_id": "repo-unslop-02",

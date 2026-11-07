@@ -45,7 +45,7 @@ PLAN = {
         {
             "n": 2,
             "claim": "It proposes a direction taken from the product — character, the moment that carries the colour, a signature detail — and you steer it before it edits anything.",
-            "spoken": "Then it asks what your product actually is. Your answer becomes the direction: the character, the one moment that carries the colour, the signature detail.",
+            "spoken": "Then it asks what your product actually is. Your answer becomes the direction: the character, the one moment that carries the color, the signature detail.",
             "source": REPO,
             "source_note": "README: 'It audits the screen and proposes a direction before it edits anything, so you can steer it early.' + 'Direction. Character, world, the one or two moments that carry the color, and a signature detail, all taken from your product.'",
             "visual": {"kind": "steps", "intent": "the direction typed from your answer: character, one moment, a detail", "steps": ["the character", "the one moment with colour", "one signature detail"]},
@@ -67,7 +67,7 @@ PLAN = {
         {
             "n": 4,
             "claim": "You run it by typing /unslop with your screen or a live link, and it works in whatever the screen is built with.",
-            "spoken": "Type slash unslop, then your screen or a live link. It runs in Next.js, React, Vue, Svelte or plain CSS.",
+            "spoken": "Type unslop, then your screen or a live link. It runs in Next.js, React, Vue, Svelte or plain CSS.",
             "source": REPO,
             "source_note": "README: 'In Claude Code, type `/unslop` with what you want.' + 'It works in whatever your screen is built with, like Next.js, React, Vue, Svelte, Tailwind or plain HTML and CSS … even on a live site when all you have is a link.'",
             "visual": {"kind": "steps", "intent": "typing the slash command, then the stacks it runs in", "steps": ["Next.js", "React", "Vue", "Svelte"]},
@@ -271,7 +271,7 @@ BEATS = {
              ],
              "cue_phrases": ["redraws the same screen", "nine passes", "designed"],
          }},
-        {"scene_id": "point4", "phrase": 4, "archetype": "stack_chips", "headline": "TYPE SLASH UNSLOP",
+        {"scene_id": "point4", "phrase": 4, "archetype": "stack_chips", "headline": "TYPE UNSLOP",
          "feature_id": "f9", "depicts": "typing the slash command, then the stacks it runs in",
          "payload": {
              "eyebrow": "TYPE IT",

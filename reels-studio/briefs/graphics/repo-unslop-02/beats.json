@@ -199,7 +199,7 @@
       "scene_id": "point4",
       "phrase": 4,
       "archetype": "stack_chips",
-      "headline": "TYPE SLASH UNSLOP",
+      "headline": "TYPE UNSLOP",
       "feature_id": "f9",
       "depicts": "typing the slash command, then the stacks it runs in",
       "payload": {
@@ -317,5 +317,5 @@
       "cue_word": "unslop"
     }
   ],
-  "script_sha256": "sha256:4f544b6e6437ea7e745dd1e76e9d8104539c14cd049c8b0c6e41338ed4831f9d"
+  "script_sha256": "sha256:d85f783fa7b17afdb7c95f02bf20f3cd70bd5275ad496a9be5b9c012ff0ab99d"
 }
