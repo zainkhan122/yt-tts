@@ -1586,6 +1586,99 @@
       "title": "AI iPhone automation: let an agent use your phone",
       "video_id": "repo-poki-01",
       "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-11-07T08:20:41Z",
+      "approval": "held",
+      "asset_digest": "sha256:d76379519cbaa9c4c66b7bd9d5935810a4b5c2dcc152fe18eef0d83a03ad7f3e",
+      "asset_id": 720002462,
+      "asset_size": 13376653,
+      "brief_sha256": "95f26b7c7bc0410213259baa6ae58db612834971469575128efc7fe790c46d7a",
+      "category": "repo",
+      "expires_at": null,
+      "kit_asset_id": 720002553,
+      "kit_digest": "sha256:d5686963a79a7b41ef66a7e111c9b150c43adb6cca678f182f4560f38a25ea08",
+      "media_path": "media/720002462/repo-superagent-01.mp4",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "priority": 20,
+      "release_tag": "renders-2026-11-08",
+      "review": {
+        "cover_sha256": null,
+        "mp4_bytes": 13376653,
+        "mp4_sha256": "d76379519cbaa9c4c66b7bd9d5935810a4b5c2dcc152fe18eef0d83a03ad7f3e",
+        "run_id": null,
+        "source": "release-digest"
+      },
+      "reviewed_at": null,
+      "title": "Autonomous coding agent: one repo, run by dsh-superagent",
+      "video_id": "repo-superagent-01",
+      "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-11-07T08:20:42Z",
+      "approval": "held",
+      "asset_digest": "sha256:12ac6845f1a17a60f5e8e394bd332fce9a55ea1d0c9c3430efccc034dec76ce5",
+      "asset_id": 720002860,
+      "asset_size": 13247584,
+      "brief_sha256": "f546fd3aa27d830f8b9d96e913b8eb33916fd98c1b92602bd6997c430e6d2179",
+      "category": "repo",
+      "expires_at": null,
+      "kit_asset_id": 720002966,
+      "kit_digest": "sha256:f92983ecb0c3386d8f54f3fd934ae0a649b071e532375987d265fa2f8d447215",
+      "media_path": "media/720002860/repo-autoloop-01.mp4",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "priority": 20,
+      "release_tag": "renders-2026-11-08",
+      "review": {
+        "cover_sha256": null,
+        "mp4_bytes": 13247584,
+        "mp4_sha256": "12ac6845f1a17a60f5e8e394bd332fce9a55ea1d0c9c3430efccc034dec76ce5",
+        "run_id": null,
+        "source": "release-digest"
+      },
+      "reviewed_at": null,
+      "title": "Background coding agent: Agent Autoloop keeps going",
+      "video_id": "repo-autoloop-01",
+      "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-11-07T08:20:43Z",
+      "approval": "held",
+      "asset_digest": "sha256:31f7d93255145c91aab349275490293cd2e3e328f8dd1ac0940225085957c558",
+      "asset_id": 720003032,
+      "asset_size": 12850904,
+      "brief_sha256": "df95e93e190b22f97138494b58f56ff1d0846b10ba6491d43021f191dfeebaf6",
+      "category": "repo",
+      "expires_at": null,
+      "kit_asset_id": 720003233,
+      "kit_digest": "sha256:7dca87c016aa0fa79409f24cc8878c32fa297d1c83097124a5c3e6dc8ae0a7a4",
+      "media_path": "media/720003032/repo-vork-01.mp4",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "priority": 20,
+      "release_tag": "renders-2026-11-08",
+      "review": {
+        "cover_sha256": null,
+        "mp4_bytes": 12850904,
+        "mp4_sha256": "31f7d93255145c91aab349275490293cd2e3e328f8dd1ac0940225085957c558",
+        "run_id": null,
+        "source": "release-digest"
+      },
+      "reviewed_at": null,
+      "title": "Agent rendering: vork renders the shot without a video model",
+      "video_id": "repo-vork-01",
+      "youtube_ai_generated": false
     }
   ],
   "schema_version": 1
