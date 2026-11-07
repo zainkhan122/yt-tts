@@ -283,9 +283,9 @@
       "capture_id": "repo-autoloop-01",
       "cover_sha256": "ebd02abd6a779b1209c3aca813f5a24d606d3cf7b91c74056cda29741a0f8092",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=success",
       "fingerprint": "1519388126abd138030a3c1465fa8541caf430053684237b3a78c4c3b8d6fc72",
-      "finished_at": null,
+      "finished_at": "2026-11-07T08:51:59Z",
       "from_tag": "",
       "graphics_sha256": "d7bb6b5e4c314bf9bb4bc77c9469326570d7669707d4f41f8e8ff85eccd981cd",
       "quality": "looks",
@@ -293,7 +293,7 @@
       "renderer_sha256": "1717e2c74d7195432d818c01c01237621b0cd71d65ef20c49552d65355061a2b",
       "run_id": "42356085912",
       "started_at": "2026-11-07T08:36:30Z",
-      "status": "started",
+      "status": "success",
       "voice_seed": 0
     },
     "171a592731730854e266bf14bba847d17164172ef895e1a202bc1e827565531d": {
@@ -1864,9 +1864,9 @@
       "capture_id": "repo-vork-01",
       "cover_sha256": "98f7a31dc41364af455fa4bd837e5187acd53803b7ce5db13c13b6deee1d16be",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=success",
       "fingerprint": "7cb8c5e8e0bab870322960a951eb5fce483a5b3fa3c041f8c6e8f9d8d1cb5f1b",
-      "finished_at": null,
+      "finished_at": "2026-11-07T08:51:59Z",
       "from_tag": "",
       "graphics_sha256": "f0e894837ab92c6e89f8610eb2747f7bc60416c25b059828b9296585822f7f47",
       "quality": "looks",
@@ -1874,7 +1874,7 @@
       "renderer_sha256": "1717e2c74d7195432d818c01c01237621b0cd71d65ef20c49552d65355061a2b",
       "run_id": "42356085912",
       "started_at": "2026-11-07T08:36:30Z",
-      "status": "started",
+      "status": "success",
       "voice_seed": 0
     },
     "7d20b5e193f60fb34f97e4eccab2caa51c62840fa5d788ea32e3fc3ffb89d3b8": {
