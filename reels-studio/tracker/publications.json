@@ -3505,6 +3505,31 @@
       "updated_at": "2026-10-10T11:18:51Z",
       "video_id": "repo-removemacai-01"
     },
+    "repo-sand3d-01:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-11-09T18:11:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:ca4dd0452bca92999e19a0e47b4da55a93b1810697b1cb8a466e5c85bd4592ba",
+        "asset_id": 720191703,
+        "asset_size": 13168453,
+        "kit_asset_id": 720191746,
+        "kit_digest": "sha256:acad2e807d975b6b87de14ab0912d4f71bd6bbc28d37280e7c83a1b325a9dbc3",
+        "media_path": "media/720191703/repo-sand3d-01.mp4",
+        "release_tag": "renders-2026-11-08d",
+        "video_id": "repo-sand3d-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/720191703/repo-sand3d-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "92089163198098af150213816d4f423cfdec2240d3880aad8190a024aa284332",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "Python 3D modeling that fits in a prompt: sand3d writes solids as short programs over Blender, with parts, edges and faces reached by name instead of computed coordinates, and the same program always building the same mesh. One call exports GLB, URDF, USD, OBJ or STL, and the repo's washing machine example is thirty-eight lines with four joints. Repo: https://github.com/Sandflow-ai/sand3d #Shorts #Python3DModeling #Blender #CAD #AIAgents",
+      "title": "3D modeling: sand3d writes parts as Python code",
+      "updated_at": "2026-11-07T22:01:12Z",
+      "video_id": "repo-sand3d-01"
+    },
     "repo-scout-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6ad1fe6913b2adf724a21e6d",
