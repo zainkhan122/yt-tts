@@ -3144,6 +3144,31 @@
       "updated_at": "2026-10-13T23:05:04Z",
       "video_id": "repo-opencr-01"
     },
+    "repo-poki-01:facebook": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-11-07T22:18:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:41691322713d21827afc691dc47a07c8da9d0b39af867ab31e910cfbdd3b8b7f",
+        "asset_id": 719816618,
+        "asset_size": 13060284,
+        "kit_asset_id": 719816702,
+        "kit_digest": "sha256:bbc073dd6898781f83c4ca8344b30121b4747a8b760be3aa2442d06d6cdfe06b",
+        "media_path": "media/719816618/repo-poki-01.mp4",
+        "release_tag": "renders-2026-11-07",
+        "video_id": "repo-poki-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/719816618/repo-poki-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "a40dea5174f09ef4c91cf3d3f3580f6a929251cfdfc7879b3fe9113b3002e8c3",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "AI iPhone automation on your own Mac: Poki lets Claude Code or Codex drive a real iPhone by tapping and typing. Comment IPHONE for the repo link.\n\nAI-generated narration.\n\n#iPhoneAutomation #AIAgents #MCP #ClaudeCode #OpenSource",
+      "title": "AI iPhone automation: let an agent use your phone",
+      "updated_at": "2026-11-07T06:21:28Z",
+      "video_id": "repo-poki-01"
+    },
     "repo-poki-01:instagram": {
       "attempts": 1,
       "buffer_post_id": "6aeec366229bf05daf30b94c",
