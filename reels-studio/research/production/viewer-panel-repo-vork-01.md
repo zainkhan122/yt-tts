@@ -1,6 +1,7 @@
 # Viewer panel: repo-vork-01
 
 Video: `repo-vork-01.mp4` · 40.1 s · frames: panel-1-2.9s.jpg, panel-2-8.6s.jpg, panel-3-14.3s.jpg, panel-4-20.1s.jpg, panel-5-25.8s.jpg, panel-6-31.5s.jpg, panel-7-37.3s.jpg
+Video sha256: 31f7d93255145c91aab349275490293cd2e3e328f8dd1ac0940225085957c558
 
 Reviewer: open EVERY frame. Score as the persona, not as the producer.
 
@@ -31,4 +32,4 @@ Reviewer: open EVERY frame. Score as the persona, not as the producer.
 - [x] Would YOU tap this cover between two strangers' videos? why: yes - one accent-yellow headline on a dark plate, legible at feed size
 
 Reviewed by: agent panel on the rendered MP4 frames above (render tag renders-2026-11-08).
-## Panel result: PASS
+Panel result: PASS

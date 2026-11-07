@@ -1,6 +1,7 @@
 # Viewer panel: repo-autoloop-01
 
 Video: `repo-autoloop-01.mp4` · 41.2 s · frames: panel-1-2.9s.jpg, panel-2-8.8s.jpg, panel-3-14.7s.jpg, panel-4-20.6s.jpg, panel-5-26.5s.jpg, panel-6-32.4s.jpg, panel-7-38.3s.jpg
+Video sha256: 95ceaa4585e3b8f935275f401a9a764bb64f31a8879f6f23bda98bd514763729
 
 Reviewer: open EVERY frame. Score as the persona, not as the producer.
 
@@ -31,4 +32,4 @@ Reviewer: open EVERY frame. Score as the persona, not as the producer.
 - [x] Would YOU tap this cover between two strangers' videos? why: yes - one accent-yellow headline on a dark plate, legible at feed size
 
 Reviewed by: agent panel on the rendered MP4 frames above (render tag renders-2026-11-08).
-## Panel result: PASS
+Panel result: PASS
