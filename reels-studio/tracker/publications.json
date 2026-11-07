@@ -3759,9 +3759,11 @@
     },
     "repo-superagent-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6aef9fad9214322f681a46a3",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-11-09T21:08:00Z",
+      "due_at": "2026-11-09T21:08:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:d76379519cbaa9c4c66b7bd9d5935810a4b5c2dcc152fe18eef0d83a03ad7f3e",
         "asset_id": 720002462,
@@ -3776,10 +3778,11 @@
       "notify_subscribers": false,
       "payload_sha256": "2ed17baf080c17b5618cc3edf4cbba547380774571727a9cc0488929e079f7e9",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "An autonomous coding agent that lives with one GitHub repo: dsh-superagent listens to GitHub and Feishu, opens a work item when someone asks for work, does it in its own session, then answers in the thread with a pull request while a panel flags what needs a person. It is a DeepSeek research prototype, not a product, and it acts only when asked or when a team rule allows it. Repo: https://github.com/deepseek-ai/dsh-superagent-prototype #Shorts #CodingAgent #AutonomousAgents #DeepSeek #AIAgents",
       "title": "Autonomous coding agent: one repo, run by dsh-superagent",
-      "updated_at": "2026-11-07T22:01:15Z",
+      "updated_at": "2026-11-07T22:01:17Z",
       "video_id": "repo-superagent-01"
     },
     "repo-voicestudio-01:facebook": {
