@@ -1305,6 +1305,7 @@ class Job:
                 s["spoken_words"] = words_waveform(spoken_clean(s["spoken"] or s["text"]), seg_audio[sid], sr, s["start"])
                 s["words"] = map_display_words(groups, s["spoken_words"]) if groups else s["spoken_words"]
         self.timing, self.order, self.D, self.vo = timing, order, D, vo
+        self.voice_engine_detail = engine
         self.stage("voice", engine=engine, lines=sum(1 for s in segs if s.get("text")), duration=f"{D:.2f}s", secs=round(time.time() - t0, 1))
 
     def flow_voice(self, segs, tts, lang, voice_cfg, speed):
@@ -1865,7 +1866,8 @@ class Job:
     def save_voice_handoff(self, directory):
         """Write the voice that passed QA so the render job can reuse exactly these bytes."""
         meta = voice_handoff.write_handoff(directory, self.vo_path, timing=self.timing, order=self.order,
-                                           duration=self.D, engine=self.voice_engine)
+                                           duration=self.D, engine=self.voice_engine,
+                                           engine_detail=getattr(self, "voice_engine_detail", self.voice_engine))
         self.stage("voice-handoff", dir=str(directory), vo_sha256=meta["vo_sha256"], engine=meta["engine"],
                    duration=f"{meta['duration']:.2f}s")
 
@@ -1873,10 +1875,11 @@ class Job:
         h = voice_handoff.read_handoff(directory)  # refuses changed or mismatched audio
         self.timing, self.order, self.D = h["timing"], h["order"], h["duration"]
         self.voice_engine = h["engine"]
+        self.voice_engine_detail = h["engine_detail"]
         self.vo_path = self.work / "vo.wav"
         shutil.copy2(h["wav"], self.vo_path)
         self.vo, _sr = sf.read(self.vo_path, dtype="float32")
-        self.stage("voice", engine=h["engine"], reused_handoff=True, vo_sha256=h["vo_sha256"],
+        self.stage("voice", engine=h["engine_detail"], reused_handoff=True, vo_sha256=h["vo_sha256"],
                    duration=f"{self.D:.2f}s", note="audio reused from the voice job; not re-synthesized")
 
     # ---------------------------------------------------------------

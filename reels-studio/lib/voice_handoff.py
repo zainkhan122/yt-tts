@@ -35,13 +35,17 @@ def sha256_file(path: Path) -> str:
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def write_handoff(directory, wav_path, *, timing, order, duration, engine) -> dict:
+def write_handoff(directory, wav_path, *, timing, order, duration, engine, engine_detail=None) -> dict:
     d = Path(directory)
     d.mkdir(parents=True, exist_ok=True)
     shutil.copy2(wav_path, d / WAV)
     meta = {
         "schema": SCHEMA,
         "engine": str(engine),
+        # The full audit string ("chatterbox exag0.7 cfg0.4 ref michael-ref.wav, flow (...)"). The queue
+        # gate reads this: a render that reused the handoff used to record only "chatterbox", so an
+        # approved-voice render could not be queued at all (found 7 Nov 2026).
+        "engine_detail": str(engine_detail if engine_detail is not None else engine),
         "duration": float(duration),
         "order": [str(x) for x in order],
         "timing": _jsonable(timing),
@@ -62,5 +66,6 @@ def read_handoff(directory) -> dict:
     got = sha256_file(wav)
     if got != meta.get("vo_sha256"):
         raise ValueError(f"voice handoff audio changed: sha256 {got[:12]} != recorded {str(meta.get('vo_sha256'))[:12]}")
-    return {"engine": meta["engine"], "duration": meta["duration"], "order": meta["order"],
+    return {"engine": meta["engine"], "engine_detail": meta.get("engine_detail", meta["engine"]),
+            "duration": meta["duration"], "order": meta["order"],
             "timing": meta["timing"], "wav": wav, "vo_sha256": meta["vo_sha256"]}
