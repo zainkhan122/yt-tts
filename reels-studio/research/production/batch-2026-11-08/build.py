@@ -88,6 +88,8 @@ def main(vid):
     brief["renderer"] = "graphics"
     brief["graphics"] = {"dir": f"briefs/graphics/{vid}",
                          "note": "beat plan bound to the brief scenes; lint is fail-closed on script or scene mismatch"}
+    for key, value in getattr(mod, "BRIEF_EXTRA", {}).items():
+        brief[key] = value
     brief["voice_seed"] = 0
     brief["qa_gates"] = True
     bpath.write_text(json.dumps(brief, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

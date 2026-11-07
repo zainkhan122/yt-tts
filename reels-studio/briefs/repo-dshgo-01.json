@@ -287,5 +287,7 @@
     "dir": "briefs/graphics/repo-dshgo-01",
     "note": "beat plan bound to the brief scenes; lint is fail-closed on script or scene mismatch"
   },
-  "voice_seed": 0
+  "voice_seed": 0,
+  "speed": 1.19,
+  "lead_in": 0.06
 }

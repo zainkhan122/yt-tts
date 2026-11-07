@@ -2,14 +2,17 @@
 
 REPO = "https://github.com/Sandflow-ai/sand3d"
 
+# Voice pace/lead: measured wpm and hook-start gates (short_qa video) — every Short must PASS.
+BRIEF_EXTRA = {"speed": 1.28, "lead_in": 0.06}
+
 PLAN = {
     "id": "repo-sand3d-01",
     "tool": "sand3d",
-    "question": "Can an LLM do 3D modeling you can print?",
+    "question": "Can an LLM do 3D modeling?",
     "hook_visual": {
         "kind": "steps",
         "intent": "a prompt becoming short code, and that code becoming a printable object",
-        "steps": ["Ask for a part", "It writes code", "Blender builds it"],
+        "steps": ["Ask for a part", "Code builds it"],
     },
     "points": [
         {
@@ -174,9 +177,9 @@ BEATS = {
     "scenes": [
         {"scene_id": "hook", "phrase": 0, "archetype": "flow_link", "headline": "3D MODELING FOR LLMS",
          "feature_id": "f1", "depicts": "a model written by an LLM that you can print",
-         "payload": {"nodes": ["Ask for a part", "It writes code", "Blender builds it"], "edge_label": "print it",
-                     "cue_phrases": ["Can an LLM", "do 3D modeling", "you can print"]},
-         "cue_word": "print"},
+         "payload": {"nodes": ["Ask for a part", "Code builds it"], "edge_label": "print it",
+                     "cue_phrases": ["Can an LLM", "do 3D modeling"]},
+         "cue_word": "modeling"},
         {"scene_id": "point1", "phrase": 1, "archetype": "terminal_type", "headline": "PARTS AS PROGRAMS",
          "feature_id": "f1", "depicts": "the python lines that build a named part",
          "payload": {"title": "part.py",

@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "batch_id": "2026-11-08-shorts-01",
-  "created_at": "2026-11-07T07:18:41Z",
+  "created_at": "2026-11-07T07:50:29Z",
   "briefs": {
     "repo-unslop-01": {
-      "brief_sha256": "35877f38f0d8967f71321abf57a36366396a11ed79788be3552dcf19ffa7cffd",
-      "brief_identity_sha256": "110a4c3119550fe40832dffee5021064924a863ce52d4c41d060481ec5b3b1f0",
+      "brief_sha256": "e2e9985c411ca9b393ba46d635cb037d4cfeeb16ae7fb09a4b67bf4dee4174c2",
+      "brief_identity_sha256": "4cd7b9a815723fe2234eea850e327ce1a0ef6ec41ea1b0e78b983d213029814e",
       "stages": {
         "script": {
           "status": "complete",
@@ -46,8 +46,8 @@
       }
     },
     "repo-reavideo-01": {
-      "brief_sha256": "42cc559fda6ba338803da9205bee7fff4db56f25785daf8b2ffc45eef03aa811",
-      "brief_identity_sha256": "fd5bf515c2f66b5f5898c0990fa87d635b53a01576344dbf286bb13baa581483",
+      "brief_sha256": "7cdb09d076a07e3d9aefa25f30b7ba54ef6eeec83371f15850e213b32a92f54b",
+      "brief_identity_sha256": "76270721286b2568287c6c99a7c7aad7f536ed0d10143c453141dc392236950f",
       "stages": {
         "script": {
           "status": "complete",
@@ -67,8 +67,8 @@
       }
     },
     "repo-dshgo-01": {
-      "brief_sha256": "f88b6fce363b493ae666a9931c5731865f22dc2bc4a78fd37f7bb459f0a5da93",
-      "brief_identity_sha256": "35e12c00df729aca1053228e5339f57ce0805a299c5b81b94af202afeb338392",
+      "brief_sha256": "429c1282208fb2af9ca8175923f9206da50ed41719295539c451ac0270a29324",
+      "brief_identity_sha256": "69e99e82f27ac7ec9c86b895ef1691c7e8606d514bab1793da8d88646fd3a6d0",
       "stages": {
         "script": {
           "status": "complete",
@@ -130,13 +130,13 @@
       }
     },
     "repo-sand3d-01": {
-      "brief_sha256": "68636634341535185ab561ee8074d5cd9d2d88213823a3953e1f3f4299fe8a5d",
-      "brief_identity_sha256": "4ddac3f1ce056e327597004c281b98220d231d30a780b5c689cbc4a8fef50675",
+      "brief_sha256": "b1ecfae4b846256b22ab945af39671036a686260fd3a1d24eb0177062a8ef9e5",
+      "brief_identity_sha256": "a9e8b1e2a0ec3c5f141322a6849cb1fd9c6126fe1047f64985a1181e0b04e553",
       "stages": {
         "script": {
           "status": "complete",
-          "script_sha256": "68b3f5bcced5af117c0a4ed133346baefb15436dc38bc07a31ef567cfcafcf86",
-          "word_count": 117
+          "script_sha256": "8f7d28d7b5887c792685b913d4857fed6049f26b70a4193222a6aa960889e0d3",
+          "word_count": 114
         },
         "assets": {
           "capture_id": "repo-sand3d-01",

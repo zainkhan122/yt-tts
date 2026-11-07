@@ -1,14 +1,13 @@
 {
   "id": "repo-sand3d-01",
   "tool": "sand3d",
-  "question": "Can an LLM do 3D modeling you can print?",
+  "question": "Can an LLM do 3D modeling?",
   "hook_visual": {
     "kind": "steps",
     "intent": "a prompt becoming short code, and that code becoming a printable object",
     "steps": [
       "Ask for a part",
-      "It writes code",
-      "Blender builds it"
+      "Code builds it"
     ]
   },
   "points": [

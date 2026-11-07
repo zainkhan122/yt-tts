@@ -2,6 +2,9 @@
 
 REPO = "https://github.com/heydamir/unslop"
 
+# Voice pace/lead: measured wpm and hook-start gates (short_qa video) — every Short must PASS.
+BRIEF_EXTRA = {"speed": 1.23}
+
 PLAN = {
     "id": "repo-unslop-01",
     "tool": "unslop",

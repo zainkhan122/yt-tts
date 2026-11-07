@@ -2,6 +2,9 @@
 
 REPO = "https://github.com/JuneYaooo/rea-video"
 
+# Voice pace/lead: measured wpm and hook-start gates (short_qa video) — every Short must PASS.
+BRIEF_EXTRA = {"speed": 1.21}
+
 PLAN = {
     "id": "repo-reavideo-01",
     "tool": "rea-video",

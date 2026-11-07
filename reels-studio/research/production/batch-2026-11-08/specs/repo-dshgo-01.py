@@ -2,6 +2,9 @@
 
 REPO = "https://github.com/ccch1mneyyy/dsh-Go"
 
+# Voice pace/lead: measured wpm and hook-start gates (short_qa video) — every Short must PASS.
+BRIEF_EXTRA = {"speed": 1.19, "lead_in": 0.06}
+
 PLAN = {
     "id": "repo-dshgo-01",
     "tool": "DSH Go",

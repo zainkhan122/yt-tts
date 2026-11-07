@@ -12,17 +12,15 @@
       "payload": {
         "nodes": [
           "Ask for a part",
-          "It writes code",
-          "Blender builds it"
+          "Code builds it"
         ],
         "edge_label": "print it",
         "cue_phrases": [
           "Can an LLM",
-          "do 3D modeling",
-          "you can print"
+          "do 3D modeling"
         ]
       },
-      "cue_word": "print"
+      "cue_word": "modeling"
     },
     {
       "scene_id": "point1",
@@ -139,5 +137,5 @@
       "cue_word": "MESH"
     }
   ],
-  "script_sha256": "sha256:986617ed896cd319f3bf211b62ced35369803f949f4d6c293e40274c2b0286fe"
+  "script_sha256": "sha256:80ae1a8b0ca06bc18423bb10b2242dec83d56bdad7090478be6f3337336f8eb2"
 }
