@@ -2036,9 +2036,11 @@
     },
     "repo-dshgo-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6aeef376004e4879a747f8a2",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-11-08T17:08:00Z",
+      "due_at": "2026-11-08T17:08:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:6bc668fbbe1c71f4ff8c5c0e660bf9c16129c922d9a07a18e187d130a8ba2b88",
         "asset_id": 720119020,
@@ -2053,10 +2055,11 @@
       "notify_subscribers": false,
       "payload_sha256": "3346a1173050351614ec69c663d443c9fd14fba70cf7a1eda03f3f6adaec5ef2",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Android coding agent on the phone itself: DSH Go installs the runtime inside the app and can drive the harness on your computer with one tap. Comment POCKET for the repo link.\n\nAI-generated narration.\n\n#CodingAgent #DeepSeek #AndroidDev #AIAgents #OnDeviceAI",
       "title": "Android coding agent: DSH Go runs DeepSeek Harness",
-      "updated_at": "2026-11-07T09:46:29Z",
+      "updated_at": "2026-11-07T09:46:31Z",
       "video_id": "repo-dshgo-01"
     },
     "repo-earshot-01:facebook": {
