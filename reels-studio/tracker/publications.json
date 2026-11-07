@@ -3757,6 +3757,31 @@
       "updated_at": "2026-11-07T22:01:07Z",
       "video_id": "repo-superagent-01"
     },
+    "repo-superagent-01:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-11-09T21:08:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:d76379519cbaa9c4c66b7bd9d5935810a4b5c2dcc152fe18eef0d83a03ad7f3e",
+        "asset_id": 720002462,
+        "asset_size": 13376653,
+        "kit_asset_id": 720002553,
+        "kit_digest": "sha256:d5686963a79a7b41ef66a7e111c9b150c43adb6cca678f182f4560f38a25ea08",
+        "media_path": "media/720002462/repo-superagent-01.mp4",
+        "release_tag": "renders-2026-11-08",
+        "video_id": "repo-superagent-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/720002462/repo-superagent-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "2ed17baf080c17b5618cc3edf4cbba547380774571727a9cc0488929e079f7e9",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "An autonomous coding agent that lives with one GitHub repo: dsh-superagent listens to GitHub and Feishu, opens a work item when someone asks for work, does it in its own session, then answers in the thread with a pull request while a panel flags what needs a person. It is a DeepSeek research prototype, not a product, and it acts only when asked or when a team rule allows it. Repo: https://github.com/deepseek-ai/dsh-superagent-prototype #Shorts #CodingAgent #AutonomousAgents #DeepSeek #AIAgents",
+      "title": "Autonomous coding agent: one repo, run by dsh-superagent",
+      "updated_at": "2026-11-07T22:01:15Z",
+      "video_id": "repo-superagent-01"
+    },
     "repo-voicestudio-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6ae618c2f0984eef331cd916",
