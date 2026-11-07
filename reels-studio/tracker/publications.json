@@ -3675,9 +3675,11 @@
     },
     "repo-superagent-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6aef9fa39214322f681a415a",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-11-09T17:05:00Z",
+      "due_at": "2026-11-09T17:05:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:d76379519cbaa9c4c66b7bd9d5935810a4b5c2dcc152fe18eef0d83a03ad7f3e",
         "asset_id": 720002462,
@@ -3692,10 +3694,11 @@
       "notify_subscribers": false,
       "payload_sha256": "bd83c63177fdea22ec1da266ef70249ae405f2bcc58f85462b987d4f3ba53316",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Autonomous coding agent on one repository: dsh-superagent opens a work item when someone asks, works in its own session, and answers the thread with a pull request. Comment AGENT for the repo.\n\n#CodingAgent #AutonomousAgents #DeepSeek #AIAgents #DevTools",
       "title": "Autonomous coding agent: one repo, run by dsh-superagent",
-      "updated_at": "2026-11-07T22:01:05Z",
+      "updated_at": "2026-11-07T22:01:07Z",
       "video_id": "repo-superagent-01"
     },
     "repo-voicestudio-01:facebook": {
