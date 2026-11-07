@@ -100,3 +100,34 @@ where is that???"*
 4. Cover "CAN AI…" vs frame "CAN POKI…" — unchanged (cover hash is a render input; still cosmetic).
 
 Panel result: **PASS**. Nothing is queued, scheduled or published.
+
+---
+
+# Viewer panel: repo-poki-01 (round 3 = the shipped file)
+
+Video sha256: 41691322713d21827afc691dc47a07c8da9d0b39af867ab31e910cfbdd3b8b7f
+Release: `renders-2026-11-07`, asset `repo-poki-01.mp4` (719816618, 13,060,284 bytes), kit
+`repo-poki-01-kit.zip` (719816702), produced by Actions run `42344973851` (`cc20055`), which also
+published the release through `publish_verified_batch.py`.
+Frames re-checked in THIS file: 3.6, 10.4, 18.2, 27.5, 35.3, 37.0, 38.8, 39.9 s.
+
+Why this render exists: the queue refused the round-2 file because a render that reuses the voice
+job's handoff recorded only `engine: "chatterbox"` in `manifest.json`, and `tools/post/common.py`
+requires the full Option-3 audit string. Fixed in `cc20055` (the handoff now carries
+`engine_detail`); this run records `chatterbox exag0.7 cfg0.4 ref michael-ref.wav, flow (3 chunks,
+worst match 99%, melody [16.7, 18.0, 17.3] st, retries 0)`. The voice job reused the original
+approved take (`vo_sha256 8adab7da…`), so the narration is the take the owner has already heard.
+
+## Rule checks (round 3)
+- `short_qa video`: **PASS** — duration 40.25, WPM 178.9, longest pause 0.56, visual change 0.868,
+  graphic-only 0.168, motion gap 0.75 s. Identical to round 2 (same take, same graphics).
+- Kit QA: 9/9 checks true (`1080x1920`, `30fps`, `h264+aac`, `duration_matches`, `loudness_-14±1`,
+  `peak<=-1dBFS`, `frame0_visible`, `approved_voice`, `designed_cover`).
+- End-card in this file: card 35.3 s, `COMMENT IPHONE` 37.0 s, cursor 38.3 s, pressed + ring +
+  "✓ Following" 38.8 s, holds to the last frame.
+- Terminal prompt + "● waiting" 3.6 s; ticks 10.4 s; flow nodes 18.2 s; chips 27.5 s — all in
+  spoken order, no cue fallbacks (`stages.render.cue_fallbacks` is `{}`).
+- Cover for YouTube: `cover.jpg` = the approved c1 (`sha256:aa6277d5…`), 1080×1920 PNG/JPEG
+  container, passes `validate_short_cover`.
+
+Panel result: PASS. Nothing is queued or published by this document itself.
