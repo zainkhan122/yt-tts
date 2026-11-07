@@ -4,6 +4,17 @@
 while the reference accounts give every tool its own look. Audit both, at frame level, and say exactly what our pipeline
 is missing. **No code changes in this pass.**
 
+## 0. Owner decisions 2026-11-07 — what they reset
+
+Four corrections from the owner, taken as binding for everything below:
+
+| # | Owner said | Consequence in this document |
+|---|---|---|
+| D1 | **Stay faceless.** | The presenter track is **cancelled** (old M6 and M14 are withdrawn). No host tile, no face target. The alternation device must come from *surfaces*, not from a person. |
+| D2 | **The references are not using real captures** — they fabricate tool-like UI that *looks* real, animated from the tool's feature set. | The capture-pack prerequisite is **withdrawn** (old M4 asked for real screenshots; that was wrong). What we need is a **mock-UI drawing + animation kit**. R6 is rewritten as "no fabricated product-surface vocabulary" and the `captures/*` stubs are no longer on the critical path. |
+| D3 | **The main gap is animation: real-looking motion, synced to the script.** They are far ahead at inventing and animating these surfaces; we are not. | **New §6b** audits the engine as code and states the ceiling: 1 scene per spoken phrase, 8 drawing types, 18 icons, 10 motion verbs, zero mock-UI primitives, zero camera. The animation capability becomes **P0-A** in §7, ahead of palette and theme (which are demoted to P2 — they are the easy part). |
+| D4 | **The script was not audited; ours reads like a README, theirs says what a user needs to hear.** | **New companion document `SCRIPT-AUDIT.md`** (measured over 10 reference + 7 of our transcripts) and **P0-S** in §7. Its central finding: our script has **0.0 consequence clauses per 100 words** — we never say what the viewer *gets* — and it contains no action the viewer can perform inside the tool, which is exactly the material the animations would have been built from. |
+
 *Update 2026-11-07: the Instagram half is now in. Six files supplied by the owner were downloaded from the signed CDN links,
 measured with the identical analyser, and folded into every section below (new §3b, §4.9, §5b; revised M2 / M3 / M8; new
 M14–M17, R11–R12).*
@@ -38,10 +49,29 @@ Our seven videos are technically clean and structurally identical: one dark plat
 one secondary blue (`#38BDF8`), one headline slot, one caption slot, six card archetypes, glide transitions, no cuts, no
 human, no real product UI. Measured across the seven, the **median-frame brightness varies by 3.2 grey levels** — that is
 not a style, it is a single frame repeated for 40 seconds. The reference account does the opposite: it cuts every **3.0 s
-on average** (18.9 hard cuts/min, up to 44.7), alternates a **human presenter (face in 42 % of frames)** with **real
-product UI and bespoke light "paper" graphics**, changes background regime constantly (**luma σ = 70.8**, 35 % of frames on
-a light background), and speaks **217 wpm** with **half our pause count**. Their per-tool look changes because the artwork
-*is* the tool — screenshots, its real colours, its real output. Ours changes only the words.
+on average** (18.9 hard cuts/min, up to 44.7), alternates a **human presenter (face in 42 % of frames)** with **UI-shaped product
+surfaces** (drawn, not recorded — D2) **and bespoke light "paper" graphics**, changes background regime constantly (**luma σ = 70.8**, 35 % of frames on
+a light background), and speaks **217 wpm** with **half our pause count**. Their per-tool look changes because the artwork *is* the tool — a drawing of its own command,
+its own output, its own colours. Ours changes only the words.
+
+Instagram `@classified.ai` is more extreme in the same direction, and it shows something TikTok alone could not. Its two
+narrated reels cut **46.5 and 82.7 times a minute** (mean shot 1.25 s and **0.71 s**), keep a **presenter tile in 34 % /
+55 % of frames** at a fixed bottom-centre slot, and fill roughly **70 % of the runtime with full-bleed artifacts** — a real
+GitHub repo page, a PowerShell window, a `12,776 GITHUB STARS` stat card, a mock `₹0 / month` receipt, a mock inbox
+at 7:00, a Claude Code terminal, and a mock of Instagram's own comment box — every one of them drawn, not captured. Its three carousel slides are 100 % cream
+`rgb(228,221,213)` paper and **share one palette while changing layout** — pairwise frame correlation **0.11**, against
+**0.82** across our seven. Same brand, different pictures: the exact inverse of our problem. So the target is not "a
+palette per video", it is **a fixed brand layer with a per-video composition**.
+
+---
+
+**Owner's two corrections, stated plainly (2026-11-07).** After reading this audit the owner judged the real gaps to be
+(a) **animation** — inventing and animating tool-like surfaces that look real and are locked to the script — and (b)
+**script** — we describe software like a README while the references say what a user needs to hear. Both are accepted
+here and both now outrank the palette work: **§6b** audits the animation engine capability by capability, and
+**`SCRIPT-AUDIT.md`** audits the writing against 10 reference + 7 of our transcripts. Headline finding there:
+**0.0 consequence clauses per 100 words** — we never say what the viewer *gets* — and no action the viewer can perform
+inside the tool, which is exactly the material the missing animations would have been built from.
 
 Instagram `@classified.ai` is more extreme in the same direction, and it shows something TikTok alone could not. Its two
 narrated reels cut **46.5 and 82.7 times a minute** (mean shot 1.25 s and **0.71 s**), keep a **presenter tile in 34 % /
@@ -124,16 +154,18 @@ Three things this table changes:
 
 ### 4.1 Four recurring structures (not one)
 
-1. **Presenter ⇄ screen-capture** (`7697701717076364564`, 23.9 cuts/min): talking head delivers the claim, hard cut to a
-   full-screen browser doing the thing (real Chrome window, real cursor, real ChatGPT reply streaming), cut back to the face
-   for the verdict. Roughly 50 % face / 45 % screen / 5 % transitions, sampled.
+1. **Presenter ⇄ screen** (`7697701717076364564`, 23.9 cuts/min): talking head delivers the claim, hard cut to a
+   full-screen browser *doing the thing* — window chrome, a cursor travelling, a reply streaming in (drawn, per owner
+   correction D2, and behaving exactly like a recording) — cut back to the face for the verdict. Roughly 50 % face /
+   45 % screen / 5 % transitions, sampled.
 2. **Light "paper" product mock** (`7699861233939381388`, 7.6 cuts/min, face 62 %): a cream `#EAEADD` UI is *drawn* — pill
    buttons, chips, a real price chart, an isometric stack of 10 000 simulated trades, "29.4 % up" in green — intercut with
-   the presenter against a dark bookshelf. Zero screenshots; every panel is bespoke.
+   the presenter against a dark bookshelf. Nothing is captured; every panel is invented — which is D2's point.
 3. **Diagram-led explainer** (`7704525765915774229`, 16.9 cuts/min): cream canvas, an icon-row "Claude ⟶ 🧩 ⟶ 🌐 ⟶ 🗂 ⟶ 📧"
-   pipeline, a real setup-guide page with redaction, a server rack illustration, then a 2-3-5 card fan. One idea per frame.
-4. **Pure screen-record demo** (`7700231606509866260`, 44.7 cuts/min, face 31 %): mostly the tool's own UI with punch-ins,
-   the presenter used as a punctuation cut.
+   pipeline, a setup-guide *page* drawn as a support article, a server rack illustration, then a 2-3-5 card fan. One idea
+   per frame.
+4. **Pure screen demo** (`7700231606509866260`, 44.7 cuts/min, face 31 %): mostly the tool's own UI, drawn and punch-in
+   animated, the presenter used as a punctuation cut.
 
 Transitions are **hard cuts**, occasionally a whip-pan or an object wipe (a hand, a card fan) — never a crossfade. Nothing
 in the ten videos is "a graphic card with a headline and a caption".
@@ -165,12 +197,23 @@ in the ten videos is "a graphic card with a headline and a caption".
 - Saturation is spent on **one artifact** per shot (a yellow study sheet, a green P&L bar), not on the frame furniture.
   Our batch is the inverse: a saturated yellow accent on every card, no artifact.
 
-### 4.5 Graphics language
+### 4.5 Graphics language — fabricated, not captured (owner correction D2)
 
-- Real product surfaces: browser chrome, cursor, streaming text, a settings page, a terminal.
-- Bespoke data graphics drawn with the tool's own numbers (10 000 simulations → a stacked isometric column; "29.4 % up").
+The owner's read is correct and it changes the fix: **neither account records the real product.** Their screens are
+built. What makes them read as real is not fidelity to a screenshot, it is the *behaviour* of a screen: a cursor that
+travels and clicks, a caret that blinks at 2.5 Hz, rows that arrive one at a time, a counter that rolls from 94 to 84, a
+ring that fills to 1:53, a receipt that slides up like paper, a comment box that takes typed input. Fidelity is not in the
+pixels; it is in the *physics of the interaction*.
+
+- UI-shaped surfaces drawn to spec: window chrome, sidebar rows, list items, chat bubbles, terminal, notification banner,
+  phone frame, receipt, timer, price tag, comment box.
+- Bespoke data graphics with the tool's own numbers (10 000 simulations → a stacked isometric column; "29.4 % up").
 - Illustrated objects with personality (a red cartoon book stack, a server rack, a Post-it study sheet, a 2-3-5 card fan).
-- Stickers/emoji as *labels on real things* (🧩 on the Claude pill, 🗂 on a folder row) — never a decorative icon on a card.
+- Stickers/emoji as *labels on these objects* (🧩 on the Claude pill, 🗂 on a folder row) — never a decorative icon on a card.
+- The catalogue of what they draw, from the frame sheets: PowerShell window with a `winget` line, Claude Code terminal,
+  GitHub repo page with star count and licence pill, stat card (12 776), receipt (`MONTHLY COST ₹0`), inbox with three
+  notification rows, countdown ring (1:53), phone approval card, isometric chart, card fan, wireframe-over-render,
+  and Instagram's own comment box.
 
 ### 4.6 Human presence
 
@@ -214,8 +257,8 @@ The account runs **three formats**, and only one of them is a reel:
 
 The two reels share one production grammar, and it is not ours:
 
-1. **Every shot is a full-bleed artifact,** not a headline over a plate: the actual GitHub repo page with its stars and
-   licence pill; a real PowerShell window with a `winget` line; a `12,776 GITHUB STARS` number card; a mock receipt
+1. **Every shot is a full-bleed artifact,** not a headline over a plate (all of it drawn — D2): the GitHub repo page with
+   its stars and licence pill; a PowerShell window with a `winget` line; a `12,776 GITHUB STARS` number card; a mock receipt
    (`MONTHLY COST · ₹0`); a mock inbox (`DAILY ROUTINE · 7:00` with real Gmail/Calendar/Drive rows); a `1:53` ring timer
    for "set up in 3 minutes"; a live Claude Code terminal; a real Blender viewport with `Characters / Props /
    Environment / Lighting / Textures` export rows; a real docs page ("Blender Director — 1 Domain · 3 Pages · …").
@@ -285,8 +328,8 @@ identity. They are the proof that the sameness problem is a *composition* proble
 | R3 | **Fixed composition slots.** headline 190–420, visual 470–1400, captions 1480–1640; `.headline` top-left, `.sub` centred, captions bottom | `stage.css:1,9-14` + `graphics/engine.js` | the layout *is* the template; nothing can be full-bleed or edge-to-edge like a screenshot |
 | R4 | **Fixed archetype enum** (`flow_link`, `chip_grid`, `toggle_steps`, `terminal_type`, `concept_card`, `stat_pop`, `endcard`) | `graphics/beats.py`, `engine.js` | every topic is forced into the same six drawings; a real UI screenshot or a data chart is not expressible |
 | R5 | **No cuts.** Template CFG `"cut": "glide"` | `templates/repo-spotlight/template.py:16` | 0 hard cuts; two-layer presenter/UI alternation is impossible |
-| R6 | **No capture path in graphics mode.** `renderer: "graphics"` ignores capture packs; the packs we ship are stubs (`files:{}`) | `captures/<id>/manifest.json`, `lib/pipeline.py:1572` | no real screenshots, cursors, product surfaces — only drawn cards |
-| R7 | **No human.** Faceless-only is encoded in QA (`faceless only` doc note) and there is no presenter asset path | `config/qa-thresholds.json:_doc`, `brand/voice/*` | face share 0 %; the reference's single strongest attention device is unavailable |
+| R6 | **No fabricated product-surface vocabulary.** *(rewritten under D2 — the problem was never missing captures.)* `ICON_PATHS` has 18 line glyphs; the only chrome in the engine is the terminal's `.term-bar`. There is no window, sidebar, row, chat bubble, cursor, caret-outside-terminal, chart, receipt, timer, phone frame or comment box to draw with. | `graphics/templates/engine.js:38-58` (icon set), `stage.css` (`.chip`, `.node`, `.term-*`) | every idea must be expressed as text-on-a-card, so the only surfaces we can make read as "a slide", never as "an app" |
+| R7 | ~~No human~~ **Withdrawn under D1 (stay faceless).** Kept in the table only to record that the owner has ruled it out; face share 0 % is now a *decision*, not a defect. | — | — |
 | R8 | **One voice, one pace.** Channel voice fixed at Chatterbox `speed 1.15` (ignored by the engine — see `voice_tempo` workaround) | `config/channel.json`, `lib/pipeline.py:614` | 184 wpm and flat pitch; the engine gives no pace knob, so we added `voice_tempo` (1.03–1.10) as a workaround |
 | R9 | **Covers and in-video palette are the same kit.** `covers/_kit.py` plate/accent/grey | `covers/_kit.py` | the cover reinforces the sameness instead of the tool's identity |
 | R10 | **Script budget tuned for the old format** (100–125 words ≈ 35–42 s at 175 wpm) | `research/production/batch-2026-11-08/specs/*`, plan lint | we cannot carry a 3-step demo in the time the reference fills |
@@ -300,31 +343,99 @@ speech rate and copy, not visual distinctiveness.
 
 ---
 
+## 6b. The animation capability, audited as code (owner correction D3)
+
+`graphics/templates/engine.js` is a deterministic renderer: `setTime(t)` draws one frame as a pure function of `t`, no
+CSS transitions, no timers. That is the right architecture — and it is why the ceiling can be stated exactly.
+
+| Capability | ours (measured in code) | reference (measured in frames) | Where |
+|---|---|---|---|
+| **visual events per video** | **7** (one scene per spoken phrase) | **15–30** (TT mean shot 3.0 s; IG 0.71–1.25 s) | `beats.py` docstring + lint `B1` |
+| **beat granularity** | 1 scene = 1 phrase (~5.8 s each) | 2–4 shots per phrase; a shot is 1 clause | `beats.py:scene_list` |
+| **drawing types** | **8 archetypes**, 7 used; skeleton is identical in all 7 videos — `flow_link` hook ×7, `chip_grid` catch ×6, `endcard` CTA ×7 | each shot is a bespoke artifact; ~15 distinct artifact kinds across 12 reference videos | `beats.py:ARCHETYPES`, `engine.js:ARCH` |
+| **motion verbs** | 11: fade, translate, scale, rotate, letter-stagger, type-on (30 cps), line-draw, count-up, ripple, pulse, particle rise | 20+: cursor travel + click, caret blink, scroll, drag, wipe, pop-in stack, ring fill, counter roll, shake, spotlight, punch-in, split reveal, object morph | `engine.js` per-archetype `update()` |
+| **transition** | cross-fade (0.18 s in / 0.16 s out) + 0.96→1.0 scale breathing | hard cut, occasionally whip-pan or object wipe | `engine.js:setTime` (`fade`) |
+| **camera** | none — fixed 1080×1920, no punch-in, no pan | a punch-in or a pan on most reference shots | — |
+| **mock-UI primitives** | **0** — 18 line icons + one terminal bar | window, sidebar, list row, chat bubble, cursor, notification, phone frame, receipt, timer, comment box, chart, badge | `engine.js:ICON_PATHS` |
+| **charts** | 1 (ring gauge in `stat_pop`) | bars, lines, axes, isometric columns, before/after panels | `engine.js:stat_pop` |
+| **type registers** | 1 (headline + 4-word caption + sub, one font stack) | 4 (mono eyebrow, heavy caps headline, italic accent word, in-artifact body) | `stage.css` |
+| **palette** | 5 JS constants (`Y #FFD60A`, `BLUE #38BDF8`, `INK #0C0E13`, `CARD #141925`, `EDGE #2A3140`) | per-tool, delivered by the artifact itself | `engine.js:16` |
+| **cue-lock** | **per element, per spoken word**, with recorded fallbacks | per phrase at best (hand-edited) | `graphics/cues.py` |
+
+**The arithmetic.** A 40 s video at a reference cadence of ~2 s per shot needs **≈ 20 beats**. Ours has 7. Each beat needs
+2–5 animated elements plus one continuous motion to avoid the shimmer we currently produce. So the gap is roughly
+**7 drawings → 20 beats × 3 elements ≈ 60 animated elements per video**, drawn from a vocabulary we do not have.
+
+**Our one real advantage:** the cue-lock machinery (`cues.py` binds every list item, number and CTA press to the spoken
+word, with logged fallbacks). The reference gets sync right by hand, per shot, in an editor. Anything we build should
+keep `cues.py` as the timing source of truth and add *drawing* vocabulary on top of it.
+
+### What "real-looking animation" needs, itemised
+
+| # | Capability | Why it is needed | Effort |
+|---|---|---|---|
+| **C1** | **Beat list decoupled from phrases** — 1–3 beats per phrase, each beat = one artifact + one continuous motion; `phrases` stays the timing source. | 7 → 20+ visual events is impossible while `B1` forces one scene per phrase. | medium: schema + lint change, engine unchanged |
+| **C2** | **Mock-UI primitive kit** (~20 primitives): `window`, `sidebar`, `list_row`, `chat_pair`, `terminal` (exists), `caret`, `cursor`, `click_ripple`, `notification`, `phone_frame`, `card_stack`, `chart(bars/line/area)`, `ring`, `receipt`, `price_tag`, `toggle_row`, `progress`, `timer`, `comment_box`, `highlight`. | every reference shot is built from these. Without them, "a screen" can only be drawn as text on a card. | **the real work** — a primitive library drawn in the same deterministic `setTime` style |
+| **C3** | **Motion grammar per primitive** — enter (on the word) / hold (one continuous motion: travel, type, count, scroll, fill) / exit (cut). | "real-looking" is behaviour, not detail (see §4.5). | medium — attaches to C2 |
+| **C4** | **Camera** — punch-in, pan, snap-zoom, and one deliberate hold per video. | our scale is fixed, so nothing ever feels "filmed"; a 1.06× punch-in on a card is the cheapest single upgrade after cuts. | small |
+| **C5** | **Hard cuts** with a 0-frame switch + SFX, replacing the cross-fade. | 0 hard cuts today; it is one code path (`fade` in `setTime`). | **trivial** |
+| **C6** | **Type registers as data**: eyebrow / caps headline / accent word / in-artifact body / caption. | the reference's two-register headline is its most recognisable type device, and we have one register. | small |
+| **C7** | **Theme as data** (palette, plate, accent, font pair per brief). | necessary for per-tool identity, but it is the *cheapest* thing on this list — which is why it is demoted below. | small |
+| **C8** | **Artifact spec in the brief** — today `visual: {kind, intent}` is a sentence; it must become `artifact: {type, rows/values, focus, camera}`, i.e. a drawable description. | an animator cannot draw an intent string; this is the schema change that makes C2 usable. | medium |
+
+---
+
 ## 7. Mismatch list, in fix order
 
-Severity: **P0** = the reason all seven look the same; **P1** = what makes the reference feel alive; **P2** = polish.
-Each has an acceptance test that the analyser in this folder can measure, so the fix is verifiable, not a matter of taste.
+**Order revised after the owner's corrections:** **P0-A animation capability** (D3) → **P0-S script register** (D4) →
+**P1-C composition/sameness** (the old P0; palette is the easy part) → **P1** liveliness (sound, pace) → **P2** polish.
+Each row still has an acceptance test the analyser here can measure.
 
-### P0 — the sameness itself
+### P0-A — animation capability (the main gap)
+
+| # | Fix | Acceptance test (analyser / viewer panel) |
+|---|---|---|
+| M19 | **Beat density**: 20–30 beats per 40 s video (mean beat 1.4–2.0 s), 1–3 beats per spoken phrase. | `cuts_per_min` ≥ 25, `mean_shot_s` ≤ 2.0; viewer panel counts ≥ 20 distinct visual events |
+| M20 | **Mock-UI primitive kit (C2) + motion grammar (C3)**: ≥ 12 primitives implemented, each with enter/hold/exit. | viewer panel: ≥ 5 distinct UI surfaces per video; `edge_density` ≥ 0.08; `white_share` ≥ 0.15 |
+| M21 | **Every shot is an artifact** — no shot may be "headline + icon row". The artifact carries the palette and the words. | ≤ 20 % of beats may be text-only; archetype histogram: no type > 30 % |
+| M22 | **Camera**: one punch-in or pan per 4 beats; one deliberate hold of ≥ 1.5 s in the payoff. | `static_share` 0.25–0.55 (real holds), `frame_diff_p95` ≥ 12 |
+| M23 | **Hard cuts + SFX at the cut** (0-frame switch). | cut count matches `energy_onsets_per_min` within 15 % |
+| M24 | **Type registers (C6)**: eyebrow + caps + accent word + in-artifact body. | white share by band peaks in bands 2–3; ≤ 40 % of frames share one band profile |
+| M25 | **Artifact spec in the brief (C8)** — `artifact: {type, rows, values, focus, camera}` replaces `visual.intent`. | a beat-list lint can validate that every beat names a primitive from the kit |
+
+### P0-S — script register (owner correction D4, full audit in `SCRIPT-AUDIT.md`)
+
+| # | Fix | Acceptance test |
+|---|---|---|
+| S1 | **Viewer as the actor**: `you_per_100` ≥ 6.0, tool-as-subject ≤ 50 % of sentences | `script_audit.py` |
+| S2 | **Consequence in every claim**: ≥ 3 "so you / before you / instead of / without" clauses per video (`consequence_per_100` ≥ 1.5, today **0.0**) | `script_audit.py` |
+| S3 | **No jargon nouns** (api/sdk/cli/module/runtime/schema…): `jargon_per_100` ≤ 0.5 (today **2.6**, reference **0.0**) | `script_audit.py` |
+| S4 | **One copyable action** the viewer types inside the tool, spoken *and* typed on screen (this is also the best animation we can get for free) | spec field `copyable_action` non-null; a typed shot exists in the beat list |
+| S5 | **Hook = situation / status gap / factual bomb**, never a question (ours: 5 of 7 questions; reference: 0 of 10) | `hook_type` field + lint |
+| S6 | **Limit as a concession, not a section** — retire the standing "The catch" scene (6 of 7 videos), put one boundary inside the payoff | spec lint: no `catch` scene id; ≤ 1 concession sentence |
+| S7 | **CTA rotation** — comment-ask ≤ 1 in 3 (ours 6 of 7; reference 0 of 10); rotate save-ask / in-tool action / none | `cta_type` field + batch lint |
+| S8 | **Length & pace**: 145–165 words at 195–218 wpm (today 120 words / 184 wpm; reference 163 / 224) — needs owner sign-off on the gate | `short_qa` word count + `wpm` |
+
+### P1-C — the sameness itself (composition first, palette last)
 
 | # | Fix | Acceptance test (analyser) |
 |---|---|---|
-| M1 | **Per-tool theme layer**: a `theme` block in the brief (`plate`, `ink`, `accent`, `accent2`, `surface`, `font_pair`, `grid_on/off`) that `stage.css` consumes as CSS variables; default from the repo/site brand, override per brief. | palette top-1 colour **differs** across the batch; pairwise frame correlation inside a batch **< 0.60** |
+| M1 | **Per-tool theme layer** *(still required, but it is the cheap half of the problem — do it after P0-A/P0-S or it just recolours the same seven cards)*: a `theme` block in the brief (`plate`, `ink`, `accent`, `accent2`, `surface`, `font_pair`, `grid_on/off`) that the engine consumes as data instead of the 5 constants at `engine.js:16`. | palette top-1 colour **differs** across the batch; pairwise frame correlation inside a batch **< 0.60** |
 | M2 | **Surface alternation every 1–3 s** *(revised after Instagram)*: the device is not light↔dark, it is *different visual surface* — artifact ⇄ presenter/host tile ⇄ paper canvas. Light↔dark is one flavour of it; IG's reels stay dark (near-white 0.00, σ 19.5) and still read as fast cutting. | primary: mean shot ≤ 2 s and ≥ 2 distinct surfaces per 5 s (viewer panel counts them); secondary (for at least the light-format video of each pair): `share_near_white_bg` ≥ 0.20, `luma_std` ≥ 35 |
 | M3 | **Hard cuts as the default** *(revised after Instagram)*, with glide only inside a beat. Scene change = cut on a word boundary. Measured floor across both accounts: TikTok 18.9, IG reels 46.5 / 82.7. | `cuts_per_min` ≥ **25** (≥ 12 absolute minimum), mean shot ≤ **2.0 s**, no shot longer than 4 s except the deliberate single "burn" shot |
-| M4 | **Real product surface in ≥ 40 % of scenes**: a drawn-but-faithful replica of the tool's own UI (its chrome, its colours, its output), or a real capture where a pack exists. | white-pixel share ≥ **0.22**; `edge_density` up 1.5×; viewer panel bar "product/result visible in N of 7 scenes" ≥ 3 |
+| M4 | **Fabricated product surface in ≥ 40 % of beats** *(rewritten under D2 — no captures)*: a UI-shaped artifact drawn from the primitive kit, faithful to the tool's own behaviour (rows, values, its real command, its real output), animated like a screen. | white-pixel share ≥ **0.15**; `edge_density` ≥ 0.08; viewer panel: "product surface visible in N of M beats" ≥ 40 % |
 | M5 | **New archetypes**: `screen_ui` (full-bleed app window), `data_chart` (the tool's own numbers), `artifact` (the object the tool produces), `split_before_after`, `quote_repost`. Keep the current six as secondary. | archetype histogram across a batch: no archetype > 40 % |
 
 ### P1 — the liveliness
 
 | # | Fix | Acceptance test |
 |---|---|---|
-| M6 | **Presenter track** (owner decision needed): a reusable host clip set or an AI-presenter licence. Until then, emulate the alternation with hands/avatars? See §9. | `face_frame_share` ≥ 0.25 in at least the hook + CTA |
+| ~~M6~~ | **Withdrawn — owner decision D1: stay faceless.** No presenter track will be built. The alternation job it was meant to do is taken over by M19/M20 (a different artifact surface every 1–2 s). | — |
 | M7 | **Caption system per format**: one-word emphasis inside the artwork + a script/display accent font for the emotional word; captions must not sit in a fixed bottom slot for the whole video. | white share by band: middle bands ≥ top/bottom bands; ≤ 40 % of frames share one band profile |
 | M8 | **Script length + pace** *(revised after Instagram)*: the defect is pauses, not speed — TikTok runs 217 wpm with 15.6 pauses/min, IG runs ~150 wpm with 7.4, we run 184 wpm with **35.0**. Target: continuous read, no breath before every clause; 180–230 words per 45 s; keep the verbatim-claim rule. | `pauses_over_250ms_per_min` ≤ **12** (hard fail > 20); `wpm` 175–220; `silence_share` ≤ 0.40 |
 | M9 | **SFX layer at the cut** (whoosh on cut, tick on numbers, soft impact on reveals) and **4 dB more headroom** for the mix. | `energy_onsets_per_min` ≥ 140; `loud_p90_dbfs` ≤ −14 |
 | M10 | **Hook before frame 3**: number/claim on screen at 0.0 s, first spoken word at 0.0 s (we are at 0.0–0.18 s — fine, keep). | `first_word_at` ≤ 0.15 s |
-| M14 | **Host-tile contract** (works with or without a presenter): a rounded bottom-centre tile, **28–30 % wide × 16–17 % tall, centre at (0.50, 0.84)**, over a *constant* set, cut in for the claim and the payoff, never captioned over. If we stay faceless, the tile holds the tool's own "host artifact" (its logo-in-situ, a real cursor capture, a hand holding the phone) so the cut rhythm keeps its anchor. | face share ≥ 0.25 in hook + CTA once a presenter exists; otherwise tile present in ≥ 30 % of frames at that geometry (measured by the same face/tile detector in `analyze.py`) |
+| ~~M14~~ | **Withdrawn under D1.** The bottom-centre tile is a presenter device; we are not building one. The measured fact stays in the record as context: their tile sits at centre (0.50, 0.84), 28–30 % × 16–17 % of frame. | — |
 | M15 | **Artifact card system**: full-bleed cards with their own chrome — `window` (real app frame), `receipt`, `timer`, `inbox`, `stat`, `repo_page`, `comment_box` — each with eyebrow (mono, 11 px), two-register headline (white caps + one amber italic accent word), body artifact, and the spoken line inside the card, not in a subtitle track. | archetype histogram: ≥ 5 distinct artifacts per video; `edge_density` ≥ 0.08; white share by band peaks in bands 2–3 |
 | M16 | **Save-CTA + proof beat**: open on a save-CTA card (a drawn bookmark + our own save count once we have one), close on a drawn comment-box CTA ("comment WORD"), and put **one verifiable third-party number** on its own card (GitHub stars, downloads, subscribers). | viewer panel: save-CTA in first 3 s = yes, comment-box CTA in last 4 s = yes, one external proof number present = yes |
 | M17 | **Format portfolio**: add a still-motion **4:5 cream slide** export (6 s, music only, one composition per tool) next to the reel. Cheapest way to get a light-paper regime, and it shares the theme layer with the video. | batch of 7 also emits 7 slides at 1080×1350; slide `median_luma` ≥ 200, `share_near_white_bg` ≥ 0.9; reel+slide palette ΔE < 10 |
@@ -374,22 +485,29 @@ M2/M4 and gets us most of the way without a presenter.
    Two follow-ups only you can answer: **(a) language** — the account speaks Roman-Urdu with English tool nouns, our channel
    speaks English TTS; do we stay English (and lose that audience's register) or add an Urdu track? **(b) formats** — do we
    want the 4:5 cream slide and the occasional silent AI-video clip as part of the schedule, or reels only?
-2. **Presenter policy.** The reference's biggest lever is a human face. Options: (a) stay faceless and lean on tool-native
-   UI/artifacts (my recommendation for the current batch, since 3 of 7 are already scheduled), (b) a licensed AI presenter,
-   (c) your own recorded host clips — which changes the capture pipeline (new stage, new consent/licensing record).
-3. **Capture packs.** M4 wants real product surfaces. Today `capture_store` ships stub packs (`files:{}`). To do this properly
-   we need a capture step per repo (browser/CLI screenshots at 1080×1920, cursor path, 6–10 frames per tool).
-4. **Host tile without a presenter (M14).** If the answer to (2) is "stay faceless", confirm the substitute anchor I should
-   put in the bottom-centre tile — a real cursor capture, a hand prop, or the tool's logo-in-situ. The cut rhythm depends on
-   that slot existing; the face is optional, the slot is not.
-5. **Scope of the rebuild.** Re-cutting all seven into the new language is a re-render + re-QA + re-schedule cycle; the three
+2. ~~Presenter policy~~ **Answered: stay faceless (D1).** M6/M14 withdrawn; nothing else in the plan depends on it.
+3. ~~Capture packs~~ **Withdrawn (D2).** Since the references fabricate their UI, `captures/*` stubs are not a blocker and we
+   should not spend a capture pass on this batch. Replaced by the mock-UI primitive kit (C2 / M20).
+4. **How far on the animation kit?** The honest size of the job, in the order that buys the most first:
+   *(i)* hard cuts instead of the cross-fade + camera punch-in — **days**, and it alone fixes the "nothing ever happens" read;
+   *(ii)* the 20-primitive mock-UI kit + per-primitive motion grammar + a beat list at 20–30 beats — **the bulk of the work**;
+   *(iii)* type registers and theme-as-data — **small** once the above exists.
+   Tell me which of the three you want scoped into a build plan, and whether the seven already-scheduled videos are the test
+   bed or something new is.
+5. **Artifact per tool (C8).** Each brief must carry a drawable `artifact` spec instead of an `intent` sentence. That is an
+   authoring cost per video (pick the surface, list its rows and values, choose the 3 focus elements). Do you want me to
+   draft those seven artifact specs next, before any code, so the animation work has a target?
+6. **Script sign-off.** `SCRIPT-AUDIT.md` §8 has four open questions (length vs pace, the comment CTA, the "catch" section,
+   and whether a copyable `copyable_action` is allowed under the README-traceability rule). Answers there unblock S1–S8.
+7. **Scope of the rebuild.** Re-cutting all seven into the new language is a re-render + re-QA + re-schedule cycle; the three
    already on Buffer for 8 Nov (reavideo, dshgo, autoloop) would have to be pulled and re-slotted. Tell me whether to (i)
    rebuild only the four not yet scheduled (9–10 Nov), (ii) pull and rebuild all seven, or (iii) ship this batch as-is and
    apply the new language from the next batch.
 
 ---
 
-*Files: this document, `measurements.json` (all per-video metrics + transcripts, plus `rows_ig` / `ig_extras` — presenter
-tile geometry and per-video accent colours), `analyze.py` (20 fps analyser), `aggregate.py` (group statistics; accepts
-`"name=/dir"` groups), `sheets/*.jpg` (12–18-frame strips — TikTok, ours, and the six IG files).*
+*Files: this document · `SCRIPT-AUDIT.md` (the script register audit, §0 D4) · `measurements.json` (all per-video frame,
+audio and transcript metrics, plus `rows_ig` / `ig_extras`) · `script_metrics.json` (per-video register scores) ·
+`analyze.py` (20 fps analyser) · `script_audit.py` (script register analyser) · `aggregate.py` (group statistics; accepts
+`"name=/dir"` groups) · `sheets/*.jpg` (12–18-frame strips — TikTok, ours, and the six IG files).*
 *Reference clips are deliberately not committed (third-party media); re-fetch them with the owner's signed links.*
