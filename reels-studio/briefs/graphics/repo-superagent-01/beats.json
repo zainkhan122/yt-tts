@@ -1,0 +1,142 @@
+{
+  "tool": "dsh-superagent",
+  "handle": "@hypeless",
+  "scenes": [
+    {
+      "scene_id": "hook",
+      "phrase": 0,
+      "archetype": "flow_link",
+      "headline": "DSH-SUPERAGENT RUNS YOUR REPO",
+      "feature_id": "f1",
+      "depicts": "your repo taking work while you are away",
+      "payload": {
+        "nodes": [
+          "Your repo",
+          "Someone asks",
+          "It opens a PR"
+        ],
+        "edge_label": "no babysitting",
+        "cue_phrases": [
+          "Could an agent",
+          "run your repo",
+          "without you watching it"
+        ]
+      },
+      "cue_word": "repo"
+    },
+    {
+      "scene_id": "point1",
+      "phrase": 1,
+      "archetype": "chip_grid",
+      "headline": "A RESEARCH PROTOTYPE",
+      "feature_id": "f1",
+      "depicts": "one repository watched by a proactive agent",
+      "payload": {
+        "chips": [
+          "Published by DeepSeek",
+          "Proactive agent",
+          "One repository"
+        ],
+        "highlight": 1,
+        "cue_phrases": [
+          "It's dsh-superagent",
+          "a research prototype",
+          "proactive coding agent"
+        ]
+      },
+      "cue_word": "prototype"
+    },
+    {
+      "scene_id": "point2",
+      "phrase": 2,
+      "archetype": "toggle_steps",
+      "headline": "IT TAKES THE WORK",
+      "feature_id": "f2",
+      "depicts": "the work item it opens in its own session",
+      "payload": {
+        "steps": [
+          "Listens to GitHub",
+          "And optionally Feishu",
+          "Opens a work item"
+        ],
+        "done": 3,
+        "cue_phrases": [
+          "listens to GitHub",
+          "optionally Feishu",
+          "opens a work item"
+        ]
+      },
+      "cue_word": "work"
+    },
+    {
+      "scene_id": "point3",
+      "phrase": 3,
+      "archetype": "chip_grid",
+      "headline": "ANSWERS IN THE THREAD",
+      "feature_id": "f3",
+      "depicts": "the answer in the thread and the panel that needs a person",
+      "payload": {
+        "chips": [
+          "Answer in the thread",
+          "Often a pull request",
+          "Panel needs a person"
+        ],
+        "highlight": 1,
+        "cue_phrases": [
+          "answers in the thread",
+          "often with a pull request",
+          "panel shows what needs a person"
+        ]
+      },
+      "cue_word": "thread"
+    },
+    {
+      "scene_id": "point4",
+      "phrase": 4,
+      "archetype": "concept_card",
+      "headline": "ONLY WHEN ASKED",
+      "feature_id": null,
+      "depicts": "the rule that lets it act and the setup your agent walks",
+      "payload": {
+        "big": "ONLY WHEN ASKED",
+        "sub": "Or when a team rule allows it."
+      },
+      "cue_word": "asked"
+    },
+    {
+      "scene_id": "catch",
+      "phrase": 5,
+      "archetype": "terminal_type",
+      "headline": "THE CATCH",
+      "feature_id": "f6",
+      "depicts": "setup run by your coding agent, on research code",
+      "payload": {
+        "title": "your coding agent",
+        "lines": [
+          "Read SETUP.md in this repo",
+          "set up dsh-superagent"
+        ],
+        "cue_phrases": [
+          "research code",
+          "not a DeepSeek product",
+          "walk you through setup"
+        ]
+      },
+      "cue_word": "catch"
+    },
+    {
+      "scene_id": "cta",
+      "phrase": 6,
+      "archetype": "endcard",
+      "headline": "AGENT OWNS A REPO",
+      "feature_id": null,
+      "depicts": "commenting the keyword to get the repo",
+      "payload": {
+        "keyword": "AGENT",
+        "follow": "Follow"
+      },
+      "cue_word": "AGENT"
+    }
+  ],
+  "script_sha256": "sha256:eed250844970e9eb70c211c46835c4947d0c79732187cbe51b14017f39e556da"
+}

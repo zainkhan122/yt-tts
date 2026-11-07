@@ -1,0 +1,58 @@
+{
+  "tool": {
+    "name": "Agent Autoloop",
+    "repo": "https://github.com/KKKKhazix/agent-autoloop"
+  },
+  "features": [
+    {
+      "id": "f1",
+      "title": "Command-line agents become a loop",
+      "what": "It turns an agent session into work that continues on its own.",
+      "evidence_quote": "Agent Autoloop turns your command-line agents into a background loop."
+    },
+    {
+      "id": "f2",
+      "title": "One machine, one install",
+      "what": "It runs locally on the three desktop systems, with no cloud server.",
+      "evidence_quote": "One machine, one install command. Runs on Windows, macOS, or Linux. No cloud server or inbound ports required."
+    },
+    {
+      "id": "f3",
+      "title": "Events and rules",
+      "what": "A schedule, an issue or an alert becomes an event that your rules route.",
+      "evidence_quote": "A 9:00 AM schedule, a new GitHub issue, or a production alert becomes a standard event sent to the kernel."
+    },
+    {
+      "id": "f4",
+      "title": "One round, then exit",
+      "what": "The agent finishes a round, reports in its final message and the process ends.",
+      "evidence_quote": "The agent puts its result in its final message, and the process exits."
+    },
+    {
+      "id": "f5",
+      "title": "Cards where you already are",
+      "what": "Decisions arrive as chat cards or desktop notifications.",
+      "evidence_quote": "Cards reach you on Feishu, DingTalk, WeCom, Slack, Discord, or desktop notifications when you are needed."
+    },
+    {
+      "id": "f6",
+      "title": "Command-line output is still Chinese",
+      "risk": true,
+      "what": "The terminal output and default notifications have not been translated yet.",
+      "evidence_quote": "CLI output and default notification strings are still Chinese until they are translated."
+    }
+  ],
+  "risks": [
+    {
+      "id": "r1",
+      "text": "CLI output and default notification text are Chinese until translated."
+    },
+    {
+      "id": "r2",
+      "text": "It needs a recent Node, Git and an agent that is already signed in."
+    }
+  ],
+  "source_urls": [
+    "https://github.com/KKKKhazix/agent-autoloop"
+  ]
+}

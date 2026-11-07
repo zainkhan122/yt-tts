@@ -1,0 +1,292 @@
+{
+  "id": "repo-unslop-01",
+  "capture": "captures/repo-unslop-01",
+  "title": "unslop: the skill that redraws AI-looking UI",
+  "niche": "AI tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "AI UI design",
+    "AI slop design",
+    "Claude Code skill",
+    "AI UI redesign"
+  ],
+  "facts": {
+    "method": "tool's own README and repo page, read on the day of the plan",
+    "limits": "The catch: you need Claude Code or Codex, and the story video needs Playwright and ffmpeg."
+  },
+  "sources": [
+    "https://github.com/heydamir/unslop",
+    "https://github.com/heydamir/unslop",
+    "https://github.com/heydamir/unslop",
+    "https://github.com/heydamir/unslop"
+  ],
+  "verify_before_render": [
+    "Every point cites its source in the plan (repo-unslop-01/plan.json).",
+    "Kit images are drawn from the plan's own visual spec only."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "flow",
+      "heading": "AI UI DESIGN LOOKS SAME",
+      "nodes": [
+        "Your prompt",
+        "AI builds the UI",
+        "Same look again"
+      ],
+      "say": "Why does every AI-built app look the same?"
+    },
+    {
+      "id": "point1",
+      "type": "flow",
+      "heading": "ADD IT TO YOUR AGENT",
+      "nodes": [
+        "Copy the skill",
+        "Claude Code or Codex",
+        "Type /unslop"
+      ],
+      "say": "It's called unslop, a skill for Claude Code or Codex that turns vibecoded, AI-looking screens into a designed interface."
+    },
+    {
+      "id": "point2",
+      "type": "flow",
+      "heading": "IT FINDS THE SLOP",
+      "nodes": [
+        "Audit the screen",
+        "List the slop",
+        "Direction from product"
+      ],
+      "say": "First it audits the screen and lists the slop: gradients, glows, emoji labels. Then it sets a direction from your product."
+    },
+    {
+      "id": "point3",
+      "type": "flow",
+      "heading": "REDLINE, PASS BY PASS",
+      "nodes": [
+        "Spacing and color",
+        "Icons, copy, type",
+        "Layout and motion"
+      ],
+      "say": "You steer that direction first. Then it fixes the screen pass by pass: spacing, color, icons, copy, type, motion, like a designer's redline review."
+    },
+    {
+      "id": "point4",
+      "type": "flow",
+      "heading": "WORKS IN YOUR STACK",
+      "nodes": [
+        "Next.js, React, Vue",
+        "Dashboards and pages",
+        "A live site link"
+      ],
+      "say": "It works in Next.js, React, Vue or plain CSS, and on a live site when a link is all you have."
+    },
+    {
+      "id": "catch",
+      "type": "flow",
+      "heading": "THE CATCH",
+      "nodes": [
+        "Needs Claude Code or Codex",
+        "Video needs Playwright",
+        "Paid images ask first"
+      ],
+      "say": "The catch: you need Claude Code or Codex, and the story video needs Playwright and ffmpeg."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "UNSLOP",
+      "say": "Would you let it redraw your own app? Comment UNSLOP and I'll pin the repo."
+    }
+  ],
+  "seo": {
+    "onscreen_first3s": "AI UI DESIGN LOOKS SAME",
+    "keyword": "AI UI design",
+    "aliases": [
+      "AI slop design",
+      "unslopping AI UI",
+      "fix vibecoded UI"
+    ],
+    "youtube": {
+      "title": "AI UI design: why every AI-built app looks the same",
+      "description": "AI UI design is why every vibecoded app ends up looking the same, and unslop is the skill for Claude Code or Codex that fixes it: audit the slop, set a direction from your product, then redraw spacing, color, icons, copy, type and motion pass by pass. It runs in Next.js, React, Vue or plain CSS, and can read a live site from a link. Repo: https://github.com/heydamir/unslop #Shorts #AIUIDesign #ClaudeCode #WebDesign #AIAgents",
+      "tags": [
+        "AI UI design",
+        "AI slop design",
+        "unslopping AI UI",
+        "fix vibecoded UI",
+        "unslop skill",
+        "Claude Code skill",
+        "UI redesign agent"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#AIUIDesign",
+        "#ClaudeCode",
+        "#WebDesign",
+        "#AIAgents"
+      ]
+    },
+    "tiktok": {
+      "caption": "AI UI design fix: unslop turns vibecoded, AI-looking screens into a designed interface inside Claude Code or Codex. Comment UNSLOP for the repo.",
+      "hashtags": [
+        "#AIUIDesign",
+        "#ClaudeCode",
+        "#WebDesign",
+        "#AISkills",
+        "#AIUIDesign"
+      ]
+    },
+    "instagram": {
+      "caption": "AI UI design, fixed pass by pass: unslop is a skill for Claude Code or Codex that audits the slop, picks a direction, then redraws spacing, color and type. Comment UNSLOP for the repo.",
+      "hashtags": [
+        "#AIUIDesign",
+        "#ClaudeCode",
+        "#WebDesign",
+        "#AISkills",
+        "#BuildInPublic"
+      ]
+    },
+    "facebook": {
+      "caption": "AI UI design that stops looking generic: unslop audits the slop in a vibecoded screen and redraws it pass by pass inside Claude Code or Codex. Comment UNSLOP for the repo link.",
+      "hashtags": [
+        "#AIUIDesign",
+        "#ClaudeCode",
+        "#WebDesign",
+        "#AISkills",
+        "#BuildInPublic"
+      ]
+    },
+    "x": {
+      "text": "AI UI design: unslop is a Claude Code and Codex skill that audits the slop in a vibecoded screen, sets a direction, then redraws it pass by pass.",
+      "hashtags": [
+        "#AIUIDesign",
+        "#ClaudeCode"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Would you let it redraw your own app? Comment UNSLOP and I'll pin the repo.",
+    "hashtags": [
+      "#Shorts",
+      "#AIUIDesign",
+      "#ClaudeCode",
+      "#WebDesign",
+      "#AIAgents"
+    ]
+  },
+  "research_basis": [
+    "videos/repo-unslop-01/plan.json"
+  ],
+  "viewer": {
+    "who": "builders shipping vibecoded apps that all look the same",
+    "problem": "the AI-built screen works but reads as generic and unfinished",
+    "job": "decide whether a design skill inside their agent can fix the screen they already have"
+  },
+  "idea": "unslop is a Claude Code and Codex skill that audits AI-looking UI and redraws it pass by pass.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "unslop is a skill for Claude Code and Codex that turns vibecoded, AI-looking UI into a designed interface.",
+      "source": "https://github.com/heydamir/unslop"
+    },
+    {
+      "id": "c2",
+      "text": "It audits the screen and names the slop it finds, then sets a direction from the product before it edits anything.",
+      "source": "https://github.com/heydamir/unslop"
+    },
+    {
+      "id": "c3",
+      "text": "It fixes the screen pass by pass: spacing, color, icons, copy, type, layout, details, visuals and motion.",
+      "source": "https://github.com/heydamir/unslop"
+    },
+    {
+      "id": "c4",
+      "text": "It works in the viewer's own stack and on a live site when only a link is available.",
+      "source": "https://github.com/heydamir/unslop"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/heydamir/unslop",
+      "how_shown": "copy the skill folder, open the agent, type the slash command"
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://github.com/heydamir/unslop",
+      "how_shown": "the audit list, then the direction taken from the product"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://github.com/heydamir/unslop",
+      "how_shown": "the passes landing one after another on the same screen"
+    },
+    {
+      "claim": "c4",
+      "evidence": "source:https://github.com/heydamir/unslop",
+      "how_shown": "frameworks on the left, a live link on the right"
+    }
+  ],
+  "treatment": {
+    "audience": "builders shipping vibecoded apps that all look the same",
+    "viewer_job": "decide whether a design skill inside their agent can fix the screen they already have",
+    "intent": "search",
+    "hook_mechanic": "viewer question about the tool's first claim",
+    "open_loop": {
+      "plant": "Why does every AI-built app look the same?",
+      "payoff_scene": "point1"
+    },
+    "proof_moment": "point1",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "id": "c1",
+        "layout": "bleed",
+        "text": "EVERY AI APP LOOKS SAME",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c1.png",
+          "design": "Full-bleed dark plate with the same generic AI screen repeated in a row behind the headline, the last one outlined in the accent as the one being redrawn."
+        }
+      },
+      {
+        "id": "c2",
+        "layout": "window",
+        "text": "UNSLOP YOUR AI UI",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c2.png",
+          "design": "Framed terminal window holding the skill install lines, with a before/after screen pair coming out of the window on a dark plate."
+        }
+      },
+      {
+        "id": "c3",
+        "layout": "split",
+        "text": "YOUR UI, BUT DESIGNED",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c3.png",
+          "design": "Split plate: the slop list as checked-off rows on top, the fixed screen with one accent element below."
+        }
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-11-07",
+    "expires_at": null,
+    "reviewer": "agent: plan written from the maker's README and repo page",
+    "notes": "Topic approved by owner (config/topic-approvals.json). Plan and copy await owner review at the cover gate."
+  },
+  "motion_standard": 2,
+  "qa_gates": true,
+  "renderer": "graphics",
+  "graphics": {
+    "dir": "briefs/graphics/repo-unslop-01",
+    "note": "beat plan bound to the brief scenes; lint is fail-closed on script or scene mismatch"
+  },
+  "voice_seed": 0
+}

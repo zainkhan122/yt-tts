@@ -1,0 +1,291 @@
+{
+  "id": "repo-superagent-01",
+  "capture": "captures/repo-superagent-01",
+  "title": "dsh-superagent: a proactive coding agent for one repo",
+  "niche": "AI tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "autonomous coding agent",
+    "proactive coding agent",
+    "DeepSeek Harness",
+    "coding agent"
+  ],
+  "facts": {
+    "method": "tool's own README and repo page, read on the day of the plan",
+    "limits": "The catch: it's research code, not a DeepSeek product, and some designs in the paper are not in it."
+  },
+  "sources": [
+    "https://github.com/deepseek-ai/dsh-superagent-prototype",
+    "https://github.com/deepseek-ai/dsh-superagent-prototype",
+    "https://github.com/deepseek-ai/dsh-superagent-prototype",
+    "https://github.com/deepseek-ai/dsh-superagent-prototype"
+  ],
+  "verify_before_render": [
+    "Every point cites its source in the plan (repo-superagent-01/plan.json).",
+    "Kit images are drawn from the plan's own visual spec only."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "flow",
+      "heading": "DSH-SUPERAGENT RUNS YOUR REPO",
+      "nodes": [
+        "Your repo",
+        "Someone asks",
+        "It opens a PR"
+      ],
+      "say": "Could an agent run your repo without you watching it?"
+    },
+    {
+      "id": "point1",
+      "type": "flow",
+      "heading": "A PROACTIVE AGENT",
+      "nodes": [
+        "One repo",
+        "One agent",
+        "Always listening"
+      ],
+      "say": "It's dsh-superagent, a research prototype published by DeepSeek: a proactive coding agent for one repository."
+    },
+    {
+      "id": "point2",
+      "type": "flow",
+      "heading": "IT TAKES THE WORK",
+      "nodes": [
+        "Listens to GitHub",
+        "Listens to Feishu",
+        "Opens a work item"
+      ],
+      "say": "It listens to GitHub, and optionally Feishu. When someone asks for work, it opens a work item in its own session."
+    },
+    {
+      "id": "point3",
+      "type": "flow",
+      "heading": "ANSWERS IN THE THREAD",
+      "nodes": [
+        "Answer in the thread",
+        "Pull request attached",
+        "Panel needs a person"
+      ],
+      "say": "It answers in the thread where the work was asked, often with a pull request, and a panel shows what needs a person."
+    },
+    {
+      "id": "point4",
+      "type": "flow",
+      "heading": "ONLY WHEN ASKED",
+      "nodes": [
+        "Asked to act",
+        "Or a team rule",
+        "Setup by your agent"
+      ],
+      "say": "It acts only when asked, or when a team rule allows it. Your coding agent walks you through setup."
+    },
+    {
+      "id": "catch",
+      "type": "flow",
+      "heading": "THE CATCH",
+      "nodes": [
+        "Research code only",
+        "Some designs missing",
+        "Runs on DeepSeek Harness"
+      ],
+      "say": "The catch: it's research code, not a DeepSeek product, and some designs in the paper are not in it."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "AGENT",
+      "say": "Would you let an agent own a repo? Comment AGENT and I'll pin it."
+    }
+  ],
+  "seo": {
+    "onscreen_first3s": "DSH-SUPERAGENT RUNS YOUR REPO",
+    "keyword": "autonomous coding agent",
+    "aliases": [
+      "proactive coding agent",
+      "agent that runs a repo",
+      "DeepSeek agent prototype"
+    ],
+    "youtube": {
+      "title": "Autonomous coding agent: one repo, run by dsh-superagent",
+      "description": "An autonomous coding agent that lives with one GitHub repo: dsh-superagent listens to GitHub and Feishu, opens a work item when someone asks for work, does it in its own session, then answers in the thread with a pull request while a panel flags what needs a person. It is a DeepSeek research prototype, not a product, and it acts only when asked or when a team rule allows it. Repo: https://github.com/deepseek-ai/dsh-superagent-prototype #Shorts #CodingAgent #AutonomousAgents #DeepSeek #AIAgents",
+      "tags": [
+        "autonomous coding agent",
+        "proactive coding agent",
+        "DeepSeek agent prototype",
+        "agent that runs a repo",
+        "dsh-superagent",
+        "DeepSeek Harness"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#CodingAgent",
+        "#AutonomousAgents",
+        "#DeepSeek",
+        "#AIAgents"
+      ]
+    },
+    "tiktok": {
+      "caption": "Autonomous coding agent for one repo: dsh-superagent listens to GitHub, opens a work item, then answers with a pull request. Comment AGENT for the repo.",
+      "hashtags": [
+        "#CodingAgent",
+        "#AutonomousAgents",
+        "#DeepSeek",
+        "#AIAgents",
+        "#OpenSource"
+      ]
+    },
+    "instagram": {
+      "caption": "Autonomous coding agent on one repository: dsh-superagent opens a work item when someone asks, works in its own session, and answers the thread with a pull request. Comment AGENT for the repo.",
+      "hashtags": [
+        "#CodingAgent",
+        "#AutonomousAgents",
+        "#DeepSeek",
+        "#AIAgents",
+        "#DevTools"
+      ]
+    },
+    "facebook": {
+      "caption": "Autonomous coding agent for a single repository: dsh-superagent listens to GitHub, opens a work item, and answers with a pull request while a panel flags what needs a person. Comment AGENT for the repo link.",
+      "hashtags": [
+        "#CodingAgent",
+        "#AutonomousAgents",
+        "#DeepSeek",
+        "#AIAgents",
+        "#DevTools"
+      ]
+    },
+    "x": {
+      "text": "Autonomous coding agent for one repo: dsh-superagent listens to GitHub, opens a work item, and answers with a pull request. DeepSeek research prototype.",
+      "hashtags": [
+        "#CodingAgent",
+        "#DeepSeek"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Would you let an agent own a repo? Comment AGENT and I'll pin it.",
+    "hashtags": [
+      "#Shorts",
+      "#CodingAgent",
+      "#AutonomousAgents",
+      "#DeepSeek",
+      "#AIAgents"
+    ]
+  },
+  "research_basis": [
+    "videos/repo-superagent-01/plan.json"
+  ],
+  "viewer": {
+    "who": "teams who want an agent to carry a repo without constant babysitting",
+    "problem": "an agent that needs a human in the loop wastes the whole team's attention",
+    "job": "decide whether an always-on repo agent is worth wiring into their GitHub"
+  },
+  "idea": "dsh-superagent is a DeepSeek research prototype: a proactive coding agent that watches one repo and answers in the thread.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "dsh-superagent is a proactive coding agent for one GitHub repository, packaged as a bundle for DeepSeek Harness.",
+      "source": "https://github.com/deepseek-ai/dsh-superagent-prototype"
+    },
+    {
+      "id": "c2",
+      "text": "It listens to GitHub and, optionally, Feishu; a request for work opens a work item that runs in its own session and directory.",
+      "source": "https://github.com/deepseek-ai/dsh-superagent-prototype"
+    },
+    {
+      "id": "c3",
+      "text": "It answers in the original conversation, for example with a pull request, and a web panel shows what needs a person.",
+      "source": "https://github.com/deepseek-ai/dsh-superagent-prototype"
+    },
+    {
+      "id": "c4",
+      "text": "It acts only when asked or when a team-written rule allows it, and setup is walked through by your own coding agent from SETUP.md.",
+      "source": "https://github.com/deepseek-ai/dsh-superagent-prototype"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/deepseek-ai/dsh-superagent-prototype",
+      "how_shown": "one repository watched by one agent"
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://github.com/deepseek-ai/dsh-superagent-prototype",
+      "how_shown": "the sources it listens to and the work item it opens"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://github.com/deepseek-ai/dsh-superagent-prototype",
+      "how_shown": "the answer landing in the thread, the PR, the panel"
+    },
+    {
+      "claim": "c4",
+      "evidence": "source:https://github.com/deepseek-ai/dsh-superagent-prototype",
+      "how_shown": "the rule that gates action, and the agent-led setup"
+    }
+  ],
+  "treatment": {
+    "audience": "teams who want an agent to carry a repo without constant babysitting",
+    "viewer_job": "decide whether an always-on repo agent is worth wiring into their GitHub",
+    "intent": "search",
+    "hook_mechanic": "viewer question about the tool's first claim",
+    "open_loop": {
+      "plant": "Could an agent run your repo without you watching it?",
+      "payoff_scene": "point1"
+    },
+    "proof_moment": "point1",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "id": "c1",
+        "layout": "bleed",
+        "text": "AGENT THAT RUNS YOUR REPO",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c1.png",
+          "design": "Full-bleed plate with a repo commit graph behind the headline, one node lit as the work item, and a pull-request card sliding out of it."
+        }
+      },
+      {
+        "id": "c2",
+        "layout": "window",
+        "text": "REPO, RUN BY AGENT",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c2.png",
+          "design": "Framed panel window listing three work items, one marked as needing a person, with the merge arrow underneath."
+        }
+      },
+      {
+        "id": "c3",
+        "layout": "split",
+        "text": "AGENT OPENS THE PR",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c3.png",
+          "design": "Split plate: issue rows on top, and below them a pull request card with a diff bar and a green merge button."
+        }
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-11-07",
+    "expires_at": null,
+    "reviewer": "agent: plan written from the maker's README and repo page",
+    "notes": "Topic approved by owner (config/topic-approvals.json). Plan and copy await owner review at the cover gate."
+  },
+  "motion_standard": 2,
+  "qa_gates": true,
+  "renderer": "graphics",
+  "graphics": {
+    "dir": "briefs/graphics/repo-superagent-01",
+    "note": "beat plan bound to the brief scenes; lint is fail-closed on script or scene mismatch"
+  },
+  "voice_seed": 0
+}

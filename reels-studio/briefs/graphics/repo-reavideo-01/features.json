@@ -1,0 +1,64 @@
+{
+  "tool": {
+    "name": "rea-video",
+    "repo": "https://github.com/JuneYaooo/rea-video"
+  },
+  "features": [
+    {
+      "id": "f1",
+      "title": "Shot by shot breakdown",
+      "what": "It explains how the visuals, text, editing and audio of a clip were made.",
+      "evidence_quote": "give it any of them, and it tells you shot by shot how the visuals, styled text, editing and audio were made, then gives you a plan to make one yourself."
+    },
+    {
+      "id": "f2",
+      "title": "Every kind of video",
+      "what": "Live footage, AI video, avatars, 3D and code motion are each judged on their own.",
+      "items": [
+        "live footage",
+        "AI video",
+        "3D",
+        "code"
+      ],
+      "evidence_quote": "Each shot judged separately, then reassembled on the original timeline"
+    },
+    {
+      "id": "f3",
+      "title": "Evidence and rebuilt prompts",
+      "what": "The report carries per-shot frames, the evidence and a prompt for each shot.",
+      "evidence_quote": "a full report.html with per-shot frames, evidence, prompts, camera and lighting notes, and the audio breakdown"
+    },
+    {
+      "id": "f4",
+      "title": "A remake plan",
+      "what": "The plan separates what to film, what to generate and what to code.",
+      "evidence_quote": "a remake plan, split into what to film, what to generate and what to code"
+    },
+    {
+      "id": "f5",
+      "title": "Runs inside your agent",
+      "what": "The agent installs the CLI and runs the whole breakdown itself.",
+      "evidence_quote": "The agent installs the CLI, learns the workflow and runs the whole thing."
+    },
+    {
+      "id": "f6",
+      "title": "Detailed docs are in Chinese",
+      "risk": true,
+      "what": "The long-form documentation is Chinese today; the report can be English.",
+      "evidence_quote": "The detailed docs are in Chinese for now; your agent reads them and answers in your language."
+    }
+  ],
+  "risks": [
+    {
+      "id": "r1",
+      "text": "Detailed documentation is in Chinese for now; ask for English reports with the language flag."
+    },
+    {
+      "id": "r2",
+      "text": "A video-capable model makes the live/AI calls more accurate, and without one some shots are uncertain."
+    }
+  ],
+  "source_urls": [
+    "https://github.com/JuneYaooo/rea-video"
+  ]
+}

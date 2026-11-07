@@ -1,0 +1,63 @@
+{
+  "tool": {
+    "name": "dsh-superagent",
+    "repo": "https://github.com/deepseek-ai/dsh-superagent-prototype"
+  },
+  "features": [
+    {
+      "id": "f1",
+      "title": "Proactive agent for one repository",
+      "what": "It is a coding agent that lives with a single GitHub repository.",
+      "evidence_quote": "dsh-superagent is a proactive coding agent for one GitHub repository, packaged as a bundle for DeepSeek Harness."
+    },
+    {
+      "id": "f2",
+      "title": "Listens, then opens a work item",
+      "what": "A request for work becomes a work item with its own session and directory.",
+      "items": [
+        "GitHub",
+        "Feishu",
+        "work item"
+      ],
+      "evidence_quote": "It listens to GitHub and, optionally, Feishu. When someone allowed asks the agent for work, it opens a work item, works on it in its own agent session and directory"
+    },
+    {
+      "id": "f3",
+      "title": "Answers where the work was asked",
+      "what": "The reply lands in the original conversation, often as a pull request.",
+      "evidence_quote": "answers in the original conversation, for example with a pull request. A web panel shows what needs a person."
+    },
+    {
+      "id": "f4",
+      "title": "Only acts when allowed",
+      "what": "It acts when asked or when a rule the team wrote allows it.",
+      "evidence_quote": "it acts only when asked or when a rule the team wrote allows it, and speaks only when someone must act or can use a result."
+    },
+    {
+      "id": "f5",
+      "title": "Setup walked through by an agent",
+      "what": "Your own coding agent installs and configures it from the repo's setup guide.",
+      "evidence_quote": "Read SETUP.md in this repository and set up dsh-superagent with me."
+    },
+    {
+      "id": "f6",
+      "title": "Research code, not production",
+      "risk": true,
+      "what": "The repository says the code is a research prototype with possible bugs.",
+      "evidence_quote": "Treat it as research code, not production-ready software."
+    }
+  ],
+  "risks": [
+    {
+      "id": "r1",
+      "text": "Research prototype: not an official DeepSeek product, and some designs from the paper are not implemented."
+    },
+    {
+      "id": "r2",
+      "text": "It runs as a bundle for DeepSeek Harness, so the harness is part of the setup."
+    }
+  ],
+  "source_urls": [
+    "https://github.com/deepseek-ai/dsh-superagent-prototype"
+  ]
+}

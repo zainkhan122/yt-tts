@@ -1,0 +1,291 @@
+{
+  "id": "repo-dshgo-01",
+  "capture": "captures/repo-dshgo-01",
+  "title": "DSH Go: DeepSeek Harness running on an Android phone",
+  "niche": "AI tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "Android coding agent",
+    "DeepSeek Harness",
+    "on-device agent",
+    "phone agent"
+  ],
+  "facts": {
+    "method": "tool's own README and repo page, read on the day of the plan",
+    "limits": "The catch: it's Android only for now, and remote mode takes images only, not the whole web interface."
+  },
+  "sources": [
+    "https://github.com/ccch1mneyyy/dsh-Go",
+    "https://github.com/ccch1mneyyy/dsh-Go",
+    "https://github.com/ccch1mneyyy/dsh-Go",
+    "https://github.com/ccch1mneyyy/dsh-Go"
+  ],
+  "verify_before_render": [
+    "Every point cites its source in the plan (repo-dshgo-01/plan.json).",
+    "Kit images are drawn from the plan's own visual spec only."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "flow",
+      "heading": "DSH GO: AGENT IN POCKET",
+      "nodes": [
+        "Your phone",
+        "DeepSeek Harness",
+        "Your laptop"
+      ],
+      "say": "Could your phone run your coding agent?"
+    },
+    {
+      "id": "point1",
+      "type": "flow",
+      "heading": "THE HARNESS, ON ANDROID",
+      "nodes": [
+        "Android app",
+        "Harness on the phone",
+        "Drives your computer"
+      ],
+      "say": "It's DSH Go, an Android app for DeepSeek Harness: it runs the harness on your phone, or drives the one on your computer."
+    },
+    {
+      "id": "point2",
+      "type": "flow",
+      "heading": "LINUX INSIDE THE APP",
+      "nodes": [
+        "Ubuntu",
+        "Node.js",
+        "DeepSeek Harness"
+      ],
+      "say": "It installs Ubuntu, Node and the harness inside the app, with no root and no Termux."
+    },
+    {
+      "id": "point3",
+      "type": "flow",
+      "heading": "A CHAT THAT KEEPS UP",
+      "nodes": [
+        "Answer tool approvals",
+        "Send while it replies",
+        "Steps fold into one line"
+      ],
+      "say": "You can answer tool approvals, send a message while it's replying, and finished steps fold into one line."
+    },
+    {
+      "id": "point4",
+      "type": "flow",
+      "heading": "IT CAN TAP FOR YOU",
+      "nodes": [
+        "Reads the screen",
+        "Taps and types",
+        "Sensitive waits for you"
+      ],
+      "say": "With permissions it reads the screen and taps for you, and sensitive actions stay with you by default."
+    },
+    {
+      "id": "catch",
+      "type": "flow",
+      "heading": "THE CATCH",
+      "nodes": [
+        "Android only for now",
+        "Remote sends images only",
+        "No web interface inside"
+      ],
+      "say": "The catch: it's Android only for now, and remote mode takes images only, not the whole web interface."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "POCKET",
+      "say": "Would you run your agent from your pocket? Comment POCKET and I'll pin it."
+    }
+  ],
+  "seo": {
+    "onscreen_first3s": "DSH GO: AGENT IN POCKET",
+    "keyword": "Android coding agent",
+    "aliases": [
+      "coding agent on Android",
+      "DeepSeek Harness app",
+      "run an agent on your phone"
+    ],
+    "youtube": {
+      "title": "Android coding agent: DSH Go runs DeepSeek Harness",
+      "description": "An Android coding agent that lives on the phone: DSH Go installs Ubuntu, Node and DeepSeek Harness inside the app, with no root and no Termux, so the agent runs on the device or drives the harness on your computer in one tap. It can read the screen and tap for you once you grant permissions, and sensitive actions stay with you by default. Repo: https://github.com/ccch1mneyyy/dsh-Go #Shorts #CodingAgent #DeepSeek #AndroidDev #AIAgents",
+      "tags": [
+        "Android coding agent",
+        "coding agent on Android",
+        "DeepSeek Harness app",
+        "run an agent on your phone",
+        "DSH Go",
+        "on device agent"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#CodingAgent",
+        "#DeepSeek",
+        "#AndroidDev",
+        "#AIAgents"
+      ]
+    },
+    "tiktok": {
+      "caption": "Android coding agent in your pocket: DSH Go installs Ubuntu, Node and DeepSeek Harness inside the app, no root. Comment POCKET for the repo.",
+      "hashtags": [
+        "#CodingAgent",
+        "#DeepSeek",
+        "#AndroidDev",
+        "#AIAgents",
+        "#OnDeviceAI"
+      ]
+    },
+    "instagram": {
+      "caption": "Android coding agent: DSH Go runs DeepSeek Harness on your phone or drives the one on your computer, with Ubuntu and Node installed inside the app. Comment POCKET for the repo.",
+      "hashtags": [
+        "#CodingAgent",
+        "#DeepSeek",
+        "#AndroidDev",
+        "#AIAgents",
+        "#OnDeviceAI"
+      ]
+    },
+    "facebook": {
+      "caption": "Android coding agent on the phone itself: DSH Go installs the runtime inside the app and can drive the harness on your computer with one tap. Comment POCKET for the repo link.",
+      "hashtags": [
+        "#CodingAgent",
+        "#DeepSeek",
+        "#AndroidDev",
+        "#AIAgents",
+        "#OnDeviceAI"
+      ]
+    },
+    "x": {
+      "text": "Android coding agent: DSH Go puts DeepSeek Harness on the phone, installs Ubuntu and Node inside the app, and drives the desktop harness in one tap.",
+      "hashtags": [
+        "#CodingAgent",
+        "#AndroidDev"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Would you run your agent from your pocket? Comment POCKET and I'll pin it.",
+    "hashtags": [
+      "#Shorts",
+      "#CodingAgent",
+      "#DeepSeek",
+      "#AndroidDev",
+      "#AIAgents"
+    ]
+  },
+  "research_basis": [
+    "videos/repo-dshgo-01/plan.json"
+  ],
+  "viewer": {
+    "who": "developers who want their agent with them, away from the desk",
+    "problem": "the agent only exists while the laptop is open and the terminal is watching",
+    "job": "decide whether an on-phone harness is usable and what it gives up"
+  },
+  "idea": "DSH Go is an Android client that runs DeepSeek Harness on the phone or drives the one on a computer.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "DSH Go is an Android client for DeepSeek Harness that runs the harness on the phone or drives the one on a computer.",
+      "source": "https://github.com/ccch1mneyyy/dsh-Go"
+    },
+    {
+      "id": "c2",
+      "text": "It installs Ubuntu, Node.js and DSH from inside the app, without root and without a separate Termux install.",
+      "source": "https://github.com/ccch1mneyyy/dsh-Go"
+    },
+    {
+      "id": "c3",
+      "text": "You can send a message while it is replying, answer tool approvals, and finished steps fold into one line.",
+      "source": "https://github.com/ccch1mneyyy/dsh-Go"
+    },
+    {
+      "id": "c4",
+      "text": "After permissions, the local engine reads the screen, taps and types, and sensitive actions stay with you by default.",
+      "source": "https://github.com/ccch1mneyyy/dsh-Go"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/ccch1mneyyy/dsh-Go",
+      "how_shown": "an app that holds the harness and reaches the desktop one"
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://github.com/ccch1mneyyy/dsh-Go",
+      "how_shown": "the runtime being installed inside the app"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://github.com/ccch1mneyyy/dsh-Go",
+      "how_shown": "the chat where you approve, interrupt, and steps fold away"
+    },
+    {
+      "claim": "c4",
+      "evidence": "source:https://github.com/ccch1mneyyy/dsh-Go",
+      "how_shown": "the engine tapping a screen while sensitive steps wait for you"
+    }
+  ],
+  "treatment": {
+    "audience": "developers who want their agent with them, away from the desk",
+    "viewer_job": "decide whether an on-phone harness is usable and what it gives up",
+    "intent": "search",
+    "hook_mechanic": "viewer question about the tool's first claim",
+    "open_loop": {
+      "plant": "Could your phone run your coding agent?",
+      "payoff_scene": "point1"
+    },
+    "proof_moment": "point1",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "id": "c1",
+        "layout": "bleed",
+        "text": "AGENT IN YOUR POCKET",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c1.png",
+          "design": "Full-bleed phone drawn front-on with a coding-agent chat on screen, approval buttons under a reply, and a thin line running off the plate to a laptop shape."
+        }
+      },
+      {
+        "id": "c2",
+        "layout": "window",
+        "text": "RUN DSH ON ANDROID",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c2.png",
+          "design": "Framed app window naming the runtime it installs (Ubuntu, Node, DSH) with a progress bar, and the phone icon beside it."
+        }
+      },
+      {
+        "id": "c3",
+        "layout": "split",
+        "text": "PHONE RUNS THE AGENT",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c3.png",
+          "design": "Split plate: the phone with a one-tap local/remote switch on top, and below it a step list of what the engine can touch."
+        }
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-11-07",
+    "expires_at": null,
+    "reviewer": "agent: plan written from the maker's README and repo page",
+    "notes": "Topic approved by owner (config/topic-approvals.json). Plan and copy await owner review at the cover gate."
+  },
+  "motion_standard": 2,
+  "qa_gates": true,
+  "renderer": "graphics",
+  "graphics": {
+    "dir": "briefs/graphics/repo-dshgo-01",
+    "note": "beat plan bound to the brief scenes; lint is fail-closed on script or scene mismatch"
+  },
+  "voice_seed": 0
+}

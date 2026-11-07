@@ -1,0 +1,64 @@
+{
+  "tool": {
+    "name": "DSH Go",
+    "repo": "https://github.com/ccch1mneyyy/dsh-Go"
+  },
+  "features": [
+    {
+      "id": "f1",
+      "title": "Android client for the harness",
+      "what": "The app runs the harness on the phone or connects to a desktop one.",
+      "evidence_quote": "An Android client for DeepSeek Harness. Run DSH right on your phone, or drive the one on your computer."
+    },
+    {
+      "id": "f2",
+      "title": "Runtime installed inside the app",
+      "what": "Ubuntu, Node.js and the harness install from the app itself.",
+      "items": [
+        "Ubuntu",
+        "Node.js",
+        "DSH"
+      ],
+      "evidence_quote": "install Ubuntu, Node.js and DSH from the app without Root or a separate Termux installation."
+    },
+    {
+      "id": "f3",
+      "title": "Interrupt and fold steps",
+      "what": "You can send while it replies, and finished steps collapse.",
+      "evidence_quote": "Finished steps fold into one line."
+    },
+    {
+      "id": "f4",
+      "title": "Phone control, gated",
+      "what": "With permissions the engine reads the screen and taps; sensitive steps wait.",
+      "evidence_quote": "DSH reads the screen and taps for you. Sensitive actions stay with you by default"
+    },
+    {
+      "id": "f5",
+      "title": "Remote mode has limits",
+      "risk": true,
+      "what": "Remoting into a computer accepts images only and drops the in-app web view.",
+      "evidence_quote": "DSHarness Remote currently accepts image attachments only, does not open the web interface inside the app"
+    },
+    {
+      "id": "f6",
+      "title": "Android only for now",
+      "risk": true,
+      "what": "The app ships for Android; other platforms are announced, not shipped.",
+      "evidence_quote": "iOS and HarmonyOS versions are coming as soon as I can make them."
+    }
+  ],
+  "risks": [
+    {
+      "id": "r1",
+      "text": "Android only: iOS and HarmonyOS are announced, not released."
+    },
+    {
+      "id": "r2",
+      "text": "Remote mode accepts image attachments only and does not open the web interface inside the app."
+    }
+  ],
+  "source_urls": [
+    "https://github.com/ccch1mneyyy/dsh-Go"
+  ]
+}

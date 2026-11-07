@@ -1,0 +1,147 @@
+{
+  "tool": "rea-video",
+  "handle": "@hypeless",
+  "scenes": [
+    {
+      "scene_id": "hook",
+      "phrase": 0,
+      "archetype": "flow_link",
+      "headline": "REA-VIDEO: HOW WAS IT MADE",
+      "feature_id": "f1",
+      "depicts": "a video taken apart shot by shot",
+      "payload": {
+        "nodes": [
+          "A video",
+          "Shot by shot",
+          "A remake plan"
+        ],
+        "edge_label": "every shot",
+        "cue_phrases": [
+          "How was",
+          "that video",
+          "actually made"
+        ]
+      },
+      "cue_word": "video"
+    },
+    {
+      "scene_id": "point1",
+      "phrase": 1,
+      "archetype": "toggle_steps",
+      "headline": "SHOT BY SHOT",
+      "feature_id": "f1",
+      "depicts": "the video opened into its shots",
+      "payload": {
+        "steps": [
+          "Give it a video",
+          "Every shot judged",
+          "How it was made"
+        ],
+        "done": 3,
+        "cue_phrases": [
+          "give it any video",
+          "shot by shot",
+          "were made"
+        ]
+      },
+      "cue_word": "shot"
+    },
+    {
+      "scene_id": "point2",
+      "phrase": 2,
+      "archetype": "chip_grid",
+      "headline": "EVERY KIND OF SHOT",
+      "feature_id": "f2",
+      "depicts": "the shot kinds judged separately then put back on the timeline",
+      "payload": {
+        "chips": [
+          "Live footage",
+          "AI video",
+          "Avatars",
+          "3D and code",
+          "One timeline"
+        ],
+        "highlight": 1,
+        "cue_phrases": [
+          "Live footage",
+          "AI video",
+          "avatars",
+          "code-built motion",
+          "original timeline"
+        ]
+      },
+      "cue_word": "separately"
+    },
+    {
+      "scene_id": "point3",
+      "phrase": 3,
+      "archetype": "terminal_type",
+      "headline": "EVIDENCE, THEN PROMPTS",
+      "feature_id": "f3",
+      "depicts": "the per-shot evidence and the rebuilt prompt",
+      "payload": {
+        "title": "report · shot by shot",
+        "lines": [
+          "shot 01 · filmed",
+          "shot 02 · AI-generated",
+          "prompt rebuilt for shot 02"
+        ],
+        "cue_phrases": [
+          "Every shot gets evidence",
+          "a reverse-engineered prompt",
+          "cuts and beats"
+        ]
+      },
+      "cue_word": "evidence"
+    },
+    {
+      "scene_id": "point4",
+      "phrase": 4,
+      "archetype": "concept_card",
+      "headline": "FILM, GENERATE, CODE",
+      "feature_id": null,
+      "depicts": "the remake plan split three ways",
+      "payload": {
+        "big": "FILM. GENERATE. CODE.",
+        "sub": "A remake plan you can follow."
+      },
+      "cue_word": "plan"
+    },
+    {
+      "scene_id": "catch",
+      "phrase": 5,
+      "archetype": "chip_grid",
+      "headline": "THE CATCH",
+      "feature_id": "f6",
+      "depicts": "the Chinese docs and the video model that improves the calls",
+      "payload": {
+        "chips": [
+          "Docs in Chinese for now",
+          "A video model helps",
+          "Needs ffmpeg"
+        ],
+        "highlight": 0,
+        "cue_phrases": [
+          "detailed docs",
+          "in Chinese for now",
+          "video model"
+        ]
+      },
+      "cue_word": "catch"
+    },
+    {
+      "scene_id": "cta",
+      "phrase": 6,
+      "archetype": "endcard",
+      "headline": "TAKE A VIDEO APART",
+      "feature_id": null,
+      "depicts": "commenting the keyword SHOTS to get the repo",
+      "payload": {
+        "keyword": "SHOTS",
+        "follow": "Follow"
+      },
+      "cue_word": "SHOTS"
+    }
+  ],
+  "script_sha256": "sha256:a2c2396e0d4b3f171aae0d315dbd868060e7bd09ca644af7d2f20dcade7cee8a"
+}

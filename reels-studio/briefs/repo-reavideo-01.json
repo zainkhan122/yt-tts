@@ -1,0 +1,291 @@
+{
+  "id": "repo-reavideo-01",
+  "capture": "captures/repo-reavideo-01",
+  "title": "rea-video: reverse-engineer any video, shot by shot",
+  "niche": "AI tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "video reverse engineering",
+    "AI video detection",
+    "shot breakdown",
+    "remake plan"
+  ],
+  "facts": {
+    "method": "tool's own README and repo page, read on the day of the plan",
+    "limits": "The catch: the detailed docs are in Chinese for now, and a video model makes the AI calls more accurate."
+  },
+  "sources": [
+    "https://github.com/JuneYaooo/rea-video",
+    "https://github.com/JuneYaooo/rea-video",
+    "https://github.com/JuneYaooo/rea-video",
+    "https://github.com/JuneYaooo/rea-video"
+  ],
+  "verify_before_render": [
+    "Every point cites its source in the plan (repo-reavideo-01/plan.json).",
+    "Kit images are drawn from the plan's own visual spec only."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "flow",
+      "heading": "REA-VIDEO: HOW WAS IT MADE",
+      "nodes": [
+        "A video",
+        "Shot by shot",
+        "A remake plan"
+      ],
+      "say": "How was that video actually made?"
+    },
+    {
+      "id": "point1",
+      "type": "flow",
+      "heading": "EVERY SHOT, EXPLAINED",
+      "nodes": [
+        "Give it a video",
+        "Every shot judged",
+        "Told how it was made"
+      ],
+      "say": "It's rea-video: give it any video and it tells you shot by shot how the visuals, the text, the edit and the audio were made."
+    },
+    {
+      "id": "point2",
+      "type": "flow",
+      "heading": "ONE TIMELINE, MANY KINDS",
+      "nodes": [
+        "Live footage",
+        "AI video",
+        "Avatars and 3D"
+      ],
+      "say": "Live footage, AI video, avatars, animation and code-built motion all get judged separately, then put back on the original timeline."
+    },
+    {
+      "id": "point3",
+      "type": "flow",
+      "heading": "EVIDENCE, THEN PROMPTS",
+      "nodes": [
+        "Shot 1 · filmed",
+        "Shot 2 · AI-generated",
+        "Prompt rebuilt per shot"
+      ],
+      "say": "Every shot gets evidence, a reverse-engineered prompt, and the captions, cuts and beats it was cut to."
+    },
+    {
+      "id": "point4",
+      "type": "flow",
+      "heading": "FILM, GENERATE, CODE",
+      "nodes": [
+        "What to film",
+        "What to generate",
+        "What to code"
+      ],
+      "say": "Then you get a remake plan split into what to film, what to generate and what to code."
+    },
+    {
+      "id": "catch",
+      "type": "flow",
+      "heading": "THE CATCH",
+      "nodes": [
+        "Docs in Chinese for now",
+        "A video model helps",
+        "Needs ffmpeg and Python"
+      ],
+      "say": "The catch: the detailed docs are in Chinese for now, and a video model makes the AI calls more accurate."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "SHOTS",
+      "say": "Which video would you take apart first? Comment SHOTS and I'll pin it."
+    }
+  ],
+  "seo": {
+    "onscreen_first3s": "REA-VIDEO: HOW WAS IT MADE",
+    "keyword": "video reverse engineering",
+    "aliases": [
+      "reverse engineer a video",
+      "AI video detection",
+      "shot by shot breakdown"
+    ],
+    "youtube": {
+      "title": "Video reverse engineering: shot by shot, filmed or AI",
+      "description": "Video reverse engineering for any clip: rea-video splits a video into shots and tells you how each one was made, live footage or AI video or code-built motion, with a rebuilt prompt per shot, caption timings, cut points, the beat, and whether the voice and music are AI. Then it gives you a remake plan split into what to film, what to generate and what to code. Repo: https://github.com/JuneYaooo/rea-video #Shorts #ReverseEngineering #AIVideo #VideoEditing #AIAgents",
+      "tags": [
+        "video reverse engineering",
+        "reverse engineer a video",
+        "AI video detection",
+        "shot by shot breakdown",
+        "rea-video",
+        "AI video analysis"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#ReverseEngineering",
+        "#AIVideo",
+        "#VideoEditing",
+        "#AIAgents"
+      ]
+    },
+    "tiktok": {
+      "caption": "Video reverse engineering: rea-video breaks any clip into shots and says which are filmed, which are AI, and how to remake them. Comment SHOTS for the repo.",
+      "hashtags": [
+        "#ReverseEngineering",
+        "#AIVideo",
+        "#VideoEditing",
+        "#AIAgents",
+        "#ContentCreation"
+      ]
+    },
+    "instagram": {
+      "caption": "Video reverse engineering, shot by shot: rea-video says which shots are filmed, which are AI, rebuilds the prompt, and hands you a remake plan. Comment SHOTS for the repo.",
+      "hashtags": [
+        "#ReverseEngineering",
+        "#AIVideo",
+        "#VideoEditing",
+        "#AIAgents",
+        "#ContentCreation"
+      ]
+    },
+    "facebook": {
+      "caption": "Video reverse engineering: rea-video judges every shot of a clip, filmed or AI or code, rebuilds the prompt, and gives you a plan to make your own. Comment SHOTS for the repo link.",
+      "hashtags": [
+        "#ReverseEngineering",
+        "#AIVideo",
+        "#VideoEditing",
+        "#AIAgents",
+        "#ContentCreation"
+      ]
+    },
+    "x": {
+      "text": "Video reverse engineering: rea-video breaks a clip into shots, marks which are filmed and which are AI, and rebuilds the prompt for each one.",
+      "hashtags": [
+        "#AIVideo",
+        "#ReverseEngineering"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Which video would you take apart first? Comment SHOTS and I'll pin it.",
+    "hashtags": [
+      "#Shorts",
+      "#ReverseEngineering",
+      "#AIVideo",
+      "#VideoEditing",
+      "#AIAgents"
+    ]
+  },
+  "research_basis": [
+    "videos/repo-reavideo-01/plan.json"
+  ],
+  "viewer": {
+    "who": "creators and editors who want to know how a clip was built",
+    "problem": "a video looks good but the method behind each shot is guesswork",
+    "job": "decide whether a shot-by-shot breakdown is worth installing"
+  },
+  "idea": "rea-video breaks a video into shots, says how each one was made, and returns a remake plan.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "rea-video takes any video and tells you shot by shot how the visuals, text, editing and audio were made.",
+      "source": "https://github.com/JuneYaooo/rea-video"
+    },
+    {
+      "id": "c2",
+      "text": "It handles live footage, AI video, avatars, 3D, code motion and mixed edits, judging each shot and reassembling it on the original timeline.",
+      "source": "https://github.com/JuneYaooo/rea-video"
+    },
+    {
+      "id": "c3",
+      "text": "Every shot gets evidence, a reverse-engineered prompt, and the captions, cuts and beats the edit was built on.",
+      "source": "https://github.com/JuneYaooo/rea-video"
+    },
+    {
+      "id": "c4",
+      "text": "The output is a remake plan split into what to film, what to generate and what to code.",
+      "source": "https://github.com/JuneYaooo/rea-video"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/JuneYaooo/rea-video",
+      "how_shown": "one video opening into a shot list"
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://github.com/JuneYaooo/rea-video",
+      "how_shown": "shot types judged one by one, then put back on the timeline"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://github.com/JuneYaooo/rea-video",
+      "how_shown": "a shot report with the evidence and the rebuilt prompt"
+    },
+    {
+      "claim": "c4",
+      "evidence": "source:https://github.com/JuneYaooo/rea-video",
+      "how_shown": "the plan sorted into film, generate and code"
+    }
+  ],
+  "treatment": {
+    "audience": "creators and editors who want to know how a clip was built",
+    "viewer_job": "decide whether a shot-by-shot breakdown is worth installing",
+    "intent": "search",
+    "hook_mechanic": "viewer question about the tool's first claim",
+    "open_loop": {
+      "plant": "How was that video actually made?",
+      "payoff_scene": "point1"
+    },
+    "proof_moment": "point1",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "id": "c1",
+        "layout": "bleed",
+        "text": "TELL HOW IT WAS MADE",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c1.png",
+          "design": "Full-bleed film strip across the plate, each frame carrying a small tag: filmed, AI, code, and the last one outlined in the accent with a prompt icon."
+        }
+      },
+      {
+        "id": "c2",
+        "layout": "window",
+        "text": "EVERY SHOT, ACCOUNTED FOR",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c2.png",
+          "design": "Framed report window with a shot thumbnail, an evidence line, a rebuilt prompt line and caption timings, on a dark plate."
+        }
+      },
+      {
+        "id": "c3",
+        "layout": "split",
+        "text": "FILMED OR AI MADE?",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c3.png",
+          "design": "Split plate: the timeline with cuts and beat marks on top, and below it three labelled verdict rows, the AI row highlighted."
+        }
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-11-07",
+    "expires_at": null,
+    "reviewer": "agent: plan written from the maker's README and repo page",
+    "notes": "Topic approved by owner (config/topic-approvals.json). Plan and copy await owner review at the cover gate."
+  },
+  "motion_standard": 2,
+  "qa_gates": true,
+  "renderer": "graphics",
+  "graphics": {
+    "dir": "briefs/graphics/repo-reavideo-01",
+    "note": "beat plan bound to the brief scenes; lint is fail-closed on script or scene mismatch"
+  },
+  "voice_seed": 0
+}

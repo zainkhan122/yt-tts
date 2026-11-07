@@ -1,0 +1,291 @@
+{
+  "id": "repo-autoloop-01",
+  "capture": "captures/repo-autoloop-01",
+  "title": "Agent Autoloop: a coding agent that keeps working alone",
+  "niche": "AI tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "background coding agent",
+    "agent automation",
+    "Claude Code loop",
+    "Slack notifications"
+  ],
+  "facts": {
+    "method": "tool's own README and repo page, read on the day of the plan",
+    "limits": "The catch: you need a recent Node, Git and an agent already signed in, and the CLI is still in Chinese."
+  },
+  "sources": [
+    "https://github.com/KKKKhazix/agent-autoloop",
+    "https://github.com/KKKKhazix/agent-autoloop",
+    "https://github.com/KKKKhazix/agent-autoloop",
+    "https://github.com/KKKKhazix/agent-autoloop"
+  ],
+  "verify_before_render": [
+    "Every point cites its source in the plan (repo-autoloop-01/plan.json).",
+    "Kit images are drawn from the plan's own visual spec only."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "flow",
+      "heading": "AGENT AUTOLOOP WORKS ALONE",
+      "nodes": [
+        "An event",
+        "Your rules",
+        "One round"
+      ],
+      "say": "Tired of babysitting your coding agent?"
+    },
+    {
+      "id": "point1",
+      "type": "flow",
+      "heading": "A BACKGROUND LOOP",
+      "nodes": [
+        "A background loop",
+        "One machine",
+        "Any CLI agent"
+      ],
+      "say": "It's Agent Autoloop: it turns a command-line agent into a background loop on one machine."
+    },
+    {
+      "id": "point2",
+      "type": "flow",
+      "heading": "EVENTS, THEN RULES",
+      "nodes": [
+        "A schedule fires",
+        "An issue or alert",
+        "Rules pick the agent"
+      ],
+      "say": "A schedule, a new issue or an alert becomes an event, and your rules pick which agent handles it and where."
+    },
+    {
+      "id": "point3",
+      "type": "flow",
+      "heading": "ONE ROUND, THEN EXIT",
+      "nodes": [
+        "Works one round",
+        "Puts the result inline",
+        "The process exits"
+      ],
+      "say": "The agent works one round and exits, so it isn't standing by and burning tokens while it waits."
+    },
+    {
+      "id": "point4",
+      "type": "flow",
+      "heading": "A CARD, NOT A DASHBOARD",
+      "nodes": [
+        "Card on Slack",
+        "Or a desktop alert",
+        "Answer, it resumes"
+      ],
+      "say": "When a decision is yours, a card reaches you in Slack, Discord or a desktop notification, and one command resumes it."
+    },
+    {
+      "id": "catch",
+      "type": "flow",
+      "heading": "THE CATCH",
+      "nodes": [
+        "Needs a recent Node",
+        "Agent already signed in",
+        "CLI still in Chinese"
+      ],
+      "say": "The catch: you need a recent Node, Git and an agent already signed in, and the CLI is still in Chinese."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "LOOP",
+      "say": "Would you let an agent work while you're away? Comment LOOP and I'll pin it."
+    }
+  ],
+  "seo": {
+    "onscreen_first3s": "AGENT AUTOLOOP WORKS ALONE",
+    "keyword": "background coding agent",
+    "aliases": [
+      "coding agent in background",
+      "always on coding agent",
+      "agent that works alone"
+    ],
+    "youtube": {
+      "title": "Background coding agent: Agent Autoloop keeps going",
+      "description": "A background coding agent for the machine you already own: Agent Autoloop takes a schedule, a GitHub issue or an alert as an event, lets your rules pick the agent and folder, then runs one round and exits so nothing burns tokens waiting. When a decision is yours, a card lands in Slack, Discord or on the desktop, and one command resumes the work. Repo: https://github.com/KKKKhazix/agent-autoloop #Shorts #CodingAgent #Automation #Slack #AIAgents",
+      "tags": [
+        "background coding agent",
+        "coding agent in background",
+        "always on coding agent",
+        "agent that works alone",
+        "agent-autoloop",
+        "Claude Code automation"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#CodingAgent",
+        "#Automation",
+        "#Slack",
+        "#AIAgents"
+      ]
+    },
+    "tiktok": {
+      "caption": "Background coding agent that keeps working after you close the laptop: Agent Autoloop runs one round, exits, and pings you only for decisions. Comment LOOP for the repo.",
+      "hashtags": [
+        "#CodingAgent",
+        "#Automation",
+        "#Slack",
+        "#AIAgents",
+        "#DevTools"
+      ]
+    },
+    "instagram": {
+      "caption": "Background coding agent on one machine: Agent Autoloop turns a schedule or an issue into a round of work, exits, and sends a card only when the decision is yours. Comment LOOP for the repo.",
+      "hashtags": [
+        "#CodingAgent",
+        "#Automation",
+        "#Slack",
+        "#AIAgents",
+        "#DevTools"
+      ]
+    },
+    "facebook": {
+      "caption": "Background coding agent that stops the babysitting: Agent Autoloop works a round, exits, and reaches you on Slack or Discord only when a decision is yours. Comment LOOP for the repo link.",
+      "hashtags": [
+        "#CodingAgent",
+        "#Automation",
+        "#Slack",
+        "#AIAgents",
+        "#DevTools"
+      ]
+    },
+    "x": {
+      "text": "Background coding agent: Agent Autoloop turns a schedule or a GitHub issue into one round of work, exits, and sends you a card only when the call is yours.",
+      "hashtags": [
+        "#CodingAgent",
+        "#Automation"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Would you let an agent work while you're away? Comment LOOP and I'll pin it.",
+    "hashtags": [
+      "#Shorts",
+      "#CodingAgent",
+      "#Automation",
+      "#Slack",
+      "#AIAgents"
+    ]
+  },
+  "research_basis": [
+    "videos/repo-autoloop-01/plan.json"
+  ],
+  "viewer": {
+    "who": "developers who leave work queued for their terminal agent",
+    "problem": "the agent stops the moment the window closes or the terminal is left",
+    "job": "decide whether a background loop fits how they already run Claude Code or Codex"
+  },
+  "idea": "Agent Autoloop runs a command-line agent in a background loop and only asks when a decision is yours.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Agent Autoloop turns a command-line agent into a background loop on one machine, with no server and no dashboard.",
+      "source": "https://github.com/KKKKhazix/agent-autoloop"
+    },
+    {
+      "id": "c2",
+      "text": "A schedule, a new GitHub issue or a production alert becomes an event, and the rules choose which agent takes it and in which folder.",
+      "source": "https://github.com/KKKKhazix/agent-autoloop"
+    },
+    {
+      "id": "c3",
+      "text": "The agent works one round and exits, so nothing is standing by and spending tokens while it waits for a decision.",
+      "source": "https://github.com/KKKKhazix/agent-autoloop"
+    },
+    {
+      "id": "c4",
+      "text": "When the decision is yours, a card reaches Slack, Discord or a desktop notification, and one command resumes the work.",
+      "source": "https://github.com/KKKKhazix/agent-autoloop"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/KKKKhazix/agent-autoloop",
+      "how_shown": "the terminal agent becoming a loop that runs on one machine"
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://github.com/KKKKhazix/agent-autoloop",
+      "how_shown": "three event sources feeding the rules that pick an agent"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://github.com/KKKKhazix/agent-autoloop",
+      "how_shown": "the round finishing and the process leaving"
+    },
+    {
+      "claim": "c4",
+      "evidence": "source:https://github.com/KKKKhazix/agent-autoloop",
+      "how_shown": "the card arriving, the answer, the round resuming"
+    }
+  ],
+  "treatment": {
+    "audience": "developers who leave work queued for their terminal agent",
+    "viewer_job": "decide whether a background loop fits how they already run Claude Code or Codex",
+    "intent": "search",
+    "hook_mechanic": "viewer question about the tool's first claim",
+    "open_loop": {
+      "plant": "Tired of babysitting your coding agent?",
+      "payoff_scene": "point1"
+    },
+    "proof_moment": "point1",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "id": "c1",
+        "layout": "bleed",
+        "text": "AGENT THAT WORKS ALONE",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c1.png",
+          "design": "Full-bleed closed laptop on the plate with a live loop arrow circling above it, and a notification card rising out of the lid."
+        }
+      },
+      {
+        "id": "c2",
+        "layout": "window",
+        "text": "CLOSE LAPTOP, KEEP WORKING",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c2.png",
+          "design": "Framed loop diagram: event chips on the left, a rules block in the middle, one agent round on the right, with the exit arrow marked."
+        }
+      },
+      {
+        "id": "c3",
+        "layout": "split",
+        "text": "AGENT RUNS IN BACKGROUND",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c3.png",
+          "design": "Split plate: a Slack-style card with two answer options on top, and the resumed round with its token count below."
+        }
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-11-07",
+    "expires_at": null,
+    "reviewer": "agent: plan written from the maker's README and repo page",
+    "notes": "Topic approved by owner (config/topic-approvals.json). Plan and copy await owner review at the cover gate."
+  },
+  "motion_standard": 2,
+  "qa_gates": true,
+  "renderer": "graphics",
+  "graphics": {
+    "dir": "briefs/graphics/repo-autoloop-01",
+    "note": "beat plan bound to the brief scenes; lint is fail-closed on script or scene mismatch"
+  },
+  "voice_seed": 0
+}

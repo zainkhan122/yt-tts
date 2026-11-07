@@ -1,0 +1,205 @@
+"""Spec: repo-autoloop-01 · KKKKhazix/agent-autoloop (topic #5, radar 2026-11-07)."""
+
+REPO = "https://github.com/KKKKhazix/agent-autoloop"
+
+PLAN = {
+    "id": "repo-autoloop-01",
+    "tool": "Agent Autoloop",
+    "question": "Tired of babysitting your coding agent?",
+    "hook_visual": {
+        "kind": "steps",
+        "intent": "an event arriving, the rules choosing an agent, one round of work",
+        "steps": ["An event", "Your rules", "One round"],
+    },
+    "points": [
+        {
+            "n": 1,
+            "claim": "Agent Autoloop turns a command-line agent into a background loop on one machine, with no server and no dashboard.",
+            "spoken": "It's Agent Autoloop: it turns a command-line agent into a background loop on one machine.",
+            "source": REPO,
+            "source_note": "README: 'Agent Autoloop turns your command-line agents into a background loop.' and 'One machine, one install command. Runs on Windows, macOS, or Linux. No cloud server or inbound ports required.'",
+            "visual": {"kind": "steps", "intent": "the terminal agent becoming a loop that runs on one machine"},
+            "title": "A background loop",
+            "sub": "One machine, no server.",
+            "steps": ["A background loop", "One machine", "Any CLI agent"],
+        },
+        {
+            "n": 2,
+            "claim": "A schedule, a new GitHub issue or a production alert becomes an event, and the rules choose which agent takes it and in which folder.",
+            "spoken": "A schedule, a new issue or an alert becomes an event, and your rules pick which agent handles it and where.",
+            "source": REPO,
+            "source_note": "README 'How a piece of work flows': 'A 9:00 AM schedule, a new GitHub issue, or a production alert becomes a standard event sent to the kernel.' / 'Your rules decide which agent handles it and in which folder.'",
+            "visual": {"kind": "steps", "intent": "three event sources feeding the rules that pick an agent"},
+            "title": "Events, then rules",
+            "sub": "Your rules pick the agent and folder.",
+            "steps": ["A schedule fires", "An issue or alert", "Rules pick the agent"],
+        },
+        {
+            "n": 3,
+            "claim": "The agent works one round and exits, so nothing is standing by and spending tokens while it waits for a decision.",
+            "spoken": "The agent works one round and exits, so it isn't standing by and burning tokens while it waits.",
+            "source": REPO,
+            "source_note": "README: 'The agent puts its result in its final message, and the process exits.' and from the demo output: 'No process is running for it now, and it is not spending tokens.'",
+            "visual": {"kind": "steps", "intent": "the round finishing and the process leaving"},
+            "title": "One round, then exit",
+            "sub": "No tokens spent waiting.",
+            "steps": ["Works one round", "Puts the result inline", "The process exits"],
+        },
+        {
+            "n": 4,
+            "claim": "When the decision is yours, a card reaches Slack, Discord or a desktop notification, and one command resumes the work.",
+            "spoken": "When a decision is yours, a card reaches you in Slack, Discord or a desktop notification, and one command resumes it.",
+            "source": REPO,
+            "source_note": "README: 'Cards reach you on Feishu, DingTalk, WeCom, Slack, Discord, or desktop notifications when you are needed.' and 'run agent-autoloop status to see it pick the work back up and finish.'",
+            "visual": {"kind": "steps", "intent": "the card arriving, the answer, the round resuming"},
+            "title": "A card, not a dashboard",
+            "sub": "One command picks the work back up.",
+            "steps": ["Card on Slack", "Or a desktop alert", "Answer, it resumes"],
+        },
+    ],
+    "catch": "The catch: you need a recent Node, Git and an agent already signed in, and the CLI is still in Chinese.",
+    "catch_sub": "Setup is one install command on Windows, macOS or Linux.",
+    "catch_title": "The catch",
+    "catch_visual": {
+        "kind": "steps",
+        "intent": "the tools it needs and the untranslated output",
+        "steps": ["Needs a recent Node", "Agent already signed in", "CLI still in Chinese"],
+    },
+    "brand_line": "agent-autoloop · background",
+    "cover": {
+        "text": "AGENT THAT WORKS ALONE",
+        "visual": "designed graphic of a closed laptop with the loop still running and a card landing on a phone",
+        "concepts": [
+            {
+                "id": "c1", "layout": "bleed", "text": "AGENT THAT WORKS ALONE",
+                "media": {"kind": "designed", "file": "cover-c1.png",
+                          "design": "Full-bleed closed laptop on the plate with a live loop arrow circling above it, and a notification card rising out of the lid."},
+            },
+            {
+                "id": "c2", "layout": "window", "text": "CLOSE LAPTOP, KEEP WORKING",
+                "media": {"kind": "designed", "file": "cover-c2.png",
+                          "design": "Framed loop diagram: event chips on the left, a rules block in the middle, one agent round on the right, with the exit arrow marked."},
+            },
+            {
+                "id": "c3", "layout": "split", "text": "AGENT RUNS IN BACKGROUND",
+                "media": {"kind": "designed", "file": "cover-c3.png",
+                          "design": "Split plate: a Slack-style card with two answer options on top, and the resumed round with its token count below."},
+            },
+        ],
+    },
+    "cta": "Would you let an agent work while you're away? Comment LOOP and I'll pin it.",
+    "cta_keyword": "LOOP",
+    "seo": {
+        "onscreen_first3s": "AGENT AUTOLOOP WORKS ALONE",
+        "keyword": "background coding agent",
+        "aliases": ["coding agent in background", "always on coding agent", "agent that works alone"],
+        "youtube": {
+            "title": "Background coding agent: Agent Autoloop keeps going",
+            "description": (
+                "A background coding agent for the machine you already own: Agent Autoloop takes a schedule, a GitHub issue or "
+                "an alert as an event, lets your rules pick the agent and folder, then runs one round and exits so nothing burns "
+                "tokens waiting. When a decision is yours, a card lands in Slack, Discord or on the desktop, and one command "
+                "resumes the work. Repo: https://github.com/KKKKhazix/agent-autoloop "
+                "#Shorts #CodingAgent #Automation #Slack #AIAgents"
+            ),
+            "tags": ["background coding agent", "coding agent in background", "always on coding agent",
+                     "agent that works alone", "agent-autoloop", "Claude Code automation"],
+            "hashtags": ["#Shorts", "#CodingAgent", "#Automation", "#Slack", "#AIAgents"],
+        },
+        "tiktok": {
+            "caption": "Background coding agent that keeps working after you close the laptop: Agent Autoloop runs one round, exits, and pings you only for decisions. Comment LOOP for the repo.",
+            "hashtags": ["#CodingAgent", "#Automation", "#Slack", "#AIAgents", "#DevTools"],
+        },
+        "instagram": {
+            "caption": "Background coding agent on one machine: Agent Autoloop turns a schedule or an issue into a round of work, exits, and sends a card only when the decision is yours. Comment LOOP for the repo.",
+            "hashtags": ["#CodingAgent", "#Automation", "#Slack", "#AIAgents", "#DevTools"],
+        },
+        "facebook": {
+            "caption": "Background coding agent that stops the babysitting: Agent Autoloop works a round, exits, and reaches you on Slack or Discord only when a decision is yours. Comment LOOP for the repo link.",
+            "hashtags": ["#CodingAgent", "#Automation", "#Slack", "#AIAgents", "#DevTools"],
+        },
+        "x": {
+            "text": "Background coding agent: Agent Autoloop turns a schedule or a GitHub issue into one round of work, exits, and sends you a card only when the call is yours.",
+            "hashtags": ["#CodingAgent", "#Automation"],
+        },
+    },
+    "brief_meta": {
+        "title": "Agent Autoloop: a coding agent that keeps working alone",
+        "niche": "AI tools",
+        "keywords": ["background coding agent", "agent automation", "Claude Code loop", "Slack notifications"],
+        "idea": "Agent Autoloop runs a command-line agent in a background loop and only asks when a decision is yours.",
+        "viewer": {
+            "who": "developers who leave work queued for their terminal agent",
+            "problem": "the agent stops the moment the window closes or the terminal is left",
+            "job": "decide whether a background loop fits how they already run Claude Code or Codex",
+        },
+    },
+}
+
+FEATURES = {
+    "tool": {"name": "Agent Autoloop", "repo": REPO},
+    "features": [
+        {"id": "f1", "title": "Command-line agents become a loop",
+         "what": "It turns an agent session into work that continues on its own.",
+         "evidence_quote": "Agent Autoloop turns your command-line agents into a background loop."},
+        {"id": "f2", "title": "One machine, one install",
+         "what": "It runs locally on the three desktop systems, with no cloud server.",
+         "evidence_quote": "One machine, one install command. Runs on Windows, macOS, or Linux. No cloud server or inbound ports required."},
+        {"id": "f3", "title": "Events and rules",
+         "what": "A schedule, an issue or an alert becomes an event that your rules route.",
+         "evidence_quote": "A 9:00 AM schedule, a new GitHub issue, or a production alert becomes a standard event sent to the kernel."},
+        {"id": "f4", "title": "One round, then exit",
+         "what": "The agent finishes a round, reports in its final message and the process ends.",
+         "evidence_quote": "The agent puts its result in its final message, and the process exits."},
+        {"id": "f5", "title": "Cards where you already are",
+         "what": "Decisions arrive as chat cards or desktop notifications.",
+         "evidence_quote": "Cards reach you on Feishu, DingTalk, WeCom, Slack, Discord, or desktop notifications when you are needed."},
+        {"id": "f6", "title": "Command-line output is still Chinese", "risk": True,
+         "what": "The terminal output and default notifications have not been translated yet.",
+         "evidence_quote": "CLI output and default notification strings are still Chinese until they are translated."},
+    ],
+    "risks": [{"id": "r1", "text": "CLI output and default notification text are Chinese until translated."},
+              {"id": "r2", "text": "It needs a recent Node, Git and an agent that is already signed in."}],
+    "source_urls": [REPO],
+}
+
+BEATS = {
+    "tool": "agent-autoloop",
+    "handle": "@hypeless",
+    "scenes": [
+        {"scene_id": "hook", "phrase": 0, "archetype": "flow_link", "headline": "AGENT AUTOLOOP WORKS ALONE",
+         "feature_id": "f1", "depicts": "watching the coding agent all day in a terminal",
+         "payload": {"nodes": ["Your terminal", "Your agent", "Still waiting"], "edge_label": "no watching",
+                     "cue_phrases": ["Tired of", "babysitting", "your coding agent"]},
+         "cue_word": "babysitting"},
+        {"scene_id": "point1", "phrase": 1, "archetype": "chip_grid", "headline": "A BACKGROUND LOOP",
+         "feature_id": "f1", "depicts": "the command-line agent turned into a background loop",
+         "payload": {"chips": ["A background loop", "On one machine", "Any CLI agent"], "highlight": 0,
+                     "cue_phrases": ["It's Agent Autoloop", "background loop", "on one machine"]},
+         "cue_word": "loop"},
+        {"scene_id": "point2", "phrase": 2, "archetype": "toggle_steps", "headline": "EVENTS, THEN RULES",
+         "feature_id": "f3", "depicts": "a schedule, an issue and an alert becoming events",
+         "payload": {"steps": ["A schedule fires", "An issue or an alert", "Your rules pick the agent"], "done": 3,
+                     "cue_phrases": ["A schedule", "a new issue", "your rules pick"]},
+         "cue_word": "event"},
+        {"scene_id": "point3", "phrase": 3, "archetype": "concept_card", "headline": "NO TOKENS WHILE IT WAITS",
+         "feature_id": None, "depicts": "the agent working one round then exiting",
+         "payload": {"big": "NO TOKENS WHILE IT WAITS", "sub": "One round, then the process exits."},
+         "cue_word": "exits"},
+        {"scene_id": "point4", "phrase": 4, "archetype": "terminal_type", "headline": "A CARD, NOT A DASHBOARD",
+         "feature_id": "f5", "depicts": "the card you answer and the command that resumes it",
+         "payload": {"title": "your decision",
+                     "lines": ["card: delete the branch?", "agent-autoloop answer 1", "resumed, round two"],
+                     "cue_phrases": ["a card reaches you", "Slack, Discord", "one command resumes it"]},
+         "cue_word": "card"},
+        {"scene_id": "catch", "phrase": 5, "archetype": "chip_grid", "headline": "THE CATCH",
+         "feature_id": "f6", "depicts": "the Node and Git it needs and the untranslated CLI",
+         "payload": {"chips": ["Needs a recent Node", "Agent already signed in", "CLI still in Chinese"], "highlight": 2,
+                     "cue_phrases": ["a recent Node", "an agent already signed in", "still in Chinese"]},
+         "cue_word": "catch"},
+        {"scene_id": "cta", "phrase": 6, "archetype": "endcard", "headline": "WORK WHILE YOU'RE AWAY",
+         "feature_id": None, "depicts": "commenting the keyword LOOP to get the repo",
+         "payload": {"keyword": "LOOP", "follow": "Follow"},
+         "cue_word": "LOOP"},
+    ],
+}

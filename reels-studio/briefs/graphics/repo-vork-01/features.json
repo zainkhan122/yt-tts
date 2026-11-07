@@ -1,0 +1,58 @@
+{
+  "tool": {
+    "name": "vork",
+    "repo": "https://github.com/voyager-so/vork"
+  },
+  "features": [
+    {
+      "id": "f1",
+      "title": "Headless 3D and VFX engine",
+      "what": "It renders scenes without a viewport or a timeline UI.",
+      "evidence_quote": "vork, the Voyager rendering kernel, is a headless 3D and VFX engine built for agents."
+    },
+    {
+      "id": "f2",
+      "title": "Scenes are programs",
+      "what": "A scene is written as code and rendered on the GPU.",
+      "evidence_quote": "These are scenes written as code and rendered on a GPU. No video model required."
+    },
+    {
+      "id": "f3",
+      "title": "Look at the result, revise",
+      "what": "The agent renders, inspects the image, then edits its own code.",
+      "evidence_quote": "An agent writes a scene, renders it, looks at the result and revises the code. There is no editor to drive."
+    },
+    {
+      "id": "f4",
+      "title": "Shaders mid-shot",
+      "what": "The agent can program a shader in the middle of a shot.",
+      "evidence_quote": "An agent can also write a shader in the middle of a shot."
+    },
+    {
+      "id": "f5",
+      "title": "Simulation and VFX examples",
+      "what": "The repo ships shots from million-agent simulations to VFX on real footage.",
+      "evidence_quote": "A million birds, each steering itself over a lagoon. A black hole that bends light."
+    },
+    {
+      "id": "f6",
+      "title": "Research preview",
+      "risk": true,
+      "what": "The engine is a preview, source-available and free for now.",
+      "evidence_quote": "Source-available and free during the research preview."
+    }
+  ],
+  "risks": [
+    {
+      "id": "r1",
+      "text": "It is a research preview, not a finished product."
+    },
+    {
+      "id": "r2",
+      "text": "It needs a GPU with Vulkan or Metal, and there is no editor UI to fall back on."
+    }
+  ],
+  "source_urls": [
+    "https://github.com/voyager-so/vork"
+  ]
+}

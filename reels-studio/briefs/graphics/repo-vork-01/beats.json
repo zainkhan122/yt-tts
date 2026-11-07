@@ -1,0 +1,144 @@
+{
+  "tool": "vork",
+  "handle": "@hypeless",
+  "scenes": [
+    {
+      "scene_id": "hook",
+      "phrase": 0,
+      "archetype": "flow_link",
+      "headline": "VORK RENDERS THE SHOT",
+      "feature_id": "f1",
+      "depicts": "the agent rendering the shot itself",
+      "payload": {
+        "nodes": [
+          "Write a scene",
+          "Render it",
+          "Look, revise"
+        ],
+        "edge_label": "no editor",
+        "cue_phrases": [
+          "What if your agent",
+          "could render",
+          "the shot itself"
+        ]
+      },
+      "cue_word": "render"
+    },
+    {
+      "scene_id": "point1",
+      "phrase": 1,
+      "archetype": "concept_card",
+      "headline": "A RENDERER FOR AGENTS",
+      "feature_id": null,
+      "depicts": "a headless engine that renders code on the GPU",
+      "payload": {
+        "big": "A RENDERER FOR AGENTS",
+        "sub": "Scenes as code, rendered on a GPU."
+      },
+      "cue_word": "headless"
+    },
+    {
+      "scene_id": "point2",
+      "phrase": 2,
+      "archetype": "terminal_type",
+      "headline": "NO EDITOR TO DRIVE",
+      "feature_id": "f3",
+      "depicts": "the agent rendering a preview and revising the light",
+      "payload": {
+        "title": "the agent's loop",
+        "lines": [
+          "$ vork render --preview",
+          "inspect the image",
+          "revise camera and light"
+        ],
+        "cue_phrases": [
+          "There's no editor",
+          "renders a preview",
+          "revises the camera"
+        ]
+      },
+      "cue_word": "editor"
+    },
+    {
+      "scene_id": "point3",
+      "phrase": 3,
+      "archetype": "chip_grid",
+      "headline": "SHADER MID-SHOT",
+      "feature_id": "f4",
+      "depicts": "geometry, ray queries and GPU compute the agent programs",
+      "payload": {
+        "chips": [
+          "Geometry",
+          "Ray queries",
+          "GPU compute",
+          "Own shader"
+        ],
+        "highlight": 3,
+        "cue_phrases": [
+          "geometry",
+          "ray queries",
+          "GPU compute",
+          "own shader"
+        ]
+      },
+      "cue_word": "shader"
+    },
+    {
+      "scene_id": "point4",
+      "phrase": 4,
+      "archetype": "toggle_steps",
+      "headline": "WHAT IT RENDERS",
+      "feature_id": "f5",
+      "depicts": "a million birds and VFX on real footage",
+      "payload": {
+        "steps": [
+          "A million birds",
+          "A black hole",
+          "VFX on real footage"
+        ],
+        "done": 3,
+        "cue_phrases": [
+          "a million self-steering birds",
+          "VFX cut into real footage"
+        ]
+      },
+      "cue_word": "examples"
+    },
+    {
+      "scene_id": "catch",
+      "phrase": 5,
+      "archetype": "chip_grid",
+      "headline": "THE CATCH",
+      "feature_id": "f6",
+      "depicts": "the research preview, the GPU it needs, and the missing editor",
+      "payload": {
+        "chips": [
+          "Research preview",
+          "Vulkan or Metal GPU",
+          "No editor to fall back on"
+        ],
+        "highlight": 0,
+        "cue_phrases": [
+          "a research preview",
+          "Vulkan or Metal GPU",
+          "no editor to fall back on"
+        ]
+      },
+      "cue_word": "catch"
+    },
+    {
+      "scene_id": "cta",
+      "phrase": 6,
+      "archetype": "endcard",
+      "headline": "WHAT WOULD YOU RENDER?",
+      "feature_id": null,
+      "depicts": "commenting the keyword RENDER to get the repo",
+      "payload": {
+        "keyword": "RENDER",
+        "follow": "Follow"
+      },
+      "cue_word": "RENDER"
+    }
+  ],
+  "script_sha256": "sha256:ea433f2f4094b8e32a3845dbea9a569c740549bc2b900c4e2978294cea012cf2"
+}

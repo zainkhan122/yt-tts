@@ -5,6 +5,20 @@
       "manifest.json": "07c51b1161f6b04f7075c4c390479d70229959399a72076d544f05936f06e042"
     }
   },
+  "repo-autoloop-01": {
+    "asset": "repo-autoloop-01.tar",
+    "files": {
+      "capture-note.md": "2d38ce92f8f2da44b4591ac650a42088cef9fb38e4d3b20ca8b35489cee05302",
+      "manifest.json": "7aadc428a389198e2e5ab72a44086ab860735138f190e5d90ffdbfd05532f3cf"
+    }
+  },
+  "repo-dshgo-01": {
+    "asset": "repo-dshgo-01.tar",
+    "files": {
+      "capture-note.md": "b4b81edeaaaae4a497d8595ebdf3d9122a2112cf6f7bcec0cdfbf6a89a0f7088",
+      "manifest.json": "daa19365fcbd6c6c7a81ad78bfa4651d714b316591acfbbecb4ab7ef6b3f718e"
+    }
+  },
   "repo-poki-01": {
     "asset": "repo-poki-01.tar",
     "files": {
@@ -13,6 +27,41 @@
       "desktop-top.jpg": "d9be57c806a23354a290795f0e7fc1cae2d8d79e72da1a71f22f37942c445aad",
       "manifest.json": "ecba35352d0a519a40e64799dbab02d30c9b683582bb85db2c37150132b20be0",
       "mobile.png": "997aba0dd4fbc29cfb04a81713161ad45ed01de229766d274fbdc0beffae10b0"
+    }
+  },
+  "repo-reavideo-01": {
+    "asset": "repo-reavideo-01.tar",
+    "files": {
+      "capture-note.md": "7fbb1b2d55a3804eed03e42629d111aabc4df792af66a91c358e9e01ccabf351",
+      "manifest.json": "7784925aff578d9f453d37bac27fa6528ce4ad86ed12e7050cf4d0756ad04c88"
+    }
+  },
+  "repo-sand3d-01": {
+    "asset": "repo-sand3d-01.tar",
+    "files": {
+      "capture-note.md": "59e47231b2cc0041755485b694fd9694aa68787bb4615bc81b97fa31bc975473",
+      "manifest.json": "84313fbcd1d347320f47ed4f15bd6ab2d8b1cb70de304e90af89a0e565481d10"
+    }
+  },
+  "repo-superagent-01": {
+    "asset": "repo-superagent-01.tar",
+    "files": {
+      "capture-note.md": "3fdd87b692d848590ac2fc012e7b487d01614e315d7873c24b7b79e9b06b5a20",
+      "manifest.json": "b7ebf05a358acc180f2caea63a795a4d8219ccba53c7c16b156039803e2807a9"
+    }
+  },
+  "repo-unslop-01": {
+    "asset": "repo-unslop-01.tar",
+    "files": {
+      "capture-note.md": "f516070ec017a0d8a08f0c209d61ae047f98638c506468200bbd153b59f53af0",
+      "manifest.json": "37e2d364888afddfc2ce002b97ce0be82405d4825dfafd480bff8782fedabe18"
+    }
+  },
+  "repo-vork-01": {
+    "asset": "repo-vork-01.tar",
+    "files": {
+      "capture-note.md": "4f2a15fbc8f625c4102e4babc24a22905bcc7a1ab4d59a30f7ab7629313f71e4",
+      "manifest.json": "569d3476f8aa38d7fbc8361d562972c022e44bf13e53d307e4522c8f6c3f2007"
     }
   }
 }
