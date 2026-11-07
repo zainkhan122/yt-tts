@@ -459,8 +459,11 @@
       el("div", "ec-name", r.card, b.name || "");
       el("div", "ec-handle", r.card, b.handle || D.handle || "");
       if (b.tagline) el("div", "ec-tag", r.card, b.tagline);
-      r.kw = el("div", "ec-kw", r.card);
-      el("span", "ec-kw-t", r.kw, p.keyword ? String(p.keyword).toUpperCase() : "");
+      // the keyword chip is optional: an endcard can carry the keyword in its headline alone
+      if (p.keyword_chip !== false && p.keyword) {
+        r.kw = el("div", "ec-kw", r.card);
+        el("span", "ec-kw-t", r.kw, String(p.keyword).toUpperCase());
+      }
       r.btn = el("div", "ec-btn", r.card);
       r.lbl = el("span", "ec-lbl", r.btn, p.follow || b.cta_button || "Follow");
       r.done = el("div", "ec-done", r.btn);
@@ -480,9 +483,11 @@
       var cin = eBack(ramp(u, 0, 0.5));
       r.card.style.opacity = fmt(ramp(u, 0, 0.2));
       r.card.style.transform = "translateY(" + fmt((1 - cin) * 80) + "px) scale(" + fmt(0.96 + 0.04 * cin, 3) + ")";
-      var kp = eBack(ramp(u, kw, kw + 0.4));
-      r.kw.style.opacity = fmt(ramp(u, kw, kw + 0.16));
-      r.kw.style.transform = "translateY(" + fmt((1 - kp) * 30) + "px) scale(" + fmt(0.9 + 0.1 * kp, 3) + ")";
+      if (r.kw) {
+        var kp = eBack(ramp(u, kw, kw + 0.4));
+        r.kw.style.opacity = fmt(ramp(u, kw, kw + 0.16));
+        r.kw.style.transform = "translateY(" + fmt((1 - kp) * 30) + "px) scale(" + fmt(0.9 + 0.1 * kp, 3) + ")";
+      }
       var arrive = eCubic(ramp(u, pr - 0.55, pr));
       var leave = ramp(u, pr + 0.5, pr + 0.8);
       r.cur.style.opacity = fmt(ramp(u, pr - 0.58, pr - 0.4) * (1 - leave));

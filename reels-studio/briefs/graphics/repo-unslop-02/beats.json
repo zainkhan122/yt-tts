@@ -307,6 +307,7 @@
       "depicts": "the comment keyword and the follow button",
       "payload": {
         "keyword": "UNSLOP",
+        "keyword_chip": false,
         "follow": "Follow",
         "cue_phrases": [
           "comment unslop",

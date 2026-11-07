@@ -113,7 +113,10 @@
     "follow",
     "lines",
     "cue_phrases",
-    "prompt"
+    "prompt",
+    "keyword_chip",
+    "cam",
+    "drift"
    ],
    "facts": false,
    "script_ok": true

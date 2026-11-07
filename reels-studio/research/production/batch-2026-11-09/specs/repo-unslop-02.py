@@ -301,7 +301,9 @@ BEATS = {
          }},
         {"scene_id": "cta", "phrase": 7, "archetype": "endcard", "headline": "COMMENT UNSLOP",
          "feature_id": None, "depicts": "the comment keyword and the follow button",
-         "payload": {"keyword": "UNSLOP", "follow": "Follow", "cue_phrases": ["comment unslop", "pin the repo"]},
+         # owner: no tool name above the Follow button — the headline carries the keyword
+         "payload": {"keyword": "UNSLOP", "keyword_chip": False, "follow": "Follow",
+                     "cue_phrases": ["comment unslop", "pin the repo"]},
          "cue_word": "unslop"},
     ],
 }
