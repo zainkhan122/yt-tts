@@ -573,8 +573,8 @@
   function drawCaption(s, t) {
     var words = s.words || [], cur = -1;
     for (var i = 0; i < words.length; i++) if (t >= words[i][1]) cur = i;
-    var start = Math.max(0, Math.min(cur, words.length - 4));
-    var end = Math.min(words.length, start + 4);
+    var start = Math.max(0, Math.min(cur, words.length - 3));
+    var end = Math.min(words.length, start + 3);
     capEl.innerHTML = "";
     for (var j = start; j < end; j++) {
       el("span", j === cur ? "cw cw-on" : "cw", capEl, words[j][0]);

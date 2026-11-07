@@ -117,6 +117,18 @@ def main():
                 tp["first"] = min(tp["first"], ts or tp["first"])
     chans = list(got)
     ranked = sorted(agg.values(), key=lambda t: (-len(t["channels"]), -t["views"]))
+    # Owner rule: a topic that already has a brief, a plan or a queued post is not an idea any more.
+    # The registry is derived from briefs/, videos/, topics/backlog.csv and tracker/publications.json.
+    sys.path.insert(0, str(ROOT / "tools"))
+    import topics_covered
+    covered = topics_covered.rebuild()
+    before = len(ranked)
+    skipped = [(t["name"], topics_covered.is_covered(t["name"], covered)) for t in ranked]
+    skipped = [(n, r) for n, r in skipped if r]
+    ranked = [t for t in ranked if not topics_covered.is_covered(t["name"], covered)]
+    if skipped:
+        print(f"covered: {len(skipped)} topic(s) already scheduled or published, not recommended: "
+              + ", ".join(n for n, _ in skipped[:8]))
     # Search-demand probe: does anyone actually search for each topic? (free, no key)
     try:
         sys.path.insert(0, str(ROOT / "tools"))
@@ -145,6 +157,10 @@ def main():
         srch = f"{t['searched']}" if t.get("searched") is not None else "—"
         L.append(f"| {i} | **{t['name'].split('/')[-1]}** | {kind(t)} | {len(t['channels'])} | {', '.join(sorted(t['channels']))} | {t['views']:,} | "
                  f"{srch} | [{t['best'][0]:,} views]({t['best'][1]}) | {('github.com/' + repo) if repo else ''} |")
+    if skipped:
+        L += ["", "## Already scheduled or published — excluded from this feed", ""]
+        for n, row in skipped:
+            L.append(f"- ~~{n}~~ — {row.get('status', 'covered')} ({', '.join((row.get('videos') or row.get('sources') or [])[:2])})")
     L += ["", "## AI tools covered this week (non-repo, by consensus then views)", ""]
     for t in [t for t in ranked if kind(t) == "tool"][:15]:
         L.append(f"- **{t['name']}**: {len(t['channels'])} channel(s), {t['views']:,} views. " + " / ".join(f'"{x}"' for x in t["titles"][:3]))
@@ -163,7 +179,8 @@ def main():
         for t in ranked:
             key = t["name"].split("/")[-1]
             generic = key.lower() in STOP or key.lower() in PLATFORMS
-            if len(t["channels"]) >= 2 and key.lower() not in have and not generic:
+            if len(t["channels"]) >= 2 and key.lower() not in have and not generic \
+                    and not topics_covered.is_covered(key, covered):
                 w.writerow([today, key, "from idea feed", ("https://github.com/" + t["name"]) if "/" in t["name"] else t["best"][1],
                             f"{len(t['channels'])} watchlist channels, {t['views']:,} views", "", "", ";".join(sorted(t["channels"])), "", "", "", "idea", "", "auto: verify + score"])
                 added += 1

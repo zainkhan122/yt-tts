@@ -24,6 +24,19 @@
     "https://github.com/heydamir/unslop",
     "https://github.com/heydamir/unslop"
   ],
+  "lexicon": {
+    "GitHub": "git hub",
+    "Kokoro": "ko-ko-ro",
+    "Claude": "clawed",
+    "GPT": "G P T",
+    "MCP": "M C P",
+    "LLM": "L L M",
+    "API": "A P I",
+    "UI": "U I",
+    "unslop": "un-slop",
+    "UNSLOP": "un-slop",
+    "Unslop": "un-slop"
+  },
   "verify_before_render": [
     "Every point cites its source in the plan (repo-unslop-02/plan.json).",
     "Kit images are drawn from the plan's own visual spec only."

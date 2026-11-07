@@ -15,6 +15,7 @@ import datetime as dt
 import json
 import os
 import re
+import sys
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -130,6 +131,15 @@ def main():
     a = ap.parse_args()
     today = dt.date.today().isoformat()
     gh = github(a.days)
+    # Owner rule: the radar never re-surfaces a tool we already covered. One registry, tools/topics_covered.py.
+    sys.path.insert(0, str(ROOT / "tools"))
+    import topics_covered
+    solved = topics_covered.rebuild()
+    before = len(gh)
+    covered_hits = [r["name"] for r in gh if topics_covered.is_covered(r["name"], solved)]
+    gh = [r for r in gh if not topics_covered.is_covered(r["name"], solved)]
+    if covered_hits:
+        print(f"radar: {before - len(gh)} repo(s) already covered, ignored: " + ", ".join(covered_hits[:8]))
     models, spaces = hf("models"), hf("spaces")
     trending = gittrend()
     refs = reference_posts()

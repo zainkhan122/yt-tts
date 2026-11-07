@@ -187,11 +187,15 @@ html, body { margin: 0; padding: 0; background: #F4F0E8; }
 .sp .label.after { right: 24px; background: #6C4CF1; color: #FFFFFF; }
 
 /* ---------- caption + safe area ---------- */
-.caption { position: absolute; left: 60px; right: 60px; top: 1640px; height: 70px; display: flex;
-  align-items: center; justify-content: center; font: 600 38px/1 "DejaVu Sans Mono", monospace; color: #8C877D;
-  letter-spacing: 0.5px; }
-.caption .cw { margin: 0 12px; }
-.caption .cw-on { color: #14161F; }
+/* kinetic caption: the old-short scale (96px, 900, uppercase), ink on paper with the spoken word
+   marked in the channel yellow. A marker chip, not yellow type: #FFD60A on paper is invisible. */
+.caption { position: absolute; left: 54px; right: 54px; top: 1596px; height: 190px; display: flex;
+  flex-wrap: wrap; column-gap: 18px; row-gap: 6px; align-content: center; justify-content: center;
+  text-align: center; font-size: 96px; font-weight: 900; line-height: 1.02; text-transform: uppercase;
+  letter-spacing: -1px; }
+.caption .cw { color: #14161F; display: inline-block; }
+.caption .cw-on { color: #14161F; background: #FFD60A; border-radius: 10px; padding: 0 10px 4px;
+  box-shadow: 0 6px 0 rgba(20,22,31,0.10); }
 
 /* ---------- endcard (paper) ---------- */
 .ec { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }

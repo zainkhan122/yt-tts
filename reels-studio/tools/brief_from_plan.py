@@ -58,6 +58,20 @@ def _keep_for(keep, key, vid):
     return keep[key]
 
 
+def _lexicon(plan):
+    """The channel's pronunciation dictionary, merged with the plan's own entries.
+
+    config/channel.json is the single place a made-up or ambiguous word is taught to the voice
+    (GitHub -> git hub, unslop -> un-slop). A brief that did not carry it was read literally:
+    "unslop" came out as "U N slop" and "UI" as "you eye"."""
+    lex = {}
+    path = ROOT / "config" / "channel.json"
+    if path.exists():
+        lex.update((json.loads(path.read_text(encoding="utf-8")).get("lexicon") or {}))
+    lex.update(plan.get("lexicon") or {})
+    return {k: v for k, v in lex.items() if k and v and k != v}
+
+
 def _card_scene(scene_id, key, heading, sub, say, keep, vid):
     return {
         "id": scene_id, "type": "image", "image": f"{key}.jpg",
@@ -138,6 +152,8 @@ def build(plan_path):
             "limits": plan["catch"],
         },
         "sources": [p["source"] for p in plan["points"]],
+        # display word -> what the voice says. Channel dictionary first, the plan may add or override.
+        "lexicon": _lexicon(plan),
         "verify_before_render": [
             f"Every point cites its source in the plan ({vid}/plan.json).",
             "Kit images are drawn from the plan's own visual spec only.",
