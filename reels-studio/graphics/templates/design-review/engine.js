@@ -423,24 +423,24 @@
       b.win.style.position = "absolute"; a.win.style.position = "absolute";
       b.win.style.height = "100%"; a.win.style.height = "100%";
       before.appendChild(b.win); after.appendChild(a.win);
-      var labels = p.labels || ["BEFORE", "AFTER"];
-      var lb = el("div", "label before", wrap, labels[0]);
-      var la = el("div", "label after", wrap, labels[1]);
+      // no BEFORE/AFTER tags: inside this 1150px window they land on the artifact's own labels and cards,
+      // and a tag straddling the window edge fights the seam. The wipe plus the caption carry the meaning.
       var div = el("div", "divider", wrap);
       var knob = el("div", "knob", wrap);
-      var r = { div: div, knob: knob, after: after, b: b, a: a, labels: [lb, la] };
+      var r = { div: div, knob: knob, after: after, b: b, a: a };
       r.times = bindTimes(p.cue_phrases, s, 2);
       return r;
     },
     update: function (r, s, u, d) {
       var now = u + s.t0;
       var t = ramp(now, r.times[0] + 0.25, r.times[0] + 1.5);
-      var x = 100 - 94 * eCubic(t);                       // 100% -> 6%: the clean screen wipes across
+      var x = 100 - 100 * eCubic(t);                      // 100% -> 0%: the clean screen takes the whole window
       r.div.style.left = fmt(x * 9.6 - 3) + "px";
       r.knob.style.left = fmt(x * 9.6) + "px";
       r.after.style.clipPath = "inset(0 0 0 " + fmt(x, 2) + "%)";
-      r.labels[0].style.opacity = fmt(ramp(now, r.times[0], r.times[0] + 0.3) * ramp(x, 50, 70));
-      r.labels[1].style.opacity = fmt(1 - ramp(x, 50, 70));
+      var seam = ramp(x - 4, 0, 8);
+      r.div.style.opacity = fmt(seam);
+      r.knob.style.opacity = fmt(seam);
       if (r.b.page._glow) r.b.page._glow.style.opacity = fmt(0.6 + 0.4 * Math.sin(now * 1.6));
     }
   };
@@ -599,10 +599,12 @@
     }
     var eb = s._wrap.querySelector(".eyebrow");
     if (eb) eb.style.opacity = fmt(ramp(u, 0, 0.3));
-    // camera: a slow punch-in keeps a single artifact from sitting still
-    var cam = (s.payload && s.payload.cam) || [1.0, 1.085];
+    // camera: a slow drift keeps a single artifact from sitting still. No scale by default: the window's
+    // bottom edge already ends 14px above the caption box, and any punch-in would push its last row of
+    // content under the caption (a scene may opt in with payload.cam, but then it owns that clearance).
+    var cam = (s.payload && s.payload.cam) || [1.0, 1.0];
     var cp = eCubic(ramp(u, 0, d));
-    var drift = (s.payload && typeof s.payload.drift === "number") ? s.payload.drift : 9;
+    var drift = (s.payload && typeof s.payload.drift === "number") ? s.payload.drift : 14;
     var dx = (cp - 0.35) * drift;
     s._art.style.transform = "translate(" + fmt(dx, 2) + "px, 0px) scale(" +
       fmt(cam[0] + (cam[1] - cam[0]) * cp, 4) + ")";

@@ -1,5 +1,5 @@
 /* design-review template — light paper plate for unslop.
-   Geometry: plate 1080x1920. Eyebrow 150, headline 210-400, artifact window 470-1560, caption 1660.
+   Geometry: plate 1080x1920. Eyebrow 150, headline 210-400, artifact window 436-1586, caption 1600.
    Everything here is decorative styling only; time is driven by setTime() in engine.js. */
 html, body { margin: 0; padding: 0; background: #F4F0E8; }
 #stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #F4F0E8;
@@ -23,6 +23,9 @@ html, body { margin: 0; padding: 0; background: #F4F0E8; }
   text-transform: none; letter-spacing: -1px; color: #6C4CF1; }
 .headline .ln { display: block; }
 
+/* 436 + 1150 = 1586: the window's bottom edge sits just above the caption box at 1600. The camera must not
+   scale this box down past that edge (see the cam default in engine.js), so the slop/clean pages keep the
+   height they were composed for. */
 .artifact { position: absolute; left: 60px; top: 436px; width: 960px; height: 1150px; transform-origin: 50% 0; }
 
 /* ---------- the fabricated browser window ---------- */
@@ -181,10 +184,7 @@ html, body { margin: 0; padding: 0; background: #F4F0E8; }
   border-top: 3px solid #14161F; border-left: 3px solid #14161F; margin-top: -6px; }
 .sp .knob:before { left: 16px; transform: rotate(-45deg); }
 .sp .knob:after { right: 16px; transform: rotate(135deg); }
-.sp .label { position: absolute; bottom: 26px; font: 800 24px/1 "DejaVu Sans Mono", monospace; letter-spacing: 2px;
-  padding: 10px 16px; border-radius: 8px; }
-.sp .label.before { left: 24px; background: #14161F; color: #FFFFFF; }
-.sp .label.after { right: 24px; background: #6C4CF1; color: #FFFFFF; }
+
 
 /* ---------- caption + safe area ---------- */
 /* kinetic caption: the old-short scale (96px, 900, uppercase), ink on paper with the spoken word
