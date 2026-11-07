@@ -3758,9 +3758,9 @@
       "capture_id": "repo-unslop-02",
       "cover_sha256": "6d7845ac5e19c06bffcecd8dfeb61f7b8751577919a5086cc27fdae6546e2d13",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=skipped",
       "fingerprint": "fdb89d020180c9e3954b14afc43f56b78f03ef6e7d23ecf17884cebea4bd6f03",
-      "finished_at": null,
+      "finished_at": "2026-11-07T19:19:39Z",
       "from_tag": "",
       "graphics_sha256": "efb62555e63af2dbfbb600f478b6e398ca6d70399734070c5bcd2fb2ee19482d",
       "quality": "looks",
@@ -3768,7 +3768,7 @@
       "renderer_sha256": "2ad1952b1433a2211e686ba9e9fbfe8cf053103a9ea8e356caee292941827ca4",
       "run_id": "42404125104",
       "started_at": "2026-11-07T19:01:15Z",
-      "status": "started",
+      "status": "render_only_success",
       "voice_seed": 0
     },
     "feef51541df47f1197fcd4b6373bf5cb5ca7b2bb2b6bc4dfafc7088a895f4431": {
