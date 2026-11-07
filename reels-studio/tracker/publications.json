@@ -3673,6 +3673,31 @@
       "updated_at": "2026-10-16T04:44:41Z",
       "video_id": "repo-solidglass-01"
     },
+    "repo-superagent-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-11-09T17:05:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:d76379519cbaa9c4c66b7bd9d5935810a4b5c2dcc152fe18eef0d83a03ad7f3e",
+        "asset_id": 720002462,
+        "asset_size": 13376653,
+        "kit_asset_id": 720002553,
+        "kit_digest": "sha256:d5686963a79a7b41ef66a7e111c9b150c43adb6cca678f182f4560f38a25ea08",
+        "media_path": "media/720002462/repo-superagent-01.mp4",
+        "release_tag": "renders-2026-11-08",
+        "video_id": "repo-superagent-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/720002462/repo-superagent-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "bd83c63177fdea22ec1da266ef70249ae405f2bcc58f85462b987d4f3ba53316",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Autonomous coding agent on one repository: dsh-superagent opens a work item when someone asks, works in its own session, and answers the thread with a pull request. Comment AGENT for the repo.\n\n#CodingAgent #AutonomousAgents #DeepSeek #AIAgents #DevTools",
+      "title": "Autonomous coding agent: one repo, run by dsh-superagent",
+      "updated_at": "2026-11-07T22:01:05Z",
+      "video_id": "repo-superagent-01"
+    },
     "repo-voicestudio-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6ae618c2f0984eef331cd916",
