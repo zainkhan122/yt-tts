@@ -3673,6 +3673,31 @@
       "updated_at": "2026-10-16T04:44:41Z",
       "video_id": "repo-solidglass-01"
     },
+    "repo-superagent-01:facebook": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-11-09T17:17:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:d76379519cbaa9c4c66b7bd9d5935810a4b5c2dcc152fe18eef0d83a03ad7f3e",
+        "asset_id": 720002462,
+        "asset_size": 13376653,
+        "kit_asset_id": 720002553,
+        "kit_digest": "sha256:d5686963a79a7b41ef66a7e111c9b150c43adb6cca678f182f4560f38a25ea08",
+        "media_path": "media/720002462/repo-superagent-01.mp4",
+        "release_tag": "renders-2026-11-08",
+        "video_id": "repo-superagent-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/720002462/repo-superagent-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "852753301be2d8ae9561b9cb77508f0e0babec786a07a1de5fd51ef1ad33ab2e",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "Autonomous coding agent for a single repository: dsh-superagent listens to GitHub, opens a work item, and answers with a pull request while a panel flags what needs a person. Comment AGENT for the repo link.\n\nAI-generated narration.\n\n#CodingAgent #AutonomousAgents #DeepSeek #AIAgents #DevTools",
+      "title": "Autonomous coding agent: one repo, run by dsh-superagent",
+      "updated_at": "2026-11-07T22:01:09Z",
+      "video_id": "repo-superagent-01"
+    },
     "repo-superagent-01:instagram": {
       "attempts": 1,
       "buffer_post_id": "6aef9fa39214322f681a415a",
