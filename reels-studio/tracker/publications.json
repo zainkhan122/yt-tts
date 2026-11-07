@@ -3146,9 +3146,11 @@
     },
     "repo-poki-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6aeec366229bf05daf30b94c",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-11-07T21:11:00Z",
+      "due_at": "2026-11-07T21:11:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:41691322713d21827afc691dc47a07c8da9d0b39af867ab31e910cfbdd3b8b7f",
         "asset_id": 719816618,
@@ -3163,10 +3165,11 @@
       "notify_subscribers": false,
       "payload_sha256": "be46acf981fb7769a51f1bef5f56a619d922c879a1038cc97bfd627400f64226",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "AI iPhone automation without a jailbreak: Poki is a local MCP server that lets Claude Code or Codex work a real iPhone. Comment IPHONE for the repo.\n\n#iPhoneAutomation #AIAgents #MCP #ClaudeCode #OpenSource",
       "title": "AI iPhone automation: let an agent use your phone",
-      "updated_at": "2026-11-07T06:21:24Z",
+      "updated_at": "2026-11-07T06:21:26Z",
       "video_id": "repo-poki-01"
     },
     "repo-poki-01:youtube": {
