@@ -525,6 +525,27 @@
       "status": "render_only_success",
       "voice_seed": 258727
     },
+    "241f80b0b8460c223d305efacd79fbb82830ba8b2478dc6eff219c72d216f08e": {
+      "asset_files_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "asset_manifest_sha256": "f4db81427a4e700dd0f460ce7bcb36cb290d8d1f5c6a45d38010753323adb223",
+      "brief_id": "repo-unslop-02",
+      "brief_sha256": "19a94abaed7b49f7b5ba1e87b14e04383f41ffbe7122feb80d1ab7611ff9c9a8",
+      "capture_id": "repo-unslop-02",
+      "cover_sha256": "6d7845ac5e19c06bffcecd8dfeb61f7b8751577919a5086cc27fdae6546e2d13",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "241f80b0b8460c223d305efacd79fbb82830ba8b2478dc6eff219c72d216f08e",
+      "finished_at": null,
+      "from_tag": "",
+      "graphics_sha256": "2991c6bda56a1e8ef669c2ea629b48f0f96239f3f4c55808a6cbf32c60a5af8c",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "3fb1753230322e82eed8421861ccdac2f501f40b99b6b9f89045db8c9ab99ec9",
+      "run_id": "42398313042",
+      "started_at": "2026-11-07T17:51:00Z",
+      "status": "started",
+      "voice_seed": 0
+    },
     "24f08e9f319756c247620ce0522d86d3ebd2c5ea8ded2f690e7a70e6e0d4021c": {
       "asset_files_sha256": null,
       "asset_manifest_sha256": null,
