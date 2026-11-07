@@ -1434,6 +1434,31 @@
       "updated_at": "2026-10-10T21:53:05Z",
       "video_id": "repo-ai-newtab-01"
     },
+    "repo-autoloop-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-11-08T21:06:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:95ceaa4585e3b8f935275f401a9a764bb64f31a8879f6f23bda98bd514763729",
+        "asset_id": 720150983,
+        "asset_size": 13247597,
+        "kit_asset_id": 720151052,
+        "kit_digest": "sha256:22e79cb874f9bf3b231aad0586955f60e85995ef46fd399e898459ea40254308",
+        "media_path": "media/720150983/repo-autoloop-01.mp4",
+        "release_tag": "renders-2026-11-08c",
+        "video_id": "repo-autoloop-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/720150983/repo-autoloop-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "6e06cf944f6040c8f0cb96cf8b0c517462a0d750b746b78b02661d2cc760b8fe",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Background coding agent on one machine: Agent Autoloop turns a schedule or an issue into a round of work, exits, and sends a card only when the decision is yours. Comment LOOP for the repo.\n\n#CodingAgent #Automation #Slack #AIAgents #DevTools",
+      "title": "Background coding agent: Agent Autoloop keeps going",
+      "updated_at": "2026-11-07T09:46:41Z",
+      "video_id": "repo-autoloop-01"
+    },
     "repo-autoloop-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6aeef37cd6bbae6fa179ff9c",
