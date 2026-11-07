@@ -15,7 +15,7 @@ PLAN = {
         {
             "n": 1,
             "claim": "rea-video takes any video and tells you shot by shot how the visuals, text, editing and audio were made.",
-            "spoken": "It's rea-video: give it any video and it tells you shot by shot how the visuals, the text, the edit and the audio were made.",
+            "spoken": "It's rea-video, and it does video reverse engineering: give it any clip and it tells you shot by shot how it was made.",
             "source": REPO,
             "source_note": "README: 'give it any of them, and it tells you shot by shot how the visuals, styled text, editing and audio were made, then gives you a plan to make one yourself.'",
             "visual": {"kind": "steps", "intent": "one video opening into a shot list"},
@@ -176,7 +176,7 @@ BEATS = {
         {"scene_id": "point1", "phrase": 1, "archetype": "toggle_steps", "headline": "SHOT BY SHOT",
          "feature_id": "f1", "depicts": "the video opened into its shots",
          "payload": {"steps": ["Give it a video", "Every shot judged", "How it was made"], "done": 3,
-                     "cue_phrases": ["give it any video", "shot by shot", "were made"]},
+                     "cue_phrases": ["video reverse engineering", "give it any clip", "shot by shot"]},
          "cue_word": "shot"},
         {"scene_id": "point2", "phrase": 2, "archetype": "chip_grid", "headline": "EVERY KIND OF SHOT",
          "feature_id": "f2", "depicts": "the shot kinds judged separately then put back on the timeline",

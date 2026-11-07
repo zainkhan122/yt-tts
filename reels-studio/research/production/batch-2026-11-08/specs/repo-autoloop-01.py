@@ -15,7 +15,7 @@ PLAN = {
         {
             "n": 1,
             "claim": "Agent Autoloop turns a command-line agent into a background loop on one machine, with no server and no dashboard.",
-            "spoken": "It's Agent Autoloop: it turns a command-line agent into a background loop on one machine.",
+            "spoken": "It's Agent Autoloop, a background coding agent: it turns a command line agent into a loop on one machine.",
             "source": REPO,
             "source_note": "README: 'Agent Autoloop turns your command-line agents into a background loop.' and 'One machine, one install command. Runs on Windows, macOS, or Linux. No cloud server or inbound ports required.'",
             "visual": {"kind": "steps", "intent": "the terminal agent becoming a loop that runs on one machine"},
@@ -175,7 +175,7 @@ BEATS = {
         {"scene_id": "point1", "phrase": 1, "archetype": "chip_grid", "headline": "A BACKGROUND LOOP",
          "feature_id": "f1", "depicts": "the command-line agent turned into a background loop",
          "payload": {"chips": ["A background loop", "On one machine", "Any CLI agent"], "highlight": 0,
-                     "cue_phrases": ["It's Agent Autoloop", "background loop", "on one machine"]},
+                     "cue_phrases": ["Agent Autoloop", "background coding agent", "on one machine"]},
          "cue_word": "loop"},
         {"scene_id": "point2", "phrase": 2, "archetype": "toggle_steps", "headline": "EVENTS, THEN RULES",
          "feature_id": "f3", "depicts": "a schedule, an issue and an alert becoming events",

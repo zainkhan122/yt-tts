@@ -15,7 +15,7 @@ PLAN = {
         {
             "n": 1,
             "claim": "vork is a headless 3D and VFX engine built for agents: scenes are written as code and rendered on a GPU.",
-            "spoken": "It's vork, a headless rendering engine built for agents: scenes are written as code and rendered on a GPU.",
+            "spoken": "It's vork, an agent rendering engine: scenes are written as code and rendered on a GPU.",
             "source": REPO,
             "source_note": "README: 'vork, the Voyager rendering kernel, is a headless 3D and VFX engine built for agents.' / 'These are scenes written as code and rendered on a GPU. No video model required.'",
             "visual": {"kind": "steps", "intent": "a scene written as code arriving as a rendered frame"},
@@ -96,7 +96,7 @@ PLAN = {
         "youtube": {
             "title": "Agent rendering: vork renders the shot without a video model",
             "description": (
-                "Agent 3D rendering without a video model: vork is a headless engine where a scene is a program, so the agent "
+                "Agent rendering without a video model: vork is a headless engine where a scene is a program, so the agent "
                 "writes it, renders a preview on the GPU, looks at the image and revises camera and lighting. It exposes "
                 "geometry, ray queries and GPU compute, which means a shader can be written in the middle of a shot, and the "
                 "examples run to a million self-steering birds and VFX cut into real footage. "
@@ -175,7 +175,7 @@ BEATS = {
         {"scene_id": "point1", "phrase": 1, "archetype": "concept_card", "headline": "A RENDERER FOR AGENTS",
          "feature_id": None, "depicts": "a headless engine that renders code on the GPU",
          "payload": {"big": "A RENDERER FOR AGENTS", "sub": "Scenes as code, rendered on a GPU."},
-         "cue_word": "headless"},
+         "cue_word": "rendering"},
         {"scene_id": "point2", "phrase": 2, "archetype": "terminal_type", "headline": "NO EDITOR TO DRIVE",
          "feature_id": "f3", "depicts": "the agent rendering a preview and revising the light",
          "payload": {"title": "the agent's loop",

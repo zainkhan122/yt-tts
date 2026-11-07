@@ -37,7 +37,7 @@
         "AI builds the UI",
         "Same look again"
       ],
-      "say": "Why does every AI-built app look the same?"
+      "say": "Why does AI UI design all look the same?"
     },
     {
       "id": "point1",
@@ -236,7 +236,7 @@
     "intent": "search",
     "hook_mechanic": "viewer question about the tool's first claim",
     "open_loop": {
-      "plant": "Why does every AI-built app look the same?",
+      "plant": "Why does AI UI design all look the same?",
       "payoff_scene": "point1"
     },
     "proof_moment": "point1",

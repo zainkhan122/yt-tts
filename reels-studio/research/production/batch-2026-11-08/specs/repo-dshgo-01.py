@@ -15,7 +15,7 @@ PLAN = {
         {
             "n": 1,
             "claim": "DSH Go is an Android client for DeepSeek Harness that runs the harness on the phone or drives the one on a computer.",
-            "spoken": "It's DSH Go, an Android app for DeepSeek Harness: it runs the harness on your phone, or drives the one on your computer.",
+            "spoken": "It's DSH Go, an Android coding agent for DeepSeek Harness: it runs on your phone, or drives the one on your computer.",
             "source": REPO,
             "source_note": "README (English): 'An Android client for DeepSeek Harness. Run DSH right on your phone, or drive the one on your computer.'",
             "visual": {"kind": "steps", "intent": "an app that holds the harness and reaches the desktop one"},
@@ -176,7 +176,7 @@ BEATS = {
         {"scene_id": "point1", "phrase": 1, "archetype": "chip_grid", "headline": "AN APP FOR THE HARNESS",
          "feature_id": "f1", "depicts": "the Android app holding the harness and reaching the computer",
          "payload": {"chips": ["An Android app", "Harness on the phone", "Drives your computer"], "highlight": 1,
-                     "cue_phrases": ["It's DSH Go", "an Android app", "drives the one on your computer"]},
+                     "cue_phrases": ["It's DSH Go", "an Android coding agent", "drives the one on your computer"]},
          "cue_word": "Android"},
         {"scene_id": "point2", "phrase": 2, "archetype": "terminal_type", "headline": "LINUX IN THE APP",
          "feature_id": "f2", "depicts": "Ubuntu, Node and the harness installing inside the app",

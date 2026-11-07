@@ -15,7 +15,7 @@
     {
       "n": 1,
       "claim": "vork is a headless 3D and VFX engine built for agents: scenes are written as code and rendered on a GPU.",
-      "spoken": "It's vork, a headless rendering engine built for agents: scenes are written as code and rendered on a GPU.",
+      "spoken": "It's vork, an agent rendering engine: scenes are written as code and rendered on a GPU.",
       "source": "https://github.com/voyager-so/vork",
       "source_note": "README: 'vork, the Voyager rendering kernel, is a headless 3D and VFX engine built for agents.' / 'These are scenes written as code and rendered on a GPU. No video model required.'",
       "visual": {
@@ -146,7 +146,7 @@
     ],
     "youtube": {
       "title": "Agent rendering: vork renders the shot without a video model",
-      "description": "Agent 3D rendering without a video model: vork is a headless engine where a scene is a program, so the agent writes it, renders a preview on the GPU, looks at the image and revises camera and lighting. It exposes geometry, ray queries and GPU compute, which means a shader can be written in the middle of a shot, and the examples run to a million self-steering birds and VFX cut into real footage. Repo: https://github.com/voyager-so/vork #Shorts #3DRendering #VFX #AIAgents #Rust",
+      "description": "Agent rendering without a video model: vork is a headless engine where a scene is a program, so the agent writes it, renders a preview on the GPU, looks at the image and revises camera and lighting. It exposes geometry, ray queries and GPU compute, which means a shader can be written in the middle of a shot, and the examples run to a million self-steering birds and VFX cut into real footage. Repo: https://github.com/voyager-so/vork #Shorts #3DRendering #VFX #AIAgents #Rust",
       "tags": [
         "agent rendering",
         "3D rendering for agents",

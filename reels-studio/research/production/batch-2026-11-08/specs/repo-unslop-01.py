@@ -5,7 +5,7 @@ REPO = "https://github.com/heydamir/unslop"
 PLAN = {
     "id": "repo-unslop-01",
     "tool": "unslop",
-    "question": "Why does every AI-built app look the same?",
+    "question": "Why does AI UI design all look the same?",
     "hook_visual": {
         "kind": "steps",
         "intent": "an AI-built screen that looks like every other one",
@@ -170,7 +170,7 @@ BEATS = {
         {"scene_id": "hook", "phrase": 0, "archetype": "flow_link", "headline": "WHY EVERY AI APP LOOKS SAME",
          "feature_id": "f1", "depicts": "an AI-built app that looks the same every time",
          "payload": {"nodes": ["Your prompt", "AI builds the UI", "Same look again"], "edge_label": "every time",
-                     "cue_phrases": ["Why does", "every AI-built app", "look the same"]},
+                     "cue_phrases": ["Why does", "AI UI design", "look the same"]},
          "cue_word": "same"},
         {"scene_id": "point1", "phrase": 1, "archetype": "terminal_type", "headline": "ONE SKILL FOLDER",
          "feature_id": "f1", "depicts": "the skill copied into the agent's skills folder",

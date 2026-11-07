@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
   "batch_id": "2026-11-08-shorts-01",
-  "created_at": "2026-11-07T07:14:37Z",
+  "created_at": "2026-11-07T07:18:41Z",
   "briefs": {
     "repo-unslop-01": {
-      "brief_sha256": "63f5419e611295e177cca1df35738d738dc71190f63a821649550fd8ae90e4fa",
-      "brief_identity_sha256": "f0353c10db41809852af7d7832d12984cc410b6d86767b49958c5451359f40c6",
+      "brief_sha256": "35877f38f0d8967f71321abf57a36366396a11ed79788be3552dcf19ffa7cffd",
+      "brief_identity_sha256": "110a4c3119550fe40832dffee5021064924a863ce52d4c41d060481ec5b3b1f0",
       "stages": {
         "script": {
           "status": "complete",
-          "script_sha256": "d023e84251a3ef2465e493fbbccf2ccfdf8bed5daccf2ec14418ed1ccef1a373",
-          "word_count": 124
+          "script_sha256": "d26e2bbab0fb1102cd04189384c2ec42052791de944b6024576f10b1bd63bea8",
+          "word_count": 125
         },
         "assets": {
           "capture_id": "repo-unslop-01",
@@ -46,13 +46,13 @@
       }
     },
     "repo-reavideo-01": {
-      "brief_sha256": "a49e38a48549f85df332163f02e4263874517e1aeefc09f9c6cdced5e31ce541",
-      "brief_identity_sha256": "8454565e757867c6c0b91ffa7ac93476411de50687cebccf6fcab0e6d03cca2e",
+      "brief_sha256": "42cc559fda6ba338803da9205bee7fff4db56f25785daf8b2ffc45eef03aa811",
+      "brief_identity_sha256": "fd5bf515c2f66b5f5898c0990fa87d635b53a01576344dbf286bb13baa581483",
       "stages": {
         "script": {
           "status": "complete",
-          "script_sha256": "f96daad16d26fdb83d4b363cf55059ba7b7e3f9125661c47412338b2494e2b56",
-          "word_count": 119
+          "script_sha256": "375d0b1a16d1e439a3f14e8adc3c0a2af51647261b6d33d5e45214259a081d14",
+          "word_count": 117
         },
         "assets": {
           "capture_id": "repo-reavideo-01",
@@ -67,13 +67,13 @@
       }
     },
     "repo-dshgo-01": {
-      "brief_sha256": "cdbc6ebf738f4678fbb4aca79ca1eefa024a9b42751247e542c9f06e871ba4b1",
-      "brief_identity_sha256": "075497fdc66327bf7a3fa552560fb798827ed0e43d6deb49ea4ca7e36bfec494",
+      "brief_sha256": "f88b6fce363b493ae666a9931c5731865f22dc2bc4a78fd37f7bb459f0a5da93",
+      "brief_identity_sha256": "35e12c00df729aca1053228e5339f57ce0805a299c5b81b94af202afeb338392",
       "stages": {
         "script": {
           "status": "complete",
-          "script_sha256": "7d5492c80afd500b7d0a6667242af18b2c61242ebd7092553e81d91b3876685c",
-          "word_count": 114
+          "script_sha256": "e94caeac3a6d0e4a591bd72af2f6217f84e92de2d8744aed62d7eaddd45f14e8",
+          "word_count": 113
         },
         "assets": {
           "capture_id": "repo-dshgo-01",
@@ -88,13 +88,13 @@
       }
     },
     "repo-autoloop-01": {
-      "brief_sha256": "edeaaf4eacce355d7cf89716cbb335a95e680c40f9f9af0256624f6e32eac811",
-      "brief_identity_sha256": "4436bb4592555c128713c3543d3e6f48825a8842775e25605e69eccf868b525c",
+      "brief_sha256": "4bc41913bcdb8435fdd6b89497c58d995544c4638d0f9d5c984342d7c81fe652",
+      "brief_identity_sha256": "f546fd3aa27d830f8b9d96e913b8eb33916fd98c1b92602bd6997c430e6d2179",
       "stages": {
         "script": {
           "status": "complete",
-          "script_sha256": "145baa05afdb8d1abac2d6bc16296f1d7d67c54ba3ae2bdf6417ebbe9035e4bc",
-          "word_count": 117
+          "script_sha256": "07894c1c42f86f96179b20943d9fdc1b67fdce4201c6145ec561db7089bad413",
+          "word_count": 121
         },
         "assets": {
           "capture_id": "repo-autoloop-01",
@@ -109,13 +109,13 @@
       }
     },
     "repo-vork-01": {
-      "brief_sha256": "79f73517b1a3de50573c6b20d35ac65a528c226f0fdb55c44deb1553b4f288f1",
-      "brief_identity_sha256": "8660e21a621897794404129c0b9bf34e16d075bd088a96109dfdc57d77c3b2c6",
+      "brief_sha256": "3ea5501d3a6283dbd841a7cac3025ca5f442f39435b0f0fed8df90d579b548b1",
+      "brief_identity_sha256": "df95e93e190b22f97138494b58f56ff1d0846b10ba6491d43021f191dfeebaf6",
       "stages": {
         "script": {
           "status": "complete",
-          "script_sha256": "cdf92ae7ec35e809b5bfb7a6e9a212a146aa0ac804e8bce57ac6dfb1f4a3f0a3",
-          "word_count": 117
+          "script_sha256": "471962790c7122cd5c979e6b1f4f831ae64e78eab8b179907f45589343d7168a",
+          "word_count": 114
         },
         "assets": {
           "capture_id": "repo-vork-01",

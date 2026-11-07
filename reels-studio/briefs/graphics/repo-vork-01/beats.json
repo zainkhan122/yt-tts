@@ -35,7 +35,7 @@
         "big": "A RENDERER FOR AGENTS",
         "sub": "Scenes as code, rendered on a GPU."
       },
-      "cue_word": "headless"
+      "cue_word": "rendering"
     },
     {
       "scene_id": "point2",
@@ -140,5 +140,5 @@
       "cue_word": "RENDER"
     }
   ],
-  "script_sha256": "sha256:ea433f2f4094b8e32a3845dbea9a569c740549bc2b900c4e2978294cea012cf2"
+  "script_sha256": "sha256:ecbf11e56b73f3fd744d15de44490957308a3aa9e510ffd2ac7e6d18f4a33869"
 }
