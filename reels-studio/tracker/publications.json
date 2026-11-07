@@ -2146,6 +2146,31 @@
       "updated_at": "2026-11-07T09:46:33Z",
       "video_id": "repo-dshgo-01"
     },
+    "repo-dshgo-01:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-11-08T21:15:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:6bc668fbbe1c71f4ff8c5c0e660bf9c16129c922d9a07a18e187d130a8ba2b88",
+        "asset_id": 720119020,
+        "asset_size": 13251644,
+        "kit_asset_id": 720119089,
+        "kit_digest": "sha256:27ba89fcaf166a68f6c73d74c4786dd6c2de3ef7d472d3ab20a0eae724f5ba8a",
+        "media_path": "media/720119020/repo-dshgo-01.mp4",
+        "release_tag": "renders-2026-11-08b",
+        "video_id": "repo-dshgo-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/720119020/repo-dshgo-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "b5fafd3a4cca8d2d833a33c4f8cfdde0e4378af5802337c030bc6858f628b85f",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "An Android coding agent that lives on the phone: DSH Go installs Ubuntu, Node and DeepSeek Harness inside the app, with no root and no Termux, so the agent runs on the device or drives the harness on your computer in one tap. It can read the screen and tap for you once you grant permissions, and sensitive actions stay with you by default. Repo: https://github.com/ccch1mneyyy/dsh-Go #Shorts #CodingAgent #DeepSeek #AndroidDev #AIAgents",
+      "title": "Android coding agent: DSH Go runs DeepSeek Harness",
+      "updated_at": "2026-11-07T09:46:44Z",
+      "video_id": "repo-dshgo-01"
+    },
     "repo-earshot-01:facebook": {
       "attempts": 2,
       "buffer_post_id": "6ad4ebf1ae173d6e000af4b0",
