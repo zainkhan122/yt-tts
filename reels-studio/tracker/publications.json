@@ -1434,6 +1434,31 @@
       "updated_at": "2026-10-10T21:53:05Z",
       "video_id": "repo-ai-newtab-01"
     },
+    "repo-autoloop-01:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-11-08T18:09:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:95ceaa4585e3b8f935275f401a9a764bb64f31a8879f6f23bda98bd514763729",
+        "asset_id": 720150983,
+        "asset_size": 13247597,
+        "kit_asset_id": 720151052,
+        "kit_digest": "sha256:22e79cb874f9bf3b231aad0586955f60e85995ef46fd399e898459ea40254308",
+        "media_path": "media/720150983/repo-autoloop-01.mp4",
+        "release_tag": "renders-2026-11-08c",
+        "video_id": "repo-autoloop-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/720150983/repo-autoloop-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "9366a39e1798b70fb315d755a7712250ce5e3aace8014f891990decc6a44b2b2",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "A background coding agent for the machine you already own: Agent Autoloop takes a schedule, a GitHub issue or an alert as an event, lets your rules pick the agent and folder, then runs one round and exits so nothing burns tokens waiting. When a decision is yours, a card lands in Slack, Discord or on the desktop, and one command resumes the work. Repo: https://github.com/KKKKhazix/agent-autoloop #Shorts #CodingAgent #Automation #Slack #AIAgents",
+      "title": "Background coding agent: Agent Autoloop keeps going",
+      "updated_at": "2026-11-07T09:46:34Z",
+      "video_id": "repo-autoloop-01"
+    },
     "repo-blender-mcp-01:facebook": {
       "attempts": 2,
       "buffer_post_id": "6ad4ebe80b0d72757a2bfe3a",
