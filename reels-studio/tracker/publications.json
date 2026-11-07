@@ -3507,9 +3507,11 @@
     },
     "repo-sand3d-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6aef9fb3562f2e6de9825d16",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-11-09T22:19:00Z",
+      "due_at": "2026-11-09T22:19:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:ca4dd0452bca92999e19a0e47b4da55a93b1810697b1cb8a466e5c85bd4592ba",
         "asset_id": 720191703,
@@ -3524,10 +3526,11 @@
       "notify_subscribers": false,
       "payload_sha256": "b711c7533b7dfe12ecf3003fd3b4b761f4557c0d670c418cfded9121855a4da5",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "3D modeling built for LLMs: sand3d writes parts as short programs over Blender, reaches faces by name, and exports GLB, URDF or STL. Comment MESH for the repo link.\n\nAI-generated narration.\n\n#Python3DModeling #Blender #CAD #AIAgents #Maker",
       "title": "3D modeling: sand3d writes parts as Python code",
-      "updated_at": "2026-11-07T22:01:22Z",
+      "updated_at": "2026-11-07T22:01:24Z",
       "video_id": "repo-sand3d-01"
     },
     "repo-sand3d-01:instagram": {
