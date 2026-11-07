@@ -208,3 +208,49 @@ The new document was rendered locally against the existing mix (`/tmp/preview.mp
 never published) and checked frame by frame: card at 35.2 s, keyword chip 36.9 s, cursor 38.4 s,
 press + ring + "Following" 38.8 s, hold to the last frame; terminal prompt at 4.2 s; ticks at
 10.4/12.0; nodes 16.2/18.0/21.4; chips 27.4/30.9/33.5 — every element in spoken order, no fallbacks.
+
+## 10. Scheduled on Buffer (owner instruction, 7 Nov 2026)
+
+Owner: *"schedule this on Buffer with SEO data. buffer token is in GitHub secrets."* The token is
+`BUFFER_API_KEY`, readable only inside Actions, so every Buffer write went through `post.yml`.
+
+### What had to be fixed first
+1. **No release.** Renders 257/259 were artifact-only, and the queue pins exact Release asset IDs.
+   Run 42344973851 was dispatched with `publish_release=true`, so `publish_verified_batch.py` made
+   the release itself (tag `renders-2026-11-07`, MP4 719816618 / kit 719816702).
+2. **`enqueue` refused the narration.** A render that reuses the voice job's handoff recorded only
+   `engine: "chatterbox"`, and the queue gate wants the full Option-3 string. Fixed in `cc200553`
+   (handoff carries `engine_detail`); this run records
+   `chatterbox exag0.7 cfg0.4 ref michael-ref.wav, flow (3 chunks, worst match 99%, …)`.
+   The voice job reused the approved take (`vo_sha256 8adab7da…`).
+3. **KIT_FILES needs `voiceover.mp3`** — it was missing from `renders/repo-poki-01/` locally.
+
+### The scheduled posts
+| Platform | Buffer post id | Due (UTC) | Due (America/New_York) |
+|---|---|---|---|
+| YouTube Shorts | `6aeec363a7751de7c9cd60c4` | 2026-11-07T18:20:00Z | 13:20 |
+| Instagram Reels | `6aeec366229bf05daf30b94c` | 2026-11-07T21:11:00Z | 16:11 |
+| Facebook Reels | `6aeec36a004e4879a73a081f` | 2026-11-07T22:18:00Z | 17:18 |
+
+Slots came from `tools/post/best_times.py` (Buffer Insights medians: YouTube 13:00 = 125 views,
+Instagram 16:00 = 139.5, Facebook 17:00 = 49 impressions) on the 150-minute grid, via the dry-run
+run 42346352215, then the live run 42346544268. Media is served from the pinned Pages URL
+(`https://zainkhan122.github.io/yt-tts/media/719816618/repo-poki-01.mp4`, HTTP 200, video/mp4).
+`scheduled` is **not** sent — reconcile after each slot to confirm.
+
+Copy per platform is `studio.rules.assemble` over the brief's SEO block: the YouTube title
+"AI iPhone automation: let an agent use your phone", the long description with the repo link, the
+Instagram/Facebook captions ending "Comment IPHONE…", five niche hashtags
+(`#iPhoneAutomation #AIAgents #MCP #ClaudeCode #OpenSource`), and the Facebook AI-narration
+disclosure.
+
+### Known cosmetic defect in this run
+The scheduled YouTube description shows the hashtag block **twice**: the SEO pack writes the tags
+into the description and `assemble()` appended them again. Fixed in `87eb52fd` with a regression
+test, so future schedules are clean; this post keeps the duplicate until someone edits its text in
+Buffer (or the media/queue tools grow an in-place text refresh).
+
+### Verification
+`python3 tools/ship.py check repo-poki-01 --live` → **OK** (brief identity, receipt, cover, panel,
+release digest all agree). Tracker rows in `tracker/publications.json` are `scheduled` with
+`verified_at 2026-11-07T06:21:32Z`.
