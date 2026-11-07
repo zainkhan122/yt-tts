@@ -40,7 +40,10 @@ are flat statements — no section called "The catch", no warning framing (owner
    from frame one and light up as they are spoken.
 6. `split_compare` — the slop screen wiped into the clean one, half to full, same layout and same words.
 7. `boundary_rows` — three rules that draw themselves, one per honest limit.
-8. `endcard` — brand mark, `UNSLOP` button, follow pill, a cursor that presses on the pipeline's press time.
+8. `endcard` — brand mark, handle, tagline, follow pill and a cursor that presses on the pipeline's press time.
+   The keyword chip that used to sit above the Follow button is gone (owner, 7 Nov): the headline *COMMENT UNSLOP*
+   carries the keyword. The template keeps it as an option — an endcard renders the chip only when its payload sets
+   `keyword_chip` (default on, off here).
 
 ## Gates
 
@@ -69,3 +72,13 @@ preview driver: `research/production/batch-2026-11-09/preview.py`.
 2. `tools/short_qa.py video` on the finished MP4 against the render manifest (the measured post-render gates).
 3. Cover pick from `cover-c1` (split before/after), `cover-c2` (half slop / half clean with audit labels), `cover-c3`
    (nine-pass rail + clean screen), then owner approval.
+
+## Cloud render
+
+Dispatched 2026-11-07: run [42395396578](https://github.com/zainkhan122/yt-tts/actions/runs/42395396578)
+(`python3 reels-studio/reels.py cloud repo-unslop-02 --receipt research/production/receipts/2026-11-09-shorts-01.json`).
+Artifact only — public publication off, nothing scheduled or posted.
+
+Cover: owner picked **c1** (split before/after) — `covers/repo-unslop-02/selection.json`, sha `6d7845ac…`.
+Capture pack: `captures/repo-unslop-02` is an **empty pack by design** (`{"files": {}}` with a note), the same shape as
+`repo-autoloop-01` and `repo-dshgo-01`: this renderer fabricates every surface, so there is no tool media to capture.
