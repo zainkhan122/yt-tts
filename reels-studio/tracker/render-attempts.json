@@ -1522,9 +1522,9 @@
       "capture_id": "repo-reavideo-01",
       "cover_sha256": "c41436e513c53361989f2ab68e05534ecfe7ac95f2902dac4f48df2e88c1b546",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=success",
       "fingerprint": "631a70d6a139b59e58254245f3b3bf76502f936341948263b15326512403d6c1",
-      "finished_at": null,
+      "finished_at": "2026-11-07T09:10:43Z",
       "from_tag": "",
       "graphics_sha256": "c6762a37b924103a233c2ae8aaec0f2d8c9d5ed60a0410f738e9ba1f8a538ac7",
       "quality": "looks",
@@ -1532,7 +1532,7 @@
       "renderer_sha256": "f56086144c2ebe8aa6190f568ad355422eb2cecac264ebc6226e139bf0d210d0",
       "run_id": "42357163867",
       "started_at": "2026-11-07T08:52:11Z",
-      "status": "started",
+      "status": "success",
       "voice_seed": 0
     },
     "64ca093539b4eb75e647eb8be565144ac4aaebba29200f37712b276bd9b361c9": {
@@ -2027,9 +2027,9 @@
       "capture_id": "repo-unslop-01",
       "cover_sha256": "3f4f370d41049bff223bf49d7276f4fb0288953467f7ceaf34673cead2e0b7ce",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=success",
       "fingerprint": "882e07c41a9827bcd234265d40baf8e5a85bb68157cedebdf46e717a20057da3",
-      "finished_at": null,
+      "finished_at": "2026-11-07T09:10:43Z",
       "from_tag": "",
       "graphics_sha256": "f174e7486702ddb7234a6b78f39a13d9dafcbc6236b986d50a35768fcb0b82f5",
       "quality": "looks",
@@ -2037,7 +2037,7 @@
       "renderer_sha256": "f56086144c2ebe8aa6190f568ad355422eb2cecac264ebc6226e139bf0d210d0",
       "run_id": "42357163867",
       "started_at": "2026-11-07T08:52:11Z",
-      "status": "started",
+      "status": "success",
       "voice_seed": 0
     },
     "89570b485055b2b403adf8152a9d79a7dbbd47e2b6e7f5ff014c780c28f948fd": {
@@ -3470,9 +3470,9 @@
       "capture_id": "repo-sand3d-01",
       "cover_sha256": "94c5ca959f726f1d5b53dee442a13f22a68a0873a439080329a65e9aac96e9cc",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=success",
       "fingerprint": "f6f899fe2369feb479db10b6c67d32d65a7713439c9d03a1245e36be00eeb834",
-      "finished_at": null,
+      "finished_at": "2026-11-07T09:10:43Z",
       "from_tag": "",
       "graphics_sha256": "56609de5b736e6b187d0a803d3a6452e6a62ef53d2c8d12f8a06f1b70a4cd444",
       "quality": "looks",
@@ -3480,7 +3480,7 @@
       "renderer_sha256": "f56086144c2ebe8aa6190f568ad355422eb2cecac264ebc6226e139bf0d210d0",
       "run_id": "42357163867",
       "started_at": "2026-11-07T08:52:11Z",
-      "status": "started",
+      "status": "success",
       "voice_seed": 0
     },
     "f7f535ae5f999e15b209ae5fcac9003e022a467815768f742c1228ee144ee60b": {
