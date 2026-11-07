@@ -3,7 +3,7 @@
 REPO = "https://github.com/Sandflow-ai/sand3d"
 
 # Voice pace/lead: measured wpm and hook-start gates (short_qa video) — every Short must PASS.
-BRIEF_EXTRA = {"speed": 1.28, "lead_in": 0.06}
+BRIEF_EXTRA = {"voice_tempo": 1.10, "lead_in": 0.06}
 
 PLAN = {
     "id": "repo-sand3d-01",

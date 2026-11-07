@@ -24,6 +24,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 import time
 from pathlib import Path
 
@@ -570,6 +571,34 @@ def hype_accents(texts, scale=1.0):
         out.append(round(scale * (0.6 if n == 0 else 0.4 if s.endswith("!") else 0.26 if s.endswith("?") else (0.22 if n % 2 else 0.0)), 2))
         n += 1
     return out
+
+
+def _ffmpeg_bin():
+    exe = shutil.which("ffmpeg")
+    if exe:
+        return exe
+    try:
+        import imageio_ffmpeg
+        return imageio_ffmpeg.get_ffmpeg_exe()
+    except Exception:
+        return "ffmpeg"
+
+
+def tempo_clip(x, sr, factor):
+    """Time-stretch a voice clip without changing pitch (ffmpeg atempo), so pacing can be tightened
+    per brief ("voice_tempo") while the approved voice keeps its character. Tempo is applied to the
+    clip BEFORE the timeline is laid out, so scene starts, captions and word timings are all measured
+    on the final audio — nothing can drift out of sync."""
+    if abs(float(factor) - 1.0) < 1e-3 or x is None or len(x) < 480:
+        return x
+    factor = min(2.0, max(0.5, float(factor)))
+    with tempfile.TemporaryDirectory() as td:
+        tin, tout = Path(td) / "in.wav", Path(td) / "out.wav"
+        sf.write(tin, np.asarray(x, dtype=np.float32), sr, subtype="PCM_16")
+        subprocess.run([_ffmpeg_bin(), "-y", "-v", "error", "-i", str(tin), "-filter:a", f"atempo={factor:.4f}",
+                        "-ar", str(sr), "-ac", "1", str(tout)], check=True)
+        y, _ = sf.read(tout, dtype="float32")
+    return y if len(y) else x
 
 
 def apply_voice_fx(vo, sr, preset):
@@ -1386,8 +1415,13 @@ class Job:
         for s in segs:  # template default gaps (0.06-0.08 s before each line) would re-insert silence at every cut
             if s.get("text") and s.get("pre", 0.0) <= 0.1:
                 posts["pre:" + s["id"]] = 0.0
-        self.flow_stats = {"chunks": len(chunks), "worst_chunk_match": round(worst, 3), "retries": retried, "melody_st": mels}
-        return clips, posts, f"{voice.name}, flow ({len(chunks)} chunks, worst match {worst:.0%}, melody {mels} st, retries {retried})"
+        tempo = float(self.brief.get("voice_tempo", 1.0) or 1.0)
+        if abs(tempo - 1.0) >= 1e-3:  # brief "voice_tempo": 1.08 = 8% brisker, pitch kept
+            clips = [(tempo_clip(a, sr, tempo) if a is not None else a, sr) for a, sr in clips]
+        self.flow_stats = {"chunks": len(chunks), "worst_chunk_match": round(worst, 3), "retries": retried,
+                           "melody_st": mels, "voice_tempo": round(tempo, 3)}
+        return clips, posts, (f"{voice.name}, flow ({len(chunks)} chunks, worst match {worst:.0%}, "
+                              f"melody {mels} st, retries {retried}{'' if abs(tempo - 1.0) < 1e-3 else f', tempo x{tempo:.2f}'})")
 
     # 4 ---------------------------------------------------------------
     def word_timings(self):
