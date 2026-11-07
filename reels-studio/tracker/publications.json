@@ -3233,9 +3233,11 @@
     },
     "repo-reavideo-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6aeef373004e4879a747f7da",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-11-08T14:11:00Z",
+      "due_at": "2026-11-08T14:11:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:42d8028b4aef9300f41a9f05d78e9b0c6390a101b88946a1748c0fc0b58dd9d7",
         "asset_id": 720191613,
@@ -3250,10 +3252,11 @@
       "notify_subscribers": true,
       "payload_sha256": "c28e83722a2c12622e77e5124a5820e104d85231eea47a76782028fe4edcfa3d",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Video reverse engineering for any clip: rea-video splits a video into shots and tells you how each one was made, live footage or AI video or code-built motion, with a rebuilt prompt per shot, caption timings, cut points, the beat, and whether the voice and music are AI. Then it gives you a remake plan split into what to film, what to generate and what to code. Repo: https://github.com/JuneYaooo/rea-video #Shorts #ReverseEngineering #AIVideo #VideoEditing #AIAgents",
       "title": "Video reverse engineering: shot by shot, filmed or AI",
-      "updated_at": "2026-11-07T09:46:25Z",
+      "updated_at": "2026-11-07T09:46:27Z",
       "video_id": "repo-reavideo-01"
     },
     "repo-removemacai-01:youtube": {
