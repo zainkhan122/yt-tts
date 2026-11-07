@@ -17,6 +17,8 @@ REPO = "https://github.com/heydamir/unslop"
 BRIEF_EXTRA = {"voice_tempo": 1.15, "copyable_action": "/unslop this dashboard"}
 
 PLAN = {
+    # this tool's animation language (graphics/templates/<name>/); also says "no capture pack"
+    "template": "design-review",
     "id": "repo-unslop-02",
     "tool": "unslop",
     "question": "You've seen this screen. Why does every AI-built app look the same?",
