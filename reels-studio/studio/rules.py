@@ -86,7 +86,13 @@ def assemble(copy, platform, disclosure=DISCLOSURE_TEXT):
         body += "\n\n" + disclosure
     tags = copy[platform].get("hashtags", [])
     if tags:
-        body += "\n\n" + " ".join(tags)
+        # The copy may already carry some of these tags — the SEO pack writes the hashtag block into the
+        # YouTube description. Append only what is missing, so a scheduled post never shows the same
+        # tags twice (seen on the first repo-poki-01 schedule, 7 Nov 2026).
+        seen = body.lower()
+        missing = [t for t in tags if t.lower() not in seen]
+        if missing:
+            body += "\n\n" + " ".join(missing)
     return body
 
 

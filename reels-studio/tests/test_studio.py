@@ -79,6 +79,17 @@ class Assembly(unittest.TestCase):
         for p in ("youtube", "tiktok", "instagram", "x"):
             self.assertNotIn(DISCLOSURE_TEXT, assemble(good_copy(), p))
 
+    def test_a_tag_block_already_in_the_copy_is_not_repeated(self):
+        """repo-poki-01 (7 Nov 2026): the SEO pack writes the hashtag block into the YouTube description,
+        and assemble() appended the same block again, so the scheduled post showed the tags twice."""
+        c = good_copy()
+        tags = c["youtube"]["hashtags"]
+        c["youtube"]["description"] = "Body text. Repo: https://example.com/x " + " ".join(tags)
+        text = assemble(c, "youtube")
+        for tag in tags:
+            self.assertEqual(text.count(tag), 1, tag)
+        self.assertTrue(text.startswith("Body text."))
+
     def test_hashtags_are_not_written_into_copy(self):
         c = good_copy()
         self.assertNotIn("#", c["tiktok"]["caption"])
