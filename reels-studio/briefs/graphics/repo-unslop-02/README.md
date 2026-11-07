@@ -8,6 +8,9 @@ batch was touched: `repo-unslop-01` and the other five stay as they are.
 - Length: 142 spoken words, ~42 s of speech; QA estimates 46.1 s at 186 wpm, the actual read lands near 208 wpm.
 - CTA: comment keyword **UNSLOP** (kept) — "Comment UNSLOP and I'll pin the repo."
 - Copyable action: **`/unslop this dashboard`** (spoken and typed on screen character by character).
+- Pronunciation: the brief carries the channel lexicon, so the voice says "un-slop" (it used to read the word as
+  "U N slop"); display text stays `UNSLOP` in headlines and captions.
+- Captions: old-short scale (96px, 900, uppercase), the spoken word marked in the channel yellow `#FFD60A`.
 
 ## The script, scene by scene
 

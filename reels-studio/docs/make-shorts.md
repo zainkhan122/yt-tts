@@ -21,6 +21,24 @@ batch with `--status`. Every subprocess writes a log under `/var/tmp/reels/make-
 brief is legacy when a platform record is `sent` or `published_manual`. For legacy briefs the cloud-source
 checks (assets, capture-pack release, cover) are notes, not blocks. `scheduled` and `uncertain` are not legacy.
 
+## A covered topic is never recommended again
+
+Owner rule (7 Nov 2026). One registry, derived not typed:
+
+    python3 tools/topics_covered.py build     # -> tracker/topics-covered.json
+    python3 tools/topics_covered.py check unslop hallmark
+    python3 tools/topics_covered.py list
+
+It is rebuilt from what actually exists — `briefs/*.json`, `videos/*/plan.json`, `topics/backlog.csv`
+(status selected/scheduled/published/covered) and `tracker/publications.json` — so a new brief or a queued
+post covers its tool the moment it lands. `tools/idea_feed.py` and `tools/trend_radar.py` both rebuild it at
+the start of a run and skip anything already covered, and the feed lists what it skipped under
+"Already scheduled or published — excluded from this feed". Anything recommending topics (agent or human)
+must ask this module first: `topics_covered.is_covered(name)`.
+
+Why: the feed deduped only against its own past output, so tools that already had a brief came back as fresh
+ideas — the 7 Nov recommendation list contained three tools already in the batch.
+
 ## Animation language is per tool, not per tier
 
 There is no "animation tier" setting. Each tool gets the visual language that suits it, as a template:
