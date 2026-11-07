@@ -694,6 +694,461 @@
      "Comment, render, and I'll pin it."
     ]
    }
+  },
+  "reference (Instagram @classified.ai) 9:16 reels": {
+   "duration_s": {
+    "median": 32.58,
+    "min": 14.14,
+    "max": 36.08
+   },
+   "cuts_per_min": {
+    "median": 46.5,
+    "min": 0.0,
+    "max": 82.7
+   },
+   "mean_shot_s": {
+    "median": 1.25,
+    "min": 0.71,
+    "max": 14.13
+   },
+   "soft_scene_changes_per_min": {
+    "median": 91.5,
+    "min": 89.1,
+    "max": 114.2
+   },
+   "face_frame_share": {
+    "median": 0.34,
+    "min": 0.07,
+    "max": 0.55
+   },
+   "face_area_median": {
+    "median": 0.05,
+    "min": 0.01,
+    "max": 0.05
+   },
+   "static_share": {
+    "median": 0.27,
+    "min": 0.22,
+    "max": 0.45
+   },
+   "motion_energy": {
+    "median": 5.73,
+    "min": 3.48,
+    "max": 6.77
+   },
+   "frame_diff_p95": {
+    "median": 22.36,
+    "min": 9.63,
+    "max": 34.28
+   },
+   "white_share": {
+    "median": 0.04,
+    "min": 0.0,
+    "max": 0.07
+   },
+   "edge_density": {
+    "median": 0.05,
+    "min": 0.05,
+    "max": 0.09
+   },
+   "palette_max_chroma": {
+    "median": 0.16,
+    "min": 0.08,
+    "max": 0.33
+   },
+   "share_light_bg": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.11
+   },
+   "share_near_white_bg": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "luma_std": {
+    "median": 19.5,
+    "min": 11.7,
+    "max": 50.3
+   },
+   "median_luma": {
+    "median": 21.0,
+    "min": 10.5,
+    "max": 30.0
+   },
+   "wpm": {
+    "median": 125.8,
+    "min": 0.0,
+    "max": 168.6
+   },
+   "words_per_video_s": {
+    "median": 125.2,
+    "min": 4.2,
+    "max": 163.0
+   },
+   "silence_share": {
+    "median": 0.43,
+    "min": 0.32,
+    "max": 0.47
+   },
+   "longest_pause_s": {
+    "median": 0.5,
+    "min": 0.4,
+    "max": 1.44
+   },
+   "pauses_over_250ms_per_min": {
+    "median": 7.4,
+    "min": 5.0,
+    "max": 38.2
+   },
+   "energy_onsets_per_min": {
+    "median": 132.6,
+    "min": 17.0,
+    "max": 148.0
+   },
+   "f0_median_hz": {
+    "median": 170.2,
+    "min": 104.2,
+    "max": 183.9
+   },
+   "f0_iqr_hz": {
+    "median": 61.0,
+    "min": 59.2,
+    "max": 230.0
+   },
+   "spectral_centroid_hz": {
+    "median": 1279.0,
+    "min": 1189.0,
+    "max": 1757.0
+   },
+   "spectral_flatness": {
+    "median": 0.2,
+    "min": 0.13,
+    "max": 0.34
+   },
+   "loud_p90_dbfs": {
+    "median": -12.9,
+    "min": -13.7,
+    "max": -12.5
+   },
+   "first_word_at": {
+    "median": 0.27,
+    "min": 0.0,
+    "max": 1.17
+   },
+   "palette_top1": [
+    [
+     11,
+     7,
+     6
+    ],
+    [
+     9,
+     13,
+     24
+    ],
+    [
+     8,
+     14,
+     46
+    ]
+   ],
+   "band_white_median": [
+    0.026,
+    0.061,
+    0.065,
+    0.012,
+    0.0
+   ],
+   "transcripts": {
+    "ig02.mp4": [
+     {
+      "t0": 1.17,
+      "t1": 3.17,
+      "text": "Claude just finished Blender"
+     },
+     {
+      "t0": 4.71,
+      "t1": 6.65,
+      "text": "Rilco save Kariya Bata dao que se"
+     },
+     {
+      "t0": 6.65,
+      "t1": 7.79,
+      "text": "Gia Saizun apne"
+     },
+     {
+      "t0": 7.79,
+      "t1": 9.21,
+      "text": "Orystana ama Blender skills"
+     },
+     {
+      "t0": 9.21,
+      "t1": 11.11,
+      "text": "94 skills kike open source pack"
+     },
+     {
+      "t0": 11.11,
+      "t1": 14.29,
+      "text": "Joplod kike professional 3D artists kithra kam karana sikataya"
+     },
+     {
+      "t0": 14.29,
+      "t1": 17.37,
+      "text": "Was Blender Koliya egg addon lagaya Joplod sikanek kartaya"
+     },
+     {
+      "t0": 17.37,
+      "t1": 20.45,
+      "text": "Claude Kordmelike, Mere game kile, exivertant world banado"
+     },
+     {
+      "t0": 20.45,
+      "t1": 22.31,
+      "text": "A Blender director skill kam sambalithya"
+     },
+     {
+      "t0": 22.69,
+      "t1": 26.45,
+      "text": "Uraklan banataya, characters, props, environment, subcoochcoo"
+     },
+     {
+      "t0": 26.45,
+      "t1": 30.09,
+      "text": "Lighting, textures, game kile, optimise or unreal engine may export to be"
+     },
+     {
+      "t0": 30.09,
+      "t1": 33.01,
+      "text": "Or, such a lot of manage of kile barde kadon kike shokho gata"
+     },
+     {
+      "t0": 33.01,
+      "t1": 36.05,
+      "text": "A kubit ry kernitho kamit kriya blender link map kudyam kartunga"
+     }
+    ],
+    "ig03.mp4": [
+     {
+      "t0": 0.0,
+      "t1": 1.46,
+      "text": "Yea, I told me what Starcar is."
+     },
+     {
+      "t0": 1.72,
+      "t1": 4.32,
+      "text": "Or, Abbe, Abne, left off pay up for the service made."
+     },
+     {
+      "t0": 4.54,
+      "t1": 5.56,
+      "text": "This won't be critical for me."
+     },
+     {
+      "t0": 5.56,
+      "t1": 8.42,
+      "text": "Because I have to take the"
+     },
+     {
+      "t0": 8.42,
+      "t1": 9.96,
+      "text": "majority of the"
+     },
+     {
+      "t0": 9.96,
+      "t1": 17.52,
+      "text": "The UK has seen the fact that a new"
+     },
+     {
+      "t0": 17.52,
+      "t1": 26.8,
+      "text": "In the meantime, we have a new episode of this video and we will see you on the next video."
+     },
+     {
+      "t0": 29.84,
+      "t1": 30.84,
+      "text": "Thanks for watching!"
+     },
+     {
+      "t0": 30.84,
+      "t1": 32.42,
+      "text": "Thanks for watching!"
+     }
+    ],
+    "ig06.mp4": [
+     {
+      "t0": 0.27,
+      "t1": 0.79,
+      "text": "Me"
+     }
+    ]
+   }
+  },
+  "reference (Instagram @classified.ai) 4:5 posts": {
+   "duration_s": {
+    "median": 6.02,
+    "min": 6.02,
+    "max": 6.02
+   },
+   "cuts_per_min": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "mean_shot_s": {
+    "median": 6.0,
+    "min": 6.0,
+    "max": 6.0
+   },
+   "soft_scene_changes_per_min": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 129.6
+   },
+   "face_frame_share": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "face_area_median": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "static_share": {
+    "median": 0.49,
+    "min": 0.36,
+    "max": 1.0
+   },
+   "motion_energy": {
+    "median": 1.24,
+    "min": 0.05,
+    "max": 4.47
+   },
+   "frame_diff_p95": {
+    "median": 3.43,
+    "min": 0.05,
+    "max": 10.04
+   },
+   "white_share": {
+    "median": 0.21,
+    "min": 0.18,
+    "max": 0.38
+   },
+   "edge_density": {
+    "median": 0.11,
+    "min": 0.09,
+    "max": 0.12
+   },
+   "palette_max_chroma": {
+    "median": 0.13,
+    "min": 0.13,
+    "max": 0.14
+   },
+   "share_light_bg": {
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0
+   },
+   "share_near_white_bg": {
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0
+   },
+   "luma_std": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.5
+   },
+   "median_luma": {
+    "median": 222.0,
+    "min": 221.5,
+    "max": 223.0
+   },
+   "wpm": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "words_per_video_s": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "silence_share": {
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0
+   },
+   "longest_pause_s": {
+    "median": 6.0,
+    "min": 6.0,
+    "max": 6.0
+   },
+   "pauses_over_250ms_per_min": {
+    "median": 10.0,
+    "min": 10.0,
+    "max": 10.0
+   },
+   "energy_onsets_per_min": {
+    "median": 10.0,
+    "min": 0.0,
+    "max": 10.0
+   },
+   "f0_median_hz": {
+    "median": 320.0,
+    "min": 320.0,
+    "max": 320.0
+   },
+   "f0_iqr_hz": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "spectral_centroid_hz": {
+    "median": 940.0,
+    "min": 738.0,
+    "max": 940.0
+   },
+   "spectral_flatness": {
+    "median": 0.22,
+    "min": 0.18,
+    "max": 0.22
+   },
+   "loud_p90_dbfs": {
+    "median": -12.1,
+    "min": -12.1,
+    "max": -12.0
+   },
+   "palette_top1": [
+    [
+     228,
+     221,
+     213
+    ],
+    [
+     227,
+     220,
+     210
+    ],
+    [
+     228,
+     221,
+     210
+    ]
+   ],
+   "band_white_median": [
+    0.043,
+    0.515,
+    0.179,
+    0.052,
+    0.018
+   ],
+   "transcripts": {
+    "ig01.mp4": [],
+    "ig04.mp4": [],
+    "ig05.mp4": []
+   }
   }
  },
  "sameness": {
@@ -708,6 +1163,801 @@
    "min": 0.752,
    "max": 0.88,
    "n_pairs": 21
+  },
+  "reference (Instagram @classified.ai) 9:16 reels": {
+   "mean_pairwise_frame_corr": 0.455,
+   "min": 0.235,
+   "max": 0.696,
+   "n_pairs": 3
+  },
+  "reference (Instagram @classified.ai) 4:5 posts": {
+   "mean_pairwise_frame_corr": 0.11,
+   "min": 0.004,
+   "max": 0.3,
+   "n_pairs": 3
   }
+ },
+ "rows_ig": {
+  "reference (Instagram @classified.ai) 9:16 reels": [
+   {
+    "file": "ig02.mp4",
+    "src_fps": 30.0,
+    "resolution": "720x1280",
+    "sampled_frames": 542,
+    "duration_s": 36.08,
+    "cuts": 28,
+    "cuts_per_min": 46.5,
+    "mean_shot_s": 1.25,
+    "motion_energy": 5.73,
+    "static_share": 0.445,
+    "hard_cut_share_of_changes": 0.179,
+    "white_share": 0.038,
+    "band_white": [
+     0.026,
+     0.061,
+     0.065,
+     0.012,
+     0.002
+    ],
+    "edge_density": 0.0531,
+    "face_frame_share": 0.343,
+    "face_area_median": 0.051,
+    "palette": [
+     {
+      "rgb": [
+       11,
+       7,
+       6
+      ],
+      "share": 0.635
+     },
+     {
+      "rgb": [
+       55,
+       44,
+       44
+      ],
+      "share": 0.138
+     },
+     {
+      "rgb": [
+       145,
+       86,
+       97
+      ],
+      "share": 0.108
+     },
+     {
+      "rgb": [
+       178,
+       157,
+       153
+      ],
+      "share": 0.087
+     },
+     {
+      "rgb": [
+       240,
+       238,
+       242
+      ],
+      "share": 0.032
+     }
+    ],
+    "palette_max_chroma": 0.082,
+    "loud_p90_dbfs": -12.9,
+    "floor_p05_dbfs": -34.6,
+    "silence_share": 0.316,
+    "pauses_over_250ms_per_min": 5.0,
+    "longest_pause_s": 0.5,
+    "spectral_centroid_hz": 1279.0,
+    "spectral_flatness": 0.129,
+    "f0_median_hz": 183.9,
+    "f0_iqr_hz": 59.2,
+    "energy_onsets_per_min": 148.0,
+    "peak": 0.691,
+    "transcript": [
+     {
+      "t0": 1.17,
+      "t1": 3.17,
+      "text": "Claude just finished Blender"
+     },
+     {
+      "t0": 4.71,
+      "t1": 6.65,
+      "text": "Rilco save Kariya Bata dao que se"
+     },
+     {
+      "t0": 6.65,
+      "t1": 7.79,
+      "text": "Gia Saizun apne"
+     },
+     {
+      "t0": 7.79,
+      "t1": 9.21,
+      "text": "Orystana ama Blender skills"
+     },
+     {
+      "t0": 9.21,
+      "t1": 11.11,
+      "text": "94 skills kike open source pack"
+     },
+     {
+      "t0": 11.11,
+      "t1": 14.29,
+      "text": "Joplod kike professional 3D artists kithra kam karana sikataya"
+     },
+     {
+      "t0": 14.29,
+      "t1": 17.37,
+      "text": "Was Blender Koliya egg addon lagaya Joplod sikanek kartaya"
+     },
+     {
+      "t0": 17.37,
+      "t1": 20.45,
+      "text": "Claude Kordmelike, Mere game kile, exivertant world banado"
+     },
+     {
+      "t0": 20.45,
+      "t1": 22.31,
+      "text": "A Blender director skill kam sambalithya"
+     },
+     {
+      "t0": 22.69,
+      "t1": 26.45,
+      "text": "Uraklan banataya, characters, props, environment, subcoochcoo"
+     },
+     {
+      "t0": 26.45,
+      "t1": 30.09,
+      "text": "Lighting, textures, game kile, optimise or unreal engine may export to be"
+     },
+     {
+      "t0": 30.09,
+      "t1": 33.01,
+      "text": "Or, such a lot of manage of kile barde kadon kike shokho gata"
+     },
+     {
+      "t0": 33.01,
+      "t1": 36.05,
+      "text": "A kubit ry kernitho kamit kriya blender link map kudyam kartunga"
+     }
+    ],
+    "words": 98,
+    "speech_span_s": 34.88,
+    "wpm": 168.6,
+    "words_per_video_s": 163.0,
+    "first_word_at": 1.17,
+    "soft_scene_changes": 55,
+    "soft_scene_changes_per_min": 91.5,
+    "frame_diff_median": 1.16,
+    "frame_diff_p95": 22.36,
+    "median_luma": 10.5,
+    "share_light_bg": 0.108,
+    "share_dark_bg": 0.892,
+    "share_near_white_bg": 0.003,
+    "luma_std": 50.3
+   },
+   {
+    "file": "ig03.mp4",
+    "src_fps": 30.0,
+    "resolution": "720x1280",
+    "sampled_frames": 490,
+    "duration_s": 32.58,
+    "cuts": 45,
+    "cuts_per_min": 82.7,
+    "mean_shot_s": 0.71,
+    "motion_energy": 6.77,
+    "static_share": 0.272,
+    "hard_cut_share_of_changes": 0.218,
+    "white_share": 0.068,
+    "band_white": [
+     0.046,
+     0.132,
+     0.102,
+     0.013,
+     0.0
+    ],
+    "edge_density": 0.0474,
+    "face_frame_share": 0.551,
+    "face_area_median": 0.047,
+    "palette": [
+     {
+      "rgb": [
+       9,
+       13,
+       24
+      ],
+      "share": 0.604
+     },
+     {
+      "rgb": [
+       36,
+       51,
+       68
+      ],
+      "share": 0.198
+     },
+     {
+      "rgb": [
+       158,
+       89,
+       69
+      ],
+      "share": 0.079
+     },
+     {
+      "rgb": [
+       240,
+       238,
+       240
+      ],
+      "share": 0.071
+     },
+     {
+      "rgb": [
+       129,
+       104,
+       172
+      ],
+      "share": 0.047
+     }
+    ],
+    "palette_max_chroma": 0.162,
+    "loud_p90_dbfs": -12.5,
+    "floor_p05_dbfs": -30.7,
+    "silence_share": 0.43,
+    "pauses_over_250ms_per_min": 7.4,
+    "longest_pause_s": 0.4,
+    "spectral_centroid_hz": 1189.0,
+    "spectral_flatness": 0.201,
+    "f0_median_hz": 170.2,
+    "f0_iqr_hz": 61.0,
+    "energy_onsets_per_min": 132.6,
+    "peak": 0.672,
+    "transcript": [
+     {
+      "t0": 0.0,
+      "t1": 1.46,
+      "text": "Yea, I told me what Starcar is."
+     },
+     {
+      "t0": 1.72,
+      "t1": 4.32,
+      "text": "Or, Abbe, Abne, left off pay up for the service made."
+     },
+     {
+      "t0": 4.54,
+      "t1": 5.56,
+      "text": "This won't be critical for me."
+     },
+     {
+      "t0": 5.56,
+      "t1": 8.42,
+      "text": "Because I have to take the"
+     },
+     {
+      "t0": 8.42,
+      "t1": 9.96,
+      "text": "majority of the"
+     },
+     {
+      "t0": 9.96,
+      "t1": 17.52,
+      "text": "The UK has seen the fact that a new"
+     },
+     {
+      "t0": 17.52,
+      "t1": 26.8,
+      "text": "In the meantime, we have a new episode of this video and we will see you on the next video."
+     },
+     {
+      "t0": 29.84,
+      "t1": 30.84,
+      "text": "Thanks for watching!"
+     },
+     {
+      "t0": 30.84,
+      "t1": 32.42,
+      "text": "Thanks for watching!"
+     }
+    ],
+    "words": 68,
+    "speech_span_s": 32.42,
+    "wpm": 125.8,
+    "words_per_video_s": 125.2,
+    "first_word_at": 0.0,
+    "soft_scene_changes": 62,
+    "soft_scene_changes_per_min": 114.2,
+    "frame_diff_median": 2.24,
+    "frame_diff_p95": 34.28,
+    "median_luma": 21.0,
+    "share_light_bg": 0.0,
+    "share_dark_bg": 1.0,
+    "share_near_white_bg": 0.0,
+    "luma_std": 19.5
+   },
+   {
+    "file": "ig06.mp4",
+    "src_fps": 30.0,
+    "resolution": "720x1280",
+    "sampled_frames": 212,
+    "duration_s": 14.14,
+    "cuts": 0,
+    "cuts_per_min": 0.0,
+    "mean_shot_s": 14.13,
+    "motion_energy": 3.48,
+    "static_share": 0.218,
+    "hard_cut_share_of_changes": 0.0,
+    "white_share": 0.002,
+    "band_white": [
+     0.003,
+     0.003,
+     0.001,
+     0.0,
+     0.0
+    ],
+    "edge_density": 0.092,
+    "face_frame_share": 0.071,
+    "face_area_median": 0.014,
+    "palette": [
+     {
+      "rgb": [
+       8,
+       14,
+       46
+      ],
+      "share": 0.361
+     },
+     {
+      "rgb": [
+       58,
+       27,
+       18
+      ],
+      "share": 0.269
+     },
+     {
+      "rgb": [
+       114,
+       58,
+       33
+      ],
+      "share": 0.182
+     },
+     {
+      "rgb": [
+       183,
+       93,
+       35
+      ],
+      "share": 0.12
+     },
+     {
+      "rgb": [
+       220,
+       157,
+       105
+      ],
+      "share": 0.069
+     }
+    ],
+    "palette_max_chroma": 0.331,
+    "loud_p90_dbfs": -13.7,
+    "floor_p05_dbfs": -32.9,
+    "silence_share": 0.469,
+    "pauses_over_250ms_per_min": 38.2,
+    "longest_pause_s": 1.44,
+    "spectral_centroid_hz": 1757.0,
+    "spectral_flatness": 0.335,
+    "f0_median_hz": 104.2,
+    "f0_iqr_hz": 230.0,
+    "energy_onsets_per_min": 17.0,
+    "peak": 0.818,
+    "transcript": [
+     {
+      "t0": 0.27,
+      "t1": 0.79,
+      "text": "Me"
+     }
+    ],
+    "words": 1,
+    "speech_span_s": 0.52,
+    "wpm": 0,
+    "words_per_video_s": 4.2,
+    "first_word_at": 0.27,
+    "soft_scene_changes": 21,
+    "soft_scene_changes_per_min": 89.1,
+    "frame_diff_median": 2.36,
+    "frame_diff_p95": 9.63,
+    "median_luma": 30.0,
+    "share_light_bg": 0.0,
+    "share_dark_bg": 1.0,
+    "share_near_white_bg": 0.0,
+    "luma_std": 11.7
+   }
+  ],
+  "reference (Instagram @classified.ai) 4:5 posts": [
+   {
+    "file": "ig01.mp4",
+    "src_fps": 30.0,
+    "resolution": "720x900",
+    "sampled_frames": 90,
+    "duration_s": 6.02,
+    "cuts": 0,
+    "cuts_per_min": 0.0,
+    "mean_shot_s": 6.0,
+    "motion_energy": 0.05,
+    "static_share": 1.0,
+    "hard_cut_share_of_changes": 0.0,
+    "white_share": 0.375,
+    "band_white": [
+     0.032,
+     0.466,
+     0.615,
+     0.49,
+     0.012
+    ],
+    "edge_density": 0.091,
+    "face_frame_share": 0.0,
+    "face_area_median": 0.0,
+    "palette": [
+     {
+      "rgb": [
+       228,
+       221,
+       213
+      ],
+      "share": 0.684
+     },
+     {
+      "rgb": [
+       252,
+       251,
+       251
+      ],
+      "share": 0.224
+     },
+     {
+      "rgb": [
+       24,
+       26,
+       37
+      ],
+      "share": 0.042
+     },
+     {
+      "rgb": [
+       210,
+       123,
+       92
+      ],
+      "share": 0.032
+     },
+     {
+      "rgb": [
+       106,
+       129,
+       115
+      ],
+      "share": 0.018
+     }
+    ],
+    "palette_max_chroma": 0.133,
+    "loud_p90_dbfs": -12.1,
+    "floor_p05_dbfs": -21.8,
+    "silence_share": 1.0,
+    "pauses_over_250ms_per_min": 10.0,
+    "longest_pause_s": 6.0,
+    "spectral_centroid_hz": 940.0,
+    "spectral_flatness": 0.217,
+    "f0_median_hz": 320.0,
+    "f0_iqr_hz": 0.0,
+    "energy_onsets_per_min": 10.0,
+    "peak": 0.445,
+    "transcript": [],
+    "words": 0,
+    "speech_span_s": 0,
+    "wpm": 0,
+    "words_per_video_s": 0.0,
+    "first_word_at": null,
+    "soft_scene_changes": 0,
+    "soft_scene_changes_per_min": 0.0,
+    "frame_diff_median": 0.04,
+    "frame_diff_p95": 0.05,
+    "median_luma": 223.0,
+    "share_light_bg": 1.0,
+    "share_dark_bg": 0.0,
+    "share_near_white_bg": 1.0,
+    "luma_std": 0.0
+   },
+   {
+    "file": "ig04.mp4",
+    "src_fps": 30.0,
+    "resolution": "720x900",
+    "sampled_frames": 90,
+    "duration_s": 6.02,
+    "cuts": 0,
+    "cuts_per_min": 0.0,
+    "mean_shot_s": 6.0,
+    "motion_energy": 1.24,
+    "static_share": 0.494,
+    "hard_cut_share_of_changes": 0.0,
+    "white_share": 0.183,
+    "band_white": [
+     0.043,
+     0.515,
+     0.137,
+     0.052,
+     0.018
+    ],
+    "edge_density": 0.1101,
+    "face_frame_share": 0.0,
+    "face_area_median": 0.0,
+    "palette": [
+     {
+      "rgb": [
+       227,
+       220,
+       210
+      ],
+      "share": 0.679
+     },
+     {
+      "rgb": [
+       31,
+       43,
+       43
+      ],
+      "share": 0.108
+     },
+     {
+      "rgb": [
+       252,
+       252,
+       252
+      ],
+      "share": 0.089
+     },
+     {
+      "rgb": [
+       168,
+       109,
+       86
+      ],
+      "share": 0.076
+     },
+     {
+      "rgb": [
+       200,
+       185,
+       144
+      ],
+      "share": 0.048
+     }
+    ],
+    "palette_max_chroma": 0.131,
+    "loud_p90_dbfs": -12.0,
+    "floor_p05_dbfs": -21.8,
+    "silence_share": 1.0,
+    "pauses_over_250ms_per_min": 10.0,
+    "longest_pause_s": 6.0,
+    "spectral_centroid_hz": 738.0,
+    "spectral_flatness": 0.179,
+    "f0_median_hz": 320.0,
+    "f0_iqr_hz": 0.0,
+    "energy_onsets_per_min": 0.0,
+    "peak": 0.446,
+    "transcript": [],
+    "words": 0,
+    "speech_span_s": 0,
+    "wpm": 0,
+    "words_per_video_s": 0.0,
+    "first_word_at": null,
+    "soft_scene_changes": 0,
+    "soft_scene_changes_per_min": 0.0,
+    "frame_diff_median": 1.05,
+    "frame_diff_p95": 3.43,
+    "median_luma": 222.0,
+    "share_light_bg": 1.0,
+    "share_dark_bg": 0.0,
+    "share_near_white_bg": 1.0,
+    "luma_std": 0.0
+   },
+   {
+    "file": "ig05.mp4",
+    "src_fps": 30.0,
+    "resolution": "720x900",
+    "sampled_frames": 90,
+    "duration_s": 6.02,
+    "cuts": 0,
+    "cuts_per_min": 0.0,
+    "mean_shot_s": 6.0,
+    "motion_energy": 4.47,
+    "static_share": 0.36,
+    "hard_cut_share_of_changes": 0.0,
+    "white_share": 0.209,
+    "band_white": [
+     0.046,
+     0.559,
+     0.179,
+     0.051,
+     0.05
+    ],
+    "edge_density": 0.1223,
+    "face_frame_share": 0.0,
+    "face_area_median": 0.0,
+    "palette": [
+     {
+      "rgb": [
+       228,
+       221,
+       210
+      ],
+      "share": 0.522
+     },
+     {
+      "rgb": [
+       253,
+       251,
+       250
+      ],
+      "share": 0.16
+     },
+     {
+      "rgb": [
+       20,
+       43,
+       49
+      ],
+      "share": 0.153
+     },
+     {
+      "rgb": [
+       184,
+       142,
+       109
+      ],
+      "share": 0.109
+     },
+     {
+      "rgb": [
+       131,
+       96,
+       77
+      ],
+      "share": 0.055
+     }
+    ],
+    "palette_max_chroma": 0.14,
+    "loud_p90_dbfs": -12.1,
+    "floor_p05_dbfs": -21.8,
+    "silence_share": 1.0,
+    "pauses_over_250ms_per_min": 10.0,
+    "longest_pause_s": 6.0,
+    "spectral_centroid_hz": 940.0,
+    "spectral_flatness": 0.217,
+    "f0_median_hz": 320.0,
+    "f0_iqr_hz": 0.0,
+    "energy_onsets_per_min": 10.0,
+    "peak": 0.445,
+    "transcript": [],
+    "words": 0,
+    "speech_span_s": 0,
+    "wpm": 0,
+    "words_per_video_s": 0.0,
+    "first_word_at": null,
+    "soft_scene_changes": 13,
+    "soft_scene_changes_per_min": 129.6,
+    "frame_diff_median": 4.67,
+    "frame_diff_p95": 10.04,
+    "median_luma": 221.5,
+    "share_light_bg": 1.0,
+    "share_dark_bg": 0.0,
+    "share_near_white_bg": 1.0,
+    "luma_std": 0.5
+   }
+  ]
+ },
+ "ig_extras": {
+  "ig/ig02.mp4": {
+   "samples": 45,
+   "cx": 0.507,
+   "cy": 0.845,
+   "w": 0.3,
+   "h": 0.169
+  },
+  "ig/ig03.mp4": {
+   "samples": 84,
+   "cx": 0.501,
+   "cy": 0.84,
+   "w": 0.28,
+   "h": 0.158
+  },
+  "ig/ig06.mp4": {
+   "samples": 7,
+   "cx": 0.628,
+   "cy": 0.651,
+   "w": 0.15,
+   "h": 0.084
+  },
+  "ig/ig01.mp4": {
+   "samples": 0
+  },
+  "accent": {
+   "ig/ig01.mp4": {
+    "hue_deg": 16,
+    "rgb": [
+     215,
+     115,
+     80
+    ],
+    "px_share": 0.0386
+   },
+   "ig/ig02.mp4": {
+    "hue_deg": 10,
+    "rgb": [
+     167,
+     83,
+     63
+    ],
+    "px_share": 0.1674
+   },
+   "ig/ig03.mp4": {
+    "hue_deg": 8,
+    "rgb": [
+     166,
+     78,
+     65
+    ],
+    "px_share": 0.1868
+   },
+   "ig/ig06.mp4": {
+    "hue_deg": 24,
+    "rgb": [
+     154,
+     83,
+     33
+    ],
+    "px_share": 0.2555
+   }
+  },
+  "amber": {
+   "ig/ig02.mp4": {
+    "amber_px_per_frame": 2372,
+    "amber_rgb": [
+     238,
+     195,
+     100
+    ]
+   },
+   "ig/ig03.mp4": {
+    "amber_px_per_frame": 4089,
+    "amber_rgb": [
+     222,
+     207,
+     41
+    ]
+   }
+  }
+ },
+ "sources_ig": {
+  "count": 6,
+  "format_split": {
+   "9:16 reels": [
+    "ig02 (36.1 s, narrated)",
+    "ig03 (32.6 s, narrated)",
+    "ig06 (14.1 s, silent, AI-generated festival clip)"
+   ],
+   "4:5 still-motion posts": [
+    "ig01",
+    "ig04",
+    "ig05 (6.02 s each, static graphic, music only)"
+   ]
+  },
+  "resolutions": "720x1280 reels @30 fps; 720x900 4:5 posts @30 fps",
+  "delivery": "signed media.sssinstagram.com DASH baseline mp4, aac HE 44.1/48 kHz",
+  "audio_note": "only ig02 + ig03 carry speech; ig01/04/05 are graphic slides, ig06 is music-only. TTS/pace metrics only exist for 2 of 6.",
+  "language_note": "speech is Roman-Urdu with English tool nouns; faster-whisper tiny.en returns garbage on it, so wpm for ig02/ig03 is a lower bound (168.6 / 125.8)."
  }
 }

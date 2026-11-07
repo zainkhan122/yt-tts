@@ -2,6 +2,7 @@
 """Aggregate the 20 fps audit: same metrics for the reference account and our batch, plus sameness tests."""
 import json
 import subprocess
+import sys
 from pathlib import Path
 
 import cv2
@@ -72,9 +73,19 @@ def backgrounds(mp4):
             "luma_std": round(float(np.std(lum)), 1)}
 
 
+DEFAULT_GROUPS = {"reference (TikTok @buildwithai.club)": sorted(Path("/var/tmp/audit/tt").glob("*.mp4")),
+                  "ours (batch 2026-11-08)": sorted(Path("/var/tmp/audit/ours").glob("*.mp4"))}
+
+
 def main():
-    groups = {"reference (TikTok @buildwithai.club)": sorted(Path("/var/tmp/audit/tt").glob("*.mp4")),
-              "ours (batch 2026-11-08)": sorted(Path("/var/tmp/audit/ours").glob("*.mp4"))}
+    # Optional CLI: `aggregate.py "group name=/dir/with/mp4s" ...`
+    # Merges the new groups into an existing /var/tmp/audit/aggregate.json instead of overwriting
+    # the reference rows (the TikTok/ours source clips are ephemeral scratch and may be gone).
+    extra = [a for a in sys.argv[1:] if "=" in a]
+    groups = dict(DEFAULT_GROUPS) if not extra else {}
+    for a in extra:
+        name, _, d = a.partition("=")
+        groups[name] = sorted(Path(d).glob("*.mp4"))
     rows = {}
     for g, files in groups.items():
         for f in files:
@@ -118,17 +129,23 @@ def main():
         summary[g]["band_white_median"] = [round(float(np.median([r["band_white"][i] for r in rs])), 3) for i in range(5)]
         summary[g]["transcripts"] = {r["file"]: r.get("transcript", []) for r in rs}
     out = {"summary": summary, "sameness": sim, "rows": rows}
-    Path("/var/tmp/audit/aggregate.json").write_text(json.dumps(out, indent=1))
+    dest = Path("/var/tmp/audit/aggregate.json")
+    if extra and dest.exists():
+        prev = json.loads(dest.read_text())
+        for sec in ("summary", "sameness", "rows"):
+            prev.setdefault(sec, {}).update(out[sec])
+        out = prev
+    dest.write_text(json.dumps(out, indent=1))
+    names = list(summary)
     for k in keys:
-        a = summary["reference (TikTok @buildwithai.club)"].get(k)
-        b = summary["ours (batch 2026-11-08)"].get(k)
-        if a and b:
-            print(f"{k:32s} ref {a['median']:>8} ({a['min']}-{a['max']})   ours {b['median']:>8} ({b['min']}-{b['max']})")
+        cells = [f"{n[:26]:26s} {summary[n][k]['median']:>8} ({summary[n][k]['min']}-{summary[n][k]['max']})"
+                 for n in names if k in summary[n]]
+        if len(cells) >= 2:
+            print(f"{k:30s} " + " | ".join(cells))
     print("\nsameness:", json.dumps(sim, indent=1))
-    print("band_white ref:", summary["reference (TikTok @buildwithai.club)"]["band_white_median"])
-    print("band_white ours:", summary["ours (batch 2026-11-08)"]["band_white_median"])
-    print("palette top1 ref:", summary["reference (TikTok @buildwithai.club)"]["palette_top1"])
-    print("palette top1 ours:", summary["ours (batch 2026-11-08)"]["palette_top1"])
+    for n in names:
+        print(f"{n}: band_white {summary[n]['band_white_median']}")
+        print(f"{n}: palette_top1 {summary[n]['palette_top1']}")
 
 
 if __name__ == "__main__":
