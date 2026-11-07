@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "batch_id": "2026-11-09-shorts-01",
-  "created_at": "2026-11-07T17:14:38Z",
+  "created_at": "2026-11-07T17:15:08Z",
   "briefs": {
     "repo-unslop-02": {
-      "brief_sha256": "fc17bc473f9a1205d5991f75f5e6272ca8129bcc17a781a02ca7ab7068f4a7aa",
-      "brief_identity_sha256": "ff1b647a54d05d380a453089f5c4f2bbd2fd467c21dcf1e1bbb7231ee2104974",
+      "brief_sha256": "199c32168713880ba2cd740f76677f81c9abfd85bbb2bf60763cf80c93d52cab",
+      "brief_identity_sha256": "fbb321a6937bae396109355b8bee546865825f70b733a30ac4780cbbcbf3612d",
       "stages": {
         "script": {
           "status": "complete",

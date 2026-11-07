@@ -125,7 +125,7 @@ PLAN = {
         "keyword": "AI UI design",
         "aliases": ["AI slop design", "fix vibecoded UI", "unslop skill"],
         "youtube": {
-            "title": "Why every AI-built app looks the same (and the skill that fixes it)",
+            "title": "AI UI design has one look, and one skill fixes it",
             "description": (
                 "AI UI design has a look: the purple gradient, the glow behind the card, the emoji in the buttons. "
                 "unslop is a skill for Claude Code or Codex that names the slop with where it lives, sets a direction "
@@ -143,11 +143,11 @@ PLAN = {
             "hashtags": ["#AIUIDesign", "#ClaudeCode", "#WebDesign", "#AISkills", "#AIAgents"],
         },
         "instagram": {
-            "caption": "Same layout, same words, different product: unslop audits an AI-looking screen and redraws it pass by pass inside Claude Code or Codex. Comment UNSLOP for the repo.",
+            "caption": "AI UI design, fixed instead of replaced: unslop audits the screen, then redraws it pass by pass inside Claude Code or Codex. Same layout, same words, designed. Comment UNSLOP for the repo.",
             "hashtags": ["#AIUIDesign", "#ClaudeCode", "#WebDesign", "#BuildInPublic", "#AISkills"],
         },
         "facebook": {
-            "caption": "Every AI-built screen has the same look. unslop is a skill for Claude Code or Codex that names the slop, takes a direction from your product and redraws the screen in nine passes. Comment UNSLOP for the repo.",
+            "caption": "AI UI design has one look: purple gradient, glow, emoji badges. unslop is a skill for Claude Code or Codex that names the slop, takes a direction from your product and redraws the screen in nine passes. Comment UNSLOP for the repo.",
             "hashtags": ["#AIUIDesign", "#ClaudeCode", "#WebDesign", "#AISkills", "#BuildInPublic"],
         },
         "x": {
