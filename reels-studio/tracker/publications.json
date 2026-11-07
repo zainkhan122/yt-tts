@@ -3429,9 +3429,11 @@
     },
     "repo-reavideo-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6aeef38baf7e526d431224af",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-11-08T23:05:00Z",
+      "due_at": "2026-11-08T23:05:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:42d8028b4aef9300f41a9f05d78e9b0c6390a101b88946a1748c0fc0b58dd9d7",
         "asset_id": 720191613,
@@ -3446,10 +3448,11 @@
       "notify_subscribers": false,
       "payload_sha256": "4382e945fc66f8bf09b90786c411cf9070fa23a50ad85632adb072b3c1d89403",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Video reverse engineering, shot by shot: rea-video says which shots are filmed, which are AI, rebuilds the prompt, and hands you a remake plan. Comment SHOTS for the repo.\n\n#ReverseEngineering #AIVideo #VideoEditing #AIAgents #ContentCreation",
       "title": "Video reverse engineering: shot by shot, filmed or AI",
-      "updated_at": "2026-11-07T09:46:50Z",
+      "updated_at": "2026-11-07T09:46:51Z",
       "video_id": "repo-reavideo-01"
     },
     "repo-reavideo-01:youtube": {
