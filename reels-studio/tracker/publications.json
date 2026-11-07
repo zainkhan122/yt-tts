@@ -3507,9 +3507,11 @@
     },
     "repo-sand3d-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6aef9fb0562f2e6de9825935",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-11-09T21:19:00Z",
+      "due_at": "2026-11-09T21:19:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:ca4dd0452bca92999e19a0e47b4da55a93b1810697b1cb8a466e5c85bd4592ba",
         "asset_id": 720191703,
@@ -3524,10 +3526,11 @@
       "notify_subscribers": false,
       "payload_sha256": "ad0858281a68b024a8d0974d470c2d20547f21bdffed3c149ba1864d00adb385",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "3D modeling on top of Blender: sand3d takes short programs instead of coordinate math, names every part, and exports GLB, URDF or STL. Comment MESH for the repo.\n\n#Python3DModeling #Blender #CAD #AIAgents #Maker",
       "title": "3D modeling: sand3d writes parts as Python code",
-      "updated_at": "2026-11-07T22:01:19Z",
+      "updated_at": "2026-11-07T22:01:21Z",
       "video_id": "repo-sand3d-01"
     },
     "repo-sand3d-01:youtube": {
