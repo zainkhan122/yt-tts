@@ -90,8 +90,11 @@
     update: function (r, s, u, d) {
       var c = u - (s.cue - s.t0);
       r.wrap.style.transform = "translateY(" + fmt(Math.sin(u * 2.1) * 8) + "px)";
+      // The whole title is up inside ~0.34 s of the spoken cue however long it is: a fixed per-letter
+      // stagger made long titles finish a second after the word, which reads as lagging kinetic text.
+      var gap = Math.min(0.022, 0.16 / Math.max(1, r.letters.length));
       r.letters.forEach(function (sp, i) {
-        var p = ramp(c, i * 0.022, i * 0.022 + 0.34);
+        var p = ramp(c, i * gap, i * gap + 0.3);
         sp.style.opacity = fmt(p);
         sp.style.transform = "translateY(" + fmt((1 - easeOutBack(p)) * 70) + "px)";
       });
