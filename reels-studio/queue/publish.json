@@ -1691,6 +1691,41 @@
       "title": "Agent rendering: vork renders the shot without a video model",
       "video_id": "repo-vork-01",
       "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-11-07T09:21:44Z",
+      "approval": "approved",
+      "approved_cover_sha": "sha256:d3b8b80aceceb01f2a9ef537e897b17a9628e534ecdce14fb126cddb41a18ed2",
+      "approved_panel_sha": "b8379288aacdd03ae55ae14e7614c7a869956952ce1504298d25bfeeb7636a4a",
+      "asset_digest": "sha256:6bc668fbbe1c71f4ff8c5c0e660bf9c16129c922d9a07a18e187d130a8ba2b88",
+      "asset_id": 720119020,
+      "asset_size": 13251644,
+      "brief_sha256": "69e99e82f27ac7ec9c86b895ef1691c7e8606d514bab1793da8d88646fd3a6d0",
+      "category": "repo",
+      "cover_reviewed_at": "2026-11-07T09:21:46Z",
+      "cover_sha256": "sha256:d3b8b80aceceb01f2a9ef537e897b17a9628e534ecdce14fb126cddb41a18ed2",
+      "expires_at": "2026-11-14T00:00:00Z",
+      "kit_asset_id": 720119089,
+      "kit_digest": "sha256:27ba89fcaf166a68f6c73d74c4786dd6c2de3ef7d472d3ab20a0eae724f5ba8a",
+      "media_path": "media/720119020/repo-dshgo-01.mp4",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "priority": 20,
+      "release_tag": "renders-2026-11-08b",
+      "review": {
+        "cover_sha256": null,
+        "mp4_bytes": 13251644,
+        "mp4_sha256": "6bc668fbbe1c71f4ff8c5c0e660bf9c16129c922d9a07a18e187d130a8ba2b88",
+        "run_id": null,
+        "source": "release-digest"
+      },
+      "reviewed_at": "2026-11-07T09:21:46Z",
+      "title": "Android coding agent: DSH Go runs DeepSeek Harness",
+      "video_id": "repo-dshgo-01",
+      "youtube_ai_generated": false
     }
   ],
   "schema_version": 1
