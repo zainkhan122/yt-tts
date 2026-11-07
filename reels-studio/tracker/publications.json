@@ -3144,6 +3144,31 @@
       "updated_at": "2026-10-13T23:05:04Z",
       "video_id": "repo-opencr-01"
     },
+    "repo-poki-01:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-11-07T18:20:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:41691322713d21827afc691dc47a07c8da9d0b39af867ab31e910cfbdd3b8b7f",
+        "asset_id": 719816618,
+        "asset_size": 13060284,
+        "kit_asset_id": 719816702,
+        "kit_digest": "sha256:bbc073dd6898781f83c4ca8344b30121b4747a8b760be3aa2442d06d6cdfe06b",
+        "media_path": "media/719816618/repo-poki-01.mp4",
+        "release_tag": "renders-2026-11-07",
+        "video_id": "repo-poki-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/719816618/repo-poki-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "84300dfee6ee4614689e92a67868d736725d861bb45c5cc244dbdd84d2846194",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "AI iPhone automation you can run today: Poki is an open-source MCP server that lets Claude Code or Codex drive a real iPhone by tapping and typing on the screen. Clone the repo, run the setup script, register the server, then give your agent a task. It needs macOS and full Xcode. Repo: https://github.com/JosssphZhou/poki #Shorts #iPhoneAutomation #AIAgents #MCP #OpenSource\n\n#Shorts #iPhoneAutomation #AIAgents #MCP #OpenSource",
+      "title": "AI iPhone automation: let an agent use your phone",
+      "updated_at": "2026-11-07T06:21:21Z",
+      "video_id": "repo-poki-01"
+    },
     "repo-removemacai-01:youtube": {
       "buffer_post_id": "6ac904b32f26cc482c22c524",
       "channel_id": "6ac904af6a5c39ccb662a01f",
