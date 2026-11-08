@@ -223,7 +223,7 @@ BEATS = {
                  {"name": "lamp.jpg", "tag": "INPUT · ONE PICTURE", "caption": "one picture · flat 2D", "handle": False},
              ],
              "splat": {"name": "sneaker.ply", "count": "1,048,576 GAUSSIANS",
-                       "caption": "standard 3DGS · opens anywhere", "badge": "FULL 3D", "seed": 9101},
+                       "caption": "standard 3DGS · opens anywhere", "badge": "FULL 3D", "seed": 9102},
              "cue_phrases": ["product photo", "spin around", "three-D"],
          }},
         {"scene_id": "point1", "phrase": 1, "archetype": "depth_callouts", "headline": "ONE PICTURE, FULL 3D",
