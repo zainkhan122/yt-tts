@@ -1,0 +1,83 @@
+{
+  "tool": {
+    "name": "idol",
+    "repo": "https://huggingface.co/speridlabs/idol"
+  },
+  "features": [
+    {
+      "id": "f1",
+      "title": "One picture to a 3D Gaussian splat",
+      "what": "A render, a generated image or a photo becomes a 3D Gaussian splat.",
+      "evidence_quote": "Idol turns one picture of an object into a 3D Gaussian splat."
+    },
+    {
+      "id": "f2",
+      "title": "Even the hidden sides",
+      "what": "Up to 1,048,576 Gaussians, including sides the picture never showed.",
+      "evidence_quote": "generates up to 1,048,576 Gaussians, written as a standard 3DGS `.ply`"
+    },
+    {
+      "id": "f3",
+      "title": "Background cut, object framed",
+      "what": "The pipeline isolates the object before reconstructing it.",
+      "evidence_quote": "it removes the background, frames the object"
+    },
+    {
+      "id": "f4",
+      "title": "Runs on consumer GPUs",
+      "what": "7.2 GB of VRAM; can run in under 2 seconds.",
+      "evidence_quote": "It runs on consumer GPUs, using 7.2 GB of VRAM and can run in under 2 seconds."
+    },
+    {
+      "id": "f5",
+      "title": "Standard .ply out",
+      "what": "The file opens in any Gaussian splat viewer.",
+      "evidence_quote": "written as a standard 3DGS `.ply`"
+    },
+    {
+      "id": "f6",
+      "title": "Free Space demo + open SDK",
+      "what": "A Hugging Face Space demo, and `pip install -e .` for the SDK with one Python call.",
+      "evidence_quote": "`pip install -e .`"
+    },
+    {
+      "id": "f7",
+      "title": "Photo mode and render mode",
+      "what": "`--mode real` for photographs, `--mode synthetic` for renders of a single object.",
+      "evidence_quote": "`--mode real` for photographs"
+    },
+    {
+      "id": "f8",
+      "title": "Benchmark edges TripoSplat and TRELLIS",
+      "what": "Bold in SSIM, LPIPS, IoU, DINOv2, CLIP and sharpness distance on the lab's table.",
+      "evidence_quote": "TripoSplat and TRELLIS lose every visual column"
+    },
+    {
+      "id": "f9",
+      "title": "Exact command you can copy",
+      "what": "One line turns a photo into a .ply on your own machine.",
+      "evidence_quote": "python -m idol.sample --image photo.jpg --mode real"
+    },
+    {
+      "id": "f10",
+      "title": "Two encoders are gated",
+      "risk": true,
+      "what": "Accept terms once on DINOv3 and FLUX.2 before the SDK will run.",
+      "evidence_quote": "it reads input through two gated models"
+    }
+  ],
+  "risks": [
+    {
+      "id": "r1",
+      "text": "Your own runs need an NVIDIA GPU with CUDA (the free Space demo needs no GPU)."
+    },
+    {
+      "id": "r2",
+      "text": "Built for single objects — it frames one object per picture, not scenes."
+    }
+  ],
+  "source_urls": [
+    "https://huggingface.co/speridlabs/idol",
+    "https://huggingface.co/spaces/speridlabs/idol"
+  ]
+}

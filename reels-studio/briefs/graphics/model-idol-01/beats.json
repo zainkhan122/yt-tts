@@ -1,0 +1,268 @@
+{
+  "tool": "idol",
+  "template": "photo-to-3d",
+  "handle": "@hypeless",
+  "scenes": [
+    {
+      "scene_id": "hook",
+      "phrase": 0,
+      "archetype": "photo_splat",
+      "headline": "YOUR PHOTO, NOW FULL 3D",
+      "feature_id": "f1",
+      "depicts": "product photos hard-cut into a point cloud that spins",
+      "payload": {
+        "eyebrow": "IMAGE TO 3D",
+        "accent_word": "3D",
+        "label": "ONE PICTURE → SPLAT",
+        "photos": [
+          {
+            "name": "sneaker.jpg",
+            "tag": "INPUT · ONE PICTURE",
+            "caption": "one picture · flat 2D"
+          },
+          {
+            "name": "mug.jpg",
+            "tag": "INPUT · ONE PICTURE",
+            "caption": "one picture · flat 2D"
+          },
+          {
+            "name": "lamp.jpg",
+            "tag": "INPUT · ONE PICTURE",
+            "caption": "one picture · flat 2D",
+            "handle": false
+          }
+        ],
+        "splat": {
+          "name": "sneaker.ply",
+          "count": "1,048,576 GAUSSIANS",
+          "caption": "standard 3DGS · opens anywhere",
+          "badge": "FULL 3D",
+          "seed": 9101
+        },
+        "cue_phrases": [
+          "product photo",
+          "spin around",
+          "three-D"
+        ]
+      }
+    },
+    {
+      "scene_id": "point1",
+      "phrase": 1,
+      "archetype": "depth_callouts",
+      "headline": "ONE PICTURE, FULL 3D",
+      "feature_id": "f1",
+      "depicts": "the picture card with the sides it never saw called out",
+      "payload": {
+        "eyebrow": "REBUILD",
+        "accent_word": "3D",
+        "photo": {
+          "name": "sneaker.jpg",
+          "tag": "INPUT MODE · SYNTHETIC",
+          "caption": "one picture · before"
+        },
+        "marks": [
+          "one picture in",
+          "hidden sides drawn",
+          "a million Gaussians",
+          "standard .ply"
+        ],
+        "score": "FULL 3D × 4",
+        "cue_phrases": [
+          "single picture",
+          "gaussian splat",
+          "never saw"
+        ]
+      }
+    },
+    {
+      "scene_id": "point2",
+      "phrase": 2,
+      "archetype": "splat_pipeline",
+      "headline": "CUT, FRAME, PLY OUT",
+      "feature_id": "f3",
+      "depicts": "the background cut, the frame and the ply file as three lit stages",
+      "payload": {
+        "eyebrow": "PIPELINE",
+        "accent_word": "PLY",
+        "stages": [
+          {
+            "kind": "photo",
+            "title": "CUT",
+            "sub": "BiRefNet removes the background.",
+            "kicker": "photo in"
+          },
+          {
+            "kind": "cut",
+            "title": "FRAME",
+            "sub": "The object is framed, centered, padded.",
+            "kicker": "object framed"
+          },
+          {
+            "kind": "splat",
+            "title": "WRITE .PLY",
+            "sub": "A standard 3DGS splat comes out."
+          }
+        ],
+        "cue_phrases": [
+          "removes the background",
+          "standard PLY",
+          "splat viewer"
+        ]
+      }
+    },
+    {
+      "scene_id": "point3",
+      "phrase": 3,
+      "archetype": "gpu_gauge",
+      "headline": "RUNS ON YOUR GPU",
+      "feature_id": "f4",
+      "depicts": "the VRAM gauge filling and the two-second speed chip",
+      "payload": {
+        "eyebrow": "HARDWARE",
+        "accent_word": "GPU",
+        "vram": 7.2,
+        "gauge_cap": 24,
+        "chips": [
+          "under 2 s",
+          "consumer card",
+          "plays with any viewer",
+          "no cloud call"
+        ],
+        "chip_subs": [
+          "median request time on the lab's bench",
+          "7.2 GB peak, per the card",
+          "a file, not a hosted result",
+          "your GPU does the work"
+        ],
+        "cue_phrases": [
+          "own graphics card",
+          "seven point two",
+          "under two seconds"
+        ]
+      }
+    },
+    {
+      "scene_id": "point4",
+      "phrase": 4,
+      "archetype": "two_doors",
+      "headline": "TRY IT TONIGHT, FREE",
+      "feature_id": "f6",
+      "depicts": "the free Space demo door and the pip install SDK door",
+      "payload": {
+        "eyebrow": "TRY IT",
+        "accent_word": "free",
+        "doors": [
+          {
+            "title": "The free demo",
+            "sub": "A Hugging Face Space: drop a picture, get the splat.",
+            "line": "HF Spaces → speridlabs/idol"
+          },
+          {
+            "title": "The SDK",
+            "sub": "On your own GPU, one Python call per picture.",
+            "line": "pip install the SDK"
+          }
+        ],
+        "cue_phrases": [
+          "try it free",
+          "pip install",
+          "python"
+        ]
+      }
+    },
+    {
+      "scene_id": "point5",
+      "phrase": 5,
+      "archetype": "leaderboard",
+      "headline": "TOP OF THE TABLE",
+      "feature_id": null,
+      "depicts": "the benchmark bars with idol on the top row and the trending badge",
+      "payload": {
+        "eyebrow": "PROOF",
+        "accent_word": "top",
+        "badge": "TOP TRENDING ON HF TODAY",
+        "rows": [
+          {
+            "name": "idol",
+            "score": 0.97,
+            "val": "0.726 SSIM",
+            "win": true
+          },
+          {
+            "name": "TRELLIS",
+            "score": 0.72,
+            "val": "0.716 SSIM"
+          },
+          {
+            "name": "TripoSplat",
+            "score": 0.68,
+            "val": "0.712 SSIM"
+          },
+          {
+            "name": "LGM",
+            "score": 0.6,
+            "val": "0.722 SSIM"
+          }
+        ],
+        "cue_phrases": [
+          "benchmark",
+          "every visual score",
+          "top trending"
+        ]
+      }
+    },
+    {
+      "scene_id": "catch",
+      "phrase": 6,
+      "archetype": "expect_rows",
+      "headline": "WHAT TO EXPECT",
+      "feature_id": "f10",
+      "depicts": "the CUDA GPU note, the terms once note, the single objects note",
+      "payload": {
+        "eyebrow": "WHAT TO EXPECT",
+        "rows": [
+          {
+            "kind": "tag",
+            "t": "Your own runs need an NVIDIA GPU with CUDA",
+            "s": "the free Space demo needs no GPU"
+          },
+          {
+            "kind": "tag",
+            "t": "Two encoder models are gated",
+            "s": "accept their terms once"
+          },
+          {
+            "kind": "ok",
+            "t": "Built for single objects",
+            "s": "one object per picture, not scenes"
+          }
+        ],
+        "cue_phrases": [
+          "nvidia",
+          "terms once",
+          "single objects"
+        ]
+      }
+    },
+    {
+      "scene_id": "cta",
+      "phrase": 7,
+      "archetype": "endcard",
+      "headline": "COMMENT IDOL",
+      "feature_id": null,
+      "depicts": "the comment keyword and the follow button",
+      "payload": {
+        "keyword": "IDOL",
+        "keyword_chip": false,
+        "follow": "Follow",
+        "cue_phrases": [
+          "comment idol",
+          "pin the link"
+        ]
+      },
+      "cue_word": "idol"
+    }
+  ],
+  "script_sha256": "sha256:9ec3537d6566b143873ad92080f9b6d2df72a3250f6d29da2a53b39d87ef1ec5"
+}

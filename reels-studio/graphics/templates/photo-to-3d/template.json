@@ -1,0 +1,130 @@
+{
+ "name": "photo-to-3d",
+ "tool": "idol",
+ "note": "Per-tool template: a dark 3D-viewer canvas. Its vocabulary is Gaussian-splat artifacts — a photo chip, a violet point cloud with orbit ticks, scanlines, a VRAM gauge, a bench leaderboard — not app screens. Palette: deep-space ink panel on near-black, violet glow accents, a single warm white headline. Archetypes here belong to idol only; another tool gets its own template.",
+ "palette": {
+  "canvas": "#0C0E17",
+  "panel": "#151827",
+  "hair": "#2A2E44",
+  "ink": "#F2F1EA",
+  "muted": "#8A8FA8",
+  "accent": "#8B7CFF",
+  "accent2": "#7CD4FC",
+  "warn": "#FFD60A"
+ },
+ "archetypes": {
+  "photo_splat": {
+   "req": [
+    "photos"
+   ],
+   "opt": [
+    "eyebrow",
+    "accent_word",
+    "cue_phrases",
+    "cam",
+    "label",
+    "splat"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "depth_callouts": {
+   "req": [
+    "marks"
+   ],
+   "opt": [
+    "photo",
+    "eyebrow",
+    "accent_word",
+    "cue_phrases",
+    "score"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "splat_pipeline": {
+   "req": [
+    "stages"
+   ],
+   "opt": [
+    "eyebrow",
+    "accent_word",
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "gpu_gauge": {
+   "req": [
+    "chips"
+   ],
+   "opt": [
+    "eyebrow",
+    "accent_word",
+    "cue_phrases",
+    "vram",
+    "speed",
+    "gauge_cap",
+    "chip_subs"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "two_doors": {
+   "req": [
+    "doors"
+   ],
+   "opt": [
+    "eyebrow",
+    "accent_word",
+    "cue_phrases",
+    "label"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "leaderboard": {
+   "req": [
+    "rows"
+   ],
+   "opt": [
+    "badge",
+    "eyebrow",
+    "accent_word",
+    "cue_phrases",
+    "cam"
+   ],
+   "facts": false,
+   "script_ok": true
+  },
+  "expect_rows": {
+   "req": [
+    "rows"
+   ],
+   "opt": [
+    "eyebrow",
+    "accent_word",
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "endcard": {
+   "req": [
+    "keyword"
+   ],
+   "opt": [
+    "follow",
+    "lines",
+    "cue_phrases",
+    "prompt",
+    "keyword_chip",
+    "cam",
+    "drift"
+   ],
+   "facts": false,
+   "script_ok": true
+  }
+ },
+ "max_text": 64
+}
