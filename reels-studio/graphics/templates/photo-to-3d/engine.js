@@ -448,7 +448,8 @@
       var kw = (typeof ev.keyword === "number" ? ev.keyword : s.cue) - s.t0;
       var cin = eBack(ramp(u, 0, 0.5));
       r.card.style.opacity = fmt(ramp(u, 0, 0.2));
-      r.card.style.transform = "translateY(" + fmt((1 - cin) * 80) + "px) scale(" + fmt(0.96 + 0.04 * cin, 3) + ")";
+      /* keep the CSS centering translate(-50%,-50%) — wiping it slides the card half off-canvas right */
+      r.card.style.transform = "translate(-50%,-50%) translateY(" + fmt((1 - cin) * 80) + "px) scale(" + fmt(0.96 + 0.04 * cin, 3) + ")";
       if (r.kw) {
         var kp = eBack(ramp(u, kw, kw + 0.4));
         r.kw.style.opacity = fmt(ramp(u, kw, kw + 0.16));

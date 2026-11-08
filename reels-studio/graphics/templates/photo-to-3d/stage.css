@@ -185,7 +185,7 @@ html, body { margin: 0; padding: 0; background: #0C0E17; }
 .ec-done-t { font: 800 30px/1 "Helvetica Neue", Arial, sans-serif; color: #D9D2FF; }
 .ec-ring { position: absolute; left: 50%; top: 50%; width: 110px; height: 110px; margin: -55px 0 0 -55px; border-radius: 50%;
   border: 3px solid #7CD4FC; opacity: 0; }
-.ec-cursor { position: absolute; left: 12px; bottom: -42px; }
+.ec-cursor { position: absolute; left: 10px; bottom: -26px; width: 34px; height: 34px; filter: drop-shadow(0 2px 6px rgba(0,0,0,.45)); }
 
 /* ---------- captions ---------- */
 .caption { position: absolute; left: 60px; right: 60px; top: 1610px; height: 220px;
