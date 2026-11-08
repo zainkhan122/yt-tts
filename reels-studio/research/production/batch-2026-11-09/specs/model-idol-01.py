@@ -125,7 +125,7 @@ PLAN = {
         "keyword": "image to 3D",
         "aliases": ["photo to 3D model", "Gaussian splat", "idol model", "3D from one image"],
         "youtube": {
-            "title": "One photo becomes a spinnable 3D model",
+            "title": "Image to 3D in under two seconds idol turns one photo",
             "description": (
                 "idol turns one picture of an object into a full three-D Gaussian splat — up to a million Gaussians, "
                 "including the sides your camera never saw. It removes the background, frames the object and writes "
@@ -138,7 +138,7 @@ PLAN = {
             "hashtags": ["#Shorts", "#ImageTo3D", "#GaussianSplat", "#AI3D", "#HuggingFace"],
         },
         "tiktok": {
-            "caption": "One photo of your product becomes a spinnable 3D Gaussian splat: background cut, .ply out, runs on your own GPU. Free demo on Hugging Face. Comment IDOL for the link.",
+            "caption": "Image to 3D — one photo of your product becomes a spinnable Gaussian splat: background cut, .ply out, runs on your own GPU. Free demo on Hugging Face. Comment IDOL for the link.",
             "hashtags": ["#ImageTo3D", "#GaussianSplat", "#AI3D", "#HuggingFace", "#AI3D"],
         },
         "instagram": {
@@ -146,11 +146,11 @@ PLAN = {
             "hashtags": ["#ImageTo3D", "#GaussianSplat", "#AI3D", "#AI3D", "#HuggingFace"],
         },
         "facebook": {
-            "caption": "One photo in, a spinnable 3D model out. idol is open on Hugging Face: 7.2 GB VRAM, under two seconds, standard .ply that opens anywhere. Comment IDOL for the link.",
+            "caption": "Image to 3D in, a spinnable model out: one photo becomes a Gaussian splat. idol is open on Hugging Face: 7.2 GB VRAM, under two seconds, standard .ply that opens anywhere. Comment IDOL for the link.",
             "hashtags": ["#ImageTo3D", "#GaussianSplat", "#AI3D", "#HuggingFace", "#AI3D"],
         },
         "x": {
-            "text": "Take one photo of your product. Now spin it — idol turns a single picture into a 3D Gaussian splat, under 2 seconds on your own GPU.",
+            "text": "Image to 3D, one photo: idol turns a single picture into a Gaussian splat you can spin, under 2 seconds on your own GPU.",
             "hashtags": ["#ImageTo3D", "#GaussianSplat"],
         },
     },
