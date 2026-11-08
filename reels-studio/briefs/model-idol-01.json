@@ -95,7 +95,7 @@
         "pip install -e .",
         "IdolPipeline"
       ],
-      "say": "Try it free in the Hugging Face demo, or pip install the SDK and call it from Python."
+      "say": "Try it free in the browser demo, or install the SDK and call it from one line of Python."
     },
     {
       "id": "point5",
@@ -326,5 +326,6 @@
   },
   "voice_tempo": 1.15,
   "copyable_action": "python -m idol.sample --image photo.jpg --mode real",
-  "voice_seed": 0
+  "voice_seed": 0,
+  "tail": 2.0
 }

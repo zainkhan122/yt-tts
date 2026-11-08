@@ -17,7 +17,7 @@ Base: repo-unslop-02's proven cut (owner-approved rhythm) — but with idol's OW
 
 MODEL = "https://huggingface.co/speridlabs/idol"
 
-BRIEF_EXTRA = {"voice_tempo": 1.15, "copyable_action": "python -m idol.sample --image photo.jpg --mode real"}
+BRIEF_EXTRA = {"voice_tempo": 1.15, "copyable_action": "python -m idol.sample --image photo.jpg --mode real", "tail": 2.0}
 
 PLAN = {
     "template": "photo-to-3d",
@@ -67,7 +67,7 @@ PLAN = {
         {
             "n": 4,
             "claim": "You can try it free in the Hugging Face Space, or install the open SDK and call it from Python.",
-            "spoken": "Try it free in the Hugging Face demo, or pip install the SDK and call it from Python.",
+            "spoken": "Try it free in the browser demo, or install the SDK and call it from one line of Python.",
             "source": MODEL,
             "source_note": "Model card Demo badge -> huggingface.co/spaces/speridlabs/idol + 'pip install -e .' + 'from idol import IdolPipeline'.",
             "visual": {"kind": "steps", "intent": "the free Space demo page, then the Python call", "steps": ["free demo", "pip install", "one Python call"]},
@@ -277,7 +277,7 @@ BEATS = {
          "payload": {
              "eyebrow": "PROOF",
              "accent_word": "top",
-             "badge": "TOP TRENDING ON HF TODAY",
+             "badge": "TOP TRENDING TODAY",
              "rows": [
                  {"name": "idol", "score": 0.97, "val": "0.726 SSIM", "win": True},
                  {"name": "TRELLIS", "score": 0.72, "val": "0.716 SSIM"},
