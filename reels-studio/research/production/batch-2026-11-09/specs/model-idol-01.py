@@ -142,8 +142,8 @@ PLAN = {
             "hashtags": ["#ImageTo3D", "#GaussianSplat", "#AI3D", "#HuggingFace", "#AI3D"],
         },
         "instagram": {
-            "caption": "idol turns one picture into a full three-D Gaussian splat — even the sides the camera never saw. Free to try on Hugging Face, or run it on your own GPU. Comment IDOL for the link.",
-            "hashtags": ["#ImageTo3D", "#GaussianSplat", "#AI3D", "#AI3D", "#HuggingFace"],
+            "caption": "Image to 3D with idol: one picture becomes a full Gaussian splat — even the sides the camera never saw. Free to try on Hugging Face, or run it on your own GPU. Comment IDOL for the link.",
+            "hashtags": ["#ImageTo3D", "#GaussianSplat", "#AIVideo", "#AI3D", "#HuggingFace"],
         },
         "facebook": {
             "caption": "Image to 3D in, a spinnable model out: one photo becomes a Gaussian splat. idol is open on Hugging Face: 7.2 GB VRAM, under two seconds, standard .ply that opens anywhere. Comment IDOL for the link.",
