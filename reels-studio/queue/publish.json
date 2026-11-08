@@ -299,7 +299,7 @@
       "reviewed_at": "2026-10-11T05:29:03Z",
       "ship_legacy": true,
       "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py",
-      "title": "Pomelli: Free AI Product Photos\u2014with a Catch",
+      "title": "Pomelli: Free AI Product Photos—with a Catch",
       "video_id": "tool-pomelli-01",
       "youtube_ai_generated": true
     },
@@ -826,7 +826,7 @@
       "reviewed_at": "2026-10-15T12:42:11Z",
       "ship_legacy": true,
       "ship_legacy_reason": "approved before the ship guard (5 Nov 2026); not reviewed under ship.py",
-      "title": "LFM2.5: 24B Brain, 2B at Work \u2014 a Local Agent Model",
+      "title": "LFM2.5: 24B Brain, 2B at Work — a Local Agent Model",
       "video_id": "model-lfm25-01",
       "youtube_ai_generated": false
     },
@@ -1830,6 +1830,40 @@
       "reviewed_at": "2026-11-07T09:23:21Z",
       "title": "3D modeling: sand3d writes parts as Python code",
       "video_id": "repo-sand3d-01",
+      "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-11-08T06:18:15Z",
+      "approval": "approved",
+      "approved_cover_sha": "sha256:6d7845ac5e19c06bffcecd8dfeb61f7b8751577919a5086cc27fdae6546e2d13",
+      "approved_panel_sha": "93c7f289a2545a4c8f8a9a34d100404034a570228c6a2b4a72ce14484c6f72eb",
+      "asset_digest": "sha256:3b20b8add7076333b06a32aceb0b9c423a7696514fb689f0e49e3822f4054a45",
+      "asset_id": 723094121,
+      "asset_size": 6060770,
+      "brief_sha256": "7b2e813bc5117ac32ea20f77ff3da695bc2d56c47c690348718da575827e4519",
+      "category": "repo",
+      "cover_reviewed_at": "2026-11-08T06:18:41Z",
+      "cover_sha256": "sha256:6d7845ac5e19c06bffcecd8dfeb61f7b8751577919a5086cc27fdae6546e2d13",
+      "expires_at": "2026-11-15T00:00:00Z",
+      "kit_asset_id": 723094171,
+      "kit_digest": "sha256:eec743a004ef4c283873429d3a8d745ad386e5a29eca4a28f6b3e38136aabd41",
+      "media_path": "media/723094121/repo-unslop-02.mp4",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "priority": 10,
+      "release_tag": "renders-2026-11-09-shorts-01",
+      "review": {
+        "cover_sha256": null,
+        "mp4_bytes": 6060770,
+        "mp4_sha256": "3b20b8add7076333b06a32aceb0b9c423a7696514fb689f0e49e3822f4054a45",
+        "run_id": "42404125104"
+      },
+      "reviewed_at": "2026-11-08T06:18:51Z",
+      "title": "AI UI design has one look, and one skill fixes it",
+      "video_id": "repo-unslop-02",
       "youtube_ai_generated": false
     }
   ],
