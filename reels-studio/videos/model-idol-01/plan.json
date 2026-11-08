@@ -89,7 +89,7 @@
     {
       "n": 4,
       "claim": "You can try it free in the Hugging Face Space, or install the open SDK and call it from Python.",
-      "spoken": "Try it free in the Hugging Face demo, or pip install the SDK and call it from Python.",
+      "spoken": "Try it free in the browser demo, or install the SDK and call it from one line of Python.",
       "source": "https://huggingface.co/speridlabs/idol",
       "source_note": "Model card Demo badge -> huggingface.co/spaces/speridlabs/idol + 'pip install -e .' + 'from idol import IdolPipeline'.",
       "visual": {
@@ -199,7 +199,7 @@
       "3D from one image"
     ],
     "youtube": {
-      "title": "One photo becomes a spinnable 3D model",
+      "title": "Image to 3D in under two seconds idol turns one photo",
       "description": "idol turns one picture of an object into a full three-D Gaussian splat — up to a million Gaussians, including the sides your camera never saw. It removes the background, frames the object and writes a standard 3DGS .ply that opens in any splat viewer or Blender. Runs on consumer GPUs (7.2 GB VRAM, under 2 seconds), free to try in the Hugging Face demo, or pip install the SDK. Model: https://huggingface.co/speridlabs/idol #Shorts #ImageTo3D #GaussianSplat #3DAI #HuggingFace",
       "tags": [
         "image to 3D",
@@ -219,7 +219,7 @@
       ]
     },
     "tiktok": {
-      "caption": "One photo of your product becomes a spinnable 3D Gaussian splat: background cut, .ply out, runs on your own GPU. Free demo on Hugging Face. Comment IDOL for the link.",
+      "caption": "Image to 3D — one photo of your product becomes a spinnable Gaussian splat: background cut, .ply out, runs on your own GPU. Free demo on Hugging Face. Comment IDOL for the link.",
       "hashtags": [
         "#ImageTo3D",
         "#GaussianSplat",
@@ -229,17 +229,17 @@
       ]
     },
     "instagram": {
-      "caption": "idol turns one picture into a full three-D Gaussian splat — even the sides the camera never saw. Free to try on Hugging Face, or run it on your own GPU. Comment IDOL for the link.",
+      "caption": "Image to 3D with idol: one picture becomes a full Gaussian splat — even the sides the camera never saw. Free to try on Hugging Face, or run it on your own GPU. Comment IDOL for the link.",
       "hashtags": [
         "#ImageTo3D",
         "#GaussianSplat",
-        "#AI3D",
+        "#AIVideo",
         "#AI3D",
         "#HuggingFace"
       ]
     },
     "facebook": {
-      "caption": "One photo in, a spinnable 3D model out. idol is open on Hugging Face: 7.2 GB VRAM, under two seconds, standard .ply that opens anywhere. Comment IDOL for the link.",
+      "caption": "Image to 3D in, a spinnable model out: one photo becomes a Gaussian splat. idol is open on Hugging Face: 7.2 GB VRAM, under two seconds, standard .ply that opens anywhere. Comment IDOL for the link.",
       "hashtags": [
         "#ImageTo3D",
         "#GaussianSplat",
@@ -249,7 +249,7 @@
       ]
     },
     "x": {
-      "text": "Take one photo of your product. Now spin it — idol turns a single picture into a 3D Gaussian splat, under 2 seconds on your own GPU.",
+      "text": "Image to 3D, one photo: idol turns a single picture into a Gaussian splat you can spin, under 2 seconds on your own GPU.",
       "hashtags": [
         "#ImageTo3D",
         "#GaussianSplat"

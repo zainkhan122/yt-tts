@@ -37,7 +37,7 @@
           "count": "1,048,576 GAUSSIANS",
           "caption": "standard 3DGS · opens anywhere",
           "badge": "FULL 3D",
-          "seed": 9101
+          "seed": 9102
         },
         "cue_phrases": [
           "product photo",
@@ -181,7 +181,7 @@
       "payload": {
         "eyebrow": "PROOF",
         "accent_word": "top",
-        "badge": "TOP TRENDING ON HF TODAY",
+        "badge": "TOP TRENDING TODAY",
         "rows": [
           {
             "name": "idol",
@@ -264,5 +264,5 @@
       "cue_word": "idol"
     }
   ],
-  "script_sha256": "sha256:9ec3537d6566b143873ad92080f9b6d2df72a3250f6d29da2a53b39d87ef1ec5"
+  "script_sha256": "sha256:67866e5e9d0f5b93b0e36857671e62ff0804e7363437c8eede9a4b961ee225e6"
 }
