@@ -1852,9 +1852,9 @@
       "capture_id": "model-idol-01",
       "cover_sha256": "004686483f4662c2242f259a7efe19f04a38026f517f34693e4a0288d3dbde0c",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=skipped",
       "fingerprint": "72876430559d18866b0b545ef037108053a77becc87c75140f7788b5079f1e47",
-      "finished_at": null,
+      "finished_at": "2026-11-08T18:13:00Z",
       "from_tag": "",
       "graphics_sha256": "bbe04c5bec9c8b0cdd44a68fe3e01c30d2cbb70b044265e8be05253e2aa4bc48",
       "quality": "looks",
@@ -1862,7 +1862,7 @@
       "renderer_sha256": "e88745caf0d07bdfcc7bded1fab59ddf9ee11b22475c3be3b819850fdd553717",
       "run_id": "42507316182",
       "started_at": "2026-11-08T17:55:04Z",
-      "status": "started",
+      "status": "render_only_success",
       "voice_seed": 0
     },
     "735f084ed9265887be8d83f273167faf20bed96a0e050cc7e1048f5610b66177": {
