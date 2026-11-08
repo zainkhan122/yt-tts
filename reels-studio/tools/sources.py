@@ -62,6 +62,39 @@ def ytdlp_list(url, n):
     return json.loads(p.stdout).get("entries") or []
 
 
+def yt_channel_id(url, n=1):
+    """Channel id of a YouTube channel URL (flat playlist metadata; entries[0].channel_id)."""
+    try:
+        p = subprocess.run(["yt-dlp", "--flat-playlist", "--playlist-end", "1", "-J", "--no-warnings", url],
+                           capture_output=True, text=True, timeout=240)
+        j = json.loads(p.stdout) if p.returncode == 0 and p.stdout.strip() else {}
+        e = (j.get("entries") or [{}])[0]
+        return j.get("channel_id") or e.get("channel_id") or ""
+    except Exception:
+        return ""
+
+
+def yt_rss_dates(channel_id):
+    """video_id -> unix timestamp from the channel's public Atom feed (flat playlists carry no dates)."""
+    if not channel_id:
+        return {}
+    url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 reels-studio"})
+    try:
+        root = ET.fromstring(urllib.request.urlopen(req, timeout=40).read())
+    except Exception:
+        return {}
+    out = {}
+    for en in root.findall(f".//{ATOM}entry"):
+        vid = en.findtext("{http://www.youtube.com/xml/schemas/2015}videoId") or ""
+        pub = en.findtext(f"{ATOM}published") or ""
+        try:
+            out[vid] = dt.datetime.fromisoformat(pub.replace("Z", "+00:00")).timestamp()
+        except (TypeError, ValueError):
+            continue
+    return out
+
+
 def rss_list(url, n):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 reels-studio"})
     for attempt in range(4):  # Reddit & co. rate-limit bursts (HTTP 429): back off and retry
@@ -101,11 +134,13 @@ def fetch(src, n):
                  "duration": None} for r in trend_radar.gittrend(n)]
     base = re.sub(r"/(shorts|videos|featured|streams)/?$", "", src["url"].rstrip("/"))  # tabs from the stored URL, not the handle
     urls = [src["url"]] if src["type"] == "tiktok" else [f"{base}/{t}" for t in (src.get("tabs") or "shorts").split(",")]
+    dates = yt_rss_dates(yt_channel_id(base)) if src["type"] == "youtube" else {}  # flat playlists have no upload dates
     out = []
     for u in urls:
         for e in ytdlp_list(u, n):
             out.append({"platform": src["type"] + ("-long" if u.endswith("/videos") else ""), "id": e.get("id"), "url": e.get("url"),
-                        "title": e.get("title") or "", "description": e.get("description") or "", "timestamp": e.get("timestamp") or 0,
+                        "title": e.get("title") or "", "description": e.get("description") or "",
+                        "timestamp": e.get("timestamp") or dates.get(str(e.get("id")), 0),
                         "views": e.get("view_count"), "likes": e.get("like_count"), "comments": e.get("comment_count"),
                         "shares": e.get("repost_count"), "saves": e.get("save_count"), "duration": e.get("duration")})
     return out
