@@ -1,8 +1,20 @@
 # Top 10 topic picks — 2026-11-08
 
 Sources: trend radar (GitHub / Hugging Face models & Spaces, `tools/trend_radar.py --days 3`),
-reference AI news feeds (Nov 4–7 coverage). Cross-checked against the covered/scheduled ledger —
+**reference source channels** (33 tracked TikTok + YouTube Shorts creators via
+`tools/sources.py scan` → `research/sources/posts.csv`, last 7 days by views), and
+AI news feeds (Nov 4–7). Cross-checked against the covered/scheduled ledger —
 nothing on this list is already queued or published.
+
+## Source-channel validation (TikTok / YouTube Shorts, last 7 days)
+- AI video generation is at peak momentum with channels: WesRoth's HeyGen short hit
+  **5.3M views** → reinforces picks #1 (Omni 1.2 Flash) and #5 (LTX-2.5).
+- Fireship covered CrowdStrike's AI kill-switch story (~1.4M views) — that item is
+  **channel-crowded**, so it's a watchlist item, not a pick.
+- mattreflow, matthew_berman, intheworldofai, aiadvantage clusters this week: AI hardware,
+  coding agents, practical workflows — pick #6 (agent-desktop) and #7 (phone agents) sit
+  exactly in that demand lane but no tracked channel has covered them yet.
+- AbhayPSRajawat already covered GPT-6.1 Astra (we pruned that queue item anyway) — stays excluded.
 
 Mixed on purpose: tools and launches, NOT repos-only. Repo candidates flagged as spam/licence-free
 crypto-adjacent farm repos (aida-64/aion-2/trx-drainer clones, 244–302★/day) are excluded.
