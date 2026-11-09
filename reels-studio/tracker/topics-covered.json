@@ -1,6 +1,6 @@
 {
- "built_at": "2026-11-07T18:20:24Z",
- "count": 97,
+ "built_at": "2026-11-09T12:37:16Z",
+ "count": 99,
  "schema": 1,
  "topics": {
   "agentautoloop": {
@@ -465,6 +465,19 @@
     "repo-huashu-motion-01"
    ]
   },
+  "idol": {
+   "keys": [],
+   "names": [
+    "idol"
+   ],
+   "sources": [
+    "videos/model-idol-01/plan.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "model-idol-01"
+   ]
+  },
   "ifixai": {
    "keys": [],
    "names": [
@@ -681,6 +694,19 @@
    "status": "covered",
    "videos": [
     "model-humanizer-01"
+   ]
+  },
+  "modelidol": {
+   "keys": [],
+   "names": [
+    "model-idol-01"
+   ],
+   "sources": [
+    "briefs/model-idol-01.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "model-idol-01"
    ]
   },
   "modellfm25": {
@@ -1116,7 +1142,8 @@
    ],
    "sources": [
     "briefs/repo-sand3d-01.json",
-    "videos/repo-sand3d-01/plan.json"
+    "videos/repo-sand3d-01/plan.json",
+    "tracker/publications.json"
    ],
    "status": "covered",
    "videos": [
@@ -1254,7 +1281,8 @@
     "superagent-01"
    ],
    "sources": [
-    "briefs/repo-superagent-01.json"
+    "briefs/repo-superagent-01.json",
+    "tracker/publications.json"
    ],
    "status": "covered",
    "videos": [
