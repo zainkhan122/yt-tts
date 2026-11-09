@@ -244,29 +244,17 @@
         self.gl = gl;
         gl.domElement.className = "sp-gl";
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", DATA.vendor_url + "/MaterialsVariantsShoe.glb", true);
+        xhr.open("GET", DATA.vendor_url + "/shoe-pts.bin", true);
         xhr.responseType = "arraybuffer";
         xhr.onerror = fail;
         xhr.onload = function () {
           try {
-            new THREE.GLTFLoader().parse(xhr.response, DATA.vendor_url + "/", function (g) {
-              /* gather waypoints: subsample mesh vertices to a splat-looking cloud */
-              var pos = [], uv = [], vv = 0;
-              g.scene.updateMatrixWorld && g.scene.updateMatrixWorld(true);
-              g.scene.traverse(function (o) {
-                if (o.isMesh && o.geometry && o.geometry.attributes.position) {
-                  var a = o.geometry.attributes.position;
-                  for (var i = 0; i < a.count; i++) {
-                    var v = new THREE.Vector3().fromBufferAttribute(a, i);
-                    v.applyMatrix4(o.matrixWorld || o.matrix);
-                    pos.push(v.x, v.y, v.z); vv++;
-                  }
-                }
-              });
-              if (!vv) { fail(); return; }
-              var MAXP = 26000, stride = Math.ceil(vv / MAXP);
-              var xs = [], ys = [], zs = [], py = [];
-              for (var i = 0; i < vv; i += stride) { xs.push(pos[i * 3]); ys.push(pos[i * 3 + 1]); zs.push(pos[i * 3 + 2]); }
+            var pos = new Float32Array(xhr.response);
+            var vv = (pos.length / 3) | 0;
+            if (!vv) { fail(); return; }
+            {
+              var xs = [], ys = [], zs = [];
+              for (var i = 0; i < vv; i++) { xs.push(pos[i * 3]); ys.push(pos[i * 3 + 1]); zs.push(pos[i * 3 + 2]); }
               var mn = new THREE.Vector3(Infinity, Infinity, Infinity), mx = new THREE.Vector3(-Infinity, -Infinity, -Infinity);
               for (i = 0; i < xs.length; i++) { mn.min(new THREE.Vector3(xs[i], ys[i], zs[i])); mx.max(new THREE.Vector3(xs[i], ys[i], zs[i])); }
               var cx = (mn.x + mx.x) / 2, cy = (mn.y + mx.y) / 2, cz = (mn.z + mx.z) / 2;
@@ -308,7 +296,7 @@
               self.scene = sc; self.cam = cam; self.pts = pts; self.disc = disc;
               self.ok = true;
               resolve(true);
-            }, fail);
+            }
           } catch (e) { fail(); }
         };
         xhr.send();
