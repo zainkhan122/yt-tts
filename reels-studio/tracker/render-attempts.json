@@ -1074,6 +1074,27 @@
       "status": "failed",
       "voice_seed": 0
     },
+    "4624dbea419ba8145c860838decc434d89066fbfae517cf91ab9a812b6af1d18": {
+      "asset_files_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "asset_manifest_sha256": "366a8e084e958f8462f368dbee0f7f37e97361e70844a831278003df1c1a9883",
+      "brief_id": "model-idol-01",
+      "brief_sha256": "4fccfa130a1cc723fb03a09da6251ba86bcc6fe8c5a0471d8c373d9ec8e7fbed",
+      "capture_id": "model-idol-01",
+      "cover_sha256": "004686483f4662c2242f259a7efe19f04a38026f517f34693e4a0288d3dbde0c",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "4624dbea419ba8145c860838decc434d89066fbfae517cf91ab9a812b6af1d18",
+      "finished_at": null,
+      "from_tag": "",
+      "graphics_sha256": "1cbe3417c1d1c492e80005d1cab83b66fbbac84b5c6d6b5449bce569323a76ee",
+      "quality": "looks",
+      "rebuild_scenes": [],
+      "renderer_sha256": "3c1621b18b4a18c1731f3ca6159863d396c1bff8171d43f09ba1c7e1d718906f",
+      "run_id": "42616869740",
+      "started_at": "2026-11-09T12:25:28Z",
+      "status": "started",
+      "voice_seed": 0
+    },
     "468515ea47373a5b4d5fa687d0d431e6cc6d1298c3a52538f9053ef074ee0ef4": {
       "asset_files_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
       "asset_manifest_sha256": "f5770fab7af7fe2a7326d4d7f38c9609a788d4e8602664d1a448e874be816cd0",
