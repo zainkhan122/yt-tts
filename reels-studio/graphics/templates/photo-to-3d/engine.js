@@ -74,12 +74,76 @@
     var body = el("div", "ph-body", ph);
     var st = el("div", "ph-stage", body);
     el("div", "tag", st, spec.tag || "INPUT · ONE PICTURE");
-    var sub = el("div", "ph-subject", st);
-    el("div", "core", sub);
-    if (spec.handle !== false) el("div", "wing", sub);
+    var sub;
+    if (spec.shape === "sneaker" && D.vendor_url) {
+      var im = el("img", "ph-img", st);
+      im.src = D.vendor_url + "/sneaker-photo.jpg";
+      sub = el("div", "ph-subject sh-sneaker", st);
+      sub.style.display = "none";
+    } else {
+      sub = el("div", "ph-subject" + (spec.shape ? " sh-" + spec.shape : ""), st);
+    }
+    if (spec.shape === "sneaker") {
+      el("div", "sn-upper", sub);
+      el("div", "sn-collar", sub);
+      el("div", "sn-ankle", sub);
+      el("div", "sn-sole", sub);
+      var laces = el("div", "sn-laces", sub);
+      el("i", null, laces); el("i", null, laces); el("i", null, laces);
+    } else {
+      el("div", "core", sub);
+      if (spec.handle !== false) el("div", "wing", sub);
+    }
     el("div", "glowring", sub);
     el("div", "ph-cap", body, spec.caption || "one picture · flat 2D");
     return ph;
+  }
+
+  /* dots that ARE the object: silhouette-shaped Gaussian cloud, shaded like the photo (lit top, dark sole).
+     kind: "sneaker" | "mug". Returns [{x,y,f}] with f = 0 (top/lit) .. 1 (bottom/shadow). */
+  function shapeDots(kind, rnd, cx, cy, W, H, n) {
+    var parts;
+    if (kind === "sneaker") {
+      parts = [
+        { dx: -0.20, dy: 0.09, rx: 0.30 * W, ry: 0.105 * H, w: 0.52 },   /* body   */
+        { dx: -0.36, dy: 0.10, rx: 0.055 * W, ry: 0.085 * H, w: 0.12 },  /* toe cap */
+        { dx: 0.185, dy: -0.05, rx: 0.078 * W, ry: 0.145 * H, w: 0.14 }, /* collar/heel */
+        { dx: 0.245, dy: -0.21, rx: 0.052 * W, ry: 0.075 * H, w: 0.08 }, /* ankle tower */
+        { strip: true, w: 0.14 }                                          /* dense sole line */
+      ];
+    } else {                                                              /* mug */
+      parts = [
+        { dx: -0.02, dy: 0.02, rx: 0.235 * W, ry: 0.26 * H, w: 0.80 },
+        { ring: true, dx: 0.29, dy: 0.02, r: 0.125 * W, w: 0.20 }        /* handle */
+      ];
+    }
+    var tot = 0; parts.forEach(function (p) { tot += p.w; });
+    var out = [];
+    for (var i = 0; i < n; i++) {
+      var pick = rnd() * tot, p = parts[0], a = 0;
+      for (var j = 0; j < parts.length; j++) { if (pick < (a += parts[j].w)) { p = parts[j]; break; } }
+      var x, y;
+      if (p.strip) {
+        x = cx + (-0.335 + rnd() * 0.67) * W; y = cy + (0.175 + (rnd() - 0.5) * 0.03) * H;
+      } else if (p.ring) {
+        var th = (-68 + rnd() * 136) * Math.PI / 180;
+        x = cx + p.dx * W + Math.cos(th) * p.r; y = cy + p.dy * H + Math.sin(th) * p.r * 0.92;
+      } else {
+        var rr = Math.sqrt(rnd()), th2 = rnd() * 6.2832;
+        x = cx + p.dx * W + Math.cos(th2) * p.rx * rr; y = cy + p.dy * H + Math.sin(th2) * p.ry * rr;
+      }
+      out.push({ x: x, y: y, f: clamp((y - (cy - 0.3 * H)) / (0.62 * H), 0, 1) });
+    }
+    return out;
+  }
+
+  var LIT = [239, 233, 220], SHADE = [122, 117, 102];      /* the mug/sneaker's lit→shadow tones */
+  function dotColor(f, rnd) {
+    if (rnd() < 0.16) return rnd() < 0.5 ? ACC : ACC2;      /* sparse violet/cyan = still a splat */
+    var r = Math.round(LIT[0] + (SHADE[0] - LIT[0]) * f),
+        g = Math.round(LIT[1] + (SHADE[1] - LIT[1]) * f),
+        b = Math.round(LIT[2] + (SHADE[2] - LIT[2]) * f);
+    return "rgb(" + r + "," + g + "," + b + ")";
   }
 
   function splatCard(spec, seed) {
@@ -88,9 +152,10 @@
     var bar = el("div", "sp-bar", sp);
     el("i", null, bar); el("i", null, bar); el("i", null, bar);
     el("div", "sp-name", bar, spec.name || "object.ply");
-    el("div", "sp-count", sp, spec.count || "1,048,576 GAUSSIANS");
+    var cnt = spec.count === undefined ? "1,048,576 GAUSSIANS" : spec.count;
+    if (cnt) el("div", "sp-count", sp, cnt);
     var rnd = PRNG(seed || 1);
-    var box = { x: 60, y: 130, w: 840, h: 760 };
+    var box = spec.compact ? { x: 30, y: 68, w: 396, h: 388 } : { x: 60, y: 130, w: 840, h: 760 };
     sp._dots = [];
     var cx = box.x + box.w / 2, cy = box.y + box.h / 2;
     sp._cx = cx; sp._cy = cy;
@@ -104,18 +169,27 @@
       rings.push(g);
     });
     sp._rings = rings;
-    var n = spec.dots || 380;
+    var n = spec.dots || (spec.shape ? 620 : 380);
+    var shaped = spec.shape ? shapeDots(spec.shape, rnd, cx, cy, box.w, box.h, n) : null;
     for (var i = 0; i < n; i++) {
-      var ang = rnd() * 6.2832;
-      var mag = Math.abs(rnd() + rnd() - 1);                       // dense core, thin rim
-      var wing = rnd() < 0.22;
-      var bx = wing ? cx + box.w * 0.20 + Math.cos(ang) * mag * box.w * 0.07
-                    : cx + Math.cos(ang) * mag * box.w * 0.17;
-      var by = cy + Math.sin(ang) * mag * box.h * 0.21;
-      var dsz = 3 + rnd() * 4.4;
+      var bx, by, col, dsz;
+      if (shaped) {
+        bx = shaped[i].x; by = shaped[i].y;
+        col = dotColor(shaped[i].f, rnd);
+        dsz = 1.8 + rnd() * 3.4;
+      } else {
+        var ang = rnd() * 6.2832;
+        var mag = Math.abs(rnd() + rnd() - 1);                       // dense core, thin rim
+        var wing = rnd() < 0.22;
+        bx = wing ? cx + box.w * 0.20 + Math.cos(ang) * mag * box.w * 0.07
+                  : cx + Math.cos(ang) * mag * box.w * 0.17;
+        by = cy + Math.sin(ang) * mag * box.h * 0.21;
+        dsz = 3 + rnd() * 4.4;
+        col = rnd() < 0.72 ? ACC : (rnd() < 0.5 ? ACC2 : "#DDD6FF");
+      }
       var d = el("div", "sp-dot", sp);
       d.style.width = fmt(dsz) + "px"; d.style.height = fmt(dsz) + "px";
-      d.style.background = rnd() < 0.72 ? ACC : (rnd() < 0.5 ? ACC2 : "#DDD6FF");
+      d.style.background = col;
       var side = Math.sign(rnd() - 0.5) || 1;                       // orbit direction per dot
       var phase = rnd() * 6.2832, w = 0.35 + rnd() * 0.55;          // own orbit speed
       var orbitRx = 8 + rnd() * 26, orbitRy = 5 + rnd() * 16;
@@ -127,6 +201,21 @@
     return sp;
   }
 
+  /* shaped cloud rotating as if held at the cursor: x compresses around the centre of mass, dots keep a
+     small live jitter so it stays a splat, not a silhouette. */
+  function rotSquash(sp, squish, now) {
+    var cx = sp._cx, cy = sp._cy, sx = Math.max(0.12, squish);
+    for (var i = 0; i < sp._dots.length; i++) {
+      var dt = sp._dots[i], b = dt._b;
+      var jx = Math.cos(b.phase + now * b.w * b.side) * 3.2, jy = Math.sin(b.phase * 1.7 + now * b.w) * 2.4;
+      var dx = (b.x - cx) * sx, dy = (b.y - cy) * (0.92 + 0.08 * sx);
+      dt.style.transform = "translate(" + fmt(cx + dx + jx, 1) + "px," + fmt(cy + dy + jy, 1) + "px)";
+      dt.style.opacity = fmt(0.55 + 0.45 * Math.min(1, sx * 1.2));
+    }
+    for (var k = 0; k < sp._rings.length; k++) {
+      sp._rings[k].style.transform = "rotate(" + fmt(Math.sin(now * (0.5 + k * 0.22)) * 5, 2) + "deg) scaleX(" + fmt(0.6 + 0.45 * sx, 3) + ")";
+    }
+  }
   function driftDots(sp, now) {
     for (var i = 0; i < sp._dots.length; i++) {
       var d = sp._dots[i], b = d._b;
@@ -140,6 +229,109 @@
   }
 
   /* ============================ archetypes ============================ */
+  /* ---- real 3D splat view: the Khronos shoe rendered as a splat-like point cloud in WebGL ---- */
+  var SplatGL = {
+    promise: null, gl: null, scene: null, cam: null, pts: null, fit: null,
+    ensure: function () {
+      if (this.promise) return this.promise;
+      var self = this;
+      this.promise = new Promise(function (resolve) {
+        var fail = function () { self.ok = false; resolve(false); };
+        if (!window.THREE || !THREE.WebGLRenderer || !DATA.vendor_url) { fail(); return; }
+        var gl;
+        try { gl = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true }); }
+        catch (e) { fail(); return; }
+        self.gl = gl;
+        gl.domElement.className = "sp-gl";
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", DATA.vendor_url + "/MaterialsVariantsShoe.glb", true);
+        xhr.responseType = "arraybuffer";
+        xhr.onerror = fail;
+        xhr.onload = function () {
+          try {
+            new THREE.GLTFLoader().parse(xhr.response, DATA.vendor_url + "/", function (g) {
+              /* gather waypoints: subsample mesh vertices to a splat-looking cloud */
+              var pos = [], uv = [], vv = 0;
+              g.scene.updateMatrixWorld && g.scene.updateMatrixWorld(true);
+              g.scene.traverse(function (o) {
+                if (o.isMesh && o.geometry && o.geometry.attributes.position) {
+                  var a = o.geometry.attributes.position;
+                  for (var i = 0; i < a.count; i++) {
+                    var v = new THREE.Vector3().fromBufferAttribute(a, i);
+                    v.applyMatrix4(o.matrixWorld || o.matrix);
+                    pos.push(v.x, v.y, v.z); vv++;
+                  }
+                }
+              });
+              if (!vv) { fail(); return; }
+              var MAXP = 26000, stride = Math.ceil(vv / MAXP);
+              var xs = [], ys = [], zs = [], py = [];
+              for (var i = 0; i < vv; i += stride) { xs.push(pos[i * 3]); ys.push(pos[i * 3 + 1]); zs.push(pos[i * 3 + 2]); }
+              var mn = new THREE.Vector3(Infinity, Infinity, Infinity), mx = new THREE.Vector3(-Infinity, -Infinity, -Infinity);
+              for (i = 0; i < xs.length; i++) { mn.min(new THREE.Vector3(xs[i], ys[i], zs[i])); mx.max(new THREE.Vector3(xs[i], ys[i], zs[i])); }
+              var cx = (mn.x + mx.x) / 2, cy = (mn.y + mx.y) / 2, cz = (mn.z + mx.z) / 2;
+              var span = Math.max(mx.x - mn.x, mx.y - mn.y, mx.z - mn.z);
+              var cols = [];
+              var rng = 1234567;
+              var rndc = function () { rng = (rng * 16807) % 2147483647; return (rng - 1) / 2147483646; };
+              for (i = 0; i < xs.length; i++) {
+                var f = (ys[i] - mn.y) / Math.max(1e-6, mx.y - mn.y);          /* lit top, shaded sole */
+                var r, gcg, b;
+                if (rndc() < 0.14) { var violet = rndc() < 0.6; r = violet ? 139 : 124; gcg = violet ? 124 : 212; b = violet ? 255 : 252; }
+                else { r = 239 - 117 * (1 - f); gcg = 233 - 116 * (1 - f); b = 220 - 118 * (1 - f); }
+                cols.push(r / 255, gcg / 255, b / 255);
+              }
+              var geo = new THREE.BufferGeometry();
+              var arr = new Float32Array(xs.length * 3);
+              for (i = 0; i < xs.length; i++) { arr[i * 3] = (xs[i] - cx) / span * 1.5; arr[i * 3 + 1] = (ys[i] - cy) / span * 1.5; arr[i * 3 + 2] = (zs[i] - cz) / span * 1.5; }
+              geo.setAttribute("position", new THREE.BufferAttribute(arr, 3));
+              geo.setAttribute("color", new THREE.Float32BufferAttribute(cols, 3));
+              /* soft round splat sprite */
+              var cv = document.createElement("canvas"); cv.width = cv.height = 64;
+              var gc = cv.getContext("2d");
+              var grd = gc.createRadialGradient(32, 32, 2, 32, 32, 32);
+              grd.addColorStop(0, "rgba(255,255,255,1)"); grd.addColorStop(0.55, "rgba(255,255,255,0.65)"); grd.addColorStop(1, "rgba(255,255,255,0)");
+              gc.fillStyle = grd; gc.fillRect(0, 0, 64, 64);
+              var tex = new THREE.CanvasTexture(cv);
+              var mat = new THREE.PointsMaterial({ size: 0.028, map: tex, vertexColors: true, transparent: true,
+                                                   opacity: 0.96, depthWrite: false, sizeAttenuation: true });
+              /* points render: the splat-look; gently fake anisotropic spread with a duplicate darker pass */
+              var pts = new THREE.Points(geo, mat);
+              var sc = new THREE.Scene();
+              sc.add(pts);
+              var disc = new THREE.Points(geo, new THREE.PointsMaterial({ size: 0.052, map: tex, vertexColors: true,
+                transparent: true, opacity: 0.18, depthWrite: false, sizeAttenuation: true }));
+              sc.add(disc);
+              var cam = new THREE.PerspectiveCamera(32, 1, 0.1, 20);
+              cam.position.set(0, 0.02, 3.1);
+              cam.lookAt(0, 0, 0);
+              self.scene = sc; self.cam = cam; self.pts = pts; self.disc = disc;
+              self.ok = true;
+              resolve(true);
+            }, fail);
+          } catch (e) { fail(); }
+        };
+        xhr.send();
+      });
+      return this.promise;
+    },
+    mount: function (host, w, h) {
+      if (!this.ok) return false;
+      if (this._w !== w || this._h !== h) {
+        this.gl.setSize(w, h); this._w = w; this._h = h;
+        this.cam.aspect = w / h; this.cam.updateProjectionMatrix();
+      }
+      if (this.gl.domElement.parentNode !== host) host.appendChild(this.gl.domElement);
+      return true;
+    },
+    draw: function (angle, tilt) {
+      if (!this.ok) return;
+      this.pts.rotation.y = angle; this.disc.rotation.y = angle;
+      this.pts.rotation.x = tilt || 0; this.disc.rotation.x = tilt || 0;
+      this.gl.render(this.scene, this.cam);
+    }
+  };
+
   var ARCH = {};
 
   /* photo_splat: photos hard-cut, then the scan line converts the last one into the point cloud. */
@@ -267,6 +459,157 @@
       var fill = k < 0 ? 0.04 : (k + 0.4) / r.names.length;
       r.rail.style.width = fmt(clamp(fill, 0.04, 1) * 100, 2) + "%";
       if (r._mini) driftDots(r._mini, now);
+    }
+  };
+
+  /* split_view: the photo on the left, its live 3D on the right; a cursor drags the splat around as the
+     voice says "turn it with your mouse". Both halves are the SAME object: same core shape, same wing. */
+  ARCH.split_view = {
+    build: function (root, s) {
+      var p = s.payload || {};
+      var r = {};
+      var sv = el("div", "sv", root);
+      var pk = el("div", "sv-half ph-side", sv);
+      var ph = photoCard(p.photo || {});
+      ph.style.position = "absolute"; ph.style.inset = "120px 4% 70px 4%";
+      pk.appendChild(ph);
+      r.photoIn = parseFloat(0);
+      var tk = el("div", "sv-half sp-side", sv);
+      var sp = splatCard(Object.assign({ compact: true, dots: 220 }, p.splat || {}), (p.splat && p.splat.seed) || 4211);
+      sp.style.position = "absolute"; sp.style.inset = "120px 4% 70px 4%";
+      tk.appendChild(sp);
+      r.splat = sp;
+      r.glHost = el("div", "sp-glhost", tk);
+      r.glHost.style.inset = "188px 22px 74px 22px";
+      r.mid = el("div", "sv-mid", sv, "\u2968");
+      var chips = el("div", "sv-chips", sv);
+      r.chips = (p.chips || []).map(function (t) { return el("div", "sv-chip", chips, t); });
+      /* the drag cursor that turns the splat */
+      r.cur = document.createElementNS(NS, "svg");
+      r.cur.setAttribute("viewBox", "0 0 24 24");
+      r.cur.setAttribute("class", "sv-cursor");
+      tk.appendChild(r.cur);
+      var path = document.createElementNS(NS, "path");
+      path.setAttribute("d", "M4 2l15 9.2-6.6 1.3 3.9 7.4-2.8 1.5-3.9-7.5L4 18.8z");
+      path.setAttribute("fill", "#FFFFFF"); path.setAttribute("stroke", DARK); path.setAttribute("stroke-width", "1.4");
+      r.cur.appendChild(path);
+      r.times = bindTimes(p.cue_phrases, s, Math.max(4, (p.cue_phrases || []).length || 4));
+      return r;
+    },
+    update: function (r, s, u, d) {
+      var now = u + s.t0;
+      var t0 = r.times[0], t1 = r.times[1], t2 = r.times[2], t3 = r.times[3] || (t2 + 1);
+      /* halves open on the voice */
+      var o = eCubic(ramp(now, t0, t0 + 0.4));
+      r.photoIn = o;
+      r.cur.style.opacity = fmt(ramp(now, t1 - 0.15, t1 + 0.05));
+      /* drag: cursor sweeps, dots & rings swing wider while it drags */
+      var drag = ramp(now, t1, t1 + 1.4);
+      var wobble = Math.sin(drag * 6.2832);
+      var cx = 90 + drag * 230, cy = 300 + wobble * 46;
+      r.cur.style.transform = "translate(" + fmt(cx) + "px," + fmt(cy) + "px)";
+      /* the REAL 3D object TURNS: idle slow swing; while the cursor drags, it follows the drag */
+      if (SplatGL.ok) {
+        r.glHost.classList.add("on");
+        SplatGL.mount(r.glHost, r.glHost.clientWidth || 440, r.glHost.clientHeight || 560);
+        var dragging = ramp(now, t1, t1 + 1.4) * (1 - ramp(now, t1 + 1.4, t1 + 2.2));
+        var ang = now * 0.9 + dragging * (drag * 2.6);
+        SplatGL.draw(ang, 0.12 + 0.06 * Math.sin(now * 0.7));
+      } else {
+        var speed = 0.55 + 0.9 * ramp(now, t1, t1 + 1.4) * (1 - ramp(now, t1 + 1.4, t1 + 2.4));
+        rotSquash(r.splat, 0.45 + 0.55 * Math.abs(Math.sin(now * speed)), now);
+      }
+      r.mid.style.opacity = fmt(0.25 + 0.75 * ramp(now, t0 + 0.2, t0 + 0.5));
+      var chipOn = [t1, t2, t3];
+      r.chips.forEach(function (c, i) {
+        c.style.opacity = fmt(ramp(now, chipOn[i] || t1, (chipOn[i] || t1) + 0.25));
+        c.style.transform = "translateY(" + fmt((1 - eCubic(ramp(now, chipOn[i] || t1, (chipOn[i] || t1) + 0.4))) * 14) + "px)";
+      });
+    }
+  };
+
+  /* blender_handoff: the same photo, then its background strips off to a checkerboard, then the .ply
+     card slides into a drawn Blender viewport window and docks. Three motions, one object. */
+  ARCH.blender_handoff = {
+    build: function (root, s) {
+      var p = s.payload || {};
+      var r = {};
+      var bh = el("div", "bh", root);
+      /* left: the photo with its background (a solid fill that clears to checkers) */
+      r.photoWrap = el("div", "bh-photo", bh);
+      var ph = photoCard(p.photo || {});
+      ph.style.position = "absolute"; ph.style.inset = "26px 18px 66px 18px";
+      r.photoWrap.appendChild(ph);
+      r.stage = ph.querySelector(".ph-stage");
+      /* hoist the subject out of the stage so fading the stage removes ONLY the backdrop */
+      var body = ph.querySelector(".ph-body");
+      r.subject = ph.querySelector(".ph-img") || ph.querySelector(".ph-subject");
+      if (r.subject && body) { r.subject.style.zIndex = "3"; ph.querySelector(".ph-body").appendChild(r.subject); }
+      r.checker = el("div", "bh-checker", r.photoWrap);   /* appears behind the subject */
+      r.checker.style.zIndex = "2";
+      el("div", "bh-tag", r.photoWrap, "background \u00d7");
+      /* right: the Blender window */
+      r.appWrap = el("div", "bh-app", bh);
+      var spec = p.app || {};
+      var tb = el("div", "bh-app-bar", r.appWrap);
+      el("i", null, tb); el("i", null, tb); el("i", null, tb);
+      el("div", "bh-app-name", tb, spec.title || "Blender");
+      el("div", "bh-app-grid", r.appWrap);
+      var fs = p.file || {};
+      var sp = splatCard({ name: fs.name || "model.ply", dots: 220, count: "", compact: true,
+                           shape: (p.photo && p.photo.shape) || "mug" }, 6103);
+      sp.style.position = "absolute"; sp.style.inset = "22% 8% 12% 8%";
+      r.appWrap.appendChild(sp);
+      r.appSplat = sp;
+      r.glHost = el("div", "sp-glhost", r.appWrap);
+      r.glHost.style.inset = "78px 26px 40px 26px";
+      /* the file card that flies left -> right */
+      r.file = el("div", "bh-file", bh);
+      el("div", "bh-file-name", r.file, fs.name || "model.ply");
+      el("div", "bh-file-kind", r.file, fs.kind || "3DGS");
+      el("span", "bh-file-arrow", r.file, "\u21dd");
+      var steps = el("div", "bh-steps", bh);
+      r.steps = (p.steps || []).map(function (t) { return el("div", "bh-step", steps, t); });
+      r.times = bindTimes(p.cue_phrases, s, Math.max(4, (p.cue_phrases || []).length));
+      return r;
+    },
+    update: function (r, s, u, d) {
+      var now = u + s.t0;
+      var tCut = r.times[1], tFile = r.times[2], tDock = r.times[3] || (tFile + 1.4);
+      /* 1 — background peels: photo stage fades, checker behind slides in */
+      var cut = eCubic(ramp(now, tCut, tCut + 0.7));
+      if (r.stage) r.stage.style.opacity = fmt(1 - 0.88 * cut, 3);
+      r.checker.style.opacity = fmt(cut);
+      /* 2 — the .ply card takes off from the cut photo… */
+      var fly = eCubic(ramp(now, tFile, tFile + 1.0));
+      var x0 = -20, y0 = 400, x1 = 420, y1 = 210;
+      r.file.style.opacity = fmt(ramp(now, tFile - 0.2, tFile));
+      r.file.style.transform = "translate(" + fmt(x0 + (x1 - x0) * fly) + "px," + fmt(y0 + (y1 - y0) * fly) + "px)"
+        + " rotate(" + fmt(-14 + 14 * eCubic(ramp(now, tFile, tFile + 1.2)), 1) + "deg)"
+        + " scale(" + fmt(1 - 0.32 * eCubic(ramp(now, tDock - 0.3, tDock)), 3) + ")";
+      /* 3 — …and docks: the Blender window fades in, splat blooms inside */
+      var dock = eCubic(ramp(now, tDock, tDock + 0.45));
+      r.appWrap.style.opacity = fmt(0.25 + 0.75 * ramp(now, tDock - 0.35, tDock));
+      r.file.style.opacity = fmt(ramp(now, tFile - 0.2, tFile) * (1 - ramp(now, tDock + 0.15, tDock + 0.5)));
+      r.appSplat.style.opacity = fmt(ramp(now, tDock, tDock + 0.3));
+      var bloom = eBack(ramp(now, tDock + 0.1, tDock + 0.6));
+      if (SplatGL.ok) {
+        r.glHost.classList.add("on");
+        SplatGL.mount(r.glHost, r.glHost.clientWidth || 380, r.glHost.clientHeight || 560);
+        /* dock pop, then a slow show-off turn */
+        var pop = 1 + 0.12 * Math.sin(bloom * Math.PI);
+        SplatGL.draw(now * 0.85, 0.1);
+        r.glHost.style.transform = "scale(" + fmt((0.74 + 0.26 * bloom) * pop, 3) + ")";
+        r.appSplat.style.opacity = fmt(ramp(now, tDock, tDock + 0.3) * 0.25);
+      } else {
+        rotSquash(r.appSplat, 0.5 + 0.5 * Math.abs(Math.sin(now * 0.7)), now);
+        r.appSplat.style.transform = "scale(" + fmt(0.74 + 0.26 * bloom, 3) + ")";
+      }
+      var stepT = [tCut, tDock - 0.3, tDock + 0.6];
+      r.steps.forEach(function (st, i) {
+        st.style.opacity = fmt(ramp(now, stepT[i], stepT[i] + 0.22));
+        st.style.transform = "translateX(" + fmt((1 - eCubic(ramp(now, stepT[i], stepT[i] + 0.3))) * 26) + "px)";
+      });
     }
   };
 
@@ -503,7 +846,9 @@
     });
     fitScenes();
     capEl = el("div", "caption", stageEl);
-    window.ready = true;
+    var needsGL = D.scenes.some(function (s) { return s.archetype === "split_view" || s.archetype === "blender_handoff"; });
+    if (needsGL && window.THREE) { SplatGL.ensure().then(function () { window.ready = true; }); }
+    else { window.ready = true; }
   }
 
   function fitScenes() {

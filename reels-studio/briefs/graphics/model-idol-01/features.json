@@ -31,7 +31,7 @@
     {
       "id": "f5",
       "title": "Standard .ply out",
-      "what": "The file opens in any Gaussian splat viewer.",
+      "what": "The file opens in any Gaussian-splat viewer or Blender.",
       "evidence_quote": "written as a standard 3DGS `.ply`"
     },
     {
@@ -62,7 +62,7 @@
       "id": "f10",
       "title": "Two encoders are gated",
       "risk": true,
-      "what": "Accept terms once on DINOv3 and FLUX.2 before the SDK will run.",
+      "what": "Accept terms once on DINOv3 and FLUXXX.2 before the SDK will run.",
       "evidence_quote": "it reads input through two gated models"
     }
   ],

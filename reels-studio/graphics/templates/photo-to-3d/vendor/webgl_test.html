@@ -1,0 +1,16 @@
+<html><body bgcolor='#14172B'>
+<script src='./three.min.js'></script>
+<script src='./GLTFLoader.legacy.js'></script>
+<script>
+var r = new THREE.WebGLRenderer({antialias:true});
+r.setSize(400,400); document.body.appendChild(r.domElement);
+var sc = new THREE.Scene(); var cam = new THREE.PerspectiveCamera(45,1,.1,100);
+cam.position.set(0,1.2,3);
+sc.add(new THREE.AmbientLight(0xffffff,1.5));
+var dl = new THREE.DirectionalLight(0xffffff,2.2); dl.position.set(2,3,4); sc.add(dl);
+new THREE.GLTFLoader().load('./MaterialsVariantsShoe.glb', function(g){
+  sc.add(g.scene); r.render(sc,cam);
+  window.__OK = true;
+  window.__PTS = (function(){ var n=0; g.scene.traverse(function(o){ if(o.isMesh) n+=o.geometry.attributes.position.count; }); return n; })();
+}, undefined, function(e){ window.__ERR = String(e); });
+</script></body></html>

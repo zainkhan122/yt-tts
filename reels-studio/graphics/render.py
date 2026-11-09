@@ -34,11 +34,18 @@ def build_stage_html(doc: dict) -> str:
     d = template_dir(doc.get("template"))
     css = (d / "stage.css").read_text(encoding="utf-8")
     js = (d / "engine.js").read_text(encoding="utf-8")
+    vend = d / "vendor"
+    vend_scripts = ""
+    if vend.is_dir():
+        doc = dict(doc, vendor_url=vend.resolve().as_uri())
+        for lib in ("three.min.js", "GLTFLoader.legacy.js"):
+            if (vend / lib).exists():
+                vend_scripts += f"<script src='{vend.resolve().as_uri()}/{lib}'></script>"
     data = json.dumps(doc, ensure_ascii=False).replace("</", "<\\/")
     return (
         "<!doctype html><html><head><meta charset='utf-8'>"
         f"<style>{css}</style></head><body><div id='stage'></div>"
-        f"<script>window.DATA={data};</script><script>{js}</script></body></html>"
+        f"<script>window.DATA={data};</script>{vend_scripts}<script>{js}</script></body></html>"
     )
 
 
@@ -70,7 +77,8 @@ def render(doc: dict, audio: Path, out: Path, work: Path, duration_s: float,
     )
     try:
         with sync_playwright() as p:
-            browser = p.chromium.launch(args=["--no-sandbox", "--font-render-hinting=none"])
+            browser = p.chromium.launch(args=["--no-sandbox", "--font-render-hinting=none",
+                                              "--allow-file-access-from-files"])
             page = browser.new_page(viewport={"width": W, "height": H}, device_scale_factor=1)
             page.goto(html.as_uri())
             page.wait_for_function("window.ready === true", timeout=30000)

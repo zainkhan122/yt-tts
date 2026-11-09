@@ -54,6 +54,36 @@
    "facts": true,
    "script_ok": false
   },
+  "split_view": {
+   "req": [
+    "photo",
+    "splat"
+   ],
+   "opt": [
+    "eyebrow",
+    "accent_word",
+    "cue_phrases",
+    "chips",
+    "label"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "blender_handoff": {
+   "req": [
+    "photo",
+    "file",
+    "app"
+   ],
+   "opt": [
+    "eyebrow",
+    "accent_word",
+    "cue_phrases",
+    "steps"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
   "gpu_gauge": {
    "req": [
     "chips"
