@@ -405,6 +405,40 @@
       "title": "AI UI design has one look, and one skill fixes it",
       "video_id": "repo-unslop-02",
       "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-11-09T01:01:46Z",
+      "approval": "approved",
+      "approved_cover_sha": "sha256:004686483f4662c2242f259a7efe19f04a38026f517f34693e4a0288d3dbde0c",
+      "approved_panel_sha": "8c251e455aa4adffc4232dcdb38844ed51cc5aaf40fcb878b834c49c1daca294",
+      "asset_digest": "sha256:667027af181381acbf3248d5b63403219e1359f4ef925561c8a4eb59f0029f47",
+      "asset_id": 725744285,
+      "asset_size": 5350074,
+      "brief_sha256": "8a4527961fd2d9aa9535268e608d930acc8c83753809efbe51c0e3fe466765c0",
+      "category": "tool",
+      "cover_reviewed_at": "2026-11-09T01:06:59Z",
+      "cover_sha256": "sha256:004686483f4662c2242f259a7efe19f04a38026f517f34693e4a0288d3dbde0c",
+      "expires_at": "2026-11-15T18:59:59Z",
+      "kit_asset_id": 725744336,
+      "kit_digest": "sha256:9a5a1f4c5995786ea72e5b5c1afac268f66d2007179eb4644ea78a0132a61226",
+      "media_path": "media/725744285/model-idol-01.mp4",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "priority": 100,
+      "release_tag": "renders-2026-11-09",
+      "review": {
+        "cover_sha256": null,
+        "mp4_bytes": 5350074,
+        "mp4_sha256": "667027af181381acbf3248d5b63403219e1359f4ef925561c8a4eb59f0029f47",
+        "run_id": "42512225867"
+      },
+      "reviewed_at": "2026-11-09T01:08:40Z",
+      "title": "Image to 3D in under two seconds idol turns one photo",
+      "video_id": "model-idol-01",
+      "youtube_ai_generated": false
     }
   ],
   "schema_version": 1
