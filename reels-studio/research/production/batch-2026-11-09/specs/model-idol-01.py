@@ -61,7 +61,7 @@ PLAN = {
         {
             "n": 4,
             "claim": "Try it free in the browser demo, or run one command on your own machine.",
-            "spoken": "Or type one command on your own machine — python idol sample, photo.jpg — and your first model is a file you already have.",
+            "spoken": "Or type one command on your own machine — python idol sample, photo.jpg — and your first model is done.",
             "source": MODEL,
             "source_note": "Model card demo badge -> huggingface.co/spaces/speridlabs/idol; SDK: pip install -e . + python -m idol.sample --image photo.jpg --mode real.",
             "visual": {"kind": "steps", "intent": "the free demo door, then the command typing itself", "steps": ["browser demo", "one command"]},
@@ -73,7 +73,7 @@ PLAN = {
         {
             "n": 5,
             "claim": "On the lab's own benchmark it edges TripoSplat and TRELLIS on every visual column, and it was the number-one trending model on Hugging Face today.",
-            "spoken": "On the lab's own tests it beat both big image-to-three-D tools on every visual score — and it was the top trending model today.",
+            "spoken": "On the lab's own tests it beat both big image-to-three-D tools on every visual score — and it topped the trending list today.",
             "source": MODEL,
             "source_note": "Benchmark table: Idol bold in SSIM, LPIPS, IoU, DINOv2, CLIP, sharpness distance vs TripoSplat/TRELLIS. HF trending #1, score ~765 on 2026-11-08.",
             "visual": {"kind": "steps", "intent": "bars with idol on top, trending badge", "steps": ["every visual score", "top trending"]},
