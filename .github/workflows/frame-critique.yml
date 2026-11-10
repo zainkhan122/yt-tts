@@ -64,8 +64,13 @@ jobs:
           i=0
           for u in $URLS; do
             i=$((i+1)); [ $i -gt 5 ] && break
-            yt-dlp --no-warnings -f "best[ext=mp4]/best" --write-info-json -o "/tmp/ext/v$i.%(ext)s" "$u"
-            mv /tmp/ext/v$i.mp4 /tmp/ext/v$i-src.mp4 2>/dev/null || true
+            if echo "$u" | grep -q "instagram.com/reel\|instagram.com/p/\|tiktok.com\|youtube.com/shorts"; then
+              yt-dlp --no-warnings -f "best[ext=mp4]/best" --write-info-json -o "/tmp/ext/v$i.%(ext)s" "$u"
+              mv /tmp/ext/v$i.mp4 /tmp/ext/v$i-src.mp4 2>/dev/null || true
+            else
+              curl -sL -m 120 -H "User-Agent: Mozilla/5.0" "$u" -o "/tmp/ext/v$i-src.mp4"
+              echo '{}' > /tmp/ext/v$i-src.info.json
+            fi
             DUR=$("$FF" -i /tmp/ext/v$i-src.mp4 2>&1 | grep -oE 'Duration: [0-9:.]+' | head -1)
             mkdir -p /tmp/ext/frames-$i
             python3 - $i <<'EOF'
@@ -87,7 +92,8 @@ EOF
           for d in sorted(glob.glob('/tmp/ext/frames-*')):
               v = d.split('-')[-1]
               info = glob.glob(f'/tmp/ext/v{v}*.info.json')
-              cap = json.load(open(info[0])).get('description','') if info else ''
+              try: cap = json.load(open(info[0])).get('description','') if info else ''
+              except Exception: cap = ''
               pack.append({'name': f'video-{v}', 'caption': cap,
                            'frames': sorted(glob.glob(d + '/*.jpg'))})
           json.dump(pack, open('/tmp/ext/frames.json','w'))
