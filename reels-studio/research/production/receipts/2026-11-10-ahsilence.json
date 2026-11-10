@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "batch_id": "2026-11-10-ahsilence",
-  "created_at": "2026-11-10T09:01:02Z",
+  "created_at": "2026-11-10T10:46:39Z",
   "briefs": {
     "repo-ahsilence-01": {
-      "brief_sha256": "aabc69f10acae1a5e08d8809058a1d1916ce7264850032eb9ca95a6895d51277",
-      "brief_identity_sha256": "cda9a378767ff6755453ad929dc5919fe827c44f0666afe72f51691a4e06d185",
+      "brief_sha256": "f46978ba070ee44817a58baa614e76ae7752edbd8fe9fa535109710154ee70c0",
+      "brief_identity_sha256": "ee32fdaad3dd3d063995c300cef57d669353cc5af25e283da734c5cd823ef9ef",
       "stages": {
         "script": {
           "status": "complete",

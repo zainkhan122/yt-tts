@@ -417,6 +417,40 @@ def check_cover(brief_id):
     return [_result("cover", "PASS", "selected cover matches the reviewed sha and plan text")]
 
 
+def check_package_advisories(brief_id, brief):
+    """Advisory-only SHORT packaging signals (owner rule 10 Nov 2026): the pairing score and hook
+    panel never block locally; they surface so authoring sees them. Blocking forms live in ship.py."""
+    out = []
+    try:
+        import package_lint
+        res = package_lint.pairing(brief, package_lint.cover_text_for(brief_id))
+        if res is not None:
+            notes = package_lint.advisory_notes(res)
+            blocks = package_lint.blocking_errors(res)
+            status = "PASS" if not blocks and not notes else "NOTE"
+            detail = f"title \u00d7 cover score {res['score']}/100" + (("; " + "; ".join(blocks + notes)) if (blocks or notes) else "")
+            fix = "run tools/package_lint.py <id>; the title and the cover must not repeat each other"
+            out.append(_result("package_pairing", status, detail, fix))
+            if blocks:
+                out[-1]["status"] = "NOTE"  # blocks are enforced at approval time by ship.check
+            out.append(out[-1].copy())
+            out = out[:1]
+    except Exception as exc:
+        out.append(_result("package_pairing", "NOTE", f"pairing lint unavailable: {exc}", "check tools/package_lint.py imports"))
+    try:
+        sys.path.insert(0, str(ROOT / "tools" / "external" / "youtube-agent-skill"))
+        import hookscore
+        s0 = (brief.get("scenes") or [{}])[0]
+        hook = f"{s0.get('heading','')} / {str(s0.get('say','')).split('. ')[0]}"
+        parts, verdict, name, _hits = hookscore.score(hook)
+        out.append(_result("hook_panel", "PASS" if verdict >= 72 else "NOTE",
+                   f"hook {verdict}/100 [{name}] weakest {min(parts, key=parts.get)} {parts[min(parts, key=parts.get)]}",
+                   "run tools/hook_panel.py formulas and rework the weakest property"))
+    except Exception as exc:
+        out.append(_result("hook_panel", "NOTE", f"hook panel unavailable: {exc}", ""))
+    return out
+
+
 def legacy_ids():
     path = ROOT / "config" / "legacy-briefs.json"
     return set(json.loads(path.read_text(encoding="utf-8")).get("briefs", {})) if path.exists() else set()
@@ -464,7 +498,8 @@ def preflight(brief_id, phase="full", receipt_rel=None):
                + check_queue_pin(brief_id, brief) + check_render(brief_id)
                + check_motion(brief_id, path) + check_media_aspect(brief_id, brief)
                + check_policy(brief_id, brief) + check_layout(brief_id, path)
-               + check_workspace(brief_id) + check_short_qa_plan(brief_id, brief) + check_media_fallback(brief_id, brief))
+               + check_workspace(brief_id) + check_short_qa_plan(brief_id, brief) + check_media_fallback(brief_id, brief)
+               + check_package_advisories(brief_id, brief))
     if phase == "pre":
         results += _cloud_source_checks(brief_id, brief, with_release=False, with_cover=False)
     else:

@@ -203,6 +203,15 @@ def check(video_id: str, *, root: Path = ROOT, live: bool = False) -> list[str]:
         if now != item.get("asset_digest"):
             errors.append(f"release: live asset digest {str(now)[:19]} != queued {str(item.get('asset_digest'))[:19]} (asset replaced on GitHub)")
 
+    try:
+        import package_lint
+        brief_for_pkg = _load(brief_path)
+        pres = package_lint.pairing(brief_for_pkg, package_lint.cover_text_for(video_id, root))
+        if pres is not None and not item.get("package_pairing_grandfathered"):
+            errors += [f"package {e}" for e in package_lint.blocking_errors(pres)]
+    except Exception as exc:
+        errors.append(f"package: pairing lint failed to run ({exc})")
+
     verdict = panel_verdict(video_id, root)
     if verdict != "PASS":
         errors.append(f"panel: verdict is {verdict or 'missing'} (approval needs PASS)")
