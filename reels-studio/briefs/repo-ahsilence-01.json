@@ -1,0 +1,345 @@
+{
+  "id": "repo-ahsilence-01",
+  "capture": "captures/repo-ahsilence-01",
+  "title": "AhSilence: the open-source app that fights noise with more noise",
+  "niche": "AI tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "ahsilence",
+    "active noise cancellation",
+    "android app",
+    "phase inverted audio"
+  ],
+  "facts": {
+    "method": "repo README, SUPPORT.md FAQ and GitHub API numbers, all fetched 2026-11-09",
+    "limits": "Single-tone cancellation only; the author admits in the FAQ that it is not perfect."
+  },
+  "sources": [
+    "https://github.com/ahmadhassan-bted/ahsilence",
+    "https://raw.githubusercontent.com/ahmadhassan-bted/ahsilence/master/README.md",
+    "https://raw.githubusercontent.com/ahmadhassan-bted/ahsilence/master/SUPPORT.md"
+  ],
+  "lexicon": {
+    "AhSilence": "ah silence",
+    "ahsilence": "ah silence",
+    "AHSILENCE": "ah silence",
+    "Bluetooth": "blue tooth",
+    "FAQ": "F A Q"
+  },
+  "verify_before_render": [
+    "Every point cites its source in the feature sheet (features.json evidence quotes).",
+    "Numbers on screen are the verified ones: 7-second scan, 4,876 stars, ±5° around 180°."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "flow",
+      "heading": "HOW DO HEADPHONES SILENCE A SCREAMING PLATFORM?",
+      "nodes": [
+        "a screaming platform",
+        "even more sound"
+      ],
+      "say": "How do noise cancelling headphones buy you silence on a screaming platform? They pour even more sound into your ears. Every hum is a wave of air, pushing and pulling.",
+      "sub": "AHSILENCE · FREE · OFFLINE · 4,876 STAR"
+    },
+    {
+      "id": "flip",
+      "type": "flow",
+      "heading": "COPY IT. FLIP IT.",
+      "nodes": [
+        "exact copy",
+        "upside down",
+        "silence"
+      ],
+      "say": "Play an exact copy upside down at the same moment, and the two flatten into silence."
+    },
+    {
+      "id": "pivot",
+      "type": "flow",
+      "heading": "ONE APP DOES IT ON YOUR PHONE",
+      "nodes": [
+        "the trick",
+        "AhSilence"
+      ],
+      "say": "One developer packed that trick into an Android app for your phone. AhSilence."
+    },
+    {
+      "id": "scan",
+      "type": "flow",
+      "heading": "SEVEN SECONDS OF LISTENING",
+      "nodes": [
+        "listens to the room",
+        "seven seconds",
+        "strongest drone"
+      ],
+      "say": "It listens to your room for seven seconds and picks out the strongest drone."
+    },
+    {
+      "id": "emit",
+      "type": "flow",
+      "heading": "PLAYED BACK UPSIDE DOWN",
+      "nodes": [
+        "the same hum",
+        "inverted",
+        "into your headphones"
+      ],
+      "say": "Then it plays that hum back, upside down."
+    },
+    {
+      "id": "exactness",
+      "type": "flow",
+      "heading": "EXACT, OR TWICE AS LOUD",
+      "nodes": [
+        "sixteen milliseconds",
+        "half a cycle late",
+        "double the hum"
+      ],
+      "say": "The timing has to be exact. A hum repeats every sixteen milliseconds. Half a cycle late, and you double it."
+    },
+    {
+      "id": "limits",
+      "type": "flow",
+      "heading": "STEADY HUMS YES, VOICES NO",
+      "nodes": [
+        "steady hums erased",
+        "voices left alone"
+      ],
+      "say": "That is why it chases steady hums, like an air conditioner, and leaves voices alone."
+    },
+    {
+      "id": "dial",
+      "type": "flow",
+      "heading": "BLUETOOTH DELAY? TRIM IT BY HAND",
+      "nodes": [
+        "bluetooth adds delay",
+        "phase dial",
+        "five degrees around one hundred eighty"
+      ],
+      "say": "Bluetooth adds delay, so the app gives you a phase dial: small turns, about five degrees, around one hundred eighty."
+    },
+    {
+      "id": "caveat",
+      "type": "flow",
+      "heading": "THE AUTHOR ADMITS IT",
+      "nodes": [
+        "the faq asks",
+        "not perfect"
+      ],
+      "say": "The author admits it in the FAQ: the cancellation isn't perfect."
+    },
+    {
+      "id": "closer",
+      "type": "flow",
+      "heading": "NOISE vs NOISE",
+      "nodes": [
+        "same trick",
+        "more noise"
+      ],
+      "say": "Same trick as the headphones. Fighting noise with more noise."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "heading": "",
+      "nodes": [
+        "follow",
+        "comment ahsilence"
+      ],
+      "say": "Follow for more. Comment ahsilence for the repo link."
+    }
+  ],
+  "seo": {
+    "onscreen_first3s": "AHSILENCE: SILENCE BY MORE SOUND",
+    "keyword": "noise cancelling app",
+    "aliases": [
+      "active noise cancellation",
+      "anti-noise app",
+      "phase inverted audio",
+      "cancel hum without anc"
+    ],
+    "youtube": {
+      "title": "This free app silences a hum by adding MORE sound",
+      "description": "Noise cancelling without ANC hardware: AhSilence is a free, offline Android app that listens to a steady hum for seven seconds (16-bit PCM, 44.1 kHz), finds the strongest drone, then plays the same wave flipped 180 degrees - the hum erases itself while voices pass through. A phase dial corrects bluetooth delay. The author admits the cancellation isn't perfect. Repo: https://github.com/AhmadHassan-BTed/AhSilence #Shorts #NoiseCancelling #AndroidApps #OpenSource #AudioTech",
+      "tags": [
+        "noise cancelling app",
+        "active noise cancellation",
+        "anti-noise",
+        "phase inverted audio",
+        "AhSilence",
+        "android open source",
+        "white noise alternative"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#NoiseCancelling",
+        "#AndroidApps",
+        "#OpenSource",
+        "#AudioTech"
+      ]
+    },
+    "tiktok": {
+      "caption": "Silence by adding more sound: AhSilence listens 7 seconds, flips the hum upside down, and the drone erases itself. Free and offline. Comment AHSILENCE for the repo.",
+      "hashtags": [
+        "#NoiseCancelling",
+        "#AndroidApps",
+        "#OpenSource",
+        "#AudioTech",
+        "#TechTok"
+      ]
+    },
+    "instagram": {
+      "caption": "A free offline app that fights noise with more noise: seven-second scan, wave flipped 180 degrees, steady hum erased - voices untouched. Comment AHSILENCE for the repo.",
+      "hashtags": [
+        "#NoiseCancelling",
+        "#AndroidApps",
+        "#OpenSource",
+        "#AudioTech",
+        "#Reels"
+      ]
+    },
+    "facebook": {
+      "caption": "Noise cancelling without ANC hardware: AhSilence (free, offline, open source) listens to the hum for seven seconds, then plays the same wave flipped upside down until the drone cancels. The author's own FAQ admits it isn't perfect. Comment AHSILENCE for the repo link. (AI-narrated short.)",
+      "hashtags": [
+        "#NoiseCancelling",
+        "#AndroidApps",
+        "#OpenSource",
+        "#AudioTech",
+        "#Reels"
+      ]
+    },
+    "x": {
+      "text": "AhSilence: a free offline Android app that cancels a steady hum by playing the same wave flipped 180°. 7s scan, phase dial for BT delay, FAQ admits it's not perfect.",
+      "hashtags": [
+        "#NoiseCancelling",
+        "#OpenSource"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Comment AHSILENCE and I'll pin the repo.",
+    "hashtags": [
+      "#Shorts",
+      "#NoiseCancelling",
+      "#AndroidApps",
+      "#OpenSource",
+      "#AudioTech"
+    ]
+  },
+  "research_basis": "reference style study: github.signals AhSilence short (7705958352420998452), STYLE-BREAKDOWN.md; repo README + SUPPORT.md fetched 2026-11-09",
+  "renderer": "graphics",
+  "graphics": {
+    "dir": "briefs/graphics/repo-ahsilence-01",
+    "template": "velocity-black",
+    "note": "black stage, pink #FE297D accent, real wave physics animations, README-quoted honesty beat"
+  },
+  "voice_seed": 0,
+  "speed": 1.28,
+  "lead_in": 0.06,
+  "voice_tempo": 1.1,
+  "motion_standard": 2,
+  "qa_gates": true,
+  "viewer": {
+    "who": "android users stuck in loud places (train platforms, generator rooms, open offices) who want the steady hum gone without buying ANC earbuds",
+    "problem": "their phone has no tool against a constant drone, and hardware noise cancelling costs money",
+    "job": "decide whether a free offline app that plays phase-inverted counter-noise is worth installing"
+  },
+  "idea": "AhSilence listens to a steady hum for seven seconds, finds the dominant tone, then plays the same wave flipped 180 degrees through the headphones so the hum erases itself - and the author admits in the FAQ that the cancellation is not perfect.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "AhSilence generates phase-inverted anti-noise that cancels steady drones (engine or fan hum), not voices.",
+      "source": "https://github.com/AhmadHassan-BTed/AhSilence"
+    },
+    {
+      "id": "c2",
+      "text": "It listens for seven seconds first: 16-bit PCM at 44.1 kHz, measuring which single tone is the strongest.",
+      "source": "https://github.com/AhmadHassan-BTed/AhSilence"
+    },
+    {
+      "id": "c3",
+      "text": "A phase calibrator dial (0-360 degrees) lets you correct bluetooth delay by hand until the hum fades.",
+      "source": "https://github.com/AhmadHassan-BTed/AhSilence"
+    },
+    {
+      "id": "c4",
+      "text": "The app is free, offline, Kotlin, Apache-2.0, ~4,876 stars at fetch time.",
+      "source": "https://github.com/AhmadHassan-BTed/AhSilence"
+    },
+    {
+      "id": "c5",
+      "text": "The author's own FAQ says: 'The cancellation isn't perfect. What can I do?'",
+      "source": "https://github.com/AhmadHassan-BTed/AhSilence/blob/main/SUPPORT.md"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c2",
+      "evidence": "source:https://github.com/AhmadHassan-BTed/AhSilence",
+      "how_shown": "the LISTENING scan ticker counting 0.0 to 7.0 s, then STRONGEST DRONE FOUND"
+    },
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/AhmadHassan-BTed/AhSilence",
+      "how_shown": "the platform wave flipping upside down (FLIPPED 180°) and hums ERASED while voices are LEFT ALONE"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://github.com/AhmadHassan-BTed/AhSilence",
+      "how_shown": "the PHASE CALIBRATOR dial sweeping 172° to 185° with the bluetooth-delay note"
+    },
+    {
+      "claim": "c4",
+      "evidence": "source:https://github.com/AhmadHassan-BTed/AhSilence",
+      "how_shown": "the repo card: AhmadHassan-BTed/AhSilence, 4,876 stars, Kotlin, Apache-2.0, offline"
+    },
+    {
+      "claim": "c5",
+      "evidence": "source:https://github.com/AhmadHassan-BTed/AhSilence/blob/main/SUPPORT.md",
+      "how_shown": "the SUPPORT.md FAQ quote card verbatim"
+    }
+  ],
+  "review": {
+    "reviewed_at": "2026-11-10",
+    "expires_at": null,
+    "reviewer": "agent: plan written from the repo README, SUPPORT.md FAQ and GitHub API numbers fetched 2026-11-09",
+    "notes": "Owner reviewed the local preview assembly (commuter hook concept, 63s, 166 words) and approved cloud render + Buffer scheduling."
+  },
+  "treatment": {
+    "audience": "android users stuck in loud places (train platforms, generator rooms, open offices) who want the steady hum gone without buying ANC earbuds",
+    "viewer_job": "decide whether a free offline app that plays phase-inverted counter-noise is worth installing",
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "text": "SILENCE FROM MORE NOISE",
+        "layout": "bleed",
+        "media": {
+          "kind": "designed",
+          "file": "design-a.png",
+          "design": "the listener's world from the video: a hooded commuter on a loud night platform in the black/pink grammar"
+        }
+      },
+      {
+        "text": "THE HUM, UPSIDE DOWN",
+        "layout": "window",
+        "media": {
+          "kind": "designed",
+          "file": "design-b.png",
+          "design": "what the app does to one tone: a jagged white hum and its pink upside-down copy about to erase it"
+        }
+      },
+      {
+        "text": "SEVEN SECONDS TO QUIET",
+        "layout": "split",
+        "media": {
+          "kind": "designed",
+          "file": "design-c.png",
+          "design": "the app's listening scan: a mono progress bar sweeping 0 to 7 seconds until it locks onto the strongest drone"
+        }
+      }
+    ],
+    "selected_cover": 0
+  }
+}

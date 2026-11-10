@@ -1,0 +1,220 @@
+{
+  "tool": "AhSilence",
+  "handle": "@hypeless",
+  "template": "velocity-black",
+  "script_sha256": "sha256:9b436715a5d711443c32ee28b9f469a8151aced5c34e2983dff6a6a30130249e",
+  "scenes": [
+    {
+      "scene_id": "hook",
+      "phrase": 0,
+      "archetype": "hero_hook",
+      "headline": "HOW DO HEADPHONES SILENCE A SCREAMING PLATFORM?",
+      "feature_id": null,
+      "depicts": "headphones buy silence on a screaming platform by pouring more sound",
+      "payload": {
+        "hero": "commuter.jpg",
+        "mode": "chaos",
+        "accent_words": [
+          "more",
+          "sound",
+          "pushing",
+          "pulling"
+        ]
+      },
+      "cue_word": "more",
+      "sub": "AHSILENCE · FREE · OFFLINE · 4,876 STAR"
+    },
+    {
+      "scene_id": "flip",
+      "phrase": 1,
+      "archetype": "wave_flip",
+      "headline": "COPY IT. FLIP IT.",
+      "feature_id": null,
+      "depicts": "an exact copy flipped upside down flattens into silence",
+      "payload": {
+        "tag": "FLIPPED 180°",
+        "accent_words": [
+          "copy",
+          "upside",
+          "flatten",
+          "silence"
+        ]
+      },
+      "cue_word": "upside"
+    },
+    {
+      "scene_id": "pivot",
+      "phrase": 2,
+      "archetype": "repo_card",
+      "headline": "ONE APP DOES IT ON YOUR PHONE",
+      "feature_id": "f1",
+      "depicts": "the trick packed into an android app called AhSilence",
+      "payload": {
+        "owner": "AhmadHassan-BTed",
+        "repo": "AhSilence",
+        "desc": "Silence the ambient hum. Find your perfect quiet.",
+        "chips": [
+          "4,876 stars",
+          "Kotlin",
+          "Apache 2.0",
+          "offline"
+        ],
+        "accent_words": [
+          "trick",
+          "AhSilence"
+        ]
+      },
+      "cue_word": "AhSilence"
+    },
+    {
+      "scene_id": "scan",
+      "phrase": 3,
+      "archetype": "scan_tick",
+      "headline": "SEVEN SECONDS OF LISTENING",
+      "feature_id": "f2",
+      "depicts": "it listens seven seconds and picks the strongest drone",
+      "payload": {
+        "seconds": 7,
+        "found_label": "STRONGEST DRONE",
+        "label": "PCM 16-BIT 44.1KHZ MIC BUFFER",
+        "accent_words": [
+          "listens",
+          "seven",
+          "strongest",
+          "drone"
+        ]
+      },
+      "cue_word": "strongest"
+    },
+    {
+      "scene_id": "emit",
+      "phrase": 4,
+      "archetype": "wave_room",
+      "headline": "PLAYED BACK UPSIDE DOWN",
+      "feature_id": null,
+      "depicts": "the hum played back upside down",
+      "payload": {
+        "mode": "plain",
+        "label": "THE SAME HUM, UPSIDE DOWN",
+        "accent_words": [
+          "plays",
+          "upside",
+          "down"
+        ]
+      },
+      "cue_word": "upside"
+    },
+    {
+      "scene_id": "exactness",
+      "phrase": 5,
+      "archetype": "wave_misalign",
+      "headline": "EXACT, OR TWICE AS LOUD",
+      "feature_id": null,
+      "depicts": "arriving half a cycle late doubles the hum",
+      "payload": {
+        "shift_tag": "+8 MS OFF",
+        "double_tag": "×2 LOUDER",
+        "shift_word": "late",
+        "double_word": "double",
+        "accent_words": [
+          "exact",
+          "sixteen",
+          "late",
+          "double"
+        ]
+      },
+      "cue_word": "late"
+    },
+    {
+      "scene_id": "limits",
+      "phrase": 6,
+      "archetype": "wave_select",
+      "headline": "STEADY HUMS YES, VOICES NO",
+      "feature_id": "f4",
+      "depicts": "steady hums get erased while voices stay alone",
+      "payload": {
+        "keep_label": "STEADY HUM · ERASED",
+        "drop_label": "VOICES · LEFT ALONE",
+        "accent_words": [
+          "hums",
+          "voices",
+          "alone"
+        ]
+      },
+      "cue_word": "voices"
+    },
+    {
+      "scene_id": "dial",
+      "phrase": 7,
+      "archetype": "gauge_dial",
+      "headline": "BLUETOOTH DELAY? TRIM IT BY HAND",
+      "feature_id": "f3",
+      "depicts": "bluetooth delay trimmed by hand on a phase dial near one hundred eighty",
+      "payload": {
+        "label": "PHASE CALIBRATOR · BT DELAY",
+        "from_deg": 172,
+        "to_deg": 185,
+        "note": "±5° MANUAL TRIM, AROUND 180°",
+        "accent_words": [
+          "Bluetooth",
+          "dial",
+          "hand"
+        ]
+      },
+      "cue_word": "dial"
+    },
+    {
+      "scene_id": "caveat",
+      "phrase": 8,
+      "archetype": "quote_card",
+      "headline": "THE AUTHOR ADMITS IT",
+      "feature_id": null,
+      "depicts": "the author admits the cancellation is not perfect in the faq",
+      "payload": {
+        "quote": "The cancellation isn't perfect. What can I do?",
+        "context": "SUPPORT.md · FAQ",
+        "source": "THE AUTHOR'S OWN FAQ · VERBATIM",
+        "accent_words": [
+          "admits",
+          "perfect"
+        ]
+      },
+      "cue_word": "perfect"
+    },
+    {
+      "scene_id": "closer",
+      "phrase": 9,
+      "archetype": "hero_hook",
+      "headline": "NOISE vs NOISE",
+      "feature_id": null,
+      "depicts": "the same trick fighting noise with more noise until flat",
+      "payload": {
+        "hero": "commuter.jpg",
+        "mode": "chaos",
+        "flat": true,
+        "accent_words": [
+          "trick",
+          "noise"
+        ]
+      },
+      "cue_word": "fighting"
+    },
+    {
+      "scene_id": "cta",
+      "phrase": 10,
+      "archetype": "endcard",
+      "headline": "",
+      "feature_id": null,
+      "depicts": "comment ahsilence for the repo link",
+      "payload": {
+        "keyword": "ahsilence",
+        "prompt": "for the repo link",
+        "accent_words": [
+          "Follow",
+          "ahsilence"
+        ]
+      },
+      "cue_word": "ahsilence"
+    }
+  ]
+}
