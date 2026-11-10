@@ -60,7 +60,7 @@ jobs:
           for f in reels-studio/ext-videos/*.txt; do base64 -d "$f" > "/tmp/ext/$(basename "$f" .txt | sed 's/^b64-//').mp4"; done
           python3 reels-studio/tools/ext_sample_dir.py --dir /tmp/ext
       - name: VLM critique (NVIDIA NIM free endpoints)
-        timeout-minutes: 12
+        timeout-minutes: 25
         env:
           BRIEF: ${{ inputs.brief }}
           SUBJECT: ${{ inputs.subject }}
