@@ -17,12 +17,12 @@ def main():
         dur = int(m.group(1)) * 3600 + int(m.group(2)) * 60 + float(m.group(3))
         d = f"{OUT}/frames-{i}"
         os.makedirs(d, exist_ok=True)
-        for j, t in enumerate([0.3, dur * .25, dur * .5, dur * .75, dur * .95]):
+        for j, t in enumerate([0.3, dur * .45, dur * .88]):
             subprocess.run([FF, "-y", "-loglevel", "error", "-ss", f"{t:.2f}", "-i", src,
                             "-frames:v", "1", "-vf", "scale=512:-1", "-q:v", "4", f"{d}/f{j+1}.jpg"], check=True)
         pack.append({"name": v[:-4], "caption": "",
                      "frames": sorted(os.path.join(d, f) for f in os.listdir(d))})
-        print(f"{v}: {dur:.1f}s, 5 frames", flush=True)
+        print(f"{v}: {dur:.1f}s, 3 frames", flush=True)
     json.dump(pack, open(f"{OUT}/frames.json", "w"))
 
 if __name__ == "__main__":

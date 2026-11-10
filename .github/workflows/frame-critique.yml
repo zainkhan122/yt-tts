@@ -60,14 +60,18 @@ jobs:
           for f in reels-studio/ext-videos/*.txt; do base64 -d "$f" > "/tmp/ext/$(basename "$f" .txt | sed 's/^b64-//').mp4"; done
           python3 reels-studio/tools/ext_sample_dir.py --dir /tmp/ext
       - name: VLM critique (NVIDIA NIM free endpoints)
-        timeout-minutes: 25
+        timeout-minutes: 55
         env:
           BRIEF: ${{ inputs.brief }}
           SUBJECT: ${{ inputs.subject }}
           NVIDIA_KEY: ${{ secrets.NVIDIA_KEY }}
         run: |
           if [ "${{ inputs.mode }}" = "external" ]; then
-            python3 reels-studio/tools/frame_critique.py "$SUBJECT" --external --frames-map /tmp/ext/frames.json --subject "$SUBJECT"
+            OUT="reels-studio/research/critiques/$SUBJECT-$(date +%F).md"
+            for pass in 1 2 3; do
+              [ -s "$OUT" ] && break
+              echo "critique pass $pass"; timeout 20m python3 reels-studio/tools/frame_critique.py "$SUBJECT" --external --frames-map /tmp/ext/frames.json --subject "$SUBJECT" || true
+            done
           else
             python3 reels-studio/tools/frame_critique.py "$BRIEF" --frames /tmp/frames --media "reels-studio/captures/$BRIEF"
           fi
