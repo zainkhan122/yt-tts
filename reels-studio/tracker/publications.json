@@ -1406,6 +1406,31 @@
       "updated_at": "2026-11-10T10:07:15Z",
       "video_id": "repo-ahsilence-01"
     },
+    "repo-ahsilence-01:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-11-10T22:15:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:3d42e610dcee33800b0bd404cd0be5c49adb8832b361ea18dcc7a1984c882cd2",
+        "asset_id": 730918954,
+        "asset_size": 9478702,
+        "kit_asset_id": 730919032,
+        "kit_digest": "sha256:bb381ed290ee458133db826e3e28daa4848347a779593155ee47554aac135374",
+        "media_path": "media/730918954/repo-ahsilence-01.mp4",
+        "release_tag": "renders-2026-11-10",
+        "video_id": "repo-ahsilence-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/730918954/repo-ahsilence-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "8da8c00ccb0a698a6397345a169955dd1960a5375b98f025528c2ab161d4c072",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "Active noise cancellation with no special hardware: AhSilence is a free, offline Android app that listens to a steady hum for seven seconds (16-bit PCM, 44.1 kHz), finds the strongest drone, then plays the same wave flipped 180 degrees so the hum erases itself while voices pass through.\nA phase dial corrects bluetooth delay by hand. The author's own FAQ admits the cancellation isn't perfect. Repo: https://github.com/AhmadHassan-BTed/AhSilence #Shorts #ActiveNoiseCancellation #NoiseCancelling #AndroidApps #OpenSource",
+      "title": "Active noise cancellation without ANC hardware (free, offline)",
+      "updated_at": "2026-11-10T10:07:20Z",
+      "video_id": "repo-ahsilence-01"
+    },
     "repo-ai-newtab-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6aca2935c4de2d2b12272320",
