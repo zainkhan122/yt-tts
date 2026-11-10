@@ -52,15 +52,13 @@ jobs:
           mkdir -p /tmp/frames
           "$FF" -y -loglevel error -i /tmp/render/$BRIEF.mp4 -vf "fps=1/8,scale=512:-1" -q:v 4 /tmp/frames/f%02d.jpg
           ls /tmp/frames
-      - name: Pull external videos artifact
+      - name: Decode staged external videos + sample
         if: ${{ inputs.mode == 'external' }}
-        uses: actions/download-artifact@v4
-        with:
-          name: ext-videos
-          path: /tmp/ext
-      - name: Sample external reels
-        if: ${{ inputs.mode == 'external' }}
-        run: pip install -q imageio-ffmpeg yt-dlp && python3 reels-studio/tools/ext_sample.py --dir /tmp/ext
+        run: |
+          pip install -q imageio-ffmpeg yt-dlp
+          mkdir -p /tmp/ext
+          for f in reels-studio/ext-videos/*.txt; do base64 -d "$f" > "/tmp/ext/$(basename "$f" .txt | sed 's/^b64-//').mp4"; done
+          python3 reels-studio/tools/ext_sample_dir.py --dir /tmp/ext
       - name: VLM critique (NVIDIA NIM free endpoints)
         env:
           BRIEF: ${{ inputs.brief }}
