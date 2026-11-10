@@ -19,4 +19,9 @@ test -f "$AP" || { echo "missing $AP — recreate the askpass shim (see ~/.confi
 # history is blob-filtered locally (remote carries GBs of legacy video packs);
 # keep the filter on every fetch or a plain fetch starts a multi-GB backfill
 GIT_ASKPASS="$AP" GIT_TERMINAL_PROMPT=0 git fetch -q --filter=blob:none origin
-GIT_ASKPASS="$AP" GIT_TERMINAL_PROMPT=0 git push origin "${@:-main}"
+if ! GIT_ASKPASS="$AP" GIT_TERMINAL_PROMPT=0 git push origin "${@:-main}"; then
+  echo "push non-fast-forward — cloud bots advance main; rebasing and retrying once"
+  GIT_ASKPASS="$AP" GIT_TERMINAL_PROMPT=0 git fetch -q --filter=blob:none origin main
+  git rebase origin/main
+  GIT_ASKPASS="$AP" GIT_TERMINAL_PROMPT=0 git push origin "${@:-main}"
+fi
