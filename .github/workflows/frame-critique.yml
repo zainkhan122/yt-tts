@@ -81,8 +81,8 @@ jobs:
         run: |
           git config user.name "reels-bot"
           git config user.email "reels-bot@users.noreply.github.com"
-          git add "reels-studio/research/critiques/$BRIEF-*.md" "reels-studio/research/critiques/$SUBJECT-*.md" 2>/dev/null || true
-          git commit -q -m "critique: frame analysis $BRIEF (run ${{ inputs.render_run }})" || echo "no critique diff"
+          git add reels-studio/research/critiques/ || true
+          git commit -q -m "critique: frame analysis ${{ inputs.brief }} ${{ inputs.subject }}" || echo "no critique diff"
           git push
       - name: Upload critique artifact
         if: always()
