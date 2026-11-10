@@ -133,13 +133,89 @@ def teardown_excerpt(brief_id):
     return "\n\n".join(keep)[:2600]
 
 
+FRAME_PROMPT = ("Forensic motion-design read of ONE frame from a vertical short. Report tersely: "
+                "layout grid & safe areas; text system (sizes, casing, letterspacing, weight); colour grade "
+                "(dominant + accent approx hexes); surface treatment (grain/halftone/glow/blur); evidence of "
+                "motion (trails, ghosting, mid-animation state, mid-crop); compositing depth (layers, shadows, "
+                "parallax); and the single most premium-looking detail in the frame.")
+STYLE_PROMPT = ("From these per-frame notes on ONE video plus its caption, reconstruct the motion stack: "
+                "cut rhythm; transition types; easing feel (linear/spring/bounce); kinetic-type behaviour; "
+                "particles/3D/camera moves; the signature move of this video. Name techniques precisely "
+                "(motion-design vocabulary, not marketing words).")
+INVENTORY = """OUR RENDER STACK (what exists today):
+- HTML/CSS/JS scene templates composited in headless Chromium via Playwright (full keyframe/spring/3D-transform
+  CSS + JS animation engine, canvas 2D), rendered per-scene by ffmpeg; three.min.js already vendored for real
+  WebGL-style 3D in graphics/templates/photo-to-3d/vendor/.
+- PIL drawn kit cards; ffmpeg compositing incl. filter graphs (minterpolate, xfade, zoompan); burned captions.
+- TTS voice + word-timed subtitles.
+- NOT in the stack: After Effects, Blender, character rigging, tracked/AI-generated footage.
+"""
+
+
+def external_run(a, tok):
+    pack = json.loads(Path(a.frames_map).read_text())
+    live = models(tok)
+    print(f"external mode: {len(pack)} videos; live models: {' > '.join(live[:4])}…", flush=True)
+    used, videos = {}, []
+    for v in pack:
+        notes = []
+        for i, fr in enumerate(sorted(v["frames"])):
+            m, note = call_vision(fr, FRAME_PROMPT, tok, max_tokens=380, model_list=live)
+            used[m] = used.get(m, 0) + 1
+            notes.append(f"- frame {i+1}: {note.strip()}")
+            print(f"[{m}] {v['name']} frame {i+1}/{len(v['frames'])}", flush=True)
+        m, style = call_vision(None, STYLE_PROMPT + "\n\nCAPTION: " + (v.get("caption") or "")[:400]
+                               + "\n\nFRAME NOTES:\n" + "\n".join(notes)[:6000],
+                               tok, max_tokens=520, model_list=live)
+        used[m] = used.get(m, 0) + 1
+        v["frames_notes"] = "\n".join(notes)
+        v["style"] = style.strip()
+        videos.append(v)
+        print(f"[{m}] style read: {v['name']}", flush=True)
+
+    master = ("You are a motion-design director auditing our production capability against a reference "
+              "creator whose reels are 100% programmatic (Claude Code skill). Below: per-video style reads "
+              "and sampled-frame forensics for their 5 most recent reels.\n\n"
+              + INVENTORY + "\nREFERENCE VIDEOS:\n"
+              + "\n\n".join(f"### {v['name']} — {(v.get('caption') or '')[:200]}\n{v['style']}"
+                             + "\nframe forensics:\n" + v["frames_notes"][:2200] for v in videos)
+              + """\n\nTASKS, in markdown:
+## TECHNIQUE INVENTORY — every distinct animation/graphics technique observed across the 5 videos
+(motion-design terms; note which videos used each).
+## CAN WE MAKE IT — for every technique above: ALREADY (how, with our stack) / UPGRADE (small new
+dependency or engine feature — name it) / NEW TOOL (nothing we have comes close — name the tool class).
+## VISUAL-QUALITY BAR — the 5 concrete things that make these reels look premium that our current
+renders lack (colour, easing, texture, timing, layering).
+## PRIORITY UPGRADES — the 3 highest-leverage additions to our renderer to close the gap, ordered.
+Imperative, blunt, no filler.""")
+    m, master_md = call_vision(None, master, tok, max_tokens=1400, model_list=live)
+    used[m] = used.get(m, 0) + 1
+    today = dt.date.today().isoformat()
+    doc = [f"# External frame analysis: {a.subject} — {today}", "",
+           f"Models: {used}", ""]
+    for v in videos:
+        doc += [f"## {v['name']}", f"caption: {(v.get('caption') or '')[:300]}", "",
+                "### style read", v["style"], "", "### frame forensics", v["frames_notes"], ""]
+    doc += ["## Synthesis", master_md, ""]
+    out = Path(a.out) if a.out else ROOT / "research" / "critiques" / f"{a.subject}-{today}.md"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text("\n".join(doc), encoding="utf-8")
+    print(f"critique -> {out.relative_to(ROOT)}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("brief_id")
-    ap.add_argument("--frames", required=True, help="dir of sampled frames of OUR render")
+    ap.add_argument("--frames", default="", help="dir of sampled frames of OUR render")
     ap.add_argument("--media", default="", help="dir of the tool's real UI images (captures)")
     ap.add_argument("--out", default="")
+    ap.add_argument("--external", action="store_true", help="analyse third-party reels instead of our render")
+    ap.add_argument("--frames-map", default="", help="json: [{name, caption, frames:[paths]}]")
+    ap.add_argument("--subject", default="", help="label for output doc, e.g. instagram-adilet.fndr")
     a = ap.parse_args()
+    if a.external:
+        external_run(a, key())
+        return
     tok = key()
     frames = sorted(Path(a.frames).glob("*.jp*g")) or sorted(Path(a.frames).glob("*.png"))
     media = sorted(Path(a.media).glob("*.jp*g") ) if a.media else []
