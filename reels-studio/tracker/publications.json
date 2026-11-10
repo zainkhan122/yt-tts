@@ -4137,9 +4137,11 @@
     },
     "repo-vork-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6af3762e3edfccc6a4d5c102",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-11-11T23:08:00Z",
+      "due_at": "2026-11-11T23:08:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:31f7d93255145c91aab349275490293cd2e3e328f8dd1ac0940225085957c558",
         "asset_id": 720151081,
@@ -4154,10 +4156,11 @@
       "notify_subscribers": false,
       "payload_sha256": "7f47ddec6e8f74d3dbb42ed5d1b7569e067570135d6ca647c1e9f3824d48bc9c",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Agent rendering with no editor: vork writes scenes as code, renders them on a GPU, and the agent inspects the image and revises the shot. Comment RENDER for the repo.\n\n#AgentRendering #VFX #AIAgents #Rust #CreativeCoding",
       "title": "Agent rendering: vork renders the shot without a video model",
-      "updated_at": "2026-11-10T19:53:16Z",
+      "updated_at": "2026-11-10T19:53:18Z",
       "video_id": "repo-vork-01"
     },
     "repo-vork-01:youtube": {
