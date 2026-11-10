@@ -67,7 +67,7 @@ class CascadeSkip(Exception):
     """Model is unusable right now (gone from free tier, timed out, throttled) — try the next."""
 
 
-def call(model, messages, tok, max_tokens=900, tries=3, timeout=150):
+def call(model, messages, tok, max_tokens=700, tries=2, timeout=100):
     body = json.dumps({"model": model, "messages": messages, "max_tokens": max_tokens,
                        "temperature": 0.2, "top_p": 0.9, "stream": False}).encode()
     for i in range(tries):
@@ -160,13 +160,13 @@ def external_run(a, tok):
     for v in pack:
         notes = []
         for i, fr in enumerate(sorted(v["frames"])):
-            m, note = call_vision(fr, FRAME_PROMPT, tok, max_tokens=380, model_list=live)
+            m, note = call_vision(fr, FRAME_PROMPT, tok, max_tokens=240, model_list=live)
             used[m] = used.get(m, 0) + 1
             notes.append(f"- frame {i+1}: {note.strip()}")
             print(f"[{m}] {v['name']} frame {i+1}/{len(v['frames'])}", flush=True)
         m, style = call_vision(None, STYLE_PROMPT + "\n\nCAPTION: " + (v.get("caption") or "")[:400]
                                + "\n\nFRAME NOTES:\n" + "\n".join(notes)[:6000],
-                               tok, max_tokens=520, model_list=live)
+                               tok, max_tokens=360, model_list=live)
         used[m] = used.get(m, 0) + 1
         v["frames_notes"] = "\n".join(notes)
         v["style"] = style.strip()
@@ -188,7 +188,7 @@ dependency or engine feature — name it) / NEW TOOL (nothing we have comes clos
 renders lack (colour, easing, texture, timing, layering).
 ## PRIORITY UPGRADES — the 3 highest-leverage additions to our renderer to close the gap, ordered.
 Imperative, blunt, no filler.""")
-    m, master_md = call_vision(None, master, tok, max_tokens=1400, model_list=live)
+    m, master_md = call_vision(None, master, tok, max_tokens=1100, model_list=live)
     used[m] = used.get(m, 0) + 1
     today = dt.date.today().isoformat()
     doc = [f"# External frame analysis: {a.subject} — {today}", "",
