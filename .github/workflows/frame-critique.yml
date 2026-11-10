@@ -52,7 +52,7 @@ jobs:
           mkdir -p /tmp/frames
           "$FF" -y -loglevel error -i /tmp/render/$BRIEF.mp4 -vf "fps=1/8,scale=512:-1" -q:v 4 /tmp/frames/f%02d.jpg
           ls /tmp/frames
-                - name: Download + sample external reels
+      - name: Download + sample external reels
         if: ${{ inputs.mode == 'external' }}
         env:
           URLS: ${{ inputs.video_urls }}
@@ -73,7 +73,7 @@ jobs:
             fi
             DUR=$("$FF" -i /tmp/ext/v$i-src.mp4 2>&1 | grep -oE 'Duration: [0-9:.]+' | head -1)
             mkdir -p /tmp/ext/frames-$i
-            python3 - $i <<'EOF'
+            python3 - $i <<'PYEOF'
           import subprocess, sys, re, os
           i = sys.argv[1]
           ff = subprocess.run(["python3","-c","import imageio_ffmpeg;print(imageio_ffmpeg.get_ffmpeg_exe())"],capture_output=True,text=True).stdout.strip()
@@ -84,9 +84,8 @@ jobs:
               subprocess.run([ff,'-y','-loglevel','error','-ss',f'{t:.2f}','-i',f'/tmp/ext/v{i}-src.mp4',
                               '-frames:v','1','-vf','scale=512:-1','-q:v','4',f'/tmp/ext/frames-{i}/f{j+1}.jpg'],check=True)
           print(f'v{i}: {dur:.1f}s sampled')
-          EOF
           done
-          python3 - <<'EOF'
+          python3 - <<'PYEOF2'
           import json, glob
           pack = []
           for d in sorted(glob.glob('/tmp/ext/frames-*')):
@@ -98,8 +97,7 @@ jobs:
                            'frames': sorted(glob.glob(d + '/*.jpg'))})
           json.dump(pack, open('/tmp/ext/frames.json','w'))
           print(json.dumps([{'name': p['name'], 'frames': len(p['frames'])} for p in pack], indent=1))
-          EOF
-                - name: VLM critique (NVIDIA NIM free endpoints)
+      - name: VLM critique (NVIDIA NIM free endpoints)
         env:
           BRIEF: ${{ inputs.brief }}
           SUBJECT: ${{ inputs.subject }}
@@ -110,7 +108,7 @@ jobs:
           else
             python3 reels-studio/tools/frame_critique.py "$BRIEF" --frames /tmp/frames --media "reels-studio/captures/$BRIEF"
           fi
-                - name: Commit the critique
+      - name: Commit the critique
         env:
           BRIEF: ${{ inputs.brief }}
         run: |
@@ -119,7 +117,7 @@ jobs:
           git add "reels-studio/research/critiques/$BRIEF-*.md" "reels-studio/research/critiques/$SUBJECT-*.md" 2>/dev/null || true
           git commit -q -m "critique: frame analysis $BRIEF (run ${{ inputs.render_run }})" || echo "no critique diff"
           git push
-                - name: Upload critique artifact
+      - name: Upload critique artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
