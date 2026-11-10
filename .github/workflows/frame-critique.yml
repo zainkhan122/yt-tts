@@ -52,7 +52,7 @@ jobs:
           mkdir -p /tmp/frames
           "$FF" -y -loglevel error -i /tmp/render/$BRIEF.mp4 -vf "fps=1/8,scale=512:-1" -q:v 4 /tmp/frames/f%02d.jpg
           ls /tmp/frames
-      - name: Download + sample external reels
+                - name: Download + sample external reels
         if: ${{ inputs.mode == 'external' }}
         env:
           URLS: ${{ inputs.video_urls }}
@@ -84,7 +84,7 @@ jobs:
               subprocess.run([ff,'-y','-loglevel','error','-ss',f'{t:.2f}','-i',f'/tmp/ext/v{i}-src.mp4',
                               '-frames:v','1','-vf','scale=512:-1','-q:v','4',f'/tmp/ext/frames-{i}/f{j+1}.jpg'],check=True)
           print(f'v{i}: {dur:.1f}s sampled')
-EOF
+          EOF
           done
           python3 - <<'EOF'
           import json, glob
@@ -98,8 +98,8 @@ EOF
                            'frames': sorted(glob.glob(d + '/*.jpg'))})
           json.dump(pack, open('/tmp/ext/frames.json','w'))
           print(json.dumps([{'name': p['name'], 'frames': len(p['frames'])} for p in pack], indent=1))
-EOF
-      - name: VLM critique (NVIDIA NIM free endpoints)
+          EOF
+                - name: VLM critique (NVIDIA NIM free endpoints)
         env:
           BRIEF: ${{ inputs.brief }}
           SUBJECT: ${{ inputs.subject }}
@@ -110,7 +110,7 @@ EOF
           else
             python3 reels-studio/tools/frame_critique.py "$BRIEF" --frames /tmp/frames --media "reels-studio/captures/$BRIEF"
           fi
-      - name: Commit the critique
+                - name: Commit the critique
         env:
           BRIEF: ${{ inputs.brief }}
         run: |
@@ -119,7 +119,7 @@ EOF
           git add "reels-studio/research/critiques/$BRIEF-*.md" "reels-studio/research/critiques/$SUBJECT-*.md" 2>/dev/null || true
           git commit -q -m "critique: frame analysis $BRIEF (run ${{ inputs.render_run }})" || echo "no critique diff"
           git push
-      - name: Upload critique artifact
+                - name: Upload critique artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
