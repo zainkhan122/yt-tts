@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-10-musike",
+  "created_at": "2026-11-10T16:44:03Z",
+  "briefs": {
+    "repo-musike-01": {
+      "brief_sha256": "12999ba8f7180ab6d99061a7de9cfbc3e9ac8ea6440d4caefa4ace6b11154b01",
+      "brief_identity_sha256": "a24041c485288b7f27507690132667f4f1ad5354af465444ecc29e5a9a9ab7f4",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "eb21f86cd3d6932d60c48f61f49cfdfb2e87355b903c9ce350e9c8e681225045",
+          "word_count": 149
+        },
+        "assets": {
+          "capture_id": "repo-musike-01",
+          "manifest_sha256": "79d4b4a72df703650e928e8573a9adb402464fd0418876495fda66ea6b3b0117",
+          "files": [
+            {
+              "path": "cinema.jpg",
+              "sha256": "b406bc032fe1a30fcea854e907c1eff189a63604df1f01c51d513bc11d966477"
+            },
+            {
+              "path": "home.jpg",
+              "sha256": "3059f67e8f3d7c2ed3f976e0f91fb341c23c2edf8504fdcb010764186f101667"
+            },
+            {
+              "path": "mobile.jpg",
+              "sha256": "3a62f60676880e3234dca066f401ef5079bc4148ae55ddbc55bbb00dbf2b44fc"
+            }
+          ],
+          "cover_sha256": "581817288c4a68e55e702b2d9a9bbd4a0c6be6e8bb251785757b5b951ac06303",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-musike-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}

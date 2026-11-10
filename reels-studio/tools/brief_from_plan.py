@@ -190,6 +190,8 @@ def build(plan_path):
         "motion_standard": 2,
         "qa_gates": True,  # new batches: Short QA gates apply (tools/short_qa.py)
     }
+    if plan.get("inspiration"):
+        brief["inspiration"] = plan["inspiration"]
     out = ROOT / "briefs" / f"{vid}.json"
     existing = json.loads(out.read_text(encoding="utf-8")) if out.exists() else None
     brief = merge_brief(existing, brief)

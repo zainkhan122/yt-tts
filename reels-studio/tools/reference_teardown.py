@@ -36,15 +36,44 @@ ROOT = Path(__file__).resolve().parent.parent
 POSTS = ROOT / "research" / "sources" / "posts.csv"
 REFS = ROOT / "research" / "references"
 
+def _bootstrap_ytdlp():
+    dst = Path.home() / ".config/reels-studio/bin/yt-dlp"
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    subprocess.run(["curl", "-sL", "-o", str(dst),
+                    "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp"], check=True)
+    return _exec_ok(dst)
+
 def _exec_ok(path):
     try:
         os.chmod(path, 0o755)
     except OSError:
         pass
     return path
-YT_DLP = os.environ.get("YT_DLP") or shutil.which("yt-dlp") or _exec_ok(ROOT / "tools" / "bin" / "yt-dlp")
-FFMPEG = (os.environ.get("FFMPEG") or shutil.which("ffmpeg")
-          or str(Path.home() / ".config/reels-studio/bin/ffmpeg"))
+def _ytdlp():
+    c = os.environ.get("YT_DLP") or shutil.which("yt-dlp")
+    if c:
+        return c
+    p = Path.home() / ".config/reels-studio/bin/yt-dlp"
+    return _exec_ok(p) if p.exists() else _bootstrap_ytdlp()
+
+
+YT_DLP = _ytdlp()
+def _ffmpeg():
+    for cand in (os.environ.get("FFMPEG"), shutil.which("ffmpeg"),
+                 str(Path.home() / ".config/reels-studio/bin/ffmpeg"),
+                 str(Path.home() / ".cache/reels-studio/bin/ffmpeg")):
+        if cand and Path(cand).exists():
+            return _exec_ok(cand)
+    # self-heal: ~/.cache is snapshot-excluded, so rebuild it from pip whenever wiped
+    subprocess.run([sys.executable, "-m", "pip", "install", "-q", "imageio-ffmpeg"], check=True)
+    import imageio_ffmpeg
+    dst = Path.home() / ".cache/reels-studio/bin/ffmpeg"
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(imageio_ffmpeg.get_ffmpeg_exe(), dst)
+    return _exec_ok(dst)
+
+
+FFMPEG = _ffmpeg()
 SCENE_THRESHOLD = 0.35
 MAX_SHOT_FRAMES = 40
 HOOK_WINDOW_S = 3.0

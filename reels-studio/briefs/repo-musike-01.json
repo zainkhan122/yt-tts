@@ -1,0 +1,292 @@
+{
+  "id": "repo-musike-01",
+  "capture": "captures/repo-musike-01",
+  "title": "Musike: an open-source music player with nothing to sell you",
+  "niche": "open-source media tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "musike",
+    "open source music player",
+    "yt-dlp",
+    "self-hosted"
+  ],
+  "facts": {
+    "method": "tool's own README and repo page, read on the day of the plan",
+    "limits": "It is for personal use: the README says playing YouTube streams without ads breaks YouTube's terms, and public bots like Groovy and Rythm were shut down after notices from Google."
+  },
+  "sources": [
+    "https://github.com/Ernani1234/musike",
+    "https://github.com/Ernani1234/musike",
+    "https://github.com/Ernani1234/musike",
+    "https://github.com/Ernani1234/musike"
+  ],
+  "lexicon": {
+    "GitHub": "git hub",
+    "Kokoro": "ko-ko-ro",
+    "Claude": "clawed",
+    "GPT": "G P T",
+    "MCP": "M C P",
+    "LLM": "L L M",
+    "API": "A P I",
+    "UI": "U I",
+    "unslop": "un-slop",
+    "UNSLOP": "un-slop",
+    "Unslop": "un-slop"
+  },
+  "verify_before_render": [
+    "Every point cites its source in the plan (repo-musike-01/plan.json).",
+    "Kit images are drawn from the plan's own visual spec only."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "flow",
+      "heading": "MUSIKE SELLS YOU NOTHING",
+      "nodes": [
+        "No ads",
+        "No account",
+        "Nothing to sell you"
+      ],
+      "say": "What if your music app had no ads, no account, and nothing left to sell you?"
+    },
+    {
+      "id": "point1",
+      "type": "flow",
+      "heading": "IT FETCHES THE STREAM ITSELF",
+      "nodes": [
+        "You run the server",
+        "Server fetches the stream",
+        "Player just plays"
+      ],
+      "say": "A small server that you run fetches the stream itself and hands it to the player — that is why there is nothing to skip."
+    },
+    {
+      "id": "point2",
+      "type": "flow",
+      "heading": "AUDIO BECOMES VIDEO MID-SONG",
+      "nodes": [
+        "Same track, same second",
+        "Toggle audio to video",
+        "Official music video appears"
+      ],
+      "say": "Flip between audio and video mid-song, from the same second — for songs it even finds the artist's official music video."
+    },
+    {
+      "id": "point3",
+      "type": "flow",
+      "heading": "ONE PLAYER, EVERY SCREEN",
+      "nodes": [
+        "Windows · macOS · Linux",
+        "Android · Android TV · iPhone",
+        "Browser PWA · Docker"
+      ],
+      "say": "Desktop, phone, TV, browser, Docker — the same player runs on all of them, and the phone app needs no computer."
+    },
+    {
+      "id": "point4",
+      "type": "flow",
+      "heading": "YOUR LIBRARY IS A FILE",
+      "nodes": [
+        "Library lives in a local file",
+        "Export it with one click",
+        "Load it on any other Musike"
+      ],
+      "say": "Your playlists and favourites stay in a local file you can export — take your whole library to any other install."
+    },
+    {
+      "id": "catch",
+      "type": "flow",
+      "heading": "THE CATCH",
+      "nodes": [
+        "Personal and educational use only",
+        "YouTube's terms forbid ad-free streams",
+        "Groovy and Rythm were shut down"
+      ],
+      "say": "It is for personal use: the README says playing YouTube streams without ads breaks YouTube's terms, and public bots like Groovy and Rythm were shut down after notices from Google."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "MUSIKE",
+      "say": "Would you run your own music player? Comment MUSIKE and I'll pin the repo link."
+    }
+  ],
+  "seo": {
+    "keyword": "musike",
+    "onscreen_first3s": "MUSIKE SELLS YOU NOTHING",
+    "youtube": {
+      "title": "Musike Runs on 8 Platforms and Charges Nothing",
+      "description": "Musike is an open-source music player for YouTube's catalog. A server you run fetches the stream with yt-dlp, so playback has no ads, no account and no subscription. Audio and video switch mid-track, it runs on Windows, macOS, Linux, Android, Android TV, iPhone, as a browser PWA and in Docker, and your playlists and favourites live in a local file you can export. Personal use only — the README's legal notice explains YouTube's terms. Repo: https://github.com/Ernani1234/musike #Shorts #Musike #OpenSource #MusicPlayer #SelfHosted",
+      "tags": [
+        "musike",
+        "open source music player",
+        "ad free music",
+        "self hosted",
+        "youtube music alternative"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#Musike",
+        "#OpenSource",
+        "#MusicPlayer",
+        "#SelfHosted"
+      ]
+    },
+    "tiktok": {
+      "caption": "Musike plays YouTube's catalog with no ads, no account and no subscription — you run the server yourself. Open source. Personal use only.",
+      "hashtags": [
+        "#Musike",
+        "#OpenSource",
+        "#MusicPlayer",
+        "#SelfHosted",
+        "#YTDLP"
+      ]
+    },
+    "instagram": {
+      "caption": "An open-source music player with no ads, no account and no subscription. You run the server; it even switches audio to video mid-song. Personal use only.",
+      "hashtags": [
+        "#Musike",
+        "#OpenSource",
+        "#MusicPlayer",
+        "#SelfHosted",
+        "#TechTools"
+      ]
+    },
+    "facebook": {
+      "caption": "Musike: run a tiny local server and play YouTube's music catalog with no ads and no account. Open source, personal use only.",
+      "hashtags": [
+        "#Musike",
+        "#OpenSource",
+        "#MusicPlayer",
+        "#SelfHosted",
+        "#TechTools"
+      ]
+    },
+    "x": {
+      "text": "Musike: an open-source player for YouTube's catalog — no ads, no account, no subscription. You run the server. Personal use only.",
+      "hashtags": [
+        "#Musike",
+        "#OpenSource"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Would you run your own music player? Comment MUSIKE and I'll pin the repo link.",
+    "hashtags": [
+      "#Shorts",
+      "#Musike",
+      "#OpenSource",
+      "#MusicPlayer",
+      "#SelfHosted"
+    ]
+  },
+  "research_basis": [
+    "videos/repo-musike-01/plan.json"
+  ],
+  "viewer": {
+    "who": "listeners tired of ads inside music apps, who like self-hosting open-source tools",
+    "problem": "mainstream music apps push ads, accounts and subscriptions between you and the song",
+    "job": "decide whether running your own small streaming server is worth it for ad-free personal playback"
+  },
+  "idea": "Musike plays YouTube's catalog with no ads, account or subscription because a server you run fetches the stream; it switches audio to video mid-song, runs on every screen, and keeps your library in a file you own.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "A server you run fetches the stream with yt-dlp and hands the bytes to the player.",
+      "source": "https://github.com/Ernani1234/musike"
+    },
+    {
+      "id": "c2",
+      "text": "Audio and video switch mid-track from the same position, and songs get the artist's official music video.",
+      "source": "https://github.com/Ernani1234/musike"
+    },
+    {
+      "id": "c3",
+      "text": "It runs as Windows, macOS and Linux apps, Android, Android TV and iPhone apps, an installable browser PWA, and a Docker image.",
+      "source": "https://github.com/Ernani1234/musike"
+    },
+    {
+      "id": "c4",
+      "text": "Playlists and favorites live in a local file you can export and move to any other Musike.",
+      "source": "https://github.com/Ernani1234/musike"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/Ernani1234/musike",
+      "how_shown": "mechanism row: your computer runs the server, the server fetches, the player just plays"
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://github.com/Ernani1234/musike",
+      "how_shown": "audio/video toggle on a playing track, time marker stays put, video frame appears"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://github.com/Ernani1234/musike",
+      "how_shown": "breadth stack: three rows of platform chips light up in sync with the list"
+    },
+    {
+      "claim": "c4",
+      "evidence": "source:https://github.com/Ernani1234/musike",
+      "how_shown": "library card slides into a file icon, file copies itself to a second device"
+    }
+  ],
+  "treatment": {
+    "audience": "listeners tired of ads inside music apps, who like self-hosting open-source tools",
+    "viewer_job": "decide whether running your own small streaming server is worth it for ad-free personal playback",
+    "intent": "search",
+    "hook_mechanic": "viewer question about the tool's first claim",
+    "open_loop": {
+      "plant": "What if your music app had no ads, no account, and nothing left to sell you?",
+      "payoff_scene": "point1"
+    },
+    "proof_moment": "point1",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "layout": "window",
+        "text": "ZERO ADS ZERO ACCOUNTS",
+        "media": {
+          "kind": "tool_media",
+          "file": "home.jpg"
+        }
+      },
+      {
+        "layout": "bleed",
+        "text": "SWITCH TO VIDEO MID-SONG",
+        "media": {
+          "kind": "tool_media",
+          "file": "cinema.jpg"
+        }
+      },
+      {
+        "layout": "split",
+        "text": "YOUR LIBRARY IS A FILE",
+        "media": {
+          "kind": "tool_media",
+          "file": "mobile.jpg"
+        }
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-11-10",
+    "expires_at": null,
+    "reviewer": "agent: plan written from the maker's README and repo page",
+    "notes": "Topic approved by owner (config/topic-approvals.json). Plan and copy await owner review at the cover gate."
+  },
+  "motion_standard": 2,
+  "qa_gates": true,
+  "inspiration": {
+    "platform": "tiktok",
+    "source": "github.signals",
+    "post_id": "7706422892908662034",
+    "note": "3.5x channel-median outlier. Taken as lead only: proof-in-frame-one timing, one emphasised keyword per caption phrase, claim→mechanism→breadth→caveat beat order. Their browser-mock framing, yellow-pill captions, mascot end card and every script sentence stay theirs. See research/references/tiktok-github.signals-7706422892908662034/teardown.md"
+  }
+}

@@ -16,5 +16,7 @@ git remote get-url origin >/dev/null 2>&1 || git remote add origin https://githu
 AP="$HOME/.config/reels-studio/git-askpass.sh"
 chmod +x "$AP" 2>/dev/null || true
 test -f "$AP" || { echo "missing $AP — recreate the askpass shim (see ~/.config/reels-studio/)"; exit 1; }
-GIT_ASKPASS="$AP" GIT_TERMINAL_PROMPT=0 git fetch -q origin
+# history is blob-filtered locally (remote carries GBs of legacy video packs);
+# keep the filter on every fetch or a plain fetch starts a multi-GB backfill
+GIT_ASKPASS="$AP" GIT_TERMINAL_PROMPT=0 git fetch -q --filter=blob:none origin
 GIT_ASKPASS="$AP" GIT_TERMINAL_PROMPT=0 git push origin "${@:-main}"

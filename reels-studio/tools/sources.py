@@ -29,13 +29,28 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
+def _bootstrap_ytdlp():
+    dst = Path.home() / ".config/reels-studio/bin/yt-dlp"
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    subprocess.run(["curl", "-sL", "-o", str(dst),
+                    "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp"], check=True)
+    return _exec_ok(dst)
+
 def _exec_ok(path):
     try:
         os.chmod(path, 0o755)
     except OSError:
         pass
     return path
-YT_DLP = os.environ.get("YT_DLP") or shutil.which("yt-dlp") or _exec_ok(ROOT / "tools" / "bin" / "yt-dlp")
+def _ytdlp():
+    c = os.environ.get("YT_DLP") or shutil.which("yt-dlp")
+    if c:
+        return c
+    p = Path.home() / ".config/reels-studio/bin/yt-dlp"
+    return _exec_ok(p) if p.exists() else _bootstrap_ytdlp()
+
+
+YT_DLP = _ytdlp()
 REG = ROOT / "research/sources.csv"
 POSTS = ROOT / "research/sources/posts.csv"
 FIELDS = ["type", "handle", "url", "tabs", "focus", "why_follow", "priority", "language", "added", "status"]
