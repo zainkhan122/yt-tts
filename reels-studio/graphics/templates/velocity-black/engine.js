@@ -75,7 +75,7 @@
       if (r.chaos) { g.style.top = "240px"; g.style.pointerEvents = "none"; }
       else g.style.bottom = "-10px";
       r.g = g;
-      if (s.sub) el("div", "hero-chip tag", hw, s.sub);
+      if (s.sub) r.chip = el("div", "hero-chip tag", hw, s.sub);
       if (r.chaos) {
         r.noiseA = sEl("path", { fill: "none", stroke: WHITE, "stroke-width": 2.6, opacity: 0.9 }, g);
         r.noiseB = sEl("path", { fill: "none", stroke: PINK, "stroke-width": 2.2, opacity: 0 }, g);
@@ -90,6 +90,7 @@
     },
     update: function (r, s, u, d) {
       var push = 1 + 0.05 * easeOutCubic(ramp(u, 0, d));
+      if (r.chip) r.chip.style.opacity = fmt(Math.min(1, u * 2.5), 3);
       if (!r.chaos) {
         var breathe = 1 + 0.012 * Math.sin(u * 2.3);
         r.img.style.transform = "scale(" + fmt(push * breathe, 4) + ")";
