@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-10-ahsilence",
+  "created_at": "2026-11-10T08:59:27Z",
+  "briefs": {
+    "repo-ahsilence-01": {
+      "brief_sha256": "dc77bb107d4e457457a7451df457ef0ac6a0effc940c6c3e20877de229d491db",
+      "brief_identity_sha256": "a068f33c31deb0c82829384fd605562f76c8eded6401caf24dba9fb1271a4eec",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "06df195780f83f8158ab654548e2062f9a714ec97b28750cc042f7e6d4eb8007",
+          "word_count": 166
+        },
+        "assets": {
+          "capture_id": "repo-ahsilence-01",
+          "manifest_sha256": "72b9eccd44674db7b42ac4ade19f81221a2a19bb2a640707c7c62be2456348ea",
+          "files": [],
+          "cover_sha256": "0f5041bfcebde5afef18c9b4baf1e46f99b0544340979ecebbc7b20a16609266",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-ahsilence-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}
