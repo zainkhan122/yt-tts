@@ -442,20 +442,24 @@
     },
     {
       "added_at": "2026-11-10T09:55:05Z",
-      "approval": "held",
+      "approval": "approved",
+      "approved_cover_sha": "sha256:0f5041bfcebde5afef18c9b4baf1e46f99b0544340979ecebbc7b20a16609266",
+      "approved_panel_sha": "16840a4bd646b865b36141c7684b258f7ff2607170a1a7da211f9a8350212e1c",
       "asset_digest": "sha256:3d42e610dcee33800b0bd404cd0be5c49adb8832b361ea18dcc7a1984c882cd2",
       "asset_id": 730918954,
       "asset_size": 9478702,
       "brief_sha256": "cda9a378767ff6755453ad929dc5919fe827c44f0666afe72f51691a4e06d185",
       "category": "repo",
-      "expires_at": null,
+      "cover_reviewed_at": "2026-11-10T09:58:54Z",
+      "cover_sha256": "sha256:0f5041bfcebde5afef18c9b4baf1e46f99b0544340979ecebbc7b20a16609266",
+      "expires_at": "2026-11-17T00:00:00Z",
       "kit_asset_id": 730919032,
       "kit_digest": "sha256:bb381ed290ee458133db826e3e28daa4848347a779593155ee47554aac135374",
       "media_path": "media/730918954/repo-ahsilence-01.mp4",
       "platforms": [
-        "facebook",
+        "youtube",
         "instagram",
-        "youtube"
+        "facebook"
       ],
       "priority": 100,
       "release_tag": "renders-2026-11-10",
@@ -466,7 +470,7 @@
         "run_id": null,
         "source": "release-digest"
       },
-      "reviewed_at": null,
+      "reviewed_at": "2026-11-10T09:58:55Z",
       "title": "Active noise cancellation without ANC hardware (free, offline)",
       "video_id": "repo-ahsilence-01",
       "youtube_ai_generated": false
