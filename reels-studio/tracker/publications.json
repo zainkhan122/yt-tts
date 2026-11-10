@@ -1350,6 +1350,31 @@
       "updated_at": "2026-10-13T00:51:44Z",
       "video_id": "news-nano-banana-21-01"
     },
+    "repo-ahsilence-01:facebook": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-11-10T22:08:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:3d42e610dcee33800b0bd404cd0be5c49adb8832b361ea18dcc7a1984c882cd2",
+        "asset_id": 730918954,
+        "asset_size": 9478702,
+        "kit_asset_id": 730919032,
+        "kit_digest": "sha256:bb381ed290ee458133db826e3e28daa4848347a779593155ee47554aac135374",
+        "media_path": "media/730918954/repo-ahsilence-01.mp4",
+        "release_tag": "renders-2026-11-10",
+        "video_id": "repo-ahsilence-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/730918954/repo-ahsilence-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "03fa57a1c57e2340e1bc0225d5e9a87a081e11c7ef5e19d9d8e9af212959dde6",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "Active noise cancellation, free and offline: AhSilence (open source) listens to the hum for seven seconds, then plays the same wave flipped upside down until the drone cancels. The author's own FAQ admits it isn't perfect. Comment AHSILENCE for the repo link. (AI-narrated short.)\n\nAI-generated narration.\n\n#ActiveNoiseCancellation #NoiseCancelling #AndroidApps #OpenSource #AndroidTips",
+      "title": "Active noise cancellation without ANC hardware (free, offline)",
+      "updated_at": "2026-11-10T10:07:17Z",
+      "video_id": "repo-ahsilence-01"
+    },
     "repo-ahsilence-01:instagram": {
       "attempts": 1,
       "buffer_post_id": "6af2ecd389e9c23c9bd824dd",
