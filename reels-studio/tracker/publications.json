@@ -3990,6 +3990,31 @@
       "updated_at": "2026-11-10T19:53:03Z",
       "video_id": "repo-unslop-02"
     },
+    "repo-unslop-02:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-11-11T22:14:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:3b20b8add7076333b06a32aceb0b9c423a7696514fb689f0e49e3822f4054a45",
+        "asset_id": 723094121,
+        "asset_size": 6060770,
+        "kit_asset_id": 723094171,
+        "kit_digest": "sha256:eec743a004ef4c283873429d3a8d745ad386e5a29eca4a28f6b3e38136aabd41",
+        "media_path": "media/723094121/repo-unslop-02.mp4",
+        "release_tag": "renders-2026-11-09-shorts-01",
+        "video_id": "repo-unslop-02"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/723094121/repo-unslop-02.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "30900e38a8ebc364e553cf9bf3e3eb9fb42d34c7a0408d45d75a722e7f9534e7",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "AI UI design has a look: the purple gradient, the glow behind the card, the emoji in the buttons. unslop is a skill for Claude Code or Codex that names the slop with where it lives, sets a direction from your product, then redraws the same screen in nine passes \u2014 spacing, color, icons, copy, type, layout, details, visuals, motion. It runs in Next.js, React, Vue, Svelte or plain CSS, and on a live site when a link is all you have. Repo: https://github.com/heydamir/unslop #Shorts #AIUIDesign #ClaudeCode #WebDesign #AISkills",
+      "title": "AI UI design has one look, and one skill fixes it",
+      "updated_at": "2026-11-10T19:53:10Z",
+      "video_id": "repo-unslop-02"
+    },
     "repo-voicestudio-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6ae618c2f0984eef331cd916",
