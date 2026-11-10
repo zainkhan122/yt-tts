@@ -212,6 +212,20 @@ def check(video_id: str, *, root: Path = ROOT, live: bool = False) -> list[str]:
     except Exception as exc:
         errors.append(f"package: pairing lint failed to run ({exc})")
 
+    if brief.get("inspiration"):
+        insp = brief["inspiration"]
+        ref = (root / "research" / "references"
+               / f"{insp.get('platform')}-{insp.get('source')}-{insp.get('post_id')}")
+        td = ref / "teardown.md"
+        if not td.exists():
+            errors.append(f"teardown: brief cites inspiration but {td.relative_to(root)} is missing "
+                          "(run tools/reference_teardown.py on the source short)")
+        elif "AGENT-TODO" in td.read_text(encoding="utf-8", errors="replace"):
+            errors.append("teardown: teardown.md still has [AGENT-TODO] sections — complete the analysis "
+                          "(hook/beats/media/colour/take-avoid) before approval")
+        if not (ref / "manifest.json").exists():
+            errors.append("teardown: manifest.json missing beside teardown.md")
+
     verdict = panel_verdict(video_id, root)
     if verdict != "PASS":
         errors.append(f"panel: verdict is {verdict or 'missing'} (approval needs PASS)")

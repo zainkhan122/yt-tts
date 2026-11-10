@@ -30,3 +30,8 @@ covers/
 
 # Cloud dispatch gate receipts: one local folder, not versioned (dispatch logs live in GitHub Actions)
 research/maintenance/gates/*-cloud-*.json
+# reference teardown working files (their footage/frames stay local; only manifest.json + teardown.md are tracked)
+research/references/**/video.*
+research/references/**/subs*.vtt
+research/references/**/audio.*
+research/references/**/frames/

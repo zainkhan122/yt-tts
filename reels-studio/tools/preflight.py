@@ -417,6 +417,35 @@ def check_cover(brief_id):
     return [_result("cover", "PASS", "selected cover matches the reviewed sha and plan text")]
 
 
+def check_reference_advisories(brief_id, brief):
+    """Creative-distance signals when a brief cites an inspiration teardown (owner rule 10 Nov 2026):
+    taking LEAD is fine, copying is not. Advisory NOTE only; the completeness BLOCK is ship.check."""
+    insp = brief.get("inspiration")
+    if not insp:
+        return []
+    try:
+        import reference_teardown as rt
+        ref = rt.reference_dir(insp.get("platform"), insp.get("source"), insp.get("post_id"))
+        man = rt.load_manifest(ref)
+        if man is None:
+            return [_result("reference_distance", "NOTE", f"teardown not run yet for {ref.name}",
+                            "run tools/reference_teardown.py on the source short, then complete teardown.md")]
+        ours = " ".join(str(brief.get(k) or "") for k in ("hook", "heading"))
+        seo = brief.get("seo") or {}
+        ours += " " + str(((seo.get("youtube") or {}).get("title")) or "")
+        shared = rt.shared_ngrams(ours, man.get("transcript") or "")
+        detail = (f"reference {ref.name}: {man.get('outlier_multiple')}x outlier; "
+                  f"our hook/title vs their transcript: {len(shared)} shared 5-gram(s)")
+        if shared:
+            detail += " — e.g. '" + shared[0] + "'"
+        return [_result("reference_distance", "NOTE" if shared else "PASS", detail,
+                        "overlap means we are quoting the reference — rewrite in our own words" if shared
+                        else "no phrase overlap; teardown metrics attached to the brief")]
+    except Exception as exc:
+        return [_result("reference_distance", "NOTE", f"reference check could not run ({exc})",
+                        "fix tools/reference_teardown.py wiring")]
+
+
 def check_package_advisories(brief_id, brief):
     """Advisory-only SHORT packaging signals (owner rule 10 Nov 2026): the pairing score and hook
     panel never block locally; they surface so authoring sees them. Blocking forms live in ship.py."""
@@ -499,7 +528,8 @@ def preflight(brief_id, phase="full", receipt_rel=None):
                + check_motion(brief_id, path) + check_media_aspect(brief_id, brief)
                + check_policy(brief_id, brief) + check_layout(brief_id, path)
                + check_workspace(brief_id) + check_short_qa_plan(brief_id, brief) + check_media_fallback(brief_id, brief)
-               + check_package_advisories(brief_id, brief))
+               + check_package_advisories(brief_id, brief)
+               + check_reference_advisories(brief_id, brief))
     if phase == "pre":
         results += _cloud_source_checks(brief_id, brief, with_release=False, with_cover=False)
     else:

@@ -1,0 +1,157 @@
+{
+ "platform": "tiktok",
+ "source": "github.signals",
+ "post_id": "7706422892908662034",
+ "url": "https://www.tiktok.com/@github.signals/video/7706422892908662034",
+ "title": "Musike: Your Ad-Free Music Player Musike is the open-source music pla...",
+ "views_at_teardown": 19100,
+ "channel_median_views": 5381,
+ "outlier_multiple": 3.5,
+ "duration_s": 40.4,
+ "resolution": "720x1280",
+ "fps": 30.0,
+ "cuts": [
+  2.02,
+  4.04,
+  6.06,
+  8.08,
+  10.1,
+  12.12,
+  14.14,
+  16.16,
+  18.18,
+  20.2,
+  22.22,
+  24.24,
+  26.26,
+  28.28,
+  30.3,
+  32.32,
+  34.34,
+  36.36,
+  38.38
+ ],
+ "avg_shot_s": 2.02,
+ "hook_window_s": 3.0,
+ "hook_window_cuts": 1,
+ "palette": {
+  "dominant_hex": [
+   "#c0c0c0",
+   "#a0a0a0",
+   "#a0c0a0",
+   "#c0c0a0",
+   "#000020",
+   "#a0a0c0"
+  ],
+  "dominant_share": [
+   0.41,
+   0.33,
+   0.06,
+   0.06,
+   0.05,
+   0.04
+  ],
+  "dark_frame_ratio": 0.06,
+  "avg_saturation": 0.04
+ },
+ "frames": [
+  {
+   "t": 0.0,
+   "path": "frames/00-000.00s.png"
+  },
+  {
+   "t": 0.5,
+   "path": "frames/01-000.50s.png"
+  },
+  {
+   "t": 1.0,
+   "path": "frames/02-001.00s.png"
+  },
+  {
+   "t": 1.5,
+   "path": "frames/03-001.50s.png"
+  },
+  {
+   "t": 2.07,
+   "path": "frames/04-002.07s.png"
+  },
+  {
+   "t": 2.5,
+   "path": "frames/05-002.50s.png"
+  },
+  {
+   "t": 4.09,
+   "path": "frames/06-004.09s.png"
+  },
+  {
+   "t": 6.109999999999999,
+   "path": "frames/07-006.11s.png"
+  },
+  {
+   "t": 8.13,
+   "path": "frames/08-008.13s.png"
+  },
+  {
+   "t": 10.15,
+   "path": "frames/09-010.15s.png"
+  },
+  {
+   "t": 12.17,
+   "path": "frames/10-012.17s.png"
+  },
+  {
+   "t": 14.190000000000001,
+   "path": "frames/11-014.19s.png"
+  },
+  {
+   "t": 16.21,
+   "path": "frames/12-016.21s.png"
+  },
+  {
+   "t": 18.23,
+   "path": "frames/13-018.23s.png"
+  },
+  {
+   "t": 20.25,
+   "path": "frames/14-020.25s.png"
+  },
+  {
+   "t": 22.27,
+   "path": "frames/15-022.27s.png"
+  },
+  {
+   "t": 24.29,
+   "path": "frames/16-024.29s.png"
+  },
+  {
+   "t": 26.310000000000002,
+   "path": "frames/17-026.31s.png"
+  },
+  {
+   "t": 28.330000000000002,
+   "path": "frames/18-028.33s.png"
+  },
+  {
+   "t": 30.35,
+   "path": "frames/19-030.35s.png"
+  },
+  {
+   "t": 32.37,
+   "path": "frames/20-032.37s.png"
+  },
+  {
+   "t": 34.39,
+   "path": "frames/21-034.39s.png"
+  },
+  {
+   "t": 36.41,
+   "path": "frames/22-036.41s.png"
+  },
+  {
+   "t": 38.43,
+   "path": "frames/23-038.43s.png"
+  }
+ ],
+ "script_source": "platform-captions",
+ "transcript": "Musique\nis the open source music player that finally strips YouTube Music\ndown to just the music. It runs locally on your own hardware,\nfetching audio streams directly from YouTube's catalog\nwithout ever asking for an account,\nshowing an ad or demanding a subscription.\nThe most surprising part is how it handles video.\nIt automatically finds the official music video for any song\nand lets you flip between pure audio and full\ncinematic video with a single click,\nall while keeping your playlists and favorites\nstored safely in a local file\nyou can export anywhere. It turns a messy web platform into a clean,\nprivate listening experience."
+}
