@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "batch_id": "2026-11-10-musike",
-  "created_at": "2026-11-10T16:44:03Z",
+  "created_at": "2026-11-10T17:20:42Z",
   "briefs": {
     "repo-musike-01": {
-      "brief_sha256": "12999ba8f7180ab6d99061a7de9cfbc3e9ac8ea6440d4caefa4ace6b11154b01",
-      "brief_identity_sha256": "a24041c485288b7f27507690132667f4f1ad5354af465444ecc29e5a9a9ab7f4",
+      "brief_sha256": "2840a93c647d763213baf4c36a51003e2c335469f1fa91b0b50846bcdc04e9ce",
+      "brief_identity_sha256": "d01432aad035d7b5b47b903c4355cf2b7bef8b143046494b1d9b4d0c08bff27b",
       "stages": {
         "script": {
           "status": "complete",
