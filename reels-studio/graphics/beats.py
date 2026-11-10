@@ -178,6 +178,7 @@ def scene_list(beats: dict, phrases: list[dict]) -> list[dict]:
             "t0": p["t0"],
             "t1": p["t1"],
             "headline": s.get("headline", ""),
+            "sub": s.get("sub", ""),
             "payload": s.get("payload", {}),
             "words": p["words"],
             "text": p["text"],
