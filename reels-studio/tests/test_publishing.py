@@ -550,9 +550,13 @@ class VerifyModeExitTests(unittest.TestCase):
             stub.state.return_value = ([], posts)
             stub.channels.return_value = []
             argv = ["unittest", video_id, "--verify", "--report", str(report)]
+            queued_stub = [{"video_id": video_id, "platforms": ["youtube", "instagram", "facebook"],
+                            "approval": "approved", "media_path": f"media/1/{video_id}.mp4",
+                            "title": video_id}]  # queue must be stubbed too: the live file moves (huashu left the queue and this gate went red for CI)
             with patch.object(sys, "argv", argv), \
                  patch.object(publisher, "BufferClient", return_value=stub), \
                  patch.object(publisher, "Journal", return_value=journal), \
+                 patch.object(publisher, "queue", return_value=queued_stub), \
                  patch.dict(os.environ, {"GITHUB_ACTIONS": "true"}, clear=False):
                 code = publisher.main()
             return code, json.loads(report.read_text()), report.with_suffix(".md").read_text()
