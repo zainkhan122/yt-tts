@@ -1004,9 +1004,9 @@
       "capture_id": "repo-ahsilence-01",
       "cover_sha256": "0f5041bfcebde5afef18c9b4baf1e46f99b0544340979ecebbc7b20a16609266",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=skipped",
       "fingerprint": "404fa7a07330c389704b0de5a8e50d352f28b7aceab5b38bbdcb022a4c8e53c3",
-      "finished_at": null,
+      "finished_at": "2026-11-10T09:39:28Z",
       "from_tag": "",
       "graphics_sha256": "951a0817be62e53b0c88cb500737d011902abfe87b7133c4772c7fdb8335027e",
       "quality": "looks",
@@ -1014,7 +1014,7 @@
       "renderer_sha256": "f073c75dbfb99602bb6385f077ab95153e161b1a21fa2a770d8bbc85b0dedb99",
       "run_id": "42790258853",
       "started_at": "2026-11-10T09:23:17Z",
-      "status": "started",
+      "status": "render_only_success",
       "voice_seed": 0
     },
     "425830b2bba3271699e11035cdd0e9c49c3bd34570a103cb22e16886bcd1ccc4": {
