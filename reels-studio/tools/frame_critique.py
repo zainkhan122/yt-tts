@@ -182,7 +182,6 @@ CONTEXT
 - Hook question shown 0-3s: {hook}
 - Spoken lines in order: {" / ".join(spoken)}
 - Critic on our current render, first half: {per_frame}
-- Critic on second half: {per_frame2}
 - Tool UI vocabulary from its official screenshots: {media_note}
 {f"- Reference teardown (a 3.5x outlier we take LEAD from, never copy): {teardown}" if teardown else ""}
 
