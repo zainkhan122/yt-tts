@@ -3934,6 +3934,31 @@
       "verified_at": "2026-11-07T22:01:26Z",
       "video_id": "repo-superagent-01"
     },
+    "repo-unslop-02:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-11-10T23:16:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:3b20b8add7076333b06a32aceb0b9c423a7696514fb689f0e49e3822f4054a45",
+        "asset_id": 723094121,
+        "asset_size": 6060770,
+        "kit_asset_id": 723094171,
+        "kit_digest": "sha256:eec743a004ef4c283873429d3a8d745ad386e5a29eca4a28f6b3e38136aabd41",
+        "media_path": "media/723094121/repo-unslop-02.mp4",
+        "release_tag": "renders-2026-11-09-shorts-01",
+        "video_id": "repo-unslop-02"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/723094121/repo-unslop-02.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "8aecdab77384710bf426e621b82ed1f0aac16955955c02a5debfa81874ea0af6",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "AI UI design, fixed instead of replaced: unslop audits the screen, then redraws it pass by pass inside Claude Code or Codex. Same layout, same words, designed. Comment UNSLOP for the repo.\n\n#AIUIDesign #ClaudeCode #WebDesign #BuildInPublic #AISkills",
+      "title": "AI UI design has one look, and one skill fixes it",
+      "updated_at": "2026-11-10T19:53:01Z",
+      "video_id": "repo-unslop-02"
+    },
     "repo-voicestudio-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6ae618c2f0984eef331cd916",
