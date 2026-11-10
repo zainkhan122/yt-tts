@@ -63,23 +63,33 @@ def b64img(path):
     return f"data:{mime};base64," + base64.b64encode(data).decode()
 
 
-def call(model, messages, tok, max_tokens=900, tries=4):
+class CascadeSkip(Exception):
+    """Model is unusable right now (gone from free tier, timed out, throttled) — try the next."""
+
+
+def call(model, messages, tok, max_tokens=900, tries=3, timeout=150):
     body = json.dumps({"model": model, "messages": messages, "max_tokens": max_tokens,
                        "temperature": 0.2, "top_p": 0.9, "stream": False}).encode()
     for i in range(tries):
         req = urllib.request.Request(API, data=body, headers={
             "Authorization": f"Bearer {tok}", "Content-Type": "application/json"})
         try:
-            with urllib.request.urlopen(req, timeout=180) as r:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
                 return json.loads(r.read())["choices"][0]["message"]["content"]
         except urllib.error.HTTPError as e:
-            if e.code in (404, 403):
-                raise  # model gone from free tier — caller falls back to next model
-            if e.code in (408, 409, 425, 429, 500, 502, 503, 504) and i < tries - 1:
+            if e.code in (400, 403, 404, 410, 422):
+                raise CascadeSkip(f"{model}: HTTP {e.code}")
+            if i < tries - 1:
                 time.sleep(4 * (i + 1))
                 continue
-            raise
-    raise RuntimeError("retries exhausted")
+            raise CascadeSkip(f"{model}: HTTP {e.code} after retries")
+        except (TimeoutError, urllib.error.URLError, OSError) as e:
+            print(f"call: {model} network/timeout ({type(e).__name__}), retry {i+1}/{tries}", file=sys.stderr)
+            if i < tries - 1:
+                time.sleep(5 * (i + 1))
+                continue
+            raise CascadeSkip(f"{model}: {type(e).__name__} after retries")
+    raise CascadeSkip(f"{model}: retries exhausted")
 
 
 def call_vision(image, prompt, tok, max_tokens=900, model_list=None):
@@ -91,9 +101,9 @@ def call_vision(image, prompt, tok, max_tokens=900, model_list=None):
     for m in (model_list or PREFERRED):
         try:
             return m, call(m, [{"role": "user", "content": content}], tok, max_tokens)
-        except urllib.error.HTTPError as e:
+        except CascadeSkip as e:
             last = e
-            print(f"cascade: {m} -> HTTP {e.code}, trying next", file=sys.stderr)
+            print(f"cascade: {e}, trying next", file=sys.stderr)
     raise SystemExit(f"frame_critique: no vision model accepted the request ({last})")
 
 
