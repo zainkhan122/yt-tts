@@ -4051,6 +4051,31 @@
       "verified_at": "2026-10-31T16:35:17Z",
       "video_id": "repo-voicestudio-01"
     },
+    "repo-vork-01:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-11-11T14:15:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:31f7d93255145c91aab349275490293cd2e3e328f8dd1ac0940225085957c558",
+        "asset_id": 720151081,
+        "asset_size": 12850904,
+        "kit_asset_id": 720151128,
+        "kit_digest": "sha256:9b97299d1234eb523da427e325ccf8831e21a8b2f2d098b28605a7ae336da898",
+        "media_path": "media/720151081/repo-vork-01.mp4",
+        "release_tag": "renders-2026-11-08c",
+        "video_id": "repo-vork-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/720151081/repo-vork-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "527620722b3efad6ad13b99ad53cf5022338a4a94b74f65a73a805fe3cd5f95c",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "Agent rendering without a video model: vork is a headless engine where a scene is a program, so the agent writes it, renders a preview on the GPU, looks at the image and revises camera and lighting. It exposes geometry, ray queries and GPU compute, which means a shader can be written in the middle of a shot, and the examples run to a million self-steering birds and VFX cut into real footage. Repo: https://github.com/voyager-so/vork #Shorts #3DRendering #VFX #AIAgents #Rust\n\n#AgentRendering",
+      "title": "Agent rendering: vork renders the shot without a video model",
+      "updated_at": "2026-11-10T19:53:04Z",
+      "video_id": "repo-vork-01"
+    },
     "repo-vvv-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6adf35fa551b0b514a63c2f2",
