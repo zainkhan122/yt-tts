@@ -14,6 +14,7 @@ git config user.name >/dev/null 2>&1 || git config user.name zain
 git config user.email >/dev/null 2>&1 || git config user.email zain@example.com
 git remote get-url origin >/dev/null 2>&1 || git remote add origin https://github.com/zainkhan122/yt-tts.git
 AP="$HOME/.config/reels-studio/git-askpass.sh"
+chmod +x "$AP" 2>/dev/null || true
 test -f "$AP" || { echo "missing $AP — recreate the askpass shim (see ~/.config/reels-studio/)"; exit 1; }
 GIT_ASKPASS="$AP" GIT_TERMINAL_PROMPT=0 git fetch -q origin
 GIT_ASKPASS="$AP" GIT_TERMINAL_PROMPT=0 git push origin "${@:-main}"

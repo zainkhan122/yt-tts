@@ -28,7 +28,14 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-YT_DLP = os.environ.get("YT_DLP") or shutil.which("yt-dlp") or str(ROOT / "tools" / "bin" / "yt-dlp")
+
+def _exec_ok(path):
+    try:
+        os.chmod(path, 0o755)
+    except OSError:
+        pass
+    return path
+YT_DLP = os.environ.get("YT_DLP") or shutil.which("yt-dlp") or _exec_ok(ROOT / "tools" / "bin" / "yt-dlp")
 REG = ROOT / "research/sources.csv"
 POSTS = ROOT / "research/sources/posts.csv"
 FIELDS = ["type", "handle", "url", "tabs", "focus", "why_follow", "priority", "language", "added", "status"]

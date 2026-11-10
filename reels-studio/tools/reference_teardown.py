@@ -35,7 +35,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 POSTS = ROOT / "research" / "sources" / "posts.csv"
 REFS = ROOT / "research" / "references"
-YT_DLP = os.environ.get("YT_DLP") or shutil.which("yt-dlp") or str(ROOT / "tools" / "bin" / "yt-dlp")
+
+def _exec_ok(path):
+    try:
+        os.chmod(path, 0o755)
+    except OSError:
+        pass
+    return path
+YT_DLP = os.environ.get("YT_DLP") or shutil.which("yt-dlp") or _exec_ok(ROOT / "tools" / "bin" / "yt-dlp")
 FFMPEG = (os.environ.get("FFMPEG") or shutil.which("ffmpeg")
           or str(Path.home() / ".config/reels-studio/bin/ffmpeg"))
 SCENE_THRESHOLD = 0.35
