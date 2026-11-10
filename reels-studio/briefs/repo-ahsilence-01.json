@@ -153,7 +153,7 @@
   ],
   "seo": {
     "onscreen_first3s": "AHSILENCE: SILENCE BY MORE SOUND",
-    "keyword": "noise cancelling app",
+    "keyword": "active noise cancellation",
     "aliases": [
       "active noise cancellation",
       "anti-noise app",
@@ -161,11 +161,11 @@
       "cancel hum without anc"
     ],
     "youtube": {
-      "title": "This free app silences a hum by adding MORE sound",
-      "description": "Noise cancelling without ANC hardware: AhSilence is a free, offline Android app that listens to a steady hum for seven seconds (16-bit PCM, 44.1 kHz), finds the strongest drone, then plays the same wave flipped 180 degrees - the hum erases itself while voices pass through. A phase dial corrects bluetooth delay. The author admits the cancellation isn't perfect. Repo: https://github.com/AhmadHassan-BTed/AhSilence #Shorts #NoiseCancelling #AndroidApps #OpenSource #AudioTech",
+      "title": "Active noise cancellation without ANC hardware (free, offline)",
+      "description": "Active noise cancellation with no special hardware: AhSilence is a free, offline Android app that listens to a steady hum for seven seconds (16-bit PCM, 44.1 kHz), finds the strongest drone, then plays the same wave flipped 180 degrees so the hum erases itself while voices pass through.\nA phase dial corrects bluetooth delay by hand. The author's own FAQ admits the cancellation isn't perfect. Repo: https://github.com/AhmadHassan-BTed/AhSilence #Shorts #ActiveNoiseCancellation #NoiseCancelling #AndroidApps #OpenSource",
       "tags": [
-        "noise cancelling app",
         "active noise cancellation",
+        "noise cancelling app",
         "anti-noise",
         "phase inverted audio",
         "AhSilence",
@@ -174,46 +174,46 @@
       ],
       "hashtags": [
         "#Shorts",
+        "#ActiveNoiseCancellation",
+        "#NoiseCancelling",
+        "#AndroidApps",
+        "#OpenSource"
+      ]
+    },
+    "tiktok": {
+      "caption": "Active noise cancellation, free and offline: AhSilence listens 7 seconds, flips the hum upside down, and the drone erases itself. Comment AHSILENCE for the repo.",
+      "hashtags": [
+        "#ActiveNoiseCancellation",
         "#NoiseCancelling",
         "#AndroidApps",
         "#OpenSource",
         "#AudioTech"
       ]
     },
-    "tiktok": {
-      "caption": "Silence by adding more sound: AhSilence listens 7 seconds, flips the hum upside down, and the drone erases itself. Free and offline. Comment AHSILENCE for the repo.",
-      "hashtags": [
-        "#NoiseCancelling",
-        "#AndroidApps",
-        "#OpenSource",
-        "#AudioTech",
-        "#TechTok"
-      ]
-    },
     "instagram": {
-      "caption": "A free offline app that fights noise with more noise: seven-second scan, wave flipped 180 degrees, steady hum erased - voices untouched. Comment AHSILENCE for the repo.",
+      "caption": "Active noise cancellation without the hardware: a seven-second scan, the hum flipped 180 degrees, the drone erased - voices untouched. Comment AHSILENCE for the repo.",
       "hashtags": [
+        "#ActiveNoiseCancellation",
         "#NoiseCancelling",
         "#AndroidApps",
         "#OpenSource",
-        "#AudioTech",
         "#AndroidTips"
       ]
     },
     "facebook": {
-      "caption": "Noise cancelling without ANC hardware: AhSilence (free, offline, open source) listens to the hum for seven seconds, then plays the same wave flipped upside down until the drone cancels. The author's own FAQ admits it isn't perfect. Comment AHSILENCE for the repo link. (AI-narrated short.)",
+      "caption": "Active noise cancellation, free and offline: AhSilence (open source) listens to the hum for seven seconds, then plays the same wave flipped upside down until the drone cancels. The author's own FAQ admits it isn't perfect. Comment AHSILENCE for the repo link. (AI-narrated short.)",
       "hashtags": [
+        "#ActiveNoiseCancellation",
         "#NoiseCancelling",
         "#AndroidApps",
         "#OpenSource",
-        "#AudioTech",
         "#AndroidTips"
       ]
     },
     "x": {
-      "text": "AhSilence: a free offline Android app that cancels a steady hum by playing the same wave flipped 180°. 7s scan, phase dial for BT delay, FAQ admits it's not perfect.",
+      "text": "Active noise cancellation, free + offline: AhSilence cancels a steady hum by playing the same wave flipped 180°. 7s scan, phase dial for BT delay, FAQ admits it's not perfect.",
       "hashtags": [
-        "#NoiseCancelling",
+        "#ActiveNoiseCancellation",
         "#OpenSource"
       ]
     }
