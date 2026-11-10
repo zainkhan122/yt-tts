@@ -1,6 +1,6 @@
 {
- "built_at": "2026-11-09T12:37:16Z",
- "count": 99,
+ "built_at": "2026-11-10T14:26:19Z",
+ "count": 101,
  "schema": 1,
  "topics": {
   "agentautoloop": {
@@ -14,6 +14,21 @@
    "status": "covered",
    "videos": [
     "repo-autoloop-01"
+   ]
+  },
+  "ahsilence": {
+   "keys": [],
+   "names": [
+    "ahsilence-01",
+    "ahsilence"
+   ],
+   "sources": [
+    "briefs/repo-ahsilence-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-ahsilence-01"
    ]
   },
   "ainewtab": {
@@ -1204,6 +1219,19 @@
    "status": "covered",
    "videos": [
     "tool-scrawl-01"
+   ]
+  },
+  "sherlock": {
+   "keys": [],
+   "names": [
+    "sherlock-01"
+   ],
+   "sources": [
+    "briefs/repo-sherlock-01.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-sherlock-01"
    ]
   },
   "solidcraft": {
