@@ -212,8 +212,8 @@ def check(video_id: str, *, root: Path = ROOT, live: bool = False) -> list[str]:
     except Exception as exc:
         errors.append(f"package: pairing lint failed to run ({exc})")
 
-    if brief.get("inspiration"):
-        insp = brief["inspiration"]
+    insp = (_load(brief_path).get("inspiration") or {})
+    if insp:
         ref = (root / "research" / "references"
                / f"{insp.get('platform')}-{insp.get('source')}-{insp.get('post_id')}")
         td = ref / "teardown.md"
