@@ -3992,9 +3992,11 @@
     },
     "repo-unslop-02:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6af376287c81278dfdb495c5",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-11-11T22:14:00Z",
+      "due_at": "2026-11-11T22:14:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:3b20b8add7076333b06a32aceb0b9c423a7696514fb689f0e49e3822f4054a45",
         "asset_id": 723094121,
@@ -4009,10 +4011,11 @@
       "notify_subscribers": false,
       "payload_sha256": "30900e38a8ebc364e553cf9bf3e3eb9fb42d34c7a0408d45d75a722e7f9534e7",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "AI UI design has a look: the purple gradient, the glow behind the card, the emoji in the buttons. unslop is a skill for Claude Code or Codex that names the slop with where it lives, sets a direction from your product, then redraws the same screen in nine passes \u2014 spacing, color, icons, copy, type, layout, details, visuals, motion. It runs in Next.js, React, Vue, Svelte or plain CSS, and on a live site when a link is all you have. Repo: https://github.com/heydamir/unslop #Shorts #AIUIDesign #ClaudeCode #WebDesign #AISkills",
       "title": "AI UI design has one look, and one skill fixes it",
-      "updated_at": "2026-11-10T19:53:10Z",
+      "updated_at": "2026-11-10T19:53:12Z",
       "video_id": "repo-unslop-02"
     },
     "repo-voicestudio-01:facebook": {
