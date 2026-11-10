@@ -3936,9 +3936,11 @@
     },
     "repo-unslop-02:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6af376257c81278dfdb494fd",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-11-11T19:14:00Z",
+      "due_at": "2026-11-11T19:14:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:3b20b8add7076333b06a32aceb0b9c423a7696514fb689f0e49e3822f4054a45",
         "asset_id": 723094121,
@@ -3953,10 +3955,11 @@
       "notify_subscribers": false,
       "payload_sha256": "a00964d34f22c14746a3550c3f4d72169525a8e11fde1de18732248d3994d6b1",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "AI UI design has one look: purple gradient, glow, emoji badges. unslop is a skill for Claude Code or Codex that names the slop, takes a direction from your product and redraws the screen in nine passes. Comment UNSLOP for the repo.\n\nAI-generated narration.\n\n#AIUIDesign #ClaudeCode #WebDesign #AISkills #BuildInPublic",
       "title": "AI UI design has one look, and one skill fixes it",
-      "updated_at": "2026-11-10T19:53:07Z",
+      "updated_at": "2026-11-10T19:53:09Z",
       "video_id": "repo-unslop-02"
     },
     "repo-unslop-02:instagram": {
