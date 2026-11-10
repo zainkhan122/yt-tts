@@ -1,129 +1,111 @@
 #!/usr/bin/env python3
-"""Today's topic candidates, built from ALL live inputs with a strict last-24-hours window.
+"""Today's topics — SOURCE CHANNELS ONLY (TikTok + YouTube Shorts, strict last 24 h).
 
-Rule: "give me today's topics" ALWAYS means every one of these, never radar alone:
-  1. Trend radar (GitHub new repos + GitTrend + Hugging Face models/Spaces) — last 24 h only.
-  2. Source channels (research/sources.csv): TikTok + YouTube Shorts ONLY, and ONLY shorts
-     published in the last 24 h (long-form videos are excluded; undated rows are excluded).
-  3. News feeds (the RSS/everything channels in sources.csv: Product Hunt, HF blog,
-     Reddit, ...) — last 24 h only.
-  4. The covered/scheduled ledger (tools/topics_covered.py) filters out anything already
-     rendered or queued, so no topic ever repeats what we made or scheduled.
+House rule (2026-11-10): topics come from the source channels in research/sources.csv.
+There is NO fallback: no GitHub new-repo radar, no GitTrend, no Hugging Face trending,
+no RSS padding. If the lane is empty the sheet says so loudly instead of borrowing
+topics from trend feeds.
 
-Writes research/topics/daily-YYYY-MM-DD.md grouped by input, every row tagged with its
-age, so the human editor picks the top 10 from one sheet.
+  python3 tools/sources.py scan --latest 15   # refresh research/sources/posts.csv first
+  python3 tools/todays_topics.py              # writes research/topics/daily-<today>.md
 
-  python3 tools/sources.py scan --latest 15   # refresh first (fills published dates)
-  python3 tools/todays_topics.py              # -> research/topics/daily-<today>.md
-  python3 tools/todays_topics.py --no-scan    # reuse existing posts.csv
+Ranking: views ÷ the channel's OWN median views (outlier multiple, same idea as
+tools/topic_rank.py) computed over every post we have for that channel. Medians are
+only shown when we hold >= 4 viewed samples, otherwise the column says n/a.
+
+Exit codes: 0 = sheet written (possibly an announced silent day); 2 = the sources
+scan looks stale or never ran, so an empty lane cannot pass silently.
 """
 import csv
 import datetime as dt
-import argparse
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "tools"))
+POSTS = ROOT / "research" / "sources" / "posts.csv"
+OUT_DIR = ROOT / "research" / "topics"
+STALE_AFTER_H = 26  # no tiktok/youtube row touched in the last 26 h => scan missing/stale
 
-DAY = dt.timedelta(days=1)
 
-
-def entries_24h():
-    """Source-channel posts: STRICT last 24 h by publish time. Shorts only (tiktok + youtube shorts)."""
-    posts = ROOT / "research/sources/posts.csv"
-    if not posts.exists():
-        return [], []
-    now = dt.datetime.now(dt.timezone.utc)
-    shorts, news = [], []
-    for r in csv.DictReader(posts.open(encoding="utf-8", newline="")):
-        pub = r.get("published") or ""
-        if not pub:
-            continue
-        ts = dt.datetime.fromisoformat(pub).timestamp()
-        age_h = (now.timestamp() - ts) / 3600
-        if age_h > 24 or age_h < 0:
-            continue
-        try:
-            views = int(float(r.get("views") or 0))
-        except ValueError:
-            views = 0
-        rec = {"platform": r["platform"], "source": r["source"], "title": (r.get("title") or "")[:110],
-               "url": r.get("url") or "", "views": views, "age_h": round(age_h, 1)}
-        if r["platform"] in ("tiktok", "youtube"):  # 'youtube' = a shorts tab post; '-long' is excluded
-            shorts.append(rec)
-        elif r["platform"] in ("web", "rss"):
-            news.append(rec)
-    return sorted(shorts, key=lambda x: -x["views"]), sorted(news, key=lambda x: -x["views"])
+def parse_ts(raw):
+    if not raw:
+        return None
+    try:
+        t = dt.datetime.fromisoformat(raw.replace("Z", "+00:00"))
+        return t if t.tzinfo else t.replace(tzinfo=dt.timezone.utc)
+    except ValueError:
+        return None
 
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--no-scan", action="store_true", help="skip re-running trend_radar fetches")
-    a = ap.parse_args()
+    now = dt.datetime.now(dt.timezone.utc)
+    rows = list(csv.DictReader(open(POSTS, newline="", encoding="utf-8")))
+    video = [r for r in rows if r.get("platform") in ("tiktok", "youtube")]
 
-    import trend_radar, topics_covered
-    today = dt.date.today().isoformat()
+    medians, counts = {}, {}
+    for ch in {f"{r['platform']}:{r['source']}" for r in video}:
+        views = sorted(int(r["views"]) for r in video
+                       if f"{r['platform']}:{r['source']}" == ch and (r.get("views") or "").isdigit()
+                       and int(r["views"]) > 0)
+        counts[ch] = len(views)
+        if len(views) >= 4:
+            medians[ch] = views[len(views) // 2]
 
-    gh = trend_radar.github(1)  # last 24 h: GitHub created <= 1 day ago
-    trending = trend_radar.gittrend()
-    solved = topics_covered.rebuild()
-    gh = [r for r in gh if not topics_covered.is_covered(r["name"], solved)]
-    trending = [t for t in trending if not topics_covered.is_covered(t["name"], solved)]
+    fresh = []
+    for r in video:
+        pub = parse_ts(r.get("published"))
+        if pub and 0 <= (now - pub).total_seconds() <= 86400:
+            fresh.append(r)
 
-    # HF "trending" is already a ~24h velocity chart; ledger-filtered the same way.
-    models = [m for m in trend_radar.hf("models") if not topics_covered.is_covered(m["name"], solved)]
-    spaces = [m for m in trend_radar.hf("spaces") if not topics_covered.is_covered(m["name"], solved)]
+    touched = [t for t in (parse_ts(r.get("last_seen")) or parse_ts(r.get("first_seen")) for r in video) if t]
+    last_scan = max(touched) if touched else None
+    scan_stale = last_scan is None or (now - last_scan).total_seconds() > STALE_AFTER_H * 3600
 
-    shorts, news = entries_24h()
-    if not shorts:
-        print("warn: no source-channel shorts dated within 24 h — run tools/sources.py scan --latest 15 first",
-              file=sys.stderr)
+    def multiple(r):
+        ch = f"{r['platform']}:{r['source']}"
+        m = medians.get(ch)
+        v = int(r["views"]) if (r.get("views") or "").isdigit() else 0
+        return (v / m) if m else None
 
-    L = [f"# Today's topics: {today} (strict last 24 h windows)", "",
-         "Inputs: trend radar (GitHub/GitTrend/Hugging Face) last 24 h · source-channel SHORTS published "
-         "in the last 24 h (TikTok + YouTube Shorts only) · RSS news feeds last 24 h. "
-         "All rows already ledger-filtered (never re-recommend covered or scheduled topics).", "",
-         f"## 1. Source-channel shorts — last 24 h ({len(shorts)})", "",
-         "| Platform | Source | Short | Views | Age (h) |", "|---|---|---|---|---|"]
-    for s in shorts:
-        L.append(f"| {s['platform']} | {s['source']} | [{s['title'] or s['url']}]({s['url']}) | {s['views']:,} | {s['age_h']} |")
-    if not shorts:
-        L.append("| - | - | (none dated within 24 h — re-run sources scan) | - | - |")
+    fresh.sort(key=lambda r: (multiple(r) is None, -(multiple(r) or 0)))
 
-    L += ["", f"## 2. News feeds — last 24 h ({len(news)})", "", "| Source | Headline | Age (h) |", "|---|---|---|"]
-    for s in news[:25]:
-        L.append(f"| {s['source']} | [{s['title'] or s['url']}]({s['url']}) | {s['age_h']} |")
+    today = now.date().isoformat()
+    L = [f"# Today's topics: {today} — source channels only (strict last 24 h)", ""]
+    if scan_stale:
+        L += ["> **SCAN STALE — re-run `python3 tools/sources.py scan --latest 15` before trusting this sheet.**", ""]
+    L += ["Inputs: SHORTS published in the last 24 h by the source channels in research/sources.csv "
+          "(TikTok + YouTube Shorts only). No trend-radar fallback — by policy this sheet never "
+          "pads with GitHub/GitTrend/Hugging Face/RSS rows.", ""]
+    L += [f"## Source-channel shorts — last 24 h ({len(fresh)})", "",
+          "| Platform | Source | Short | Views | Chan. median | ×median | Age (h) |",
+          "|---|---|---|---|---|---|---|"]
+    for r in fresh:
+        ch = f"{r['platform']}:{r['source']}"
+        m = medians.get(ch)
+        mult = multiple(r)
+        views = int(r["views"]) if (r.get("views") or "").isdigit() else 0
+        age_h = (now - parse_ts(r["published"])).total_seconds() / 3600
+        L.append(f"| {r['platform']} | {r['source']} | [{(r.get('title') or r['url'])[:80]}]({r['url']}) "
+                 f"| {views:,} | {f'{m:,}' if m else 'n/a'} | {f'{mult:.1f}x' if mult else 'n/a'} | {age_h:.1f} |")
+    if not fresh:
+        L.append("| - | - | (no source-channel shorts in the last 24 h — NO fallback topics by policy) | - | - | - | - |")
 
-    safe = [r for r in gh if not r["flags"] and not r["zh"]]
-    L += ["", f"## 3. New GitHub repos — created in the last 24 h ({len(gh)}, {len(safe)} safe)", "",
-          "| Repo | ★ | ★/day | Licence | What it is | Flags |", "|---|---|---|---|---|---|"]
-    for r in gh[:20]:
-        fl = ("⚠ " + ", ".join(r["flags"])) if r["flags"] else ("ZH" if r["zh"] else "")
-        L.append(f"| [{r['name']}]({r['url']}) | {r['stars']:,} | {r['per_day']:.0f} | {r['license']} | {r['desc'][:90].replace('|', '/')} | {fl} |")
+    L += ["", f"**Summary:** {len(fresh)} shorts in the last 24 h "
+              f"(scan last touched {last_scan.isoformat(timespec='minutes') if last_scan else 'never'}). "
+              "Pick from this table only; ranked by outlier multiple over each channel's own median."]
 
-    L += ["", f"## 4. GitTrend star velocity, today ({len(trending)} after ledger filter)", ""]
-    L += [f"- [{t['name']}]({t['url']})" for t in trending] or ["- (none after filtering)"]
-
-    for title, items in ((f"5. Trending HF models, today ({len(models)})", models),
-                         (f"6. Trending HF Spaces, today ({len(spaces)})", spaces)):
-        L += ["", f"## {title}", "", "| Item | Trend score | Likes | Type | Flags |", "|---|---|---|---|---|"]
-        for m in items[:12]:
-            L.append(f"| [{m['name']}]({m['url']}) | {m['score']} | {m['likes']} | {m['tag']} | {('⚠ ' + ', '.join(m['flags'])) if m['flags'] else ''} |")
-
-    L += ["", f"**Summary:** {len(shorts)} shorts + {len(news)} news (last 24 h), {len(gh)} new repos ({len(safe)} safe), "
-              f"{len(models)} models / {len(spaces)} spaces — all ledger-deduped. Editor picks the top 10 from this sheet."]
-    out = ROOT / "research/topics" / f"daily-{today}.md"
-    out.parent.mkdir(parents=True, exist_ok=True)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    out = OUT_DIR / f"daily-{today}.md"
     out.write_text("\n".join(L) + "\n", encoding="utf-8")
     print(f"daily topics -> {out.relative_to(ROOT.parent)}")
-    print(f"shorts 24h: {len(shorts)} · news 24h: {len(news)} · new repos: {len(gh)} ({len(safe)} safe) · "
-          f"models: {len(models)} · spaces: {len(spaces)}")
-    if shorts:
-        print("\nTop shorts last 24 h:")
-        for s in shorts[:10]:
-            print(f"  {s['views']:>10,}  {s['source']:18} {s['title'][:80]}")
+    print(f"shorts 24h: {len(fresh)} · source channels: {len(counts)} · medians computed: {len(medians)}")
+    if scan_stale:
+        print("warn: sources scan stale/missing — run tools/sources.py scan --latest 15", file=sys.stderr)
+        return 2
+    if not fresh:
+        print("note: 0 shorts in the last 24 h (silent day) — no fallback, nothing to pick", file=sys.stderr)
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

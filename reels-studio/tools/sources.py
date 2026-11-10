@@ -16,7 +16,9 @@ import csv
 import datetime as dt
 import email.utils
 import json
+import os
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -26,6 +28,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+YT_DLP = os.environ.get("YT_DLP") or shutil.which("yt-dlp") or str(ROOT / "tools" / "bin" / "yt-dlp")
 REG = ROOT / "research/sources.csv"
 POSTS = ROOT / "research/sources/posts.csv"
 FIELDS = ["type", "handle", "url", "tabs", "focus", "why_follow", "priority", "language", "added", "status"]
@@ -55,7 +58,7 @@ def save(rows):
 
 
 def ytdlp_list(url, n):
-    p = subprocess.run(["yt-dlp", "--flat-playlist", "--playlist-end", str(n), "-J", "--no-warnings", url],
+    p = subprocess.run([YT_DLP, "--flat-playlist", "--playlist-end", str(n), "-J", "--no-warnings", url],
                        capture_output=True, text=True, timeout=240)
     if p.returncode or not p.stdout.strip():
         raise RuntimeError((p.stderr or "no data").strip()[-160:])
@@ -65,7 +68,7 @@ def ytdlp_list(url, n):
 def yt_channel_id(url, n=1):
     """Channel id of a YouTube channel URL (flat playlist metadata; entries[0].channel_id)."""
     try:
-        p = subprocess.run(["yt-dlp", "--flat-playlist", "--playlist-end", "1", "-J", "--no-warnings", url],
+        p = subprocess.run([YT_DLP, "--flat-playlist", "--playlist-end", "1", "-J", "--no-warnings", url],
                            capture_output=True, text=True, timeout=240)
         j = json.loads(p.stdout) if p.returncode == 0 and p.stdout.strip() else {}
         e = (j.get("entries") or [{}])[0]
