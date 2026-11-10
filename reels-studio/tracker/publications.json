@@ -4107,6 +4107,31 @@
       "verified_at": "2026-10-31T16:35:17Z",
       "video_id": "repo-voicestudio-01"
     },
+    "repo-vork-01:facebook": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-11-11T22:18:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:31f7d93255145c91aab349275490293cd2e3e328f8dd1ac0940225085957c558",
+        "asset_id": 720151081,
+        "asset_size": 12850904,
+        "kit_asset_id": 720151128,
+        "kit_digest": "sha256:9b97299d1234eb523da427e325ccf8831e21a8b2f2d098b28605a7ae336da898",
+        "media_path": "media/720151081/repo-vork-01.mp4",
+        "release_tag": "renders-2026-11-08c",
+        "video_id": "repo-vork-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/720151081/repo-vork-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "2eb94c6f808d837da5c831aafc499908a84c6489e40754b46a14eee47cfe2062",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "Agent rendering: vork is a headless engine where the scene is code, so the agent renders a preview, checks the frame and fixes the lighting itself. Comment RENDER for the repo link.\n\nAI-generated narration.\n\n#AgentRendering #VFX #AIAgents #Rust #CreativeCoding",
+      "title": "Agent rendering: vork renders the shot without a video model",
+      "updated_at": "2026-11-10T19:53:13Z",
+      "video_id": "repo-vork-01"
+    },
     "repo-vork-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6af37622c0addee3a3132ba7",
