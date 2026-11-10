@@ -27,12 +27,24 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 API = "https://integrate.api.nvidia.com/v1/chat/completions"
-MODELS = [  # NIM free-tier vision models, most capable first; 404/permission → next
+PREFERRED = [  # known-good NIM vision models first; then whatever the live catalog offers
     "meta/llama-3.2-90b-vision-instruct",
     "meta/llama-3.2-11b-vision-instruct",
     "microsoft/phi-4-multimodal-instruct",
-    "nvidia/vila",
 ]
+VISION_HINT = re.compile(r"vision|multimodal|[-_/]vl[-_/b]|vila|neva|cosmos|internvl|gemma", re.I)
+
+
+def models(tok):
+    try:
+        req = urllib.request.Request("https://integrate.api.nvidia.com/v1/models",
+                                     headers={"Authorization": f"Bearer {tok}"})
+        have = {m["id"] for m in json.loads(urllib.request.urlopen(req, timeout=30).read())["data"]}
+    except Exception:
+        return PREFERRED
+    live = [m for m in PREFERRED if m in have]
+    extra = sorted(m for m in have if VISION_HINT.search(m) and m not in live)
+    return live + extra[:8]
 KEY_ENV = ("NVIDIA_KEY", "NVIDIA_API_KEY")
 
 
@@ -70,15 +82,15 @@ def call(model, messages, tok, max_tokens=900, tries=4):
     raise RuntimeError("retries exhausted")
 
 
-def call_vision(images, prompt, tok, max_tokens=900):
-    """First model in the cascade that accepts the payload wins; name returned with the text."""
-    content = [{"type": "text", "text": prompt}]
-    content += [{"type": "image_url", "image_url": {"url": b64img(p)}} for p in images]
+def call_vision(image, prompt, tok, max_tokens=900, model_list=None):
+    """ONE image per request (the NIM free tier rejects multi-image payloads). First model that
+    accepts wins; 404/410/403/400-with-text-only fall through to the next model."""
+    content = ([{"type": "text", "text": prompt}] +
+               ([{"type": "image_url", "image_url": {"url": b64img(image)}}] if image else []))
     last = None
-    for m in MODELS:
+    for m in (model_list or PREFERRED):
         try:
-            out = call(m, [{"role": "user", "content": content}], tok, max_tokens)
-            return m, out
+            return m, call(m, [{"role": "user", "content": content}], tok, max_tokens)
         except urllib.error.HTTPError as e:
             last = e
             print(f"cascade: {m} -> HTTP {e.code}, trying next", file=sys.stderr)
@@ -127,34 +139,30 @@ def main():
     hook, title, spoken = brief_context(a.brief_id)
     teardown = teardown_excerpt(a.brief_id)
 
-    print(f"frames={len(frames)} media={len(media)} model cascade: {' > '.join(MODELS)}", flush=True)
-    m1, per_frame = call_vision(
-        frames[:4],
-        "These are frames sampled from the first half of a 50-second TikTok/YouTube-Shorts video "
-        "advertising an open-source tool. Be blunt and specific. For the set: (1) Is the tool's actual "
-        "product UI visible anywhere? (2) What is literally on screen — describe shapes, text, motion "
-        "cues. (3) What is visually dominant — interface, or typography on a background? (4) one line "
-        "verdict on whether a viewer learns what the tool LOOKS like.",
-        tok, max_tokens=700)
-    print(f"[model {m1}] first-half critique done", flush=True)
-    m2, per_frame2 = call_vision(
-        frames[4:],
-        "These are frames from the SECOND half of the same Short. (1) Is any real product interface "
-        "shown? (2) describe what changes visually frame to frame (any animation?). (3) verdict on "
-        "visual variety and on-screen evidence for the claims being made.",
-        tok, max_tokens=700)
-    print(f"[model {m2}] second-half critique done", flush=True)
+    live = models(tok)
+    print(f"frames={len(frames)} media={len(media)} live models: {' > '.join(live[:5])}{'…' if len(live)>5 else ''}", flush=True)
+    notes, used = [], {}
+    for i, f in enumerate(frames):
+        m, note = call_vision(f, "This is ONE frame from a 50-second vertical Short advertising an "
+                              "open-source tool. Answer tersely: (1) is any real product interface "
+                              "visible? (2) what is literally on screen (shapes, text, imagery, motion "
+                              "blur cues)? (3) does a viewer learn what the tool LOOKS like from this "
+                              "frame? one-line verdict.", tok, max_tokens=320, model_list=live)
+        used[m] = used.get(m, 0) + 1
+        notes.append(f"frame {f.name}: {note.strip()}")
+        print(f"[{m}] frame {i+1}/{len(frames)}", flush=True)
+    per_frame = "\n".join(notes)
 
-    media_note = ""
-    if media:
-        m3, media_note = call_vision(
-            media,
-            "These are official interface screenshots of the open-source tool the Short is about "
-            "(Musike). Describe the layout vocabulary we could RECREATE as original animation "
-            "(never paste the screenshot): panels, grids, controls, the player bar, toggles — and the "
-            "colour/type personality a rebuild should keep. Be concrete and terse.",
-            tok, max_tokens=700)
-        print(f"[model {m3}] tool-UI vocabulary done", flush=True)
+    vocab = []
+    for f in media:
+        m, note = call_vision(f, "Official interface screenshot of Musike, the tool the Short is about. "
+                          "Describe the layout vocabulary we could RECREATE as original animation (never "
+                          "paste the screenshot): panels, grids, controls, player bar, toggles, and the "
+                          "colour/type personality a rebuild should keep. Concrete, terse.",
+                          tok, max_tokens=380, model_list=live)
+        vocab.append(f"{f.name}: {note.strip()}")
+        print(f"[{m}] media {f.name}", flush=True)
+    media_note = "\n".join(vocab)
 
     synthesis_prompt = f"""You are the art director for short-form tool videos.
 
@@ -174,13 +182,13 @@ TASK: write the REBUILD SPEC as markdown with these exact sections:
 ## COLOUR & TYPE — exact palette (hexes) drawn from the tool's own dark player personality + our accent; type scale rules.
 ## MOTION RULES — 4 rules so nothing is a static text card again (e.g. every scene has a state change visible within 1.5s).
 Keep it under 500 words, imperative, no filler."""
-    m4, spec = call_vision([], synthesis_prompt, tok, max_tokens=1100)
+    m4, spec = call_vision(None, synthesis_prompt, tok, max_tokens=1100, model_list=live)
     print(f"[model {m4}] synthesis done", flush=True)
 
     today = dt.date.today().isoformat()
     doc = (f"# Frame critique: {a.brief_id} — {today}\n\n"
-           f"Models: {m1} / {m2} / {m3 if media else '-'} / {m4}\n\n"
-           f"## Critic: first half\n{per_frame}\n\n## Critic: second half\n{per_frame2}\n\n"
+           f"Models used: {used}; synthesis {m4}\n\n"
+           f"## Critic: per-frame\n{per_frame}\n\n"
            f"## Tool UI vocabulary\n{media_note or '(no media supplied)'}\n\n{spec}\n")
     out = Path(a.out) if a.out else ROOT / "research" / "critiques" / f"{a.brief_id}-{today}.md"
     out.parent.mkdir(parents=True, exist_ok=True)
