@@ -3,8 +3,8 @@ on:
   workflow_dispatch:
     inputs:
       brief:
-        description: 'Brief id (reels-studio/briefs/<id>.json)'
-        required: true
+        description: 'Brief id (reels-studio/briefs/<id>.json) — render mode only'
+        required: false
       render_run:
         description: 'render mode: Actions run id whose artifact (render-<brief>) holds the mp4'
         required: false
