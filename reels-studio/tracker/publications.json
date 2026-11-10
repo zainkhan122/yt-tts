@@ -1352,9 +1352,11 @@
     },
     "repo-ahsilence-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6af2ecd389e9c23c9bd824dd",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-11-10T17:09:00Z",
+      "due_at": "2026-11-10T17:09:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:3d42e610dcee33800b0bd404cd0be5c49adb8832b361ea18dcc7a1984c882cd2",
         "asset_id": 730918954,
@@ -1369,10 +1371,11 @@
       "notify_subscribers": false,
       "payload_sha256": "9516f0a5db3b87898a469980235b14fa06a6a7d214aef995b29e556beaf69807",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Active noise cancellation without the hardware: a seven-second scan, the hum flipped 180 degrees, the drone erased - voices untouched. Comment AHSILENCE for the repo.\n\n#ActiveNoiseCancellation #NoiseCancelling #AndroidApps #OpenSource #AndroidTips",
       "title": "Active noise cancellation without ANC hardware (free, offline)",
-      "updated_at": "2026-11-10T10:07:11Z",
+      "updated_at": "2026-11-10T10:07:15Z",
       "video_id": "repo-ahsilence-01"
     },
     "repo-ai-newtab-01:facebook": {
