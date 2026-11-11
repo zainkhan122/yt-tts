@@ -28,6 +28,15 @@
     if (parent) parent.appendChild(n);
     return n;
   };
+  /* house caption vocabulary: key words per scene glow in the brand accent (same rule as
+   * velocity-black — payload.accent_words, normalized, matched against the spoken word). */
+  var norm = function (w) { return String(w).toLowerCase().replace(/[^a-z0-9]/g, ""); };
+  var accents = function (s) {
+    var a = (s.payload && s.payload.accent_words) || [];
+    var m = {};
+    a.forEach(function (w) { m[norm(w)] = true; });
+    return m;
+  };
   var iconSvg = function (w, h, parent, path, color) {
     var s = document.createElementNS(NS, "svg");
     s.setAttribute("viewBox", "0 0 48 48");
@@ -218,8 +227,21 @@
       r.waves = el("div", "mk-waves", r.stage);
       r.bars = [];
       for (var i = 0; i < 34; i++) r.bars.push(el("b", "", r.waves));
+      /* the VIDEO mode is a video that is actually playing: zooming cover art under an EQ overlay,
+       * a running timecode and a PLAYING badge. A play glyph only flashes the tap, then leaves. */
       r.video = el("div", "mk-video", r.stage);
-      el("div", "playglyph", r.video);
+      r.vidArt = el("div", "vid-art", r.video);
+      r.vidArt.style.background = "linear-gradient(135deg, #8E24AA, #FF5252)";
+      el("div", "vinyl", r.vidArt);
+      el("div", "vid-vig", r.video);
+      var hud = el("div", "vid-badge", r.video);
+      el("i", "", hud); hud.appendChild(document.createTextNode("PLAYING"));
+      r.tc = el("div", "vid-tc", r.video, "2:17 / 3:47");
+      el("div", "vid-title", r.video, "Afterglow — Official Music Video");
+      r.vidBars = [];
+      var ve = el("div", "vid-eq", r.video);
+      for (var vi = 0; vi < 42; vi++) r.vidBars.push(el("b", "", ve));
+      r.playflash = el("div", "playflash", r.video);
       r.shim = el("div", "shimmer", r.video);
       r.bigArt = el("div", "mk-bigart", r.stage);
       r.bigArt.style.background = "linear-gradient(135deg, #3D5AFE, #00B8D4)";
@@ -238,6 +260,18 @@
         var h = 18 + 96 * Math.abs(Math.sin(i * 0.55 + u * 5.2)) * (0.5 + 0.5 * Math.sin(i * 1.3 + 2));
         r.bars[i].style.height = fmt(h) + "px";
       }
+      /* the playing video: slow push-in + drift, busy EQ overlay, timecode that runs */
+      var zoom = 1.06 + 0.05 * Math.sin(u * 0.45);
+      r.vidArt.style.transform = "translate(" + fmt(12 * Math.sin(u * 0.3)) + "px," + fmt(8 * Math.cos(u * 0.38)) + "px) scale(" + fmt(zoom, 3) + ")";
+      for (var vi = 0; vi < r.vidBars.length; vi++) {
+        var vh = 10 + 44 * Math.abs(Math.sin(vi * 0.7 + u * 6.4)) * (0.55 + 0.45 * Math.sin(vi * 1.7 + u * 1.3));
+        r.vidBars[vi].style.height = fmt(vh) + "px";
+      }
+      var sec = 137 + Math.max(0, u - flipAt);
+      r.tc.textContent = Math.floor(sec / 60) + ":" + ("0" + Math.floor(sec % 60)).slice(-2) + " / 3:47";
+      var pf = ramp(u, flipAt, flipAt + 0.12) * (1 - ramp(u, flipAt + 0.5, flipAt + 0.8));
+      r.playflash.style.opacity = fmt(pf);
+      r.playflash.style.transform = "scale(" + fmt(1.3 - 0.3 * easeOutCubic(ramp(u, flipAt, flipAt + 0.3)), 3) + ")";
       r.shim.style.transform = "translateX(" + fmt(((u * 340) % 950) - 140) + "px)";
       seekSet(r.seek, clamp(u / Math.max(1, d), 0, 1));   // same clock, both ways
       eqDrive(r.eq, u, 8);
@@ -261,10 +295,10 @@
       r.stripEq = eq(strip, 4);
       r.grid = el("div", "mk-plats six", r.pane);
       r.tiles = [];
-      [["monitor", "DESKTOP"], ["globe", "BROWSER PWA"], ["phone", "ANDROID + iPHONE"],
-       ["tv", "ANDROID TV"], ["docker", "DOCKER"], ["file", "WIN · MAC · LINUX"]].forEach(function (pv) {
+      [["monitor", "DESKTOP"], ["globe", "BROWSER PWA"], ["phone", "PHONE"],
+       ["tv", "ANDROID TV"], ["docker", "DOCKER"], ["file", "WIN·MAC·LINUX"]].forEach(function (pv) {
         var t = el("div", "mk-plat", r.grid);
-        el("div", "gl", t).appendChild(iconSvg(84, 84, null, ICONS[pv[0]], pv[0] === "docker" ? AMBER : GREEN));
+        el("div", "gl", t).appendChild(iconSvg(64, 64, null, ICONS[pv[0]], pv[0] === "docker" ? AMBER : GREEN));
         el("div", "nm", t, pv[1]);
         var ms = el("div", "miniseek", t); el("i", "", ms);
         r.tiles.push(t);
@@ -366,31 +400,40 @@
     }
   };
 
-  /* ---- endcard: the player stays on screen; CTA breathes ---- */
+  /* ---- endcard: THE house outro, unchanged from our other shorts — real brand logo, name,
+   * handle, pink Follow pill that the cursor presses on the pipeline's click cue, COMMENT
+   * keyword chip on the word (owner rule 2026-11-11: keep our own outro style). ---- */
   ARCH.endcard = {
     build: function (root, s) {
-      var r = { ghost: playerWindow(root, { ghosted: true, title: "…and nothing left to sell you." }) };
-      r.end = el("div", "mk-end", root);
-      r.ring = el("div", "mk-ring", r.end);
-      r.cta = el("div", "mk-cta", r.end, "COMMENT “MUSIKE”");
-      r.repo = el("div", "mk-repochip", r.end);
-      r.repo.innerHTML = "<span class='mk-chip amber'>github · musike · MIT</span>";
-      r.sub = el("div", "end-sub", r.end, "run your own music player — link pinned");
+      var b = D.brand || {};
+      var p = s.payload || {};
+      var r = { wrap: el("div", "endcard", root) };
+      if (b.logo) r.logo = el("img", "ec-logo", r.wrap), r.logo.src = b.logo;
+      el("div", "ec-name", r.wrap, b.name || "");
+      el("div", "ec-handle", r.wrap, b.handle || D.handle || "");
+      r.follow = el("div", "ec-follow", r.wrap, b.cta_button || "Follow");
+      r.chip = el("div", "ec-chip", r.wrap);
+      el("span", "", r.chip, "COMMENT " + String(p.keyword || "musike").toUpperCase());
+      el("div", "ec-prompt", r.wrap, p.prompt || "for the repo link");
+      var cur = el("div", "ec-cursor", r.wrap);
+      cur.innerHTML = "<svg width='70' height='70' viewBox='0 0 24 24'><path d='M4 2 L20 12 L13 13.5 L16.5 21 L13.5 22.5 L10 14.5 L4 19 Z' fill='#ffffff' stroke='#000000' stroke-width='1'/></svg>";
+      r.cursor = cur;
+      r.cursor.style.left = "880px"; r.cursor.style.top = "1010px";
       return r;
     },
     update: function (r, s, u, d) {
-      seekSet(r.ghost.seek, clamp(u / Math.max(1, d), 0, 1));
-      eqDrive(r.ghost.eq, u, 6);
-      var k = easeSpring(ramp(u, 0, 0.6));
-      r.cta.style.opacity = fmt(k);
-      r.cta.style.transform = "scale(" + fmt(0.9 + 0.1 * k) + ")";
-      var pulse = 0.5 + 0.5 * Math.sin(u * 2.6);
-      r.cta.style.boxShadow = "0 16px 44px rgba(52,199,89," + fmt(0.30 + 0.18 * pulse) + ")";
-      var rr = ramp(u, 0.3, 1.1) * (1 - ramp(u, 1.4, 2.0));
-      r.ring.style.opacity = fmt(rr);
-      r.ring.style.transform = "scale(" + fmt(0.85 + 0.35 * easeOutCubic(ramp(u, 0.3, 1.2)), 3) + ")";
-      r.repo.style.opacity = fmt(ramp(u, 0.8, 1.3));
-      r.sub.style.opacity = fmt(ramp(u, 1.1, 1.7));
+      var ev = s.ev || {};
+      var pressT = (ev.press != null ? ev.press - s.t0 : d * 0.55);
+      var kwT = (ev.keyword != null ? ev.keyword - s.t0 : d * 0.3);
+      var kp = easeOutBack(ramp(u, kwT, kwT + 0.4));
+      r.chip.style.opacity = fmt(kp);
+      r.chip.style.transform = "scale(" + fmt(0.8 + 0.2 * kp, 3) + ")";
+      var a = easeOutCubic(ramp(u, pressT - 0.7, pressT));
+      var bx = 880 - a * 396, by = 1010 - a * 435;
+      var press = ramp(u, pressT, pressT + 0.12) - ramp(u, pressT + 0.3, pressT + 0.45);
+      r.cursor.style.transform = "translate(" + fmt(bx - 880, 1) + "px," + fmt(by - 1010, 1) + "px)";
+      r.cursor.style.opacity = a > 0.02 ? 1 : 0;
+      r.follow.style.transform = "scale(" + fmt(1 - 0.12 * press, 3) + ")";
     }
   };
 
@@ -407,6 +450,7 @@
       var visual = el("div", "visual arch-" + s.archetype, wrap);
       s._wrap = wrap; s._head = head; s._visual = visual;
       s._refs = ARCH[s.archetype].build(visual, s);
+      s._acc = accents(s);
     });
     capEl = el("div", "caption", stageEl);
     window.ready = true;
@@ -416,6 +460,8 @@
     for (var k = 0; k < sc.length; k++) if (t >= sc[k].t0 && t < sc[k].t1) return k;
     return t < 0 ? 0 : sc.length - 1;
   }
+  /* house retention band: white words, pink key words, the active word pops in from 1.16x
+   * (identical mechanics to velocity-black — owner rule: kinetic text keeps OUR style). */
   function drawCaption(s, t) {
     var words = s.words || [];
     var cur = -1;
@@ -425,10 +471,11 @@
     capEl.innerHTML = "";
     for (var j = start; j < end; j++) {
       var on = j === cur;
-      var w = el("span", on ? "cw cw-on" : "cw", capEl, words[j][0]);
+      var pk = s._acc[norm(words[j][0])] === true;
+      var w = el("span", "cw" + (pk ? " pk" : ""), capEl, words[j][0]);
       if (on) {
-        var k = easeSnappy(ramp(t - words[j][1], 0, 0.16));
-        w.style.transform = "scale(" + fmt(1.14 - 0.14 * k, 3) + ")";
+        var k = easeOutBack(ramp(t - words[j][1], 0, 0.16));
+        w.style.transform = "scale(" + fmt(1.16 - 0.16 * k, 3) + ")";
       }
     }
   }
