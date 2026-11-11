@@ -2397,6 +2397,26 @@
       "status": "failed",
       "voice_seed": 0
     },
+    "9368ad25763fef5773d1527bac55c8f3e1fd494c8392b8e79fee0a8fa8498a1b": {
+      "asset_files_sha256": "37b0e2c765a627c5979ffbbbe300fe99f9a7daafb7c79dd497bc452be872a5ff",
+      "asset_manifest_sha256": "79d4b4a72df703650e928e8573a9adb402464fd0418876495fda66ea6b3b0117",
+      "brief_id": "repo-musike-01",
+      "brief_sha256": "427a2ed9462c59a96b5377439f535a96b2a28b88b7bb2c21ca2f05035e386fa6",
+      "capture_id": "repo-musike-01",
+      "cover_sha256": "581817288c4a68e55e702b2d9a9bbd4a0c6be6e8bb251785757b5b951ac06303",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "9368ad25763fef5773d1527bac55c8f3e1fd494c8392b8e79fee0a8fa8498a1b",
+      "finished_at": null,
+      "from_tag": "",
+      "quality": "high",
+      "rebuild_scenes": [],
+      "renderer_sha256": "aa27e6e5b36ca44b906922b29e9632d58bcec29a063f48eea4e170a96c84b08a",
+      "run_id": "42940381705",
+      "started_at": "2026-11-11T01:38:19Z",
+      "status": "started",
+      "voice_seed": 1
+    },
     "9481328d6bd3b13479aaff8a81ba070eb887a192dbc95d4f752df7da015a32f4": {
       "asset_files_sha256": null,
       "asset_manifest_sha256": null,
