@@ -1,0 +1,143 @@
+{
+  "tool": "agent-autoloop",
+  "handle": "@hypeless",
+  "scenes": [
+    {
+      "scene_id": "hook",
+      "phrase": 0,
+      "archetype": "flow_link",
+      "headline": "AGENT AUTOLOOP WORKS ALONE",
+      "feature_id": "f1",
+      "depicts": "watching the coding agent all day in a terminal",
+      "payload": {
+        "nodes": [
+          "Your terminal",
+          "Your agent",
+          "Still waiting"
+        ],
+        "edge_label": "no watching",
+        "cue_phrases": [
+          "Tired of",
+          "babysitting",
+          "your coding agent"
+        ]
+      },
+      "cue_word": "babysitting"
+    },
+    {
+      "scene_id": "point1",
+      "phrase": 1,
+      "archetype": "chip_grid",
+      "headline": "A BACKGROUND LOOP",
+      "feature_id": "f1",
+      "depicts": "the command-line agent turned into a background loop",
+      "payload": {
+        "chips": [
+          "A background loop",
+          "On one machine",
+          "Any CLI agent"
+        ],
+        "highlight": 0,
+        "cue_phrases": [
+          "Agent Autoloop",
+          "background coding agent",
+          "on one machine"
+        ]
+      },
+      "cue_word": "loop"
+    },
+    {
+      "scene_id": "point2",
+      "phrase": 2,
+      "archetype": "toggle_steps",
+      "headline": "EVENTS, THEN RULES",
+      "feature_id": "f3",
+      "depicts": "a schedule, an issue and an alert becoming events",
+      "payload": {
+        "steps": [
+          "A schedule fires",
+          "An issue or an alert",
+          "Your rules pick the agent"
+        ],
+        "done": 3,
+        "cue_phrases": [
+          "A schedule",
+          "a new issue",
+          "your rules pick"
+        ]
+      },
+      "cue_word": "event"
+    },
+    {
+      "scene_id": "point3",
+      "phrase": 3,
+      "archetype": "concept_card",
+      "headline": "NO TOKENS WHILE IT WAITS",
+      "feature_id": null,
+      "depicts": "the agent working one round then exiting",
+      "payload": {
+        "big": "NO TOKENS WHILE IT WAITS",
+        "sub": "One round, then the process exits."
+      },
+      "cue_word": "exits"
+    },
+    {
+      "scene_id": "point4",
+      "phrase": 4,
+      "archetype": "terminal_type",
+      "headline": "A CARD, NOT A DASHBOARD",
+      "feature_id": "f5",
+      "depicts": "the card you answer and the command that resumes it",
+      "payload": {
+        "title": "your decision",
+        "lines": [
+          "card: delete the branch?",
+          "agent-autoloop answer 1",
+          "resumed, round two"
+        ],
+        "cue_phrases": [
+          "a card reaches you",
+          "Slack, Discord",
+          "one command resumes it"
+        ]
+      },
+      "cue_word": "card"
+    },
+    {
+      "scene_id": "catch",
+      "phrase": 5,
+      "archetype": "chip_grid",
+      "headline": "THE CATCH",
+      "feature_id": "f6",
+      "depicts": "the Node and Git it needs and the untranslated CLI",
+      "payload": {
+        "chips": [
+          "Needs a recent Node",
+          "Agent already signed in",
+          "CLI still in Chinese"
+        ],
+        "highlight": 2,
+        "cue_phrases": [
+          "a recent Node",
+          "an agent already signed in",
+          "still in Chinese"
+        ]
+      },
+      "cue_word": "catch"
+    },
+    {
+      "scene_id": "cta",
+      "phrase": 6,
+      "archetype": "endcard",
+      "headline": "WORK WHILE YOU'RE AWAY",
+      "feature_id": null,
+      "depicts": "commenting the keyword LOOP to get the repo",
+      "payload": {
+        "keyword": "LOOP",
+        "follow": "Follow"
+      },
+      "cue_word": "LOOP"
+    }
+  ],
+  "script_sha256": "sha256:a2c2494694f83709f44c41bffcdc3be85c33726403ec012df85b6ed99db4a10b"
+}

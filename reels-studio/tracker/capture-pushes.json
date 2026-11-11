@@ -1,0 +1,121 @@
+{
+  "model-idol-01": {
+    "asset": "model-idol-01.tar",
+    "files": {
+      "manifest.json": "366a8e084e958f8462f368dbee0f7f37e97361e70844a831278003df1c1a9883"
+    }
+  },
+  "repo-agent-desktop-01": {
+    "asset": "repo-agent-desktop-01.tar",
+    "files": {
+      "manifest.json": "07c51b1161f6b04f7075c4c390479d70229959399a72076d544f05936f06e042"
+    }
+  },
+  "repo-ahsilence-01": {
+    "asset": "repo-ahsilence-01.tar",
+    "files": {
+      "manifest.json": "72b9eccd44674db7b42ac4ade19f81221a2a19bb2a640707c7c62be2456348ea"
+    }
+  },
+  "repo-autoloop-01": {
+    "asset": "repo-autoloop-01.tar",
+    "files": {
+      "capture-note.md": "2d38ce92f8f2da44b4591ac650a42088cef9fb38e4d3b20ca8b35489cee05302",
+      "manifest.json": "7aadc428a389198e2e5ab72a44086ab860735138f190e5d90ffdbfd05532f3cf"
+    }
+  },
+  "repo-dshgo-01": {
+    "asset": "repo-dshgo-01.tar",
+    "files": {
+      "capture-note.md": "b4b81edeaaaae4a497d8595ebdf3d9122a2112cf6f7bcec0cdfbf6a89a0f7088",
+      "manifest.json": "daa19365fcbd6c6c7a81ad78bfa4651d714b316591acfbbecb4ab7ef6b3f718e"
+    }
+  },
+  "repo-musike-01": {
+    "asset": "repo-musike-01.tar",
+    "files": {
+      "cinema.jpg": "b406bc032fe1a30fcea854e907c1eff189a63604df1f01c51d513bc11d966477",
+      "home.jpg": "3059f67e8f3d7c2ed3f976e0f91fb341c23c2edf8504fdcb010764186f101667",
+      "manifest.json": "79d4b4a72df703650e928e8573a9adb402464fd0418876495fda66ea6b3b0117",
+      "mobile.jpg": "3a62f60676880e3234dca066f401ef5079bc4148ae55ddbc55bbb00dbf2b44fc",
+      "plan-keep.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    }
+  },
+  "repo-poki-01": {
+    "asset": "repo-poki-01.tar",
+    "files": {
+      "demo.mp4": "088db47b0872ddf6797da93f87d15455b270ff40786092a65cc679203ea5de69",
+      "desktop-full.jpg": "01b74d687d590de0dc9f0616d342164ae78f9b6c441972de5f7818f91f050e52",
+      "desktop-top.jpg": "d9be57c806a23354a290795f0e7fc1cae2d8d79e72da1a71f22f37942c445aad",
+      "manifest.json": "ecba35352d0a519a40e64799dbab02d30c9b683582bb85db2c37150132b20be0",
+      "mobile.png": "997aba0dd4fbc29cfb04a81713161ad45ed01de229766d274fbdc0beffae10b0"
+    }
+  },
+  "repo-reavideo-01": {
+    "asset": "repo-reavideo-01.tar",
+    "files": {
+      "capture-note.md": "7fbb1b2d55a3804eed03e42629d111aabc4df792af66a91c358e9e01ccabf351",
+      "manifest.json": "7784925aff578d9f453d37bac27fa6528ce4ad86ed12e7050cf4d0756ad04c88"
+    }
+  },
+  "repo-sand3d-01": {
+    "asset": "repo-sand3d-01.tar",
+    "files": {
+      "capture-note.md": "59e47231b2cc0041755485b694fd9694aa68787bb4615bc81b97fa31bc975473",
+      "manifest.json": "84313fbcd1d347320f47ed4f15bd6ab2d8b1cb70de304e90af89a0e565481d10"
+    }
+  },
+  "repo-superagent-01": {
+    "asset": "repo-superagent-01.tar",
+    "files": {
+      "capture-note.md": "3fdd87b692d848590ac2fc012e7b487d01614e315d7873c24b7b79e9b06b5a20",
+      "manifest.json": "b7ebf05a358acc180f2caea63a795a4d8219ccba53c7c16b156039803e2807a9"
+    }
+  },
+  "repo-unslop-01": {
+    "asset": "repo-unslop-01.tar",
+    "files": {
+      "capture-note.md": "f516070ec017a0d8a08f0c209d61ae047f98638c506468200bbd153b59f53af0",
+      "manifest.json": "37e2d364888afddfc2ce002b97ce0be82405d4825dfafd480bff8782fedabe18"
+    }
+  },
+  "repo-unslop-02": {
+    "asset": "repo-unslop-02.tar",
+    "files": {
+      "manifest.json": "f4db81427a4e700dd0f460ce7bcb36cb290d8d1f5c6a45d38010753323adb223"
+    }
+  },
+  "repo-vork-01": {
+    "asset": "repo-vork-01.tar",
+    "files": {
+      "capture-note.md": "4f2a15fbc8f625c4102e4babc24a22905bcc7a1ab4d59a30f7ab7629313f71e4",
+      "manifest.json": "569d3476f8aa38d7fbc8361d562972c022e44bf13e53d307e4522c8f6c3f2007"
+    }
+  },
+  "tool-claude-tokens-01": {
+    "asset": "tool-claude-tokens-01.tar",
+    "files": {
+      "headroom.mp4": "9e595a84faad24fc038cc20766640353751b08b7f526b1c91d91ba5e5fd38766",
+      "manifest.json": "526a847f2474aaba93bab641c6d6800244e4746f414cc2bb20da4b950a225c41",
+      "omniroute.mp4": "1abe23e05c88eef5da443c14c3e1420a9cddf627905e7475d8382760d8f99e73",
+      "plan-keep.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "ponytail.mp4": "2edefbb6522562414ccfa28501379e600013ce338dd9334cfd26bcac500bfe44",
+      "receipt.jpg": "11bb6c8f8334768275c14b03b5b689d6756b1af48bfa17e27079d0c08fc1a26b",
+      "stack.jpg": "a8766dd1c78ef5ff8da8748f98941a7a98d7e03084d399f8c11f40655ef2038d",
+      "terminal.jpg": "305380284517cc1aebda20b94c53aff35b58a161d01692d1ee47f154c2a8093c"
+    }
+  },
+  "tool-seedance-01": {
+    "asset": "tool-seedance-01.tar",
+    "files": {
+      "capcut.jpg": "6fe5c3e11e9e1dac63c1b6688d02e9372f463d7d4c0f0ece0d7bed4ae989dd15",
+      "capcut.mp4": "cc6ee043106ddfa068a4b14eb07af17fd913b0fde39fb4c0e29702571e4adcc8",
+      "cinema.jpg": "c66a2d4bdf8228572b344766f7ca57b649ac00137c5d78f8baaa6b943551512d",
+      "leaderboard.jpg": "e4ff2821741a9685f38f19e9f8bb6af507585e6fbaa4e1c7d8962021f490fcc5",
+      "leaderboard.mp4": "c49e994886462c4f39134b364e35fb67332bd440e4d0c14ec5b26dd261d9206b",
+      "manifest.json": "7d5fd591e95822df86eefbaa841bfe8cf674f4e325da05f887deb189fe3684b8",
+      "plan-keep.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "seedance-site.mp4": "3c533ca366ff099b8050368304704023d08aaf3e1108439e3b7836f0451423c8"
+    }
+  }
+}

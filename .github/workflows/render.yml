@@ -1,0 +1,355 @@
+# Cloud render: one GitHub runner (4 vCPU / 16 GB) per brief, up to 10 in parallel.
+# Public Release publication is opt-in; otherwise QA-passing files remain short-lived Actions artifacts.
+# Start: python3 reels-studio/reels.py cloud <brief-id> [<brief-id> ...] --receipt reels-studio/research/production/receipts/<batch>.json
+# A fresh Buffer Insights snapshot + the script and assets stages are required (voice QA runs inside the render) before new video renders.
+name: render
+on:
+  workflow_dispatch:
+    inputs:
+      briefs:
+        description: 'Brief ids (reels-studio/briefs/<id>.json), space separated'
+        required: true
+      tag:
+        description: 'Public Release tag when publish_release is enabled (default: renders-YYYY-MM-DD in Asia/Karachi)'
+        required: false
+        default: ''
+      production_receipt:
+        description: 'Production receipt path under reels-studio/research/production/receipts/ (script and assets; required for new videos, not needed for scene rebuilds)'
+        required: false
+        default: ''
+      publish_release:
+        description: 'Create a public GitHub Release after QA; requires explicit publish approval (default: render artifact only)'
+        required: false
+        type: boolean
+        default: false
+      quality:
+        description: 'draft | looks | delivery'
+        required: false
+        default: 'looks'
+      crf:
+        description: 'x264 CRF (23 = about 12-16 MB per 40 s)'
+        required: false
+        default: '23'
+      rebuild_scenes:
+        description: 'Single-scene rebuild: scene ids to re-render (needs a previous kit with a scene manifest)'
+        required: false
+        default: ''
+      rebuild_reason:
+        description: 'Why this rebuild (recorded in the manifest rebuild history)'
+        required: false
+        default: ''
+      from_tag:
+        description: 'Rebuild: release tag holding the published kit+mp4 (default: same tag as the output)'
+        required: false
+        default: ''
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: hypeless-render-production
+  cancel-in-progress: false
+env:
+  PYTHONUNBUFFERED: "1"
+  HYPERFRAMES_NO_TELEMETRY: "1"
+  HYPERFRAMES_NO_UPDATE_CHECK: "1"
+  DO_NOT_TRACK: "1"
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      actions: read
+    outputs:
+      briefs: ${{ steps.p.outputs.briefs }}
+      tag: ${{ steps.p.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          sparse-checkout: |
+            /.github/workflows/render.yml
+            /reels-studio/briefs/
+            /reels-studio/lib/
+            /reels-studio/graphics/
+            /reels-studio/tools/validate_dispatch.py
+            /reels-studio/tools/production_gate.py
+            /reels-studio/tools/short_qa.py
+            /reels-studio/tools/seo_pack.py
+            /reels-studio/tools/publish_verified_batch.py
+            /reels-studio/tools/render_attempts.py
+            /reels-studio/tools/gh_actions.py
+            /reels-studio/tools/capture_store.py
+            /reels-studio/topics/backlog.csv
+            /reels-studio/tracker/buffer-insights.json
+            /reels-studio/config/channel.json
+            /reels-studio/config/gates.json
+            /reels-studio/config/qa-thresholds.json
+            /reels-studio/brand/voice/michael-ref.wav
+            /reels-studio/cloud/setup-render.sh
+            /reels-studio/setup/setup-whisper.sh
+            /reels-studio/setup/setup-sandbox.sh
+            /reels-studio/reels.py
+            /reels-studio/templates/
+            /reels-studio/research/ideas/
+            /reels-studio/research/production/
+            /reels-studio/research/radar/
+            /reels-studio/research/social/
+          sparse-checkout-cone-mode: false
+      - id: p
+        name: Six-stage / score / Insights / duplicate-render plan
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRIEFS: ${{ inputs.briefs }}
+          TAG: ${{ inputs.tag }}
+          QUALITY: ${{ inputs.quality }}
+          CRF: ${{ inputs.crf }}
+          REBUILD_SCENES: ${{ inputs.rebuild_scenes }}
+          REBUILD_REASON: ${{ inputs.rebuild_reason }}
+          FROM_TAG: ${{ inputs.from_tag }}
+          PRODUCTION_RECEIPT: ${{ inputs.production_receipt }}
+        run: python3 reels-studio/tools/validate_dispatch.py >> "$GITHUB_OUTPUT"
+      - name: Download and verify every capture pack before reserving a render
+        if: ${{ inputs.rebuild_scenes == '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRIEFS_JSON: ${{ steps.p.outputs.briefs }}
+          PRODUCTION_RECEIPT: ${{ inputs.production_receipt }}
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess, sys
+          ids = json.loads(os.environ['BRIEFS_JSON'])
+          receipt = os.environ['PRODUCTION_RECEIPT']
+          for brief_id in ids:
+              brief = f"reels-studio/briefs/{brief_id}.json"
+              subprocess.run([sys.executable, 'reels-studio/tools/capture_store.py', 'pull-for', brief], check=True)
+          subprocess.run([sys.executable, 'reels-studio/tools/production_gate.py', 'assets', receipt, *ids], check=True)
+          PY
+      - name: Reserve unique input fingerprints (write-ahead idempotency lock)
+        id: reserve
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRIEFS: ${{ inputs.briefs }}
+          TAG: ${{ inputs.tag }}
+          QUALITY: ${{ inputs.quality }}
+          CRF: ${{ inputs.crf }}
+          REBUILD_SCENES: ${{ inputs.rebuild_scenes }}
+          REBUILD_REASON: ${{ inputs.rebuild_reason }}
+          FROM_TAG: ${{ inputs.from_tag }}
+          PRODUCTION_RECEIPT: ${{ inputs.production_receipt }}
+          RECORD_ATTEMPT: 'true'
+        run: python3 reels-studio/tools/validate_dispatch.py >> "$GITHUB_OUTPUT"
+  voice:
+    # Early gate (owner, 5 Nov 2026): TTS + per-chunk alignment QA run here, once. A bad voice fails
+    # this job, before the video render starts. The checked audio is handed to the render job.
+    needs: plan
+    if: ${{ inputs.rebuild_scenes == '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: true
+      max-parallel: 10
+      matrix:
+        brief: ${{ fromJSON(needs.plan.outputs.briefs) }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BRIEF: reels-studio/briefs/${{ matrix.brief }}.json
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /reels-studio/
+            /.github/workflows/
+          sparse-checkout-cone-mode: false
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/hyperframes
+            ~/.cache/puppeteer
+            ~/.cache/huggingface
+            ~/.cache/pip
+          key: hf-0.8.137-cbx-${{ runner.os }}-${{ hashFiles('reels-studio/setup/setup-whisper.sh', 'reels-studio/setup/setup-sandbox.sh', 'reels-studio/cloud/setup-render.sh') }}
+      - name: Toolchain
+        run: bash reels-studio/cloud/setup-render.sh
+      - name: Capture pack
+        run: python3 reels-studio/tools/capture_store.py pull-for "$BRIEF"
+      - name: Create per-brief receipt
+        run: |
+          BRIEF_ID=$(basename "$BRIEF" .json)
+          RECEIPT_PATH="${{ inputs.production_receipt }}"
+          if command -v jq &>/dev/null; then
+            jq --arg id "$BRIEF_ID" --arg out "per-brief-$BRIEF_ID" '.briefs |= {$id: .[$id]} | .batch_id = $out' "$RECEIPT_PATH" > "reels-studio/research/production/receipts/per-brief-$BRIEF_ID.json"
+          else
+            python3 -c "import json,sys; d=json.load(open(sys.argv[1])); bid=sys.argv[2]; d['briefs']={bid:d['briefs'][bid]}; json.dump(d,open(f\"/tmp/receipt-{bid}.json\",\"w\"),indent=2)" "$RECEIPT_PATH" "$BRIEF_ID"
+          fi
+      - name: Voice (synthesis + alignment QA, saved for the render job)
+        run: |
+          python3 reels-studio/reels.py make "$BRIEF" --quality "${{ inputs.quality }}" --crf "${{ inputs.crf }}" \
+            --receipt "reels-studio/research/production/receipts/per-brief-${{ matrix.brief }}.json" \
+            --voice-out "voice-handoff/${{ matrix.brief }}" --no-render
+      - name: Upload voice handoff
+        uses: actions/upload-artifact@v4
+        with:
+          name: voice-${{ matrix.brief }}
+          path: voice-handoff/${{ matrix.brief }}
+          retention-days: 2
+          if-no-files-found: error
+
+  render:
+    needs: [plan, voice]
+    if: ${{ !cancelled() && needs.plan.result == 'success' && (needs.voice.result == 'success' || needs.voice.result == 'skipped') }}
+    name: render ${{ matrix.brief }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        brief: ${{ fromJSON(needs.plan.outputs.briefs) }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BRIEF: reels-studio/briefs/${{ matrix.brief }}.json
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /reels-studio/
+            /.github/workflows/
+          sparse-checkout-cone-mode: false
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/hyperframes
+            ~/.cache/puppeteer
+            ~/.cache/huggingface
+            ~/.cache/pip
+          key: hf-0.8.137-cbx-${{ runner.os }}-${{ hashFiles('reels-studio/setup/setup-whisper.sh', 'reels-studio/setup/setup-sandbox.sh', 'reels-studio/cloud/setup-render.sh') }}
+      - name: Toolchain
+        run: bash reels-studio/cloud/setup-render.sh
+      - name: Capture pack
+        run: python3 reels-studio/tools/capture_store.py pull-for "$BRIEF"
+      - name: Create per-brief receipt
+        run: |
+          BRIEF_ID=$(basename "$BRIEF" .json)
+          RECEIPT_PATH="${{ inputs.production_receipt }}"
+          if command -v jq &>/dev/null; then
+            jq --arg id "$BRIEF_ID" --arg out "per-brief-$BRIEF_ID" '.briefs |= {$id: .[$id]} | .batch_id = $out' "$RECEIPT_PATH" > "reels-studio/research/production/receipts/per-brief-$BRIEF_ID.json"
+          else
+            python3 -c "import json,sys; d=json.load(open(sys.argv[1])); bid=sys.argv[2]; d['briefs']={bid:d['briefs'][bid]}; json.dump(d,open(f"/tmp/receipt-{bid}.json","w"),indent=2)" "$RECEIPT_PATH" "$BRIEF_ID"
+          fi
+      - name: Reviewed cover pack (the panel's pick, byte-identical)
+        run: python3 reels-studio/tools/cover_store.py pull-for "$BRIEF"
+      - name: Checked voice from the voice job
+        if: ${{ inputs.rebuild_scenes == '' }}
+        uses: actions/download-artifact@v4
+        with:
+          name: voice-${{ matrix.brief }}
+          path: voice-handoff/${{ matrix.brief }}
+      - name: Render (voice reused, QA gates, video)
+        env:
+          REBUILD_SCENES: ${{ inputs.rebuild_scenes }}
+          REBUILD_REASON: ${{ inputs.rebuild_reason }}
+          FROM_TAG: ${{ inputs.from_tag }}
+        run: |
+          extra=()
+          if [ -n "$REBUILD_SCENES" ]; then
+            extra=(--rebuild-scenes "$REBUILD_SCENES" --rebuild-reason "$REBUILD_REASON" --from-tag "${FROM_TAG:-${{ needs.plan.outputs.tag }}}")
+          else
+            extra=(--receipt "reels-studio/research/production/receipts/per-brief-${{ matrix.brief }}.json" --voice-in "voice-handoff/${{ matrix.brief }}")
+          fi
+          python3 reels-studio/reels.py make "$BRIEF" --quality "${{ inputs.quality }}" --crf "${{ inputs.crf }}" "${extra[@]}"
+      - name: SEO pack (gate)
+        run: python3 reels-studio/tools/seo_pack.py "$BRIEF"
+      - name: Gate receipt (rule IDs -> manifest)
+        run: python3 reels-studio/reels.py gates "$BRIEF"
+      - name: Upload render artifact
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: render-${{ matrix.brief }}
+          path: reels-studio/renders/${{ matrix.brief }}/
+          if-no-files-found: error
+          retention-days: 1
+      - name: Upload failure log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-${{ matrix.brief }}
+          path: /var/tmp/reels/${{ matrix.brief }}/build.log
+          if-no-files-found: ignore
+          retention-days: 7
+  publish:
+    if: ${{ success() && inputs.rebuild_scenes == '' && inputs.publish_release == true }}
+    needs: [plan, render]
+    name: publish verified GitHub Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /reels-studio/briefs/
+            /reels-studio/lib/
+            /reels-studio/tools/
+            /reels-studio/config/gates.json
+          sparse-checkout-cone-mode: false
+      - name: Download temporary render artifacts on runner
+        uses: actions/download-artifact@v4
+        with:
+          pattern: render-*
+          path: release-artifacts
+          merge-multiple: false
+      - name: Verify complete batch, publish one Release, and remove staging artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRIEFS_JSON: ${{ needs.plan.outputs.briefs }}
+          RELEASE_TAG: ${{ needs.plan.outputs.tag }}
+          RUN_ID: ${{ github.run_id }}
+        run: >-
+          python3 reels-studio/tools/publish_verified_batch.py
+          --briefs-json "$BRIEFS_JSON"
+          --tag "$RELEASE_TAG"
+          --artifact-root release-artifacts
+          --run-id "$RUN_ID"
+
+  finalize-attempt:
+    if: ${{ always() && needs.plan.result == 'success' }}
+    needs: [plan, render, publish]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            /reels-studio/tools/render_attempts.py
+            /reels-studio/tools/gh_actions.py
+            /reels-studio/lib/secrets.py
+          sparse-checkout-cone-mode: false
+      - name: Finalize write-ahead attempt receipt
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.run_id }}
+          RENDER_RESULT: ${{ needs.render.result }}
+          PUBLISH_RESULT: ${{ needs.publish.result }}
+          REBUILD_SCENES: ${{ inputs.rebuild_scenes }}
+          PUBLISH_RELEASE: ${{ inputs.publish_release }}
+        run: |
+          if [ "$RENDER_RESULT" = "success" ] && [ -n "$REBUILD_SCENES" ]; then
+            status=scene_rebuild_success
+          elif [ "$RENDER_RESULT" = "success" ] && [ "$PUBLISH_RESULT" = "success" ]; then
+            status=success
+          elif [ "$RENDER_RESULT" = "success" ] && [ "$PUBLISH_RELEASE" != "true" ]; then
+            status=render_only_success
+          elif [ "$RENDER_RESULT" = "success" ]; then
+            status=render_succeeded_publish_failed
+          elif [ "$RENDER_RESULT" = "cancelled" ]; then
+            status=cancelled
+          else
+            status=failed
+          fi
+          python3 reels-studio/tools/render_attempts.py finish --run-id "$RUN_ID" --status "$status" --conclusion "render=$RENDER_RESULT publish=$PUBLISH_RESULT"

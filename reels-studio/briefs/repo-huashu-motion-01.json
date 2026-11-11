@@ -1,0 +1,278 @@
+{
+  "id": "repo-huashu-motion-01",
+  "capture": "captures/repo-huashu-motion-01",
+  "title": "huashu-motion: Your Coding Agent Shoots the Launch Film",
+  "niche": "AI video creation with coding agents",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "Selected 2026-10-19 (batch 2, creative pilot) from radar-2026-10-19 + performance advice. Creative treatment per PLAYBOOK 8A; cover concepts judged by viewer panel via cover_lab. Default flow: render + frame/cover panel PASS, then Buffer scheduled. Approved Option-3 Chatterbox flow voice.",
+  "production_category": "repo",
+  "keywords": [
+    "huashu-motion",
+    "AI launch film",
+    "coding agent",
+    "AI video",
+    "agent skills"
+  ],
+  "facts": {
+    "stars": "881 GitHub stars (own capture, checked 2026-10-19)",
+    "license": "MIT",
+    "runtime": "Agent skill; needs Node 22+, Chrome and FFmpeg; tested on macOS so far (project README)"
+  },
+  "credits_on_screen": "Own captures of the public GitHub repo (checked 2026-10-19).",
+  "sources": [
+    "https://github.com/alchaincyf/huashu-motion",
+    "https://api.github.com/repos/alchaincyf/huashu-motion"
+  ],
+  "verify_before_render": [
+    "Stars, licence and platform-support claims re-checked against the live repo on render day."
+  ],
+  "treatment": {
+    "audience": "indie makers and developers launching a product",
+    "viewer_job": "get a launch film without hiring an editor or learning video tools",
+    "intent": "browse",
+    "archetype": "quest",
+    "hook_mechanic": "the agent as a one-person film crew: job, journey, finished film",
+    "open_loop": {
+      "plant": "what will the agent's first cut actually look like?",
+      "payoff_scene": "how"
+    },
+    "proof_moment": "how",
+    "cover_concepts": [
+      {
+        "text": "AGENT SHOOTS ADS",
+        "visual": "repo page with the film examples",
+        "gap": "what can the agent shoot?"
+      },
+      {
+        "text": "LAUNCH FILM, NO CREW",
+        "visual": "repo page",
+        "gap": "no crew at all?"
+      },
+      {
+        "text": "POINT. IT RE-EDITS.",
+        "visual": "point-to-edit example on the page",
+        "gap": "edit by pointing?"
+      }
+    ],
+    "selected_cover": 0,
+    "structure": [
+      {
+        "scene": "hook",
+        "beat": "briefing"
+      },
+      {
+        "scene": "name",
+        "beat": "objective"
+      },
+      {
+        "scene": "how",
+        "beat": "proof"
+      },
+      {
+        "scene": "stars",
+        "beat": "field-notes"
+      },
+      {
+        "scene": "install",
+        "beat": "proof"
+      },
+      {
+        "scene": "catch",
+        "beat": "catch"
+      },
+      {
+        "scene": "cta",
+        "beat": "close"
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "heading": "YOUR AGENT *SHOOTS THE AD*",
+      "sub": "huashu-motion · a film crew in your terminal",
+      "say": "Your coding agent can now shoot your product's launch film, music included.",
+      "url": "github.com/alchaincyf/huashu-motion",
+      "camera": [
+        {
+          "region": "repo_title",
+          "zoom": 1.5,
+          "at": "launch film"
+        }
+      ]
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "image": "desktop-top.jpg",
+      "heading": "MEET *HUASHU-MOTION*",
+      "sub": "by alchaincyf · open source",
+      "say": "This is Huashu Motion, a skill that turns your agent into a one person film crew."
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "THE *SHOOT*",
+      "steps": [
+        "It reads your product",
+        "Writes the film and the score",
+        "You point, it re-edits"
+      ],
+      "step_at": [
+        "reads your product",
+        "score",
+        "point"
+      ],
+      "say": "It reads your product, writes the whole film and composes the score, then opens an editor where you point at any frame and it changes just that part.",
+      "background": {
+        "image": "desktop-full.jpg",
+        "scroll_regions": [
+          "h_effects",
+          "h_point_edit"
+        ]
+      }
+    },
+    {
+      "id": "stars",
+      "type": "page",
+      "heading": "MAKERS *NOTICED*",
+      "image": "desktop-top.jpg",
+      "say": "Makers gave it over eight hundred stars on its first day.",
+      "camera": [
+        {
+          "region": "star_button",
+          "zoom": 2.6,
+          "at": "eight hundred"
+        }
+      ],
+      "cursor": [
+        {
+          "region": "star_button",
+          "at": "eight hundred",
+          "state": "★ Starred 881"
+        }
+      ]
+    },
+    {
+      "id": "install",
+      "type": "page",
+      "heading": "*ONE COMMAND*",
+      "image": "desktop-full.jpg",
+      "say": "One command adds it to the coding agent you already use.",
+      "camera": [
+        {
+          "region": "h_install",
+          "zoom": 1.35,
+          "at": "One command"
+        }
+      ]
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "BEFORE THE *PREMIERE*",
+      "cons": [
+        "Only tested on Mac so far",
+        "Needs Node, Chrome and FFmpeg set up"
+      ],
+      "pros": [
+        "Free and open source",
+        "Music composed locally, no paid APIs"
+      ],
+      "item_at": [
+        "only been tested on Mac",
+        "FFmpeg ready",
+        "open source",
+        "no paid services"
+      ],
+      "say": "The honest catch: it has only been tested on Mac so far, and your machine needs Node, Chrome and FFmpeg ready. In return, it is free and open source, and the music is composed locally with no paid services.",
+      "image": "desktop-full.jpg",
+      "region": "h_honest_limits",
+      "zoom": 1.15
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "FILM",
+      "say": "What would your agent film first? Comment Film and follow for tools like this."
+    }
+  ],
+  "seo": {
+    "keyword": "huashu-motion",
+    "aliases": [
+      "AI product video",
+      "coding agent film",
+      "launch video AI"
+    ],
+    "onscreen_first3s": "YOUR AGENT SHOOTS THE AD",
+    "youtube": {
+      "title": "Your Coding Agent Can Now Shoot Your Launch Film (huashu-motion)",
+      "description": "huashu-motion is an agent skill that turns Claude Code, Codex and other coding agents into a film crew: it reads your product, writes the launch film, composes the score locally, and lets you re-edit by pointing at a frame. 881 GitHub stars on day one. Catches are in the video: macOS-tested so far, and you need Node, Chrome and FFmpeg.\nSource: https://github.com/alchaincyf/huashu-motion",
+      "hashtags": [
+        "#Shorts",
+        "#AI",
+        "#Coding",
+        "#Video"
+      ],
+      "tags": [
+        "huashu-motion",
+        "AI launch film",
+        "coding agents",
+        "AI video",
+        "agent skills",
+        "product launch"
+      ]
+    },
+    "tiktok": {
+      "caption": "Your coding agent just became a film crew. It shoots the launch film, writes the music, you point to re-edit.",
+      "hashtags": [
+        "#AI",
+        "#Coding",
+        "#Video"
+      ]
+    },
+    "instagram": {
+      "caption": "Save this before your next launch: one skill turns your agent into a film crew — script, score and edits by pointing at the frame.",
+      "hashtags": [
+        "#AI",
+        "#Coding",
+        "#OpenSource"
+      ]
+    },
+    "facebook": {
+      "caption": "huashu-motion: your coding agent shoots your product's launch film, composes the music locally, and re-edits when you point at a frame. 881 stars on day one.",
+      "hashtags": [
+        "#AI",
+        "#Coding"
+      ]
+    },
+    "x": {
+      "text": "A coding agent that shoots your launch film, scores it, and re-edits when you point at the frame. huashu-motion, 881 stars day one: https://github.com/alchaincyf/huashu-motion",
+      "hashtags": [
+        "#AI",
+        "#Coding"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "huashu-motion: Your Coding Agent Shoots the Launch Film"
+    ],
+    "caption": "huashu-motion: an agent skill that turns your coding agent into a film crew — reads your product, writes the launch film, composes the score locally, and re-edits when you point at a frame. 881 stars on day one. Catches: macOS-tested so far; needs Node, Chrome and FFmpeg.",
+    "hashtags": [
+      "#Shorts",
+      "#AI",
+      "#Coding",
+      "#Video"
+    ],
+    "keyword": "FILM"
+  },
+  "research_basis": [
+    "research/social/decode-2026-10-18.md",
+    "research/social/platform-algorithms-2026-10-18.md",
+    "tracker/performance.json"
+  ]
+}

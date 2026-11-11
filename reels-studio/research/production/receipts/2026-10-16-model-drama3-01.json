@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-16-model-drama3-01",
+  "created_at": "2026-10-16T08:20:00Z",
+  "buffer_insights": {
+    "path": "reels-studio/tracker/buffer-insights.json",
+    "sha256": "19b60ade2adba83a7f17e68afa2e117f8a0f35f95db18bc38616d2879c579e99"
+  },
+  "metrics_review": {
+    "snapshot_sha256": "19b60ade2adba83a7f17e68afa2e117f8a0f35f95db18bc38616d2879c579e99",
+    "reviewed_video_count": 79,
+    "sample_post_ids": [
+      "6acc91ac5feb3462de95f38b",
+      "6acc91a65feb3462de95f295",
+      "6ac904b32f26cc482c22c526",
+      "6accbfbf0b1f16abcb04921c"
+    ],
+    "findings": [
+      "Fresh snapshot fetched 2026-10-16T08:07:13Z: 79 shared video records, complete coverage across YouTube/Instagram/Facebook.",
+      "Hands-on local-AI demos and open-source spotlights lead our history: repo-ds4-01 972 YouTube views, tool-qwen38-01 807; Instagram fresh median leaders include model-embeddinggemma2-01 at 232 views within a day of posting.",
+      "Concrete, testable payoffs outperform feature lists (spotlight-papermorph-01, 608 YouTube views); every script below states its payoff in sentence one and attributes vendor figures.",
+      "Instagram rewards save-worthy tool/model spotlights (repo-opencr-01 268 views); each video carries a comment keyword CTA."
+    ],
+    "decisions": {
+      "topic": "Voice/media models give us a sensory demo angle our audience responds to; a 16-character cast in one script is a one-line hook.",
+      "script": "Hook states the whole-cast payoff in sentence one, names Drama 3 in scene two, and keeps the GPU and community-licence caveats in the spoken catch.",
+      "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall; this video is about a TTS model but uses our approved voice, unchanged.",
+      "visual": "Original cast and skills cards created for this video; no audio is generated or claimed."
+    }
+  },
+  "briefs": {
+    "model-drama3-01": {
+      "brief_sha256": "f08ecbe4d7a955221baabd66978db85c2d2ff49a95c19e9e55bf652a485e2a50",
+      "metrics_decisions": {
+        "topic": "Voice/media models give us a sensory demo angle our audience responds to; a 16-character cast in one script is a one-line hook.",
+        "script": "Hook states the whole-cast payoff in sentence one, names Drama 3 in scene two, and keeps the GPU and community-licence caveats in the spoken catch.",
+        "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall; this video is about a TTS model but uses our approved voice, unchanged.",
+        "visual": "Original cast and skills cards created for this video; no audio is generated or claimed."
+      },
+      "stages": {
+        "discover": {
+          "status": "complete",
+          "checked_at": "2026-10-16T08:20:00Z",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-16.md",
+            "reels-studio/research/ideas/feed-2026-10-16.md"
+          ]
+        },
+        "select": {
+          "status": "complete",
+          "selection_status": "selected",
+          "topic": "Drama 3: 16-voice scene TTS (Fish Audio)",
+          "score": 72,
+          "score_breakdown": {
+            "trend_velocity": 18,
+            "demo_ability": 17,
+            "audience_breadth": 10,
+            "social_proof_gap": 7,
+            "free_value": 7,
+            "freshness_angle": 13
+          },
+          "metrics_snapshot_sha256": "19b60ade2adba83a7f17e68afa2e117f8a0f35f95db18bc38616d2879c579e99",
+          "basis_post_ids": [
+            "6acc91ac5feb3462de95f38b",
+            "6acc91a65feb3462de95f295",
+            "6ac904b32f26cc482c22c526"
+          ],
+          "hard_gates": {
+            "risk_flags_clear": true,
+            "claim_verifiable": true,
+            "license_clear": true
+          }
+        },
+        "research": {
+          "status": "complete",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-16.md",
+            "reels-studio/research/ideas/feed-2026-10-16.md"
+          ],
+          "dynamic_facts_checked_at": "2026-10-16T08:20:00Z",
+          "primary_sources": [
+            {
+              "url": "https://huggingface.co/fishaudio/drama-3",
+              "checked_at": "2026-10-16T08:20:00Z",
+              "claim": "Model card documents 16-speaker tags, cloning, point tags, edit-by-rewriting and vendor serving figures."
+            },
+            {
+              "url": "https://huggingface.co/api/models/fishaudio/drama-3",
+              "checked_at": "2026-10-16T08:20:00Z",
+              "claim": "Live metadata: 4,048 downloads, 503 likes, Fish Audio Community License."
+            }
+          ]
+        },
+        "script": {
+          "status": "complete",
+          "script_sha256": "63c0474755fc0506fa9e6fd7572cb5f3f24451956b5b22949a22820dd4a7efac",
+          "word_count": 121
+        },
+        "voice": {
+          "status": "complete",
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "per_chunk": 0.92,
+            "overall": 0.95
+          }
+        },
+        "assets": {
+          "status": "complete",
+          "rights_checked": true,
+          "approval_constraints_checked": true,
+          "capture_id": "model-drama3-01",
+          "manifest_sha256": "6924109b61bebc28c7e032f03ac787932925dab81c9a409037095df6d07bc7bb",
+          "files": [
+            {
+              "path": "cast-card.png",
+              "sha256": "2a579a7242a382bde651bc66cdcbfcad1c3d3d74233c0364af9c39b8d05e088c"
+            },
+            {
+              "path": "skills-card.png",
+              "sha256": "a9f16fcda42460227dc587723171e5d31fd07d46284ff467fb13744f3ccc370b"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

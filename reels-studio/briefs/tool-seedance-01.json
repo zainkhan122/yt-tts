@@ -1,0 +1,257 @@
+{
+  "id": "tool-seedance-01",
+  "capture": "captures/tool-seedance-01",
+  "title": "Seedance 2.0: the video model above Veo 3 that you can try free",
+  "niche": "AI video tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "seedance 2.0",
+    "veo 3 alternative",
+    "free ai video generator",
+    "video arena leaderboard"
+  ],
+  "facts": {
+    "method": "tool's own README and repo page, read on the day of the plan",
+    "limits": "Access outside China can be messy, and ByteDance's own video benchmark is self-reported — trust only the independent Artificial Analysis numbers, and remember CapCut sends your prompts to ByteDance servers."
+  },
+  "sources": [
+    "https://www.buildfastwithai.com/blogs/seedance-2-bytedance-ai-video-2026",
+    "https://nivaalabs.com/seedance-2-0-review-2026-bytedances-ai-video-generator-tested-honestly/",
+    "https://www.heyuan110.com/posts/ai/2026-03-29-seedance-2-bytedance-ai-video/"
+  ],
+  "lexicon": {
+    "GitHub": "git hub",
+    "Kokoro": "ko-ko-ro",
+    "Claude": "clawed",
+    "GPT": "G P T",
+    "MCP": "M C P",
+    "LLM": "L L M",
+    "API": "A P I",
+    "UI": "U I",
+    "unslop": "un-slop",
+    "UNSLOP": "un-slop",
+    "Unslop": "un-slop"
+  },
+  "verify_before_render": [
+    "Every point cites its source in the plan (tool-seedance-01/plan.json).",
+    "Kit images are drawn from the plan's own visual spec only."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "flow",
+      "heading": "BEATS VEO 3 — FREE",
+      "nodes": [
+        "RANKED #1",
+        "above Veo 3 and Sora 2",
+        "and it is free"
+      ],
+      "say": "Who is beating Veo 3 — and letting you generate for free?"
+    },
+    {
+      "id": "point1",
+      "type": "clip",
+      "src": "leaderboard.mp4",
+      "in": 0.0,
+      "out": 14.0,
+      "say": "There is a leaderboard where people vote on AI videos without knowing which model made them. ByteDance's Seedance sits on top — above Veo three and Sora two."
+    },
+    {
+      "id": "point2",
+      "type": "clip",
+      "src": "seedance-site.mp4",
+      "in": 0.0,
+      "out": 14.0,
+      "say": "The output is two-K, runs up to fifteen seconds a clip, and talking heads get proper lip sync — the thing most video models still fumble."
+    },
+    {
+      "id": "point3",
+      "type": "clip",
+      "src": "capcut.mp4",
+      "in": 0.0,
+      "out": 14.0,
+      "say": "Here is the part the title means: it is free inside CapCut right now. No credit card for a start. If you build on it, the API is fourteen cents per clip."
+    },
+    {
+      "id": "catch",
+      "type": "flow",
+      "heading": "THE CATCH",
+      "nodes": [
+        "Access outside China is messy",
+        "ByteDance's own test is self-reported",
+        "Artificial Analysis is the independent one"
+      ],
+      "say": "Access outside China can be messy, and ByteDance's own video benchmark is self-reported — trust only the independent Artificial Analysis numbers, and remember CapCut sends your prompts to ByteDance servers."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "VIDEO",
+      "say": "What would you test first — lip sync or 2K? Comment VIDEO and I'll pin the leaderboard link."
+    }
+  ],
+  "seo": {
+    "keyword": "seedance 2.0",
+    "onscreen_first3s": "BEATS VEO 3 — FREE",
+    "youtube": {
+      "title": "Seedance 2.0 Beats Veo 3 And It's Free",
+      "description": "Seedance 2.0 tops the independent Artificial Analysis Video Arena leaderboard for text-to-video (Elo ~1,269; Veo 3 is ~1,226) — blind human voting, not vendor numbers. It makes 2K, 15-second clips with the best lip sync in hands-on reviews, and it is free inside CapCut today (ByteDance's own editor). API runs about $0.14 per 15-second clip. Catch: access outside China is spotty and ByteDance's own benchmark is self-reported — trust only the independent board. #Shorts",
+      "tags": [
+        "seedance 2.0",
+        "seedance vs veo 3",
+        "free ai video generator",
+        "artificial analysis video arena",
+        "bytedance ai video"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#Seedance20",
+        "#AIVideo",
+        "#Veo3",
+        "#ByteDance"
+      ]
+    },
+    "tiktok": {
+      "caption": "Seedance 2.0 just beat Veo 3 and Sora 2 on the blind video leaderboard — and it's free in CapCut today. Here's the honest catch about access outside China.",
+      "hashtags": [
+        "#Seedance20",
+        "#AIVideo",
+        "#Veo3",
+        "#AITools",
+        "#ByteDance"
+      ]
+    },
+    "instagram": {
+      "caption": "Seedance 2.0 topped the independent video leaderboard above Veo 3 — Elo 1,269, blind voting. 2K clips, real lip sync, free in CapCut. The access catch, honestly, at the end.",
+      "hashtags": [
+        "#Seedance20",
+        "#AIVideo",
+        "#Veo3",
+        "#AITools",
+        "#ByteDance"
+      ]
+    },
+    "facebook": {
+      "caption": "Seedance 2.0 beat Veo 3 and Sora 2 on an independent blind-vote leaderboard and you can try it free in CapCut. 2K, 15 s, lip-synced. Access outside China is the catch.",
+      "hashtags": [
+        "#Seedance20",
+        "#AIVideo",
+        "#Veo3",
+        "#AITools",
+        "#ByteDance"
+      ]
+    },
+    "x": {
+      "text": "Seedance 2.0 tops the Artificial Analysis Video Arena (~1,269 Elo) above Veo 3 — blind voting, not vendor benchmarks. Free in CapCut; API ~14 cents/clip. Catch: access outside China is messy.",
+      "hashtags": [
+        "#Seedance",
+        "#AIVideo"
+      ]
+    }
+  },
+  "post": {
+    "cta": "What would you test first — lip sync or 2K? Comment VIDEO and I'll pin the leaderboard link.",
+    "hashtags": [
+      "#Shorts"
+    ]
+  },
+  "research_basis": [
+    "videos/tool-seedance-01/plan.json"
+  ],
+  "viewer": {
+    "who": "creators and builders tired of paying Veo 3 money for 8 seconds of video",
+    "problem": "top video models are paid or invite-gated, and vendor demos oversell",
+    "job": "decide whether to try Seedance free in CapCut today instead of paying for Veo"
+  },
+  "idea": "ByteDance's Seedance 2.0 now tops the independent Artificial Analysis video leaderboard above Veo 3 and Sora 2 (blind human voting), ships 2K 15-second clips with real lip sync, and is free in CapCut — with an access catch outside China.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "ByteDance's Seedance 2.0 tops the independent Artificial Analysis Video Arena leaderboard for text-to-video — Elo ~1,269 — ahead of Veo 3 (~1,226) and Sora 2, in blind human voting.",
+      "source": "https://www.buildfastwithai.com/blogs/seedance-2-bytedance-ai-video-2026"
+    },
+    {
+      "id": "c2",
+      "text": "It generates at up to 2K resolution with lip-sync, and clips run up to about 15 seconds.",
+      "source": "https://nivaalabs.com/seedance-2-0-review-2026-bytedances-ai-video-generator-tested-honestly/"
+    },
+    {
+      "id": "c3",
+      "text": "You can try it free inside CapCut today; the API runs about $0.14 per 15-second clip.",
+      "source": "https://www.heyuan110.com/posts/ai/2026-03-29-seedance-2-bytedance-ai-video/"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://www.buildfastwithai.com/blogs/seedance-2-bytedance-ai-video-2026",
+      "how_shown": "leaderboard rows stack in from the top: the Seedance row rises to #1 as rows beneath dim; Elo counter ticks 1100 -> 1269 — REAL screen recording of the tool/page (interface on screen, house heading + captions over it)"
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://nivaalabs.com/seedance-2-0-review-2026-bytedances-ai-video-generator-tested-honestly/",
+      "how_shown": "a spec strip builds across a playing portrait clip: 2K badge, 15s badge, waveforms under a talking face syncing — REAL screen recording of the tool/page (interface on screen, house heading + captions over it)"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://www.heyuan110.com/posts/ai/2026-03-29-seedance-2-bytedance-ai-video/",
+      "how_shown": "CapCut window with the video-model picker; a FREE stamp lands; then a tiny price tag: $0.14 / 15s clip — REAL screen recording of the tool/page (interface on screen, house heading + captions over it)"
+    }
+  ],
+  "treatment": {
+    "audience": "creators and builders tired of paying Veo 3 money for 8 seconds of video",
+    "viewer_job": "decide whether to try Seedance free in CapCut today instead of paying for Veo",
+    "intent": "search",
+    "hook_mechanic": "viewer question about the tool's first claim",
+    "open_loop": {
+      "plant": "Who is beating Veo 3 — and letting you generate for free?",
+      "payoff_scene": "point1"
+    },
+    "proof_moment": "point1",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "layout": "window",
+        "text": "BEATS VEO 3 FREE",
+        "media": {
+          "kind": "tool_media",
+          "file": "leaderboard.jpg"
+        }
+      },
+      {
+        "layout": "bleed",
+        "text": "TOP OF VIDEO ARENA",
+        "media": {
+          "kind": "tool_media",
+          "file": "cinema.jpg"
+        }
+      },
+      {
+        "layout": "split",
+        "text": "FREE IN CAPCUT TODAY",
+        "media": {
+          "kind": "tool_media",
+          "file": "capcut.jpg"
+        }
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-11-11",
+    "expires_at": null,
+    "reviewer": "agent: plan written from the maker's README and repo page",
+    "notes": "Topic approved by owner (config/topic-approvals.json). Plan and copy await owner review at the cover gate."
+  },
+  "motion_standard": 2,
+  "qa_gates": true,
+  "inspiration": {
+    "platform": "youtube",
+    "source": "malvaAI",
+    "post_id": "qQSPmNouL7E",
+    "note": "211K views. Reference = lead only. Their delivery: cinematic AI footage opens the short (the claim is proven before named), then a browser recording of the Artificial Analysis Video Arena leaderboard, then a 'click to watch' CTA end card. Taken as principles: promise-proof order (see it before you hear it), leaderboard receipt with highlighting, end on an action. Their footage and wording stay theirs. Full-video teardown: research/critiques/video-youtube-malva-veo-free-2026-11-11.md"
+  }
+}

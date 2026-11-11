@@ -1,0 +1,1468 @@
+{
+ "built_at": "2026-11-11T13:23:14Z",
+ "count": 102,
+ "schema": 1,
+ "topics": {
+  "agentautoloop": {
+   "keys": [],
+   "names": [
+    "Agent Autoloop"
+   ],
+   "sources": [
+    "videos/repo-autoloop-01/plan.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-autoloop-01"
+   ]
+  },
+  "ahsilence": {
+   "keys": [],
+   "names": [
+    "ahsilence-01",
+    "ahsilence"
+   ],
+   "sources": [
+    "briefs/repo-ahsilence-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-ahsilence-01"
+   ]
+  },
+  "ainewtab": {
+   "keys": [],
+   "names": [
+    "ai-newtab-01"
+   ],
+   "sources": [
+    "briefs/repo-ai-newtab-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-ai-newtab-01"
+   ]
+  },
+  "anymodelbot": {
+   "keys": [],
+   "names": [
+    "AnyModelBot"
+   ],
+   "sources": [
+    "videos/repo-anymodelbot-01/plan.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-anymodelbot-01"
+   ]
+  },
+  "autoloop": {
+   "keys": [],
+   "names": [
+    "autoloop-01"
+   ],
+   "sources": [
+    "briefs/repo-autoloop-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-autoloop-01"
+   ]
+  },
+  "bla": {
+   "keys": [],
+   "names": [
+    "BLA"
+   ],
+   "sources": [
+    "videos/repo-bla-01/plan.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-bla-01"
+   ]
+  },
+  "blendermcp": {
+   "keys": [],
+   "names": [
+    "blender-mcp-01"
+   ],
+   "sources": [
+    "briefs/repo-blender-mcp-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-blender-mcp-01"
+   ]
+  },
+  "claudecode": {
+   "keys": [],
+   "names": [
+    "claudecode",
+    "claude-code-01"
+   ],
+   "sources": [
+    "topics/backlog.csv"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-claude-code-01"
+   ]
+  },
+  "claudemem": {
+   "keys": [],
+   "names": [
+    "claude-mem-01"
+   ],
+   "sources": [
+    "briefs/repo-claude-mem-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-claude-mem-01"
+   ]
+  },
+  "cleanyourtv": {
+   "keys": [],
+   "names": [
+    "cleanyourtv-01",
+    "cleanyourtv"
+   ],
+   "sources": [
+    "briefs/repo-cleanyourtv-01.json",
+    "topics/backlog.csv",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-cleanyourtv-01"
+   ]
+  },
+  "comfyui": {
+   "keys": [],
+   "names": [
+    "comfyui",
+    "comfyui-01"
+   ],
+   "sources": [
+    "topics/backlog.csv"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-comfyui-01"
+   ]
+  },
+  "coopanything": {
+   "keys": [],
+   "names": [
+    "coop-anything-01",
+    "Co-op Anything"
+   ],
+   "sources": [
+    "briefs/repo-coop-anything-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-coop-anything-01"
+   ]
+  },
+  "craftanything": {
+   "keys": [],
+   "names": [
+    "craft-anything-01",
+    "craft anything",
+    "craft-anything"
+   ],
+   "sources": [
+    "briefs/repo-craft-anything-01.json",
+    "videos/repo-craft-anything-01/plan.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-craft-anything-01"
+   ]
+  },
+  "cursor": {
+   "keys": [],
+   "names": [
+    "cursor",
+    "cursor-01"
+   ],
+   "sources": [
+    "topics/backlog.csv"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-cursor-01"
+   ]
+  },
+  "deepseek": {
+   "keys": [],
+   "names": [
+    "deepseek",
+    "deepseek-01"
+   ],
+   "sources": [
+    "topics/backlog.csv"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-deepseek-01"
+   ]
+  },
+  "deeptutor": {
+   "keys": [],
+   "names": [
+    "deeptutor-01",
+    "DeepTutor",
+    "deeptutor"
+   ],
+   "sources": [
+    "briefs/repo-deeptutor-01.json",
+    "topics/backlog.csv",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-deeptutor-01"
+   ]
+  },
+  "ds401": {
+   "keys": [],
+   "names": [
+    "ds4-01"
+   ],
+   "sources": [
+    "briefs/repo-ds4-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-ds4-01"
+   ]
+  },
+  "dshgo": {
+   "keys": [],
+   "names": [
+    "dshgo-01",
+    "DSH Go"
+   ],
+   "sources": [
+    "briefs/repo-dshgo-01.json",
+    "videos/repo-dshgo-01/plan.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-dshgo-01"
+   ]
+  },
+  "dshsuperagent": {
+   "keys": [],
+   "names": [
+    "dsh-superagent"
+   ],
+   "sources": [
+    "videos/repo-superagent-01/plan.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-superagent-01"
+   ]
+  },
+  "earshot": {
+   "keys": [],
+   "names": [
+    "earshot-01",
+    "Earshot"
+   ],
+   "sources": [
+    "briefs/repo-earshot-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-earshot-01"
+   ]
+  },
+  "edge0": {
+   "keys": [],
+   "names": [
+    "edge0-01",
+    "Edge0",
+    "edge0"
+   ],
+   "sources": [
+    "briefs/repo-edge0-01.json",
+    "topics/backlog.csv",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-edge0-01"
+   ]
+  },
+  "embeddinggemma2": {
+   "keys": [],
+   "names": [
+    "embeddinggemma2-01",
+    "EmbeddingGemma 2"
+   ],
+   "sources": [
+    "briefs/tool-embeddinggemma2-01.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-embeddinggemma2-01"
+   ]
+  },
+  "fx001": {
+   "keys": [],
+   "names": [
+    "fx0-01"
+   ],
+   "sources": [
+    "briefs/tool-fx0-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-fx0-01"
+   ]
+  },
+  "googleveo": {
+   "keys": [],
+   "names": [
+    "googleveo"
+   ],
+   "sources": [
+    "topics/backlog.csv"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-veo-01"
+   ]
+  },
+  "gpt": {
+   "keys": [],
+   "names": [
+    "gpt"
+   ],
+   "sources": [
+    "topics/backlog.csv"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-gpt6-01"
+   ]
+  },
+  "gpt601": {
+   "keys": [],
+   "names": [
+    "gpt6-01"
+   ],
+   "sources": [
+    "topics/backlog.csv"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-gpt6-01"
+   ]
+  },
+  "graphicle": {
+   "keys": [],
+   "names": [
+    "graphicle-01",
+    "Graphicle"
+   ],
+   "sources": [
+    "briefs/repo-graphicle-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-graphicle-01"
+   ]
+  },
+  "hallmark": {
+   "keys": [],
+   "names": [
+    "hallmark-01",
+    "hallmark"
+   ],
+   "sources": [
+    "briefs/repo-hallmark-01.json",
+    "topics/backlog.csv"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-hallmark-01"
+   ]
+  },
+  "halo01": {
+   "keys": [],
+   "names": [
+    "halo-01"
+   ],
+   "sources": [
+    "briefs/repo-halo-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-halo-01"
+   ]
+  },
+  "harp01": {
+   "keys": [],
+   "names": [
+    "harp-01"
+   ],
+   "sources": [
+    "briefs/repo-harp-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-harp-01"
+   ]
+  },
+  "heygen": {
+   "keys": [],
+   "names": [
+    "heygen",
+    "heygen-01"
+   ],
+   "sources": [
+    "topics/backlog.csv"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-heygen-01"
+   ]
+  },
+  "higgsfield": {
+   "keys": [],
+   "names": [
+    "higgsfield-01",
+    "Higgsfield",
+    "higgsfield"
+   ],
+   "sources": [
+    "briefs/tool-higgsfield-01.json",
+    "topics/backlog.csv",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-higgsfield-01"
+   ]
+  },
+  "huashumotion": {
+   "keys": [],
+   "names": [
+    "huashu-motion-01",
+    "huashu-motion"
+   ],
+   "sources": [
+    "briefs/repo-huashu-motion-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-huashu-motion-01"
+   ]
+  },
+  "idol": {
+   "keys": [],
+   "names": [
+    "idol"
+   ],
+   "sources": [
+    "videos/model-idol-01/plan.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "model-idol-01"
+   ]
+  },
+  "ifixai": {
+   "keys": [],
+   "names": [
+    "ifixai-01",
+    "iFixAi"
+   ],
+   "sources": [
+    "briefs/repo-ifixai-01.json",
+    "videos/repo-ifixai-01/plan.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-ifixai-01"
+   ]
+  },
+  "impeccable": {
+   "keys": [],
+   "names": [
+    "impeccable-01",
+    "impeccable"
+   ],
+   "sources": [
+    "briefs/repo-impeccable-01.json",
+    "topics/backlog.csv",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-impeccable-01"
+   ]
+  },
+  "indra": {
+   "keys": [],
+   "names": [
+    "indra-01"
+   ],
+   "sources": [
+    "briefs/repo-indra-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-indra-01"
+   ]
+  },
+  "kimi01": {
+   "keys": [],
+   "names": [
+    "kimi-01"
+   ],
+   "sources": [
+    "briefs/tool-kimi-01.json",
+    "topics/backlog.csv"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-kimi-01"
+   ]
+  },
+  "kimik": {
+   "keys": [],
+   "names": [
+    "kimik"
+   ],
+   "sources": [
+    "topics/backlog.csv"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-kimi-01"
+   ]
+  },
+  "koubo": {
+   "keys": [],
+   "names": [
+    "koubo-01"
+   ],
+   "sources": [
+    "briefs/repo-koubo-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-koubo-01"
+   ]
+  },
+  "leanrea": {
+   "keys": [],
+   "names": [
+    "leanrea-01",
+    "leanrea"
+   ],
+   "sources": [
+    "briefs/repo-leanrea-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-leanrea-01"
+   ]
+  },
+  "listfreevideoai": {
+   "keys": [],
+   "names": [
+    "list-free-video-ai-01"
+   ],
+   "sources": [
+    "briefs/list-free-video-ai-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "list-free-video-ai-01"
+   ]
+  },
+  "ltx25": {
+   "keys": [],
+   "names": [
+    "ltx25-01",
+    "LTX-2.5",
+    "LTX 2.5"
+   ],
+   "sources": [
+    "briefs/repo-ltx25-01.json",
+    "briefs/tool-ltx25-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-ltx25-01",
+    "tool-ltx25-01"
+   ]
+  },
+  "manimgx": {
+   "keys": [],
+   "names": [
+    "manimgx-01",
+    "ManimGX"
+   ],
+   "sources": [
+    "briefs/repo-manimgx-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-manimgx-01"
+   ]
+  },
+  "metahackathoncredits": {
+   "keys": [],
+   "names": [
+    "meta-hackathon-credits-01"
+   ],
+   "sources": [
+    "briefs/meta-hackathon-credits-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "meta-hackathon-credits-01"
+   ]
+  },
+  "mika": {
+   "keys": [],
+   "names": [
+    "Mika"
+   ],
+   "sources": [
+    "videos/repo-mika-01/plan.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-mika-01"
+   ]
+  },
+  "modeldrama3": {
+   "keys": [],
+   "names": [
+    "model-drama3-01"
+   ],
+   "sources": [
+    "briefs/model-drama3-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "model-drama3-01"
+   ]
+  },
+  "modelembeddinggemma2": {
+   "keys": [],
+   "names": [
+    "model-embeddinggemma2-01"
+   ],
+   "sources": [
+    "briefs/model-embeddinggemma2-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "model-embeddinggemma2-01"
+   ]
+  },
+  "modelhumanizer": {
+   "keys": [],
+   "names": [
+    "model-humanizer-01"
+   ],
+   "sources": [
+    "briefs/model-humanizer-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "model-humanizer-01"
+   ]
+  },
+  "modelidol": {
+   "keys": [],
+   "names": [
+    "model-idol-01"
+   ],
+   "sources": [
+    "briefs/model-idol-01.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "model-idol-01"
+   ]
+  },
+  "modellfm25": {
+   "keys": [],
+   "names": [
+    "model-lfm25-01"
+   ],
+   "sources": [
+    "briefs/model-lfm25-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "model-lfm25-01"
+   ]
+  },
+  "modelminicpmv47": {
+   "keys": [],
+   "names": [
+    "model-minicpmv47-01"
+   ],
+   "sources": [
+    "briefs/model-minicpmv47-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "model-minicpmv47-01"
+   ]
+  },
+  "mosa01": {
+   "keys": [],
+   "names": [
+    "mosa-01"
+   ],
+   "sources": [
+    "briefs/tool-mosa-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-mosa-01"
+   ]
+  },
+  "muse01": {
+   "keys": [],
+   "names": [
+    "muse-01"
+   ],
+   "sources": [
+    "briefs/tool-muse-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-muse-01"
+   ]
+  },
+  "musike": {
+   "keys": [],
+   "names": [
+    "musike-01",
+    "musike"
+   ],
+   "sources": [
+    "briefs/repo-musike-01.json",
+    "videos/repo-musike-01/plan.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-musike-01"
+   ]
+  },
+  "nanobanana": {
+   "keys": [],
+   "names": [
+    "nanobanana-01",
+    "Nano Banana",
+    "nanobanana"
+   ],
+   "sources": [
+    "briefs/tool-nanobanana-01.json",
+    "topics/backlog.csv"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-nanobanana-01"
+   ]
+  },
+  "newsclaudefree": {
+   "keys": [],
+   "names": [
+    "news-claude-free-01"
+   ],
+   "sources": [
+    "briefs/news-claude-free-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "news-claude-free-01"
+   ]
+  },
+  "newsclef": {
+   "keys": [],
+   "names": [
+    "news-clef-01"
+   ],
+   "sources": [
+    "briefs/news-clef-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "news-clef-01"
+   ]
+  },
+  "newsgeminiagent": {
+   "keys": [],
+   "names": [
+    "news-gemini-agent-01"
+   ],
+   "sources": [
+    "briefs/news-gemini-agent-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "news-gemini-agent-01"
+   ]
+  },
+  "newsgpt61astra": {
+   "keys": [],
+   "names": [
+    "news-gpt61-astra-01"
+   ],
+   "sources": [
+    "briefs/news-gpt61-astra-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "news-gpt61-astra-01"
+   ]
+  },
+  "newsgpt61sol": {
+   "keys": [],
+   "names": [
+    "news-gpt61-sol-01"
+   ],
+   "sources": [
+    "briefs/news-gpt61-sol-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "news-gpt61-sol-01"
+   ]
+  },
+  "newsgpt6intelligentui": {
+   "keys": [],
+   "names": [
+    "news-gpt6-intelligent-ui-01"
+   ],
+   "sources": [
+    "briefs/news-gpt6-intelligent-ui-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "news-gpt6-intelligent-ui-01"
+   ]
+  },
+  "newshaiku55": {
+   "keys": [],
+   "names": [
+    "news-haiku-55-01"
+   ],
+   "sources": [
+    "briefs/news-haiku-55-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "news-haiku-55-01"
+   ]
+  },
+  "newsmusespark": {
+   "keys": [],
+   "names": [
+    "news-muse-spark-01"
+   ],
+   "sources": [
+    "briefs/news-muse-spark-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "news-muse-spark-01"
+   ]
+  },
+  "newsnanobanana21": {
+   "keys": [],
+   "names": [
+    "news-nano-banana-21-01"
+   ],
+   "sources": [
+    "briefs/news-nano-banana-21-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "news-nano-banana-21-01"
+   ]
+  },
+  "openaicodex": {
+   "keys": [],
+   "names": [
+    "openaicodex"
+   ],
+   "sources": [
+    "topics/backlog.csv"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-codex-01"
+   ]
+  },
+  "opencr": {
+   "keys": [],
+   "names": [
+    "opencr-01"
+   ],
+   "sources": [
+    "briefs/repo-opencr-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-opencr-01"
+   ]
+  },
+  "openidea": {
+   "keys": [],
+   "names": [
+    "OpenIDEA"
+   ],
+   "sources": [
+    "videos/repo-openidea-01/plan.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-openidea-01"
+   ]
+  },
+  "openmontage": {
+   "keys": [],
+   "names": [
+    "openmontage-01",
+    "OpenMontage"
+   ],
+   "sources": [
+    "briefs/tool-openmontage-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-openmontage-01"
+   ]
+  },
+  "pixelfx": {
+   "keys": [],
+   "names": [
+    "pixelfx"
+   ],
+   "sources": [
+    "videos/repo-pixelfx-01/plan.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-pixelfx-01"
+   ]
+  },
+  "poki": {
+   "keys": [],
+   "names": [
+    "poki"
+   ],
+   "sources": [
+    "videos/repo-poki-01/plan.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-poki-01"
+   ]
+  },
+  "poki01": {
+   "keys": [],
+   "names": [
+    "poki-01"
+   ],
+   "sources": [
+    "briefs/repo-poki-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-poki-01"
+   ]
+  },
+  "pomelli": {
+   "keys": [],
+   "names": [
+    "pomelli-01",
+    "Pomelli"
+   ],
+   "sources": [
+    "briefs/tool-pomelli-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-pomelli-01"
+   ]
+  },
+  "qwen": {
+   "keys": [],
+   "names": [
+    "qwen"
+   ],
+   "sources": [
+    "topics/backlog.csv"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-qwen-01"
+   ]
+  },
+  "qwen01": {
+   "keys": [],
+   "names": [
+    "qwen-01"
+   ],
+   "sources": [
+    "topics/backlog.csv"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-qwen-01"
+   ]
+  },
+  "qwen38": {
+   "keys": [],
+   "names": [
+    "qwen38-01"
+   ],
+   "sources": [
+    "briefs/tool-qwen38-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-qwen38-01"
+   ]
+  },
+  "qwenimage21turbo": {
+   "keys": [],
+   "names": [
+    "qwen-image-21-turbo-01",
+    "Qwen Image 2.1 Turbo",
+    "qwen-image21-turbo-01",
+    "Qwen-Image-2.1-Turbo"
+   ],
+   "sources": [
+    "briefs/tool-qwen-image-21-turbo-01.json",
+    "briefs/tool-qwen-image21-turbo-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-qwen-image-21-turbo-01",
+    "tool-qwen-image21-turbo-01"
+   ]
+  },
+  "rea": {
+   "keys": [],
+   "names": [
+    "rea"
+   ],
+   "sources": [
+    "topics/backlog.csv"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-rea-01"
+   ]
+  },
+  "rea01": {
+   "keys": [],
+   "names": [
+    "rea-01"
+   ],
+   "sources": [
+    "briefs/repo-rea-01.json",
+    "topics/backlog.csv"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-rea-01"
+   ]
+  },
+  "reavideo": {
+   "keys": [],
+   "names": [
+    "reavideo-01",
+    "rea-video"
+   ],
+   "sources": [
+    "briefs/repo-reavideo-01.json",
+    "videos/repo-reavideo-01/plan.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-reavideo-01"
+   ]
+  },
+  "removemacai": {
+   "keys": [],
+   "names": [
+    "removemacai-01",
+    "RemoveMacAI"
+   ],
+   "sources": [
+    "briefs/repo-removemacai-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-removemacai-01"
+   ]
+  },
+  "sand3d": {
+   "keys": [],
+   "names": [
+    "sand3d-01",
+    "sand3d"
+   ],
+   "sources": [
+    "briefs/repo-sand3d-01.json",
+    "videos/repo-sand3d-01/plan.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-sand3d-01"
+   ]
+  },
+  "sapperv2": {
+   "keys": [],
+   "names": [
+    "sapper-v2"
+   ],
+   "sources": [
+    "videos/repo-sapper-v2-01/plan.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-sapper-v2-01"
+   ]
+  },
+  "scm01": {
+   "keys": [],
+   "names": [
+    "scm-01"
+   ],
+   "sources": [
+    "briefs/repo-scm-01.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-scm-01"
+   ]
+  },
+  "scout": {
+   "keys": [],
+   "names": [
+    "scout-01",
+    "Scout"
+   ],
+   "sources": [
+    "briefs/repo-scout-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-scout-01"
+   ]
+  },
+  "scrawl": {
+   "keys": [],
+   "names": [
+    "scrawl-01",
+    "Scrawl"
+   ],
+   "sources": [
+    "briefs/tool-scrawl-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-scrawl-01"
+   ]
+  },
+  "sherlock": {
+   "keys": [],
+   "names": [
+    "sherlock-01"
+   ],
+   "sources": [
+    "briefs/repo-sherlock-01.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-sherlock-01"
+   ]
+  },
+  "solidcraft": {
+   "keys": [],
+   "names": [
+    "solidcraft-01",
+    "SolidCraft"
+   ],
+   "sources": [
+    "briefs/repo-solidcraft-01.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-solidcraft-01"
+   ]
+  },
+  "solidglass": {
+   "keys": [],
+   "names": [
+    "solidglass-01",
+    "Solid Glass"
+   ],
+   "sources": [
+    "briefs/repo-solidglass-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-solidglass-01"
+   ]
+  },
+  "spotlightpapermorph": {
+   "keys": [],
+   "names": [
+    "spotlight-papermorph-01"
+   ],
+   "sources": [
+    "briefs/spotlight-papermorph-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "spotlight-papermorph-01"
+   ]
+  },
+  "spotlightuniversalmodder": {
+   "keys": [],
+   "names": [
+    "spotlight-universal-modder-01"
+   ],
+   "sources": [
+    "briefs/spotlight-universal-modder-01.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "spotlight-universal-modder-01"
+   ]
+  },
+  "stackdiagram": {
+   "keys": [],
+   "names": [
+    "stack-diagram"
+   ],
+   "sources": [
+    "videos/repo-stack-diagram-01/plan.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-stack-diagram-01"
+   ]
+  },
+  "superagent": {
+   "keys": [],
+   "names": [
+    "superagent-01"
+   ],
+   "sources": [
+    "briefs/repo-superagent-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-superagent-01"
+   ]
+  },
+  "uncut": {
+   "keys": [],
+   "names": [
+    "UNCUT"
+   ],
+   "sources": [
+    "videos/repo-uncut-01/plan.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-uncut-01"
+   ]
+  },
+  "unslop": {
+   "keys": [],
+   "names": [
+    "unslop-01",
+    "unslop-02",
+    "unslop"
+   ],
+   "sources": [
+    "briefs/repo-unslop-01.json",
+    "briefs/repo-unslop-02.json",
+    "videos/repo-unslop-01/plan.json",
+    "videos/repo-unslop-02/plan.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-unslop-01",
+    "repo-unslop-02"
+   ]
+  },
+  "veo01": {
+   "keys": [],
+   "names": [
+    "veo-01"
+   ],
+   "sources": [
+    "topics/backlog.csv"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-veo-01"
+   ]
+  },
+  "voicestudio": {
+   "keys": [],
+   "names": [
+    "voicestudio-01"
+   ],
+   "sources": [
+    "briefs/repo-voicestudio-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-voicestudio-01"
+   ]
+  },
+  "vork": {
+   "keys": [],
+   "names": [
+    "vork"
+   ],
+   "sources": [
+    "videos/repo-vork-01/plan.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-vork-01"
+   ]
+  },
+  "vork01": {
+   "keys": [],
+   "names": [
+    "vork-01"
+   ],
+   "sources": [
+    "briefs/repo-vork-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-vork-01"
+   ]
+  },
+  "vvv01": {
+   "keys": [],
+   "names": [
+    "vvv-01"
+   ],
+   "sources": [
+    "briefs/repo-vvv-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-vvv-01"
+   ]
+  },
+  "whatsappmcp": {
+   "keys": [],
+   "names": [
+    "whatsapp-mcp-01",
+    "WhatsApp MCP"
+   ],
+   "sources": [
+    "briefs/repo-whatsapp-mcp-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-whatsapp-mcp-01"
+   ]
+  },
+  "whistle": {
+   "keys": [],
+   "names": [
+    "whistle-01",
+    "Whistle"
+   ],
+   "sources": [
+    "briefs/repo-whistle-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-whistle-01"
+   ]
+  }
+ }
+}

@@ -1,0 +1,37 @@
+# Videos + post kits live in GitHub Releases, never in git history (renders/ is local scratch, ignored below).
+*.mp4
+*.wav
+!brand/voice/*.wav
+*.mov
+*.m4a
+__pycache__/
+*.pyc
+.DS_Store
+# per-video capture packs live in the workspace (and in Releases with their video), not in git
+captures/
+# other creators' full transcripts: workspace-only research (public repo gets metrics + short excerpts only)
+research/social/raw/
+research/voice/raw/
+
+# finished videos live in GitHub Releases (tools/publish_release.py); local renders are scratch
+renders/
+
+# Posting reports contain operational receipts, not source files
+.env
+.env.*
+*.token
+publishing-report.*
+
+# session context pack + bounded command logs are regenerable, never committed
+.context/
+
+# Designed covers are generated from the capture pack (real product media), not committed
+covers/
+
+# Cloud dispatch gate receipts: one local folder, not versioned (dispatch logs live in GitHub Actions)
+research/maintenance/gates/*-cloud-*.json
+# reference teardown working files (their footage/frames stay local; only manifest.json + teardown.md are tracked)
+research/references/**/video.*
+research/references/**/subs*.vtt
+research/references/**/audio.*
+research/references/**/frames/

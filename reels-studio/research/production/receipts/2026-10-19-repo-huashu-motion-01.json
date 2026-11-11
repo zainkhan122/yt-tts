@@ -1,0 +1,126 @@
+{
+ "schema_version": 1,
+ "batch_id": "2026-10-19-repo-huashu-motion-01",
+ "created_at": "2026-10-19T17:35:11Z",
+ "buffer_insights": {
+  "path": "reels-studio/tracker/buffer-insights.json",
+  "sha256": "05f9254103be39f5d3518635fa9feb1123269edcff987c7b8184c8a9538533f7"
+ },
+ "metrics_review": {
+  "snapshot_sha256": "05f9254103be39f5d3518635fa9feb1123269edcff987c7b8184c8a9538533f7",
+  "reviewed_video_count": 108,
+  "sample_post_ids": [
+   "6acc919add062ea3c8176035",
+   "6acc91a0712ba82086b03116",
+   "6acc91a3dd062ea3c817610d",
+   "6acc91a65feb3462de95f295"
+  ],
+  "findings": [
+   "Fresh Buffer Insights re-fetched 2026-10-20T10:11:08Z after render QA; complete snapshot contains 108 tracked video posts.",
+   "Metric coverage: YouTube 38/38 fresh, Instagram 35/35 fresh, Facebook 23/35 fresh (12 stale); no raw cross-platform comparisons. Ignore posts younger than 48 hours for performance judgement.",
+   "This batch retains the previously selected topic scores and format choices; the new snapshot was checked for duplicate ideas and ongoing performance patterns, with no change needed before release."
+  ],
+  "decisions": {
+   "topic": "881 stars on day one; 'your agent shoots the launch film' is a quest our maker/dev audience instantly wants to watch.",
+   "script": "Quest beats (job, shoot, point-to-re-edit), macOS-only and stack-requirement catches spoken in the verdict; stars stay on screen.",
+   "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall.",
+   "visual": "Own repo captures in 6/7 scenes; verdict over the project's own honest-limits section. Covers: 3 concepts rendered, panel picked 'YOUR AGENT SHOOTS ADS'. Viewer panel must PASS before queueing."
+  }
+ },
+ "briefs": {
+  "repo-huashu-motion-01": {
+   "brief_sha256": "ecb88c4d1ca23733c34640cdd75e0f0e24b7e37aeb5744c4eedb826d18a1432e",
+   "metrics_decisions": {
+    "topic": "881 stars on day one; 'your agent shoots the launch film' is a quest our maker/dev audience instantly wants to watch.",
+    "script": "Quest beats (job, shoot, point-to-re-edit), macOS-only and stack-requirement catches spoken in the verdict; stars stay on screen.",
+    "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall.",
+    "visual": "Own repo captures in 6/7 scenes; verdict over the project's own honest-limits section. Covers: 3 concepts rendered, panel picked 'YOUR AGENT SHOOTS ADS'. Viewer panel must PASS before queueing."
+   },
+   "stages": {
+    "discover": {
+     "status": "complete",
+     "checked_at": "2026-10-19T17:35:11Z",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-19.md"
+     ]
+    },
+    "select": {
+     "status": "complete",
+     "selection_status": "selected",
+     "topic": "huashu-motion: your agent shoots the launch film",
+     "score": 78,
+     "score_breakdown": {
+      "trend_velocity": 23,
+      "demo_ability": 18,
+      "audience_breadth": 11,
+      "social_proof_gap": 8,
+      "free_value": 10,
+      "freshness_angle": 8
+     },
+     "metrics_snapshot_sha256": "05f9254103be39f5d3518635fa9feb1123269edcff987c7b8184c8a9538533f7",
+     "basis_post_ids": [
+      "6acc919add062ea3c8176035",
+      "6acc91a0712ba82086b03116",
+      "6acc91a3dd062ea3c817610d",
+      "6acc91a65feb3462de95f295"
+     ],
+     "hard_gates": {
+      "risk_flags_clear": true,
+      "claim_verifiable": true,
+      "license_clear": true
+     }
+    },
+    "research": {
+     "status": "complete",
+     "evidence": [
+      "reels-studio/research/radar/radar-2026-10-19.md"
+     ],
+     "dynamic_facts_checked_at": "2026-10-19T17:35:11Z",
+     "primary_sources": [
+      {
+       "url": "https://github.com/alchaincyf/huashu-motion",
+       "checked_at": "2026-10-19T17:35:11Z",
+       "claim": "README documents the skill: reads the product, writes the film, composes the score locally, point-to-edit editor, install commands, macOS-tested-so-far and Node/Chrome/FFmpeg requirements."
+      },
+      {
+       "url": "https://api.github.com/repos/alchaincyf/huashu-motion",
+       "checked_at": "2026-10-19T17:35:11Z",
+       "claim": "Live metadata: 881 stars, 91 forks, created 2026-10-18, MIT."
+      }
+     ]
+    },
+    "script": {
+     "status": "complete",
+     "script_sha256": "ed5cb5ad338322f39f0bb0cc2a68e8fdb5e4cfa2f53f72cc4cef882ae7c036f0",
+     "word_count": 131
+    },
+    "voice": {
+     "status": "complete",
+     "engine": "chatterbox",
+     "profile": "option-3",
+     "qa_thresholds": {
+      "per_chunk": 0.92,
+      "overall": 0.95
+     }
+    },
+    "assets": {
+     "status": "complete",
+     "rights_checked": true,
+     "approval_constraints_checked": true,
+     "capture_id": "repo-huashu-motion-01",
+     "manifest_sha256": "716ed4f74daf1e5caff4288910e7470cca3a0485a4cb7d5b99c08645e3b2804a",
+     "files": [
+      {
+       "path": "desktop-full.jpg",
+       "sha256": "4fbdcb86123f6892a5639a121d2c9cce291a14e936b516cb7c9772ef918b1312"
+      },
+      {
+       "path": "desktop-top.jpg",
+       "sha256": "f78a0c3e4a845f9a24018360b069436de3e6442c233910a606b276d3825b05d0"
+      }
+     ]
+    }
+   }
+  }
+ }
+}

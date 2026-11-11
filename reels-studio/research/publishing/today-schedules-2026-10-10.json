@@ -1,0 +1,80 @@
+{
+  "run": "https://github.com/zainkhan122/yt-tts/actions/runs/38050422157",
+  "created": 6,
+  "plan": [
+    {
+      "video_id": "list-free-video-ai-01",
+      "platform": "instagram",
+      "due_at": "2026-10-10T15:00:00Z",
+      "due_local": "2026-10-10T11:00:00-04:00"
+    },
+    {
+      "video_id": "list-free-video-ai-01",
+      "platform": "youtube",
+      "due_at": "2026-10-10T15:00:00Z",
+      "due_local": "2026-10-10T11:00:00-04:00"
+    },
+    {
+      "video_id": "list-free-video-ai-01",
+      "platform": "facebook",
+      "due_at": "2026-10-10T18:00:00Z",
+      "due_local": "2026-10-10T14:00:00-04:00"
+    },
+    {
+      "video_id": "repo-ai-newtab-01",
+      "platform": "youtube",
+      "due_at": "2026-10-10T19:00:00Z",
+      "due_local": "2026-10-10T15:00:00-04:00"
+    },
+    {
+      "video_id": "repo-ai-newtab-01",
+      "platform": "instagram",
+      "due_at": "2026-10-10T20:00:00Z",
+      "due_local": "2026-10-10T16:00:00-04:00"
+    },
+    {
+      "video_id": "repo-ai-newtab-01",
+      "platform": "facebook",
+      "due_at": "2026-10-10T23:00:00Z",
+      "due_local": "2026-10-10T19:00:00-04:00"
+    }
+  ],
+  "outcomes": [
+    {
+      "buffer_post_id": "6aca2926f91f772d459134ba",
+      "error": null,
+      "key": "list-free-video-ai-01:instagram",
+      "state": "scheduled"
+    },
+    {
+      "buffer_post_id": "6aca2929d9cab260a7c269d7",
+      "error": null,
+      "key": "list-free-video-ai-01:youtube",
+      "state": "scheduled"
+    },
+    {
+      "buffer_post_id": "6aca292cf91f772d459136b5",
+      "error": null,
+      "key": "list-free-video-ai-01:facebook",
+      "state": "scheduled"
+    },
+    {
+      "buffer_post_id": "6aca292fc4de2d2b12272192",
+      "error": null,
+      "key": "repo-ai-newtab-01:youtube",
+      "state": "scheduled"
+    },
+    {
+      "buffer_post_id": "6aca2932f91f772d459137cb",
+      "error": null,
+      "key": "repo-ai-newtab-01:instagram",
+      "state": "scheduled"
+    },
+    {
+      "buffer_post_id": "6aca2935c4de2d2b12272320",
+      "error": null,
+      "key": "repo-ai-newtab-01:facebook",
+      "state": "scheduled"
+    }
+  ]
+}

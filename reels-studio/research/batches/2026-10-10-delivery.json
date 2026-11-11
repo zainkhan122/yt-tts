@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-10",
+  "release": "https://github.com/zainkhan122/yt-tts/releases/tag/renders-2026-10-10",
+  "videos": [
+    {
+      "id": "news-haiku-55-01",
+      "title": "Claude Haiku 5.5 \u2014 The Price Catch",
+      "duration_seconds": 43.5,
+      "size_bytes": 11135231,
+      "qa_passed": 7,
+      "voice": "chatterbox exag0.7 cfg0.4 ref michael-ref.wav, flow (4 chunks, worst match 92%, melody [17.0, 12.9, 13.6, 14.0] st, retries 5)",
+      "video_url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/news-haiku-55-01.mp4",
+      "kit_url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/news-haiku-55-01-kit.zip",
+      "asset_id": 627874680,
+      "sha256": "sha256:803f7320ea670d9a558f51392080a40263e91fd77451092237862ffaef46677d"
+    },
+    {
+      "id": "news-gemini-agent-01",
+      "title": "Google Gemini Agent \u2014 Work After Your Laptop Closes",
+      "duration_seconds": 45.5,
+      "size_bytes": 12981459,
+      "qa_passed": 7,
+      "voice": "chatterbox exag0.7 cfg0.4 ref michael-ref.wav, flow (4 chunks, worst match 99%, melody [17.3, 14.3, 12.4, 16.5] st, retries 1)",
+      "video_url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/news-gemini-agent-01.mp4",
+      "kit_url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/news-gemini-agent-01-kit.zip",
+      "asset_id": 627887795,
+      "sha256": "sha256:dac6bdb95180d6b32f4f29c2affb95653797770c1471bd2fcd4a6ac8481dec41"
+    },
+    {
+      "id": "tool-mosa-01",
+      "title": "Mosa \u2014 One Visual AI Workflow",
+      "duration_seconds": 49.133,
+      "size_bytes": 11422328,
+      "qa_passed": 7,
+      "voice": "chatterbox exag0.7 cfg0.4 ref michael-ref.wav, flow (3 chunks, worst match 92%, melody [18.2, 14.5, 9.6] st, retries 3)",
+      "video_url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/tool-mosa-01.mp4",
+      "kit_url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/tool-mosa-01-kit.zip",
+      "asset_id": 627873804,
+      "sha256": "sha256:d5977260e53138318ab06d0c5f579f1d9c0578cfc5e61fbe78731606dc824e45"
+    },
+    {
+      "id": "tool-pomelli-01",
+      "title": "Pomelli \u2014 AI Product Photos",
+      "duration_seconds": 47.333,
+      "size_bytes": 13818415,
+      "qa_passed": 7,
+      "voice": "chatterbox exag0.7 cfg0.4 ref michael-ref.wav, flow (4 chunks, worst match 95%, melody [17.8, 17.8, 14.6, 18.3] st, retries 3)",
+      "video_url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/tool-pomelli-01.mp4",
+      "kit_url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/tool-pomelli-01-kit.zip",
+      "asset_id": 627874040,
+      "sha256": "sha256:f21155c4d6e97273ad7c6314dc328261ff6b8c33eebd9d11f5629632fbb87048"
+    },
+    {
+      "id": "repo-whistle-01",
+      "title": "Whistle \u2014 Offline Speech-to-Text",
+      "duration_seconds": 40.4,
+      "size_bytes": 9549967,
+      "qa_passed": 7,
+      "voice": "chatterbox exag0.7 cfg0.4 ref michael-ref.wav, flow (3 chunks, worst match 97%, melody [12.6, 12.1, 9.5] st, retries 3)",
+      "video_url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/repo-whistle-01.mp4",
+      "kit_url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/repo-whistle-01-kit.zip",
+      "asset_id": 627860841,
+      "sha256": "sha256:d71ff007e3d3bba23a76c4b089a5c1d28bf8b3cb9a2e0d360673aa42d22104fe"
+    }
+  ],
+  "new_videos_created": 5,
+  "additional_corrected_older_video": "list-free-video-ai-01",
+  "publishing": "new batch held; earlier today's batch has one video live and two scheduled per platform"
+}

@@ -1,0 +1,131 @@
+{
+  "tool": "musike",
+  "handle": "@hypeless",
+  "template": "musike",
+  "script_sha256": "sha256:a1a27d327302f662b16a040bee538c8cb8528d424cc8dfd0fee6c1166d3c5574",
+  "scenes": [
+    {
+      "scene_id": "hook",
+      "archetype": "player_hook",
+      "headline": "WHAT IF YOUR MUSIC APP SOLD YOU NOTHING?",
+      "depicts": "music app with no ads and nothing to sell you",
+      "payload": {
+        "track": "Night Drive — Afterglow Session",
+        "accent_words": [
+          "ads",
+          "account",
+          "nothing"
+        ]
+      },
+      "cue_word": "sell",
+      "sub": "NO ADS · NO ACCOUNT · NOTHING TO SELL YOU",
+      "phrase": 0,
+      "feature_id": null
+    },
+    {
+      "scene_id": "point1",
+      "archetype": "server_stream",
+      "headline": "A SERVER YOU RUN DOES THE FETCHING",
+      "depicts": "server you run fetches the stream itself",
+      "payload": {
+        "accent_words": [
+          "server",
+          "run",
+          "skip"
+        ]
+      },
+      "cue_word": "server",
+      "sub": "yt-dlp under your roof — nothing to skip",
+      "phrase": 1,
+      "feature_id": null
+    },
+    {
+      "scene_id": "point2",
+      "archetype": "av_toggle",
+      "headline": "AUDIO BECOMES VIDEO MID-SONG",
+      "depicts": "flip between audio and video mid-song from the same second",
+      "payload": {
+        "accent_words": [
+          "flip",
+          "audio",
+          "video"
+        ]
+      },
+      "cue_word": "flip",
+      "sub": "same second, both ways",
+      "phrase": 2,
+      "feature_id": null
+    },
+    {
+      "scene_id": "point3",
+      "archetype": "platform_grid",
+      "headline": "ONE PLAYER, EVERY SCREEN",
+      "depicts": "same player runs on desktop phone tv browser docker",
+      "payload": {
+        "accent_words": [
+          "desktop",
+          "phone",
+          "tv",
+          "browser",
+          "docker"
+        ]
+      },
+      "cue_word": "player",
+      "sub": "desktop · phone · tv · browser · docker",
+      "phrase": 3,
+      "feature_id": "f3"
+    },
+    {
+      "scene_id": "point4",
+      "archetype": "library_file",
+      "headline": "YOUR LIBRARY IS A FILE",
+      "depicts": "playlists and favourites live in a local file you can export",
+      "payload": {
+        "accent_words": [
+          "file",
+          "export",
+          "library"
+        ]
+      },
+      "cue_word": "file",
+      "sub": "favourites stay yours — export anywhere",
+      "phrase": 4,
+      "feature_id": null
+    },
+    {
+      "scene_id": "catch",
+      "archetype": "honesty_card",
+      "headline": "THE HONEST PART",
+      "depicts": "personal and educational use only per the readme",
+      "payload": {
+        "accent_words": [
+          "personal",
+          "terms",
+          "shut"
+        ]
+      },
+      "cue_word": "personal",
+      "sub": "personal use only — public bots were shut down",
+      "phrase": 5,
+      "feature_id": null
+    },
+    {
+      "scene_id": "cta",
+      "archetype": "endcard",
+      "headline": "RUN YOUR OWN MUSIC PLAYER?",
+      "depicts": "run your own music player comment musike",
+      "payload": {
+        "keyword": "musike",
+        "prompt": "for the repo link",
+        "accent_words": [
+          "comment",
+          "musike"
+        ]
+      },
+      "cue_word": "musike",
+      "sub": "comment MUSIKE — repo link pinned",
+      "phrase": 6,
+      "feature_id": null
+    }
+  ]
+}

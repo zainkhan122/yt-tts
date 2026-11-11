@@ -1,0 +1,142 @@
+{
+  "tool": "DSH Go",
+  "handle": "@hypeless",
+  "scenes": [
+    {
+      "scene_id": "hook",
+      "phrase": 0,
+      "archetype": "flow_link",
+      "headline": "DSH GO: AGENT IN POCKET",
+      "feature_id": "f1",
+      "depicts": "the coding agent running on the phone",
+      "payload": {
+        "nodes": [
+          "Your phone",
+          "The harness",
+          "Your laptop"
+        ],
+        "edge_label": "one tap",
+        "cue_phrases": [
+          "Could your phone",
+          "run your coding agent"
+        ]
+      },
+      "cue_word": "phone"
+    },
+    {
+      "scene_id": "point1",
+      "phrase": 1,
+      "archetype": "chip_grid",
+      "headline": "AN APP FOR THE HARNESS",
+      "feature_id": "f1",
+      "depicts": "the Android app holding the harness and reaching the computer",
+      "payload": {
+        "chips": [
+          "An Android app",
+          "Harness on the phone",
+          "Drives your computer"
+        ],
+        "highlight": 1,
+        "cue_phrases": [
+          "It's DSH Go",
+          "an Android coding agent",
+          "drives the one on your computer"
+        ]
+      },
+      "cue_word": "Android"
+    },
+    {
+      "scene_id": "point2",
+      "phrase": 2,
+      "archetype": "terminal_type",
+      "headline": "LINUX IN THE APP",
+      "feature_id": "f2",
+      "depicts": "Ubuntu, Node and the harness installing inside the app",
+      "payload": {
+        "title": "inside the app",
+        "lines": [
+          "Ubuntu installed",
+          "Node installed",
+          "DeepSeek Harness ready"
+        ],
+        "cue_phrases": [
+          "installs Ubuntu",
+          "Node and the harness",
+          "no root and no Termux"
+        ]
+      },
+      "cue_word": "installs"
+    },
+    {
+      "scene_id": "point3",
+      "phrase": 3,
+      "archetype": "toggle_steps",
+      "headline": "A CHAT THAT KEEPS UP",
+      "feature_id": "f3",
+      "depicts": "approving a tool call while it replies, steps folding",
+      "payload": {
+        "steps": [
+          "Answer tool approvals",
+          "Send while it replies",
+          "Steps fold into one line"
+        ],
+        "done": 3,
+        "cue_phrases": [
+          "answer tool approvals",
+          "send a message while it's replying",
+          "fold into one line"
+        ]
+      },
+      "cue_word": "approvals"
+    },
+    {
+      "scene_id": "point4",
+      "phrase": 4,
+      "archetype": "concept_card",
+      "headline": "SENSITIVE WAITS FOR YOU",
+      "feature_id": null,
+      "depicts": "the engine tapping with sensitive actions held back",
+      "payload": {
+        "big": "SENSITIVE WAITS FOR YOU",
+        "sub": "It reads the screen and taps."
+      },
+      "cue_word": "permissions"
+    },
+    {
+      "scene_id": "catch",
+      "phrase": 5,
+      "archetype": "chip_grid",
+      "headline": "THE CATCH",
+      "feature_id": "f6",
+      "depicts": "the Android-only limit and what remote mode leaves out",
+      "payload": {
+        "chips": [
+          "Android only for now",
+          "Remote sends images only",
+          "No web interface inside"
+        ],
+        "highlight": 0,
+        "cue_phrases": [
+          "Android only for now",
+          "remote mode takes images only",
+          "not the whole web interface"
+        ]
+      },
+      "cue_word": "catch"
+    },
+    {
+      "scene_id": "cta",
+      "phrase": 6,
+      "archetype": "endcard",
+      "headline": "AGENT FROM YOUR POCKET",
+      "feature_id": null,
+      "depicts": "commenting the keyword POCKET to get the repo",
+      "payload": {
+        "keyword": "POCKET",
+        "follow": "Follow"
+      },
+      "cue_word": "POCKET"
+    }
+  ],
+  "script_sha256": "sha256:afdebca43d208784f38a5bfc364e56a675804950c8ac01eea0e0e6947f8cc529"
+}

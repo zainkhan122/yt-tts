@@ -1,0 +1,24 @@
+{
+  "name": "musike",
+  "tool": "musike",
+  "note": "The player interface dominates every scene (owner verdict 2026-11-10 + frame critique): recreated Musike window with running seek/EQ/marquee, audio<->video flip playing a real animated video, platform tiles fit inside the frame, library.json type-in, README honesty beat. Kinetic captions and the outro are the HOUSE band/endcard (velocity-black): white 62px words with pink accent pops; brand logo + Follow + cursor press + COMMENT keyword. Palette: #171A1F slate, #34C759 now-playing green, #FFD60A brand amber. Recreated layout vocabulary, never screenshots.",
+  "palette": {
+    "bg": "#171A1F",
+    "panel": "#23272E",
+    "ink": "#F5F6F7",
+    "accent": "#34C759",
+    "brand": "#FFD60A",
+    "mute": "#8E96A0",
+    "edge": "#343B45"
+  },
+  "max_text": 48,
+  "archetypes": {
+    "player_hook":   { "req": [], "opt": ["track", "accent_words"], "facts": false, "script_ok": true, "max_text": 80 },
+    "server_stream": { "req": [], "opt": ["accent_words"], "facts": false, "script_ok": true, "max_text": 60 },
+    "av_toggle":     { "req": [], "opt": ["accent_words"], "facts": false, "script_ok": true, "max_text": 60 },
+    "platform_grid": { "req": [], "opt": ["accent_words"], "facts": true,  "script_ok": false, "max_text": 60 },
+    "library_file":  { "req": [], "opt": ["accent_words"], "facts": false, "script_ok": true, "max_text": 60 },
+    "honesty_card":  { "req": [], "opt": ["bullets", "accent_words"], "facts": false, "script_ok": true, "max_text": 90 },
+    "endcard":       { "req": ["keyword"], "opt": ["prompt", "follow", "accent_words", "cue_phrases"], "facts": false, "script_ok": true, "max_text": 60 }
+  }
+}

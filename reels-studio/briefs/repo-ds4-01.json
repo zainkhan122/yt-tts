@@ -1,0 +1,218 @@
+{
+  "id": "repo-ds4-01",
+  "capture": "captures/repo-ds4-01",
+  "title": "DeepSeek 4 Local Engine: 23k Stars, MIT",
+  "niche": "tech / AI repo",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "2026-10-12: original script based on checked primary sources (GitHub API facts read 2026-10-12 07:14 UTC; README read the same day for supported hardware, model list and the AI-disclosure section); approved Option 3 flow voice; no on-screen credits. | On-screen browser chrome shows a concise source domain; full source URLs stay in descriptions.",
+  "keywords": [
+    "DeepSeek",
+    "local",
+    "Metal",
+    "CUDA",
+    "MIT",
+    "antirez"
+  ],
+  "facts": {
+    "stars": 23783,
+    "forks": 2300,
+    "checked": "2026-10-12"
+  },
+  "credits_on_screen": "Screens: own capture of github.com/antirez/ds4 (2026-10-12). Engine and documentation by antirez (MIT). Throughput and hardware figures are the project's published results, not our own test.",
+  "sources": [
+    "https://github.com/antirez/ds4",
+    "https://api.github.com/repos/antirez/ds4"
+  ],
+  "verify_before_render": [
+    "GitHub API 2026-10-12 07:14 UTC: 23,783 stars, 2,300 forks, MIT, created 2026-05-06, pushed 2026-10-08; description 'DeepSeek 4 Flash and PRO local inference engine for Metal, CUDA and ROCm'. README read 2026-10-12: project name DwarfStar; targets Metal (Macs 96 GB+, SSD streaming below that), NVIDIA CUDA (DGX Spark main goal; multi-GPU incl. Ada Lovelace/L40S; eight-L40S Flash setup ~126 t/s aggregate with 16 sessions), ROCm on Strix Halo; runs DeepSeek V4 Flash (incl. experimental vision), V4.1 Flash, V4 PRO, GLM 5.2/5.3/5.3 Flash, Qwen3.8 Flash Next; 'not a general GGUF runner'; AI full disclosure section is quoted in the copy; author antirez is the creator of Redis (public fact).",
+    "No on-screen credit captions. Option 3 Chatterbox Michael continuous-flow voice required."
+  ],
+  "production_category": "repo",
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "og-image.png",
+      "heading": "DEEPSEEK 4, ON *HARDWARE YOU OWN*",
+      "say": "The creator of Redis built a small inference engine to run DeepSeek 4 on hardware people actually own.",
+      "url": "github.com"
+    },
+    {
+      "id": "stars",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "url": "github.com",
+      "camera": [
+        {
+          "region": "repo_title",
+          "zoom": 1.8,
+          "at": "ds4"
+        },
+        {
+          "region": "star_button",
+          "zoom": 2.6,
+          "at": "twenty"
+        }
+      ],
+      "cursor": [
+        {
+          "region": "star_button",
+          "at": "stars",
+          "state": "★ Starred 23.8k"
+        }
+      ],
+      "stat": {
+        "from": "facts.stars",
+        "format": "full",
+        "label": "GitHub stars · MIT · created May 2026",
+        "at": "twenty"
+      },
+      "say": "The repo is {ds4|D S four}: twenty three thousand stars, MIT licensed, and its engine is called DwarfStar."
+    },
+    {
+      "id": "models",
+      "type": "steps",
+      "heading": "WHAT IT *RUNS*",
+      "background": {
+        "image": "desktop-top.jpg"
+      },
+      "steps": [
+        "DeepSeek 4 Flash and PRO",
+        "GLM 5.2 and 5.3 Flash",
+        "Qwen3.8 Flash Next"
+      ],
+      "say": "It runs DeepSeek 4 Flash and Pro, GLM five point two and five point three, even Qwen three point eight Flash Next.",
+      "url": "github.com"
+    },
+    {
+      "id": "hardware",
+      "type": "page",
+      "image": "desktop-full.jpg",
+      "url": "github.com",
+      "camera": [
+        {
+          "region": "img_1_m5-max-flash-q2-throughput",
+          "zoom": 1.35,
+          "at": "metal"
+        }
+      ],
+      "say": "Metal on Macs with ninety six gigs or more, CUDA on Nvidia cards including older Ada ones, and ROCm on Strix Halo. Smaller Macs can stream weights from an SSD."
+    },
+    {
+      "id": "speed",
+      "type": "stat",
+      "heading": "SERVING *MANY* USERS",
+      "value": 126,
+      "decimals": 0,
+      "suffix": " t/s",
+      "label": "aggregate · 8x L40S · 16 sessions · authors' setup",
+      "icon": false,
+      "at": "hundred",
+      "say": "Their eight card L40S setup served sixteen sessions at about one hundred and twenty six tokens per second aggregate.",
+      "url": "github.com"
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE *CATCH*",
+      "cons": [
+        "Not a general GGUF runner",
+        "Main Mac path wants 96 GB or more",
+        "Support is deliberately narrow"
+      ],
+      "pros": [
+        "MIT, self-contained C engine",
+        "Runs models other backends can't",
+        "Openly built with AI assistance"
+      ],
+      "item_at": [
+        "gguf",
+        "ninety",
+        "narrow",
+        "mit",
+        "backends",
+        "assistance"
+      ],
+      "say": "The catches: it is not a general GGUF runner, you use its own quantized files; the main Mac path wants ninety six gigs or more; and support is deliberately narrow. It is MIT licensed, self-contained C, it runs models other backends cannot, and it says openly that it is built with AI assistance.",
+      "url": "github.com"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "DS4",
+      "say": "Would you run DeepSeek at home? Comment D S four and I will pin the repo.",
+      "url": "github.com"
+    }
+  ],
+  "seo": {
+    "keyword": "DeepSeek 4",
+    "aliases": [
+      "DeepSeek 4 local",
+      "ds4"
+    ],
+    "onscreen_first3s": "DEEPSEEK 4, ON HARDWARE YOU OWN",
+    "youtube": {
+      "title": "DeepSeek 4 Local Engine: 23k Stars, MIT",
+      "description": "DeepSeek 4 local inference, without a datacenter: antirez (the creator of Redis) ships ds4 / DwarfStar, an MIT-licensed C engine for DeepSeek 4 Flash and PRO, GLM 5.2-5.3 and Qwen3.8 Flash Next. Metal on Macs (96 GB+, SSD streaming below that), CUDA including Ada cards, ROCm on Strix Halo; the authors' eight-L40S setup hit ~126 t/s aggregate across 16 sessions. 23,783 stars as of 12 October 2026.\nSource: https://github.com/antirez/ds4",
+      "hashtags": [
+        "#Shorts",
+        "#DeepSeek",
+        "#LocalAI",
+        "#opensource"
+      ],
+      "tags": [
+        "DeepSeek 4",
+        "DeepSeek Flash local",
+        "ds4",
+        "DwarfStar",
+        "local LLM",
+        "run DeepSeek locally",
+        "CUDA",
+        "Metal LLM",
+        "antirez"
+      ]
+    },
+    "tiktok": {
+      "caption": "DeepSeek 4 runs locally with ds4: an MIT C engine for Metal, CUDA and ROCm from the creator of Redis. Macs need 96 GB or SSD streaming; 23k stars already.",
+      "hashtags": [
+        "#DeepSeek",
+        "#LocalAI",
+        "#opensource"
+      ]
+    },
+    "instagram": {
+      "caption": "DeepSeek 4 local inference from the creator of Redis: ds4 is an MIT, self-contained C engine for Metal, CUDA and ROCm, serving DeepSeek 4 Flash and PRO. Save this for your home lab.",
+      "hashtags": [
+        "#DeepSeek",
+        "#LocalAI",
+        "#opensource"
+      ]
+    },
+    "facebook": {
+      "caption": "DeepSeek 4 local: ds4 is an MIT-licensed C inference engine from antirez, the creator of Redis. Macs with 96 GB+ or SSD streaming, CUDA, ROCm. 23,783 stars.",
+      "hashtags": [
+        "#DeepSeek",
+        "#LocalAI"
+      ]
+    },
+    "x": {
+      "text": "DeepSeek 4 local: antirez (Redis' creator) ships ds4 — an MIT C engine for Metal, CUDA and ROCm, ~126 t/s aggregate on 8x L40S across 16 sessions. Macs want 96 GB+ or SSD streaming. 23,783 stars.",
+      "hashtags": [
+        "#LocalAI"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "DeepSeek 4 Local Engine: 23k Stars, MIT"
+    ],
+    "caption": "DeepSeek 4 runs on hardware you own: ds4 (DwarfStar) is an MIT, self-contained C engine from antirez, the creator of Redis. Metal on Macs, CUDA, ROCm; ~126 t/s aggregate on 8x L40S. The catches: it is not a general GGUF runner, and the main Mac path wants 96 GB or more.",
+    "hashtags": [
+      "#DeepSeek",
+      "#LocalAI",
+      "#opensource"
+    ],
+    "pinned_comment": "Repo and README notes: https://github.com/antirez/ds4"
+  }
+}

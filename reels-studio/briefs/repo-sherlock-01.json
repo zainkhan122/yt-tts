@@ -1,0 +1,155 @@
+{
+  "id": "repo-sherlock-01",
+  "capture": "captures/repo-sherlock-01",
+  "title": "sherlock: one command asks four hundred sites if you exist",
+  "niche": "AI tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "osint username search",
+    "sherlock tool",
+    "find accounts by username"
+  ],
+  "facts": {
+    "method": "repo README, data.json site list and GitHub API numbers, all fetched 2026-11-09",
+    "limits": "A yes is a username match, not a verified identity; common names collide across sites."
+  },
+  "sources": [
+    "https://github.com/sherlock-project/sherlock",
+    "https://raw.githubusercontent.com/sherlock-project/sherlock/master/README.md",
+    "https://cdn.jsdelivr.net/gh/sherlock-project/sherlock@master/sherlock_project/resources/data.json",
+    "https://gittrend.io/"
+  ],
+  "lexicon": {
+    "GitTrend": "git trend",
+    "sherlock": "sherlock",
+    "Sherlock": "sherlock"
+  },
+  "verify_before_render": [
+    "Every point cites its source in the feature sheet (features.json evidence quotes).",
+    "Numbers on screen are the verified ones: 481 sites, 327/127/27 error types, 106,020 stars, GitTrend #1."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "flow",
+      "heading": "ONE COMMAND FINDS YOU… EVERYWHERE?",
+      "nodes": [
+        "one name typed",
+        "four hundred plus sites asked"
+      ],
+      "say": "How does one command find you on four hundred plus sites at once? It asks them all."
+    },
+    {
+      "id": "mechanism",
+      "type": "flow",
+      "heading": "THE THREE WAYS SITES ANSWER",
+      "nodes": [
+        "status code",
+        "error message",
+        "redirect"
+      ],
+      "say": "Three hundred twenty seven answer with a status code. A hundred twenty seven print an error message. Twenty seven just redirect."
+    },
+    {
+      "id": "pivot",
+      "type": "flow",
+      "heading": "PACKED INTO ONE COMMAND",
+      "nodes": [
+        "the trick",
+        "sherlock"
+      ],
+      "say": "One open source project packed that trick into a single command. Sherlock."
+    },
+    {
+      "id": "walkthrough",
+      "type": "flow",
+      "heading": "TYPE A NAME. IT ASKS.",
+      "nodes": [
+        "sherlock user123",
+        "checks fan out",
+        "yes answers listed"
+      ],
+      "say": "Type the name, and sherlock fans out the checks, then lists every site that said yes."
+    },
+    {
+      "id": "velocity",
+      "type": "flow",
+      "heading": "STEADY FOR YEARS. SPIKING TODAY.",
+      "nodes": [
+        "a tool from 2018",
+        "one hundred six thousand stars"
+      ],
+      "say": "And today it is trending number one on GitTrend. One hundred six thousand stars, for a tool from twenty eighteen."
+    },
+    {
+      "id": "limit",
+      "type": "flow",
+      "heading": "A NAME MATCH IS NOT A PERSON",
+      "nodes": [
+        "the name",
+        "not always the person"
+      ],
+      "say": "But it matches a name, not a person. A common name can say yes for somebody else."
+    },
+    {
+      "id": "caveat",
+      "type": "flow",
+      "heading": "THE HELP FILE ADMITS IT",
+      "nodes": [
+        "ignoring exclusions",
+        "more false positives"
+      ],
+      "say": "Its own help file admits it: ignoring exclusions may return more false positives."
+    },
+    {
+      "id": "closer",
+      "type": "flow",
+      "heading": "ASK EVERYONE. HEAR THE NO'S.",
+      "nodes": [
+        "phone book trick",
+        "ask everyone at once"
+      ],
+      "say": "So it is not stalking. It is the phone book trick. Ask everyone at once, and listen to how they say no."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "heading": "",
+      "nodes": [
+        "follow",
+        "comment sherlock"
+      ],
+      "say": "Follow for the next repo. Comment sherlock and I will send the link."
+    }
+  ],
+  "seo": {
+    "title": "sherlock: one command asks 400+ sites if a username exists",
+    "description": "sherlock checks a username against 400+ sites by reading status codes, error messages and redirects. 481-site list, 106k stars, #1 on GitTrend today. Open source: github.com/sherlock-project/sherlock",
+    "tags": [
+      "sherlock",
+      "osint",
+      "github",
+      "open source",
+      "username search"
+    ]
+  },
+  "post": {
+    "caption": "It isn't stalking — it's the phone book trick, at machine speed. Repo link in the #sherlock comment.",
+    "featured_comment": "Comment SHERLOCK for the repo link"
+  },
+  "research_basis": "GitTrend star velocity board, 2026-11-09 (sherlock #1)",
+  "renderer": "graphics",
+  "graphics": {
+    "dir": "briefs/graphics/repo-sherlock-01",
+    "note": "AhSilence-style lane: black stage, pink #FE297D accent, diagram-driven, README-quoted honesty beat"
+  },
+  "voice_seed": 0,
+  "speed": 1.28,
+  "lead_in": 0.06,
+  "voice_tempo": 1.1,
+  "motion_standard": 2,
+  "qa_gates": true
+}

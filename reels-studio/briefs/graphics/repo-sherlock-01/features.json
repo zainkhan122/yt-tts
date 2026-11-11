@@ -1,0 +1,56 @@
+{
+  "tool": {
+    "name": "sherlock",
+    "repo": "https://github.com/sherlock-project/sherlock"
+  },
+  "features": [
+    {
+      "id": "f1",
+      "title": "One name checked against hundreds of sites at once",
+      "what": "One typed username is checked against a list of four hundred plus social networks at once.",
+      "evidence_quote": "Hunt down social media accounts by username across 400+ social networks"
+    },
+    {
+      "id": "f2",
+      "title": "Three ways a site answers",
+      "what": "Each site reports an absent name through a status code, an error message, or a redirect.",
+      "evidence_quote": "errorType counts across the shipped site list: status_code 327, message 127, response_url 27",
+      "metric": { "value": 481, "unit": "sites" }
+    },
+    {
+      "id": "f3",
+      "title": "A veteran repo at six figures",
+      "what": "The repository sits at one hundred six thousand stars after nearly eight years public.",
+      "evidence_quote": "stargazers_count=106020; forks_count=12312;",
+      "metric": { "value": 106020, "unit": "stars" }
+    },
+    {
+      "id": "f4",
+      "title": "First on GitTrend today",
+      "what": "GitTrend trending today ranks the repository first among every project it tracks.",
+      "evidence_quote": "gittrend.io trending today #1: sherlock-project/sherlock (fetched 2026-11-09, homepage order)."
+    },
+    {
+      "id": "f5",
+      "title": "False positives are documented",
+      "what": "Widening the search by ignoring upstream exclusions can return hits that are not the same person.",
+      "evidence_quote": "Ignore upstream exclusions (may return more false positives)",
+      "risk": "A yes is a username match, not a verified identity; common names collide across sites."
+    },
+    {
+      "id": "f6",
+      "title": "Python, MIT, since 2018",
+      "what": "The project is written in Python, MIT licensed, and first published in December 2018.",
+      "evidence_quote": "created_at=2018-12-24; language=Python; license=MIT."
+    }
+  ],
+  "risks": [
+    "A yes is a username match, not a verified identity; common names collide across sites."
+  ],
+  "source_urls": [
+    "https://github.com/sherlock-project/sherlock",
+    "https://raw.githubusercontent.com/sherlock-project/sherlock/master/README.md",
+    "https://cdn.jsdelivr.net/gh/sherlock-project/sherlock@master/sherlock_project/resources/data.json",
+    "https://gittrend.io/"
+  ]
+}

@@ -1,0 +1,24 @@
+name: ext-videos-upload
+on:
+  workflow_dispatch: {}
+permissions:
+  actions: write
+jobs:
+  up:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+      - name: decode staged videos
+        run: |
+          mkdir -p /tmp/ext
+          for f in reels-studio/ext-videos/*.txt; do
+            [ -e "$f" ] || continue
+            base64 -d "$f" > "/tmp/ext/$(basename "$f" .txt).mp4"
+          done
+          ls -la /tmp/ext
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ext-videos
+          path: /tmp/ext/

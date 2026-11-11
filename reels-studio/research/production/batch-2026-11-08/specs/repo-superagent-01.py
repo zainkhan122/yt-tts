@@ -1,0 +1,205 @@
+"""Spec: repo-superagent-01 · deepseek-ai/dsh-superagent-prototype (topic #2, radar 2026-11-07)."""
+
+REPO = "https://github.com/deepseek-ai/dsh-superagent-prototype"
+
+PLAN = {
+    "id": "repo-superagent-01",
+    "tool": "dsh-superagent",
+    "question": "Could an agent run your repo without you watching it?",
+    "hook_visual": {
+        "kind": "steps",
+        "intent": "someone asks for work in a repo and the agent takes it from there",
+        "steps": ["Your repo", "Someone asks", "It opens a PR"],
+    },
+    "points": [
+        {
+            "n": 1,
+            "claim": "dsh-superagent is a proactive coding agent for one GitHub repository, packaged as a bundle for DeepSeek Harness.",
+            "spoken": "It's dsh-superagent, a research prototype published by DeepSeek: a proactive coding agent for one repository.",
+            "source": REPO,
+            "source_note": "README: 'dsh-superagent is a proactive coding agent for one GitHub repository, packaged as a bundle for DeepSeek Harness.'",
+            "visual": {"kind": "steps", "intent": "one repository watched by one agent"},
+            "title": "A proactive agent",
+            "sub": "For one repository.",
+            "steps": ["One repo", "One agent", "Always listening"],
+        },
+        {
+            "n": 2,
+            "claim": "It listens to GitHub and, optionally, Feishu; a request for work opens a work item that runs in its own session and directory.",
+            "spoken": "It listens to GitHub, and optionally Feishu. When someone asks for work, it opens a work item in its own session.",
+            "source": REPO,
+            "source_note": "README: 'It listens to GitHub and, optionally, Feishu. When someone allowed asks the agent for work, it opens a work item, works on it in its own agent session and directory'.",
+            "visual": {"kind": "steps", "intent": "the sources it listens to and the work item it opens"},
+            "title": "It takes the work",
+            "sub": "A request becomes a work item.",
+            "steps": ["Listens to GitHub", "Listens to Feishu", "Opens a work item"],
+        },
+        {
+            "n": 3,
+            "claim": "It answers in the original conversation, for example with a pull request, and a web panel shows what needs a person.",
+            "spoken": "It answers in the thread where the work was asked, often with a pull request, and a panel shows what needs a person.",
+            "source": REPO,
+            "source_note": "README: 'answers in the original conversation, for example with a pull request. A web panel shows what needs a person.'",
+            "visual": {"kind": "steps", "intent": "the answer landing in the thread, the PR, the panel"},
+            "title": "Answers in the thread",
+            "sub": "The panel flags what needs you.",
+            "steps": ["Answer in the thread", "Pull request attached", "Panel needs a person"],
+        },
+        {
+            "n": 4,
+            "claim": "It acts only when asked or when a team-written rule allows it, and setup is walked through by your own coding agent from SETUP.md.",
+            "spoken": "It acts only when asked, or when a team rule allows it. Your coding agent walks you through setup.",
+            "source": REPO,
+            "source_note": "README: 'it acts only when asked or when a rule the team wrote allows it, and speaks only when someone must act'; 'Read SETUP.md in this repository and set up dsh-superagent with me.'",
+            "visual": {"kind": "steps", "intent": "the rule that gates action, and the agent-led setup"},
+            "title": "Only when asked",
+            "sub": "A team rule can also allow it.",
+            "steps": ["Asked to act", "Or a team rule", "Setup by your agent"],
+        },
+    ],
+    "catch": "The catch: it's research code, not a DeepSeek product, and some designs in the paper are not in it.",
+    "catch_sub": "A prototype, not production software.",
+    "catch_title": "The catch",
+    "catch_visual": {
+        "kind": "steps",
+        "intent": "the prototype warning, the missing designs and the harness it needs",
+        "steps": ["Research code only", "Some designs missing", "Runs on DeepSeek Harness"],
+    },
+    "brand_line": "dsh-superagent · prototype",
+    "cover": {
+        "text": "AGENT THAT RUNS YOUR REPO",
+        "visual": "designed graphic of a repo with an issue turning into a pull request on its own",
+        "concepts": [
+            {
+                "id": "c1", "layout": "bleed", "text": "AGENT THAT RUNS YOUR REPO",
+                "media": {"kind": "designed", "file": "cover-c1.png",
+                          "design": "Full-bleed plate with a repo commit graph behind the headline, one node lit as the work item, and a pull-request card sliding out of it."},
+            },
+            {
+                "id": "c2", "layout": "window", "text": "REPO, RUN BY AGENT",
+                "media": {"kind": "designed", "file": "cover-c2.png",
+                          "design": "Framed panel window listing three work items, one marked as needing a person, with the merge arrow underneath."},
+            },
+            {
+                "id": "c3", "layout": "split", "text": "AGENT OPENS THE PR",
+                "media": {"kind": "designed", "file": "cover-c3.png",
+                          "design": "Split plate: issue rows on top, and below them a pull request card with a diff bar and a green merge button."},
+            },
+        ],
+    },
+    "cta": "Would you let an agent own a repo? Comment AGENT and I'll pin it.",
+    "cta_keyword": "AGENT",
+    "seo": {
+        "onscreen_first3s": "DSH-SUPERAGENT RUNS YOUR REPO",
+        "keyword": "autonomous coding agent",
+        "aliases": ["proactive coding agent", "agent that runs a repo", "DeepSeek agent prototype"],
+        "youtube": {
+            "title": "Autonomous coding agent: one repo, run by dsh-superagent",
+            "description": (
+                "An autonomous coding agent that lives with one GitHub repo: dsh-superagent listens to GitHub and Feishu, "
+                "opens a work item when someone asks for work, does it in its own session, then answers in the thread with a "
+                "pull request while a panel flags what needs a person. It is a DeepSeek research prototype, not a product, "
+                "and it acts only when asked or when a team rule allows it. Repo: https://github.com/deepseek-ai/dsh-superagent-prototype "
+                "#Shorts #CodingAgent #AutonomousAgents #DeepSeek #AIAgents"
+            ),
+            "tags": ["autonomous coding agent", "proactive coding agent", "DeepSeek agent prototype",
+                     "agent that runs a repo", "dsh-superagent", "DeepSeek Harness"],
+            "hashtags": ["#Shorts", "#CodingAgent", "#AutonomousAgents", "#DeepSeek", "#AIAgents"],
+        },
+        "tiktok": {
+            "caption": "Autonomous coding agent for one repo: dsh-superagent listens to GitHub, opens a work item, then answers with a pull request. Comment AGENT for the repo.",
+            "hashtags": ["#CodingAgent", "#AutonomousAgents", "#DeepSeek", "#AIAgents", "#OpenSource"],
+        },
+        "instagram": {
+            "caption": "Autonomous coding agent on one repository: dsh-superagent opens a work item when someone asks, works in its own session, and answers the thread with a pull request. Comment AGENT for the repo.",
+            "hashtags": ["#CodingAgent", "#AutonomousAgents", "#DeepSeek", "#AIAgents", "#DevTools"],
+        },
+        "facebook": {
+            "caption": "Autonomous coding agent for a single repository: dsh-superagent listens to GitHub, opens a work item, and answers with a pull request while a panel flags what needs a person. Comment AGENT for the repo link.",
+            "hashtags": ["#CodingAgent", "#AutonomousAgents", "#DeepSeek", "#AIAgents", "#DevTools"],
+        },
+        "x": {
+            "text": "Autonomous coding agent for one repo: dsh-superagent listens to GitHub, opens a work item, and answers with a pull request. DeepSeek research prototype.",
+            "hashtags": ["#CodingAgent", "#DeepSeek"],
+        },
+    },
+    "brief_meta": {
+        "title": "dsh-superagent: a proactive coding agent for one repo",
+        "niche": "AI tools",
+        "keywords": ["autonomous coding agent", "proactive coding agent", "DeepSeek Harness", "coding agent"],
+        "idea": "dsh-superagent is a DeepSeek research prototype: a proactive coding agent that watches one repo and answers in the thread.",
+        "viewer": {
+            "who": "teams who want an agent to carry a repo without constant babysitting",
+            "problem": "an agent that needs a human in the loop wastes the whole team's attention",
+            "job": "decide whether an always-on repo agent is worth wiring into their GitHub",
+        },
+    },
+}
+
+FEATURES = {
+    "tool": {"name": "dsh-superagent", "repo": REPO},
+    "features": [
+        {"id": "f1", "title": "Proactive agent for one repository",
+         "what": "It is a coding agent that lives with a single GitHub repository.",
+         "evidence_quote": "dsh-superagent is a proactive coding agent for one GitHub repository, packaged as a bundle for DeepSeek Harness."},
+        {"id": "f2", "title": "Listens, then opens a work item",
+         "what": "A request for work becomes a work item with its own session and directory.",
+         "items": ["GitHub", "Feishu", "work item"],
+         "evidence_quote": "It listens to GitHub and, optionally, Feishu. When someone allowed asks the agent for work, it opens a work item, works on it in its own agent session and directory"},
+        {"id": "f3", "title": "Answers where the work was asked",
+         "what": "The reply lands in the original conversation, often as a pull request.",
+         "evidence_quote": "answers in the original conversation, for example with a pull request. A web panel shows what needs a person."},
+        {"id": "f4", "title": "Only acts when allowed",
+         "what": "It acts when asked or when a rule the team wrote allows it.",
+         "evidence_quote": "it acts only when asked or when a rule the team wrote allows it, and speaks only when someone must act or can use a result."},
+        {"id": "f5", "title": "Setup walked through by an agent",
+         "what": "Your own coding agent installs and configures it from the repo's setup guide.",
+         "evidence_quote": "Read SETUP.md in this repository and set up dsh-superagent with me."},
+        {"id": "f6", "title": "Research code, not production", "risk": True,
+         "what": "The repository says the code is a research prototype with possible bugs.",
+         "evidence_quote": "Treat it as research code, not production-ready software."},
+    ],
+    "risks": [{"id": "r1", "text": "Research prototype: not an official DeepSeek product, and some designs from the paper are not implemented."},
+              {"id": "r2", "text": "It runs as a bundle for DeepSeek Harness, so the harness is part of the setup."}],
+    "source_urls": [REPO],
+}
+
+BEATS = {
+    "tool": "dsh-superagent",
+    "handle": "@hypeless",
+    "scenes": [
+        {"scene_id": "hook", "phrase": 0, "archetype": "flow_link", "headline": "DSH-SUPERAGENT RUNS YOUR REPO",
+         "feature_id": "f1", "depicts": "your repo taking work while you are away",
+         "payload": {"nodes": ["Your repo", "Someone asks", "It opens a PR"], "edge_label": "no babysitting",
+                     "cue_phrases": ["Could an agent", "run your repo", "without you watching it"]},
+         "cue_word": "repo"},
+        {"scene_id": "point1", "phrase": 1, "archetype": "chip_grid", "headline": "A RESEARCH PROTOTYPE",
+         "feature_id": "f1", "depicts": "one repository watched by a proactive agent",
+         "payload": {"chips": ["Published by DeepSeek", "Proactive agent", "One repository"], "highlight": 1,
+                     "cue_phrases": ["It's dsh-superagent", "a research prototype", "proactive coding agent"]},
+         "cue_word": "prototype"},
+        {"scene_id": "point2", "phrase": 2, "archetype": "toggle_steps", "headline": "IT TAKES THE WORK",
+         "feature_id": "f2", "depicts": "the work item it opens in its own session",
+         "payload": {"steps": ["Listens to GitHub", "And optionally Feishu", "Opens a work item"], "done": 3,
+                     "cue_phrases": ["listens to GitHub", "optionally Feishu", "opens a work item"]},
+         "cue_word": "work"},
+        {"scene_id": "point3", "phrase": 3, "archetype": "chip_grid", "headline": "ANSWERS IN THE THREAD",
+         "feature_id": "f3", "depicts": "the answer in the thread and the panel that needs a person",
+         "payload": {"chips": ["Answer in the thread", "Often a pull request", "Panel needs a person"], "highlight": 1,
+                     "cue_phrases": ["answers in the thread", "often with a pull request", "panel shows what needs a person"]},
+         "cue_word": "thread"},
+        {"scene_id": "point4", "phrase": 4, "archetype": "concept_card", "headline": "ONLY WHEN ASKED",
+         "feature_id": None, "depicts": "the rule that lets it act and the setup your agent walks",
+         "payload": {"big": "ONLY WHEN ASKED", "sub": "Or when a team rule allows it."},
+         "cue_word": "asked"},
+        {"scene_id": "catch", "phrase": 5, "archetype": "terminal_type", "headline": "THE CATCH",
+         "feature_id": "f6", "depicts": "setup run by your coding agent, on research code",
+         "payload": {"title": "your coding agent", "lines": ["Read SETUP.md in this repo", "set up dsh-superagent"],
+                     "cue_phrases": ["research code", "not a DeepSeek product", "walk you through setup"]},
+         "cue_word": "catch"},
+        {"scene_id": "cta", "phrase": 6, "archetype": "endcard", "headline": "AGENT OWNS A REPO",
+         "feature_id": None, "depicts": "commenting the keyword to get the repo",
+         "payload": {"keyword": "AGENT", "follow": "Follow"},
+         "cue_word": "AGENT"},
+    ],
+}

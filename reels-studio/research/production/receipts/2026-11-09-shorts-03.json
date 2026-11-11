@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-09-shorts-03",
+  "created_at": "2026-11-09T12:16:51Z",
+  "briefs": {
+    "model-idol-01": {
+      "brief_sha256": "4fccfa130a1cc723fb03a09da6251ba86bcc6fe8c5a0471d8c373d9ec8e7fbed",
+      "brief_identity_sha256": "7f1966a60796039fabc909888ebfb72b60066fec00aec51089133b5cb497d694",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "6c68fa643f7092bc5a63c8b370117496ea80e54cea10d9737b0af078c1bb33bf",
+          "word_count": 176
+        },
+        "assets": {
+          "capture_id": "model-idol-01",
+          "manifest_sha256": "366a8e084e958f8462f368dbee0f7f37e97361e70844a831278003df1c1a9883",
+          "files": [],
+          "cover_sha256": "004686483f4662c2242f259a7efe19f04a38026f517f34693e4a0288d3dbde0c",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/model-idol-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}

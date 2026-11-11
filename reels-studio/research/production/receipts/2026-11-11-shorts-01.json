@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-11-shorts-01",
+  "created_at": "2026-11-11T18:19:05Z",
+  "briefs": {
+    "tool-claude-tokens-01": {
+      "brief_sha256": "59f86137ffcb3401ceb49776767310a260a359409a1966c6cf28ddce6021ac79",
+      "brief_identity_sha256": "ce09009f84ee245f5bd95a721a858160f4bfcb497bcefb01ff1cc20bcd46c5cb",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "b24884c15aed15217447d80ae3180eeb5a521130f9e9caa7c4b658962607e26d",
+          "word_count": 140
+        },
+        "assets": {
+          "capture_id": "tool-claude-tokens-01",
+          "manifest_sha256": "526a847f2474aaba93bab641c6d6800244e4746f414cc2bb20da4b950a225c41",
+          "files": [
+            {
+              "path": "receipt.jpg",
+              "sha256": "11bb6c8f8334768275c14b03b5b689d6756b1af48bfa17e27079d0c08fc1a26b"
+            },
+            {
+              "path": "stack.jpg",
+              "sha256": "a8766dd1c78ef5ff8da8748f98941a7a98d7e03084d399f8c11f40655ef2038d"
+            },
+            {
+              "path": "terminal.jpg",
+              "sha256": "305380284517cc1aebda20b94c53aff35b58a161d01692d1ee47f154c2a8093c"
+            }
+          ],
+          "cover_sha256": "b0fa5b18c07e0fbb4c99ed7fe3d5d9063f47bd82161d311363332c52c07e3d51",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/tool-claude-tokens-01/manifest.json"
+          ]
+        }
+      }
+    },
+    "tool-seedance-01": {
+      "brief_sha256": "9a66499cee32bc1febc77f390ced2785ea4fd52af23368702596ce97bd2ea350",
+      "brief_identity_sha256": "b3420e2b0acbce07c806b0780199d0e784a1338ff0e53935067e432432f45486",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "bad2d0a43fff9330e1e602aa7add579f4c0154d793a0594153bd0cbe704f11b4",
+          "word_count": 146
+        },
+        "assets": {
+          "capture_id": "tool-seedance-01",
+          "manifest_sha256": "7d5fd591e95822df86eefbaa841bfe8cf674f4e325da05f887deb189fe3684b8",
+          "files": [
+            {
+              "path": "capcut.jpg",
+              "sha256": "6fe5c3e11e9e1dac63c1b6688d02e9372f463d7d4c0f0ece0d7bed4ae989dd15"
+            },
+            {
+              "path": "cinema.jpg",
+              "sha256": "c66a2d4bdf8228572b344766f7ca57b649ac00137c5d78f8baaa6b943551512d"
+            },
+            {
+              "path": "leaderboard.jpg",
+              "sha256": "e4ff2821741a9685f38f19e9f8bb6af507585e6fbaa4e1c7d8962021f490fcc5"
+            }
+          ],
+          "cover_sha256": "479d3d1f2cec4706de6251d330629d52c6d751b6d68b5db045f89384fa182a52",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/tool-seedance-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}

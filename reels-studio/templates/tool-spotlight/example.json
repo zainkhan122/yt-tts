@@ -1,0 +1,157 @@
+{
+ "id": "my-tool-spotlight",
+ "_how": "Copy, then edit: capture pack (python3 reels.py capture <id> --url ...), facts (re-check same day), scenes (types: clip, clip-montage, page, scroll, steps, terminal, verdict, stat, image, endcard; see templates/_spotlight/spotcore.py). Display vs spoken: {GTA V|GTA Five}. *word* in headings = yellow. Viewer-benefit first (PLAYBOOK SS4): hook = pain/outcome, features = outcomes for the viewer, catches = plain user-impact words; at most ONE licence mention per script (plain 'free and open source', verdict/close only, never the hook or headlines).",
+ "capture": "captures/universal-modder",
+ "title": "AI just put Minecraft inside GTA V",
+ "lang": "en-us",
+ "keywords": [
+  "Minecraft",
+  "Warthog",
+  "flamethrower",
+  "fal",
+  "anti-cheat",
+  "Claude",
+  "Codex",
+  "Gemini"
+ ],
+ "facts": {
+  "stars": 5142,
+  "forks": 468,
+  "checked": "2026-10-08"
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "clip",
+   "src": "mods-teaser.mp4",
+   "in": 0.0,
+   "out": 3.0,
+   "fit": "fill-blur",
+   "headline": "AI BUILT *THIS*",
+   "sub": "Minecraft inside GTA V",
+   "say": "An AI coding agent built this! Real Minecraft, running inside {GTA V|GTA Five}."
+  },
+  {
+   "id": "montage",
+   "type": "clip-montage",
+   "src": "mods-teaser.mp4",
+   "cuts": [
+    {
+     "in": 3.3,
+     "out": 5.0,
+     "label": "Mobs vs the LSPD"
+    },
+    {
+     "in": 5.0,
+     "out": 7.0,
+     "label": "Halo's Warthog",
+     "at": "halos"
+    },
+    {
+     "in": 7.0,
+     "out": 9.0,
+     "label": "World at War flamethrower",
+     "at": "even|world"
+    }
+   ],
+   "say": "Mobs versus the {LSPD|L S P D}. Halo's Warthog, in Minecraft. Even a World at War flamethrower!"
+  },
+  {
+   "id": "reveal",
+   "type": "page",
+   "image": "desktop-top.jpg",
+   "url": "github.com/rehan-remade/universal-modder",
+   "camera": [
+    {
+     "region": "repo_title",
+     "zoom": 1.5,
+     "at": "universal"
+    },
+    {
+     "region": "star_button",
+     "zoom": 2.6,
+     "at": "5000"
+    }
+   ],
+   "cursor": [
+    {
+     "region": "star_button",
+     "at": "stars",
+     "state": "★ Starred 5.1k"
+    }
+   ],
+   "stat": {
+    "from": "facts.stars",
+    "format": "full",
+    "label": "GitHub stars in 8 days",
+    "at": "5000"
+   },
+   "say": "It's called Universal Modder, and it passed {5,000|five thousand} GitHub stars in just over a week!"
+  },
+  {
+   "id": "how",
+   "type": "steps",
+   "heading": "HOW IT *WORKS*",
+   "background": {
+    "image": "desktop-full.jpg",
+    "scroll_regions": [
+     "img_0_universal-modder-mod-any-game-po",
+     "h_what-s-inside"
+    ]
+   },
+   "figure": "pipeline.png",
+   "figure_step": 3,
+   "steps": [
+    "Finds the game + engine",
+    "Reads the real code",
+    "Builds the mod",
+    "Makes art, 3D & sound",
+    "Tests it in the running game"
+   ],
+   "say": "Point Claude Code, Codex or Gemini at a game you own. It reads the real code, builds the mod, makes the art and sound, and tests it in-game."
+  },
+  {
+   "id": "install",
+   "type": "terminal",
+   "title": "Claude Code",
+   "heading": "SETUP: *2* COMMANDS",
+   "lines": [
+    "/plugin marketplace add rehan-remade/universal-modder",
+    "/plugin install universal-modder@universal-modder"
+   ],
+   "outputs": [
+    "added",
+    "installed"
+   ],
+   "say": "Setup is just two commands."
+  },
+  {
+   "id": "catch",
+   "type": "verdict",
+   "image": "desktop-top.jpg",
+   "region": "about",
+   "zoom": 1.3,
+   "cons": [
+    "Art, 3D & sound run on fal (pay-per-use)",
+    "No online games with anti-cheat"
+   ],
+   "pros": [
+    "Free & open source (MIT)",
+    "Any game you own, even servers you host"
+   ],
+   "say": "The catch: the art and sound use fal, which is pay per use, and it refuses online games with anti-cheat. The plugin itself is free and open source."
+  },
+  {
+   "id": "cta",
+   "type": "endcard",
+   "keyword": "MOD",
+   "say": "Which game would you mod first? Comment {MOD|mod} and I'll pin the link."
+  }
+ ],
+ "sources": [
+  "GitHub API 2026-10-08: 5,142 stars, 468 forks, MIT, created 2026-09-30 (capture 2026-10-07: 4,935 stars)",
+  "README of rehan-remade/universal-modder, read 2026-10-08: install commands; 'Rules it follows': any game you own (single-player, multiplayer, servers you host); refuses online games with anti-cheat; never ships game files",
+  "fal.ai/pricing 2026-10-08: pay-per-use model APIs",
+  "Official teaser docs/media/mods-teaser.gif (labels: elytra, the nether, mobs vs lspd, the warthog, flamethrower, zombies)"
+ ]
+}

@@ -1,0 +1,40 @@
+/* data-race — racing line chart; plot box x 150-740, y 600-1300; labels ride the line heads */
+.fitbox { position: absolute; display: flex; align-items: center; justify-content: center; }
+#hook-kicker { position: absolute; top: 300px; left: 0; right: 0; width: max-content; margin: 0 auto; opacity: 0; }
+#hook-box { left: 90px; right: 90px; top: 410px; height: 520px; }
+#hook-text { width: 100%; text-align: center; color: var(--fg); font-size: 140px; }
+#hook-flags { position: absolute; top: 980px; left: 90px; right: 90px; display: flex; justify-content: center; gap: 30px; }
+.hflag { width: 270px; padding: 26px 10px 22px; text-align: center; opacity: 0; }
+.hflag .f { font: 120px/1.05 "Noto Color Emoji"; }
+.hflag .n { margin-top: 12px; font: 800 38px "Inter"; color: var(--fg); white-space: nowrap; }
+#hook-sub { position: absolute; top: 1300px; left: 0; right: 0; width: max-content; margin: 0 auto; opacity: 0; }
+
+#chart-title { position: absolute; top: 236px; left: 110px; right: 110px; font: 900 64px/1.08 "Inter"; color: var(--fg); }
+#chart-sub { position: absolute; top: 320px; left: 112px; right: 110px; font-size: 28px; color: var(--muted); }
+#chart-year { position: absolute; top: 640px; right: 90px; width: 600px; text-align: right; font-size: 190px; color: var(--fg); opacity: 0.16; }
+#chart { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+.gridline { stroke: var(--grid); stroke-width: 3; }
+.axis-label { fill: var(--muted); font: 600 28px "JetBrains Mono"; }
+.line { fill: none; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+.head { stroke: #ffffff; stroke-width: 5; opacity: 0; }
+/* live leaderboard: pills swap rank slots (no labels on crossing lines) */
+#board { position: absolute; top: 418px; left: 90px; width: 900px; height: 160px; }
+.slot-lab { position: absolute; top: 0; text-align: center; font: 800 28px "Inter", "Noto Color Emoji"; letter-spacing: 0.08em; color: var(--muted); }
+.pill { position: absolute; top: 46px; left: 0; height: 104px; display: flex; align-items: center; justify-content: center; gap: 14px; border-width: 4px; border-radius: 28px; opacity: 0; }
+.pill .f { font: 52px/1 "Noto Color Emoji"; }
+.pill .v { font: 900 46px "Inter"; white-space: nowrap; }
+#chart-flags { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+.hflag-sm { position: absolute; left: 0; top: 0; font: 40px/1 "Noto Color Emoji"; opacity: 0; }
+#chart-source { position: absolute; top: 1392px; left: 112px; right: 100px; font-size: 24px; color: var(--muted); }
+
+#rank-title { position: absolute; top: 300px; left: 0; right: 0; width: max-content; margin: 0 auto; }
+#rank-rows { position: absolute; top: 450px; left: 90px; right: 90px; }
+.rrow { position: relative; height: 210px; margin-bottom: 30px; padding: 26px 34px; opacity: 0; }
+.rrow .pos { position: absolute; left: 30px; top: 30px; font: 400 92px/1 "Anton"; color: var(--acc); }
+.rrow .f { position: absolute; left: 118px; top: 32px; font: 72px/1 "Noto Color Emoji"; }
+.rrow .name { position: absolute; left: 218px; top: 34px; font: 900 50px "Inter"; color: var(--fg); white-space: nowrap; }
+.rrow .val { position: absolute; right: 34px; top: 34px; font: 900 50px "Inter"; color: var(--fg); }
+.rrow .bar { position: absolute; left: 218px; right: 34px; top: 116px; height: 26px; border-radius: 13px; background: rgba(127, 127, 127, 0.22); overflow: hidden; }
+.rrow .bar i { display: block; height: 100%; border-radius: 13px; transform-origin: 0 50%; transform: scaleX(0); }
+.rrow .grow { position: absolute; left: 218px; top: 154px; font: 600 30px "Inter"; color: var(--muted); }
+#rank-source { position: absolute; top: 1220px; left: 90px; right: 90px; text-align: center; font-size: 24px; color: var(--muted); }

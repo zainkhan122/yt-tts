@@ -1,0 +1,51 @@
+{
+  "asset_acquisition": "controlled reused capture pool",
+  "baseline_script_exposed": false,
+  "case": "news-gemini-agent-01",
+  "configuration_sha256": "042edd96cf7f545d9e6270765ecc23545402b98775191c6b64bb135be9ac3f8d",
+  "finished_at": "2026-10-10T18:19:03Z",
+  "pilot": "free-p3",
+  "publishing_allowed": false,
+  "repairs": [
+    {
+      "issues": {
+        "critic": null,
+        "hard_gate_errors": [
+          "schema version: protocol value must equal 1, not '1'",
+          "schema metadata.facebook_caption: maxLength=600; actual length=666"
+        ]
+      },
+      "revision": 0
+    },
+    {
+      "issues": {
+        "critic": null,
+        "hard_gate_errors": [
+          "c4: Evidence quote does not occur verbatim in the fetched source",
+          "c5: Evidence quote does not occur verbatim in the fetched source",
+          "c6: Evidence quote does not occur verbatim in the fetched source",
+          "c7: Evidence quote does not occur verbatim in the fetched source",
+          "s5: metric number absent from its evidence quote",
+          "narration word count 194 outside 90\u2013140"
+        ]
+      },
+      "revision": 1
+    },
+    {
+      "issues": {
+        "critic": null,
+        "hard_gate_errors": [
+          "c7: Evidence quote does not occur verbatim in the fetched source",
+          "s5: metric number absent from its evidence quote"
+        ]
+      },
+      "revision": 2
+    }
+  ],
+  "revision": 2,
+  "sources_read": [
+    "s1"
+  ],
+  "started_at": "2026-10-10T18:15:18Z",
+  "status": "blocked_quality"
+}

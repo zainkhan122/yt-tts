@@ -1,0 +1,56 @@
+{
+  "asset_acquisition": "controlled reused capture pool",
+  "baseline_script_exposed": false,
+  "case": "news-haiku-55-01",
+  "configuration_sha256": "042edd96cf7f545d9e6270765ecc23545402b98775191c6b64bb135be9ac3f8d",
+  "finished_at": "2026-10-10T18:25:56Z",
+  "pilot": "free-p3",
+  "publishing_allowed": false,
+  "repairs": [
+    {
+      "issues": {
+        "critic": null,
+        "hard_gate_errors": [
+          "schema version: protocol value must equal 1, not '1'",
+          "schema metadata.facebook_caption: maxLength=600; actual length=620"
+        ]
+      },
+      "revision": 0
+    },
+    {
+      "issues": {
+        "critic": null,
+        "hard_gate_errors": [
+          "c4: Evidence quote does not occur verbatim in the fetched source",
+          "c6: Evidence quote does not occur verbatim in the fetched source",
+          "c8: Evidence quote does not occur verbatim in the fetched source",
+          "c9: Evidence quote does not occur verbatim in the fetched source",
+          "bench: metric number absent from its evidence quote",
+          "narration word count 145 outside 90\u2013140",
+          "primary keyword absent from the hook"
+        ]
+      },
+      "revision": 1
+    },
+    {
+      "issues": {
+        "critic": null,
+        "hard_gate_errors": [
+          "c4: Evidence quote does not occur verbatim in the fetched source",
+          "c6: Evidence quote does not occur verbatim in the fetched source",
+          "c8: Evidence quote does not occur verbatim in the fetched source",
+          "c9: Evidence quote does not occur verbatim in the fetched source",
+          "bench: metric number absent from its evidence quote",
+          "narration word count 143 outside 90\u2013140"
+        ]
+      },
+      "revision": 2
+    }
+  ],
+  "revision": 2,
+  "sources_read": [
+    "s1"
+  ],
+  "started_at": "2026-10-10T18:19:03Z",
+  "status": "blocked_quality"
+}

@@ -1,0 +1,22 @@
+{
+  "tool": {"name": "Craft Anything", "repo_url": "https://github.com/storytold/craft-anything", "category": "AI build tool", "license": "MIT OR Apache-2.0"},
+  "features": [
+    {"id": "f1", "title": "Study the original", "what": "Inspects the original with real tools: its pages at every width, its code, its files and how it runs.",
+     "items": ["Pages at every width", "Its code", "Its files", "How it runs"],
+     "evidence_quote": "inspect the original: its pages at every width, its code, its files, how it runs."},
+    {"id": "f2", "title": "320 agent-ready tools", "what": "Each inspection tool is a command line call and an MCP tool, so an agent can drive the same engine.",
+     "metric": {"label": "tools", "value": 320, "unit": "tools"},
+     "evidence_quote": "320 tools, each one a CLI command and an MCP tool"},
+    {"id": "f3", "title": "Checked against the original", "what": "Every build is compared with the original at three screen widths, a game's self-test, or an app's runs.",
+     "metric": {"label": "screen widths", "value": 3, "unit": "widths"},
+     "evidence_quote": "Every build is compared with the original (pages at three screen widths, a game's own self-test, an app's runs)"},
+    {"id": "f4", "title": "Coding agent builds", "what": "A coding agent builds a new project in the language, framework or engine the request names.",
+     "evidence_quote": "a coding agent builds a new project, in the language, framework or engine your request names"},
+    {"id": "f5", "title": "No AI to inspect", "what": "Inspection needs no AI; the agent only starts once the study is done.",
+     "evidence_quote": "No AI is needed to inspect."},
+    {"id": "f6", "title": "Early alpha", "what": "The project is early alpha, so every build still needs checking against the original.",
+     "risk": true, "evidence_quote": "Status: early alpha"}
+  ],
+  "risks": [{"text": "early alpha", "severity": "medium"}],
+  "source_urls": ["https://github.com/storytold/craft-anything"]
+}

@@ -1,0 +1,209 @@
+"""Spec: repo-reavideo-01 · JuneYaooo/rea-video (topic #3, radar 2026-11-07)."""
+
+REPO = "https://github.com/JuneYaooo/rea-video"
+
+# Voice pace/lead: measured wpm and hook-start gates (short_qa video) — every Short must PASS.
+BRIEF_EXTRA = {"voice_tempo": 1.05}
+
+PLAN = {
+    "id": "repo-reavideo-01",
+    "tool": "rea-video",
+    "question": "How was that video actually made?",
+    "hook_visual": {
+        "kind": "steps",
+        "intent": "a video taken apart shot by shot into a remake plan",
+        "steps": ["A video", "Shot by shot", "A remake plan"],
+    },
+    "points": [
+        {
+            "n": 1,
+            "claim": "rea-video takes any video and tells you shot by shot how the visuals, text, editing and audio were made.",
+            "spoken": "It's rea-video, and it does video reverse engineering: give it any clip and it tells you shot by shot how it was made.",
+            "source": REPO,
+            "source_note": "README: 'give it any of them, and it tells you shot by shot how the visuals, styled text, editing and audio were made, then gives you a plan to make one yourself.'",
+            "visual": {"kind": "steps", "intent": "one video opening into a shot list"},
+            "title": "Every shot, explained",
+            "sub": "Video, text, edit and audio.",
+            "steps": ["Give it a video", "Every shot judged", "Told how it was made"],
+        },
+        {
+            "n": 2,
+            "claim": "It handles live footage, AI video, avatars, 3D, code motion and mixed edits, judging each shot and reassembling it on the original timeline.",
+            "spoken": "Live footage, AI video, avatars, animation and code-built motion all get judged separately, then put back on the original timeline.",
+            "source": REPO,
+            "source_note": "README table: 'Live footage', 'AI video', 'Avatar', '3D / animation', 'Code / template', 'Mixed / edits | Each shot judged separately, then reassembled on the original timeline.'",
+            "visual": {"kind": "steps", "intent": "shot types judged one by one, then put back on the timeline"},
+            "title": "One timeline, many kinds",
+            "sub": "Each shot judged on its own.",
+            "steps": ["Live footage", "AI video", "Avatars and 3D"],
+        },
+        {
+            "n": 3,
+            "claim": "Every shot gets evidence, a reverse-engineered prompt, and the captions, cuts and beats the edit was built on.",
+            "spoken": "Every shot gets evidence, a reverse-engineered prompt, and the captions, cuts and beats it was cut to.",
+            "source": REPO,
+            "source_note": "README: 'a full report.html with per-shot frames, evidence, prompts, camera and lighting notes, and the audio breakdown'; 'Captions and styled text: start and end of each line'; 'Editing: where the cuts are, how fast, whether they hit the beat'.",
+            "visual": {"kind": "steps", "intent": "a shot report with the evidence and the rebuilt prompt"},
+            "title": "Evidence, then prompts",
+            "sub": "Caption timing and cut points included.",
+            "steps": ["Shot 1 · filmed", "Shot 2 · AI-generated", "Prompt rebuilt per shot"],
+        },
+        {
+            "n": 4,
+            "claim": "The output is a remake plan split into what to film, what to generate and what to code.",
+            "spoken": "Then you get a remake plan split into what to film, what to generate and what to code.",
+            "source": REPO,
+            "source_note": "README: 'a remake plan, split into what to film, what to generate and what to code'.",
+            "visual": {"kind": "steps", "intent": "the plan sorted into film, generate and code"},
+            "title": "Film, generate, code",
+            "sub": "A remake plan you can follow.",
+            "steps": ["What to film", "What to generate", "What to code"],
+        },
+    ],
+    "catch": "The catch: the detailed docs are in Chinese for now, and a video model makes the AI calls more accurate.",
+    "catch_sub": "Your agent reads the docs and answers in English.",
+    "catch_title": "The catch",
+    "catch_visual": {
+        "kind": "steps",
+        "intent": "the Chinese docs, the optional video model, and the tools it needs",
+        "steps": ["Docs in Chinese for now", "A video model helps", "Needs ffmpeg and Python"],
+    },
+    "brand_line": "rea-video · shot breakdown",
+    "cover": {
+        "text": "TELL HOW IT WAS MADE",
+        "visual": "designed graphic of a video timeline cut into shots, each labelled filmed or AI",
+        "concepts": [
+            {
+                "id": "c1", "layout": "bleed", "text": "TELL HOW IT WAS MADE",
+                "media": {"kind": "designed", "file": "cover-c1.png",
+                          "design": "Full-bleed film strip across the plate, each frame carrying a small tag: filmed, AI, code, and the last one outlined in the accent with a prompt icon."},
+            },
+            {
+                "id": "c2", "layout": "window", "text": "EVERY SHOT, ACCOUNTED FOR",
+                "media": {"kind": "designed", "file": "cover-c2.png",
+                          "design": "Framed report window with a shot thumbnail, an evidence line, a rebuilt prompt line and caption timings, on a dark plate."},
+            },
+            {
+                "id": "c3", "layout": "split", "text": "FILMED OR AI MADE?",
+                "media": {"kind": "designed", "file": "cover-c3.png",
+                          "design": "Split plate: the timeline with cuts and beat marks on top, and below it three labelled verdict rows, the AI row highlighted."},
+            },
+        ],
+    },
+    "cta": "Which video would you take apart first? Comment SHOTS and I'll pin it.",
+    "cta_keyword": "SHOTS",
+    "seo": {
+        "onscreen_first3s": "REA-VIDEO: HOW WAS IT MADE",
+        "keyword": "video reverse engineering",
+        "aliases": ["reverse engineer a video", "AI video detection", "shot by shot breakdown"],
+        "youtube": {
+            "title": "Video reverse engineering: shot by shot, filmed or AI",
+            "description": (
+                "Video reverse engineering for any clip: rea-video splits a video into shots and tells you how each one was "
+                "made, live footage or AI video or code-built motion, with a rebuilt prompt per shot, caption timings, cut "
+                "points, the beat, and whether the voice and music are AI. Then it gives you a remake plan split into what to "
+                "film, what to generate and what to code. Repo: https://github.com/JuneYaooo/rea-video "
+                "#Shorts #ReverseEngineering #AIVideo #VideoEditing #AIAgents"
+            ),
+            "tags": ["video reverse engineering", "reverse engineer a video", "AI video detection",
+                     "shot by shot breakdown", "rea-video", "AI video analysis"],
+            "hashtags": ["#Shorts", "#ReverseEngineering", "#AIVideo", "#VideoEditing", "#AIAgents"],
+        },
+        "tiktok": {
+            "caption": "Video reverse engineering: rea-video breaks any clip into shots and says which are filmed, which are AI, and how to remake them. Comment SHOTS for the repo.",
+            "hashtags": ["#ReverseEngineering", "#AIVideo", "#VideoEditing", "#AIAgents", "#ContentCreation"],
+        },
+        "instagram": {
+            "caption": "Video reverse engineering, shot by shot: rea-video says which shots are filmed, which are AI, rebuilds the prompt, and hands you a remake plan. Comment SHOTS for the repo.",
+            "hashtags": ["#ReverseEngineering", "#AIVideo", "#VideoEditing", "#AIAgents", "#ContentCreation"],
+        },
+        "facebook": {
+            "caption": "Video reverse engineering: rea-video judges every shot of a clip, filmed or AI or code, rebuilds the prompt, and gives you a plan to make your own. Comment SHOTS for the repo link.",
+            "hashtags": ["#ReverseEngineering", "#AIVideo", "#VideoEditing", "#AIAgents", "#ContentCreation"],
+        },
+        "x": {
+            "text": "Video reverse engineering: rea-video breaks a clip into shots, marks which are filmed and which are AI, and rebuilds the prompt for each one.",
+            "hashtags": ["#AIVideo", "#ReverseEngineering"],
+        },
+    },
+    "brief_meta": {
+        "title": "rea-video: reverse-engineer any video, shot by shot",
+        "niche": "AI tools",
+        "keywords": ["video reverse engineering", "AI video detection", "shot breakdown", "remake plan"],
+        "idea": "rea-video breaks a video into shots, says how each one was made, and returns a remake plan.",
+        "viewer": {
+            "who": "creators and editors who want to know how a clip was built",
+            "problem": "a video looks good but the method behind each shot is guesswork",
+            "job": "decide whether a shot-by-shot breakdown is worth installing",
+        },
+    },
+}
+
+FEATURES = {
+    "tool": {"name": "rea-video", "repo": REPO},
+    "features": [
+        {"id": "f1", "title": "Shot by shot breakdown",
+         "what": "It explains how the visuals, text, editing and audio of a clip were made.",
+         "evidence_quote": "give it any of them, and it tells you shot by shot how the visuals, styled text, editing and audio were made, then gives you a plan to make one yourself."},
+        {"id": "f2", "title": "Every kind of video",
+         "what": "Live footage, AI video, avatars, 3D and code motion are each judged on their own.",
+         "items": ["live footage", "AI video", "3D", "code"],
+         "evidence_quote": "Each shot judged separately, then reassembled on the original timeline"},
+        {"id": "f3", "title": "Evidence and rebuilt prompts",
+         "what": "The report carries per-shot frames, the evidence and a prompt for each shot.",
+         "evidence_quote": "a full report.html with per-shot frames, evidence, prompts, camera and lighting notes, and the audio breakdown"},
+        {"id": "f4", "title": "A remake plan",
+         "what": "The plan separates what to film, what to generate and what to code.",
+         "evidence_quote": "a remake plan, split into what to film, what to generate and what to code"},
+        {"id": "f5", "title": "Runs inside your agent",
+         "what": "The agent installs the CLI and runs the whole breakdown itself.",
+         "evidence_quote": "The agent installs the CLI, learns the workflow and runs the whole thing."},
+        {"id": "f6", "title": "Detailed docs are in Chinese", "risk": True,
+         "what": "The long-form documentation is Chinese today; the report can be English.",
+         "evidence_quote": "The detailed docs are in Chinese for now; your agent reads them and answers in your language."},
+    ],
+    "risks": [{"id": "r1", "text": "Detailed documentation is in Chinese for now; ask for English reports with the language flag."},
+              {"id": "r2", "text": "A video-capable model makes the live/AI calls more accurate, and without one some shots are uncertain."}],
+    "source_urls": [REPO],
+}
+
+BEATS = {
+    "tool": "rea-video",
+    "handle": "@hypeless",
+    "scenes": [
+        {"scene_id": "hook", "phrase": 0, "archetype": "flow_link", "headline": "REA-VIDEO: HOW WAS IT MADE",
+         "feature_id": "f1", "depicts": "a video taken apart shot by shot",
+         "payload": {"nodes": ["A video", "Shot by shot", "A remake plan"], "edge_label": "every shot",
+                     "cue_phrases": ["How was", "that video", "actually made"]},
+         "cue_word": "video"},
+        {"scene_id": "point1", "phrase": 1, "archetype": "toggle_steps", "headline": "SHOT BY SHOT",
+         "feature_id": "f1", "depicts": "the video opened into its shots",
+         "payload": {"steps": ["Give it a video", "Every shot judged", "How it was made"], "done": 3,
+                     "cue_phrases": ["video reverse engineering", "give it any clip", "shot by shot"]},
+         "cue_word": "shot"},
+        {"scene_id": "point2", "phrase": 2, "archetype": "chip_grid", "headline": "EVERY KIND OF SHOT",
+         "feature_id": "f2", "depicts": "the shot kinds judged separately then put back on the timeline",
+         "payload": {"chips": ["Live footage", "AI video", "Avatars", "3D and code", "One timeline"], "highlight": 1,
+                     "cue_phrases": ["Live footage", "AI video", "avatars", "code-built motion", "original timeline"]},
+         "cue_word": "separately"},
+        {"scene_id": "point3", "phrase": 3, "archetype": "terminal_type", "headline": "EVIDENCE, THEN PROMPTS",
+         "feature_id": "f3", "depicts": "the per-shot evidence and the rebuilt prompt",
+         "payload": {"title": "report · shot by shot",
+                     "lines": ["shot 01 · filmed", "shot 02 · AI-generated", "prompt rebuilt for shot 02"],
+                     "cue_phrases": ["Every shot gets evidence", "a reverse-engineered prompt", "cuts and beats"]},
+         "cue_word": "evidence"},
+        {"scene_id": "point4", "phrase": 4, "archetype": "concept_card", "headline": "FILM, GENERATE, CODE",
+         "feature_id": None, "depicts": "the remake plan split three ways",
+         "payload": {"big": "FILM. GENERATE. CODE.", "sub": "A remake plan you can follow."},
+         "cue_word": "plan"},
+        {"scene_id": "catch", "phrase": 5, "archetype": "chip_grid", "headline": "THE CATCH",
+         "feature_id": "f6", "depicts": "the Chinese docs and the video model that improves the calls",
+         "payload": {"chips": ["Docs in Chinese for now", "A video model helps", "Needs ffmpeg"], "highlight": 0,
+                     "cue_phrases": ["detailed docs", "in Chinese for now", "video model"]},
+         "cue_word": "catch"},
+        {"scene_id": "cta", "phrase": 6, "archetype": "endcard", "headline": "TAKE A VIDEO APART",
+         "feature_id": None, "depicts": "commenting the keyword SHOTS to get the repo",
+         "payload": {"keyword": "SHOTS", "follow": "Follow"},
+         "cue_word": "SHOTS"},
+    ],
+}

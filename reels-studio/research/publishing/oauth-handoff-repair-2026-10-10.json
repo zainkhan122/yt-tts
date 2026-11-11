@@ -1,0 +1,13 @@
+{
+  "reason": "Old temporary e2b sandbox no longer exists (502).",
+  "replacement": "Direct Google consent + stable HTTPS Pages callback + private short-lived response-file handoff.",
+  "callback": "https://zainkhan122.github.io/yt-tts/oauth/callback/",
+  "callback_http": 200,
+  "sandbox_dependency": false,
+  "client_recreated": false,
+  "tests_passed": 123,
+  "deployment_run": "https://github.com/zainkhan122/yt-tts/actions/runs/38054725527",
+  "deployment_result": "success",
+  "google_channel_authorized": false,
+  "provider_mutations_during_repair": 0
+}

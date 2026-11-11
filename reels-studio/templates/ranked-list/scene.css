@@ -1,0 +1,26 @@
+/* ranked-list — item stage y 300-1200, mini leaderboard y 1250-1560 */
+.fitbox { position: absolute; display: flex; align-items: center; justify-content: center; }
+#hook-kicker { position: absolute; top: 380px; left: 0; right: 0; width: max-content; margin: 0 auto; opacity: 0; }
+#hook-box { left: 90px; right: 90px; top: 500px; height: 620px; }
+#hook-text { width: 100%; text-align: center; color: var(--fg); font-size: 150px; }
+#hook-sub { position: absolute; top: 1190px; left: 0; right: 0; width: max-content; margin: 0 auto; opacity: 0; }
+
+.item .rank { position: absolute; left: 80px; top: 270px; font: 400 290px/1 "Anton"; color: color-mix(in srgb, var(--acc) 22%, transparent); -webkit-text-stroke: 6px var(--acc); opacity: 0; }
+.item .rank b { color: var(--acc); -webkit-text-stroke: 0; font-weight: 400; }
+.item .mono { position: absolute; right: 90px; top: 300px; width: 230px; height: 230px; border-radius: 52px; display: flex; align-items: center; justify-content: center; font: 900 96px "Inter"; color: #ffffff; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35); opacity: 0; }
+.item .name { position: absolute; left: 90px; right: 90px; top: 610px; font: 900 112px/1.04 "Inter"; color: var(--fg); white-space: nowrap; opacity: 0; }
+.item .line { position: absolute; left: 92px; right: 90px; top: 760px; font: 600 48px/1.25 "Inter"; color: var(--fg); }
+.item .stat { position: absolute; left: 90px; right: 90px; top: 960px; height: 170px; padding: 26px 32px; opacity: 0; }
+.item .stat .lab { font: 700 30px "Inter", "Noto Color Emoji"; color: var(--muted); }
+.item .stat .num { position: absolute; right: 32px; top: 18px; font: 900 64px "Inter"; color: var(--fg); }
+.item .stat .bar { position: absolute; left: 32px; right: 32px; bottom: 30px; height: 28px; border-radius: 14px; background: rgba(127, 127, 127, 0.22); overflow: hidden; }
+.item .stat .bar i { display: block; height: 100%; border-radius: 14px; transform-origin: 0 50%; transform: scaleX(0); }
+.item .tag { position: absolute; left: 90px; top: 1160px; opacity: 0; }
+
+#board { position: absolute; left: 90px; right: 90px; top: 1250px; height: 330px; }
+.brow { position: absolute; left: 0; right: 0; height: 66px; display: flex; align-items: center; gap: 18px; padding: 0 24px; border-radius: 20px; opacity: 0; font: 800 34px "Inter", "Noto Color Emoji"; color: var(--fg); }
+.brow .r { width: 64px; font: 400 40px "Anton"; color: var(--acc); }
+.brow .n { flex: 1; white-space: nowrap; overflow: hidden; }
+.brow .v { color: var(--muted); }
+#confetti { position: absolute; left: 540px; top: 520px; width: 0; height: 0; }
+.conf { position: absolute; left: 0; top: 0; width: 22px; height: 34px; border-radius: 5px; opacity: 0; }

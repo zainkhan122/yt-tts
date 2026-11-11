@@ -1,0 +1,321 @@
+{
+  "tool": "unslop",
+  "template": "design-review",
+  "handle": "@hypeless",
+  "scenes": [
+    {
+      "scene_id": "hook",
+      "phrase": 0,
+      "archetype": "ui_screen",
+      "headline": "UNSLOP: EVERY AI SCREEN",
+      "feature_id": "f2",
+      "depicts": "three AI-built screens that look the same, purple gradient and glow",
+      "payload": {
+        "eyebrow": "AI-BUILT UI",
+        "accent_word": "unslop",
+        "label": "SAME SCREEN × 3",
+        "pages": [
+          {
+            "variant": "slop",
+            "title": "AMPLIFY YOUR WORKFLOW",
+            "sub": "AI-powered invoicing. Ship faster. Scale effortlessly.",
+            "sections": [
+              "Invoices",
+              "Clients",
+              "Payments"
+            ],
+            "url": "nimbus.app/dashboard"
+          },
+          {
+            "variant": "slop",
+            "title": "AMPLIFY YOUR INBOX",
+            "sub": "AI-powered replies. Ship faster. Scale effortlessly.",
+            "sections": [
+              "Inbox",
+              "Drafts",
+              "Rules"
+            ],
+            "url": "nimbus.app/inbox"
+          },
+          {
+            "variant": "slop",
+            "title": "AMPLIFY YOUR TEAM",
+            "sub": "AI-powered standups. Ship faster. Scale effortlessly.",
+            "sections": [
+              "Projects",
+              "People",
+              "Reports"
+            ],
+            "url": "nimbus.app/team"
+          }
+        ],
+        "cue_phrases": [
+          "seen this screen",
+          "gradient",
+          "glow"
+        ],
+        "cam": [
+          1.0,
+          1.05
+        ]
+      }
+    },
+    {
+      "scene_id": "point1",
+      "phrase": 1,
+      "archetype": "audit_marks",
+      "headline": "FIRST, IT NAMES THE SLOP",
+      "feature_id": "f3",
+      "depicts": "the slop in a screen, named and located: gradient, glow, emoji labels",
+      "payload": {
+        "eyebrow": "AUDIT",
+        "accent_word": "slop",
+        "page": {
+          "variant": "slop",
+          "title": "AMPLIFY YOUR WORKFLOW",
+          "sub": "AI-powered invoicing. Ship faster. Scale effortlessly.",
+          "sections": [
+            "Invoices",
+            "Clients",
+            "Payments"
+          ],
+          "url": "nimbus.app/dashboard"
+        },
+        "marks": [
+          {
+            "t": "purple gradient",
+            "sel": ".cards"
+          },
+          {
+            "t": "soft glow",
+            "sel": ".cta"
+          },
+          {
+            "t": "emoji label",
+            "sel": ".badges"
+          },
+          {
+            "t": "shouty copy",
+            "sel": ".hero h1"
+          }
+        ],
+        "cue_phrases": [
+          "naming the slop",
+          "gradient",
+          "glow",
+          "emoji",
+          "shouty"
+        ]
+      }
+    },
+    {
+      "scene_id": "point2",
+      "phrase": 2,
+      "archetype": "direction_card",
+      "headline": "YOUR ANSWER IS THE DIRECTION",
+      "feature_id": "f4",
+      "depicts": "the direction: character, the moment with colour, a signature detail",
+      "payload": {
+        "eyebrow": "DIRECTION",
+        "accent_word": "direction",
+        "label": "direction",
+        "lines": [
+          "character: quiet, editorial",
+          "one moment: the invoice total",
+          "signature detail: hairline rules"
+        ],
+        "cue_phrases": [
+          "what your product",
+          "character",
+          "signature detail"
+        ]
+      }
+    },
+    {
+      "scene_id": "point3",
+      "phrase": 3,
+      "archetype": "pass_stack",
+      "headline": "NINE PASSES, ONE SCREEN",
+      "feature_id": "f5",
+      "depicts": "the same screen redrawn in nine passes, spacing through motion",
+      "payload": {
+        "eyebrow": "REDRAW",
+        "accent_word": "passes",
+        "passes": [
+          "Spacing",
+          "Colour",
+          "Icons",
+          "Copy",
+          "Type",
+          "Layout",
+          "Details",
+          "Visuals",
+          "Motion"
+        ],
+        "pages": [
+          {
+            "variant": "slop",
+            "title": "AMPLIFY YOUR WORKFLOW",
+            "sub": "AI-powered invoicing. Ship faster. Scale effortlessly.",
+            "sections": [
+              "Invoices",
+              "Clients",
+              "Payments"
+            ],
+            "url": "nimbus.app/dashboard"
+          },
+          {
+            "variant": "mid",
+            "title": "Send invoices that get paid",
+            "sub": "One screen, your numbers, nothing in the way.",
+            "sections": [
+              "Invoices",
+              "Clients",
+              "Payments"
+            ],
+            "url": "nimbus.app/dashboard"
+          },
+          {
+            "variant": "clean",
+            "title": "Send invoices that get paid",
+            "sub": "One screen, your numbers, nothing in the way.",
+            "sections": [
+              "Invoices",
+              "Clients",
+              "Payments"
+            ],
+            "url": "nimbus.app/dashboard",
+            "rowMeta": "12 open"
+          }
+        ],
+        "cue_phrases": [
+          "redraws the same screen",
+          "nine passes",
+          "designed"
+        ]
+      }
+    },
+    {
+      "scene_id": "point4",
+      "phrase": 4,
+      "archetype": "stack_chips",
+      "headline": "TYPE UNSLOP",
+      "feature_id": "f9",
+      "depicts": "typing the slash command, then the stacks it runs in",
+      "payload": {
+        "eyebrow": "TYPE IT",
+        "accent_word": "unslop",
+        "command": "/unslop this dashboard",
+        "chips": [
+          "Next.js",
+          "React",
+          "Vue",
+          "Svelte",
+          "plain CSS"
+        ],
+        "cue_phrases": [
+          "type slash unslop",
+          "next",
+          "react",
+          "vue",
+          "svelte"
+        ]
+      }
+    },
+    {
+      "scene_id": "point5",
+      "phrase": 5,
+      "archetype": "split_compare",
+      "headline": "SAME WORDS, DIFFERENT PRODUCT",
+      "feature_id": null,
+      "depicts": "the same layout and words, dragged from slop to designed",
+      "payload": {
+        "eyebrow": "THE RESULT",
+        "accent_word": "different",
+        "labels": [
+          "BEFORE",
+          "AFTER"
+        ],
+        "before": {
+          "variant": "slop",
+          "title": "AMPLIFY YOUR WORKFLOW",
+          "sub": "AI-powered invoicing. Ship faster. Scale effortlessly.",
+          "sections": [
+            "Invoices",
+            "Clients",
+            "Payments"
+          ],
+          "url": "nimbus.app/dashboard"
+        },
+        "after": {
+          "variant": "clean",
+          "title": "Send invoices that get paid",
+          "sub": "One screen, your numbers, nothing in the way.",
+          "sections": [
+            "Invoices",
+            "Clients",
+            "Payments"
+          ],
+          "url": "nimbus.app/dashboard",
+          "rowMeta": "12 open"
+        },
+        "cue_phrases": [
+          "same layout",
+          "different product"
+        ]
+      }
+    },
+    {
+      "scene_id": "catch",
+      "phrase": 6,
+      "archetype": "boundary_rows",
+      "headline": "WHAT TO EXPECT",
+      "feature_id": "f7",
+      "depicts": "what to expect: it says so when the screen is already good",
+      "payload": {
+        "eyebrow": "WHAT TO EXPECT",
+        "rows": [
+          {
+            "kind": "ok",
+            "t": "It says so when the screen is already good",
+            "s": "small refinements, not a redesign"
+          },
+          {
+            "kind": "tag",
+            "t": "It asks before any paid image",
+            "s": "the prompt is shown first"
+          },
+          {
+            "kind": "tag",
+            "t": "You do need Claude Code or Codex",
+            "s": "it runs where your agent runs"
+          }
+        ],
+        "cue_phrases": [
+          "already good",
+          "paid image",
+          "claude code"
+        ]
+      }
+    },
+    {
+      "scene_id": "cta",
+      "phrase": 7,
+      "archetype": "endcard",
+      "headline": "COMMENT UNSLOP",
+      "feature_id": null,
+      "depicts": "the comment keyword and the follow button",
+      "payload": {
+        "keyword": "UNSLOP",
+        "keyword_chip": false,
+        "follow": "Follow",
+        "cue_phrases": [
+          "comment unslop",
+          "pin the repo"
+        ]
+      },
+      "cue_word": "unslop"
+    }
+  ],
+  "script_sha256": "sha256:d85f783fa7b17afdb7c95f02bf20f3cd70bd5275ad496a9be5b9c012ff0ab99d"
+}

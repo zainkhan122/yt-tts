@@ -1,0 +1,103 @@
+{
+  "_doc": "Single source for Short QA gates (tools/short_qa.py, tools/feature_card.py, tools/seo_pack.py). Owner-approved 4 Nov 2026: FINDINGS section 3A gates; faceless only; 5 hashtags; visual-change gate 75% of speech time from the start. Numbers live here, never in code. Reference values are middle-50% ranges of 110 TikTok Shorts (analysis_hooks_tts_meta.json). Vision output is advisory and never gates.",
+  "duration_s": [
+    29,
+    55
+  ],
+  "speech_wpm": [
+    167,
+    211
+  ],
+  "speech_wpm_plan_estimate": 186,
+  "longest_pause_s": 1.2,
+  "graphic_only_share_max": 0.25,
+  "static_scene_max_s": 2.0,
+  "motion_gap_max_s": 3.0,
+  "visual_change_speech_share_min": 0.75,
+  "frame_change_min": 2.0,
+  "frame_sample_fps": 4,
+  "frame_bin_s": 0.25,
+  "hook_anchor_window_s": 2.0,
+  "hook_speech_start_max_s": 0.3,
+  "hook_first_phrase_words_max": 18,
+  "hook_first_phrase_end_max_s": 3.5,
+  "cta_last_share": 0.15,
+  "cta_words": [
+    "follow",
+    "subscribe",
+    "comment",
+    "star",
+    "link",
+    "bookmark",
+    "save",
+    "share",
+    "try",
+    "install",
+    "download",
+    "visit",
+    "join",
+    "search",
+    "check out",
+    "get it",
+    "grab"
+  ],
+  "motion_scene_types": ["clip", "clip-montage", "page", "scroll", "steps", "terminal", "verdict", "stat", "split", "endcard", "flow"],
+  "media_scene_types": ["clip", "clip-montage", "page", "scroll", "steps", "image", "flow"],
+  "image_motion_requires_focus": true,
+  "hashtags_per_platform": 5,
+  "hashtag_platforms": [
+    "youtube",
+    "tiktok",
+    "instagram",
+    "facebook"
+  ],
+  "card_max_s": 2.0,
+  "card_scene_types": [
+    "verdict",
+    "stat"
+  ],
+  "hook_familiar_anchors": [
+    "Spotify",
+    "Windows",
+    "Claude",
+    "ChatGPT",
+    "Gemini",
+    "Cursor",
+    "GitHub",
+    "Notion",
+    "Chrome",
+    "Android",
+    "iPhone",
+    "Google",
+    "OpenAI",
+    "Discord",
+    "Slack",
+    "Figma",
+    "Docker",
+    "Linux",
+    "Excel",
+    "Photoshop",
+    "YouTube",
+    "TikTok",
+    "Instagram",
+    "Reddit",
+    "Wikipedia",
+    "Amazon",
+    "Apple",
+    "Microsoft",
+    "Netflix",
+    "Tesla",
+    "Nvidia"
+  ],
+  "phrase_pause_s": 0.35,
+  "hook_first3s_wpm_target": 220,
+  "phrases_per_video_ref": [
+    5,
+    14
+  ],
+  "description_chars_ref": [
+    263,
+    569
+  ],
+  "_doc_v2": "4 Nov 2026 additions: card_max_s, card_scene_types, hook_familiar_anchors (warning), phrase_pause_s and hook_first3s_wpm_target (measured, info only), description_chars_ref (warning). Soft targets from HOOKS-TTS-METADATA.md section 5 are warnings or info, never blocks."
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-08-shorts-03",
+  "created_at": "2026-11-07T08:22:06Z",
+  "briefs": {
+    "repo-autoloop-01": {
+      "brief_sha256": "4bc41913bcdb8435fdd6b89497c58d995544c4638d0f9d5c984342d7c81fe652",
+      "brief_identity_sha256": "f546fd3aa27d830f8b9d96e913b8eb33916fd98c1b92602bd6997c430e6d2179",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "07894c1c42f86f96179b20943d9fdc1b67fdce4201c6145ec561db7089bad413",
+          "word_count": 121
+        },
+        "assets": {
+          "capture_id": "repo-autoloop-01",
+          "manifest_sha256": "7aadc428a389198e2e5ab72a44086ab860735138f190e5d90ffdbfd05532f3cf",
+          "files": [],
+          "cover_sha256": "ebd02abd6a779b1209c3aca813f5a24d606d3cf7b91c74056cda29741a0f8092",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-autoloop-01/manifest.json"
+          ]
+        }
+      }
+    },
+    "repo-vork-01": {
+      "brief_sha256": "3ea5501d3a6283dbd841a7cac3025ca5f442f39435b0f0fed8df90d579b548b1",
+      "brief_identity_sha256": "df95e93e190b22f97138494b58f56ff1d0846b10ba6491d43021f191dfeebaf6",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "471962790c7122cd5c979e6b1f4f831ae64e78eab8b179907f45589343d7168a",
+          "word_count": 114
+        },
+        "assets": {
+          "capture_id": "repo-vork-01",
+          "manifest_sha256": "569d3476f8aa38d7fbc8361d562972c022e44bf13e53d307e4522c8f6c3f2007",
+          "files": [],
+          "cover_sha256": "98f7a31dc41364af455fa4bd837e5187acd53803b7ce5db13c13b6deee1d16be",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-vork-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}

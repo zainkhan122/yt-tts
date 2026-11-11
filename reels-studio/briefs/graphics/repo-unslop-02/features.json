@@ -1,0 +1,88 @@
+{
+  "tool": {
+    "name": "unslop",
+    "repo": "https://github.com/heydamir/unslop"
+  },
+  "features": [
+    {
+      "id": "f1",
+      "title": "A skill for Claude Code and Codex",
+      "what": "It runs where the agent runs, as a skill folder.",
+      "evidence_quote": "unslop is a skill for Claude Code and Codex that turns vibecoded, AI-looking UI into a designed interface with its own character."
+    },
+    {
+      "id": "f2",
+      "title": "It finds the slop first",
+      "what": "Purple gradients, glows, emoji labels, shouty copy and uneven spacing, named.",
+      "items": [
+        "purple gradient",
+        "glow",
+        "emoji labels",
+        "shouty copy"
+      ],
+      "evidence_quote": "It finds the slop first, the purple gradients, glows, emoji labels, shouty copy and uneven spacing"
+    },
+    {
+      "id": "f3",
+      "title": "Audit, with where it lives",
+      "what": "Every sign of slop is listed with its location.",
+      "evidence_quote": "**Audit.** Lists every sign of slop with where it lives."
+    },
+    {
+      "id": "f4",
+      "title": "A direction from the product",
+      "what": "Character, the moments that carry the colour, and a signature detail.",
+      "evidence_quote": "**Direction.** Character, world, the one or two moments that carry the color, and a signature detail, all taken from your product."
+    },
+    {
+      "id": "f5",
+      "title": "Nine passes, in order",
+      "what": "Spacing, color, icons, copy, type, layout, details, visuals and motion.",
+      "evidence_quote": "**Passes.** Spacing, color, icons, copy, type, layout, details, visuals and motion, in that order."
+    },
+    {
+      "id": "f6",
+      "title": "Works in the viewer's stack",
+      "what": "Any framework the screen is built with, and a live site from a link.",
+      "evidence_quote": "It works in whatever your screen is built with, like Next.js, React, Vue, Svelte, Tailwind or plain HTML and CSS"
+    },
+    {
+      "id": "f7",
+      "title": "It says so when the screen is already good",
+      "what": "It suggests small refinements instead of a redesign.",
+      "evidence_quote": "If the screen is already good, it tells you so and suggests a few small refinements instead of redesigning it."
+    },
+    {
+      "id": "f8",
+      "title": "It asks before a paid generation",
+      "what": "The prompt is shown and the paid call waits for a yes.",
+      "evidence_quote": "it shows the prompt and asks before every paid generation"
+    },
+    {
+      "id": "f9",
+      "title": "The exact thing you type",
+      "what": "A slash command with your screen, your page or a live link.",
+      "evidence_quote": "In Claude Code, type `/unslop` with what you want."
+    },
+    {
+      "id": "f10",
+      "title": "Story video needs two more tools",
+      "risk": true,
+      "what": "Playwright and ffmpeg, for the square story video.",
+      "evidence_quote": "Story videos also require ffmpeg installed and available on your PATH."
+    }
+  ],
+  "risks": [
+    {
+      "id": "r1",
+      "text": "It is an agent skill: it needs Claude Code or Codex to run."
+    },
+    {
+      "id": "r2",
+      "text": "A paid hero image is optional, and it asks before every generation."
+    }
+  ],
+  "source_urls": [
+    "https://github.com/heydamir/unslop"
+  ]
+}

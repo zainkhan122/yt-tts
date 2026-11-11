@@ -1,0 +1,275 @@
+{
+  "_note": "Single source of truth for the Hypeless accounts. tools/brand_kit.py checks every field against its platform limit and builds brand/README.md + brand/brand-kit.html from this file. Edit here, then run: python3 tools/brand_kit.py",
+  "brand": {
+    "name": "Hypeless",
+    "handle": "@hypeless",
+    "tagline": "AI tools, minus the hype.",
+    "promise": "What it does. What it costs. The catch.",
+    "one_liner": "New AI tools, GitHub repos and AI news, explained in under a minute.",
+    "link": "https://youtube.com/@hypeless",
+    "fallback_handles": [
+      "hypelessai",
+      "hypeless.ai (Instagram/TikTok only)",
+      "gethypeless"
+    ],
+    "colors": {
+      "Yellow": "#FFD60A",
+      "Sky": "#38BDF8",
+      "Midnight": "#050B1F",
+      "Ink": "#F5F7FF",
+      "Muted": "#8FA3C7"
+    },
+    "fonts": {
+      "Headlines": "Anton",
+      "Body": "Inter"
+    }
+  },
+  "setup_order": [
+    "Brand Gmail: one new Gmail used for every account below. Turn on 2-step verification. Save all logins in a password manager.",
+    "YouTube: sign in with the brand Gmail, create the channel 'Hypeless', claim the handle @hypeless.",
+    "Facebook Page: from your personal Facebook, create the Page 'Hypeless' (Meta requires a personal admin; it stays private).",
+    "Instagram: sign up as hypeless (brand Gmail), switch to a Professional (Creator) account, then link it to the Facebook Page.",
+    "TikTok: sign up as hypeless (brand Gmail), then switch to a Business account.",
+    "X: sign up as hypeless (brand Gmail).",
+    "Same handle everywhere. If hypeless is taken on any platform, use hypelessai on ALL of them."
+  ],
+  "order": [
+    "youtube",
+    "instagram",
+    "tiktok",
+    "x",
+    "facebook"
+  ],
+  "platforms": {
+    "youtube": {
+      "title": "YouTube",
+      "upload": [
+        [
+          "logo/avatar-1080.png",
+          "Profile picture"
+        ],
+        [
+          "banners/youtube-banner-2560x1440.jpg",
+          "Banner image"
+        ],
+        [
+          "logo/yt-watermark-150.png",
+          "Video watermark (Customization > Branding, display: entire video)"
+        ]
+      ],
+      "fields": [
+        {
+          "label": "Channel name",
+          "value": "Hypeless",
+          "limit": 50
+        },
+        {
+          "label": "Handle",
+          "value": "@hypeless",
+          "limit": 30
+        },
+        {
+          "label": "Description",
+          "limit": 1000,
+          "value": "AI tools, minus the hype.\n\nNew AI tools, open-source GitHub repos and AI news, explained in under a minute. Every video answers the questions that matter: what it does, what it costs, who it's for, and the catch.\n\nFacts come straight from the source: the README, the docs, the pricing page. No \"this changes everything\". If there's a catch, you'll hear it.\n\nNew Shorts every day.\n\nWhat you'll find here:\n• New AI tools worth trying\n• Open-source repos you can use today\n• AI news that actually affects you\n\nNarrated with an AI voice.\nBusiness: <your brand Gmail>"
+        },
+        {
+          "label": "Keywords (Settings > Channel > Basic info)",
+          "limit": 500,
+          "value": "AI tools, AI news, artificial intelligence, GitHub, open source, AI apps, tech news, developer tools, productivity, automation, coding, machine learning, ChatGPT, Claude, Gemini, Hypeless"
+        },
+        {
+          "label": "Links (Customization > Basic info > Links)",
+          "value": "Instagram  https://instagram.com/hypeless\nTikTok  https://tiktok.com/@hypeless\nX  https://x.com/hypeless\nFacebook  https://facebook.com/hypeless"
+        },
+        {
+          "label": "Default hashtags (put in every Short)",
+          "value": "#Shorts #AItools #AI"
+        }
+      ],
+      "settings": [
+        "Settings > Channel > Basic info: Country = Pakistan (your real country; YouTube Partner Program payouts and tax use it).",
+        "Settings > Channel > Advanced settings: audience = 'No, set this channel as not made for kids'.",
+        "Settings > Upload defaults: Category = Science & Technology, Video language = English, Comments = 'Hold potentially inappropriate comments for review'.",
+        "Verify your phone number (Settings > Channel > Feature eligibility) to unlock custom thumbnails, longer videos and links.",
+        "Per video, 'Altered or synthetic content' = No. A generic AI narrator over real screen footage needs no label under YouTube's rules. Answer Yes only if a video shows realistic AI-made people or events, or uses AI-generated music."
+      ]
+    },
+    "instagram": {
+      "title": "Instagram",
+      "upload": [
+        [
+          "logo/avatar-1080.png",
+          "Profile picture"
+        ]
+      ],
+      "fields": [
+        {
+          "label": "Username",
+          "value": "hypeless",
+          "limit": 30
+        },
+        {
+          "label": "Name (searchable, so it carries keywords)",
+          "value": "Hypeless | AI Tools & News",
+          "limit": 30
+        },
+        {
+          "label": "Bio",
+          "limit": 150,
+          "value": "AI tools, minus the hype.\nNew AI tools + GitHub repos in under a minute\nWhat it does · what it costs · the catch\nNew Reels daily ↓"
+        },
+        {
+          "label": "Link",
+          "value": "https://youtube.com/@hypeless"
+        },
+        {
+          "label": "Category",
+          "value": "Science, Technology & Engineering"
+        },
+        {
+          "label": "Default hashtags (max 5)",
+          "value": "#aitools #ai #tech #github #productivity"
+        }
+      ],
+      "settings": [
+        "Settings > Account type and tools > Switch to professional account > Creator. Auto-posting only works on Professional accounts.",
+        "Link to the Facebook Page: Accounts Center > Accounts > Add accounts (or from the Page: Settings > Linked accounts > Instagram).",
+        "Turn on 2-factor authentication.",
+        "AI label: Meta's rule covers 'realistic-sounding audio that was digitally created', and our narrator is an AI voice, so the safe choice is to switch on 'AI info' when posting."
+      ]
+    },
+    "tiktok": {
+      "title": "TikTok",
+      "upload": [
+        [
+          "logo/avatar-1080.png",
+          "Profile photo"
+        ]
+      ],
+      "fields": [
+        {
+          "label": "Username",
+          "value": "hypeless",
+          "limit": 24
+        },
+        {
+          "label": "Name (searchable)",
+          "value": "Hypeless · AI Tools",
+          "limit": 30
+        },
+        {
+          "label": "Bio",
+          "limit": 80,
+          "value": "AI tools, minus the hype. New AI tools & GitHub repos in under a minute."
+        },
+        {
+          "label": "Website (Business account)",
+          "value": "https://youtube.com/@hypeless"
+        },
+        {
+          "label": "Default hashtags (3-5)",
+          "value": "#aitools #ai #tech #github"
+        }
+      ],
+      "settings": [
+        "Settings > Account > Switch to Business account. You get the website link without needing 1,000 followers, plus analytics. Creator Rewards isn't offered in Pakistan, so you lose nothing, and our videos carry their own music.",
+        "Business category: Software & Apps, or the closest tech/education option.",
+        "AI-generated content label: off. TikTok's guidelines (updated 24 Sep 2026) say generic text-to-speech narration needs no label. Turn it on only for realistic AI people or scenes, or a voice that mimics a real person."
+      ]
+    },
+    "x": {
+      "title": "X (Twitter)",
+      "upload": [
+        [
+          "logo/avatar-1080.png",
+          "Profile photo"
+        ],
+        [
+          "banners/x-header-1500x500.jpg",
+          "Header"
+        ]
+      ],
+      "fields": [
+        {
+          "label": "Handle",
+          "value": "@hypeless",
+          "limit": 15
+        },
+        {
+          "label": "Name",
+          "value": "Hypeless | AI Tools & News",
+          "limit": 50
+        },
+        {
+          "label": "Bio",
+          "limit": 160,
+          "value": "AI tools, minus the hype. New AI tools, GitHub repos and AI news, explained in under a minute. What it does, what it costs, the catch."
+        },
+        {
+          "label": "Website",
+          "value": "https://youtube.com/@hypeless"
+        },
+        {
+          "label": "Location",
+          "value": "(leave empty)"
+        },
+        {
+          "label": "Default hashtags (1-2)",
+          "value": "#AI #AItools"
+        }
+      ],
+      "settings": [
+        "Pin your best video to the top of the profile.",
+        "No links inside posts. Keep links in the bio: through the API a post containing a link costs $0.20 instead of $0.015."
+      ]
+    },
+    "facebook": {
+      "title": "Facebook Page",
+      "upload": [
+        [
+          "logo/avatar-1080.png",
+          "Profile picture"
+        ],
+        [
+          "banners/facebook-cover-1640x720.jpg",
+          "Cover photo"
+        ]
+      ],
+      "fields": [
+        {
+          "label": "Page name",
+          "value": "Hypeless",
+          "limit": 75
+        },
+        {
+          "label": "Username",
+          "value": "hypeless",
+          "limit": 50
+        },
+        {
+          "label": "Categories",
+          "value": "Digital creator, Science, technology & engineering"
+        },
+        {
+          "label": "Bio",
+          "limit": 101,
+          "value": "AI tools, minus the hype. New AI tools, GitHub repos & AI news, explained in under a minute."
+        },
+        {
+          "label": "Website",
+          "value": "https://youtube.com/@hypeless"
+        },
+        {
+          "label": "Default hashtags",
+          "value": "#AItools #AI #tech"
+        }
+      ],
+      "settings": [
+        "Create it from your personal profile: Menu > Pages > Create new Page. Your personal profile is never shown on the Page.",
+        "Settings > Linked accounts > Instagram: connect @hypeless. This lets Reels cross-post and makes auto-posting work.",
+        "AI label: same as Instagram ('AI info' on)."
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+# Restored by bootstrap.sh when the workspace snapshot drops .git/config (no secrets here)
+[core]
+	repositoryformatversion = 1
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://github.com/zainkhan122/yt-tts.git
+	fetch = +refs/heads/main:refs/remotes/origin/main
+	promisor = true
+	partialclonefilter = blob:none
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+[extensions]
+	worktreeConfig = true
+[user]
+	name = zainkhan122
+	email = zainkhan122@users.noreply.github.com

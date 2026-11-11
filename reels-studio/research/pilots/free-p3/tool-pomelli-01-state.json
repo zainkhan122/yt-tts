@@ -1,0 +1,13 @@
+{
+  "asset_acquisition": "controlled reused capture pool",
+  "baseline_script_exposed": false,
+  "case": "tool-pomelli-01",
+  "configuration_sha256": "042edd96cf7f545d9e6270765ecc23545402b98775191c6b64bb135be9ac3f8d",
+  "error": "PilotBlocked: Pilot inference halted after an uncertain/policy-invalid result; inspect receipts",
+  "finished_at": "2026-10-10T18:35:20Z",
+  "pilot": "free-p3",
+  "publishing_allowed": false,
+  "repairs": [],
+  "started_at": "2026-10-10T18:35:20Z",
+  "status": "blocked"
+}

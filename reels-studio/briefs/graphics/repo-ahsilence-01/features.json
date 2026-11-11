@@ -1,0 +1,55 @@
+{
+  "tool": {
+    "name": "AhSilence",
+    "repo": "https://github.com/ahmadhassan-bted/ahsilence"
+  },
+  "features": [
+    {
+      "id": "f1",
+      "title": "Open-source ANC engine for Android",
+      "what": "A native Android app that emits phase-inverted audio waves to neutralize room hums.",
+      "evidence_quote": "An open-source Android Active Noise Cancellation (ANC) engine",
+      "metric": { "value": 4876, "unit": "stars" }
+    },
+    {
+      "id": "f2",
+      "title": "Seven-second ambient scan",
+      "what": "The microphone captures seven seconds of room audio, then the FFT locks onto the strongest drone.",
+      "evidence_quote": "AhSilence captures a 7-second ambient audio sample to detect the dominant low-frequency hum (e.g., AC units).",
+      "metric": { "value": 7, "unit": "seconds" }
+    },
+    {
+      "id": "f3",
+      "title": "Manual phase dial for Bluetooth delay",
+      "what": "A three hundred sixty degree phase dial lets the user hand-trim wave timing against headset latency.",
+      "evidence_quote": "Use the Phase Calibrator dial to manually compensate for the delay."
+    },
+    {
+      "id": "f4",
+      "title": "Targets steady low-frequency hums",
+      "what": "The detector goes after persistent low-frequency drones such as air conditioners, not voices.",
+      "evidence_quote": "persistent, low-frequency hums (such as AC units or electrical drones)"
+    },
+    {
+      "id": "f5",
+      "title": "The author admits imperfection",
+      "what": "The support FAQ itself opens with the admission that the cancellation is not perfect.",
+      "evidence_quote": "The cancellation isn't perfect. What can I do?",
+      "risk": "Single-tone cancellation only: multi-frequency and automatic Bluetooth compensation sit on the roadmap."
+    },
+    {
+      "id": "f6",
+      "title": "Fully offline",
+      "what": "The app makes no network calls, collects no data, and runs the loop entirely on-device.",
+      "evidence_quote": "zero network calls, zero data collection, zero telemetry"
+    }
+  ],
+  "risks": [
+    "Single-tone cancellation only: multi-frequency and automatic Bluetooth compensation sit on the roadmap."
+  ],
+  "source_urls": [
+    "https://github.com/ahmadhassan-bted/ahsilence",
+    "https://raw.githubusercontent.com/ahmadhassan-bted/ahsilence/master/README.md",
+    "https://raw.githubusercontent.com/ahmadhassan-bted/ahsilence/master/SUPPORT.md"
+  ]
+}

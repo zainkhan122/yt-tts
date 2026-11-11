@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-15-repo-solidglass-01",
+  "created_at": "2026-10-15T10:33:21Z",
+  "buffer_insights": {
+    "path": "reels-studio/tracker/buffer-insights.json",
+    "sha256": "6ac6cf303bba3d2741b77b9ad8eb1a78ab9c42d7952f5a53215ccdebdc121057"
+  },
+  "metrics_review": {
+    "snapshot_sha256": "6ac6cf303bba3d2741b77b9ad8eb1a78ab9c42d7952f5a53215ccdebdc121057",
+    "reviewed_video_count": 69,
+    "sample_post_ids": [
+      "6acc91ac5feb3462de95f38b",
+      "6acc91a65feb3462de95f295",
+      "6ac904b32f26cc482c22c526",
+      "6accbfbf0b1f16abcb04921c"
+    ],
+    "findings": [
+      "Fresh snapshot fetched 2026-10-15T07:49:07Z: 69 shared video records, 65 expected tracked sent posts, complete coverage; YouTube median 56 views across 25 fresh posts.",
+      "Top YouTube posts are practical local-AI demos: repo-ds4-01 at 972 views and tool-qwen38-01 at 807 views, supporting hands-on local-AI topics.",
+      "spotlight-papermorph-01 reached 608 YouTube views with a concrete transformation demo, supporting a visible before-and-after angle.",
+      "Instagram fresh median was 151 views; repo-opencr-01 reached 266 views, supporting open-source tool spotlights with a clear payoff."
+    ],
+    "decisions": {
+      "topic": "Open-source tool spotlights with a clear visual payoff perform in our Buffer history (repo-opencr-01 266 Instagram views; papermorph 608 YouTube), so Solid Glass leads with the readable-glass contrast.",
+      "script": "Hook states the readability payoff in sentence one, names Solid Glass in scene two, keeps the 904-star figure tied to its first-three-days window, and keeps the shadcn-stack and new-project caveats in the spoken catch.",
+      "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% Whisper match per chunk and 95% overall; no alternate voice or lowered threshold.",
+      "visual": "Original three-panel recreation and components card created for this video; no copied repo screenshots and no on-screen credit captions."
+    }
+  },
+  "briefs": {
+    "repo-solidglass-01": {
+      "brief_sha256": "59e47bc2f72db523c37f6676a18358296123672a0120fde79c6e016684391bc5",
+      "metrics_decisions": {
+        "topic": "Open-source tool spotlights with a clear visual payoff perform in our Buffer history (repo-opencr-01 266 Instagram views; papermorph 608 YouTube), so Solid Glass leads with the readable-glass contrast.",
+        "script": "Hook states the readability payoff in sentence one, names Solid Glass in scene two, keeps the 904-star figure tied to its first-three-days window, and keeps the shadcn-stack and new-project caveats in the spoken catch.",
+        "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% Whisper match per chunk and 95% overall; no alternate voice or lowered threshold.",
+        "visual": "Original three-panel recreation and components card created for this video; no copied repo screenshots and no on-screen credit captions."
+      },
+      "stages": {
+        "discover": {
+          "status": "complete",
+          "checked_at": "2026-10-15T10:33:21Z",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-15.md",
+            "reels-studio/research/ideas/feed-2026-10-15.md"
+          ]
+        },
+        "select": {
+          "status": "complete",
+          "selection_status": "selected",
+          "topic": "Solid Glass: readable glass design system for AI apps",
+          "score": 74,
+          "score_breakdown": {
+            "trend_velocity": 20,
+            "demo_ability": 18,
+            "audience_breadth": 10,
+            "social_proof_gap": 6,
+            "free_value": 9,
+            "freshness_angle": 11
+          },
+          "metrics_snapshot_sha256": "6ac6cf303bba3d2741b77b9ad8eb1a78ab9c42d7952f5a53215ccdebdc121057",
+          "basis_post_ids": [
+            "6acc91ac5feb3462de95f38b",
+            "6acc91a65feb3462de95f295",
+            "6ac904b32f26cc482c22c526"
+          ],
+          "hard_gates": {
+            "risk_flags_clear": true,
+            "claim_verifiable": true,
+            "license_clear": true
+          }
+        },
+        "research": {
+          "status": "complete",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-15.md",
+            "reels-studio/research/ideas/feed-2026-10-15.md"
+          ],
+          "dynamic_facts_checked_at": "2026-10-15T10:33:21Z",
+          "primary_sources": [
+            {
+              "url": "https://github.com/deeplethe/solid-glass",
+              "checked_at": "2026-10-15T10:33:21Z",
+              "claim": "README documents the one-stylesheet shadcn approach, 13-item registry, agent-focused components, install command and light/dark modes."
+            },
+            {
+              "url": "https://api.github.com/repos/deeplethe/solid-glass",
+              "checked_at": "2026-10-15T10:33:21Z",
+              "claim": "Live metadata: 904 stars, 12 forks, created 2026-10-12, MIT license, pushed 2026-10-15."
+            }
+          ]
+        },
+        "script": {
+          "status": "complete",
+          "script_sha256": "e170271166ba746e8777de1f39372faa0fb9b1aa8f16241aeff8040497d13a82",
+          "word_count": 118
+        },
+        "voice": {
+          "status": "complete",
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "per_chunk": 0.92,
+            "overall": 0.95
+          }
+        },
+        "assets": {
+          "status": "complete",
+          "rights_checked": true,
+          "approval_constraints_checked": true,
+          "capture_id": "repo-solidglass-01",
+          "manifest_sha256": "0b943eb5aebe5665eeec8e999a431809e5dd0d24624387ccb209750c04b465b0",
+          "files": [
+            {
+              "path": "glass-demo.png",
+              "sha256": "5034a8896973d694af7b0ae66311d0091ae992fba5408e93585f58fc927712b8"
+            },
+            {
+              "path": "components-card.png",
+              "sha256": "3adbeba70185377be8b7e1060628e3d6ed48dfcadeb509e5b0bc177a9a7ab574"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

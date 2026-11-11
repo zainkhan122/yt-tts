@@ -1,0 +1,57 @@
+name: Hypeless optional agent — offline safety regression
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: hypeless-optional-agent-safety
+  cancel-in-progress: false
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          filter: blob:none
+          persist-credentials: false
+          sparse-checkout: |
+            /reels-studio/
+            /.github/workflows/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m pip install -r reels-studio/tools/agent/requirements.txt -r reels-studio/tools/youtube/requirements.txt
+      - name: Full deterministic regression — no live model or social credentials
+        run: |
+          python3 - <<'PY'
+          import json,os,sys,unittest
+          from pathlib import Path
+          sys.path.insert(0,'reels-studio')
+          from tools.agent.gates import frozen_production_state,assert_production_unchanged
+          before=frozen_production_state()
+          suite=unittest.defaultTestLoader.discover('reels-studio/tests')
+          result=unittest.TextTestRunner(verbosity=2).run(suite)
+          assert_production_unchanged(before)
+          cfg=json.load(open('reels-studio/config/agent-pilot.json'))
+          assert not cfg['production_enabled'] and not cfg['publishing_enabled']
+          assert cfg['max_paid_inference_usd']==0 and cfg['owner_activation_approval'] is None
+          report={'tests_run':result.testsRun,'failures':len(result.failures),'errors':len(result.errors),'skipped':len(result.skipped),'production_files_unchanged':True,'model_requests':0,'social_requests':0,'qualification':'NOT assessed by this offline test suite','production_enabled':False}
+          path=Path(os.environ['RUNNER_TEMP'])/'agent-safety';path.mkdir(exist_ok=True)
+          (path/'report.json').write_text(json.dumps(report,indent=2)+'\n')
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:f.write('# Optional-agent offline safety tests\n\n'+json.dumps(report,indent=2)+'\n')
+          raise SystemExit(0 if result.wasSuccessful() else 1)
+          PY
+      - name: Secret-pattern and authority-boundary audit
+        run: python3 reels-studio/tools/maintenance/security_audit.py --report "$RUNNER_TEMP/agent-safety/security.json"
+      - name: Source/storage budget
+        run: python3 reels-studio/tools/maintenance/storage.py audit
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: optional-agent-safety
+          path: ${{ runner.temp }}/agent-safety/
+          retention-days: 7
+          if-no-files-found: warn

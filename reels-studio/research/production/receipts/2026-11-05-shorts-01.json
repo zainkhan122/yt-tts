@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-05-shorts-01",
+  "created_at": "2026-11-05T14:49:59Z",
+  "briefs": {
+    "repo-craft-anything-01": {
+      "brief_sha256": "fdd567219f08a71f59af847f6105829e9f9039434a1f01e7be8e13090c50d86f",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "150881f478bc83e47b8413446b3b2f251a00d22013a3ab2199837e8c31f9b160",
+          "word_count": 105
+        },
+        "assets": {
+          "capture_id": "repo-craft-anything-01",
+          "manifest_sha256": "75fb55521cb0d3b502291d3ed3eee2eeaa0e9aec4e175d6968587bae65a454a2",
+          "files": [
+            {
+              "path": "desktop-top.jpg",
+              "sha256": "9a0bb98325f7803d59022fc1c31e58d65bbe85759c091636dcfc2809250db92c"
+            },
+            {
+              "path": "desktop-full.jpg",
+              "sha256": "3402ba29562770370180116166fb64d88a09afab226dbd398a7985d887284544"
+            },
+            {
+              "path": "mobile.png",
+              "sha256": "910d29674b35121b6078bdd1a1e102ecd95bb0093536c2842fefd8f6cf9b32d4"
+            }
+          ],
+          "cover_sha256": "9fbee12e6aa663d011431d5a83317b205103474f9a94a6531cf25231bc955031",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-craft-anything-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-10",
+  "pilot_run": 38047912449,
+  "pilot_verified_run": 38048169272,
+  "pilot": {
+    "news-claude-free-01:facebook": {
+      "state": "sent",
+      "external_url": "https://www.facebook.com/reel/1775989210150059/",
+      "sent_at": "2026-10-10T11:19:23.801Z"
+    },
+    "news-claude-free-01:instagram": {
+      "state": "sent",
+      "external_url": "https://www.instagram.com/reel/DeT9dCtgkib/",
+      "sent_at": "2026-10-10T11:19:55.742Z"
+    },
+    "news-claude-free-01:youtube": {
+      "state": "sent",
+      "external_url": "https://www.youtube.com/shorts/F9Ng59LJ1bo",
+      "sent_at": "2026-10-10T11:18:56.211Z"
+    }
+  },
+  "five_video_render_run": 38049484230,
+  "correction_render_run": 38048742558,
+  "new_video_ids": [
+    "news-haiku-55-01",
+    "news-gemini-agent-01",
+    "tool-mosa-01",
+    "tool-pomelli-01",
+    "repo-whistle-01"
+  ],
+  "correction_reason": "Dreamina watermark/export policy is conditional; changed spoken script and rerendering before publication. Correction is additional to the five new videos.",
+  "google_oauth_client_received": true,
+  "google_channel_consent_complete": false,
+  "state": "Complete: first video sent on YT/IG/FB, remaining two earlier videos scheduled (6 accepted posts). Five NEW videos completed QA 7/7 and visual review, packaged, and enqueued held for the next paced batch.",
+  "gemini_visual_fix_run": 38050359569,
+  "today_schedule_run": 38050422157,
+  "pomelli_redundant_run": 38050829829,
+  "pomelli_redundant_run_status": "cancel requested: original passed full QA and visual review",
+  "completed_new_videos": [
+    "news-haiku-55-01",
+    "news-gemini-agent-01",
+    "tool-mosa-01",
+    "tool-pomelli-01",
+    "repo-whistle-01"
+  ],
+  "awaiting_new_videos": [],
+  "gemini_visual_fix_result": "success, QA 7/7 and contact sheet inspected",
+  "new_batch_published": false,
+  "bundle": "deliverables/hypeless-2026-10-10/hypeless-five-shorts-and-post-kits.zip",
+  "metadata_workflow_dry_run": 38051560192,
+  "metadata_workflow_dry_run_result": "success; no Google requests because channel consent not completed",
+  "tests_passed": 114
+}

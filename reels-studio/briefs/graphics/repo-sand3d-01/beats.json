@@ -1,0 +1,141 @@
+{
+  "tool": "sand3d",
+  "handle": "@hypeless",
+  "scenes": [
+    {
+      "scene_id": "hook",
+      "phrase": 0,
+      "archetype": "flow_link",
+      "headline": "3D MODELING FOR LLMS",
+      "feature_id": "f1",
+      "depicts": "a model written by an LLM that you can print",
+      "payload": {
+        "nodes": [
+          "Ask for a part",
+          "Code builds it"
+        ],
+        "edge_label": "print it",
+        "cue_phrases": [
+          "Can an LLM",
+          "do 3D modeling"
+        ]
+      },
+      "cue_word": "modeling"
+    },
+    {
+      "scene_id": "point1",
+      "phrase": 1,
+      "archetype": "terminal_type",
+      "headline": "PARTS AS PROGRAMS",
+      "feature_id": "f1",
+      "depicts": "the python lines that build a named part",
+      "payload": {
+        "title": "part.py",
+        "lines": [
+          "import sand3d as s3d",
+          "plate = s3d.extrude(...)",
+          "s3d.export(plate, \"b.glb\")"
+        ],
+        "cue_phrases": [
+          "It's sand3d",
+          "a Python library",
+          "on top of Blender"
+        ]
+      },
+      "cue_word": "Python"
+    },
+    {
+      "scene_id": "point2",
+      "phrase": 2,
+      "archetype": "chip_grid",
+      "headline": "SMALL ENOUGH FOR A PROMPT",
+      "feature_id": "f2",
+      "depicts": "the token count and the whole API fitting in a prompt",
+      "payload": {
+        "chips": [
+          "Fewer tokens per part",
+          "API fits in a prompt",
+          "Fewer than CadQuery"
+        ],
+        "highlight": 1,
+        "cue_phrases": [
+          "two to six times fewer tokens",
+          "Blender Python or CadQuery",
+          "whole API fits in a prompt"
+        ]
+      },
+      "cue_word": "tokens"
+    },
+    {
+      "scene_id": "point3",
+      "phrase": 3,
+      "archetype": "toggle_steps",
+      "headline": "NAMED, AND REPEATABLE",
+      "feature_id": "f3",
+      "depicts": "parts reached by name and the same mesh every time",
+      "payload": {
+        "steps": [
+          "Parts reached by name",
+          "Edges and faces by name",
+          "Same mesh every time"
+        ],
+        "done": 3,
+        "cue_phrases": [
+          "reached by name",
+          "same program builds",
+          "same mesh every time"
+        ]
+      },
+      "cue_word": "name"
+    },
+    {
+      "scene_id": "point4",
+      "phrase": 4,
+      "archetype": "concept_card",
+      "headline": "ONE CALL TO A FILE",
+      "feature_id": null,
+      "depicts": "the export formats and the jointed washing machine",
+      "payload": {
+        "big": "GLB, URDF, USD, OBJ, STL",
+        "sub": "A washing machine in thirty-eight lines."
+      },
+      "cue_word": "exports"
+    },
+    {
+      "scene_id": "catch",
+      "phrase": 5,
+      "archetype": "chip_grid",
+      "headline": "THE CATCH",
+      "feature_id": "f7",
+      "depicts": "the bpy module and the Python versions it needs",
+      "payload": {
+        "chips": [
+          "Needs Blender's bpy",
+          "Python versions matter",
+          "Intel Macs need an older one"
+        ],
+        "highlight": 0,
+        "cue_phrases": [
+          "needs Blender's bpy module",
+          "only ships for certain Python versions",
+          "check yours first"
+        ]
+      },
+      "cue_word": "catch"
+    },
+    {
+      "scene_id": "cta",
+      "phrase": 6,
+      "archetype": "endcard",
+      "headline": "WHAT WOULD YOU MODEL?",
+      "feature_id": null,
+      "depicts": "commenting the keyword MESH to get the repo",
+      "payload": {
+        "keyword": "MESH",
+        "follow": "Follow"
+      },
+      "cue_word": "MESH"
+    }
+  ],
+  "script_sha256": "sha256:80ae1a8b0ca06bc18423bb10b2242dec83d56bdad7090478be6f3337336f8eb2"
+}

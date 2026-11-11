@@ -1,0 +1,293 @@
+{
+  "id": "repo-sand3d-01",
+  "capture": "captures/repo-sand3d-01",
+  "title": "sand3d: 3D parts written as short Python programs",
+  "niche": "AI tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "3D modeling",
+    "code CAD",
+    "Blender automation",
+    "LLM CAD"
+  ],
+  "facts": {
+    "method": "tool's own README and repo page, read on the day of the plan",
+    "limits": "The catch: it needs Blender's bpy module, which only ships for certain Python versions, so check yours first."
+  },
+  "sources": [
+    "https://github.com/Sandflow-ai/sand3d",
+    "https://github.com/Sandflow-ai/sand3d",
+    "https://github.com/Sandflow-ai/sand3d",
+    "https://github.com/Sandflow-ai/sand3d"
+  ],
+  "verify_before_render": [
+    "Every point cites its source in the plan (repo-sand3d-01/plan.json).",
+    "Kit images are drawn from the plan's own visual spec only."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "flow",
+      "heading": "3D MODELING FOR LLMS",
+      "nodes": [
+        "Ask for a part",
+        "Code builds it"
+      ],
+      "say": "Can an LLM do 3D modeling?"
+    },
+    {
+      "id": "point1",
+      "type": "flow",
+      "heading": "PARTS AS PROGRAMS",
+      "nodes": [
+        "import sand3d",
+        "Name the part",
+        "Export the mesh"
+      ],
+      "say": "It's a Python library that writes three-dimensional objects as short programs on top of Blender."
+    },
+    {
+      "id": "point2",
+      "type": "flow",
+      "heading": "SMALL ENOUGH FOR A PROMPT",
+      "nodes": [
+        "Two to six times fewer",
+        "API in about 3,600 tokens",
+        "Named parts, not coordinates"
+      ],
+      "say": "A part takes two to six times fewer tokens than the same part in Blender Python or CadQuery, and the whole API fits in a prompt."
+    },
+    {
+      "id": "point3",
+      "type": "flow",
+      "heading": "NAMED, AND REPEATABLE",
+      "nodes": [
+        "Parts reached by name",
+        "Edges and faces by name",
+        "Same mesh every time"
+      ],
+      "say": "Every part, edge and face is reached by name, and the same program builds the same mesh every time."
+    },
+    {
+      "id": "point4",
+      "type": "flow",
+      "heading": "STRAIGHT TO A FILE",
+      "nodes": [
+        "GLB for the web",
+        "URDF for robots",
+        "STL for printing"
+      ],
+      "say": "It exports GLB, URDF, USD, OBJ or STL, and a washing machine example is thirty-eight lines with four joints."
+    },
+    {
+      "id": "catch",
+      "type": "flow",
+      "heading": "THE CATCH",
+      "nodes": [
+        "Needs Blender's bpy",
+        "Python 3.13 or 3.11",
+        "Intel Macs use 3.11"
+      ],
+      "say": "The catch: it needs Blender's bpy module, which only ships for certain Python versions, so check yours first."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "MESH",
+      "say": "What would you model first? Comment MESH and I'll pin it."
+    }
+  ],
+  "seo": {
+    "onscreen_first3s": "3D MODELING FOR LLMS",
+    "keyword": "3D modeling",
+    "aliases": [
+      "Python 3D modeling",
+      "LLM 3D modeling",
+      "code CAD for Blender"
+    ],
+    "youtube": {
+      "title": "3D modeling: sand3d writes parts as Python code",
+      "description": "Python 3D modeling that fits in a prompt: sand3d writes solids as short programs over Blender, with parts, edges and faces reached by name instead of computed coordinates, and the same program always building the same mesh. One call exports GLB, URDF, USD, OBJ or STL, and the repo's washing machine example is thirty-eight lines with four joints. Repo: https://github.com/Sandflow-ai/sand3d #Shorts #Python3DModeling #Blender #CAD #AIAgents",
+      "tags": [
+        "3D modeling",
+        "Python 3D modeling",
+        "LLM 3D modeling",
+        "code CAD for Blender",
+        "sand3d",
+        "procedural modeling"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#Python3DModeling",
+        "#Blender",
+        "#CAD",
+        "#AIAgents"
+      ]
+    },
+    "tiktok": {
+      "caption": "3D modeling for LLMs: sand3d writes a part as a short program, names every face, and exports GLB or STL. Comment MESH for the repo.",
+      "hashtags": [
+        "#Python3DModeling",
+        "#Blender",
+        "#CAD",
+        "#AIAgents",
+        "#Maker"
+      ]
+    },
+    "instagram": {
+      "caption": "3D modeling on top of Blender: sand3d takes short programs instead of coordinate math, names every part, and exports GLB, URDF or STL. Comment MESH for the repo.",
+      "hashtags": [
+        "#Python3DModeling",
+        "#Blender",
+        "#CAD",
+        "#AIAgents",
+        "#Maker"
+      ]
+    },
+    "facebook": {
+      "caption": "3D modeling built for LLMs: sand3d writes parts as short programs over Blender, reaches faces by name, and exports GLB, URDF or STL. Comment MESH for the repo link.",
+      "hashtags": [
+        "#Python3DModeling",
+        "#Blender",
+        "#CAD",
+        "#AIAgents",
+        "#Maker"
+      ]
+    },
+    "x": {
+      "text": "3D modeling for LLMs: sand3d writes a part as a short program over Blender, names every face, and exports GLB, URDF or STL.",
+      "hashtags": [
+        "#Python3DModeling",
+        "#Blender"
+      ]
+    }
+  },
+  "post": {
+    "cta": "What would you model first? Comment MESH and I'll pin it.",
+    "hashtags": [
+      "#Shorts",
+      "#Python3DModeling",
+      "#Blender",
+      "#CAD",
+      "#AIAgents"
+    ]
+  },
+  "research_basis": [
+    "videos/repo-sand3d-01/plan.json"
+  ],
+  "viewer": {
+    "who": "makers and engineers who want an LLM to produce real 3D parts",
+    "problem": "Blender scripts are long and coordinate-heavy for a model to write",
+    "job": "decide whether program-first CAD is a workable path to a printable part"
+  },
+  "idea": "sand3d lets an LLM write 3D objects as short Python programs that export to GLB, URDF, USD, OBJ or STL.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "sand3d is a Python library for writing 3D objects as short programs over Blender's bpy module.",
+      "source": "https://github.com/Sandflow-ai/sand3d"
+    },
+    {
+      "id": "c2",
+      "text": "A part takes two to six times fewer tokens than in Blender Python or CadQuery, and the whole API fits in a prompt.",
+      "source": "https://github.com/Sandflow-ai/sand3d"
+    },
+    {
+      "id": "c3",
+      "text": "Parts, edges and faces are reached by name, and the same program builds the same mesh every time.",
+      "source": "https://github.com/Sandflow-ai/sand3d"
+    },
+    {
+      "id": "c4",
+      "text": "One call exports GLB, URDF, USD, OBJ or STL, and the washing machine example is 38 lines with four joints.",
+      "source": "https://github.com/Sandflow-ai/sand3d"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/Sandflow-ai/sand3d",
+      "how_shown": "python lines building a named part in Blender"
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://github.com/Sandflow-ai/sand3d",
+      "how_shown": "the token count falling and the API fitting in one prompt"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://github.com/Sandflow-ai/sand3d",
+      "how_shown": "named parts and a repeatable build"
+    },
+    {
+      "claim": "c4",
+      "evidence": "source:https://github.com/Sandflow-ai/sand3d",
+      "how_shown": "the export formats and the jointed washing machine example"
+    }
+  ],
+  "treatment": {
+    "audience": "makers and engineers who want an LLM to produce real 3D parts",
+    "viewer_job": "decide whether program-first CAD is a workable path to a printable part",
+    "intent": "search",
+    "hook_mechanic": "viewer question about the tool's first claim",
+    "open_loop": {
+      "plant": "Can an LLM do 3D modeling?",
+      "payoff_scene": "point1"
+    },
+    "proof_moment": "point1",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "id": "c1",
+        "layout": "bleed",
+        "text": "A MODEL FROM CODE",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c1.png",
+          "design": "Full-bleed isometric plate drawing of a bracket with two holes, its faces tagged with name labels, and code lines running behind the headline."
+        }
+      },
+      {
+        "id": "c2",
+        "layout": "window",
+        "text": "LLM WRITES THE PART",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c2.png",
+          "design": "Framed code window with the bracket program and its export line, and the rendered part sitting beside the window."
+        }
+      },
+      {
+        "id": "c3",
+        "layout": "split",
+        "text": "PRINT WHAT IT BUILDS",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c3.png",
+          "design": "Split plate: a jointed washing-machine silhouette made of named blocks on top, and the export format chips underneath."
+        }
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-11-07",
+    "expires_at": null,
+    "reviewer": "agent: plan written from the maker's README and repo page",
+    "notes": "Topic approved by owner (config/topic-approvals.json). Plan and copy await owner review at the cover gate."
+  },
+  "motion_standard": 2,
+  "qa_gates": true,
+  "renderer": "graphics",
+  "graphics": {
+    "dir": "briefs/graphics/repo-sand3d-01",
+    "note": "beat plan bound to the brief scenes; lint is fail-closed on script or scene mismatch"
+  },
+  "voice_seed": 0,
+  "speed": 1.28,
+  "lead_in": 0.06,
+  "voice_tempo": 1.1
+}

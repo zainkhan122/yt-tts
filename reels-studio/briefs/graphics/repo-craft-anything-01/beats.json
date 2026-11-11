@@ -1,0 +1,109 @@
+{
+  "tool": "craft-anything",
+  "script_sha256": "sha256:f38f4af3ca6388c864eb396c1c5ec19145833cc66f184d285a928b75999d90cc",
+  "handle": "@hypeless",
+  "scenes": [
+    {
+      "scene_id": "hook",
+      "phrase": 0,
+      "archetype": "concept_card",
+      "headline": "CRAFT ANYTHING",
+      "feature_id": null,
+      "depicts": "craft anything rebuild an app",
+      "payload": {
+        "big": "CAN CRAFT ANYTHING REBUILD AN APP?",
+        "sub": "Study it. Build it. Check it."
+      },
+      "cue_word": "rebuild"
+    },
+    {
+      "scene_id": "point1",
+      "phrase": 1,
+      "archetype": "chip_grid",
+      "headline": "STUDY BEFORE IT BUILDS",
+      "feature_id": "f1",
+      "depicts": "studies the original with real inspection tools before AI writes",
+      "payload": {
+        "chips": [
+          "Studies the original",
+          "Real inspection tools",
+          "Before any AI writes"
+        ],
+        "highlight": 1
+      }
+    },
+    {
+      "scene_id": "point2",
+      "phrase": 2,
+      "archetype": "flow_link",
+      "headline": "THEN AN AGENT BUILDS",
+      "feature_id": "f4",
+      "depicts": "coding agent builds a new project in your language",
+      "payload": {
+        "nodes": [
+          "Coding agent",
+          "New project",
+          "Your language"
+        ]
+      }
+    },
+    {
+      "scene_id": "point3",
+      "phrase": 3,
+      "archetype": "stat_pop",
+      "headline": "CHECKED, NOT GUESSED",
+      "feature_id": "f3",
+      "depicts": "three screen widths checked against the original, mismatches listed",
+      "payload": {
+        "value": 3,
+        "unit": "SCREEN WIDTHS",
+        "sub": "Mismatches are listed"
+      },
+      "cue_word": "three"
+    },
+    {
+      "scene_id": "point4",
+      "phrase": 4,
+      "archetype": "terminal_type",
+      "headline": "AGENTS DRIVE THE SAME ENGINE",
+      "feature_id": "f2",
+      "depicts": "command line call and MCP tool so an agent drives the same engine",
+      "payload": {
+        "lines": [
+          "$ command line call",
+          "$ MCP tool for the agent",
+          "same engine the app uses"
+        ]
+      }
+    },
+    {
+      "scene_id": "catch",
+      "phrase": 5,
+      "archetype": "toggle_steps",
+      "headline": "THE CATCH",
+      "feature_id": "f6",
+      "depicts": "early alpha, checking against the original",
+      "payload": {
+        "steps": [
+          "Early alpha",
+          "Checking against the original"
+        ]
+      }
+    },
+    {
+      "scene_id": "cta",
+      "phrase": 6,
+      "archetype": "cta_stack",
+      "headline": "YOUR CALL",
+      "feature_id": null,
+      "depicts": "comment craft and pin the repo link",
+      "payload": {
+        "lines": [
+          "Would you let an AI rebuild it?",
+          "Comment CRAFT",
+          "Pin the repo link"
+        ]
+      }
+    }
+  ]
+}

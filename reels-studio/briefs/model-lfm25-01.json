@@ -1,0 +1,191 @@
+{
+  "id": "model-lfm25-01",
+  "capture": "captures/model-lfm25-01",
+  "title": "LFM2.5: 24B Brain, 2B at Work — a Local Agent Model",
+  "niche": "on-device AI agents / local LLMs",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "Owner approved runners-up batch on 2026-10-15 for artifact-only videos. No public Release, no Buffer scheduling or posting. Approved Option-3 Chatterbox flow voice; no on-screen credit captions.",
+  "production_category": "model",
+  "keywords": [
+    "LFM2.5",
+    "Liquid AI",
+    "local LLM",
+    "on-device agents",
+    "MoE"
+  ],
+  "facts": {
+    "total_params_b": 24.0,
+    "active_params_b": 2.45,
+    "experts": 64,
+    "context_tokens": 131072,
+    "vendor_speed": "up to 184 tok/s on Apple M5 Max (Liquid AI)",
+    "license": "LFM 1.0 (weights; not Apache)",
+    "checked": "2026-10-15, Hugging Face model card + API"
+  },
+  "credits_on_screen": "Own spec and formats cards created for this video. Source links in post/description only. No on-screen credits.",
+  "sources": [
+    "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
+    "https://huggingface.co/api/models/LiquidAI/LFM2.5-24B-A2B"
+  ],
+  "verify_before_render": [
+    "HF card checked 2026-10-15: 24.0B total, about 2.45B active per token, 64 experts top-4, 131K context, 36T training tokens. Say 'about two billion' active.",
+    "Speed is the vendor's figure, not ours: up to 184 tok/s on an Apple M5 Max, attributed to Liquid AI in speech and on screen. We did not run the 24B model; no local benchmark is claimed.",
+    "License: weights under Liquid's LFM 1.0 licence (HF license_name lfm1.0). Never call it Apache, MIT, or unrestricted open source.",
+    "Mandatory catches: it is a pure reasoning model that always thinks before answering, and Liquid AI recommends pairing it with retrieval or search for knowledge work.",
+    "Formats exist as separate HF repos: GGUF for llama.cpp, MLX-4bit for Apple Silicon, ONNX, FP8. Install scene shows the GGUF route generically; no fake terminal output of a real run.",
+    "Visuals are our own cards in captures/model-lfm25-01; no third-party clips or copied benchmark charts. No on-screen credit captions."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "spec-card.png",
+      "heading": "24B BRAIN. *2B AT WORK.*",
+      "sub": "Liquid AI · mixture of experts",
+      "say": "A giant model brain, but only a small part of it lights up for every token."
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "image": "formats-card.png",
+      "heading": "MEET *LFM2.5*",
+      "sub": "Liquid AI's on-device agent model",
+      "say": "This is the newest {LFM|L F M} from Liquid AI, built for agents that run on your own device."
+    },
+    {
+      "id": "speed",
+      "type": "stat",
+      "heading": "REASONING AT *MOE SPEED*",
+      "value": 184,
+      "decimals": 0,
+      "suffix": " tok/s",
+      "label": "Liquid AI's test · Apple M5 Max",
+      "at": "eighty",
+      "say": "Liquid AI reports more than one hundred eighty tokens per second on a top-end Mac chip."
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "BUILT TO *ACT*",
+      "steps": [
+        "Thinks before answering",
+        "Calls tools in your apps",
+        "Private, on your device"
+      ],
+      "step_at": [
+        "thinks",
+        "tools",
+        "device"
+      ],
+      "say": "It thinks before it answers, calls tools in your apps, and is built to run privately on your device."
+    },
+    {
+      "id": "run",
+      "type": "terminal",
+      "heading": "RUN IT *LOCALLY*",
+      "lines": [
+        "llama-server -m LFM2.5-24B-A2B.gguf",
+        "# or the MLX build on a Mac"
+      ],
+      "say": "Download the weights as {GGUF|G G U F} for local runs, or use the {MLX|M L X} build on a Mac."
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "BEFORE YOU *DOWNLOAD*",
+      "cons": [
+        "Always thinks first",
+        "Pair it with search",
+        "LFM 1.0 licence terms"
+      ],
+      "pros": [
+        "24B smarts, 2B speed"
+      ],
+      "item_at": [
+        "thinks",
+        "search",
+        "licence",
+        "smarts"
+      ],
+      "say": "The catches: it always thinks before answering, so simple replies take longer; Liquid AI says pair it with search for knowledge work; and the weights use their {LFM 1.0|L F M one point zero} licence, not Apache. But you get big-model smarts at small-model speed."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "LFM",
+      "say": "Want a local agent model? Comment LFM and I will pin the model card."
+    }
+  ],
+  "seo": {
+    "keyword": "LFM2.5",
+    "aliases": [
+      "local LLM",
+      "on-device agents",
+      "Liquid AI"
+    ],
+    "onscreen_first3s": "24B BRAIN. 2B AT WORK.",
+    "youtube": {
+      "title": "LFM2.5: 24B Brain, 2B at Work — a Local Agent Model",
+      "description": "Liquid AI's LFM2.5-24B-A2B carries 24B parameters but activates only about 2B per token, aiming at fast private agents on-device. Liquid AI reports up to 184 tok/s on an Apple M5 Max (vendor figure; we did not run the 24B model). It always thinks before answering, and Liquid AI recommends pairing it with retrieval or search for knowledge work. Weights are under the LFM 1.0 licence, with GGUF, MLX, ONNX and FP8 builds.\nSource: https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
+      "hashtags": [
+        "#Shorts",
+        "#LocalAI",
+        "#LLM",
+        "#AIAgents"
+      ],
+      "tags": [
+        "LFM2.5",
+        "Liquid AI",
+        "local LLM",
+        "on-device AI",
+        "AI agents",
+        "mixture of experts",
+        "GGUF"
+      ]
+    },
+    "tiktok": {
+      "caption": "24B brain, 2B at work: LFM2.5 activates only about 2B of its 24B parameters per token. Liquid AI reports 184 tok/s on an M5 Max. Catches: it always thinks first, pair it with search, and the weights use the LFM 1.0 licence.",
+      "hashtags": [
+        "#LocalAI",
+        "#LLM",
+        "#AIAgents"
+      ]
+    },
+    "instagram": {
+      "caption": "LFM2.5-24B-A2B: a 24B model that only wakes about 2B parameters per token, built for private on-device agents. Vendor-reported 184 tok/s on an Apple M5 Max. Save this if you run local models.",
+      "hashtags": [
+        "#LocalAI",
+        "#LLM",
+        "#AIAgents"
+      ]
+    },
+    "facebook": {
+      "caption": "Liquid AI's LFM2.5: 24B total parameters, roughly 2B active per token, built for on-device agents. Weights under the LFM 1.0 licence; GGUF, MLX, ONNX and FP8 builds available.",
+      "hashtags": [
+        "#LocalAI",
+        "#LLM"
+      ]
+    },
+    "x": {
+      "text": "LFM2.5: 24B brain, 2B at work. Liquid AI's on-device agent model activates ~2B params per token; vendor reports 184 tok/s on M5 Max. Always thinks first; LFM 1.0 licence. https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
+      "hashtags": [
+        "#LocalAI",
+        "#LLM"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "LFM2.5: 24B Brain, 2B at Work — a Local Agent Model"
+    ],
+    "caption": "Liquid AI's LFM2.5-24B-A2B carries 24B parameters but activates only about 2B per token, aiming at fast, private on-device agents. Liquid AI reports up to 184 tok/s on an M5 Max (their figure; we did not benchmark the 24B model). Catches: it always thinks before answering, Liquid AI recommends pairing it with search for knowledge work, and the weights use the LFM 1.0 licence.",
+    "hashtags": [
+      "#Shorts",
+      "#LocalAI",
+      "#LLM",
+      "#AIAgents"
+    ],
+    "pinned_comment": "Model card: https://huggingface.co/LiquidAI/LFM2.5-24B-A2B — speed figures are Liquid AI's; the visuals are our own cards and no local run is claimed."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "checked_at": "2026-10-10T18:38:44Z",
+  "checks": {
+    "agent-pilot.yml": {
+      "credential_persistence_disabled": true,
+      "forbidden_publishing_capabilities": []
+    },
+    "agent-probe.yml": {
+      "credential_persistence_disabled": true,
+      "forbidden_publishing_capabilities": []
+    },
+    "credential_pattern_or_known_value_hits": [],
+    "encrypted_actions_secrets_present": {
+      "BUFFER_API_KEY": true,
+      "OPENROUTER_API_KEY": true,
+      "YOUTUBE_OAUTH_JSON": true,
+      "YOUTUBE_STATE_KEY": true
+    },
+    "private_file_permission_issues": [],
+    "remote_has_embedded_credentials": false,
+    "restored_vault_permission_repairs": [
+      "vault-directory",
+      "youtube_state_key",
+      "youtube_oauth.json",
+      "buffer_token",
+      "google_client.json",
+      "gh_token"
+    ],
+    "source_files_scanned": 233,
+    "vault_directory_mode": "0o700"
+  },
+  "issues": [],
+  "limits": "Pattern/known-value audit of current allowed source files, not a guarantee about unknown credentials or every historical log. Secret values were not retrieved from Actions or printed.",
+  "passed": true
+}

@@ -1,0 +1,53 @@
+# Performance loop: Buffer metrics -> what is working -> what to make next.
+# Runs after every successful Buffer Insights snapshot (and weekly as a fallback),
+# refreshes the trend radar, re-scores backlog topics against our own performance,
+# and commits tracker/performance.json + research/performance/performance-<date>.md.
+# Read-only against Buffer and every social platform; the only writes are git commits.
+name: Performance (analytics + topic advice)
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Buffer Insights (read-only)"]
+    types: [completed]
+    branches: [main]
+  schedule:
+    # Fallback if Insights was skipped: Monday 06:00 UTC re-analysis of the last snapshot.
+    - cron: '0 6 * * 1'
+permissions:
+  contents: read
+concurrency:
+  group: hypeless-performance
+  cancel-in-progress: false
+jobs:
+  analyse:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Refresh trend radar (best effort; never blocks the performance report)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PYTHONUNBUFFERED: '1'
+        continue-on-error: true
+        run: python3 reels-studio/tools/trend_radar.py --days 7
+      - name: Analyse Buffer performance and re-rank trending topics
+        run: python3 reels-studio/tools/post/performance.py
+      - name: Commit the performance report (only when it changed)
+        run: |
+          git config user.name "zainkhan122"
+          git config user.email "zainkhan122@users.noreply.github.com"
+          git add reels-studio/tracker/performance.json reels-studio/research/performance/ reels-studio/research/radar/
+          if git diff --cached --quiet; then
+            echo "No performance changes to commit."
+          else
+            git commit -m "analytics: daily Shorts performance report + topic advice"
+            git push
+          fi

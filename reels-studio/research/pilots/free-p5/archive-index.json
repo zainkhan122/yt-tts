@@ -1,0 +1,12 @@
+{
+  "archive": "audit-evidence.tar.gz",
+  "sha256": "e02b6e9cfc6d82ca5993d37af68bc237a923c7d1205a6ed6a22624bbc8e5d7f1",
+  "source_files_verified": 67,
+  "bytes": 129140,
+  "source_runs": [
+    38077608119,
+    38078521580,
+    38087458049
+  ],
+  "preserved": "Evidence snapshots, producer conversation, all drafts, hard gates, exact rejected critic attempts and cost receipts. Heavy registered baseline/capture assets stay in pinned Releases; current complete working checkpoint remains in the latest Actions artifact."
+}

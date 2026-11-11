@@ -1,0 +1,222 @@
+{
+  "id": "repo-poki-01",
+  "tool": "poki",
+  "author": "agent",
+  "question": "Ever wanted AI to use your iPhone for you?",
+  "hook_visual": {
+    "kind": "steps",
+    "intent": "your task, the agent, your phone",
+    "steps": [
+      "Your task",
+      "Your agent",
+      "Your iPhone"
+    ]
+  },
+  "points": [
+    {
+      "n": 1,
+      "claim": "Open source and local: clone the repo, run ./bin/setup, then npm start on a Mac.",
+      "spoken": "It's called Poki, it's open source, and it runs on your Mac. Clone it, run the setup script, then start it.",
+      "source": "https://github.com/JosssphZhou/poki",
+      "source_note": "README Quick start: 'git clone ...', 'cd poki', './bin/setup', 'npm start'; 'Requires macOS 15 or later, full Xcode, Rust, Node.js 24+, and ffmpeg.'",
+      "visual": {
+        "kind": "steps",
+        "intent": "the setup script then the server starting, typed in a terminal"
+      },
+      "title": "Runs on your Mac",
+      "sub": "Two commands and the server is up.",
+      "steps": [
+        "./bin/setup",
+        "npm start"
+      ]
+    },
+    {
+      "n": 2,
+      "claim": "Register it as an MCP server in Claude Code or Codex and use your own subscription.",
+      "spoken": "Then add it to Claude Code or Codex as an MCP server, so your own subscription drives the phone.",
+      "source": "https://github.com/JosssphZhou/poki",
+      "source_note": "README: 'Connect Poki MCP and use your own subscription. No extra model account needed.'; 'claude mcp add --scope user poki-mcp -- node \"$PWD/src/stdio.mjs\"'",
+      "visual": {
+        "kind": "steps",
+        "intent": "your client, the Poki MCP server, your phone, in a line"
+      },
+      "title": "Your agent, your plan",
+      "sub": "No extra model account needed.",
+      "steps": [
+        "Claude Code",
+        "Poki MCP",
+        "Your iPhone"
+      ]
+    },
+    {
+      "n": 3,
+      "claim": "Its tools tap, type and scroll a real screen; the README's example task searches Chrome and summarizes.",
+      "spoken": "Give it a task, like searching the web in Chrome and summarizing the top result. It taps and types for real.",
+      "source": "https://github.com/JosssphZhou/poki",
+      "source_note": "README 'Try a task': poki \"Search esp32 in Chrome and summarize the top result\"; docs/tools.md: taps, swipes, hardware keys and Unicode text on simulators and paired devices.",
+      "visual": {
+        "kind": "steps",
+        "intent": "a plain-language task turned into real screen actions and an answer"
+      },
+      "title": "One task, real taps",
+      "sub": "It works the screen, not a mock-up.",
+      "steps": [
+        "Your task",
+        "Taps and types",
+        "Result on screen"
+      ]
+    },
+    {
+      "n": 4,
+      "claim": "Poki Agent remembers past tasks and runs them faster on repeat.",
+      "spoken": "It remembers past tasks, so the same job runs faster the second time.",
+      "source": "https://github.com/JosssphZhou/poki",
+      "source_note": "README: 'Gets faster with use: Poki Agent remembers past tasks and runs them faster on repeat.'",
+      "visual": {
+        "kind": "steps",
+        "intent": "first run, the task learned, a faster second run"
+      },
+      "title": "Faster the second time",
+      "sub": "It keeps what worked.",
+      "steps": [
+        "First run",
+        "Keeps the route",
+        "Faster second run"
+      ]
+    }
+  ],
+  "catch": "The catch: it controls your real iPhone, so the screen goes to your model service. And you need a Mac with Xcode.",
+  "catch_sub": "Real phone, your model, a Mac with Xcode.",
+  "catch_title": "The catch",
+  "catch_visual": {
+    "kind": "steps",
+    "intent": "the real phone, the model service, and the Mac it needs",
+    "steps": [
+      "Real iPhone",
+      "Screen to model",
+      "Mac and Xcode"
+    ]
+  },
+  "brand_line": "poki · open source",
+  "cover": {
+    "text": "CAN AI USE YOUR IPHONE?",
+    "visual": "designed graphic of an agent tapping a real phone screen",
+    "concepts": [
+      {
+        "id": "c1",
+        "layout": "bleed",
+        "text": "CAN AI USE YOUR IPHONE?",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c1.png",
+          "design": "Full-bleed dark plate: a phone drawn from the front with a mock app grid, one tile ringed by a tap ripple with an agent cursor, and small ref tags on two tiles."
+        }
+      },
+      {
+        "id": "c2",
+        "layout": "window",
+        "text": "AI THAT DRIVES YOUR IPHONE",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c2.png",
+          "design": "Framed terminal window holding the real MCP registration line, an arrow from it to a small phone with a tap ripple and a ref tag, on a dark plate."
+        }
+      },
+      {
+        "id": "c3",
+        "layout": "split",
+        "text": "HAND YOUR PHONE TO AI",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c3.png",
+          "design": "Split plate: a top strip naming the three phone actions (tap, type, scroll) as ref chips, and below it the phone screen with a typed search line and a highlighted result row."
+        }
+      }
+    ]
+  },
+  "cta": "Would you hand your phone to an agent? Comment IPHONE and I'll pin the repo.",
+  "cta_keyword": "IPHONE",
+  "seo": {
+    "onscreen_first3s": "CAN POKI USE YOUR IPHONE?",
+    "keyword": "AI iPhone automation",
+    "aliases": [
+      "AI to use your iPhone",
+      "AI uses your iPhone",
+      "iPhone agent"
+    ],
+    "youtube": {
+      "title": "AI iPhone automation: let an agent use your phone",
+      "description": "AI iPhone automation you can run today: Poki is an open-source MCP server that lets Claude Code or Codex drive a real iPhone by tapping and typing on the screen. Clone the repo, run the setup script, register the server, then give your agent a task. It needs macOS and full Xcode. Repo: https://github.com/JosssphZhou/poki #Shorts #iPhoneAutomation #AIAgents #MCP #OpenSource",
+      "tags": [
+        "AI iPhone automation",
+        "poki",
+        "AI to use your iPhone",
+        "AI uses your iPhone",
+        "iPhone agent",
+        "MCP server iPhone",
+        "Claude Code iPhone",
+        "iPhone control"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#iPhoneAutomation",
+        "#AIAgents",
+        "#MCP",
+        "#OpenSource"
+      ]
+    },
+    "tiktok": {
+      "caption": "AI iPhone automation with Poki: your agent taps and types on a real iPhone. Repo in bio.",
+      "hashtags": [
+        "#iPhoneAutomation",
+        "#AIAgents",
+        "#MCP",
+        "#ClaudeCode",
+        "#OpenSource"
+      ]
+    },
+    "instagram": {
+      "caption": "AI iPhone automation without a jailbreak: Poki is a local MCP server that lets Claude Code or Codex work a real iPhone. Comment IPHONE for the repo.",
+      "hashtags": [
+        "#iPhoneAutomation",
+        "#AIAgents",
+        "#MCP",
+        "#ClaudeCode",
+        "#OpenSource"
+      ]
+    },
+    "facebook": {
+      "caption": "AI iPhone automation on your own Mac: Poki lets Claude Code or Codex drive a real iPhone by tapping and typing. Comment IPHONE for the repo link.",
+      "hashtags": [
+        "#iPhoneAutomation",
+        "#AIAgents",
+        "#MCP",
+        "#ClaudeCode",
+        "#OpenSource"
+      ]
+    },
+    "x": {
+      "text": "AI iPhone automation: Poki lets Claude Code or Codex tap and type on a real iPhone. Comment IPHONE for the repo.",
+      "hashtags": [
+        "#iPhoneAutomation",
+        "#AIAgents"
+      ]
+    }
+  },
+  "brief_meta": {
+    "title": "poki: an MCP server that drives a real iPhone",
+    "niche": "AI tools",
+    "keywords": [
+      "AI iPhone automation",
+      "AI to use your iPhone",
+      "iPhone agent",
+      "MCP server"
+    ],
+    "idea": "Poki is a local MCP server that lets a coding agent read and act on a real iPhone screen.",
+    "viewer": {
+      "who": "developers and tinkerers who want their agent to reach their phone",
+      "problem": "agents stop at the desktop; a phone needs taps, not API calls",
+      "job": "decide whether a phone-driving agent is worth setting up on a Mac"
+    }
+  }
+}

@@ -1,0 +1,290 @@
+{
+  "id": "repo-impeccable-01",
+  "capture": "captures/repo-impeccable-01",
+  "title": "impeccable: the same AI, a different design",
+  "niche": "AI tools for developers",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "impeccable",
+    "coding agent",
+    "design",
+    "AI slop",
+    "Claude Code"
+  ],
+  "facts": {
+    "stars": "96,313 GitHub stars (GitHub API, 2026-10-30)",
+    "language": "Rust (GitHub)",
+    "created": "2025-11-16",
+    "last_pushed": "2026-10-30",
+    "description": "The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit.",
+    "install": "npx impeccable install from the project root, then reload the coding tool and run /impeccable init (README)",
+    "agents": "Claude Code, Cursor, Codex CLI, GitHub Copilot and others (README)",
+    "media_plan": "README before/after pair docs/images/readme-without.webp and readme-with.webp (the repo's own media)"
+  },
+  "sources": [
+    "https://github.com/pbakaus/impeccable",
+    "https://api.github.com/repos/pbakaus/impeccable"
+  ],
+  "verify_before_render": [
+    "Star count re-read from the API on render day.",
+    "Before/after pair must come from the repo's own README images.",
+    "Capture pack repo-impeccable-01 must be built before render."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "img-1.png",
+      "heading": "SAME AI. SAME BRIEF. WATCH THE DESIGN CHANGE.",
+      "sub": "impeccable · design vocabulary for coding agents",
+      "say": "Why does AI-built design so often look the same?",
+      "url": "github.com/pbakaus/impeccable"
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "heading": "impeccable",
+      "sub": "a design vocabulary for your coding agent",
+      "say": "It's called impeccable. It gives your coding agent a design vocabulary, so you steer it with words like polish and bolder.",
+      "image": "img-2.png"
+    },
+    {
+      "id": "how",
+      "type": "image",
+      "heading": "TWO COMMANDS",
+      "say": "From your project root, run npx impeccable install. Then run the init command in your agent, and reload your coding tool.",
+      "image": "img-3.png",
+      "sub": null
+    },
+    {
+      "id": "proof",
+      "type": "image",
+      "image": "img-2.png",
+      "heading": "WITHOUT, THEN WITH",
+      "sub": "Same model, same brief",
+      "say": "The repo shows the same model and brief twice. Without impeccable, the page is a cream layout with pill buttons. With it, the page is built around one picture.",
+      "url": "github.com/pbakaus/impeccable"
+    },
+    {
+      "id": "catch",
+      "type": "image",
+      "heading": "WHAT TO KNOW",
+      "say": "The catch: you review the result with critique and audit, so you still decide what looks right.",
+      "image": "img-1.png"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "POLISH",
+      "say": "Which page would you fix first? Comment POLISH and I'll pin the link."
+    }
+  ],
+  "seo": {
+    "keyword": "impeccable",
+    "aliases": [
+      "impeccable design skills",
+      "AI slop design",
+      "design vocabulary coding agent"
+    ],
+    "onscreen_first3s": "SAME AI. SAME BRIEF. A DIFFERENT DESIGN.",
+    "youtube": {
+      "title": "impeccable coding agent: the same AI, a different design",
+      "description": "impeccable coding agent skills: polish, bolder, critique and audit. Install with npx impeccable install.\n\nTool page: https://github.com/pbakaus/impeccable\n\n#claudecode #frontenddesign #webdesign #codingagent #shorts",
+      "tags": [
+        "impeccable",
+        "coding agent",
+        "AI design",
+        "Claude Code",
+        "design skills",
+        "frontend design"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#claudecode",
+        "#frontenddesign",
+        "#webdesign"
+      ]
+    },
+    "tiktok": {
+      "title": "Same AI, different design",
+      "description": "Same AI model, same brief. The second version uses a design vocabulary for the coding agent.",
+      "tags": [
+        "impeccable",
+        "coding agent",
+        "AI design",
+        "Claude Code",
+        "design skills"
+      ],
+      "caption": "Same AI model, same brief. The second version uses a design vocabulary for the coding agent.",
+      "hashtags": [
+        "#claudecode",
+        "#frontenddesign",
+        "#webdesign"
+      ]
+    },
+    "instagram": {
+      "title": "Same AI, same brief",
+      "description": "Impeccable gives your coding agent a design vocabulary: install it, then steer the design with a few commands. Apache-2.0.",
+      "tags": [
+        "impeccable",
+        "coding agent",
+        "AI design",
+        "Claude Code",
+        "design skills"
+      ],
+      "caption": "Impeccable gives your coding agent a design vocabulary: install it, then steer the design with a few commands. Apache-2.0.",
+      "hashtags": [
+        "#claudecode",
+        "#frontenddesign",
+        "#webdesign"
+      ]
+    },
+    "facebook": {
+      "title": "Same AI, different design",
+      "description": "Impeccable adds a design vocabulary to a coding agent. The before and after use the same model and the same brief.",
+      "tags": [
+        "impeccable",
+        "coding agent",
+        "AI design",
+        "Claude Code"
+      ],
+      "caption": "Impeccable adds a design vocabulary to a coding agent. The before and after use the same model and the same brief.",
+      "hashtags": [
+        "#claudecode",
+        "#frontenddesign",
+        "#webdesign"
+      ]
+    },
+    "x": {
+      "title": "impeccable: design for coding agents",
+      "description": "impeccable coding agent: the same AI, a different design #claudecode #frontenddesign",
+      "tags": [
+        "impeccable",
+        "coding agent",
+        "AI design"
+      ],
+      "text": "impeccable coding agent: the same AI, a different design #claudecode #frontenddesign",
+      "hashtags": [
+        "#claudecode",
+        "#frontenddesign"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Which page would you fix first? Comment POLISH",
+    "hashtags": [
+      "#shorts",
+      "#claudecode",
+      "#frontenddesign",
+      "#webdesign"
+    ]
+  },
+  "research_basis": [
+    "research/reference-study/EAJFs6Q0Ufs.md"
+  ],
+  "viewer": {
+    "who": "developers who build UI with coding agents",
+    "problem": "agent-built interfaces look generic, and the developer has no shared vocabulary to steer them",
+    "job": "steer a coding agent toward a better design with a few commands"
+  },
+  "idea": "impeccable gives a coding agent a design vocabulary, so the interface it builds looks deliberate.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "impeccable gives coding agents a design vocabulary: polish, bolder, critique and audit.",
+      "source": "https://github.com/pbakaus/impeccable"
+    },
+    {
+      "id": "c2",
+      "text": "96,313 GitHub stars on 2026-10-30.",
+      "source": "https://api.github.com/repos/pbakaus/impeccable"
+    },
+    {
+      "id": "c3",
+      "text": "Install with npx impeccable install from the project root, then run /impeccable init.",
+      "source": "https://github.com/pbakaus/impeccable"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "capture:before-after.jpg",
+      "how_shown": "hook and proof: the repo's own before/after pair"
+    },
+    {
+      "claim": "c2",
+      "evidence": "capture:repo-title.jpg",
+      "how_shown": "name: repo title with the star count"
+    },
+    {
+      "claim": "c3",
+      "evidence": "capture:readme-how.jpg",
+      "how_shown": "how: install commands"
+    }
+  ],
+  "treatment": {
+    "audience": "developers using coding agents for UI",
+    "viewer_job": "decide whether a design vocabulary is worth adding",
+    "intent": "search",
+    "hook_mechanic": "proof-first: the same model and brief, two different results",
+    "open_loop": {
+      "plant": "what changes?",
+      "payoff_scene": "proof"
+    },
+    "proof_moment": "proof",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "text": "SAME AI",
+        "visual": "img-1.png",
+        "gap": "what changed?"
+      },
+      {
+        "text": "TWO COMMANDS",
+        "visual": "img-2.png",
+        "gap": "how hard is it?"
+      },
+      {
+        "text": "POLISH IT",
+        "visual": "img-1.png",
+        "gap": "what does it do?"
+      }
+    ],
+    "structure": [
+      {
+        "scene": "hook",
+        "beat": "hook"
+      },
+      {
+        "scene": "name",
+        "beat": "name"
+      },
+      {
+        "scene": "how",
+        "beat": "how"
+      },
+      {
+        "scene": "proof",
+        "beat": "proof"
+      },
+      {
+        "scene": "catch",
+        "beat": "catch"
+      },
+      {
+        "scene": "cta",
+        "beat": "close"
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-10-30T10:00:00Z",
+    "expires_at": "2026-11-01",
+    "reviewer": "agent; facts checked against the GitHub API and the repo README on 2026-10-30; owner approval pending",
+    "notes": "Rewritten 2026-10-30. Removed 'built in Rust' (not in README) and the 'impecable' typo. Install corrected to npx impeccable install with /impeccable init. Before/after taken from the repo's own README images. Stars re-read from the API (was 92,814)."
+  }
+}

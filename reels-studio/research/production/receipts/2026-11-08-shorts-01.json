@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-08-shorts-01",
+  "created_at": "2026-11-07T07:50:29Z",
+  "briefs": {
+    "repo-unslop-01": {
+      "brief_sha256": "e2e9985c411ca9b393ba46d635cb037d4cfeeb16ae7fb09a4b67bf4dee4174c2",
+      "brief_identity_sha256": "4cd7b9a815723fe2234eea850e327ce1a0ef6ec41ea1b0e78b983d213029814e",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "d26e2bbab0fb1102cd04189384c2ec42052791de944b6024576f10b1bd63bea8",
+          "word_count": 125
+        },
+        "assets": {
+          "capture_id": "repo-unslop-01",
+          "manifest_sha256": "37e2d364888afddfc2ce002b97ce0be82405d4825dfafd480bff8782fedabe18",
+          "files": [],
+          "cover_sha256": "3f4f370d41049bff223bf49d7276f4fb0288953467f7ceaf34673cead2e0b7ce",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-unslop-01/manifest.json"
+          ]
+        }
+      }
+    },
+    "repo-superagent-01": {
+      "brief_sha256": "492896428726d894fea4acd661c9f9fefd334b6db7c53dab287862d4395abc3b",
+      "brief_identity_sha256": "95f26b7c7bc0410213259baa6ae58db612834971469575128efc7fe790c46d7a",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "5e62b7ce5c35a96227a6ec956b95eb953b8aa80d0a76256fdb46c346fb61f0e8",
+          "word_count": 121
+        },
+        "assets": {
+          "capture_id": "repo-superagent-01",
+          "manifest_sha256": "b7ebf05a358acc180f2caea63a795a4d8219ccba53c7c16b156039803e2807a9",
+          "files": [],
+          "cover_sha256": "8742466b8bb673b6f4183add2947eb5a71bb94601c801740fdaa22baa5791bad",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-superagent-01/manifest.json"
+          ]
+        }
+      }
+    },
+    "repo-reavideo-01": {
+      "brief_sha256": "7cdb09d076a07e3d9aefa25f30b7ba54ef6eeec83371f15850e213b32a92f54b",
+      "brief_identity_sha256": "76270721286b2568287c6c99a7c7aad7f536ed0d10143c453141dc392236950f",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "375d0b1a16d1e439a3f14e8adc3c0a2af51647261b6d33d5e45214259a081d14",
+          "word_count": 117
+        },
+        "assets": {
+          "capture_id": "repo-reavideo-01",
+          "manifest_sha256": "7784925aff578d9f453d37bac27fa6528ce4ad86ed12e7050cf4d0756ad04c88",
+          "files": [],
+          "cover_sha256": "c41436e513c53361989f2ab68e05534ecfe7ac95f2902dac4f48df2e88c1b546",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-reavideo-01/manifest.json"
+          ]
+        }
+      }
+    },
+    "repo-dshgo-01": {
+      "brief_sha256": "429c1282208fb2af9ca8175923f9206da50ed41719295539c451ac0270a29324",
+      "brief_identity_sha256": "69e99e82f27ac7ec9c86b895ef1691c7e8606d514bab1793da8d88646fd3a6d0",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "e94caeac3a6d0e4a591bd72af2f6217f84e92de2d8744aed62d7eaddd45f14e8",
+          "word_count": 113
+        },
+        "assets": {
+          "capture_id": "repo-dshgo-01",
+          "manifest_sha256": "daa19365fcbd6c6c7a81ad78bfa4651d714b316591acfbbecb4ab7ef6b3f718e",
+          "files": [],
+          "cover_sha256": "d3b8b80aceceb01f2a9ef537e897b17a9628e534ecdce14fb126cddb41a18ed2",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-dshgo-01/manifest.json"
+          ]
+        }
+      }
+    },
+    "repo-autoloop-01": {
+      "brief_sha256": "4bc41913bcdb8435fdd6b89497c58d995544c4638d0f9d5c984342d7c81fe652",
+      "brief_identity_sha256": "f546fd3aa27d830f8b9d96e913b8eb33916fd98c1b92602bd6997c430e6d2179",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "07894c1c42f86f96179b20943d9fdc1b67fdce4201c6145ec561db7089bad413",
+          "word_count": 121
+        },
+        "assets": {
+          "capture_id": "repo-autoloop-01",
+          "manifest_sha256": "7aadc428a389198e2e5ab72a44086ab860735138f190e5d90ffdbfd05532f3cf",
+          "files": [],
+          "cover_sha256": "06fabb782964683868af1a5c8ebd8d091ec99daa669451bda523b16cc7ab2a49",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-autoloop-01/manifest.json"
+          ]
+        }
+      }
+    },
+    "repo-vork-01": {
+      "brief_sha256": "3ea5501d3a6283dbd841a7cac3025ca5f442f39435b0f0fed8df90d579b548b1",
+      "brief_identity_sha256": "df95e93e190b22f97138494b58f56ff1d0846b10ba6491d43021f191dfeebaf6",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "471962790c7122cd5c979e6b1f4f831ae64e78eab8b179907f45589343d7168a",
+          "word_count": 114
+        },
+        "assets": {
+          "capture_id": "repo-vork-01",
+          "manifest_sha256": "569d3476f8aa38d7fbc8361d562972c022e44bf13e53d307e4522c8f6c3f2007",
+          "files": [],
+          "cover_sha256": "561001c2eb98289e9762bd7e7e22f44c9202c897ef9bb07dd158f5b82209e227",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-vork-01/manifest.json"
+          ]
+        }
+      }
+    },
+    "repo-sand3d-01": {
+      "brief_sha256": "b1ecfae4b846256b22ab945af39671036a686260fd3a1d24eb0177062a8ef9e5",
+      "brief_identity_sha256": "a9e8b1e2a0ec3c5f141322a6849cb1fd9c6126fe1047f64985a1181e0b04e553",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "8f7d28d7b5887c792685b913d4857fed6049f26b70a4193222a6aa960889e0d3",
+          "word_count": 114
+        },
+        "assets": {
+          "capture_id": "repo-sand3d-01",
+          "manifest_sha256": "84313fbcd1d347320f47ed4f15bd6ab2d8b1cb70de304e90af89a0e565481d10",
+          "files": [],
+          "cover_sha256": "94c5ca959f726f1d5b53dee442a13f22a68a0873a439080329a65e9aac96e9cc",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-sand3d-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}

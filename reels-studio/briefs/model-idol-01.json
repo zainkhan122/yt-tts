@@ -1,0 +1,326 @@
+{
+  "id": "model-idol-01",
+  "capture": "captures/model-idol-01",
+  "title": "idol: one photo becomes a 3D model",
+  "niche": "AI tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "image to 3D",
+    "photo to 3D model",
+    "Gaussian splat",
+    "idol model"
+  ],
+  "facts": {
+    "method": "tool's own README and repo page, read on the day of the plan",
+    "limits": "One boundary: it makes single objects — your sneaker, your mug, your product — not whole rooms. Everything your photo shows, you still get."
+  },
+  "sources": [
+    "https://huggingface.co/speridlabs/idol",
+    "https://huggingface.co/speridlabs/idol",
+    "https://huggingface.co/speridlabs/idol",
+    "https://huggingface.co/speridlabs/idol",
+    "https://huggingface.co/speridlabs/idol"
+  ],
+  "lexicon": {
+    "GitHub": "git hub",
+    "Kokoro": "ko-ko-ro",
+    "Claude": "clawed",
+    "GPT": "G P T",
+    "MCP": "M C P",
+    "LLM": "L L M",
+    "API": "A P I",
+    "UI": "U I",
+    "unslop": "un-slop",
+    "UNSLOP": "un-slop",
+    "Unslop": "un-slop"
+  },
+  "verify_before_render": [
+    "Every point cites its source in the plan (model-idol-01/plan.json).",
+    "Kit images are drawn from the plan's own visual spec only."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "flow",
+      "heading": "ONE PHOTO, NOW 3D",
+      "nodes": [
+        "one flat photo",
+        "and then it spins"
+      ],
+      "say": "You shoot one photo for the product page — but can your buyer turn it around?"
+    },
+    {
+      "id": "point1",
+      "type": "flow",
+      "heading": "PHOTO IN, 3D OUT",
+      "nodes": [
+        "photo in",
+        "3D out",
+        "turn with mouse"
+      ],
+      "say": "Drop one photo into idol — you pull out a full three-D model you can turn with your mouse. Even the sides your camera never saw are drawn in. In about two seconds."
+    },
+    {
+      "id": "point2",
+      "type": "flow",
+      "heading": "STRAIGHT INTO BLENDER",
+      "nodes": [
+        "background cut",
+        "open in Blender",
+        "drag into your page"
+      ],
+      "say": "No studio, no turntable. It cuts the background, frames the object, and hands you a file that opens in Blender — so you drag it straight onto the product page or into a game."
+    },
+    {
+      "id": "point3",
+      "type": "flow",
+      "heading": "YOUR GPU, NOT THE CLOUD",
+      "nodes": [
+        "your GPU",
+        "no cloud",
+        "no waitlist"
+      ],
+      "say": "Your own graphics card runs it — about seven gigabytes. No cloud call, no waitlist."
+    },
+    {
+      "id": "point4",
+      "type": "flow",
+      "heading": "ONE COMMAND",
+      "nodes": [
+        "browser demo",
+        "one command"
+      ],
+      "say": "Or type one command on your own machine — python idol sample, photo.jpg — and your first model is done."
+    },
+    {
+      "id": "point5",
+      "type": "flow",
+      "heading": "PROOF ON ITS OWN TESTS",
+      "nodes": [
+        "every visual score",
+        "top trending"
+      ],
+      "say": "On the lab's own tests it beat both big image-to-three-D tools on every visual score — and it topped the trending list today."
+    },
+    {
+      "id": "catch",
+      "type": "flow",
+      "heading": "ONE BOUNDARY",
+      "nodes": [
+        "single objects, not rooms",
+        "you keep every angle you shot"
+      ],
+      "say": "One boundary: it makes single objects — your sneaker, your mug, your product — not whole rooms. Everything your photo shows, you still get."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "IDOL",
+      "say": "So skip the reshoot. Comment IDOL and I'll pin the link."
+    }
+  ],
+  "seo": {
+    "onscreen_first3s": "ONE PHOTO, NOW 3D",
+    "keyword": "image to 3D",
+    "aliases": [
+      "photo to 3D model",
+      "Gaussian splat",
+      "idol model",
+      "3D from one image"
+    ],
+    "youtube": {
+      "title": "Image to 3D in 2 seconds: idol turns one photo into a spinnable model",
+      "description": "Drop one product photo into idol and you get a full 3D Gaussian splat you can turn around with your mouse — even the sides the camera never saw. Background cut, standard 3DGS .ply that opens in Blender or any splat viewer, on your own GPU (7.2 GB VRAM, under 2 s): python -m idol.sample --image photo.jpg --mode real. Model: https://huggingface.co/speridlabs/idol #Shorts #ImageTo3D #GaussianSplat #3DAI",
+      "tags": [
+        "image to 3D",
+        "photo to 3D model",
+        "Gaussian splat",
+        "idol model",
+        "3D AI",
+        "single image 3D",
+        "Hugging Face"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#ImageTo3D",
+        "#GaussianSplat",
+        "#AI3D",
+        "#Blender"
+      ]
+    },
+    "tiktok": {
+      "caption": "Image to 3D — one product photo becomes a spinnable 3D model: background cut, .ply out, your own GPU. Comment IDOL for the link.",
+      "hashtags": [
+        "#ImageTo3D",
+        "#GaussianSplat",
+        "#AI3D",
+        "#Blender",
+        "#AITools"
+      ]
+    },
+    "instagram": {
+      "caption": "Image to 3D with idol: one photo becomes a model you can spin with the mouse — even the sides the camera never saw. Comment IDOL for the link.",
+      "hashtags": [
+        "#ImageTo3D",
+        "#GaussianSplat",
+        "#Blender",
+        "#AI3D",
+        "#AITools"
+      ]
+    },
+    "facebook": {
+      "caption": "Image to 3D: one product photo in, a spinnable model out — on your own GPU, about two seconds. Comment IDOL for the link.",
+      "hashtags": [
+        "#ImageTo3D",
+        "#GaussianSplat",
+        "#AI3D",
+        "#Blender",
+        "#Sneakerheads"
+      ]
+    },
+    "x": {
+      "text": "Image to 3D from one photo: idol turns a single product shot into a model your buyers can spin — about 2 seconds on your own GPU.",
+      "hashtags": [
+        "#ImageTo3D",
+        "#GaussianSplat"
+      ]
+    }
+  },
+  "post": {
+    "cta": "So skip the reshoot. Comment IDOL and I'll pin the link.",
+    "hashtags": [
+      "#Shorts",
+      "#ImageTo3D",
+      "#GaussianSplat",
+      "#3DAI"
+    ]
+  },
+  "research_basis": [
+    "videos/model-idol-01/plan.json"
+  ],
+  "viewer": {
+    "who": "shop owners, makers, 3D-curious builders with a flat product photo",
+    "problem": "a buyer can't see the object from behind — and a 3D version usually means a scanner or a modeller",
+    "job": "believe one photo can give a spinnable model, and know exactly what to click tonight"
+  },
+  "idea": "Drop one product photo into idol and you pull out a spinnable 3D model — no studio, your own GPU, one command.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "idol turns a single picture of an object into a full three-D Gaussian splat, including the sides the picture never showed, in about two seconds.",
+      "source": "https://huggingface.co/speridlabs/idol"
+    },
+    {
+      "id": "c2",
+      "text": "The pipeline removes the background, frames the object, and writes a standard 3DGS .ply that opens in Blender — no studio or turntable.",
+      "source": "https://huggingface.co/speridlabs/idol"
+    },
+    {
+      "id": "c3",
+      "text": "It runs on your own consumer GPU — 7.2 GB VRAM — with no cloud call or waitlist.",
+      "source": "https://huggingface.co/speridlabs/idol"
+    },
+    {
+      "id": "c4",
+      "text": "Try it free in the browser demo, or run one command on your own machine.",
+      "source": "https://huggingface.co/speridlabs/idol"
+    },
+    {
+      "id": "c5",
+      "text": "On the lab's own benchmark it edges TripoSplat and TRELLIS on every visual column, and it was the number-one trending model on Hugging Face today.",
+      "source": "https://huggingface.co/speridlabs/idol"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://huggingface.co/speridlabs/idol",
+      "how_shown": "photo beside its live 3D, cursor drags it around"
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://huggingface.co/speridlabs/idol",
+      "how_shown": "background stripped off the same object, .ply into a Blender window"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://huggingface.co/speridlabs/idol",
+      "how_shown": "gauge on your card, no cloud chips"
+    },
+    {
+      "claim": "c4",
+      "evidence": "source:https://huggingface.co/speridlabs/idol",
+      "how_shown": "the free demo door, then the command typing itself"
+    },
+    {
+      "claim": "c5",
+      "evidence": "source:https://huggingface.co/speridlabs/idol",
+      "how_shown": "bars with idol on top, trending badge"
+    }
+  ],
+  "treatment": {
+    "audience": "shop owners, makers, 3D-curious builders with a flat product photo",
+    "viewer_job": "believe one photo can give a spinnable model, and know exactly what to click tonight",
+    "intent": "search",
+    "hook_mechanic": "viewer question about the tool's first claim",
+    "open_loop": {
+      "plant": "You shoot one photo for the product page — but can your buyer turn it around?",
+      "payoff_scene": "point1"
+    },
+    "proof_moment": "point1",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "id": "c1",
+        "layout": "split",
+        "text": "PHOTO IN, 3D OUT",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c1.png",
+          "design": "Paper plate split down the middle: left a flat fabricated product photo of a sneaker, right the same sneaker as a violet Gaussian-splat object with orbit ticks, headline across the divider."
+        }
+      },
+      {
+        "id": "c2",
+        "layout": "window",
+        "text": "PHOTO IN, SPLAT OUT",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c2.png",
+          "design": "A fabricated demo-page window: photo chip on the left rail, violet 3D blob with rotation arrows in the middle, .ply file card on the right, headline along the top."
+        }
+      },
+      {
+        "id": "c3",
+        "layout": "bleed",
+        "text": "PHOTO TO 3D, FAST",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c3.png",
+          "design": "Full-bleed paper with a giant '2s' chip, a VRAM bar at 7.2 GB, and a small violet splat orbiting in the corner."
+        }
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-11-08",
+    "expires_at": null,
+    "reviewer": "agent: plan written from the maker's README and repo page",
+    "notes": "Topic approved by owner (config/topic-approvals.json). Plan and copy await owner review at the cover gate."
+  },
+  "motion_standard": 2,
+  "qa_gates": true,
+  "renderer": "graphics",
+  "graphics": {
+    "dir": "briefs/graphics/model-idol-01",
+    "note": "beat plan bound to the brief scenes; lint is fail-closed on script or scene mismatch"
+  },
+  "voice_tempo": 1.15,
+  "copyable_action": "python -m idol.sample --image photo.jpg --mode real",
+  "voice_seed": 0,
+  "tail": 2.0
+}

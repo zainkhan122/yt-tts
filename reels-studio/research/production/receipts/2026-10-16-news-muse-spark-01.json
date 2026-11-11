@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-16-news-muse-spark-01",
+  "created_at": "2026-10-16T08:20:00Z",
+  "buffer_insights": {
+    "path": "reels-studio/tracker/buffer-insights.json",
+    "sha256": "19b60ade2adba83a7f17e68afa2e117f8a0f35f95db18bc38616d2879c579e99"
+  },
+  "metrics_review": {
+    "snapshot_sha256": "19b60ade2adba83a7f17e68afa2e117f8a0f35f95db18bc38616d2879c579e99",
+    "reviewed_video_count": 79,
+    "sample_post_ids": [
+      "6acc91ac5feb3462de95f38b",
+      "6acc91a65feb3462de95f295",
+      "6ac904b32f26cc482c22c526",
+      "6accbfbf0b1f16abcb04921c"
+    ],
+    "findings": [
+      "Fresh snapshot fetched 2026-10-16T08:07:13Z: 79 shared video records, complete coverage across YouTube/Instagram/Facebook.",
+      "Hands-on local-AI demos and open-source spotlights lead our history: repo-ds4-01 972 YouTube views, tool-qwen38-01 807; Instagram fresh median leaders include model-embeddinggemma2-01 at 232 views within a day of posting.",
+      "Concrete, testable payoffs outperform feature lists (spotlight-papermorph-01, 608 YouTube views); every script below states its payoff in sentence one and attributes vendor figures.",
+      "Instagram rewards save-worthy tool/model spotlights (repo-opencr-01 268 views); each video carries a comment keyword CTA."
+    ],
+    "decisions": {
+      "topic": "Big-model news with a concrete reality check fits our audience; Meta's launch drew 3 watchlist channels plus press within a day.",
+      "script": "Hook states the 816B release in sentence one, names Muse Spark Open in scene two, and keeps the 1 TB RAM requirement and Muse licence limits in the spoken catch so the headline never overpromises.",
+      "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall; large numbers stay on screen.",
+      "visual": "Original spec and skills cards created for this video; no third-party clips or copied announcement art."
+    }
+  },
+  "briefs": {
+    "news-muse-spark-01": {
+      "brief_sha256": "1de09c12770dad95676e962feaff0cc139268f8a197e4a3f5da31f9df9ce9c43",
+      "metrics_decisions": {
+        "topic": "Big-model news with a concrete reality check fits our audience; Meta's launch drew 3 watchlist channels plus press within a day.",
+        "script": "Hook states the 816B release in sentence one, names Muse Spark Open in scene two, and keeps the 1 TB RAM requirement and Muse licence limits in the spoken catch so the headline never overpromises.",
+        "voice": "Approved Chatterbox Option-3 flow voice at the fixed floors: at least 92% per chunk and 95% overall; large numbers stay on screen.",
+        "visual": "Original spec and skills cards created for this video; no third-party clips or copied announcement art."
+      },
+      "stages": {
+        "discover": {
+          "status": "complete",
+          "checked_at": "2026-10-16T08:20:00Z",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-16.md",
+            "reels-studio/research/ideas/feed-2026-10-16.md"
+          ]
+        },
+        "select": {
+          "status": "complete",
+          "selection_status": "selected",
+          "topic": "Muse Spark Open: Meta 816B open-weight model",
+          "score": 78,
+          "score_breakdown": {
+            "trend_velocity": 18,
+            "demo_ability": 14,
+            "audience_breadth": 14,
+            "social_proof_gap": 10,
+            "free_value": 8,
+            "freshness_angle": 14
+          },
+          "metrics_snapshot_sha256": "19b60ade2adba83a7f17e68afa2e117f8a0f35f95db18bc38616d2879c579e99",
+          "basis_post_ids": [
+            "6acc91ac5feb3462de95f38b",
+            "6acc91a65feb3462de95f295",
+            "6ac904b32f26cc482c22c526"
+          ],
+          "hard_gates": {
+            "risk_flags_clear": true,
+            "claim_verifiable": true,
+            "license_clear": true
+          }
+        },
+        "research": {
+          "status": "complete",
+          "evidence": [
+            "reels-studio/research/radar/radar-2026-10-16.md",
+            "reels-studio/research/ideas/feed-2026-10-16.md"
+          ],
+          "dynamic_facts_checked_at": "2026-10-16T08:20:00Z",
+          "primary_sources": [
+            {
+              "url": "https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/",
+              "checked_at": "2026-10-16T08:20:00Z",
+              "claim": "TechCrunch reports the launch, 816B parameters, 1M context, and the roughly 1 TB RAM local requirement."
+            },
+            {
+              "url": "https://x.com/AIatMeta/status/2110779754274292212",
+              "checked_at": "2026-10-16T08:20:00Z",
+              "claim": "Meta's own post confirms 816B total / 42B active, 1M context, native multimodality, API availability."
+            }
+          ]
+        },
+        "script": {
+          "status": "complete",
+          "script_sha256": "7ffec29c5929294ccf9c4aa827ffebbb266882c135d42f21249df1919fbe730d",
+          "word_count": 126
+        },
+        "voice": {
+          "status": "complete",
+          "engine": "chatterbox",
+          "profile": "option-3",
+          "qa_thresholds": {
+            "per_chunk": 0.92,
+            "overall": 0.95
+          }
+        },
+        "assets": {
+          "status": "complete",
+          "rights_checked": true,
+          "approval_constraints_checked": true,
+          "capture_id": "news-muse-spark-01",
+          "manifest_sha256": "a553b9af2d0767494055b3b37806269604723dafc0e8e7a71cfea4dcd21beee0",
+          "files": [
+            {
+              "path": "spec-card.png",
+              "sha256": "8a0f1f26c89b1aef54feef71d00c1a79835ad54a62db7a3ac3115c3805ff6ba5"
+            },
+            {
+              "path": "skills-card.png",
+              "sha256": "f1c3601c53f81cae918dac0a8a1d8cf3d6d494ce9c754fa1d3e25e9fe034d842"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

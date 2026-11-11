@@ -1,0 +1,219 @@
+{
+  "id": "repo-blender-mcp-01",
+  "capture": "captures/repo-blender-mcp-01",
+  "title": "AI Inside Blender: It Builds the Scene While You Watch",
+  "niche": "AI scene building in Blender",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "Selected 2026-10-18 from fresh radar + performance advice (repo prioritised). Random daily count draw: 2 videos. Default flow: render + frame-level QA, then Buffer scheduled send on YouTube/Instagram/Facebook at each channel's best-performing window. Approved Option-3 Chatterbox flow voice; no on-screen credit captions.",
+  "production_category": "repo",
+  "keywords": [
+    "Blender AI",
+    "MCP",
+    "Blender add-on",
+    "AI 3D",
+    "agent team"
+  ],
+  "facts": {
+    "stars": "747 GitHub stars (GitHub page capture, checked 2026-10-18)",
+    "license": "MIT",
+    "requirement": "Blender 4.2+; release bundle targets Windows x64"
+  },
+  "credits_on_screen": "Own captures of the public GitHub repo + the project's own screenshots (checked 2026-10-18).",
+  "sources": [
+    "https://github.com/anujasid/blender-ai-mcp-addon",
+    "https://api.github.com/repos/anujasid/blender-ai-mcp-addon"
+  ],
+  "verify_before_render": [
+    "Stars, licence and feature claims re-checked against the live repo on render day."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "heading": "AI BUILDS *IN BLENDER*",
+      "sub": "Blender AI MCP add-on · AI builds the scene with you",
+      "say": "Your AI can now build scenes inside Blender, not just chat about them.",
+      "url": "github.com/anujasid/blender-ai-mcp-addon",
+      "camera": [
+        {
+          "region": "repo_title",
+          "zoom": 1.5,
+          "at": "build"
+        }
+      ]
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "image": "studio.png",
+      "heading": "MEET *MCP FOR BLENDER PRO*",
+      "sub": "The live console · Blender connected",
+      "say": "It is MCP for Blender Pro, an open-source add-on that plugs AI into Blender itself."
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "HOW IT *WORKS*",
+      "steps": [
+        "Describe the scene",
+        "It inspects first",
+        "Builds step by step"
+      ],
+      "step_at": [
+        "Describe",
+        "inspects",
+        "step by step"
+      ],
+      "say": "You describe the scene you want. It inspects what is already there, then builds and edits step by step.",
+      "background": {
+        "image": "desktop-full.jpg",
+        "scroll_regions": [
+          "h_turn_a_creative_brief_into_scene_operati",
+          "h_from_a_quick_edit_to_an_agent_team"
+        ]
+      }
+    },
+    {
+      "id": "stars",
+      "type": "page",
+      "heading": "FOUND *FAST*",
+      "say": "Blender artists gave it hundreds of stars in its first two days.",
+      "image": "desktop-top.jpg",
+      "camera": [
+        {
+          "region": "star_button",
+          "zoom": 2.6,
+          "at": "hundreds"
+        }
+      ],
+      "cursor": [
+        {
+          "region": "star_button",
+          "at": "hundreds",
+          "state": "★ Starred 747"
+        }
+      ]
+    },
+    {
+      "id": "install",
+      "type": "page",
+      "heading": "*TWO-MINUTE* SETUP",
+      "say": "You install it as a Blender extension, add your model key, and start directing the scene.",
+      "image": "desktop-full.jpg",
+      "camera": [
+        {
+          "region": "h_install_and_create",
+          "zoom": 1.35,
+          "at": "install"
+        }
+      ]
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "BEFORE YOU *INSTALL*",
+      "cons": [
+        "Release targets Windows first",
+        "Needs Blender 4.2 or later",
+        "Cloud models cost money"
+      ],
+      "pros": [
+        "Free and open source",
+        "Local models via Ollama"
+      ],
+      "item_at": [
+        "Windows",
+        "recent Blender",
+        "cost money",
+        "open source",
+        "Ollama"
+      ],
+      "say": "The catches are real: the release targets Windows first, you need a recent Blender, and cloud models cost money. In return, it is free and open source, and local models work through Ollama.",
+      "image": "blender-workspace.png",
+      "region": "workspace_viewport",
+      "zoom": 1.15
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "BLENDER",
+      "say": "Want your AI to build scenes, not just pictures? Comment Blender and follow for tools like this."
+    }
+  ],
+  "seo": {
+    "keyword": "MCP for Blender",
+    "aliases": [
+      "Blender AI add-on",
+      "MCP server"
+    ],
+    "onscreen_first3s": "AI BUILDS IN BLENDER",
+    "youtube": {
+      "title": "AI Inside Blender: It Builds Scenes From Chat | MCP for Blender Pro",
+      "description": "MCP for Blender Pro is a free MIT add-on that gives AI 21 scene tools inside Blender 4.2+: describe a scene, it inspects what exists, then creates and edits objects step by step — with a visual chat, agent team and built-in MCP server. Works with OpenAI, Claude, Gemini or local Ollama. 551 GitHub stars in two days. Catches: the release targets Windows first and cloud models cost money.\nSource: https://github.com/anujasid/blender-ai-mcp-addon",
+      "hashtags": [
+        "#Shorts",
+        "#Blender",
+        "#AI",
+        "#3D"
+      ],
+      "tags": [
+        "Blender AI",
+        "MCP for Blender",
+        "Blender add-on",
+        "AI 3D art",
+        "Claude MCP",
+        "Blender tutorial"
+      ]
+    },
+    "tiktok": {
+      "caption": "AI that builds Blender scenes for you: MCP for Blender Pro, 21 scene tools, MIT. Catch: Windows-first release.",
+      "hashtags": [
+        "#Blender",
+        "#AI",
+        "#3D"
+      ]
+    },
+    "instagram": {
+      "caption": "Save this if you make 3D: an open-source add-on lets AI build scenes inside Blender while you watch. 21 scene tools, your choice of model, MIT licence.",
+      "hashtags": [
+        "#Blender",
+        "#AIArt",
+        "#3D"
+      ]
+    },
+    "facebook": {
+      "caption": "MCP for Blender Pro (MIT): describe the scene, AI inspects and builds it inside Blender 4.2+. Agent team, MCP server, local models via Ollama.",
+      "hashtags": [
+        "#Blender",
+        "#AI"
+      ]
+    },
+    "x": {
+      "text": "AI inside Blender, building scenes from chat: MCP for Blender Pro — 21 scene tools, MIT, 551 stars in 2 days. https://github.com/anujasid/blender-ai-mcp-addon",
+      "hashtags": [
+        "#Blender",
+        "#AI"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "AI Inside Blender: It Builds the Scene While You Watch"
+    ],
+    "caption": "MCP for Blender Pro: an open-source (MIT) add-on that gives AI 21 scene tools inside Blender — describe it, it inspects, then builds step by step. Agent team, built-in MCP server, works with OpenAI/Claude/Gemini or local Ollama. 551 stars in two days. Catches: Windows-first release, needs Blender 4.2+, cloud models cost money.",
+    "hashtags": [
+      "#Shorts",
+      "#Blender",
+      "#AI",
+      "#3D"
+    ],
+    "keyword": "BLENDER"
+  },
+  "research_basis": [
+    "research/social/decode-2026-10-18.md",
+    "research/social/platform-algorithms-2026-10-18.md",
+    "tracker/performance.json"
+  ]
+}

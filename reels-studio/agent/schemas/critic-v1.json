@@ -1,0 +1,116 @@
+{
+  "type": "object",
+  "properties": {
+    "verdict": {
+      "enum": [
+        "pass",
+        "revise",
+        "block"
+      ]
+    },
+    "all_material_claims_accounted_for": {
+      "type": "boolean"
+    },
+    "scores": {
+      "type": "object",
+      "properties": {
+        "facts": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "authenticity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "script": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        }
+      },
+      "required": [
+        "facts",
+        "authenticity",
+        "script"
+      ],
+      "additionalProperties": false
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "severity": {
+            "enum": [
+              "critical",
+              "major",
+              "minor"
+            ]
+          },
+          "area": {
+            "enum": [
+              "facts",
+              "authenticity",
+              "script",
+              "visuals",
+              "voice",
+              "security",
+              "format"
+            ]
+          },
+          "scene_id": {
+            "type": "string",
+            "maxLength": 30,
+            "minLength": 0
+          },
+          "finding": {
+            "type": "string",
+            "maxLength": 600,
+            "minLength": 10
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 60,
+              "minLength": 1
+            },
+            "minItems": 0,
+            "maxItems": 8
+          },
+          "required_fix": {
+            "type": "string",
+            "maxLength": 600,
+            "minLength": 5
+          }
+        },
+        "required": [
+          "severity",
+          "area",
+          "scene_id",
+          "finding",
+          "evidence_ids",
+          "required_fix"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 20
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 1000,
+      "minLength": 20
+    }
+  },
+  "required": [
+    "verdict",
+    "all_material_claims_accounted_for",
+    "scores",
+    "issues",
+    "summary"
+  ],
+  "additionalProperties": false
+}

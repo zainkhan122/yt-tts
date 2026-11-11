@@ -1,0 +1,62 @@
+{
+  "tool": {
+    "name": "unslop",
+    "repo": "https://github.com/heydamir/unslop"
+  },
+  "features": [
+    {
+      "id": "f1",
+      "title": "Skill for Claude Code and Codex",
+      "what": "It installs as a skill folder so the agent picks it up by itself.",
+      "evidence_quote": "unslop is a skill for Claude Code and Codex that turns vibecoded, AI-looking UI into a designed interface with its own character."
+    },
+    {
+      "id": "f2",
+      "title": "Audit, then a direction",
+      "what": "It lists every sign of slop and where it lives before it edits anything.",
+      "items": [
+        "Audit",
+        "Direction"
+      ],
+      "evidence_quote": "It audits the screen and proposes a direction before it edits anything, so you can steer it early."
+    },
+    {
+      "id": "f3",
+      "title": "Passes in a fixed order",
+      "what": "Spacing, color, icons, copy, type, layout, details, visuals and motion, in that order.",
+      "evidence_quote": "Passes. Spacing, color, icons, copy, type, layout, details, visuals and motion, in that order."
+    },
+    {
+      "id": "f4",
+      "title": "Runs in the viewer's stack",
+      "what": "It handles the frameworks the screen is built with, live sites included.",
+      "evidence_quote": "It works in whatever your screen is built with, like Next.js, React, Vue, Svelte, Tailwind or plain HTML and CSS"
+    },
+    {
+      "id": "f5",
+      "title": "Story video of the fix",
+      "what": "It cuts a short square video of the screen unslopping itself.",
+      "evidence_quote": "Story video. A square video under 10 seconds of your screen unslopping itself, ready to post."
+    },
+    {
+      "id": "f6",
+      "title": "Extra tools for the video",
+      "risk": true,
+      "what": "The story video needs two more tools installed on the machine.",
+      "evidence_quote": "Story videos also require ffmpeg installed and available on your PATH."
+    }
+  ],
+  "risks": [
+    {
+      "id": "r1",
+      "text": "It is an agent skill: it needs Claude Code or Codex, plus Playwright and ffmpeg for the story video."
+    },
+    {
+      "id": "r2",
+      "text": "Image generation for a hero is optional and paid, and it asks before every generation."
+    }
+  ],
+  "source_urls": [
+    "https://github.com/heydamir/unslop"
+  ]
+}

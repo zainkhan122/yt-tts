@@ -1,0 +1,31 @@
+{
+ "about": "Voice lab v1 (2026-10-09): same Muse video, current script vs a script written for the ear; current Kokoro vs Chatterbox (MIT) with emotion exaggeration. Owner listens and picks.",
+ "reference_text": "Okay, this one genuinely surprised me. Meta just shipped an AI that does your chores, and honestly? It's kind of wild. Let me show you how it works.",
+ "scripts": {
+  "current": [
+   "Meta's new AI agent, Muse, doesn't just chat. It fills in forms, shops and books trips for you.",
+   "Here it found a field trip form in an email and filled it out for you.",
+   "It can shop too, but before it buys or sends anything, it asks first and logs every step.",
+   "It shot to number one on the App Store, with about {6.6|six point six} million installs in its first month.",
+   "The catch: it's US and Canada only, and WIRED reports it keeps a page on every person in your life. It's free to start, with weekly limits.",
+   "Would you let an AI run your inbox? Comment {AGENT|agent}."
+  ],
+  "ear": [
+   {"text": "Meta just dropped an AI that actually does your chores.", "pause": 0.35},
+   {"text": "It's called Muse. You text it, and it fills out forms, shops, even books your trips.", "pause": 0.3},
+   {"text": "Watch. It found a school form in an email... and filled it out. By itself.", "pause": 0.35},
+   {"text": "And before it buys anything? It asks you first.", "pause": 0.3},
+   {"text": "It's already the number one app in America. Six point six million installs. In one month!", "pause": 0.4},
+   {"text": "But here's the catch. It only works in the US and Canada.", "pause": 0.25},
+   {"text": "And WIRED says it keeps a file on everyone in your life.", "pause": 0.35},
+   {"text": "So... would you let an AI run your inbox? Comment agent.", "pause": 0.2}
+  ]
+ },
+ "variants": [
+  {"name": "1-kokoro-current", "engine": "kokoro", "voice": "am_michael", "speed": 1.15, "script": "current"},
+  {"name": "2-kokoro-ear-script", "engine": "kokoro", "voice": "am_michael", "speed": 1.15, "script": "ear"},
+  {"name": "3-chatterbox-michael-neutral", "engine": "chatterbox", "ref": "kokoro:am_michael", "exaggeration": 0.5, "cfg": 0.5, "script": "ear"},
+  {"name": "4-chatterbox-michael-energetic", "engine": "chatterbox", "ref": "kokoro:am_michael", "exaggeration": 0.8, "cfg": 0.35, "script": "ear"},
+  {"name": "5-chatterbox-default-energetic", "engine": "chatterbox", "exaggeration": 0.8, "cfg": 0.35, "script": "ear"}
+ ]
+}

@@ -1,0 +1,127 @@
+{
+ "template": "tool-spotlight",
+ "capture": "tests/fixtures/layout/capture",
+ "style": "midnight",
+ "keywords": [
+  "demo"
+ ],
+ "sources": [
+  "https://example.com/demo"
+ ],
+ "credits_on_screen": "Own capture.",
+ "seo": {
+  "keyword": "demo",
+  "youtube": {
+   "title": "demo",
+   "description": "demo",
+   "hashtags": [
+    "#Shorts"
+   ],
+   "tags": [
+    "demo"
+   ]
+  }
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "page",
+   "image": "desktop-top.jpg",
+   "url": "https://example.com/demo",
+   "heading": "YOUR AGENT *SHOOTS THE AD*",
+   "say": "Your agent can shoot the ad."
+  },
+  {
+   "id": "proof",
+   "type": "page",
+   "heading": "THE *SHOOT*",
+   "image": "desktop-full.jpg",
+   "url": "https://example.com/demo",
+   "say": "It reads your product and writes the film."
+  },
+  {
+   "id": "how",
+   "type": "steps",
+   "heading": "HOW IT *WORKS*",
+   "steps": [
+    "Point it at your repo",
+    "It writes the film"
+   ],
+   "background": {
+    "image": "desktop-full.jpg"
+   },
+   "say": "Two steps, that is it."
+  },
+  {
+   "id": "catch",
+   "type": "verdict",
+   "heading": "THE *CATCH*",
+   "cons": [
+    "Tested on Mac so far"
+   ],
+   "pros": [
+    "Runs on your machine"
+   ],
+   "say": "The honest catch, Mac only so far."
+  },
+  {
+   "id": "cta",
+   "type": "endcard",
+   "keyword": "FILM",
+   "say": "Comment film and follow."
+  }
+ ],
+ "id": "layout-myth-bust",
+ "treatment": {
+  "audience": "indie makers",
+  "viewer_job": "ship a launch film",
+  "intent": "browse",
+  "archetype": "myth-bust",
+  "hook_mechanic": "one-person film crew",
+  "open_loop": {
+   "plant": "what will it look like?",
+   "payoff_scene": "how"
+  },
+  "proof_moment": "proof",
+  "cover_concepts": [
+   {
+    "text": "AGENT SHOOTS ADS",
+    "visual": "repo",
+    "gap": "what can it shoot?"
+   },
+   {
+    "text": "NO CREW NEEDED",
+    "visual": "demo",
+    "gap": "really?"
+   },
+   {
+    "text": "POINT. RE-EDIT.",
+    "visual": "readme",
+    "gap": "how?"
+   }
+  ],
+  "selected_cover": 0,
+  "structure": [
+   {
+    "scene": "hook",
+    "beat": "claim"
+   },
+   {
+    "scene": "proof",
+    "beat": "evidence"
+   },
+   {
+    "scene": "how",
+    "beat": "test"
+   },
+   {
+    "scene": "catch",
+    "beat": "reality"
+   },
+   {
+    "scene": "cta",
+    "beat": "close"
+   }
+  ]
+ }
+}

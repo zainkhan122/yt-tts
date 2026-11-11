@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-31-claude-mem-01",
+  "created_at": "2026-10-31T20:30:00Z",
+  "briefs": {
+    "repo-claude-mem-01": {
+      "brief_sha256": "adfefa578ca43b1eb718917884d9bc3f3c6cc6821492a57158c19ee0dd9e1efe",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "633b1824fcd504fa8a70e5cc9e7404a13e250fbfee79cdc9aecf4c0e61deeae0",
+          "word_count": 95
+        },
+        "assets": {
+          "status": "complete",
+          "capture_id": "repo-claude-mem-01",
+          "manifest_sha256": "8a911626822136516f99acffbd486d1b91fc053c394d66faf574855f47185551",
+          "files": [
+            {
+              "path": "claude-mem-logo-for-light-mode.webp",
+              "sha256": "1aa342d465ebc7fddd00f57b1037a84f1a4859038ae210e228b56b21f63a56fc"
+            },
+            {
+              "path": "cm-preview.gif",
+              "sha256": "13e1d2ab12090b1a155298ea77d1a567efb6041d047159a5b41d1e7c4101784c"
+            },
+            {
+              "path": "cm-preview.mp4",
+              "sha256": "a62667b8a23ef3de08019bd5b1c326deeba76806005fca700b716bb09e420460"
+            },
+            {
+              "path": "cover-hero.jpg",
+              "sha256": "bace40036bdc5aeb962bb9364a59dc66833271dbbcb94569fff75bc5993bd044"
+            },
+            {
+              "path": "img-1.jpg",
+              "sha256": "bace40036bdc5aeb962bb9364a59dc66833271dbbcb94569fff75bc5993bd044"
+            },
+            {
+              "path": "img-2.jpg",
+              "sha256": "87aca30ca65cb834337e87a676f21e3f6f1e8707ebc88c946f36fe0c31289db5"
+            },
+            {
+              "path": "img-3.jpg",
+              "sha256": "74e9d11f1e9adc1d665fcf6ea2dd85a4bc9cb99480306eaf02ad5c922973c20e"
+            },
+            {
+              "path": "img-4.jpg",
+              "sha256": "4a961b0ab972fed6917a85fc48e19f411b450ae2ec13dc84c4688b20f210e737"
+            },
+            {
+              "path": "img-5.jpg",
+              "sha256": "3c9d1c55d1c03dfa9bd2ccc9005af1b6b62447dac9f33ba8e8ea8855036365b7"
+            }
+          ],
+          "evidence": [
+            "captures/repo-claude-mem-01/manifest.json"
+          ],
+          "cover_sha256": "bad79dd53ea2c292b3eae4f75fb9137da4e14cea9575230d7636b4d856c75a9f"
+        }
+      }
+    }
+  }
+}

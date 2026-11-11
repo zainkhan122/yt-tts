@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-08-shorts-04",
+  "created_at": "2026-11-07T08:49:28Z",
+  "briefs": {
+    "repo-unslop-01": {
+      "brief_sha256": "2e9dd5a7cae065bee04d40559550888a484abe1f429e4d7ad24673a16ba0c456",
+      "brief_identity_sha256": "9d789f144cddb9150941b0c603c4c2c76e7d0169915ef4de190efd02c6518971",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "d26e2bbab0fb1102cd04189384c2ec42052791de944b6024576f10b1bd63bea8",
+          "word_count": 125
+        },
+        "assets": {
+          "capture_id": "repo-unslop-01",
+          "manifest_sha256": "37e2d364888afddfc2ce002b97ce0be82405d4825dfafd480bff8782fedabe18",
+          "files": [],
+          "cover_sha256": "3f4f370d41049bff223bf49d7276f4fb0288953467f7ceaf34673cead2e0b7ce",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-unslop-01/manifest.json"
+          ]
+        }
+      }
+    },
+    "repo-reavideo-01": {
+      "brief_sha256": "5f55b4237bcd67145ff679bad2a2034bedb82de47569bcbfefaecfc04d7e7f8d",
+      "brief_identity_sha256": "8b81b18fce3e6ac986ff3c9a71b0bcc24d140326905bfce3e90eb8eb563cd562",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "375d0b1a16d1e439a3f14e8adc3c0a2af51647261b6d33d5e45214259a081d14",
+          "word_count": 117
+        },
+        "assets": {
+          "capture_id": "repo-reavideo-01",
+          "manifest_sha256": "7784925aff578d9f453d37bac27fa6528ce4ad86ed12e7050cf4d0756ad04c88",
+          "files": [],
+          "cover_sha256": "c41436e513c53361989f2ab68e05534ecfe7ac95f2902dac4f48df2e88c1b546",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-reavideo-01/manifest.json"
+          ]
+        }
+      }
+    },
+    "repo-sand3d-01": {
+      "brief_sha256": "d752f3714d6f2c5c4855932f4a1217a76cf08bd6cd7933f7db1b18c506e97a12",
+      "brief_identity_sha256": "1153de4e2dba3b653d66a34314268225043c936ba2d5d96551e73956d63a96ca",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "8f7d28d7b5887c792685b913d4857fed6049f26b70a4193222a6aa960889e0d3",
+          "word_count": 114
+        },
+        "assets": {
+          "capture_id": "repo-sand3d-01",
+          "manifest_sha256": "84313fbcd1d347320f47ed4f15bd6ab2d8b1cb70de304e90af89a0e565481d10",
+          "files": [],
+          "cover_sha256": "94c5ca959f726f1d5b53dee442a13f22a68a0873a439080329a65e9aac96e9cc",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-sand3d-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}

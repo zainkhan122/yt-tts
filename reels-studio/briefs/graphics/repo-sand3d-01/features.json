@@ -1,0 +1,72 @@
+{
+  "tool": {
+    "name": "sand3d",
+    "repo": "https://github.com/Sandflow-ai/sand3d"
+  },
+  "features": [
+    {
+      "id": "f1",
+      "title": "3D objects as short programs",
+      "what": "Parts, solids, edits and assemblies are written as Python over bpy.",
+      "evidence_quote": "sand3d is a Python library for writing 3D objects as short programs: profiles, solids, edits, frames, joints and assemblies, over Blender's bpy."
+    },
+    {
+      "id": "f2",
+      "title": "Few tokens per part",
+      "what": "A part costs two to six times fewer tokens than in Blender Python or CadQuery.",
+      "metric": {
+        "value": 6,
+        "unit": "x fewer tokens"
+      },
+      "evidence_quote": "Short. A part takes 2 to 6× fewer tokens than the same part in Blender Python, CadQuery or FeatureScript"
+    },
+    {
+      "id": "f3",
+      "title": "Named, not computed",
+      "what": "Parts, edges and faces are addressed by name, never by coordinates.",
+      "evidence_quote": "Named, not computed. Parts, edges and faces are reached by name, never by hand-computed coordinates."
+    },
+    {
+      "id": "f4",
+      "title": "Deterministic builds",
+      "what": "The same program produces the same mesh, bit for bit.",
+      "evidence_quote": "Deterministic. The same program builds the same mesh, bit for bit."
+    },
+    {
+      "id": "f5",
+      "title": "Exports real formats",
+      "what": "One call writes GLB, URDF, USD, OBJ or STL named by the file extension.",
+      "evidence_quote": "One call; the file's extension names the format; lengths in metres."
+    },
+    {
+      "id": "f6",
+      "title": "Whole API in a prompt",
+      "what": "The documented API fits in a prompt at about 3,600 tokens.",
+      "metric": {
+        "value": 3600,
+        "unit": "tokens"
+      },
+      "evidence_quote": "The whole API fits in a prompt, about 3,600 tokens"
+    },
+    {
+      "id": "f7",
+      "title": "bpy version limits",
+      "risk": true,
+      "what": "Blender's bpy module only ships for some Python versions and some Macs.",
+      "evidence_quote": "bpy has no wheel for Python 3.12, nor for Intel Macs from 5.2 on: there, use Python 3.11."
+    }
+  ],
+  "risks": [
+    {
+      "id": "r1",
+      "text": "It depends on Blender's bpy module, so the Python version and the machine both matter."
+    },
+    {
+      "id": "r2",
+      "text": "There are no category verbs: a chair or a table is a program you write in sand3d."
+    }
+  ],
+  "source_urls": [
+    "https://github.com/Sandflow-ai/sand3d"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+ "id": "trending-repos-2026-11-08",
+ "draft": true,
+ "needs_review": [
+  "write the hook, sub and CTA yourself from what you verified by running each tool (no formula copy)",
+  "rewrite each 'line' as a spoken sentence you verified by running the tool",
+  "check the licence and that the repo does what it claims",
+  "add a real takeaway in the CTA"
+ ],
+ "title": "5 AI repos blowing up on GitHub this week",
+ "lang": "en-us",
+ "voice": "af_heart",
+ "speed": 1.05,
+ "style": "midnight",
+ "brand": {
+  "handle": "@yourhandle",
+  "name": "Your Channel",
+  "tagline": "Trending AI tools, tested"
+ },
+ "content": {
+  "kicker": "",
+  "hook": "TODO: write the viewer-problem hook",
+  "hook_display": "TODO",
+  "sub": "TODO",
+  "metric_label": "GitHub stars",
+  "metric_icon": "⭐",
+  "items": [
+   {
+    "rank": 5,
+    "name": "aion-2-trainer-tool",
+    "line": "Aion 2, an AI-driven LLM prompt engineering resource, offers a pre-configured environment ",
+    "value": 300,
+    "tag": "none · 300★/day",
+    "mono": "AI"
+   },
+   {
+    "rank": 4,
+    "name": "aida-64-extreme",
+    "line": "AI Prompt Engineering Toolkit Aida 64 Extreme, pre-configured environment for advanced LLM",
+    "value": 302,
+    "tag": "none · 302★/day",
+    "mono": "AI"
+   },
+   {
+    "rank": 3,
+    "name": "sandbox-mcp",
+    "line": "Fresh, throwaway Windows machines for testing your apps: an MCP server and CLI that automa",
+    "value": 306,
+    "tag": "MIT · 306★/day",
+    "mono": "SA"
+   },
+   {
+    "rank": 2,
+    "name": "phoneuse",
+    "line": "See and operate an unmodified iPhone from a Linux PC: AirPlay mirror in, Bluetooth HID mou",
+    "value": 314,
+    "tag": "MIT · 314★/day",
+    "mono": "PH"
+   },
+   {
+    "rank": 1,
+    "name": "pinky",
+    "line": "Let AI agents use your phone, with you in the loop.",
+    "value": 523,
+    "tag": "Apache-2.0 · 523★/day",
+    "mono": "PI"
+   }
+  ],
+  "cta": "TODO: one concrete next step for the viewer"
+ },
+ "sources": [
+  "GitHub API, fetched 2026-11-08: Outsideclofilter/aion-2-trainer-tool 300★, PaladinSmash84/aida-64-extreme 302★, shanselman/sandbox-mcp 306★, lxe/phoneuse 314★, DIYgod/pinky 523★"
+ ]
+}

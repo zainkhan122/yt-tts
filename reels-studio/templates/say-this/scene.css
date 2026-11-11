@@ -1,0 +1,23 @@
+/* say-this — wrong card y 400-640, right card y 690-930, Urdu card y 990-1290 */
+.fitbox { position: absolute; display: flex; align-items: center; justify-content: center; }
+#hook-kicker { position: absolute; top: 360px; left: 0; right: 0; width: max-content; margin: 0 auto; opacity: 0; }
+#hook-box { left: 90px; right: 90px; top: 470px; height: 600px; }
+#hook-text { width: 100%; text-align: center; color: var(--fg); font-size: 150px; }
+#hook-ur { position: absolute; left: 90px; right: 90px; top: 1110px; text-align: center; font-size: 64px; color: var(--fg); opacity: 0; }
+
+.pair .phead { position: absolute; top: 280px; left: 90px; right: 90px; display: flex; justify-content: space-between; align-items: center; }
+.pcard { position: absolute; left: 90px; right: 90px; height: 240px; padding: 30px 40px 0 150px; border-width: 4px; }
+.pcard.bad { top: 400px; border-color: var(--bad); }
+.pcard.good { top: 690px; border-color: var(--okbg); opacity: 0; }
+.pcard .lab { font: 900 30px "Inter"; letter-spacing: 0.1em; }
+.pcard.bad .lab { color: var(--bad); }
+.pcard.good .lab { color: var(--okbg); }
+.pcard .ico { position: absolute; left: 34px; top: 64px; width: 92px; height: 92px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font: 900 54px "Inter"; color: #ffffff; }
+.pcard.bad .ico { background: var(--bad); }
+.pcard.good .ico { background: var(--okbg); }
+.pcard .txt { position: relative; margin-top: 14px; font: 800 66px/1.12 "Inter"; color: var(--fg); white-space: nowrap; }
+.pcard .strike { position: absolute; left: 150px; right: 40px; top: 136px; height: 9px; border-radius: 5px; background: var(--bad); transform-origin: 0 50%; transform: scaleX(0); }
+.ucard { position: absolute; left: 90px; right: 90px; top: 990px; height: 310px; padding: 22px 44px; display: flex; flex-direction: column; justify-content: center; opacity: 0; }
+.ucard .ulab { font: 800 28px "Inter"; letter-spacing: 0.1em; color: var(--muted); }
+.ucard .utext { margin-top: 4px; font-size: 52px; color: var(--fg); text-align: right; }
+#cta-ur { position: absolute; left: 90px; right: 90px; top: 420px; text-align: center; font-size: 60px; color: var(--fg); }

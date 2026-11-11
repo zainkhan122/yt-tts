@@ -1,0 +1,198 @@
+{
+  "id": "tool-qwen38-01",
+  "capture": "captures/tool-qwen38-01",
+  "title": "Qwen3.8-27B: 127 Tok/s on One RTX 3090",
+  "niche": "tech / AI tools",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "2026-10-12: original script based on checked primary sources (Hugging Face model card + HF API facts) and clearly attributed third-party benchmarks (HyperQwen, community reports); approved Option 3 flow voice; no on-screen credits. | On-screen browser chrome shows a concise source domain; full source URLs stay in descriptions.",
+  "keywords": [
+    "Qwen3.8-27B",
+    "RTX 3090",
+    "vLLM",
+    "local",
+    "tokens",
+    "Apache"
+  ],
+  "facts": {
+    "likes": 17529,
+    "downloads": 6843108,
+    "checked": "2026-10-12"
+  },
+  "credits_on_screen": "Screens: own capture of the Qwen3.8-27B model page (huggingface.co). Demo frames: official media from that model card. Speed figures are HyperQwen's published benchmarks, not our own measurement.",
+  "sources": [
+    "https://huggingface.co/Qwen/Qwen3.8-27B",
+    "https://github.com/syv-ai/qwen38-27b-rtx3090",
+    "https://www.reddit.com/r/LocalLLaMA/comments/1vqjeub/how_many_tokenssecond_output_are_you_getting_with/"
+  ],
+  "verify_before_render": [
+    "HF API read 2026-10-12: 17,529 likes; 6,843,108 downloads (30 days); Apache-2.0; ~27.8B parameters; image-text-to-text. Speed claims are attributed: HyperQwen's published benchmarks (127 tok/s single-stream, 381 tok/s when quoting its prompt, ~1,035 tok/s aggregate at 64 concurrent, 250 W RTX 3090); community reports commonly land lower (roughly 40-75 tok/s). Not presented as our independent test.",
+    "No on-screen credit captions. Option 3 Chatterbox Michael continuous-flow voice required."
+  ],
+  "production_category": "tool",
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "og-image.png",
+      "heading": "QWEN3.8-27B ON ONE *RTX 3090*",
+      "say": "A twenty seven billion parameter model, running at home, on a single used graphics card.",
+      "url": "huggingface.co"
+    },
+    {
+      "id": "trending",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "url": "huggingface.co",
+      "camera": [
+        {
+          "region": "repo_title",
+          "zoom": 1.7,
+          "at": "qwen"
+        }
+      ],
+      "stat": {
+        "from": "facts.likes",
+        "format": "full",
+        "label": "Hugging Face likes · top-10 trending",
+        "at": "seventeen"
+      },
+      "say": "{Qwen3.8-27B|Qwen three point eight, twenty seven B} is in Hugging Face's top ten right now, with seventeen thousand five hundred likes and millions of downloads."
+    },
+    {
+      "id": "speed",
+      "type": "stat",
+      "heading": "ONE CARD, *ONE STREAM*",
+      "value": 127,
+      "decimals": 0,
+      "suffix": " tok/s",
+      "label": "1x RTX 3090 at 250 W · HyperQwen benchmark",
+      "icon": false,
+      "at": "hundred",
+      "say": "The headline number: {127|one hundred and twenty seven} tokens per second, single stream, on one 3090, at two hundred fifty watts.",
+      "url": "github.com"
+    },
+    {
+      "id": "what",
+      "type": "steps",
+      "heading": "WHAT YOU *GET*",
+      "background": {
+        "image": "desktop-top.jpg"
+      },
+      "steps": [
+        "27.8B parameters, Apache-2.0",
+        "Takes images as well as text",
+        "Up to 150k context on 24 GB"
+      ],
+      "say": "You get a 27.8 billion parameter model under Apache 2.0 that also takes images, with context up to a hundred fifty thousand tokens on a 24 gig card.",
+      "url": "huggingface.co"
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "READ THE *FINE PRINT*",
+      "cons": [
+        "127 tok/s needs the tuned vLLM build",
+        "Stock setups report ~40-75 tok/s",
+        "Heavy quantization to fit 24 GB"
+      ],
+      "pros": [
+        "Apache-2.0: no per-token bill",
+        "~1,035 tok/s aggregate at 64 requests"
+      ],
+      "item_at": [
+        "tuned",
+        "stock",
+        "quantized",
+        "bill",
+        "aggregate"
+      ],
+      "say": "The catch: one twenty seven needs the tuned build; stock setups report forty to seventy five. It is quantized hard to fit. But there is no per-token bill, and at sixty four parallel requests it aggregates over a thousand.",
+      "url": "github.com"
+    },
+    {
+      "id": "vision",
+      "type": "image",
+      "image": "xnuawpumwzus5exw-snlk.png",
+      "heading": "AND IT *TAKES IMAGES* TOO",
+      "say": "It is not text only. The same checkpoint accepts images, so screenshots and photos work locally.",
+      "url": "huggingface.co"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "QWEN",
+      "say": "Would you run a 27B model at home? Comment Qwen and I will pin the benchmark.",
+      "url": "github.com"
+    }
+  ],
+  "seo": {
+    "keyword": "Qwen3.8-27B",
+    "aliases": [
+      "Qwen 3.8",
+      "Qwen3.8 27B"
+    ],
+    "onscreen_first3s": "QWEN3.8-27B ON ONE RTX 3090",
+    "youtube": {
+      "title": "Qwen3.8-27B: 127 Tok/s on One RTX 3090",
+      "description": "Qwen3.8-27B runs on a single used RTX 3090: 127 tokens per second single-stream at 250 W in HyperQwen's published vLLM benchmark, ~1,035 tok/s aggregate across 64 concurrent requests, and up to 150k context on 24 GB. Stock setups often report 40-75 tok/s, so tuning matters. The model is Apache-2.0, ~27.8B parameters, and takes images as well as text. Facts checked 12 October 2026.\nSource: https://huggingface.co/Qwen/Qwen3.8-27B",
+      "hashtags": [
+        "#Shorts",
+        "#LocalAI",
+        "#Qwen",
+        "#AItools"
+      ],
+      "tags": [
+        "Qwen3.8-27B",
+        "RTX 3090",
+        "run LLM locally",
+        "vLLM",
+        "local AI",
+        "Qwen 3.8",
+        "24GB GPU",
+        "AI tools"
+      ]
+    },
+    "tiktok": {
+      "caption": "Qwen3.8-27B on one RTX 3090: 127 tok/s single-stream in the authors' tuned vLLM build. Stock setups report 40-75, so the tuning is the whole trick.",
+      "hashtags": [
+        "#LocalAI",
+        "#Qwen",
+        "#AItools"
+      ]
+    },
+    "instagram": {
+      "caption": "Qwen3.8-27B, a 27.8B model, running on one used RTX 3090 at 127 tok/s single-stream in a tuned vLLM build. Stock setups report 40-75 tok/s. Save this if you have a spare GPU.",
+      "hashtags": [
+        "#LocalAI",
+        "#Qwen",
+        "#AItools"
+      ]
+    },
+    "facebook": {
+      "caption": "Qwen3.8-27B runs on a single used RTX 3090: 127 tok/s single-stream in a tuned vLLM build, and it is Apache-2.0 with a 150k context. The catch is in the tuning.",
+      "hashtags": [
+        "#LocalAI",
+        "#AItools"
+      ]
+    },
+    "x": {
+      "text": "Qwen3.8-27B on one RTX 3090: 127 tok/s single-stream in a tuned vLLM build (250 W), ~1,035 tok/s aggregate at 64 requests. Stock setups report 40-75 tok/s. Apache-2.0, 27.8B params.",
+      "hashtags": [
+        "#LocalAI"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "Qwen3.8-27B: 127 Tok/s on One RTX 3090"
+    ],
+    "caption": "Qwen3.8-27B runs on a single used RTX 3090: 127 tok/s single-stream in a tuned vLLM build, ~1,035 tok/s aggregate at 64 requests, Apache-2.0. Stock setups report 40-75 tok/s, so the tuning is the whole trick.",
+    "hashtags": [
+      "#LocalAI",
+      "#Qwen",
+      "#AItools"
+    ],
+    "pinned_comment": "Sources and notes: https://huggingface.co/Qwen/Qwen3.8-27B · https://github.com/syv-ai/qwen38-27b-rtx3090 (HyperQwen's own benchmarks)"
+  }
+}

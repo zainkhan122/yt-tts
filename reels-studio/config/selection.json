@@ -1,0 +1,13 @@
+{
+  "_doc": "Topic selection settings (approved 31 Oct 2026). No category mix, no weights. The agent judges each pick; code checks the record and draws the daily count.",
+  "picks_per_day": {"min": 2, "max": 7, "method": "uniform random, recorded per day"},
+  "freshness_hours": 24,
+  "older_reason_required_after_days": 1,
+  "novelty_days": 30,
+  "demand_source": "autocomplete (tools/demand/autocomplete.py): presence and breadth of suggestions, not search volume",
+  "insight_sources": [
+    "tracker/buffer-insights.json (our Buffer accounts, via tools/post/buffer_insights.py)",
+    "tracker/reference-insights.json (reference YouTube channels, via tools/reference/ytdlp_insights.py)",
+    "tracker/performance.json"
+  ]
+}

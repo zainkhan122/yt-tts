@@ -1,0 +1,24 @@
+video_id,score,status,topic,category,source_url,found_at,value,proof_assets,official_source,deadline,risk_flags,notes
+repo-rea-01,81,selected,"rea: reverse engineer anything with AI agents, from app behavior to native binaries",repo,,,,,,,,
+repo-impeccable-01,85,selected,"impeccable: design vocabulary for coding agents, steering AI toward polished code",repo,,,,,,,,
+repo-deeptutor-01,85,selected,DeepTutor: multi-agent AI tutor for lifelong personalized learning,repo,,,,,,,,
+repo-hallmark-01,85,selected,"hallmark: anti-AI-slop design skill for Claude Code, Cursor, and Codex",repo,,,,,,,,
+tool-claude-code-01,90,selected,Claude Code: Anthropic's AI coding agent that runs in your terminal,tool,,,,,,,,
+tool-kimi-01,88,selected,Kimi K3.1: open-source AI model from Moonshot AI that rivals closed models,tool,,,,,,,,
+tool-gpt6-01,92,selected,GPT-6: OpenAI's latest model with advanced long-horizon reasoning,tool,,,,,,,,
+tool-higgsfield-01,88,selected,Higgsfield: AI video generation tool focused on cinematic quality,tool,,,,,,,,
+tool-nanobanana-01,85,selected,Nano Banana 2.1: AI image-to-image generation tool,tool,,,,,,,,
+tool-codex-01,88,selected,OpenAI Codex: cloud coding agent that runs in the terminal,tool,,,,,,,,
+tool-qwen-01,86,selected,Qwen: open-weights AI model series from Alibaba,tool,,,,,,,,
+tool-comfyui-01,86,selected,ComfyUI: node-based interface for AI image generation,tool,,,,,,,,
+tool-cursor-01,87,selected,Cursor: AI-powered code editor built on VS Code,tool,,,,,,,,
+tool-deepseek-01,85,selected,DeepSeek: open-weights AI model with competitive reasoning,tool,,,,,,,,
+tool-heygen-01,89,selected,HeyGen: AI video generator for avatar content,tool,,,,,,,,
+tool-veo-01,88,selected,Google Veo: AI video generation model from DeepMind,tool,,,,,,,,
+repo-edge0-01,73,selected,Edge0: a 35B model on a Mac with about 3 GB of memory,tool,https://github.com/Edge0-AI/Edge0,2026-10-30,local model on Apple Silicon,repo-owned images (no video),https://github.com/Edge0-AI/Edge0,,preview models; macOS Apple Silicon only; 23 GB download,"8,782 stars; Apache-2.0; author benchmark figures only"
+repo-cleanyourtv-01,91,selected,CleanYourTV: strip ads from an Android TV over Wi-Fi with no root,tool,https://github.com/Gathin23/cleanyourtv,2026-10-30,"clean TV home screen, nothing uninstalled",repo-owned images (no video),https://github.com/Gathin23/cleanyourtv,,Fire TV partial; some TV brands unsupported,"46,042 stars; created 2026-10-17; restore script included"
+2026-11-11,GIFs,from idea feed,https://www.youtube.com/watch?v=UXiMqCa3AF8,"2 watchlist channels, 13,000 views",,,yt:aiadvantage;yt:beyondtahir-yt,,,,idea,,auto: verify + score
+2026-11-11,astryx,from idea feed,https://github.com/meta/astryx,"2 watchlist channels, 1,690 views",,,tt:github.signals;tt:skip_ci,,,,idea,,auto: verify + score
+2026-11-11,MacBook,from idea feed,https://www.tiktok.com/@ai_vanta_ai/video/7706362773810318624,"2 watchlist channels, 0 views",,,tt:ai_vanta_ai;web:reddit-localllama,,,,idea,,auto: verify + score
+2026-11-11,MiniMax,from idea feed,https://www.reddit.com/r/LocalLLaMA/comments/1xso1ie/minimax_h3image_released_an_openweight_image/,"2 watchlist channels, 0 views",,,web:reddit-localllama;web:reddit-stablediffusion,,,,idea,,auto: verify + score
+2026-11-11,H3-Image,from idea feed,https://www.reddit.com/r/LocalLLaMA/comments/1xso1ie/minimax_h3image_released_an_openweight_image/,"2 watchlist channels, 0 views",,,web:reddit-localllama;web:reddit-stablediffusion,,,,idea,,auto: verify + score

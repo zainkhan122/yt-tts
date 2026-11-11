@@ -1,0 +1,194 @@
+{
+  "id": "tool-qwen-image-21-turbo-01",
+  "capture": "captures/tool-qwen-image-21-turbo-01",
+  "title": "Qwen Image 2.1 Turbo: The Eight-Step Checkpoint",
+  "niche": "AI image-generation model",
+  "lang": "en-us",
+  "style": "midnight",
+  "voice_seed": 1,
+  "status": "Owner authorized batch production after the accepted SolidCraft r3 pilot (2026-10-13). Render only; no Buffer scheduling or platform posting. Approved Option-3 Chatterbox flow voice; no on-screen credit captions.",
+  "production_category": "model",
+  "keywords": [
+    "Qwen Image 2.1 Turbo",
+    "image generation",
+    "image editing",
+    "8 denoising steps"
+  ],
+  "facts": {
+    "stars": 1920,
+    "forks": 126,
+    "weights_license": "Qwen Research License",
+    "architecture": "7B",
+    "checked": "2026-10-14, GitHub REST API"
+  },
+  "credits_on_screen": "Post/description attribution only; no on-screen credits. Qwen README assets; the 8-step graphic is an original explanation, not a benchmark or generated sample.",
+  "sources": [
+    "https://github.com/QwenLM/Qwen-Image-2.1",
+    "https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo",
+    "https://api.github.com/repos/QwenLM/Qwen-Image-2.1"
+  ],
+  "verify_before_render": [
+    "Official README dates Turbo to Oct 9 and reports 8 denoising steps for text-to-image and image editing on the same 7B architecture.",
+    "GitHub API checked 2026-10-14: 1,920 stars, 126 forks; weights use Qwen Research License.",
+    "Do not claim 5× faster end-to-end; step count is not an independent speed benchmark.",
+    "No on-screen credits; links in post/description."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "turbo-steps-illustration.jpg",
+      "heading": "QWEN IMAGE 2.1 *TURBO*",
+      "say": "Qwen Image 2.1 Turbo brings an eight-step mode for image generation."
+    },
+    {
+      "id": "name",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "url": "github.com/QwenLM/Qwen-Image-2.1",
+      "camera": [
+        {
+          "region": "repo_title",
+          "zoom": 1.7,
+          "at": "Qwen"
+        },
+        {
+          "region": "star_button",
+          "zoom": 2.2,
+          "at": "stars"
+        }
+      ],
+      "stat": {
+        "from": "facts.stars",
+        "format": "full",
+        "label": "GitHub stars · checked Oct 14, 2026",
+        "at": "stars"
+      },
+      "say": "The repository shows {1,920|one thousand nine hundred twenty} stars as of {October 14th|October fourteenth}."
+    },
+    {
+      "id": "steps-count",
+      "type": "stat",
+      "heading": "THE *TURBO* CHANGE",
+      "value": 8,
+      "decimals": 0,
+      "suffix": " steps",
+      "label": "Denoising schedule · project-reported",
+      "icon": false,
+      "at": "eight",
+      "say": "The Turbo checkpoint uses eight denoising steps, according to the project."
+    },
+    {
+      "id": "features",
+      "type": "steps",
+      "heading": "WHAT IT *SUPPORTS*",
+      "background": {
+        "image": "desktop-full.jpg"
+      },
+      "steps": [
+        "Text-to-image",
+        "Image editing",
+        "Same 7B architecture"
+      ],
+      "step_at": [
+        "text",
+        "editing",
+        "architecture"
+      ],
+      "say": "The repo says it supports text to image and editing on the same seven-billion-parameter architecture."
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "CHECK THE *FINE PRINT*",
+      "cons": [
+        "8 steps ≠ 5× faster",
+        "Qwen Research License"
+      ],
+      "pros": [
+        "Text-to-image + editing",
+        "Same 7B family"
+      ],
+      "item_at": [
+        "steps",
+        "faster",
+        "license",
+        "editing"
+      ],
+      "say": "Eight denoising steps do not prove five times faster end-to-end. The weights use Qwen’s Research License; text-to-image and editing are the upside, so check terms before commercial use."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "QWEN",
+      "say": "Would you test it? Comment QWEN for the official repository."
+    }
+  ],
+  "seo": {
+    "keyword": "Qwen Image",
+    "aliases": [
+      "8-step image generation",
+      "image editing model"
+    ],
+    "onscreen_first3s": "QWEN IMAGE 2.1 TURBO / 8-STEP IMAGE MODE",
+    "youtube": {
+      "title": "Qwen Image 2.1 Turbo: The Eight-Step Checkpoint",
+      "description": "Qwen Image 2.1 Turbo is the project’s 8-step checkpoint for text-to-image and image editing. Eight denoising steps are not proof of a 5× end-to-end speedup. The weights use Qwen’s Research License; check terms before commercial use. GitHub facts checked Oct 14, 2026.\nhttps://github.com/QwenLM/Qwen-Image-2.1",
+      "hashtags": [
+        "#Shorts",
+        "#QwenImage",
+        "#ImageAI",
+        "#OpenSource"
+      ],
+      "tags": [
+        "Qwen Image 2.1 Turbo",
+        "image generation",
+        "image editing",
+        "8 denoising steps"
+      ]
+    },
+    "tiktok": {
+      "caption": "Qwen Image 2.1 Turbo adds an 8-step mode for text-to-image and editing. The step count is not a speed benchmark; check the Research License before commercial use.",
+      "hashtags": [
+        "#QwenImage",
+        "#ImageAI",
+        "#OpenSource"
+      ]
+    },
+    "instagram": {
+      "caption": "Qwen Image 2.1 Turbo adds an 8-step mode for text-to-image and editing. The step count is not a speed benchmark; check the Research License before commercial use.",
+      "hashtags": [
+        "#QwenImage",
+        "#ImageAI",
+        "#OpenSource"
+      ]
+    },
+    "facebook": {
+      "caption": "Qwen Image 2.1 Turbo adds an 8-step mode for text-to-image and editing. The step count is not a speed benchmark; check the Research License before commercial use.",
+      "hashtags": [
+        "#QwenImage",
+        "#ImageAI",
+        "#OpenSource"
+      ]
+    },
+    "x": {
+      "text": "Qwen Image 2.1 Turbo adds an 8-step mode for text-to-image and editing. The step count is not a speed benchmark; check the Research License before commercial use. https://github.com/QwenLM/Qwen-Image-2.1",
+      "hashtags": [
+        "#QwenImage"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "Qwen Image 2.1 Turbo: The Eight-Step Checkpoint"
+    ],
+    "caption": "Qwen Image 2.1 Turbo adds an 8-step mode for text-to-image and editing. The step count is not a speed benchmark; check the Research License before commercial use.",
+    "hashtags": [
+      "#Shorts",
+      "#QwenImage",
+      "#ImageAI",
+      "#OpenSource"
+    ],
+    "pinned_comment": "Official repository and Turbo model card: https://github.com/QwenLM/Qwen-Image-2.1 · https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo. Research License; verify permitted use."
+  }
+}

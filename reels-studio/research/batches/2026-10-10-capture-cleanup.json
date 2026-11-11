@@ -1,0 +1,42 @@
+[
+  {
+    "pack": "news-haiku-55-01",
+    "files_verified": 14,
+    "bytes_verified": 2600703,
+    "archive_id": 627828594,
+    "archive_digest": "sha256:315e3a2b74334d79c8276c865c764306df7cc08fab413d6f797be135cbf31877",
+    "deleted": true
+  },
+  {
+    "pack": "news-gemini-agent-01",
+    "files_verified": 14,
+    "bytes_verified": 3243292,
+    "archive_id": 627828618,
+    "archive_digest": "sha256:09a46b71e88dcd9098be3b7ec4ba09958aab84216e1bba9239533ac19a8ea6b2",
+    "deleted": true
+  },
+  {
+    "pack": "tool-mosa-01",
+    "files_verified": 9,
+    "bytes_verified": 10026885,
+    "archive_id": 627828656,
+    "archive_digest": "sha256:4f0277d7137eff61526cd5eea3d52cb32457483efbd78e493a06f23672f06ae1",
+    "deleted": true
+  },
+  {
+    "pack": "tool-pomelli-01",
+    "files_verified": 10,
+    "bytes_verified": 15244445,
+    "archive_id": 627828707,
+    "archive_digest": "sha256:bd1cb3186ed2ea6443762593b8d649d8a3614a7eb3e75d350b943be50aeaff0f",
+    "deleted": true
+  },
+  {
+    "pack": "repo-whistle-01",
+    "files_verified": 11,
+    "bytes_verified": 2131510,
+    "archive_id": 627828750,
+    "archive_digest": "sha256:e6d75700de52a9fe23a8e40451c2e543e3d46b864978106cd509198a437adb0c",
+    "deleted": true
+  }
+]

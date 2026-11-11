@@ -1,0 +1,435 @@
+# Reels Studio PLAYBOOK: the end-to-end plan
+
+> **Shorts pipeline folder (4 Nov 2026).** This copy is the Shorts-only pipeline. Sections on topic discovery, channel study, social scan, voice study and the agent describe tools that are **not in this folder**. Those sections are kept as history. Shorts QA gates, the 5-hashtag rule and the new-batch flag are in `config/qa-thresholds.json` and `pipeline-map.html`.
+
+
+How we go from "a new tool appeared" to "a highly professional video posted on YouTube, TikTok, Instagram, Facebook and X". Built on evidence:
+- **270 videos** (30 each) from 9 benchmark TikTok accounts, with transcripts and frame-level visual analysis;
+- an 11-video pilot scan;
+- a 32-source registry (TikTok, YouTube, web feeds);
+- 2026 platform SEO rules.
+
+Technical details (tools, commands) live in [`PIPELINE.md`](PIPELINE.md). Session plan: [`PHASES.md`](PHASES.md). Raw evidence:
+- [`research/social/study-2026-10-07-findings.md`](research/social/study-2026-10-07-findings.md) (analysis)
+- [`research/social/study-2026-10-07.md`](research/social/study-2026-10-07.md)
+- [`research/social/videos-2026-10-07.csv`](research/social/videos-2026-10-07.csv)
+
+---
+
+## 0. What "winning" means (targets per video)
+
+| Signal | Why it matters | Target (from benchmark medians) |
+|---|---|---|
+| Viewed vs swiped / 3-s hold | first gate of every feed | ≥ 70% |
+| Avg % watched | retention = distribution | ≥ 60% (spotlights ≤ 42 s make this realistic) |
+| **Saves per 1k views** | the #1 signal in this niche. Repo/tool explainers are bookmark content | ≥ 30 (benchmarks: dr_cintas 42, github.awesome 41, github.signals 33) |
+| **Shares/sends per 1k** | Instagram's top-3 ranking signal ("sends") | ≥ 5 (benchmarks 6–7) |
+| Comments per 1k | social proof + reach; only accounts with a keyword CTA get > 3 | ≥ 3 with the keyword CTA |
+
+## 1. What the benchmark accounts taught us
+
+1. **Two winning production styles:**
+   - **A, faceless repo-scroll:** github.awesome and github.signals. The real README scrolls in a browser frame, with bold ALL-CAPS 2–4-word captions and one yellow keyword. It has almost no hard cuts (0–1.5 per 10 s) but constant motion. **Highest saves.** This is our core: it needs no face, and our capture kit produces exactly this material.
+   - **B, face + screen:** ai_vanta_ai, dr_cintas, beyondtahir. The creator is on camera, with the screen or B-roll above, fast cuts (4–7 per 10 s) and big count-up numbers. It reaches further and drives more comments, but needs a human.
+     - Our substitute: motion graphics + official demo clips + count-ups.
+     - Later, optionally, the user's own voice or face for trust.
+2. **Hooks that win** state a payoff, a number or stakes in the first sentence:
+   - "NO GPU AI MODEL" + "744B parameters" count-up (774K);
+   - "this GitHub project could become extremely useful if…" (378K);
+   - "[Tool] transforms a single illustration into an animated character" (59K).
+   
+   Context-first and mid-tutorial openings lose.
+3. **Name reveal by ~7 s, then one new feature or visual every 4–5 s.**
+4. **Pace:** the niche norm is ~175–190 wpm (194 transcripts: top 183 vs bottom 189, so pace is table stakes, not an edge). Up to 226–243 wpm for rapid lists.
+5. **CTA economics:**
+   - CTAs don't change views (36% of top and bottom videos have one). They change comments.
+   - **What lifts views:** paid-vs-free contrast (14% vs 7%), a "someone just built" story opener (14% vs 7%), and a number in the first line (29% vs 22%).
+   - A comment-keyword CTA gives 8–10× more comments.
+   - Saves come from "bookmark-worthy" value: lists, install steps, free alternatives.
+   - Shares come from "send this to someone who…" relevance.
+6. **South Asia signal:** @beyondtahir speaks Hindi/Urdu, is personality-led and gets the highest engagement in the set (median 17.2K views, 5.1 comments/1k). An Urdu/Hindi version line is a real opportunity.
+
+**Refresh 2026-10-18 (`tools/channel_decode.py`, full report `research/social/decode-2026-10-18.md`):**
+decoded Script+Voice+Cover+Media+Heading+Description for the top-2/bottom-1 latest videos of all
+9 accounts (24 full decodes) plus Github Signals' YouTube Shorts listing. New/confirmed rules:
+- Winners are **faster and more expressive**: 186 vs 160 wpm, pitch range 16.0 vs 13.8 semitones
+  (top vs bottom tier). Flat or slow reads sink — pace is now treated as an edge, not table stakes.
+- **The product is the cover:** frame one is the actual repo page/result (or face + one symbolic
+  visual), with giant word-by-word captions from the first spoken word. No intros.
+- **Spoken CTA:** 62% of top-tier scripts ask (comment/save/follow) vs 33% of bottom-tier.
+- **Heading:** "Name: outcome" or a descriptive benefit sentence, sentence case, no caps-bait.
+- **TikTok description is a ~400-char keyword mini-article**, hashtags exactly 5 (owner decision 4 Nov 2026; was ≤3; set in `config/qa-thresholds.json`), link optional.
+  Per-platform package shapes stay as §9 — the same video scored 149.2K on TikTok vs 228 on
+  YouTube Shorts, so packages are adapted per platform, never copied across.
+- Anchor the tool to something familiar (Spotify, Windows, Claude…) in the first sentence.
+7. **What we refuse even though it gets views:**
+   - movie/TV clips (ai_vanta_ai used Stranger Things);
+   - piracy roundups;
+   - "free API keys" DM bait;
+   - fake "I'll DM you" promises.
+   
+   These risk strikes, demonetization and trust.
+
+## 2. Content engine: where every video idea comes from
+
+```
+sources (33: TikTok, YouTube, web feeds, gittrend.io) ──► idea_feed (daily, 2 min) ──► consensus topics (≥2 channels in 7 days)
+        │
+        ├── searched probe (search_probe.py, free autocomplete) ──► demand score 0-100
+        └── need mining (need_miner.py, reference-channel comments) ──► unmet-question signal
+GitHub/HF radar (stars/day) ───────────────┘                                   │
+                                                  verify on primary sources ◄──┘
+                                                  score (rubric ≥ 60) ──► topics/backlog.csv ──► today's 1–2 videos
+```
+
+- **Ride the wave (the user's rule):** when watchlist channels converge on a tool, we cover it **within 24–72 h** to sit in the same search and recommendation cluster. Our video must still be **our own research + our own angle** (the honest catch, a real demo, a comparison). Same topic, not the same video.
+- **Original picks:** the radar finds repos before the watchlist does (stars/day). Roughly 1 in 3 videos should be "first to cover".
+- **Add sources any time:** `python3 tools/sources.py add <url>` (verified on add). Every scan is saved to `research/sources/posts.csv` (git-tracked history). **Daily:** `python3 tools/idea_feed.py`. **Weekly:** `radar` + `channel_study` on 3 new accounts. **Monthly:** re-study the benchmark accounts.
+
+## 3. Formats (what we produce)
+
+| Format | Length | Style | Beat sheet | Cadence |
+|---|---|---|---|---|
+| **F1 Repo Drop** | 22–35 s | A: README scroll + kinetic captions + demo media | hook (payoff) → name + what it does → 2–3 features over scroll/zoom → install line → value close + CTA | daily |
+| **F2 Tool Spotlight** | 35–42 s | A+: official demo clip first, then page with cursor/zoom, steps, terminal, verdict | hook (most striking visual) → proof montage → reveal + stars → how (3–5 steps) → the catch → value close + CTA | 3×/week |
+| **F3 Weekly Top 5** | 45–60 s | ranked list with live stars | "5 AI repos exploding this week" countdown, open loop to #1 | weekly |
+| **F4 Urdu/Hindi cut** (later) | as source | same visuals, Urdu/Hindi voice | best English performers re-voiced (user's voice preferred) | weekly |
+
+## 4. Script system
+
+**Write for the approved voice (measured 2026-10-09; the voice reads flat text flatly).** The same Chatterbox voice read the old
+declarative Muse script at 7.2 semitones of melody and the conversational flow script at 14.4 (Kokoro: 7.6 vs 13.0). So every
+`say` line follows this checklist (rules + data: §5.0):
+1. Open like a person talking: "Okay, ...", "I just found ...", "Imagine ...", "Someone at X just built ...".
+2. Let it flow: 12–16-word sentences joined with "and / so / which / then"; no full stop every 6 words.
+3. One question-and-answer beat ("The catch? ...", "The good news? ...") plus the CTA question; no more questions than that.
+4. End each phrase on its selling word ("... it actually does your *chores*", "... in just twelve *hours*").
+5. Numbers in spoken form via markup (`{6.6|six point six}`); every word a visual is anchored to (`at`, `item_at`, `step_at`,
+   montage `at`, camera/cursor `at`) must appear in that scene's line.
+6. Length: 110–125 words for 38–43 s (measured in production: 160–193 wpm; 130–140 words ran 42–46 s).
+
+**Story spine** (from the 774K-view benchmark; copy the structure, never the words):
+1. impossible claim with a number;
+2. who did it;
+3. status quo / antagonist ("you'd think you need a $2,000 GPU…");
+4. name reveal (~7 s, ≤ 17 s);
+5. mechanism in ONE sentence;
+6. practical payoff;
+7. CTA.
+
+**Hook formulas** (pick one, ≤ 12 words, keyword spoken within 3 s):
+- **"Someone just…" impossible + number:** "Someone just ran a 744-billion-parameter model on a laptop with no GPU." (774K)
+- **Unexpected maker + free vs paid incumbent:** "A geography professor built a free tool that replaces a $150/month app." (255K)
+- **Number shock:** "This AI model has 744 billion parameters and needs no GPU."
+- **Transformation:** "[Tool] turns [input] into [impressive output]."
+- **Stakes / scenario:** "If [problem], this free GitHub project fixes it."
+- **Replace-paid:** "Stop paying for [paid tool]. This open-source one does it free."
+- **Proof-first:** "An AI agent built this." (over the demo clip)
+- **Countdown promise:** "5 AI repos that exploded this week. Number one is wild."
+- ✗ **Never:** "leaked"/sketchy framing (14 views), or starting mid-tutorial.
+
+**Retention devices** (one every 4–5 s):
+- count-up numbers;
+- zoom to a real page element;
+- cursor click;
+- clip cut;
+- step chip pop;
+- open loop ("wait for the catch", "number one").
+
+**Our differentiator line:** one honest verdict ("The catch: …"). It also drives likes (opinion lines scored 107 likes/1k).
+
+**Close + CTA stack (last 5 s):**
+1. value close — the payoff restated for the viewer ("…and it costs you nothing"); this is the
+   one place a plain "free and open source" may be spoken (see Viewer-benefit first);
+2. **save prompt** ("save this for later");
+3. **comment keyword** ("comment MOD and I'll pin the link");
+4. follow.
+
+Never promise DMs we can't send.
+
+**Rules:**
+- first sentence ≤ 12 words; sentences ≤ 18 words;
+- ≤ 4 caption words on screen;
+- brand names get a `say` pronunciation;
+- every claim is in the fact sheet.
+
+## 5. Voice and audio
+
+### 5.0 How the reference creators actually deliver (measured 2026-10-09, `tools/voice_study.py`, report `research/voice/voice-study.md`)
+12 top videos (Fireship 5.2M, vaibhavsisinty 1.1M, remy_engineering 709K, sabrina_ramonov 460K, ai_vanta_ai 256K, malvaAI 211K,
+github.signals 117K, ...): audio-only, vocals separated from music (UVR MDX-Net), whisper word timings, Praat pitch/loudness, Silero VAD pauses.
+- **Flow beats stop-start.** 7 of 12 speak continuously (≤ 1.6 pauses ≥ 150 ms per minute; median 1.5). Our line-by-line synthesis
+  with gaps measured **19–23 pauses/min**: a list-like rhythm that reads as robotic. Rule: synthesize the script as one continuous
+  passage (chunk only for engine limits, ~60 ms joins); allow ONE deliberate beat, before the catch or the payoff.
+- **Pace:** median 185 wpm (momentum style 160–234). Slow storytelling (120–130 wpm) only works with big melody (vaibhavsisinty 18.8 st)
+  or big tempo changes (remy_engineering, 34 % between phrases).
+- **Melody:** creators' pitch range median 13.4 semitones (4.1–20.2); our Kokoro read 9.5. Energy has to come from the engine or the
+  script, never from DSP (the 2026-10-08 "maxhype" melody stretch was rejected as robotic).
+- **They stress the selling words:** numbers, product names, "free", "everything", "full production", "right now". Write so the key word
+  lands LAST in its phrase (where English puts the main stress), and give each sentence one such word.
+- **Spoken hook formulas that worked:** "I just found an open-source AI that ..." / "This GitHub repo is a goldmine for ..." /
+  "Never <do X> ..." / "Just look. Think it's real? It's not." / "<underdog> did what <giants> couldn't."
+- **Sentences flow:** aim for ~15 words per sentence (the approved sample: 15.9), joined with "and / so / which means", not a
+  full stop every 6 words. First published batch averaged 12.1 words → 13.8 pauses/min vs 7.5 in the approved sample. Questions are rare
+  (median 0 per 100 words): use one rhetorical Q→A beat ("Google? OpenAI? Nope.") as a pattern interrupt, not more.
+- Keep what we already do well: contractions (4.7 per 100 words) and direct "you" (5.2 per 100 words), at or above the creators.
+
+- **Channel voice (owner-approved 2026-10-09, voice-lab option 3): Chatterbox cloning the Kokoro am_michael reference, exaggeration 0.7, cfg 0.4, flow reading.** It is the default for every video; the `approved_voice` QA gate refuses anything else (record: `research/voice-decision.md`). Measured in production at 160–193 wpm, so scripts for a 38–43 s video are about 110–125 words.
+  - History: af_heart D-hype was approved and used for the first render of video #1; the DSP "maxhype" was rejected as robotic (UTMOS 3.68).
+  - Measured free-engine alternatives (Chatterbox, Orpheus, Edge, Qwen3): `research/voice-decision.md`.
+  - Script energy still matters: an exclamation-led hook and payoff, rhetorical questions, short punchy lines, honest facts.
+- **Mix:** VO at −14 LUFS integrated, peak ≤ −1 dBFS. Our own generated music sits under the voice. SFX:
+  - whoosh on transitions;
+  - click on cursor taps;
+  - key-taps on terminal typing;
+  - riser before reveals;
+  - "pop" on step chips.
+- **Own-voice mode** is available any time (phone recordings are fine). It's the best path for trust and for the Urdu/Hindi line.
+
+## 6. Production: the "highest professional touch" spec
+
+**Brand kit** (`config/channel.json`): 2 accent colours, Inter/Anton fonts, a small logo bug, an end card.
+
+**Caption style (from the winners):**
+- ALL CAPS, 2–4 words, centred in the upper-middle safe zone;
+- white with a dark stroke;
+- **the keyword highlighted in yellow**;
+- synced word by word to the voice.
+
+**Scene library** (the `tool-spotlight` + `repo-drop` templates, Phase 3):
+
+| Scene | Look | Source |
+|---|---|---|
+| Browser frame over wallpaper | dark-mode browser with traffic lights + URL bar, page **scrolls smoothly** (README) | `desktop-full.jpg` capture |
+| Camera move to region | eased zoom/pan to a real element (Star button, install block, demo GIF) | capture region map |
+| Cursor + click | animated cursor glides along a curve, click ripple + SFX, button state change | region map |
+| Count-up number | huge animated number (stars, params, downloads) with label | GitHub/HF API facts |
+| Official demo clip | full-bleed with blurred fill, or a framed card; label chips | makers' media |
+| Split screen | demo clip top / repo page bottom (Style-B energy without a face) | clip + capture |
+| Terminal typing | install commands typed live with key-tap SFX | README |
+| Logo reveal | official logo/og-image punch-in for the name reveal | capture |
+| Verdict card | ✅ pros / ⚠ catches | fact sheet |
+| End card | follow + keyword CTA + save prompt | brand kit |
+
+**Motion and layout rules:**
+- something moves at all times;
+- Repo Drops use continuous camera moves;
+- Spotlights cut every 1.5–3 s;
+- **safe zones:** top 220 px, bottom 380 px, right 120 px are kept free of key text;
+- the cover frame (frame 0) shows the hook text + the most striking visual.
+
+**Built (2026-10-08): `templates/repo-spotlight` (F1) + `templates/tool-spotlight` (F2)** on one shared engine `templates/_spotlight/`:
+- **Scene types:** clip (official demo, blurred fill + card, hook headline), clip-montage (word-anchored cuts + label chips, whip), page (browser frame, camera to regions, cursor click + button state, stat count-up), scroll (README camera with highlight boxes + chips), steps (lit as spoken, optional figure), terminal (typed live), verdict (catches/pros as said), stat, image (Ken Burns), endcard (question + keyword chip + follow press).
+- **Layout bands:** heading 240–420 · media 430–1160 · captions centred at 1330 · bottom 380 px free. Captions sit *below* the media band (not upper-middle) because the media occupies the middle.
+- **Text:** `{GTA V|GTA Five}` shows "GTA V" but speaks "GTA Five" (channel lexicon applies too); `*word*` in a heading = yellow.
+- **Editing rules in code:** every event is anchored to the real voice words; montage cuts never outlive their shot; a montage continues where the previous clip of the same source stopped; frame 0 shows headline + sub (cover).
+- **Cover caption rule (owner 2026-10-12):** an `image`-type hook holds its karaoke caption until the hook's first spoken sentence ends (`captions.hold_seg`/`hold_until`, computed by the pipeline from the real word timings), so the extracted cover frame never shows a half sentence. Give such hooks a short `sub` (one line, ≤ ~60 chars) — it is rendered statically under the heading and becomes the cover's supporting line, the way wave-1 covers read. Opt out per brief with `"captions": {"hold_seg": ""}`; clip hooks are unaffected. Tests: `tests/test_caption_hold.py` (Python policy + node harness against the real `base.js`).
+- **Fact gate worked:** re-verifying video #1 on render day caught 2 outdated claims (stars passed 5k; the repo's rules changed from "single-player only" to "any game you own, no online anti-cheat"). Keep `verify_before_render` mandatory.
+
+**AI labels:** if a video ever uses AI-generated realistic footage, apply the platform's AI label (TikTok shows "AI-generated", as dr_cintas does). Our motion graphics + TTS narration don't require it.
+
+## 7. Assets policy
+
+- ✅ Our own captures of public pages.
+- ✅ The makers' official demo media and logos (credited, identification use).
+- ✅ Real outputs from running the tool.
+- ✅ Our own music, SFX and graphics.
+- ❌ Clips from other creators.
+- ❌ Movie, TV or sports footage.
+- ❌ Music we don't own.
+- ❌ Assets the maker explicitly reserved.
+
+## 8. QA gates (automatic + agent review)
+
+- lint 0 errors;
+- `check` (layout, contrast, runtime);
+- whisper intelligibility ≥ 95%;
+- 1080×1920 / 30 fps / H.264 + AAC / −14 LUFS;
+- contact-sheet review by eye;
+- fact sheet refreshed the same day;
+- risk gates clean;
+- originality vs our last 5 videos.
+
+**Media standard (owner, 2026-10-18 — after card-only videos shipped):** the 8 automatic
+gates measure technical validity, NOT watchability; an "8/8" never again substitutes for
+watching the video. Hard rules, enforced in `production_gate.verify_capture_assets`
+(cloud render refuses otherwise) and warned early by brief_lint BL110/BL111:
+- main media is a **generated graphic built from the tool's flow** (owner rule, 6 Nov 2026); tool media (captures, README images) is optional
+  page/UI (`capture.py`, kind "own capture") and/or official demo media/images;
+- **≥2 media scenes, ≥1 of them motion/page** (clip, clip-montage, page, scroll);
+- generated text cards are support graphics only — never the main visual, never the cover;
+- no scene may stage an empty/placeholder visual (no background-less steps scenes).
+**Viewer panel (mandatory before queueing):** `tools/viewer_panel.py <render-dir>` extracts
+one frame per scene; the reviewing agent scores the five personas against the decode bars
+and writes the verdict into `viewer-panel.md` in the render folder. Majority-swipe in the
+first 3 s, any empty/card-only scene, <60% main-media scenes (generated graphics or tool media), or no one-sentence takeaway
+= FAIL and the video returns to production. Filled panels for shipped videos live with
+their production records (`research/production/`). **Enforced, not aspirational:**
+`queue_ctl.py approve` refuses any video without a PASS panel on file
+(`research/production/viewer-panel-*.md`, no FAIL verdict).
+
+**Findings-into-production (owner, 2026-10-18):** new data/findings must shape every new
+video, and validation must catch anything not up to the mark. The receipt already hard-gates
+fresh Buffer Insights (≤36 h), concrete findings and per-stage decisions. On top of that,
+every brief carries `research_basis`: the current research files it applies (latest decode,
+platform matrix, performance report). brief_lint BL112 warns when missing, BL113 *errors*
+when a cited file does not exist — "we used the findings" is checkable, not asserted.
+
+**Outro (owner, 2026-10-18):** the end-card shows the **real brand logo**
+(`brand/logo/avatar-1080.png`, staged as `assets/logo.png` by spotcore; `brand.logo` in
+`config/channel.json`), never a text initial. Regression: `tests/test_outro_logo.py`.
+**Automatic safeguards added 2026-10-08** (all found while making video #1):
+- **Timing aligner:** each sentence break snaps to the pause nearest its syllable-expected position, with a proportional fallback. The old "largest gaps" method squeezed a whole sentence into 0.12 s with am_michael.
+- **Caption guard:** a caption group can never stay stuck on screen.
+- **Footage caps:** a clip or montage scene ends when its footage does (the next scene's visuals lead its voice), so footage never runs into a wrong shot. Montage cuts never outlive their shot, and the first cut continues where the previous clip stopped.
+- **Montage label/voice gate:** a warning fires if a card's name is not spoken while that card is on screen.
+- **Final loudness guard:** after the render, if the MP4 is off −14 LUFS by more than 0.5 dB, the audio alone is limited and normalised with the video stream copied. The renderer had shifted am_michael from −14.3 to −15.3 LUFS.
+- **Footage truth:** shot boundaries come from frame-by-frame checks of the source (`teaser_shots` in the brief), not from scene-detect alone, which fire flicker fooled.
+
+## 8A. Creative treatment — design for the viewer, gates are the floor (owner 2026-10-19)
+
+> **Superseded 2026-10-21:** this template section is replaced by `GUIDELINES.md`. The old version is kept at `legacy/reels-studio-v1`.
+
+
+The 8 automatic gates measure technical validity; they are NOT a ship decision and
+never the thing we optimise for. Before any scene is written, every brief carries a
+`treatment` (enforced by brief_lint BL120–BL127):
+
+- **One viewer, named.** `audience` (a Claude Code dev is not a Blender artist is not
+  a WhatsApp power user), `viewer_job` (what this Short does for them), `intent`
+  (browse / search / hybrid). If the treatment fits any audience, it fits none.
+- **A format that fits the material** — `archetype`, one of: `demo-first` (visual
+  payoff leads), `duel` (A-vs-B with a scoreboard), `myth-bust`, `quest`
+  (build-along), `warning` (danger first, then the safe path), `workflow`
+  (steal-this-recipe), `spotlight` (legacy default — needs a reason).
+  An archetype is a **fact on screen**, not a label: `templates/_spotlight/archetype.css`
+  + `archetype.js` give each one its own HUD, heading voice, caption plate and at
+  least one scene device (quest = mission rail + objective kickers + PROOF stamp;
+  myth-bust = claim/reality stamps + struck-through catch; and so on). A rule set that
+  only recolours fails `tests/test_creative_application.py`.
+- **A structure, declared** — `treatment.structure` labels every scene with its beat
+  in playback order; brief_lint BL129/BL130 checks it against the archetype grammar
+  (`quest`: briefing › objective › field-notes › close; `myth-bust`: claim ›
+  evidence/test › reality › close; `demo-first`: demo › proof/how › catch › close …).
+  Two archetypes may not ship the same beat skeleton (`tools/creative_check.py`).
+  `tools/creative_check.py` also fails the batch if the same archetype runs 3 in a row.
+- **Retention craft, written down.** `hook_mechanic` (the pattern interrupt),
+  `open_loop` (question planted in second one, `payoff_scene` where it pays off,
+  target ~70% through), `proof_moment` (the scene where the skeptic converts —
+  real product evidence, never a card claim).
+- **Covers are designed, not grabbed.** 3 `cover_concepts` (4–5 word all-caps headline, click-baited and intent-seeking; see `COVER-RULES.md`; real
+  media visual, the curiosity `gap` each opens). Usable real media source: any of the tool's own logo, chart, diagram, etc. No license requirement is needed. If no usable media exists, make own media based on the tool. `tools/cover_lab.py` renders all
+  three (bleed / window / split, each on its own real capture image), measures text
+  contrast against the actual plate (>= 4.5:1) and fails a set that is one design
+  three times. The viewer panel judges them cold, the winner is pinned in
+  `selected_cover`, then `cover_lab.py --apply` freezes it: the renderer refuses to
+  ship unless `cover-selected.jpg` (hash-matched to `selection.json`, matching the
+  brief's own selected concept and archetype) becomes `renders/<id>/cover.jpg` — the
+  kit cover and the YouTube thumbnail. A frame grab is not a cover.
+  The reviewed bytes travel to the cloud with `tools/cover_store.py push/pull-for`
+  (`covers/` is gitignored, so a locally applied cover used to make every cloud render
+  fail closed); `render.yml` pulls the pack before rendering and the store refuses a
+  cover that changed after selection.
+- **A layout contract, measured.** `templates/_spotlight/spotcore.py` LAYOUT fixes the
+  media stage (ends 1128) above the caption zone (1160–1500); `tools/layout_audit.py`
+  renders the real composition in Chromium, seeks sampled moments and fails on any
+  surface that crosses the floor or touches the caption box. Captions are
+  bottom-anchored so long lines grow upward, never into the product footage.
+- Reference channels feed this layer as *mechanisms* (how winners open, when they
+  pay off — quarterly decode), never as a look to copy.
+
+Ship rule restated: gates = floor; treatment + panel (incl. cover) = the decision.
+
+## 9. Packaging + SEO per platform
+
+**Universal rule: triple keyword alignment.** The primary keyword (usually the tool name + what it does) is:
+1. **spoken in the first 3–5 s**;
+2. **on screen in the first 2–3 s**;
+3. **in the first line of the caption/title**.
+
+TikTok, YouTube and Instagram all index speech and on-screen text in 2026.
+
+| Platform | Title / first line | Caption / description | Hashtags | Platform specifics |
+|---|---|---|---|---|
+| **YouTube Shorts** | ≤ 60 chars (100 max), **keyword in the first 3 words**, number if any | 2–3 keyword sentences (first 100 chars weigh most) + repo link + credit | **3–5 in the description** (first 3 show above the title), always incl. `#Shorts`. Never more than ~15 (they all get ignored) | backend tags 5–8 phrases (500 chars); upload our SRT; spoken keyword helps |
+| **TikTok** | caption line 1 = keyword + hook | 100–300 chars, conversational, ends with a **question** (raises comments) | **3–5 specific** (one = exact keyword); no #fyp/#viral | on-screen keyword in 0–3 s; choose the cover frame; keep auto-captions on |
+| **Instagram Reels** | line 1 = keyword-rich hook (IG search reads captions) | 2–3 keyword sentences; CTA "comment KEYWORD" | **max 5 (hard cap since Dec 2025)** | ranking = watch time, likes, **sends**; test hooks with **Trial Reels**; no TikTok watermark |
+| **Facebook Reels** | keyword-first line | short description + question | 3–5 | native upload (no cross-platform watermark); originality matters (Meta 2025 rules) |
+| **X** | 1 punchy line ≤ 280 chars with keyword + the repo link | (none) | 1–2 max | native video upload; burned-in captions (autoplay is muted); reply to self with credits |
+
+Instagram, TikTok and YouTube rules come from current 2026 sources (see `research/ai-tools-niche.md`). The X and Facebook rows are standard practice, to be re-verified in Phase 4.
+
+Each render's `post.md` will carry **one ready block per platform** (Phase 4: `tools/seo_pack.py`). It validates the limits automatically: char counts, the hashtag cap, keyword in the first line.
+
+**Per-platform algorithm evidence (2026-10-18):** `research/social/platform-algorithms-2026-10-18.md`
+holds the full matrix (what each algorithm pays for, heading/caption/CTA shape, our slot per
+platform, competitor snapshots). Refresh competitor snapshots monthly with
+`tools/socialinsider_probe.py ig:<handle> yt:<handle> tk:<handle> fb:<page>` (free, no login;
+public metrics only — owner metrics still come from Buffer Insights). One pattern adopted from
+that data: on **Instagram, caption line 1 is the comment-keyword promise** ("Comment KEYWORD —
+full guide pinned below"), with the keyword sentences after it; we always pin the link
+ourselves and never promise DMs.
+
+**Worked example (video #1, universal-modder):**
+- YT title: "AI Mods Any PC Game: Minecraft Inside GTA V 🤯". Description: "Universal Modder is a free open-source plugin that lets Claude Code, Codex or Gemini mod PC games you own… github.com/rehan-remade/universal-modder" + `#Shorts #AItools #gaming`.
+- TikTok: "AI mods PC games you own 🎮 Minecraft inside GTA V with Universal Modder. Which game would you mod first? #AItools #gaming #modding #ClaudeCode #opensource".
+- IG: the same first line + "comment MOD for the link" + 5 tags max.
+- X: "An AI coding agent put real Minecraft inside GTA V — mod the games you own 👇 github.com/rehan-remade/universal-modder #AI".
+
+## 10. Publishing workflow and cadence
+
+- **Cadence target: 3–10 shorts/day** (ceiling raised from 5 by owner 2026-10-12; the day's count follows the researched factors). Daily mix is **not hardcoded** (owner 2026-10-11): the batch composition follows the researched editorial ranking (consensus, views, freshness, searchability); pacing caps and format guidance (F1 Repo Drop, F2 Tool Spotlight, F3 Weekly Top 5) remain as formats, not quotas. The day's shortlist goes to the owner for approval before production.
+- **How 3–10/day is possible:**
+  - **Cloud render on GitHub Actions** renders all of the day's videos **in parallel**. It's free for this public repo; GitHub's standard runner for public repos has 4 vCPU and 16 GB.
+  - The sandbox renders only ~1 video per 10 min and resets between sessions, so it is used for drafts and previews only.
+- **Daily agent session (~45–60 min):**
+  1. bootstrap;
+  2. `idea_feed` + radar;
+  3. pick the day's topics by rubric (baseline 3, ceiling 10 — owner 2026-10-12);
+  4. capture packs;
+  5. write briefs + `seo_pack`;
+  6. `--no-render` gates;
+  7. push → dispatch cloud renders;
+  8. review the contact sheets;
+  9. post kits ready in Releases.
+- **Requires:** the GitHub token's **Workflows: Read and write** and **Actions: Read and write** permissions. Tested on 2026-10-07: currently missing (HTTP 403).
+- **Order:** TikTok + YouTube Shorts first (search indexing), then IG Reels (or a Trial Reel first), then FB and X. Always upload the clean MP4 natively; never repost a watermarked file.
+- **First hour:** pin the link comment, reply to early comments (engagement velocity), and log the 24 h metrics in `tracker/content-tracker.csv`.
+- **Posting times:** no data yet. Test 3 slots for 2 weeks and keep the best.
+
+## 11. Learning loop
+
+- **Weekly:** compare our videos vs benchmarks on 3-s hold, % watched, saves/1k, shares/1k and comments/1k, and adjust the hook type, length and CTA.
+- **Monthly:** `channel_study` re-run (benchmarks + 3 new accounts) to update hook/pace/CTA rules. Retire formats that underperform 3 times in a row.
+- **Monthly:** `channel_decode` on the benchmark accounts (`tools/channel_decode.py --latest 10 --top 2 <accounts…>`) to refresh the Script+Voice+Cover+Heading+Description decode in `research/social/`.
+
+## 12. Build roadmap (one phase = one session)
+
+| Phase | Build | Output |
+|---|---|---|
+| ✅ 1–2 | capture kit, social scan, pipeline doc, voice audition | done |
+| ✅ 3 (this) | channel study (270 videos), watchlist, idea feed, this PLAYBOOK, platform SEO research | done |
+| ✅ 4a | token persistence, 32-source registry + post history, energetic voice, channel handles, 3–10/day design | done |
+| 4b | **templates**: `repo-drop` + `tool-spotlight` (scene library + winner caption style) | preview stills |
+| 5 | **cloud render** (GitHub Actions matrix: N briefs in parallel → Releases) + **video #1** | ready-to-post MP4 + 5 platform blocks |
+| 6 | **daily engine: 3–5 shorts/day** (idea feed → briefs → capture → cloud render → post kits); tracker | 3–5 videos/day |
+| 7 | optional: official upload APIs (YouTube Data API, IG Graph API, TikTok Content Posting), GitHub Actions cloud render, Urdu/Hindi line | |
+
+## 13. Risk register
+
+| Risk | Mitigation |
+|---|---|
+| Copyright (clips, music) | asset policy §7; our own music/SFX; credit makers |
+| Platform "reused/unoriginal content" rules | our research + angle + honest verdict; never re-upload; rotate formats |
+| Promoting harmful tools | radar risk flags (NSFW, ToS bypass, bot evasion, piracy, scraping) + manual check |
+| Fact errors | primary sources only; numbers refreshed on render day; catch line |
+| Sandbox resets / limits | one-click bootstrap, one heavy job per session, GitHub SSOT (**needs a token each session**) |
+
+## Short QA (measured gates, 4 Nov 2026)
+
+- Numbers live in `config/qa-thresholds.json` only (owner-approved FINDINGS section 3A, plus 5 hashtags and the 75% visual-change gate from the start).
+- **Plan level** (`tools/short_qa.py plan <id>`, run by `preflight`): duration estimate, hook anchor (number or tool name in the hook's on-screen text), first phrase length, frame-0 media, call to action in the last 15%, visual change on speech scenes, static share, static scene length, motion gap.
+- **Video level** (`tools/short_qa.py video <mp4> --kit <kit.zip>`, run by `make_shorts` fetch): duration, words per minute, longest pause, hook start, first phrase end (from the kit's own word timings), and visual change during speech, static share and motion gap (frame change from ffmpeg). Writes `<name>-qa.json` next to the MP4. A BLOCK stops the batch before panel, cover and queue.
+- **No tool media** (owner rule): `tools/feature_card.py <id>` (called by `make_shorts` build) draws a feature card per scene that has no media, from the plan's feature points, and moves its focus boxes with the spoken words. It never fails the Short for missing tool media.
+- Vision reads are advisory and do not gate.
+- Hashtags: exactly 5 on YouTube, TikTok, Instagram and Facebook (`SP042`). X keeps its 0–2 limit.

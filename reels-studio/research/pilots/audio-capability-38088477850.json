@@ -1,0 +1,23 @@
+{
+  "candidate_video_created": false,
+  "cost_accounting": {
+    "attempted_calls": 1,
+    "baseline_arena_cost": "unknown",
+    "explicitly_rejected_requests": 1,
+    "measured_request_seconds": 0.091,
+    "missing_or_uncertain_cost_receipts": 0,
+    "note": "A successful-generation cost of zero does not imply missing receipts were measured; provider-side zero-dollar key cap and zero-price routing remain enforced.",
+    "reported_successful_cost_usd": "0",
+    "successful_cost_receipts": 0,
+    "unknown_generation_ids": []
+  },
+  "created_at": "2026-10-10T21:40:00Z",
+  "issues": [
+    "PilotBlocked: Pinned free inference failed (HTTP 402): This request requires at least $0.50 in balance for audio; model unchanged"
+  ],
+  "mode": "baseline_audio_capability_only",
+  "publishing_allowed": false,
+  "qualification": "not_evaluated",
+  "success": false,
+  "workflow_run": "https://github.com/zainkhan122/yt-tts/actions/runs/38088477850"
+}

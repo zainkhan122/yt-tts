@@ -1,0 +1,131 @@
+{
+  "tool": "poki",
+  "script_sha256": "sha256:4a72a465a0e08e0fab68719b0d35737c8c0961f734b6c124e3e85c1a3424c10a",
+  "handle": "@hypeless",
+  "scenes": [
+    {
+      "scene_id": "hook",
+      "phrase": 0,
+      "archetype": "flow_link",
+      "headline": "CAN POKI USE YOUR IPHONE?",
+      "feature_id": "f1",
+      "depicts": "an agent reaching your real iphone from your task",
+      "payload": {
+        "nodes": [
+          "Your task",
+          "Your agent",
+          "Your iPhone"
+        ],
+        "edge_label": "taps",
+        "cue_phrases": [
+          "AI",
+          "use",
+          "your iPhone"
+        ]
+      },
+      "cue_word": "iPhone"
+    },
+    {
+      "scene_id": "point1",
+      "phrase": 1,
+      "archetype": "terminal_type",
+      "headline": "RUNS ON YOUR MAC",
+      "feature_id": "f5",
+      "depicts": "clone it and run the setup script then start the server",
+      "payload": {
+        "lines": [
+          "$ ./bin/setup",
+          "$ npm start"
+        ],
+        "title": "poki",
+        "cue_phrases": [
+          "run the setup script",
+          "start it"
+        ]
+      },
+      "cue_word": "clone"
+    },
+    {
+      "scene_id": "point2",
+      "phrase": 2,
+      "archetype": "toggle_steps",
+      "headline": "YOUR AGENT, YOUR PLAN",
+      "feature_id": "f2",
+      "depicts": "add it to claude code or codex as an mcp server",
+      "payload": {
+        "steps": [
+          "Add the Poki MCP server",
+          "Pick Claude Code or Codex",
+          "Your own subscription"
+        ],
+        "done": 2
+      },
+      "cue_word": "server"
+    },
+    {
+      "scene_id": "point3",
+      "phrase": 3,
+      "archetype": "flow_link",
+      "headline": "ONE TASK, REAL TAPS",
+      "feature_id": "f3",
+      "depicts": "a plain task turns into taps and typing on the screen",
+      "payload": {
+        "nodes": [
+          "Your task",
+          "Searches the web",
+          "Taps and types"
+        ],
+        "edge_label": "works the screen",
+        "cue_phrases": [
+          "Give it a task",
+          "searching the web",
+          "It taps and types"
+        ]
+      },
+      "cue_word": "task"
+    },
+    {
+      "scene_id": "point4",
+      "phrase": 4,
+      "archetype": "concept_card",
+      "headline": "FASTER THE SECOND TIME",
+      "feature_id": null,
+      "depicts": "remembers past tasks so the same job runs faster",
+      "payload": {
+        "big": "FASTER THE SECOND TIME",
+        "sub": "It remembers past tasks."
+      },
+      "cue_word": "remembers"
+    },
+    {
+      "scene_id": "catch",
+      "phrase": 5,
+      "archetype": "chip_grid",
+      "headline": "THE CATCH",
+      "feature_id": "f6",
+      "depicts": "controls your real iphone and the screen goes to your model",
+      "payload": {
+        "chips": [
+          "Controls your real iPhone",
+          "Screen to your model service",
+          "Needs a Mac with Xcode"
+        ],
+        "highlight": 0
+      },
+      "cue_word": "catch"
+    },
+    {
+      "scene_id": "cta",
+      "phrase": 6,
+      "archetype": "endcard",
+      "headline": "HAND YOUR PHONE TO AI",
+      "feature_id": null,
+      "depicts": "comment the keyword and follow to get the repo",
+      "payload": {
+        "keyword": "IPHONE",
+        "follow": "Follow"
+      },
+      "cue_word": "IPHONE"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+name: frame-critique
+on:
+  workflow_dispatch:
+    inputs:
+      brief:
+        description: 'Brief id (reels-studio/briefs/<id>.json) — render mode only'
+        required: false
+      render_run:
+        description: 'render mode: Actions run id whose artifact (render-<brief>) holds the mp4'
+        required: false
+      mode:
+        description: 'render = critique our render | external = analyse third-party reels (frames) | video = full video to cosmos-reason1 (video_urls, subject)'
+        default: 'render'
+      video_urls:
+        description: 'external mode: space-separated reel URLs (max 5)'
+        required: false
+      subject:
+        description: 'external mode: label for the output doc, e.g. instagram-adilet.fndr'
+        required: false
+permissions:
+  contents: write
+  actions: read
+jobs:
+  critique:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: ffmpeg for sampling
+        run: pip install -q imageio-ffmpeg
+      - name: Pull the render artifact
+        if: ${{ inputs.mode == 'render' }}
+        uses: actions/download-artifact@v4
+        with:
+          name: render-${{ inputs.brief }}
+          run-id: ${{ inputs.render_run }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: /tmp/render
+      - name: Sample frames + pull the tool's own UI media
+        if: ${{ inputs.mode == 'render' }}
+        env:
+          BRIEF: ${{ inputs.brief }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          python3 reels-studio/tools/capture_store.py pull-for "reels-studio/briefs/$BRIEF.json"
+          FF=$(python3 -c "import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())")
+          mkdir -p /tmp/frames
+          "$FF" -y -loglevel error -i /tmp/render/$BRIEF.mp4 -vf "fps=1/8,scale=512:-1" -q:v 4 /tmp/frames/f%02d.jpg
+          ls /tmp/frames
+      - name: Decode staged external videos + sample
+        if: ${{ inputs.mode == 'external' && inputs.mode != 'video' }}
+        run: |
+          pip install -q imageio-ffmpeg yt-dlp
+          mkdir -p /tmp/ext
+          for f in reels-studio/ext-videos/*.txt; do base64 -d "$f" > "/tmp/ext/$(basename "$f" .txt | sed 's/^b64-//').mp4"; done
+          python3 reels-studio/tools/ext_sample_dir.py --dir /tmp/ext
+      - name: VIDEO critique — full video to video-capable NIM model (dense-frame fallback if video catalog is empty)
+        if: ${{ inputs.mode == 'video' }}
+        timeout-minutes: 55
+        env:
+          SUBJECT: ${{ inputs.subject }}
+          NVIDIA_KEY: ${{ secrets.NVIDIA_KEY }}
+        run: |
+          pip install -q imageio-ffmpeg
+          mkdir -p /tmp/vid
+          # platform CDNs block datacenter IPs (YouTube cookies / TikTok 4xx), so videos are staged
+          # via the ext-videos b64 channel (reels-studio/ext-videos/b64-<subject>.txt), decoded here:
+          for f in reels-studio/ext-videos/*.txt; do
+            [ -e "$f" ] || continue
+            base64 -d "$f" > "/tmp/vid/$(basename "$f" .txt | sed 's/^b64-//').mp4"
+          done
+          ls -la /tmp/vid
+          set -e
+          for f in /tmp/vid/*.mp4; do
+            [ -e "$f" ] || { echo "FATAL: no staged videos in ext-videos/"; exit 1; }
+            python3 reels-studio/tools/video_critique.py --subject "$(basename "$f" .mp4)" --video-file "$f"
+          done
+      - name: VLM critique (NVIDIA NIM free endpoints)
+        if: ${{ inputs.mode != 'video' }}
+        timeout-minutes: 55
+        env:
+          BRIEF: ${{ inputs.brief }}
+          SUBJECT: ${{ inputs.subject }}
+          NVIDIA_KEY: ${{ secrets.NVIDIA_KEY }}
+        run: |
+          if [ "${{ inputs.mode }}" = "external" ]; then
+            OUT="reels-studio/research/critiques/$SUBJECT-$(date +%F).md"
+            for pass in 1 2 3; do
+              [ -s "$OUT" ] && break
+              echo "critique pass $pass"; timeout 20m python3 reels-studio/tools/frame_critique.py "$SUBJECT" --external --frames-map /tmp/ext/frames.json --subject "$SUBJECT" || true
+            done
+          else
+            python3 reels-studio/tools/frame_critique.py "$BRIEF" --frames /tmp/frames --media "reels-studio/captures/$BRIEF"
+          fi
+      - name: Commit the critique
+        env:
+          BRIEF: ${{ inputs.brief }}
+        run: |
+          git config user.name "reels-bot"
+          git config user.email "reels-bot@users.noreply.github.com"
+          git add reels-studio/research/critiques/ || true
+          git commit -q -m "critique: frame analysis ${{ inputs.brief }} ${{ inputs.subject }}" || echo "no critique diff"
+          git push
+      - name: Upload critique artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: critique-${{ inputs.brief }}
+          path: reels-studio/research/critiques/

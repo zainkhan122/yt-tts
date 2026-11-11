@@ -1,0 +1,45 @@
+# Owner rule 2026-10-21: each channel day posts a random 1-5 shorts. This job draws counts for the
+# next 7 America/New_York days once (existing days are never redrawn) and commits the store.
+name: Daily shorts count (draw once per day)
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 4 * * *'   # 04:30 UTC daily (~09:30 ET), well ahead of the planner's lookahead
+permissions:
+  contents: read
+concurrency:
+  group: hypeless-daily-counts
+  cancel-in-progress: false
+jobs:
+  draw:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            /reels-studio/tools/post/
+            /reels-studio/config/publishing.json
+            /reels-studio/tracker/daily-counts.json
+          sparse-checkout-cone-mode: false
+          filter: blob:none
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Draw missing counts for the next 7 days
+        run: python3 reels-studio/tools/post/best_times.py --days 7
+      - name: Commit the count store if it changed
+        run: |
+          git config user.name "reels-studio agent"
+          git config user.email "agent@users.noreply.github.com"
+          git add reels-studio/tracker/daily-counts.json
+          if git diff --cached --quiet; then
+            echo "no new days to draw"
+          else
+            git commit -m "daily counts: draw next 7 channel days"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi

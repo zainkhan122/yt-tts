@@ -1,0 +1,234 @@
+{
+  "id": "repo-solidcraft-01",
+  "capture": "captures/solidcraft",
+  "title": "SolidCraft CAD: AI Agents Edit Parametric 3D Models",
+  "niche": "tech / open-source software: agent-drivable parametric CAD",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "2026-10-13 revision 3: owner-approved cover font retained; enlarged PI CASE, PATTERN FEATURES, and CUT SIDE PORTS top labels to match bottom caption size. Story and narration unchanged. Official repo/docs and live GitHub API capture checked 10:06 UTC. Use approved Option-3 Chatterbox flow voice. No on-screen credit captions. One pilot only; no batch or posting approval.",
+  "production_category": "repo",
+  "keywords": [
+    "SolidCraft",
+    "CAD",
+    "parametric",
+    "AI agents",
+    "MCP",
+    "Apache-2.0"
+  ],
+  "facts": {
+    "stars": 1339,
+    "forks": 129,
+    "license": "Apache-2.0",
+    "checked": "2026-10-13 10:06 UTC"
+  },
+  "credits_on_screen": "Post-text attribution only; no on-screen credits. Own page captures: https://github.com/bherbruck/solidcraft. Demo media and images are from the project's official README. GitHub API facts captured 2026-10-13 10:06 UTC: 1,339 stars, 129 forks, Apache-2.0.",
+  "sources": [
+    "https://github.com/bherbruck/solidcraft",
+    "https://bherbruck.github.io/solidcraft/",
+    "https://github.com/bherbruck/solidcraft/releases/tag/v0.3.2",
+    "https://api.github.com/repos/bherbruck/solidcraft"
+  ],
+  "verify_before_render": [
+    "Capture 2026-10-13 10:06 UTC, GitHub API: 1,339 stars, 129 forks, Apache-2.0; repo pushed 2026-10-13.",
+    "Official repository/docs: pure-Rust parametric CAD; desktop, browser, CLI and MCP access; README describes the project as early but usable for simple parts.",
+    "The official README demo shows a Raspberry Pi case built with sketches, dimensions, extrusion, rounding, shelling, patterning and side-port cuts. Describe the demo as the project's own footage, not an independent test.",
+    "Do not call SolidCraft a Fusion 360 replacement, production-grade, or fully CAD-compatible. Reference-part checks do not establish full compatibility.",
+    "Use approved Option-3 Chatterbox flow voice. No on-screen credit captions. Exactly one pilot; no batch render or scheduling authorization."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "clip",
+      "src": "solidcraft.mp4",
+      "in": 6.8,
+      "out": 9.7,
+      "fit": "fill-blur",
+      "headline": "SOLIDCRAFT *CAD*",
+      "sub": "Agents edit parametric 3D models",
+      "say": "SolidCraft CAD lets AI agents edit parametric models through MCP."
+    },
+    {
+      "id": "demo",
+      "type": "clip-montage",
+      "src": "solidcraft.mp4",
+      "cuts": [
+        {
+          "in": 10.5,
+          "out": 14.8,
+          "label": "PI CASE",
+          "at": "case"
+        },
+        {
+          "in": 14.9,
+          "out": 18.8,
+          "label": "PATTERN FEATURES",
+          "at": "pattern"
+        },
+        {
+          "in": 19.1,
+          "out": 22.7,
+          "label": "CUT SIDE PORTS",
+          "at": "ports"
+        }
+      ],
+      "say": "The Raspberry Pi case gets a pattern; the official demo cuts side ports."
+    },
+    {
+      "id": "reveal",
+      "type": "page",
+      "image": "desktop-top.jpg",
+      "url": "github.com/bherbruck/solidcraft",
+      "camera": [
+        {
+          "region": "repo_title",
+          "zoom": 1.8,
+          "at": "SolidCraft"
+        },
+        {
+          "region": "star_button",
+          "zoom": 2.4,
+          "at": "stars"
+        }
+      ],
+      "cursor": [
+        {
+          "region": "star_button",
+          "at": "stars",
+          "state": "★ Starred 1,339"
+        }
+      ],
+      "stat": {
+        "from": "facts.stars",
+        "format": "full",
+        "label": "GitHub stars · Apache-2.0 · Oct 13",
+        "at": "stars"
+      },
+      "say": "As of October thirteenth, SolidCraft had {1,339|one thousand three hundred thirty nine} stars and an {Apache-2.0|Apache two point zero} license."
+    },
+    {
+      "id": "capabilities",
+      "type": "steps",
+      "heading": "WHAT IT *SUPPORTS*",
+      "background": {
+        "image": "desktop-full.jpg",
+        "scroll_regions": [
+          "h_what-works",
+          "h_ai-agents-mcp"
+        ]
+      },
+      "steps": [
+        "Sketches + constraints",
+        "Parametric features",
+        "Desktop · browser · CLI · MCP"
+      ],
+      "step_at": [
+        "sketches",
+        "features",
+        "MCP"
+      ],
+      "say": "It supports sketches, editable features, a desktop app, browser, CLI and MCP for agents."
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE *CATCH*",
+      "cons": [
+        "Early · usable for simple parts",
+        "Full-CAD compatibility unproven"
+      ],
+      "pros": [
+        "Open source · Apache-2.0",
+        "MCP control for agents"
+      ],
+      "item_at": [
+        "early",
+        "compatibility",
+        "open",
+        "MCP"
+      ],
+      "order": [
+        "cons",
+        "pros"
+      ],
+      "say": "The catch? It's early and meant for simple parts; full CAD compatibility isn't proven. It's open source under Apache two point zero, with MCP for agents."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "CAD",
+      "say": "Would you trust AI with your next part? Comment CAD for the repo."
+    }
+  ],
+  "seo": {
+    "keyword": "SolidCraft CAD",
+    "aliases": [
+      "parametric CAD",
+      "AI CAD",
+      "MCP CAD"
+    ],
+    "onscreen_first3s": "SOLIDCRAFT CAD / AGENTS EDIT PARAMETRIC 3D MODELS",
+    "youtube": {
+      "title": "SolidCraft CAD: AI Agents Edit Parametric 3D Models",
+      "description": "SolidCraft is a Rust parametric CAD app for desktop and browser, with a headless CLI and MCP server for agent control. Its official demo builds a Raspberry Pi case with editable features. The project calls itself early but usable for simple parts; reference checks do not establish full CAD compatibility. Apache-2.0. Captured Oct 13, 2026: 1,339 stars.\nGitHub: https://github.com/bherbruck/solidcraft",
+      "hashtags": [
+        "#Shorts",
+        "#SolidCraft",
+        "#CAD",
+        "#OpenSource"
+      ],
+      "tags": [
+        "SolidCraft CAD",
+        "parametric CAD",
+        "AI CAD tools",
+        "MCP server",
+        "open-source CAD",
+        "Rust CAD"
+      ]
+    },
+    "tiktok": {
+      "caption": "SolidCraft CAD gives AI agents a way to operate parametric models through MCP. The demo builds a Raspberry Pi case; the project says it is early but usable for simple parts. Would you try it?",
+      "hashtags": [
+        "#SolidCraft",
+        "#CAD",
+        "#MCP",
+        "#OpenSource"
+      ]
+    },
+    "instagram": {
+      "caption": "SolidCraft CAD: an AI agent can operate a parametric model through MCP. The official demo builds a Raspberry Pi case; the project says it is early but usable for simple parts. Comment CAD for the repo.",
+      "hashtags": [
+        "#SolidCraft",
+        "#CAD",
+        "#MCP",
+        "#OpenSource"
+      ]
+    },
+    "facebook": {
+      "caption": "SolidCraft CAD lets an AI agent operate a parametric model through MCP. The project calls it early, but usable for simple parts. Would you try AI-powered CAD?",
+      "hashtags": [
+        "#SolidCraft",
+        "#CAD",
+        "#OpenSource"
+      ]
+    },
+    "x": {
+      "text": "SolidCraft CAD: an early Rust parametric modeler with MCP for AI agents. The official demo builds a Raspberry Pi case; it is usable for simple parts, not proven full CAD compatibility. https://github.com/bherbruck/solidcraft",
+      "hashtags": [
+        "#CAD"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "SolidCraft CAD: AI Agents Edit Parametric 3D Models"
+    ],
+    "caption": "SolidCraft CAD lets AI agents operate parametric models through MCP. The official demo builds a Raspberry Pi case; the project says it is early but usable for simple parts. Do not call it a Fusion replacement.",
+    "hashtags": [
+      "#SolidCraft",
+      "#CAD",
+      "#MCP",
+      "#OpenSource"
+    ],
+    "pinned_comment": "Official repository and docs: https://github.com/bherbruck/solidcraft · https://bherbruck.github.io/solidcraft/. Early-stage; usable for simple parts. Apache-2.0. Demo media: the project's official README."
+  }
+}

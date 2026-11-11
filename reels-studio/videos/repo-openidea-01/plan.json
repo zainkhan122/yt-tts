@@ -1,0 +1,180 @@
+{
+ "id": "repo-openidea-01",
+ "tool": "OpenIDEA",
+ "author": "agent",
+ "question": "Is there a fast, Rust-built IDE with an IntelliJ keymap?",
+ "points": [
+  {
+   "n": 1,
+   "claim": "It brings the IntelliJ keymap, tool windows and search-everything habits to a native app.",
+   "spoken": "It brings IntelliJ's keymap, tool windows and search-everything habits to a native app.",
+   "source": "https://github.com/l0ng-ai/openidea",
+   "source_note": "README: IntelliJ-style keymap, tool windows and search-everything",
+   "visual": {
+    "kind": "chips",
+    "intent": "what carries over"
+   },
+   "title": "IntelliJ habits",
+   "sub": "Your shortcuts still work.",
+   "chips": [
+    "Keymap",
+    "Tool windows",
+    "Search everything"
+   ]
+  },
+  {
+   "n": 2,
+   "claim": "It has a Rust core with an editor, debugger, Git, terminal, database and HTTP clients.",
+   "spoken": "It has a Rust core, with an editor, debugger, Git, terminal, database and HTTP clients.",
+   "source": "https://github.com/l0ng-ai/openidea",
+   "source_note": "README: Rust core; editor, code insight, debugger, Git, terminal, database and HTTP clients",
+   "visual": {
+    "kind": "chips",
+    "intent": "built in"
+   },
+   "title": "Built in Rust",
+   "sub": "Everything in one native app.",
+   "chips": [
+    "Editor",
+    "Debugger",
+    "Git",
+    "Terminal",
+    "Database"
+   ]
+  },
+  {
+   "n": 3,
+   "claim": "The maker's own benchmark shows it opening a project faster, with far less memory than IntelliJ.",
+   "spoken": "The maker's own benchmark shows it opening a project faster, with far less memory than IntelliJ.",
+   "source": "https://github.com/l0ng-ai/openidea",
+   "source_note": "README benchmark: one Python project; maker's measurements; IntelliJ analyses Python more deeply",
+   "visual": {
+    "kind": "findings",
+    "intent": "maker's benchmark on one project, both sides shown"
+   },
+   "rows": [
+    {
+     "step": "Window with project",
+     "eval": "OpenIDEA",
+     "finding": "Maker's test: faster",
+     "severity": "Maker test"
+    },
+    {
+     "step": "Memory in use",
+     "eval": "OpenIDEA",
+     "finding": "Maker's test: far less",
+     "severity": "Maker test"
+    }
+   ],
+   "title": "Maker's benchmark",
+   "sub": "One Python project, measured by the maker."
+  },
+  {
+   "n": 4,
+   "claim": "It builds for macOS, Windows and Linux.",
+   "spoken": "It builds for macOS, Windows and Linux.",
+   "source": "https://github.com/l0ng-ai/openidea",
+   "source_note": "README: builds for macOS, Windows and Linux",
+   "visual": {
+    "kind": "chips",
+    "intent": "platforms"
+   },
+   "title": "Three platforms",
+   "sub": "One app on each system.",
+   "chips": [
+    "macOS",
+    "Windows",
+    "Linux"
+   ]
+  }
+ ],
+ "catch": "The benchmark is the maker's own, on one project, and IntelliJ analyses Python more deeply.",
+ "catch_sub": "Check it on your own project.",
+ "catch_visual": {
+  "kind": "steps",
+  "intent": "caveat",
+  "steps": [
+   "One project",
+   "Maker's numbers",
+   "Check yourself"
+  ]
+ },
+ "brand_line": "OpenIDEA · native IDE",
+ "cover": {
+  "text": "INTELLIJ KEYS, RUST CORE"
+ },
+ "cta": "Would you switch to a native IntelliJ-style IDE? Comment IDE and I'll pin the repo link.",
+ "cta_keyword": "IDE",
+ "seo": {
+  "onscreen_first3s": "INTELLIJ KEYS, RUST",
+  "youtube": {
+   "title": "OpenIDEA: An IntelliJ-Style IDE Rebuilt in Rust",
+   "description": "OpenIDEA brings the IntelliJ IDEA keymap, tool windows and search-everything habits to a native app with a Rust core. It covers editor, debugger, Git, terminal, database and HTTP clients for 60+ languages. The benchmark in the README is the maker's own, on one project.\nRepo: https://github.com/l0ng-ai/openidea",
+   "tags": [
+    "OpenIDEA",
+    "IntelliJ alternative",
+    "Rust IDE",
+    "native IDE",
+    "IntelliJ keymap",
+    "code editor"
+   ],
+   "hashtags": [
+    "#Shorts",
+    "#IDE",
+    "#Rust",
+    "#OpenSource"
+   ]
+  },
+  "tiktok": {
+   "caption": "OpenIDEA: an IntelliJ-style keymap in a native IDE with a Rust core.",
+   "hashtags": [
+    "#IDE",
+    "#Rust",
+    "#OpenSource"
+   ]
+  },
+  "instagram": {
+   "caption": "The IDE you know, rebuilt in Rust. IntelliJ-style keymap in a native app. Save this for your next setup.",
+   "hashtags": [
+    "#IDE",
+    "#Rust",
+    "#OpenSource",
+    "#DevTools"
+   ]
+  },
+  "facebook": {
+   "caption": "OpenIDEA brings IntelliJ's keymap and tool windows to a native app with a Rust core. Open source.",
+   "hashtags": [
+    "#IDE",
+    "#DevTools"
+   ]
+  },
+  "x": {
+   "text": "OpenIDEA: IntelliJ's keymap and tool windows in a native app with a Rust core.",
+   "hashtags": [
+    "#Rust"
+   ]
+  },
+  "keyword": "Rust IDE",
+  "aliases": [
+   "IntelliJ alternative",
+   "native IDE"
+  ]
+ },
+ "brief_meta": {
+  "title": "OpenIDEA: IntelliJ-style keymap in a Rust-built IDE",
+  "niche": "developer tools",
+  "keywords": [
+   "Rust IDE",
+   "IntelliJ alternative",
+   "native IDE",
+   "OpenIDEA"
+  ],
+  "idea": "OpenIDEA is a native, Rust-built IDE that keeps the IntelliJ keymap and tool windows.",
+  "viewer": {
+   "who": "developers used to IntelliJ shortcuts",
+   "problem": "heavy IDEs are slow to open",
+   "job": "decide whether to try a lighter IDE"
+  }
+ }
+}

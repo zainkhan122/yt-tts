@@ -1,0 +1,135 @@
+{
+  "performed_at_utc": "2026-10-10T22:06:34.913744+00:00",
+  "owner_decision_date": "2026-10-11",
+  "before": {
+    "observed_at": "2026-10-10T22:06:34Z",
+    "workspace_saved_bytes": 92401110,
+    "workspace_saved_files": 1586,
+    "workspace_budget_bytes": 128000000,
+    "workspace_warning_bytes": 100000000,
+    "studio_tracked_bytes": 5912235,
+    "studio_source_budget_bytes": 20000000,
+    "tracked_video_files": [],
+    "tracked_files_over_5mb": [],
+    "ok": true,
+    "scope": "Only Reels Studio/workflows. Unrelated projects and remote git history are never removed."
+  },
+  "production_fingerprints_before": {
+    "config/publishing.json": "97d82adb77df52aae47f51493ba651e10eaf19824b26f8e3bae3aac2a114b08a",
+    "config/youtube.json": "c4e423de9862aaced5391ee07de6276e369bc47d55ef2c0a5a2e6b97960ebf11",
+    "queue/publish.json": "8818938c9d9ce8800ae1de2337965c1176664d81a4d4889054e5634a44fd17c5",
+    "queue/youtube-long.json": "3d49915c13f2efc95cb3990619de7b282ccbdda10a0e2d34d0f3219cdebacaab",
+    "tracker/publications.json": "3df8992bab1215cdeb0ea66b32afe49db8eba0d5b6871eea962c1df534e4b615",
+    "tracker/youtube-publications.json": "31feafb162eb344b45ca7066e597108a08fe51afa7bf9f8cc5ae3d72629e35ee",
+    "config/channel.json": "668bd53f7633920adbae113918e0cc5683646b547800a451ee5d99fb9fb24409"
+  },
+  "verified_archives": [
+    {
+      "asset_id": 627874680,
+      "name": "news-haiku-55-01.mp4",
+      "size_bytes": 11135231,
+      "sha256": "sha256:803f7320ea670d9a558f51392080a40263e91fd77451092237862ffaef46677d",
+      "url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/news-haiku-55-01.mp4"
+    },
+    {
+      "asset_id": 627874715,
+      "name": "news-haiku-55-01-kit.zip",
+      "size_bytes": 766500,
+      "sha256": "sha256:322a90ea3e1fac54e1bfab5789bb42ae8f50d76a81dcb8564cc6a7143ae340b4",
+      "url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/news-haiku-55-01-kit.zip"
+    },
+    {
+      "asset_id": 627887795,
+      "name": "news-gemini-agent-01.mp4",
+      "size_bytes": 12981459,
+      "sha256": "sha256:dac6bdb95180d6b32f4f29c2affb95653797770c1471bd2fcd4a6ac8481dec41",
+      "url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/news-gemini-agent-01.mp4"
+    },
+    {
+      "asset_id": 627887849,
+      "name": "news-gemini-agent-01-kit.zip",
+      "size_bytes": 778893,
+      "sha256": "sha256:3364018cb764da0891331a679a41ce22527374df9d1f018a66821571aa61ffe7",
+      "url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/news-gemini-agent-01-kit.zip"
+    },
+    {
+      "asset_id": 627873804,
+      "name": "tool-mosa-01.mp4",
+      "size_bytes": 11422328,
+      "sha256": "sha256:d5977260e53138318ab06d0c5f579f1d9c0578cfc5e61fbe78731606dc824e45",
+      "url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/tool-mosa-01.mp4"
+    },
+    {
+      "asset_id": 627873830,
+      "name": "tool-mosa-01-kit.zip",
+      "size_bytes": 797775,
+      "sha256": "sha256:f3780a7c1e418c5a51bd7d9e498b2eb8551b7c1957338f354b49a558cf4d121e",
+      "url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/tool-mosa-01-kit.zip"
+    },
+    {
+      "asset_id": 627874040,
+      "name": "tool-pomelli-01.mp4",
+      "size_bytes": 13818415,
+      "sha256": "sha256:f21155c4d6e97273ad7c6314dc328261ff6b8c33eebd9d11f5629632fbb87048",
+      "url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/tool-pomelli-01.mp4"
+    },
+    {
+      "asset_id": 627874101,
+      "name": "tool-pomelli-01-kit.zip",
+      "size_bytes": 831134,
+      "sha256": "sha256:adeb74b4a20b5a43eb0b4dd29be4a22653c6b705446bcf717acf0e7049fa816c",
+      "url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/tool-pomelli-01-kit.zip"
+    },
+    {
+      "asset_id": 627860841,
+      "name": "repo-whistle-01.mp4",
+      "size_bytes": 9549967,
+      "sha256": "sha256:d71ff007e3d3bba23a76c4b089a5c1d28bf8b3cb9a2e0d360673aa42d22104fe",
+      "url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/repo-whistle-01.mp4"
+    },
+    {
+      "asset_id": 627860877,
+      "name": "repo-whistle-01-kit.zip",
+      "size_bytes": 676737,
+      "sha256": "sha256:3613014ebc8697a452d7e91aa4e9c7d744d42dfdd5c9d63b00f8589dfa32b66e",
+      "url": "https://github.com/zainkhan122/yt-tts/releases/download/renders-2026-10-10/repo-whistle-01-kit.zip"
+    }
+  ],
+  "removed_local_files": [
+    {
+      "path": "deliverables/hypeless-2026-10-10/hypeless-five-shorts-and-post-kits.zip",
+      "size_bytes": 62762607,
+      "sha256": "sha256:64c5b4675944b6011cc3cc739257d300dd46afb04bc5c32563e8193bd7cebc80"
+    },
+    {
+      "path": "deliverables/hypeless-2026-10-10/preview-mosa.mp4",
+      "size_bytes": 11422328,
+      "sha256": "sha256:d5977260e53138318ab06d0c5f579f1d9c0578cfc5e61fbe78731606dc824e45"
+    }
+  ],
+  "policy": "Delete only requested local delivery duplicates after verifying all video/kit members against live GitHub Release assets. Never delete archives, source, credentials, queues or publication receipts.",
+  "reclaimed_bytes": 74184935,
+  "after": {
+    "observed_at": "2026-10-10T22:06:39Z",
+    "workspace_saved_bytes": 18218074,
+    "workspace_saved_files": 1585,
+    "workspace_budget_bytes": 128000000,
+    "workspace_warning_bytes": 100000000,
+    "studio_tracked_bytes": 5912235,
+    "studio_source_budget_bytes": 20000000,
+    "tracked_video_files": [],
+    "tracked_files_over_5mb": [],
+    "ok": true,
+    "scope": "Only Reels Studio/workflows. Unrelated projects and remote git history are never removed."
+  },
+  "production_fingerprints_after": {
+    "config/publishing.json": "97d82adb77df52aae47f51493ba651e10eaf19824b26f8e3bae3aac2a114b08a",
+    "config/youtube.json": "c4e423de9862aaced5391ee07de6276e369bc47d55ef2c0a5a2e6b97960ebf11",
+    "queue/publish.json": "8818938c9d9ce8800ae1de2337965c1176664d81a4d4889054e5634a44fd17c5",
+    "queue/youtube-long.json": "3d49915c13f2efc95cb3990619de7b282ccbdda10a0e2d34d0f3219cdebacaab",
+    "tracker/publications.json": "3df8992bab1215cdeb0ea66b32afe49db8eba0d5b6871eea962c1df534e4b615",
+    "tracker/youtube-publications.json": "31feafb162eb344b45ca7066e597108a08fe51afa7bf9f8cc5ae3d72629e35ee",
+    "config/channel.json": "668bd53f7633920adbae113918e0cc5683646b547800a451ee5d99fb9fb24409"
+  },
+  "production_state_unchanged": true
+}

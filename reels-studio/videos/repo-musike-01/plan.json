@@ -1,0 +1,213 @@
+{
+ "id": "repo-musike-01",
+ "tool": "musike",
+ "author": "agent",
+ "question": "What if your music app had no ads, no account, and nothing left to sell you?",
+ "inspiration": {
+  "platform": "tiktok",
+  "source": "github.signals",
+  "post_id": "7706422892908662034",
+  "note": "3.5x channel-median outlier. Taken as lead only: proof-in-frame-one timing, one emphasised keyword per caption phrase, claim→mechanism→breadth→caveat beat order. Their browser-mock framing, yellow-pill captions, mascot end card and every script sentence stay theirs. See research/references/tiktok-github.signals-7706422892908662034/teardown.md"
+ },
+ "hook_visual": {
+  "kind": "steps",
+  "steps": [
+   "No ads",
+   "No account",
+   "Nothing to sell you"
+  ],
+  "intent": "player UI already on screen at t=0 (proof in frame one, per teardown); the three removals light up one by one as said"
+ },
+ "points": [
+  {
+   "n": 1,
+   "claim": "A server you run fetches the stream with yt-dlp and hands the bytes to the player.",
+   "spoken": "A small server that you run fetches the stream itself and hands it to the player — that is why there is nothing to skip.",
+   "source": "https://github.com/Ernani1234/musike",
+   "source_note": "README 'What it is': 'No ads, no account: the server gets the original stream with yt-dlp and passes the bytes to the player.'",
+   "visual": {
+    "kind": "steps",
+    "intent": "mechanism row: your computer runs the server, the server fetches, the player just plays"
+   },
+   "title": "It fetches the stream itself",
+   "sub": "A server you run gets the stream with yt-dlp and passes it to the player.",
+   "steps": [
+    "You run the server",
+    "Server fetches the stream",
+    "Player just plays"
+   ]
+  },
+  {
+   "n": 2,
+   "claim": "Audio and video switch mid-track from the same position, and songs get the artist's official music video.",
+   "spoken": "Flip between audio and video mid-song, from the same second — for songs it even finds the artist's official music video.",
+   "source": "https://github.com/Ernani1234/musike",
+   "source_note": "README 'What it is': 'Song or music video: switch between Audio and Video at any time, from the same point in the track. For songs, Musike finds the artist's official music video.'",
+   "visual": {
+    "kind": "steps",
+    "intent": "audio/video toggle on a playing track, time marker stays put, video frame appears"
+   },
+   "title": "Audio becomes video mid-song",
+   "sub": "The switch happens at the same second, and songs get their official music video.",
+   "steps": [
+    "Same track, same second",
+    "Toggle audio to video",
+    "Official music video appears"
+   ]
+  },
+  {
+   "n": 3,
+   "claim": "It runs as Windows, macOS and Linux apps, Android, Android TV and iPhone apps, an installable browser PWA, and a Docker image.",
+   "spoken": "Desktop, phone, TV, browser, Docker — the same player runs on all of them, and the phone app needs no computer.",
+   "source": "https://github.com/Ernani1234/musike",
+   "source_note": "README intro paragraph: 'Runs as a Windows, macOS and Linux app, as an Android, Android TV and iPhone app that needs no computer, in any browser (installable PWA) and in Docker.'",
+   "visual": {
+    "kind": "steps",
+    "intent": "breadth stack: three rows of platform chips light up in sync with the list"
+   },
+   "title": "One player, every screen",
+   "sub": "Desktop, mobile, TV, browser PWA and Docker — the phone app needs no computer.",
+   "steps": [
+    "Windows · macOS · Linux",
+    "Android · Android TV · iPhone",
+    "Browser PWA · Docker"
+   ]
+  },
+  {
+   "n": 4,
+   "claim": "Playlists and favorites live in a local file you can export and move to any other Musike.",
+   "spoken": "Your playlists and favourites stay in a local file you can export — take your whole library to any other install.",
+   "source": "https://github.com/Ernani1234/musike",
+   "source_note": "README 'What it is' 'Yours' bullet: 'Playlists and favorites live in a local file you can export and take to any other Musike.' + Contents: 'Moving your library (backup)'.",
+   "visual": {
+    "kind": "steps",
+    "intent": "library card slides into a file icon, file copies itself to a second device"
+   },
+   "title": "Your library is a file",
+   "sub": "Export playlists and favourites, and carry them to any other Musike.",
+   "steps": [
+    "Library lives in a local file",
+    "Export it with one click",
+    "Load it on any other Musike"
+   ]
+  }
+ ],
+ "catch": "It is for personal use: the README says playing YouTube streams without ads breaks YouTube's terms, and public bots like Groovy and Rythm were shut down after notices from Google.",
+ "catch_sub": "Personal use only — public services doing this were shut down before.",
+ "catch_visual": {
+  "kind": "steps",
+  "steps": [
+   "Personal and educational use only",
+   "YouTube's terms forbid ad-free streams",
+   "Groovy and Rythm were shut down"
+  ],
+  "intent": "the honest limit card: README legal notice as three sober rows"
+ },
+ "brand_line": "musike · open source · MIT",
+ "cover": {
+  "text": "ZERO ADS ZERO ACCOUNTS",
+  "concepts": [
+   {
+    "layout": "window",
+    "text": "ZERO ADS ZERO ACCOUNTS",
+    "media": {
+     "kind": "tool_media",
+     "file": "home.jpg"
+    }
+   },
+   {
+    "layout": "bleed",
+    "text": "SWITCH TO VIDEO MID-SONG",
+    "media": {
+     "kind": "tool_media",
+     "file": "cinema.jpg"
+    }
+   },
+   {
+    "layout": "split",
+    "text": "YOUR LIBRARY IS A FILE",
+    "media": {
+     "kind": "tool_media",
+     "file": "mobile.jpg"
+    }
+   }
+  ]
+ },
+ "cta": "Would you run your own music player? Comment MUSIKE and I'll pin the repo link.",
+ "cta_keyword": "MUSIKE",
+ "seo": {
+  "keyword": "musike",
+  "onscreen_first3s": "MUSIKE SELLS YOU NOTHING",
+  "youtube": {
+   "title": "Musike Runs on 8 Platforms and Charges Nothing",
+   "description": "Musike is an open-source music player for YouTube's catalog. A server you run fetches the stream with yt-dlp, so playback has no ads, no account and no subscription. Audio and video switch mid-track, it runs on Windows, macOS, Linux, Android, Android TV, iPhone, as a browser PWA and in Docker, and your playlists and favourites live in a local file you can export. Personal use only — the README's legal notice explains YouTube's terms. Repo: https://github.com/Ernani1234/musike #Shorts #Musike #OpenSource #MusicPlayer #SelfHosted",
+   "tags": [
+    "musike",
+    "open source music player",
+    "ad free music",
+    "self hosted",
+    "youtube music alternative"
+   ],
+   "hashtags": [
+    "#Shorts",
+    "#Musike",
+    "#OpenSource",
+    "#MusicPlayer",
+    "#SelfHosted"
+   ]
+  },
+  "tiktok": {
+   "caption": "Musike plays YouTube's catalog with no ads, no account and no subscription — you run the server yourself. Open source. Personal use only.",
+   "hashtags": [
+    "#Musike",
+    "#OpenSource",
+    "#MusicPlayer",
+    "#SelfHosted",
+    "#YTDLP"
+   ]
+  },
+  "instagram": {
+   "caption": "Musike is an open-source music player with no ads, no account and no subscription. You run the server; it even switches audio to video mid-song. Personal use only.",
+   "hashtags": [
+    "#Musike",
+    "#OpenSource",
+    "#MusicPlayer",
+    "#SelfHosted",
+    "#TechTools"
+   ]
+  },
+  "facebook": {
+   "caption": "Musike: run a tiny local server and play YouTube's music catalog with no ads and no account. Open source, personal use only.",
+   "hashtags": [
+    "#Musike",
+    "#OpenSource",
+    "#MusicPlayer",
+    "#SelfHosted",
+    "#TechTools"
+   ]
+  },
+  "x": {
+   "text": "Musike: an open-source player for YouTube's catalog — no ads, no account, no subscription. You run the server. Personal use only.",
+   "hashtags": [
+    "#Musike",
+    "#OpenSource"
+   ]
+  }
+ },
+ "brief_meta": {
+  "title": "Musike: an open-source music player with nothing to sell you",
+  "niche": "open-source media tools",
+  "keywords": [
+   "musike",
+   "open source music player",
+   "yt-dlp",
+   "self-hosted"
+  ],
+  "idea": "Musike plays YouTube's catalog with no ads, account or subscription because a server you run fetches the stream; it switches audio to video mid-song, runs on every screen, and keeps your library in a file you own.",
+  "viewer": {
+   "who": "listeners tired of ads inside music apps, who like self-hosting open-source tools",
+   "problem": "mainstream music apps push ads, accounts and subscriptions between you and the song",
+   "job": "decide whether running your own small streaming server is worth it for ad-free personal playback"
+  }
+ }
+}

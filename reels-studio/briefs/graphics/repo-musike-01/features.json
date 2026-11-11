@@ -1,0 +1,45 @@
+{
+  "tool": {
+    "name": "Musike",
+    "repo": "https://github.com/Ernani1234/musike"
+  },
+  "features": [
+    {
+      "id": "f1",
+      "title": "Self-hosted server fetches streams",
+      "what": "A small server the user runs fetches the audio stream with yt-dlp and hands it to the player.",
+      "evidence_quote": "fetches the stream with yt-dlp"
+    },
+    {
+      "id": "f2",
+      "title": "Mid-song audio/video switch",
+      "what": "Audio and video switch mid-track from the same playback position.",
+      "evidence_quote": "Audio and video switch mid-track from the same"
+    },
+    {
+      "id": "f3",
+      "title": "Every screen",
+      "what": "Desktop, phone, TV, browser PWA, Docker.",
+      "evidence_quote": "a Docker image"
+    },
+    {
+      "id": "f4",
+      "title": "Library is an exportable local file",
+      "what": "Playlists and favourites live in an exportable local file.",
+      "evidence_quote": "file you can export"
+    },
+    {
+      "id": "f5",
+      "title": "Honest usage limits",
+      "what": "Personal and educational use only; YouTube's terms forbid ad-free streams.",
+      "evidence_quote": "personal and educational use only",
+      "risk": "YouTube ToS conflict stated by the author; Groovy and Rythm precedents."
+    }
+  ],
+  "risks": [
+    "Personal/educational use only (README)."
+  ],
+  "source_urls": [
+    "https://github.com/Ernani1234/musike/README.md"
+  ]
+}

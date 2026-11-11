@@ -1,0 +1,28 @@
+{
+  "asset_acquisition": "controlled reused capture pool",
+  "baseline_script_exposed": false,
+  "case": "tool-mosa-01",
+  "configuration_sha256": "042edd96cf7f545d9e6270765ecc23545402b98775191c6b64bb135be9ac3f8d",
+  "error": "PilotBlocked: Provider returned an error inside HTTP 200: Upstream idle timeout exceeded",
+  "finished_at": "2026-10-10T18:35:20Z",
+  "pilot": "free-p3",
+  "publishing_allowed": false,
+  "repairs": [
+    {
+      "issues": {
+        "critic": null,
+        "hard_gate_errors": [
+          "schema version: protocol value must equal 1, not '1'"
+        ]
+      },
+      "revision": 0
+    }
+  ],
+  "revision": 0,
+  "sources_read": [
+    "s1",
+    "s2"
+  ],
+  "started_at": "2026-10-10T18:30:13Z",
+  "status": "blocked"
+}

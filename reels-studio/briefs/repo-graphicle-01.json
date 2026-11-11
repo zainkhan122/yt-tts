@@ -1,0 +1,184 @@
+{
+  "id": "repo-graphicle-01",
+  "capture": "captures/repo-graphicle-01",
+  "title": "Graphicle: a Map and Memory for Your Coding Agent",
+  "niche": "open-source coding-agent tools",
+  "lang": "en-us",
+  "style": "midnight",
+  "status": "Owner selected this topic on 2026-10-16 (Top-10 pick). Default flow: render + frame-level QA, then Buffer scheduled send on YouTube/Instagram/Facebook. Approved Option-3 Chatterbox flow voice; no on-screen credit captions.",
+  "production_category": "repo",
+  "keywords": [
+    "Graphicle",
+    "Claude Code",
+    "Codex",
+    "Cursor",
+    "MCP",
+    "code graph"
+  ],
+  "facts": {
+    "stars": 180,
+    "forks": 9,
+    "license": "Apache-2.0",
+    "checked": "2026-10-16, GitHub README + API"
+  },
+  "credits_on_screen": "Own stack and agent cards created for this video. Source links in post/description only. No on-screen credits.",
+  "sources": [
+    "https://github.com/Graphicle-AI/graphicle",
+    "https://api.github.com/repos/Graphicle-AI/graphicle"
+  ],
+  "verify_before_render": [
+    "GitHub API 2026-10-16: 180 stars, 9 forks, created 2026-10-14, Apache-2.0. One Rust program: code graph + project memory + cited excerpts via MCP for Claude Code/Codex/Cursor/any MCP client; local-first, no account/API key/telemetry (README).",
+    "Vendor benchmark (attribute, pre-release builds): 3.0-22.7x less indexing time than Graphify 0.9.91 on 13 codebases; graphs differ slightly. Keep the 'their tests' framing.",
+    "Catches spoken: v0.1.x days old; Windows preview unsigned. Visuals are our own cards; no copied screenshots."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "stack-card.png",
+      "heading": "YOUR AGENT GETS A *MAP*",
+      "sub": "Graphicle · code graph + memory",
+      "say": "This one program maps your whole codebase, so your coding agent stops guessing."
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "image": "agent-card.png",
+      "heading": "MEET *GRAPHICLE*",
+      "sub": "Rust · Apache-2.0 · local-first",
+      "say": "It is Graphicle, a code graph and memory for coding agents, in a single Rust program."
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "WHAT IT *BUILDS*",
+      "steps": [
+        "A map of your code",
+        "Memory of docs + decisions",
+        "Cited answers with lines"
+      ],
+      "step_at": [
+        "map",
+        "Memory",
+        "Cited"
+      ],
+      "say": "It builds a map of your code, remembers your docs and decisions, and answers with the exact files and lines."
+    },
+    {
+      "id": "speed",
+      "type": "stat",
+      "heading": "NATIVE *SPEED*",
+      "value": 22.7,
+      "decimals": 1,
+      "suffix": "x",
+      "label": "their test vs Graphify · 13 codebases",
+      "at": "times",
+      "say": "In their own tests it indexed code up to twenty-two times faster than Graphify, across thirteen codebases."
+    },
+    {
+      "id": "install",
+      "type": "terminal",
+      "heading": "TWO *COMMANDS*",
+      "lines": [
+        "brew install graphicle-ai/tap/graphicle",
+        "graphicle setup"
+      ],
+      "say": "Install it with Homebrew, run setup in your repo, and it connects the agents it finds."
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "BEFORE YOU *INSTALL*",
+      "cons": [
+        "Version 0.1: days old",
+        "Windows is a preview"
+      ],
+      "pros": [
+        "No key, no telemetry",
+        "Apache-2.0"
+      ],
+      "item_at": [
+        "days",
+        "preview",
+        "telemetry",
+        "Apache"
+      ],
+      "say": "The catches: it is version zero point one, days old, and the Windows build is an unsigned preview. But there is no account, no key, no telemetry, and it is Apache two."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "GRAPH",
+      "say": "Want your agent to cite its sources? Comment GRAPH and I will pin the repo."
+    }
+  ],
+  "seo": {
+    "keyword": "Graphicle",
+    "aliases": [
+      "coding agents",
+      "MCP tools"
+    ],
+    "onscreen_first3s": "YOUR AGENT GETS A MAP",
+    "youtube": {
+      "title": "Graphicle: a Map and Memory for Your Coding Agent",
+      "description": "Graphicle is a single Rust program (Apache-2.0) that maps your codebase into a code graph, remembers docs, decisions and past agent sessions, and serves cited excerpts with exact files and lines to Claude Code, Codex, Cursor or any MCP client. Local-first: no account, no API key, no telemetry. Vendor tests report up to 22.7x faster indexing than Graphify (pre-release builds). Catches: v0.1, days old; Windows preview is unsigned.\nSource: https://github.com/Graphicle-AI/graphicle",
+      "hashtags": [
+        "#Shorts",
+        "#AI",
+        "#Coding",
+        "#DevTools"
+      ],
+      "tags": [
+        "Graphicle",
+        "Claude Code",
+        "Codex",
+        "Cursor",
+        "MCP",
+        "code graph"
+      ]
+    },
+    "tiktok": {
+      "caption": "Graphicle gives your coding agent a map of your codebase plus project memory, with cited file-and-line answers. One Rust binary, Apache-2.0, no telemetry. Catch: v0.1.",
+      "hashtags": [
+        "#AI",
+        "#Coding",
+        "#DevTools"
+      ]
+    },
+    "instagram": {
+      "caption": "Your coding agent, but with a map and a memory: Graphicle indexes your repo and answers with exact files and lines. Local-first, Apache-2.0. Save this if you live in Claude Code or Cursor.",
+      "hashtags": [
+        "#AI",
+        "#Coding",
+        "#DevTools"
+      ]
+    },
+    "facebook": {
+      "caption": "Graphicle: code graph + memory for coding agents in one Rust program. MCP for Claude Code/Codex/Cursor; local-first, Apache-2.0.",
+      "hashtags": [
+        "#AI",
+        "#Coding"
+      ]
+    },
+    "x": {
+      "text": "A map and memory for your coding agent: Graphicle, one Rust program, cited answers with files+lines, Apache-2.0. https://github.com/Graphicle-AI/graphicle",
+      "hashtags": [
+        "#AI",
+        "#Coding"
+      ]
+    }
+  },
+  "post": {
+    "titles": [
+      "Graphicle: a Map and Memory for Your Coding Agent"
+    ],
+    "caption": "Graphicle is one Rust program that maps your repository into a code graph, remembers your docs, decisions and past agent sessions, and answers your coding agent with cited excerpts — exact files and lines — over MCP. Local-first: no account, no API key, no telemetry. Their tests report up to 22.7x faster indexing than Graphify (pre-release builds). Catches: it is v0.1 and days old, and the Windows build is an unsigned preview.",
+    "hashtags": [
+      "#Shorts",
+      "#AI",
+      "#Coding",
+      "#DevTools"
+    ],
+    "pinned_comment": "Repo: https://github.com/Graphicle-AI/graphicle — benchmark figures are the project's own; visuals are our own cards."
+  }
+}

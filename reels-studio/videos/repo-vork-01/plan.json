@@ -1,0 +1,221 @@
+{
+  "id": "repo-vork-01",
+  "tool": "vork",
+  "question": "What if your agent could render the shot itself?",
+  "hook_visual": {
+    "kind": "steps",
+    "intent": "the agent writing a scene, rendering it, then judging the image",
+    "steps": [
+      "Write a scene",
+      "Render it",
+      "Look, revise"
+    ]
+  },
+  "points": [
+    {
+      "n": 1,
+      "claim": "vork is a headless 3D and VFX engine built for agents: scenes are written as code and rendered on a GPU.",
+      "spoken": "It's vork, an agent rendering engine: scenes are written as code and rendered on a GPU.",
+      "source": "https://github.com/voyager-so/vork",
+      "source_note": "README: 'vork, the Voyager rendering kernel, is a headless 3D and VFX engine built for agents.' / 'These are scenes written as code and rendered on a GPU. No video model required.'",
+      "visual": {
+        "kind": "steps",
+        "intent": "a scene written as code arriving as a rendered frame"
+      },
+      "title": "A renderer for agents",
+      "sub": "Code in, GPU frame out.",
+      "steps": [
+        "Scenes as code",
+        "Rendered on a GPU",
+        "No video model"
+      ]
+    },
+    {
+      "n": 2,
+      "claim": "There is no editor to drive: the agent writes a scene, renders a preview, looks at the image and revises the code.",
+      "spoken": "There's no editor. The agent writes a scene, renders a preview, looks at the image and revises the camera and the light.",
+      "source": "https://github.com/voyager-so/vork",
+      "source_note": "README: 'An agent writes a scene, renders it, looks at the result and revises the code. There is no editor to drive.'; 'Refine the camera and lighting before rendering at final quality.'",
+      "visual": {
+        "kind": "steps",
+        "intent": "preview, inspect, revise camera and lighting"
+      },
+      "title": "No editor to drive",
+      "sub": "Preview, inspect, revise.",
+      "steps": [
+        "Writes the scene",
+        "Renders a preview",
+        "Revises light and camera"
+      ]
+    },
+    {
+      "n": 3,
+      "claim": "It gives the agent geometry, ray queries and GPU execution, so a shot can carry its own shader.",
+      "spoken": "It hands the agent geometry, ray queries and GPU compute, so a shot can carry its own shader.",
+      "source": "https://github.com/voyager-so/vork",
+      "source_note": "README: 'vork gives it geometry, ray queries and GPU execution'; 'An agent can also write a shader in the middle of a shot.'",
+      "visual": {
+        "kind": "steps",
+        "intent": "the pieces the agent programs, including a shader written mid-shot"
+      },
+      "title": "Shader in the middle",
+      "sub": "Geometry, rays and GPU compute.",
+      "steps": [
+        "Geometry",
+        "Ray queries",
+        "Shader mid-shot"
+      ]
+    },
+    {
+      "n": 4,
+      "claim": "The examples include a million self-steering birds, a black hole bending light, and VFX added to real footage.",
+      "spoken": "The examples run from a million self-steering birds to VFX cut into real footage.",
+      "source": "https://github.com/voyager-so/vork",
+      "source_note": "README: 'A million birds, each steering itself over a lagoon. A black hole that bends light.'; 'Real footage + rendered 3D; no generative video.'",
+      "visual": {
+        "kind": "steps",
+        "intent": "three example scenes, each rendered by the agent"
+      },
+      "title": "What it renders",
+      "sub": "Birds, light, real footage.",
+      "steps": [
+        "A million birds",
+        "A black hole",
+        "VFX on real footage"
+      ]
+    }
+  ],
+  "catch": "The catch: it's a research preview, it needs a Vulkan or Metal GPU, and there's no editor to fall back on.",
+  "catch_sub": "Source-available and free during the preview.",
+  "catch_title": "The catch",
+  "catch_visual": {
+    "kind": "steps",
+    "intent": "the preview status, the GPU requirement and the missing editor",
+    "steps": [
+      "Research preview",
+      "Vulkan or Metal GPU",
+      "No editor to fall back on"
+    ]
+  },
+  "brand_line": "vork · Voyager rendering",
+  "cover": {
+    "text": "AGENT RENDERS THE SHOT",
+    "visual": "designed graphic of a wireframe scene turning into a rendered frame",
+    "concepts": [
+      {
+        "id": "c1",
+        "layout": "bleed",
+        "text": "AGENT RENDERS THE SHOT",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c1.png",
+          "design": "Full-bleed night plate: a wireframe forest and car drawn in cyan accent lines behind the headline, with a rendered frame dropping out of the wireframe."
+        }
+      },
+      {
+        "id": "c2",
+        "layout": "window",
+        "text": "NO EDITOR, JUST CODE",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c2.png",
+          "design": "Framed terminal window with a scene program and a short shader, and a rendered preview tile beside it on the plate."
+        }
+      },
+      {
+        "id": "c3",
+        "layout": "split",
+        "text": "WHOLE SHOTS, IN CODE",
+        "media": {
+          "kind": "designed",
+          "file": "cover-c3.png",
+          "design": "Split plate: four render tiles across the top (birds, night road, neon sign, black hole), and below them a progress line reading preview then final."
+        }
+      }
+    ]
+  },
+  "cta": "What would you ask an agent to render? Comment RENDER and I'll pin it.",
+  "cta_keyword": "RENDER",
+  "seo": {
+    "onscreen_first3s": "VORK RENDERS THE SHOT",
+    "keyword": "agent rendering",
+    "aliases": [
+      "3D rendering for agents",
+      "headless render engine",
+      "agent that renders shots"
+    ],
+    "youtube": {
+      "title": "Agent rendering: vork renders the shot without a video model",
+      "description": "Agent rendering without a video model: vork is a headless engine where a scene is a program, so the agent writes it, renders a preview on the GPU, looks at the image and revises camera and lighting. It exposes geometry, ray queries and GPU compute, which means a shader can be written in the middle of a shot, and the examples run to a million self-steering birds and VFX cut into real footage. Repo: https://github.com/voyager-so/vork #Shorts #3DRendering #VFX #AIAgents #Rust",
+      "tags": [
+        "agent rendering",
+        "3D rendering for agents",
+        "headless render engine",
+        "agent that renders shots",
+        "vork",
+        "VFX for agents"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#AgentRendering",
+        "#VFX",
+        "#AIAgents",
+        "#Rust"
+      ]
+    },
+    "tiktok": {
+      "caption": "Agent rendering that looks at its own frame: vork renders a scene on the GPU, then the agent revises the light. Comment RENDER for the repo.",
+      "hashtags": [
+        "#AgentRendering",
+        "#VFX",
+        "#AIAgents",
+        "#Rust",
+        "#CreativeCoding"
+      ]
+    },
+    "instagram": {
+      "caption": "Agent rendering with no editor: vork writes scenes as code, renders them on a GPU, and the agent inspects the image and revises the shot. Comment RENDER for the repo.",
+      "hashtags": [
+        "#AgentRendering",
+        "#VFX",
+        "#AIAgents",
+        "#Rust",
+        "#CreativeCoding"
+      ]
+    },
+    "facebook": {
+      "caption": "Agent rendering: vork is a headless engine where the scene is code, so the agent renders a preview, checks the frame and fixes the lighting itself. Comment RENDER for the repo link.",
+      "hashtags": [
+        "#AgentRendering",
+        "#VFX",
+        "#AIAgents",
+        "#Rust",
+        "#CreativeCoding"
+      ]
+    },
+    "x": {
+      "text": "Agent rendering: vork is a headless renderer for agents, so a scene is code, the GPU renders a preview, and the agent revises camera and light.",
+      "hashtags": [
+        "#AgentRendering",
+        "#VFX"
+      ]
+    }
+  },
+  "brief_meta": {
+    "title": "vork: a headless 3D and VFX engine built for agents",
+    "niche": "AI tools",
+    "keywords": [
+      "agent rendering",
+      "headless render engine",
+      "VFX pipeline",
+      "GPU rendering"
+    ],
+    "idea": "vork is a headless 3D and VFX engine where agents write scenes as code and render them on a GPU.",
+    "viewer": {
+      "who": "3D and motion people who let an agent write scene code",
+      "problem": "render tools expect a human at a timeline, not an agent reading an image",
+      "job": "decide whether a code-first renderer fits their agent-driven pipeline"
+    }
+  },
+  "author": "agent"
+}

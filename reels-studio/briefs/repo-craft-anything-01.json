@@ -1,0 +1,281 @@
+{
+  "id": "repo-craft-anything-01",
+  "capture": "captures/repo-craft-anything-01",
+  "title": "Craft Anything: AI studies an app, then builds its own version",
+  "niche": "AI coding tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "craft anything",
+    "AI coding agents",
+    "reverse engineering",
+    "Rust"
+  ],
+  "facts": {
+    "method": "tool's own README and repo page, read on the day of the plan",
+    "limits": "It is early alpha, so every build still needs checking against the original."
+  },
+  "sources": [
+    "https://github.com/storytold/craft-anything",
+    "https://github.com/storytold/craft-anything",
+    "https://github.com/storytold/craft-anything",
+    "https://github.com/storytold/craft-anything"
+  ],
+  "verify_before_render": [
+    "Every point cites its source in the plan (repo-craft-anything-01/plan.json).",
+    "Kit images are drawn from the plan's own visual spec only."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "flow",
+      "heading": "CRAFT ANYTHING STUDIES APPS",
+      "nodes": [
+        "Study the original",
+        "Build its own version",
+        "Check it against the original"
+      ],
+      "say": "Can Craft Anything rebuild an app?"
+    },
+    {
+      "id": "point1",
+      "type": "flow",
+      "heading": "STUDY BEFORE IT BUILDS",
+      "nodes": [
+        "Inspect pages at every width",
+        "Read the code and files",
+        "See how it runs"
+      ],
+      "say": "It studies the original first, with real inspection tools, before any AI writes a line."
+    },
+    {
+      "id": "point2",
+      "type": "flow",
+      "heading": "THEN AN AGENT BUILDS",
+      "nodes": [
+        "Name the stack",
+        "Agent builds the project",
+        "Check and refine"
+      ],
+      "say": "Then a coding agent builds a new project, in the language or framework you ask for."
+    },
+    {
+      "id": "point3",
+      "type": "flow",
+      "heading": "CHECKED, NOT GUESSED",
+      "nodes": [
+        "Pages at three widths",
+        "Compare with the original",
+        "List what still differs"
+      ],
+      "say": "Every build is checked against the original, at three screen widths, and mismatches are listed."
+    },
+    {
+      "id": "point4",
+      "type": "flow",
+      "heading": "AGENTS DRIVE THE SAME ENGINE",
+      "nodes": [
+        "A command line call",
+        "An MCP tool",
+        "The same engine the app uses"
+      ],
+      "say": "Every tool is a command line call and an MCP tool, so an agent can drive the same engine the app uses."
+    },
+    {
+      "id": "catch",
+      "type": "flow",
+      "heading": "THE CATCH",
+      "nodes": [
+        "Early alpha",
+        "Check the build against the original"
+      ],
+      "say": "It is early alpha, so every build still needs checking against the original."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "CRAFT",
+      "say": "Would you let an AI rebuild an app it studied? Comment CRAFT and I'll pin the repo link."
+    }
+  ],
+  "seo": {
+    "keyword": "craft anything",
+    "onscreen_first3s": "CRAFT ANYTHING STUDIES APPS",
+    "youtube": {
+      "title": "Craft Anything: AI Studies an App, Then Builds Its Own",
+      "description": "Craft Anything studies an app with real tools, then builds its own version. A coding agent writes the new project, and each build is checked against the original until it is close. Open source, written in Rust, early alpha. Repo: https://github.com/storytold/craft-anything #Shorts #CraftAnything #OpenSource #RustLang #AIAgents",
+      "tags": [
+        "craft anything",
+        "AI coding agents",
+        "reverse engineering",
+        "open source AI",
+        "Rust tools"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#CraftAnything",
+        "#OpenSource",
+        "#RustLang",
+        "#AIAgents"
+      ]
+    },
+    "tiktok": {
+      "caption": "Craft Anything studies an app with real tools, then has an agent build its own version. Open source.",
+      "hashtags": [
+        "#CraftAnything",
+        "#OpenSource",
+        "#RustLang",
+        "#CodingAgents",
+        "#AIAgents"
+      ]
+    },
+    "instagram": {
+      "caption": "Craft Anything studies an app, then has an agent build its own version. It checks each build against the original. Open source.",
+      "hashtags": [
+        "#CraftAnything",
+        "#OpenSource",
+        "#RustLang",
+        "#CodingAgents",
+        "#AIAgents"
+      ]
+    },
+    "facebook": {
+      "caption": "Craft Anything studies an app with real tools, then builds a new version and checks it against the original. Open source.",
+      "hashtags": [
+        "#CraftAnything",
+        "#OpenSource",
+        "#RustLang",
+        "#CodingAgents",
+        "#AIAgents"
+      ]
+    },
+    "x": {
+      "text": "Craft Anything studies an app with real tools, then has an agent build a new one and checks it against the original. Open source.",
+      "hashtags": [
+        "#CraftAnything",
+        "#OpenSource"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Would you let an AI rebuild an app it studied? Comment CRAFT and I'll pin the repo link.",
+    "hashtags": [
+      "#Shorts",
+      "#CraftAnything",
+      "#OpenSource",
+      "#RustLang",
+      "#AIAgents"
+    ]
+  },
+  "research_basis": [
+    "videos/repo-craft-anything-01/plan.json"
+  ],
+  "viewer": {
+    "who": "developers who want to see how AI agents build software",
+    "problem": "agents that build from a description drift from the real thing",
+    "job": "decide whether an agent-driven rebuild tool is worth trying"
+  },
+  "idea": "Craft Anything inspects a target with real tools, lets a coding agent build a new project, and checks it against the original.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Craft Anything studies the original with real inspection tools before any AI builds.",
+      "source": "https://github.com/storytold/craft-anything"
+    },
+    {
+      "id": "c2",
+      "text": "A coding agent then builds a new project in the stack you ask for.",
+      "source": "https://github.com/storytold/craft-anything"
+    },
+    {
+      "id": "c3",
+      "text": "Each build is checked against the original at three screen widths, and differences are listed.",
+      "source": "https://github.com/storytold/craft-anything"
+    },
+    {
+      "id": "c4",
+      "text": "Every tool is both a command line call and an MCP tool, so an agent can drive the same engine.",
+      "source": "https://github.com/storytold/craft-anything"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/storytold/craft-anything",
+      "how_shown": "study stage, as the README lists it: three steps lit as they are said"
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://github.com/storytold/craft-anything",
+      "how_shown": "build stage: name the stack, the agent builds, then check and refine"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://github.com/storytold/craft-anything",
+      "how_shown": "check stage: three widths, compare, list what differs"
+    },
+    {
+      "claim": "c4",
+      "evidence": "source:https://github.com/storytold/craft-anything",
+      "how_shown": "the two ways an agent reaches the same engine"
+    }
+  ],
+  "treatment": {
+    "audience": "developers who want to see how AI agents build software",
+    "viewer_job": "decide whether an agent-driven rebuild tool is worth trying",
+    "intent": "search",
+    "hook_mechanic": "viewer question about the tool's first claim",
+    "open_loop": {
+      "plant": "Can Craft Anything rebuild an app?",
+      "payoff_scene": "point1"
+    },
+    "proof_moment": "point1",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "layout": "bleed",
+        "text": "CAN AI RECREATE ANY APP?",
+        "media": {
+          "kind": "designed",
+          "file": "cover-src-1.png",
+          "design": "Magnifier over the original's pages at three widths: the study step, drawn from the tool's own inspection feature."
+        }
+      },
+      {
+        "layout": "window",
+        "text": "CHECKED AGAINST THE ORIGINAL",
+        "media": {
+          "kind": "designed",
+          "file": "cover-src-2.png",
+          "design": "Original and build side by side with a mismatch diff: the check-against-original feature, drawn, not captured."
+        }
+      },
+      {
+        "layout": "split",
+        "text": "STUDY FIRST, THEN BUILD",
+        "media": {
+          "kind": "designed",
+          "file": "cover-src-3.png",
+          "design": "Three steps, Study then Build then Check, joined by arrows: the tool's own three-step flow, drawn."
+        }
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-11-05",
+    "expires_at": null,
+    "reviewer": "agent: plan written from the maker's README and repo page",
+    "notes": "Topic approved by owner (config/topic-approvals.json). Plan and copy await owner review at the cover gate."
+  },
+  "motion_standard": 2,
+  "qa_gates": true,
+  "renderer": "graphics",
+  "graphics": {
+    "dir": "briefs/graphics/repo-craft-anything-01",
+    "note": "beat plan bound to the brief scenes; lint is fail-closed on script or scene mismatch"
+  },
+  "voice_seed": 0
+}

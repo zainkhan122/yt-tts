@@ -1,0 +1,52 @@
+name: ship-state
+
+# One state per Short: reels-studio/queue/publish.json. This workflow fails the build when
+# an approved, non-legacy item disagrees with its brief, receipt, review, cover or panel.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'reels-studio/queue/**'
+      - 'reels-studio/briefs/**'
+      - 'reels-studio/research/production/**'
+      - 'reels-studio/tools/ship.py'
+      - 'reels-studio/tools/post/**'
+      - 'reels-studio/STATUS.md'
+      - 'reels-studio/tools/brief_identity.py'
+      - 'reels-studio/tools/brief_from_plan.py'
+      - 'reels-studio/tools/receipt_build.py'
+      - 'reels-studio/tests/test_ship.py'
+      - '.github/workflows/ship-state.yml'
+  pull_request:
+    paths:
+      - 'reels-studio/**'
+      - '.github/workflows/ship-state.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  state:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: reels-studio
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install declared dependencies
+        run: |
+          python -m pip install --quiet pytest
+          python -m pip install --quiet -r tools/post/requirements.txt
+      - name: Ship guard and publishing tests
+        run: python -m pytest -q tests/test_ship.py tests/test_publishing.py tests/test_youtube.py tests/test_oauth_handoff.py
+      - name: Generated status is current
+        run: python tools/ship.py status --check
+      - name: Every approved Short agrees with its pins (live release digests)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python tools/ship.py check-all --live

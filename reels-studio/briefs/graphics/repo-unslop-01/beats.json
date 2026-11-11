@@ -1,0 +1,147 @@
+{
+  "tool": "unslop",
+  "handle": "@hypeless",
+  "scenes": [
+    {
+      "scene_id": "hook",
+      "phrase": 0,
+      "archetype": "flow_link",
+      "headline": "WHY EVERY AI APP LOOKS SAME",
+      "feature_id": "f1",
+      "depicts": "an AI-built app that looks the same every time",
+      "payload": {
+        "nodes": [
+          "Your prompt",
+          "AI builds the UI",
+          "Same look again"
+        ],
+        "edge_label": "every time",
+        "cue_phrases": [
+          "Why does",
+          "AI UI design",
+          "look the same"
+        ]
+      },
+      "cue_word": "same"
+    },
+    {
+      "scene_id": "point1",
+      "phrase": 1,
+      "archetype": "terminal_type",
+      "headline": "ONE SKILL FOLDER",
+      "feature_id": "f1",
+      "depicts": "the skill copied into the agent's skills folder",
+      "payload": {
+        "title": "your machine",
+        "lines": [
+          "$ mkdir -p ~/.claude/skills",
+          "$ cp -r skills/unslop ~/.claude/skills/"
+        ],
+        "cue_phrases": [
+          "It's called unslop",
+          "skill for Claude Code"
+        ]
+      },
+      "cue_word": "unslop"
+    },
+    {
+      "scene_id": "point2",
+      "phrase": 2,
+      "archetype": "toggle_steps",
+      "headline": "AUDIT, THEN DIRECTION",
+      "feature_id": "f2",
+      "depicts": "the audit list and the direction it proposes from the product",
+      "payload": {
+        "steps": [
+          "Audit the screen",
+          "List the slop",
+          "Direction from product"
+        ],
+        "done": 3,
+        "cue_phrases": [
+          "audits the screen",
+          "lists the slop",
+          "direction from your product"
+        ]
+      },
+      "cue_word": "audits"
+    },
+    {
+      "scene_id": "point3",
+      "phrase": 3,
+      "archetype": "chip_grid",
+      "headline": "PASS BY PASS",
+      "feature_id": "f3",
+      "depicts": "the passes landing on the same screen in order",
+      "payload": {
+        "chips": [
+          "Spacing",
+          "Color",
+          "Icons",
+          "Copy",
+          "Type",
+          "Motion"
+        ],
+        "highlight": 0,
+        "cue_phrases": [
+          "spacing",
+          "color",
+          "icons",
+          "copy",
+          "type",
+          "motion"
+        ]
+      },
+      "cue_word": "redline"
+    },
+    {
+      "scene_id": "point4",
+      "phrase": 4,
+      "archetype": "concept_card",
+      "headline": "ANY STACK, EVEN A LINK",
+      "feature_id": null,
+      "depicts": "the frameworks it runs in and a live site link",
+      "payload": {
+        "big": "ANY STACK, EVEN A LINK",
+        "sub": "Next.js, React, Vue or plain CSS."
+      },
+      "cue_word": "works"
+    },
+    {
+      "scene_id": "catch",
+      "phrase": 5,
+      "archetype": "chip_grid",
+      "headline": "THE CATCH",
+      "feature_id": "f6",
+      "depicts": "the agent and the extra tools the story video needs",
+      "payload": {
+        "chips": [
+          "Claude Code or Codex",
+          "Story video needs Playwright",
+          "ffmpeg on your PATH"
+        ],
+        "highlight": 0,
+        "cue_phrases": [
+          "you need Claude Code",
+          "story video needs Playwright",
+          "and ffmpeg"
+        ]
+      },
+      "cue_word": "catch"
+    },
+    {
+      "scene_id": "cta",
+      "phrase": 6,
+      "archetype": "endcard",
+      "headline": "REDRAW YOUR OWN APP",
+      "feature_id": null,
+      "depicts": "commenting the keyword to get the repo",
+      "payload": {
+        "keyword": "UNSLOP",
+        "follow": "Follow"
+      },
+      "cue_word": "UNSLOP"
+    }
+  ],
+  "script_sha256": "sha256:66a851c8d0010d6682a28bda8b0e80b45ef140a55ab2793d694dbb2c31e248e6"
+}

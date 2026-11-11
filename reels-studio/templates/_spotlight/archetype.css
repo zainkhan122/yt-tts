@@ -1,0 +1,113 @@
+/* ============ Archetype layer (PLAYBOOK §9) ============
+   The treatment's archetype must change what the film LOOKS like, not just the
+   caption colour. Each archetype below owns: its HUD, its heading voice, its
+   caption plate, and at least one scene-level device. Colours alone never count.
+   Geometry: nothing here may cross --arch-stage-bottom (1128) into the caption
+   zone (1160-1500); tools/layout_audit.py measures this in a real browser. */
+
+#root { --arch-ink: #05070e; }
+
+/* ---------- shared chrome ---------- */
+.arch-hud { position: absolute; right: 48px; top: 128px; height: 56px; display: flex; align-items: center; gap: 10px;
+  padding: 0 20px; border-radius: 999px; background: rgba(4, 8, 18, 0.78);
+  border: 2px solid rgba(255, 255, 255, 0.18); opacity: 0; }
+.arch-hud .arch-tag { font: 800 24px "JetBrains Mono", monospace; letter-spacing: 0.12em; color: #fff; }
+.arch-hud .arch-count { font: 800 24px "JetBrains Mono", monospace; letter-spacing: 0.06em; color: var(--arch-acc, #fbbf24); }
+.arch-kicker { position: absolute; left: 62px; top: 186px; height: 40px; display: flex; align-items: center; gap: 14px;
+  font: 800 26px "JetBrains Mono", monospace; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--arch-acc, #fbbf24); opacity: 0; }
+.arch-kicker::before { content: ""; width: 44px; height: 6px; background: var(--arch-acc, #fbbf24); display: block; }
+.arch-stamp { position: absolute; padding: 14px 30px; border: 8px solid currentColor; border-radius: 14px;
+  font: 900 62px/1 "Inter"; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0; }
+.arch-rail { position: absolute; left: 18px; top: 240px; width: 10px; height: 872px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.10); overflow: hidden; }
+.arch-rail-fill { position: absolute; left: 0; right: 0; top: 0; height: 100%; transform-origin: 50% 0;
+  background: var(--arch-acc, #fbbf24); }
+.arch-node { position: absolute; left: -7px; width: 24px; height: 24px; border-radius: 50%;
+  background: #0b0f1a; border: 4px solid rgba(255, 255, 255, 0.30); }
+.arch-node.lit { background: var(--arch-acc, #fbbf24); border-color: #0b0f1a; }
+
+/* ---------- QUEST: mission log ----------
+   Left-aligned objectives, a numbered mission rail, a proof stamp and a
+   telemetry caption plate. The viewer watches a mission being completed. */
+#root[data-archetype="quest"] { --arch-acc: #fbbf24; --cap-key: #fbbf24; }
+#root[data-archetype="quest"] .sp-heading,
+#root[data-archetype="quest"] .sp-headline { justify-content: flex-start; text-align: left; left: 74px; right: 74px;
+  letter-spacing: -0.005em; }
+#root[data-archetype="quest"] .sp-heading .y,
+#root[data-archetype="quest"] .sp-headline .y { display: inline-block; border-bottom: 14px solid #fbbf24; }
+#root[data-archetype="quest"] .sp-sub { text-align: left; left: 74px; right: 74px; border-left: 8px solid #fbbf24;
+  padding-left: 22px; }
+#root[data-archetype="quest"] .sp-steps { background: rgba(6, 10, 20, 0.94); border-color: rgba(251, 191, 36, 0.45);
+  border-radius: 18px; }
+#root[data-archetype="quest"] .sp-step { height: 62px; border-left: 6px solid rgba(255, 255, 255, 0.14); padding-left: 20px; }
+#root[data-archetype="quest"] .sp-step .num { width: 46px; height: 46px; border-radius: 8px; background: transparent;
+  border: 3px solid #fbbf24; color: #fbbf24; font: 900 26px/42px "JetBrains Mono", monospace; }
+#root[data-archetype="quest"] .sp-step .on { border-radius: 8px; background: rgba(251, 191, 36, 0.12);
+  border-left: 6px solid #fbbf24; border-top: 0; border-right: 0; border-bottom: 0; }
+#root[data-archetype="quest"] .sp-vcardx { border-radius: 16px; }
+#root[data-archetype="quest"] .sp-vt { font: 800 27px "JetBrains Mono", monospace; letter-spacing: 0.18em; }
+#root[data-archetype="quest"] .cg { top: auto; bottom: 4px; height: auto; justify-content: flex-start; text-align: left;
+  padding: 16px 26px 18px 34px; background: rgba(4, 8, 16, 0.88); border-left: 12px solid #fbbf24; border-radius: 6px; }
+#root[data-archetype="quest"] .cg::before { content: "MISSION LOG"; position: absolute; left: 34px; top: -30px;
+  font: 800 20px "JetBrains Mono", monospace; letter-spacing: 0.22em; color: rgba(251, 191, 36, 0.85); }
+#root[data-archetype="quest"] .sp-chip { border-radius: 8px; font: 800 34px "JetBrains Mono", monospace;
+  letter-spacing: 0.02em; }
+
+/* ---------- MYTH-BUST: claim vs reality ----------
+   A named claim at the top, a stamped verdict over the proof, a check-plate
+   caption and claim/reality verdict cards. The viewer watches a claim being tested. */
+#root[data-archetype="myth-bust"] { --arch-acc: #c084fc; --cap-key: #e9d5ff; --acc: #c084fc; }
+#root[data-archetype="myth-bust"] .sp-heading,
+#root[data-archetype="myth-bust"] .sp-headline { font-family: "Inter", sans-serif; font-weight: 900;
+  letter-spacing: -0.03em; text-transform: uppercase; }
+#root[data-archetype="myth-bust"] .sp-heading::after { content: ""; position: absolute; left: 50%; bottom: 18px;
+  width: 180px; height: 10px; margin-left: -90px; background: #c084fc; border-radius: 999px; }
+#root[data-archetype="myth-bust"] .sp-sub { text-transform: uppercase; letter-spacing: 0.02em; font-size: 44px; }
+#root[data-archetype="myth-bust"] .sp-vcardx.cons { border-color: rgba(248, 113, 113, 0.75); }
+#root[data-archetype="myth-bust"] .sp-vcardx.cons .sp-vt { color: #f87171; text-decoration: line-through;
+  text-decoration-thickness: 6px; }
+#root[data-archetype="myth-bust"] .sp-vcardx.pros .sp-vt { color: #4ade80; }
+#root[data-archetype="myth-bust"] .sp-vcardx { border-radius: 10px; border-width: 4px; }
+#root[data-archetype="myth-bust"] .sp-step .num { border-radius: 6px; }
+#root[data-archetype="myth-bust"] .cg { top: auto; bottom: 4px; height: auto; padding: 18px 30px 20px; background: rgba(10, 6, 20, 0.9);
+  border-top: 10px solid #c084fc; border-radius: 4px; }
+#root[data-archetype="myth-bust"] .cg::before { content: "CHECK"; position: absolute; left: 30px; top: -52px;
+  padding: 6px 16px; background: #c084fc; color: #12061f; font: 900 22px "JetBrains Mono", monospace;
+  letter-spacing: 0.2em; border-radius: 4px 4px 0 0; }
+
+/* ---------- DEMO-FIRST: product does the talking ---------- */
+#root[data-archetype="demo-first"] { --arch-acc: #4ade80; --cap-key: #4ade80; }
+#root[data-archetype="demo-first"] .sp-heading, #root[data-archetype="demo-first"] .sp-headline { text-align: left;
+  justify-content: flex-start; left: 70px; right: 70px; }
+#root[data-archetype="demo-first"] .sp-vcard, #root[data-archetype="demo-first"] .sp-imgcard { width: 1020px; left: 30px; }
+#root[data-archetype="demo-first"] .cg { top: auto; bottom: 4px; height: auto; background: rgba(4, 10, 8, 0.72);
+  border-bottom: 8px solid #4ade80; padding: 14px 24px; }
+
+/* ---------- WORKFLOW: numbered pipeline ---------- */
+#root[data-archetype="workflow"] { --arch-acc: #2dd4bf; --cap-key: #2dd4bf; }
+#root[data-archetype="workflow"] .sp-steps { border-radius: 12px; border-color: rgba(45, 212, 191, 0.5); }
+#root[data-archetype="workflow"] .sp-step .num { border-radius: 6px; background: #2dd4bf; color: #04211d; }
+#root[data-archetype="workflow"] .cg { top: auto; bottom: 4px; height: auto; background: rgba(4, 14, 14, 0.86);
+  border-top: 8px solid #2dd4bf; padding: 14px 24px; }
+
+/* ---------- WARNING: the catch leads ---------- */
+#root[data-archetype="warning"] { --arch-acc: #ff5d47; --cap-key: #ff8a75; }
+#root[data-archetype="warning"] .sp-heading, #root[data-archetype="warning"] .sp-headline { text-align: left;
+  justify-content: flex-start; left: 70px; right: 70px; }
+#root[data-archetype="warning"] .cg { top: auto; bottom: 4px; height: auto; background: rgba(20, 4, 4, 0.9);
+  border-left: 12px solid #ff5d47; padding: 14px 26px; }
+
+/* ---------- DUEL: two sides, split frame ---------- */
+#root[data-archetype="duel"] { --arch-acc: #ff6a3d; --cap-key: #ffb199; }
+#root[data-archetype="duel"] .sp-heading, #root[data-archetype="duel"] .sp-headline { text-transform: uppercase;
+  letter-spacing: 0.01em; }
+#root[data-archetype="duel"] .sp-vcardx.cons { border-left: 14px solid #ff6a3d; }
+#root[data-archetype="duel"] .sp-vcardx.pros { border-right: 14px solid #4ade80; }
+#root[data-archetype="duel"] .cg { top: auto; bottom: 4px; height: auto; background: linear-gradient(90deg, rgba(30, 8, 4, 0.88) 0 50%, rgba(4, 22, 12, 0.88) 50% 100%);
+  padding: 14px 24px; }
+
+/* ---------- SPOTLIGHT (default): keep the neutral editorial plate ---------- */
+#root[data-archetype="spotlight"] .arch-hud { display: none; }
+#root[data-archetype="spotlight"] .cg { top: auto; bottom: 4px; height: auto; padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.32); }

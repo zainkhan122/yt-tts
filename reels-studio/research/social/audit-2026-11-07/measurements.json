@@ -1,0 +1,1963 @@
+{
+ "groups": {
+  "reference (TikTok @buildwithai.club)": {
+   "duration_s": {
+    "median": 43.73,
+    "min": 28.98,
+    "max": 60.37
+   },
+   "cuts_per_min": {
+    "median": 18.9,
+    "min": 7.6,
+    "max": 44.7
+   },
+   "mean_shot_s": {
+    "median": 3.0,
+    "min": 1.29,
+    "max": 6.57
+   },
+   "soft_scene_changes_per_min": {
+    "median": 31.45,
+    "min": 7.6,
+    "max": 105.5
+   },
+   "face_frame_share": {
+    "median": 0.42,
+    "min": 0.14,
+    "max": 0.62
+   },
+   "face_area_median": {
+    "median": 0.08,
+    "min": 0.07,
+    "max": 0.22
+   },
+   "static_share": {
+    "median": 0.6,
+    "min": 0.47,
+    "max": 0.68
+   },
+   "motion_energy": {
+    "median": 2.25,
+    "min": 1.53,
+    "max": 3.42
+   },
+   "frame_diff_p95": {
+    "median": 5.63,
+    "min": 2.41,
+    "max": 13.7
+   },
+   "white_share": {
+    "median": 0.37,
+    "min": 0.01,
+    "max": 0.44
+   },
+   "edge_density": {
+    "median": 0.04,
+    "min": 0.03,
+    "max": 0.06
+   },
+   "palette_max_chroma": {
+    "median": 0.08,
+    "min": 0.04,
+    "max": 0.12
+   },
+   "share_light_bg": {
+    "median": 0.35,
+    "min": 0.0,
+    "max": 0.76
+   },
+   "share_near_white_bg": {
+    "median": 0.27,
+    "min": 0.0,
+    "max": 0.68
+   },
+   "luma_std": {
+    "median": 70.8,
+    "min": 19.1,
+    "max": 105.0
+   },
+   "median_luma": {
+    "median": 104.0,
+    "min": 12.0,
+    "max": 218.0
+   },
+   "wpm": {
+    "median": 217.6,
+    "min": 189.7,
+    "max": 247.4
+   },
+   "words_per_video_s": {
+    "median": 217.1,
+    "min": 188.8,
+    "max": 246.7
+   },
+   "silence_share": {
+    "median": 0.37,
+    "min": 0.32,
+    "max": 0.46
+   },
+   "longest_pause_s": {
+    "median": 0.59,
+    "min": 0.36,
+    "max": 0.78
+   },
+   "pauses_over_250ms_per_min": {
+    "median": 15.6,
+    "min": 10.9,
+    "max": 32.4
+   },
+   "energy_onsets_per_min": {
+    "median": 161.55,
+    "min": 107.7,
+    "max": 197.1
+   },
+   "f0_median_hz": {
+    "median": 160.8,
+    "min": 156.1,
+    "max": 170.2
+   },
+   "f0_iqr_hz": {
+    "median": 82.2,
+    "min": 73.3,
+    "max": 96.8
+   },
+   "spectral_centroid_hz": {
+    "median": 1205.0,
+    "min": 1004.0,
+    "max": 1389.0
+   },
+   "spectral_flatness": {
+    "median": 0.23,
+    "min": 0.17,
+    "max": 0.29
+   },
+   "loud_p90_dbfs": {
+    "median": -15.6,
+    "min": -15.8,
+    "max": -12.9
+   },
+   "first_word_at": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "palette_top1": [
+    [
+     12,
+     14,
+     17
+    ],
+    [
+     11,
+     12,
+     15
+    ],
+    [
+     12,
+     13,
+     17
+    ],
+    [
+     12,
+     12,
+     15
+    ],
+    [
+     11,
+     12,
+     16
+    ],
+    [
+     5,
+     5,
+     8
+    ],
+    [
+     234,
+     234,
+     221
+    ],
+    [
+     11,
+     13,
+     17
+    ],
+    [
+     232,
+     233,
+     219
+    ],
+    [
+     16,
+     16,
+     17
+    ]
+   ],
+   "band_white_median": [
+    0.286,
+    0.552,
+    0.409,
+    0.271,
+    0.002
+   ],
+   "transcripts": {
+    "7697701717076364564.mp4": [
+     "Cloud code just dropped a feature called mods.",
+     "Here are top three ways to use it that no one's talking about.",
+     "But what are mods?",
+     "Mods are just add-ons that let you change",
+     "how Cloud code looks and works.",
+     "Here's where that gets useful.",
+     "First, you can make your Cloud sessions talk to each other.",
+     "Say one is researching your competitors.",
+     "It can share what it finds with another session",
+     "writing your landing page.",
+     "Second, you can add a dashboard inside Cloud code.",
+     "You can see what your agents are working on",
+     "and what's finished all in one place.",
+     "Third, you can send simpler tasks",
+     "to a cheaper model automatically.",
+     "You could set a mod to use it for quick summaries.",
+     "The stronger model handles harder coding problems.",
+     "If you're paying per use, that can bring down your bill.",
+     "To try it, start with the dashboard.",
+     "Ask Lord, build me a mod that shows my agents progress.",
+     "You can ask for changes as you use it.",
+     "Save this for your next Cloud code session."
+    ],
+    "7697948876497538325.mp4": [
+     "Everyone gives Claude prompts,",
+     "but the top 1% give it playbooks.",
+     "Here's the trick.",
+     "It's called the AI delegation loop,",
+     "and you can set this up in three simple steps.",
+     "Step one, start with one job you do repeatedly.",
+     "Then Dell Claude, interview me about this job",
+     "until you understand it well enough to do it without me.",
+     "Claude will start asking how you do it,",
+     "what decisions you make, what files you use,",
+     "and what a good result looks like.",
+     "Step two, once it has that,",
+     "tell it, turn everything you learned",
+     "into a step by step playbook.",
+     "Now create a toolbox.",
+     "Dell Claude to list every template,",
+     "example, script or document this job should reuse,",
+     "and link each one to the step where it's needed.",
+     "So it stops rebuilding the same things from scratch.",
+     "Step three, create the proof.",
+     "Ask Claude, make a checklist for what must be true",
+     "before this job is considered finished.",
+     "Now Claude has instructions, the right resources,",
+     "and a way to check its own work.",
+     "And when it gets something wrong,",
+     "you just have to update the playbook.",
+     "That's the whole loop."
+    ],
+    "7698363276161305876.mp4": [
+     "your white-coded app could be leaking private data to hackers",
+     "that you wouldn't know.",
+     "This free Cloudflare skill helps you fix it.",
+     "Cloudflare actually built this for themselves",
+     "and released on GitHub where it has 20,000 stars.",
+     "Just install it in Cloudcode and ask it to audit your project.",
+     "It maps out how your app works",
+     "then sends AI agents through your code.",
+     "These agents look for ways around your login,",
+     "expose private data and vulnerable APIs",
+     "and even prompt injection if your app uses AI.",
+     "But here is the clever part.",
+     "Before an issue gets confirmed,",
+     "another agent tries to prove the first one wrong.",
+     "That helps weed out false alarms",
+     "before you waste time fixing them.",
+     "Then you get a report with the verified issues",
+     "where they are in your code,",
+     "WhatsApp risk and suggested fixes."
+    ],
+    "7699149715182587156.mp4": [
+     "If Claude is giving you a bad answer, stop re-promping it and make 100 Claude's fight to death",
+     "for the answer instead.",
+     "There's a skill called arena that basically does this for you.",
+     "You give it one task.",
+     "It sends the same task to a bunch of agents and every agent approaches the problem differently",
+     "with different reasoning, strategies and different solutions.",
+     "Then they judge each other's answers until one survives.",
+     "So instead of sitting there writing, make this better 20 times.",
+     "You just make Claude brute force the best answer for you.",
+     "And yes, you can set this up for free."
+    ],
+    "7699861233939418388.mp4": [
+     "The cloud can now test your stock trade 10,000 times before you risk a single dollar.",
+     "Someone just open sourced 11 free day trading skills for the cloud, and each one handles",
+     "a different job.",
+     "One scale scans thousands of stock charts looking for trading opportunities.",
+     "Another tracks breaking news that could move those stocks.",
+     "Then there's an entry skill that watches for the right signal, and an exit skill that",
+     "plans when to take profit or cut your losses.",
+     "But the craziest one is called the Time Machine.",
+     "It takes your trade and simulates the rest of the trading date 10,000 times using historical",
+     "price data.",
+     "Then it shows how often you would have made money, hit your stop loss, or ended somewhere",
+     "in between.",
+     "So you get to see the historical odds before putting your money on the line.",
+     "Of course, it's a simulation, not a guarantee."
+    ],
+    "7700231606509866260.mp4": [
+     "If you're studying something hard, here are three chat-duty prompts that will make them",
+     "super easy to understand.",
+     "Just type slash handwritten before your topic and it explains the whole thing like notes",
+     "a 10-year-old could follow, but handwritten isn't even the best one.",
+     "If you type slash sticky notes, it strips the topic down to only the points that are",
+     "important to remember and the one I use for anything really confusing slash visualize.",
+     "It draws the topic out and explains it with diagrams so you can understand it visually.",
+     "Whether it's a new topic, a work concept or subject you gave up on years ago, just use",
+     "these three prompts and it will finally make sense."
+    ],
+    "7700600016787852565.mp4": [
+     "Someone just built an entire YouTube team inside Claude",
+     "and made it completely free.",
+     "It's called YouTube agent skill",
+     "and it comes with 11 different AI skills",
+     "each handling a different part of running a YouTube channel.",
+     "One takes your video idea",
+     "and writes a script using 21 different hook formulas.",
+     "Another creates titles and thumbnail concepts.",
+     "There's one that tells you exactly what to cut",
+     "from your video and another that drafts replies",
+     "to your comments.",
+     "It can even plan your entire week's content",
+     "but the craziest one is the virality skill.",
+     "It finds videos in your niche",
+     "that performed way better than those channels usually do.",
+     "Then it analyzes their titles, hooks and formats",
+     "to help you create a similar concept",
+     "for your own audience in your own voice.",
+     "There's even a retention skill",
+     "that shows exactly where people stopped watching your videos.",
+     "You still have to record, edit and upload yourself",
+     "but Claude can handle a huge part of the planning."
+    ],
+    "7702539093179108628.mp4": [
+     "someone built a cloud code agent that works 24.7 to find you customers.",
+     "It's called Harvey and it's completely free and open source.",
+     "You tell it what you sell and who your ideal customer is.",
+     "Harvey searches for businesses that match,",
+     "researchers their websites and figures out which ones are actually worth contacting.",
+     "Then Claude uses that research to write personalized cold emails for each business,",
+     "but here's where it gets interesting.",
+     "Harvey also monitors your inbox,",
+     "identifies interested leads and prepares replies and follow ups to keep those",
+     "conversations moving and it tracks everything in a live dashboard,",
+     "so you can see every lead, email and conversation in one place.",
+     "Every 15 minutes, Harvey checks what needs to happen next,",
+     "as long as it's running on your computer and the best part,",
+     "it works with your existing Claude code subscription,",
+     "so you don't need a separate Claude API bill.",
+     "You still approve emails before they're sent by default."
+    ],
+    "7703740360995982613.mp4": [
+     "People are now hacking their TV to make it 10x faster, and it's blowing up on the internet",
+     "right now.",
+     "It started when someone gave Claude code that TV's model number and asked it to clean",
+     "everything up.",
+     "Claude connected to the TV over Wi-Fi helped disabled 25 unwanted apps, removed sponsored",
+     "content from the home screen, and reduced tracking.",
+     "It even replaced the entire home screen with a clean interface that looks like Apple TV.",
+     "And that experiment has now turned into a free GitHub repo called Clean Your TV, with",
+     "over 45,000 stars.",
+     "You just connect Claude code to your TV, give it the setup prompt, and approve the apps",
+     "you wanted disabled.",
+     "It can even install a completely new home screen with just your favorite apps.",
+     "It works with compatible Android and Google TVs, with over 360 models tested.",
+     "And if you don't like the changes, there's a backup and restore option to get your",
+     "old setup back."
+    ],
+    "7704525765915774229.mp4": [
+     "If you use Claude, these are the 5 most powerful connectors you absolutely need to know about.",
+     "Number 1.",
+     "Perplexity.",
+     "This gives Claude access to real-time web research.",
+     "So you can research any topic, find the latest information and get actual sources instead",
+     "of relying on what Claude already knows.",
+     "Number 2.",
+     "Firecrawl.",
+     "Give Claude a website and it can extract entire pages into clean, structured information.",
+     "You can use it to research competitors, compare pricing or study how other businesses work.",
+     "Number 3.",
+     "Posthog.",
+     "This one's for anyone building an app.",
+     "Claude can look at your actual analytics, find where users are dropping off, investigate bugs",
+     "and help you figure out what needs fixing.",
+     "Number 4.",
+     "Playwright.",
+     "This literally gives Claude a browser it can control.",
+     "It can open websites, click buttons, fill out forms and even test whether your app actually",
+     "works.",
+     "And number 5.",
+     "Composeo.",
+     "This can explore to apps like Gmail, Notion and Slack through one integration.",
+     "You authorize the apps you need and Claude can start working across them.",
+     "So now Claude can research, browse, analyze your product and take action across your tools."
+    ]
+   }
+  },
+  "ours (batch 2026-11-08)": {
+   "duration_s": {
+    "median": 40.83,
+    "min": 39.2,
+    "max": 43.1
+   },
+   "cuts_per_min": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "mean_shot_s": {
+    "median": 40.83,
+    "min": 39.2,
+    "max": 43.1
+   },
+   "soft_scene_changes_per_min": {
+    "median": 100.4,
+    "min": 89.1,
+    "max": 118.3
+   },
+   "face_frame_share": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "face_area_median": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "static_share": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "motion_energy": {
+    "median": 3.95,
+    "min": 3.89,
+    "max": 4.18
+   },
+   "frame_diff_p95": {
+    "median": 9.78,
+    "min": 9.45,
+    "max": 10.86
+   },
+   "white_share": {
+    "median": 0.04,
+    "min": 0.04,
+    "max": 0.04
+   },
+   "edge_density": {
+    "median": 0.04,
+    "min": 0.04,
+    "max": 0.04
+   },
+   "palette_max_chroma": {
+    "median": 0.22,
+    "min": 0.22,
+    "max": 0.23
+   },
+   "share_light_bg": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "share_near_white_bg": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "luma_std": {
+    "median": 3.2,
+    "min": 3.0,
+    "max": 3.3
+   },
+   "median_luma": {
+    "median": 16.0,
+    "min": 16.0,
+    "max": 17.0
+   },
+   "wpm": {
+    "median": 183.9,
+    "min": 177.1,
+    "max": 190.8
+   },
+   "words_per_video_s": {
+    "median": 176.8,
+    "min": 170.7,
+    "max": 183.5
+   },
+   "silence_share": {
+    "median": 0.46,
+    "min": 0.42,
+    "max": 0.51
+   },
+   "longest_pause_s": {
+    "median": 0.64,
+    "min": 0.54,
+    "max": 0.9
+   },
+   "pauses_over_250ms_per_min": {
+    "median": 35.0,
+    "min": 18.4,
+    "max": 36.4
+   },
+   "energy_onsets_per_min": {
+    "median": 92.8,
+    "min": 83.7,
+    "max": 110.2
+   },
+   "f0_median_hz": {
+    "median": 145.5,
+    "min": 140.4,
+    "max": 148.1
+   },
+   "f0_iqr_hz": {
+    "median": 70.2,
+    "min": 61.3,
+    "max": 149.0
+   },
+   "spectral_centroid_hz": {
+    "median": 1085.0,
+    "min": 1022.0,
+    "max": 1121.0
+   },
+   "spectral_flatness": {
+    "median": 0.19,
+    "min": 0.18,
+    "max": 0.2
+   },
+   "loud_p90_dbfs": {
+    "median": -12.2,
+    "min": -12.4,
+    "max": -12.0
+   },
+   "first_word_at": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.18
+   },
+   "palette_top1": [
+    [
+     11,
+     12,
+     20
+    ],
+    [
+     11,
+     12,
+     20
+    ],
+    [
+     11,
+     12,
+     19
+    ],
+    [
+     11,
+     12,
+     20
+    ],
+    [
+     11,
+     12,
+     20
+    ],
+    [
+     11,
+     12,
+     20
+    ],
+    [
+     11,
+     12,
+     20
+    ]
+   ],
+   "band_white_median": [
+    0.018,
+    0.052,
+    0.026,
+    0.062,
+    0.015
+   ],
+   "transcripts": {
+    "repo-autoloop-01.mp4": [
+     "It's tired of babysitting your coding agent, it's agent auto loop, a background coding",
+     "agent.",
+     "It turns a command line agent into a loop on one machine, a schedule, a new issue or an alert",
+     "becomes an event and your rules pick which agent handles it and where.",
+     "The agent works one round in exits, so it isn't standing by and burning tokens while",
+     "it waits.",
+     "When a decision is yours, a card reaches you in slack, discord or desktop notification",
+     "and one command resumes it.",
+     "To catch, you need a recent node, git and an agent already signed in and the CLI is still",
+     "in Chinese, would you let an agent work while you're away?",
+     "Comment, loop and I'll pin it."
+    ],
+    "repo-dshgo-01.mp4": [
+     "Could your phone run your coding agent?",
+     "It's DSH.",
+     "Go, an Android coding agent for deep-sea harness,",
+     "it runs on your phone or drives the one on your computer.",
+     "It installs Ubuntu, Node, and the harness inside the app",
+     "with no root and no termux.",
+     "You can answer tool approvals, send a message",
+     "while it's replying, and finish steps fold into one line.",
+     "With permissions, it reads the screen and taps for you,",
+     "and sensitive actions stay with you by default, the catch.",
+     "It's Android only for now, and remote mode",
+     "takes images only, not the whole web interface.",
+     "Would you run your agent from your pocket, comment, pocket,",
+     "and I'll pin it."
+    ],
+    "repo-reavideo-01.mp4": [
+     "How was that video actually made?",
+     "It's Rhea Video and it does video reverse engineering.",
+     "Give it any clip and it tells you shot by shot how it was made by footage, AI Video,",
+     "avatars, animation and code built motion all get judged separately, then put back on the",
+     "original timeline.",
+     "Every shot gets evidence or reverse engineered prompt and the captions cuts in beats it",
+     "was cut to.",
+     "Then you get a remake plan split into what's a film, what's a generate and what's",
+     "a code.",
+     "The catch, the detailed docs are in Chinese for now and a video model makes the AI calls",
+     "more accurate, which video would you take apart first, comment, shots and I'll pin it."
+    ],
+    "repo-sand3d-01.mp4": [
+     "You can an LLM do 3D modeling.",
+     "It's a Python library that writes three-dimensional objects",
+     "as short programs on top of Blender.",
+     "A part takes two to six times fewer tokens",
+     "than the same part in Blender Python or CAG query",
+     "and the whole API fits in a prompt.",
+     "Every part edge and faces reach by name",
+     "and the same program builds the same mesh every time.",
+     "It exports GLB, URDF, USD, OBJ or STL,",
+     "and a washing machine example is 38 lines with four joints.",
+     "The catch it needs Blender's BPI module,",
+     "which only ships for certain Python versions.",
+     "So check yours first.",
+     "What would you model first?",
+     "Comment, mesh, and I'll pin it."
+    ],
+    "repo-superagent-01.mp4": [
+     "Could an agent run your repo without you watching it?",
+     "It's D.S. Super Agent, a research prototype published by D.S.C., a proactive coding agent",
+     "for one repository.",
+     "It listens to GitHub, an optionally ph issue.",
+     "When someone asks for work, it opens a work item in its own session.",
+     "It answers into thread where the work was asked, often with the pull request, and a panel",
+     "shows what needs a person.",
+     "It acts only when asked, or when a team rule allows it.",
+     "Your coding agent walks you through setup to catch.",
+     "It's research code, not a deep-seag product, and some designs in the paper are not in",
+     "it.",
+     "Would you let an agent owner repo comment, agent, and I'll pin it."
+    ],
+    "repo-unslop-01.mp4": [
+     "Why does AI UI design all look the same?",
+     "It's called Unslop.",
+     "A skill for clawed code or codex that turns vibe-coded, AI-looking screens into a designed",
+     "interface.",
+     "First, it audits the screen and lists the slop, gradients, glows, emoji labels.",
+     "Then it sets a direction from your product.",
+     "You steer that direction first.",
+     "Then it fixes the screen pass by pass, spacing, color, icons, copy, type, motion, like",
+     "a designer's red line review.",
+     "It works the next day, yes, react, view, or playing CSS, and on a live site when a link",
+     "is all you have.",
+     "The catch, you need clawed code or codex, and the story video needs playwright and",
+     "FMPag.",
+     "Would you let it redraw your own app?",
+     "All pin the repo."
+    ],
+    "repo-vork-01.mp4": [
+     "What if your agent could render the shot itself?",
+     "It's Vork, an agent rendering engine, scenes are written as code, and rendered on a GPU.",
+     "There's no editor.",
+     "The agent writes a scene, renders a preview, looks at the image, and revises the camera",
+     "and the light.",
+     "It hands the agent geometry, re-queries and GPU compute, so a shot can carry its own",
+     "shader.",
+     "The examples run from a million self-steering birds to VFX cut into real footage.",
+     "The catch.",
+     "It's a research preview.",
+     "It needs a Vulcan or metal GPU, and there's no editor to fall back on.",
+     "What would you ask an agent to render?",
+     "Comment, render, and I'll pin it."
+    ]
+   }
+  },
+  "reference (Instagram @classified.ai) 9:16 reels": {
+   "duration_s": {
+    "median": 32.58,
+    "min": 14.14,
+    "max": 36.08
+   },
+   "cuts_per_min": {
+    "median": 46.5,
+    "min": 0.0,
+    "max": 82.7
+   },
+   "mean_shot_s": {
+    "median": 1.25,
+    "min": 0.71,
+    "max": 14.13
+   },
+   "soft_scene_changes_per_min": {
+    "median": 91.5,
+    "min": 89.1,
+    "max": 114.2
+   },
+   "face_frame_share": {
+    "median": 0.34,
+    "min": 0.07,
+    "max": 0.55
+   },
+   "face_area_median": {
+    "median": 0.05,
+    "min": 0.01,
+    "max": 0.05
+   },
+   "static_share": {
+    "median": 0.27,
+    "min": 0.22,
+    "max": 0.45
+   },
+   "motion_energy": {
+    "median": 5.73,
+    "min": 3.48,
+    "max": 6.77
+   },
+   "frame_diff_p95": {
+    "median": 22.36,
+    "min": 9.63,
+    "max": 34.28
+   },
+   "white_share": {
+    "median": 0.04,
+    "min": 0.0,
+    "max": 0.07
+   },
+   "edge_density": {
+    "median": 0.05,
+    "min": 0.05,
+    "max": 0.09
+   },
+   "palette_max_chroma": {
+    "median": 0.16,
+    "min": 0.08,
+    "max": 0.33
+   },
+   "share_light_bg": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.11
+   },
+   "share_near_white_bg": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "luma_std": {
+    "median": 19.5,
+    "min": 11.7,
+    "max": 50.3
+   },
+   "median_luma": {
+    "median": 21.0,
+    "min": 10.5,
+    "max": 30.0
+   },
+   "wpm": {
+    "median": 125.8,
+    "min": 0.0,
+    "max": 168.6
+   },
+   "words_per_video_s": {
+    "median": 125.2,
+    "min": 4.2,
+    "max": 163.0
+   },
+   "silence_share": {
+    "median": 0.43,
+    "min": 0.32,
+    "max": 0.47
+   },
+   "longest_pause_s": {
+    "median": 0.5,
+    "min": 0.4,
+    "max": 1.44
+   },
+   "pauses_over_250ms_per_min": {
+    "median": 7.4,
+    "min": 5.0,
+    "max": 38.2
+   },
+   "energy_onsets_per_min": {
+    "median": 132.6,
+    "min": 17.0,
+    "max": 148.0
+   },
+   "f0_median_hz": {
+    "median": 170.2,
+    "min": 104.2,
+    "max": 183.9
+   },
+   "f0_iqr_hz": {
+    "median": 61.0,
+    "min": 59.2,
+    "max": 230.0
+   },
+   "spectral_centroid_hz": {
+    "median": 1279.0,
+    "min": 1189.0,
+    "max": 1757.0
+   },
+   "spectral_flatness": {
+    "median": 0.2,
+    "min": 0.13,
+    "max": 0.34
+   },
+   "loud_p90_dbfs": {
+    "median": -12.9,
+    "min": -13.7,
+    "max": -12.5
+   },
+   "first_word_at": {
+    "median": 0.27,
+    "min": 0.0,
+    "max": 1.17
+   },
+   "palette_top1": [
+    [
+     11,
+     7,
+     6
+    ],
+    [
+     9,
+     13,
+     24
+    ],
+    [
+     8,
+     14,
+     46
+    ]
+   ],
+   "band_white_median": [
+    0.026,
+    0.061,
+    0.065,
+    0.012,
+    0.0
+   ],
+   "transcripts": {
+    "ig02.mp4": [
+     {
+      "t0": 1.17,
+      "t1": 3.17,
+      "text": "Claude just finished Blender"
+     },
+     {
+      "t0": 4.71,
+      "t1": 6.65,
+      "text": "Rilco save Kariya Bata dao que se"
+     },
+     {
+      "t0": 6.65,
+      "t1": 7.79,
+      "text": "Gia Saizun apne"
+     },
+     {
+      "t0": 7.79,
+      "t1": 9.21,
+      "text": "Orystana ama Blender skills"
+     },
+     {
+      "t0": 9.21,
+      "t1": 11.11,
+      "text": "94 skills kike open source pack"
+     },
+     {
+      "t0": 11.11,
+      "t1": 14.29,
+      "text": "Joplod kike professional 3D artists kithra kam karana sikataya"
+     },
+     {
+      "t0": 14.29,
+      "t1": 17.37,
+      "text": "Was Blender Koliya egg addon lagaya Joplod sikanek kartaya"
+     },
+     {
+      "t0": 17.37,
+      "t1": 20.45,
+      "text": "Claude Kordmelike, Mere game kile, exivertant world banado"
+     },
+     {
+      "t0": 20.45,
+      "t1": 22.31,
+      "text": "A Blender director skill kam sambalithya"
+     },
+     {
+      "t0": 22.69,
+      "t1": 26.45,
+      "text": "Uraklan banataya, characters, props, environment, subcoochcoo"
+     },
+     {
+      "t0": 26.45,
+      "t1": 30.09,
+      "text": "Lighting, textures, game kile, optimise or unreal engine may export to be"
+     },
+     {
+      "t0": 30.09,
+      "t1": 33.01,
+      "text": "Or, such a lot of manage of kile barde kadon kike shokho gata"
+     },
+     {
+      "t0": 33.01,
+      "t1": 36.05,
+      "text": "A kubit ry kernitho kamit kriya blender link map kudyam kartunga"
+     }
+    ],
+    "ig03.mp4": [
+     {
+      "t0": 0.0,
+      "t1": 1.46,
+      "text": "Yea, I told me what Starcar is."
+     },
+     {
+      "t0": 1.72,
+      "t1": 4.32,
+      "text": "Or, Abbe, Abne, left off pay up for the service made."
+     },
+     {
+      "t0": 4.54,
+      "t1": 5.56,
+      "text": "This won't be critical for me."
+     },
+     {
+      "t0": 5.56,
+      "t1": 8.42,
+      "text": "Because I have to take the"
+     },
+     {
+      "t0": 8.42,
+      "t1": 9.96,
+      "text": "majority of the"
+     },
+     {
+      "t0": 9.96,
+      "t1": 17.52,
+      "text": "The UK has seen the fact that a new"
+     },
+     {
+      "t0": 17.52,
+      "t1": 26.8,
+      "text": "In the meantime, we have a new episode of this video and we will see you on the next video."
+     },
+     {
+      "t0": 29.84,
+      "t1": 30.84,
+      "text": "Thanks for watching!"
+     },
+     {
+      "t0": 30.84,
+      "t1": 32.42,
+      "text": "Thanks for watching!"
+     }
+    ],
+    "ig06.mp4": [
+     {
+      "t0": 0.27,
+      "t1": 0.79,
+      "text": "Me"
+     }
+    ]
+   }
+  },
+  "reference (Instagram @classified.ai) 4:5 posts": {
+   "duration_s": {
+    "median": 6.02,
+    "min": 6.02,
+    "max": 6.02
+   },
+   "cuts_per_min": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "mean_shot_s": {
+    "median": 6.0,
+    "min": 6.0,
+    "max": 6.0
+   },
+   "soft_scene_changes_per_min": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 129.6
+   },
+   "face_frame_share": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "face_area_median": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "static_share": {
+    "median": 0.49,
+    "min": 0.36,
+    "max": 1.0
+   },
+   "motion_energy": {
+    "median": 1.24,
+    "min": 0.05,
+    "max": 4.47
+   },
+   "frame_diff_p95": {
+    "median": 3.43,
+    "min": 0.05,
+    "max": 10.04
+   },
+   "white_share": {
+    "median": 0.21,
+    "min": 0.18,
+    "max": 0.38
+   },
+   "edge_density": {
+    "median": 0.11,
+    "min": 0.09,
+    "max": 0.12
+   },
+   "palette_max_chroma": {
+    "median": 0.13,
+    "min": 0.13,
+    "max": 0.14
+   },
+   "share_light_bg": {
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0
+   },
+   "share_near_white_bg": {
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0
+   },
+   "luma_std": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.5
+   },
+   "median_luma": {
+    "median": 222.0,
+    "min": 221.5,
+    "max": 223.0
+   },
+   "wpm": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "words_per_video_s": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "silence_share": {
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0
+   },
+   "longest_pause_s": {
+    "median": 6.0,
+    "min": 6.0,
+    "max": 6.0
+   },
+   "pauses_over_250ms_per_min": {
+    "median": 10.0,
+    "min": 10.0,
+    "max": 10.0
+   },
+   "energy_onsets_per_min": {
+    "median": 10.0,
+    "min": 0.0,
+    "max": 10.0
+   },
+   "f0_median_hz": {
+    "median": 320.0,
+    "min": 320.0,
+    "max": 320.0
+   },
+   "f0_iqr_hz": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "spectral_centroid_hz": {
+    "median": 940.0,
+    "min": 738.0,
+    "max": 940.0
+   },
+   "spectral_flatness": {
+    "median": 0.22,
+    "min": 0.18,
+    "max": 0.22
+   },
+   "loud_p90_dbfs": {
+    "median": -12.1,
+    "min": -12.1,
+    "max": -12.0
+   },
+   "palette_top1": [
+    [
+     228,
+     221,
+     213
+    ],
+    [
+     227,
+     220,
+     210
+    ],
+    [
+     228,
+     221,
+     210
+    ]
+   ],
+   "band_white_median": [
+    0.043,
+    0.515,
+    0.179,
+    0.052,
+    0.018
+   ],
+   "transcripts": {
+    "ig01.mp4": [],
+    "ig04.mp4": [],
+    "ig05.mp4": []
+   }
+  }
+ },
+ "sameness": {
+  "reference (TikTok @buildwithai.club)": {
+   "mean_pairwise_frame_corr": 0.588,
+   "min": 0.029,
+   "max": 0.974,
+   "n_pairs": 45
+  },
+  "ours (batch 2026-11-08)": {
+   "mean_pairwise_frame_corr": 0.823,
+   "min": 0.752,
+   "max": 0.88,
+   "n_pairs": 21
+  },
+  "reference (Instagram @classified.ai) 9:16 reels": {
+   "mean_pairwise_frame_corr": 0.455,
+   "min": 0.235,
+   "max": 0.696,
+   "n_pairs": 3
+  },
+  "reference (Instagram @classified.ai) 4:5 posts": {
+   "mean_pairwise_frame_corr": 0.11,
+   "min": 0.004,
+   "max": 0.3,
+   "n_pairs": 3
+  }
+ },
+ "rows_ig": {
+  "reference (Instagram @classified.ai) 9:16 reels": [
+   {
+    "file": "ig02.mp4",
+    "src_fps": 30.0,
+    "resolution": "720x1280",
+    "sampled_frames": 542,
+    "duration_s": 36.08,
+    "cuts": 28,
+    "cuts_per_min": 46.5,
+    "mean_shot_s": 1.25,
+    "motion_energy": 5.73,
+    "static_share": 0.445,
+    "hard_cut_share_of_changes": 0.179,
+    "white_share": 0.038,
+    "band_white": [
+     0.026,
+     0.061,
+     0.065,
+     0.012,
+     0.002
+    ],
+    "edge_density": 0.0531,
+    "face_frame_share": 0.343,
+    "face_area_median": 0.051,
+    "palette": [
+     {
+      "rgb": [
+       11,
+       7,
+       6
+      ],
+      "share": 0.635
+     },
+     {
+      "rgb": [
+       55,
+       44,
+       44
+      ],
+      "share": 0.138
+     },
+     {
+      "rgb": [
+       145,
+       86,
+       97
+      ],
+      "share": 0.108
+     },
+     {
+      "rgb": [
+       178,
+       157,
+       153
+      ],
+      "share": 0.087
+     },
+     {
+      "rgb": [
+       240,
+       238,
+       242
+      ],
+      "share": 0.032
+     }
+    ],
+    "palette_max_chroma": 0.082,
+    "loud_p90_dbfs": -12.9,
+    "floor_p05_dbfs": -34.6,
+    "silence_share": 0.316,
+    "pauses_over_250ms_per_min": 5.0,
+    "longest_pause_s": 0.5,
+    "spectral_centroid_hz": 1279.0,
+    "spectral_flatness": 0.129,
+    "f0_median_hz": 183.9,
+    "f0_iqr_hz": 59.2,
+    "energy_onsets_per_min": 148.0,
+    "peak": 0.691,
+    "transcript": [
+     {
+      "t0": 1.17,
+      "t1": 3.17,
+      "text": "Claude just finished Blender"
+     },
+     {
+      "t0": 4.71,
+      "t1": 6.65,
+      "text": "Rilco save Kariya Bata dao que se"
+     },
+     {
+      "t0": 6.65,
+      "t1": 7.79,
+      "text": "Gia Saizun apne"
+     },
+     {
+      "t0": 7.79,
+      "t1": 9.21,
+      "text": "Orystana ama Blender skills"
+     },
+     {
+      "t0": 9.21,
+      "t1": 11.11,
+      "text": "94 skills kike open source pack"
+     },
+     {
+      "t0": 11.11,
+      "t1": 14.29,
+      "text": "Joplod kike professional 3D artists kithra kam karana sikataya"
+     },
+     {
+      "t0": 14.29,
+      "t1": 17.37,
+      "text": "Was Blender Koliya egg addon lagaya Joplod sikanek kartaya"
+     },
+     {
+      "t0": 17.37,
+      "t1": 20.45,
+      "text": "Claude Kordmelike, Mere game kile, exivertant world banado"
+     },
+     {
+      "t0": 20.45,
+      "t1": 22.31,
+      "text": "A Blender director skill kam sambalithya"
+     },
+     {
+      "t0": 22.69,
+      "t1": 26.45,
+      "text": "Uraklan banataya, characters, props, environment, subcoochcoo"
+     },
+     {
+      "t0": 26.45,
+      "t1": 30.09,
+      "text": "Lighting, textures, game kile, optimise or unreal engine may export to be"
+     },
+     {
+      "t0": 30.09,
+      "t1": 33.01,
+      "text": "Or, such a lot of manage of kile barde kadon kike shokho gata"
+     },
+     {
+      "t0": 33.01,
+      "t1": 36.05,
+      "text": "A kubit ry kernitho kamit kriya blender link map kudyam kartunga"
+     }
+    ],
+    "words": 98,
+    "speech_span_s": 34.88,
+    "wpm": 168.6,
+    "words_per_video_s": 163.0,
+    "first_word_at": 1.17,
+    "soft_scene_changes": 55,
+    "soft_scene_changes_per_min": 91.5,
+    "frame_diff_median": 1.16,
+    "frame_diff_p95": 22.36,
+    "median_luma": 10.5,
+    "share_light_bg": 0.108,
+    "share_dark_bg": 0.892,
+    "share_near_white_bg": 0.003,
+    "luma_std": 50.3
+   },
+   {
+    "file": "ig03.mp4",
+    "src_fps": 30.0,
+    "resolution": "720x1280",
+    "sampled_frames": 490,
+    "duration_s": 32.58,
+    "cuts": 45,
+    "cuts_per_min": 82.7,
+    "mean_shot_s": 0.71,
+    "motion_energy": 6.77,
+    "static_share": 0.272,
+    "hard_cut_share_of_changes": 0.218,
+    "white_share": 0.068,
+    "band_white": [
+     0.046,
+     0.132,
+     0.102,
+     0.013,
+     0.0
+    ],
+    "edge_density": 0.0474,
+    "face_frame_share": 0.551,
+    "face_area_median": 0.047,
+    "palette": [
+     {
+      "rgb": [
+       9,
+       13,
+       24
+      ],
+      "share": 0.604
+     },
+     {
+      "rgb": [
+       36,
+       51,
+       68
+      ],
+      "share": 0.198
+     },
+     {
+      "rgb": [
+       158,
+       89,
+       69
+      ],
+      "share": 0.079
+     },
+     {
+      "rgb": [
+       240,
+       238,
+       240
+      ],
+      "share": 0.071
+     },
+     {
+      "rgb": [
+       129,
+       104,
+       172
+      ],
+      "share": 0.047
+     }
+    ],
+    "palette_max_chroma": 0.162,
+    "loud_p90_dbfs": -12.5,
+    "floor_p05_dbfs": -30.7,
+    "silence_share": 0.43,
+    "pauses_over_250ms_per_min": 7.4,
+    "longest_pause_s": 0.4,
+    "spectral_centroid_hz": 1189.0,
+    "spectral_flatness": 0.201,
+    "f0_median_hz": 170.2,
+    "f0_iqr_hz": 61.0,
+    "energy_onsets_per_min": 132.6,
+    "peak": 0.672,
+    "transcript": [
+     {
+      "t0": 0.0,
+      "t1": 1.46,
+      "text": "Yea, I told me what Starcar is."
+     },
+     {
+      "t0": 1.72,
+      "t1": 4.32,
+      "text": "Or, Abbe, Abne, left off pay up for the service made."
+     },
+     {
+      "t0": 4.54,
+      "t1": 5.56,
+      "text": "This won't be critical for me."
+     },
+     {
+      "t0": 5.56,
+      "t1": 8.42,
+      "text": "Because I have to take the"
+     },
+     {
+      "t0": 8.42,
+      "t1": 9.96,
+      "text": "majority of the"
+     },
+     {
+      "t0": 9.96,
+      "t1": 17.52,
+      "text": "The UK has seen the fact that a new"
+     },
+     {
+      "t0": 17.52,
+      "t1": 26.8,
+      "text": "In the meantime, we have a new episode of this video and we will see you on the next video."
+     },
+     {
+      "t0": 29.84,
+      "t1": 30.84,
+      "text": "Thanks for watching!"
+     },
+     {
+      "t0": 30.84,
+      "t1": 32.42,
+      "text": "Thanks for watching!"
+     }
+    ],
+    "words": 68,
+    "speech_span_s": 32.42,
+    "wpm": 125.8,
+    "words_per_video_s": 125.2,
+    "first_word_at": 0.0,
+    "soft_scene_changes": 62,
+    "soft_scene_changes_per_min": 114.2,
+    "frame_diff_median": 2.24,
+    "frame_diff_p95": 34.28,
+    "median_luma": 21.0,
+    "share_light_bg": 0.0,
+    "share_dark_bg": 1.0,
+    "share_near_white_bg": 0.0,
+    "luma_std": 19.5
+   },
+   {
+    "file": "ig06.mp4",
+    "src_fps": 30.0,
+    "resolution": "720x1280",
+    "sampled_frames": 212,
+    "duration_s": 14.14,
+    "cuts": 0,
+    "cuts_per_min": 0.0,
+    "mean_shot_s": 14.13,
+    "motion_energy": 3.48,
+    "static_share": 0.218,
+    "hard_cut_share_of_changes": 0.0,
+    "white_share": 0.002,
+    "band_white": [
+     0.003,
+     0.003,
+     0.001,
+     0.0,
+     0.0
+    ],
+    "edge_density": 0.092,
+    "face_frame_share": 0.071,
+    "face_area_median": 0.014,
+    "palette": [
+     {
+      "rgb": [
+       8,
+       14,
+       46
+      ],
+      "share": 0.361
+     },
+     {
+      "rgb": [
+       58,
+       27,
+       18
+      ],
+      "share": 0.269
+     },
+     {
+      "rgb": [
+       114,
+       58,
+       33
+      ],
+      "share": 0.182
+     },
+     {
+      "rgb": [
+       183,
+       93,
+       35
+      ],
+      "share": 0.12
+     },
+     {
+      "rgb": [
+       220,
+       157,
+       105
+      ],
+      "share": 0.069
+     }
+    ],
+    "palette_max_chroma": 0.331,
+    "loud_p90_dbfs": -13.7,
+    "floor_p05_dbfs": -32.9,
+    "silence_share": 0.469,
+    "pauses_over_250ms_per_min": 38.2,
+    "longest_pause_s": 1.44,
+    "spectral_centroid_hz": 1757.0,
+    "spectral_flatness": 0.335,
+    "f0_median_hz": 104.2,
+    "f0_iqr_hz": 230.0,
+    "energy_onsets_per_min": 17.0,
+    "peak": 0.818,
+    "transcript": [
+     {
+      "t0": 0.27,
+      "t1": 0.79,
+      "text": "Me"
+     }
+    ],
+    "words": 1,
+    "speech_span_s": 0.52,
+    "wpm": 0,
+    "words_per_video_s": 4.2,
+    "first_word_at": 0.27,
+    "soft_scene_changes": 21,
+    "soft_scene_changes_per_min": 89.1,
+    "frame_diff_median": 2.36,
+    "frame_diff_p95": 9.63,
+    "median_luma": 30.0,
+    "share_light_bg": 0.0,
+    "share_dark_bg": 1.0,
+    "share_near_white_bg": 0.0,
+    "luma_std": 11.7
+   }
+  ],
+  "reference (Instagram @classified.ai) 4:5 posts": [
+   {
+    "file": "ig01.mp4",
+    "src_fps": 30.0,
+    "resolution": "720x900",
+    "sampled_frames": 90,
+    "duration_s": 6.02,
+    "cuts": 0,
+    "cuts_per_min": 0.0,
+    "mean_shot_s": 6.0,
+    "motion_energy": 0.05,
+    "static_share": 1.0,
+    "hard_cut_share_of_changes": 0.0,
+    "white_share": 0.375,
+    "band_white": [
+     0.032,
+     0.466,
+     0.615,
+     0.49,
+     0.012
+    ],
+    "edge_density": 0.091,
+    "face_frame_share": 0.0,
+    "face_area_median": 0.0,
+    "palette": [
+     {
+      "rgb": [
+       228,
+       221,
+       213
+      ],
+      "share": 0.684
+     },
+     {
+      "rgb": [
+       252,
+       251,
+       251
+      ],
+      "share": 0.224
+     },
+     {
+      "rgb": [
+       24,
+       26,
+       37
+      ],
+      "share": 0.042
+     },
+     {
+      "rgb": [
+       210,
+       123,
+       92
+      ],
+      "share": 0.032
+     },
+     {
+      "rgb": [
+       106,
+       129,
+       115
+      ],
+      "share": 0.018
+     }
+    ],
+    "palette_max_chroma": 0.133,
+    "loud_p90_dbfs": -12.1,
+    "floor_p05_dbfs": -21.8,
+    "silence_share": 1.0,
+    "pauses_over_250ms_per_min": 10.0,
+    "longest_pause_s": 6.0,
+    "spectral_centroid_hz": 940.0,
+    "spectral_flatness": 0.217,
+    "f0_median_hz": 320.0,
+    "f0_iqr_hz": 0.0,
+    "energy_onsets_per_min": 10.0,
+    "peak": 0.445,
+    "transcript": [],
+    "words": 0,
+    "speech_span_s": 0,
+    "wpm": 0,
+    "words_per_video_s": 0.0,
+    "first_word_at": null,
+    "soft_scene_changes": 0,
+    "soft_scene_changes_per_min": 0.0,
+    "frame_diff_median": 0.04,
+    "frame_diff_p95": 0.05,
+    "median_luma": 223.0,
+    "share_light_bg": 1.0,
+    "share_dark_bg": 0.0,
+    "share_near_white_bg": 1.0,
+    "luma_std": 0.0
+   },
+   {
+    "file": "ig04.mp4",
+    "src_fps": 30.0,
+    "resolution": "720x900",
+    "sampled_frames": 90,
+    "duration_s": 6.02,
+    "cuts": 0,
+    "cuts_per_min": 0.0,
+    "mean_shot_s": 6.0,
+    "motion_energy": 1.24,
+    "static_share": 0.494,
+    "hard_cut_share_of_changes": 0.0,
+    "white_share": 0.183,
+    "band_white": [
+     0.043,
+     0.515,
+     0.137,
+     0.052,
+     0.018
+    ],
+    "edge_density": 0.1101,
+    "face_frame_share": 0.0,
+    "face_area_median": 0.0,
+    "palette": [
+     {
+      "rgb": [
+       227,
+       220,
+       210
+      ],
+      "share": 0.679
+     },
+     {
+      "rgb": [
+       31,
+       43,
+       43
+      ],
+      "share": 0.108
+     },
+     {
+      "rgb": [
+       252,
+       252,
+       252
+      ],
+      "share": 0.089
+     },
+     {
+      "rgb": [
+       168,
+       109,
+       86
+      ],
+      "share": 0.076
+     },
+     {
+      "rgb": [
+       200,
+       185,
+       144
+      ],
+      "share": 0.048
+     }
+    ],
+    "palette_max_chroma": 0.131,
+    "loud_p90_dbfs": -12.0,
+    "floor_p05_dbfs": -21.8,
+    "silence_share": 1.0,
+    "pauses_over_250ms_per_min": 10.0,
+    "longest_pause_s": 6.0,
+    "spectral_centroid_hz": 738.0,
+    "spectral_flatness": 0.179,
+    "f0_median_hz": 320.0,
+    "f0_iqr_hz": 0.0,
+    "energy_onsets_per_min": 0.0,
+    "peak": 0.446,
+    "transcript": [],
+    "words": 0,
+    "speech_span_s": 0,
+    "wpm": 0,
+    "words_per_video_s": 0.0,
+    "first_word_at": null,
+    "soft_scene_changes": 0,
+    "soft_scene_changes_per_min": 0.0,
+    "frame_diff_median": 1.05,
+    "frame_diff_p95": 3.43,
+    "median_luma": 222.0,
+    "share_light_bg": 1.0,
+    "share_dark_bg": 0.0,
+    "share_near_white_bg": 1.0,
+    "luma_std": 0.0
+   },
+   {
+    "file": "ig05.mp4",
+    "src_fps": 30.0,
+    "resolution": "720x900",
+    "sampled_frames": 90,
+    "duration_s": 6.02,
+    "cuts": 0,
+    "cuts_per_min": 0.0,
+    "mean_shot_s": 6.0,
+    "motion_energy": 4.47,
+    "static_share": 0.36,
+    "hard_cut_share_of_changes": 0.0,
+    "white_share": 0.209,
+    "band_white": [
+     0.046,
+     0.559,
+     0.179,
+     0.051,
+     0.05
+    ],
+    "edge_density": 0.1223,
+    "face_frame_share": 0.0,
+    "face_area_median": 0.0,
+    "palette": [
+     {
+      "rgb": [
+       228,
+       221,
+       210
+      ],
+      "share": 0.522
+     },
+     {
+      "rgb": [
+       253,
+       251,
+       250
+      ],
+      "share": 0.16
+     },
+     {
+      "rgb": [
+       20,
+       43,
+       49
+      ],
+      "share": 0.153
+     },
+     {
+      "rgb": [
+       184,
+       142,
+       109
+      ],
+      "share": 0.109
+     },
+     {
+      "rgb": [
+       131,
+       96,
+       77
+      ],
+      "share": 0.055
+     }
+    ],
+    "palette_max_chroma": 0.14,
+    "loud_p90_dbfs": -12.1,
+    "floor_p05_dbfs": -21.8,
+    "silence_share": 1.0,
+    "pauses_over_250ms_per_min": 10.0,
+    "longest_pause_s": 6.0,
+    "spectral_centroid_hz": 940.0,
+    "spectral_flatness": 0.217,
+    "f0_median_hz": 320.0,
+    "f0_iqr_hz": 0.0,
+    "energy_onsets_per_min": 10.0,
+    "peak": 0.445,
+    "transcript": [],
+    "words": 0,
+    "speech_span_s": 0,
+    "wpm": 0,
+    "words_per_video_s": 0.0,
+    "first_word_at": null,
+    "soft_scene_changes": 13,
+    "soft_scene_changes_per_min": 129.6,
+    "frame_diff_median": 4.67,
+    "frame_diff_p95": 10.04,
+    "median_luma": 221.5,
+    "share_light_bg": 1.0,
+    "share_dark_bg": 0.0,
+    "share_near_white_bg": 1.0,
+    "luma_std": 0.5
+   }
+  ]
+ },
+ "ig_extras": {
+  "ig/ig02.mp4": {
+   "samples": 45,
+   "cx": 0.507,
+   "cy": 0.845,
+   "w": 0.3,
+   "h": 0.169
+  },
+  "ig/ig03.mp4": {
+   "samples": 84,
+   "cx": 0.501,
+   "cy": 0.84,
+   "w": 0.28,
+   "h": 0.158
+  },
+  "ig/ig06.mp4": {
+   "samples": 7,
+   "cx": 0.628,
+   "cy": 0.651,
+   "w": 0.15,
+   "h": 0.084
+  },
+  "ig/ig01.mp4": {
+   "samples": 0
+  },
+  "accent": {
+   "ig/ig01.mp4": {
+    "hue_deg": 16,
+    "rgb": [
+     215,
+     115,
+     80
+    ],
+    "px_share": 0.0386
+   },
+   "ig/ig02.mp4": {
+    "hue_deg": 10,
+    "rgb": [
+     167,
+     83,
+     63
+    ],
+    "px_share": 0.1674
+   },
+   "ig/ig03.mp4": {
+    "hue_deg": 8,
+    "rgb": [
+     166,
+     78,
+     65
+    ],
+    "px_share": 0.1868
+   },
+   "ig/ig06.mp4": {
+    "hue_deg": 24,
+    "rgb": [
+     154,
+     83,
+     33
+    ],
+    "px_share": 0.2555
+   }
+  },
+  "amber": {
+   "ig/ig02.mp4": {
+    "amber_px_per_frame": 2372,
+    "amber_rgb": [
+     238,
+     195,
+     100
+    ]
+   },
+   "ig/ig03.mp4": {
+    "amber_px_per_frame": 4089,
+    "amber_rgb": [
+     222,
+     207,
+     41
+    ]
+   }
+  }
+ },
+ "sources_ig": {
+  "count": 6,
+  "format_split": {
+   "9:16 reels": [
+    "ig02 (36.1 s, narrated)",
+    "ig03 (32.6 s, narrated)",
+    "ig06 (14.1 s, silent, AI-generated festival clip)"
+   ],
+   "4:5 still-motion posts": [
+    "ig01",
+    "ig04",
+    "ig05 (6.02 s each, static graphic, music only)"
+   ]
+  },
+  "resolutions": "720x1280 reels @30 fps; 720x900 4:5 posts @30 fps",
+  "delivery": "signed media.sssinstagram.com DASH baseline mp4, aac HE 44.1/48 kHz",
+  "audio_note": "only ig02 + ig03 carry speech; ig01/04/05 are graphic slides, ig06 is music-only. TTS/pace metrics only exist for 2 of 6.",
+  "language_note": "speech is Roman-Urdu with English tool nouns; faster-whisper tiny.en returns garbage on it, so wpm for ig02/ig03 is a lower bound (168.6 / 125.8)."
+ }
+}

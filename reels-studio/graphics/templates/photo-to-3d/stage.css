@@ -1,0 +1,301 @@
+/* photo-to-3d template — deep-space viewer canvas for idol (one picture -> a Gaussian splat).
+   Geometry: canvas 1080x1920. Eyebrow 150, headline 210-400, artifact 436-1586, caption 1600.
+   Decorative styling only; time is driven by setTime() in engine.js. */
+html, body { margin: 0; padding: 0; background: #0C0E17; }
+#stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #0C0E17;
+  font-family: "Helvetica Neue", Helvetica, Arial, "DejaVu Sans", sans-serif; color: #F2F1EA;
+  -webkit-font-smoothing: antialiased; }
+#stage .paper { position: absolute; inset: 0;
+  background:
+    radial-gradient(1300px 760px at 74% -8%, rgba(139,124,255,0.16), rgba(139,124,255,0) 70%),
+    radial-gradient(980px 640px at 4% 106%, rgba(124,212,252,0.10), rgba(124,212,252,0) 70%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.016) 0px, rgba(255,255,255,0.016) 1px, transparent 1px, transparent 5px),
+    #0C0E17; }
+#stage .rule { position: absolute; left: 60px; right: 60px; height: 1px; background: #2A2E44; }
+#stage .handle { position: absolute; top: 84px; right: 60px; font: 600 26px/1 "DejaVu Sans Mono", monospace;
+  color: #666C87; letter-spacing: 1px; }
+.scene { position: absolute; inset: 0; }
+
+.eyebrow { position: absolute; left: 60px; top: 146px; font: 700 27px/1 "DejaVu Sans Mono", monospace;
+  letter-spacing: 4px; text-transform: uppercase; color: #8B7CFF; }
+.headline { position: absolute; left: 60px; right: 60px; top: 196px; height: auto; max-height: 260px; font-size: 92px; line-height: 0.98;
+  font-weight: 800; letter-spacing: -2.4px; text-transform: uppercase; color: #F2F1EA; }
+.headline .accent { font-family: Georgia, "DejaVu Serif", serif; font-style: italic; font-weight: 400;
+  text-transform: none; letter-spacing: -1px; color: #8B7CFF; }
+.headline .ln { display: block; }
+
+.artifact { position: absolute; left: 60px; top: 436px; width: 960px; height: 1150px; transform-origin: 50% 0; }
+
+/* ---------- the fabricated photo chip ---------- */
+.ph { position: relative; border-radius: 26px; overflow: hidden; background: #151827;
+  box-shadow: 0 34px 70px rgba(0,0,0,0.55), 0 0 0 1px #2A2E44 inset; border: 1px solid #2A2E44; }
+.ph-bar { position: relative; height: 68px; background: #1B1F32; border-bottom: 1px solid #2A2E44;
+  display: flex; align-items: center; padding: 0 24px; }
+.ph-bar i { width: 16px; height: 16px; border-radius: 50%; background: #333A58; margin-right: 10px; display: block; }
+.ph-name { margin-left: 18px; height: 34px; flex: 1; border-radius: 17px; background: #101224; border: 1px solid #2A2E44;
+  font: 500 21px/34px "DejaVu Sans Mono", monospace; color: #8A8FA8; padding: 0 18px; overflow: hidden; }
+.ph-body { position: absolute; left: 0; right: 0; top: 68px; bottom: 0; }
+
+.ph-stage { position: absolute; inset: 30px; border-radius: 18px;
+  background: linear-gradient(180deg, #23274120, #121527),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 64px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 64px);
+  border: 1px dashed #3A4160; }
+.ph-stage .tag { position: absolute; left: 18px; top: 16px; font: 600 20px/1 "DejaVu Sans Mono", monospace; color: #5E6584; }
+.ph-subject { position: absolute; left: 50%; top: 54%; transform: translate(-50%,-50%); }
+.ph-subject .core { width: 250px; height: 210px; border-radius: 34px;
+  background: linear-gradient(160deg, #B7B1A3, #8C8778 70%); box-shadow: 0 24px 40px rgba(0,0,0,0.5); }
+.ph-subject .wing { position: absolute; right: -74px; top: 68px; width: 96px; height: 96px; border: 20px solid #8C8778;
+  border-left: 0; border-radius: 0 60px 60px 0; }
+.ph-subject .glowring { position: absolute; left: -40px; top: -46px; width: 330px; height: 330px; border-radius: 50%;
+  border: 1px dashed rgba(255,255,255,0.28); }
+.ph-cap { position: absolute; left: 30px; bottom: 26px; font: 600 21px/1.3 "DejaVu Sans Mono", monospace; color: #8A8FA8; }
+
+/* ---------- the Gaussian splat ---------- */
+.sp { position: relative; border-radius: 26px; overflow: hidden; background: #0A0B14;
+  box-shadow: 0 34px 70px rgba(0,0,0,0.6), 0 0 90px rgba(139,124,255,0.22) inset; border: 1px solid #272B47; }
+.sp-bar { position: relative; height: 68px; background: #14172B; border-bottom: 1px solid #272B47;
+  display: flex; align-items: center; padding: 0 24px; }
+.sp-name { margin-left: 18px; font: 600 22px/1 "DejaVu Sans Mono", monospace; color: #B9B2FF; }
+.sp-count { position: absolute; right: 24px; top: 24px; font: 600 21px/1 "DejaVu Sans Mono", monospace; color: #8B7CFF; }
+.sp-ring { position: absolute; border: 1px dashed rgba(139,124,255,0.5); border-radius: 50%; }
+.sp-ring.r2 { border-color: rgba(124,212,252,0.3); }
+.sp-dot { position: absolute; border-radius: 50%; background: #8B7CFF; }
+.sp-cap { position: absolute; left: 30px; bottom: 26px; font: 600 21px/1.3 "DejaVu Sans Mono", monospace; color: #666C87; }
+.sp-badge { position: absolute; right: 30px; bottom: 24px; font: 700 20px/1 "DejaVu Sans Mono", monospace;
+  color: #0C0E17; background: #FFD60A; border-radius: 8px; padding: 10px 16px; }
+
+/* ---------- photo_splat: hard cuts between fabricated photos ---------- */
+.pst { position: absolute; inset: 0; }
+.pst .frame { position: absolute; inset: 0; display: none; }
+.pst .stamp { position: absolute; left: 50%; transform: translateX(-50%); bottom: 26px; font: 700 24px/1 "DejaVu Sans Mono", monospace;
+  letter-spacing: 3px; color: #8B7CFF; background: #151827; border: 1px solid #2A2E44; border-radius: 12px; padding: 14px 24px; }
+
+/* ---------- depth_callouts: photo with pinned findings ---------- */
+.dc-mark { position: absolute; background: #101224; border: 1px solid #8B7CFF; color: #F2F1EA;
+  border-radius: 10px; padding: 12px 18px; font: 700 23px/1.15 "Helvetica Neue", Arial, sans-serif;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5); }
+.dc-dot { position: absolute; width: 20px; height: 20px; border-radius: 50%; background: #8B7CFF;
+  box-shadow: 0 0 0 6px rgba(139,124,255,0.18); }
+.dc-lead { position: absolute; background: #8B7CFF; }
+.dc-score { position: absolute; left: 50%; transform: translateX(-50%); bottom: 34px; font: 800 30px/1 "DejaVu Sans Mono", monospace;
+  letter-spacing: 2px; color: #F2F1EA; background: #8B7CFF; border-radius: 12px; padding: 16px 30px; }
+
+/* ---------- splat_pipeline: three stages, rail + progress ---------- */
+.pl { position: absolute; inset: 0; }
+.pl-stages { position: absolute; left: 0; right: 0; top: 0; height: 62%; display: flex; gap: 24px; }
+.pl-stage { flex: 1; border-radius: 22px; background: #151827; border: 1px solid #2A2E44; position: relative;
+  overflow: hidden; }
+.pl-stage .num { position: absolute; left: 22px; top: 20px; font: 700 22px/1 "DejaVu Sans Mono", monospace; color: #5E6584; }
+.pl-stage .ttl { position: absolute; left: 22px; top: 58px; right: 22px; font: 800 30px/1.15 "Helvetica Neue", Arial, sans-serif;
+  color: #F2F1EA; }
+.pl-stage .sub { position: absolute; left: 22px; top: 132px; right: 22px; font: 500 21px/1.35 "Helvetica Neue", Arial, sans-serif;
+  color: #8A8FA8; }
+.pl-stage .icon { position: absolute; left: 22px; bottom: 22px; right: 22px; height: 40%; }
+.pl-stage.lit { border-color: #8B7CFF; box-shadow: 0 0 40px rgba(139,124,255,0.25); }
+.pl-stage.lit .num { color: #8B7CFF; }
+.pl-rail { position: absolute; left: 0; right: 0; top: 68%; height: 8px; border-radius: 4px; background: #1C2036; }
+.pl-rail i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 4px; background: #8B7CFF; }
+.pl-steps { position: absolute; left: 0; right: 0; top: 75%; display: flex; gap: 18px; }
+.pl-steps span { flex: 1; text-align: center; font: 700 21px/1 "DejaVu Sans Mono", monospace; letter-spacing: 1px; color: #5E6584; }
+.pl-steps span.on { color: #8A8FA8; }
+.pl-steps span.now { color: #FFD60A; }
+
+/* ---------- gpu_gauge ---------- */
+.gg { position: absolute; inset: 0; }
+.gg-card { position: absolute; left: 0; right: 0; top: 0; height: 44%; border-radius: 26px; background: #151827;
+  border: 1px solid #2A2E44; overflow: hidden; }
+.gg-card .lbl { position: absolute; left: 34px; top: 28px; font: 700 22px/1 "DejaVu Sans Mono", monospace; letter-spacing: 2px; color: #5E6584; }
+.gg-num { position: absolute; left: 34px; top: 74px; font: 800 120px/1 "Helvetica Neue", Arial, sans-serif; color: #F2F1EA; }
+.gg-num em { font-style: normal; font-size: 54px; color: #8A8FA8; }
+.gg-bar { position: absolute; left: 34px; right: 34px; top: 224px; height: 26px; border-radius: 13px; background: #1C2036;
+  border: 1px solid #2A2E44; }
+.gg-bar i { position: absolute; left: 3px; top: 3px; bottom: 3px; border-radius: 11px;
+  background: linear-gradient(90deg, #8B7CFF, #7CD4FC); }
+.gg-pct { position: absolute; right: 34px; top: 74px; font: 800 60px/1 "DejaVu Sans Mono", monospace; color: #8B7CFF; }
+.gg-chips { position: absolute; left: 0; right: 0; bottom: 0; height: 44%; display: flex; flex-wrap: wrap; gap: 26px; align-content: center; }
+.gg-chip { flex: 1 1 40%; border-radius: 18px; background: #101224; border: 1px solid #2A2E44; padding: 30px 28px;
+  font: 700 30px/1.25 "Helvetica Neue", Arial, sans-serif; color: #F2F1EA; box-shadow: 0 16px 34px rgba(0,0,0,0.45); }
+.gg-chip.live { border-color: #FFD60A; color: #FFD60A; }
+.gg-chip b { display: block; font-size: 30px; font-weight: 700; }
+.gg-chip .small { display: block; font-size: 20px; font-weight: 500; color: #8A8FA8; margin-top: 8px; }
+
+/* ---------- two_doors ---------- */
+.td { position: absolute; inset: 0; }
+.td-doors { position: absolute; inset: 0; display: flex; gap: 28px; }
+.td-door { flex: 1; border-radius: 24px; background: #151827; border: 1px solid #2A2E44; position: relative; padding: 34px; }
+.td-door .k { position: absolute; left: 34px; top: 30px; width: 58px; height: 58px; border-radius: 16px;
+  background: #8B7CFF22; border: 1.5px solid #8B7CFF; display: flex; align-items: center; justify-content: center;
+  font: 800 30px/1 "DejaVu Sans Mono", monospace; color: #8B7CFF; }
+.td-door .t { position: absolute; left: 34px; top: 118px; right: 30px; font: 800 40px/1.1 "Helvetica Neue", Arial, sans-serif; color: #F2F1EA; }
+.td-door .s { position: absolute; left: 34px; top: 226px; right: 30px; font: 500 24px/1.4 "Helvetica Neue", Arial, sans-serif; color: #8A8FA8; }
+.td-door .line { position: absolute; left: 34px; right: 30px; bottom: 34px; font: 600 24px/1.35 "DejaVu Sans Mono", monospace;
+  color: #7CD4FC; }
+.td-door .caret { color: #8B7CFF; }
+.td-door.lit { border-color: #8B7CFF; box-shadow: 0 0 54px rgba(139,124,255,0.3); }
+
+/* ---------- leaderboard ---------- */
+.lb { position: absolute; inset: 0; }
+.lb-badge { position: absolute; left: 0; top: 0; font: 800 26px/1 "DejaVu Sans Mono", monospace; letter-spacing: 2px;
+  color: #0C0E17; background: #FFD60A; border-radius: 12px; padding: 14px 24px; }
+.lb-rows { position: absolute; left: 0; right: 0; top: 96px; bottom: 0; }
+.lb-row { position: relative; height: 19%; margin-bottom: 2.5%; border-radius: 18px; background: #151827;
+  border: 1px solid #2A2E44; }
+.lb-row .nm { position: absolute; left: 26px; top: 50%; transform: translateY(-50%); font: 700 30px/1 "Helvetica Neue", Arial, sans-serif;
+  color: #8A8FA8; width: 320px; }
+.lb-row .barwrap { position: absolute; left: 360px; right: 150px; top: 50%; transform: translateY(-50%); height: 18px;
+  background: #1C2036; border-radius: 9px; }
+.lb-row .barwrap i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 9px; background: #4A5070; }
+.lb-row .val { position: absolute; right: 26px; top: 50%; transform: translateY(-50%); font: 700 26px/1 "DejaVu Sans Mono", monospace;
+  color: #8A8FA8; }
+.lb-row.win { border-color: #8B7CFF; box-shadow: 0 0 44px rgba(139,124,255,0.28); background: #1A1D31; }
+.lb-row.win .nm { color: #F2F1EA; }
+.lb-row.win .barwrap i { background: linear-gradient(90deg, #8B7CFF, #7CD4FC); }
+.lb-row.win .val { color: #8B7CFF; }
+
+/* ---------- expect_rows ---------- */
+.ex { position: absolute; inset: 0; }
+.ex-row { position: relative; border-radius: 18px; background: #151827; border: 1px solid #2A2E44;
+  padding: 30px 30px 28px 96px; margin-bottom: 30px; }
+.ex-row .ico { position: absolute; left: 28px; top: 30px; width: 42px; height: 42px; border-radius: 50%;
+  border: 2px solid #FFD60A; display: flex; align-items: center; justify-content: center;
+  font: 800 24px/1 "DejaVu Sans Mono", monospace; color: #FFD60A; }
+.ex-row.ok .ico { border-color: #6EE7A8; color: #6EE7A8; }
+.ex-row .t { font: 700 31px/1.25 "Helvetica Neue", Arial, sans-serif; color: #F2F1EA; }
+.ex-row .s { font: 500 22px/1.4 "Helvetica Neue", Arial, sans-serif; color: #8A8FA8; margin-top: 8px; }
+
+/* ---------- endcard ---------- */
+.ec { position: absolute; inset: 36px 0 0 0; }
+.ec-card { position: absolute; left: 50%; top: 44%; transform: translate(-50%,-50%); width: 700px; border-radius: 34px;
+  background: #151827; border: 1px solid #2A2E44; box-shadow: 0 44px 90px rgba(0,0,0,0.6), 0 0 70px rgba(139,124,255,0.14);
+  text-align: center; padding: 66px 0 60px; }
+.ec-av { width: 150px; height: 150px; margin: 0 auto 26px; border-radius: 50%; overflow: hidden;
+  border: 3px solid #8B7CFF; display: flex; align-items: center; justify-content: center; background: #101224; }
+.ec-av img { width: 100%; height: 100%; object-fit: cover; }
+.ec-initial { font: 800 74px/1 Georgia, serif; color: #FFD60A; }
+.ec-name { font: 800 46px/1 "Georgia", serif; color: #F2F1EA; }
+.ec-handle { font: 500 25px/1 "DejaVu Sans Mono", monospace; color: #666C87; margin-top: 10px; }
+.ec-tag { font: 500 23px/1.4 "Helvetica Neue", Arial, sans-serif; color: #8A8FA8; margin-top: 14px; padding: 0 40px; }
+.ec-kw { margin: 34px auto 0; width: fit-content; font: 800 44px/1 "Helvetica Neue", Arial, sans-serif; letter-spacing: 2px;
+  color: #0C0E17; background: #FFD60A; border-radius: 16px; padding: 20px 38px; }
+.ec-btn { position: relative; margin: 42px auto 0; width: 340px; height: 88px; border-radius: 44px; background: #8B7CFF;
+  display: flex; align-items: center; justify-content: center; }
+.ec-lbl { font: 800 32px/1 "Helvetica Neue", Arial, sans-serif; color: #0C0E17; }
+.ec-done { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; }
+.ec-done-t { font: 800 30px/1 "Helvetica Neue", Arial, sans-serif; color: #D9D2FF; }
+.ec-ring { position: absolute; left: 50%; top: 50%; width: 110px; height: 110px; margin: -55px 0 0 -55px; border-radius: 50%;
+  border: 3px solid #7CD4FC; opacity: 0; }
+.ec-cursor { position: absolute; left: 10px; bottom: -26px; width: 34px; height: 34px; filter: drop-shadow(0 2px 6px rgba(0,0,0,.45)); }
+
+/* ---------- captions ---------- */
+.caption { position: absolute; left: 60px; right: 60px; top: 1610px; height: 220px;
+  font: 900 96px/1.05 "Helvetica Neue", Arial, sans-serif; letter-spacing: -1px; text-transform: uppercase;
+  color: #F2F1EA; }
+.caption .cw { display: inline-block; margin: 6px 14px 0 0; color: #F2F1EA; }
+.caption .cw-on { background: #FFD60A; color: #0C0E17; border-radius: 12px; padding: 2px 14px; margin: 6px 10px 0 0; }
+
+/* ---------- split_view: photo beside its live 3D, cursor drags the splat ---------- */
+.sv { position: absolute; left: 60px; top: 436px; width: 960px; height: 1150px; }
+.sv-half { position: absolute; top: 0; width: 460px; height: 820px; }
+.sv-half.ph-side { left: 0; }
+.sv-half.sp-side { right: 0; }
+.sv-mid { position: absolute; left: 50%; top: 380px; transform: translateX(-50%);
+  font: 300 190px/1 "Helvetica Neue", Arial, sans-serif; color: #8B7CFF; opacity: 0;
+  text-shadow: 0 0 60px rgba(139,124,255,0.8); }
+.sv-cursor { position: absolute; width: 58px; height: 58px; left: 120px; top: 120px; opacity: 0;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6)); z-index: 5; }
+.sv-chips { position: absolute; left: 0; right: 0; bottom: 0; display: flex; gap: 16px; justify-content: center; }
+.sv-chip { opacity: 0; font: 700 24px/1 "Helvetica Neue", Arial, sans-serif; letter-spacing: 0.5px;
+  color: #F2F1EA; background: #191D31; border: 1px solid #3B3F63; border-radius: 999px; padding: 18px 26px;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.45); }
+
+/* ---------- blender_handoff: bg strips, .ply flies, docks into a Blender window ---------- */
+.bh { position: absolute; left: 60px; top: 436px; width: 960px; height: 1150px; }
+.bh-photo { position: absolute; left: 0; top: 0; width: 500px; height: 820px; }
+.bh-checker { position: absolute; left: 48px; right: 36px; top: 98px; bottom: 96px; border-radius: 18px;
+  opacity: 0;
+  background:
+    repeating-conic-gradient(#3A4055 0% 25%, #262B40 0% 50%) 0 / 44px 44px; }
+.bh-tag { position: absolute; left: 60px; top: 130px; font: 700 22px/1 "DejaVu Sans Mono", monospace;
+  color: #FFD60A; background: rgba(12,14,23,0.8); padding: 10px 16px; border-radius: 8px; }
+.bh-file { position: absolute; left: 0; top: 0; width: 240px; padding: 22px 24px; border-radius: 18px;
+  background: linear-gradient(160deg, #1D2138, #14172B); border: 1px solid #8B7CFF;
+  box-shadow: 0 26px 54px rgba(0,0,0,0.6), 0 0 40px rgba(139,124,255,0.35); opacity: 0; z-index: 6; }
+.bh-file-name { font: 700 26px/1.2 "DejaVu Sans Mono", monospace; color: #E9E4FF; }
+.bh-file-kind { font: 600 19px/1 "DejaVu Sans Mono", monospace; color: #8A8FA8; margin-top: 8px; }
+.bh-file-arrow { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); font: 300 40px/1 "Helvetica Neue", Arial, sans-serif; color: #8B7CFF; }
+.bh-app { position: absolute; right: 0; top: 0; width: 440px; height: 740px; border-radius: 26px; overflow: hidden;
+  background: #14161B; border: 1px solid #3C3F46; box-shadow: 0 34px 70px rgba(0,0,0,0.55); opacity: 0.25; }
+.bh-app-bar { position: relative; height: 64px; background: #1D1F26; border-bottom: 1px solid #3C3F46;
+  display: flex; align-items: center; padding: 0 20px; }
+.bh-app-bar i { width: 14px; height: 14px; border-radius: 50%; background: #41434D; margin-right: 9px; display: block; }
+.bh-app-name { margin-left: 14px; font: 700 21px/1 "Helvetica Neue", Arial, sans-serif; color: #C9CBD4; }
+.bh-app-name::before { content: "⚬ "; color: #8B7CFF; }
+.bh-app-grid { position: absolute; inset: 64px 0 0 0;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.045) 0 1px, transparent 1px 48px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.045) 0 1px, transparent 1px 48px); }
+.bh-steps { position: absolute; left: 0; right: 0; bottom: 4px; display: flex; gap: 14px; }
+.bh-step { flex: 1; font: 600 21px/1.35 "Helvetica Neue", Arial, sans-serif; color: #F2F1EA;
+  background: #191D31; border: 1px solid #3B3F63; border-radius: 14px; padding: 16px 20px; opacity: 0; }
+
+/* ---------- sneaker subject for photoCard(shape:"sneaker") ---------- */
+.ph-subject.sh-sneaker { width: 420px; height: 260px; }
+.sn-upper { position: absolute; left: 26px; bottom: 52px; width: 268px; height: 122px;
+  background: linear-gradient(150deg, #C4BDB0, #8C8778 72%);
+  border-radius: 90px 120px 26px 26px / 100px 110px 24px 24px;
+  box-shadow: 0 22px 36px rgba(0,0,0,0.5); }
+.sn-collar { position: absolute; left: 236px; top: 26px; width: 96px; height: 108px;
+  background: linear-gradient(160deg, #98917F, #6E695B 70%);
+  border-radius: 46px 46px 30px 30px;
+  box-shadow: inset 0 10px 0 #4E4A3F, 0 14px 22px rgba(0,0,0,0.35); }
+.sn-ankle { position: absolute; left: 292px; top: 4px; width: 62px; height: 74px;
+  background: linear-gradient(170deg, #A8A192, #7B7565 75%);
+  border-radius: 30px 30px 22px 22px; box-shadow: inset 0 8px 0 #48443A; }
+.sn-sole { position: absolute; left: 12px; bottom: 20px; width: 376px; height: 40px;
+  background: linear-gradient(180deg, #E4DED2, #B3AC9C);
+  border-radius: 12px 22px 22px 14px; box-shadow: 0 16px 26px rgba(0,0,0,0.5); }
+.sn-laces { position: absolute; left: 96px; top: 78px; width: 104px; }
+.sn-laces i { display: block; height: 8px; margin: 12px 0; border-radius: 4px;
+  background: #EFEBE0; box-shadow: 0 2px 3px rgba(0,0,0,0.3); }
+
+/* splat dots: soft splat look */
+.sp-dot { border-radius: 50%; box-shadow: 0 0 5px rgba(139,124,255,0.28); }
+.CSS
+python3 - <<'PY'
+p='stage.css'
+s=open(p).read()
+s=s.replace('\n.CSS\n','\n')
+open(p,'w').write(s)
+PY
+node --check engine.js && echo OK
+
+/* ---------- sneaker subject for photoCard(shape:"sneaker") ---------- */
+.ph-subject.sh-sneaker { width: 420px; height: 260px; }
+.sn-upper { position: absolute; left: 26px; bottom: 52px; width: 268px; height: 122px;
+  background: linear-gradient(150deg, #C4BDB0, #8C8778 72%);
+  border-radius: 90px 120px 26px 26px / 100px 110px 24px 24px;
+  box-shadow: 0 22px 36px rgba(0,0,0,0.5); }
+.sn-collar { position: absolute; left: 236px; top: 26px; width: 96px; height: 108px;
+  background: linear-gradient(160deg, #98917F, #6E695B 70%);
+  border-radius: 46px 46px 30px 30px;
+  box-shadow: inset 0 10px 0 #4E4A3F, 0 14px 22px rgba(0,0,0,0.35); }
+.sn-ankle { position: absolute; left: 292px; top: 4px; width: 62px; height: 74px;
+  background: linear-gradient(170deg, #A8A192, #7B7565 75%);
+  border-radius: 30px 30px 22px 22px; box-shadow: inset 0 8px 0 #48443A; }
+.sn-sole { position: absolute; left: 12px; bottom: 20px; width: 376px; height: 40px;
+  background: linear-gradient(180deg, #E4DED2, #B3AC9C);
+  border-radius: 12px 22px 22px 14px; box-shadow: 0 16px 26px rgba(0,0,0,0.5); }
+.sn-laces { position: absolute; left: 96px; top: 78px; width: 104px; }
+.sn-laces i { display: block; height: 8px; margin: 12px 0; border-radius: 4px;
+  background: #EFEBE0; box-shadow: 0 2px 3px rgba(0,0,0,0.3); }
+
+/* splat dots: soft splat look */
+.sp-dot { border-radius: 50%; box-shadow: 0 0 5px rgba(139,124,255,0.28); }
+
+/* ---------- real 3D splat canvas + real photo ---------- */
+.sp-glhost { position: absolute; inset: 70px 8px 40px 8px; visibility: hidden; }
+.sp-glhost.on { visibility: visible; }
+.sp-gl { display: block; width: 100%; height: 100%; }
+.ph-img { position: absolute; inset: 24px; width: calc(100% - 48px); height: calc(100% - 48px);
+  object-fit: cover; border-radius: 18px; box-shadow: 0 24px 40px rgba(0,0,0,0.5); }

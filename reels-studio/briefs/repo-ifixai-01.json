@@ -1,0 +1,381 @@
+{
+  "id": "repo-ifixai-01",
+  "capture": "captures/repo-ifixai-01",
+  "title": "iFixAi: audit what your AI agent really does",
+  "niche": "AI coding tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "AI agent audit",
+    "agent audit",
+    "AI agent trust",
+    "open source AI agent"
+  ],
+  "facts": {
+    "method": "tool's own maker site and README, read on the day of the plan",
+    "limits": "hosted audits are paid per agent; the open-source engine is free to self-host"
+  },
+  "sources": [
+    "https://www.ifixai.ai/",
+    "https://www.ifixai.ai/",
+    "https://www.ifixai.ai/",
+    "https://github.com/ifixai-ai/iFixAi",
+    "https://www.ifixai.ai/"
+  ],
+  "verify_before_render": [
+    "Every point cites its source in the plan (repo-ifixai-01/plan.json).",
+    "Kit images built from the plan and the maker's own audit chart only."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "plan-1.jpg",
+      "heading": "AI AGENT AUDIT",
+      "sub": "iFixAi · open source",
+      "say": "Your AI agent passed its tests. Can you still trust what it did?",
+      "focus": [
+        {
+          "box": [
+            0.0,
+            0.274,
+            1.0,
+            0.452
+          ],
+          "at": 0.0,
+          "pad": 1.0
+        },
+        {
+          "box": [
+            0.0,
+            0.294,
+            1.0,
+            0.412
+          ],
+          "at": 2.2,
+          "pad": 1.0
+        }
+      ],
+      "keep_visible": [
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "keep_band": [
+        0.7,
+        0.95
+      ],
+      "card_bottom": 1440
+    },
+    {
+      "id": "point1",
+      "type": "image",
+      "image": "plan-1.jpg",
+      "heading": "GREEN IS NOT ENOUGH",
+      "sub": "Evals can all pass while the agent hides information or acts outside its authority.",
+      "say": "Your agent gives you green for all points, but your app is still not behaving.",
+      "focus": [
+        {
+          "box": [
+            0.0,
+            0.274,
+            1.0,
+            0.452
+          ],
+          "at": 0.0,
+          "pad": 1.0
+        },
+        {
+          "box": [
+            0.0,
+            0.294,
+            1.0,
+            0.412
+          ],
+          "at": 2.2,
+          "pad": 1.0
+        }
+      ],
+      "keep_visible": [
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "keep_band": [
+        0.7,
+        0.95
+      ],
+      "card_bottom": 1440
+    },
+    {
+      "id": "point2",
+      "type": "image",
+      "image": "plan-2.jpg",
+      "heading": "AUDITED BY CATEGORY",
+      "sub": "Several categories, not just the output the agent gives you.",
+      "say": "iFixAi checks the agent across several areas: its authority, its approvals and its honesty.",
+      "focus": [
+        {
+          "box": [
+            0.0,
+            0.36,
+            1.0,
+            0.28
+          ],
+          "at": 0.0,
+          "pad": 1.0
+        },
+        {
+          "box": [
+            0.0,
+            0.38,
+            1.0,
+            0.24
+          ],
+          "at": 2.2,
+          "pad": 1.0
+        }
+      ],
+      "keep_visible": [
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "keep_band": [
+        0.7,
+        0.95
+      ],
+      "card_bottom": 1440
+    },
+    {
+      "id": "point3",
+      "type": "image",
+      "image": "plan-3.jpg",
+      "heading": "CONNECT, THEN AUDIT",
+      "sub": "Connect through GitHub or MCP. Nothing has to be built first.",
+      "say": "You connect it through GitHub or MCP, so there is nothing to build before the first audit.",
+      "focus": [
+        {
+          "box": [
+            0.0,
+            0.269,
+            1.0,
+            0.462
+          ],
+          "at": 0.0,
+          "pad": 1.0
+        },
+        {
+          "box": [
+            0.0,
+            0.289,
+            1.0,
+            0.422
+          ],
+          "at": 2.2,
+          "pad": 1.0
+        }
+      ],
+      "keep_visible": [
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "keep_band": [
+        0.7,
+        0.95
+      ],
+      "card_bottom": 1440
+    },
+    {
+      "id": "point4",
+      "type": "clip",
+      "src": "anim-point4.mp4",
+      "in": 0.0,
+      "out": 14.0,
+      "say": "The open-source engine is free to run yourself, with your own model keys."
+    },
+    {
+      "id": "point5",
+      "type": "clip",
+      "src": "anim-point5.mp4",
+      "in": 0.0,
+      "out": 14.0,
+      "say": "Hosted audits and reports are paid per agent; the open-source engine is the free part."
+    },
+    {
+      "id": "catch",
+      "type": "clip",
+      "src": "anim-catch.mp4",
+      "in": 0.0,
+      "out": 14.0,
+      "say": "Hosted audits and reports are paid. The free engine is self-hosted, so you run it with your own model keys."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "AUDIT",
+      "say": "Do your agent's green tests match what it really did? Comment AUDIT and I'll pin the link."
+    }
+  ],
+  "seo": {
+    "keyword": "AI agent audit",
+    "aliases": [
+      "agent audit",
+      "AI agent trust"
+    ],
+    "onscreen_first3s": "AI AGENT AUDIT",
+    "youtube": {
+      "title": "AI Agent Audit: Green Tests Are Not Enough",
+      "description": "An open-source AI agent audit that checks what your agent really did, beyond its tests.\nTool page: https://www.ifixai.ai/",
+      "tags": [
+        "AI agent audit",
+        "agent audit",
+        "AI agent trust",
+        "open source AI agent",
+        "agent evals",
+        "AI agent safety",
+        "AI agent testing",
+        "coding agent audit"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#aiagents",
+        "#aiagentaudit",
+        "#opensource"
+      ]
+    },
+    "instagram": {
+      "caption": "AI agent audit: your tests can pass while the agent acts outside its authority. Open source.",
+      "hashtags": [
+        "#aiagentaudit",
+        "#aiagents",
+        "#opensource",
+        "#aitools"
+      ]
+    },
+    "facebook": {
+      "caption": "AI agent audit: your tests can pass while your agent acts outside its authority. Open source.",
+      "hashtags": [
+        "#aiagentaudit",
+        "#aiagents",
+        "#opensource"
+      ]
+    },
+    "tiktok": {
+      "caption": "AI agent audit: green tests can hide what your agent really did. Open source.",
+      "hashtags": [
+        "#aiagentaudit",
+        "#aiagents",
+        "#opensource"
+      ]
+    },
+    "x": {
+      "text": "AI agent audit: green tests can hide what your agent really did.",
+      "hashtags": [
+        "#aiagentaudit"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Do your agent's green tests match what it really did? Comment AUDIT and I'll pin the link.",
+    "hashtags": [
+      "#shorts"
+    ]
+  },
+  "research_basis": [
+    "videos/repo-ifixai-01/plan.json"
+  ],
+  "viewer": {
+    "who": "developers and teams running AI agents",
+    "problem": "an agent passes its tests but still acts outside its authority",
+    "job": "check what the agent really did, not just whether tests pass"
+  },
+  "idea": "iFixAi audits an AI agent beyond its tests, for hidden information and actions taken outside its authority.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Evals can all pass while the agent hides information or acts outside its authority.",
+      "source": "https://www.ifixai.ai/"
+    },
+    {
+      "id": "c2",
+      "text": "iFixAi audits the agent across several categories, not just its output.",
+      "source": "https://www.ifixai.ai/"
+    },
+    {
+      "id": "c3",
+      "text": "You connect the agent through GitHub or MCP. Nothing has to be built first.",
+      "source": "https://www.ifixai.ai/"
+    },
+    {
+      "id": "c4",
+      "text": "The open-source engine is free and runs on your own machine with your own model keys.",
+      "source": "https://github.com/ifixai-ai/iFixAi"
+    },
+    {
+      "id": "c5",
+      "text": "Hosted audits and reports are paid per agent. The open-source engine is the free part.",
+      "source": "https://www.ifixai.ai/"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://www.ifixai.ai/",
+      "how_shown": "show the eval column green and the audit column with findings"
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://www.ifixai.ai/",
+      "how_shown": "show the audit categories as chips grouped under the maker's own four headings"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://www.ifixai.ai/",
+      "how_shown": "three-step path: connect, simulate, audit, as the maker lists them"
+    },
+    {
+      "claim": "c4",
+      "evidence": "source:https://github.com/ifixai-ai/iFixAi",
+      "how_shown": "a flow: your model keys and your machine run the free engine; the badge says free; no figures"
+    },
+    {
+      "claim": "c5",
+      "evidence": "source:https://www.ifixai.ai/",
+      "how_shown": "side-by-side: free engine on the left, paid hosted tier on the right, as the maker lists them"
+    }
+  ],
+  "treatment": {
+    "audience": "developers and teams running AI agents",
+    "viewer_job": "check what the agent really did, not just whether tests pass",
+    "intent": "search",
+    "hook_mechanic": "question about a green test that hides a problem",
+    "open_loop": {
+      "plant": "Your AI agent passed its tests. Can you still trust what it did?",
+      "payoff_scene": "point1"
+    },
+    "proof_moment": "point1",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "text": "GREEN TESTS? CHECK WHAT IT DID",
+        "visual": "own graphic: audit findings (cover-hero.jpg)"
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-11-01T12:30:00Z",
+    "expires_at": "2026-11-08",
+    "reviewer": "agent; plan from maker site and README on 2026-11-01; owner approval of plan given",
+    "notes": "Five points approved by owner 2026-11-01 (point 1 spoken line per owner wording)."
+  },
+  "motion_standard": 2
+}

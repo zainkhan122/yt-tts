@@ -1,0 +1,111 @@
+{
+  "dispatched_by": "interactive agent, owner order in HANDOFF-2026-10-26.md item 1",
+  "focus": {
+    "repo-harp-01": [
+      {
+        "buffer_post_id": "6adccbfe0b5343d0708d202e",
+        "expected_media": "repo-harp-01.mp4",
+        "external_url": "https://www.facebook.com/reel/2107332470151824/",
+        "journal_due_at": "2026-10-24T21:00:00.000Z",
+        "journal_sent_at": "2026-10-24T21:00:26.994Z",
+        "journal_state": "sent",
+        "journal_verified_at": "2026-10-24T15:17:24Z",
+        "key": "repo-harp-01:facebook",
+        "live_due_at": "2026-10-24T21:00:00.000Z",
+        "live_media": "repo-harp-01.mp4",
+        "live_status": "sent",
+        "problem": null
+      },
+      {
+        "buffer_post_id": "6adccbf8e4be8a4d8665bb7d",
+        "expected_media": "repo-harp-01.mp4",
+        "external_url": "https://www.instagram.com/reel/De41XeVDSqy/",
+        "journal_due_at": "2026-10-24T19:00:00.000Z",
+        "journal_sent_at": "2026-10-24T19:01:05.805Z",
+        "journal_state": "sent",
+        "journal_verified_at": "2026-10-24T15:17:24Z",
+        "key": "repo-harp-01:instagram",
+        "live_due_at": "2026-10-24T19:00:00.000Z",
+        "live_media": "repo-harp-01.mp4",
+        "live_status": "sent",
+        "problem": null
+      },
+      {
+        "buffer_post_id": "6adccbfbe4be8a4d8665bbed",
+        "expected_media": "repo-harp-01.mp4",
+        "external_url": "https://www.youtube.com/shorts/9QShq29xK7g",
+        "journal_due_at": "2026-10-24T20:00:00.000Z",
+        "journal_sent_at": "2026-10-24T20:00:25.640Z",
+        "journal_state": "sent",
+        "journal_verified_at": "2026-10-24T15:17:24Z",
+        "key": "repo-harp-01:youtube",
+        "live_due_at": "2026-10-24T20:00:00.000Z",
+        "live_media": "repo-harp-01.mp4",
+        "live_status": "sent",
+        "problem": null
+      }
+    ],
+    "repo-vvv-01": [
+      {
+        "buffer_post_id": "6adf35fa551b0b514a63c2f2",
+        "expected_media": "repo-vvv-01.mp4",
+        "external_url": "https://www.facebook.com/reel/977085378295288/",
+        "journal_due_at": "2026-10-26T19:00:00.000Z",
+        "journal_sent_at": "2026-10-26T19:01:51.272Z",
+        "journal_state": "sent",
+        "journal_verified_at": "2026-10-26T11:14:08Z",
+        "key": "repo-vvv-01:facebook",
+        "live_due_at": "2026-10-26T19:00:00.000Z",
+        "live_media": "repo-vvv-01.mp4",
+        "live_status": "sent",
+        "problem": null
+      },
+      {
+        "buffer_post_id": "6adf35fd551b0b514a63c423",
+        "expected_media": "repo-vvv-01.mp4",
+        "external_url": "https://www.instagram.com/reel/De9_HNHjuXX/",
+        "journal_due_at": "2026-10-26T19:00:00.000Z",
+        "journal_sent_at": "2026-10-26T19:02:18.184Z",
+        "journal_state": "sent",
+        "journal_verified_at": "2026-10-26T11:14:08Z",
+        "key": "repo-vvv-01:instagram",
+        "live_due_at": "2026-10-26T19:00:00.000Z",
+        "live_media": "repo-vvv-01.mp4",
+        "live_status": "sent",
+        "problem": null
+      },
+      {
+        "buffer_post_id": "6adf35f7551b0b514a63c1a4",
+        "expected_media": "repo-vvv-01.mp4",
+        "external_url": "https://www.youtube.com/shorts/nc_LEzPJcro",
+        "journal_due_at": "2026-10-26T15:00:00.000Z",
+        "journal_sent_at": "2026-10-26T15:01:38.490Z",
+        "journal_state": "sent",
+        "journal_verified_at": "2026-10-26T11:14:08Z",
+        "key": "repo-vvv-01:youtube",
+        "live_due_at": "2026-10-26T15:00:00.000Z",
+        "live_media": "repo-vvv-01.mp4",
+        "live_status": "sent",
+        "problem": null
+      }
+    ]
+  },
+  "issues": [],
+  "kind": "buffer-reconcile-record",
+  "mode_input": "reconcile",
+  "notes": [],
+  "plan_changes_proposed": 0,
+  "report_artifact": "hypeless-delivery-report (run 40696318622)",
+  "report_generated_at": "2026-10-28T13:26:24Z",
+  "report_mode": "reconcile-only",
+  "request_count": 1,
+  "run_conclusion": "success",
+  "run_id": 40696318622,
+  "run_url": "https://github.com/zainkhan122/yt-tts/actions/runs/40696318622",
+  "session_date": "2026-10-28",
+  "state_mismatches": [],
+  "tracker_commit": null,
+  "verification_entries": 125,
+  "verification_problems": [],
+  "workflow": ".github/workflows/post.yml"
+}

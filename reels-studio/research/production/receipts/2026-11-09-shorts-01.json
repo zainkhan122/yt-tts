@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-09-shorts-01",
+  "created_at": "2026-11-07T18:22:52Z",
+  "briefs": {
+    "repo-unslop-02": {
+      "brief_sha256": "53af511fa9891048085104dfcea18cd3907f65248d0c7d4dcf23041ab6dc8dde",
+      "brief_identity_sha256": "7b2e813bc5117ac32ea20f77ff3da695bc2d56c47c690348718da575827e4519",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "5513200577e9d7b45684bec789bd6497c47daa856e4210831bfce9f4cdce332b",
+          "word_count": 141
+        },
+        "assets": {
+          "capture_id": "repo-unslop-02",
+          "manifest_sha256": "f4db81427a4e700dd0f460ce7bcb36cb290d8d1f5c6a45d38010753323adb223",
+          "files": [],
+          "cover_sha256": "6d7845ac5e19c06bffcecd8dfeb61f7b8751577919a5086cc27fdae6546e2d13",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-unslop-02/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}

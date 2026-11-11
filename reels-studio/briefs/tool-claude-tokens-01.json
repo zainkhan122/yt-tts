@@ -1,0 +1,257 @@
+{
+  "id": "tool-claude-tokens-01",
+  "capture": "captures/tool-claude-tokens-01",
+  "title": "Claude Code token limits: four free plugins that cut the bill",
+  "niche": "AI coding tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "claude code token limit",
+    "headroom",
+    "omniroute",
+    "ai agent tokens"
+  ],
+  "facts": {
+    "method": "tool's own README and repo page, read on the day of the plan",
+    "limits": "These are third-party plugins, not Anthropic — Claude Code itself is covered in its own short; benchmark numbers come from each plugin's authors, so measure your own before believing them."
+  },
+  "sources": [
+    "https://github.com/cherylaurelia/headroom",
+    "https://blog.digicuratoragency.com/four-claude-code-plugins-cut-token-usage/",
+    "https://blog.digicuratoragency.com/four-claude-code-plugins-cut-token-usage/"
+  ],
+  "lexicon": {
+    "GitHub": "git hub",
+    "Kokoro": "ko-ko-ro",
+    "Claude": "clawed",
+    "GPT": "G P T",
+    "MCP": "M C P",
+    "LLM": "L L M",
+    "API": "A P I",
+    "UI": "U I",
+    "unslop": "un-slop",
+    "UNSLOP": "un-slop",
+    "Unslop": "un-slop"
+  },
+  "verify_before_render": [
+    "Every point cites its source in the plan (tool-claude-tokens-01/plan.json).",
+    "Kit images are drawn from the plan's own visual spec only."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "flow",
+      "heading": "LIMIT REACHED? -98%",
+      "nodes": [
+        "LIMIT REACHED",
+        "17,832 tokens gone",
+        "same task, 312 tokens"
+      ],
+      "say": "Your Claude Code hit its limit again — what if the real number went down 90%?"
+    },
+    {
+      "id": "point1",
+      "type": "clip",
+      "src": "headroom.mp4",
+      "in": 0.0,
+      "out": 14.0,
+      "say": "Headroom compresses everything your agent reads — tool output, logs, files — before the model sees it. Ninety-eight percent saved on one real task. It is reversible."
+    },
+    {
+      "id": "point2",
+      "type": "clip",
+      "src": "ponytail.mp4",
+      "in": 0.0,
+      "out": 14.0,
+      "say": "Ponytail stops your agent writing ten lines where two work. Its own benchmark says fifty-four percent less code — and output tokens are the expensive ones."
+    },
+    {
+      "id": "point3",
+      "type": "clip",
+      "src": "omniroute.mp4",
+      "in": 0.0,
+      "out": 14.0,
+      "say": "When the limit still comes, OmniRoute switches you to free models mid-session. Graphify maps your codebase once — the agent stops re-reading it."
+    },
+    {
+      "id": "catch",
+      "type": "flow",
+      "heading": "THE CATCH",
+      "nodes": [
+        "Not made by Anthropic",
+        "Benchmarks are vendor-reported",
+        "Measure your own repo first"
+      ],
+      "say": "These are third-party plugins, not Anthropic — Claude Code itself is covered in its own short; benchmark numbers come from each plugin's authors, so measure your own before believing them."
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "TOKENS",
+      "say": "Which limit kills you most — input, output, or session? Comment TOKENS and I'll pin the four repos."
+    }
+  ],
+  "seo": {
+    "keyword": "claude code token limit",
+    "onscreen_first3s": "LIMIT REACHED? -98%",
+    "youtube": {
+      "title": "Claude Code Token Limit? 4 Free Plugins Kill It",
+      "description": "Claude Code token limit mid-task? Four open-source plugins cut the burn from four sides. Headroom compresses everything your agent reads first (60–95% fewer tokens on JSON; one demo: 17,832 down to 312). Ponytail makes the agent write 54% less code in its own benchmarks. OmniRoute reroutes to ~350 free model providers when the limit hits. Graphify maps your codebase once locally so agents stop re-reading it. Third-party tools; numbers are vendor-reported — measure your own repo. #Shorts",
+      "tags": [
+        "claude code token limit",
+        "claude code plugins",
+        "headroom ai",
+        "omniroute",
+        "ai coding agent tokens"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#ClaudeCodeTokenLimit",
+        "#AITools",
+        "#OpenSource",
+        "#Developer"
+      ]
+    },
+    "tiktok": {
+      "caption": "Claude Code token limit blocking your session? Four free plugins cut the burn up to 98% — Headroom, Ponytail, OmniRoute, Graphify. Numbers are the authors' benchmarks.",
+      "hashtags": [
+        "#ClaudeCodeTokenLimit",
+        "#AITools",
+        "#OpenSource",
+        "#DeveloperTools",
+        "#AIAgents"
+      ]
+    },
+    "instagram": {
+      "caption": "Claude Code token limit hit mid-task? Four open-source plugins attack it — compression, leaner output, free-provider routing, one-time codebase maps. Verify on your own repo.",
+      "hashtags": [
+        "#ClaudeCodeTokenLimit",
+        "#AITools",
+        "#OpenSource",
+        "#DeveloperTools",
+        "#AIAgents"
+      ]
+    },
+    "facebook": {
+      "caption": "Claude Code token limit interrupting you? These four free plugins attack the bill from four sides (compression, output, routing, caching). Benchmark numbers are vendor-reported.",
+      "hashtags": [
+        "#ClaudeCodeTokenLimit",
+        "#AITools",
+        "#OpenSource",
+        "#DeveloperTools",
+        "#AIAgents"
+      ]
+    },
+    "x": {
+      "text": "Claude Code token limit is optional: 4 open-source plugins — Headroom (compress, 98% in demo), Ponytail (54% less code), OmniRoute (free-provider routing), Graphify (map repo once). Vendor benchmarks; verify.",
+      "hashtags": [
+        "#ClaudeCode",
+        "#OpenSource"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Which limit kills you most — input, output, or session? Comment TOKENS and I'll pin the four repos.",
+    "hashtags": [
+      "#Shorts"
+    ]
+  },
+  "research_basis": [
+    "videos/tool-claude-tokens-01/plan.json"
+  ],
+  "viewer": {
+    "who": "developers using Claude Code or other terminal agents who keep hitting usage limits mid-task",
+    "problem": "usage limits interrupt paid sessions and the fix (press Ctrl-C less) is not actionable",
+    "job": "decide which of the four plugins to try first on a real repo today"
+  },
+  "idea": "Claude Code users hit usage limits mid-task; four open-source plugins cut token burn from four sides (compress context, write less code, reroute to free providers, map the repo once) — the reference demo shows 17,832 tokens down to 312.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Headroom compresses tool outputs, logs, files and RAG chunks before they reach the model — 60–95% fewer tokens on JSON, about 15–20% on coding-agent turns, reversible and local-first.",
+      "source": "https://github.com/cherylaurelia/headroom"
+    },
+    {
+      "id": "c2",
+      "text": "Ponytail makes Claude Code write far less code — its own benchmarks claim roughly 54% less code and about 20% cheaper API cost.",
+      "source": "https://blog.digicuratoragency.com/four-claude-code-plugins-cut-token-usage/"
+    },
+    {
+      "id": "c3",
+      "text": "OmniRoute reroutes agent traffic to free model providers the moment your usage limit hits, claiming roughly 1.47 billion free tokens a month across 352 providers; Graphify maps the codebase once locally so agents stop re-reading the same files.",
+      "source": "https://blog.digicuratoragency.com/four-claude-code-plugins-cut-token-usage/"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/cherylaurelia/headroom",
+      "how_shown": "compressed-context visual: a fat JSON blob squeezes into a thin chip as the token counter spins 17,832 down to 312; green RECEIPT stamp — REAL screen recording of the tool/page (interface on screen, house heading + captions over it)"
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://blog.digicuratoragency.com/four-claude-code-plugins-cut-token-usage/",
+      "how_shown": "two code blocks side by side: the left is a wall of text, the right is four lines, scissors sweep, a price tag stamps -20% — REAL screen recording of the tool/page (interface on screen, house heading + captions over it)"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://blog.digicuratoragency.com/four-claude-code-plugins-cut-token-usage/",
+      "how_shown": "network router graphic: a red blocked lane flips to a green FREE lane mid-frame; then a city-map of a codebase lights up once and stays lit — REAL screen recording of the tool/page (interface on screen, house heading + captions over it)"
+    }
+  ],
+  "treatment": {
+    "audience": "developers using Claude Code or other terminal agents who keep hitting usage limits mid-task",
+    "viewer_job": "decide which of the four plugins to try first on a real repo today",
+    "intent": "search",
+    "hook_mechanic": "viewer question about the tool's first claim",
+    "open_loop": {
+      "plant": "Your Claude Code hit its limit again — what if the real number went down 90%?",
+      "payoff_scene": "point1"
+    },
+    "proof_moment": "point1",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "layout": "window",
+        "text": "TOKEN LIMIT IS OPTIONAL",
+        "media": {
+          "kind": "tool_media",
+          "file": "terminal.jpg"
+        }
+      },
+      {
+        "layout": "bleed",
+        "text": "17832 TOKENS DOWN TO 312",
+        "media": {
+          "kind": "tool_media",
+          "file": "receipt.jpg"
+        }
+      },
+      {
+        "layout": "split",
+        "text": "FOUR FREE PLUGINS INSTEAD",
+        "media": {
+          "kind": "tool_media",
+          "file": "stack.jpg"
+        }
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-11-11",
+    "expires_at": null,
+    "reviewer": "agent: plan written from the maker's README and repo page",
+    "notes": "Topic approved by owner (config/topic-approvals.json). Plan and copy await owner review at the cover gate."
+  },
+  "motion_standard": 2,
+  "qa_gates": true,
+  "inspiration": {
+    "platform": "tiktok",
+    "source": "ai_vanta_ai",
+    "post_id": "7706761083557530912",
+    "note": "Reference = lead only. Their delivery: meme-clip hook, glitch-filter repo reveal, terminal SAVINGS number block as the proof beat, creator head at the end. Taken as principles: hook with the pain state, show a token receipt with real numbers, one tool per beat with its own motion. Their footage, filters, meme inserts and wording stay theirs. Full-video teardown: research/critiques/video-tiktok-vanta-claude-plugins-2026-11-11.md"
+  }
+}

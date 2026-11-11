@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "decided_on": "2026-10-11",
+  "primary_brain": "interactive_arena_agent",
+  "creative_control": "Agent-led research, scripting, asset selection, editing and QA with owner direction. Not an unattended OpenRouter replacement.",
+  "existing_deterministic_tools": "Retain cloud rendering, approved-queue Buffer delivery, YouTube metadata, quality gates and duplicate journals.",
+  "optional_agent": {
+    "state": "paused_by_owner",
+    "qualification": "unqualified",
+    "production_enabled": false,
+    "publishing_enabled": false,
+    "requires_owner_approval_to_reconsider": true
+  },
+  "do_not": [
+    "Automatically restart optional-agent experiments",
+    "Activate on model self-scores or quota recovery",
+    "Re-upload already posted/reserved videos",
+    "Delete archived masters, source evidence, credentials or publication journals"
+  ]
+}

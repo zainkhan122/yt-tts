@@ -1,0 +1,217 @@
+# Buffer delivery is OFF until publishing.json is enabled and a live pilot passes.
+# Dry-run publishes only the media hosting bundle; it makes ZERO Buffer mutations.
+name: Hypeless delivery
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'dry-run = preview only; schedule = approved posts; reconcile = receipts + drift check; verify = read-only drift check; inventory = raw Buffer proof'
+        type: choice
+        options: [dry-run, schedule, reconcile, verify, inventory]
+        default: dry-run
+      video_ids:
+        description: 'Optional space-separated queued video IDs (empty = eligible backlog)'
+        required: false
+        default: ''
+      pilot:
+        description: 'One selected video only; first live pilot before enabling daily delivery'
+        type: boolean
+        default: false
+      pilot_now:
+        description: 'Explicitly authorised first immediate pilot only; requires pilot=true and one video'
+        type: boolean
+        default: false
+      skip_youtube_cover_cascade:
+        description: 'Skip the repo-managed YouTube cover enrichment dispatch for this Buffer run'
+        type: boolean
+        default: false
+      skip_global_media_refresh:
+        description: 'Skip the broad stale-media refresh of all existing scheduled Buffer posts for this targeted run'
+        type: boolean
+        default: false
+  schedule:
+    # Four small checks/day. Slots and timezone live in config/publishing.json.
+    - cron: '23 0,6,12,18 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: hypeless-publishing
+  cancel-in-progress: false
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      mode: ${{ steps.gate.outputs.mode }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          filter: blob:none
+          sparse-checkout: |
+            /reels-studio/
+            /.github/workflows/
+          sparse-checkout-cone-mode: false
+      - id: gate
+        name: Approval / kill switch
+        env:
+          EVENT: ${{ github.event_name }}
+          MODE: ${{ inputs.mode }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          cfg = json.load(open('reels-studio/config/publishing.json'))
+          mode = os.environ['MODE'] or 'schedule'
+          if os.environ['EVENT'] == 'schedule' and not cfg['enabled']:
+              mode = 'off'
+          if os.environ['EVENT'] == 'schedule' and cfg['enabled'] and not cfg.get('live_pilot_passed'):
+              mode = 'reconcile'
+          if mode == 'schedule' and not cfg['enabled']:
+              raise SystemExit('Publishing disabled. Obtain owner approval and enable the config first.')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write('mode=' + mode + '\n')
+          print('Mode:', mode, '(no social publishing during dry-run)')
+          PY
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.mode != 'off'
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: reels-studio/tools/post/requirements.txt
+      - name: Install lightweight posting dependencies
+        if: steps.gate.outputs.mode != 'off'
+        run: python3 -m pip install -r reels-studio/tools/post/requirements.txt
+      # Keep the publishing gate focused on the Buffer/queue/release path; unrelated renderer
+      # and YouTube-worker suites require separate media/API dependencies and are not run here.
+      - name: Posting safety / retry / queue tests
+        if: steps.gate.outputs.mode != 'off'
+        run: |
+          set -e
+          export PYTHONPATH="$GITHUB_WORKSPACE/reels-studio${PYTHONPATH:+:$PYTHONPATH}"
+          for test in test_publishing.py test_delivery.py test_release_delivery.py test_covers_pending.py test_gh_actions.py; do
+            python3 -m unittest discover -s reels-studio/tests -p "$test" -v
+          done
+      - name: Source / workspace budget guard
+        if: steps.gate.outputs.mode != 'off'
+        run: python3 reels-studio/tools/maintenance/storage.py audit
+      - name: Build pinned, QA-checked media (no social posting)
+        if: steps.gate.outputs.mode != 'off' && steps.gate.outputs.mode != 'reconcile' && steps.gate.outputs.mode != 'verify' && steps.gate.outputs.mode != 'inventory'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 reels-studio/tools/post/media.py build --dest "$RUNNER_TEMP/hypeless-pages"
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.gate.outputs.mode != 'off' && steps.gate.outputs.mode != 'reconcile' && steps.gate.outputs.mode != 'verify' && steps.gate.outputs.mode != 'inventory'
+        with:
+          path: ${{ runner.temp }}/hypeless-pages
+  hosting:
+    needs: prepare
+    if: needs.prepare.outputs.mode != 'off' && needs.prepare.outputs.mode != 'reconcile' && needs.prepare.outputs.mode != 'verify' && needs.prepare.outputs.mode != 'inventory'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy stable media URLs
+        id: deployment
+        uses: actions/deploy-pages@v4
+  delivery:
+    needs: [prepare, hosting]
+    if: always() && needs.prepare.result == 'success' && needs.prepare.outputs.mode != 'off' && (needs.prepare.outputs.mode == 'reconcile' || needs.prepare.outputs.mode == 'verify' || needs.prepare.outputs.mode == 'inventory' || needs.hosting.result == 'success')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: write  # cascade: dispatch youtube.yml enrich after reconcile records a sent Short
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          filter: blob:none
+          sparse-checkout: |
+            /reels-studio/
+            /.github/workflows/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: reels-studio/tools/post/requirements.txt
+      - run: python3 -m pip install -r reels-studio/tools/post/requirements.txt
+      # Buffer ingests a video when the post is CREATED, so a post that predates a media fix keeps
+      # the old file. Re-point stale scheduled posts at the queue's current media before delivery
+      # (no-op when nothing is stale; never touches sent posts; keeps every slot). This guard is
+      # global across pending journal rows; a targeted manual batch may skip it while the publisher
+      # still verifies the selected videos' public media with --verify-media.
+      - name: Fail-closed media freshness guard (refresh stale scheduled posts)
+        if: ${{ needs.prepare.outputs.mode == 'schedule' && inputs.skip_global_media_refresh != true }}
+        # Never deliver after a failed refresh: Buffer freezes create-time media. The following
+        # delivery step must only run if every editable pending post passes the read-back audit.
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: python3 reels-studio/tools/post/release.py --refresh --confirm OWNER_APPROVED_MEDIA_REFRESH
+      - name: Paced delivery / read-only validation
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          MODE: ${{ needs.prepare.outputs.mode }}
+          VIDEO_IDS: ${{ inputs.video_ids }}
+          PILOT: ${{ inputs.pilot }}
+          PILOT_NOW: ${{ inputs.pilot_now }}
+          ALLOW_BUFFER_MUTATIONS: ${{ needs.prepare.outputs.mode == 'schedule' && 'true' || 'false' }}
+          PYTHONUNBUFFERED: '1'
+        run: |
+          python3 - <<'PY'
+          import os, subprocess, sys
+          mode = os.environ['MODE']
+          args = [sys.executable, 'reels-studio/tools/post/publisher.py', *os.environ['VIDEO_IDS'].replace(',', ' ').split()]
+          args += [{'dry-run':'--dry-run', 'schedule':'--live', 'reconcile':'--reconcile-only', 'verify':'--verify', 'inventory':'--inventory'}[mode]]
+          if os.environ.get('PILOT') == 'true':
+              args += ['--pilot']
+          if os.environ.get('PILOT_NOW') == 'true':
+              args += ['--pilot-now']
+          if mode != 'reconcile':
+              args += ['--verify-media']
+          args += ['--report', os.environ['RUNNER_TEMP'] + '/publishing/report.json']
+          raise SystemExit(subprocess.call(args))
+          PY
+      - name: Delivery report (also available if validation fails)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hypeless-delivery-report
+          path: ${{ runner.temp }}/publishing/
+          retention-days: 30
+          if-no-files-found: warn
+      # Event hook: once reconcile has recorded a sent Short, the enrichment worker is the only
+      # thing that can put the approved cover on YouTube. Dispatch it now instead of waiting up to
+      # six hours for the next youtube.yml cron. Both workflows share the 'hypeless-publishing'
+      # concurrency group, so the dispatched run queues behind this one, then runs immediately.
+      # Dispatch failures fail the job on purpose: a silent skip would leave covers unapplied.
+      - name: Cover cascade (dispatch enrich only when a sent Short still needs its cover)
+        if: ${{ (needs.prepare.outputs.mode == 'reconcile' || needs.prepare.outputs.mode == 'schedule') && inputs.skip_youtube_cover_cascade != true }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          python3 reels-studio/tools/youtube/covers_pending.py
+          rc=$?
+          set -e
+          if [ "$rc" -eq 0 ]; then
+            echo "cover cascade: nothing pending; no dispatch"
+            exit 0
+          fi
+          if [ "$rc" -ne 3 ]; then
+            echo "cover cascade: covers_pending.py exited $rc (state unreadable)" >&2
+            exit "$rc"
+          fi
+          curl -fsS -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/youtube.yml/dispatches" \
+            -d '{"ref":"main","inputs":{"mode":"enrich"}}'
+          echo "cover cascade: youtube.yml enrich dispatched"

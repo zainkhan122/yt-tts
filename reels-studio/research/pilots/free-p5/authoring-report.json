@@ -1,0 +1,109 @@
+{
+  "activation_allowed": false,
+  "baseline_arena_monetary_cost": "unknown",
+  "calls": 9,
+  "cases": [
+    {
+      "asset_acquisition": "controlled reused capture pool",
+      "baseline_script_exposed": false,
+      "case": "news-gemini-agent-01",
+      "configuration_sha256": "09a1ba86af0959dc9b5a073d02df1a892b02678f969ca6e7222fc9b392c003b9",
+      "error": "FreeQuotaDeferred: Free inference rate limit; no paid fallback",
+      "finished_at": "2026-10-10T18:59:09Z",
+      "pilot": "free-p5",
+      "publishing_allowed": false,
+      "repairs": [
+        {
+          "issues": {
+            "critic": null,
+            "hard_gate_errors": [
+              "c3: Evidence quote does not occur verbatim in the fetched source"
+            ]
+          },
+          "revision": 0
+        }
+      ],
+      "revision": 1,
+      "sources_read": [
+        "s1"
+      ],
+      "started_at": "2026-10-10T18:55:15Z",
+      "status": "blocked"
+    },
+    {
+      "asset_acquisition": "controlled reused capture pool",
+      "baseline_script_exposed": false,
+      "case": "news-haiku-55-01",
+      "configuration_sha256": "09a1ba86af0959dc9b5a073d02df1a892b02678f969ca6e7222fc9b392c003b9",
+      "error": "FreeQuotaDeferred: Persisted model cooldown remains active",
+      "finished_at": "2026-10-10T18:59:09Z",
+      "pilot": "free-p5",
+      "publishing_allowed": false,
+      "repairs": [],
+      "started_at": "2026-10-10T18:59:09Z",
+      "status": "blocked"
+    },
+    {
+      "asset_acquisition": "controlled reused capture pool",
+      "baseline_script_exposed": false,
+      "case": "repo-whistle-01",
+      "configuration_sha256": "09a1ba86af0959dc9b5a073d02df1a892b02678f969ca6e7222fc9b392c003b9",
+      "error": "FreeQuotaDeferred: Persisted model cooldown remains active",
+      "finished_at": "2026-10-10T18:59:09Z",
+      "pilot": "free-p5",
+      "publishing_allowed": false,
+      "repairs": [],
+      "started_at": "2026-10-10T18:59:09Z",
+      "status": "blocked"
+    },
+    {
+      "asset_acquisition": "controlled reused capture pool",
+      "baseline_script_exposed": false,
+      "case": "tool-mosa-01",
+      "configuration_sha256": "09a1ba86af0959dc9b5a073d02df1a892b02678f969ca6e7222fc9b392c003b9",
+      "error": "FreeQuotaDeferred: Persisted model cooldown remains active",
+      "finished_at": "2026-10-10T18:59:09Z",
+      "pilot": "free-p5",
+      "publishing_allowed": false,
+      "repairs": [],
+      "started_at": "2026-10-10T18:59:09Z",
+      "status": "blocked"
+    },
+    {
+      "asset_acquisition": "controlled reused capture pool",
+      "baseline_script_exposed": false,
+      "case": "tool-pomelli-01",
+      "configuration_sha256": "09a1ba86af0959dc9b5a073d02df1a892b02678f969ca6e7222fc9b392c003b9",
+      "error": "FreeQuotaDeferred: Persisted model cooldown remains active",
+      "finished_at": "2026-10-10T18:59:09Z",
+      "pilot": "free-p5",
+      "publishing_allowed": false,
+      "repairs": [],
+      "started_at": "2026-10-10T18:59:09Z",
+      "status": "blocked"
+    }
+  ],
+  "configuration_sha256": "825705ffe6788f6f0f0dd80c55b01cb69b6c8733cb7b32550bdf84d6977e308d",
+  "cost_accounting": {
+    "attempted_calls": 9,
+    "baseline_arena_cost": "unknown",
+    "explicitly_rejected_requests": 3,
+    "measured_request_seconds": 107.31699999999998,
+    "missing_or_uncertain_cost_receipts": 0,
+    "note": "A successful-generation cost of zero does not imply missing receipts were measured; provider-side zero-dollar key cap and zero-price routing remain enforced.",
+    "reported_successful_cost_usd": "0",
+    "successful_cost_receipts": 6,
+    "unknown_generation_ids": []
+  },
+  "created_at": "2026-10-10T18:55:14Z",
+  "issues": [],
+  "mode": "shadow_nonpublishing",
+  "pilot_id": "free-p5",
+  "production_state_unchanged": true,
+  "publishing_writes": 0,
+  "qualification": "unqualified",
+  "ready_case_ids": [],
+  "reported_model_cost_usd": 0.0,
+  "status": "authoring_partial_or_blocked",
+  "unknown_outcome_calls": 0
+}

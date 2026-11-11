@@ -1,0 +1,290 @@
+{
+  "id": "repo-deeptutor-01",
+  "capture": "captures/repo-deeptutor-01",
+  "title": "DeepTutor: an AI tutor with a memory you can see and edit",
+  "niche": "AI tools for learning",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "DeepTutor",
+    "AI tutor",
+    "personalized learning",
+    "AI memory",
+    "self-hosted"
+  ],
+  "facts": {
+    "stars": "51,217 GitHub stars (GitHub API, 2026-10-30)",
+    "language": "Python",
+    "created": "2025-12-28",
+    "last_pushed": "2026-10-29",
+    "description": "DeepTutor: Lifelong Personalized Tutoring (README)",
+    "memory": "three layers (L1 traces, L2 summaries, L3 synthesis); Memory Graph links facts to evidence (README)",
+    "install": "pip install -U \"deeptutor[full]\" or Docker (README)",
+    "media_plan": "README logo assets/figs/logo/color-full.png; UI captures to be built from the repo"
+  },
+  "sources": [
+    "https://github.com/HKUDS/DeepTutor",
+    "https://api.github.com/repos/HKUDS/DeepTutor"
+  ],
+  "verify_before_render": [
+    "Star count re-read from the API on render day.",
+    "Memory and install claims checked against the README on render day.",
+    "Capture pack repo-deeptutor-01 must be built from the repo's own media before render."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "image",
+      "image": "img-1.png",
+      "heading": "AN AI TUTOR WITH A VISIBLE MEMORY",
+      "sub": "DeepTutor · lifelong personalized tutoring",
+      "say": "Ever had an AI tutor forget everything you studied last week?",
+      "url": "github.com/HKUDS/DeepTutor"
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "heading": "DeepTutor",
+      "sub": "a tutor that keeps learning about you",
+      "say": "It's called DeepTutor. It builds a memory of what you've learned over time, and you can open that memory and see where each fact came from.",
+      "image": "img-2.png"
+    },
+    {
+      "id": "how",
+      "type": "image",
+      "heading": "THREE MEMORY LAYERS",
+      "say": "You can edit that memory too. Install it with pip or Docker, then connect your model provider in Settings.",
+      "image": "img-6.png",
+      "sub": null
+    },
+    {
+      "id": "proof",
+      "type": "image",
+      "image": "img-2.png",
+      "heading": "EVERY MEMORY, TRACEABLE",
+      "sub": "Memory Graph view",
+      "say": "You can also connect your own knowledge bases and study from them, in the same place.",
+      "url": "github.com/HKUDS/DeepTutor"
+    },
+    {
+      "id": "catch",
+      "type": "image",
+      "heading": "WHAT IT TAKES",
+      "say": "The catch: it's a full self-hosted app, so setup takes more than one command.",
+      "image": "img-4.png"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "TUTOR",
+      "say": "What would you want a tutor to remember about you? Comment TUTOR and I'll pin the link."
+    }
+  ],
+  "seo": {
+    "keyword": "AI tutor",
+    "aliases": [
+      "AI tutor memory",
+      "self-hosted AI tutor",
+      "personalized AI learning"
+    ],
+    "onscreen_first3s": "AN AI TUTOR WITH A VISIBLE MEMORY",
+    "youtube": {
+      "title": "AI tutor with a memory you can edit: DeepTutor",
+      "description": "AI tutor that keeps a memory you can see and edit. DeepTutor is self-hosted: install with pip or Docker.\n\nTool page: https://github.com/HKUDS/DeepTutor\n\n#AItutor #selflearning #selfhosted #studytok #shorts",
+      "tags": [
+        "AI tutor",
+        "DeepTutor",
+        "personalized learning",
+        "AI memory",
+        "self-hosted",
+        "education"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#AItutor",
+        "#selflearning",
+        "#selfhosted"
+      ]
+    },
+    "tiktok": {
+      "title": "AI tutor with a visible memory",
+      "description": "A tutor that remembers what you studied last week, and shows where that memory came from.",
+      "tags": [
+        "DeepTutor",
+        "AI tutor",
+        "personalized learning",
+        "AI memory",
+        "education"
+      ],
+      "caption": "A tutor that remembers what you studied last week, and shows where that memory came from.",
+      "hashtags": [
+        "#AItutor",
+        "#selflearning",
+        "#selfhosted"
+      ]
+    },
+    "instagram": {
+      "title": "An AI tutor that remembers you",
+      "description": "DeepTutor keeps a memory of what you have learned and lets you trace it. Open source, self-hosted.",
+      "tags": [
+        "DeepTutor",
+        "AI tutor",
+        "personalized learning",
+        "AI memory",
+        "education"
+      ],
+      "caption": "DeepTutor keeps a memory of what you have learned and lets you trace it. Open source, self-hosted.",
+      "hashtags": [
+        "#AItutor",
+        "#selflearning",
+        "#selfhosted"
+      ]
+    },
+    "facebook": {
+      "title": "AI tutor with a visible memory",
+      "description": "DeepTutor is an open-source tutor that keeps learning about you over time. You can see the memory layers and the graph behind each answer.",
+      "tags": [
+        "DeepTutor",
+        "AI tutor",
+        "personalized learning",
+        "AI memory"
+      ],
+      "caption": "DeepTutor is an open-source tutor that keeps learning about you over time. You can see the memory layers and the graph behind each answer.",
+      "hashtags": [
+        "#AItutor",
+        "#selflearning",
+        "#selfhosted"
+      ]
+    },
+    "x": {
+      "title": "DeepTutor: a visible AI memory",
+      "description": "AI tutor with a memory you can edit: DeepTutor #AItutor #selflearning",
+      "tags": [
+        "DeepTutor",
+        "AI tutor",
+        "personalized learning"
+      ],
+      "text": "AI tutor with a memory you can edit: DeepTutor #AItutor #selflearning",
+      "hashtags": [
+        "#AItutor",
+        "#selflearning"
+      ]
+    }
+  },
+  "post": {
+    "cta": "What would you learn with a tutor that remembers you? Comment TUTOR",
+    "hashtags": [
+      "#shorts",
+      "#AItutor",
+      "#selflearning",
+      "#selfhosted"
+    ]
+  },
+  "research_basis": [
+    "research/reference-study/fwBIZRq-vzY.md"
+  ],
+  "viewer": {
+    "who": "students and self-learners who want a tutor that adapts over time",
+    "problem": "AI tutors start from zero every session and the learner cannot see what they know about them",
+    "job": "see whether a tutor can remember their progress, and whether they can control that memory"
+  },
+  "idea": "DeepTutor is a self-hosted AI tutor whose memory you can inspect and edit.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "DeepTutor keeps a memory in three layers, and the Memory Graph links facts to their evidence.",
+      "source": "https://github.com/HKUDS/DeepTutor"
+    },
+    {
+      "id": "c2",
+      "text": "51,217 GitHub stars on 2026-10-30.",
+      "source": "https://api.github.com/repos/HKUDS/DeepTutor"
+    },
+    {
+      "id": "c3",
+      "text": "It installs with pip install -U \"deeptutor[full]\" or with Docker.",
+      "source": "https://github.com/HKUDS/DeepTutor"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "capture:memory-graph.jpg",
+      "how_shown": "proof: memory graph, one fact traced to its evidence"
+    },
+    {
+      "claim": "c2",
+      "evidence": "capture:repo-title.jpg",
+      "how_shown": "hook: repo title with the star count"
+    },
+    {
+      "claim": "c3",
+      "evidence": "capture:readme-how.jpg",
+      "how_shown": "catch: install commands"
+    }
+  ],
+  "treatment": {
+    "audience": "students and self-learners",
+    "viewer_job": "decide whether a tutor that remembers is worth setting up",
+    "intent": "search",
+    "hook_mechanic": "transformation: an AI tutor with a memory you can see and edit",
+    "open_loop": {
+      "plant": "what would you learn?",
+      "payoff_scene": "proof"
+    },
+    "proof_moment": "proof",
+    "selected_cover": 0,
+    "archetype": "spotlight",
+    "cover_concepts": [
+      {
+        "text": "SEE ITS MEMORY",
+        "visual": "img-1.png",
+        "gap": "what does it remember?"
+      },
+      {
+        "text": "AI TUTOR",
+        "visual": "img-2.png",
+        "gap": "how do I set it up?"
+      },
+      {
+        "text": "EDIT IT",
+        "visual": "img-3.png",
+        "gap": "can I change it?"
+      }
+    ],
+    "structure": [
+      {
+        "scene": "hook",
+        "beat": "hook"
+      },
+      {
+        "scene": "name",
+        "beat": "name"
+      },
+      {
+        "scene": "how",
+        "beat": "how"
+      },
+      {
+        "scene": "proof",
+        "beat": "proof"
+      },
+      {
+        "scene": "catch",
+        "beat": "catch"
+      },
+      {
+        "scene": "cta",
+        "beat": "close"
+      }
+    ]
+  },
+  "review": {
+    "reviewed_at": "2026-10-30T10:00:00Z",
+    "expires_at": "2026-11-01",
+    "reviewer": "agent; facts checked against the GitHub API and the repo README on 2026-10-30; owner approval pending",
+    "notes": "Rewritten 2026-10-30. Removed unverified claims: 'your data never leaves your machine' and 'multi-agent'. Stars re-read from the API (was 48,105). Install and memory claims taken from the README. Hook is 12 words."
+  }
+}

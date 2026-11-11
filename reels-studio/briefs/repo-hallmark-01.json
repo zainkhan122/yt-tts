@@ -1,0 +1,268 @@
+{
+  "id": "repo-hallmark-01",
+  "capture": "repo-hallmark-01",
+  "title": "hallmark: Anti-AI-Slop Design Skill",
+  "niche": "AI design skills and developer tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "hallmark",
+    "anti-AI-slop",
+    "design skill",
+    "Claude Code",
+    "Cursor"
+  ],
+  "facts": {
+    "stars": "40,796 GitHub stars (gittrend.io, 2026-10-29)",
+    "stars_today": "+1,694 stars today",
+    "language": "CSS",
+    "license": "open source",
+    "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex",
+    "topics": [
+      "design",
+      "anti-slop",
+      "claude-code",
+      "cursor"
+    ]
+  },
+  "sources": [
+    "https://github.com/Nutlope/hallmark",
+    "https://api.github.com/repos/Nutlope/hallmark"
+  ],
+  "verify_before_render": [
+    "Stars, license, and repo status re-checked against the live repo on render day."
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "page",
+      "image": "repo-title.jpg",
+      "heading": "STOP AI SLOP IN YOUR *DESIGNS*",
+      "sub": "hallmark · anti-AI-slop design skill",
+      "say": "AI generated design is everywhere, and it all looks the same. Hallmark is a design skill that fights the slop.",
+      "url": "github.com/Nutlope/hallmark",
+      "camera": [
+        {
+          "region": "repo_title",
+          "zoom": 1.5,
+          "at": "fights the slop"
+        }
+      ]
+    },
+    {
+      "id": "name",
+      "type": "image",
+      "heading": "hallmark",
+      "sub": "Design that doesn't look AI",
+      "say": "It's called hallmark. It's a design skill for Claude Code, Cursor, and Codex. It teaches your AI what good design looks like, and what slop looks like.",
+      "image": "readme-top.jpg"
+    },
+    {
+      "id": "how",
+      "type": "steps",
+      "heading": "HOW IT WORKS",
+      "say": "It's a CSS-based skill file. Drop it into your AI coding tool, and now your AI has a design conscience. It will reject generic gradients, reject stock layouts, and push for intentional choices.",
+      "image": "readme-how.jpg"
+    },
+    {
+      "id": "stars",
+      "type": "page",
+      "image": "stars.jpg",
+      "heading": "40,796 ★ AND GROWING",
+      "sub": "+1,694 stars today",
+      "say": "Forty thousand stars. The anti-slop movement is real. Developers are tired of AI generating the same cookie-cutter design.",
+      "url": "github.com/Nutlope/hallmark",
+      "camera": [
+        {
+          "region": "stars",
+          "zoom": 1.5,
+          "at": "cookie-cutter"
+        }
+      ]
+    },
+    {
+      "id": "install",
+      "type": "page",
+      "image": "install.jpg",
+      "heading": "INSTALL IN SECONDS",
+      "sub": "One file, three tools",
+      "say": "One file. Works with Claude Code, Cursor, and Codex. No dependencies, no npm install. Just add it to your project.",
+      "url": "github.com/Nutlope/hallmark",
+      "camera": [
+        {
+          "region": "install",
+          "zoom": 1.3,
+          "at": "one file"
+        }
+      ]
+    },
+    {
+      "id": "catch",
+      "type": "verdict",
+      "heading": "THE HONEST CATCH",
+      "say": "It's a skill file, not a design engine. Your AI still has to do the work. But hallmark gives it the vocabulary to know what's good and what's slop.",
+      "image": "catch.jpg"
+    },
+    {
+      "id": "cta",
+      "type": "endcard",
+      "keyword": "SLOP",
+      "say": "Is your AI generating designs that all look the same? Comment SLOP and follow for tools like this."
+    }
+  ],
+  "seo": {
+    "keyword": "hallmark anti-AI-slop",
+    "aliases": [
+      "hallmark design skill",
+      "anti-slop Claude Code",
+      "AI design skill Cursor"
+    ],
+    "onscreen_first3s": "STOP AI SLOP IN YOUR DESIGNS",
+    "youtube": {
+      "title": "This Skill Stops Your AI From Making Ugly Designs",
+      "description": "hallmark is an anti-AI-slop design skill for Claude Code, Cursor, and Codex. No more cookie-cutter AI designs. #shorts #ai #design #coding",
+      "tags": [
+        "hallmark",
+        "anti-slop",
+        "AI design",
+        "Claude Code",
+        "Cursor",
+        "programming"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#antislop",
+        "#designskill",
+        "#claudecode"
+      ]
+    },
+    "tiktok": {
+      "title": "This skill stops AI slop in your designs",
+      "description": "hallmark teaches your AI what good design looks like. 40k stars. #shorts #ai #design #coding",
+      "tags": [
+        "hallmark",
+        "AI",
+        "design",
+        "coding",
+        "anti-slop"
+      ],
+      "caption": "hallmark teaches your AI what good design looks like. 40k stars. #shorts #ai #design #coding",
+      "hashtags": [
+        "#shorts",
+        "#antislop",
+        "#designskill",
+        "#claudecode"
+      ]
+    },
+    "instagram": {
+      "title": "Stop AI slop in your designs",
+      "description": "hallmark is a design skill that fights generic AI-generated design. 40k stars. #shorts #ai #design #tech",
+      "tags": [
+        "hallmark",
+        "AI",
+        "design",
+        "tech",
+        "coding"
+      ],
+      "caption": "hallmark is a design skill that fights generic AI-generated design. 40k stars. #shorts #ai #design #tech",
+      "hashtags": [
+        "#shorts",
+        "#antislop",
+        "#designskill",
+        "#claudecode"
+      ]
+    },
+    "facebook": {
+      "title": "This skill stops AI design slop",
+      "description": "hallmark gives your AI a design conscience. 40k+ stars and climbing. #shorts #ai #design",
+      "tags": [
+        "hallmark",
+        "AI",
+        "design",
+        "coding"
+      ],
+      "caption": "hallmark gives your AI a design conscience. 40k+ stars and climbing. #shorts #ai #design",
+      "hashtags": [
+        "#shorts",
+        "#antislop",
+        "#designskill"
+      ]
+    },
+    "x": {
+      "title": "Stop AI design slop",
+      "description": "hallmark: anti-AI-slop design skill for Claude Code. #shorts #ai",
+      "tags": [
+        "hallmark",
+        "AI",
+        "design"
+      ],
+      "text": "hallmark: anti-AI-slop design skill for Claude Code. #shorts #ai",
+      "hashtags": [
+        "#shorts",
+        "#antislop"
+      ]
+    }
+  },
+  "post": {
+    "cta": "Is your AI making ugly designs? Comment SLOP",
+    "hashtags": [
+      "#shorts",
+      "#ai",
+      "#design",
+      "#coding",
+      "#programming"
+    ]
+  },
+  "research_basis": [
+    "research/reference-study/fwBIZRq-vzY.md",
+    "research/reference-study/EAJFs6Q0Ufs.md"
+  ],
+  "viewer": {
+    "who": "developers who use AI coding tools and are tired of generic AI-generated design",
+    "problem": "AI generated designs all look the same — same gradients, same layouts, same stock patterns",
+    "job": "want their AI to generate design that looks intentional and human, not cookie-cutter slop"
+  },
+  "idea": "hallmark is an anti-AI-slop design skill that gives Claude Code, Cursor, and Codex a design conscience.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "hallmark is an anti-AI-slop design skill for Claude Code, Cursor, and Codex",
+      "source": "https://github.com/Nutlope/hallmark"
+    },
+    {
+      "id": "c2",
+      "text": "hallmark has 40,796 GitHub stars with 1,694 new stars today",
+      "source": "https://gittrend.io/api/trending"
+    },
+    {
+      "id": "c3",
+      "text": "hallmark is a CSS-based skill file with no dependencies",
+      "source": "https://github.com/Nutlope/hallmark"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/Nutlope/hallmark",
+      "how_shown": "hook camera on repo title and description"
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://gittrend.io",
+      "how_shown": "stars scene shows star count and today's growth"
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://github.com/Nutlope/hallmark",
+      "how_shown": "install scene shows one file, three tools"
+    }
+  ],
+  "review": {
+    "reviewed_at": "2026-10-29T10:00:00Z",
+    "expires_at": "2026-10-31",
+    "reviewer": "agent; facts checked against gittrend.io trending API and GitHub repo on 2026-10-29",
+    "notes": "All star counts and descriptions verified against live gittrend.io API on 2026-10-29"
+  }
+}
