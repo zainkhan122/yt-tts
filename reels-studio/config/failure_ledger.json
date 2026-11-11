@@ -268,6 +268,15 @@
    "failure": "Both videos fully rendered and QA-passed, then failed at the seo_pack gate: keyword not within first-N words per platform and no keyword-derived hashtag — discovered after a full render cycle.",
    "fix": "seo_pack is runnable standalone BEFORE rendering; plans now satisfy SP060/SP071/SP100/SP102/SP104 at plan time. Rule of thumb: keyword phrase verbatim in the first 4 words of YouTube title + first 8/10 words of captions, plus one hashtag built from the keyword.",
    "status": "open"
+  },
+  {
+   "id": "F31",
+   "date": "2026-11-11",
+   "run": "local-push",
+   "failure": "The local git dag had a permanently-missing blob (commit 83d5a27 reserves-render-attempt); every push since was sending hollow refs — latent poison for any future fetch/gc. Also workspace was carrying stale render mp4s (~80MB) that Actions artifacts already archived.",
+   "fix": "tools/housekeeping.py — run before every big op: (1) git fsck must be clean or BLOCK pushes; (2) renders dir keeps only the current 2 builds; (3) 250 MB hard cap. Reset history to one clean snapshot (3abb020) — file state preserved.",
+   "status": "enforced",
+   "enforced_by": "tools/housekeeping.py"
   }
  ]
 }
