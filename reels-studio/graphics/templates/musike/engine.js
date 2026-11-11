@@ -1,5 +1,5 @@
-/* musike engine — the player interface IS the scene (owner verdict 2026-11-10: text cards rejected).
- * Pure function of t: setTime(t) draws one frame; GSAP is used for easing curves only (vendored).
+/* musike engine v2 — the player never leaves the frame (owner verdict: scenes without the
+ * interface around them read as text cards). Pure function of t; GSAP vendored = easing curves only.
  * window.DATA = {width, height, handle, scenes:[{archetype, t0, t1, headline, payload, words}]}
  */
 (function () {
@@ -15,7 +15,6 @@
   var easeOutCubic = function (x) { x = clamp(x, 0, 1); return 1 - Math.pow(1 - x, 3); };
   var easeOutExpo = function (x) { x = clamp(x, 0, 1); return x >= 1 ? 1 : 1 - Math.pow(2, -10 * x); };
   var easeOutBack = function (x) { x = clamp(x, 0, 1); var c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
-  /* pro easing, GSAP-vendored (graphics/templates/vendor/gsap.min.js); pure curves, no ticker */
   var easeSpring = easeOutBack, easeSnappy = easeOutBack, easeInOut = easeOutExpo;
   if (window.gsap && window.gsap.parseEase) {
     easeSpring = window.gsap.parseEase("elastic.out(1, 0.55)");
@@ -56,7 +55,6 @@
     warn: "M24 6 L44 40 H4 Z M24 18 V28 M24 33 V34.5"
   };
 
-  /* album-art tile: procedural two-tone cover + vinyl peeking out (our own drawing, no screenshots) */
   var COVERS = [["#3D5AFE", "#00B8D4"], ["#8E24AA", "#FF5252"], ["#00897B", "#AEEA00"],
                 ["#F4511E", "#FFB300"], ["#3949AB", "#40C4FF"], ["#C0CA33", "#00BFA5"]];
   function art(parent, i, cls) {
@@ -87,12 +85,17 @@
     r.fill.style.width = fmt(p * 100) + "%";
     if (r.knob) r.knob.style.left = fmt(p * 100) + "%";
   }
-  /* full Musike window: titlebar + sidebar + album grid + now-playing bar */
+
+  /* Musike window: titlebar (+optional status/toggle slot) + sidebar + content pane + now-playing bar.
+   * Every scene lives INSIDE this window — the app is always the stage. */
   function playerWindow(parent, opts) {
-    var w = el("div", "mk-win", parent);
+    opts = opts || {};
+    var w = el("div", "mk-win" + (opts.ghosted ? " ghosted" : "") + (opts.slim ? " slim" : ""), parent);
     var bar = el("div", "mk-bar", w);
     el("i", "mk-dot r", bar); el("i", "mk-dot y", bar); el("i", "mk-dot g", bar);
     el("div", "mk-title", bar, "musike");
+    var status = null;
+    if (opts.status) status = el("div", "mk-status", bar, opts.status);
     var body = el("div", "mk-body", w);
     var side = el("div", "mk-side", body);
     var navs = [];
@@ -102,187 +105,205 @@
       n.appendChild(document.createTextNode(nv[1]));
       navs.push(n);
     });
-    var grid = el("div", "mk-grid", body);
-    for (var i = 0; i < 6; i++) art(grid, i);
+    var pane = el("div", "mk-pane", body);
+    if (!opts.empty) {
+      pane.className = "mk-pane mk-grid";
+      for (var i = 0; i < 6; i++) art(pane, i);
+    }
     var np = el("div", "mk-np", w);
     var npArt = el("div", "mk-np-art", np);
     npArt.style.background = "linear-gradient(135deg, #3D5AFE, #00B8D4)";
     var mid = el("div", "mk-np-mid", np);
     var tw = el("div", "mk-np-titlewrap", mid);
-    var title = el("div", "mk-np-title", tw, opts && opts.title || "Night Drive — Afterglow Session");
-    el("div", "mk-np-sub", mid, opts && opts.sub || "the library · flac");
+    var title = el("div", "mk-np-title", tw, opts.title || "Night Drive — Afterglow Session");
+    el("div", "mk-np-sub", mid, opts.sub || "the library · flac");
     var sk = seekBuild(mid, true);
     var bars = eq(np, 5);
     iconSvg(40, 40, el("span", "mk-transport", np), ICONS.play, TXT);
-    return { win: w, navs: navs, grid: grid, title: title, seek: sk, eq: bars };
+    return { win: w, bar: bar, navs: navs, pane: pane, np: np, npArt: npArt,
+             title: title, seek: sk, eq: bars, status: status };
   }
 
   var ARCH = {};
 
-  /* ---- hook: the player dominates frame one; title scrolls; seek runs; EQ breathes ---- */
+  /* ---- hook: the player IS the frame; title scrolls; seek, EQ and chips move ---- */
   ARCH.player_hook = {
     build: function (root, s) {
-      var r = playerWindow(root, { title: (s.payload && s.payload.track) || "Night Drive — Afterglow Session" });
-      r.chip = el("div", "", root);
-      r.chip.innerHTML = "<span class='mk-chip'>NO ADS</span> <span class='mk-chip'>NO ACCOUNT</span> <span class='mk-chip amber'>FREE + MIT</span>";
-      r.chip.style.cssText = "display:flex;gap:18px;margin-top:38px;";
+      var r = playerWindow(root, { title: (s.payload && s.payload.track) || "Night Drive — Afterglow Session", status: "LIVE" });
+      r.chips = el("div", "", root);
+      r.chips.innerHTML = "<span class='mk-chip'>NO ADS</span> <span class='mk-chip'>NO ACCOUNT</span> <span class='mk-chip amber'>FREE + MIT</span>";
+      r.chips.style.cssText = "display:flex;gap:18px;margin-top:38px;";
       return r;
     },
     update: function (r, s, u, d) {
       seekSet(r.seek, clamp(u / Math.max(1, d), 0, 1));
       eqDrive(r.eq, u, 8);
-      // marquee: the song title scrolls through its clipped window forever
       r.title.style.transform = "translateX(" + fmt(-((u * 70) % 520)) + "px)";
-      // window settles in with a spring; attention moves to the playing bar at 1.2s
       var pop = easeSpring(ramp(u, 0, 0.5));
       r.win.style.transform = "translateY(" + fmt((1 - pop) * 40) + "px) scale(" + fmt(0.97 + 0.03 * pop) + ")";
       r.win.style.boxShadow = "0 30px 80px rgba(0,0,0,0.55), 0 0 " + fmt(40 + 30 * (0.5 + 0.5 * Math.sin(u * 2.1))) + "px rgba(52,199,89," + fmt(0.10 + 0.07 * ramp(u, 1.2, 2.2)) + ")";
       r.navs[0].querySelector(".pill").style.opacity = fmt(easeSnappy(ramp(u, 0.7, 1.1)));
-      r.chip.style.opacity = fmt(ramp(u, 1.1, 1.7));
-      r.chip.style.transform = "translateY(" + fmt((1 - easeOutCubic(ramp(u, 1.1, 1.7))) * 26) + "px)";
+      r.chips.style.opacity = fmt(ramp(u, 1.1, 1.7));
+      r.chips.style.transform = "translateY(" + fmt((1 - easeOutCubic(ramp(u, 1.1, 1.7))) * 26) + "px)";
+      if (r.status) r.status.style.opacity = fmt(0.55 + 0.45 * (0.5 + 0.5 * Math.sin(u * 3.2)));
     }
   };
 
-  /* ---- point 1: the source hands bytes to YOUR server, which hands them to the player ---- */
+  /* ---- point 1: the flow runs INSIDE the app; packets feed the now-playing tile ---- */
   ARCH.server_stream = {
     build: function (root, s) {
-      var f = el("div", "mk-flow", root);
-      var r = { flow: f };
+      var r = playerWindow(root, { empty: true, status: "fetching…", sub: "yt-dlp · your server" });
+      var pane = r.pane;
+      pane.style.position = "relative";
+      var f = el("div", "mk-flow-pane", pane);
       var mk = function (x, y, lab, tiny, ic, col) {
-        var n = el("div", "mk-node", f);
+        var n = el("div", "mk-node sm", f);
         n.style.left = x + "px"; n.style.top = y + "px";
-        iconSvg(96, 96, n, ic, col || GREEN);
+        iconSvg(64, 64, n, ic, col || GREEN);
         el("div", "lab", n, lab); el("div", "tiny", n, tiny);
         return n;
       };
-      r.src = mk(0, 160, "THE SOURCE", "streams online", ICONS.globe, MUTE);
-      r.srv = mk(334, 40, "YOUR SERVER", "yt-dlp fetches", ICONS.download, AMBER);
-      r.pl = mk(668, 160, "THE PLAYER", "plays them", ICONS.play, GREEN);
+      r.src = mk(36, 120, "SOURCE", "streams online", ICONS.globe, MUTE);
+      r.srv = mk(268, 30, "YOUR SERVER", "yt-dlp fetches", ICONS.download, AMBER);
+      r.tgt = mk(494, 120, "THIS WINDOW", "plays them", ICONS.play, GREEN);
       var edge = function (x0, y0, x1, y1) {
-        var dx = x1 - x0, dy = y1 - y0, len = Math.sqrt(dx * dx + dy * dy);
         var e = el("div", "mk-edge", f);
-        e.style.left = x0 + "px"; e.style.top = y0 + "px"; e.style.width = fmt(len) + "px";
+        var dx = x1 - x0, dy = y1 - y0;
+        e.style.left = x0 + "px"; e.style.top = y0 + "px";
+        e.style.width = fmt(Math.sqrt(dx * dx + dy * dy)) + "px";
         e.style.transform = "rotate(" + fmt(Math.atan2(dy, dx) * 180 / Math.PI) + "deg)";
         e.style.transformOrigin = "0 50%";
         return { x0: x0, y0: y0, x1: x1, y1: y1 };
       };
-      r.e1 = edge(302, 232, 330, 178); r.e2 = edge(634, 178, 666, 232);
+      r.edges = [edge(196, 200, 244, 152), edge(428, 152, 470, 200)];
       r.packets = [];
-      for (var i = 0; i < 4; i++) {
-        r.packets.push(el("div", "mk-packet", f));
-        r.packets.push(el("div", "mk-packet b", f));
-      }
-      r.note = el("div", "sub-note", root, "nothing to skip — the ads never arrive");
+      for (var i = 0; i < 6; i++) r.packets.push(el("div", "mk-packet" + (i % 2 ? " b" : ""), f));
+      r.arts = [];
+      for (var g = 0; g < 3; g++) { var a = art(r.pane, g + 3); a.style.width = "130px"; a.style.marginTop = "8px"; r.arts.push(a); }
       return r;
     },
     update: function (r, s, u, d) {
-      var edges = [r.e1, r.e2];
-      r.nodes = [r.src, r.srv, r.pl];
-      r.nodes.forEach(function (n, i) {
-        var k = easeSnappy(ramp(u, 0.10 * i, 0.10 * i + 0.45));
+      seekSet(r.seek, clamp(u / Math.max(1, d), 0, 1));
+      eqDrive(r.eq, u, 8);
+      r.title.style.transform = "translateX(" + fmt(-((u * 55) % 520)) + "px)";
+      [r.src, r.srv, r.tgt].forEach(function (n, i) {
+        var k = easeSnappy(ramp(u, 0.12 * i, 0.12 * i + 0.45));
         n.style.opacity = fmt(k);
         n.style.transform = "scale(" + fmt(0.85 + 0.15 * k) + ")";
       });
       r.srv.style.borderColor = "rgba(255,214,10," + fmt(0.35 + 0.45 * (0.5 + 0.5 * Math.sin(u * 3))) + ")";
+      if (r.status) r.status.style.opacity = fmt(0.45 + 0.55 * (0.5 + 0.5 * Math.sin(u * 4.4)));
       for (var i = 0; i < r.packets.length; i++) {
-        var e = edges[i % 2], ph = (u * 0.55 + (i * 0.37)) % 1, vis = ramp(u, 0.6, 1.0);
-        var x = e.x0 + (e.x1 - e.x0) * ph, y = e.y0 + (e.y1 - e.y0) * ph;
-        r.packets[i].style.transform = "translate(" + fmt(x) + "px," + fmt(y) + "px)";
+        var e = r.edges[i % 2], ph = (u * 0.6 + (i * 0.31)) % 1, vis = ramp(u, 0.55, 0.95);
+        r.packets[i].style.transform = "translate(" + fmt(e.x0 + (e.x1 - e.x0) * ph) + "px," + fmt(e.y0 + (e.y1 - e.y0) * ph) + "px)";
         r.packets[i].style.opacity = fmt(vis);
       }
-      r.note.style.opacity = fmt(ramp(u, d * 0.55, d * 0.55 + 0.4));
+      r.arts.forEach(function (a, i) {
+        var k = ramp(u, 1.0 + i * 0.35, 1.4 + i * 0.35);   // art tiles "arrive" as packets land
+        a.style.opacity = fmt(k);
+        a.style.transform = "scale(" + fmt(0.9 + 0.1 * easeSnappy(k)) + ")";
+      });
     }
   };
 
-  /* ---- point 2: audio flips to video mid-song; the seek does NOT restart — same second ---- */
+  /* ---- point 2: audio flips to video INSIDE the player; the seek never restarts ---- */
   ARCH.av_toggle = {
     build: function (root, s) {
-      var r = {};
-      r.toggle = el("div", "mk-toggle", root);
-      r.thumb = el("div", "mk-thumb", r.toggle);
+      var r = playerWindow(root, { empty: true, slim: true, sub: "one clock, both modes" });
+      r.toggle = el("div", "mk-toggle sm", r.bar);
+      r.thumb = el("div", "mk-thumb sm", r.toggle);
       r.optA = el("div", "mk-topt", r.toggle, "AUDIO");
       r.optV = el("div", "mk-topt", r.toggle, "VIDEO");
-      r.stage = el("div", "mk-stage", root);
+      r.stage = el("div", "mk-stage sm", r.pane);
       r.waves = el("div", "mk-waves", r.stage);
       r.bars = [];
-      for (var i = 0; i < 40; i++) r.bars.push(el("b", "", r.waves));
+      for (var i = 0; i < 34; i++) r.bars.push(el("b", "", r.waves));
       r.video = el("div", "mk-video", r.stage);
-      r.vidGlow = el("div", "playglyph", r.video);
+      el("div", "playglyph", r.video);
       r.shim = el("div", "shimmer", r.video);
-      var skw = el("div", "", root); skw.style.cssText = "width:968px;margin-top:30px;";
-      r.seek = seekBuild(skw, true);
-      r.times = el("div", "mk-times", root, "");
+      r.bigArt = el("div", "mk-bigart", r.stage);
+      r.bigArt.style.background = "linear-gradient(135deg, #3D5AFE, #00B8D4)";
       return r;
     },
     update: function (r, s, u, d) {
       var flipAt = clamp(1.3, d * 0.15, d * 0.4);
-      var f = easeSpring(ramp(u, flipAt, flipAt + 0.7));   // thumb springs A -> V
-      r.thumb.style.left = fmt(8 + f * (560 - 264 - 16)) + "px";
+      var f = easeSpring(ramp(u, flipAt, flipAt + 0.7));
+      r.thumb.style.left = fmt(6 + f * (360 - 172 - 12)) + "px";
       r.optA.style.color = f < 0.5 ? "#F5F6F7" : MUTE;
       r.optV.style.color = f >= 0.5 ? "#F5F6F7" : MUTE;
       r.waves.style.opacity = fmt(1 - ramp(f, 0.25, 0.65));
+      r.bigArt.style.opacity = fmt(0.5 * (1 - ramp(f, 0.2, 0.6)));
       r.video.style.opacity = fmt(ramp(f, 0.35, 0.8));
       for (var i = 0; i < r.bars.length; i++) {
-        var h = 24 + 130 * Math.abs(Math.sin(i * 0.55 + u * 5.2)) * (0.5 + 0.5 * Math.sin(i * 1.3 + 2));
+        var h = 18 + 96 * Math.abs(Math.sin(i * 0.55 + u * 5.2)) * (0.5 + 0.5 * Math.sin(i * 1.3 + 2));
         r.bars[i].style.height = fmt(h) + "px";
       }
-      r.shim.style.transform = "translateX(" + fmt(((u * 340) % 1250) - 140) + "px)";
-      // one seek, one clock, across the flip — the continuity IS the claim
-      var p = clamp(u / Math.max(1, d), 0, 1);
-      seekSet(r.seek, p);
-      var sec = Math.round(82 + u);
-      r.times.innerHTML = "<b>" + Math.floor(sec / 60) + ":" + ("0" + sec % 60).slice(-2) + "</b> — same second, both ways";
-      r.stage.style.boxShadow = "0 18px 44px rgba(0,0,0,0.5), 0 0 " + fmt(30 + 26 * f) + "px rgba(52,199,89," + fmt(0.08 + 0.10 * f) + ")";
+      r.shim.style.transform = "translateX(" + fmt(((u * 340) % 950) - 140) + "px)";
+      seekSet(r.seek, clamp(u / Math.max(1, d), 0, 1));   // same clock, both ways
+      eqDrive(r.eq, u, 8);
+      r.title.style.transform = "translateX(" + fmt(-((u * 55) % 520)) + "px)";
+      r.np.style.boxShadow = "0 0 " + fmt(24 + 26 * f) + "px rgba(52,199,89," + fmt(0.10 + 0.12 * f) + ")";
     }
   };
 
-  /* ---- point 3: one player, every screen — tiles spring in around the player ---- */
+  /* ---- point 3: one player, six screens — the player stays on top, tiles spring in ---- */
   ARCH.platform_grid = {
     build: function (root, s) {
-      var r = { tiles: [] };
-      r.grid = el("div", "mk-plats", root);
-      var plats = [["monitor", "DESKTOP"], ["globe", "BROWSER PWA"], ["phone", "ANDROID + iPHONE"],
-                   ["tv", "ANDROID TV"], ["docker", "DOCKER"], ["file", "WINDOWS · MAC · LINUX"]];
-      plats.forEach(function (pv) {
+      var r = {};
+      r.mini = playerWindow(root, { empty: true, slim: true, sub: "the same build everywhere" });
+      r.mini.win.className += " strip";
+      r.pane = r.mini.pane;
+      var strip = el("div", "mk-now-strip", r.pane);
+      strip.innerHTML = "";
+      var sa = el("div", "mk-np-art", strip); sa.style.background = "linear-gradient(135deg, #F4511E, #FFB300)";
+      el("div", "strip-title", strip, "Night Drive — Afterglow Session");
+      r.stripSeek = seekBuild(strip, false);
+      r.stripEq = eq(strip, 4);
+      r.grid = el("div", "mk-plats six", r.pane);
+      r.tiles = [];
+      [["monitor", "DESKTOP"], ["globe", "BROWSER PWA"], ["phone", "ANDROID + iPHONE"],
+       ["tv", "ANDROID TV"], ["docker", "DOCKER"], ["file", "WIN · MAC · LINUX"]].forEach(function (pv) {
         var t = el("div", "mk-plat", r.grid);
-        el("div", "gl", t).appendChild(iconSvg(110, 110, null, ICONS[pv[0]], pv[1] === "DOCKER" ? AMBER : GREEN));
+        el("div", "gl", t).appendChild(iconSvg(84, 84, null, ICONS[pv[0]], pv[0] === "docker" ? AMBER : GREEN));
         el("div", "nm", t, pv[1]);
         var ms = el("div", "miniseek", t); el("i", "", ms);
         r.tiles.push(t);
       });
-      r.note = el("div", "sub-note", root, "same player, no computer needed");
       return r;
     },
     update: function (r, s, u, d) {
+      var head = easeSpring(ramp(u, 0, 0.45));
+      r.mini.win.style.opacity = fmt(head);
+      r.mini.win.style.transform = "translateY(" + fmt((1 - head) * 30) + "px)";
+      seekSet(r.mini.seek, clamp(u / Math.max(1, d), 0, 1));
+      eqDrive(r.mini.eq, u, 8);
+      seekSet(r.stripSeek, clamp(u / Math.max(1, d), 0, 1));
+      eqDrive(r.stripEq, u, 8);
       r.tiles.forEach(function (t, i) {
-        var k = easeSnappy(ramp(u, 0.12 * i, 0.12 * i + 0.5));
+        var k = easeSnappy(ramp(u, 0.5 + 0.16 * i, 1.0 + 0.16 * i));
         t.style.opacity = fmt(k);
         t.style.transform = "translateY(" + fmt((1 - k) * 46) + "px) scale(" + fmt(0.9 + 0.1 * k) + ")";
         t.querySelector(".miniseek i").style.width = fmt(30 + 40 * (0.5 + 0.5 * Math.sin(u * 2 + i))) + "%";
       });
-      r.note.style.opacity = fmt(ramp(u, d * 0.6, d * 0.6 + 0.4));
     }
   };
 
-  /* ---- point 4: the library is a file — entries write themselves, export chip lands ---- */
+  /* ---- point 4: the JSON floats over YOUR player — the file belongs to the app ---- */
   ARCH.library_file = {
     build: function (root, s) {
-      var r = {};
+      var r = { ghost: playerWindow(root, { ghosted: true }) };
       r.file = el("div", "mk-file", root);
       var bar = el("div", "mk-bar", r.file);
       el("i", "mk-dot r", bar); el("i", "mk-dot y", bar); el("i", "mk-dot g", bar);
       el("div", "mk-title", bar, "library.json");
       r.lines = el("div", "mk-flines", r.file);
       r.spanEls = [];
-      var LINES = [
-        "<span class='k'>\"favourites\"</span>: [",
-        "  <span class='s'>\"Afterglow — Night Drive\"</span>,",
-        "  <span class='s'>\"Lo-Fi Study Mix, Vol. 4\"</span>,",
-        "  <span class='s'>\"Live at Red Rocks, 2003\"</span>",
-        "]",
-        "<span class='d'>// yours. copy it anywhere.</span>"
-      ];
-      LINES.forEach(function (html) {
+      ["<span class='k'>\"favourites\"</span>: [",
+       "  <span class='s'>\"Afterglow — Night Drive\"</span>,",
+       "  <span class='s'>\"Lo-Fi Study Mix, Vol. 4\"</span>,",
+       "  <span class='s'>\"Live at Red Rocks, 2003\"</span>",
+       "]",
+       "<span class='d'>// yours. copy it anywhere.</span>"].forEach(function (html) {
         var sp = el("div", "", r.lines); sp.innerHTML = html;
         r.spanEls.push(sp);
       });
@@ -292,7 +313,8 @@
       return r;
     },
     update: function (r, s, u, d) {
-      var n = r.spanEls.length, cut = r.spanEls[r.spanEls.length - 1].parentNode;
+      seekSet(r.ghost.seek, clamp(u / Math.max(1, d), 0, 1));
+      eqDrive(r.ghost.eq, u, 6);
       r.spanEls.forEach(function (sp, i) {
         var k = ramp(u, 0.2 + i * 0.5, 0.4 + i * 0.5);
         sp.style.opacity = fmt(k);
@@ -305,10 +327,10 @@
     }
   };
 
-  /* ---- the catch: README honesty card ---- */
+  /* ---- the catch: README card over the running player ---- */
   ARCH.honesty_card = {
     build: function (root, s) {
-      var r = {};
+      var r = { ghost: playerWindow(root, { ghosted: true }) };
       r.doc = el("div", "mk-doc", root);
       var bar = el("div", "mk-bar", r.doc);
       el("i", "mk-dot r", bar); el("i", "mk-dot y", bar); el("i", "mk-dot g", bar);
@@ -330,6 +352,8 @@
       return r;
     },
     update: function (r, s, u, d) {
+      seekSet(r.ghost.seek, clamp(u / Math.max(1, d), 0, 1));
+      eqDrive(r.ghost.eq, u, 6);
       var w = easeSnappy(ramp(u, 0, 0.5));
       r.warn.style.opacity = fmt(w);
       r.warn.style.transform = "scale(" + fmt(0.94 + 0.06 * w) + ")";
@@ -345,9 +369,7 @@
   /* ---- endcard: the player stays on screen; CTA breathes ---- */
   ARCH.endcard = {
     build: function (root, s) {
-      var r = {};
-      r.ghost = playerWindow(root, { title: "…and nothing left to sell you." });
-      r.ghost.win.style.cssText += ";position:absolute;left:-140px;top:-300px;width:1200px;opacity:0.16;filter:saturate(0.7);pointer-events:none;";
+      var r = { ghost: playerWindow(root, { ghosted: true, title: "…and nothing left to sell you." }) };
       r.end = el("div", "mk-end", root);
       r.ring = el("div", "mk-ring", r.end);
       r.cta = el("div", "mk-cta", r.end, "COMMENT “MUSIKE”");
@@ -357,6 +379,8 @@
       return r;
     },
     update: function (r, s, u, d) {
+      seekSet(r.ghost.seek, clamp(u / Math.max(1, d), 0, 1));
+      eqDrive(r.ghost.eq, u, 6);
       var k = easeSpring(ramp(u, 0, 0.6));
       r.cta.style.opacity = fmt(k);
       r.cta.style.transform = "scale(" + fmt(0.9 + 0.1 * k) + ")";
@@ -367,7 +391,6 @@
       r.ring.style.transform = "scale(" + fmt(0.85 + 0.35 * easeOutCubic(ramp(u, 0.3, 1.2)), 3) + ")";
       r.repo.style.opacity = fmt(ramp(u, 0.8, 1.3));
       r.sub.style.opacity = fmt(ramp(u, 1.1, 1.7));
-      r.ghost.win.style.transform = "translateY(" + fmt(Math.sin(u * 0.9) * 10) + "px)";
     }
   };
 
@@ -410,7 +433,6 @@
     }
   }
   window.setTime = function (t) {
-    /* film grain: one deterministic jump per frame */
     var g = GRAIN_EL || (GRAIN_EL = document.querySelector("#postfx .grain"));
     if (g) { var fi = Math.round(t * 30); g.style.backgroundPosition = ((fi * 41) % 211) + "px " + ((fi * 97) % 173) + "px"; }
     var k = activeIndex(t);
