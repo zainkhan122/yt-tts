@@ -289,5 +289,10 @@
     "post_id": "7706422892908662034",
     "note": "3.5x channel-median outlier. Taken as lead only: proof-in-frame-one timing, one emphasised keyword per caption phrase, claim→mechanism→breadth→caveat beat order. Their browser-mock framing, yellow-pill captions, mascot end card and every script sentence stay theirs. See research/references/tiktok-github.signals-7706422892908662034/teardown.md"
   },
-  "voice_seed": 1
+  "voice_seed": 1,
+  "renderer": "graphics",
+  "graphics": {
+    "dir": "briefs/graphics/repo-musike-01",
+    "note": "player-UI template (musike): interface dominates every scene; lint is fail-closed on script/scene mismatch"
+  }
 }
