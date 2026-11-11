@@ -8,6 +8,7 @@
  */
 (function () {
   "use strict";
+  var GRAIN_EL = null;
   var D = window.DATA;
   var NS = "http://www.w3.org/2000/svg";
   var Y = "#FFD60A", BLUE = "#38BDF8", GREEN = "#4ADE80", INK = "#0C0E13", CARD = "#141925", EDGE = "#2A3140";
@@ -17,6 +18,18 @@
   var easeOutCubic = function (x) { x = clamp(x, 0, 1); return 1 - Math.pow(1 - x, 3); };
   var easeOutExpo = function (x) { x = clamp(x, 0, 1); return x >= 1 ? 1 : 1 - Math.pow(2, -10 * x); };
   var easeOutBack = function (x) { x = clamp(x, 0, 1); var c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
+  /* Pro easing (GSAP 3, vendored at graphics/templates/vendor/gsap.min.js). The engine stays a pure
+   * function of t: we only borrow GSAP's easing curves, never its ticker. */
+  var easeOutSpring = easeOutBack, easeOutSnappy = easeOutBack, easeInOutQuart = easeOutExpo, easeOutQuint = easeOutExpo;
+  if (window.gsap && window.gsap.parseEase) {
+    var pe = window.gsap.parseEase;
+    easeOutSpring = pe("elastic.out(1, 0.55)");
+    easeOutSnappy = pe("back.out(2.4)");
+    easeInOutQuart = pe("power4.inOut");
+    easeOutQuint = pe("power4.out");
+  }
+  window.EASE = { spring: easeOutSpring, snappy: easeOutSnappy, inOut: easeInOutQuart, quint: easeOutQuint,
+                  cubic: easeOutCubic, expo: easeOutExpo, back: easeOutBack };
   var fmt = function (x, n) { return Number(x).toFixed(n === undefined ? 2 : n); };
   var el = function (tag, cls, parent, text) {
     var n = document.createElement(tag);
@@ -517,6 +530,9 @@
   }
 
   window.setTime = function (t) {
+    /* film grain: jitter the noise layer once per frame — a pure function of the frame index */
+    var g = GRAIN_EL || (GRAIN_EL = document.querySelector("#postfx .grain"));
+    if (g) { var fi = Math.round(t * 30); g.style.backgroundPosition = ((fi * 41) % 211) + "px " + ((fi * 97) % 173) + "px"; }
     var k = activeIndex(t);
     D.scenes.forEach(function (s, i) { s._wrap.style.display = i === k ? "block" : "none"; });
     var s = D.scenes[k];

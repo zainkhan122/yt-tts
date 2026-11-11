@@ -32,10 +32,16 @@ def template_dir(name: str | None = None) -> Path:
 
 def build_stage_html(doc: dict) -> str:
     d = template_dir(doc.get("template"))
-    css = (d / "stage.css").read_text(encoding="utf-8")
+    shared = TEMPLATES / "shared.css"
+    css = (shared.read_text(encoding="utf-8") + "\n" if shared.exists() else "") + (d / "stage.css").read_text(encoding="utf-8")
     js = (d / "engine.js").read_text(encoding="utf-8")
-    vend = d / "vendor"
     vend_scripts = ""
+    shared_vend = TEMPLATES / "vendor"     # renderer-wide libs (gsap): every template gets pro easing
+    if shared_vend.is_dir():
+        for lib in ("gsap.min.js",):
+            if (shared_vend / lib).exists():
+                vend_scripts += f"<script src='{shared_vend.resolve().as_uri()}/{lib}'></script>"
+    vend = d / "vendor"
     if vend.is_dir():
         doc = dict(doc, vendor_url=vend.resolve().as_uri())
         for lib in ("three.min.js", "GLTFLoader.legacy.js"):
@@ -44,7 +50,9 @@ def build_stage_html(doc: dict) -> str:
     data = json.dumps(doc, ensure_ascii=False).replace("</", "<\\/")
     return (
         "<!doctype html><html><head><meta charset='utf-8'>"
-        f"<style>{css}</style></head><body><div id='stage'></div>"
+        f"<style>{css}</style></head><body><div id='stage'><div id='postfx'>"
+        "<div class='vign'></div><div class='htone'></div><div class='grain'></div>"
+        "</div></div>"
         f"<script>window.DATA={data};</script>{vend_scripts}<script>{js}</script></body></html>"
     )
 

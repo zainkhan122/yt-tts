@@ -1,0 +1,15 @@
+/* shared.css — prepended to EVERY template by render.build_stage_html.
+ * Post-processing layer (frame-critique of instagram-adilet.fndr, 2026-11-10):
+ *   1) halftone dot texture, 2) animated film grain, 3) ambient vignette.
+ * The grain's background-position is jittered once per frame by the engine's
+ * setTime() (window.GRAIN.tick) — deterministic, a pure function of the frame index.
+ */
+#postfx { position: absolute; inset: 0; pointer-events: none; z-index: 2000; }
+#postfx .htone { position: absolute; inset: 0; opacity: 0.055;
+  background-image: radial-gradient(circle, #FFFFFF 0.9px, rgba(255,255,255,0) 1.4px);
+  background-size: 7px 7px; }
+#postfx .grain { position: absolute; inset: -120px; opacity: 0.32; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 240px 240px; }
+#postfx .vign { position: absolute; inset: 0; opacity: 0.5;
+  background: radial-gradient(120% 90% at 50% 42%, rgba(0,0,0,0) 62%, rgba(0,0,0,0.34) 100%); }
