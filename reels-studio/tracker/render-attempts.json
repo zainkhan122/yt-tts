@@ -2299,9 +2299,9 @@
       "capture_id": "repo-musike-01",
       "cover_sha256": "581817288c4a68e55e702b2d9a9bbd4a0c6be6e8bb251785757b5b951ac06303",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=skipped",
       "fingerprint": "841e71fde856bf7b267f4166189edd081b6078b15d663a3551bafe0ac522fefc",
-      "finished_at": null,
+      "finished_at": "2026-11-11T09:40:38Z",
       "from_tag": "",
       "graphics_sha256": "d4fe3c3d58f67ff92ca6c39e2037cc725b6d37514a6833ec6a90a92af065a9ce",
       "quality": "high",
@@ -2309,7 +2309,7 @@
       "renderer_sha256": "b6231ff94417452d0573f5ccf592f321dcc755a9a7adefd609684c6d8b202d42",
       "run_id": "42993788582",
       "started_at": "2026-11-11T09:16:39Z",
-      "status": "started",
+      "status": "render_only_success",
       "voice_seed": 1
     },
     "852c86868cf0a5a30e5a921885a56c9ad81afb8e3d712fdf0d943438fc9e2634": {
