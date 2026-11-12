@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "batch_id": "2026-11-11-shorts-01",
-  "created_at": "2026-11-11T19:48:20Z",
+  "created_at": "2026-11-12T07:21:53Z",
   "briefs": {
     "tool-claude-tokens-01": {
       "brief_sha256": "59f86137ffcb3401ceb49776767310a260a359409a1966c6cf28ddce6021ac79",
@@ -30,15 +30,15 @@
             },
             {
               "path": "headroom.mp4",
-              "sha256": "9e595a84faad24fc038cc20766640353751b08b7f526b1c91d91ba5e5fd38766"
+              "sha256": "c150851d7e6f5ffffc42a8bc6b23005d97c5183c1bd0e3b60ea6c00d67cf04ae"
             },
             {
               "path": "omniroute.mp4",
-              "sha256": "1abe23e05c88eef5da443c14c3e1420a9cddf627905e7475d8382760d8f99e73"
+              "sha256": "977fdc973ff3824755b44d9fbc322e5b3892968c479157f4a907ad860944f876"
             },
             {
               "path": "ponytail.mp4",
-              "sha256": "2edefbb6522562414ccfa28501379e600013ce338dd9334cfd26bcac500bfe44"
+              "sha256": "e3ffe3ccf90311664f8028380ee47898e2cc44aaa70a137741e4f0730dc7bae0"
             }
           ],
           "cover_sha256": "b0fa5b18c07e0fbb4c99ed7fe3d5d9063f47bd82161d311363332c52c07e3d51",
@@ -50,8 +50,8 @@
       }
     },
     "tool-seedance-01": {
-      "brief_sha256": "9a66499cee32bc1febc77f390ced2785ea4fd52af23368702596ce97bd2ea350",
-      "brief_identity_sha256": "b3420e2b0acbce07c806b0780199d0e784a1338ff0e53935067e432432f45486",
+      "brief_sha256": "4959446bd5eadd044db87f9d51f14c3451ccfb83eb9fbddd244a0aa502114a72",
+      "brief_identity_sha256": "5474921c676664b9acbdadb57941f0f82cf872d0166a7332b406d1627c8dac70",
       "stages": {
         "script": {
           "status": "complete",
@@ -64,7 +64,7 @@
           "files": [
             {
               "path": "capcut.mp4",
-              "sha256": "cc6ee043106ddfa068a4b14eb07af17fd913b0fde39fb4c0e29702571e4adcc8"
+              "sha256": "5fec87cc1dd6df5cc806927ba4fd10dd779ac70582b886ec01e3dfe305bb0673"
             },
             {
               "path": "cinema.jpg",
@@ -72,11 +72,11 @@
             },
             {
               "path": "leaderboard.mp4",
-              "sha256": "c49e994886462c4f39134b364e35fb67332bd440e4d0c14ec5b26dd261d9206b"
+              "sha256": "87e58e413d5d0aa49524370199283436cbc7f136b0584210cdcd43252367dfbf"
             },
             {
               "path": "seedance-site.mp4",
-              "sha256": "3c533ca366ff099b8050368304704023d08aaf3e1108439e3b7836f0451423c8"
+              "sha256": "5d7832c7efcf597300f4aeedb64483fb8609f011f5ddcfe492b88cb1606c5117"
             }
           ],
           "cover_sha256": "479d3d1f2cec4706de6251d330629d52c6d751b6d68b5db045f89384fa182a52",

@@ -46,8 +46,8 @@
    "source_note": "NivaaLabs hands-on review (Apr 2026): max resolution 2K, max clip ~15 s, 'joint audio-video generation produces the most natural lip sync' vs Veo 3 and Sora 2.",
    "visual": {
     "kind": "animation",
-    "animation": "seedance-site.mp4",
-    "intent": "a spec strip builds across a playing portrait clip: 2K badge, 15s badge, waveforms under a talking face syncing — REAL screen recording of the tool/page (interface on screen, house heading + captions over it)"
+    "animation": "capcut.mp4",
+    "intent": "a spec strip builds across a playing portrait clip: 2K badge, 15s badge, waveforms under a talking face syncing — REAL screen recording of the tool/page (interface on screen, house heading + captions over it) — REAL page recording of the vendor/product site"
    },
    "title": "2K, 15 seconds, lip-synced",
    "sub": "Joint audio+video generation — talking heads sync; clips to 15 s at 2K.",
@@ -65,8 +65,8 @@
    "source_note": "heyuan110 review (Mar 2026): 'Free in CapCut, roughly $0.14 per 15-second clip via API.' CapCut is ByteDance-owned, same family as Seedance — say it, it explains the free tier.",
    "visual": {
     "kind": "animation",
-    "animation": "capcut.mp4",
-    "intent": "CapCut window with the video-model picker; a FREE stamp lands; then a tiny price tag: $0.14 / 15s clip — REAL screen recording of the tool/page (interface on screen, house heading + captions over it)"
+    "animation": "seedance-site.mp4",
+    "intent": "CapCut window with the video-model picker; a FREE stamp lands; then a tiny price tag: $0.14 / 15s clip — REAL screen recording of the tool/page (interface on screen, house heading + captions over it) — REAL page recording of the vendor/product site"
    },
    "title": "Free in CapCut today",
    "sub": "CapCut is ByteDance's own editor (same family); API is ~$0.14 per 15-second clip.",

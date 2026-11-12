@@ -62,7 +62,7 @@
     {
       "id": "point2",
       "type": "clip",
-      "src": "seedance-site.mp4",
+      "src": "capcut.mp4",
       "in": 0.0,
       "out": 14.0,
       "say": "The output is two-K, runs up to fifteen seconds a clip, and talking heads get proper lip sync — the thing most video models still fumble."
@@ -70,7 +70,7 @@
     {
       "id": "point3",
       "type": "clip",
-      "src": "capcut.mp4",
+      "src": "seedance-site.mp4",
       "in": 0.0,
       "out": 14.0,
       "say": "Here is the part the title means: it is free inside CapCut right now. No credit card for a start. If you build on it, the API is fourteen cents per clip."
@@ -193,12 +193,12 @@
     {
       "claim": "c2",
       "evidence": "source:https://nivaalabs.com/seedance-2-0-review-2026-bytedances-ai-video-generator-tested-honestly/",
-      "how_shown": "a spec strip builds across a playing portrait clip: 2K badge, 15s badge, waveforms under a talking face syncing — REAL screen recording of the tool/page (interface on screen, house heading + captions over it)"
+      "how_shown": "a spec strip builds across a playing portrait clip: 2K badge, 15s badge, waveforms under a talking face syncing — REAL screen recording of the tool/page (interface on screen, house heading + captions over it) — REAL page recording of the vendor/product site"
     },
     {
       "claim": "c3",
       "evidence": "source:https://www.heyuan110.com/posts/ai/2026-03-29-seedance-2-bytedance-ai-video/",
-      "how_shown": "CapCut window with the video-model picker; a FREE stamp lands; then a tiny price tag: $0.14 / 15s clip — REAL screen recording of the tool/page (interface on screen, house heading + captions over it)"
+      "how_shown": "CapCut window with the video-model picker; a FREE stamp lands; then a tiny price tag: $0.14 / 15s clip — REAL screen recording of the tool/page (interface on screen, house heading + captions over it) — REAL page recording of the vendor/product site"
     }
   ],
   "treatment": {

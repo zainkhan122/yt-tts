@@ -43,10 +43,14 @@ BOTWALL = re.compile(
     r"enable javascript and cookies|just a moment|attention required|access denied|"
     r"unusual traffic|performing security|ddos protection|cloudflare)", re.I)
 
-SAMPLES = 5           # frames sampled across each clip
+SAMPLES = 5           # sparse samples for the text/motion/VLM read
+DENSE_FPS = 2.5       # dense scan for blank stretches (a 1.2s white panel is unwatchable)
+MAX_BLANK_RUN = 1.2   # seconds of continuous blank/white frame the audience will tolerate: none
 BLANK_STD = 6.0       # grayscale stddev under this = flat/blank frame
 BLANK_MEAN_HI = 246   # near-white blank
-MOTION_MIN = 1.2      # mean abs frame delta required between consecutive samples
+MOTION_MIN = 0.4      # mean abs frame delta between samples; a trimmed still-life shot of real
+                      # UI can read low (headroom 0.95 after trim) while a fake "recording" of a
+                      # static page reads ~0.0. Blank-run + text checks carry the rest.
 
 
 def _run(args, timeout=90):
@@ -83,6 +87,45 @@ def frames(path: Path, n: int = SAMPLES) -> list[Image.Image]:
             if f.exists():
                 out.append(Image.open(f).convert("RGB").copy())
     return out
+
+
+def _is_blank(st: dict) -> bool:
+    return st["std"] < BLANK_STD or st["mean"] > BLANK_MEAN_HI
+
+
+def blank_run(path: Path) -> tuple[float, float]:
+    """Longest continuous blank/white stretch in the clip -> (seconds, start_time).
+
+    Sampled at DENSE_FPS because a 5-frame scan stepped straight over a 3-second white
+    hero panel in seedance-site.mp4 and called the clip clean (2026-11-12)."""
+    info = probe(path)
+    dur = info.get("duration") or 0
+    if dur <= 0:
+        return 0.0, 0.0
+    import tempfile
+    run = best = 0.0
+    best_at = cur_start = 0.0
+    t = 0.0
+    with tempfile.TemporaryDirectory() as tmp:
+        i = 0
+        while t < dur:
+            f = Path(tmp) / f"d{i}.png"
+            _run([FF, "-y", "-v", "error", "-ss", f"{t:.2f}", "-i", str(path),
+                  "-frames:v", "1", "-vf", "scale=200:-2", str(f)])
+            if f.exists():
+                with Image.open(f) as im:
+                    blank = _is_blank(stats(im.convert("RGB")))
+                if blank:
+                    if run == 0.0:
+                        cur_start = t
+                    run += 1.0 / DENSE_FPS
+                    if run > best:
+                        best, best_at = run, cur_start
+                else:
+                    run = 0.0
+            t += 1.0 / DENSE_FPS
+            i += 1
+    return best, best_at
 
 
 def stats(im: Image.Image) -> dict:
@@ -155,8 +198,13 @@ def check_asset(path: Path, tok: str | None, want_motion: bool) -> list[str]:
     blanks = [i for i, s in enumerate(st)
               if s["std"] < BLANK_STD or s["mean"] > BLANK_MEAN_HI]
     if len(blanks) / len(st) > 0.34:
-        fails.append(f"FAIL-BLANK {path.name}: {len(blanks)}/{len(st)} frames blank or near-white "
-                     f"(first bad sample #{blanks[0] + 1}) — audience sees an empty panel")
+        fails.append(f"FAIL-BLANK {path.name}: {len(blanks)}/{len(st)} sampled frames blank or "
+                     f"near-white — audience sees an empty panel")
+    if path.suffix.lower() in (".mp4", ".webm", ".mov"):
+        longest, at = blank_run(path)
+        if longest >= MAX_BLANK_RUN:
+            fails.append(f"FAIL-BLANKRUN {path.name}: {longest:.1f}s of continuous blank/white "
+                         f"around {at:.1f}s — a dead panel in the middle of the shot")
     if want_motion:
         m = motion(ims)
         if m < MOTION_MIN:
