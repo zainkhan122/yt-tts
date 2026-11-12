@@ -1673,20 +1673,16 @@
       "capture_id": "tool-seedance-01",
       "cover_sha256": "479d3d1f2cec4706de6251d330629d52c6d751b6d68b5db045f89384fa182a52",
       "crf": 22,
-      "failure_conclusion": "render=skipped publish=skipped",
+      "failure_conclusion": null,
       "fingerprint": "5c0ec2b42f115d3a2677b2d0ce9f5d39f8fa28d4167febd204c3fed085e43a2e",
-      "finished_at": "2026-11-12T08:12:44Z",
+      "finished_at": null,
       "from_tag": "",
       "quality": "looks",
       "rebuild_scenes": [],
-      "released": {
-        "at": "2026-11-12T08:37:37Z",
-        "reason": "Toolchain (python 3.14 / pip version pins) — died before any render"
-      },
       "renderer_sha256": "6ab32ae834c9fd44246e2ea0010ed468b997b212558bcf76f3d455f95a6d5242",
-      "run_id": "43180422733",
-      "started_at": "2026-11-12T08:07:55Z",
-      "status": "failed",
+      "run_id": "43184533334",
+      "started_at": "2026-11-12T08:37:59Z",
+      "status": "started",
       "voice_seed": 0
     },
     "5cbb7ce34737e687877ba28fb15d88c000e70d7ce7ba79253c76207820f1f52f": {
@@ -3642,20 +3638,16 @@
       "capture_id": "tool-claude-tokens-01",
       "cover_sha256": "b0fa5b18c07e0fbb4c99ed7fe3d5d9063f47bd82161d311363332c52c07e3d51",
       "crf": 22,
-      "failure_conclusion": "render=skipped publish=skipped",
+      "failure_conclusion": null,
       "fingerprint": "c516e373c4f5ebcb69e2c6c9e694d5b398110fd7290724f3efa6a48b9477b30c",
-      "finished_at": "2026-11-12T08:12:44Z",
+      "finished_at": null,
       "from_tag": "",
       "quality": "looks",
       "rebuild_scenes": [],
-      "released": {
-        "at": "2026-11-12T08:37:39Z",
-        "reason": "Toolchain failed before any render step"
-      },
       "renderer_sha256": "6ab32ae834c9fd44246e2ea0010ed468b997b212558bcf76f3d455f95a6d5242",
-      "run_id": "43180422733",
-      "started_at": "2026-11-12T08:07:55Z",
-      "status": "failed",
+      "run_id": "43184533334",
+      "started_at": "2026-11-12T08:37:59Z",
+      "status": "started",
       "voice_seed": 0
     },
     "c5544a4544463658617b7dc99e1c225e71e8e68d2d779c915414dca91de3e5e2": {
