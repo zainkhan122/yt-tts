@@ -11,7 +11,11 @@ RS="$(dirname "$HERE")"
 export HYPERFRAMES_NO_TELEMETRY=1 HYPERFRAMES_NO_UPDATE_CHECK=1 DO_NOT_TRACK=1 CI=1
 
 section() { echo "TOOLCHAIN-SECTION $1 $(date -u +%T)"; }
-runsec() { local name="$1"; local budget="$2"; shift 2; section "$name"; timeout "$budget" "$@" || { echo "TOOLCHAIN-STALL $name (budget ${budget}s)"; exit 24; }; }
+ran() { local name="$1"; local budget="$2"; shift 2; section "$name"; local st=0
+  timeout "$budget" "$@" || st=$?
+  if [ "$st" -eq 124 ]; then echo "TOOLCHAIN-TIMEOUT $name (hit ${budget}s budget)"; exit 24
+  elif [ "$st" -ne 0 ]; then echo "TOOLCHAIN-FAILED $name (exit $st — this is a real error, not a slow step)"; exit 25; fi; }
+runsec() { ran "$@"; }
 
 runsec sandbox-stack 1200 bash "$RS/setup/setup-sandbox.sh"
 export PATH=/usr/local/bin:$PATH   # Node 22 + hyperframes live in /usr/local (setup-sandbox.sh)
@@ -28,7 +32,15 @@ pipi() { python3 -m pip install -q "$@" 2>/dev/null || python3 -m pip install -q
 if python3 -c 'import torch, torchaudio' 2>/dev/null; then
   echo "  torch already present: $(python3 -c 'import torch;print(torch.__version__)')"
 else
-  runsec pip-torch 1500 bash -c 'python3 -m pip install -q --progress-bar off --timeout 30 --retries 5 torch==2.6.0 torchaudio==2.6.0 || python3 -m pip install -q --progress-bar off --timeout 30 --retries 5 --index-url https://download.pytorch.org/whl/cpu torch==2.6.0 torchaudio==2.6.0'
+  # F35 (2026-11-12): the old pin torch==2.6.0 no longer resolves anywhere (PyPI now starts at
+  # 2.9.0; the CPU index at 2.9.0+cpu), so the step failed instantly while being reported as a
+  # stall. Chatterbox does not need that exact build. The CPU index is tried first: its +cpu
+  # wheels are ~200MB instead of ~900MB, which is what actually protects the budget.
+  runsec pip-torch 1800 bash -c '
+    pipi() { python3 -m pip install -q --progress-bar off --timeout 60 --retries 6 --resume-retries 20 "$@"; }
+    pipi --index-url https://download.pytorch.org/whl/cpu "torch>=2.6,<3" torchaudio \
+      || pipi "torch>=2.6,<3" torchaudio'
+  python3 -c 'import torch; print("  torch:", torch.__version__)'
 fi
 runsec pip-chatterbox 600 bash -c 'python3 -m pip install -q --progress-bar off chatterbox-tts==0.1.7 || python3 -m pip install -q --break-system-packages --progress-bar off chatterbox-tts==0.1.7'
 runsec pip-voice-rest 420 bash -c 'python3 -m pip install -q --progress-bar off scipy soundfile pillow praat-parselmouth "espeakng-loader>=0.2.4" "phonemizer>=3.4.0" "onnxruntime>=1.20.1" && python3 -m pip install -q --progress-bar off --no-deps kokoro-onnx==0.6.1' || runsec pip-voice-rest-retry 420 bash -c 'python3 -m pip install -q --break-system-packages --progress-bar off scipy soundfile pillow praat-parselmouth "espeakng-loader>=0.2.4" "phonemizer>=3.4.0" "onnxruntime>=1.20.1" && python3 -m pip install -q --progress-bar off --no-deps kokoro-onnx==0.6.1'

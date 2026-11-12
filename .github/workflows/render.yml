@@ -168,7 +168,13 @@ jobs:
             ~/.cache/puppeteer
             ~/.cache/huggingface
             ~/.cache/pip
-          key: hf-0.8.137-cbx-${{ runner.os }}-${{ hashFiles('reels-studio/setup/setup-whisper.sh', 'reels-studio/setup/setup-sandbox.sh', 'reels-studio/cloud/setup-render.sh') }}
+          # F35b: the restore key must NOT hash setup-render.sh — every one-line fix to that
+          # script minted a brand-new key and threw away the warm torch/voice cache, which is
+          # what turned each repair into another cold 200MB+ install (runs 43174800070, 43176987307).
+          key: hf-0.8.137-cbx-v2-${{ runner.os }}
+          restore-keys: |
+            hf-0.8.137-cbx-v2-${{ runner.os }}
+            hf-0.8.137-cbx-
       - name: Toolchain
         run: bash reels-studio/cloud/setup-render.sh
       - name: Capture pack
@@ -233,7 +239,13 @@ jobs:
             ~/.cache/puppeteer
             ~/.cache/huggingface
             ~/.cache/pip
-          key: hf-0.8.137-cbx-${{ runner.os }}-${{ hashFiles('reels-studio/setup/setup-whisper.sh', 'reels-studio/setup/setup-sandbox.sh', 'reels-studio/cloud/setup-render.sh') }}
+          # F35b: the restore key must NOT hash setup-render.sh — every one-line fix to that
+          # script minted a brand-new key and threw away the warm torch/voice cache, which is
+          # what turned each repair into another cold 200MB+ install (runs 43174800070, 43176987307).
+          key: hf-0.8.137-cbx-v2-${{ runner.os }}
+          restore-keys: |
+            hf-0.8.137-cbx-v2-${{ runner.os }}
+            hf-0.8.137-cbx-
       - name: Toolchain
         run: bash reels-studio/cloud/setup-render.sh
       - name: Capture pack
