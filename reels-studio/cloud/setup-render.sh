@@ -19,7 +19,17 @@ echo "== python deps + APPROVED VOICE stack (owner 2026-10-09: Chatterbox, voice
 pipi() { python3 -m pip install -q "$@" 2>/dev/null || python3 -m pip install -q --break-system-packages "$@"; }
 # Order matters: CPU torch first (no 2.5 GB CUDA wheels), then Chatterbox (pins numpy<2 on py3.12), then the rest.
 # kokoro-onnx 0.6.1 (reference clip + previews) declares numpy>=2 but runs fine on 1.26 -> --no-deps + its real deps.
-runsec pip-torch 1200 bash -c 'python3 -m pip install -q --progress-bar off torch==2.6.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cpu || python3 -m pip install -q --break-system-packages --progress-bar off torch==2.6.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cpu'
+# F35 (2026-11-12): run 43174800070 died here at exactly the 1200s budget. Cause: a bare
+# `pip install torch` downloads ~200MB of CPU wheels straight from download.pytorch.org,
+# which is slow and rate-limits; a single slow attempt eats the whole budget and the job
+# dies with nothing to show. Fix: skip if already importable (the pip cache is restored by
+# actions/cache), and prefer the much bigger/faster PyPI mirror (same 2.6.0 CPU wheels)
+# before touching pytorch.org.
+if python3 -c 'import torch, torchaudio' 2>/dev/null; then
+  echo "  torch already present: $(python3 -c 'import torch;print(torch.__version__)')"
+else
+  runsec pip-torch 1500 bash -c 'python3 -m pip install -q --progress-bar off --timeout 30 --retries 5 torch==2.6.0 torchaudio==2.6.0 || python3 -m pip install -q --progress-bar off --timeout 30 --retries 5 --index-url https://download.pytorch.org/whl/cpu torch==2.6.0 torchaudio==2.6.0'
+fi
 runsec pip-chatterbox 600 bash -c 'python3 -m pip install -q --progress-bar off chatterbox-tts==0.1.7 || python3 -m pip install -q --break-system-packages --progress-bar off chatterbox-tts==0.1.7'
 runsec pip-voice-rest 420 bash -c 'python3 -m pip install -q --progress-bar off scipy soundfile pillow praat-parselmouth "espeakng-loader>=0.2.4" "phonemizer>=3.4.0" "onnxruntime>=1.20.1" && python3 -m pip install -q --progress-bar off --no-deps kokoro-onnx==0.6.1' || runsec pip-voice-rest-retry 420 bash -c 'python3 -m pip install -q --break-system-packages --progress-bar off scipy soundfile pillow praat-parselmouth "espeakng-loader>=0.2.4" "phonemizer>=3.4.0" "onnxruntime>=1.20.1" && python3 -m pip install -q --progress-bar off --no-deps kokoro-onnx==0.6.1'
 python3 -c "import chatterbox, kokoro_onnx, numpy, torch; print('voice stack ok: torch', torch.__version__, 'numpy', numpy.__version__)"
