@@ -223,6 +223,18 @@ def check_asset(path: Path, tok: str | None, want_motion: bool) -> list[str]:
     return fails
 
 
+def _resolve_capture(explicit, brief, vid) -> Path:
+    for cand in [explicit, brief.get("capture"), f"captures/{vid}", vid]:
+        if not cand:
+            continue
+        p = Path(cand)
+        for base in ([Path("/")] if p.is_absolute() else [ROOT.parent, ROOT, Path.cwd()]):
+            q = p if p.is_absolute() else base / p
+            if q.is_dir():
+                return q
+    return ROOT / "captures" / vid
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("brief")
@@ -234,7 +246,10 @@ def main() -> int:
     brief_path = Path(a.brief)
     brief = json.loads(brief_path.read_text())
     vid = brief.get("id") or brief_path.stem
-    cap = Path(a.captures) if a.captures else ROOT / "captures" / (brief.get("capture") or vid)
+    # brief["capture"] is stored repo-relative ("captures/<id>"), so joining it under ROOT
+    # produced captures/captures/<id> and the gate reported every asset MISSING in CI
+    # (run 43180422733). Accept absolute, repo-relative and bare-id forms.
+    cap = _resolve_capture(a.captures, brief, vid)
     tok = None if a.no_vlm else (os.environ.get("NVIDIA_KEY") or os.environ.get("NVIDIA_API_KEY"))
 
     referenced, seen = [], set()
