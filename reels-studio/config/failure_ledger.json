@@ -250,7 +250,7 @@
    "failure": "frame-critique video mode: (a) YouTube/TikTok CDNs refuse runner datacenter IPs (cookies/4xx) so reference videos cannot be downloaded in CI; (b) NVIDIA hosted catalog currently ships NO video-capable model (cosmos-* all 404); (c) dense-1fps fallback works (56 frames logged on video 1) but costs ~25 min/video against flaky free endpoints.",
    "fix": "Videos are staged via the ext-videos b64 channel (uploaded from a residential sandbox, decoded in-CI). video_critique auto-detects the empty video catalog and falls back to 1 fps frames + synthesis; use it for deep teardowns only, and rely on local frame inspection (read_file on sampled jpgs) for speed.",
    "status": "enforced",
-   "enforced_by": "frame-critique.yml video mode (ext-videos staging) + tools/video_critique.py frame_teardown fallback"
+   "enforced_by": "tools/video_critique.py::frame_teardown"
   },
   {
    "id": "F29",
@@ -259,15 +259,16 @@
    "failure": "Two voice jobs burned full 60-minute timeouts with no signal: the runner's apt mirror DNS (azure.archive.ubuntu.com) failed intermittently and apt retried silently for an hour.",
    "fix": "setup-render.sh sections are timed+named (TOOLCHAIN-SECTION markers, kill at budget with TOOLCHAIN-STALL name); setup-sandbox.sh apt calls IPv4-forced with 5x retry and auto-switch sources to archive.ubuntu.com.",
    "status": "enforced",
-   "enforced_by": "cloud/setup-render.sh runsec + setup/setup-sandbox.sh APT_RETRY"
+   "enforced_by": "cloud/setup-render.sh::runsec"
   },
   {
    "id": "F30",
    "date": "2026-11-11",
    "run": "43063520899",
-   "failure": "Both videos fully rendered and QA-passed, then failed at the seo_pack gate: keyword not within first-N words per platform and no keyword-derived hashtag — discovered after a full render cycle.",
-   "fix": "seo_pack is runnable standalone BEFORE rendering; plans now satisfy SP060/SP071/SP100/SP102/SP104 at plan time. Rule of thumb: keyword phrase verbatim in the first 4 words of YouTube title + first 8/10 words of captions, plus one hashtag built from the keyword.",
-   "status": "open"
+   "failure": "SEO pack was evaluated only after a full render, so two complete render cycles (video + QA green) died at the gate.",
+   "fix": "seo_pack now runs inside brief_from_plan, before a brief is ever written.",
+   "status": "enforced",
+   "enforced_by": "tools/brief_from_plan.py::seo_pack"
   },
   {
    "id": "F31",
@@ -277,6 +278,54 @@
    "fix": "tools/housekeeping.py — run before every big op: (1) git fsck must be clean or BLOCK pushes; (2) renders dir keeps only the current 2 builds; (3) 250 MB hard cap. Reset history to one clean snapshot (3abb020) — file state preserved.",
    "status": "enforced",
    "enforced_by": "tools/housekeeping.py"
+  },
+  {
+   "id": "F34",
+   "date": "2026-11-12",
+   "failure": "Five render cycles shipped text-on-grid shorts: no gate ever looked at the pixels, and the vision critique artifact was never read.",
+   "fix": "ui_proof_gate measures every referenced asset before render (blank, blank-run, static, no-text, bot wall, optional VLM) and fails the job.",
+   "status": "enforced",
+   "enforced_by": "tools/ui_proof_gate.py::check_asset"
+  },
+  {
+   "id": "F35",
+   "date": "2026-11-12",
+   "failure": "ubuntu-26.04 ships python 3.14 and torch 2.6.0 was purged; pip reported both as missing packages while the toolchain wrapper called every failure a stall.",
+   "fix": "python pinned to 3.12, torch resolved as >=2.6,<3 from the CPU index, and ran() now separates TIMEOUT from FAILED.",
+   "status": "enforced",
+   "enforced_by": "cloud/setup-render.sh::ran"
+  },
+  {
+   "id": "F36",
+   "date": "2026-11-12",
+   "failure": "The whole voice stack declares Requires-Python <3.14, so on the runner's default 3.14 pip could only see ancient releases.",
+   "fix": "ubuntu-26.04 ships python 3.14 and the whole voice stack declares <3.14, so pip could only see ancient releases; .github/workflows/render.yml now pins 3.12 via setup-python in the voice and render jobs, and the toolchain reports TIMEOUT vs FAILED honestly.",
+   "status": "enforced",
+   "enforced_by": "cloud/setup-render.sh::ran"
+  },
+  {
+   "id": "F37",
+   "date": "2026-11-12",
+   "failure": "ui_proof_gate joined the brief's repo-relative capture path under ROOT, producing captures/captures/<id> and false-failing every asset.",
+   "fix": "Path resolution accepts absolute, repo-relative and bare-id forms.",
+   "status": "enforced",
+   "enforced_by": "tools/ui_proof_gate.py::_resolve_capture"
+  },
+  {
+   "id": "F38",
+   "date": "2026-11-12",
+   "failure": "A dispatch that died in Toolchain permanently burned the brief's input fingerprint, so every retry was refused as duplicate input.",
+   "fix": "release subcommand frees reservations from pre-render deaths only, and refuses anything that reached the renderer.",
+   "status": "enforced",
+   "enforced_by": "tools/render_attempts.py::release_attempt"
+  },
+  {
+   "id": "F39",
+   "date": "2026-11-12",
+   "failure": "Workspace ballooned to 143MB with stale renders, and the first delivery-cleanup draft would have deleted a live deliverable.",
+   "fix": "housekeeping prunes stale renders, groups same-window delivery folders as one batch, keeps fsck clean, enforces the 250MB cap.",
+   "status": "enforced",
+   "enforced_by": "tools/housekeeping.py::delivery_cleanup"
   }
  ]
 }

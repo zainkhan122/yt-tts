@@ -1,0 +1,91 @@
+{
+ "tool": {
+  "name": "Seedance 2.0",
+  "repo_url": "https://seed.bytedance.com/en/",
+  "category": "AI video generator",
+  "license": "Proprietary"
+ },
+ "features": [
+  {
+   "id": "f1",
+   "title": "Blind-vote leaderboard",
+   "what": "Independent Artificial Analysis arena where people vote on clips without knowing the model.",
+   "items": [
+    "Blind voting",
+    "Elo 1,269",
+    "Ahead of Veo 3"
+   ],
+   "metric": {
+    "value": 1269,
+    "unit": "ELO"
+   },
+   "evidence_quote": "independent arena, blind votes put\nSeedance 2.0 at Elo 1269"
+  },
+  {
+   "id": "f2",
+   "title": "Veo 3 is behind it",
+   "what": "Veo 3 scored about 1,226 on the same blind board, so the gap is real but small.",
+   "items": [
+    "Veo 3 about 1,226",
+    "Gap about 43 points",
+    "Same blind board"
+   ],
+   "metric": {
+    "value": 1226,
+    "unit": "ELO"
+   },
+   "evidence_quote": "veo 3 about 1226 on the same blind board"
+  },
+  {
+   "id": "f3",
+   "title": "2K clips, 15 seconds",
+   "what": "Output is 2K resolution and up to fifteen seconds per clip with real lip sync.",
+   "items": [
+    "2K output",
+    "15 second clips",
+    "Lip sync on talking heads"
+   ],
+   "metric": {
+    "value": 2,
+    "unit": "K"
+   },
+   "evidence_quote": "2K, fifteen second clips, lip sync on talking heads"
+  },
+  {
+   "id": "f4",
+   "title": "Free inside CapCut",
+   "what": "CapCut is ByteDance's own editor, and Seedance runs free there today without a card.",
+   "items": [
+    "Free in CapCut",
+    "No card to start",
+    "ByteDance owns both"
+   ],
+   "evidence_quote": "free in capcut today, no card to start"
+  },
+  {
+   "id": "f5",
+   "title": "The access catch",
+   "what": "Access outside China is messy and ByteDance's own benchmark is self-reported.",
+   "items": [
+    "Access outside China messy",
+    "Own benchmark self-reported",
+    "Only the arena is independent"
+   ],
+   "evidence_quote": "access outside china is messy"
+  }
+ ],
+ "risks": [
+  {
+   "text": "access outside China is messy",
+   "severity": "medium"
+  },
+  {
+   "text": "vendor benchmark is self-reported",
+   "severity": "medium"
+  }
+ ],
+ "source_urls": [
+  "https://nivaalabs.com/",
+  "https://seed.bytedance.com/en/"
+ ]
+}

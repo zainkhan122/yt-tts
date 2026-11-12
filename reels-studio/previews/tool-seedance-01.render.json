@@ -1,0 +1,49 @@
+{
+ "brief": "tool-seedance-01",
+ "duration_s": 45.041,
+ "scenes": [
+  {
+   "id": "s00",
+   "archetype": "hero_hook",
+   "t0": 0.0,
+   "t1": 3.632
+  },
+  {
+   "id": "s01",
+   "archetype": "scan_tick",
+   "t0": 3.632,
+   "t1": 12.457
+  },
+  {
+   "id": "s02",
+   "archetype": "gauge_dial",
+   "t0": 12.457,
+   "t1": 19.97
+  },
+  {
+   "id": "s03",
+   "archetype": "wave_select",
+   "t0": 19.97,
+   "t1": 28.389
+  },
+  {
+   "id": "s04",
+   "archetype": "name_collision",
+   "t0": 28.389,
+   "t1": 40.302
+  },
+  {
+   "id": "s05",
+   "archetype": "endcard",
+   "t0": 40.302,
+   "t1": 45.041
+  }
+ ],
+ "render": {
+  "frames": 1351,
+  "fps": 30,
+  "duration_s": 45.0405,
+  "out": "/home/user/yt-tts/reels-studio/renders/tool-seedance-01/tool-seedance-01.mp4",
+  "html": "/home/user/yt-tts/reels-studio/renders/tool-seedance-01/gfx-tool-seedance-01-0tjw1ll2/stage.html"
+ }
+}

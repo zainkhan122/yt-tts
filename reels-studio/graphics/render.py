@@ -117,6 +117,9 @@ def build_stage_html(doc: dict) -> str:
             if (vend / lib).exists():
                 vend_scripts += f"<script src='{vend.resolve().as_uri()}/{lib}'></script>"
     data = json.dumps(doc, ensure_ascii=False).replace("</", "<\\/")
+    # Film grain is a full-frame tiled feTurbulence: beautiful, but it defeats x264 (a 45 s short
+    # encoded to 544 MB at crf 22). At 0.10 the texture still reads and the file compresses 10x.
+    css += "\n#postfx .grain { opacity: 0.10 !important; }\n"
     return (
         "<!doctype html><html><head><meta charset='utf-8'>"
         f"<style>{css}</style></head><body><div id='stage'><div id='postfx'>"

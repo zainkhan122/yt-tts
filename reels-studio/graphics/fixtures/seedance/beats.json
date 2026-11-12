@@ -1,0 +1,96 @@
+{
+ "tool": "seedance-2-0",
+ "script_sha256": "sha256:266fa621c627bbfb867271907af04092df02f14cc8a476623d0da329b4a55ae3",
+ "handle": "@hypeless",
+ "scenes": [
+  {
+   "scene_id": "hook",
+   "phrase": 0,
+   "archetype": "concept_card",
+   "headline": "BEATS VEO 3 — FREE",
+   "feature_id": null,
+   "depicts": "beating veo 3 for free",
+   "payload": {
+    "big": "WHO IS BEATING VEO 3?",
+    "sub": "And letting you generate for free"
+   }
+  },
+  {
+   "scene_id": "point1",
+   "phrase": 1,
+   "archetype": "stat_pop",
+   "headline": "THE BLIND LEADERBOARD",
+   "feature_id": "f1",
+   "depicts": "leaderboard where people vote on ai videos without knowing which model made them",
+   "payload": {
+    "value": 1269,
+    "unit": "ELO",
+    "sub": "Blind votes, nobody knows the model"
+   },
+   "cue_word": "vote"
+  },
+  {
+   "scene_id": "point2",
+   "phrase": 2,
+   "archetype": "flow_link",
+   "headline": "WHAT YOU GET",
+   "feature_id": "f3",
+   "depicts": "two K output runs fifteen seconds with lip sync on talking heads",
+   "payload": {
+    "nodes": [
+     "2K output",
+     "15 second clips",
+     "Real lip sync"
+    ]
+   }
+  },
+  {
+   "scene_id": "point3",
+   "phrase": 3,
+   "archetype": "toggle_steps",
+   "headline": "FREE INSIDE CAPCUT",
+   "feature_id": "f4",
+   "depicts": "free inside capcut right now, no credit card",
+   "payload": {
+    "steps": [
+     "Open CapCut",
+     "Pick Seedance",
+     "No card needed"
+    ],
+    "done": 2
+   },
+   "cue_word": "free"
+  },
+  {
+   "scene_id": "catch",
+   "phrase": 4,
+   "archetype": "chip_grid",
+   "headline": "THE HONEST CATCH",
+   "feature_id": "f5",
+   "depicts": "access outside china is messy and the benchmark is self reported",
+   "payload": {
+    "chips": [
+     "Access outside China is messy",
+     "Vendor benchmark is self-reported",
+     "Only the arena is independent"
+    ],
+    "highlight": 2
+   }
+  },
+  {
+   "scene_id": "cta",
+   "phrase": 5,
+   "archetype": "cta_stack",
+   "headline": "YOUR CALL",
+   "feature_id": null,
+   "depicts": "what would you test first, lip sync or 2K, comment video",
+   "payload": {
+    "lines": [
+     "Lip sync or 2K first?",
+     "Comment VIDEO",
+     "Leaderboard link pinned"
+    ]
+   }
+  }
+ ]
+}

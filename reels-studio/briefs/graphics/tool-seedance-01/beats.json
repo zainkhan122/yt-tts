@@ -1,0 +1,112 @@
+{
+ "tool": "seedance-2-0",
+ "handle": "@hypeless",
+ "template": "velocity-black",
+ "script_sha256": "sha256:3a6c844dc9baafbced6d6a19badfec4740ca2f16b0a8a342cc546049a16ad0db",
+ "scenes": [
+  {
+   "scene_id": "hook",
+   "phrase": 0,
+   "archetype": "hero_hook",
+   "headline": "WHO IS BEATING VEO 3?",
+   "feature_id": null,
+   "depicts": "someone is beating veo 3 and letting you generate for free",
+   "payload": {
+    "hero": "seedance-arena.jpg",
+    "mode": "chaos",
+    "accent_words": [
+     "beating",
+     "veo",
+     "free"
+    ]
+   },
+   "cue_word": "beating",
+   "sub": "SEEDANCE · FREE · NO CARD"
+  },
+  {
+   "scene_id": "point1",
+   "phrase": 1,
+   "archetype": "scan_tick",
+   "headline": "THE BLIND LEADERBOARD",
+   "feature_id": "f1",
+   "depicts": "a leaderboard where people vote on ai videos without knowing which model made them",
+   "payload": {
+    "seconds": 4,
+    "found_label": "ELO 1269",
+    "label": "BLIND VOTES, MODEL HIDDEN",
+    "accent_words": [
+     "leaderboard",
+     "vote",
+     "without",
+     "knowing"
+    ]
+   },
+   "cue_word": "leaderboard"
+  },
+  {
+   "scene_id": "point2",
+   "phrase": 2,
+   "archetype": "gauge_dial",
+   "headline": "WHAT YOU ACTUALLY GET",
+   "feature_id": "f2",
+   "depicts": "two K output runs fifteen seconds a clip and talking heads get proper lip sync",
+   "payload": {
+    "label": "SEEDANCE 1269  /  VEO 3 1226",
+    "from_deg": 0,
+    "to_deg": 43,
+    "note": "43 ELO POINTS ON BLIND VOTES"
+   }
+  },
+  {
+   "scene_id": "point3",
+   "phrase": 3,
+   "archetype": "wave_select",
+   "headline": "WHAT IT COSTS",
+   "feature_id": "f4",
+   "depicts": "it is free inside capcut right now with no credit card for a start",
+   "payload": {
+    "keep_label": "FREE INSIDE CAPCUT",
+    "drop_label": "14 CENTS A CLIP ON THE API"
+   },
+   "cue_word": "free"
+  },
+  {
+   "scene_id": "catch",
+   "phrase": 4,
+   "archetype": "name_collision",
+   "headline": "THE HONEST CATCH",
+   "feature_id": null,
+   "depicts": "access outside china is messy and bytedance own benchmark is self reported",
+   "payload": {
+    "label_a": "VENDOR SAYS",
+    "label_b": "ARENA SAYS",
+    "verdicts": [
+     "self-reported",
+     "blind votes"
+    ],
+    "accent_words": [
+     "access",
+     "messy",
+     "self",
+     "reported",
+     "independent"
+    ]
+   }
+  },
+  {
+   "scene_id": "cta",
+   "phrase": 5,
+   "archetype": "endcard",
+   "headline": "YOUR CALL",
+   "feature_id": null,
+   "depicts": "what would you test first lip sync or 2K comment video",
+   "payload": {
+    "keyword": "VIDEO",
+    "follow": "Follow for one honest tool a day",
+    "lines": [
+     "Lip sync or 2K first?"
+    ]
+   }
+  }
+ ]
+}

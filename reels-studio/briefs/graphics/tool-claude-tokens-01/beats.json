@@ -1,0 +1,104 @@
+{
+ "tool": "claude-token-savers",
+ "handle": "@hypeless",
+ "template": "velocity-black",
+ "scenes": [
+  {
+   "scene_id": "hook",
+   "phrase": 0,
+   "archetype": "hero_hook",
+   "headline": "CLAUDE CODE TOKEN LIMIT: FOUR FIXES",
+   "feature_id": null,
+   "depicts": "claude code hitting its token limit mid task",
+   "payload": {
+    "hero": "claude-headroom.jpg",
+    "mode": "chaos",
+    "accent_words": [
+     "limit",
+     "reached",
+     "optional"
+    ]
+   },
+   "cue_word": "limit",
+   "sub": "FOUR FREE PLUGINS · NOT BY ANTHROPIC"
+  },
+  {
+   "scene_id": "point1",
+   "phrase": 1,
+   "archetype": "scan_tick",
+   "headline": "INPUT, BEFORE IT IS READ",
+   "feature_id": "f1",
+   "depicts": "headroom compresses tool output logs files and rag chunks before the agent reads them",
+   "payload": {
+    "seconds": 4,
+    "label": "COMPRESSED BEFORE THE AGENT READS IT",
+    "found_label": "95% FEWER TOKENS"
+   }
+  },
+  {
+   "scene_id": "point2",
+   "phrase": 2,
+   "archetype": "gauge_dial",
+   "headline": "OUTPUT, BEFORE IT IS WRITTEN",
+   "feature_id": "f2",
+   "depicts": "ponytail makes the agent write less code and reports 54 percent less",
+   "payload": {
+    "label": "LESS CODE WRITTEN",
+    "from_deg": 0,
+    "to_deg": 194,
+    "note": "Ponytail's own benchmark",
+    "accent_words": [
+     "write",
+     "less",
+     "code"
+    ]
+   }
+  },
+  {
+   "scene_id": "point3",
+   "phrase": 3,
+   "archetype": "wave_select",
+   "headline": "ROUTE AROUND THE LIMIT",
+   "feature_id": "f3",
+   "depicts": "omniroute routes around the limit to third party free tiers with 352 providers",
+   "payload": {
+    "keep_label": "352 PROVIDERS ROUTED",
+    "drop_label": "1.47B FREE TOKENS A MONTH"
+   }
+  },
+  {
+   "scene_id": "catch",
+   "phrase": 4,
+   "archetype": "quote_card",
+   "headline": "THE HONEST CATCH",
+   "feature_id": null,
+   "depicts": "these are third party plugins and the numbers are vendor reported",
+   "payload": {
+    "quote": "None of these is made by Anthropic.",
+    "source": "the plugins' own READMEs",
+    "context": "So measure your own repo before believing the numbers.",
+    "accent_words": [
+     "anthropic",
+     "own",
+     "repo"
+    ]
+   }
+  },
+  {
+   "scene_id": "cta",
+   "phrase": 5,
+   "archetype": "endcard",
+   "headline": "YOUR CALL",
+   "feature_id": null,
+   "depicts": "which limit bites you first input output or session comment limit",
+   "payload": {
+    "keyword": "LIMIT",
+    "follow": "Follow for one honest tool a day",
+    "lines": [
+     "Input, output, or session?"
+    ]
+   }
+  }
+ ],
+ "script_sha256": "sha256:27b949644e27b8007c2d3deb608e67262f5436c032c38cc0c2f88b67ac0872ae"
+}

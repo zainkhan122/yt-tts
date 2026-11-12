@@ -1,0 +1,87 @@
+{
+ "tool": {
+  "name": "Claude Code token savers",
+  "repo_url": "https://github.com/cherylaurelia/headroom",
+  "category": "AI coding agent plugins",
+  "license": "mixed open source"
+ },
+ "features": [
+  {
+   "id": "f1",
+   "title": "Headroom compresses input",
+   "what": "Compresses logs, tool output and RAG chunks before the agent reads them.",
+   "items": [
+    "60-95% fewer tokens on JSON",
+    "15-20% on coding agents",
+    "Lossless where it can be"
+   ],
+   "metric": {
+    "value": 95,
+    "unit": "%"
+   },
+   "evidence_quote": "60 to 95 percent fewer tokens for JSON"
+  },
+  {
+   "id": "f2",
+   "title": "Ponytail writes less",
+   "what": "Makes the agent produce less code in the first place.",
+   "items": [
+    "54% less code",
+    "20% cheaper",
+    "Own benchmark"
+   ],
+   "metric": {
+    "value": 54,
+    "unit": "%"
+   },
+   "evidence_quote": "54 percent less code"
+  },
+  {
+   "id": "f3",
+   "title": "OmniRoute reroutes",
+   "what": "Sends work to free third-party providers when the limit hits.",
+   "items": [
+    "352 providers",
+    "1.47B free tokens/month claimed",
+    "One env var"
+   ],
+   "metric": {
+    "value": 352,
+    "unit": "PROVIDERS"
+   },
+   "evidence_quote": "352 providers"
+  },
+  {
+   "id": "f4",
+   "title": "Graphify maps once",
+   "what": "Builds a local codebase map so the agent stops re-reading.",
+   "items": [
+    "Local map",
+    "No re-reading",
+    "One time cost"
+   ],
+   "evidence_quote": "maps a codebase once, locally"
+  },
+  {
+   "id": "f5",
+   "title": "Not made by Anthropic",
+   "what": "Third-party plugins; the savings numbers are the authors' own benchmarks.",
+   "items": [
+    "Third party",
+    "Vendor reported",
+    "Measure your repo"
+   ],
+   "evidence_quote": "none of them is made by Anthropic"
+  }
+ ],
+ "risks": [
+  {
+   "text": "numbers are vendor reported",
+   "severity": "medium"
+  }
+ ],
+ "source_urls": [
+  "https://github.com/cherylaurelia/headroom",
+  "https://github.com/DietrichGebert/ponytail"
+ ]
+}
