@@ -175,8 +175,18 @@ jobs:
           restore-keys: |
             hf-0.8.137-cbx-v2-${{ runner.os }}
             hf-0.8.137-cbx-
+      # F36 (2026-11-12): the ubuntu-26.04 image runs python3 = 3.14, and the entire approved
+      # voice stack (kokoro-onnx 0.6.x, chatterbox, torch wheels) declares Requires-Python
+      # <3.14. On 3.14 pip silently saw only ancient releases — "No matching distribution found
+      # for kokoro-onnx==0.6.1, from versions: ... 0.4.7" — which read like a missing package.
+      # Pin the interpreter the stack was validated on.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - name: Toolchain
-        run: bash reels-studio/cloud/setup-render.sh
+        run: |
+          python3 -VV
+          bash reels-studio/cloud/setup-render.sh
       - name: Capture pack
         run: python3 reels-studio/tools/capture_store.py pull-for "$BRIEF"
       # Owner rule 2026-11-12: five full render cycles shipped text-on-grid shorts because no
@@ -246,8 +256,18 @@ jobs:
           restore-keys: |
             hf-0.8.137-cbx-v2-${{ runner.os }}
             hf-0.8.137-cbx-
+      # F36 (2026-11-12): the ubuntu-26.04 image runs python3 = 3.14, and the entire approved
+      # voice stack (kokoro-onnx 0.6.x, chatterbox, torch wheels) declares Requires-Python
+      # <3.14. On 3.14 pip silently saw only ancient releases — "No matching distribution found
+      # for kokoro-onnx==0.6.1, from versions: ... 0.4.7" — which read like a missing package.
+      # Pin the interpreter the stack was validated on.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - name: Toolchain
-        run: bash reels-studio/cloud/setup-render.sh
+        run: |
+          python3 -VV
+          bash reels-studio/cloud/setup-render.sh
       - name: Capture pack
         run: python3 reels-studio/tools/capture_store.py pull-for "$BRIEF"
       - name: Create per-brief receipt
