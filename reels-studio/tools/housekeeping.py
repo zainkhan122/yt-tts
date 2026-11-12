@@ -41,6 +41,28 @@ def render_cleanup(dry: bool):
         print("renders: clean under cap")
 
 
+def delivery_cleanup(dry: bool):
+    """deliveries/<id>/ holds the REVIEWED artifacts pulled from a green run.
+
+    Rule: keep the current batch only. Source of truth is the Actions artifact + Release, so
+    keeping local copies of finished work is what filled the disk (2026-11-12).
+    Folders written inside the same 6h window are ONE delivery: deleting per-folder removed a
+    live deliverable whose mtime was older (caught by --dry-run).
+    """
+    d = WORKSPACE / "deliveries"
+    if not d.exists():
+        return
+    folders = sorted([x for x in d.iterdir() if x.is_dir()], key=lambda p: p.stat().st_mtime, reverse=True)
+    if not folders:
+        return
+    newest = folders[0].stat().st_mtime
+    keep = {f for f in folders if newest - f.stat().st_mtime < 6 * 3600}
+    for old in [f for f in folders if f not in keep]:
+        print(f"deliveries: removing superseded batch {old.name}")
+        if not dry:
+            shutil.rmtree(old)
+
+
 def git_health():
     """Fail if the pushed dag is broken anywhere we rely on (fatal for push / gc later)."""
     r = subprocess.run(["git", "fsck", "--no-progress"], capture_output=True, text=True, cwd=YT)
@@ -72,6 +94,7 @@ if __name__ == "__main__":
     print(f"housekeeping (dry={dry}, cap={cap} MB)")
     ok = git_health()
     render_cleanup(dry)
+    delivery_cleanup(dry)
     # captures & covers stay — they are versioned sources of truth, tiny enough now (7.3MB+2.2MB)
     stats(cap)
     sys.exit(0 if ok else 1)
