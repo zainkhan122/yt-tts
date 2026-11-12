@@ -147,6 +147,35 @@ def _registry_defaults(registry: dict) -> dict:
     return registry
 
 
+PRE_RENDER_STEPS = {
+    "toolchain", "set up job", "run actions/checkout@v4", "run actions/cache@v4",
+    "capture pack", "ui proof (no text-card shorts, ever)", "create per-brief receipt",
+    "reserve unique input fingerprints (write-ahead idempotency lock)",
+}
+
+
+def release_attempt(registry: dict, brief_id: str, reason: str) -> dict:
+    """Release a reservation that never reached the renderer.
+
+    A dispatch that dies in Toolchain / Capture pack / UI proof / receipt produced NO video,
+    so it must not consume the brief's input fingerprint forever. This is deliberately
+    fail-closed: it only accepts a reason naming a pre-render stage, and it records the
+    release on the attempt so the audit trail keeps the wasted cycle visible.
+    """
+    if not any(stage in (reason or "").lower() for stage in PRE_RENDER_STEPS):
+        raise ValueError(
+            f"refusing to release {brief_id}: reason must name the pre-render stage it died in "
+            f"(one of: {sorted(PRE_RENDER_STEPS)[:4]}...). A failed render attempt is a real "
+            f"render attempt and stays locked.")
+    registry = _registry_defaults(json.loads(json.dumps(registry)))
+    hits = [fp for fp, row in registry["attempts"].items() if row.get("brief_id") == brief_id]
+    if not hits:
+        return registry
+    for fp in hits:
+        registry["attempts"][fp]["released"] = {"at": iso_now(), "reason": reason}
+    return registry
+
+
 def check_registry(registry: dict, attempts: list[dict]) -> None:
     registry = _registry_defaults(registry)
     known = registry["attempts"]
@@ -163,6 +192,8 @@ def check_registry(registry: dict, attempts: list[dict]) -> None:
                         "edit the content/voice seed for a new version, or use the reasoned scene-rebuild path"
                     )
         previous = known.get(candidate["fingerprint"])
+        if previous and previous.get("released"):
+            previous = None
         if previous:
             kind = "scene rebuild" if is_scene_rebuild else "render"
             recovery = ("correct the scene source or renderer before another rebuild" if is_scene_rebuild else
@@ -260,7 +291,21 @@ def main(argv=None) -> int:
     p.add_argument("--run-id", required=True)
     p.add_argument("--status", required=True, choices=["success", "render_only_success", "failed", "render_succeeded_publish_failed", "scene_rebuild_success", "cancelled"])
     p.add_argument("--conclusion", default="")
+    r = sub.add_parser("release", help="release reservations from attempts that died BEFORE rendering")
+    r.add_argument("--brief", required=True)
+    r.add_argument("--reason", required=True, help="name the pre-render stage it died in")
     args = parser.parse_args(argv)
+    if args.command == "release":
+        try:
+            gh_actions, reg, sha, _raw = _remote_registry()
+            new = release_attempt(reg, args.brief, args.reason)
+            _save_remote(gh_actions, new, sha,
+                         message=f"render: release pre-render attempt for {args.brief}")
+        except Exception as exc:
+            print(f"release refused/failed: {type(exc).__name__}: {exc}", file=__import__("sys").stderr)
+            return 2
+        print(f"released pre-render attempt for {args.brief}: {args.reason}")
+        return 0
     try:
         finish_remote(args.run_id, args.status, conclusion=args.conclusion or None)
     except Exception as exc:
