@@ -1,95 +1,134 @@
 {
  "tool": "seedance-2-0",
  "handle": "@hypeless",
- "template": "velocity-black",
+ "template": "pulse",
  "script_sha256": "sha256:3a6c844dc9baafbced6d6a19badfec4740ca2f16b0a8a342cc546049a16ad0db",
  "scenes": [
   {
    "scene_id": "hook",
    "phrase": 0,
-   "archetype": "hero_hook",
+   "archetype": "title_burst",
    "headline": "WHO IS BEATING VEO 3?",
    "feature_id": null,
-   "depicts": "someone is beating veo 3 and letting you generate for free",
+   "depicts": "who is beating veo 3 and letting you generate for free",
+   "cue_word": "beating",
    "payload": {
-    "hero": "seedance-arena.jpg",
-    "mode": "chaos",
-    "accent_words": [
+    "kicker": "BLIND ARENA · TEXT TO VIDEO",
+    "title": "WHO IS BEATING VEO 3?",
+    "chips": [
+     "FREE TO START",
+     "2K OUTPUT"
+    ],
+    "cue_phrases": [
      "beating",
-     "veo",
      "free"
     ]
-   },
-   "cue_word": "beating",
-   "sub": "SEEDANCE · FREE · NO CARD"
+   }
   },
   {
    "scene_id": "point1",
    "phrase": 1,
-   "archetype": "scan_tick",
+   "archetype": "sonar_scan",
    "headline": "THE BLIND LEADERBOARD",
    "feature_id": "f1",
-   "depicts": "a leaderboard where people vote on ai videos without knowing which model made them",
+   "depicts": "there is a leaderboard where people vote on AI videos without knowing the model",
    "payload": {
     "seconds": 4,
-    "found_label": "ELO 1269",
-    "label": "BLIND VOTES, MODEL HIDDEN",
-    "accent_words": [
-     "leaderboard",
-     "vote",
-     "without",
-     "knowing"
+    "found": "TOP OF THE BLIND BOARD",
+    "value": "1,269",
+    "cue_phrases": [
+     "leaderboard"
     ]
-   },
-   "cue_word": "leaderboard"
+   }
   },
   {
    "scene_id": "point2",
    "phrase": 2,
-   "archetype": "gauge_dial",
+   "archetype": "spec_plates",
    "headline": "WHAT YOU ACTUALLY GET",
-   "feature_id": "f2",
-   "depicts": "two K output runs fifteen seconds a clip and talking heads get proper lip sync",
+   "feature_id": "f3",
+   "depicts": "the output is two-k runs fifteen seconds and talking heads get lip sync",
    "payload": {
-    "label": "SEEDANCE 1269  /  VEO 3 1226",
-    "from_deg": 0,
-    "to_deg": 43,
-    "note": "BLIND VOTES, MODEL HIDDEN",
-    "readout": "43 ELO"
+    "plates": [
+     {
+      "k": "RESOLUTION",
+      "v": "2K",
+      "s": "four times a 720p clip"
+     },
+     {
+      "k": "CLIP LENGTH",
+      "v": "15 SEC",
+      "s": "one continuous shot"
+     },
+     {
+      "k": "LIP SYNC",
+      "v": "ON",
+      "s": "talking heads hold up"
+     }
+    ],
+    "cue_phrases": [
+     "resolution",
+     "fifteen",
+     "lip"
+    ]
    }
   },
   {
    "scene_id": "point3",
    "phrase": 3,
-   "archetype": "wave_select",
+   "archetype": "versus_split",
    "headline": "WHAT IT COSTS",
    "feature_id": "f4",
-   "depicts": "it is free inside capcut right now with no credit card for a start",
+   "depicts": "it is free inside capcut and fourteen cents a clip on the api",
    "payload": {
-    "keep_label": "FREE INSIDE CAPCUT",
-    "drop_label": "14 CENTS A CLIP ON THE API"
-   },
-   "cue_word": "free"
+    "tag": "TWO DOORS, ONE TOOL",
+    "left": {
+     "who": "INSIDE CAPCUT",
+     "big": "FREE",
+     "sub": "no card to start today"
+    },
+    "right": {
+     "who": "ON THE API",
+     "big": "14¢",
+     "sub": "per clip once you build"
+    },
+    "cue_phrases": [
+     "free",
+     "fourteen"
+    ]
+   }
   },
   {
    "scene_id": "catch",
    "phrase": 4,
-   "archetype": "name_collision",
+   "archetype": "verdict_stack",
    "headline": "THE HONEST CATCH",
-   "feature_id": null,
-   "depicts": "access outside china is messy and bytedance own benchmark is self reported",
+   "feature_id": "f2",
+   "depicts": "the vendor benchmark is self reported so trust the independent arena numbers",
    "payload": {
-    "label_a": "VENDOR SAYS",
-    "label_b": "ARENA SAYS",
-    "verdicts": [
-     "self-reported",
-     "blind votes"
+    "tag": "WHO DO YOU BELIEVE",
+    "rows": [
+     {
+      "t": "VENDOR BENCHMARK",
+      "v": "1269",
+      "sub": "self reported",
+      "kind": "warn"
+     },
+     {
+      "t": "INDEPENDENT ARENA",
+      "v": "1269",
+      "sub": "blind votes",
+      "kind": "ok"
+     },
+     {
+      "t": "VEO 3, SAME BOARD",
+      "v": "1226",
+      "sub": "43 points back",
+      "kind": "ok"
+     }
     ],
-    "accent_words": [
-     "access",
-     "messy",
-     "self",
-     "reported",
+    "cue_phrases": [
+     "vendor",
      "independent"
     ]
    }
@@ -100,12 +139,13 @@
    "archetype": "endcard",
    "headline": "YOUR CALL",
    "feature_id": null,
-   "depicts": "what would you test first lip sync or 2K comment video",
+   "depicts": "what would you test first lip sync or two-k comment video for the leaderboard",
    "payload": {
     "keyword": "VIDEO",
-    "follow": "Follow for one honest tool a day",
-    "lines": [
-     "Lip sync or 2K first?"
+    "prompt": "for the leaderboard",
+    "follow": "@hypeless",
+    "cue_phrases": [
+     "video"
     ]
    }
   }

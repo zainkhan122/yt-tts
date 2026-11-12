@@ -1,0 +1,96 @@
+{
+ "name": "redline",
+ "tool": "claude-token-savers",
+ "note": "Per-tool template for the token-limit short. A plain paper document under a red pen: mono type, ruled paper, red strike-outs and margin marks. Nothing glows, nothing is neon. The whole vocabulary is editorial — a report being marked up.",
+ "palette": {
+  "paper": "#F2EEE6",
+  "ink": "#16150F",
+  "muted": "#6E6A5E",
+  "rule": "#CFC8B8",
+  "red": "#D8341C",
+  "green": "#2E6B4F",
+  "card": "#FBF8F2"
+ },
+ "max_text": 64,
+ "archetypes": {
+  "doc_title": {
+   "req": [
+    "kicker",
+    "title"
+   ],
+   "opt": [
+    "lines",
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": false,
+   "script_ok": true
+  },
+  "strike_list": {
+   "req": [
+    "rows"
+   ],
+   "opt": [
+    "note",
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "number_stamp": {
+   "req": [
+    "value",
+    "caption"
+   ],
+   "opt": [
+    "sub",
+    "suffix",
+    "note",
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "score_rules": {
+   "req": [
+    "rows"
+   ],
+   "opt": [
+    "title",
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "margin_note": {
+   "req": [
+    "note",
+    "attrib"
+   ],
+   "opt": [
+    "lines",
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": false,
+   "script_ok": true
+  },
+  "endcard": {
+   "req": [
+    "keyword"
+   ],
+   "opt": [
+    "follow",
+    "lines",
+    "prompt",
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": false,
+   "script_ok": true
+  }
+ }
+}
