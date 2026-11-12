@@ -173,6 +173,16 @@ jobs:
         run: bash reels-studio/cloud/setup-render.sh
       - name: Capture pack
         run: python3 reels-studio/tools/capture_store.py pull-for "$BRIEF"
+      # Owner rule 2026-11-12: five full render cycles shipped text-on-grid shorts because no
+      # gate ever looked at the pixels. This one runs on the ASSETS, before any encode: a clip
+      # that is blank, static, a bot wall, or not a real interface fails the job in seconds.
+      - name: UI proof (no text-card shorts, ever)
+        env:
+          NVIDIA_KEY: ${{ secrets.NVIDIA_KEY }}
+        run: |
+          STRICT=""
+          [ -n "$NVIDIA_KEY" ] || echo "::warning::NVIDIA_KEY absent — VLM half of the UI proof is skipped"
+          python3 reels-studio/tools/ui_proof_gate.py "$BRIEF"
       - name: Create per-brief receipt
         run: |
           BRIEF_ID=$(basename "$BRIEF" .json)
