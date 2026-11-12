@@ -1,128 +1,246 @@
 {
-  "name": "velocity-black",
-  "tool": "gitrend-star-velocity",
-  "note": "The github.signals/AhSilence grammar: pure black stage, one animated line diagram per idea, hot-pink #FE297D accent, bottom word-captions keyed in pink, honest README quote beat, bookend closer. For GitTrend star velocity, new repos, and news cards.",
-  "palette": {
-    "bg": "#000000",
-    "ink": "#FFFFFF",
-    "accent": "#FE297D",
-    "mute": "#8B93A3",
-    "line": "#FFFFFF",
-    "card": "#0D1117",
-    "card_edge": "#30363D",
-    "ok": "#4ADE80"
+ "name": "velocity-black",
+ "tool": "gitrend-star-velocity",
+ "note": "The github.signals/AhSilence grammar: pure black stage, one animated line diagram per idea, hot-pink #FE297D accent, bottom word-captions keyed in pink, honest README quote beat, bookend closer. For GitTrend star velocity, new repos, and news cards.",
+ "palette": {
+  "bg": "#000000",
+  "ink": "#FFFFFF",
+  "accent": "#FE297D",
+  "mute": "#8B93A3",
+  "line": "#FFFFFF",
+  "card": "#0D1117",
+  "card_edge": "#30363D",
+  "ok": "#4ADE80"
+ },
+ "max_text": 42,
+ "archetypes": {
+  "hero_hook": {
+   "req": [
+    "hero"
+   ],
+   "opt": [
+    "flat",
+    "mode",
+    "accent_words",
+    "cue_phrases",
+    "label"
+   ],
+   "facts": false,
+   "script_ok": true,
+   "max_text": 60
   },
-  "max_text": 42,
-  "archetypes": {
-    "hero_hook": {
-      "req": ["hero"],
-      "opt": ["flat", "mode", "accent_words", "cue_phrases", "label"],
-      "facts": false,
-      "script_ok": true,
-      "max_text": 60
-    },
-    "wave_room": {
-      "req": ["mode"],
-      "opt": ["label", "accent_words", "cue_phrases"],
-      "facts": false,
-      "script_ok": true,
-      "max_text": 60
-    },
-    "wave_flip": {
-      "req": ["tag"],
-      "opt": ["accent_words", "cue_phrases", "label"],
-      "facts": false,
-      "script_ok": true,
-      "max_text": 60
-    },
-    "scan_tick": {
-      "req": ["seconds"],
-      "opt": ["label", "accent_words", "cue_phrases", "found_label"],
-      "facts": true,
-      "script_ok": false,
-      "max_text": 60
-    },
-    "wave_misalign": {
-      "req": ["shift_tag", "double_tag"],
-      "opt": ["accent_words", "cue_phrases", "shift_word", "double_word"],
-      "facts": false,
-      "script_ok": true,
-      "max_text": 60
-    },
-    "wave_select": {
-      "req": ["keep_label", "drop_label"],
-      "opt": ["accent_words", "cue_phrases"],
-      "facts": true,
-      "script_ok": false,
-      "max_text": 60
-    },
-    "gauge_dial": {
-      "req": ["label", "from_deg", "to_deg"],
-      "opt": ["accent_words", "cue_phrases", "note"],
-      "facts": true,
-      "script_ok": false,
-      "max_text": 60
-    },
-    "hook_fan": {
-      "req": ["sites"],
-      "opt": ["question", "accent_words", "cue_phrases", "cam"],
-      "facts": false,
-      "script_ok": true
-    },
-    "lane_counts": {
-      "req": ["lanes"],
-      "opt": ["accent_words", "cue_phrases"],
-      "facts": true,
-      "script_ok": false,
-      "max_text": 60
-    },
-    "repo_card": {
-      "req": ["owner", "repo", "desc", "chips"],
-      "opt": ["ticker", "accent_words", "cue_phrases", "label"],
-      "facts": true,
-      "script_ok": false,
-      "max_text": 90
-    },
-    "command_fan": {
-      "req": ["command"],
-      "opt": ["hits", "ticker", "accent_words", "cue_phrases"],
-      "facts": true,
-      "script_ok": false,
-      "max_text": 60
-    },
-    "velocity_curve": {
-      "req": ["stars"],
-      "opt": ["per_day", "tag", "base_note", "accent_words", "cue_phrases", "start_year"],
-      "facts": true,
-      "script_ok": false,
-      "max_text": 60
-    },
-    "name_collision": {
-      "req": ["label_a", "label_b"],
-      "opt": ["accent_words", "cue_phrases", "verdicts"],
-      "facts": false,
-      "script_ok": true,
-      "max_text": 60
-    },
-    "quote_card": {
-      "req": ["quote", "source"],
-      "opt": ["context", "accent_words", "cue_phrases"],
-      "facts": false,
-      "script_ok": true,
-      "max_text": 90
-    },
-    "fan_collapse": {
-      "req": ["line"],
-      "opt": ["accent_words", "cue_phrases"],
-      "facts": false,
-      "script_ok": true,
-      "max_text": 60
-    },
-    "endcard": {
-      "req": ["keyword"],
-      "opt": ["follow", "lines", "cue_phrases", "prompt", "keyword_chip", "accent_words", "cam", "drift"],
-      "facts": false,
-      "script_ok": true
-    }
+  "wave_room": {
+   "req": [
+    "mode"
+   ],
+   "opt": [
+    "label",
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": false,
+   "script_ok": true,
+   "max_text": 60
+  },
+  "wave_flip": {
+   "req": [
+    "tag"
+   ],
+   "opt": [
+    "accent_words",
+    "cue_phrases",
+    "label"
+   ],
+   "facts": false,
+   "script_ok": true,
+   "max_text": 60
+  },
+  "scan_tick": {
+   "req": [
+    "seconds"
+   ],
+   "opt": [
+    "label",
+    "accent_words",
+    "cue_phrases",
+    "found_label"
+   ],
+   "facts": true,
+   "script_ok": false,
+   "max_text": 60
+  },
+  "wave_misalign": {
+   "req": [
+    "shift_tag",
+    "double_tag"
+   ],
+   "opt": [
+    "accent_words",
+    "cue_phrases",
+    "shift_word",
+    "double_word"
+   ],
+   "facts": false,
+   "script_ok": true,
+   "max_text": 60
+  },
+  "wave_select": {
+   "req": [
+    "keep_label",
+    "drop_label"
+   ],
+   "opt": [
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false,
+   "max_text": 60
+  },
+  "gauge_dial": {
+   "req": [
+    "label",
+    "from_deg",
+    "to_deg"
+   ],
+   "opt": [
+    "accent_words",
+    "cue_phrases",
+    "note",
+    "readout"
+   ],
+   "facts": true,
+   "script_ok": false,
+   "max_text": 60
+  },
+  "hook_fan": {
+   "req": [
+    "sites"
+   ],
+   "opt": [
+    "question",
+    "accent_words",
+    "cue_phrases",
+    "cam"
+   ],
+   "facts": false,
+   "script_ok": true
+  },
+  "lane_counts": {
+   "req": [
+    "lanes"
+   ],
+   "opt": [
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false,
+   "max_text": 60
+  },
+  "repo_card": {
+   "req": [
+    "owner",
+    "repo",
+    "desc",
+    "chips"
+   ],
+   "opt": [
+    "ticker",
+    "accent_words",
+    "cue_phrases",
+    "label"
+   ],
+   "facts": true,
+   "script_ok": false,
+   "max_text": 90
+  },
+  "command_fan": {
+   "req": [
+    "command"
+   ],
+   "opt": [
+    "hits",
+    "ticker",
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false,
+   "max_text": 60
+  },
+  "velocity_curve": {
+   "req": [
+    "stars"
+   ],
+   "opt": [
+    "per_day",
+    "tag",
+    "base_note",
+    "accent_words",
+    "cue_phrases",
+    "start_year"
+   ],
+   "facts": true,
+   "script_ok": false,
+   "max_text": 60
+  },
+  "name_collision": {
+   "req": [
+    "label_a",
+    "label_b"
+   ],
+   "opt": [
+    "accent_words",
+    "cue_phrases",
+    "verdicts"
+   ],
+   "facts": false,
+   "script_ok": true,
+   "max_text": 60
+  },
+  "quote_card": {
+   "req": [
+    "quote",
+    "source"
+   ],
+   "opt": [
+    "context",
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": false,
+   "script_ok": true,
+   "max_text": 90
+  },
+  "fan_collapse": {
+   "req": [
+    "line"
+   ],
+   "opt": [
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": false,
+   "script_ok": true,
+   "max_text": 60
+  },
+  "endcard": {
+   "req": [
+    "keyword"
+   ],
+   "opt": [
+    "follow",
+    "lines",
+    "cue_phrases",
+    "prompt",
+    "keyword_chip",
+    "accent_words",
+    "cam",
+    "drift"
+   ],
+   "facts": false,
+   "script_ok": true
   }
+ }
 }

@@ -237,9 +237,9 @@
       g.style.marginTop = "120px";
       r.noise = sEl("path", { fill: "none", stroke: WHITE, "stroke-width": 2.4, opacity: 0.85 }, g);
       r.bin = sEl("rect", { x: 430, width: 60, fill: PINK, opacity: 0 }, g);
-      r.binLabel = sText(460, 196, p.found_label || "STRONGEST DRONE", { fill: PINK, "font-size": 30, "font-weight": 800, "text-anchor": "middle", "font-family": "monospace", opacity: 0 }, g);
+      r.binLabel = sText(460, 196, p.found_label || "STRONGEST DRONE", { fill: PINK, "font-size": 42, "font-weight": 800, "text-anchor": "middle", "font-family": "monospace", opacity: 0 }, g);
       r.axis = sEl("line", { x1: 0, y1: 290, x2: 980, y2: 290, stroke: TRACK, "stroke-width": 2 }, g);
-      if (p.label) r.lab = sText(12, 530, p.label, { fill: MUTE, "font-size": 26, "font-family": "monospace" }, g);
+      if (p.label) r.lab = sText(12, 530, p.label, { fill: MUTE, "font-size": 34, "font-family": "monospace" }, g);
       return r;
     },
     update: function (r, s, u, d) {
@@ -298,8 +298,8 @@
       r.anti = stageWave(g, 980, 560, 110, 230, PINK, 2.6);
       r.flat = sEl("line", { x1: 0, y1: 230, x2: 980, y2: 230, stroke: MUTE, "stroke-width": 2.4, opacity: 0 }, g);
       r.voice = sEl("path", { fill: "none", stroke: PINK, "stroke-width": 2.8 }, g);
-      r.keep = sText(490, 120, p.keep_label, { fill: PINK, "font-size": 32, "font-weight": 800, "text-anchor": "middle", "font-family": "monospace", opacity: 0 }, g);
-      r.drop = sText(490, 400, p.drop_label, { fill: WHITE, "font-size": 30, "font-weight": 700, "text-anchor": "middle", "font-family": "monospace", opacity: 0 }, g);
+      r.keep = sText(490, 120, p.keep_label, { fill: PINK, "font-size": 44, "font-weight": 800, "text-anchor": "middle", "font-family": "monospace", opacity: 0 }, g);
+      r.drop = sText(490, 400, p.drop_label, { fill: WHITE, "font-size": 42, "font-weight": 700, "text-anchor": "middle", "font-family": "monospace", opacity: 0 }, g);
       return r;
     },
     update: function (r, s, u, d) {
@@ -336,29 +336,35 @@
                       x2: cx + Math.cos(a) * R, y2: cy + Math.sin(a) * R,
                       stroke: i % 4 === 0 ? MUTE : TRACK, "stroke-width": 3 }, g);
       }
-      r.mark180 = sText(cx - 190, cy - 46, "180°", { fill: MUTE, "font-size": 30, "font-family": "monospace" }, g);
+      r.mark180 = sText(cx - 190, cy - 46, "180°", { fill: MUTE, "font-size": 34, "font-family": "monospace" }, g);
       r.wave = sEl("path", { fill: "none", stroke: PINK, "stroke-width": 4, "stroke-linecap": "round" }, g);
-      r.needle = sEl("line", { x1: cx, y1: cy, x2: cx, y2: cy - R + 52, stroke: PINK, "stroke-width": 7, "stroke-linecap": "round" }, g);
+      r.needle = sEl("line", { x1: cx, y1: cy, x2: cx, y2: cy - R + 34, stroke: PINK, "stroke-width": 12, "stroke-linecap": "round" }, g);
       r.hub = sEl("circle", { cx: cx, cy: cy, r: 22, fill: PINK }, g);
       r.deg = sText(cx, cy + 120, "", { fill: WHITE, "font-size": 88, "font-weight": 900, "text-anchor": "middle" }, g);
-      r.lab = sText(cx, 72, p.label, { fill: MUTE, "font-size": 30, "font-family": "monospace", "text-anchor": "middle", "letter-spacing": 6 }, g);
-      if (p.note) r.note = sText(cx, cy + 180, p.note, { fill: MUTE, "font-size": 28, "font-family": "monospace", "text-anchor": "middle", opacity: 0 }, g);
+      r.lab = sText(cx, 34, p.label, { fill: MUTE, "font-size": 38, "font-family": "monospace", "text-anchor": "middle", "letter-spacing": 4 }, g);
+      if (p.note) r.note = sText(cx, cy + 186, p.note, { fill: MUTE, "font-size": 36, "font-family": "monospace", "text-anchor": "middle", opacity: 0 }, g);
       r.cx = cx; r.cy = cy; r.R = R;
       return r;
     },
     update: function (r, s, u, d) {
+      var p = s.payload;
       var from = s.payload.from_deg, to = s.payload.to_deg;
       var span = 260, startA = -220;
       var deg = from + (to - from) * easeOutCubic(ramp(u, 0.3, d * 0.55)) + Math.sin(u * 1.4) * 1.5;
       var a = (startA + (deg / 360) * span) * Math.PI / 180;
       /* map 180° to 12 o'clock */
       a = (deg - 90) * Math.PI / 180;
-      var nx = r.cx + Math.cos(a) * (r.R - 52), ny = r.cy + Math.sin(a) * (r.R - 52);
+      /* A short marker riding the rim: the readout owns the centre, so the hand never
+         crosses the number or the source note underneath it. */
+      var nx = r.cx + Math.cos(a) * (r.R - 34), ny = r.cy + Math.sin(a) * (r.R - 34);
+      var bx = r.cx + Math.cos(a) * (r.R - 96), by = r.cy + Math.sin(a) * (r.R - 96);
+      r.needle.setAttribute("x1", fmt(bx, 1)); r.needle.setAttribute("y1", fmt(by, 1));
       r.needle.setAttribute("x2", fmt(nx, 1)); r.needle.setAttribute("y2", fmt(ny, 1));
-      r.deg.textContent = Math.round(deg) + "°";
+      r.hub.setAttribute("r", "0");
+      r.deg.textContent = p.readout ? String(p.readout) : (Math.round(deg) + "°");
       /* a small phase wave riding on the dial, bending until the needle lands near 180+ */
       var bend = Math.sin(a) * 60;
-      r.wave.setAttribute("d", wavePath(360, r.cy - r.R - 60, 26 + bend, 3, u * 1.8));
+      r.wave.setAttribute("d", wavePath(360, r.cy - r.R - 22, 18 + bend * 0.5, 3, u * 1.8));
       r.wave.setAttribute("transform", "translate(" + fmt(r.cx - 180, 1) + ",0)");
       if (r.note) r.note.setAttribute("opacity", fmt(ramp(u, d * 0.6, d * 0.6 + 0.5)));
     }
