@@ -1284,6 +1284,10 @@
       "from_tag": "",
       "quality": "looks",
       "rebuild_scenes": [],
+      "released": {
+        "at": "2026-11-12T08:37:39Z",
+        "reason": "Toolchain failed before any render step"
+      },
       "renderer_sha256": "4223f68b762d46e83004a8353f18aaa2b036c6f46288436d63ff2394f9d9258e",
       "run_id": "43063520899",
       "started_at": "2026-11-11T17:00:11Z",
@@ -2180,6 +2184,10 @@
       "from_tag": "",
       "quality": "looks",
       "rebuild_scenes": [],
+      "released": {
+        "at": "2026-11-12T08:37:39Z",
+        "reason": "Toolchain failed before any render step"
+      },
       "renderer_sha256": "4223f68b762d46e83004a8353f18aaa2b036c6f46288436d63ff2394f9d9258e",
       "run_id": "43083323950",
       "started_at": "2026-11-11T19:01:56Z",
@@ -2771,6 +2779,10 @@
       "from_tag": "",
       "quality": "looks",
       "rebuild_scenes": [],
+      "released": {
+        "at": "2026-11-12T08:37:39Z",
+        "reason": "Toolchain failed before any render step"
+      },
       "renderer_sha256": "6635fe1d227fa7d15063100d9fb0c814b3dd1a5c756a060c1b51f919ff570457",
       "run_id": "43174800070",
       "started_at": "2026-11-12T07:22:47Z",
@@ -2810,6 +2822,10 @@
       "from_tag": "",
       "quality": "looks",
       "rebuild_scenes": [],
+      "released": {
+        "at": "2026-11-12T08:37:39Z",
+        "reason": "Toolchain failed before any render step"
+      },
       "renderer_sha256": "b8019881b2e9734af088cfc3a85868f44b84b8d30023a2a3f7bd35d618892ba2",
       "run_id": "43176987307",
       "started_at": "2026-11-12T07:40:34Z",
@@ -3022,6 +3038,10 @@
       "from_tag": "",
       "quality": "looks",
       "rebuild_scenes": [],
+      "released": {
+        "at": "2026-11-12T08:37:39Z",
+        "reason": "Toolchain failed before any render step"
+      },
       "renderer_sha256": "2e02352ea7144b604d0796ba201584e37d5e21207d915353e39d9fb269f05139",
       "run_id": "43178913051",
       "started_at": "2026-11-12T07:56:09Z",
@@ -3333,6 +3353,10 @@
       "from_tag": "",
       "quality": "looks",
       "rebuild_scenes": [],
+      "released": {
+        "at": "2026-11-12T08:37:39Z",
+        "reason": "Toolchain failed before any render step"
+      },
       "renderer_sha256": "4223f68b762d46e83004a8353f18aaa2b036c6f46288436d63ff2394f9d9258e",
       "run_id": "43070144364",
       "started_at": "2026-11-11T17:38:49Z",
@@ -3373,6 +3397,10 @@
       "from_tag": "",
       "quality": "looks",
       "rebuild_scenes": [],
+      "released": {
+        "at": "2026-11-12T08:37:39Z",
+        "reason": "Toolchain failed before any render step"
+      },
       "renderer_sha256": "a9e1d010c1a32a7654c9548fe4339047209a64befe49a7ed87b43e0551cab387",
       "run_id": "43045492141",
       "started_at": "2026-11-11T15:09:31Z",
@@ -3439,6 +3467,10 @@
       "from_tag": "",
       "quality": "looks",
       "rebuild_scenes": [],
+      "released": {
+        "at": "2026-11-12T08:37:39Z",
+        "reason": "Toolchain failed before any render step"
+      },
       "renderer_sha256": "4223f68b762d46e83004a8353f18aaa2b036c6f46288436d63ff2394f9d9258e",
       "run_id": "43091168076",
       "started_at": "2026-11-11T19:52:15Z",
@@ -3616,6 +3648,10 @@
       "from_tag": "",
       "quality": "looks",
       "rebuild_scenes": [],
+      "released": {
+        "at": "2026-11-12T08:37:39Z",
+        "reason": "Toolchain failed before any render step"
+      },
       "renderer_sha256": "6ab32ae834c9fd44246e2ea0010ed468b997b212558bcf76f3d455f95a6d5242",
       "run_id": "43180422733",
       "started_at": "2026-11-12T08:07:55Z",
