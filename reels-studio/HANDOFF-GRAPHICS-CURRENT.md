@@ -20,7 +20,7 @@ This is the working graphics handoff; dated `HANDOFF-*.md` files are historical.
 - `tools/maintenance/storage.py audit` is currently BLOCK: it includes persistent local model weights (approximately 338 MiB) in saved workspace and tracks the real source budget. Don't hide model weights from the audit or delete the voice model simply to force a PASS; decide separately where a reproducible model installation should live.
 - House gate was exercised on the latest pulse stage. Template endcard guards exist in the default engine, negative, velocity-black, pulse, redline, musike, design-review and photo-to-3d; only the available pulse result was gate-checked against the current house code after cleanup. Validate each template with a fresh stage/render before claiming cross-template coverage. The negative engine also needs a fresh current-code visual review.
 - `tools/brief_lint.py` BL140–143 currently treat missing format/duration/aspect as a vertical short; documented defaults are intentional code behavior, not explicit metadata. Check compatibility before changing.
-- Reference captures and generated `ref/` images are local research artifacts, not guaranteed in a fresh clone. No finished MP4s, browser cache, whisper models, or Kokoro weights are committed.
+- The user-requested cleanup removed `/home/user/uploads/`, including its original reference screenshots, and the separate `/home/user/skill/` and `/home/user/reelmimic-opencode/` folders. Derived `ref/` images remain local research artifacts, not guaranteed in a fresh clone. References to `uploads/` in historical documents are not evidence that those files still exist. No finished MP4s, browser cache, whisper models, or Kokoro weights are committed.
 
 ## Quality work needed before release
 
