@@ -13,7 +13,7 @@
    "depicts": "who is beating veo 3 and letting you generate for free",
    "cue_word": "beating",
    "payload": {
-    "kicker": "BLIND ARENA · TEXT TO VIDEO",
+    "kicker": "BLIND ARENA \u00b7 TEXT TO VIDEO",
     "title": "WHO IS BEATING VEO 3?",
     "chips": [
      "FREE TO START",
@@ -28,16 +28,30 @@
   {
    "scene_id": "point1",
    "phrase": 1,
-   "archetype": "sonar_scan",
+   "archetype": "rank_ladder",
    "headline": "THE BLIND LEADERBOARD",
    "feature_id": "f1",
-   "depicts": "there is a leaderboard where people vote on AI videos without knowing the model",
+   "depicts": "independent blind arena recorded Seedance at 1269 and Veo 3 at 1226",
    "payload": {
-    "seconds": 4,
-    "found": "TOP OF THE BLIND BOARD",
-    "value": "1,269",
+    "badge": "BLIND VOTES \u00b7 INDEPENDENT ARENA",
+    "rows": [
+     {
+      "pos": "01",
+      "name": "SEEDANCE 2.0",
+      "val": "1,269",
+      "score": 1.0,
+      "win": true
+     },
+     {
+      "pos": "\u2014",
+      "name": "VEO 3",
+      "val": "1,226",
+      "score": 0.9661150512214342
+     }
+    ],
     "cue_phrases": [
-     "leaderboard"
+     "seedance",
+     "veo"
     ]
    }
   },
@@ -53,7 +67,7 @@
      {
       "k": "RESOLUTION",
       "v": "2K",
-      "s": "four times a 720p clip"
+      "s": "video resolution"
      },
      {
       "k": "CLIP LENGTH",
@@ -67,9 +81,9 @@
      }
     ],
     "cue_phrases": [
-     "resolution",
+     "two k",
      "fifteen",
-     "lip"
+     "lip sync"
     ]
    }
   },
@@ -85,12 +99,12 @@
     "left": {
      "who": "INSIDE CAPCUT",
      "big": "FREE",
-     "sub": "no card to start today"
+     "sub": "free to start in CapCut"
     },
     "right": {
      "who": "ON THE API",
-     "big": "14¢",
-     "sub": "per clip once you build"
+     "big": "14\u00a2",
+     "sub": "per clip, API access"
     },
     "cue_phrases": [
      "free",
@@ -104,32 +118,40 @@
    "archetype": "verdict_stack",
    "headline": "THE HONEST CATCH",
    "feature_id": "f2",
-   "depicts": "the vendor benchmark is self reported so trust the independent arena numbers",
+   "depicts": "access outside china may be messy vendor test is self reported independent results and prompts sent to bytedance",
    "payload": {
-    "tag": "WHO DO YOU BELIEVE",
+    "tag": "BEFORE YOU USE IT",
     "rows": [
      {
+      "t": "ACCESS OUTSIDE CHINA",
+      "sub": "Availability may be limited",
+      "v": "",
+      "kind": "warn"
+     },
+     {
       "t": "VENDOR BENCHMARK",
-      "v": "1269",
-      "sub": "self reported",
+      "sub": "Self-reported; verify independently",
+      "v": "",
       "kind": "warn"
      },
      {
       "t": "INDEPENDENT ARENA",
-      "v": "1269",
-      "sub": "blind votes",
+      "sub": "Blind-vote results",
+      "v": "",
       "kind": "ok"
      },
      {
-      "t": "VEO 3, SAME BOARD",
-      "v": "1226",
-      "sub": "43 points back",
-      "kind": "ok"
+      "t": "YOUR PROMPTS",
+      "sub": "CapCut sends them to ByteDance servers",
+      "v": "",
+      "kind": "warn"
      }
     ],
     "cue_phrases": [
-     "vendor",
-     "independent"
+     "china",
+     "self reported",
+     "independent",
+     "prompts"
     ]
    }
   },

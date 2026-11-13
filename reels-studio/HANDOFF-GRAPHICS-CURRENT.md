@@ -12,7 +12,7 @@ This is the working graphics handoff; dated `HANDOFF-*.md` files are historical.
 
 ## Latest local review
 
-`renders/tool-seedance-01/tool-seedance-01.mp4` is a local preview, not tracked in Git and not approved for release. Its stage `renders/tool-seedance-01/gfx-tool-seedance-01-pice11k_/stage.html` passed the house gate. Latest motion sample: 168 consecutive 0.3 s intervals over the complete MP4, downscaled to 270×480 grayscale; 5 intervals had mean absolute pixel delta below 0.35, mean delta 1.76. This metric is an investigative proxy, **not a quality gate or evidence that the animation is good**. Subject, message, pacing, charts, transitions, legibility and sync need human review. The owner explicitly rejected the earlier outro, typography and animation; this revision has not been re-approved.
+`renders/tool-seedance-01/seedance-story-review.mp4` is the current local review preview, not tracked in Git and not approved for release. Its stage `renders/tool-seedance-01/story-work/stage.html` passed the house gate. It reuses the aligned Kokoro audio from `gfx-tool-seedance-01-pice11k_/vo.wav` after a fresh voice render was killed (exit 137). Latest motion sample: 168 consecutive 0.3 s intervals over the complete MP4, downscaled to 270×480 grayscale; 5 intervals had mean absolute pixel delta below 0.35, mean delta 1.82. This metric is an investigative proxy, **not a quality gate or evidence that the animation is good**. Subject, message, pacing, charts, transitions, legibility and sync need human review. The owner explicitly rejected the earlier outro, typography and animation; this revision has not been re-approved.
 
 ## Known blockers and limitations
 
@@ -21,6 +21,10 @@ This is the working graphics handoff; dated `HANDOFF-*.md` files are historical.
 - House gate was exercised on the latest pulse stage. Template endcard guards exist in the default engine, negative, velocity-black, pulse, redline, musike, design-review and photo-to-3d; only the available pulse result was gate-checked against the current house code after cleanup. Validate each template with a fresh stage/render before claiming cross-template coverage. The negative engine also needs a fresh current-code visual review.
 - `tools/brief_lint.py` BL140–143 currently treat missing format/duration/aspect as a vertical short; documented defaults are intentional code behavior, not explicit metadata. Check compatibility before changing.
 - The user-requested cleanup removed `/home/user/uploads/`, including its original reference screenshots, and the separate `/home/user/skill/` and `/home/user/reelmimic-opencode/` folders. Derived `ref/` images were also removed in the subsequent old-data cleanup. References to `uploads/` in historical documents are not evidence that those files still exist. Only the current Seedance local cover/captures/render and its tracked plan remain in their respective folders. Older tracked plans and the old Claude preview metadata were deleted at the owner’s request; restoring a historical project requires retrieval from Git history or archives. The prior untracked cover/capture assets were deleted locally and may need reconstruction. No finished MP4s, browser cache, whisper models, or Kokoro weights are committed.
+
+## Narration-led graphics pilot
+
+The pulse Seedance beat plan now uses a proportionally accurate two-row leaderboard, cue-driven spec, cost and catch builds, explicit scene headings and a short scene entrance. See `docs/MOTION-GRAMMAR.md` and `tests/test_pulse_story_motion.py`. The figures come from the historical project research note and must be reverified before publication. Other templates are not upgraded. The local review render is complete but has not received owner approval; cue tests cover synthetic timestamps, not final production voice alignment.
 
 ## Quality work needed before release
 
@@ -34,7 +38,7 @@ This is the working graphics handoff; dated `HANDOFF-*.md` files are historical.
 ```sh
 cd reels-studio
 python3 -m pytest graphics/tests tests/test_preview_alignment.py tests/test_brief_lint.py -q
-python3 tools/house_gate.py renders/tool-seedance-01/gfx-tool-seedance-01-pice11k_/stage.html
+python3 tools/house_gate.py renders/tool-seedance-01/story-work/stage.html
 python3 tools/local_preview_render.py tool-seedance-01 --delivery-crf 26 --house-gate
 python3 tools/maintenance/storage.py audit
 python3 tools/ship.py status

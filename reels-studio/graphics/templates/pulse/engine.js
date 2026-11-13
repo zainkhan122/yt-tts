@@ -40,13 +40,15 @@
     return n;
   };
 
+  // Resolve multi-word narration cues against contiguous aligned tokens. A missing cue falls
+  // back to an explicit stagger; it must never match an unrelated concatenated word.
   function bindTimes(phrases, s, n) {
-    var out = [];
+    var out = [], words = s.words || [];
     for (var i = 0; i < n; i++) {
-      var hit = null;
-      if (phrases && phrases[i]) {
-        var want = norm(phrases[i]);
-        (s.words || []).forEach(function (w) { if (hit === null && norm(w[0]) === want) hit = w[1]; });
+      var hit = null, want = String((phrases || [])[i] || "").split(/\s+/).map(norm).filter(Boolean);
+      for (var j = 0; want.length && j <= words.length - want.length; j++) {
+        var ok = want.every(function (token, k) { return norm(words[j+k][0]) === token; });
+        if (ok) { hit = words[j][1]; break; }
       }
       if (hit === null) hit = s.t0 + 0.3 + i * Math.max(0.45, Math.min(1.2, (s.t1 - s.t0) / (n + 1.5)));
       out.push(hit);
@@ -144,6 +146,7 @@
       r.ground = ground(root, 0.08);
       var wrap = el("div", "pl-ladder", root);
       if (p.badge) el("div", "pl-badge", wrap, p.badge);
+      el("div", "pl-chart-label", wrap, "ELO SNAPSHOT · ARTIFICIAL ANALYSIS");
       r.rows = (p.rows || []).map(function (spec) {
         var row = el("div", "pl-rank" + (spec.win ? " win" : ""), wrap);
         el("div", "pos", row, String(spec.pos || ""));
@@ -151,8 +154,8 @@
         el("b", null, mid, spec.name || "");
         var track = el("i", "track", mid);
         var fill = el("u", null, track);
-        el("em", null, row, spec.val || "");
-        return { row: row, fill: fill, score: spec.score === undefined ? 0.6 : spec.score };
+        var value = el("em", null, row, spec.val || "");
+        return { row: row, fill: fill, value: value, label: spec.val || "", score: spec.score === undefined ? 0 : spec.score };
       });
       r.times = bindTimes(p.cue_phrases, s, r.rows.length);
       return r;
@@ -163,9 +166,10 @@
       r.ground.setAttribute("opacity", fmt(ramp(u, 0, 0.4)));
       r.rows.forEach(function (x, i) {
         var p = eCubic(ramp(now - r.times[i], 0, 0.45));
-        x.row.style.opacity = fmt(p);
+        x.row.style.opacity = fmt(0.28 + 0.72 * p);
         x.row.style.transform = "translateX(" + fmt((1 - p) * 46, 1) + "px)";
         x.fill.style.width = fmt(x.score * eExpo(ramp(now - r.times[i], 0.05, 0.7)) * 100, 1) + "%";
+        x.value.textContent = x.label;
       });
     }
   };
@@ -188,7 +192,8 @@
       }
       r.left = panel(p.left || {}, "l");
       r.right = panel(p.right || {}, "r");
-      r.mid = el("div", "pl-vsmid", row, "\u2260");
+      r.mid = el("div", "pl-vsmid", row, "OR");
+      row.insertBefore(r.mid, r.right); // the connector belongs BETWEEN the two choices
       r.times = bindTimes(p.cue_phrases, s, 2);
       return r;
     },
@@ -340,6 +345,7 @@
       wrap.setAttribute("data-scene", s.id);   // house layer mounts the house outro here
       wrap.style.display = "none";
       var visual = el("div", "visual", wrap);
+      if (s.archetype !== "endcard" && s.archetype !== "title_burst") el("div", "pl-scene-heading", visual, s.headline || "");
       s._wrap = wrap; s._visual = visual;
       s._refs = ARCH[s.archetype].build(visual, s);
     });
@@ -375,7 +381,11 @@
     var s = D.scenes[k];
     // House layer owns the outro; hide the entire template scene.
     if (s.archetype === "endcard") { D.scenes.forEach(function (x) { x._wrap.style.display = "none"; }); return; }
-    ARCH[s.archetype].update(s._refs, s, t - s.t0, Math.max(1e-6, s.t1 - s.t0));
+    // A short, deterministic entrance gives a scene change direction without a blank frame.
+    var local = Math.max(0, t - s.t0), enter = eCubic(ramp(local, 0, 0.28));
+    s._visual.style.opacity = fmt(0.7 + 0.3 * enter);
+    s._visual.style.transform = "translateY(" + fmt((1 - enter) * 16, 1) + "px)";
+    ARCH[s.archetype].update(s._refs, s, local, Math.max(1e-6, s.t1 - s.t0));
     drawCaption(s, t);
   };
 

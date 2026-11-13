@@ -111,3 +111,22 @@ body { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; color: #EDF0FF
 .pl-vrow.warn em { color: #FF3D8A; }
 
 .pl-title-word { display:inline-block; transform-origin:center bottom; }
+
+/* Story hierarchy: each beat announces its claim, then the evidence animates below. */
+.pl-scene-heading { position:absolute; top:205px; left:70px; right:70px; color:#fff;
+  font: 400 72px/1.03 Anton, sans-serif; text-transform:uppercase; letter-spacing:.015em; }
+.pl-ladder { top:370px; }
+.pl-badge { background:transparent; color:#35e7f2; padding:0; margin:0 0 22px; font-size:24px; }
+.pl-chart-label { color:#aeb8c9; font: 25px "JetBrains Mono",monospace; letter-spacing:.08em; margin-bottom:32px; }
+.pl-rank { padding:34px 0; }
+.pl-rank .mid b { font-size:56px; }
+.pl-rank em { font-size:50px; }
+.pl-rank .mid .track { height:20px; }
+.pl-plates { top:370px; }
+.pl-vs { top:390px; }
+.pl-vsmid { font:700 30px Inter,sans-serif; }
+.pl-verdict { top:370px; }
+.pl-vtag { margin-bottom:18px; }
+.pl-vrow { padding:22px 0; }
+.pl-vrow .mid b { font-size:40px; }
+.pl-vrow .mid s { font-size:34px; line-height:1.2; }
