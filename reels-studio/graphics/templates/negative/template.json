@@ -1,96 +1,100 @@
 {
- "name": "negative",
- "tool": "voice-ai",
- "note": "Measured from a phone-captured reference (ref/ref-A.fingerprint.json): true #000000 ground, one hairline instrument floating per beat, mono telemetry with the live value in #F05080, one accent per beat. v2 (owner verdict 2026-11-13: 'will a user even watch 3 sec?'): layout alone was not enough \u2014 v1 was six static slides. Every beat now carries a camera move, an ambient drifting grid, a travelling trace, staggered word landings and a live counter, so no two frames are identical. Brand layer is the house one: Anton headlines, Inter body, JetBrains Mono telemetry, the real brand logo in the endcard.",
- "palette": {
-  "ground": "#000000",
-  "ink": "#FFFFFF",
-  "live": "#F05080",
-  "ghost": "#8A8A93",
-  "trace": "#E8E8EC",
-  "hair": "#26262B"
- },
- "max_text": 42,
- "archetypes": {
-  "impact_hook": {
-   "req": [],
-   "opt": [
-    "kicker",
-    "title",
-    "foot",
-    "label",
-    "accent_words"
-   ],
-   "facts": false,
-   "script_ok": true,
-   "max_text": 44
+  "name": "negative",
+  "tool": "voice-ai",
+  "note": "Measured from a phone-captured reference (ref/ref-A.fingerprint.json): true #000000 ground, one hairline instrument floating per beat, mono telemetry with the live value in #F05080, one accent per beat. v2 (owner verdict 2026-11-13: 'will a user even watch 3 sec?'): layout alone was not enough \u2014 v1 was six static slides. Every beat now carries a camera move, an ambient drifting grid, a travelling trace, staggered word landings and a live counter, so no two frames are identical. Brand layer is the house one: Anton headlines, Inter body, JetBrains Mono telemetry, the real brand logo in the endcard.",
+  "palette": {
+    "ground": "#000000",
+    "ink": "#FFFFFF",
+    "live": "#F05080",
+    "ghost": "#8A8A93",
+    "trace": "#E8E8EC",
+    "hair": "#26262B"
   },
-  "trace_field": {
-   "req": [],
-   "opt": [
-    "label",
-    "value",
-    "total",
-    "unit",
-    "annotation",
-    "accent_words",
-    "top"
-   ],
-   "facts": false,
-   "script_ok": true,
-   "max_text": 42
-  },
-  "phantom_frame": {
-   "req": [],
-   "opt": [
-    "label",
-    "plates",
-    "annotation",
-    "accent_words"
-   ],
-   "facts": false,
-   "script_ok": true,
-   "max_text": 36
-  },
-  "marker_list": {
-   "req": [
-    "rows"
-   ],
-   "opt": [
-    "label",
-    "annotation",
-    "accent_words"
-   ],
-   "facts": true,
-   "script_ok": false,
-   "max_text": 38
-  },
-  "readout": {
-   "req": [],
-   "opt": [
-    "label",
-    "value",
-    "unit",
-    "statement",
-    "annotation",
-    "accent_words"
-   ],
-   "facts": true,
-   "script_ok": false,
-   "max_text": 42
-  },
-  "endcard": {
-   "req": [
-    "keyword"
-   ],
-   "opt": [
-    "prompt",
-    "follow",
-    "accent_words"
-   ],
-   "facts": false,
-   "script_ok": true,
-   "max_text": 30
+  "max_text": 42,
+  "archetypes": {
+    "impact_hook": {
+      "req": [],
+      "opt": [
+        "kicker",
+        "title",
+        "foot",
+        "label",
+        "accent_words"
+      ],
+      "facts": false,
+      "script_ok": true,
+      "max_text": 44
+    },
+    "trace_field": {
+      "req": [],
+      "opt": [
+        "label",
+        "value",
+        "total",
+        "unit",
+        "annotation",
+        "accent_words",
+        "top",
+        "cue_phrases"
+      ],
+      "facts": false,
+      "script_ok": true,
+      "max_text": 42
+    },
+    "phantom_frame": {
+      "req": [],
+      "opt": [
+        "label",
+        "plates",
+        "annotation",
+        "accent_words",
+        "cue_phrases"
+      ],
+      "facts": false,
+      "script_ok": true,
+      "max_text": 36
+    },
+    "marker_list": {
+      "req": [
+        "rows"
+      ],
+      "opt": [
+        "label",
+        "annotation",
+        "accent_words",
+        "cue_phrases"
+      ],
+      "facts": true,
+      "script_ok": false,
+      "max_text": 38
+    },
+    "readout": {
+      "req": [],
+      "opt": [
+        "label",
+        "value",
+        "unit",
+        "statement",
+        "annotation",
+        "accent_words",
+        "cue_phrases"
+      ],
+      "facts": true,
+      "script_ok": false,
+      "max_text": 42
+    },
+    "endcard": {
+      "req": [
+        "keyword"
+      ],
+      "opt": [
+        "prompt",
+        "follow",
+        "accent_words"
+      ],
+      "facts": false,
+      "script_ok": true,
+      "max_text": 30
+    }
   }
- }
 }

@@ -84,3 +84,46 @@ def test_outro_keyword_matches_spoken_comment_cta(brief_id):
     keyword = str(beats['scenes'][-1]['payload']['keyword'])
     say = brief['scenes'][-1]['say']
     assert re.search(r'\bcomment\s+["“\'‘]*' + re.escape(keyword) + r'\b', say, re.I), (brief_id, keyword, say)
+
+@pytest.mark.parametrize('brief_id', BRIEFS)
+def test_template_seek_is_deterministic_without_browser_errors(tmp_path, brief_id):
+    from playwright.sync_api import sync_playwright
+    path = tmp_path/'stage.html'
+    doc = stage_for(brief_id, path)
+    with sync_playwright() as p:
+        browser = p.chromium.launch(args=['--no-sandbox', '--allow-file-access-from-files'])
+        page = browser.new_page(viewport={'width': 1080, 'height': 1920})
+        errors = []
+        page.on('pageerror', lambda err: errors.append(str(err)))
+        page.goto(path.as_uri()); page.wait_for_function('window.ready === true')
+        page.evaluate("async () => { try { await document.fonts.load('88px Anton'); } catch (e) {} await document.fonts.ready; }")
+        for scene in doc['scenes'][:-1]:
+            mid = (scene['t0'] + scene['t1']) / 2
+            page.evaluate('(t) => window.setTime(t)', mid)
+            a = page.locator('.scene:visible').evaluate('(e)=>{let c=e.cloneNode(true); c.querySelectorAll("*").forEach(x=>{if(x.style.display === "none") x.remove()}); return c.outerHTML;}')
+            page.evaluate('(t) => window.setTime(t)', min(scene['t1'] - 0.01, mid + 0.5))
+            page.evaluate('(t) => window.setTime(t)', mid)
+            assert a == page.locator('.scene:visible').evaluate('(e)=>{let c=e.cloneNode(true); c.querySelectorAll("*").forEach(x=>{if(x.style.display === "none") x.remove()}); return c.outerHTML;}'), (brief_id, scene['id'])
+        browser.close()
+    assert not errors, errors
+
+
+def test_negative_rows_follow_spoken_order_and_hide_unverified_measurement(tmp_path):
+    from playwright.sync_api import sync_playwright
+    path = tmp_path/'stage.html'
+    doc = stage_for('explainer-negative-01', path)
+    scene = next(s for s in doc['scenes'] if s['archetype'] == 'marker_list')
+    with sync_playwright() as p:
+        browser = p.chromium.launch(args=['--no-sandbox', '--allow-file-access-from-files'])
+        page = browser.new_page(viewport={'width':1080,'height':1920})
+        page.goto(path.as_uri()); page.wait_for_function('window.ready === true')
+        reports = page.evaluate('window.__motionCueReports')
+        assert all(row['matched'] for row in reports[scene['id']])
+        times = [r['time'] for r in reports[scene['id']]]
+        page.evaluate('(t)=>window.setTime(t)', times[0]+0.2)
+        opacity = page.locator('.scene:visible .ng-row').evaluate_all('(els)=>els.map(e=>+getComputedStyle(e).opacity)')
+        assert opacity[0] > 0 and opacity[1] == 0
+        trace = next(s for s in doc['scenes'] if s['archetype'] == 'trace_field')
+        page.evaluate('(t)=>window.setTime(t)', (trace['t0']+trace['t1'])/2)
+        assert '2.3' not in page.locator('.scene:visible').inner_text()
+        browser.close()

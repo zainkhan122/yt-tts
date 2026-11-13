@@ -13,7 +13,7 @@
       var target = phrase.toLowerCase().match(/[a-z0-9]+/g) || [], hit = null;
       // Exact contiguous phrases, in spoken order. Never bind to a stray word from a phrase.
       for (var j = 0; target.length && j <= words.length-target.length; j++) {
-        if (Number(words[j][1]) < last) continue;
+        if (Number(words[j][1]) < Math.max(start, last) || Number(words[j][1]) >= end) continue;
         if (target.every(function (word,k) { return norm(words[j+k][0]) === word; })) {
           hit = Number(words[j][1]); break;
         }

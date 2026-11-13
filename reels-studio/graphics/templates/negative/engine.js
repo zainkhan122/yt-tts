@@ -248,19 +248,20 @@
         var head = el("div", "ng-headword", parent);
         head.style.top = "330px";
         var hw = words(head, s.headline || "", "w", p.accent_words);
-        return { amb: amb, f: f, head: head, hw: hw };
+        return { amb: amb, f: f, head: head, hw: hw,
+          at: window.HouseMotion.cueTimes(p.cue_phrases, s, 1, {})[0] - s.t0 };
       },
       update: function (r, s, u, d) {
         var p = s.payload || {};
         ambientTick(r.amb, s.t0 + u);
         camera(r.f.box, u, d, { from: 1.04, to: 1.0, rise: 18 });
         stagger(r.hw, u, 0.02, 0.09, 34);
-        var draw = eOut(ramp(u, 0.10, Math.max(0.55, d * 0.62)));
+        var draw = eOut(ramp(u, r.at, r.at + 0.85));
         fieldTick(r.f, u, d, draw);
         r.f.live.style.opacity = fmt(ramp(u, 0.08, 0.3));
-        var target = p.value !== undefined && p.value !== null ? Number(p.value) : 2.4;
-        r.f.val.textContent = (Math.abs(target) >= 10 ? String(Math.round(target * draw))
-                                                      : fmt(target * draw, 1)) + (p.unit || "s");
+        var target = p.value !== undefined && p.value !== null ? Number(p.value) : null;
+        r.f.val.textContent = target === null ? "" : (Math.abs(target) >= 10 ? String(Math.round(target * draw))
+                                                      : fmt(target * draw, 1)) + (p.unit || "");
         r.f.val.style.color = LIVE;
         r.f.cap.style.opacity = fmt(ramp(u, 0.42, 0.75));
         r.f.cap.style.transform = "translateY(" + fmt((1 - eOut(ramp(u, 0.42, 0.75))) * 16, 1) + "px)";
@@ -290,17 +291,19 @@
         });
         var note = el("div", "ng-note", parent, p.annotation || "");
         note.style.top = "930px";
-        return { amb: amb, rows: rows, note: note };
+        return { amb: amb, rows: rows, note: note,
+          times: window.HouseMotion.cueTimes(p.cue_phrases, s, rows.length, {}) };
       },
       update: function (r, s, u, d) {
         ambientTick(r.amb, s.t0 + u);
         for (var i = 0; i < r.rows.length; i++) {
-          var k = eOut(ramp(u, 0.06 + i * 0.18, 0.42 + i * 0.18));
+          var at = r.times[i] - s.t0;
+          var k = eOut(ramp(u, at, at + 0.36));
           r.rows[i].row.style.opacity = fmt(k);
           r.rows[i].row.style.transform = "translateX(" + fmt((1 - k) * -46, 1) + "px)";
-          // the bar keeps filling after the row lands, so the beat is never static
-          var bf = eExpo(ramp(u, 0.2 + i * 0.18, 0.9 + i * 0.18));
-          r.rows[i].fill.style.width = fmt(bf * (60 + i * 18), 1) + "%";
+          // All rows receive the same underline: these are categories, not quantified bars.
+          var bf = eExpo(ramp(u, at, at + 0.55));
+          r.rows[i].fill.style.width = fmt(bf * 100, 1) + "%";
         }
         r.note.style.opacity = fmt(ramp(u, 0.7, 1.05));
         r.note.style.transform = "translateY(" + fmt((1 - eOut(ramp(u, 0.7, 1.05))) * 14, 1) + "px)";
@@ -325,17 +328,19 @@
         });
         var note = el("div", "ng-note", parent, p.annotation || "");
         note.style.top = "1080px"; note.style.textAlign = "center";
-        return { amb: amb, fr: fr, rows: rows, note: note, bar: bar };
+        return { amb: amb, fr: fr, rows: rows, note: note, bar: bar,
+          times: window.HouseMotion.cueTimes(p.cue_phrases, s, rows.length, {}) };
       },
       update: function (r, s, u, d) {
         ambientTick(r.amb, s.t0 + u);
         camera(r.fr, u, d, { from: 1.06, to: 1.0, rise: -22 });
         r.fr.style.opacity = fmt(eOut(ramp(u, 0.02, 0.3)));
         for (var i = 0; i < r.rows.length; i++) {
-          var k = eBack(ramp(u, 0.14 + i * 0.24, 0.55 + i * 0.24));
+          var at = r.times[i] - s.t0;
+          var k = eBack(ramp(u, at, at + 0.41));
           r.rows[i].row.style.opacity = fmt(clamp(k, 0, 1));
           r.rows[i].row.style.transform = "rotateX(" + fmt((1 - clamp(k, 0, 1)) * -70, 1) + "deg)";
-          stagger(r.rows[i].v, u, 0.3 + i * 0.24, 0.05, 18);
+          stagger(r.rows[i].v, u, at + 0.1, 0.05, 18);
         }
         // the window chrome line keeps sweeping: constant motion on the frame itself
         r.bar.style.backgroundPosition = fmt(-(s.t0 + u) * 260, 1) + "px 0";
@@ -357,14 +362,15 @@
         note.style.top = "1010px"; note.style.textAlign = "center";
         var rule = el("div", "ng-rule", parent);
         rule.style.top = "1090px"; rule.style.width = "0px";
-        return { amb: amb, lb: lb, st: st, stw: stw, note: note, rule: rule };
+        return { amb: amb, lb: lb, st: st, stw: stw, note: note, rule: rule,
+          at: window.HouseMotion.cueTimes(p.cue_phrases, s, 1, {})[0] - s.t0 };
       },
       update: function (r, s, u, d) {
         ambientTick(r.amb, s.t0 + u);
         camera(r.st, u, d, { from: 1.0, to: 1.04, rise: -18 });
         r.lb.style.opacity = fmt(ramp(u, 0.02, 0.26));
         stagger(r.stw, u, 0.10, 0.13, 52);
-        var c = cue(u, s, 0.55);
+        var c = r.at;
         // the accent word turns on its spoken cue, which is the only colour event in the beat
         for (var i = 0; i < r.stw.length; i++) {
           if (r.stw[i].classList.contains("hit")) {

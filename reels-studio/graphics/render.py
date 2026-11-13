@@ -292,6 +292,16 @@ def render(doc: dict, audio: Path, out: Path, work: Path, duration_s: float,
                 if gate.returncode != 0:
                     raise RuntimeError("house gate failed — refusing to encode a short whose caption "
                                        "or outro breaks the house contract")
+            motion_reports = page.evaluate("() => window.__motionCueReports || {}")
+            report_path = work / "motion-cues.json"
+            report_path.write_text(json.dumps(motion_reports, indent=2), encoding="utf-8")
+            motion_fallbacks = [(sid, row.get("phrase", "")) for sid, rows in motion_reports.items()
+                                for row in rows if not row.get("matched")]
+            if motion_fallbacks:
+                print(f"WARNING: {len(motion_fallbacks)} narration cue fallback(s); "
+                      f"review {report_path}", flush=True)
+                if os.environ.get("MOTION_CUES_STRICT") == "1":
+                    raise RuntimeError("unmatched motion cues: review timing or disable MOTION_CUES_STRICT")
             bad = audit_overflow(page, doc)
             if bad:
                 listing = "; ".join(f"{v['scene']} <{v['cls']}> rect={v['rect']} t={v['t']:.2f}s" for v in bad[:6])
@@ -321,4 +331,5 @@ def render(doc: dict, audio: Path, out: Path, work: Path, duration_s: float,
     if mux.returncode != 0 or not out.exists():
         raise RuntimeError(f"mux failed: {mux.stderr[-400:]}")
     return {"frames": n_frames, "fps": fps, "duration_s": duration_s, "out": str(out),
-            "html": str(html)}
+            "html": str(html), "motion_cues": str(report_path),
+            "motion_cue_fallbacks": motion_fallbacks}

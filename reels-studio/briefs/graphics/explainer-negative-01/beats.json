@@ -49,7 +49,12 @@
       "on": true
      }
     ],
-    "annotation": "CUT BEFORE ANY MODEL SEES IT"
+    "annotation": "CUT BEFORE ANY MODEL SEES IT",
+    "cue_phrases": [
+     "logs",
+     "chunks",
+     "whole files"
+    ]
    }
   },
   {
@@ -62,10 +67,10 @@
    "depicts": "watch what the cut does to the input reading",
    "payload": {
     "label": "READING",
-    "value": 2.3,
-    "total": "4.0 s",
-    "unit": "s",
-    "annotation": "MEASURED, THEN TRIMMED, THEN READ"
+    "annotation": "UPSTREAM OF THE PROMPT",
+    "cue_phrases": [
+     "reading"
+    ]
    }
   },
   {
@@ -89,7 +94,11 @@
       "on": true
      }
     ],
-    "annotation": "SAME ANSWER, DIFFERENT EVIDENCE"
+    "annotation": "SAME QUESTION, DIFFERENT INPUT",
+    "cue_phrases": [
+     "one reads everything",
+     "one reads only"
+    ]
    }
   },
   {
@@ -98,7 +107,7 @@
    "archetype": "readout",
    "headline": "IT DECIDES WHAT YOU LOSE",
    "feature_id": "f3",
-   "cue_word": "lose",
+   "cue_word": "lossy",
    "depicts": "the honest part the compression is lossy",
    "payload": {
     "label": "THE HONEST PART",
@@ -106,7 +115,10 @@
     "accent_words": [
      "lose"
     ],
-    "annotation": "IT DOES NOT ASK FIRST"
+    "annotation": "IT DOES NOT ASK FIRST",
+    "cue_phrases": [
+     "lossy"
+    ]
    }
   },
   {
