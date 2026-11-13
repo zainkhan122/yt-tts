@@ -68,5 +68,43 @@
   "LangChain": "lang chain",
   "LangSmith": "lang smith",
   "Slack": "slack"
+ },
+ "seo": {
+  "keyword": "LangChain design agent",
+  "onscreen_first3s": "YOUR BRAND, IN SLACK",
+  "youtube": {
+   "title": "LangChain Design Agent Makes On-Brand Videos",
+   "description": "LangChain\u2019s open-source Design Agent can build graphics, decks and motion videos from a Slack request using a brand pack. LangChain reports over 3,000 assets and a reduction in median model spend from about $8 to $0.50 per request; these are its own historical figures, not a guarantee. The managed Slack setup needs a LangSmith account and a model key. Costs and human review still matter.\n\nSource: https://www.langchain.com/blog/design-agent\nRepo: https://github.com/langchain-ai/design-agent\n#Shorts #AITools #DesignAgent",
+   "tags": [
+    "LangChain design agent",
+    "AI design agent",
+    "AI motion graphics",
+    "design automation",
+    "brand kit"
+   ],
+   "hashtags": [
+    "#Shorts",
+    "#AITools",
+    "#DesignAgent",
+    "#MotionGraphics"
+   ]
+  },
+  "instagram": {
+   "caption": "An open-source design agent that can turn a Slack request into on-brand graphics, decks and motion. LangChain\u2019s historical numbers are its own, not a guarantee. Managed setup, usage costs and human review still matter. Comment DESIGN for the repo.",
+   "hashtags": [
+    "#AITools",
+    "#DesignAgent",
+    "#MotionGraphics",
+    "#LangChain"
+   ]
+  },
+  "facebook": {
+   "caption": "LangChain\u2019s open-source Design Agent can make on-brand assets from a Slack request. Its 3,000+ assets and model-spend comparison are company-reported historical figures\u2014not a guarantee. Setup and usage costs apply. AI-generated narration.",
+   "hashtags": [
+    "#AITools",
+    "#DesignAgent",
+    "#MotionGraphics"
+   ]
+  }
  }
 }
