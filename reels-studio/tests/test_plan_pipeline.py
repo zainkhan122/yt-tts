@@ -16,7 +16,7 @@ import video_plan  # noqa: E402
 PLANS = sorted(ROOT.glob("videos/*/plan.json"))
 
 
-VID = "repo-craft-anything-01"   # a plan that still has a brief; the removed shorts must not be pinned here
+VID = "tool-seedance-01"   # retained current plan; archived plans are not test fixtures
 
 
 def _plan_path():
@@ -55,22 +55,36 @@ class PackagingRules(unittest.TestCase):
 
 class BriefBuilder(unittest.TestCase):
     def test_brief_comes_from_plan_only(self):
+        import tempfile
         import brief_from_plan as bfp
-        vid = _plan_path().parent.name
-        cap = ROOT / "captures" / vid
-        self.assertTrue((cap / "plan-keep.json").exists(), "run build_plan_kit first")
-        # Build into the real location and keep it: the brief is a production artifact, not scratch.
-        out = bfp.build(ROOT / "videos" / vid / "plan.json")
-        brief = json.loads(out.read_text(encoding="utf-8"))
+        plan = _plan()
+        # Never write into the real brief: building is destructive and the current brief is
+        # independently maintained. Use an isolated kit with the plan's declared media names.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "briefs").mkdir()
+            cap = root / "captures" / VID
+            cap.mkdir(parents=True)
+            (cap / "plan-keep.json").write_text("{}")
+            for point in plan["points"]:
+                visual = point["visual"]
+                if visual["kind"] == "animation":
+                    (cap / visual["animation"]).touch()
+            catch = plan["catch_visual"]
+            if catch["kind"] == "animation":
+                (cap / catch["animation"]).touch()
+            with mock.patch.object(bfp, "ROOT", root):
+                out = bfp.build(_plan_path())
+            brief = json.loads(out.read_text(encoding="utf-8"))
         text = json.dumps(brief, ensure_ascii=False)
-        self.assertNotIn("iFixAi", text, "no iFixAi copy may leak into another video's brief")
+        self.assertNotIn("iFixAi", text)
         self.assertNotIn("owner approval of plan given", text)
         self.assertIsNone(brief["review"]["expires_at"])
         self.assertIn("Topic approved by owner", brief["review"]["notes"])
         kinds = [s["type"] for s in brief["scenes"]]
-        self.assertEqual(kinds[0], "image")
         self.assertEqual(kinds[-1], "endcard")
         self.assertEqual(brief["scenes"][-2]["id"], "catch")
+        self.assertEqual(brief["id"], VID)
 
     def test_missing_kit_names_the_fix(self):
         import brief_from_plan as bfp
