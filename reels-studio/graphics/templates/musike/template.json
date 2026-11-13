@@ -13,12 +13,78 @@
   },
   "max_text": 48,
   "archetypes": {
-    "player_hook":   { "req": [], "opt": ["track", "accent_words"], "facts": false, "script_ok": true, "max_text": 80 },
-    "server_stream": { "req": [], "opt": ["accent_words"], "facts": false, "script_ok": true, "max_text": 60 },
-    "av_toggle":     { "req": [], "opt": ["accent_words"], "facts": false, "script_ok": true, "max_text": 60 },
-    "platform_grid": { "req": [], "opt": ["accent_words"], "facts": true,  "script_ok": false, "max_text": 60 },
-    "library_file":  { "req": [], "opt": ["accent_words"], "facts": false, "script_ok": true, "max_text": 60 },
-    "honesty_card":  { "req": [], "opt": ["bullets", "accent_words"], "facts": false, "script_ok": true, "max_text": 90 },
-    "endcard":       { "req": ["keyword"], "opt": ["prompt", "follow", "accent_words", "cue_phrases"], "facts": false, "script_ok": true, "max_text": 60 }
+    "player_hook": {
+      "req": [],
+      "opt": [
+        "track",
+        "accent_words",
+        "cue_phrases"
+      ],
+      "facts": false,
+      "script_ok": true,
+      "max_text": 80
+    },
+    "server_stream": {
+      "req": [],
+      "opt": [
+        "accent_words"
+      ],
+      "facts": false,
+      "script_ok": true,
+      "max_text": 60
+    },
+    "av_toggle": {
+      "req": [],
+      "opt": [
+        "accent_words",
+        "cue_phrases"
+      ],
+      "facts": false,
+      "script_ok": true,
+      "max_text": 60
+    },
+    "platform_grid": {
+      "req": [],
+      "opt": [
+        "accent_words",
+        "cue_phrases"
+      ],
+      "facts": true,
+      "script_ok": false,
+      "max_text": 60
+    },
+    "library_file": {
+      "req": [],
+      "opt": [
+        "accent_words"
+      ],
+      "facts": false,
+      "script_ok": true,
+      "max_text": 60
+    },
+    "honesty_card": {
+      "req": [],
+      "opt": [
+        "bullets",
+        "accent_words"
+      ],
+      "facts": false,
+      "script_ok": true,
+      "max_text": 90
+    },
+    "endcard": {
+      "req": [
+        "keyword"
+      ],
+      "opt": [
+        "prompt",
+        "follow",
+        "accent_words",
+        "cue_phrases"
+      ],
+      "facts": false,
+      "script_ok": true,
+      "max_text": 60
+    }
   }
 }

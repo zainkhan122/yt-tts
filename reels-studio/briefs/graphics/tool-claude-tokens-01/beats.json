@@ -21,8 +21,8 @@
     ],
     "cue_phrases": [
      "limit",
-     "four",
-     "fixed"
+     "real number",
+     "down"
     ]
    }
   },
@@ -83,30 +83,22 @@
    "archetype": "score_rules",
    "headline": "ROUTE AROUND THE LIMIT",
    "feature_id": "f3",
-   "depicts": "omniroute sends work to 352 providers and 1.47 billion free tokens",
+   "depicts": "omniroute switches to free models and graphify maps a codebase",
    "payload": {
-    "title": "WHAT OMNIROUTE CLAIMS",
+    "title": "TWO WAYS AROUND THE LIMIT",
     "rows": [
      {
-      "t": "PROVIDERS",
-      "val": "352",
-      "score": 0.92
+      "t": "OMNIROUTE",
+      "val": "FREE MODELS"
      },
      {
-      "t": "FREE TOKENS / MONTH",
-      "val": "1.47B",
-      "score": 0.78
-     },
-     {
-      "t": "SETUP",
-      "val": "ONE ENV VAR",
-      "score": 0.34
+      "t": "GRAPHIFY",
+      "val": "MAPS CODEBASE"
      }
     ],
     "cue_phrases": [
-     "providers",
-     "billion",
-     "env"
+     "omniroute",
+     "graphify"
     ]
    }
   },
@@ -133,11 +125,11 @@
    "feature_id": null,
    "depicts": "which limit bites you first input output or session comment limit",
    "payload": {
-    "keyword": "LIMIT",
-    "prompt": "for the plugin list",
+    "keyword": "TOKENS",
+    "prompt": "for the four repos",
     "follow": "@hypeless",
     "cue_phrases": [
-     "limit"
+     "comment tokens"
     ]
    }
   }

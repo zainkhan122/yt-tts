@@ -20,7 +20,7 @@
   /* Engines written before the house layer each grew a caption of their own (.caption,
      .pl-caption, .ng-cap, ...). They are all now superseded: two captions on screen is a bug, and
      deleting the code from six engines is a worse bet than suppressing it in one place. */
-  var TEMPLATE_CAPTIONS = ".caption,.pl-caption,.ng-cap,.vb-cap,.photo-cap,.dr-cap,.mk-cap,.rl-cap";
+  var TEMPLATE_CAPTIONS = ".caption,.pl-caption,.ng-cap,.vb-cap,.photo-cap,.dr-cap,.mk-cap,.rl-cap,.rl-foot-band";
   var suppressed = 0;
   function suppressTemplateCaptions() {
     var els = document.querySelectorAll(TEMPLATE_CAPTIONS);
@@ -37,6 +37,11 @@
   function mount() {
     var stage = document.getElementById("stage");
     if (!stage) return;
+    stage.dataset.template = D.template || "default";
+    // Exactly one channel handle. Legacy template handles otherwise duplicate the house one.
+    stage.querySelectorAll(":scope > .handle,:scope > .pl-head,:scope > .rl-head,:scope > .ng-handle").forEach(function (el) {
+      el.setAttribute("data-house-suppressed", "1");
+    });
     if (!handleEl && D.handle) {
       handleEl = document.createElement("div");
       handleEl.className = "yt-handle";

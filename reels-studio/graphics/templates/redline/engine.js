@@ -48,19 +48,7 @@
 
   /* moment a spoken phrase lands, else an even stagger inside the scene */
   function bindTimes(phrases, s, n) {
-    var out = [];
-    for (var i = 0; i < n; i++) {
-      var hit = null;
-      if (phrases && phrases[i]) {
-        var want = norm(phrases[i]);
-        (s.words || []).forEach(function (w) {
-          if (hit === null && norm(w[0]) === want) hit = w[1];
-        });
-      }
-      if (hit === null) hit = s.t0 + 0.35 + i * Math.min(1.1, Math.max(0.5, (s.t1 - s.t0) / (n + 1.6)));
-      out.push(hit);
-    }
-    return out;
+    return window.HouseMotion.cueTimes(phrases, s, n, {fallback:"redline"});
   }
 
   /* ruled paper background: horizontal hairlines + a red margin rule */
@@ -160,18 +148,19 @@
       r.num = el("div", "n", r.box);
       if (p.sub) r.sub = el("div", "s", r.box, p.sub);
       r.foot = el("div", "rl-foot", sheet, p.note || "");
+      r.when = bindTimes(p.cue_phrases, s, 1)[0];
       return r;
     },
     update: function (r, s, u, d) {
-      var p = s.payload || {};
+      var p = s.payload || {}, since = s.t0 + u - r.when;
       var val = parseFloat(p.value) || 0;
       r.paper.style.opacity = fmt(ramp(u, 0, 0.3));
-      var k = eExpo(ramp(u, 0.15, 0.85));
-      r.num.textContent = Math.round(val * k) + (p.suffix || "");
-      var pop = eBack(ramp(u, 0.12, 0.42));
+      var k = eExpo(ramp(since, 0, 0.7));
+      r.num.textContent = since < 0 ? "—" : Math.round(val * k) + (p.suffix || "");
+      var pop = eBack(ramp(since, 0, 0.35));
       r.box.style.transform = "scale(" + fmt(0.9 + 0.1 * pop, 3) + ") rotate(-1.4deg)";
-      r.box.style.opacity = fmt(ramp(u, 0.1, 0.3));
-      r.foot.style.opacity = fmt(ramp(u, 0.55, 0.85));
+      r.box.style.opacity = fmt(0.35 + 0.65 * ramp(since, 0, 0.2));
+      r.foot.style.opacity = fmt(ramp(since, 0.25, 0.55));
     }
   };
 
@@ -185,12 +174,12 @@
       var sheet = el("div", "rl-sheet", root);
       el("div", "rl-kicker", sheet, p.title || "FIELD NOTES");
       r.rows = (p.rows || []).map(function (spec) {
-        var row = el("div", "rl-score", sheet);
+        var row = el("div", "rl-score" + (spec.score === undefined ? " no-bar" : ""), sheet);
         el("b", null, row, spec.t || "");
         var track = el("i", "track", row);
         var fill = el("u", null, track);
         el("em", null, row, spec.val || "");
-        return { row: row, fill: fill, score: spec.score === undefined ? 0.6 : spec.score };
+        return { row: row, fill: fill, score: spec.score === undefined ? 0 : spec.score };
       });
       r.times = bindTimes(p.cue_phrases, s, r.rows.length);
       return r;
@@ -290,6 +279,9 @@
     // House layer owns the outro; hide the entire template scene.
     if (s.archetype === "endcard") { D.scenes.forEach(function (x) { x._wrap.style.display = "none"; }); return; }
     var u = t - s.t0, d = Math.max(1e-6, s.t1 - s.t0);
+    var enter = eCubic(ramp(u, 0, 0.28));
+    s._visual.style.opacity = fmt(0.7 + 0.3 * enter);
+    s._visual.style.transform = "translateY(" + fmt((1 - enter) * 12, 1) + "px)";
     ARCH[s.archetype].update(s._refs, s, u, d);
     drawCaption(s, t);
   };

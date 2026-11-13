@@ -19,7 +19,7 @@ body { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; color: #16150F
 .visual { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
 
 /* page number: every sheet is numbered like a report page */
-.rl-pnum { position: absolute; right: 78px; top: 1452px; font-family: "SF Mono", ui-monospace,
+.rl-pnum { position: absolute; right: 78px; top: 1160px; font-family: "SF Mono", ui-monospace,
   Menlo, Consolas, monospace; font-size: 24px; letter-spacing: 0.16em; color: #8A8578; }
 
 /* ---------- the sheet is the page of a report ---------- */
@@ -95,3 +95,8 @@ body { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; color: #16150F
   font-family: "Inter", "Helvetica Neue", Arial, sans-serif; }
 .rl-foot-band .cw { display: inline-block; }
 .rl-foot-band .cw.on { color: #D8341C; }
+
+/* Non-numeric claims are text comparisons, never arbitrary-length score bars. */
+.rl-score.no-bar .track { display:none; }
+.rl-score.no-bar { justify-content:space-between; }
+.rl-score.no-bar em { font-size:30px; }

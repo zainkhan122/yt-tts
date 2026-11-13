@@ -24,7 +24,7 @@ html, body { margin: 0; padding: 0; background: #171A1F; }
 .cw { display: inline-block; color: #FFFFFF; }
 .cw.pk { color: #FE297D; }
 .cw.mute { color: #8E96A0; }
-.visual { position: absolute; left: 56px; right: 56px; top: 430px; height: 1020px;
+.visual { position: absolute; left: 56px; right: 56px; top: 280px; height: 1020px;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   transform-origin: 50% 50%; }
 

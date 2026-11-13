@@ -195,7 +195,7 @@ html, body { margin: 0; padding: 0; background: #0C0E17; }
 .caption .cw-on { background: #FFD60A; color: #0C0E17; border-radius: 12px; padding: 2px 14px; margin: 6px 10px 0 0; }
 
 /* ---------- split_view: photo beside its live 3D, cursor drags the splat ---------- */
-.sv { position: absolute; left: 60px; top: 436px; width: 960px; height: 1150px; }
+.sv { position: absolute; left: 0; top: 0; width: 960px; height: 100%; }
 .sv-half { position: absolute; top: 0; width: 460px; height: 820px; }
 .sv-half.ph-side { left: 0; }
 .sv-half.sp-side { right: 0; }
@@ -210,7 +210,7 @@ html, body { margin: 0; padding: 0; background: #0C0E17; }
   box-shadow: 0 14px 34px rgba(0,0,0,0.45); }
 
 /* ---------- blender_handoff: bg strips, .ply flies, docks into a Blender window ---------- */
-.bh { position: absolute; left: 60px; top: 436px; width: 960px; height: 1150px; }
+.bh { position: absolute; left: 0; top: 0; width: 960px; height: 100%; }
 .bh-photo { position: absolute; left: 0; top: 0; width: 500px; height: 820px; }
 .bh-checker { position: absolute; left: 48px; right: 36px; top: 98px; bottom: 96px; border-radius: 18px;
   opacity: 0;

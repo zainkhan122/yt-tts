@@ -1,269 +1,252 @@
 {
-  "tool": "idol",
-  "template": "photo-to-3d",
-  "handle": "@hypeless",
-  "scenes": [
-    {
-      "scene_id": "hook",
-      "phrase": 0,
-      "archetype": "photo_splat",
-      "headline": "ONE PHOTO ISN'T ENOUGH",
-      "feature_id": "f1",
-      "depicts": "flat product photos, then the object spinning",
-      "payload": {
-        "eyebrow": "IMAGE TO 3D",
-        "accent_word": "FLAT",
-        "label": "ONE PHOTO → 3D",
-        "photos": [
-          {
-            "name": "sneaker.jpg",
-            "tag": "PRODUCT PHOTO",
-            "caption": "front view · flat",
-            "shape": "sneaker"
-          },
-          {
-            "name": "mug.jpg",
-            "tag": "PRODUCT PHOTO",
-            "caption": "one angle only",
-            "shape": "mug"
-          }
-        ],
-        "splat": {
-          "name": "sneaker.ply",
-          "count": "1,048,576 GAUSSIANS",
-          "caption": "every side · opens anywhere",
-          "badge": "FULL 3D",
-          "seed": 9102,
-          "shape": "sneaker"
-        },
-        "cue_phrases": [
-          "one photo",
-          "product page",
-          "from behind"
-        ]
-      }
+ "tool": "idol",
+ "template": "photo-to-3d",
+ "handle": "@hypeless",
+ "scenes": [
+  {
+   "scene_id": "hook",
+   "phrase": 0,
+   "archetype": "photo_splat",
+   "headline": "ONE PHOTO ISN'T ENOUGH",
+   "feature_id": "f1",
+   "depicts": "flat product photos, then the object spinning",
+   "payload": {
+    "eyebrow": "IMAGE TO 3D",
+    "accent_word": "FLAT",
+    "label": "ONE PHOTO \u2192 3D",
+    "photos": [
+     {
+      "name": "sneaker.jpg",
+      "tag": "PRODUCT PHOTO",
+      "caption": "front view \u00b7 flat",
+      "shape": "sneaker"
+     },
+     {
+      "name": "mug.jpg",
+      "tag": "PRODUCT PHOTO",
+      "caption": "one angle only",
+      "shape": "mug"
+     }
+    ],
+    "splat": {
+     "name": "sneaker.ply",
+     "count": "1,048,576 GAUSSIANS",
+     "caption": "every side \u00b7 opens anywhere",
+     "badge": "FULL 3D",
+     "seed": 9102,
+     "shape": "sneaker"
     },
-    {
-      "scene_id": "point1",
-      "phrase": 1,
-      "archetype": "split_view",
-      "headline": "PHOTO ⇄ SPIN",
-      "feature_id": "f1",
-      "depicts": "photo beside its live 3D; a cursor drags it around",
-      "payload": {
-        "eyebrow": "PHOTO IN, 3D OUT",
-        "accent_word": "MOUSE",
-        "photo": {
-          "name": "sneaker.jpg",
-          "tag": "ONE PHOTO",
-          "caption": "flat",
-          "shape": "sneaker"
-        },
-        "splat": {
-          "name": "sneaker.ply",
-          "count": "made from it",
-          "caption": "drag it with the mouse",
-          "badge": "≈ 2 S",
-          "seed": 4211,
-          "shape": "sneaker"
-        },
-        "chips": [
-          "turn with your mouse",
-          "sides drawn in",
-          "about two seconds"
-        ],
-        "cue_phrases": [
-          "drop that photo",
-          "turn around with your mouse",
-          "never saw",
-          "two seconds"
-        ]
-      }
+    "cue_phrases": [
+     "one photo",
+     "product page",
+     "turn it around"
+    ]
+   }
+  },
+  {
+   "scene_id": "point1",
+   "phrase": 1,
+   "archetype": "split_view",
+   "headline": "PHOTO \u21c4 SPIN",
+   "feature_id": "f1",
+   "depicts": "photo beside its live 3D; a cursor drags it around",
+   "payload": {
+    "eyebrow": "PHOTO IN, 3D OUT",
+    "accent_word": "MOUSE",
+    "photo": {
+     "name": "sneaker.jpg",
+     "tag": "ONE PHOTO",
+     "caption": "flat",
+     "shape": "sneaker"
     },
-    {
-      "scene_id": "point2",
-      "phrase": 2,
-      "archetype": "blender_handoff",
-      "headline": "STRAIGHT INTO BLENDER",
-      "feature_id": "f5",
-      "depicts": "same object, background stripped; .ply lands in a Blender window",
-      "payload": {
-        "eyebrow": "NO STUDIO",
-        "accent_word": "BLENDER",
-        "photo": {
-          "name": "sneaker.jpg",
-          "tag": "THE SAME PHOTO",
-          "caption": "cut, framed",
-          "shape": "sneaker"
-        },
-        "file": {
-          "name": "sneaker.ply",
-          "kind": "3DGS"
-        },
-        "app": {
-          "name": "Blender",
-          "title": "Blender · layout"
-        },
-        "steps": [
-          "cut the background",
-          "file opens in Blender",
-          "use it in a page or game"
-        ],
-        "cue_phrases": [
-          "no studio",
-          "cuts the background",
-          "blender",
-          "product page"
-        ]
-      }
+    "splat": {
+     "name": "sneaker.ply",
+     "count": "made from it",
+     "caption": "drag it with the mouse",
+     "badge": "\u2248 2 S",
+     "seed": 4211,
+     "shape": "sneaker"
     },
-    {
-      "scene_id": "point3",
-      "phrase": 3,
-      "archetype": "gpu_gauge",
-      "headline": "YOUR GPU, NOT THE CLOUD",
-      "feature_id": "f4",
-      "depicts": "the VRAM gauge fills; no-cloud chips",
-      "payload": {
-        "eyebrow": "ON YOUR MACHINE",
-        "accent_word": "YOURS",
-        "vram": 7.2,
-        "gauge_cap": 24,
-        "chips": [
-          "your card runs it",
-          "no cloud call",
-          "no waitlist",
-          "≈ 7 GB"
-        ],
-        "chip_subs": [
-          "consumer cards run it",
-          "the file is yours",
-          "no queue, no account",
-          "VRAM peak, per the lab"
-        ],
-        "cue_phrases": [
-          "graphics card",
-          "seven gigabytes",
-          "no cloud",
-          "waitlist"
-        ]
-      }
+    "chips": [
+     "turn with your mouse",
+     "sides drawn in",
+     "about two seconds"
+    ],
+    "cue_phrases": [
+     "one photo",
+     "with your mouse",
+     "never saw",
+     "two seconds"
+    ]
+   }
+  },
+  {
+   "scene_id": "point2",
+   "phrase": 2,
+   "archetype": "blender_handoff",
+   "headline": "STRAIGHT INTO BLENDER",
+   "feature_id": "f5",
+   "depicts": "same object, background stripped; .ply lands in a Blender window",
+   "payload": {
+    "eyebrow": "NO STUDIO",
+    "accent_word": "BLENDER",
+    "photo": {
+     "name": "sneaker.jpg",
+     "tag": "THE SAME PHOTO",
+     "caption": "cut, framed",
+     "shape": "sneaker"
     },
-    {
-      "scene_id": "point4",
-      "phrase": 4,
-      "archetype": "two_doors",
-      "headline": "ONE COMMAND",
-      "feature_id": "f9",
-      "depicts": "free demo door, then the command typing itself",
-      "payload": {
-        "eyebrow": "TRY IT",
-        "accent_word": "ONE",
-        "doors": [
-          {
-            "title": "Free demo first",
-            "sub": "Drop a photo in the browser, get the model.",
-            "line": "drop photo → get .ply"
-          },
-          {
-            "title": "On your machine",
-            "sub": "One command turns a photo into a file.",
-            "line": "python -m idol.sample --image photo.jpg"
-          }
-        ],
-        "cue_phrases": [
-          "one command",
-          "own machine",
-          "a file you already have"
-        ]
-      }
+    "file": {
+     "name": "sneaker.ply",
+     "kind": "3DGS"
     },
-    {
-      "scene_id": "point5",
-      "phrase": 5,
-      "archetype": "leaderboard",
-      "headline": "PROOF ON ITS OWN TESTS",
-      "feature_id": null,
-      "depicts": "idol's row wins every visual score, trending badge",
-      "payload": {
-        "eyebrow": "PROOF",
-        "accent_word": "every",
-        "badge": "TOP TRENDING TODAY",
-        "rows": [
-          {
-            "name": "idol",
-            "score": 0.97,
-            "val": "0.726 SSIM",
-            "win": true
-          },
-          {
-            "name": "TRELLIS",
-            "score": 0.72,
-            "val": "0.716 SSIM"
-          },
-          {
-            "name": "TripoSplat",
-            "score": 0.68,
-            "val": "0.712 SSIM"
-          },
-          {
-            "name": "LGM",
-            "score": 0.6,
-            "val": "0.722 SSIM"
-          }
-        ],
-        "cue_phrases": [
-          "own tests",
-          "every visual score",
-          "top trending"
-        ]
-      }
+    "app": {
+     "name": "Blender",
+     "title": "Blender \u00b7 layout"
     },
-    {
-      "scene_id": "catch",
-      "phrase": 6,
-      "archetype": "expect_rows",
-      "headline": "ONE BOUNDARY",
-      "feature_id": "f10",
-      "depicts": "single objects only, one honest row",
-      "payload": {
-        "eyebrow": "ONE BOUNDARY",
-        "rows": [
-          {
-            "kind": "tag",
-            "t": "Single objects, not rooms",
-            "s": "a sneaker, a mug, a product"
-          },
-          {
-            "kind": "ok",
-            "t": "Every angle your photo shows is yours",
-            "s": "plus the sides it never saw"
-          }
-        ],
-        "cue_phrases": [
-          "single objects",
-          "still get"
-        ]
-      }
-    },
-    {
-      "scene_id": "cta",
-      "phrase": 7,
-      "archetype": "endcard",
-      "headline": "SKIP THE RESHOOT",
-      "feature_id": null,
-      "depicts": "comment keyword, follow press",
-      "payload": {
-        "keyword": "IDOL",
-        "keyword_chip": false,
-        "follow": "Follow",
-        "cue_phrases": [
-          "comment idol",
-          "pin the link"
-        ]
-      },
-      "cue_word": "idol"
-    }
-  ],
-  "script_sha256": "sha256:c9265d90955460368c69da92382e7432f921523dfb5818cd605bc86326f66bb3"
+    "steps": [
+     "cut the background",
+     "file opens in Blender",
+     "use it in a page or game"
+    ],
+    "cue_phrases": [
+     "no studio",
+     "cuts the background",
+     "blender",
+     "product page"
+    ]
+   }
+  },
+  {
+   "scene_id": "point3",
+   "phrase": 3,
+   "archetype": "gpu_gauge",
+   "headline": "YOUR GPU, NOT THE CLOUD",
+   "feature_id": "f4",
+   "depicts": "the VRAM gauge fills; no-cloud chips",
+   "payload": {
+    "eyebrow": "ON YOUR MACHINE",
+    "accent_word": "YOURS",
+    "vram": 7.2,
+    "gauge_cap": 24,
+    "chips": [
+     "your card runs it",
+     "no cloud call",
+     "no waitlist",
+     "\u2248 7 GB"
+    ],
+    "chip_subs": [
+     "consumer cards run it",
+     "the file is yours",
+     "no queue, no account",
+     "VRAM peak, per the lab"
+    ],
+    "cue_phrases": [
+     "graphics card",
+     "seven gigabytes",
+     "no cloud",
+     "waitlist"
+    ]
+   }
+  },
+  {
+   "scene_id": "point4",
+   "phrase": 4,
+   "archetype": "two_doors",
+   "headline": "ONE COMMAND",
+   "feature_id": "f9",
+   "depicts": "free demo door, then the command typing itself",
+   "payload": {
+    "eyebrow": "TRY IT",
+    "accent_word": "ONE",
+    "doors": [
+     {
+      "title": "Free demo first",
+      "sub": "Drop a photo in the browser, get the model.",
+      "line": "drop photo \u2192 get .ply"
+     },
+     {
+      "title": "On your machine",
+      "sub": "One command turns a photo into a file.",
+      "line": "python -m idol.sample --image photo.jpg"
+     }
+    ],
+    "cue_phrases": [
+     "one command",
+     "own machine",
+     "a file you already have"
+    ]
+   }
+  },
+  {
+   "scene_id": "point5",
+   "phrase": 5,
+   "archetype": "leaderboard",
+   "headline": "PROOF ON ITS OWN TESTS",
+   "feature_id": null,
+   "depicts": "idol lab own test recorded an SSIM visual score",
+   "payload": {
+    "eyebrow": "PROOF",
+    "accent_word": "every",
+    "badge": "LAB TEST \u00b7 SSIM (0\u20131)",
+    "rows": [
+     {
+      "name": "IDOL",
+      "score": 0.726,
+      "val": "0.726 SSIM",
+      "win": true
+     }
+    ],
+    "cue_phrases": [
+     "own tests"
+    ]
+   }
+  },
+  {
+   "scene_id": "catch",
+   "phrase": 6,
+   "archetype": "expect_rows",
+   "headline": "ONE BOUNDARY",
+   "feature_id": "f10",
+   "depicts": "single objects only, one honest row",
+   "payload": {
+    "eyebrow": "ONE BOUNDARY",
+    "rows": [
+     {
+      "kind": "tag",
+      "t": "Single objects, not rooms",
+      "s": "a sneaker, a mug, a product"
+     },
+     {
+      "kind": "ok",
+      "t": "Every angle your photo shows is yours",
+      "s": "plus the sides it never saw"
+     }
+    ],
+    "cue_phrases": [
+     "single objects",
+     "still get"
+    ]
+   }
+  },
+  {
+   "scene_id": "cta",
+   "phrase": 7,
+   "archetype": "endcard",
+   "headline": "SKIP THE RESHOOT",
+   "feature_id": null,
+   "depicts": "comment keyword, follow press",
+   "payload": {
+    "keyword": "IDOL",
+    "keyword_chip": false,
+    "follow": "Follow",
+    "cue_phrases": [
+     "comment idol",
+     "pin the link"
+    ]
+   },
+   "cue_word": "idol"
+  }
+ ],
+ "script_sha256": "sha256:c9265d90955460368c69da92382e7432f921523dfb5818cd605bc86326f66bb3"
 }

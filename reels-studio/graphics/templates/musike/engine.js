@@ -142,6 +142,8 @@
       r.chips = el("div", "", root);
       r.chips.innerHTML = "<span class='mk-chip'>NO ADS</span> <span class='mk-chip'>NO ACCOUNT</span> <span class='mk-chip amber'>FREE + MIT</span>";
       r.chips.style.cssText = "display:flex;gap:18px;margin-top:38px;";
+      r.chipEls = Array.from(r.chips.children);
+      r.chipTimes = window.HouseMotion.cueTimes((s.payload || {}).cue_phrases, s, r.chipEls.length, {});
       return r;
     },
     update: function (r, s, u, d) {
@@ -152,8 +154,11 @@
       r.win.style.transform = "translateY(" + fmt((1 - pop) * 40) + "px) scale(" + fmt(0.97 + 0.03 * pop) + ")";
       r.win.style.boxShadow = "0 30px 80px rgba(0,0,0,0.55), 0 0 " + fmt(40 + 30 * (0.5 + 0.5 * Math.sin(u * 2.1))) + "px rgba(52,199,89," + fmt(0.10 + 0.07 * ramp(u, 1.2, 2.2)) + ")";
       r.navs[0].querySelector(".pill").style.opacity = fmt(easeSnappy(ramp(u, 0.7, 1.1)));
-      r.chips.style.opacity = fmt(ramp(u, 1.1, 1.7));
-      r.chips.style.transform = "translateY(" + fmt((1 - easeOutCubic(ramp(u, 1.1, 1.7))) * 26) + "px)";
+      r.chipEls.forEach(function (chip, i) {
+        var k = easeOutCubic(ramp(s.t0 + u, r.chipTimes[i], r.chipTimes[i] + .35));
+        chip.style.opacity = fmt(k);
+        chip.style.transform = "translateY(" + fmt((1-k)*16) + "px)";
+      });
       if (r.status) r.status.style.opacity = fmt(0.55 + 0.45 * (0.5 + 0.5 * Math.sin(u * 3.2)));
     }
   };
@@ -245,10 +250,11 @@
       r.shim = el("div", "shimmer", r.video);
       r.bigArt = el("div", "mk-bigart", r.stage);
       r.bigArt.style.background = "linear-gradient(135deg, #3D5AFE, #00B8D4)";
+      r.flipTime = window.HouseMotion.cueTimes((s.payload || {}).cue_phrases, s, 1, {})[0];
       return r;
     },
     update: function (r, s, u, d) {
-      var flipAt = clamp(1.3, d * 0.15, d * 0.4);
+      var flipAt = clamp(r.flipTime - s.t0, 0, d);
       var f = easeSpring(ramp(u, flipAt, flipAt + 0.7));
       r.thumb.style.left = fmt(6 + f * (360 - 172 - 12)) + "px";
       r.optA.style.color = f < 0.5 ? "#F5F6F7" : MUTE;
@@ -295,14 +301,15 @@
       r.stripEq = eq(strip, 4);
       r.grid = el("div", "mk-plats six", r.pane);
       r.tiles = [];
-      [["monitor", "DESKTOP"], ["globe", "BROWSER PWA"], ["phone", "PHONE"],
-       ["tv", "ANDROID TV"], ["docker", "DOCKER"], ["file", "WIN·MAC·LINUX"]].forEach(function (pv) {
+      [["monitor", "DESKTOP"], ["phone", "PHONE"], ["tv", "ANDROID TV"],
+       ["globe", "BROWSER PWA"], ["docker", "DOCKER"]].forEach(function (pv) {
         var t = el("div", "mk-plat", r.grid);
         el("div", "gl", t).appendChild(iconSvg(64, 64, null, ICONS[pv[0]], pv[0] === "docker" ? AMBER : GREEN));
         el("div", "nm", t, pv[1]);
         var ms = el("div", "miniseek", t); el("i", "", ms);
         r.tiles.push(t);
       });
+      r.tileTimes = window.HouseMotion.cueTimes((s.payload || {}).cue_phrases, s, r.tiles.length, {});
       return r;
     },
     update: function (r, s, u, d) {
@@ -314,7 +321,7 @@
       seekSet(r.stripSeek, clamp(u / Math.max(1, d), 0, 1));
       eqDrive(r.stripEq, u, 8);
       r.tiles.forEach(function (t, i) {
-        var k = easeSnappy(ramp(u, 0.5 + 0.16 * i, 1.0 + 0.16 * i));
+        var k = easeSnappy(ramp(s.t0 + u, r.tileTimes[i], r.tileTimes[i] + 0.5));
         t.style.opacity = fmt(k);
         t.style.transform = "translateY(" + fmt((1 - k) * 46) + "px) scale(" + fmt(0.9 + 0.1 * k) + ")";
         t.querySelector(".miniseek i").style.width = fmt(30 + 40 * (0.5 + 0.5 * Math.sin(u * 2 + i))) + "%";
@@ -466,7 +473,7 @@
     // House layer owns the outro; hide the entire template scene.
     if (s.archetype === "endcard") { D.scenes.forEach(function (x) { x._wrap.style.display = "none"; }); return; }
     var u = t - s.t0, d = Math.max(1e-6, s.t1 - s.t0);
-    var fade = Math.min(ramp(u, 0, 0.18), ramp(d - u, 0, 0.16));
+    var fade = 0.7 + 0.3 * Math.min(ramp(u, 0, 0.18), ramp(d - u, 0, 0.16));
     s._head.style.opacity = fmt(fade);
     s._head.style.transform = "translateY(" + fmt((1 - easeOutCubic(ramp(u, 0, 0.3))) * 30) + "px)";
     s._visual.style.opacity = fmt(fade);

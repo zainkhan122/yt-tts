@@ -65,3 +65,9 @@
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 26px; letter-spacing: 0.22em; color: #8A8A93;
 }
+
+/* Pale templates need real contrast, not white type outlined over white paper. */
+#stage[data-template="redline"] .yt-cap,
+#stage[data-template="design-review"] .yt-cap {
+  background:rgba(12,14,20,.92); border-radius:16px; padding:12px 20px;
+}

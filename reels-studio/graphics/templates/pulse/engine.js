@@ -43,17 +43,7 @@
   // Resolve multi-word narration cues against contiguous aligned tokens. A missing cue falls
   // back to an explicit stagger; it must never match an unrelated concatenated word.
   function bindTimes(phrases, s, n) {
-    var out = [], words = s.words || [];
-    for (var i = 0; i < n; i++) {
-      var hit = null, want = String((phrases || [])[i] || "").split(/\s+/).map(norm).filter(Boolean);
-      for (var j = 0; want.length && j <= words.length - want.length; j++) {
-        var ok = want.every(function (token, k) { return norm(words[j+k][0]) === token; });
-        if (ok) { hit = words[j][1]; break; }
-      }
-      if (hit === null) hit = s.t0 + 0.3 + i * Math.max(0.45, Math.min(1.2, (s.t1 - s.t0) / (n + 1.5)));
-      out.push(hit);
-    }
-    return out;
+    return window.HouseMotion.cueTimes(phrases, s, n, {});
   }
 
   /* the ground: scrolling perspective grid + a soft horizon glow */

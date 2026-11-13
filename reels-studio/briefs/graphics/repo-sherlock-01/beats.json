@@ -1,211 +1,216 @@
 {
-  "tool": "sherlock",
-  "handle": "@hypeless",
-  "template": "velocity-black",
-  "script_sha256": "sha256:e11c481810044078fdfffc28327bab19e8b8ae8dcb7acf039d88e7a698997da0",
-  "scenes": [
-    {
-      "scene_id": "hook",
-      "phrase": 0,
-      "archetype": "hook_fan",
-      "headline": "ONE COMMAND FINDS YOU… EVERYWHERE?",
-      "feature_id": null,
-      "depicts": "one command asks four hundred plus sites at once",
-      "payload": {
-        "sites": 481,
-        "accent_words": [
-          "find",
-          "hundred",
-          "asks"
-        ]
-      },
-      "cue_word": "hundred"
+ "tool": "sherlock",
+ "handle": "@hypeless",
+ "template": "velocity-black",
+ "script_sha256": "sha256:e11c481810044078fdfffc28327bab19e8b8ae8dcb7acf039d88e7a698997da0",
+ "scenes": [
+  {
+   "scene_id": "hook",
+   "phrase": 0,
+   "archetype": "hook_fan",
+   "headline": "ONE COMMAND FINDS YOU\u2026 EVERYWHERE?",
+   "feature_id": null,
+   "depicts": "one command asks four hundred plus sites at once",
+   "payload": {
+    "sites": 481,
+    "accent_words": [
+     "find",
+     "hundred",
+     "asks"
+    ]
+   },
+   "cue_word": "hundred"
+  },
+  {
+   "scene_id": "mechanism",
+   "phrase": 1,
+   "archetype": "lane_counts",
+   "headline": "THE THREE WAYS SITES ANSWER",
+   "feature_id": "f2",
+   "depicts": "status code, error message and redirect answers with their counts",
+   "payload": {
+    "lanes": [
+     {
+      "label": "STATUS CODE",
+      "count": 327,
+      "cue": "status"
+     },
+     {
+      "label": "ERROR MESSAGE",
+      "count": 127,
+      "cue": "error"
+     },
+     {
+      "label": "REDIRECT THE LINK",
+      "count": 27,
+      "cue": "redirect"
+     }
+    ],
+    "accent_words": [
+     "status",
+     "code",
+     "error",
+     "message",
+     "redirect"
+    ],
+    "cue_phrases": [
+     "three hundred twenty seven",
+     "a hundred twenty seven",
+     "twenty seven just redirect"
+    ]
+   },
+   "cue_word": "code"
+  },
+  {
+   "scene_id": "pivot",
+   "phrase": 2,
+   "archetype": "repo_card",
+   "headline": "PACKED INTO ONE COMMAND",
+   "feature_id": "f1",
+   "depicts": "the trick packed into the sherlock command",
+   "payload": {
+    "owner": "sherlock-project",
+    "repo": "sherlock",
+    "desc": "Hunt down social media accounts by username across social networks",
+    "chips": [
+     "106,020 stars",
+     "Python",
+     "MIT",
+     "since 2018"
+    ],
+    "ticker": {
+     "label": "TRACKING",
+     "to": 481,
+     "suffix": "SITES"
     },
-    {
-      "scene_id": "mechanism",
-      "phrase": 1,
-      "archetype": "lane_counts",
-      "headline": "THE THREE WAYS SITES ANSWER",
-      "feature_id": "f2",
-      "depicts": "status code, error message and redirect answers with their counts",
-      "payload": {
-        "lanes": [
-          {
-            "label": "STATUS CODE",
-            "count": 327,
-            "cue": "status"
-          },
-          {
-            "label": "ERROR MESSAGE",
-            "count": 127,
-            "cue": "error"
-          },
-          {
-            "label": "REDIRECT THE LINK",
-            "count": 27,
-            "cue": "redirect"
-          }
-        ],
-        "accent_words": [
-          "status",
-          "code",
-          "error",
-          "message",
-          "redirect"
-        ]
-      },
-      "cue_word": "code"
-    },
-    {
-      "scene_id": "pivot",
-      "phrase": 2,
-      "archetype": "repo_card",
-      "headline": "PACKED INTO ONE COMMAND",
-      "feature_id": "f1",
-      "depicts": "the trick packed into the sherlock command",
-      "payload": {
-        "owner": "sherlock-project",
-        "repo": "sherlock",
-        "desc": "Hunt down social media accounts by username across social networks",
-        "chips": [
-          "106,020 stars",
-          "Python",
-          "MIT",
-          "since 2018"
-        ],
-        "ticker": {
-          "label": "TRACKING",
-          "to": 481,
-          "suffix": "SITES"
-        },
-        "accent_words": [
-          "trick",
-          "Sherlock",
-          "single"
-        ]
-      },
-      "cue_word": "Sherlock"
-    },
-    {
-      "scene_id": "walkthrough",
-      "phrase": 3,
-      "archetype": "command_fan",
-      "headline": "TYPE A NAME. IT ASKS.",
-      "feature_id": "f1",
-      "depicts": "sherlock fans out checks and lists every site that said yes",
-      "payload": {
-        "command": "sherlock user123",
-        "hits": [
-          "GitHub",
-          "GitLab",
-          "Reddit",
-          "Medium",
-          "Dev.to",
-          "Keybase"
-        ],
-        "accent_words": [
-          "fans",
-          "yes",
-          "lists"
-        ]
-      },
-      "cue_word": "yes"
-    },
-    {
-      "scene_id": "velocity",
-      "phrase": 4,
-      "archetype": "velocity_curve",
-      "headline": "STEADY FOR YEARS. SPIKING TODAY.",
-      "feature_id": "f4",
-      "depicts": "trending number one with one hundred six thousand stars",
-      "payload": {
-        "stars": 106020,
-        "per_day": 37,
-        "start_year": 2019,
-        "tag": "No.1 ON GITTREND TODAY",
-        "base_note": "~37 STARS A DAY, EVERY DAY, FOR YEARS",
-        "accent_words": [
-          "number",
-          "one",
-          "stars",
-          "trending"
-        ]
-      },
-      "cue_word": "thousand"
-    },
-    {
-      "scene_id": "limit",
-      "phrase": 5,
-      "archetype": "name_collision",
-      "headline": "A NAME MATCH IS NOT A PERSON",
-      "feature_id": null,
-      "depicts": "a matched name is not always the same person",
-      "payload": {
-        "label_a": "the name",
-        "label_b": "the person",
-        "verdicts": [
-          "SITE SAYS YES",
-          "PERSON UNKNOWN"
-        ],
-        "accent_words": [
-          "name",
-          "person"
-        ]
-      },
-      "cue_word": "person"
-    },
-    {
-      "scene_id": "caveat",
-      "phrase": 6,
-      "archetype": "quote_card",
-      "headline": "THE HELP FILE ADMITS IT",
-      "feature_id": null,
-      "depicts": "the help file admits more false positives",
-      "payload": {
-        "quote": "may return more false positives",
-        "context": "--ignore-exclusions",
-        "source": "SHERLOCK README · --HELP OUTPUT · VERBATIM",
-        "accent_words": [
-          "admits",
-          "false",
-          "positives"
-        ]
-      },
-      "cue_word": "false"
-    },
-    {
-      "scene_id": "closer",
-      "phrase": 7,
-      "archetype": "fan_collapse",
-      "headline": "ASK EVERYONE. HEAR THE NO'S.",
-      "feature_id": null,
-      "depicts": "the phone book trick asks everyone at once",
-      "payload": {
-        "line": "Not stalking. The phone-book trick.",
-        "accent_words": [
-          "phone",
-          "book",
-          "no"
-        ]
-      },
-      "cue_word": "phone"
-    },
-    {
-      "scene_id": "cta",
-      "phrase": 8,
-      "archetype": "endcard",
-      "headline": "",
-      "feature_id": null,
-      "depicts": "comment sherlock for the repo link",
-      "payload": {
-        "keyword": "sherlock",
-        "prompt": "for the repo link",
-        "accent_words": [
-          "Follow",
-          "sherlock"
-        ]
-      },
-      "cue_word": "sherlock"
-    }
-  ]
+    "accent_words": [
+     "trick",
+     "Sherlock",
+     "single"
+    ]
+   },
+   "cue_word": "Sherlock"
+  },
+  {
+   "scene_id": "walkthrough",
+   "phrase": 3,
+   "archetype": "command_fan",
+   "headline": "TYPE A NAME. IT ASKS.",
+   "feature_id": "f1",
+   "depicts": "sherlock fans out checks and lists every site that said yes",
+   "payload": {
+    "command": "sherlock user123",
+    "hits": [
+     "GitHub",
+     "GitLab",
+     "Reddit",
+     "Medium",
+     "Dev.to",
+     "Keybase"
+    ],
+    "accent_words": [
+     "fans",
+     "yes",
+     "lists"
+    ]
+   },
+   "cue_word": "yes"
+  },
+  {
+   "scene_id": "velocity",
+   "phrase": 4,
+   "archetype": "velocity_curve",
+   "headline": "STEADY FOR YEARS. SPIKING TODAY.",
+   "feature_id": "f4",
+   "depicts": "trending number one with one hundred six thousand stars",
+   "payload": {
+    "stars": 106020,
+    "per_day": 37,
+    "start_year": 2019,
+    "tag": "No.1 ON GITTREND TODAY",
+    "base_note": "~37 STARS A DAY, EVERY DAY, FOR YEARS",
+    "accent_words": [
+     "number",
+     "one",
+     "stars",
+     "trending"
+    ]
+   },
+   "cue_word": "thousand"
+  },
+  {
+   "scene_id": "limit",
+   "phrase": 5,
+   "archetype": "name_collision",
+   "headline": "A NAME MATCH IS NOT A PERSON",
+   "feature_id": null,
+   "depicts": "a matched name is not always the same person",
+   "payload": {
+    "label_a": "the name",
+    "label_b": "the person",
+    "verdicts": [
+     "SITE SAYS YES",
+     "PERSON UNKNOWN"
+    ],
+    "accent_words": [
+     "name",
+     "person"
+    ]
+   },
+   "cue_word": "person"
+  },
+  {
+   "scene_id": "caveat",
+   "phrase": 6,
+   "archetype": "quote_card",
+   "headline": "THE HELP FILE ADMITS IT",
+   "feature_id": null,
+   "depicts": "the help file admits more false positives",
+   "payload": {
+    "quote": "may return more false positives",
+    "context": "--ignore-exclusions",
+    "source": "SHERLOCK README \u00b7 --HELP OUTPUT \u00b7 VERBATIM",
+    "accent_words": [
+     "admits",
+     "false",
+     "positives"
+    ]
+   },
+   "cue_word": "false"
+  },
+  {
+   "scene_id": "closer",
+   "phrase": 7,
+   "archetype": "fan_collapse",
+   "headline": "ASK EVERYONE. HEAR THE NO'S.",
+   "feature_id": null,
+   "depicts": "the phone book trick asks everyone at once",
+   "payload": {
+    "line": "Not stalking. The phone-book trick.",
+    "accent_words": [
+     "phone",
+     "book",
+     "no"
+    ]
+   },
+   "cue_word": "phone"
+  },
+  {
+   "scene_id": "cta",
+   "phrase": 8,
+   "archetype": "endcard",
+   "headline": "",
+   "feature_id": null,
+   "depicts": "comment sherlock for the repo link",
+   "payload": {
+    "keyword": "sherlock",
+    "prompt": "for the repo link",
+    "accent_words": [
+     "Follow",
+     "sherlock"
+    ]
+   },
+   "cue_word": "sherlock"
+  }
+ ]
 }

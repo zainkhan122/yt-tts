@@ -54,6 +54,10 @@ PROBE = r"""
     ? getComputedStyle(cap.querySelector(".cw.hit")).color : null;
   out.capText = cap ? cap.textContent : "";
   out.suppressed = document.querySelectorAll("[data-house-suppressed]").length;
+  out.templateCaptionsVisible = [...document.querySelectorAll('.caption,.pl-caption,.ng-cap,.vb-cap,.photo-cap,.dr-cap,.mk-cap,.rl-cap,.rl-foot-band')]
+    .filter(n => getComputedStyle(n).display !== 'none' && getComputedStyle(n).visibility !== 'hidden' && parseFloat(getComputedStyle(n).opacity) > 0.01).length;
+  out.visibleHandles = [...document.querySelectorAll('#stage > .yt-handle, #stage > .handle, #stage > .pl-head, #stage > .rl-head, #stage > .ng-handle')]
+    .filter(n => getComputedStyle(n).display !== 'none' && getComputedStyle(n).visibility !== 'hidden' && parseFloat(getComputedStyle(n).opacity) > 0.01).length;
   out.bandBreaches = [];
   document.querySelectorAll("#stage .scene *").forEach(n => {
     const cs = getComputedStyle(n);
@@ -133,6 +137,10 @@ def check(stage: Path) -> list[str]:
                         fails.append(f"H4 {tag}: {r['capHits']} yellow words in the caption (want exactly 1)")
                     elif r["hitColor"] != YELLOW:
                         fails.append(f"H4 {tag}: highlight is {r['hitColor']}, not brand yellow")
+                if r["templateCaptionsVisible"]:
+                    fails.append(f"H5 {tag}: {r['templateCaptionsVisible']} template captions remain visible")
+                if D.get("handle") and r["visibleHandles"] != 1:
+                    fails.append(f"H5 {tag}: {r['visibleHandles']} visible handles (want 1)")
                 if r["bandBreaches"]:
                     fails.append(f"H6 {tag}: caption-band breach -> {sorted(set(r['bandBreaches']))[:3]}")
         b.close()

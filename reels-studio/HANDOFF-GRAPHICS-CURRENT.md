@@ -45,3 +45,6 @@ python3 tools/ship.py status
 ```
 
 Local models are intentionally Git-ignored. The preview looks for `../models/kokoro/kokoro-v1.0.onnx` and `voices-v1.0.bin` (or `~/.cache/kokoro/`); a fresh machine must provision them separately. Playwright Chromium, ffmpeg, faster-whisper and their runtime dependencies must also be installed. Do not commit credentials or generated output.
+
+## Cross-template motion work — partial rollout
+Shared cue matcher/reporting and house-layer regression checks now cover seven storyboard fixtures. Selected motion in redline, velocity-black and Musike is tied to spoken cues alongside the earlier pulse/design-review/photo-to-3d work. Latest focused tests: 78 passed, 1 skipped. Redline aligned Kokoro preview: `renders/tool-claude-tokens-01/claude-story-review.mp4` (54.72 s); production Chatterbox still required. Existing negative/base/other legacy archetypes are not comprehensively cue-driven, fallback reports need editorial audit against real audio, and synthetic timing or a gate pass is not a substitute for full playback review. Evaluate design-review/photo-to-3d legibility and verify all historical/current claims before publishing. See `docs/MOTION-GRAMMAR.md`.

@@ -170,6 +170,7 @@ def build_stage_html(doc: dict) -> str:
     shared = TEMPLATES / "shared.css"
     css = (shared.read_text(encoding="utf-8") + "\n" if shared.exists() else "") + (d / "stage.css").read_text(encoding="utf-8")
     js = (d / "engine.js").read_text(encoding="utf-8")
+    motion = (TEMPLATES / "motion.js").read_text(encoding="utf-8")
     vend_scripts = ""
     shared_vend = TEMPLATES / "vendor"     # renderer-wide libs (gsap): every template gets pro easing
     if shared_vend.is_dir():
@@ -192,7 +193,7 @@ def build_stage_html(doc: dict) -> str:
         f"<style>{_font_face_css()}\n{css}</style></head><body><div id='stage'><div id='postfx'>"
         "<div class='vign'></div><div class='htone'></div><div class='grain'></div>"
         "</div></div>"
-        f"<script>window.DATA={data};</script>{vend_scripts}<script>{js}</script>"
+        f"<script>window.DATA={data};</script>{vend_scripts}<script>{motion}</script><script>{js}</script>"
         f"<script>{_shared_js()}</script></body></html>"
     )
 

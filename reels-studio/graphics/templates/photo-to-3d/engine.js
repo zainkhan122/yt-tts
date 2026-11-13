@@ -44,24 +44,7 @@
   };
 
   function bindTimes(phrases, s, n) {
-    var want = phrases && phrases.length ? phrases : null;
-    var out = [], used = -1;
-    for (var i = 0; i < n; i++) {
-      var t = null;
-      if (want && want[i]) {
-        var to = toks(want[i]);
-        for (var k = 0; k < (s.words || []).length; k++) {
-          var w = s.words[k];
-          if (w[1] <= used) continue;
-          if (to.indexOf(norm(w[0])) >= 0) { t = w[1]; used = w[1]; break; }
-        }
-      }
-      if (t === null) t = s.t0 + (s.t1 - s.t0) * (i / Math.max(1, n)) + 0.12;
-      out.push(t);
-    }
-    out[0] = Math.min(out[0], s.t0 + 0.12);
-    for (var j = 1; j < out.length; j++) if (out[j] <= out[j - 1]) out[j] = out[j - 1] + 0.35;
-    return out;
+    return window.HouseMotion.cueTimes(phrases, s, n, {fallback:"spread", lead:true});
   }
 
   /* ================= the two artifacts: a photo chip & a splat ================= */
@@ -811,6 +794,8 @@
       var top = s._head ? Math.max(292, 196 + s._head.offsetHeight + 34) : 292;
       s._art.style.top = top + "px";
       s._art.style.height = (1584 - top) + "px";
+      // Preserve the designed artifact proportions inside the house caption reserve.
+      s._layoutScale = Math.min(1, Math.max(0.45, (1150 - top) / Math.max(1, 1584 - top)));
       s._rule = el("div", "rule", wrap);
       s._rule.style.top = (top - 26) + "px";
       wrap.style.display = "none";
@@ -858,7 +843,7 @@
     var drift = (s.payload && typeof s.payload.drift === "number") ? s.payload.drift : 14;
     var dx = (cp - 0.35) * drift;
     s._art.style.transform = "translate(" + fmt(dx, 2) + "px, 0px) scale(" +
-      fmt(cam[0] + (cam[1] - cam[0]) * cp, 4) + ")";
+      fmt((cam[0] + (cam[1] - cam[0]) * cp) * s._layoutScale, 4) + ")";
     ARCH[s.archetype].update(s._refs, s, u, d);
     drawCaption(s, t);
     stageEl.style.backgroundPosition = fmt(t * 5, 2) + "px 0px";

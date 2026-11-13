@@ -440,16 +440,8 @@
         var tr = el("div", "tracer", row);
         r.lanes.push({ row: row, cnt: cnt, bar: bar, tr: tr, frac: l.count / max });
       });
-      /* word-cue per lane: the lane's cue word (spoken) gates its reveal; fallback: even stagger */
-      r.reveal = r.lanes.map(function (L, i) {
-        var lane = lanes[i], tHit = null;
-        var cw = norm(lane.cue || lane.label.split(" ")[0] || "");
-        (s.words || []).forEach(function (w) {
-          if (tHit === null && norm(w[0]) === cw && w[1] - s.t0 > 0.4) tHit = w[1];
-        });
-        if (tHit === null) tHit = s.t0 + 0.5 + i * 1.1;
-        return tHit;
-      });
+      var phrases = s.payload.cue_phrases || lanes.map(function (lane) { return lane.cue || lane.label; });
+      r.reveal = window.HouseMotion.cueTimes(phrases, s, r.lanes.length, {});
       return r;
     },
     update: function (r, s, u, d) {
@@ -765,7 +757,7 @@
     /* house layer owns the endcard: hide the template's scene entirely so its stale layout cannot
        surface behind the house card, and so nothing of it enters the caption band */
     if (s.archetype === "endcard") { D.scenes.forEach(function (x) { x._wrap.style.display = "none"; }); return; }
-    var fade = Math.min(ramp(u, 0, 0.18), ramp(d - u, 0, 0.16));
+    var fade = 0.7 + 0.3 * Math.min(ramp(u, 0, 0.18), ramp(d - u, 0, 0.16));
     s._head.style.opacity = fmt(fade);
     s._head.style.transform = "translateY(" + fmt((1 - easeOutCubic(ramp(u, 0, 0.3))) * 26, 1) + "px)";
     s._visual.style.opacity = fmt(fade);
