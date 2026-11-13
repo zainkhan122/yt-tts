@@ -19,7 +19,8 @@
  },
  "sources": [
   "https://github.com/Pika-Labs/Pika-H3-Flex/blob/06bd434ce0b6e287e6f6c4058420460f47ba031b/README.md",
-  "https://huggingface.co/Pika-Labs/Pika-H3-Flex"
+  "https://huggingface.co/Pika-Labs/Pika-H3-Flex",
+  "https://dev.pika.art/models/pika/pika-h3-flex/audio-stems"
  ],
  "scenes": [
   {
@@ -66,5 +67,104 @@
  },
  "lexicon": {
   "Pika": "pee ka"
+ },
+ "viewer": {
+  "who": "Creators experimenting with AI-generated product or music videos",
+  "problem": "Need consistent references and a practical way to edit sound",
+  "job": "Decide if Pika H3 Flex fits their workflow"
+ },
+ "idea": "Use reference images and audio to guide video generation; separately edit hosted audio stems, with local and hosted limitations.",
+ "claims": [
+  {
+   "id": "c1",
+   "text": "Ref2VA accepts up to 12 combined image, video and audio references, including at least one image or video.",
+   "source": "https://github.com/Pika-Labs/Pika-H3-Flex/blob/06bd434ce0b6e287e6f6c4058420460f47ba031b/README.md"
+  },
+  {
+   "id": "c2",
+   "text": "Hosted audio stem separation produces dialogue, music and effects stems and charges per output-stem second.",
+   "source": "https://dev.pika.art/models/pika/pika-h3-flex/audio-stems"
+  },
+  {
+   "id": "c3",
+   "text": "Local inference supports native 480p or 768p mixed stereo; hosted API provides upscaling and separate stems.",
+   "source": "https://github.com/Pika-Labs/Pika-H3-Flex/blob/06bd434ce0b6e287e6f6c4058420460f47ba031b/README.md"
+  }
+ ],
+ "proof_plan": [
+  {
+   "claim": "c1",
+   "evidence": "source:https://github.com/Pika-Labs/Pika-H3-Flex/blob/06bd434ce0b6e287e6f6c4058420460f47ba031b/README.md",
+   "how_shown": "Narration-led input plates, with the combined cap and required visual reference."
+  },
+  {
+   "claim": "c2",
+   "evidence": "source:https://dev.pika.art/models/pika/pika-h3-flex/audio-stems",
+   "how_shown": "Three stem labels, visually described as hosted API outputs."
+  },
+  {
+   "claim": "c3",
+   "evidence": "source:https://github.com/Pika-Labs/Pika-H3-Flex/blob/06bd434ce0b6e287e6f6c4058420460f47ba031b/README.md",
+   "how_shown": "Local versus hosted comparison and spoken cost caveat."
+  }
+ ],
+ "review": {
+  "reviewer": "agent: research draft",
+  "notes": "Draft only; production voice, capture, visual and human-quality review pending."
+ },
+ "motion_standard": 2,
+ "seo": {
+  "youtube": {
+   "title": "Pika H3 Flex: Reference Images and Audio to Video",
+   "description": "Pika H3 Flex guides video generation with image, video and audio references. Hosted dialogue, music and effects stems cost extra; local inference outputs mixed audio at up to 768p. Results vary. https://github.com/Pika-Labs/Pika-H3-Flex",
+   "hashtags": [
+    "#Shorts",
+    "#PikaLabs",
+    "#AIVideo",
+    "#PikaH3Flex"
+   ],
+   "tags": [
+    "Pika H3 Flex",
+    "Pika AI video",
+    "reference to video",
+    "AI video tools",
+    "Pika audio stems"
+   ]
+  },
+  "instagram": {
+   "caption": "Pika H3 Flex: Use images, video and audio as references for Pika H3 Flex. Need editable sound? Hosted stem separation can split dialogue, music and effects, with usage fees. Local output is mixed audio.",
+   "hashtags": [
+    "#PikaLabs",
+    "#AIVideo",
+    "#VideoCreation",
+    "#PikaH3Flex"
+   ]
+  },
+  "facebook": {
+   "caption": "Pika H3 Flex: Could reference-guided video help with your next product clip? Pika H3 Flex accepts visual and audio references. Hosted stem separation has fees; local inference gives mixed audio. Results vary.",
+   "hashtags": [
+    "#PikaLabs",
+    "#VideoCreation",
+    "#PikaH3Flex"
+   ]
+  },
+  "tiktok": {
+   "caption": "Pika H3 Flex: Pika H3 Flex takes reference media into video generation. Separate hosted audio stems cost extra and results can vary.",
+   "hashtags": [
+    "#PikaLabs",
+    "#AIVideo",
+    "#VideoCreation",
+    "#PikaH3Flex"
+   ]
+  },
+  "x": {
+   "text": "Pika H3 Flex: Pika H3 Flex can guide video generation with images, video and audio references. Its hosted API can separate audio stems for editing; usage is billed. Local output has mixed audio.",
+   "hashtags": [
+    "#PikaLabs",
+    "#AIVideo"
+   ]
+  },
+  "keyword": "Pika H3 Flex",
+  "onscreen_first3s": "PIKA H3 FLEX"
  }
 }
