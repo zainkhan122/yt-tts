@@ -4,10 +4,9 @@ musike v1-v2 shipped grey lowercase captions and a custom green COMMENT button; 
 ruling is "keep our own style for text / outro". The house grammar is registered below as an
 allow-list, and any new style must be added there deliberately, not slipped into a template.
 
-Three checks per graphics template (the four template dirs + the default root pair):
-1. captions exist and use a REGISTERED grammar (pink key words OR highlight-chip active word);
-2. every endcard archetype reads the injected brand block (the house outro is about D.brand);
-3. a per-template endcard override may not weaken the house spec (keyword stays required).
+Shared captions and outro are injected into every built stage. These tests verify that
+injection and the required endcard payload; browser-level visibility is checked separately by
+house_gate.py. Passing static tests is not visual approval.
 """
 import json
 from pathlib import Path
@@ -24,19 +23,22 @@ def _templates() -> list[Path]:
     return [TEMPLATES] + dirs  # the default root pair obeys the same house rules
 
 
-def test_captions_exist_and_use_a_registered_grammar():
+def test_shared_caption_is_injected_for_every_template():
+    from graphics.render import build_stage_html
     for tpl in _templates():
-        css = (tpl / "stage.css").read_text(encoding="utf-8")
-        assert ".caption" in css, f"{tpl.name}: no caption band at all"
-        assert any(g in css for g in CAPTION_GRAMMARS), (
-            f"{tpl.name}: caption band uses an unregistered grammar — registered: {CAPTION_GRAMMARS}")
+        html = build_stage_html({"template": "default" if tpl == TEMPLATES else tpl.name,
+                                 "scenes": [], "handle": "@test"})
+        assert ".yt-cap" in html and ".yt-cap .cw.hit" in html, tpl.name
+        assert "suppressTemplateCaptions" in html and "window.setTime" in html, tpl.name
 
 
-def test_endcard_is_the_house_brand_outro():
+def test_shared_outro_is_injected_for_every_template():
+    from graphics.render import build_stage_html
     for tpl in _templates():
-        eng = (tpl / "engine.js").read_text(encoding="utf-8")
-        assert "ARCH.endcard" in eng, f"{tpl.name}: no endcard archetype"
-        assert "brand" in eng, f"{tpl.name}: endcard must render the injected brand block (D.brand)"
+        html = build_stage_html({"template": "default" if tpl == TEMPLATES else tpl.name,
+                                 "scenes": [], "handle": "@test"})
+        for marker in ("yt-outro-logo", "yt-outro-name", "yt-outro-follow", "yt-outro-kw", "yt-outro-cursor"):
+            assert marker in html, f"{tpl.name}: missing house outro {marker}"
 
 
 def test_endcard_override_never_weakens_the_house_spec():

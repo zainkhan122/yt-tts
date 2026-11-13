@@ -45,12 +45,21 @@ def brief(**over):
         "production_category": "tool",
         "scenes": [
             {"id": "hook", "type": "clip", "src": "demo.mp4", "in": 0, "out": 3,
-             "headline": "A *HOOK*", "say": "A hook."},
+             "headline": "A *HOOK*",
+             "say": "Fixture turns one dry trick into a demo you can copy today."},
             {"id": "how", "type": "steps", "heading": "HOW *IT* WORKS", "steps": ["one"],
-             "background": {"img": "demo.mp4"}, "say": "One step."},
+             "background": {"img": "demo.mp4"},
+             "say": "Here is the whole mechanism. You point it at one file, it reads the shape of the "
+                    "problem, then it prints a single step you can run yourself. No configuration, no "
+                    "keys, nothing to install before you see the first result."},
             {"id": "catch", "type": "verdict", "heading": "THE *CATCH*", "cons": ["one con"],
-             "pros": ["one pro"], "item_at": ["con", "pro"], "say": "One con, one pro."},
-            {"id": "cta", "type": "endcard", "keyword": "FIX", "say": "Comment fix."},
+             "pros": ["one pro"], "item_at": ["con", "pro"],
+             "say": "The catch is honest and small. It only understands one file at a time, so a big "
+                    "repository still needs you to choose where to look first, which is the part "
+                    "nobody enjoys."},
+            {"id": "cta", "type": "endcard", "keyword": "FIX",
+             "say": "That trade is worth it for a first pass. Comment FIX and I will pin the link so "
+                    "you can try it on your own file tonight."},
         ],
         "seo": {"keyword": "fixture", "aliases": [], "youtube": {"title": "Fixture",
                 "description": "x", "hashtags": ["#Shorts"], "tags": ["fixture"]}},
@@ -100,6 +109,9 @@ class BriefLintTests(unittest.TestCase):
         self.assertEqual(self.last_findings, [])
         b2 = brief()
         b2.pop("treatment", None)  # minimal legacy brief: treatment warning only
+        # declared non-short-form, so the script-length rules (BL140-143) do not apply to it —
+        # they exist to police 30 s vertical shorts, not legacy fragments
+        b2["format"] = "legacy"
         b2["scenes"] = [{"id": "s1", "type": "verdict", "say": "one two", "cons": ["a", "b"]}]
         _, errors, warns = self.lint(b2)
         self.assertEqual(errors, [])

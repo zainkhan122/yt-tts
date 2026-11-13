@@ -35,3 +35,6 @@ research/references/**/video.*
 research/references/**/subs*.vtt
 research/references/**/audio.*
 research/references/**/frames/
+
+# Local reference analysis (potentially user-provided screenshots); not pipeline source.
+/ref/

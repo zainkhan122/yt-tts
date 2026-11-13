@@ -536,6 +536,8 @@
     var k = activeIndex(t);
     D.scenes.forEach(function (s, i) { s._wrap.style.display = i === k ? "block" : "none"; });
     var s = D.scenes[k];
+    // The shared house card owns the complete endcard scene.
+    if (s.archetype === "endcard") { D.scenes.forEach(function (x) { x._wrap.style.display = "none"; }); return; }
     var u = t - s.t0, d = Math.max(1e-6, s.t1 - s.t0);
     var fade = Math.min(ramp(u, 0, 0.18), ramp(d - u, 0, 0.16));
     s._head.style.opacity = fmt(fade);

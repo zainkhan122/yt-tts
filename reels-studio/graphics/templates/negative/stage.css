@@ -1,0 +1,226 @@
+/* negative stage — a black void with one floating instrument. 1080x1920.
+ *
+ * Every number here was measured off the reference (ref/ref-A.fingerprint.json), normalised to
+ * 1080 wide from a 421-wide capture (scale 2.565):
+ *   ground          #000000, 89.8% of the frame empty
+ *   handle band     y 3.6-5.1%,  x 41-58%   (centred, mono, tracking .22em, 26px, ghost)
+ *   headline band   y 11.0-13.8%, x 9-91%   (cap 53px -> ~96px type, 900 weight, white)
+ *   telemetry band  y 24.2-25.4%, x 25-75%  (mono 23px -> 34px; label ghost, live value #F05080)
+ *   instrument      y 39.0-51.1%, x 4.5-56% (hairline trace on a 1px baseline)
+ *   annotation      y 56.8-57.8%, x 6-58%   (mono 17px -> 34px, ghost)
+ *   headline sub    y 80.3-84.7%, x 13-87%  (caption, 48-64px -> 76px, 800 weight)
+ * The instrument is never centred-and-small: it owns 40-60% of the width between the text bands.
+ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000000; }
+body {
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  color: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+}
+#stage { position: relative; width: 1080px; height: 1920px; background: #000000; overflow: hidden; }
+
+/* the reference has no logo and no furniture: a single dot-matrix texture, barely there */
+.ng-weave {
+  position: absolute; inset: 0; opacity: 0.10;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.10) 0.7px, rgba(0,0,0,0) 1.1px);
+  background-size: 7px 7px;
+}
+.scene, .visual { position: absolute; inset: 0; }
+
+/* ---------- shared type system ---------- */
+.ng-handle {
+  position: absolute; left: 0; right: 0; top: 69px; text-align: center;
+  font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  font-size: 26px; letter-spacing: 0.22em; color: #8A8A93;
+}
+.ng-headline {
+  position: absolute; left: 92px; right: 92px; top: 196px;
+  font-family: "Anton", "Inter", sans-serif;
+  font-size: 96px; font-weight: 400; line-height: 1.02; letter-spacing: 0.005em;
+  color: #FFFFFF; text-transform: uppercase;
+}
+.ng-headline .hit { color: #F05080; }
+.ng-telemetry {
+  position: absolute; left: 0; right: 0; text-align: center;
+  font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  font-size: 34px; letter-spacing: 0.16em; color: #8A8A93;
+}
+.ng-telemetry b { font-weight: 400; color: #F05080; }
+.ng-telemetry i { font-style: normal; color: #FFFFFF; }
+.ng-note {
+  position: absolute; left: 64px; right: 64px;
+  font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  font-size: 30px; letter-spacing: 0.14em; color: #8A8A93; line-height: 1.5;
+}
+.ng-baseline { position: absolute; height: 1px; background: #26262B; }
+
+/* ---------- void_title ---------- */
+.ng-tkick {
+  position: absolute; left: 0; right: 0; text-align: center;
+  font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  font-size: 26px; letter-spacing: 0.3em; color: #F05080;
+}
+.ng-ttitle {
+  position: absolute; left: 92px; right: 92px; top: 402px;
+  font-family: "Anton", "Inter", sans-serif;
+  font-size: 120px; font-weight: 400; line-height: 1.0; letter-spacing: 0.004em;
+  text-transform: uppercase;
+}
+.ng-rule { position: absolute; left: 92px; height: 2px; background: #FFFFFF; }
+
+/* ---------- trace_field : the instrument ---------- */
+.ng-field { position: absolute; left: 48px; right: 48px; }
+.ng-field .live { position: absolute; left: 0; right: 0; top: -74px; text-align: center;
+  font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  font-size: 34px; letter-spacing: 0.16em; color: #8A8A93; }
+.ng-field .live b { font-weight: 400; color: #F05080; }
+.ng-field .live i { font-style: normal; color: #FFFFFF; }
+
+/* ---------- phantom_frame : a recreated interface, plates not pixels ---------- */
+.ng-frame {
+  position: absolute; left: 62px; right: 62px; top: 700px;
+  border: 1px solid #26262B; border-radius: 18px; background: #050506;
+  padding: 34px 34px 40px;
+}
+.ng-frame .bar { display: flex; gap: 12px; align-items: center; margin-bottom: 30px; }
+.ng-frame .bar s { display: block; width: 14px; height: 14px; border-radius: 50%; background: #26262B; text-decoration: none; }
+.ng-frame .bar span {
+  margin-left: auto; font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  font-size: 24px; letter-spacing: 0.2em; color: #8A8A93;
+}
+.ng-plates { display: flex; flex-direction: column; gap: 18px; }
+.ng-plate {
+  display: flex; align-items: baseline; gap: 20px;
+  border: 1px solid #1C1C20; border-radius: 10px; padding: 26px 28px; background: #000000;
+}
+.ng-plate .k {
+  flex: 0 0 210px; font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  font-size: 26px; letter-spacing: 0.16em; color: #8A8A93;
+}
+.ng-plate .v { flex: 1; font-size: 44px; font-weight: 700; letter-spacing: -0.01em; }
+.ng-plate.on { border-color: #F05080; }
+.ng-plate.on .v { color: #F05080; }
+
+/* ---------- marker_list ---------- */
+.ng-rows { position: absolute; left: 72px; right: 72px; top: 620px; }
+.ng-row { position: relative; display: flex; align-items: baseline; gap: 22px; padding: 30px 0; }
+.ng-row u { display: block; width: 26px; height: 1px; background: #26262B; flex: 0 0 26px; align-self: center; }
+.ng-row .n { font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace; font-size: 26px;
+  color: #8A8A93; flex: 0 0 54px; }
+.ng-row .t { flex: 1; font-size: 40px; font-weight: 600; letter-spacing: -0.01em; }
+.ng-row .m { font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace; font-size: 30px; color: #8A8A93; }
+.ng-row.on .m { color: #F05080; }
+
+/* ---------- readout : one number, alone in the void ---------- */
+.ng-num { position: absolute; left: 0; right: 0; text-align: center;
+  font-size: 300px; font-weight: 800; line-height: 1; letter-spacing: -0.05em; }
+.ng-num .u { font-size: 120px; letter-spacing: 0; }
+
+/* ---------- void_close ---------- */
+.ng-action {
+  position: absolute; left: 72px; right: 72px; text-align: center;
+  font-family: "Anton", "Inter", sans-serif;
+  font-size: 110px; font-weight: 400; line-height: 1.02; letter-spacing: 0.004em;
+  text-transform: uppercase; color: #FFFFFF;
+}
+.ng-action .hit { color: #F05080; }
+
+/* a statement, not a number: the honest beat must not invent a figure */
+.ng-stmt {
+  position: absolute; left: 76px; right: 76px; text-align: center;
+  font-family: "Anton", "Inter", sans-serif;
+  font-size: 104px; font-weight: 400; line-height: 1.04; letter-spacing: 0.004em;
+  text-transform: uppercase;
+}
+.ng-stmt .hit { color: #F05080; }
+.ng-stmt .w { display: inline-block; margin: 0 0.12em; }
+
+/* ---------- caption band ---------- */
+.ng-cap {
+  position: absolute; left: 0; right: 0; top: 1500px; text-align: center;
+  font-size: 62px; font-weight: 800; letter-spacing: -0.015em; color: #FFFFFF;
+  padding: 0 56px; line-height: 1.14;
+}
+.ng-cap .cw { display: inline-block; margin: 0 0.16em; opacity: 0.42; }
+.ng-cap .cw.on { opacity: 1; }
+.ng-cap .cw.hit { color: #F05080; }
+
+/* the sweep: a 1px scan line that crosses the field once per scene and never wraps */
+.ng-sweep { position: absolute; top: 0; bottom: 0; width: 1px;
+  background: linear-gradient(180deg, rgba(240,80,128,0), rgba(240,80,128,0.9), rgba(240,80,128,0)); }
+
+/* ---------- ground discipline ----------
+ * shared.css adds a halftone dot field + a radial vignette to every template. On this reference
+ * the ground is TRUE #000000 across 89.8% of the frame (measured), and those two layers lifted it
+ * to #080808 and made the void look grey. They are off here; the grain stays, because a little
+ * texture is what keeps pure black from banding on a phone.
+ */
+#postfx .htone { display: none !important; }
+#postfx .vign { display: none !important; }
+
+/* The film grain is `mix-blend-mode: overlay` over the ground, and overlay against pure black
+ * LIFTS it — measured [9,8,8] instead of #000000. Overlay maths: 2*b*s, so any noise above zero
+ * shows. The reference's ground is true black, so the grain goes here too. */
+#postfx .grain { display: none !important; }
+
+
+/* ================= motion classes (v2, owner verdict 2026-11-13) ================= */
+
+/* the ambient grid: slow drift under every beat so no two frames are identical */
+.ng-grid { position: absolute; left: 0; top: 0; }
+
+/* HOOK: oversized Anton, punched in. This is the frame that has to stop a thumb at 0.3s. */
+.ng-impact {
+  position: absolute; left: 76px; right: 76px;
+  font-family: "Anton", "Inter", sans-serif;
+  font-size: 104px; font-weight: 400; line-height: 0.98; letter-spacing: 0.004em;
+  text-transform: uppercase; color: #FFFFFF;
+  transform-origin: 50% 46%;
+}
+.ng-impact .w { will-change: transform, opacity; }
+.ng-impact .hit { color: #F05080; }
+.ng-slab {
+  position: absolute; left: 76px; height: 10px; width: 0;
+  background: #F05080;
+}
+.ng-headword {
+  position: absolute; left: 78px; right: 78px;
+  font-family: "Anton", "Inter", sans-serif;
+  font-size: 86px; font-weight: 400; line-height: 1.02; letter-spacing: 0.004em;
+  text-transform: uppercase; color: #FFFFFF;
+}
+.ng-headword .hit { color: #F05080; }
+
+/* rows carry a live bar, so a landed row still moves */
+.ng-row .bar { flex: 0 0 120px; height: 6px; background: #1A1A1F; border-radius: 3px; overflow: hidden; }
+.ng-row .bar i { display: block; height: 100%; width: 0; background: #4A4A55; }
+.ng-row.on .bar i { background: #F05080; }
+
+/* outro: the house brand layer — real logo, real keyword, real follow prompt */
+.ng-brand {
+  position: absolute; left: 50%; top: 700px; width: 220px; height: 220px;
+  margin-left: -110px; object-fit: contain;
+}
+.ng-kw {
+  position: absolute; left: 60px; right: 60px; top: 960px; text-align: center;
+  font-family: "Anton", "Inter", sans-serif;
+  font-size: 128px; font-weight: 400; line-height: 1.0; letter-spacing: 0.01em;
+  text-transform: uppercase; color: #F05080;
+}
+.ng-follow {
+  position: absolute; left: 0; right: 0; top: 1300px; text-align: center;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 30px; letter-spacing: 0.34em; color: #8A8A93;
+}
+
+
+/* endcard furniture: the handle under the logo had no rule, so it fell into the document flow and
+ * rendered as a stray label in the top-left corner. */
+.ng-handle2 {
+  position: absolute; left: 0; right: 0; text-align: center;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 30px; letter-spacing: 0.2em; color: #8A8A93;
+}
+/* the outro does not also need a scrolling caption: the card IS the call to action */
+.ng-cap.hide { display: none; }

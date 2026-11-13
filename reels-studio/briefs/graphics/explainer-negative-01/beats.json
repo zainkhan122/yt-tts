@@ -1,0 +1,128 @@
+{
+ "tool": "explainer-negative-01",
+ "handle": "@hypeless",
+ "template": "negative",
+ "scenes": [
+  {
+   "scene_id": "hook",
+   "phrase": 0,
+   "archetype": "impact_hook",
+   "headline": "YOUR AGENT IS SLOW",
+   "feature_id": null,
+   "cue_word": "slow",
+   "depicts": "the reason sits upstream of the prompt",
+   "payload": {
+    "kicker": "AND THE MODEL IS NOT THE REASON",
+    "title": "YOUR AGENT IS SLOW",
+    "foot": "COMPRESSION RUNS FIRST",
+    "label": "STREAM",
+    "accent_words": [
+     "slow"
+    ]
+   }
+  },
+  {
+   "scene_id": "point1",
+   "phrase": 1,
+   "archetype": "marker_list",
+   "headline": "CUT BEFORE IT READS",
+   "feature_id": "f1",
+   "cue_word": "compressed",
+   "depicts": "logs chunks whole files are cut before the model sees text",
+   "payload": {
+    "label": "CUT ORDER",
+    "rows": [
+     {
+      "n": "01",
+      "t": "LOGS",
+      "m": "first"
+     },
+     {
+      "n": "02",
+      "t": "CHUNKS",
+      "m": "next"
+     },
+     {
+      "n": "03",
+      "t": "WHOLE FILES",
+      "m": "last",
+      "on": true
+     }
+    ],
+    "annotation": "CUT BEFORE ANY MODEL SEES IT"
+   }
+  },
+  {
+   "scene_id": "point2",
+   "phrase": 2,
+   "archetype": "trace_field",
+   "headline": "READING COMES FIRST",
+   "feature_id": null,
+   "cue_word": "reading",
+   "depicts": "watch what the cut does to the input reading",
+   "payload": {
+    "label": "READING",
+    "value": 2.3,
+    "total": "4.0 s",
+    "unit": "s",
+    "annotation": "MEASURED, THEN TRIMMED, THEN READ"
+   }
+  },
+  {
+   "scene_id": "point3",
+   "phrase": 3,
+   "archetype": "phantom_frame",
+   "headline": "TWO DOORS",
+   "feature_id": null,
+   "cue_word": "doors",
+   "depicts": "same question two doors one reads everything",
+   "payload": {
+    "label": "SAME QUESTION",
+    "plates": [
+     {
+      "k": "DOOR A",
+      "v": "READS EVERYTHING"
+     },
+     {
+      "k": "DOOR B",
+      "v": "READS WHAT SURVIVED",
+      "on": true
+     }
+    ],
+    "annotation": "SAME ANSWER, DIFFERENT EVIDENCE"
+   }
+  },
+  {
+   "scene_id": "catch",
+   "phrase": 4,
+   "archetype": "readout",
+   "headline": "IT DECIDES WHAT YOU LOSE",
+   "feature_id": "f3",
+   "cue_word": "lose",
+   "depicts": "the honest part the compression is lossy",
+   "payload": {
+    "label": "THE HONEST PART",
+    "statement": "IT DECIDES WHAT YOU LOSE",
+    "accent_words": [
+     "lose"
+    ],
+    "annotation": "IT DOES NOT ASK FIRST"
+   }
+  },
+  {
+   "scene_id": "cta",
+   "phrase": 5,
+   "archetype": "endcard",
+   "headline": "COMMENT CUT",
+   "feature_id": null,
+   "cue_word": "cut",
+   "depicts": "which would you rather lose comment cut",
+   "payload": {
+    "keyword": "CUT",
+    "prompt": "FOR THE FULL BREAKDOWN",
+    "follow": "FOLLOW FOR MORE"
+   }
+  }
+ ],
+ "script_sha256": "sha256:0611d922f534ab93ae462de121a3a28afc81c83708229ec2b9f1f5c006079d24"
+}

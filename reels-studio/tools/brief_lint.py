@@ -13,6 +13,10 @@ Checks (errors unless marked warning). Creative and media-coverage rules were re
   BL030  brief declares scenes
   BL031  scene `type` is one the renderer knows
   BL032  every scene has a `say` line (or an explicit `hold` for silent scenes)
+  BL140  spoken length is 100-125 words (the approved-script benchmark; short scripts feel thin)
+  BL141  the hook sentence is <= 12 words
+  BL142  the tool is named by ~7 seconds
+  BL143  the closing scene carries a comment-keyword CTA
   BL033  clip scenes carry `src`, `in`, `out`
   BL060  asset references (src, image, background.image, figure) exist in the capture pack
   BL070  camera/cursor `region`s exist in the pack's region map
@@ -51,6 +55,10 @@ RULES = {
     "BL030": ("error", "brief declares scenes"),
     "BL031": ("error", "scene type known to the renderer"),
     "BL032": ("error", "scene has a say line or an explicit hold"),
+    "BL140": ("warning", "spoken length 100-125 words"),
+    "BL141": ("warning", "hook sentence <= 12 words"),
+    "BL142": ("warning", "tool named within ~7s"),
+    "BL143": ("warning", "comment-keyword CTA in the closing scene"),
     "BL033": ("error", "clip scene carries src, in, out"),
     "BL060": ("error", "scene asset reference exists in the capture pack"),
     "BL070": ("error", "camera/cursor region exists in the pack region map"),
@@ -125,6 +133,42 @@ def check(brief_path):
     scenes = brief.get("scenes") or []
     if not scenes:
         add("BL030", "no scenes")
+
+    # --- script layer (faceless-reels skill, approved-scripts benchmark) -------------------
+    # These four rules exist for SHORT-FORM (<=60 s, one tool, vertical). A brief that declares
+    # `format`/`duration_s`/`aspect` as anything else is a different product and the rules would
+    # be wrong for it, so they are not applied to it.
+    says = [s.get("say") or "" for s in scenes]
+    vertical = (brief.get("format", "short") in {"short", "reel", "shorts"}
+                and (brief.get("duration_s") or 30) <= 75
+                and str(brief.get("aspect", "9:16")).replace("x", ":").strip() in {"9:16", "1080:1920"})
+    words = sum(len(w.split()) for w in says)
+    if not vertical:
+        pass
+    elif scenes and not (100 <= words <= 125):
+        add("BL140", f"{words} spoken words; the approved scripts sit at 105-118 and the floor is "
+                     f"100 (a thinner script cannot hold 30 s, whatever the animation does)")
+    if vertical and says:
+        hook = says[0]
+        first = re.split(r"[.?!]", hook)[0]
+        n = len(first.split())
+        if n > 12:
+            add("BL141", f"hook is {n} words; the rule is <= 12 — open on the viewer's problem "
+                         f"or a surprising number")
+    # the tool must be named early: its name appears in the first two say lines, or not at all
+    title = (brief.get("title") or "")
+    tool_word = next((w for w in re.findall(r"[A-Za-z][A-Za-z0-9.+-]{2,}", title)
+                      if w.lower() not in {"the", "and", "for", "free", "open", "source"}), None)
+    if vertical and tool_word and scenes:
+        head2 = " ".join(says[:2]).lower()
+        if tool_word.lower() not in head2:
+            add("BL142", f"tool {tool_word!r} is not named in the first two scenes — name it by "
+                         f"~7 s, no long preamble")
+    if vertical and scenes:
+        close = says[-1].lower()
+        if "comment" not in close:
+            add("BL143", "the closing scene never asks for a comment keyword — restate the "
+                         "benefit, then 'Comment KEYWORD and I'll pin the link'")
     for idx, s in enumerate(scenes):
         sid = s.get("id", "?")
         where = f"scene {sid}"

@@ -1,3 +1,5 @@
+> **Graphics implementation and open issues:** See [`HANDOFF-GRAPHICS-CURRENT.md`](HANDOFF-GRAPHICS-CURRENT.md). It records the current shared caption/outro, local-preview vs production distinction, actual gate scope, quality review, dependencies and outstanding failures. Technical gates do not constitute visual approval.
+
 # Current state
 
 This file holds no state. The state is in `queue/publish.json`, shown by the generated `STATUS.md`.

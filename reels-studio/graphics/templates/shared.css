@@ -1,9 +1,34 @@
 /* shared.css — prepended to EVERY template by render.build_stage_html.
- * Post-processing layer (frame-critique of instagram-adilet.fndr, 2026-11-10):
- *   1) halftone dot texture, 2) animated film grain, 3) ambient vignette.
- * The grain's background-position is jittered once per frame by the engine's
- * setTime() (window.GRAIN.tick) — deterministic, a pure function of the frame index.
+ *
+ * Layers, in order of how much they cost when wrong:
+ *
+ *  1. HOUSE CAPTION (owner rule, verbatim across all shorts):
+ *       Anton, ALL CAPS, 2-4 words per chunk, at y 1250-1350, white with a dark stroke/shadow,
+ *       and the word being spoken in High-Voltage Yellow #FFD60A.
+ *     This is a brand element, not a per-tool choice. A template may position its content around
+ *     it, but it may not restyle it, recolour it, or replace it with its own caption.
+ *
+ *  2. Post-processing (frame critique 2026-11-10): halftone dot texture, animated film grain,
+ *     ambient vignette. Opt-out per template via [data-ground=clean] — see the note on grain.
  */
+@font-face { font-family: "Anton"; src: local("Anton"); font-weight: 400; }
+
+/* Stable word groups: all words share the same baseline; only the spoken word is yellow. */
+.yt-cap { position:absolute; left:64px; right:64px; top:1250px; z-index:100;
+  display:flex; flex-wrap:nowrap; justify-content:center; align-items:baseline; gap:0 0.22em;
+  text-align:center; font-family:"Anton", "Inter", sans-serif; font-size:88px; font-weight:400;
+  line-height:1.12; letter-spacing:0.012em; text-transform:uppercase; color:#fff;
+  text-shadow:0 4px 0 rgba(0,0,0,.9),0 0 18px rgba(0,0,0,.85);
+  -webkit-text-stroke:2px rgba(0,0,0,.55); }
+.yt-cap.outro-caption { top:1500px; }
+.yt-cap .cw { display:inline-block; opacity:1; transform-origin:center bottom; }
+.yt-cap .cw.hit { color:#FFD60A; }
+
+/* A template's own caption is dead weight once the house caption exists. Hidden here as well as
+   inline, because several engines set their caption's display/opacity on every frame. */
+[data-house-suppressed] { display: none !important; opacity: 0 !important; }
+
+/* ---------- postfx ---------- */
 #postfx { position: absolute; inset: 0; pointer-events: none; z-index: 2000; }
 #postfx .htone { position: absolute; inset: 0; opacity: 0.055;
   background-image: radial-gradient(circle, #FFFFFF 0.9px, rgba(255,255,255,0) 1.4px);
@@ -13,3 +38,30 @@
   background-size: 240px 240px; }
 #postfx .vign { position: absolute; inset: 0; opacity: 0.5;
   background: radial-gradient(120% 90% at 50% 42%, rgba(0,0,0,0) 62%, rgba(0,0,0,0.34) 100%); }
+
+/* `mix-blend-mode: overlay` over pure black LIFTS it (2*b*s), so a template whose identity is
+ * true #000000 measured [9,8,8] instead of black. A template that wants a clean ground opts out
+ * with <div id="stage" data-ground="clean">; the caption is unaffected. */
+#stage[data-ground="clean"] ~ #postfx .grain,
+#stage[data-ground="clean"] ~ #postfx .htone,
+#stage[data-ground="clean"] ~ #postfx .vign { display: none; }
+
+
+/* The established velocity-black card: logo, name, follow press, comment chip. */
+.yt-outro { position:absolute; inset:0; background:#0a0b12; }
+.yt-outro-title { position:absolute; top:170px; left:40px; right:40px; text-align:center; font:900 66px Inter,sans-serif; color:white; }
+.yt-outro-logo { position:absolute; left:365px; top:300px; width:350px; height:350px; border-radius:50%; border:6px solid #232a38; object-fit:cover; }
+.yt-outro-name { position:absolute; left:0; right:0; top:700px; text-align:center; color:white; font:900 72px Inter,sans-serif; }
+.yt-outro-handle { position:absolute; left:0; right:0; top:812px; text-align:center; color:#8b93a3; font:34px Inter,sans-serif; }
+.yt-outro-follow { position:absolute; left:330px; top:900px; width:420px; height:120px; border-radius:999px; background:#fe297d; color:#000; font:900 48px Inter,sans-serif; display:flex; align-items:center; justify-content:center; }
+.yt-outro-chip { position:absolute; left:0; right:0; top:1090px; text-align:center; }
+.yt-outro-kw { display:inline-block; border:3px solid #fe297d; color:#fe297d; border-radius:999px; padding:22px 54px; font:700 44px "JetBrains Mono",monospace; letter-spacing:.12em; }
+.yt-outro-prompt { position:absolute; left:0; right:0; top:1220px; text-align:center; color:#fff; font:700 40px Inter,sans-serif; }
+.yt-outro-cursor { position:absolute; left:880px; top:1500px; width:0; height:0; }
+.yt-outro-cursor svg { filter:drop-shadow(0 6px 10px rgba(0,0,0,.7)); }
+/* the handle across the top of every frame */
+.yt-handle {
+  position: absolute; left: 0; right: 0; top: 68px; text-align: center;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 26px; letter-spacing: 0.22em; color: #8A8A93;
+}

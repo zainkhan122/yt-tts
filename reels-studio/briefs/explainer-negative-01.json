@@ -1,0 +1,104 @@
+{
+ "id": "explainer-negative-01",
+ "capture": "captures/explainer-negative-01",
+ "title": "Context compression: what your agent reads",
+ "niche": "AI explainers",
+ "lang": "en-us",
+ "style": "explainer",
+ "status": "draft",
+ "production_category": "explainer",
+ "keywords": [
+  "context compression",
+  "prompt preprocessing",
+  "ai agent input"
+ ],
+ "facts": {
+  "method": "conceptual explainer; the reference short (a phone capture) is the lead for pacing and type system only",
+  "limits": "This short explains a mechanism, it does not benchmark one. No vendor number is claimed on screen that the source does not state."
+ },
+ "sources": [
+  "reference short: phone capture, @hypeless"
+ ],
+ "lexicon": {
+  "AI": "A I",
+  "LLM": "L L M",
+  "logs": "logs"
+ },
+ "verify_before_render": [
+  "Every on-screen number is either the reference's own or absent"
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "page",
+   "say": "Your agent feels slow \u2014 and the model is not the reason.",
+   "heading": "",
+   "sub": ""
+  },
+  {
+   "id": "point1",
+   "type": "page",
+   "say": "Context compression runs first: logs, chunks and whole files get cut before any model sees your text.",
+   "heading": "",
+   "sub": ""
+  },
+  {
+   "id": "point2",
+   "type": "page",
+   "say": "So the reading happens upstream of the prompt, and it is measured before it is trimmed.",
+   "heading": "",
+   "sub": ""
+  },
+  {
+   "id": "point3",
+   "type": "page",
+   "say": "Same question, two doors. One reads everything, and one reads only what survived the cut.",
+   "heading": "",
+   "sub": ""
+  },
+  {
+   "id": "catch",
+   "type": "page",
+   "say": "Here is the honest part \u2014 the compression is lossy, and it decides what to drop without asking.",
+   "heading": "",
+   "sub": ""
+  },
+  {
+   "id": "cta",
+   "type": "page",
+   "say": "Which would you rather lose, a log line or the file the answer was in? Comment CUT and I'll pin the link.",
+   "heading": "",
+   "sub": ""
+  }
+ ],
+ "seo": {
+  "keyword": "context compression before the model",
+  "onscreen_first3s": "INPUT, BEFORE IT IS READ",
+  "youtube": {
+   "title": "What Happens To Your Text Before The Model Reads It",
+   "description": "Your agent does not read what you typed. It reads what survived compression. This short shows the step."
+  }
+ },
+ "post": {
+  "cta": "Which would you rather lose \u2014 a log line, or the file the answer was in? Comment CUT.",
+  "hashtags": [
+   "#Shorts"
+  ]
+ },
+ "research_basis": [
+  "ref/ref-A.fingerprint.json"
+ ],
+ "viewer": {
+  "who": "people who use AI agents and wonder why the answers miss",
+  "problem": "they blame the model for a loss that happens before the model",
+  "job": "understand the compression step in 30 seconds"
+ },
+ "idea": "The reference's own subject \u2014 input being compressed before the agent reads it \u2014 rebuilt as a measured style copy rather than a frame copy.",
+ "renderer": "graphics",
+ "motion_standard": 2,
+ "qa_gates": true,
+ "graphics": {
+  "dir": "briefs/graphics/explainer-negative-01",
+  "note": "black void, hairline trace, mono telemetry with the live value in pink, heavy sans headline \u2014 all values measured from ref-A"
+ }
+}

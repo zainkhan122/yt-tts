@@ -742,61 +742,15 @@
   };
 
   /* endcard: brand logo, keyword, Follow pressed on the pipeline's press time. */
+  /* endcard: BYPASSED — graphics/outro.js draws the single house brand card for every short.
+     Kept as a stub so the beat planner can still name the archetype. */
   ARCH.endcard = {
     build: function (root, s) {
-      var b = (D && D.brand) || {};
-      var p = s.payload || {};
-      var r = { wrap: el("div", "ec", root) };
-      r.card = el("div", "ec-card", r.wrap);
-      var av = el("div", "ec-av", r.card);
-      if (b.logo) { var img = document.createElement("img"); img.src = b.logo; img.alt = b.name || ""; av.appendChild(img); }
-      else { el("span", "ec-initial", av, String(b.name || "H").slice(0, 1)); }
-      el("div", "ec-name", r.card, b.name || "");
-      el("div", "ec-handle", r.card, b.handle || D.handle || "");
-      if (b.tagline) el("div", "ec-tag", r.card, b.tagline);
-      if (p.keyword_chip !== false && p.keyword) {
-        r.kw = el("div", "ec-kw", r.card);
-        el("span", "ec-kw-t", r.kw, String(p.keyword).toUpperCase());
-      }
-      r.btn = el("div", "ec-btn", r.card);
-      r.lbl = el("span", "ec-lbl", r.btn, p.follow || b.cta_button || "Follow");
-      r.done = el("div", "ec-done", r.btn);
-      el("span", "ec-done-t", r.done, "Following");
-      r.ring = el("div", "ec-ring", r.btn);
-      r.cur = document.createElementNS(NS, "svg");
-      r.cur.setAttribute("viewBox", "0 0 24 24");
-      r.cur.setAttribute("class", "ec-cursor");
-      r.btn.appendChild(r.cur);
-      var path = document.createElementNS(NS, "path");
-      path.setAttribute("d", "M4 2l15 9.2-6.6 1.3 3.9 7.4-2.8 1.5-3.9-7.5L4 18.8z");
-      path.setAttribute("fill", "#FFFFFF"); path.setAttribute("stroke", DARK); path.setAttribute("stroke-width", "1.2");
-      r.cur.appendChild(path);
-      return r;
+      var host = el("div", "house-endcard-host", root);
+      host.style.cssText = "position:absolute;inset:0;";
+      return { house: true, host: host };
     },
-    update: function (r, s, u, d) {
-      var ev = s.ev || {};
-      var pr = (typeof ev.press === "number" ? ev.press : s.t0 + Math.max(1.1, Math.min(d * 0.6, d - 1.0))) - s.t0;
-      var kw = (typeof ev.keyword === "number" ? ev.keyword : s.cue) - s.t0;
-      var cin = eBack(ramp(u, 0, 0.5));
-      r.card.style.opacity = fmt(ramp(u, 0, 0.2));
-      /* keep the CSS centering translate(-50%,-50%) — wiping it slides the card half off-canvas right */
-      r.card.style.transform = "translate(-50%,-50%) translateY(" + fmt((1 - cin) * 80) + "px) scale(" + fmt(0.96 + 0.04 * cin, 3) + ")";
-      if (r.kw) {
-        var kp = eBack(ramp(u, kw, kw + 0.4));
-        r.kw.style.opacity = fmt(ramp(u, kw, kw + 0.16));
-        r.kw.style.transform = "translateY(" + fmt((1 - kp) * 30) + "px) scale(" + fmt(0.9 + 0.1 * kp, 3) + ")";
-      }
-      var arrive = eCubic(ramp(u, pr - 0.55, pr));
-      var leave = ramp(u, pr + 0.5, pr + 0.8);
-      r.cur.style.opacity = fmt(ramp(u, pr - 0.58, pr - 0.4) * (1 - leave));
-      r.cur.style.transform = "translate(" + fmt((1 - arrive) * 150) + "px," + fmt((1 - arrive) * 170) + "px)";
-      var down = ramp(u, pr - 0.12, pr - 0.02) * (1 - ramp(u, pr + 0.02, pr + 0.2));
-      r.btn.style.transform = "scale(" + fmt((1 - 0.06 * down) * (0.97 + 0.03 * eBack(ramp(u, 0.16, 0.5))), 3) + ")";
-      r.lbl.style.opacity = fmt(1 - ramp(u, pr + 0.02, pr + 0.1));
-      r.done.style.opacity = fmt(ramp(u, pr + 0.03, pr + 0.14));
-      r.ring.style.opacity = fmt(ramp(u, pr, pr + 0.03) * (1 - ramp(u, pr + 0.26, pr + 0.56)));
-      r.ring.style.transform = "scale(" + fmt(0.7 + 1.4 * eCubic(ramp(u, pr, pr + 0.5)), 3) + ")";
-    }
+    update: function () { /* the house layer owns this scene */ }
   };
 
   /* ============================ stage ============================ */
@@ -823,6 +777,7 @@
     el("div", "handle", stageEl, D.handle || "");
     D.scenes.forEach(function (s) {
       var wrap = el("div", "scene", stageEl);
+      wrap.setAttribute("data-scene", s.id);   // house layer mounts the house outro here
       wrap.style.display = "none";
       var p = s.payload || {};
       if (p.eyebrow) el("div", "eyebrow", wrap, String(p.eyebrow));
@@ -883,6 +838,8 @@
     var k = activeIndex(t);
     D.scenes.forEach(function (s, i) { s._wrap.style.display = i === k ? "block" : "none"; });
     var s = D.scenes[k];
+    // House layer owns the outro; hide the entire template scene.
+    if (s.archetype === "endcard") { D.scenes.forEach(function (x) { x._wrap.style.display = "none"; }); return; }
     var u = t - s.t0, d = Math.max(1e-6, s.t1 - s.t0);
     if (s._head) {
       var hp = eCubic(ramp(u, 0, 0.26));

@@ -57,19 +57,42 @@
   /* the ground: scrolling perspective grid + a soft horizon glow */
   function ground(root, phase) {
     var g = svg(1080, 1920, root, "pl-ground");
+    g.setAttribute("viewBox", "-40 -40 1160 2000");   // overscan for the camera drift
+    g.setAttribute("preserveAspectRatio", "none");
+    g.style.width = "1080px"; g.style.height = "1920px";
+    g.style.overflow = "hidden";
     var horizon = 1180;
     for (var i = 0; i < 26; i++) {           /* vertical stays converge on the vanishing point */
       var x = -540 + i * 84;
       sEl("line", { x1: 540 + (x - 540) * 0.12, y1: horizon, x2: x, y2: 1920,
                     stroke: EDGE, "stroke-width": 1.4, opacity: 0.55 }, g);
     }
+    var horizonLines = [];
     for (var k = 0; k < 22; k++) {           /* horizontals creep toward the viewer */
       var f = ((k / 22) + phase) % 1;
       var y = horizon + Math.pow(f, 2.4) * (1920 - horizon);
-      sEl("line", { x1: 0, y1: y, x2: 1080, y2: y, stroke: EDGE,
-                    "stroke-width": 1 + f * 1.6, opacity: 0.14 + f * 0.5 }, g);
+      horizonLines.push(sEl("line", { x1: 0, y1: y, x2: 1080, y2: y, stroke: EDGE,
+                    "stroke-width": 1 + f * 1.6, opacity: 0.14 + f * 0.5 }, g));
     }
-    sEl("line", { x1: 0, y1: horizon, x2: 1080, y2: horizon, stroke: CYAN, "stroke-width": 2, opacity: 0.35 }, g);
+    var hz = sEl("line", { x1: 0, y1: horizon, x2: 1080, y2: horizon, stroke: CYAN,
+                           "stroke-width": 2, opacity: 0.35 }, g);
+    /* motion contract: a beat never sits still. The camera drifts and the horizon breathes, so
+       even a beat whose content has finished settling still moves on every frame. */
+    g._hz = hz;
+    g._tick = function (t) {
+      var ph = t * 0.11;
+      horizonLines.forEach(function (line, i) {
+        var f = ((i / horizonLines.length) + phase + t * .055) % 1;
+        var y = horizon + Math.pow(f, 2.4) * (1920 - horizon);
+        line.setAttribute("y1", y.toFixed(1)); line.setAttribute("y2", y.toFixed(1));
+      });
+      var sink = 2.5 + 2.5 * Math.sin(t * 0.7);      // slow push-in, never a still frame
+      g.setAttribute("transform", "translate(540,1180) scale(" +
+        (1.0015 + 0.0015 * Math.sin(t * 0.7)).toFixed(5) + ") translate(-540,-1180) translate(0," +
+        (Math.sin(ph) * 4 + sink).toFixed(2) + ")");
+      hz.setAttribute("y1", (1180 + Math.sin(ph * 1.3) * 26).toFixed(1));
+      hz.setAttribute("y2", hz.getAttribute("y1"));
+    };
     return g;
   }
 
@@ -84,17 +107,27 @@
       var wrap = el("div", "pl-titlewrap", root);
       el("div", "pl-kicker", wrap, p.kicker || "");
       r.title = el("div", "pl-title", wrap);
-      r.title.textContent = s.headline || p.title || "";
+      r.titleWords = String(s.headline || p.title || "").split(/\s+/).map(function (word) {
+        var part = el("span", "pl-title-word", r.title, word);
+        r.title.appendChild(document.createTextNode(" "));
+        return part;
+      });
       r.chips = (p.chips || []).map(function (t) {
         return el("div", "pl-chip", wrap, t);
       });
       return r;
     },
     update: function (r, s, u, d) {
+      if (r.ground && r.ground._tick) r.ground._tick(u + s.t0);
       r.ground.setAttribute("opacity", fmt(ramp(u, 0, 0.5)));
       r.title.style.opacity = fmt(ramp(u, 0.06, 0.3));
       /* a clip-path style wipe: scale + blur-free slide */
       r.title.style.transform = "translateY(" + fmt((1 - eExpo(ramp(u, 0.06, 0.55))) * 40, 1) + "px)";
+      r.titleWords.forEach(function (word, i) {
+        var k = eExpo(ramp(u, 0.02 + i * 0.09, 0.38 + i * 0.09));
+        word.style.opacity = fmt(0.45 + 0.55 * k);
+        word.style.transform = "translateY(" + fmt((1-k)*22,1) + "px)";
+      });
       r.chips.forEach(function (c, i) {
         var k = eBack(ramp(u - 0.45 - i * 0.16, 0, 0.45));
         c.style.opacity = fmt(ramp(u - 0.45 - i * 0.16, 0, 0.2));
@@ -126,6 +159,7 @@
     },
     update: function (r, s, u, d) {
       var now = u + s.t0;
+      if (r.ground && r.ground._tick) r.ground._tick(u + s.t0);
       r.ground.setAttribute("opacity", fmt(ramp(u, 0, 0.4)));
       r.rows.forEach(function (x, i) {
         var p = eCubic(ramp(now - r.times[i], 0, 0.45));
@@ -160,6 +194,7 @@
     },
     update: function (r, s, u, d) {
       var now = u + s.t0;
+      if (r.ground && r.ground._tick) r.ground._tick(u + s.t0);
       r.ground.setAttribute("opacity", fmt(ramp(u, 0, 0.4)));
       [[r.left, 0], [r.right, 1]].forEach(function (pair) {
         var box = pair[0];
@@ -192,6 +227,7 @@
     },
     update: function (r, s, u, d) {
       var now = u + s.t0;
+      if (r.ground && r.ground._tick) r.ground._tick(u + s.t0);
       r.ground.setAttribute("opacity", fmt(ramp(u, 0, 0.4)));
       r.plates.forEach(function (card, i) {
         var k = eBack(ramp(now - r.times[i], 0, 0.5));
@@ -215,6 +251,7 @@
                                      stroke: EDGE, "stroke-width": 2 }, g));
       }
       r.arc = sEl("path", { fill: "none", stroke: CYAN, "stroke-width": 6, "stroke-linecap": "round" }, g);
+      r.sweep = sEl("line", { x1:440, y1:440, x2:440, y2:30, stroke:CYAN, "stroke-width":4, opacity:0.8 }, g);
       r.dot = sEl("circle", { cx: 440, cy: 440, r: 12, fill: MAGENTA, opacity: 0 }, g);
       r.value = el("div", "pl-sonarval", wrap);
       if (p.found) r.found = el("div", "pl-sonarfound", wrap, p.found);
@@ -223,7 +260,11 @@
     },
     update: function (r, s, u, d) {
       var p = s.payload || {};
+      if (r.ground && r.ground._tick) r.ground._tick(u + s.t0);
       r.ground.setAttribute("opacity", fmt(ramp(u, 0, 0.4)));
+      var theta = u * 1.45 - Math.PI / 2;
+      r.sweep.setAttribute("x2", fmt(440 + Math.cos(theta)*410,1));
+      r.sweep.setAttribute("y2", fmt(440 + Math.sin(theta)*410,1));
       var done = ramp(u, 0.15, d * 0.8);
       var a0 = -Math.PI / 2, a1 = a0 + done * Math.PI * 2;
       var large = done > 0.5 ? 1 : 0;
@@ -265,6 +306,7 @@
     },
     update: function (r, s, u, d) {
       var now = u + s.t0;
+      if (r.ground && r.ground._tick) r.ground._tick(u + s.t0);
       r.ground.setAttribute("opacity", fmt(ramp(u, 0, 0.4)));
       r.rows.forEach(function (row, i) {
         var k = eCubic(ramp(now - r.times[i], 0, 0.4));
@@ -275,27 +317,15 @@
   };
 
   /* endcard */
+  /* endcard: BYPASSED — graphics/outro.js draws the single house brand card for every short.
+     Kept as a stub so the beat planner can still name the archetype. */
   ARCH.endcard = {
     build: function (root, s) {
-      var p = s.payload || {};
-      var r = {};
-      r.ground = ground(root, 0.4);
-      var wrap = el("div", "pl-end", root);
-      el("div", "pl-kicker", wrap, "THAT IS THE SHORT VERSION");
-      r.box = el("div", "pl-endbox", wrap);
-      el("b", null, r.box, D.handle || "");
-      r.kw = el("div", "pl-kw", wrap, p.keyword || "");
-      el("div", "pl-kwsub", wrap, p.prompt || "for the leaderboard");
-      if (p.follow) el("div", "pl-follow", wrap, p.follow);
-      return r;
+      var host = el("div", "house-endcard-host", root);
+      host.style.cssText = "position:absolute;inset:0;";
+      return { house: true, host: host };
     },
-    update: function (r, s, u, d) {
-      r.ground.setAttribute("opacity", fmt(ramp(u, 0, 0.4)));
-      r.box.style.opacity = fmt(ramp(u, 0.05, 0.35));
-      var k = eBack(ramp(u - 0.25, 0, 0.5));
-      r.kw.style.transform = "scale(" + fmt(0.9 + 0.1 * k, 3) + ")";
-      r.kw.style.opacity = fmt(ramp(u - 0.25, 0, 0.25));
-    }
+    update: function () { /* the house layer owns this scene */ }
   };
 
   /* ================= stage + captions ================= */
@@ -307,6 +337,7 @@
     D.scenes.forEach(function (s, si) {
       s.idx = si;
       var wrap = el("div", "scene", stageEl);
+      wrap.setAttribute("data-scene", s.id);   // house layer mounts the house outro here
       wrap.style.display = "none";
       var visual = el("div", "visual", wrap);
       s._wrap = wrap; s._visual = visual;
@@ -342,6 +373,8 @@
     var k = activeIndex(t);
     D.scenes.forEach(function (s, i) { s._wrap.style.display = i === k ? "block" : "none"; });
     var s = D.scenes[k];
+    // House layer owns the outro; hide the entire template scene.
+    if (s.archetype === "endcard") { D.scenes.forEach(function (x) { x._wrap.style.display = "none"; }); return; }
     ARCH[s.archetype].update(s._refs, s, t - s.t0, Math.max(1e-6, s.t1 - s.t0));
     drawCaption(s, t);
   };

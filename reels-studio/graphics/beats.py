@@ -167,6 +167,21 @@ def lint_beats(beats: dict, phrases: list[dict], sheet: dict, script_fp: str | N
     return v
 
 
+def _default_cue(beat: dict) -> str | None:
+    """No cue_word declared: take the first content word of the scene headline.
+
+    The house caption rule is that exactly one word per chunk is High-Voltage Yellow. Leaving that
+    to chance means most shorts ship with none, which is what happened before this existed.
+    """
+    text = " ".join(filter(None, [beat.get("headline") or "",
+                                  str((beat.get("payload") or {}).get("keyword") or "")]))
+    for w in text.split():
+        n = "".join(ch for ch in w.lower() if ch.isalnum())
+        if len(n) > 3 and n not in _STOP:
+            return n
+    return None
+
+
 def scene_list(beats: dict, phrases: list[dict]) -> list[dict]:
     """Joins beats with phrase timing and computes the beat cues. Called only after lint passes."""
     from .cues import compute
@@ -182,6 +197,10 @@ def scene_list(beats: dict, phrases: list[dict]) -> list[dict]:
             "payload": s.get("payload", {}),
             "words": p["words"],
             "text": p["text"],
+            # the word the caption lights up in yellow. Explicit in the beat plan when the writer
+            # named one; otherwise the scene's own headline keywords, so every short gets a
+            # highlight instead of a wall of white.
+            "cue_word": s.get("cue_word") or _default_cue(s),
         }
         scene.update(compute(scene, p["words"], p["t0"], p["t1"], s.get("cue_word")))
         out.append(scene)

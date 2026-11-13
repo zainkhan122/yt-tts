@@ -1,3 +1,5 @@
+> **Graphics implementation and open issues:** See [`HANDOFF-GRAPHICS-CURRENT.md`](HANDOFF-GRAPHICS-CURRENT.md). It records the current shared caption/outro, local-preview vs production distinction, actual gate scope, quality review, dependencies and outstanding failures. Technical gates do not constitute visual approval.
+
 # Reels Studio: system overview (v2)
 
 Goal: a small number of high-quality shorts for three niches (AI tools, AI and repos news,

@@ -1,0 +1,58 @@
+{
+ "tool": {
+  "name": "Context compression (concept explainer)",
+  "repo_url": "",
+  "category": "AI explainers",
+  "license": "n/a"
+ },
+ "features": [
+  {
+   "id": "f1",
+   "title": "Compression reads first",
+   "what": "Logs, chunks and whole files are cut before any model sees the text.",
+   "items": [
+    "logs first",
+    "chunks next",
+    "whole files last"
+   ],
+   "metric": {
+    "value": 3,
+    "unit": " stages"
+   },
+   "evidence_quote": "compressed before the agent reads it",
+   "risk": "A cut chunk cannot be read again later in the same session."
+  },
+  {
+   "id": "f2",
+   "title": "Reading happens before reasoning",
+   "what": "The input is measured and trimmed upstream of the prompt.",
+   "items": [
+    "measured",
+    "trimmed",
+    "then read"
+   ],
+   "metric": {
+    "value": 2,
+    "unit": " steps"
+   },
+   "evidence_quote": "input, before it is read",
+   "risk": "Measurement costs a pass; the trim is already decided by then."
+  },
+  {
+   "id": "f3",
+   "title": "Lossy by design",
+   "what": "The cut decides what to drop and does not ask.",
+   "items": [
+    "decides for you",
+    "no undo",
+    "no receipt"
+   ],
+   "metric": {
+    "value": 1,
+    "unit": " priority"
+   },
+   "evidence_quote": "the honest part",
+   "risk": "It decides what to drop and does not ask; a log line you needed is already gone."
+  }
+ ]
+}

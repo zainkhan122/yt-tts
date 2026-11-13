@@ -29,8 +29,8 @@ body { font-family: "Inter", "Helvetica Neue", Arial, "Segoe UI", sans-serif; -w
 
 /* hook_fan + fan_collapse */
 .fanwrap { position: absolute; inset: 0; }
-.fan-hero { position: absolute; left: 0; right: 0; top: 60px; height: 560px; }
-.fan-counter { position: absolute; top: 660px; width: 100%; text-align: center; }
+.fan-hero { position: absolute; left: 0; right: 0; top: 40px; height: 500px; }
+.fan-counter { position: absolute; top: 560px; width: 100%; text-align: center; }
 .fan-counter .n { font-size: 120px; font-weight: 900; color: #FFFFFF; }
 .fan-counter .t { margin-top: 6px; }
 
@@ -75,9 +75,9 @@ body { font-family: "Inter", "Helvetica Neue", Arial, "Segoe UI", sans-serif; -w
 
 /* velocity_curve */
 .vcw { position: absolute; inset: 0; }
-.vc-bignum { position: absolute; left: 0; right: 0; top: 610px; text-align: center;
+.vc-bignum { position: absolute; left: 0; right: 0; top: 560px; text-align: center;
   font-size: 150px; font-weight: 900; color: #FFFFFF; }
-.vc-sub { position: absolute; left: 0; right: 0; top: 800px; text-align: center; }
+.vc-sub { position: absolute; left: 0; right: 0; top: 730px; text-align: center; }
 
 /* name_collision */
 .collw { position: absolute; inset: 0; }

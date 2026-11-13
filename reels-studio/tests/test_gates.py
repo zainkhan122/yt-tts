@@ -48,14 +48,16 @@ def write_brief(root, brief):
 
 
 class GateReportTests(unittest.TestCase):
-    def test_clean_brief_reports_no_errors_and_names_the_one_warning(self):
+    def test_clean_brief_reports_no_errors_and_names_the_warnings(self):
         with tempfile.TemporaryDirectory() as tmp:
             report = gates.run(write_brief(tmp, BRIEF))
         self.assertEqual(report["brief"], "gate-demo-01")
         self.assertEqual(report["rollup"]["errors"], 0)
-        self.assertEqual([f["id"] for f in report["lint"]], ["BL020"])
-        self.assertEqual(report["rollup"]["by_id"], {"BL020": 1})  # missing capture pack locally
-        self.assertIn("0 error(s), 1 warning(s)", gates.summary_lines(report)[0])
+        # BL140 is expected here: this fixture is a 3-scene smoke brief (7 spoken words), not a
+        # real script. The rule itself is correct — approved scripts run 105-118 words.
+        self.assertEqual([f["id"] for f in report["lint"]], ["BL020", "BL140"])
+        self.assertEqual(report["rollup"]["by_id"], {"BL020": 1, "BL140": 1})  # + 7-word smoke script
+        self.assertIn("0 error(s), 2 warning(s)", gates.summary_lines(report)[0])
 
     def test_findings_carry_rule_ids_and_roll_up_by_id(self):
         brief = json.loads(json.dumps(BRIEF))
@@ -103,7 +105,7 @@ class ManifestRecordTests(unittest.TestCase):
         change = stored["changed_since_last_run"]
         self.assertEqual(change["after"]["BL031"], 1)
         self.assertIsNone(change["before"].get("BL031"))
-        self.assertEqual(change["before"], {"BL020": 1})  # clean run: only the missing-pack warning
+        self.assertEqual(change["before"], {"BL020": 1, "BL140": 1})  # missing pack + short smoke script
 
     def test_unchanged_run_adds_no_change_note(self):
         with tempfile.TemporaryDirectory() as tmp:

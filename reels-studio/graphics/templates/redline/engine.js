@@ -231,28 +231,15 @@
   };
 
   /* endcard: the last page, signed off. */
+  /* endcard: BYPASSED — graphics/outro.js draws the single house brand card for every short.
+     Kept as a stub so the beat planner can still name the archetype. */
   ARCH.endcard = {
     build: function (root, s) {
-      var p = s.payload || {};
-      var r = {};
-      r.paper = paperRules(root);
-      var sheet = el("div", "rl-sheet rl-end", root);
-      el("div", "rl-kicker", sheet, "END OF REPORT");
-      r.mark = el("div", "rl-markbox", sheet);
-      el("b", null, r.mark, D.handle || "");
-      r.kw = el("div", "rl-kw", sheet, p.keyword || "");
-      el("div", "rl-kwsub", sheet, p.prompt || "for the list");
-      if (p.follow) r.follow = el("div", "rl-follow", sheet, p.follow);
-      r.times = bindTimes(p.cue_phrases, s, 1);
-      return r;
+      var host = el("div", "house-endcard-host", root);
+      host.style.cssText = "position:absolute;inset:0;";
+      return { house: true, host: host };
     },
-    update: function (r, s, u, d) {
-      r.paper.style.opacity = fmt(ramp(u, 0, 0.3));
-      r.mark.style.opacity = fmt(ramp(u, 0.05, 0.35));
-      r.mark.style.transform = "rotate(" + fmt(-3 + 3 * eCubic(ramp(u, 0.05, 0.5)), 2) + "deg)";
-      var kp = eBack(ramp(u - (r.times[0] - s.t0), 0, 0.4));
-      r.kw.style.transform = "scale(" + fmt(0.92 + 0.08 * kp, 3) + ")";
-    }
+    update: function () { /* the house layer owns this scene */ }
   };
 
   /* ================= stage + captions ================= */
@@ -264,6 +251,7 @@
     D.scenes.forEach(function (s, si) {
       s.idx = si;
       var wrap = el("div", "scene", stageEl);
+      wrap.setAttribute("data-scene", s.id);   // house layer mounts the house outro here
       wrap.style.display = "none";
       var head = el("div", "rl-overline", wrap, s.headline || "");
       head.className = "rl-overline";
@@ -299,6 +287,8 @@
     var k = activeIndex(t);
     D.scenes.forEach(function (s, i) { s._wrap.style.display = i === k ? "block" : "none"; });
     var s = D.scenes[k];
+    // House layer owns the outro; hide the entire template scene.
+    if (s.archetype === "endcard") { D.scenes.forEach(function (x) { x._wrap.style.display = "none"; }); return; }
     var u = t - s.t0, d = Math.max(1e-6, s.t1 - s.t0);
     ARCH[s.archetype].update(s._refs, s, u, d);
     drawCaption(s, t);

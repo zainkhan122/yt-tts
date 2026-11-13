@@ -697,39 +697,17 @@
     }
   };
 
-  /* endcard: real brand logo, follow press locked to the click cue, keyword chip on the word. */
+  /* endcard: BYPASSED. The house outro (graphics/outro.js) draws the one brand card every short
+     ends on, for every template. This used to render a second, different endcard with its own
+     logo, button and cursor — two brand cards, two implementations, neither authoritative.
+     The archetype must still exist so the beat planner can name it. */
   ARCH.endcard = {
     build: function (root, s) {
-      var b = D.brand || {};
-      var p = s.payload;
-      var r = { wrap: el("div", "endcard", root) };
-      if (b.logo) r.logo = el("img", "ec-logo", r.wrap), r.logo.src = b.logo;
-      el("div", "ec-name", r.wrap, b.name || "");
-      el("div", "ec-handle", r.wrap, b.handle || "");
-      r.follow = el("div", "ec-follow", r.wrap, b.cta_button || "Follow");
-      r.chip = el("div", "ec-chip", r.wrap);
-      el("span", "", r.chip, "COMMENT " + String(p.keyword).toUpperCase());
-      el("div", "ec-prompt", r.wrap, p.prompt || "for the repo link");
-      var cur = el("div", "ec-cursor", r.wrap);
-      cur.innerHTML = "<svg width='70' height='70' viewBox='0 0 24 24'><path d='M4 2 L20 12 L13 13.5 L16.5 21 L13.5 22.5 L10 14.5 L4 19 Z' fill='#ffffff' stroke='#000000' stroke-width='1'/></svg>";
-      r.cursor = cur;
-      r.cursor.style.left = "880px"; r.cursor.style.top = "1500px";
-      return r;
+      var host = el("div", "vc-endcard-host", root);
+      host.style.cssText = "position:absolute;inset:0;";
+      return { house: true, host: host };
     },
-    update: function (r, s, u, d) {
-      var ev = s.ev || {};
-      var pressT = (ev.press != null ? ev.press - s.t0 : d * 0.55);
-      var kwT = (ev.keyword != null ? ev.keyword - s.t0 : d * 0.3);
-      var kp = easeOutBack(ramp(u, kwT, kwT + 0.4));
-      r.chip.style.opacity = fmt(kp);
-      r.chip.style.transform = "scale(" + fmt(0.8 + 0.2 * kp, 3) + ")";
-      var a = easeOutCubic(ramp(u, pressT - 0.7, pressT));
-      var bx = 880 - a * 340, by = 1500 - a * 560;
-      var press = ramp(u, pressT, pressT + 0.12) - ramp(u, pressT + 0.3, pressT + 0.45);
-      r.cursor.style.transform = "translate(" + fmt(bx - 880, 1) + "px," + fmt(by - 1500, 1) + "px)";
-      r.cursor.style.opacity = a > 0.02 ? 1 : 0;
-      r.follow.style.transform = "scale(" + fmt(1 - 0.12 * press, 3) + ")";
-    }
+    update: function () { /* the house layer owns this scene */ }
   };
 
   /* ================= stage, captions, clock ================= */
@@ -740,6 +718,7 @@
     el("div", "handle", stageEl, D.handle || "");
     D.scenes.forEach(function (s) {
       var wrap = el("div", "scene", stageEl);
+      wrap.setAttribute("data-scene", s.id);       // house layer mounts the house outro here
       wrap.style.display = "none";
       var head = el("div", "headline", wrap, s.headline || "");
       var visual = el("div", "visual arch-" + s.archetype, wrap);
@@ -783,6 +762,9 @@
     D.scenes.forEach(function (s, i) { s._wrap.style.display = i === k ? "block" : "none"; });
     var s = D.scenes[k];
     var u = t - s.t0, d = Math.max(1e-6, s.t1 - s.t0);
+    /* house layer owns the endcard: hide the template's scene entirely so its stale layout cannot
+       surface behind the house card, and so nothing of it enters the caption band */
+    if (s.archetype === "endcard") { D.scenes.forEach(function (x) { x._wrap.style.display = "none"; }); return; }
     var fade = Math.min(ramp(u, 0, 0.18), ramp(d - u, 0, 0.16));
     s._head.style.opacity = fmt(fade);
     s._head.style.transform = "translateY(" + fmt((1 - easeOutCubic(ramp(u, 0, 0.3))) * 26, 1) + "px)";

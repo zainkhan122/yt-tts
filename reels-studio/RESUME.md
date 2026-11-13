@@ -1,3 +1,5 @@
+> **Graphics implementation and open issues:** See [`HANDOFF-GRAPHICS-CURRENT.md`](HANDOFF-GRAPHICS-CURRENT.md). It records the current shared caption/outro, local-preview vs production distinction, actual gate scope, quality review, dependencies and outstanding failures. Technical gates do not constitute visual approval.
+
 # Resume Hypeless safely — read this before doing work
 
 > **Start here: `HANDOFF-2026-11-05.md`** (latest state, owner standing orders, what is live, what is blocked and why). `HANDOFF-2026-10-26.md` is superseded. The sections below are older history.
