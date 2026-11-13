@@ -1,0 +1,147 @@
+{
+ "tool": "design-agent",
+ "handle": "@hypeless",
+ "template": "design-agent",
+ "script_sha256": "sha256:318756d28e0311665369de7da5a13893e03efde10923833a171830354fd24c52",
+ "scenes": [
+  {
+   "scene_id": "hook",
+   "phrase": 0,
+   "archetype": "title_burst",
+   "headline": "YOUR BRAND, IN SLACK",
+   "feature_id": null,
+   "depicts": "design agent turns a slack request into videos",
+   "payload": {
+    "kicker": "LANGCHAIN \u00b7 OPEN SOURCE",
+    "title": "YOUR BRAND, IN SLACK",
+    "chips": [
+     "DESIGN AGENT"
+    ]
+   }
+  },
+  {
+   "scene_id": "brand",
+   "phrase": 1,
+   "archetype": "brand_inputs",
+   "headline": "TEACH IT YOUR BRAND",
+   "feature_id": "f1",
+   "depicts": "brand colors fonts and spacing in slack",
+   "payload": {
+    "items": [
+     "COLORS",
+     "FONTS",
+     "SPACING"
+    ],
+    "outputs": [
+     "GRAPHICS",
+     "DECKS",
+     "MOTION"
+    ],
+    "cue_phrases": [
+     "colors",
+     "fonts",
+     "spacing",
+     "graphics",
+     "decks",
+     "motion"
+    ]
+   }
+  },
+  {
+   "scene_id": "process",
+   "phrase": 2,
+   "archetype": "design_process",
+   "headline": "FROM ASK TO OUTPUT",
+   "feature_id": "f2",
+   "depicts": "workflow builds in code then checks chart math",
+   "payload": {
+    "items": [
+     {
+      "title": "WORKFLOW",
+      "sub": "Select the skill"
+     },
+     {
+      "title": "CODE",
+      "sub": "Build the asset"
+     },
+     {
+      "title": "CHECK",
+      "sub": "Contrast and chart math"
+     }
+    ],
+    "cue_phrases": [
+     "workflow",
+     "code",
+     "checks"
+    ]
+   }
+  },
+  {
+   "scene_id": "proof",
+   "phrase": 3,
+   "archetype": "proof_chart",
+   "headline": "THE VENDOR\u2019S OWN NUMBERS",
+   "feature_id": "f5",
+   "depicts": "three thousand assets median model spend eight dollars fifty cents",
+   "payload": {
+    "cue_phrases": [
+     "three thousand",
+     "eight dollars",
+     "fifty cents"
+    ],
+    "assets": 3000,
+    "before": 8,
+    "after": 0.5
+   }
+  },
+  {
+   "scene_id": "catch",
+   "phrase": 4,
+   "archetype": "verdict_stack",
+   "headline": "THE HONEST CATCH",
+   "feature_id": "f4",
+   "depicts": "managed slack setup langsmith account model key costs designer",
+   "payload": {
+    "tag": "OPEN SOURCE \u2260 FREE TO RUN",
+    "rows": [
+     {
+      "t": "SETUP + ACCOUNT",
+      "sub": "LangSmith account and model key",
+      "kind": "warn"
+     },
+     {
+      "t": "RUNNING COSTS",
+      "sub": "Hosting and model usage can cost money",
+      "kind": "warn"
+     },
+     {
+      "t": "HUMAN REVIEW",
+      "sub": "A designer still judges the result",
+      "kind": "ok"
+     }
+    ],
+    "cue_phrases": [
+     "setup",
+     "costs",
+     "designer"
+    ]
+   }
+  },
+  {
+   "scene_id": "cta",
+   "phrase": 5,
+   "archetype": "endcard",
+   "headline": "YOUR CALL",
+   "feature_id": null,
+   "depicts": "comment design and pin the repo",
+   "payload": {
+    "keyword": "DESIGN",
+    "prompt": "for the repo",
+    "follow": "@hypeless",
+    "cue_phrases": [
+     "design"
+    ]
+   }
+  }
+ ]
+}

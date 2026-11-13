@@ -1,0 +1,53 @@
+{
+ "tool": {
+  "name": "Design Agent",
+  "repo_url": "https://github.com/langchain-ai/design-agent",
+  "category": "AI design agent",
+  "license": "Apache-2.0"
+ },
+ "features": [
+  {
+   "id": "f1",
+   "title": "Brand pack and Slack",
+   "what": "A brand pack supplies colors fonts and spacing to the agent.",
+   "evidence_quote": "Your brand is code."
+  },
+  {
+   "id": "f2",
+   "title": "Workflow and quality",
+   "what": "Skills route requests and code checks the rendered work.",
+   "evidence_quote": "It checks what a machine can count."
+  },
+  {
+   "id": "f3",
+   "title": "Vendor output count",
+   "what": "LangChain reports producing over three thousand assets.",
+   "evidence_quote": "Since August it has shipped over 3,000 assets for us"
+  },
+  {
+   "id": "f4",
+   "title": "Deployment requirements",
+   "what": "The managed deployment requires a LangSmith account and a model key.",
+   "evidence_quote": "You need a LangSmith account"
+  },
+  {
+   "id": "f5",
+   "title": "Vendor reported model spend",
+   "what": "LangChain reports median model spend fell from eight dollars to fifty cents per request.",
+   "metric": {
+    "value": 8,
+    "unit": "USD"
+   },
+   "evidence_quote": "The median request now costs about 50 cents in model spend, down from about $8 in mid-September."
+  }
+ ],
+ "risks": [
+  {
+   "text": "Requires deployment and model access; review outputs",
+   "severity": "medium"
+  }
+ ],
+ "source_urls": [
+  "https://github.com/langchain-ai/design-agent/blob/a6e15774409094adaa22654255bdcd8165cfb4ef/README.md"
+ ]
+}

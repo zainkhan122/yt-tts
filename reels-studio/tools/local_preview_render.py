@@ -241,10 +241,10 @@ def main() -> int:
     # never /tmp: it is a small tmpfs here and 1600 frames fills it (screenshot then fails)
     default_work = ROOT / "renders" / args.brief_id / "work"
     default_work.parent.mkdir(parents=True, exist_ok=True)
-    work = Path(args.work) if args.work else Path(tempfile.mkdtemp(
+    work = Path(args.work).resolve() if args.work else Path(tempfile.mkdtemp(
         prefix=f"gfx-{args.brief_id}-", dir=default_work.parent, ))
     work.mkdir(parents=True, exist_ok=True)
-    out = Path(args.out) if args.out else ROOT / "renders" / args.brief_id / f"{args.brief_id}.mp4"
+    out = Path(args.out).resolve() if args.out else ROOT / "renders" / args.brief_id / f"{args.brief_id}.mp4"
     out.parent.mkdir(parents=True, exist_ok=True)
 
     lines = [s["say"] for s in brief["scenes"]]

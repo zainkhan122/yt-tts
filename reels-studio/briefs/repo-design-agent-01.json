@@ -1,0 +1,72 @@
+{
+ "id": "repo-design-agent-01",
+ "capture": "captures/repo-design-agent-01",
+ "title": "LangChain Design Agent: on-brand videos from Slack",
+ "niche": "AI tools",
+ "lang": "en-us",
+ "style": "explainer",
+ "status": "draft",
+ "production_category": "repo",
+ "keywords": [
+  "design agent",
+  "AI motion graphics",
+  "LangChain",
+  "brand kit"
+ ],
+ "facts": {
+  "method": "Official README pinned to 6 November 2026 commit",
+  "limits": "Hosting and model usage can cost money; human design review remains important."
+ },
+ "sources": [
+  "https://github.com/langchain-ai/design-agent/blob/a6e15774409094adaa22654255bdcd8165cfb4ef/README.md",
+  "https://www.langchain.com/blog/design-agent"
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "flow",
+   "say": "LangChain built a design agent that turns a Slack request into on-brand videos.",
+   "heading": "YOUR BRAND, IN SLACK"
+  },
+  {
+   "id": "brand",
+   "type": "flow",
+   "say": "Give it your brand colors, fonts and spacing. Ask in Slack, and it can make graphics, decks, or motion videos.",
+   "heading": "TEACH IT YOUR BRAND"
+  },
+  {
+   "id": "process",
+   "type": "flow",
+   "say": "It chooses a workflow, builds the work in code, then renders and checks colors, contrast and chart math before sending it back.",
+   "heading": "FROM ASK TO OUTPUT"
+  },
+  {
+   "id": "proof",
+   "type": "flow",
+   "say": "LangChain says it shipped over three thousand assets, and its median model spend fell from eight dollars a request to just fifty cents. That's their report, not a guarantee.",
+   "heading": "THE VENDOR\u2019S OWN NUMBER"
+  },
+  {
+   "id": "catch",
+   "type": "flow",
+   "say": "The code is open source. The managed Slack setup needs a LangSmith account and a model key. Costs can apply, and a designer still needs to judge the result.",
+   "heading": "THE HONEST CATCH"
+  },
+  {
+   "id": "cta",
+   "type": "flow",
+   "say": "Would you trust it with your brand? Comment DESIGN and I'll pin the repo.",
+   "heading": "YOUR CALL"
+  }
+ ],
+ "renderer": "graphics",
+ "graphics": {
+  "dir": "briefs/graphics/repo-design-agent-01",
+  "template": "design-agent"
+ },
+ "lexicon": {
+  "LangChain": "lang chain",
+  "LangSmith": "lang smith",
+  "Slack": "slack"
+ }
+}
