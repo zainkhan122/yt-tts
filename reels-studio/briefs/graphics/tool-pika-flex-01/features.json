@@ -1,0 +1,43 @@
+{
+ "tool": {
+  "name": "Pika H3 Flex",
+  "repo_url": "https://github.com/Pika-Labs/Pika-H3-Flex",
+  "category": "AI video model",
+  "license": "MiniMax H3 Community License"
+ },
+ "features": [
+  {
+   "id": "f1",
+   "title": "Multimodal references",
+   "what": "The model accepts images video and audio as references.",
+   "evidence_quote": "Ref2VA accepts up to **9 images, 3 videos and 3 standalone audio clips**"
+  },
+  {
+   "id": "f2",
+   "title": "Reference guided editing",
+   "what": "A prompt can guide generation using reference media.",
+   "evidence_quote": "Multimodal references"
+  },
+  {
+   "id": "f3",
+   "title": "Hosted audio stems",
+   "what": "The hosted API can produce separate audio stems.",
+   "evidence_quote": "Obtain separate audio stems"
+  },
+  {
+   "id": "f4",
+   "title": "Native versus hosted resolution",
+   "what": "Local generation is native at 480p or 768p while upscaling is hosted.",
+   "evidence_quote": "Local open-weight inference supports native 480p / 768p video with mixed stereo audio."
+  }
+ ],
+ "risks": [
+  {
+   "text": "Hosted upscaling and audio stems may cost money; output quality is not guaranteed",
+   "severity": "medium"
+  }
+ ],
+ "source_urls": [
+  "https://github.com/Pika-Labs/Pika-H3-Flex/blob/06bd434ce0b6e287e6f6c4058420460f47ba031b/README.md"
+ ]
+}

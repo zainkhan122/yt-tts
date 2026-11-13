@@ -99,12 +99,73 @@
    ]
   },
   "facebook": {
-   "caption": "LangChain\u2019s open-source Design Agent can make on-brand assets from a Slack request. Its 3,000+ assets and model-spend comparison are company-reported historical figures\u2014not a guarantee. Setup is required and usage costs can apply. AI-generated narration.",
+   "caption": "LangChain\u2019s open-source Design Agent can make on-brand assets from a Slack request. Its 3,000+ assets and model-spend comparison are company-reported historical figures\u2014not a guarantee. Setup is required and usage costs can apply.",
    "hashtags": [
     "#AITools",
     "#DesignAgent",
     "#MotionGraphics"
    ]
+  },
+  "tiktok": {
+   "caption": "A brand pack, a Slack request and an AI design agent. Here is what it can make, plus the setup and cost caveats.",
+   "hashtags": [
+    "#DesignAgent",
+    "#LangChain",
+    "#AITools"
+   ]
+  },
+  "x": {
+   "text": "An open-source design agent takes a brand pack and creates assets from Slack requests. LangChain\u2019s historical spend numbers are self-reported; the managed setup still needs model access.",
+   "hashtags": [
+    "#DesignAgent",
+    "#AITools"
+   ]
   }
- }
+ },
+ "viewer": {
+  "who": "Creators and small teams making recurring visual assets",
+  "problem": "Brand-consistent graphics and videos take time to brief and make",
+  "job": "Decide whether a self-hosted or managed design agent is worth testing"
+ },
+ "idea": "An open-source agent uses a brand pack and Slack requests to create design assets, with setup and model costs.",
+ "claims": [
+  {
+   "id": "c1",
+   "text": "The agent takes Slack requests, uses brand rules and produces graphics, decks and motion videos.",
+   "source": "https://github.com/langchain-ai/design-agent/blob/a6e15774409094adaa22654255bdcd8165cfb4ef/README.md"
+  },
+  {
+   "id": "c2",
+   "text": "LangChain reports more than 3000 internal assets and a change in median model spend from about eight dollars to fifty cents per request.",
+   "source": "https://www.langchain.com/blog/design-agent"
+  },
+  {
+   "id": "c3",
+   "text": "Managed Slack setup needs a LangSmith account and model key; code checks do not replace human taste.",
+   "source": "https://github.com/langchain-ai/design-agent/blob/a6e15774409094adaa22654255bdcd8165cfb4ef/README.md"
+  }
+ ],
+ "proof_plan": [
+  {
+   "claim": "c1",
+   "evidence": "source:https://github.com/langchain-ai/design-agent/blob/a6e15774409094adaa22654255bdcd8165cfb4ef/README.md",
+   "how_shown": "Narration-led illustrated brand inputs and request workflow; not product footage."
+  },
+  {
+   "claim": "c2",
+   "evidence": "source:https://www.langchain.com/blog/design-agent",
+   "how_shown": "Company-attributed count and proportional zero-based model-spend chart."
+  },
+  {
+   "claim": "c3",
+   "evidence": "source:https://github.com/langchain-ai/design-agent/blob/a6e15774409094adaa22654255bdcd8165cfb4ef/README.md",
+   "how_shown": "Three narration-cued setup, cost and human review disclosures."
+  }
+ ],
+ "review": {
+  "reviewed_at": "2026-11-06",
+  "reviewer": "agent: official documentation and visual preview",
+  "notes": "Product specification tied to README snapshot; production voice QA and cover approval outstanding."
+ },
+ "motion_standard": 2
 }

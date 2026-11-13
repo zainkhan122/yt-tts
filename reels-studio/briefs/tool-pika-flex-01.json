@@ -1,0 +1,70 @@
+{
+ "id": "tool-pika-flex-01",
+ "capture": "captures/tool-pika-flex-01",
+ "title": "Pika H3 Flex: turn references into editable AI video",
+ "niche": "AI video tools",
+ "lang": "en-us",
+ "style": "explainer",
+ "status": "draft",
+ "production_category": "tool",
+ "keywords": [
+  "Pika H3 Flex",
+  "AI video generation",
+  "reference video",
+  "audio stems"
+ ],
+ "facts": {
+  "method": "Pika official README pinned at 2 Nov commit",
+  "limits": "Hosted upscaling and audio stems may incur costs; generated edits are not guaranteed to preserve every detail."
+ },
+ "sources": [
+  "https://github.com/Pika-Labs/Pika-H3-Flex/blob/06bd434ce0b6e287e6f6c4058420460f47ba031b/README.md",
+  "https://huggingface.co/Pika-Labs/Pika-H3-Flex"
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "flow",
+   "say": "Pika can use your reference images and audio to guide an AI video.",
+   "heading": "PIKA: IMAGE + AUDIO"
+  },
+  {
+   "id": "inputs",
+   "type": "flow",
+   "say": "H three Flex accepts up to twelve references total: images, video clips and audio. At least one image or video is required.",
+   "heading": "12 REFERENCES \u00b7 MAX"
+  },
+  {
+   "id": "editing",
+   "type": "flow",
+   "say": "Add a prompt to guide the shot and use reference video to guide a new generation. Results can vary, and it is not a full editable timeline.",
+   "heading": "EDIT THE SHOT"
+  },
+  {
+   "id": "audio",
+   "type": "flow",
+   "say": "Need separate sound? Pika\u2019s hosted API can return audio stems, including dialogue, music and effects, so you can edit them separately.",
+   "heading": "SOUND IN LAYERS"
+  },
+  {
+   "id": "catch",
+   "type": "flow",
+   "say": "The catch: local generation is four eighty or seven sixty eight p. Four K upscaling and separate audio stems use Pika\u2019s hosted service, and costs can apply.",
+   "heading": "LOCAL VS HOSTED"
+  },
+  {
+   "id": "cta",
+   "type": "flow",
+   "say": "Would you try it for a product video or a music clip? Comment PIKA and I will pin the model.",
+   "heading": "YOUR CALL"
+  }
+ ],
+ "renderer": "graphics",
+ "graphics": {
+  "dir": "briefs/graphics/tool-pika-flex-01",
+  "template": "pika-flex"
+ },
+ "lexicon": {
+  "Pika": "pee ka"
+ }
+}

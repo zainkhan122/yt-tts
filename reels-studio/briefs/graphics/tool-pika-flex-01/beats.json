@@ -1,0 +1,154 @@
+{
+ "tool": "pika-h3-flex",
+ "handle": "@hypeless",
+ "template": "pika-flex",
+ "script_sha256": "sha256:64545b619ef0524054053de9f85e4c688b4f655ad832e329667427998e453f96",
+ "scenes": [
+  {
+   "scene_id": "hook",
+   "phrase": 0,
+   "archetype": "title_burst",
+   "headline": "PIKA: IMAGE + AUDIO",
+   "feature_id": null,
+   "depicts": "reference images and audio guide an ai video",
+   "payload": {
+    "kicker": "PIKA H3 FLEX \u00b7 VIDEO AI",
+    "title": "PIKA: IMAGE + AUDIO",
+    "chips": [
+     "REFERENCE TO VIDEO"
+    ]
+   }
+  },
+  {
+   "scene_id": "inputs",
+   "phrase": 1,
+   "archetype": "spec_plates",
+   "headline": "12 REFERENCES \u00b7 MAX",
+   "feature_id": "f1",
+   "depicts": "images video clips and audio up to twelve references",
+   "payload": {
+    "plates": [
+     {
+      "k": "INPUT TYPE 01",
+      "v": "IMAGES",
+      "s": "Subject, setting or style"
+     },
+     {
+      "k": "INPUT TYPE 02",
+      "v": "VIDEO",
+      "s": "Motion reference"
+     },
+     {
+      "k": "INPUT TYPE 03",
+      "v": "AUDIO",
+      "s": "Sound reference"
+     }
+    ],
+    "cue_phrases": [
+     "images",
+     "video clips",
+     "audio"
+    ]
+   }
+  },
+  {
+   "scene_id": "editing",
+   "phrase": 2,
+   "archetype": "design_process",
+   "headline": "GUIDE A NEW SHOT",
+   "feature_id": "f2",
+   "depicts": "prompt and reference video guide a new generation",
+   "payload": {
+    "items": [
+     {
+      "title": "PROMPT",
+      "sub": "Describe your shot"
+     },
+     {
+      "title": "REFERENCE VIDEO",
+      "sub": "Guide a new generation"
+     },
+     {
+      "title": "RESULTS VARY",
+      "sub": "Not a full editing timeline"
+     }
+    ],
+    "cue_phrases": [
+     "prompt",
+     "reference video",
+     "generation"
+    ]
+   }
+  },
+  {
+   "scene_id": "audio",
+   "phrase": 3,
+   "archetype": "spec_plates",
+   "headline": "SOUND IN LAYERS",
+   "feature_id": "f3",
+   "depicts": "separate sound dialogue music and effects",
+   "payload": {
+    "plates": [
+     {
+      "k": "HOSTED AUDIO STEM",
+      "v": "DIALOGUE"
+     },
+     {
+      "k": "HOSTED AUDIO STEM",
+      "v": "MUSIC"
+     },
+     {
+      "k": "HOSTED AUDIO STEM",
+      "v": "EFFECTS"
+     }
+    ],
+    "cue_phrases": [
+     "dialogue",
+     "music",
+     "effects"
+    ]
+   }
+  },
+  {
+   "scene_id": "catch",
+   "phrase": 4,
+   "archetype": "versus_split",
+   "headline": "LOCAL VS HOSTED",
+   "feature_id": "f4",
+   "depicts": "local generation 768p four k upscaling hosted service",
+   "payload": {
+    "tag": "NOT THE SAME DELIVERY",
+    "left": {
+     "who": "LOCAL MODEL",
+     "big": "768p",
+     "sub": "native output \u00b7 max tier"
+    },
+    "right": {
+     "who": "PIKA HOSTED",
+     "big": "4K",
+     "sub": "upscale and audio stems"
+    },
+    "cue_phrases": [
+     "seven sixty eight",
+     "four k"
+    ]
+   }
+  },
+  {
+   "scene_id": "cta",
+   "phrase": 5,
+   "archetype": "endcard",
+   "headline": "YOUR CALL",
+   "feature_id": null,
+   "depicts": "comment pika and pin the model",
+   "payload": {
+    "keyword": "PIKA",
+    "prompt": "for the model",
+    "follow": "@hypeless",
+    "cue_phrases": [
+     "pika"
+    ]
+   }
+  }
+ ]
+}

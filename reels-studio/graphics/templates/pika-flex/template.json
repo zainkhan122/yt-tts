@@ -1,0 +1,153 @@
+{
+ "name": "pika-flex",
+ "tool": "pika-h3-flex",
+ "note": "Per-tool template for the Seedance short. A dark measurement scope: deep navy-charcoal ground, a perspective grid that scrolls toward the viewer, chrome numerals and cyan/magenta dual accents. The vocabulary is instruments \u2014 a ranking ladder, a two-column verdict, spec plates, a sweeping sonar box. Nothing is shared with any other short.",
+ "palette": {
+  "ground": "#0A0B12",
+  "deep": "#12141F",
+  "panel": "#171A28",
+  "edge": "#2B3050",
+  "ink": "#EDF0FF",
+  "muted": "#7D86AE",
+  "cyan": "#35E7F2",
+  "magenta": "#FF3D8A",
+  "amber": "#FFC24B"
+ },
+ "max_text": 64,
+ "archetypes": {
+  "title_burst": {
+   "req": [
+    "kicker",
+    "title"
+   ],
+   "opt": [
+    "chips",
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": false,
+   "script_ok": true
+  },
+  "rank_ladder": {
+   "req": [
+    "rows"
+   ],
+   "opt": [
+    "badge",
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "versus_split": {
+   "req": [
+    "left",
+    "right"
+   ],
+   "opt": [
+    "tag",
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "spec_plates": {
+   "req": [
+    "plates"
+   ],
+   "opt": [
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "sonar_scan": {
+   "req": [
+    "seconds"
+   ],
+   "opt": [
+    "found",
+    "value",
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "endcard": {
+   "req": [
+    "keyword"
+   ],
+   "opt": [
+    "follow",
+    "lines",
+    "prompt",
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": false,
+   "script_ok": true
+  },
+  "verdict_stack": {
+   "req": [
+    "rows"
+   ],
+   "opt": [
+    "tag",
+    "accent_words",
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "design_process": {
+   "req": [
+    "items"
+   ],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "proof_counter": {
+   "req": [
+    "value",
+    "suffix",
+    "label",
+    "note"
+   ],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "brand_inputs": {
+   "req": [
+    "items",
+    "outputs"
+   ],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "proof_chart": {
+   "req": [
+    "assets",
+    "before",
+    "after"
+   ],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  }
+ }
+}
