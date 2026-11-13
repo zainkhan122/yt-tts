@@ -1,6 +1,6 @@
 # Shorts performance — 2026-11-13
 
-Source: Buffer Insights snapshot `2026-11-13T13:07:31Z` (complete: **True**) · videos analysed: **62** · mature (≥7d): **52** · developing: **7** · too early (<2d): **3**
+Source: Buffer Insights snapshot `2026-11-13T19:06:44Z` (complete: **True**) · videos analysed: **62** · mature (≥7d): **52** · developing: **7** · too early (<2d): **3**
 
 Metrics are ranked within each platform and never compared across platforms. Verdicts use mature videos only; everything else is labelled descriptive.
 
@@ -8,31 +8,31 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| `repo-harp-01` (mature) | 19.7d | 240 | 1.2% | 0 | 0 | — | 0 |
-| `list-free-video-ai-01` (mature) | 33.8d | 182 | 0% | 0 | 0 | — | 0 |
-| `repo-ai-newtab-01` (mature) | 33.6d | 169 | 0% | 0 | 0 | — | 0 |
-| `repo-edge0-01` (mature) | 12.8d | 124 | 0% | 0 | 0 | — | 0 |
-| `repo-solidglass-01` (mature) | 28.8d | 118 | 0% | 0 | 0 | — | 0 |
+| `repo-harp-01` (mature) | 19.9d | 240 | 1.2% | 0 | 0 | — | 0 |
+| `list-free-video-ai-01` (mature) | 34.0d | 182 | 0% | 0 | 0 | — | 0 |
+| `repo-ai-newtab-01` (mature) | 33.8d | 169 | 0% | 0 | 0 | — | 0 |
+| `repo-edge0-01` (mature) | 13.0d | 124 | 0% | 0 | 0 | — | 0 |
+| `repo-solidglass-01` (mature) | 29d | 118 | 0% | 0 | 0 | — | 0 |
 
 ## instagram — top by views
 
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| `news-gpt61-astra-01` (mature) | 32.0d | 308 | 0.7% | 0 | 0 | 0 | 0 |
-| `repo-opencr-01` (mature) | 31.1d | 269 | 2.1% | 0 | 2 | 1 | 0 |
-| `model-embeddinggemma2-01` (mature) | 29.0d | 236 | 4.7% | 0 | 7 | 1 | 0 |
-| `news-muse-spark-01` (mature) | 27.6d | 221 | 2.5% | 0 | 1 | 3 | 0 |
-| `tool-higgsfield-01` (mature) | 30.8d | 219 | 1.6% | 0 | 1 | 2 | 0 |
+| `news-gpt61-astra-01` (mature) | 32.3d | 308 | 0.7% | 0 | 0 | 0 | 0 |
+| `repo-opencr-01` (mature) | 31.4d | 269 | 2.1% | 0 | 2 | 1 | 0 |
+| `model-embeddinggemma2-01` (mature) | 29.2d | 236 | 4.7% | 0 | 7 | 1 | 0 |
+| `news-muse-spark-01` (mature) | 27.9d | 221 | 2.5% | 0 | 1 | 3 | 0 |
+| `tool-higgsfield-01` (mature) | 31d | 219 | 1.6% | 0 | 1 | 2 | 0 |
 
 ## youtube — top by views
 
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| `tool-qwen38-01` (mature) | 31.8d | 2,099 | 0.6% | 0 | — | — | 10.7 |
-| `repo-coop-anything-01` (mature) | 24.7d | 1,386 | 1.4% | 3 | — | — | 14.4 |
-| `repo-ds4-01` (mature) | 31.7d | 1,031 | 0.9% | 0 | — | — | 0.3 |
-| `tool-ltx25-01` (mature) | 31.8d | 504 | 0.4% | 0 | — | — | 2.7 |
-| `repo-voicestudio-01` (mature) | 11.6d | 413 | 0% | 0 | — | — | 0 |
+| `tool-qwen38-01` (mature) | 32.1d | 2,099 | 0.6% | 0 | — | — | 9.9 |
+| `repo-coop-anything-01` (mature) | 25.0d | 1,386 | 1.4% | 3 | — | — | 11.4 |
+| `repo-ds4-01` (mature) | 31.9d | 1,031 | 0.9% | 0 | — | — | 0.3 |
+| `tool-ltx25-01` (mature) | 32.0d | 504 | 0.4% | 0 | — | — | 2.5 |
+| `repo-voicestudio-01` (mature) | 11.9d | 413 | 0% | 0 | — | — | 0 |
 
 ## Winners and underperformers (mature, cross-platform percentile)
 
@@ -72,15 +72,15 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 | instagram | morning | 6 | 184 |
 | instagram | night | 3 | 169 |
 | youtube | evening | 30 | 56 |
-| youtube | midday | 20 | 68 |
-| youtube | morning | 7 | 90 |
+| youtube | midday | 21 | 68 |
+| youtube | morning | 8 | 70 |
 | youtube | night | 2 | 41 |
 
 ## Recommended changes
 
 1. **Prefer the midday ET window for facebook posts.** — facebook/midday median views 46.0 across n=26 judged posts (best of 3 windows with evidence). (confidence: low)
 2. **Prefer the morning ET window for instagram posts.** — instagram/morning median views 184.0 across n=6 judged posts (best of 4 windows with evidence). (confidence: low)
-3. **Prefer the morning ET window for youtube posts.** — youtube/morning median views 90.0 across n=7 judged posts (best of 3 windows with evidence). (confidence: low)
+3. **Prefer the morning ET window for youtube posts.** — youtube/morning median views 70.0 across n=8 judged posts (best of 3 windows with evidence). (confidence: low)
 4. **Study and reuse the hook/structure of the mature winners: `model-embeddinggemma2-01`, `repo-coop-anything-01`, `repo-ds4-01`, `tool-qwen-image-21-turbo-01`.** — 9 mature video(s) at or above the 75th cross-platform percentile. (confidence: medium)
 5. **Do not repeat the topics/angles of the mature underperformers without a new angle: `repo-koubo-01`, `repo-cleanyourtv-01`, `repo-impeccable-01`, `tool-pomelli-01`.** — 4 mature video(s) at or below the 25th cross-platform percentile. (confidence: medium)
 
