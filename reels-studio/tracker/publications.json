@@ -5076,9 +5076,11 @@
     },
     "tool-pika-flex-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6af82f5bd8bd2962e41ecadf",
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-11-14T22:05:00Z",
+      "due_at": "2026-11-14T22:05:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:93a4264fd19b0f107afeb95ab2de9b35e67924b582a7343a0e1ab788a8ff389d",
         "asset_id": 747023226,
@@ -5093,10 +5095,11 @@
       "notify_subscribers": false,
       "payload_sha256": "fb673f7cff3cb19332748887df228150c1dd0d1768507dd241cfdf3bc622bfbd",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Pika H3 Flex: Could reference-guided video help with your next product clip? Pika H3 Flex accepts visual and audio references. Hosted stem separation has fees; local inference gives mixed audio. Results vary.\n\nAI-generated narration.\n\n#PikaLabs #VideoCreation #PikaH3Flex",
       "title": "Pika H3 Flex: AI Clips With Editable Sound Stems",
-      "updated_at": "2026-11-14T09:52:25Z",
+      "updated_at": "2026-11-14T09:52:27Z",
       "video_id": "tool-pika-flex-01"
     },
     "tool-pika-flex-01:instagram": {
