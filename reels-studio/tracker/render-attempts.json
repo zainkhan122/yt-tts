@@ -4419,9 +4419,9 @@
       "capture_id": "tool-pika-flex-01",
       "cover_sha256": "bdc432eeb718e46d74852a3a9250eca7743de749976a773c985a839ef4023356",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=skipped",
       "fingerprint": "f11d1d5538bad5083f5073b14d96b657690d642dd5429379201adbf8e092c9bb",
-      "finished_at": null,
+      "finished_at": "2026-11-14T09:47:05Z",
       "from_tag": "",
       "graphics_sha256": "9b8290d011ee3a4da2b6fa4941fb03ba3f365b848233998257391a40604eb1e2",
       "quality": "looks",
@@ -4429,7 +4429,7 @@
       "renderer_sha256": "f4cc6bf3c141be84b71ce031bdbad29b6216e0302160ab9c21b3f658dd054db3",
       "run_id": "43580518195",
       "started_at": "2026-11-14T09:26:01Z",
-      "status": "started",
+      "status": "render_only_success",
       "voice_seed": 0
     },
     "f1349d4e6e0dcf5bc0c37535b44a87c065bde8121aaf9f354afdbd0a3c39e1e6": {
@@ -4478,9 +4478,9 @@
       "capture_id": "repo-design-agent-01",
       "cover_sha256": "b9d14b16b9e7ed4202c172ab45cbed3b2a6181cf661f112afbfa6223bed6733e",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=skipped",
       "fingerprint": "f49ca35bd24772f4bc33d38a857900e5300fc4d698ca5d4ec846de1ce8c1179e",
-      "finished_at": null,
+      "finished_at": "2026-11-14T09:47:05Z",
       "from_tag": "",
       "graphics_sha256": "c50d83b4add54683f97ec62e36d3b4ef71025ed0b8784fa67afdc4d039c53013",
       "quality": "looks",
@@ -4488,7 +4488,7 @@
       "renderer_sha256": "f4cc6bf3c141be84b71ce031bdbad29b6216e0302160ab9c21b3f658dd054db3",
       "run_id": "43580518195",
       "started_at": "2026-11-14T09:26:01Z",
-      "status": "started",
+      "status": "render_only_success",
       "voice_seed": 0
     },
     "f6f899fe2369feb479db10b6c67d32d65a7713439c9d03a1245e36be00eeb834": {
