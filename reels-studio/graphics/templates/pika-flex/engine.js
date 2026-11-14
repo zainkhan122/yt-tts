@@ -19,7 +19,7 @@
       label(root,'INPUTS  /  UP TO 12 TOTAL',s.headline);let area=E('div','pk-inputs',root);
       let a=thumbnail(area,'IMAGES','a'),b=thumbnail(area,'VIDEO','b'),c=E('div','pk-input-audio',area);E('span','',c,'AUDIO');waveform(c);E('div','pk-input-note',root,'AT LEAST ONE IMAGE OR VIDEO');r.parts=[a,b,c];r.times=cue(s,3);
     } else if(s.archetype==='design_process'){
-      label(root,'REFERENCE-GUIDED GENERATION',s.headline);let canvas=E('div','pk-workspace',root);E('div','pk-work-label',canvas,'PROMPT + REFERENCE');let screen=E('div','pk-screen',canvas);thumbnail(screen,'REFERENCE','b');E('div','pk-arrow',canvas,'→');let out=E('div','pk-output',canvas);E('div','pk-output-label',out,'NEW GENERATION');film(out);let note=E('div','pk-note',root,'RESULTS VARY · NOT A FULL EDITABLE TIMELINE');r.parts=[screen,out,note];r.times=cue(s,3);
+      label(root,'REFERENCE-GUIDED GENERATION',s.headline);let canvas=E('div','pk-proof-frame',root);if(!s.evidence_data)throw new Error('Pika product evidence missing');let img=E('img','pk-proof-image',canvas);img.src=s.evidence_data;img.alt='Pika reference-to-video playground';E('div','pk-proof-credit',root,'PIKA API PLAYGROUND · OFFICIAL EXAMPLE');let note=E('div','pk-note',root,'RESULTS VARY · NOT A FULL EDITABLE TIMELINE');r.parts=[canvas,note];r.times=[s.t0+.1,(cue(s,3))[2]];
     } else if(s.archetype==='spec_plates'){
       label(root,'HOSTED AUDIO SEPARATION',s.headline);let rack=E('div','pk-track-rack',root);['DIALOGUE','MUSIC','EFFECTS'].forEach((x,i)=>{let track=E('div','pk-track t'+i,rack);E('span','pk-track-name',track,x);waveform(track);r.parts.push(track);});E('div','pk-footnote',root,'SEPARATE STEMS · API FEES APPLY');r.times=cue(s,3);
     } else {
@@ -27,6 +27,6 @@
     }return r;
   }
   D.scenes.forEach((s,i)=>{s.idx=i;s._pk=build(s);});
-  window.setTime=function(t){let s=D.scenes.find(x=>t>=x.t0&&t<x.t1)||D.scenes[D.scenes.length-1];D.scenes.forEach(x=>x._pk.root.style.display=x===s?'block':'none');if(s.archetype==='endcard'){s._pk.root.style.display='none';return;}s._pk.parts.forEach((e,i)=>reveal(e,t,s._pk.times[i]??s.t0+i*.35,0,22));};
+  window.setTime=function(t){let s=D.scenes.find(x=>t>=x.t0&&t<x.t1)||D.scenes[D.scenes.length-1];D.scenes.forEach(x=>x._pk.root.style.display=x===s?'block':'none');if(s.archetype==='endcard'){s._pk.root.style.display='none';return;}s._pk.parts.forEach((e,i)=>reveal(e,t,s._pk.times[i]??s.t0+i*.35,0,22));let proof=s._pk.root.querySelector('.pk-proof-image');if(proof){let steps=s.evidence_focus||[],local=Math.max(0,t-s.t0),a=steps[0],b=steps[1];for(let j=1;j<steps.length;j++){a=steps[j-1];b=steps[j];if(local<=b.at)break;}if(!a||!b)throw new Error('Product evidence focus plan missing');let k=Math.min(1,Math.max(0,(local-a.at)/(b.at-a.at)));let width=a.box[2]+k*(b.box[2]-a.box[2]);proof.style.transform='scale('+(1/width)+')';}};
   window.ready=true;
 })();

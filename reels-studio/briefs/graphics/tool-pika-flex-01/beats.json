@@ -78,7 +78,40 @@
      "reference video",
      "generation"
     ]
-   }
+   },
+   "evidence_image": "playground.jpg",
+   "evidence_focus": [
+    {
+     "at": 0,
+     "box": [
+      0,
+      0,
+      1,
+      1
+     ],
+     "pad": 1.0
+    },
+    {
+     "at": 3,
+     "box": [
+      0.024,
+      0.024,
+      0.952,
+      0.952
+     ],
+     "pad": 1.0
+    },
+    {
+     "at": 6,
+     "box": [
+      0.045,
+      0.045,
+      0.91,
+      0.91
+     ],
+     "pad": 1.0
+    }
+   ]
   },
   {
    "scene_id": "audio",

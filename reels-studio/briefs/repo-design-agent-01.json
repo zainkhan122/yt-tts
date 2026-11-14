@@ -36,9 +36,42 @@
   },
   {
    "id": "process",
-   "type": "flow",
+   "type": "image",
    "say": "It chooses a workflow, builds the work in code, then renders and checks colors, contrast and chart math before sending it back.",
-   "heading": "FROM ASK TO OUTPUT"
+   "heading": "FROM ASK TO OUTPUT",
+   "image": "slack-ui.jpg",
+   "focus": [
+    {
+     "at": 0,
+     "box": [
+      0,
+      0,
+      1,
+      1
+     ],
+     "pad": 1.0
+    },
+    {
+     "at": 3,
+     "box": [
+      0.024,
+      0.024,
+      0.952,
+      0.952
+     ],
+     "pad": 1.0
+    },
+    {
+     "at": 6,
+     "box": [
+      0.045,
+      0.045,
+      0.91,
+      0.91
+     ],
+     "pad": 1.0
+    }
+   ]
   },
   {
    "id": "proof",
@@ -197,5 +230,6 @@
     }
    }
   ]
- }
+ },
+ "media_aspect_landscape_ok": "The product screenshot is shown in full inside a dedicated landscape evidence frame; the vertical layout and caption band remain separate."
 }

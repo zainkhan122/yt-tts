@@ -195,6 +195,8 @@ def scene_list(beats: dict, phrases: list[dict]) -> list[dict]:
             "headline": s.get("headline", ""),
             "sub": s.get("sub", ""),
             "payload": s.get("payload", {}),
+            "evidence_image": s.get("evidence_image"),
+            "evidence_focus": s.get("evidence_focus"),
             "words": p["words"],
             "text": p["text"],
             # the word the caption lights up in yellow. Explicit in the beat plan when the writer

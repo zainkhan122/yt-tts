@@ -106,6 +106,26 @@ def _attach_events(doc: dict, events: dict) -> None:
             sc["ev"] = ev
 
 
+
+def attach_evidence_images(doc: dict, capture_id: str) -> None:
+    """Embed only safe, locally captured stills; missing or escaping media fails closed."""
+    import base64
+    import re
+    if not re.fullmatch(r"[a-z0-9][a-z0-9_-]*", capture_id):
+        raise ValueError("invalid evidence capture id")
+    cap = (Path(__file__).resolve().parents[1] / "captures" / capture_id).resolve()
+    for scene in doc.get("scenes", []):
+        name = scene.get("evidence_image")
+        if not name:
+            continue
+        if not isinstance(name, str) or Path(name).name != name or Path(name).suffix.lower() not in (".jpg", ".jpeg", ".png"):
+            raise ValueError("unsafe evidence image")
+        path = (cap / name).resolve()
+        if not path.is_relative_to(cap) or not path.is_file():
+            raise FileNotFoundError(f"evidence image unavailable: {capture_id}/{name}")
+        mime = "image/png" if path.suffix.lower() == ".png" else "image/jpeg"
+        scene["evidence_data"] = f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode("ascii")
+
 def render_for_pipeline(graphics_dir: Path, timing: dict, order: list[str], vo_wav: Path,
                         out_mp4: Path, work: Path, duration: float, events: dict | None = None) -> dict:
     """graphics_dir holds features.json, beats.json and the README snapshot the sheet was built from."""
@@ -117,6 +137,7 @@ def render_for_pipeline(graphics_dir: Path, timing: dict, order: list[str], vo_w
         raise GraphicsError("words", [{"rule": "G0", "detail": "no word timings from the voice stage"}])
     phrases = segments_from_timing(timing, order)
     doc, phrases = plan_scenes(sheet, source, beats, phrases, duration, words, events=events)
+    attach_evidence_images(doc, graphics_dir.name)
     work.mkdir(parents=True, exist_ok=True)
     (work / "scenes.json").write_text(json.dumps(doc, indent=1, ensure_ascii=False), encoding="utf-8")
     info = render(doc, vo_wav, out_mp4, work, duration)

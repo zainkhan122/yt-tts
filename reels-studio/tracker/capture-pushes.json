@@ -28,9 +28,10 @@
     "asset": "repo-design-agent-01.tar",
     "files": {
       "article.jpg": "ad8b441490fde3b86b870531466f43dbeea3736d8efdb5c8437824370ab52f87",
-      "manifest.json": "7c29498072237a9f7019321138f5061f5168bbef313dd54a0727421ea83fae22",
+      "manifest.json": "625670787a5d9145fdb5fd72c1e083a18da35935630ca9369439e09f7cec78c7",
       "repo.jpg": "a5a2a0b9d26c4455012ce23b961c4cf3f53fb86da752ada61514b7b30bce82dc",
-      "results.jpg": "2f71ec3404e5ad8c8a266e98cf1e6db56916a93f480381a0b89e3d12bb932097"
+      "results.jpg": "2f71ec3404e5ad8c8a266e98cf1e6db56916a93f480381a0b89e3d12bb932097",
+      "slack-ui.jpg": "c3f39a3003295a9896ea4fb2ac94ce14a8ad3de1b9ef22139f25e4ed5c26afd2"
     }
   },
   "repo-dshgo-01": {
@@ -118,8 +119,9 @@
     "asset": "tool-pika-flex-01.tar",
     "files": {
       "audio.jpg": "ff87fac13e4bc6eaec7cdac9e593f5fca95af7d29ac2797d8c8d39d4eb52ce73",
-      "manifest.json": "c212c03ecd327b065aae3c5c67c6b4b3e900ae5d0bad2a8296fb99f1e288ff54",
+      "manifest.json": "05ab9690fc2850d594158027a0634022f877b8396c84e8d94bf82d91e99166bf",
       "model.jpg": "34de4b65d2ebf0b7f1ad78a98b14b843835fbb79e331b8643a325ad6da56fcc1",
+      "playground.jpg": "c3b92fa6e3b1ba82997e5d0d4dbb054985f528b7ed3d5b24f89186c654e72f08",
       "repo.jpg": "f223b08bcbc77761cd796b0eb3490c0aa67c266cb9c2532563159052f1a8d528"
     }
   },

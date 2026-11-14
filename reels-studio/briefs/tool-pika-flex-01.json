@@ -37,9 +37,42 @@
   },
   {
    "id": "editing",
-   "type": "flow",
+   "type": "image",
    "say": "Add a prompt to guide the shot and use reference video to guide a new generation. Results can vary, and it is not a full editable timeline.",
-   "heading": "EDIT THE SHOT"
+   "heading": "EDIT THE SHOT",
+   "image": "playground.jpg",
+   "focus": [
+    {
+     "at": 0,
+     "box": [
+      0,
+      0,
+      1,
+      1
+     ],
+     "pad": 1.0
+    },
+    {
+     "at": 3,
+     "box": [
+      0.024,
+      0.024,
+      0.952,
+      0.952
+     ],
+     "pad": 1.0
+    },
+    {
+     "at": 6,
+     "box": [
+      0.045,
+      0.045,
+      0.91,
+      0.91
+     ],
+     "pad": 1.0
+    }
+   ]
   },
   {
    "id": "audio",
@@ -196,5 +229,6 @@
     }
    }
   ]
- }
+ },
+ "media_aspect_landscape_ok": "The product screenshot is shown in full inside a dedicated landscape evidence frame; the vertical layout and caption band remain separate."
 }
