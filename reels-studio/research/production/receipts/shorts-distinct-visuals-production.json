@@ -4,7 +4,7 @@
   "created_at": "2026-11-14T07:49:34.343085+00:00",
   "briefs": {
     "repo-design-agent-01": {
-      "brief_sha256": "b71d8fb049189b92ce3d0a914e5d277f1fb43923ad72b6fd2f43ddb9ba45d117",
+      "brief_sha256": "baca96945af4912d2959048bbb4ce101ab8aa7e55c83146ef55b67ccdab17853",
       "stages": {
         "script": {
           "status": "complete",
@@ -36,11 +36,11 @@
           "evidence": [
             "reels-studio/captures/repo-design-agent-01/manifest.json"
           ],
-          "cover_sha256": "74023b2b6343a9ac4e05eb5faeef27623c63893b831f4bf83bcc72de0f849c27",
+          "cover_sha256": "b9d14b16b9e7ed4202c172ab45cbed3b2a6181cf661f112afbfa6223bed6733e",
           "review_note": "UI still visible in corresponding graphics scene, source attributed; independent visual QA still required on the final Chatterbox video."
         }
       },
-      "brief_identity_sha256": "7b5d80bf72cc78bd017b9352a95c240f229b49c8c90854999a1f4f95fae7b11f"
+      "brief_identity_sha256": "c2bec904210e7b2f2cdbc9004205f57235eb18851ed165129c2dfac5e9d4d04c"
     },
     "tool-pika-flex-01": {
       "brief_sha256": "17e42465372cc289fa91d2f16878463e7311504ee850f205015e147f987668ac",
