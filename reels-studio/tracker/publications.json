@@ -2152,6 +2152,31 @@
       "updated_at": "2026-11-14T09:52:15Z",
       "video_id": "repo-design-agent-01"
     },
+    "repo-design-agent-01:instagram": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-11-14T21:07:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:5b731b7234282f527d848ec0ad7b36bb5ebb185f3e09696c960b358901d14168",
+        "asset_id": 747023080,
+        "asset_size": 7329542,
+        "kit_asset_id": 747023159,
+        "kit_digest": "sha256:035b6d4b30ed6c01f8d18b8e6f4c829847bc56876b1812fe7f0349f838f303db",
+        "media_path": "media/747023080/repo-design-agent-01.mp4",
+        "release_tag": "renders-shorts-43580518195",
+        "video_id": "repo-design-agent-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/747023080/repo-design-agent-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "62acc00b0e1b6308d5f0a0793f64616ac313a792efc7184f9de4846ad3787062",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "LangChain Design Agent: An open-source design agent that can turn a Slack request into on-brand graphics, decks and motion. LangChain\u2019s historical numbers are its own, not a guarantee. Managed setup, usage costs and human review still matter. Comment DESIGN for the repo.\n\n#AITools #DesignAgent #MotionGraphics #LangChain",
+      "title": "LangChain Design Agent Automates Creative Work",
+      "updated_at": "2026-11-14T09:52:19Z",
+      "video_id": "repo-design-agent-01"
+    },
     "repo-ds4-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6acc91a0712ba82086b03116",
