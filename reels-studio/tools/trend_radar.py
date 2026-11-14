@@ -73,25 +73,38 @@ def hf(kind):
             for m in d]
 
 
-def gittrend(limit=25):
-    """GitTrend 'Trending today' page (https://gittrend.io/): ranked by star velocity.
-    Parses the public HTML; no API key needed. Returns [] on any failure (source is optional)."""
+def parse_gittrend_snapshot(html, limit=25):
+    """Parse the visible Today ranking and preserve the site's own date, not fetch time."""
+    clean = re.sub(r"<!--.*?-->", "", html, flags=re.S)
+    match = re.search(r"Ranked by star velocity\s*[·-]\s*([A-Za-z]+\s+\d{1,2},\s*\d{4})", clean)
     try:
-        req = urllib.request.Request("https://gittrend.io/", headers={"User-Agent": "reels-studio-radar"})
-        with urllib.request.urlopen(req, timeout=40) as r:
-            html = r.read().decode("utf-8", "replace")
-    except Exception:
-        return []
+        date = dt.datetime.strptime(match.group(1), "%B %d, %Y").date().isoformat() if match else None
+    except ValueError:
+        date = None
     out, seen = [], set()
     for m in re.finditer(r'href="(?:https://gittrend\.io)?/repo/([^"/?#]+/[^"/?#]+)"', html):
         name = m.group(1)
         if name in seen:
             continue
         seen.add(name)
-        out.append({"name": name, "url": f"https://github.com/{name}", "source": "GitTrend"})
+        out.append({"name": name, "url": f"https://github.com/{name}", "source": "GitTrend", "rank": len(out) + 1})
         if len(out) >= limit:
             break
-    return out
+    return {"date": date, "items": out}
+
+
+def gittrend_snapshot(limit=25):
+    """Get the public Today page; a missing date or fetch failure must remain visible."""
+    try:
+        req = urllib.request.Request("https://gittrend.io/", headers={"User-Agent": "reels-studio-radar"})
+        with urllib.request.urlopen(req, timeout=40) as r:
+            return parse_gittrend_snapshot(r.read().decode("utf-8", "replace"), limit)
+    except Exception:
+        return {"date": None, "items": []}
+
+
+def gittrend(limit=25):
+    return gittrend_snapshot(limit)["items"]
 
 
 def reference_posts(days=7, limit=30):

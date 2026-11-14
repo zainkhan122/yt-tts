@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Today's topics — SOURCE CHANNELS ONLY (TikTok + YouTube Shorts, strict last 24 h).
+"""Today's topics — source-channel shorts and GitTrend Today candidates.
 
-House rule (2026-11-10): topics come from the source channels in research/sources.csv.
-There is NO fallback: no GitHub new-repo radar, no GitTrend, no Hugging Face trending,
-no RSS padding. If the lane is empty the sheet says so loudly instead of borrowing
-topics from trend feeds.
+Owner update: include GitTrend Today alongside source-channel Shorts. Keep their
+metrics separate: channel views are not comparable to repository star velocity.
+Show the date GitTrend actually displays and label unavailable or stale snapshots.
 
   python3 tools/sources.py scan --latest 15   # refresh research/sources/posts.csv first
   python3 tools/todays_topics.py              # writes research/topics/daily-<today>.md
@@ -70,12 +69,12 @@ def main():
     fresh.sort(key=lambda r: (multiple(r) is None, -(multiple(r) or 0)))
 
     today = now.date().isoformat()
-    L = [f"# Today's topics: {today} — source channels only (strict last 24 h)", ""]
+    L = [f"# Today's topics: {today} — source channels and GitTrend", ""]
     if scan_stale:
         L += ["> **SCAN STALE — re-run `python3 tools/sources.py scan --latest 15` before trusting this sheet.**", ""]
     L += ["Inputs: SHORTS published in the last 24 h by the source channels in research/sources.csv "
-          "(TikTok + YouTube Shorts only). No trend-radar fallback — by policy this sheet never "
-          "pads with GitHub/GitTrend/Hugging Face/RSS rows.", ""]
+          "(TikTok + YouTube Shorts). GitTrend Today is a separate source lane below; its "
+          "star-velocity ranking is not comparable to video views.", ""]
     L += [f"## Source-channel shorts — last 24 h ({len(fresh)})", "",
           "| Platform | Source | Short | Views | Chan. median | ×median | Age (h) |",
           "|---|---|---|---|---|---|---|"]
@@ -88,11 +87,30 @@ def main():
         L.append(f"| {r['platform']} | {r['source']} | [{(r.get('title') or r['url'])[:80]}]({r['url']}) "
                  f"| {views:,} | {f'{m:,}' if m else 'n/a'} | {f'{mult:.1f}x' if mult else 'n/a'} | {age_h:.1f} |")
     if not fresh:
-        L.append("| - | - | (no source-channel shorts in the last 24 h — NO fallback topics by policy) | - | - | - | - |")
+        L.append("| - | - | (no source-channel shorts in the last 24 h) | - | - | - | - |")
+
+    sys.path.insert(0, str(ROOT / "tools"))
+    import trend_radar, topics_covered
+    snapshot = trend_radar.gittrend_snapshot(25)
+    covered = topics_covered.collect()
+    date = snapshot["date"]
+    L += ["", "## GitTrend Today — star velocity (separate signal)", ""]
+    if not date or not snapshot["items"]:
+        L.append("**Unavailable or undated:** do not treat the list as fresh.")
+    else:
+        delta = (now.date() - dt.date.fromisoformat(date)).days
+        freshness = "current UTC date" if delta == 0 else f"NOT current UTC date (difference {delta} days)"
+        L.append(f"Site-reported date: {date} — {freshness}. Source: https://gittrend.io/ .")
+        L += ["", "| Source rank | Repository | Selection status |", "|---|---|---|"]
+        for item in snapshot["items"]:
+            name = item["name"]
+            hit = topics_covered.is_covered(name.split("/", 1)[-1], covered)
+            status = "Already covered/selected — exclude" if hit else "Candidate — verify fit and claims"
+            L.append(f"| {item['rank']} | [{name}]({item['url']}) | {status} |")
 
     L += ["", f"**Summary:** {len(fresh)} shorts in the last 24 h "
               f"(scan last touched {last_scan.isoformat(timespec='minutes') if last_scan else 'never'}). "
-              "Pick from this table only; ranked by outlier multiple over each channel's own median."]
+              "Shorts are ranked by outlier multiple; GitTrend candidates use the site's separate ranking."]
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     out = OUT_DIR / f"daily-{today}.md"
@@ -103,7 +121,7 @@ def main():
         print("warn: sources scan stale/missing — run tools/sources.py scan --latest 15", file=sys.stderr)
         return 2
     if not fresh:
-        print("note: 0 shorts in the last 24 h (silent day) — no fallback, nothing to pick", file=sys.stderr)
+        print("note: 0 source-channel shorts in the last 24 h; check the separate GitTrend lane", file=sys.stderr)
     return 0
 
 
