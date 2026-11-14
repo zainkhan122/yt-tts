@@ -510,6 +510,74 @@
       "title": "Musike Runs on 8 Platforms and Charges Nothing",
       "video_id": "repo-musike-01",
       "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-11-14T09:48:05Z",
+      "approval": "approved",
+      "approved_cover_sha": "sha256:b9d14b16b9e7ed4202c172ab45cbed3b2a6181cf661f112afbfa6223bed6733e",
+      "approved_panel_sha": "25841e35845f946fff0ff352706005b800f50442bfb7090b99004bb600fa601a",
+      "asset_digest": "sha256:5b731b7234282f527d848ec0ad7b36bb5ebb185f3e09696c960b358901d14168",
+      "asset_id": 747023080,
+      "asset_size": 7329542,
+      "brief_sha256": "c2bec904210e7b2f2cdbc9004205f57235eb18851ed165129c2dfac5e9d4d04c",
+      "category": "repo",
+      "cover_reviewed_at": "2026-11-14T09:48:09Z",
+      "cover_sha256": "sha256:b9d14b16b9e7ed4202c172ab45cbed3b2a6181cf661f112afbfa6223bed6733e",
+      "expires_at": "2026-11-17T09:48:15Z",
+      "kit_asset_id": 747023159,
+      "kit_digest": "sha256:035b6d4b30ed6c01f8d18b8e6f4c829847bc56876b1812fe7f0349f838f303db",
+      "media_path": "media/747023080/repo-design-agent-01.mp4",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "priority": 100,
+      "release_tag": "renders-shorts-43580518195",
+      "review": {
+        "cover_sha256": "b9d14b16b9e7ed4202c172ab45cbed3b2a6181cf661f112afbfa6223bed6733e",
+        "mp4_bytes": 7329542,
+        "mp4_sha256": "5b731b7234282f527d848ec0ad7b36bb5ebb185f3e09696c960b358901d14168",
+        "run_id": "43580518195"
+      },
+      "reviewed_at": "2026-11-14T09:48:15Z",
+      "title": "LangChain Design Agent Automates Creative Work",
+      "video_id": "repo-design-agent-01",
+      "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-11-14T09:48:07Z",
+      "approval": "approved",
+      "approved_cover_sha": "sha256:bdc432eeb718e46d74852a3a9250eca7743de749976a773c985a839ef4023356",
+      "approved_panel_sha": "a72a63fd9a73c2f4841d18dffb3dbf19498de39ffd3994877c4fc52cb12e2af0",
+      "asset_digest": "sha256:93a4264fd19b0f107afeb95ab2de9b35e67924b582a7343a0e1ab788a8ff389d",
+      "asset_id": 747023226,
+      "asset_size": 9541348,
+      "brief_sha256": "91b3d0658f023a6ad3c7b507820c627b96f4b4bc39dc88d466e1f88eec28ae21",
+      "category": "tool",
+      "cover_reviewed_at": "2026-11-14T09:48:09Z",
+      "cover_sha256": "sha256:bdc432eeb718e46d74852a3a9250eca7743de749976a773c985a839ef4023356",
+      "expires_at": "2026-11-17T09:48:15Z",
+      "kit_asset_id": 747023287,
+      "kit_digest": "sha256:9c15c4f940c9f15d48d89dace1efe8e3d716fbc7dc7a40180ea56d96ddb0489f",
+      "media_path": "media/747023226/tool-pika-flex-01.mp4",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "priority": 100,
+      "release_tag": "renders-shorts-43580518195",
+      "review": {
+        "cover_sha256": "bdc432eeb718e46d74852a3a9250eca7743de749976a773c985a839ef4023356",
+        "mp4_bytes": 9541348,
+        "mp4_sha256": "93a4264fd19b0f107afeb95ab2de9b35e67924b582a7343a0e1ab788a8ff389d",
+        "run_id": "43580518195"
+      },
+      "reviewed_at": "2026-11-14T09:48:15Z",
+      "title": "Pika H3 Flex: AI Clips With Editable Sound Stems",
+      "video_id": "tool-pika-flex-01",
+      "youtube_ai_generated": false
     }
   ],
   "schema_version": 1
