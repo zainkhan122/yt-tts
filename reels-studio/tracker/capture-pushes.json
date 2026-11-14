@@ -24,6 +24,15 @@
       "manifest.json": "7aadc428a389198e2e5ab72a44086ab860735138f190e5d90ffdbfd05532f3cf"
     }
   },
+  "repo-design-agent-01": {
+    "asset": "repo-design-agent-01.tar",
+    "files": {
+      "article.jpg": "ad8b441490fde3b86b870531466f43dbeea3736d8efdb5c8437824370ab52f87",
+      "manifest.json": "7c29498072237a9f7019321138f5061f5168bbef313dd54a0727421ea83fae22",
+      "repo.jpg": "a5a2a0b9d26c4455012ce23b961c4cf3f53fb86da752ada61514b7b30bce82dc",
+      "results.jpg": "2f71ec3404e5ad8c8a266e98cf1e6db56916a93f480381a0b89e3d12bb932097"
+    }
+  },
   "repo-dshgo-01": {
     "asset": "repo-dshgo-01.tar",
     "files": {
@@ -103,6 +112,15 @@
       "receipt.jpg": "11bb6c8f8334768275c14b03b5b689d6756b1af48bfa17e27079d0c08fc1a26b",
       "stack.jpg": "a8766dd1c78ef5ff8da8748f98941a7a98d7e03084d399f8c11f40655ef2038d",
       "terminal.jpg": "305380284517cc1aebda20b94c53aff35b58a161d01692d1ee47f154c2a8093c"
+    }
+  },
+  "tool-pika-flex-01": {
+    "asset": "tool-pika-flex-01.tar",
+    "files": {
+      "audio.jpg": "ff87fac13e4bc6eaec7cdac9e593f5fca95af7d29ac2797d8c8d39d4eb52ce73",
+      "manifest.json": "c212c03ecd327b065aae3c5c67c6b4b3e900ae5d0bad2a8296fb99f1e288ff54",
+      "model.jpg": "34de4b65d2ebf0b7f1ad78a98b14b843835fbb79e331b8643a325ad6da56fcc1",
+      "repo.jpg": "f223b08bcbc77761cd796b0eb3490c0aa67c266cb9c2532563159052f1a8d528"
     }
   },
   "tool-seedance-01": {

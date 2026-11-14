@@ -202,7 +202,7 @@ def make_concepts(brief, out_dir, root=ROOT):
                 base = Image.blend(ground, Image.new("RGB", (W, H), (6, 9, 20)), 0.62)
                 media = contain(sim, W - 72, 1180)
                 plate_h = lh * len(lines) + (150 if kicker else 108)
-                plate_top = H - 88 - plate_h
+                plate_top = cover_rules.SAFE_BOTTOM - plate_h + (70 if kicker else 54)
                 top = max(96, (plate_top - media.height) // 2)
                 base.paste(media, ((W - media.width) // 2, top))
                 d = ImageDraw.Draw(base)
@@ -213,11 +213,11 @@ def make_concepts(brief, out_dir, root=ROOT):
             elif layout == "window":  # framed artifact under the headline
                 media = contain(sim, W - 108, 1180)
                 block = lh * len(lines) + 96 + media.height
-                text_y = max(112, (H - block) // 2)
+                text_y = max(cover_rules.SAFE_TOP, min((H - block) // 2, cover_rules.SAFE_BOTTOM - lh * len(lines)))
                 align = "left"
                 ky = text_y - (96 if kicker else 60)
             else:  # split: media band on top, headline under the accent rule
-                band = 1180
+                band = 850
                 with Image.open(src) as im2:
                     base.paste(cover_crop(im2, W, band, anchor="top"), (0, 0))
                 d = ImageDraw.Draw(base)
@@ -276,6 +276,8 @@ def audit(report):
                         f"each concept needs its own real media")
     for c in report:
         problems += [f"concept {c['concept']}: {p}" for p in cover_rules.headline_problems(c["text"])]
+        if c["text_box"][1] < cover_rules.SAFE_TOP or c["text_box"][3] > cover_rules.SAFE_BOTTOM:
+            problems.append(f"concept {c['concept']} headline is outside the safe vertical area")
         if min(c["contrast_white"], c["contrast_accent"]) < 4.5:
             problems.append(f"concept {c['concept']} contrast {c['contrast_white']}:1 / "
                             f"{c['contrast_accent']}:1 below 4.5 against its plate")

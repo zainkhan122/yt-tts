@@ -167,5 +167,35 @@
   "reviewer": "agent: official documentation and visual preview",
   "notes": "Product specification tied to README snapshot; production voice QA and cover approval outstanding."
  },
- "motion_standard": 2
+ "motion_standard": 2,
+ "treatment": {
+  "archetype": "workflow",
+  "selected_cover": 2,
+  "cover_concepts": [
+   {
+    "layout": "bleed",
+    "text": "YOUR BRAND IN SLACK",
+    "media": {
+     "kind": "tool_media",
+     "file": "repo.jpg"
+    }
+   },
+   {
+    "layout": "window",
+    "text": "SLACK BUILDS BRAND ASSETS",
+    "media": {
+     "kind": "tool_media",
+     "file": "article.jpg"
+    }
+   },
+   {
+    "layout": "split",
+    "text": "CAN AI DESIGN ON BRAND",
+    "media": {
+     "kind": "tool_media",
+     "file": "results.jpg"
+    }
+   }
+  ]
+ }
 }

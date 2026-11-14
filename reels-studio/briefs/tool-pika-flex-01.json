@@ -166,5 +166,35 @@
   },
   "keyword": "Pika H3 Flex",
   "onscreen_first3s": "PIKA H3 FLEX"
+ },
+ "treatment": {
+  "archetype": "workflow",
+  "selected_cover": 1,
+  "cover_concepts": [
+   {
+    "layout": "bleed",
+    "text": "TURN REFERENCES INTO VIDEO",
+    "media": {
+     "kind": "tool_media",
+     "file": "repo.jpg"
+    }
+   },
+   {
+    "layout": "window",
+    "text": "VIDEO FROM YOUR REFERENCES",
+    "media": {
+     "kind": "tool_media",
+     "file": "model.jpg"
+    }
+   },
+   {
+    "layout": "split",
+    "text": "EDIT SOUND IN LAYERS",
+    "media": {
+     "kind": "tool_media",
+     "file": "audio.jpg"
+    }
+   }
+  ]
  }
 }

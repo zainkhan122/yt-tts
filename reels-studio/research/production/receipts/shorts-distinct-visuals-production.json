@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "batch_id": "shorts-distinct-visuals-production",
+  "created_at": "2026-11-14T07:40:52.039884+00:00",
+  "briefs": {
+    "repo-design-agent-01": {
+      "brief_sha256": "4e259334aa5b0bfa7d5321e0778cf1ce64739c66627bf0073da9e3c3adc1adc2",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "24007fb0ac945dca73087a82bbc8f94181e355cbb31f51cd2519f4b06960e8d7",
+          "word_count": 127
+        },
+        "assets": {
+          "capture_id": "repo-design-agent-01",
+          "manifest_sha256": "7c29498072237a9f7019321138f5061f5168bbef313dd54a0727421ea83fae22",
+          "files": [
+            {
+              "path": "repo.jpg",
+              "sha256": "a5a2a0b9d26c4455012ce23b961c4cf3f53fb86da752ada61514b7b30bce82dc"
+            },
+            {
+              "path": "article.jpg",
+              "sha256": "ad8b441490fde3b86b870531466f43dbeea3736d8efdb5c8437824370ab52f87"
+            },
+            {
+              "path": "results.jpg",
+              "sha256": "2f71ec3404e5ad8c8a266e98cf1e6db56916a93f480381a0b89e3d12bb932097"
+            }
+          ],
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-design-agent-01/manifest.json"
+          ],
+          "cover_sha256": "74023b2b6343a9ac4e05eb5faeef27623c63893b831f4bf83bcc72de0f849c27",
+          "review_note": "Primary-source page screenshots reviewed as cover source candidates; videos remain generated illustrations. No independent blanket copyright clearance asserted."
+        }
+      }
+    },
+    "tool-pika-flex-01": {
+      "brief_sha256": "720210858053bf6ae715aa6b51cf87f7d3e792da05a42450904c40ab0e6cf46e",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "e8df80fdd97a1c251da953bc95363fee8e877b3f883df7c330325590b58f99af",
+          "word_count": 130
+        },
+        "assets": {
+          "capture_id": "tool-pika-flex-01",
+          "manifest_sha256": "c212c03ecd327b065aae3c5c67c6b4b3e900ae5d0bad2a8296fb99f1e288ff54",
+          "files": [
+            {
+              "path": "repo.jpg",
+              "sha256": "f223b08bcbc77761cd796b0eb3490c0aa67c266cb9c2532563159052f1a8d528"
+            },
+            {
+              "path": "model.jpg",
+              "sha256": "34de4b65d2ebf0b7f1ad78a98b14b843835fbb79e331b8643a325ad6da56fcc1"
+            },
+            {
+              "path": "audio.jpg",
+              "sha256": "ff87fac13e4bc6eaec7cdac9e593f5fca95af7d29ac2797d8c8d39d4eb52ce73"
+            }
+          ],
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/tool-pika-flex-01/manifest.json"
+          ],
+          "cover_sha256": "bdc432eeb718e46d74852a3a9250eca7743de749976a773c985a839ef4023356",
+          "review_note": "Primary-source page screenshots reviewed as cover source candidates; videos remain generated illustrations. No independent blanket copyright clearance asserted."
+        }
+      }
+    }
+  }
+}

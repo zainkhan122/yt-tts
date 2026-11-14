@@ -61,7 +61,7 @@ frame-to-frame change 2.85, longest run without a visible change 3.4 s, hard cut
 ## Files here
 
 - `preview-210wpm.mp4` — silent local render of the real scene document (the approved voice only exists in the cloud render).
-- `contact-sheet.jpg` — 27 frames, ~1.6 s apart, in order.
+- The historical contact sheet was removed during approved old-output cleanup.
 - `beats.json`, `features.json`, `words.estimate.json`, `source.md` — the brief's graphics side, written by the build.
 
 Spec and plan: `research/production/batch-2026-11-09/specs/repo-unslop-02.py` (PLAN + FEATURES + BEATS);
