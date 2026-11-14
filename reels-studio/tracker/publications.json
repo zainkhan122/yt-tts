@@ -5132,9 +5132,11 @@
     },
     "tool-pika-flex-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6af82f5e78196a0a9754ffbb",
       "category": "tool",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-11-14T22:12:00Z",
+      "due_at": "2026-11-14T22:12:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:93a4264fd19b0f107afeb95ab2de9b35e67924b582a7343a0e1ab788a8ff389d",
         "asset_id": 747023226,
@@ -5149,10 +5151,11 @@
       "notify_subscribers": true,
       "payload_sha256": "ff583101ba66a2612001c5007a93a4fcdc63724c8dd806cae4aa3513571363a0",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Pika H3 Flex guides video generation with image, video and audio references. Hosted dialogue, music and effects stems cost extra; local inference outputs mixed audio at up to 768p. Results vary. https://github.com/Pika-Labs/Pika-H3-Flex\n\n#Shorts #PikaLabs #AIVideo #PikaH3Flex",
       "title": "Pika H3 Flex: AI Clips With Editable Sound Stems",
-      "updated_at": "2026-11-14T09:52:28Z",
+      "updated_at": "2026-11-14T09:52:30Z",
       "video_id": "tool-pika-flex-01"
     },
     "tool-pomelli-01:facebook": {
