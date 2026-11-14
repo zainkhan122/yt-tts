@@ -251,3 +251,13 @@ def test_status_render_is_deterministic(tree):
     assert ship.render_status(root=tree) == ship.render_status(root=tree)
     text = ship.render_status(root=tree)
     assert "## Counts" in text and "Do not edit by hand" in text
+
+
+def test_reviewed_cover_accepts_prefixed_and_unprefixed_digest(tree):
+    q = _queue(tree)
+    item = q['items'][0]
+    item['review']['cover_sha256'] = item['cover_sha256']
+    item['cover_sha256'] = 'sha256:' + item['cover_sha256']
+    item['approved_cover_sha'] = item['cover_sha256']
+    (tree / 'queue' / 'publish.json').write_text(json.dumps(q), encoding='utf-8')
+    assert ship.check(VID, root=tree) == []

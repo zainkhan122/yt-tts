@@ -190,7 +190,7 @@ def check(video_id: str, *, root: Path = ROOT, live: bool = False) -> list[str]:
         if "youtube" in (item.get("platforms") or []):
             if not item.get("cover_sha256"):
                 errors.append("cover: youtube is scheduled but no cover is approved")
-            elif review_rec.get("cover_sha256") and review_rec["cover_sha256"] != item["cover_sha256"]:
+            elif review_rec.get("cover_sha256") and review_rec["cover_sha256"].removeprefix("sha256:") != item["cover_sha256"].removeprefix("sha256:"):
                 errors.append("cover: queued cover differs from the reviewed cover")
 
     if review_rec:

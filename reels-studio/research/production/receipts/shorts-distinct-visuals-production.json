@@ -4,7 +4,7 @@
   "created_at": "2026-11-14T07:49:34.343085+00:00",
   "briefs": {
     "repo-design-agent-01": {
-      "brief_sha256": "91465ee5a968d7fa2dc577d5e86e7af3a2e6a542859994f55a79897ad3e2bd1d",
+      "brief_sha256": "b71d8fb049189b92ce3d0a914e5d277f1fb43923ad72b6fd2f43ddb9ba45d117",
       "stages": {
         "script": {
           "status": "complete",
@@ -39,10 +39,11 @@
           "cover_sha256": "74023b2b6343a9ac4e05eb5faeef27623c63893b831f4bf83bcc72de0f849c27",
           "review_note": "UI still visible in corresponding graphics scene, source attributed; independent visual QA still required on the final Chatterbox video."
         }
-      }
+      },
+      "brief_identity_sha256": "7b5d80bf72cc78bd017b9352a95c240f229b49c8c90854999a1f4f95fae7b11f"
     },
     "tool-pika-flex-01": {
-      "brief_sha256": "d98b8cc37a36640a37d2438f73ce5eaea3e13b7d6d192a94d2d7c7de58e8e199",
+      "brief_sha256": "17e42465372cc289fa91d2f16878463e7311504ee850f205015e147f987668ac",
       "stages": {
         "script": {
           "status": "complete",
@@ -77,7 +78,8 @@
           "cover_sha256": "bdc432eeb718e46d74852a3a9250eca7743de749976a773c985a839ef4023356",
           "review_note": "UI still visible in corresponding graphics scene, source attributed; independent visual QA still required on the final Chatterbox video."
         }
-      }
+      },
+      "brief_identity_sha256": "91b3d0658f023a6ad3c7b507820c627b96f4b4bc39dc88d466e1f88eec28ae21"
     }
   }
 }
