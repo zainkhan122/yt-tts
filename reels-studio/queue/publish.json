@@ -581,13 +581,17 @@
     },
     {
       "added_at": "2026-11-14T12:57:57Z",
-      "approval": "held",
+      "approval": "approved",
+      "approved_cover_sha": "sha256:1667e83d8ca7ec5349d85ce0472d4692e34992fb8e9f658a5d14a4f97d80427d",
+      "approved_panel_sha": "5129e11a79ccc3ccd278d5d4d6767678985793e45acff4a01d501100fb975351",
       "asset_digest": "sha256:5ba28caa9e7bb40b16895c329f1e5d13c5ce1dc1e1d145d261ba4080adb3ebba",
       "asset_id": 747498776,
       "asset_size": 6093463,
       "brief_sha256": "c80d3fb6b705436446f424c4a3b1d3e3cb83907675c5281d7e0e8ef57a51747a",
       "category": "repo",
-      "expires_at": null,
+      "cover_reviewed_at": "2026-11-14T13:26:11Z",
+      "cover_sha256": "sha256:1667e83d8ca7ec5349d85ce0472d4692e34992fb8e9f658a5d14a4f97d80427d",
+      "expires_at": "2026-11-15T12:00:00Z",
       "kit_asset_id": 747498844,
       "kit_digest": "sha256:8765dfd734bfb5e2e02b9b15e2a8c9c82ecac9dc1d61f5ddf719d9239c054281",
       "media_path": "media/747498776/repo-modern-web-01.mp4",
@@ -599,13 +603,12 @@
       "priority": 100,
       "release_tag": "renders-modern-web-43593868242",
       "review": {
-        "cover_sha256": null,
+        "cover_sha256": "1667e83d8ca7ec5349d85ce0472d4692e34992fb8e9f658a5d14a4f97d80427d",
         "mp4_bytes": 6093463,
         "mp4_sha256": "5ba28caa9e7bb40b16895c329f1e5d13c5ce1dc1e1d145d261ba4080adb3ebba",
-        "run_id": null,
-        "source": "release-digest"
+        "run_id": "43593868242"
       },
-      "reviewed_at": null,
+      "reviewed_at": "2026-11-14T13:26:23Z",
       "title": "Modern Web Guidance: Better Context for Coding Agents",
       "video_id": "repo-modern-web-01",
       "youtube_ai_generated": false
