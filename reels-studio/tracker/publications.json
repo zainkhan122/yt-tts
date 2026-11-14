@@ -2180,6 +2180,31 @@
       "updated_at": "2026-11-14T09:52:21Z",
       "video_id": "repo-design-agent-01"
     },
+    "repo-design-agent-01:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-11-14T21:16:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:5b731b7234282f527d848ec0ad7b36bb5ebb185f3e09696c960b358901d14168",
+        "asset_id": 747023080,
+        "asset_size": 7329542,
+        "kit_asset_id": 747023159,
+        "kit_digest": "sha256:035b6d4b30ed6c01f8d18b8e6f4c829847bc56876b1812fe7f0349f838f303db",
+        "media_path": "media/747023080/repo-design-agent-01.mp4",
+        "release_tag": "renders-shorts-43580518195",
+        "video_id": "repo-design-agent-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/747023080/repo-design-agent-01.mp4",
+      "notify_subscribers": true,
+      "payload_sha256": "6c9000416ae55b878e1e1ab32a129939e02d682b932549e198545a3f0942c397",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "LangChain Design Agent makes graphics, decks and motion video from brand rules and Slack requests. LangChain reports over 3,000 assets and a drop in median model spend from about $8 to $0.50 per request; these figures are its own, not a guarantee. Managed setup requires LangSmith and a model key, and costs and human review still matter. https://github.com/langchain-ai/design-agent\n\n#Shorts #AITools #DesignAgent #MotionGraphics",
+      "title": "LangChain Design Agent Automates Creative Work",
+      "updated_at": "2026-11-14T09:52:22Z",
+      "video_id": "repo-design-agent-01"
+    },
     "repo-ds4-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6acc91a0712ba82086b03116",
