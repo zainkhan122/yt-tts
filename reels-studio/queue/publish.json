@@ -510,6 +510,70 @@
       "title": "Musike Runs on 8 Platforms and Charges Nothing",
       "video_id": "repo-musike-01",
       "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-11-14T09:02:33Z",
+      "approval": "held",
+      "asset_digest": "sha256:6bc862ee773de15f845ac769b97dd78de221f08fae0e37b4012b223f2c0551e7",
+      "asset_id": 746911757,
+      "asset_size": 7324225,
+      "brief_sha256": "a29b6306ef546b5caeb8a314aeb8b675ebc5b410bd3775943618c459ed7d6391",
+      "category": "repo",
+      "cover_reviewed_at": "2026-11-14T09:02:56Z",
+      "cover_sha256": "sha256:74023b2b6343a9ac4e05eb5faeef27623c63893b831f4bf83bcc72de0f849c27",
+      "expires_at": null,
+      "kit_asset_id": 746911823,
+      "kit_digest": "sha256:8e991eb15773108af35ffb10e0c659471339455e34e5a34c4f976fac5d65d908",
+      "media_path": "media/746911757/repo-design-agent-01.mp4",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "priority": 100,
+      "release_tag": "renders-shorts-43575857449",
+      "review": {
+        "mp4_sha256": "6bc862ee773de15f845ac769b97dd78de221f08fae0e37b4012b223f2c0551e7",
+        "mp4_bytes": 7324225,
+        "run_id": "43575857449",
+        "cover_sha256": "74023b2b6343a9ac4e05eb5faeef27623c63893b831f4bf83bcc72de0f849c27"
+      },
+      "reviewed_at": null,
+      "title": "LangChain Design Agent Makes On-Brand Videos",
+      "video_id": "repo-design-agent-01",
+      "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-11-14T09:02:35Z",
+      "approval": "held",
+      "asset_digest": "sha256:38e93fe3865acfbd3e21770efb2f09fce9dec4fba3ab68ab2c25743dcab0f0fb",
+      "asset_id": 746911868,
+      "asset_size": 9519425,
+      "brief_sha256": "eeb590e15bd68b335cfb0b00c6f33daee7b3fcf88d262f6a364e3448f3da6d3a",
+      "category": "tool",
+      "cover_reviewed_at": "2026-11-14T09:02:56Z",
+      "cover_sha256": "sha256:bdc432eeb718e46d74852a3a9250eca7743de749976a773c985a839ef4023356",
+      "expires_at": null,
+      "kit_asset_id": 746911926,
+      "kit_digest": "sha256:e351d27496d48b5c7d132491749c5592df0cf2a80c8d6097eb5c56a24a9a68aa",
+      "media_path": "media/746911868/tool-pika-flex-01.mp4",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "priority": 100,
+      "release_tag": "renders-shorts-43575857449",
+      "review": {
+        "mp4_sha256": "38e93fe3865acfbd3e21770efb2f09fce9dec4fba3ab68ab2c25743dcab0f0fb",
+        "mp4_bytes": 9519425,
+        "run_id": "43575857449",
+        "cover_sha256": "bdc432eeb718e46d74852a3a9250eca7743de749976a773c985a839ef4023356"
+      },
+      "reviewed_at": null,
+      "title": "Pika H3 Flex: Reference Images and Audio to Video",
+      "video_id": "tool-pika-flex-01",
+      "youtube_ai_generated": false
     }
   ],
   "schema_version": 1
