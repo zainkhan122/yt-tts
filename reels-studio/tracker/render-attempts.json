@@ -1382,9 +1382,9 @@
       "capture_id": "repo-modern-web-01",
       "cover_sha256": "1667e83d8ca7ec5349d85ce0472d4692e34992fb8e9f658a5d14a4f97d80427d",
       "crf": 26,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=cancelled publish=cancelled",
       "fingerprint": "49ccd596f6fc46948de5583260e988f98dc7404c3b0cbb8047595fb1e7cef8b0",
-      "finished_at": null,
+      "finished_at": "2026-11-14T10:31:57Z",
       "from_tag": "",
       "graphics_sha256": "09cef2b12fa6bed75d256e1028647c57cc0016fbfd213f43fdc07a9b1655f91c",
       "quality": "looks",
@@ -1392,7 +1392,7 @@
       "renderer_sha256": "746b06920e56b74571fbbdd236623417b4352f6672aac44606b0793f0d0fcc65",
       "run_id": "43585193485",
       "started_at": "2026-11-14T10:25:20Z",
-      "status": "started",
+      "status": "cancelled",
       "voice_seed": 0
     },
     "4bac7423eeefb78666766dcde81e611a1e7c6eb008a8dea74dc08c4daabd6f86": {
