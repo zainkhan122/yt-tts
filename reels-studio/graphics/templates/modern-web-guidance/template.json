@@ -1,0 +1,48 @@
+{
+ "name": "modern-web-guidance",
+ "tool": "modern-web-guidance",
+ "note": "Light platform atlas, colored semantic routes and typography; custom to web guidance.",
+ "max_text": 70,
+ "archetypes": {
+  "atlas_hook": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": false,
+   "script_ok": true
+  },
+  "atlas_guides": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "atlas_platform": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "atlas_install": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "atlas_review": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  }
+ }
+}

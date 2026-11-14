@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-06-modern-web",
+  "created_at": "2026-11-14T10:24:29Z",
+  "briefs": {
+    "repo-modern-web-01": {
+      "brief_sha256": "da51a24bf49e72f3b974c2ca12bc3b61803b46e8b24322d45602268aa39095a1",
+      "brief_identity_sha256": "d2d0d38c6c70d507f650230872093eb7fcd98eb7620200369339f892a6c813bb",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "14b372654e19bebc3c855a621beb2e5509155a69083b805622a05b0e7aa5b36c",
+          "word_count": 112
+        },
+        "assets": {
+          "capture_id": "repo-modern-web-01",
+          "manifest_sha256": "bb584d58dd770f1efec34ad6d9e05009843339f2910aedbb9c97ec1322749e38",
+          "files": [
+            {
+              "path": "repo.jpg",
+              "sha256": "fbcc96fdb3cbd9188a61ffce893a37df5d8b1a18fc33d5a67271bf5701576010"
+            },
+            {
+              "path": "repo-detail.jpg",
+              "sha256": "d70269ee6ef3777bb32eae141c412d080b22d4d1772b44648880d2cdd81a8112"
+            },
+            {
+              "path": "repo-title.jpg",
+              "sha256": "63da82fb6bff3d177ad3798154c76a3e38517c57643fbc61dccbef511ec90f26"
+            }
+          ],
+          "cover_sha256": "1667e83d8ca7ec5349d85ce0472d4692e34992fb8e9f658a5d14a4f97d80427d",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-modern-web-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}

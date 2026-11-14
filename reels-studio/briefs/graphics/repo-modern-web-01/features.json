@@ -1,0 +1,49 @@
+{
+ "tool": {
+  "name": "Modern Web Guidance",
+  "repo_url": "https://github.com/GoogleChrome/modern-web-guidance",
+  "category": "coding agent skills",
+  "license": "Apache-2.0"
+ },
+ "features": [
+  {
+   "id": "f1",
+   "title": "Coding agent expertise",
+   "what": "Skills embed web platform expertise into coding agents.",
+   "evidence_quote": "a set of skills that embed web platform expertise"
+  },
+  {
+   "id": "f2",
+   "title": "Guide search",
+   "what": "The CLI can search for relevant expert curated guides.",
+   "evidence_quote": "Search for relevant guides"
+  },
+  {
+   "id": "f3",
+   "title": "Browser platform",
+   "what": "Guidance focuses on modern browser APIs and sensible fallbacks.",
+   "evidence_quote": "Modern Browser APIs"
+  },
+  {
+   "id": "f4",
+   "title": "Interactive installation",
+   "what": "The installer runs an interactive wizard for setup.",
+   "evidence_quote": "This command runs an interactive wizard to install Modern Web Guidance."
+  },
+  {
+   "id": "f5",
+   "title": "Preview release",
+   "what": "The project identifies itself as a preview release.",
+   "evidence_quote": "This is a **preview release** of Modern Web Guidance."
+  }
+ ],
+ "risks": [
+  {
+   "text": "Preview release; check compatibility and test outputs",
+   "severity": "medium"
+  }
+ ],
+ "source_urls": [
+  "https://github.com/GoogleChrome/modern-web-guidance/blob/341268561baaff256927c931ec8215dbd30e3cee/README.md"
+ ]
+}

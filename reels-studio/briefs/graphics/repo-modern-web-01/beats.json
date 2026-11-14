@@ -1,0 +1,125 @@
+{
+ "tool": "modern-web-guidance",
+ "handle": "@hypeless",
+ "template": "modern-web-guidance",
+ "script_sha256": "sha256:859aada2e6ebae8207617204b35813751f2176a1f29ad61f4c5927d49672c9a3",
+ "scenes": [
+  {
+   "scene_id": "hook",
+   "phrase": 0,
+   "archetype": "atlas_hook",
+   "headline": "IS YOUR AGENT OUTDATED?",
+   "feature_id": null,
+   "depicts": "coding agent websites modern web",
+   "payload": {
+    "cue_phrases": [
+     "coding agent",
+     "modern web"
+    ]
+   }
+  },
+  {
+   "scene_id": "guidance",
+   "phrase": 1,
+   "archetype": "atlas_guides",
+   "headline": "GUIDANCE FOR YOUR AGENT",
+   "feature_id": "f1",
+   "depicts": "skills guides coding agent search task",
+   "payload": {
+    "cue_phrases": [
+     "skills",
+     "guides",
+     "search"
+    ]
+   },
+   "evidence_image": "repo.jpg",
+   "evidence_focus": [
+    {
+     "at": 0,
+     "box": [
+      0,
+      0,
+      1,
+      1
+     ],
+     "pad": 1.0
+    },
+    {
+     "at": 3,
+     "box": [
+      0.02,
+      0.02,
+      0.96,
+      0.96
+     ],
+     "pad": 1.0
+    }
+   ]
+  },
+  {
+   "scene_id": "apis",
+   "phrase": 2,
+   "archetype": "atlas_platform",
+   "headline": "FROM TASK TO PLATFORM",
+   "feature_id": "f3",
+   "depicts": "dialog popover browser APIs accessibility fallbacks",
+   "payload": {
+    "cue_phrases": [
+     "dialog",
+     "popover",
+     "browser APIs",
+     "accessibility",
+     "fallbacks"
+    ]
+   }
+  },
+  {
+   "scene_id": "install",
+   "phrase": 3,
+   "archetype": "atlas_install",
+   "headline": "INSTALL THE SKILL",
+   "feature_id": "f4",
+   "depicts": "install command setup interactive preview",
+   "payload": {
+    "cue_phrases": [
+     "Install",
+     "interactive",
+     "preview"
+    ]
+   }
+  },
+  {
+   "scene_id": "catch",
+   "phrase": 4,
+   "archetype": "atlas_review",
+   "headline": "HUMANS STILL REVIEW",
+   "feature_id": "f5",
+   "depicts": "design system own components browser compatibility test output",
+   "payload": {
+    "cue_phrases": [
+     "design system",
+     "components",
+     "compatibility",
+     "test",
+     "guarantee"
+    ]
+   }
+  },
+  {
+   "scene_id": "cta",
+   "phrase": 5,
+   "archetype": "endcard",
+   "headline": "YOUR CALL",
+   "feature_id": null,
+   "depicts": "repo comment WEB follow",
+   "payload": {
+    "cue_phrases": [
+     "WEB"
+    ],
+    "keyword": "WEB",
+    "prompt": "for the repo",
+    "follow": "@hypeless"
+   }
+  }
+ ]
+}

@@ -1,0 +1,219 @@
+{
+ "id": "repo-modern-web-01",
+ "capture": "captures/repo-modern-web-01",
+ "title": "Modern Web Guidance: make coding agents use the modern web",
+ "niche": "AI tools",
+ "lang": "en-us",
+ "style": "explainer",
+ "status": "draft",
+ "production_category": "repo",
+ "keywords": [
+  "modern web guidance",
+  "coding agents",
+  "web development",
+  "browser APIs"
+ ],
+ "facts": {
+  "method": "Official Google Chrome README pinned to November 2 2026 commit",
+  "limits": "Preview release; test compatibility, accessibility and output."
+ },
+ "sources": [
+  "https://github.com/GoogleChrome/modern-web-guidance/blob/341268561baaff256927c931ec8215dbd30e3cee/README.md"
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "flow",
+   "say": "Your coding agent can write websites. But is it using the modern web?",
+   "heading": "IS YOUR AGENT OUTDATED?"
+  },
+  {
+   "id": "guidance",
+   "type": "image",
+   "say": "Modern Web Guidance adds expert curated skills and guides to a compatible coding agent, so it can search for advice that fits your task.",
+   "heading": "GUIDANCE FOR YOUR AGENT",
+   "image": "repo.jpg",
+   "focus": [
+    {
+     "at": 0,
+     "box": [
+      0,
+      0,
+      1,
+      1
+     ],
+     "pad": 1.0
+    },
+    {
+     "at": 3,
+     "box": [
+      0.02,
+      0.02,
+      0.96,
+      0.96
+     ],
+     "pad": 1.0
+    },
+    {
+     "at": 6,
+     "box": [
+      0.04,
+      0.04,
+      0.92,
+      0.92
+     ],
+     "pad": 1.0
+    }
+   ]
+  },
+  {
+   "id": "apis",
+   "type": "flow",
+   "say": "Building a dialog or a popover? It points your agent toward modern browser APIs, accessibility, and sensible fallbacks.",
+   "heading": "FROM TASK TO PLATFORM"
+  },
+  {
+   "id": "install",
+   "type": "flow",
+   "say": "Install it with this command. The setup is interactive, and the project is still a preview.",
+   "heading": "INSTALL THE SKILL"
+  },
+  {
+   "id": "catch",
+   "type": "flow",
+   "say": "Already have a design system? Tell your agent when to use your own components. Check browser compatibility and test the output yourself. Guidance is not a guarantee.",
+   "heading": "HUMANS STILL REVIEW"
+  },
+  {
+   "id": "cta",
+   "type": "flow",
+   "say": "Want the repo? Comment WEB and follow Hypeless for more tools, minus the hype.",
+   "heading": "YOUR CALL"
+  }
+ ],
+ "renderer": "graphics",
+ "graphics": {
+  "dir": "briefs/graphics/repo-modern-web-01",
+  "template": "modern-web-guidance"
+ },
+ "lexicon": {
+  "API": "A P I",
+  "APIs": "A P I s"
+ },
+ "seo": {
+  "keyword": "Modern Web Guidance",
+  "onscreen_first3s": "IS YOUR AGENT OUTDATED?",
+  "youtube": {
+   "title": "Modern Web Guidance: Better Context for Coding Agents",
+   "description": "Modern Web Guidance gives compatible coding agents curated web platform advice. It is a preview, not a guarantee: check browser support, your design system and the output. https://github.com/GoogleChrome/modern-web-guidance/blob/341268561baaff256927c931ec8215dbd30e3cee/README.md",
+   "tags": [
+    "Modern Web Guidance",
+    "coding agents",
+    "web development",
+    "browser APIs",
+    "AI coding"
+   ],
+   "hashtags": [
+    "#Shorts",
+    "#WebDev",
+    "#AITools"
+   ]
+  },
+  "instagram": {
+   "caption": "Modern Web Guidance gives compatible coding agents expert web platform guides. It is a preview; review and test the output. Comment WEB for the repo.",
+   "hashtags": [
+    "#WebDev",
+    "#AITools",
+    "#CodingAgents"
+   ]
+  },
+  "facebook": {
+   "caption": "Modern Web Guidance adds web platform expertise to compatible coding agents. It is a preview, so test the results and browser support.",
+   "hashtags": [
+    "#WebDev",
+    "#AITools"
+   ]
+  },
+  "tiktok": {
+   "caption": "Can your coding agent use the modern web? Meet Modern Web Guidance.",
+   "hashtags": [
+    "#WebDev",
+    "#AITools"
+   ]
+  },
+  "x": {
+   "text": "Modern Web Guidance adds web platform guides to compatible coding agents. Preview release; test your output.",
+   "hashtags": [
+    "#WebDev",
+    "#AITools"
+   ]
+  }
+ },
+ "viewer": {
+  "who": "Developers using AI coding agents",
+  "problem": "Agents can default to outdated web patterns",
+  "job": "Decide whether to test web-platform guidance in an existing project"
+ },
+ "idea": "A skill and guide library can bring web platform expertise to a compatible coding agent.",
+ "claims": [
+  {
+   "id": "c1",
+   "text": "Modern Web Guidance supplies web platform skills and expert-curated guides for coding agents.",
+   "source": "https://github.com/GoogleChrome/modern-web-guidance/blob/341268561baaff256927c931ec8215dbd30e3cee/README.md"
+  },
+  {
+   "id": "c2",
+   "text": "The installer launches an interactive wizard and the project is a preview.",
+   "source": "https://github.com/GoogleChrome/modern-web-guidance/blob/341268561baaff256927c931ec8215dbd30e3cee/README.md"
+  }
+ ],
+ "proof_plan": [
+  {
+   "claim": "c1",
+   "evidence": "source:https://github.com/GoogleChrome/modern-web-guidance/blob/341268561baaff256927c931ec8215dbd30e3cee/README.md",
+   "how_shown": "Narration-cued illustrated workflow and official pinned README capture."
+  },
+  {
+   "claim": "c2",
+   "evidence": "source:https://github.com/GoogleChrome/modern-web-guidance/blob/341268561baaff256927c931ec8215dbd30e3cee/README.md",
+   "how_shown": "Command rendered verbatim with interactive and preview labels."
+  }
+ ],
+ "review": {
+  "reviewed_at": "2026-11-06",
+  "reviewer": "agent: pinned official documentation",
+  "notes": "Not yet rendered, voice reviewed or approved for publication."
+ },
+ "motion_standard": 2,
+ "treatment": {
+  "archetype": "workflow",
+  "selected_cover": 1,
+  "cover_concepts": [
+   {
+    "layout": "bleed",
+    "text": "IS YOUR AGENT OUTDATED",
+    "media": {
+     "kind": "tool_media",
+     "file": "repo.jpg"
+    }
+   },
+   {
+    "layout": "window",
+    "text": "YOUR AGENT NEEDS THIS",
+    "media": {
+     "kind": "tool_media",
+     "file": "repo-detail.jpg"
+    }
+   },
+   {
+    "layout": "split",
+    "text": "MODERN WEB FOR AGENTS",
+    "media": {
+     "kind": "tool_media",
+     "file": "repo-title.jpg"
+    }
+   }
+  ]
+ },
+ "media_aspect_landscape_ok": "The product screenshot is shown in full inside a dedicated landscape evidence frame; the vertical layout and caption band remain separate."
+}
