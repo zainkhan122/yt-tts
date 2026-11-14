@@ -85,7 +85,7 @@ def scenes_from_html(html: str) -> dict:
 def check(stage: Path) -> list[str]:
     from playwright.sync_api import sync_playwright
 
-    html = stage.read_text()
+    html = stage.read_text(encoding="utf-8")
     D = scenes_from_html(html)
     scenes = D.get("scenes", [])
     ends = [s for s in scenes if s.get("archetype") == "endcard"]

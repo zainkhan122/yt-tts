@@ -1027,15 +1027,16 @@ class QueueReleaseTests(unittest.TestCase):
         from tools.post.release import refresh_input
         from tools.post.common import iso, now_utc
         cfg = self.cfg()
-        item = {"video_id": "news-clef-01", "media_path": "media/633733386/news-clef-01.mp4"}
-        fb = refresh_input({"buffer_post_id": "bp1", "_key": "news-clef-01:facebook"}, item, cfg, iso(now_utc()))
+        # The fixture names a brief that still exists: the payload is built from the brief's copy.
+        item = {"video_id": "tool-claude-tokens-01", "media_path": "media/633733386/tool-claude-tokens-01.mp4"}
+        fb = refresh_input({"buffer_post_id": "bp1", "_key": "tool-claude-tokens-01:facebook"}, item, cfg, iso(now_utc()))
         self.assertEqual(fb["id"], "bp1")
         self.assertEqual(fb["assets"][0]["video"]["url"],
-                         "https://cdn.example/media/media/633733386/news-clef-01.mp4")
+                         "https://cdn.example/media/media/633733386/tool-claude-tokens-01.mp4")
         self.assertEqual(fb["metadata"], {"facebook": {"type": "reel"}})   # required members resent, whole post validates
         for kept in ("dueAt", "mode", "schedulingType", "text"):          # never rewritten: slot + caption stay as stored
             self.assertNotIn(kept, fb)
-        ig = refresh_input({"buffer_post_id": "bp2", "_key": "news-clef-01:instagram"}, item, cfg, iso(now_utc()))
+        ig = refresh_input({"buffer_post_id": "bp2", "_key": "tool-claude-tokens-01:instagram"}, item, cfg, iso(now_utc()))
         self.assertEqual(ig["assets"][0]["video"]["metadata"], {"thumbnailOffset": 1000})
         self.assertEqual(ig["metadata"]["instagram"]["type"], "reel")
         self.assertTrue(ig["metadata"]["instagram"]["shouldShareToFeed"])

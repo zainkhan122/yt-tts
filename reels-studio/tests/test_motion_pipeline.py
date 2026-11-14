@@ -16,11 +16,11 @@ BRIEFS = ['repo-sherlock-01', 'tool-claude-tokens-01', 'repo-musike-01',
 
 
 def stage_for(brief_id, path):
-    brief = json.loads((ROOT/'briefs'/f'{brief_id}.json').read_text())
+    brief = json.loads((ROOT/'briefs'/f'{brief_id}.json').read_text(encoding="utf-8"))
     graphics = ROOT / brief['graphics']['dir']
-    beats = json.loads((graphics/'beats.json').read_text())
-    sheet = json.loads((graphics/'features.json').read_text())
-    source = (graphics/'source.md').read_text()
+    beats = json.loads((graphics/'beats.json').read_text(encoding="utf-8"))
+    sheet = json.loads((graphics/'features.json').read_text(encoding="utf-8"))
+    source = (graphics/'source.md').read_text(encoding="utf-8")
     timing, all_words, now = {}, [], 0.
     for scene in brief['scenes']:
         text = ' '.join(tokens(scene['say']))
@@ -79,8 +79,8 @@ def test_hyphenated_spoken_cue_is_tokenized(page_unused=None):
 @pytest.mark.parametrize('brief_id', BRIEFS)
 def test_outro_keyword_matches_spoken_comment_cta(brief_id):
     import re
-    brief = json.loads((ROOT/'briefs'/f'{brief_id}.json').read_text())
-    beats = json.loads((ROOT/brief['graphics']['dir']/'beats.json').read_text())
+    brief = json.loads((ROOT/'briefs'/f'{brief_id}.json').read_text(encoding="utf-8"))
+    beats = json.loads((ROOT/brief['graphics']['dir']/'beats.json').read_text(encoding="utf-8"))
     keyword = str(beats['scenes'][-1]['payload']['keyword'])
     say = brief['scenes'][-1]['say']
     assert re.search(r'\bcomment\s+["“\'‘]*' + re.escape(keyword) + r'\b', say, re.I), (brief_id, keyword, say)

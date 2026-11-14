@@ -42,7 +42,10 @@ def saved_usage(root):
 
 
 def audit():
-    total, count = saved_usage(ROOT.parent if os.environ.get("GITHUB_ACTIONS") == "true" else Path.home())
+    # The workspace IS the checkout (ROOT.parent): on a runner that is the workspace directory,
+    # on a dev machine it is the clone. It used to measure Path.home() locally, which counted the
+    # whole user profile (tens of GB) and failed the budget for files the pipeline never owns.
+    total, count = saved_usage(ROOT.parent)
     paths = subprocess.check_output(["git", "ls-files", "-z", "--", "reels-studio/", ".github/workflows/"], cwd=ROOT.parent).split(b"\0")
     tracked = [ROOT.parent/p.decode() for p in paths if p]
     large = [str(p.relative_to(ROOT.parent)) for p in tracked if p.is_file() and p.stat().st_size > 5_000_000]

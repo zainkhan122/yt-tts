@@ -135,7 +135,7 @@ def main():
         for cid in args:
             pull(cid)
     elif cmd == "pull-for":
-        b = json.loads(Path(args[0]).read_text())
+        b = json.loads(Path(args[0]).read_text(encoding="utf-8"))
         if b.get("capture"):
             pull(Path(b["capture"]).name)
         else:

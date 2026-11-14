@@ -58,7 +58,7 @@ def synth_timing(b, tpl):
 
 
 def scene_part(name):
-    return "\n".join(p.read_text() for p in (SHARED / name, SHARED / name.replace(".", "_arch."))
+    return "\n".join(p.read_text(encoding="utf-8") for p in (SHARED / name, SHARED / name.replace(".", "_arch."))
                      if p.exists())
 
 
@@ -96,20 +96,20 @@ def build_page(b, work, tpl):
         dst = work / "assets" / name
         dst.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(src, dst)
-    scene_css = (SHARED / "scene.css").read_text() + "\n" + (SHARED / "archetype.css").read_text()
-    scene_js = (SHARED / "scene.js").read_text() + "\n" + (SHARED / "archetype.js").read_text()
+    scene_css = (SHARED / "scene.css").read_text(encoding="utf-8") + "\n" + (SHARED / "archetype.css").read_text(encoding="utf-8")
+    scene_js = (SHARED / "scene.js").read_text(encoding="utf-8") + "\n" + (SHARED / "archetype.js").read_text(encoding="utf-8")
     # This tool measures geometry; the renderer enforces montage timing. With synthesised timings
     # the montage anchor rule can block the build (it needs the real word times), so the layout
     # audit builds with that one check relaxed and says so.
     media_html = _html_without_timing_block(tpl, b, T, D, ev)
-    rep = {"{{FONTS_CSS}}": "\n".join(fonts), "{{BASE_CSS}}": (BASE / "base.css").read_text(),
+    rep = {"{{FONTS_CSS}}": "\n".join(fonts), "{{BASE_CSS}}": (BASE / "base.css").read_text(encoding="utf-8"),
            "{{SCENE_CSS}}": scene_css, "{{MEDIA_HTML}}": media_html,
-           "{{SCENE_HTML}}": (SHARED / "scene.html").read_text() if (SHARED / "scene.html").exists() else "",
-           "{{BASE_JS}}": (BASE / "base.js").read_text(), "{{SCENE_JS}}": scene_js,
+           "{{SCENE_HTML}}": (SHARED / "scene.html").read_text(encoding="utf-8") if (SHARED / "scene.html").exists() else "",
+           "{{BASE_JS}}": (BASE / "base.js").read_text(encoding="utf-8"), "{{SCENE_JS}}": scene_js,
            "{{DATA_JSON}}": json.dumps(data, ensure_ascii=False).replace("</", "<\\/"),
            "{{LANG}}": "en", "{{TITLE}}": b["id"], "{{PRESET}}": b.get("style", "midnight"),
            "{{ARCHETYPE}}": (b.get("treatment") or {}).get("archetype", "spotlight"), "{{D}}": f"{D:g}"}
-    html = (BASE / "base.html").read_text()
+    html = (BASE / "base.html").read_text(encoding="utf-8")
     for k, v in rep.items():
         html = html.replace(k, v)
     (work / "index.html").write_text(html, encoding="utf-8")
@@ -181,7 +181,7 @@ def intersects(a, b, pad=8):
 
 
 def audit(brief_path, out_dir=None, keep=False):
-    b = json.loads(Path(brief_path).read_text())
+    b = json.loads(Path(brief_path).read_text(encoding="utf-8"))
     tpl = load_template(b.get("template", "tool-spotlight"))
     work = Path(tempfile.mkdtemp(prefix="layout-audit-"))
     T, ev, D = build_page(b, work, tpl)

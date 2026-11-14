@@ -3,7 +3,7 @@
 Do not edit by hand. Regenerate: `python3 tools/ship.py status --write`. CI fails if this file is stale.
 
 ## Counts
-- approved: 10
+- approved: 13
 - held: 4
 - legacy: 1
 
@@ -18,4 +18,16 @@ Do not edit by hand. Regenerate: `python3 tools/ship.py status --write`. CI fail
 
 ## Approved items that disagree with their pins
 
-- none
+- repo-poki-01: panel: panel file changed after approval
+- repo-superagent-01: panel: panel file changed after approval
+- repo-autoloop-01: panel: panel file changed after approval
+- repo-vork-01: panel: panel file changed after approval
+- repo-dshgo-01: panel: panel file changed after approval
+- repo-reavideo-01: panel: panel file changed after approval
+- repo-sand3d-01: panel: panel file changed after approval
+- repo-unslop-02: panel: panel file changed after approval
+- repo-ahsilence-01: panel: panel file changed after approval
+- repo-musike-01: panel: panel file changed after approval
+- repo-design-agent-01: panel: panel file changed after approval
+- tool-pika-flex-01: panel: panel file changed after approval
+- repo-modern-web-01: panel: panel file changed after approval

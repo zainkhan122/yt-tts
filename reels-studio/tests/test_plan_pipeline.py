@@ -16,7 +16,7 @@ import video_plan  # noqa: E402
 PLANS = sorted(ROOT.glob("videos/*/plan.json"))
 
 
-VID = "tool-seedance-01"   # retained current plan; archived plans are not test fixtures
+VID = "tool-claude-tokens-01"   # the live plan; archived plans are not test fixtures
 
 
 def _plan_path():

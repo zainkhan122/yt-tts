@@ -1,6 +1,6 @@
 {
- "built_at": "2026-11-14T16:18:43Z",
- "count": 108,
+ "built_at": "2026-11-14T17:46:24Z",
+ "count": 109,
  "schema": 1,
  "topics": {
   "agentautoloop": {
@@ -134,6 +134,19 @@
    ],
    "sources": [
     "briefs/tool-claude-tokens-01.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-claude-tokens-01"
+   ]
+  },
+  "claudetokensavers": {
+   "keys": [],
+   "names": [
+    "claude-token-savers"
+   ],
+   "sources": [
+    "videos/tool-claude-tokens-01/plan.json"
    ],
    "status": "covered",
    "videos": [

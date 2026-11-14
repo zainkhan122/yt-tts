@@ -99,7 +99,7 @@ def check(brief_path_or_text):
     Reads a path (str/Path) or a raw JSON text (str starting with "{").
     """
     text = str(brief_path_or_text)
-    b = json.loads(text) if text.lstrip().startswith("{") else json.loads(Path(text).read_text())
+    b = json.loads(text) if text.lstrip().startswith("{") else json.loads(Path(text).read_text(encoding="utf-8"))
     bid = b.get("id") or "?"
     seo = b.get("seo") or {}
     kws = [seo.get("keyword", "")] + seo.get("aliases", [])
