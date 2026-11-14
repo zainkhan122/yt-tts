@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "batch_id": "2026-11-06-modern-web",
-  "created_at": "2026-11-14T10:24:29Z",
+  "created_at": "2026-11-14T10:25:06Z",
   "briefs": {
     "repo-modern-web-01": {
-      "brief_sha256": "da51a24bf49e72f3b974c2ca12bc3b61803b46e8b24322d45602268aa39095a1",
-      "brief_identity_sha256": "d2d0d38c6c70d507f650230872093eb7fcd98eb7620200369339f892a6c813bb",
+      "brief_sha256": "b7700cae01437fb94857bc8c7964fbb739bdfcfc4c03c3a09c1ecc5bbf423c07",
+      "brief_identity_sha256": "09dab72550a5edf3271acbdb0de347b0cfdf9c6069966d2afcd09272a7ca48ec",
       "stages": {
         "script": {
           "status": "complete",
