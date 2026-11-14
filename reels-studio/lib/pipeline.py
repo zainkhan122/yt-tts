@@ -1148,6 +1148,20 @@ def loudnorm(inp, out, I=-14.0, TP=-1.5, LRA=11.0):
     return js
 
 
+
+def video_duration_seconds(mp4):
+    """Return a validated video duration, never raw CSV (which may contain commas/side data)."""
+    p = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
+                        "stream=duration", "-of", "json", str(mp4)], capture_output=True, text=True, check=True)
+    try:
+        streams = json.loads(p.stdout)["streams"]
+        value = float(streams[0]["duration"])
+        if not math.isfinite(value) or value <= 0:
+            raise ValueError("non-positive or non-finite duration")
+    except (KeyError, IndexError, TypeError, ValueError, json.JSONDecodeError) as exc:
+        raise ValueError(f"cannot determine valid video duration for {mp4}") from exc
+    return format(value, ".6f")
+
 def normalize_mp4_audio(mp4, I=-14.0, TP=-2.5, tol=0.5):
     # TP -2.5 (was -1.5): AAC encoding raises true peaks; rea render 2026-10-30 failed peak<=-1dBFS at -1.5 target
     """Final loudness guard: if the rendered MP4 is off target, limit + two-pass linear loudnorm the AUDIO only
@@ -1161,8 +1175,7 @@ def normalize_mp4_audio(mp4, I=-14.0, TP=-2.5, tol=0.5):
     js = json.loads(p.stderr[p.stderr.rfind("{"): p.stderr.rfind("}") + 1])
     af = (f"{lim},loudnorm=I={I}:TP={TP}:LRA=11:measured_I={js['input_i']}:measured_TP={js['input_tp']}"
           f":measured_LRA={js['input_lra']}:measured_thresh={js['input_thresh']}:offset={js['target_offset']}:linear=true")
-    vdur = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=duration", "-of", "csv=p=0",
-                           str(mp4)], capture_output=True, text=True).stdout.strip()
+    vdur = video_duration_seconds(mp4)
     tmp = Path(mp4).with_name(Path(mp4).stem + ".norm.mp4")
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(mp4), "-map", "0:v:0", "-map", "0:a:0", "-c:v", "copy", "-af", af,
                     "-ar", "48000", "-ac", "2", "-c:a", "aac", "-b:a", "192k"] + (["-t", vdur] if vdur else []) +
@@ -1181,8 +1194,7 @@ def _ceiling_peaks(mp4, ceiling_db=-1.8, passes=2):
         if pk is None or pk <= ceiling_db:
             return pk
         lin = 10 ** ((ceiling_db - 0.6) / 20)  # limiter ceiling 0.6 dB under the guard
-        vdur = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=duration",
-                               "-of", "csv=p=0", str(mp4)], capture_output=True, text=True).stdout.strip()
+        vdur = video_duration_seconds(mp4)
         tmp = Path(mp4).with_name(Path(mp4).stem + ".peak.mp4")
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(mp4), "-map", "0:v:0", "-map", "0:a:0", "-c:v", "copy",
                         "-af", f"alimiter=limit={lin:.4f}:attack=2:release=40:level=disabled",
