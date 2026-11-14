@@ -5,7 +5,9 @@ Owner rule (7 Nov 2026): a topic we have already scheduled or published is never
 radar skips it. Before this, `idea_feed.py` and `trend_radar.py` deduped only against their own output, so a
 tool that already had a brief could come back as a fresh idea — and did.
 
-The registry is derived, never typed: it is rebuilt from the things that actually exist.
+The registry is derived, never typed: it is rebuilt from the things that actually exist — and it
+is ADDITIVE. A rebuild never removes an entry, so deleting a brief or a plan cannot quietly
+un-cover a topic that was already made (or published). Coverage is permanent.
 
   briefs/<id>.json              a video in production (id + title + keywords + lexicon)
   videos/<id>/plan.json         the plan a brief was built from (tool, title, answer)
@@ -128,13 +130,55 @@ def collect() -> dict:
     return reg
 
 
+def _merge(existing: dict, fresh: dict) -> dict:
+    """Union the previous registry with the freshly collected one.
+
+    The rebuild is ADDITIVE on purpose. It used to overwrite the file with whatever still exists
+    on disk, so deleting a brief or a plan quietly un-covered its topic — and four published
+    shorts (repo-autoloop-01, repo-superagent-01, repo-poki-01, repo-vork-01) had already been
+    forgotten that way. A topic that was ever covered stays covered: the only cost of a stale
+    entry is that we do not make the same short twice, and that is the guarantee we owe.
+    """
+    out: dict = {}
+    for k, row in existing.items():
+        if not isinstance(row, dict):
+            continue
+        out[k] = {"keys": list(row.get("keys") or []),
+                  "names": list(row.get("names") or []),
+                  "status": row.get("status") or "covered",
+                  "sources": list(row.get("sources") or []),
+                  "videos": list(row.get("videos") or [])}
+    for k, row in fresh.items():
+        if k not in out:
+            out[k] = dict(row)
+            continue
+        old = out[k]
+        for field in ("names", "sources", "videos", "keys"):
+            for item in row.get(field) or []:
+                if item not in old[field]:
+                    old[field].append(item)
+        if row.get("status") == "covered":
+            old["status"] = "covered"
+    return out
+
+
 def rebuild() -> dict:
-    reg = collect()
+    reg = _merge(load_raw(), collect())
     REGISTRY.parent.mkdir(parents=True, exist_ok=True)
     REGISTRY.write_text(json.dumps({"schema": 1, "built_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                                     "count": len(reg), "topics": reg}, indent=1, sort_keys=True) + "\n",
                         encoding="utf-8")
     return reg
+
+
+def load_raw() -> dict:
+    """The registry's topic rows, without triggering a rebuild."""
+    if not REGISTRY.exists():
+        return {}
+    try:
+        return json.loads(REGISTRY.read_text(encoding="utf-8")).get("topics") or {}
+    except Exception:
+        return {}
 
 
 def load() -> dict:

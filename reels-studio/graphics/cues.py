@@ -124,15 +124,21 @@ def _seq_match(text: str, words: list[list], lo: float, hi: float, not_before: f
 
 
 def _bind_items(items: list[str], words: list[list], t0: float, t1: float, d: float, fallback: list[str],
-                prefix: str) -> list[float]:
-    """Bind each item to its own spoken phrase, in order; unmatched items get an even spread (recorded)."""
+                prefix: str, lead: bool = False) -> list[float]:
+    """Bind each item to its own spoken phrase, in order; unmatched items get an even spread (recorded).
+
+    With `lead`, item 0's display time is the scene's first frame — the chain that spacing is measured
+    against starts there too, so the rest of the scene spreads from the open instead of from a late
+    word the first item happened to match (that bunched every later bar into the scene's last second)."""
     cues: list[float] = []
     last = None
     for i, text in enumerate(items):
-        c = _seq_match(text, words, t0, t1, not_before=last)
+        c = _seq_match(text, words, t0, t1, not_before=None if i == 0 else last)
         if c is None:
             fallback.append(f"{prefix}{i}")
-            c = t0 + 0.18 + i * (d * 0.55 / max(1, len(items)))
+            c = t0 + 0.18 + i * (d * 0.7 / max(1, len(items)))
+        if i == 0 and lead and c > t0 + 0.10:
+            c = t0 + 0.10  # clamp BEFORE it becomes the anchor the rest of the scene spreads from
         c = round(c, 3)
         if last is not None and c <= last:  # two items never fire on the same frame
             c = round(last + 0.35, 3)
@@ -141,11 +147,42 @@ def _bind_items(items: list[str], words: list[list], t0: float, t1: float, d: fl
     return cues
 
 
-def _lead(cues: list[float], t0: float, lead: float = 0.10) -> list[float]:
-    """The first item is on screen when the scene opens; the rest stay bound to their own words."""
-    if cues and cues[0] > t0 + lead:
-        cues = [round(t0 + lead, 3)] + list(cues[1:])
-    return cues
+def _items_for(arch: str, payload: dict) -> list[str]:
+    """The ordered items a scene reveals one at a time, and the words that name them.
+
+    The order matters: the engine shows item i when cue i fires, so this list must be in the same
+    order the engine draws them.
+    """
+    p = payload or {}
+    if arch == "stage_board":
+        out = []
+        for prop in (p.get("props") or []):
+            out.append(str(prop.get("label") or prop.get("title") or prop.get("note") or ""))
+        for n in (p.get("notes") or []):
+            out.append(str(n.get("label") or ""))
+        return out
+    if arch in ("chart_bars", "chart_line"):
+        return [str(x) for x in (p.get("labels") or [])]
+    if arch == "chart_donut":
+        return [str((x or {}).get("label") or "") for x in (p.get("segments") or [])]
+    if arch == "compare_split":
+        out = []
+        for side in ("left", "right"):
+            for it in ((p.get(side) or {}).get("items") or []):
+                out.append(str(it))
+        return out
+    if arch == "verdict_pair":
+        return [str(x) for x in (p.get("pros") or [])] + [str(x) for x in (p.get("cons") or [])]
+    if arch == "app_mock":
+        return [str((x or {}).get("label") or "") for x in (p.get("cards") or [])]
+    if arch == "steps_path":
+        out = []
+        for st in (p.get("steps") or []):
+            out.append(str(st.get("title") if isinstance(st, dict) else st))
+        return out
+    if arch == "spec_strip":
+        return [str((x or {}).get("label") or "") for x in (p.get("items") or [])]
+    return []
 
 
 def compute(scene: dict, words: list[list], t0: float, t1: float, cue_word: str | None = None) -> dict:
@@ -183,7 +220,7 @@ def compute(scene: dict, words: list[list], t0: float, t1: float, cue_word: str 
             phrases = list(phrases) + items[len(phrases):]
         elif len(phrases) > len(items):
             phrases = list(phrases[:len(items)])
-        cues = _lead(_bind_items(phrases, words, t0, t1, d, fallback, "item"), t0)
+        cues = _bind_items(phrases, words, t0, t1, d, fallback, "item", lead=True)
         icons = [icon_for(text) for text in items]
         cue = cues[0] if cues else t0 + 0.15
     elif arch == "terminal_type":
@@ -195,7 +232,7 @@ def compute(scene: dict, words: list[list], t0: float, t1: float, cue_word: str 
             phrases = list(phrases) + lines[len(phrases):]
         elif len(phrases) > len(lines):
             phrases = list(phrases[:len(lines)])
-        cues = _bind_items(phrases, words, t0, t1, d, fallback, "line")
+        cues = _bind_items(phrases, words, t0, t1, d, fallback, "line", lead=True)
         cue = cues[0] if cues else t0 + 0.15
     elif arch == "stat_pop":
         c = None
@@ -207,11 +244,41 @@ def compute(scene: dict, words: list[list], t0: float, t1: float, cue_word: str 
             fallback.append("stat")
             c = t0 + 0.2
         cue = c
-    else:  # concept_card, endcard
+    elif arch in ("stage_board", "chart_bars", "chart_line", "chart_donut", "compare_split",
+                  "verdict_pair", "app_mock", "steps_path", "spec_strip"):
+        # The house library: one cue per item, bound to the spoken word that names it.
+        items = _items_for(arch, payload)
+        phrases = payload.get("cue_phrases") if isinstance(payload.get("cue_phrases"), list) else None
+        if phrases:
+            if len(phrases) < len(items):
+                phrases = list(phrases) + items[len(phrases):]
+            else:
+                phrases = list(phrases[:len(items)])
+        else:
+            phrases = items
+        if items:
+            cues = _bind_items(phrases, words, t0, t1, d, fallback, "item", lead=True)
+            if arch == "stage_board":
+                icons = [icon_for(str((p or {}).get("label") or (p or {}).get("title") or ""))
+                         for p in (payload.get("props") or [])]
+            elif arch == "steps_path":
+                icons = []
+            cue = cues[0] if cues else t0 + 0.15
+        else:
+            c = _first_match(cue_word or "", words, t0, t1)
+            if c is None:
+                fallback.append("concept")
+                c = t0 + 0.12
+            cue = c
+            cues = [round(float(c), 3)]
+    else:  # concept_card, stamp_card, quote_block
         c = _first_match(cue_word or payload.get("big", ""), words, t0, t1) if (cue_word or payload.get("big")) else None
+        if c is None:
+            c = _first_match(payload.get("stamp") or payload.get("quote") or "", words, t0, t1)
         if c is None:
             fallback.append("concept")
             c = t0 + 0.12
         cue = c
+        cues = [round(float(c), 3)]
 
     return {"cue": round(float(cue), 3), "cues": cues, "icons": icons, "fallback": fallback}

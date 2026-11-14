@@ -1,0 +1,415 @@
+/* shared.css — the house style layer. Prepended to EVERY template by render.build_stage_html.
+ *
+ * It carries three things and nothing else:
+ *   1. the channel fonts (Anton / Inter / JetBrains Mono / Noto Nastaliq Urdu), loaded from the
+ *      fonts/ folder that render.py stages next to stage.html;
+ *   2. the plate system — a scene's mood (paper / ink / slate / dots / deep) expressed as CSS
+ *      variables so any template can repaint itself;
+ *   3. the print texture — halftone, film grain, vignette.
+ *
+ * The templates own their layout; this file owns the voice.
+ */
+@font-face { font-family: "Inter"; src: url("fonts/Inter.ttf") format("truetype"); font-weight: 100 900; font-display: block; }
+@font-face { font-family: "Anton"; src: url("fonts/Anton.ttf") format("truetype"); font-weight: 400; font-display: block; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono.ttf") format("truetype"); font-weight: 400 800; font-display: block; }
+@font-face { font-family: "Noto Nastaliq Urdu"; src: url("fonts/NotoNastaliqUrdu.ttf") format("truetype"); font-weight: 400 700; font-display: block; }
+
+:root {
+  --plate-bg: #0C0E13;
+  --plate-ink: #F5F5F0;
+  --plate-mute: #9AA6B8;
+  --plate-line: #2A3140;
+  --plate-accent: #FFD60A;
+  --plate-accent2: #38BDF8;
+  --plate-card: #141925;
+  --plate-soft: #1A2030;
+  --plate-grain: 0.10;
+  --plate-dots: 0;
+}
+
+/* ---------------------------------------------------------------- typography */
+:root {
+  --sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --display: "Anton", "Inter", Impact, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --urdu: "Noto Nastaliq Urdu", "Noto Naskh Arabic", serif;
+}
+
+/* The house statement: sentence case, tight, heavy grotesk. NOT all caps — all caps is the
+ * generic-AI-short look the reference reels deliberately avoid. */
+.house-display {
+  font-family: var(--sans);
+  font-weight: 800;
+  letter-spacing: -0.028em;
+  line-height: 1.04;
+  color: var(--plate-ink);
+}
+.house-display .em {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--plate-accent);
+}
+.house-display .kw {
+  color: var(--plate-accent);
+}
+
+/* ---------------------------------------------------------------- plates */
+#stage {
+  background: var(--plate-bg);
+  color: var(--plate-ink);
+  font-family: var(--sans);
+}
+#plate-dots {
+  position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  opacity: var(--plate-dots);
+  background-image: radial-gradient(circle, var(--plate-line) 1.6px, transparent 1.9px);
+  background-size: 26px 26px;
+}
+#grid {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(127,127,127,0.16) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(127,127,127,0.16) 2px, transparent 2px);
+  background-size: 72px 72px;
+}
+
+/* ---------------------------------------------------------------- print texture */
+#postfx { position: absolute; inset: 0; pointer-events: none; z-index: 2000; }
+#postfx .htone { position: absolute; inset: 0; opacity: var(--plate-grain);
+  background-image: radial-gradient(circle, #FFFFFF 0.9px, rgba(255,255,255,0) 1.4px);
+  background-size: 7px 7px; mix-blend-mode: overlay; }
+#postfx .grain { position: absolute; inset: -120px; opacity: 0.26; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 240px 240px; }
+#postfx .vign { position: absolute; inset: 0; opacity: 0.42;
+  background: radial-gradient(120% 90% at 50% 42%, rgba(0,0,0,0) 62%, rgba(0,0,0,0.30) 100%); }
+
+/* ---------------------------------------------------------------- ambient life */
+/* The travelling sheen and the dust field (house.js HOUSE.ambient). They sit above the artwork
+ * and below the film postfx, so the picture is lit rather than decorated. */
+.house-sheen {
+  position: absolute; top: -700px; left: 0; width: 460px; height: 3400px;
+  pointer-events: none; z-index: 600;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, var(--house-sheen, rgba(255,255,255,0.10)) 45%,
+              var(--house-sheen, rgba(255,255,255,0.10)) 55%, rgba(255,255,255,0) 100%);
+  transform-origin: 50% 50%;
+}
+.house-dust { position: absolute; inset: 0; pointer-events: none; z-index: 700; overflow: hidden; }
+.house-mote {
+  position: absolute; top: 0; left: 0; border-radius: 50%;
+  background: var(--plate-ink); box-shadow: 0 0 10px rgba(255,255,255,0.25);
+}
+
+/* ================================================================ HOUSE LAYOUT
+ * The layout for the shared house archetypes (board, charts, comparator, verdict,
+ * app mock, steps path, stamps, spec strip, quote) and the prop library.
+ * It lives here so every template can draw them; a template's own stage.css is
+ * concatenated AFTER this file, so its rules still win where they overlap.
+ */
+/* ================================================================ HOUSE LIBRARY
+ * The shared archetypes (house.js). The look here is the reference look: off-white printed cards
+ * with a hard offset shadow, monospace labels, and one accent colour doing all the work.
+ */
+.board { position: relative; width: 960px; height: 900px; }
+.board-bg { position: absolute; inset: 0; }
+.board-cable { position: absolute; left: 50%; top: 0; width: 4px; height: 0; transform: translateX(-50%);
+  border-radius: 2px; opacity: 0; pointer-events: none;
+  background: repeating-linear-gradient(180deg, var(--plate-ink) 0 10px, transparent 10px 20px); }
+.prop { position: absolute; }
+
+/* --- prop: card (off-white printed card with a hard offset shadow) --- */
+.p-card { width: 100%; height: 100%; box-sizing: border-box; background: var(--plate-card);
+  border: 4px solid var(--plate-ink); border-radius: 18px; box-shadow: 10px 10px 0 var(--plate-ink);
+  padding: 24px 26px; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
+.p-card-t { font-size: 34px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.15; color: var(--plate-ink); }
+.p-card-v { font-size: 40px; font-weight: 800; letter-spacing: -0.03em; color: var(--pc-accent, var(--plate-accent)); }
+.p-card-n { font-family: var(--mono); font-size: 22px; color: var(--plate-mute); }
+
+/* --- prop: window (a fabricated app / browser window) --- */
+.p-window { width: 100%; height: 100%; box-sizing: border-box; border-radius: 16px; overflow: hidden;
+  background: #16181D; border: 4px solid var(--plate-ink); box-shadow: 10px 10px 0 var(--plate-ink); }
+.p-titlebar { height: 52px; flex: 0 0 52px; background: #23262D; display: flex; align-items: center; gap: 10px; padding: 0 16px; }
+.p-tb-dot { width: 16px; height: 16px; border-radius: 50%; display: inline-block; flex: 0 0 auto; }
+.p-titlebar-t { margin-left: 10px; font-family: var(--mono); font-size: 21px; color: #9AA3B2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.p-win-b { flex: 1; min-height: 0; padding: 16px 20px; display: flex; flex-direction: column; gap: 9px; overflow: hidden; }
+.p-row { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 21px; color: #C9D1DC;
+  background: rgba(255,255,255,0.06); border-radius: 8px; padding: 8px 12px; }
+.p-row.on { background: rgba(255,255,255,0.14); }
+.p-row-k { opacity: 0.8; } .p-row-v { color: #FFD60A; font-weight: 700; }
+.p-input { margin-top: auto; display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.06);
+  border-radius: 8px; padding: 10px 12px; font-size: 21px; color: #E6EDF3; font-family: var(--sans); }
+.p-caret-b { width: 3px; height: 22px; background: #FFD60A; display: inline-block; }
+
+/* --- prop: panel (console device with an icon grid) --- */
+.p-panel { width: 100%; height: 100%; box-sizing: border-box; background: var(--plate-card);
+  border: 4px solid var(--plate-ink); border-radius: 18px; box-shadow: 10px 10px 0 var(--plate-ink);
+  padding: 16px 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; }
+.p-panel-h { display: flex; justify-content: space-between; align-items: baseline; }
+.p-panel-t { font-size: 24px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+.p-panel-v { font-size: 30px; font-weight: 800; color: var(--plate-accent); }
+.p-panel-cam { align-self: center; width: 90px; height: 26px; background: var(--plate-ink); border-radius: 8px 8px 4px 4px;
+  position: relative; }
+.p-panel-cam::after { content: ""; position: absolute; left: 50%; top: 5px; transform: translateX(-50%);
+  width: 20px; height: 16px; border-radius: 50%; background: var(--plate-mute); }
+.p-icons { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; align-content: center; flex: 1; }
+.p-icon { flex: 0 0 auto; width: auto; display: flex; justify-content: center; }
+.p-icon-g { width: 42px; height: 42px; background: var(--plate-ink); }
+.p-icon-g.hot { background: var(--plate-accent); }
+
+/* --- prop: matrix (a dot matrix of many small things) --- */
+.p-matrix { width: 100%; height: 100%; display: flex; flex-wrap: wrap; align-content: flex-start; gap: 7px;
+  padding: 10px; box-sizing: border-box; }
+.p-dot { width: 14px; height: 14px; border-radius: 3px; background: var(--plate-line); }
+.p-dot.hot { background: var(--plate-accent); }
+.p-dot.warm { background: var(--plate-accent2); }
+.p-matrix-l { width: 100%; font-family: var(--mono); font-size: 22px; color: var(--plate-mute); margin-top: 6px; }
+
+/* --- prop: stack (isometric layers) --- */
+.p-stack { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.p-layer { width: 62%; height: 16px; margin-bottom: 3px; border-radius: 3px;
+  transform: skewX(-24deg) translateX(calc(var(--lz) * -1px)); box-shadow: 3px 3px 0 rgba(0,0,0,0.22); }
+.p-stack-l { font-family: var(--mono); font-size: 22px; color: var(--plate-mute); margin-top: 12px; }
+
+/* --- prop: gauge --- */
+.p-gauge { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.p-gauge-s { width: 220px; height: 220px; }
+.p-gauge-v { position: absolute; font-size: 46px; font-weight: 800; letter-spacing: -0.03em; }
+.p-gauge-l { font-family: var(--mono); font-size: 20px; color: var(--plate-mute); }
+
+/* --- prop: note (a small printed label with a tick) --- */
+.p-note { display: inline-flex; align-items: center; gap: 8px; background: var(--plate-card);
+  border: 3px solid var(--plate-ink); border-radius: 12px; padding: 8px 14px; box-shadow: 6px 6px 0 var(--plate-ink);
+  width: 100%; box-sizing: border-box; }
+.p-note-c { color: var(--plate-accent); font-weight: 800; font-size: 22px; }
+.p-note-t { font-family: var(--mono); font-size: 26px; font-weight: 600; letter-spacing: -0.01em; }
+
+/* --- prop: stamp (a rubber stamp) --- */
+.p-stamp { width: 100%; }
+.p-stamp-in { display: inline-block; border: 6px solid var(--ps-accent, var(--plate-accent)); border-radius: 12px;
+  padding: 10px 22px; transform: rotate(-7deg); opacity: 0.95; }
+.p-stamp-t { font-size: 42px; font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase;
+  color: var(--ps-accent, var(--plate-accent)); line-height: 1; }
+.p-stamp-n { font-family: var(--mono); font-size: 20px; color: var(--ps-accent, var(--plate-accent)); margin-top: 4px; }
+
+/* --- prop: folder --- */
+.p-folder { width: 100%; height: 100%; box-sizing: border-box; }
+.p-folder-tab { display: inline-block; background: #D9C08A; border: 4px solid var(--plate-ink); border-bottom: none;
+  border-radius: 10px 10px 0 0; padding: 6px 22px; font-family: var(--mono); font-size: 20px; font-weight: 700; }
+.p-folder-b { width: 100%; height: calc(100% - 34px); box-sizing: border-box; background: #E8D4A6;
+  border: 4px solid var(--plate-ink); border-radius: 0 14px 14px 14px; padding: 18px 22px;
+  display: flex; flex-direction: column; justify-content: center; gap: 4px; box-shadow: 10px 10px 0 var(--plate-ink); }
+.p-folder-l { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; }
+.p-folder-n { font-family: var(--mono); font-size: 20px; opacity: 0.75; }
+
+/* --- prop: scale --- */
+.p-scale { width: 100%; height: 100%; position: relative; display: flex; align-items: flex-end; justify-content: center; }
+.p-scale-s { width: 300px; height: 275px; }
+.p-scale-l, .p-scale-r { position: absolute; bottom: 10px; font-size: 30px; font-weight: 800; }
+
+/* --- prop: spark --- */
+.p-spark { width: 100%; height: 100%; box-sizing: border-box; background: var(--plate-card); border: 4px solid var(--plate-ink);
+  border-radius: 16px; padding: 16px; box-shadow: 10px 10px 0 var(--plate-ink); }
+.p-spark-s { width: 100%; height: auto; }
+.p-spark-l { font-family: var(--mono); font-size: 20px; color: var(--plate-mute); margin-top: 6px; }
+
+/* --- prop: bar --- */
+.p-bar { width: 100%; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
+.p-bar-l { font-size: 26px; font-weight: 700; }
+.p-bar-t { width: 100%; height: 34px; border-radius: 17px; background: var(--plate-soft); overflow: hidden; }
+.p-bar-f { height: 100%; width: calc(var(--pv) * 100%); border-radius: 17px; transform-origin: 0 50%; transform: scaleX(0); }
+.p-bar-n { font-family: var(--mono); font-size: 20px; color: var(--plate-mute); }
+
+/* --- prop: cells (a grid of little illustrated people) --- */
+.p-cells { width: 100%; height: 100%; display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; }
+.p-cell { width: calc(25% - 6px); height: calc(33.3% - 6px); box-sizing: border-box; background: var(--plate-card);
+  border: 3px solid var(--plate-ink); border-radius: 10px; position: relative; }
+.p-cell-av { position: absolute; left: 50%; top: 22%; transform: translateX(-50%); width: 60%; height: 58%; }
+.p-cell-h { width: 70%; height: 34%; margin: 0 auto; background: #241E1A; border-radius: 50% 50% 40% 40%; }
+.p-cell-b { width: 46%; height: 56%; margin: 0 auto; background: #C98A5B; border-radius: 40% 40% 46% 46%; }
+.p-cell-r { position: absolute; left: 10px; right: 10px; bottom: 8px; height: 6px; border-radius: 3px; background: var(--plate-line); }
+.p-cell-m { position: absolute; right: -8px; top: -10px; background: var(--plate-accent); color: var(--plate-bg);
+  font-size: 18px; font-weight: 800; border-radius: 8px; padding: 2px 7px; border: 2px solid var(--plate-ink); }
+
+/* --- prop: envelope --- */
+.p-env { width: 100%; height: 100%; position: relative; display: flex; align-items: center; justify-content: center; }
+.p-env-b { width: 82%; height: 62%; background: #FBF7EE; border: 4px solid var(--plate-ink); border-radius: 8px;
+  box-shadow: 8px 8px 0 var(--plate-ink); position: relative; }
+.p-env-f { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.p-env-s { width: 54px; height: 54px; border-radius: 50%; background: var(--plate-accent); color: #fff;
+  display: flex; align-items: center; justify-content: center; font-size: 26px; }
+.p-env-l { position: absolute; bottom: 8px; font-family: var(--mono); font-size: 20px; color: var(--plate-mute); }
+
+/* --- prop: machine --- */
+.p-machine { width: 100%; height: 100%; box-sizing: border-box; background: #D9C08A; border: 4px solid var(--plate-ink);
+  border-radius: 14px; box-shadow: 10px 10px 0 var(--plate-ink); padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.p-machine-t { font-family: var(--mono); font-size: 20px; font-weight: 700; }
+.p-machine-b { flex: 1; display: flex; gap: 8px; align-items: stretch; }
+.p-slot { flex: 1; background: #FBF7EE; border: 3px solid var(--plate-ink); border-radius: 8px;
+  display: flex; align-items: flex-end; justify-content: center; padding: 6px; }
+.p-slot-l { font-family: var(--mono); font-size: 18px; font-weight: 700; }
+.p-machine-n { font-family: var(--mono); font-size: 19px; }
+
+/* ---------------------------------------------------------------- charts */
+/* A chart fills the visual band: the plot takes the height, the caption and the source sit under
+ * it. A 640px chart floating at the top of a 930px band leaves a dead strip under the picture. */
+.chart { width: 960px; position: relative; display: flex; flex-direction: column;
+  flex: 1 1 auto; min-height: 0; }
+.ch-plot { position: relative; flex: 1 1 auto; min-height: 0; display: flex; align-items: stretch; }
+.ch-grid { position: absolute; left: 0; right: 0; top: 0; bottom: 44px; }
+.ch-gl { position: absolute; left: 0; right: 0; height: 2px; background: var(--plate-line); opacity: 0.28; }
+.ch-row { position: relative; display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 14px; width: 100%; height: 100%; }
+.ch-bar-wrap { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
+.ch-track { position: relative; width: 100%; flex: 1; display: flex; align-items: flex-end; justify-content: center; }
+.ch-fill { width: 72%; height: 100%; border-radius: 14px 14px 0 0; transform-origin: 50% 100%; transform: scaleY(0);
+  box-shadow: 0 -6px 24px rgba(0,0,0,0.18); }
+.ch-val { position: absolute; left: 50%; transform: translate(-50%, 0); font-size: 28px; font-weight: 800;
+  letter-spacing: -0.02em; white-space: nowrap; margin-bottom: 10px; }
+.ch-lab { font-size: 22px; font-weight: 700; margin-top: 12px; text-align: center; line-height: 1.1;
+  max-width: 100%; color: var(--plate-ink); }
+.ch-cap { margin-top: 26px; font-size: 28px; font-weight: 700; color: var(--plate-mute); text-align: center; }
+.ch-src { margin-top: 6px; font-family: var(--mono); font-size: 19px; color: var(--plate-mute); opacity: 0.7; text-align: center; }
+.ch-svg { width: 100%; height: auto; }
+.chart-line { justify-content: flex-start; }
+.ch-plot .ch-svg { width: 100%; height: 100%; }
+.chart-donut { align-items: center; justify-content: center; }
+.ch-donut { width: 440px; height: 440px; }
+.ch-donut-c { position: absolute; top: 190px; left: 0; right: 0; text-align: center; }
+.ch-donut-v { font-size: 74px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+.ch-donut-l { font-family: var(--mono); font-size: 21px; color: var(--plate-mute); margin-top: 6px; }
+.ch-legend { margin-top: 18px; display: flex; flex-direction: column; gap: 10px; width: 620px; }
+.ch-leg { display: flex; align-items: center; gap: 14px; font-size: 26px; }
+.ch-leg-s { width: 20px; height: 20px; border-radius: 5px; flex: 0 0 auto; }
+.ch-leg-t { flex: 1; font-weight: 600; }
+.ch-leg-v { font-weight: 800; font-variant-numeric: tabular-nums; }
+
+/* ---------------------------------------------------------------- compare */
+/* The comparator centres itself in the visual band and its columns share one height, so the
+ * A and the B line up like two printed columns instead of two floating cards. */
+.compare { width: 960px; display: flex; flex-direction: column; gap: 14px; position: relative;
+  flex: 1 1 auto; min-height: 0; justify-content: center; }
+.cmp-row2 { position: relative; display: flex; gap: 26px; align-items: stretch; }
+.cmp-col { flex: 1; border-radius: 20px; border: 4px solid var(--plate-ink); background: var(--plate-card);
+  padding: 22px 22px; box-shadow: 9px 9px 0 var(--plate-ink); overflow: hidden; }
+.cmp-left { background: var(--plate-soft); }
+.cmp-h { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; }
+.cmp-list { display: flex; flex-direction: column; gap: 12px; }
+.cmp-row { display: flex; gap: 12px; align-items: flex-start; font-size: 27px; font-weight: 600; line-height: 1.2; }
+.cmp-ic { font-weight: 800; color: var(--plate-accent); }
+.cmp-right .cmp-ic { color: #2FA55A; }
+.cmp-div { position: absolute; left: 50%; top: -12px; bottom: -12px; width: 6px; margin-left: -3px;
+  background: var(--plate-accent); border-radius: 3px; }
+.cmp-cap { font-size: 28px; font-weight: 700; color: var(--plate-mute); text-align: center; }
+
+/* ---------------------------------------------------------------- verdict */
+/* Both cards split the whole visual band: a short headline would otherwise leave a dead strip
+ * between the statement and the panels. Content is centred inside each card. */
+.verdict { width: 960px; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column;
+  justify-content: stretch; gap: 26px; }
+.vd-card { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center;
+  border-radius: 20px; border: 4px solid var(--plate-ink); padding: 26px 30px;
+  box-shadow: 9px 9px 0 var(--plate-ink); }
+.vd-pros { background: #E4F3E8; }
+.vd-cons { background: #FBE6D8; }
+.vd-h { font-size: 42px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 20px; color: #14161F; }
+.vd-list { display: flex; flex-direction: column; gap: 16px; }
+.vd-row { display: flex; gap: 14px; align-items: flex-start; font-size: 34px; font-weight: 600; line-height: 1.22; color: #14161F; }
+.vd-ic { font-weight: 800; }
+
+/* ---------------------------------------------------------------- app mock */
+.app { width: 960px; height: 760px; position: relative; }
+.app-win { width: 100%; height: 100%; border-radius: 18px; overflow: hidden; background: #14161A;
+  border: 4px solid var(--plate-ink); box-shadow: 12px 12px 0 var(--plate-ink); display: flex; flex-direction: column; }
+.app-bar { height: 62px; background: #202329; display: flex; align-items: center; gap: 10px; padding: 0 18px; }
+.app-dot { width: 17px; height: 17px; border-radius: 50%; }
+.app-tabs { margin-left: 24px; display: flex; gap: 8px; }
+.app-tab { font-size: 22px; font-weight: 700; color: #8E97A6; padding: 6px 16px; border-radius: 9px; }
+.app-tab.on { background: rgba(255,255,255,0.12); color: #FFFFFF; }
+.app-body { flex: 1; display: flex; min-height: 0; }
+.app-side { width: 240px; background: #191B20; padding: 18px 16px; border-right: 3px solid #26292F; }
+.app-side-h { font-family: var(--mono); font-size: 18px; color: #7D8695; margin-bottom: 12px; }
+.app-side-i { font-size: 22px; font-weight: 600; color: #AEB6C2; padding: 8px 12px; border-radius: 9px; margin-bottom: 4px; }
+.app-side-i.on { background: rgba(255,255,255,0.08); color: #FFFFFF; }
+.app-main { flex: 1; padding: 22px; display: flex; flex-direction: column; gap: 16px; }
+.app-cards { display: flex; gap: 14px; }
+.app-card { flex: 1; background: #202329; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+.app-card-g { font-size: 40px; line-height: 1; color: #E6EBF2; }
+.app-card-t { font-size: 23px; font-weight: 700; color: #E6EBF2; }
+.app-card-v { font-family: var(--mono); font-size: 20px; color: #FFD60A; }
+.app-rows { display: flex; flex-direction: column; gap: 8px; }
+.app-row { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 21px; color: #C3CAD4;
+  background: rgba(255,255,255,0.04); padding: 10px 14px; border-radius: 9px; }
+.app-row-v { color: #7FD3F7; }
+/* the posted review: an avatar, a handle line and the comment itself, on a raised panel */
+.app-comment { background: #262A32; border: 2px solid #343A45; border-radius: 14px; padding: 16px 18px;
+  display: flex; flex-direction: column; gap: 10px; justify-content: center; }
+/* with a comment in the panel the bubble eats the slack the input used to float away from,
+ * so the mock's body has no dead rectangle in it */
+.app-main.has-comment .app-input { margin-top: 0; }
+.app-main.has-comment .app-comment { flex: 1 1 auto; }
+.app-comment-h { display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 20px;
+  color: #9AA6B8; }
+.app-comment-a { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, #FE297D, #38BDF8);
+  flex: 0 0 auto; }
+.app-comment-tag { margin-left: auto; background: rgba(127, 211, 247, 0.16); color: #7FD3F7; font-size: 17px;
+  padding: 3px 10px; border-radius: 999px; }
+.app-comment-t { font-size: 25px; line-height: 1.3; color: #E6EBF2; font-weight: 600; }
+.app-comment-caret { display: inline-block; width: 3px; height: 24px; margin-left: 5px; vertical-align: -4px;
+  background: #7FD3F7; opacity: 0; }
+/* No CSS keyframes on this stage: the caret's phase is written by the engine from t, so every frame
+ * of the render is reproducible (a wall-clock animation would blink differently on each pass). */
+.app-input { margin-top: auto; display: flex; align-items: center; gap: 12px; background: #202329;
+  border-radius: 12px; padding: 14px 18px; font-size: 24px; color: #E6EBF2; }
+.app-input-t { flex: 1; }
+.app-send { width: 44px; height: 44px; border-radius: 50%; background: #F08A3C; display: flex; align-items: center; justify-content: center; }
+.app-send::after { content: "↑"; color: #fff; font-size: 24px; font-weight: 800; }
+.app-badge { position: absolute; right: -26px; top: -26px; background: var(--plate-accent); color: var(--plate-bg);
+  font-family: var(--mono); font-size: 20px; font-weight: 700; padding: 8px 14px; border-radius: 10px;
+  border: 3px solid var(--plate-ink); transform: rotate(4deg); }
+
+/* ---------------------------------------------------------------- steps path */
+.spath { width: 960px; position: relative; display: flex; flex-direction: column; gap: 18px; padding-left: 30px; }
+.spath-rail { position: absolute; left: 14px; top: 26px; bottom: 26px; width: 6px; background: var(--plate-line); border-radius: 3px; }
+.spath-rail-f { width: 100%; height: 100%; background: var(--plate-accent); border-radius: 3px; transform-origin: 50% 0; transform: scaleY(0); }
+.spath-row { display: flex; align-items: center; gap: 24px; }
+.spath-n { width: 76px; height: 76px; border-radius: 50%; background: var(--plate-soft); color: var(--plate-mute);
+  display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 28px; font-weight: 800; flex: 0 0 auto; }
+.spath-b { flex: 1; }
+.spath-t { font-size: 38px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+.spath-n2 { font-family: var(--mono); font-size: 22px; color: var(--plate-mute); margin-top: 4px; }
+.spath-cap { margin-top: 10px; font-size: 28px; font-weight: 700; color: var(--plate-mute); text-align: center; }
+
+/* ---------------------------------------------------------------- stamp card */
+.stampcard { width: 960px; height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; }
+.sc-card { position: relative; width: 720px; min-height: 300px; border-radius: 24px; background: var(--plate-card);
+  border: 4px solid var(--plate-ink); box-shadow: 12px 12px 0 var(--plate-ink); padding: 40px; display: flex;
+  flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
+.sc-sub { font-size: 40px; font-weight: 800; letter-spacing: -0.03em; text-align: center; }
+.sc-stamp { border: 8px solid var(--ps-accent, var(--plate-accent)); border-radius: 16px; padding: 14px 34px; transform: rotate(-8deg); }
+.sc-stamp-t { font-size: 66px; font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase; color: var(--ps-accent, var(--plate-accent)); line-height: 1; }
+.sc-note { font-family: var(--mono); font-size: 24px; color: var(--plate-mute); text-align: center; }
+
+/* ---------------------------------------------------------------- spec strip */
+.specs { width: 960px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 18px; justify-content: center; align-items: stretch; }
+.spec { background: var(--plate-card); border: 4px solid var(--plate-ink);
+  border-radius: 18px; box-shadow: 8px 8px 0 var(--plate-ink); padding: 24px 22px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.spec-v { font-size: 46px; font-weight: 800; letter-spacing: -0.04em; color: var(--plate-accent); line-height: 1; }
+.spec-l { font-family: var(--mono); font-size: 21px; color: var(--plate-mute); }
+.spec-cap { grid-column: 1 / -1; text-align: center; font-size: 28px; font-weight: 700; color: var(--plate-mute); margin-top: 4px; }
+
+/* ---------------------------------------------------------------- quote */
+.quoteblock { width: 900px; padding: 40px 44px; position: relative; }
+.qb-mark { position: absolute; left: 0; top: -20px; font-family: Georgia, serif; font-size: 150px; line-height: 1;
+  color: var(--plate-accent); opacity: 0.35; }
+.qb-text { font-size: 48px; font-weight: 700; line-height: 1.22; letter-spacing: -0.02em; position: relative; }
+.qb-attrib { margin-top: 22px; font-family: var(--mono); font-size: 24px; color: var(--plate-mute); }
+
+/* three-node flows and long concept titles fit the 1080 frame */
+.flow-3 .node { width: 292px; height: 270px; }
+.flow-3 .node-t { font-size: 38px; }
+.flow-3 .node-ic { width: 104px; height: 104px; }
+.flow-3 .conn { width: 56px; }
+.flow-3 .conn-svg { width: 56px; }

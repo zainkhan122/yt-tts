@@ -58,3 +58,39 @@ def close_gaps(phrases: list[dict], total_s: float) -> list[dict]:
         p["t0"] = 0.0 if i == 0 else out[i - 1]["t1"]
         p["t1"] = out[i + 1]["t0"] if i + 1 < len(out) else round(total_s, 3)
     return out
+
+
+def phrases_for_scenes(words: list[list], scenes: list[dict], *, gap_s: float = 0.40) -> list[dict]:
+    """One phrase per scene, split on the pauses in the voice track.
+
+    This is the rule the production adapter uses (one brief scene per spoken phrase) and the rule
+    the preview harness uses. It lives here so the CLI, the preview tool and the pipeline cannot
+    drift apart: a beat plan is always linted against the SAME segmentation it will be rendered
+    with. When the track has no usable pauses (no real TTS timings yet) the words are split evenly.
+    """
+    n = len(scenes)
+    if not words or n <= 0:
+        return []
+    chunks: list[list[list]] = [[words[0]]]
+    for i in range(1, len(words)):
+        if float(words[i][1]) - float(words[i - 1][2]) >= gap_s:
+            chunks.append([])
+        chunks[-1].append(words[i])
+    if len(chunks) != n:
+        chunks = []
+        idx = 0
+        for k in range(n):
+            take = max(1, round(len(words) * (k + 1) / n) - idx)
+            chunks.append(words[idx:idx + take])
+            idx += take
+    out = []
+    for k, sc in enumerate(scenes):
+        span = chunks[k] if k < len(chunks) else chunks[-1]
+        out.append({
+            "sid": sc.get("scene_id", f"s{k}"),
+            "text": " ".join(str(w[0]) for w in span),
+            "words": span,
+            "t0": float(span[0][1]),
+            "t1": float(span[-1][2]),
+        })
+    return out

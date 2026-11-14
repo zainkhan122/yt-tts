@@ -1,0 +1,31 @@
+{
+  "tool": {
+    "name": "browser-use",
+    "category": "general",
+    "summary": "An open-source AI browser agent: the model writes Python against raw Chrome DevTools Protocol in a persistent REPL and drives a real browser."
+  },
+  "features": [
+    {"id": "f_repl", "title": "One REPL, raw CDP",
+     "what": "The model writes Python against raw Chrome DevTools Protocol in one persistent REPL session.",
+     "items": ["persistent REPL", "raw CDP", "browser-harness helpers"],
+     "evidence_quote": "The agent writes Python against raw CDP in a persistent REPL"},
+    {"id": "f_stars", "title": "More stars than the classics",
+     "what": "On GitHub the repository now counts more stars than Playwright or Puppeteer.",
+     "metric": {"label": "stars", "value": 120975, "unit": "stars"},
+     "values": [120975, 100133, 95836, 34588, 26042],
+     "evidence_quote": "The open-source browser agent"},
+    {"id": "f_chrome", "title": "Drives your own Chrome",
+     "what": "It can drive the Chrome you already have open, with your logins still in it.",
+     "evidence_quote": "drives the Chrome you have open, with your logins"},
+    {"id": "f_llm", "title": "Runs on any LLM",
+     "what": "It runs on any LLM, on your own machine or on Browser Use Cloud.",
+     "items": ["ChatOpenAI", "ChatAnthropic", "ChatGoogle"],
+     "evidence_quote": "Runs on any LLM, locally or on Browser Use Cloud"},
+    {"id": "f_guard", "title": "A guard, not a sandbox",
+     "what": "Model-written Python is not sandboxed, so restrict the domains and pin the exact version.",
+     "risk": true,
+     "evidence_quote": "It is a guard for an aligned model, not a sandbox"}
+  ],
+  "risks": [{"text": "a guard, not a sandbox", "severity": "medium"}],
+  "source_urls": ["https://github.com/browser-use/browser-use"]
+}

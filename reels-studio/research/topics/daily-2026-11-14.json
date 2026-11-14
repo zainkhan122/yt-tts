@@ -1,0 +1,538 @@
+{
+ "generated_at": "2026-11-14T13:13:30Z",
+ "window_hours": 24.0,
+ "sources_registered": 33,
+ "items_in_window": 46,
+ "scan_last_seen": "2026-11-14T12:51:00+00:00",
+ "scan_stale": false,
+ "topics": [
+  {
+   "key": "llamacppv1",
+   "name": "llama.cpp v1.0",
+   "kind": "rss",
+   "consensus": 2,
+   "sources": [
+    "rss:huggingface-blog",
+    "rss:reddit-localllama"
+   ],
+   "views": 0,
+   "age_h": 23.1,
+   "covered": false,
+   "posts": [
+    {
+     "title": "llama.cpp v1.0 is here 🦙",
+     "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xv8t2e/llamacpp_v10_is_here/",
+     "source": "rss:reddit-localllama",
+     "views": 0,
+     "age_h": 83157.491186
+    },
+    {
+     "title": "llama.cpp v1.0.0 : A stronger foundation for the local AI ecosystem",
+     "url": "https://huggingface.co/blog/ggml-org/llama-cpp-v1",
+     "source": "rss:huggingface-blog",
+     "views": 0,
+     "age_h": 83288.491186
+    }
+   ],
+   "best_url": "https://www.reddit.com/r/LocalLLaMA/comments/1xv8t2e/llamacpp_v10_is_here/"
+  },
+  {
+   "key": "veyranrvideo",
+   "name": "Veyra NRVideo",
+   "kind": "tiktok",
+   "consensus": 1,
+   "sources": [
+    "tiktok:github.signals"
+   ],
+   "views": 28100,
+   "age_h": 19.67,
+   "covered": false,
+   "posts": [
+    {
+     "title": "Veyra NRVideo: The Secret to 120 FPS Gaming on PC Stop watching your ...",
+     "url": "https://www.tiktok.com/@github.signals/video/7707710476083285269",
+     "source": "tiktok:github.signals",
+     "views": 28100,
+     "age_h": 70822.491186
+    }
+   ],
+   "best_url": "https://www.tiktok.com/@github.signals/video/7707710476083285269"
+  },
+  {
+   "key": "klad",
+   "name": "Klad",
+   "kind": "tiktok",
+   "consensus": 1,
+   "sources": [
+    "tiktok:github.signals"
+   ],
+   "views": 6784,
+   "age_h": 10.86,
+   "covered": false,
+   "posts": [
+    {
+     "title": "Klad: Paint with Your Coding Agent Your coding agent just started pai...",
+     "url": "https://www.tiktok.com/@github.signals/video/7707845365550107956",
+     "source": "tiktok:github.signals",
+     "views": 6784,
+     "age_h": 39089.491186
+    }
+   ],
+   "best_url": "https://www.tiktok.com/@github.signals/video/7707845365550107956"
+  },
+  {
+   "key": "codex",
+   "name": "Codex",
+   "kind": "tiktok",
+   "consensus": 1,
+   "sources": [
+    "tiktok:skip_ci"
+   ],
+   "views": 507,
+   "age_h": 23.2,
+   "covered": false,
+   "posts": [
+    {
+     "title": "Codex Security Scans Repos, Validates Each Finding Repo: github.com/o...",
+     "url": "https://www.tiktok.com/@skip_ci/video/7707656007048006933",
+     "source": "tiktok:skip_ci",
+     "views": 507,
+     "age_h": 83513.491186
+    }
+   ],
+   "best_url": "https://www.tiktok.com/@skip_ci/video/7707656007048006933"
+  },
+  {
+   "key": "bo2mac",
+   "name": "bo2-mac",
+   "kind": "tiktok",
+   "consensus": 1,
+   "sources": [
+    "tiktok:github.signals"
+   ],
+   "views": 3240,
+   "age_h": 16.06,
+   "covered": false,
+   "posts": [
+    {
+     "title": "bo2-mac: Black Ops II on Apple Silicon A single person took the Windo...",
+     "url": "https://www.tiktok.com/@github.signals/video/7707766362436914452",
+     "source": "tiktok:github.signals",
+     "views": 3240,
+     "age_h": 57806.491186
+    }
+   ],
+   "best_url": "https://www.tiktok.com/@github.signals/video/7707766362436914452"
+  },
+  {
+   "key": "calibrainharness",
+   "name": "Calibrain Harness",
+   "kind": "tiktok",
+   "consensus": 1,
+   "sources": [
+    "tiktok:github.signals"
+   ],
+   "views": 3195,
+   "age_h": 3.03,
+   "covered": false,
+   "posts": [
+    {
+     "title": "Calibrain Harness: The Truth-Telling Trading Bot Calibrain Harness is...",
+     "url": "https://www.tiktok.com/@github.signals/video/7707967435034397958",
+     "source": "tiktok:github.signals",
+     "views": 3195,
+     "age_h": 10919.491186
+    }
+   ],
+   "best_url": "https://www.tiktok.com/@github.signals/video/7707967435034397958"
+  },
+  {
+   "key": "arcmd",
+   "name": "ArcMD",
+   "kind": "tiktok",
+   "consensus": 1,
+   "sources": [
+    "tiktok:github.signals"
+   ],
+   "views": 2010,
+   "age_h": 15.79,
+   "covered": false,
+   "posts": [
+    {
+     "title": "ArcMD: The Native Markdown Editor With Soul Take your notes offline i...",
+     "url": "https://www.tiktok.com/@github.signals/video/7707770479536262407",
+     "source": "tiktok:github.signals",
+     "views": 2010,
+     "age_h": 56848.491186
+    }
+   ],
+   "best_url": "https://www.tiktok.com/@github.signals/video/7707770479536262407"
+  },
+  {
+   "key": "anthropicsknowl",
+   "name": "anthropics/knowl",
+   "kind": "tiktok",
+   "consensus": 1,
+   "sources": [
+    "tiktok:skip_ci"
+   ],
+   "views": 175,
+   "age_h": 7.18,
+   "covered": false,
+   "posts": [
+    {
+     "title": "Claude Plugins: From 11 Roles to 89 Repo: github.com/anthropics/knowl...",
+     "url": "https://www.tiktok.com/@skip_ci/video/7707903568304409877",
+     "source": "tiktok:skip_ci",
+     "views": 175,
+     "age_h": 25862.491186
+    }
+   ],
+   "best_url": "https://www.tiktok.com/@skip_ci/video/7707903568304409877"
+  },
+  {
+   "key": "claude",
+   "name": "Claude",
+   "kind": "youtube",
+   "consensus": 1,
+   "sources": [
+    "youtube:futurepedia_io"
+   ],
+   "views": 2100,
+   "age_h": 19.86,
+   "covered": false,
+   "posts": [
+    {
+     "title": "Claude 2.0 just dropped",
+     "url": "https://www.youtube.com/shorts/-wxmK-0GrRU",
+     "source": "youtube:futurepedia_io",
+     "views": 2100,
+     "age_h": 71496.491186
+    }
+   ],
+   "best_url": "https://www.youtube.com/shorts/-wxmK-0GrRU"
+  },
+  {
+   "key": "googlechromemodernwebguidance",
+   "name": "GoogleChrome/modern-web-guidance-src",
+   "kind": "web",
+   "consensus": 1,
+   "sources": [
+    "web:gittrend"
+   ],
+   "views": 0,
+   "age_h": 0.37,
+   "covered": false,
+   "posts": [
+    {
+     "title": "GoogleChrome/modern-web-guidance",
+     "url": "https://github.com/GoogleChrome/modern-web-guidance",
+     "source": "web:gittrend",
+     "views": 0,
+     "age_h": 1337.491186
+    },
+    {
+     "title": "GoogleChrome/modern-web-guidance-src",
+     "url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+     "source": "web:gittrend",
+     "views": 0,
+     "age_h": 1337.491186
+    }
+   ],
+   "best_url": "https://github.com/GoogleChrome/modern-web-guidance"
+  },
+  {
+   "key": "vercellabsui",
+   "name": "vercel-labs/ui",
+   "kind": "web",
+   "consensus": 1,
+   "sources": [
+    "web:gittrend"
+   ],
+   "views": 0,
+   "age_h": 0.37,
+   "covered": false,
+   "posts": [
+    {
+     "title": "vercel-labs/ui",
+     "url": "https://github.com/vercel-labs/ui",
+     "source": "web:gittrend",
+     "views": 0,
+     "age_h": 1337.491186
+    }
+   ],
+   "best_url": "https://github.com/vercel-labs/ui"
+  },
+  {
+   "key": "awsawsemulator",
+   "name": "aws/aws-emulator",
+   "kind": "web",
+   "consensus": 1,
+   "sources": [
+    "web:gittrend"
+   ],
+   "views": 0,
+   "age_h": 0.37,
+   "covered": false,
+   "posts": [
+    {
+     "title": "aws/aws-emulator",
+     "url": "https://github.com/aws/aws-emulator",
+     "source": "web:gittrend",
+     "views": 0,
+     "age_h": 1337.491186
+    }
+   ],
+   "best_url": "https://github.com/aws/aws-emulator"
+  },
+  {
+   "key": "businessesinchatgpt",
+   "name": "Businesses in ChatGPT",
+   "kind": "rss",
+   "consensus": 1,
+   "sources": [
+    "rss:producthunt"
+   ],
+   "views": 0,
+   "age_h": 0.43,
+   "covered": false,
+   "posts": [
+    {
+     "title": "Businesses in ChatGPT",
+     "url": "https://www.producthunt.com/products/openai",
+     "source": "rss:producthunt",
+     "views": 0,
+     "age_h": 1558.491186
+    }
+   ],
+   "best_url": "https://www.producthunt.com/products/openai"
+  },
+  {
+   "key": "screengo",
+   "name": "ScreenGo",
+   "kind": "rss",
+   "consensus": 1,
+   "sources": [
+    "rss:producthunt"
+   ],
+   "views": 0,
+   "age_h": 0.55,
+   "covered": false,
+   "posts": [
+    {
+     "title": "ScreenGo",
+     "url": "https://www.producthunt.com/products/screengo",
+     "source": "rss:producthunt",
+     "views": 0,
+     "age_h": 1983.491186
+    }
+   ],
+   "best_url": "https://www.producthunt.com/products/screengo"
+  },
+  {
+   "key": "dexsemantics",
+   "name": "Dex Semantics",
+   "kind": "rss",
+   "consensus": 1,
+   "sources": [
+    "rss:producthunt"
+   ],
+   "views": 0,
+   "age_h": 0.6,
+   "covered": false,
+   "posts": [
+    {
+     "title": "Dex Semantics",
+     "url": "https://www.producthunt.com/products/dex-by-exmergo",
+     "source": "rss:producthunt",
+     "views": 0,
+     "age_h": 2165.491186
+    }
+   ],
+   "best_url": "https://www.producthunt.com/products/dex-by-exmergo"
+  },
+  {
+   "key": "drops",
+   "name": "Drops",
+   "kind": "rss",
+   "consensus": 1,
+   "sources": [
+    "rss:producthunt"
+   ],
+   "views": 0,
+   "age_h": 0.75,
+   "covered": false,
+   "posts": [
+    {
+     "title": "Drops",
+     "url": "https://www.producthunt.com/products/drops-4",
+     "source": "rss:producthunt",
+     "views": 0,
+     "age_h": 2693.491186
+    }
+   ],
+   "best_url": "https://www.producthunt.com/products/drops-4"
+  },
+  {
+   "key": "codemesh",
+   "name": "CodeMesh",
+   "kind": "rss",
+   "consensus": 1,
+   "sources": [
+    "rss:producthunt"
+   ],
+   "views": 0,
+   "age_h": 0.95,
+   "covered": false,
+   "posts": [
+    {
+     "title": "CodeMesh",
+     "url": "https://www.producthunt.com/products/codemesh-2",
+     "source": "rss:producthunt",
+     "views": 0,
+     "age_h": 3411.491186
+    }
+   ],
+   "best_url": "https://www.producthunt.com/products/codemesh-2"
+  },
+  {
+   "key": "replay",
+   "name": "Replay",
+   "kind": "rss",
+   "consensus": 1,
+   "sources": [
+    "rss:producthunt"
+   ],
+   "views": 0,
+   "age_h": 0.95,
+   "covered": false,
+   "posts": [
+    {
+     "title": "Replay",
+     "url": "https://www.producthunt.com/products/replay-11",
+     "source": "rss:producthunt",
+     "views": 0,
+     "age_h": 3432.491186
+    }
+   ],
+   "best_url": "https://www.producthunt.com/products/replay-11"
+  },
+  {
+   "key": "antelog",
+   "name": "Antelog",
+   "kind": "rss",
+   "consensus": 1,
+   "sources": [
+    "rss:producthunt"
+   ],
+   "views": 0,
+   "age_h": 1.03,
+   "covered": false,
+   "posts": [
+    {
+     "title": "Antelog",
+     "url": "https://www.producthunt.com/products/antelog",
+     "source": "rss:producthunt",
+     "views": 0,
+     "age_h": 3712.491186
+    }
+   ],
+   "best_url": "https://www.producthunt.com/products/antelog"
+  },
+  {
+   "key": "defaulttamer",
+   "name": "Default Tamer",
+   "kind": "rss",
+   "consensus": 1,
+   "sources": [
+    "rss:producthunt"
+   ],
+   "views": 0,
+   "age_h": 1.09,
+   "covered": false,
+   "posts": [
+    {
+     "title": "Default Tamer",
+     "url": "https://www.producthunt.com/products/default-tamer",
+     "source": "rss:producthunt",
+     "views": 0,
+     "age_h": 3914.491186
+    }
+   ],
+   "best_url": "https://www.producthunt.com/products/default-tamer"
+  },
+  {
+   "key": "tacie",
+   "name": "Tacie",
+   "kind": "rss",
+   "consensus": 1,
+   "sources": [
+    "rss:producthunt"
+   ],
+   "views": 0,
+   "age_h": 1.12,
+   "covered": false,
+   "posts": [
+    {
+     "title": "Tacie",
+     "url": "https://www.producthunt.com/products/tacie",
+     "source": "rss:producthunt",
+     "views": 0,
+     "age_h": 4021.491186
+    }
+   ],
+   "best_url": "https://www.producthunt.com/products/tacie"
+  },
+  {
+   "key": "minimaxh3image",
+   "name": "MiniMax H3 Image",
+   "kind": "rss",
+   "consensus": 1,
+   "sources": [
+    "rss:reddit-stablediffusion"
+   ],
+   "views": 0,
+   "age_h": 16.08,
+   "covered": false,
+   "posts": [
+    {
+     "title": "MiniMax H3 Image is kind of insane for editing at 60MP - Concept to Realistic",
+     "url": "https://www.reddit.com/r/StableDiffusion/comments/1xvjsog/minimax_h3_image_is_kind_of_insane_for_editing_at/",
+     "source": "rss:reddit-stablediffusion",
+     "views": 0,
+     "age_h": 57902.491186
+    },
+    {
+     "title": "Minimax H3 Image is awesome - Please don't confuse photographic realism with sharpness",
+     "url": "https://www.reddit.com/r/StableDiffusion/comments/1xvesum/minimax_h3_image_is_awesome_please_dont_confuse/",
+     "source": "rss:reddit-stablediffusion",
+     "views": 0,
+     "age_h": 69358.491186
+    }
+   ],
+   "best_url": "https://www.reddit.com/r/StableDiffusion/comments/1xvjsog/minimax_h3_image_is_kind_of_insane_for_editing_at/"
+  },
+  {
+   "key": "xybench",
+   "name": "XYBench",
+   "kind": "rss",
+   "consensus": 1,
+   "sources": [
+    "rss:huggingface-blog"
+   ],
+   "views": 0,
+   "age_h": 20.18,
+   "covered": false,
+   "posts": [
+    {
+     "title": "XYBench: Helping with the problem behind the question",
+     "url": "https://huggingface.co/blog/allenai/xybench",
+     "source": "rss:huggingface-blog",
+     "views": 0,
+     "age_h": 72655.491186
+    }
+   ],
+   "best_url": "https://huggingface.co/blog/allenai/xybench"
+  }
+ ]
+}

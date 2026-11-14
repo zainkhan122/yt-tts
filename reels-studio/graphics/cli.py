@@ -15,12 +15,13 @@ import sys
 from pathlib import Path
 
 from .beats import lint_beats, scene_list
-from .features import lint_feature_sheet
-from .timing import chunk_phrases, close_gaps
+from .features import Violation, lint_feature_sheet
+from .stage import build_doc
+from .timing import close_gaps, phrases_for_scenes
 
 
 def _load(p: str):
-    return json.loads(Path(p).read_text(encoding="utf-8"))
+    return json.loads(Path(p).read_text(encoding="utf-8-sig"))
 
 
 def _plan(args):
@@ -31,14 +32,18 @@ def _plan(args):
     f_viol = lint_feature_sheet(sheet, source)
     if f_viol:
         return None, f_viol, 2
-    phrases = chunk_phrases(words)
+    # One phrase per beat scene, split on the pauses in the track — the same segmentation the
+    # production adapter and the preview harness use (a beat plan is linted against the timeline
+    # it will actually be rendered with).
+    phrases = phrases_for_scenes(words, beats.get("scenes") or [])
+    if not phrases:
+        return None, [Violation("G0", "no words to segment into scenes")], 2
     duration = args.duration if getattr(args, "duration", None) else round(words[-1][2] + 0.3, 3)
     closed = close_gaps(phrases, duration)
     b_viol = lint_beats(beats, closed, sheet)
     if b_viol:
         return None, b_viol, 3
-    scenes = scene_list(beats, closed)
-    doc = {"width": 1080, "height": 1920, "handle": beats.get("handle", ""), "scenes": scenes}
+    doc = build_doc(sheet, beats, closed)
     return {"doc": doc, "duration": duration, "phrases": closed}, [], 0
 
 

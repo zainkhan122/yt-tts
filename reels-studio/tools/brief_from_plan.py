@@ -190,6 +190,18 @@ def build(plan_path):
         "motion_standard": 2,
         "qa_gates": True,  # new batches: Short QA gates apply (tools/short_qa.py)
     }
+    # The visual system. "graphics" is the house renderer: every scene is generated motion graphics
+    # built from the tool's own features (see reels-studio/graphics/README.md). It is chosen in the
+    # plan, not by hand-editing the brief, so a batch can never end up half on one renderer.
+    vs = plan.get("visual_system") or {}
+    if vs.get("system") == "graphics":
+        gdir = vs.get("dir") or f"briefs/graphics/{vid}"
+        brief["renderer"] = "graphics"
+        brief["graphics"] = {"dir": gdir}
+        if vs.get("template"):
+            brief["graphics"]["template"] = vs["template"]
+        if vs.get("category"):
+            brief["graphics"]["category"] = vs["category"]
     if plan.get("inspiration"):
         brief["inspiration"] = plan["inspiration"]
     out = ROOT / "briefs" / f"{vid}.json"

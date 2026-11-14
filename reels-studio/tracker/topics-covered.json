@@ -1,6 +1,6 @@
 {
- "built_at": "2026-11-11T13:23:14Z",
- "count": 102,
+ "built_at": "2026-11-14T16:18:43Z",
+ "count": 108,
  "schema": 1,
  "topics": {
   "agentautoloop": {
@@ -127,6 +127,19 @@
     "repo-claude-mem-01"
    ]
   },
+  "claudetokens": {
+   "keys": [],
+   "names": [
+    "claude-tokens-01"
+   ],
+   "sources": [
+    "briefs/tool-claude-tokens-01.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-claude-tokens-01"
+   ]
+  },
   "cleanyourtv": {
    "keys": [],
    "names": [
@@ -234,6 +247,21 @@
     "repo-deeptutor-01"
    ]
   },
+  "designagent": {
+   "keys": [],
+   "names": [
+    "design-agent-01",
+    "design agent"
+   ],
+   "sources": [
+    "briefs/repo-design-agent-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-design-agent-01"
+   ]
+  },
   "ds401": {
    "keys": [],
    "names": [
@@ -321,6 +349,19 @@
    "status": "covered",
    "videos": [
     "tool-embeddinggemma2-01"
+   ]
+  },
+  "explainernegative": {
+   "keys": [],
+   "names": [
+    "explainer-negative-01"
+   ],
+   "sources": [
+    "briefs/explainer-negative-01.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "explainer-negative-01"
    ]
   },
   "fx001": {
@@ -752,6 +793,20 @@
     "model-minicpmv47-01"
    ]
   },
+  "modernweb": {
+   "keys": [],
+   "names": [
+    "modern-web-01"
+   ],
+   "sources": [
+    "briefs/repo-modern-web-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-modern-web-01"
+   ]
+  },
   "mosa01": {
    "keys": [],
    "names": [
@@ -991,6 +1046,20 @@
    "status": "covered",
    "videos": [
     "tool-openmontage-01"
+   ]
+  },
+  "pikaflex": {
+   "keys": [],
+   "names": [
+    "pika-flex-01"
+   ],
+   "sources": [
+    "briefs/tool-pika-flex-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-pika-flex-01"
    ]
   },
   "pixelfx": {
@@ -1235,6 +1304,22 @@
    "status": "covered",
    "videos": [
     "tool-scrawl-01"
+   ]
+  },
+  "seedance": {
+   "keys": [],
+   "names": [
+    "seedance-01",
+    "seedance 2.0",
+    "seedance"
+   ],
+   "sources": [
+    "briefs/tool-seedance-01.json",
+    "videos/tool-seedance-01/plan.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "tool-seedance-01"
    ]
   },
   "sherlock": {

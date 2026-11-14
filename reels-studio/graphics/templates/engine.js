@@ -1,10 +1,22 @@
-/* Generated-graphics engine v2.
+/* Generated-graphics engine v3 — the house voice.
+ *
  * setTime(t) draws one frame as a pure function of t: no timers, no CSS transitions.
  * Every element is bound to the spoken word timings (scene.cue / scene.cues, computed in cues.py),
  * so the picture lands on the word it depicts. Scenes never hold still: idle motion, drifting
  * particles and the moving grid run on the clock.
- * Data: window.DATA = {width, height, handle, scenes:[{id, archetype, t0, t1, headline, payload,
- *        words, cue, cues, icons}]}
+ *
+ * v3 changes (2026-11-13) — the visual-quality pass:
+ *   * real channel fonts (Inter / Anton / JetBrains Mono) instead of the DejaVu fallback;
+ *   * the house typography: sentence-case grotesk statement + ITALIC SERIF emphasis word.
+ *     All-caps-everywhere was the single biggest reason these shorts looked generic;
+ *   * PLATES — a scene can repaint the whole frame (paper / ink / slate / dots / deep). The
+ *     reference reels change mood mid-video; that rhythm is what makes them feel edited;
+ *   * HUD chrome — a monospace scene label and a live metric, so a sequence reads as one film;
+ *   * the shared house library (window.HOUSE) supplies the illustration stage, the charts, the
+ *     fabricated app window, the comparator, the verdict, and the prop library.
+ *
+ * Data: window.DATA = {width, height, handle, palette?, brand?, scenes:[{id, archetype, t0, t1,
+ *        headline, sub, payload, words, cue, cues, icons, ev}]}
  */
 (function () {
   "use strict";
@@ -46,6 +58,17 @@
     return s;
   };
 
+  /* The house library (shared.css + house.js). Loaded before this file by render.build_stage_html. */
+  var H = window.HOUSE || null;
+  var hcol = function (n) { return H ? H.col(n) : (n === "accent" ? Y : n === "accent2" ? BLUE : "#F5F5F0"); };
+  var hEl = function (t, c, p, x) { return H ? H.el(t, c, p, x) : el(t, c, p, x); };
+  var hSvg = function (w, h, p, c) { return H ? H.svg(w, h, p, c) : svg(w, h, p, c); };
+  var hRich = function (node, text) {
+    if (H) return H.richText(node, text);
+    node.textContent = text;
+    return node;
+  };
+
   /* ---------- icons: 48x48 stroke glyphs, drawn at any size ---------- */
   var ICON_PATHS = {
     code: "M16 14 L6 24 L16 34 M32 14 L42 24 L32 34 M27 10 L21 38",
@@ -69,11 +92,11 @@
     dot: "M24 19 A5 5 0 1 0 24.01 19"
   };
   function icon(name, parent, color) {
-    var s = svg(48, 48, parent, "ico");
+    var s = hSvg(48, 48, parent, "ico");
     var p = document.createElementNS(NS, "path");
     p.setAttribute("d", ICON_PATHS[name] || ICON_PATHS.dot);
     p.setAttribute("fill", "none");
-    p.setAttribute("stroke", color || Y);
+    p.setAttribute("stroke", color || hcol("accent"));
     p.setAttribute("stroke-width", "3.2");
     p.setAttribute("stroke-linecap", "round");
     p.setAttribute("stroke-linejoin", "round");
@@ -84,55 +107,69 @@
   /* ---------- per-archetype builders and updaters ---------- */
   var ARCH = {};
 
-  /* concept_card: letters rise one by one on the spoken word, a ripple fires, the underline draws. */
+  /* concept_card: the statement, set in the house voice. The emphasis word is an italic serif.
+   * The statement IS the headline band (buildHead), exactly like the reference reels: a line of
+   * sentence-case type with one italic accent word, and the picture underneath it. */
   ARCH.concept_card = {
+    buildHead: function (head, s) {
+      var r = {};
+      var wrap = hEl("div", "cc", head);
+      r.big = hEl("div", "big house-display", wrap);
+      hRich(r.big, String(s.payload.big || ""));
+      return r;
+    },
     build: function (root, s) {
-      var r = { wrap: el("div", "cc", root) };
-      r.ripple = el("div", "ripple", r.wrap);
-      r.big = el("div", "big", r.wrap);
-      if (String(s.payload.big).length > 24) { r.big.className += " big-long"; }
-      r.letters = [];
-      String(s.payload.big).split(" ").forEach(function (word) {
-        var ws = el("span", "wd", r.big);
-        word.split("").forEach(function (ch) { r.letters.push(el("span", "lt", ws, ch)); });
-      });
-      r.line = el("div", "uline", r.wrap);
-      r.sub = el("div", "sub", r.wrap, s.payload.sub || "");
+      var r = { wrap: hEl("div", "cc-sub", root) };
+      /* The pulse ring lives outside the card so the card occludes its middle: it reads as a halo
+       * around the printed card rather than a circle drawn on top of it. */
+      r.ripple = hEl("div", "ripple", r.wrap);
+      /* The sub does not float in an empty frame: it is set on a printed card with a hard offset
+       * shadow — the reference reels' paper look — so the hook has an object in the middle. */
+      r.card = hEl("div", "cc-card", r.wrap);
+      r.sub = hEl("div", "sub house-display", r.card, s.payload.sub || "");
+      r.line = hEl("div", "uline", r.card);
       return r;
     },
     update: function (r, s, u, d) {
       var c = u - (s.cue - s.t0);
-      r.wrap.style.transform = "translateY(" + fmt(Math.sin(u * 2.1) * 8) + "px)";
-      // The whole title is up inside ~0.34 s of the spoken cue however long it is: a fixed per-letter
-      // stagger made long titles finish a second after the word, which reads as lagging kinetic text.
-      var gap = Math.min(0.022, 0.16 / Math.max(1, r.letters.length));
-      r.letters.forEach(function (sp, i) {
-        var p = ramp(c, i * gap, i * gap + 0.3);
-        sp.style.opacity = fmt(p);
-        sp.style.transform = "translateY(" + fmt((1 - easeOutBack(p)) * 70) + "px)";
-      });
-      var rp = ramp(c, 0, 0.9);
-      r.ripple.style.opacity = fmt((1 - rp) * 0.5 * ramp(c, 0, 0.05));
-      r.ripple.style.transform = "scale(" + fmt(0.4 + 1.5 * easeOutCubic(rp), 3) + ")";
-      r.line.style.transform = "scaleX(" + fmt(easeOutExpo(ramp(c, 0.2, 0.75))) + ")";
-      r.sub.style.opacity = fmt(ramp(c, 0.45, 0.85));
-      r.sub.style.transform = "translateY(" + fmt((1 - easeOutCubic(ramp(c, 0.45, 0.85))) * 28) + "px)";
+      /* The statement is the scene's TITLE: it comes up with the scene, not on a late cue word.
+       * The engine already fades the whole headline band in; the title only rises. */
+      var k = ramp(u, 0, 0.32);
+      if (r.big) {
+        r.big.style.opacity = "1";
+        r.big.style.transform = "translateY(" + fmt((1 - easeOutBack(k)) * 42) + "px)";
+      }
+      var rp = ramp(c, 0, 1.1);
+      if (r.ripple) {
+        /* The halo is alive, not a one-shot: it breathes out of the card and back, on a slow cycle,
+         * so the hook frame is never a still print. */
+        var ph = (u % 2.4) / 2.4;
+        var breathe = Math.sin(u * 1.15 + 0.6);
+        var live = Math.max((1 - rp) * 0.55, (1 - ph) * 0.30);
+        r.ripple.style.opacity = fmt(live * ramp(u, 0.02, 0.28));
+        r.ripple.style.transform = "scale(" + fmt((0.55 + 0.75 * easeOutCubic(rp)) * (1 + 0.025 * breathe), 3) + ")";
+      }
+      if (r.line) r.line.style.transform = "scaleX(" + fmt(easeOutExpo(ramp(c, 0.2, 0.75))) + ")";
+      if (r.sub) {
+        r.sub.style.opacity = fmt(ramp(u, 0.18, 0.5));
+        r.sub.style.transform = "translateY(" + fmt((1 - easeOutCubic(ramp(u, 0.18, 0.5))) * 28) + "px)";
+      }
     }
   };
 
   /* stat_pop: a ring fills and its ticks light in turn; the number counts up to the spoken value. */
   ARCH.stat_pop = {
     build: function (root, s) {
-      var r = { wrap: el("div", "stat-wrap", root), ticks: [] };
-      r.box = el("div", "ring-box", r.wrap);
-      r.svg = svg(620, 620, r.box, "ring");
+      var r = { wrap: hEl("div", "stat-wrap", root), ticks: [] };
+      r.box = hEl("div", "ring-box", r.wrap);
+      r.svg = hSvg(620, 620, r.box, "ring");
       var track = document.createElementNS(NS, "circle");
       track.setAttribute("cx", "310"); track.setAttribute("cy", "310"); track.setAttribute("r", "276");
-      track.setAttribute("fill", "rgba(20,25,37,0.9)"); track.setAttribute("stroke", EDGE); track.setAttribute("stroke-width", "12");
+      track.setAttribute("fill", "rgba(20,25,37,0.9)"); track.setAttribute("stroke", hcol("line")); track.setAttribute("stroke-width", "12");
       r.svg.appendChild(track);
       r.arc = document.createElementNS(NS, "circle");
       r.arc.setAttribute("cx", "310"); r.arc.setAttribute("cy", "310"); r.arc.setAttribute("r", "276");
-      r.arc.setAttribute("fill", "none"); r.arc.setAttribute("stroke", Y); r.arc.setAttribute("stroke-width", "16");
+      r.arc.setAttribute("fill", "none"); r.arc.setAttribute("stroke", hcol("accent")); r.arc.setAttribute("stroke-width", "16");
       r.arc.setAttribute("stroke-linecap", "round"); r.arc.setAttribute("transform", "rotate(-90 310 310)");
       r.circ = 2 * Math.PI * 276;
       r.arc.setAttribute("stroke-dasharray", String(r.circ));
@@ -142,14 +179,14 @@
         var tk = document.createElementNS(NS, "line");
         tk.setAttribute("x1", fmt(310 + Math.cos(a) * 304)); tk.setAttribute("y1", fmt(310 + Math.sin(a) * 304));
         tk.setAttribute("x2", fmt(310 + Math.cos(a) * 292)); tk.setAttribute("y2", fmt(310 + Math.sin(a) * 292));
-        tk.setAttribute("stroke", EDGE); tk.setAttribute("stroke-width", "6"); tk.setAttribute("stroke-linecap", "round");
+        tk.setAttribute("stroke", hcol("line")); tk.setAttribute("stroke-width", "6"); tk.setAttribute("stroke-linecap", "round");
         r.svg.appendChild(tk);
         r.ticks.push(tk);
       }
-      var c = el("div", "stat-c", r.box);
-      r.num = el("div", "stat", c);
-      r.unit = el("div", "stat-unit", r.wrap, s.payload.unit || "");
-      r.sub = el("div", "sub", r.wrap, s.payload.sub || "");
+      var c = hEl("div", "stat-c", r.box);
+      r.num = hEl("div", "stat", c);
+      r.unit = hEl("div", "stat-unit", r.wrap, s.payload.unit || "");
+      r.sub = hEl("div", "sub", r.wrap, s.payload.sub || "");
       return r;
     },
     update: function (r, s, u, d) {
@@ -158,9 +195,8 @@
       var v = Math.round(target * easeOutExpo(ramp(c, 0, 1.1)));
       r.num.textContent = String(v) + (s.payload.suffix || "");
       r.num.style.transform = "scale(" + fmt(0.8 + 0.2 * easeOutBack(ramp(c, 0, 0.45)), 3) + ")";
-      r.num.style.textShadow = "0 0 " + fmt(20 + 30 * (0.5 + 0.5 * Math.sin(u * 3.2)) * ramp(c, 0, 0.3), 1) + "px rgba(255,214,10,0.6)";
       r.arc.setAttribute("stroke-dashoffset", fmt(r.circ * (1 - easeOutCubic(ramp(c, 0, 1.2))), 2));
-      r.ticks.forEach(function (tk, i) { tk.setAttribute("stroke", c > i * 0.03 ? Y : EDGE); });
+      r.ticks.forEach(function (tk, i) { tk.setAttribute("stroke", c > i * 0.03 ? hcol("accent") : hcol("line")); });
       r.svg.style.transform = "rotate(" + fmt(u * 9, 2) + "deg)";
       r.unit.style.opacity = fmt(ramp(c, 0.4, 0.8));
       r.sub.style.opacity = fmt(ramp(c, 0.5, 0.9));
@@ -171,13 +207,13 @@
   /* chip_grid: cards slide in on their own word; a rail draws down the grid; the highlight pulses. */
   ARCH.chip_grid = {
     build: function (root, s) {
-      var r = { wrap: el("div", "chips", root), chips: [] };
-      r.rail = el("div", "rail", r.wrap);
+      var r = { wrap: hEl("div", "chips", root), chips: [] };
+      r.rail = hEl("div", "rail", r.wrap);
       s.payload.chips.forEach(function (text, i) {
-        var c = el("div", "chip", r.wrap);
+        var c = hEl("div", "chip", r.wrap);
         c.style.height = Math.min(176, Math.floor(860 / s.payload.chips.length) - 18) + "px";
-        var ic = el("div", "chip-ic", c);
-        icon(s.icons[i] || "dot", ic, i === s.payload.highlight ? INK : BLUE);
+        var ic = hEl("div", "chip-ic", c);
+        icon(s.icons[i] || "dot", ic, i === s.payload.highlight ? hcol("ink") : hcol("accent2"));
         el("div", "chip-t", c, text);
         el("div", "chip-n", c, String(i + 1).padStart(2, "0"));
         el("div", "shine", c);
@@ -201,17 +237,16 @@
         if (i === hi) {
           var on = ramp(t, 0.3, 0.6);
           var pulse = 0.5 + 0.5 * Math.sin(u * 4.2);
-          c.style.background = "linear-gradient(90deg," + Y + " 0%, #FFB800 100%)";
-          c.style.color = INK;
+          c.style.background = "linear-gradient(90deg," + hcol("accent") + " 0%, " + hcol("accent2") + " 100%)";
+          c.style.color = hcol("bg");
           c.style.opacity = fmt(ramp(t, 0, 0.2));
-          c.style.boxShadow = "0 0 " + fmt(10 + 34 * pulse * on, 1) + "px rgba(255,214,10," + fmt(0.25 + 0.6 * pulse * on, 2) + ")";
+          c.style.boxShadow = "0 0 " + fmt(10 + 34 * pulse * on, 1) + "px " + hcol("accent") + "";
         }
       });
     }
   };
 
   /* flow_link: nodes pop in on their words; connectors draw between them; packets travel. */
-  /* Shrink a node label until it fits its box, so a long single word never spills past the border. */
   function fitNodeText(t, box) {
     var fs = parseFloat(getComputedStyle(t).fontSize);
     var max = box.clientWidth - 40;
@@ -221,25 +256,25 @@
 
   ARCH.flow_link = {
     build: function (root, s) {
-      var r = { wrap: el("div", "flow", root), nodes: [], conns: [] };
-      r.label = el("div", "edge-label", r.wrap, s.payload.edge_label || "");
-      r.row = el("div", "flow-row", r.wrap);
+      var r = { wrap: hEl("div", "flow", root), nodes: [], conns: [] };
+      r.label = hEl("div", "edge-label", r.wrap, s.payload.edge_label || "");
+      r.row = hEl("div", "flow-row", r.wrap);
       if (s.payload.nodes.length >= 3) { r.row.className += " flow-3"; }
       s.payload.nodes.forEach(function (text, i) {
-        var n = el("div", "node", r.row);
-        icon(s.icons[i] || "dot", el("div", "node-ic", n), i === 0 ? Y : BLUE);
+        var n = hEl("div", "node", r.row);
+        icon(s.icons[i] || "dot", hEl("div", "node-ic", n), i === 0 ? hcol("accent") : hcol("accent2"));
         fitNodeText(el("div", "node-t", n, text), n);
         r.nodes.push(n);
         if (i < s.payload.nodes.length - 1) {
-          var cs = el("div", "conn", r.row);
-          var sv = svg(150, 40, cs, "conn-svg");
+          var cs = hEl("div", "conn", r.row);
+          var sv = hSvg(150, 40, cs, "conn-svg");
           var ln = document.createElementNS(NS, "line");
           ln.setAttribute("x1", "4"); ln.setAttribute("y1", "20"); ln.setAttribute("x2", "104"); ln.setAttribute("y2", "20");
-          ln.setAttribute("stroke", Y); ln.setAttribute("stroke-width", "5"); ln.setAttribute("stroke-linecap", "round");
+          ln.setAttribute("stroke", hcol("accent")); ln.setAttribute("stroke-width", "5"); ln.setAttribute("stroke-linecap", "round");
           ln.setAttribute("stroke-dasharray", "100"); sv.appendChild(ln);
           var head = document.createElementNS(NS, "path");
-          head.setAttribute("d", "M96 10 L114 20 L96 30 Z"); head.setAttribute("fill", Y); sv.appendChild(head);
-          var pk = [el("div", "packet", cs), el("div", "packet p2", cs)];
+          head.setAttribute("d", "M96 10 L114 20 L96 30 Z"); head.setAttribute("fill", hcol("accent")); sv.appendChild(head);
+          var pk = [hEl("div", "packet", cs), hEl("div", "packet p2", cs)];
           r.conns.push({ ln: ln, head: head, pk: pk });
         }
       });
@@ -252,7 +287,7 @@
         var p = easeOutBack(ramp(t, 0, 0.45));
         n.style.opacity = fmt(ramp(t, 0, 0.2));
         n.style.transform = "scale(" + fmt(0.7 + 0.3 * p, 3) + ") translateY(" + fmt(Math.sin(u * 1.7 + i * 2) * 5) + "px)";
-        n.style.borderColor = i === 0 ? Y : BLUE;
+        n.style.borderColor = i === 0 ? hcol("accent") : hcol("accent2");
       });
       r.conns.forEach(function (c, i) {
         var start = s.cues[i + 1] !== undefined ? s.cues[i + 1] : s.cues[i];
@@ -273,17 +308,17 @@
   /* terminal_type: typed on the spoken words, syntax-coloured, with a live status line. */
   ARCH.terminal_type = {
     build: function (root, s) {
-      var r = { wrap: el("div", "term", root), lines: [] };
-      var bar = el("div", "term-bar", r.wrap);
+      var r = { wrap: hEl("div", "term", root), lines: [] };
+      var bar = hEl("div", "term-bar", r.wrap);
       el("span", "tl r", bar); el("span", "tl y", bar); el("span", "tl g", bar);
-      el("span", "term-title", bar, (s.payload && s.payload.title) || "craft-anything");
-      var body = el("div", "term-body", r.wrap);
+      el("span", "term-title", bar, (s.payload && s.payload.title) || "terminal");
+      var body = hEl("div", "term-body", r.wrap);
       s.payload.lines.forEach(function (text) {
-        var node = el("div", "term-line", body);
+        var node = hEl("div", "term-line", body);
         r.lines.push({ node: node, text: text });
       });
-      r.caret = el("span", "caret", null, "\u258d");
-      r.status = el("div", "term-status", r.wrap);
+      r.caret = el("span", "caret", null, "▌");
+      r.status = hEl("div", "term-status", r.wrap);
       return r;
     },
     update: function (r, s, u, d) {
@@ -293,8 +328,6 @@
       r.lines.forEach(function (ln, i) {
         var t0 = s.cues[i] !== undefined ? s.cues[i] : s.cue;
         var n = Math.floor(clamp((now - t0) * cps, 0, ln.text.length));
-        // The shell prompt is on screen from the scene's first frame, so the window reads as "ready",
-        // never as an empty box waiting for the voice.
         if (i === 0 && ln.text.charAt(0) === "$") n = Math.max(n, 2);
         if (n === 0 && !firstIdle) firstIdle = ln.node;
         var shown = ln.text.slice(0, n);
@@ -303,8 +336,6 @@
         if (n > 0 && n < ln.text.length) active = ln.node;
         if (n >= ln.text.length) typedEnd = Math.max(typedEnd, t0 + ln.text.length / cps);
       });
-      // The prompt is alive from the scene's first frame: the caret waits on the next empty line, so the
-      // window is never a blank box before the first command is spoken.
       if (!active) active = firstIdle || r.lines[r.lines.length - 1].node;
       active.appendChild(r.caret);
       r.caret.style.opacity = (Math.floor(now * 2.5) % 2 === 0) ? "1" : "0";
@@ -316,8 +347,8 @@
         var t0 = s.cues[i] !== undefined ? s.cues[i] : s.cue;
         return now >= t0;
       });
-      r.status.textContent = allTyped && now > typedEnd + 0.15 ? "\u2713 done" : (started ? "\u25cf running" : "\u25cf waiting");
-      r.status.style.color = allTyped && now > typedEnd + 0.15 ? GREEN : BLUE;
+      r.status.textContent = allTyped && now > typedEnd + 0.15 ? "✓ done" : (started ? "● running" : "● waiting");
+      r.status.style.color = allTyped && now > typedEnd + 0.15 ? GREEN : hcol("accent2");
     }
   };
   function colourise(node, text, isCmd) {
@@ -337,22 +368,22 @@
   /* toggle_steps: each step ticks on its word, a row wash sweeps in, a progress bar fills. */
   ARCH.toggle_steps = {
     build: function (root, s) {
-      var r = { wrap: el("div", "steps", root), rows: [] };
+      var r = { wrap: hEl("div", "steps", root), rows: [] };
       s.payload.steps.forEach(function (text, i) {
-        var row = el("div", "step", r.wrap);
+        var row = hEl("div", "step", r.wrap);
         row.style.height = Math.min(158, Math.floor(860 / s.payload.steps.length) - 18) + "px";
-        var box = el("div", "tick", row);
-        var sv = svg(48, 48, box, "tick-svg");
+        var box = hEl("div", "tick", row);
+        var sv = hSvg(48, 48, box, "tick-svg");
         var p = document.createElementNS(NS, "path");
-        p.setAttribute("d", ICON_PATHS.check); p.setAttribute("fill", "none"); p.setAttribute("stroke", INK);
+        p.setAttribute("d", ICON_PATHS.check); p.setAttribute("fill", "none"); p.setAttribute("stroke", hcol("ink"));
         p.setAttribute("stroke-width", "6"); p.setAttribute("stroke-linecap", "round"); p.setAttribute("stroke-linejoin", "round");
         p.setAttribute("stroke-dasharray", "50"); sv.appendChild(p);
         el("div", "step-t", row, text);
         el("div", "wash", row);
         r.rows.push({ row: row, box: box, p: p, wash: row.querySelector(".wash") });
       });
-      r.bar = el("div", "prog", r.wrap);
-      r.barFill = el("div", "prog-fill", r.bar);
+      r.bar = hEl("div", "prog", r.wrap);
+      r.barFill = hEl("div", "prog-fill", r.bar);
       return r;
     },
     update: function (r, s, u, d) {
@@ -362,9 +393,9 @@
         var on = ramp(t, 0, 0.12);
         x.row.style.opacity = fmt(0.35 + 0.65 * ramp(t, -0.35, 0));
         x.row.style.transform = "translateX(" + fmt((1 - easeOutCubic(ramp(t, -0.35, 0.1))) * -60) + "px)";
-        x.row.style.borderColor = on > 0 ? Y : EDGE;
-        x.box.style.background = on > 0 ? Y : "transparent";
-        x.box.style.borderColor = on > 0 ? Y : BLUE;
+        x.row.style.borderColor = on > 0 ? hcol("accent") : hcol("line");
+        x.box.style.background = on > 0 ? hcol("accent") : "transparent";
+        x.box.style.borderColor = on > 0 ? hcol("accent") : hcol("accent2");
         x.p.setAttribute("stroke-dashoffset", fmt(50 * (1 - ramp(t, 0.08, 0.3)), 2));
         x.wash.style.transform = "scaleX(" + fmt(easeOutCubic(ramp(t, 0, 0.45)), 3) + ")";
       });
@@ -376,11 +407,11 @@
   /* cta_stack: three pills rise in on their words; the primary pill breathes; a shine sweeps across. */
   ARCH.cta_stack = {
     build: function (root, s) {
-      var r = { wrap: el("div", "cta", root), pills: [] };
+      var r = { wrap: hEl("div", "cta", root), pills: [] };
       var glyphs = ["bookmark", "chat", "plus"];
       s.payload.lines.forEach(function (text, i) {
-        var p = el("div", "pill" + (i === 0 ? " pill-hi" : ""), r.wrap);
-        icon(glyphs[i] || "arrow", el("div", "pill-ic", p), i === 0 ? INK : Y);
+        var p = hEl("div", "pill" + (i === 0 ? " pill-hi" : ""), r.wrap);
+        icon(glyphs[i] || "arrow", hEl("div", "pill-ic", p), i === 0 ? hcol("ink") : hcol("accent"));
         el("div", "pill-t", p, text);
         el("div", "shine", p);
         r.pills.push(p);
@@ -402,15 +433,15 @@
   };
 
   /* endcard: the brand end-card. Real logo (never a text initial), handle, the CTA keyword, a Follow
-   button, and a cursor that presses it. The press fires on the pipeline's own `press` time, the same
-   number the click SFX uses, so what you hear and what you see are one event. */
+   * button, and a cursor that presses it. The press fires on the pipeline's own `press` time, the same
+   * number the click SFX uses, so what you hear and what you see are one event. */
   ARCH.endcard = {
     build: function (root, s) {
       var b = (D && D.brand) || {};
       var p = s.payload || {};
-      var r = { wrap: el("div", "ec", root) };
-      r.card = el("div", "ec-card", r.wrap);
-      var av = el("div", "ec-av", r.card);
+      var r = { wrap: hEl("div", "ec", root) };
+      r.card = hEl("div", "ec-card", r.wrap);
+      var av = hEl("div", "ec-av", r.card);
       if (b.logo) {
         var img = document.createElement("img");
         img.src = b.logo; img.alt = b.name || "";
@@ -418,20 +449,20 @@
       } else {
         el("span", "ec-initial", av, String(b.name || "H").slice(0, 1));
       }
-      r.name = el("div", "ec-name", r.card, b.name || "");
+      r.name = hEl("div", "ec-name", r.card, b.name || "");
       var badge = el("span", "ec-badge", r.name);
       badge.innerHTML = '<svg viewBox="0 0 24 24" width="30" height="30"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#0C0E13" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
       el("div", "ec-handle", r.card, b.handle || D.handle || "");
       if (b.tagline) el("div", "ec-tag", r.card, b.tagline);
-      r.kw = el("div", "ec-kw", r.card);
+      r.kw = hEl("div", "ec-kw", r.card);
       el("span", "ec-kw-ic", r.kw, "comment");
       el("span", "ec-kw-t", r.kw, p.keyword ? String(p.keyword).toUpperCase() : "");
-      r.btn = el("div", "ec-btn", r.card);
+      r.btn = hEl("div", "ec-btn", r.card);
       r.lbl = el("span", "ec-lbl", r.btn, p.follow || b.cta_button || "Follow");
-      r.done = el("div", "ec-done", r.btn);
+      r.done = hEl("div", "ec-done", r.btn);
       el("span", "ec-done-t", r.done, "Following");
-      r.ring = el("div", "ec-ring", r.btn);
-      r.cur = svg(24, 24, r.btn, "ec-cursor");  // parented to the button so it always lands on it
+      r.ring = hEl("div", "ec-ring", r.btn);
+      r.cur = svg(24, 24, r.btn, "ec-cursor");
       var path = document.createElementNS(NS, "path");
       path.setAttribute("d", "M4 2l15 9.2-6.6 1.3 3.9 7.4-2.8 1.5-3.9-7.5L4 18.8z");
       path.setAttribute("fill", "#FFFFFF");
@@ -447,60 +478,89 @@
       var pr = (typeof ev.press === "number" ? ev.press : s.t0 + Math.max(1.2, Math.min(d * 0.62, d - 1.1))) - s.t0;
       var kw = (typeof ev.keyword === "number" ? ev.keyword : s.cue) - s.t0;
 
-      // the card lands on the first word of the CTA
       var cin = easeOutBack(ramp(u, 0, 0.5));
       r.card.style.opacity = fmt(ramp(u, 0, 0.2));
       r.card.style.transform = "translateY(" + fmt((1 - cin) * 110) + "px) scale(" + fmt(0.94 + 0.06 * cin, 3) + ")";
 
-      // keyword chip pops on the spoken keyword, then keeps breathing
       var kp = easeOutBack(ramp(u, kw, kw + 0.42));
       r.kw.style.opacity = fmt(ramp(u, kw, kw + 0.16));
       r.kw.style.transform = "translateY(" + fmt((1 - kp) * 44) + "px) scale(" + fmt(0.86 + 0.14 * kp + 0.012 * Math.sin(u * 3.1), 3) + ")";
 
-      // cursor: arrives, presses, leaves
       var arrive = easeOutCubic(ramp(u, pr - 0.6, pr));
       var leave = ramp(u, pr + 0.55, pr + 0.85);
       r.cur.style.opacity = fmt(ramp(u, pr - 0.62, pr - 0.42) * (1 - leave));
-      r.cur.style.transform = "translate(" + fmt((1 - arrive) * 210) + "px," + fmt((1 - arrive) * 250) + "px) scale(1)";
+      r.cur.style.transform = "translate(" + fmt((1 - arrive) * 210, 1) + "px," + fmt((1 - arrive) * 250, 1) + "px) scale(1)";
 
       var down = ramp(u, pr - 0.12, pr - 0.02) * (1 - ramp(u, pr + 0.02, pr + 0.2));
       var back = easeOutBack(ramp(u, pr + 0.04, pr + 0.26));
       var bscale = 1 - 0.09 * down + 0.012 * (u > pr + 0.04 ? 0 : Math.sin(u * 3.2));
       r.btn.style.transform = "scale(" + fmt(bscale * (0.96 + 0.04 * easeOutBack(ramp(u, 0.16, 0.52))), 3) + ")";
-      r.btn.style.boxShadow = "0 0 " + fmt(18 + 26 * (0.5 + 0.5 * Math.sin(u * 3.2))) + "px rgba(255,214,10," + fmt(0.35 + 0.1 * Math.sin(u * 3.2)) + ")";
+      r.btn.style.boxShadow = "0 0 " + fmt(18 + 26 * (0.5 + 0.5 * Math.sin(u * 3.2))) + "px " + hcol("accent");
       r.lbl.style.opacity = fmt(1 - ramp(u, pr + 0.02, pr + 0.1));
       r.done.style.opacity = fmt(ramp(u, pr + 0.03, pr + 0.12));
       r.done.style.transform = "scale(" + fmt(0.9 + 0.1 * back) + ")";
       r.ring.style.opacity = fmt(ramp(u, pr, pr + 0.03) * (1 - ramp(u, pr + 0.3, pr + 0.62)));
       r.ring.style.transform = "scale(" + fmt(0.7 + 1.5 * easeOutCubic(ramp(u, pr, pr + 0.55)), 3) + ")";
 
-      // idle life so the last frame is never frozen
       r.wrap.style.transform = "translateY(" + fmt(Math.sin(u * 1.6) * 5) + "px)";
     }
   };
 
+  /* The house library's archetypes (illustration stage, charts, comparator, verdict, fabricated app,
+   * step path, stamps, spec strip, quote) are merged in here. A per-tool template opts in
+   * with the same one line. */
+  if (H && H.ARCH) {
+    Object.keys(H.ARCH).forEach(function (k) { ARCH[k] = H.ARCH[k]; });
+  }
+
   /* ---------- stage ---------- */
   var stageEl, gridEl, glowEl, capEl, handleEl, particles = [];
+  var hudEl = null, hudLeft = null, hudRight = null, hudMetric = null, hudValue = null;
 
   function build() {
     stageEl = document.getElementById("stage");
-    gridEl = el("div", "grid", stageEl); gridEl.id = "grid";
-    glowEl = el("div", "glow", stageEl);
+    gridEl = hEl("div", "grid", stageEl); gridEl.id = "grid";
+    var dots = hEl("div", "", stageEl); dots.id = "plate-dots";
+    glowEl = hEl("div", "glow", stageEl);
     for (var p = 0; p < 26; p++) {
-      var dot = el("div", "dot", stageEl);
+      var dot = hEl("div", "dot", stageEl);
       var seed = (p * 9301 + 49297) % 233280 / 233280;
       particles.push({ el: dot, x: seed * 1080, y: ((p * 7919) % 1920), v: 18 + (p % 7) * 9, s: 2 + (p % 3) * 2 });
     }
-    handleEl = el("div", "handle", stageEl, D.handle || "");
+    handleEl = hEl("div", "handle", stageEl, D.handle || "");
+    /* ONE hud element for the whole video: a scene label on the left, a live metric on the right.
+     * It is repainted per scene, not duplicated per scene. */
+    hudEl = hEl("div", "hud", stageEl);
+    hudLeft = hEl("div", "hud-l", hudEl, "");
+    hudRight = hEl("div", "hud-r", hudEl);
+    hudMetric = hEl("span", "hud-m", hudRight, "");
+    hudValue = hEl("span", "hud-v", hudRight, "");
     D.scenes.forEach(function (s) {
-      var wrap = el("div", "scene", stageEl);
+      var wrap = hEl("div", "scene", stageEl);
       wrap.style.display = "none";
-      var head = el("div", "headline", wrap, s.headline || "");
-      var visual = el("div", "visual arch-" + s.archetype, wrap);
+      var head = hEl("div", "headline house-display", wrap);
+      var visual = hEl("div", "visual arch-" + s.archetype, wrap);
+      var fn = ARCH[s.archetype];
       s._wrap = wrap; s._head = head; s._visual = visual;
-      s._refs = ARCH[s.archetype].build(visual, s);
+      /* An archetype may own the headline band (the statement lives there) AND the stage. Both
+       * halves are built and their refs merged, so one update() drives the whole scene. */
+      var refs = {};
+      if (fn && fn.buildHead) {
+        var hr = fn.buildHead(head, s);
+        for (var hk in hr) refs[hk] = hr[hk];
+        s._headOnly = true;
+        wrap.className += " sc-headonly";
+        if (s.headline && !(s.payload && s.payload.big)) hRich(head, s.headline);
+      } else if (s.headline) {
+        hRich(head, s.headline);
+      }
+      var vr = fn ? fn.build(visual, s)
+                  : ARCH.concept_card.build(visual, { payload: { big: s.headline || "" } });
+      for (var vk in vr) refs[vk] = vr[vk];
+      s._refs = refs;
+      s._hud = (s.payload && s.payload.hud) || s.hud || null;
     });
-    capEl = el("div", "caption", stageEl);
+    capEl = hEl("div", "caption", stageEl);
     window.ready = true;
   }
 
@@ -514,8 +574,8 @@
     var words = s.words || [];
     var cur = -1;
     for (var i = 0; i < words.length; i++) if (t >= words[i][1]) cur = i;
-    // The word being said is the FIRST word on screen (owner, 6 Nov 2026: kinetic text read one word
-    // behind because the line led with the previous word). Three words of look-ahead follow it.
+    /* The word being said is the FIRST word on screen (owner, 6 Nov 2026: kinetic text read one word
+     * behind because the line led with the previous word). Three words of look-ahead follow it. */
     var start = Math.max(0, Math.min(cur, words.length - 4));
     var end = Math.min(words.length, start + 4);
     capEl.innerHTML = "";
@@ -536,18 +596,29 @@
     var k = activeIndex(t);
     D.scenes.forEach(function (s, i) { s._wrap.style.display = i === k ? "block" : "none"; });
     var s = D.scenes[k];
-    // The shared house card owns the complete endcard scene.
-    if (s.archetype === "endcard") { D.scenes.forEach(function (x) { x._wrap.style.display = "none"; }); return; }
+    /* The plate is the scene's mood. Switching it repaints the whole frame mid-video. */
+    var want = (s.payload && s.payload.plate) || s.plate;
+    if (want && want !== (H ? H.plate() : null) && H) H.setPlate(want);
     var u = t - s.t0, d = Math.max(1e-6, s.t1 - s.t0);
-    var fade = 0.7 + 0.3 * Math.min(ramp(u, 0, 0.18), ramp(d - u, 0, 0.16));
+    var fade = Math.min(ramp(u, 0, 0.18), ramp(d - u, 0, 0.16));
     s._head.style.opacity = fmt(fade);
     s._head.style.transform = "translateY(" + fmt((1 - easeOutCubic(ramp(u, 0, 0.3))) * 30) + "px)";
     s._visual.style.opacity = fmt(fade);
     s._visual.style.transform = "scale(" + fmt(0.96 + 0.04 * easeOutCubic(ramp(u, 0, 0.3)) + 0.03 * (u / d), 4) + ")";
-    ARCH[s.archetype].update(s._refs, s, u, d);
+    if (ARCH[s.archetype]) ARCH[s.archetype].update(s._refs, s, u, d);
     drawCaption(s, t);
 
-    // Ambient layer: grid drifts, glow wanders on a slow Lissajous path, particles rise.
+    /* The HUD repaints for the active scene only. */
+    if (hudEl) {
+      var hd = s._hud;
+      hudEl.style.opacity = fmt(fade);
+      hudLeft.textContent = hd ? (hd.label || "") : "";
+      hudMetric.textContent = hd ? (hd.metric || "") : "";
+      hudValue.textContent = hd && hd.value != null ? String(hd.value) : "";
+    }
+
+    /* Ambient layer: grid drifts, glow wanders on a slow Lissajous path, particles rise. */
+    if (H && H.ambient) H.ambient(t);
     gridEl.style.backgroundPosition = fmt(t * 90, 2) + "px " + fmt(t * 90, 2) + "px";
     glowEl.style.transform = "translate(" + fmt(Math.sin(t * 0.21) * 160, 1) + "px," + fmt(Math.cos(t * 0.17) * 220, 1) + "px)";
     particles.forEach(function (p) {

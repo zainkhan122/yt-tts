@@ -139,6 +139,14 @@ def stage_select(st: dict, count: int) -> list[str]:
     if qpath.exists():
         queued = {i["video_id"] for i in json.loads(qpath.read_text(encoding="utf-8")).get("items", [])}
     busy = {v for b in st.get("batches", []) for v in b.get("ids", []) if b.get("status") != "done"}
+    # Duplicate guard: a topic that already has a brief, a plan or a published post is never
+    # rendered a second time. The registry is derived from what actually exists.
+    try:
+        sys.path.insert(0, str(ROOT / "tools"))
+        import topics_covered
+        covered = topics_covered.rebuild()
+    except Exception:
+        covered = {}
     ready, rejected, unapproved = [], [], []
     for p in sorted((ROOT / "videos").glob("*/plan.json")):
         vid = p.parent.name
@@ -148,7 +156,15 @@ def stage_select(st: dict, count: int) -> list[str]:
         if reason:
             rejected.append(f"{vid}: {reason}")
             continue
-        prio = json.loads(p.read_text(encoding="utf-8")).get("priority", 100)
+        plan = json.loads(p.read_text(encoding="utf-8"))
+        subject = str(plan.get("tool") or plan.get("topic") or plan.get("title") or "").strip()
+        if subject and covered:
+            hit = topics_covered.is_covered(subject, covered)
+            if hit and vid not in (hit.get("videos") or []):
+                other = ", ".join((hit.get("videos") or hit.get("sources") or [])[:2])
+                rejected.append(f"{vid}: '{subject}' is already covered by {other} — refusing a duplicate short")
+                continue
+        prio = plan.get("priority", 100)
         if not topic_approved(vid):
             unapproved.append(vid)
             continue

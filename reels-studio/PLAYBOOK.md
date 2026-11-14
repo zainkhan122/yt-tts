@@ -230,14 +230,30 @@ github.signals 117K, ...): audio-only, vocals separated from music (UVR MDX-Net)
 
 ## 7. Assets policy
 
-- ✅ Our own captures of public pages.
-- ✅ The makers' official demo media and logos (credited, identification use).
-- ✅ Real outputs from running the tool.
+**Owner directive (13 Nov 2026, load-bearing): every surface on screen is DRAWN.** The reference
+reels (`v1`/`v2`/`v3`) use no official demo footage, no ripped creator clips, no browser
+screenshots and no README scrolls — they are built from generated graphics, re-created interfaces
+and illustration. We copy that, not just the palette.
+
+- ✅ **Generated graphics only** — the house renderer (`graphics/`, see `graphics/HOUSE-STYLE.md`)
+  draws every scene: plates, charts, cards, fabricated app windows, re-created tool interfaces,
+  props, the caption band, the HUD chrome.
+- ✅ **Re-created interfaces** — a window, panel or control drawn in HTML/SVG in the tool's own
+  visual grammar. It may *look* like the real tool; it must be drawn, never captured.
+- ✅ Real outputs from running the tool (as data, quoted or plotted — not as footage).
+- ✅ The makers' logos, for identification use only (the end-card brand block).
 - ✅ Our own music, SFX and graphics.
+- ❌ **Official demo clips, demo GIFs or demo screencasts** (owner directive, 13 Nov 2026).
+- ❌ **Browser/page captures of the tool** ("own capture" media) as a scene's main visual.
+- ❌ **README scrolls** — a scrolling document is a screenshot of text, not a designed graphic.
 - ❌ Clips from other creators.
 - ❌ Movie, TV or sports footage.
 - ❌ Music we don't own.
 - ❌ Assets the maker explicitly reserved.
+
+The house look, the archetype library and the per-category visual language are documented in
+`graphics/HOUSE-STYLE.md`. A scene that cannot be drawn as a house archetype must be re-planned —
+it is not a reason to reach for a capture.
 
 ## 8. QA gates (automatic + agent review)
 
@@ -254,9 +270,11 @@ github.signals 117K, ...): audio-only, vocals separated from music (UVR MDX-Net)
 gates measure technical validity, NOT watchability; an "8/8" never again substitutes for
 watching the video. Hard rules, enforced in `production_gate.verify_capture_assets`
 (cloud render refuses otherwise) and warned early by brief_lint BL110/BL111:
-- main media is a **generated graphic built from the tool's flow** (owner rule, 6 Nov 2026); tool media (captures, README images) is optional
-  page/UI (`capture.py`, kind "own capture") and/or official demo media/images;
-- **≥2 media scenes, ≥1 of them motion/page** (clip, clip-montage, page, scroll);
+- main media is a **generated graphic built from the tool's flow** (owner rule, 6 Nov 2026). Tool
+  media (captures, README images, official demo media) is **not** allowed as a scene visual —
+  every surface is drawn (owner rule, 13 Nov 2026; see §7 and `graphics/HOUSE-STYLE.md`);
+- **≥2 media scenes, ≥1 of them motion/page** (a drawn, moving graphic: chart, board, app mock —
+  not a clip of somebody else's screen);
 - generated text cards are support graphics only — never the main visual, never the cover;
 - no scene may stage an empty/placeholder visual (no background-less steps scenes).
 **Viewer panel (mandatory before queueing):** `tools/viewer_panel.py <render-dir>` extracts

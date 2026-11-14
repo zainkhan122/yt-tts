@@ -17,6 +17,7 @@ import datetime as dt
 import json
 import random
 import re
+import sys
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -24,6 +25,37 @@ ROOT = Path(__file__).resolve().parent.parent
 CONFIG = ROOT / "config" / "selection.json"
 
 REQUIRED_TEXT = ("subject", "classification", "viewer_gain", "competition", "media_plan", "reason")
+
+
+def covered_registry() -> dict:
+    """The covered-topic registry: every topic that already has a brief, plan or published post."""
+    if str(ROOT / "tools") not in sys.path:
+        sys.path.insert(0, str(ROOT / "tools"))
+    import topics_covered
+    return topics_covered.rebuild()
+
+
+def recent_subjects(days: int, today: dt.date | None = None) -> list[tuple[str, dt.date]]:
+    """Subjects picked on earlier days inside the novelty window (from the recorded selections)."""
+    today = today or dt.date.today()
+    out: list[tuple[str, dt.date]] = []
+    for path in sorted((ROOT / "intake").glob("*-selection.json")):
+        try:
+            rec = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        try:
+            day = dt.date.fromisoformat(str(rec.get("date") or path.stem.split("-")[0]))
+        except ValueError:
+            continue
+        age = (today - day).days
+        if age < 0 or age >= days:
+            continue
+        for pick in rec.get("picks") or []:
+            subject = str(pick.get("subject") or "").strip()
+            if subject:
+                out.append((subject, day))
+    return out
 
 
 def load_config(path: Path = CONFIG) -> dict:
@@ -101,7 +133,8 @@ def validate_pick(pick: dict, *, today: dt.date, cfg: dict | None = None) -> lis
 
 
 def validate_day(record: dict, *, today: dt.date, cfg: dict | None = None,
-                 recent_subjects: list[tuple[str, dt.date]] | None = None) -> list[str]:
+                 recent_subjects: list[tuple[str, dt.date]] | None = None,
+                 covered: dict | None = None) -> list[str]:
     cfg = cfg or load_config()
     problems: list[str] = []
     picks = record.get("picks") or []
@@ -123,6 +156,14 @@ def validate_day(record: dict, *, today: dt.date, cfg: dict | None = None,
             days = (today - old_day).days
             if re.sub(r"\W+", " ", old_subject.lower()).strip() == key and 0 <= days < int(cfg["novelty_days"]):
                 problems.append(f"{pick.get('id')}: subject already covered {days} day(s) ago")
+        # Hard dedup: a topic that already has a brief, a plan or a published post is never picked again,
+        # whatever the novelty window says. The registry is derived from what actually exists.
+        if covered is not None and cfg.get("block_covered", True):
+            import topics_covered
+            hit = topics_covered.is_covered(str(pick.get("subject") or ""), covered)
+            if hit:
+                where = ", ".join((hit.get("videos") or hit.get("sources") or [])[:2]) or "the covered registry"
+                problems.append(f"{pick.get('id')}: subject is already covered ({where}) — no duplicate short")
     return problems
 
 
@@ -150,7 +191,13 @@ def main(argv=None) -> int:
         print(f"pick count for {day}: {rec['pick_count']} (recorded in {out})")
         return 0
     rec = json.loads(args.path.read_text(encoding="utf-8"))
-    problems = validate_day(rec, today=dt.date.fromisoformat(args.day))
+    today = dt.date.fromisoformat(args.day)
+    cfg = load_config()
+    # The CLI enforces the same dedup the library does: the novelty window from the recorded
+    # selections, plus the covered-topic registry (a brief, a plan or a published post).
+    recent = recent_subjects(int(cfg["novelty_days"]), today=today)
+    covered = covered_registry()
+    problems = validate_day(rec, today=today, cfg=cfg, recent_subjects=recent, covered=covered)
     for p in problems:
         print("BLOCK", p)
     print("OK" if not problems else f"{len(problems)} problem(s)")

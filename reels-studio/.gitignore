@@ -16,6 +16,9 @@ research/voice/raw/
 # finished videos live in GitHub Releases (tools/publish_release.py); local renders are scratch
 renders/
 
+# render scratch: the stage HTML, the staged fonts and the frame captures are all regenerable
+work/
+
 # Posting reports contain operational receipts, not source files
 .env
 .env.*
@@ -35,6 +38,3 @@ research/references/**/video.*
 research/references/**/subs*.vtt
 research/references/**/audio.*
 research/references/**/frames/
-
-# Local reference analysis (potentially user-provided screenshots); not pipeline source.
-/ref/

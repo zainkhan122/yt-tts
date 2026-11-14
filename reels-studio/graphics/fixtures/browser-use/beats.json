@@ -1,0 +1,289 @@
+{
+  "tool": "browser-use",
+  "handle": "@hypeless",
+  "template": "default",
+  "script_sha256": "sha256:5e42e7bd65dc8768770176c170001b7662a75032c4c4490e1acd537f0a420e1b",
+  "scenes": [
+    {
+      "scene_id": "hook",
+      "phrase": 0,
+      "archetype": "concept_card",
+      "headline": "an AI agent that opens a real browser and clicks",
+      "feature_id": null,
+      "depicts": "AI agent just opened a real browser and clicked",
+      "payload": {
+        "big": "An AI agent that *does the clicking* for you",
+        "sub": "Open source. Runs on any LLM. MIT.",
+        "plate": "paper"
+      },
+      "cue_word": "clicked"
+    },
+    {
+      "scene_id": "repl",
+      "phrase": 1,
+      "archetype": "stage_board",
+      "headline": "it writes Python over the DevTools protocol",
+      "feature_id": "f_repl",
+      "depicts": "give a task then it writes Python over devtools",
+      "payload": {
+        "plate": "paper",
+        "hud": {
+          "label": "// 02 — how it works",
+          "metric": "STACK",
+          "value": "REPL+CDP"
+        },
+        "props": [
+          {
+            "kind": "window",
+            "title": "browser-use — repl",
+            "x": 0.04,
+            "y": 0.07,
+            "w": 0.55,
+            "h": 0.47,
+            "rows": [
+              [
+                "task",
+                "book a driving test"
+              ],
+              [
+                "cell 1",
+                "new_tab(url)"
+              ],
+              [
+                "cell 2",
+                "bu.click(41)"
+              ],
+              [
+                "result",
+                "finish(booked)"
+              ]
+            ]
+          },
+          {
+            "kind": "panel",
+            "title": "the whole agent",
+            "value": "3 parts",
+            "x": 0.63,
+            "y": 0.07,
+            "w": 0.33,
+            "h": 0.47,
+            "count": 9,
+            "highlight": 3
+          },
+          {
+            "kind": "note",
+            "label": "task in plain english",
+            "check": true,
+            "x": 0.06,
+            "y": 0.61,
+            "w": 0.24,
+            "h": 0.1
+          },
+          {
+            "kind": "note",
+            "label": "model writes a cell",
+            "check": true,
+            "x": 0.34,
+            "y": 0.61,
+            "w": 0.24,
+            "h": 0.1
+          },
+          {
+            "kind": "note",
+            "label": "repl runs it",
+            "check": true,
+            "x": 0.62,
+            "y": 0.61,
+            "w": 0.24,
+            "h": 0.1
+          },
+          {
+            "kind": "card",
+            "title": "python over raw CDP",
+            "value": "one persistent REPL",
+            "x": 0.22,
+            "y": 0.77,
+            "w": 0.56,
+            "h": 0.16,
+            "accent": "#D93025"
+          }
+        ]
+      }
+    },
+    {
+      "scene_id": "stars",
+      "phrase": 2,
+      "archetype": "chart_bars",
+      "headline": "121 thousand GitHub stars",
+      "feature_id": "f_stars",
+      "depicts": "121 thousand github stars vs playwright puppeteer",
+      "payload": {
+        "plate": "ink",
+        "hud": {
+          "label": "// 03 — the receipts",
+          "metric": "STARS",
+          "value": "121K"
+        },
+        "labels": [
+          "browser-use",
+          "playwright",
+          "puppeteer"
+        ],
+        "values": [
+          120975,
+          100133,
+          95836
+        ],
+        "highlight": 0,
+        "unit": "",
+        "source": "GitHub API, 14 Nov 2026",
+        "caption": "outranks the classic automation tools"
+      }
+    },
+    {
+      "scene_id": "chrome",
+      "phrase": 3,
+      "archetype": "app_mock",
+      "headline": "it drives the Chrome you already have open",
+      "feature_id": "f_chrome",
+      "depicts": "drive the Chrome you already have open with logins",
+      "payload": {
+        "plate": "paper",
+        "hud": {
+          "label": "// 04 — in the wild",
+          "metric": "MODE",
+          "value": "YOUR CHROME"
+        },
+        "title": "chrome",
+        "tabs": [
+          "Task",
+          "Steps",
+          "Result"
+        ],
+        "active_tab": 1,
+        "sidebar": {
+          "title": "AGENT RUN",
+          "items": [
+            "cell 1 new_tab",
+            "cell 2 click #41",
+            "cell 3 pick date"
+          ]
+        },
+        "cards": [
+          {
+            "glyph": "▸",
+            "label": "click",
+            "value": "#41 date"
+          },
+          {
+            "glyph": "▸",
+            "label": "type",
+            "value": "14:30"
+          },
+          {
+            "glyph": "✓",
+            "label": "booked",
+            "value": "confirmed"
+          }
+        ],
+        "rows": [
+          [
+            "task",
+            "earliest driving test"
+          ],
+          [
+            "browser",
+            "your chrome"
+          ],
+          [
+            "logins",
+            "kept"
+          ]
+        ],
+        "input": "find the earliest driving test and book it",
+        "comment": {
+          "author": "browser-use",
+          "tag": "agent",
+          "text": "found a Tuesday slot at 14:30 — booked it"
+        },
+        "badge": "LIVE"
+      }
+    },
+    {
+      "scene_id": "runtime",
+      "phrase": 4,
+      "archetype": "spec_strip",
+      "headline": "runs on any LLM",
+      "feature_id": "f_llm",
+      "depicts": "runs on any LLM locally or in the cloud",
+      "payload": {
+        "plate": "slate",
+        "hud": {
+          "label": "// 05 — the runtime",
+          "metric": "MODEL",
+          "value": "ANY"
+        },
+        "items": [
+          {
+            "label": "models",
+            "value": "any LLM"
+          },
+          {
+            "label": "protocol",
+            "value": "raw CDP"
+          },
+          {
+            "label": "license",
+            "value": "MIT"
+          },
+          {
+            "label": "browsers",
+            "value": "chrome, edge"
+          }
+        ],
+        "caption": "locally, or on Browser Use Cloud"
+      }
+    },
+    {
+      "scene_id": "catch",
+      "phrase": 5,
+      "archetype": "verdict_pair",
+      "headline": "the honest catch",
+      "feature_id": "f_guard",
+      "depicts": "a guard not a sandbox pin the version restrict the domains",
+      "payload": {
+        "plate": "ink",
+        "hud": {
+          "label": "// 06 — the catch",
+          "metric": "GUARD",
+          "value": "PIN IT"
+        },
+        "pros_title": "✓ What works",
+        "cons_title": "⚠ The catch",
+        "pros": [
+          "one persistent REPL",
+          "drives your Chrome",
+          "runs on any LLM"
+        ],
+        "cons": [
+          "a guard, not a sandbox",
+          "pin the exact version",
+          "restrict the domains"
+        ]
+      }
+    },
+    {
+      "scene_id": "cta",
+      "phrase": 6,
+      "archetype": "endcard",
+      "headline": "comment BROWSE",
+      "feature_id": null,
+      "depicts": "comment browse for the starter script",
+      "payload": {
+        "plate": "paper",
+        "keyword": "BROWSE"
+      },
+      "cue_word": "browse"
+    }
+  ]
+}

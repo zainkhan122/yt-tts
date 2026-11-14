@@ -155,6 +155,16 @@ def main():
         print(f"radar: {before - len(gh)} repo(s) already covered, ignored: " + ", ".join(covered_hits[:8]))
     models, spaces = hf("models"), hf("spaces")
     trending = gittrend()
+    # The covered filter applies to EVERY list the radar prints, not just GitHub search: GitTrend and
+    # Hugging Face used to re-surface a tool we had already made a short about.
+    def _covered(name):
+        return topics_covered.is_covered(name, solved) or topics_covered.is_covered(str(name).split("/")[-1], solved)
+    trending_before = len(trending)
+    trending = [t for t in trending if not _covered(t["name"])]
+    models = [m for m in models if not _covered(m["name"])]
+    spaces = [s for s in spaces if not _covered(s["name"])]
+    if trending_before - len(trending):
+        print(f"radar: {trending_before - len(trending)} GitTrend repo(s) already covered, ignored")
     refs = reference_posts()
     L = [f"# Trend radar: {today} (last {a.days} days)", "",
          "Sources: GitHub search API (new repos, ranked by stars/day), Hugging Face trending models and Spaces, GitTrend trending today (https://gittrend.io/).",

@@ -172,17 +172,30 @@ def main():
     out.write_text("\n".join(L) + "\n")
     # consensus topics -> backlog (status idea), deduped by topic key
     bl = ROOT / "topics/backlog.csv"
-    have = bl.read_text().lower() if bl.exists() else ""
+    # Read the existing rows properly: the old substring test over the whole file matched inside
+    # unrelated words, and the rows it appended did not line up with the CSV header.
+    have = set()
+    if bl.exists():
+        with bl.open(newline="", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                topic = (row.get("topic") or "").strip()
+                if topic:
+                    have.add(topics_covered.key(topic))
+                vid = (row.get("video_id") or "").strip()
+                if vid:
+                    have.add(topics_covered.key(vid))
     added = 0
     with bl.open("a", newline="") as f:
         w = csv.writer(f)
         for t in ranked:
             key = t["name"].split("/")[-1]
             generic = key.lower() in STOP or key.lower() in PLATFORMS
-            if len(t["channels"]) >= 2 and key.lower() not in have and not generic \
+            if len(t["channels"]) >= 2 and topics_covered.key(key) not in have and not generic \
                     and not topics_covered.is_covered(key, covered):
-                w.writerow([today, key, "from idea feed", ("https://github.com/" + t["name"]) if "/" in t["name"] else t["best"][1],
-                            f"{len(t['channels'])} watchlist channels, {t['views']:,} views", "", "", ";".join(sorted(t["channels"])), "", "", "", "idea", "", "auto: verify + score"])
+                w.writerow(["", "", "idea", key, "", ("https://github.com/" + t["name"]) if "/" in t["name"] else t["best"][1],
+                            today, f"{len(t['channels'])} watchlist channels, {t['views']:,} views",
+                            "", "", "", "", f"auto: verify + score; channels={';'.join(sorted(t['channels']))}"])
+                have.add(topics_covered.key(key))
                 added += 1
     print(f"-> {out.relative_to(ROOT)} ({len(ranked)} topics; {sum(1 for t in ranked if len(t['channels']) >= 2)} with consensus ≥ 2; {added} added to backlog)")
 

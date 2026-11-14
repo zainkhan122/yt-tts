@@ -54,7 +54,7 @@ YT_DLP = _ytdlp()
 REG = ROOT / "research/sources.csv"
 POSTS = ROOT / "research/sources/posts.csv"
 FIELDS = ["type", "handle", "url", "tabs", "focus", "why_follow", "priority", "language", "added", "status"]
-PFIELDS = ["platform", "source", "post_id", "url", "published", "title", "views", "likes", "comments", "shares", "saves",
+PFIELDS = ["platform", "source", "source_type", "post_id", "url", "published", "title", "views", "likes", "comments", "shares", "saves",
            "duration", "first_seen", "last_seen"]
 ATOM = "{http://www.w3.org/2005/Atom}"
 
@@ -68,12 +68,12 @@ def detect(url):
 
 
 def load():
-    return list(csv.DictReader(REG.open())) if REG.exists() else []
+    return list(csv.DictReader(REG.open(encoding="utf-8"))) if REG.exists() else []
 
 
 def save(rows):
     REG.parent.mkdir(parents=True, exist_ok=True)
-    with REG.open("w", newline="") as f:
+    with REG.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=FIELDS)
         w.writeheader()
         w.writerows({k: r.get(k, "") for k in FIELDS} for r in rows)
@@ -149,21 +149,25 @@ def rss_list(url, n):
 
 def fetch(src, n):
     """Latest posts of one source as normalized dicts."""
-    if src["type"] == "rss":
-        return [{**e, "platform": "web"} for e in rss_list(src["url"], n)]
-    if src["type"] == "web":  # HTML list pages (no feed): reuse the radar's parser
+    kind = src.get("type") or "rss"
+    if kind == "rss":
+        return [{**e, "platform": "web", "source_type": "rss"} for e in rss_list(src["url"], n)]
+    if kind == "web":  # HTML list pages (no feed): reuse the radar's parser
         sys.path.insert(0, str(ROOT / "tools"))
         import trend_radar
-        return [{"platform": "web", "id": r["name"], "url": r["url"], "title": r["name"], "description": "",
-                 "timestamp": 0, "views": None, "likes": None, "comments": None, "shares": None, "saves": None,
+        # A live list page has no per-item date. The page itself IS today's list, so the scan time is
+        # the honest publication stamp: it keeps the row inside the rolling 24 h window.
+        now = time.time()
+        return [{"platform": "web", "source_type": "web", "id": r["name"], "url": r["url"], "title": r["name"], "description": "",
+                 "timestamp": now, "views": None, "likes": None, "comments": None, "shares": None, "saves": None,
                  "duration": None} for r in trend_radar.gittrend(n)]
     base = re.sub(r"/(shorts|videos|featured|streams)/?$", "", src["url"].rstrip("/"))  # tabs from the stored URL, not the handle
-    urls = [src["url"]] if src["type"] == "tiktok" else [f"{base}/{t}" for t in (src.get("tabs") or "shorts").split(",")]
-    dates = yt_rss_dates(yt_channel_id(base)) if src["type"] == "youtube" else {}  # flat playlists have no upload dates
+    urls = [src["url"]] if kind == "tiktok" else [f"{base}/{t}" for t in (src.get("tabs") or "shorts").split(",")]
+    dates = yt_rss_dates(yt_channel_id(base)) if kind == "youtube" else {}  # flat playlists have no upload dates
     out = []
     for u in urls:
         for e in ytdlp_list(u, n):
-            out.append({"platform": src["type"] + ("-long" if u.endswith("/videos") else ""), "id": e.get("id"), "url": e.get("url"),
+            out.append({"platform": kind + ("-long" if u.endswith("/videos") else ""), "source_type": kind, "id": e.get("id"), "url": e.get("url"),
                         "title": e.get("title") or "", "description": e.get("description") or "",
                         "timestamp": e.get("timestamp") or dates.get(str(e.get("id")), 0),
                         "views": e.get("view_count"), "likes": e.get("like_count"), "comments": e.get("comment_count"),
@@ -173,7 +177,10 @@ def fetch(src, n):
 
 def upsert(posts_by_source):
     POSTS.parent.mkdir(parents=True, exist_ok=True)
-    have = {(r["platform"], r["post_id"]): r for r in csv.DictReader(POSTS.open())} if POSTS.exists() else {}
+    # UTF-8 explicitly: a Windows default (cp1252) crashed the whole scan on the first emoji in a
+    # title, which cost a full 33-source fetch. The file is read back the same way.
+    have = ({(r["platform"], r["post_id"]): r
+             for r in csv.DictReader(POSTS.open(encoding="utf-8"))} if POSTS.exists() else {})
     now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M")
     new = 0
     for handle, posts in posts_by_source.items():
@@ -181,14 +188,18 @@ def upsert(posts_by_source):
             k = (e["platform"], str(e["id"]))
             row = have.get(k) or {"first_seen": now}
             new += k not in have
-            pub = dt.datetime.fromtimestamp(e["timestamp"], dt.timezone.utc).strftime("%Y-%m-%d") if e.get("timestamp") else ""
-            row.update({"platform": e["platform"], "source": handle, "post_id": str(e["id"]), "url": e.get("url") or "", "published": pub,
+            # The full ISO timestamp, not a calendar date: the 24 h topic window is a rolling window,
+            # and a date-only stamp silently drops everything published yesterday evening.
+            pub = (dt.datetime.fromtimestamp(e["timestamp"], dt.timezone.utc).isoformat(timespec="seconds")
+                   if e.get("timestamp") else "")
+            row.update({"platform": e["platform"], "source": handle, "source_type": e.get("source_type") or "",
+                        "post_id": str(e["id"]), "url": e.get("url") or "", "published": pub,
                         "title": re.sub(r"\s+", " ", (e.get("title") or ""))[:140], "views": e.get("views") or "", "likes": e.get("likes") or "",
                         "comments": e.get("comments") or "", "shares": e.get("shares") or "", "saves": e.get("saves") or "",
                         "duration": e.get("duration") or "", "last_seen": now})
             have[k] = row
     rows = sorted(have.values(), key=lambda r: (r["published"], r["source"]), reverse=True)
-    with POSTS.open("w", newline="") as f:
+    with POSTS.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=PFIELDS)
         w.writeheader()
         w.writerows({k: r.get(k, "") for k in PFIELDS} for r in rows)
@@ -225,6 +236,8 @@ def main():
     p.add_argument("--why", default="")
     p.add_argument("--priority", default="daily", choices=["daily", "weekly"])
     p.add_argument("--lang", default="en")
+    p.add_argument("--type", choices=["rss", "web"],
+                   help="force the source type (a live HTML list page, e.g. gittrend.io, is 'web')")
     sub.add_parser("list")
     p = sub.add_parser("scan")
     p.add_argument("--latest", type=int, default=15)
@@ -232,6 +245,10 @@ def main():
     a = ap.parse_args()
     if a.cmd == "add":
         typ, handle = detect(a.url)
+        if a.type:
+            typ = a.type
+            if typ == "web" and not handle:
+                handle = re.sub(r"[^a-z0-9]+", "-", re.sub(r"^https?://(www\.)?", "", a.url).lower()).strip("-")[:40]
         handle = a.name or handle
         rows = load()
         if any(r["handle"].lower() == handle.lower() and r["type"] == typ for r in rows):

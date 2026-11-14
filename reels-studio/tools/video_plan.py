@@ -75,7 +75,42 @@ def check(plan):
     catch = plan.get("catch", "")
     add(bool(catch), "catch line written (cost, limit or what it cannot do)")
     add(not re.search(r"https?://", catch), "no URL in catch line")
+    res += check_visual_system(plan)
     res += check_packaging(plan)
+    return res
+
+
+VISUAL_SYSTEMS = ("graphics",)
+VISUAL_CATEGORIES = ("coding", "audio", "video3d", "design", "data", "system", "general")
+
+
+def check_visual_system(plan):
+    """The optional visual_system block: which renderer draws this short and in what language.
+
+    "graphics" is the house renderer (reels-studio/graphics): every scene is generated motion
+    graphics built from the tool's own features — no official demo clip, no README scroll. The
+    category picks the visual language (plate, accent pair, which archetypes are on the table).
+    """
+    res = []
+
+    def add(ok, msg):
+        res.append(("PASS" if ok else "BLOCK", msg))
+
+    vs = plan.get("visual_system")
+    if vs is None:
+        add(True, "visual system: not declared (the plan builder keeps the current renderer)")
+        return res
+    add(isinstance(vs, dict), "visual system: is an object")
+    if not isinstance(vs, dict):
+        return res
+    add(vs.get("system") in VISUAL_SYSTEMS, f"visual system: system is one of {VISUAL_SYSTEMS}")
+    add(not vs.get("category") or vs.get("category") in VISUAL_CATEGORIES,
+        f"visual system: category is one of {VISUAL_CATEGORIES}")
+    gdir = vs.get("dir") or f"briefs/graphics/{plan.get('id')}"
+    add((ROOT / gdir).is_dir(), f"visual system: graphics dir exists ({gdir})")
+    if (ROOT / gdir).is_dir():
+        for name in ("features.json", "beats.json", "source.md"):
+            add((ROOT / gdir / name).exists(), f"visual system: {gdir}/{name} exists")
     return res
 
 

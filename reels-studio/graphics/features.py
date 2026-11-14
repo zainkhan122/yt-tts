@@ -9,7 +9,9 @@ import re
 from dataclasses import dataclass, field
 
 ALLOWED_TOP = {"tool", "features", "benchmarks", "risks", "source_urls"}
-ALLOWED_FEATURE = {"id", "title", "what", "items", "metric", "evidence_quote", "risk"}
+# `values` lets a feature publish the whole series a chart may draw (a leaderboard, a rule count
+# per category). Every number a chart shows is either one of these or spoken in the phrase.
+ALLOWED_FEATURE = {"id", "title", "what", "items", "metric", "evidence_quote", "risk", "values"}
 MIN_FEATURES = 3
 MIN_WHAT_WORDS = 4
 _FLUFF = {"revolutionary", "game-changing", "seamless", "powerful", "amazing", "best", "unbelievable"}

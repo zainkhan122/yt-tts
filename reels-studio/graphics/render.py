@@ -1,6 +1,20 @@
 """Render a scene document to MP4: deterministic frame capture (Playwright) piped into ffmpeg.
 
 Frame t is drawn by window.setTime(t). Output is reproducible for the same inputs.
+
+Two rendering tiers, both first-class:
+
+  * the HOUSE engine (the default template) — the house visual language: plates, the illustration
+    stage, the charts, the house caption band and the house end-card. Its CSS is house.css and it
+    draws its own caption, so the shared house layer is NOT injected here.
+  * a PER-TOOL template (a directory under graphics/templates/) — the template's own engine and
+    stage.css, with the shared house layer (shared.js caption + outro.js end-card), the
+    deterministic narration cues (motion.js) and the real channel fonts injected as @font-face.
+
+Keeping the tiers apart is the point. The house engine sets its own type in its own variables and
+the per-tool engines set theirs; one stylesheet cannot serve both without one of them falling back
+to a default font. Both tiers keep the hard gates: the faces must really load, no scene may run
+into the caption band, and nothing may sit outside the frame.
 """
 from __future__ import annotations
 
@@ -13,22 +27,27 @@ from pathlib import Path
 
 from . import TEMPLATES
 
-ROOT = Path(__file__).resolve().parent.parent
-
 FPS = 30
 W, H = 1080, 1920
+ROOT = Path(__file__).resolve().parents[1]   # reels-studio/
 
 # Lesson 25 (2026-11-11): musike's platform tiles blew past the right frame edge (flex min-width
 # blowout on .mk-pane) and every QA gate passed because they measure pixels, not layout. The owner
 # caught it by eye. This audit measures the REAL layout per scene — clipping-ancestor-aware, so
-# marquee/ghost/overflow-hidden tricks don't false-fire (ghosted scene furniture and postfx are
-# excluded by class/id, low-opacity elements by the 0.6 gate) — and fails BEFORE encoding.
+# marquee/ghost/overflow-hidden tricks don't false-fire (ghosted scene furniture, postfx and the
+# ambient bleed glow are excluded by class/id, low-opacity elements by the 0.6 gate) — and fails
+# BEFORE encoding.
 _OVERFLOW_SLACK_PX = 28
 _OVERFLOW_MIN_OPACITY = 0.6
 _OVERFLOW_JS = """() => {
   const W = %d, H = %d, SLACK = %d, MINOP = %f, out = [];
   document.querySelectorAll('#stage *').forEach(function (e) {
-    if (e.closest('#postfx') || e.id === 'ambglow' || e.closest('.ghosted')) return;
+    if (e.closest('#postfx') || e.id === 'ambglow' || e.classList.contains('glow') || e.closest('.ghosted')) return;
+    /* the house ambient layers (sheen sweep, dust motes) are full-bleed by design — see house.css */
+    if (e.classList.contains('house-sheen') || e.classList.contains('house-dust') || e.classList.contains('house-mote')) return;
+    /* the scene wrap itself is the camera subject the ambient breath moves — also full-bleed by
+     * design (HOUSE.ambient). Its CHILDREN are still audited, so real payload overflow is caught. */
+    if (e.classList.contains('scene')) return;
     const cs = getComputedStyle(e);
     if (cs.display === 'none' || cs.visibility === 'hidden') return;
     let op = parseFloat(cs.opacity);
@@ -87,13 +106,13 @@ def audit_overflow(page, doc: dict) -> list[dict]:
     return list(uniq.values())
 
 
-
 def template_dir(name: str | None = None) -> Path:
     """A brief may name its own per-tool template directory under graphics/templates/.
 
-    The default template is the two files at the templates root. A template is a directory holding
-    `stage.css`, `engine.js` and `template.json` (which declares its own archetypes). This is the
-    per-tool animation tier: the vocabulary belongs to the tool, not to the pipeline.
+    The default template is the house engine: the house stylesheet, the house stage and the house
+    library. A template is a directory holding `stage.css`, `engine.js` and `template.json` (which
+    declares its own archetypes). This is the per-tool animation tier: the vocabulary belongs to the
+    tool, not to the pipeline.
     """
     if not name or name == "default":
         return TEMPLATES
@@ -103,13 +122,20 @@ def template_dir(name: str | None = None) -> Path:
     return d
 
 
+def is_house(doc: dict) -> bool:
+    """True when the brief renders on the house engine (no per-tool template named)."""
+    name = doc.get("template")
+    return not name or name == "default"
+
+
+# ---------------------------------------------------------------- fonts
+
 # Lesson 27 (2026-11-13): the fonts were never loading. `templates/_base/fonts/` shipped Inter,
 # Anton and JetBrains Mono, but build_stage_html injected no @font-face, so every stack fell
 # through to the box default (DejaVu Sans) and `document.fonts.check()` still answered true —
-# it reports a usable match, not the requested face. Measured proof: Inter, Anton and DejaVu
-# all rendered "WHO IS BEATING" at 942–943px. That is why no short ever matched a reference's
-# type. The faces are now injected, and the alias names cover the stacks the templates already
-# ask for ("SF Mono", "Helvetica Neue"), so every existing template is fixed without edits.
+# it reports a usable match, not the requested face. The faces are now injected, and the alias
+# names cover the stacks the per-tool templates already ask for ("SF Mono", "Helvetica Neue"), so
+# every existing template is fixed without edits.
 _FONT_FACES = (
     # (file, family as written, extra css)
     ("Inter.ttf", "Inter", "font-weight: 100 900; font-style: normal;"),
@@ -118,36 +144,70 @@ _FONT_FACES = (
 )
 _FONT_ALIASES = {"SF Mono": "JetBrainsMono.ttf", "Helvetica Neue": "Inter.ttf"}
 
+FONT_FILES = ("Inter.ttf", "Anton.ttf", "JetBrainsMono.ttf", "NotoNastaliqUrdu.ttf")
+
+
+def _font_dirs() -> list[Path]:
+    """Where the channel fonts live. The pipeline keeps a copy; the templates keep their own."""
+    return [ROOT / "templates" / "_base" / "fonts", TEMPLATES / "_base" / "fonts"]
+
+
+def stage_fonts(work: Path) -> None:
+    """Copy the channel fonts next to stage.html so the CSS can reference them by relative URL.
+
+    Without this the whole graphics engine renders in the platform's default sans (DejaVu on the
+    cloud runner). It is the single biggest reason these shorts did not look designed: real type in a
+    house hierarchy is most of the difference between a template and a piece of art direction.
+    """
+    for src in _font_dirs():
+        if not src.is_dir():
+            continue
+        dst = work / "fonts"
+        dst.mkdir(parents=True, exist_ok=True)
+        for name in FONT_FILES:
+            f = src / name
+            if f.exists():
+                shutil.copy2(f, dst / name)
+        return
+
 
 def _font_face_css() -> str:
-    base = TEMPLATES / "_base" / "fonts"
-    if not base.is_dir():
-        return ""
+    """@font-face rules with absolute file URLs, for the per-tool tier.
+
+    The per-tool stylesheets ask for "SF Mono" and "Helvetica Neue"; the alias rules point those at
+    the real files so a template needs no edits of its own.
+    """
     out = []
-    for fname, family, extra in _FONT_FACES:
-        f = base / fname
-        if f.exists():
-            out.append(f"@font-face{{font-family:'{family}';src:url('{f.resolve().as_uri()}') "
-                       f"format('truetype');{extra}font-display:block;}}")
-    for alias, fname in _FONT_ALIASES.items():
-        f = base / fname
-        if f.exists():
-            out.append(f"@font-face{{font-family:'{alias}';src:url('{f.resolve().as_uri()}') "
-                       f"format('truetype');font-weight:100 900;font-display:block;}}")
+    for base in _font_dirs():
+        if not base.is_dir():
+            continue
+        for fname, family, extra in _FONT_FACES:
+            f = base / fname
+            if f.exists():
+                out.append(f"@font-face{{font-family:'{family}';src:url('{f.resolve().as_uri()}') "
+                           f"format('truetype');{extra}font-display:block;}}")
+        for alias, fname in _FONT_ALIASES.items():
+            f = base / fname
+            if f.exists():
+                out.append(f"@font-face{{font-family:'{alias}';src:url('{f.resolve().as_uri()}') "
+                           f"format('truetype');font-weight:100 900;font-display:block;}}")
+        break
     return "\n".join(out)
 
+
+# ---------------------------------------------------------------- the two tiers
 
 def _caption_data(doc: dict) -> dict:
     """Give the shared caption layer what it needs: per-scene words and the word to light up.
 
     A template engine draws the scene; it does not decide what the caption says or which word is
-    yellow. Doing that here means all seven templates get identical, correct captions.
+    yellow. Doing that here means all per-tool templates get identical, correct captions.
     """
     out = dict(doc)
     scenes = []
     for s in doc.get("scenes", []):
         s2 = dict(s)
-        s2["cue_word"] = s.get("cue_word") or s.get("cue") and None
+        s2["cue_word"] = s.get("cue_word") or (s.get("cue") and None)
         scenes.append(s2)
     out["scenes"] = scenes
     out.setdefault("caption_words", 4)
@@ -155,7 +215,8 @@ def _caption_data(doc: dict) -> dict:
 
 
 def _shared_js() -> str:
-    """The house layer: caption, handle, outro. One file for every template, so brand cannot drift."""
+    """The house layer: caption, handle, outro. One file for every per-tool template, so brand
+    cannot drift. The house engine does not use it — it draws its own caption and its own card."""
     out = []
     for f in (TEMPLATES / "shared.js", TEMPLATES.parent / "outro.js"):
         if f.exists():
@@ -165,36 +226,90 @@ def _shared_js() -> str:
     return "\n".join(out)
 
 
-def build_stage_html(doc: dict) -> str:
+def stage_vendor(template: str | None, work: Path) -> str:
+    """Copy a template's vendor assets next to stage.html and return their RELATIVE url.
+
+    Relative beats absolute: the same stage.html then works under file:// (the renderer) and under
+    http:// (a human previewing it), with no cross-origin file access involved.
+    """
+    if not template or template == "default":
+        return ""
+    vend = TEMPLATES / template / "vendor"
+    if not vend.is_dir():
+        return ""
+    dst = work / "vendor" / template
+    if dst.exists():
+        shutil.rmtree(dst)
+    shutil.copytree(vend, dst)
+    return f"vendor/{template}"
+
+
+def _inline_js(path: Path) -> str:
+    """A script as an inline <script> body, with any closing tag neutralised."""
+    return path.read_text(encoding="utf-8").replace("</script", "<\\/script")
+
+
+def build_stage_html(doc: dict, work: Path | None = None) -> str:
+    """The stage document.
+
+    Every script is INLINED, not linked: one self-contained file that cannot break on a path, on a
+    file:// policy, or on a template that lives somewhere else on disk.
+    """
     d = template_dir(doc.get("template"))
-    shared = TEMPLATES / "shared.css"
-    css = (shared.read_text(encoding="utf-8") + "\n" if shared.exists() else "") + (d / "stage.css").read_text(encoding="utf-8")
-    js = (d / "engine.js").read_text(encoding="utf-8")
-    motion = (TEMPLATES / "motion.js").read_text(encoding="utf-8")
-    vend_scripts = ""
+    house = is_house(doc)
+    inline = ""
     shared_vend = TEMPLATES / "vendor"     # renderer-wide libs (gsap): every template gets pro easing
     if shared_vend.is_dir():
-        for lib in ("gsap.min.js",):
-            if (shared_vend / lib).exists():
-                vend_scripts += f"<script src='{shared_vend.resolve().as_uri()}/{lib}'></script>"
+        gsap = shared_vend / "gsap.min.js"
+        if gsap.exists():
+            inline += "<script>" + _inline_js(gsap) + "</script>"
+
+    if house:
+        # The house engine: the house visual language (plates, illustration stage, charts, props)
+        # and the house stylesheet, which carries the type variables the engine draws with.
+        css_parts = []
+        for name in ("house.css", "stage.css"):
+            f = d / name
+            if f.exists():
+                css_parts.append(f.read_text(encoding="utf-8"))
+        css = "\n".join(css_parts)
+        house_js = TEMPLATES / "house.js"
+        if house_js.exists():
+            inline += "<script>" + _inline_js(house_js) + "</script>"
+        js = (d / "engine.js").read_text(encoding="utf-8")
+    else:
+        # A per-tool template: the shared house caption/outro layer and the deterministic narration
+        # cues, then the template's own engine.
+        shared = TEMPLATES / "shared.css"
+        css = (shared.read_text(encoding="utf-8") if shared.exists() else "")
+        css += "\n" + _font_face_css() + "\n"
+        css += (d / "stage.css").read_text(encoding="utf-8")
+        motion = TEMPLATES / "motion.js"
+        if motion.exists():
+            inline += "<script>" + _inline_js(motion) + "</script>"
+        js = (d / "engine.js").read_text(encoding="utf-8")
+        doc = _caption_data(doc)
+
     vend = d / "vendor"
     if vend.is_dir():
-        doc = dict(doc, vendor_url=vend.resolve().as_uri())
-        for lib in ("three.min.js", "GLTFLoader.legacy.js"):
-            if (vend / lib).exists():
-                vend_scripts += f"<script src='{vend.resolve().as_uri()}/{lib}'></script>"
-    doc = _caption_data(doc)
+        rel = stage_vendor(doc.get("template"), work) if work else ""
+        if rel:
+            doc = dict(doc, vendor_url=rel)
+            for lib in ("three.min.js", "GLTFLoader.legacy.js"):
+                if (vend / lib).exists():
+                    inline += f"<script src='{rel}/{lib}'></script>"
+
     data = json.dumps(doc, ensure_ascii=False).replace("</", "<\\/")
-    # Film grain is a full-frame tiled feTurbulence: beautiful, but it defeats x264 (a 45 s short
-    # encoded to 544 MB at crf 22). At 0.10 the texture still reads and the file compresses 10x.
-    css += "\n#postfx .grain { opacity: 0.10 !important; }\n"
+    body = (f"<script>window.DATA={data};</script>{inline}<script>{js}</script>")
+    if not house:
+        # The house layer wraps the engine's setTime, so it is injected AFTER it.
+        body += f"<script>{_shared_js()}</script>"
     return (
         "<!doctype html><html><head><meta charset='utf-8'>"
-        f"<style>{_font_face_css()}\n{css}</style></head><body><div id='stage'><div id='postfx'>"
+        f"<style>{css}</style></head><body><div id='stage'><div id='postfx'>"
         "<div class='vign'></div><div class='htone'></div><div class='grain'></div>"
         "</div></div>"
-        f"<script>window.DATA={data};</script>{vend_scripts}<script>{motion}</script><script>{js}</script>"
-        f"<script>{_shared_js()}</script></body></html>"
+        f"{body}</body></html>"
     )
 
 
@@ -212,11 +327,17 @@ def render(doc: dict, audio: Path, out: Path, work: Path, duration_s: float,
 
     work.mkdir(parents=True, exist_ok=True)
     out.parent.mkdir(parents=True, exist_ok=True)
+    work = work.resolve()   # the stage URL is built with as_uri(), which needs an absolute path
+    out = out.resolve()
+    stage_fonts(work)
     html = work / "stage.html"
-    html.write_text(build_stage_html(doc), encoding="utf-8")
+    html.write_text(build_stage_html(doc, work), encoding="utf-8")
     silent = work / "silent.mp4"
     ff = _ffmpeg()
     n_frames = int(round(duration_s * fps))
+    house = is_house(doc)
+    # The house caption band sits lower than the per-tool one; the gate must know which is which.
+    cap_top = 1470 if house else 1210
 
     enc = subprocess.Popen(
         [ff, "-y", "-loglevel", "error", "-f", "image2pipe", "-c:v", "mjpeg", "-framerate", str(fps),
@@ -258,8 +379,8 @@ def render(doc: dict, audio: Path, out: Path, work: Path, duration_s: float,
                     f"back to the box default and ship the wrong typeface; refusing to encode")
             # Gate: the house caption band is reserved. No scene element may enter it, or the
             # caption sits on top of the beat's own type (which is exactly what shipped once).
-            collisions = page.evaluate("""() => {
-              const CAP_TOP = 1210, out = [];
+            collisions = page.evaluate("""(CAP_TOP) => {
+              const out = [];
               document.querySelectorAll('.scene').forEach(function (sc) {
                 if (sc.style.display === 'none') return;
                 sc.querySelectorAll('*').forEach(function (e) {
@@ -267,22 +388,25 @@ def render(doc: dict, audio: Path, out: Path, work: Path, duration_s: float,
                   if (cs.display === 'none' || cs.visibility === 'hidden') return;
                   if (parseFloat(cs.opacity) < 0.15) return;
                   if (e.closest('#postfx') || e.classList.contains('ng-grid')) return;
+                  /* the house ambient layers are full-bleed by design */
+                  if (e.classList.contains('house-sheen') || e.classList.contains('house-dust') ||
+                      e.classList.contains('house-mote')) return;
                   const r = e.getBoundingClientRect();
                   if (r.height < 4 || r.width < 4) return;
                   if (r.bottom > CAP_TOP + 40) {
-                    out.push({cls: e.className, bottom: Math.round(r.bottom)});
+                    out.push({cls: String(e.className || e.tagName).slice(0, 60), bottom: Math.round(r.bottom)});
                   }
                 });
               });
               return out;
-            }""")
+            }""", cap_top)
             if collisions:
                 listing = "; ".join(f"{c['cls']} bottom={c['bottom']}" for c in collisions[:6])
                 raise RuntimeError(
                     f"caption-band gate: {len(collisions)} element(s) run into the house caption "
-                    f"band (y>=1210): {listing}")
-            # Gate: the house layer is on screen. The caption/outro contract is browser state, so
-            # it has to be proven here — before a single frame is encoded — not guessed from a
+                    f"band (y>={cap_top}): {listing}")
+            # Gate: the house layer is on screen. The caption/outro contract is browser state, so it
+            # has to be proven here — before a single frame is encoded — not guessed from a
             # still afterwards. Enabled by render(local_preview_render.py --house-gate) or HOUSEGATE=1.
             if os.environ.get("HOUSE_GATE") == "1":
                 import subprocess as _sp
@@ -292,16 +416,18 @@ def render(doc: dict, audio: Path, out: Path, work: Path, duration_s: float,
                 if gate.returncode != 0:
                     raise RuntimeError("house gate failed — refusing to encode a short whose caption "
                                        "or outro breaks the house contract")
-            motion_reports = page.evaluate("() => window.__motionCueReports || {}")
+            motion_fallbacks: list[tuple[str, str]] = []
             report_path = work / "motion-cues.json"
-            report_path.write_text(json.dumps(motion_reports, indent=2), encoding="utf-8")
-            motion_fallbacks = [(sid, row.get("phrase", "")) for sid, rows in motion_reports.items()
-                                for row in rows if not row.get("matched")]
-            if motion_fallbacks:
-                print(f"WARNING: {len(motion_fallbacks)} narration cue fallback(s); "
-                      f"review {report_path}", flush=True)
-                if os.environ.get("MOTION_CUES_STRICT") == "1":
-                    raise RuntimeError("unmatched motion cues: review timing or disable MOTION_CUES_STRICT")
+            if not house:
+                motion_reports = page.evaluate("() => window.__motionCueReports || {}")
+                report_path.write_text(json.dumps(motion_reports, indent=2), encoding="utf-8")
+                motion_fallbacks = [(sid, row.get("phrase", "")) for sid, rows in motion_reports.items()
+                                    for row in rows if not row.get("matched")]
+                if motion_fallbacks:
+                    print(f"WARNING: {len(motion_fallbacks)} narration cue fallback(s); "
+                          f"review {report_path}", flush=True)
+                    if os.environ.get("MOTION_CUES_STRICT") == "1":
+                        raise RuntimeError("unmatched motion cues: review timing or disable MOTION_CUES_STRICT")
             bad = audit_overflow(page, doc)
             if bad:
                 listing = "; ".join(f"{v['scene']} <{v['cls']}> rect={v['rect']} t={v['t']:.2f}s" for v in bad[:6])

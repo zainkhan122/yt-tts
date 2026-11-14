@@ -4,6 +4,7 @@
   "freshness_hours": 24,
   "older_reason_required_after_days": 1,
   "novelty_days": 30,
+  "block_covered": true,
   "demand_source": "autocomplete (tools/demand/autocomplete.py): presence and breadth of suggestions, not search volume",
   "insight_sources": [
     "tracker/buffer-insights.json (our Buffer accounts, via tools/post/buffer_insights.py)",

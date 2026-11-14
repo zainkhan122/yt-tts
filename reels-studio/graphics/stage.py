@@ -14,6 +14,7 @@ from .beats import Violation, lint_beats, scene_list, script_fingerprint
 from .features import lint_feature_sheet
 from .render import render
 from .timing import close_gaps
+from .visual_language import language_for, palette_for
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,7 +27,7 @@ def brand_block() -> dict:
     Owner rule (2026-10-18): the card shows the real brand logo, never a text initial.
     """
     cfg_path = ROOT / "config" / "channel.json"
-    cfg = json.loads(cfg_path.read_text(encoding="utf-8")) if cfg_path.exists() else {}
+    cfg = json.loads(cfg_path.read_text(encoding="utf-8-sig")) if cfg_path.exists() else {}
     b = cfg.get("brand") if isinstance(cfg.get("brand"), dict) else cfg
     out = {"name": b.get("name") or cfg.get("name") or "Hypeless",
            "handle": b.get("handle") or cfg.get("handle") or "",
@@ -64,6 +65,25 @@ def segments_from_timing(timing: dict, order: list[str]) -> list[dict]:
     return segs
 
 
+def build_doc(sheet: dict, beats: dict, phrases: list[dict]) -> dict:
+    """The scene document: the beats joined to the phrase timing, plus the visual language.
+
+    Shared by the pipeline adapter and the CLI so a clip built from the command line looks exactly
+    like the same clip built by the pipeline: the tool's category decides the accent pair, the
+    per-tool template is selected, and the end-card gets the real brand block.
+    """
+    doc = {"width": 1080, "height": 1920, "handle": beats.get("handle", ""), "scenes": scene_list(beats, phrases)}
+    lang = language_for(sheet.get("tool"))
+    doc["category"] = lang["category"]
+    doc["palette"] = palette_for(sheet.get("tool"))
+    doc["plates"] = lang.get("plates") or []
+    if beats.get("template"):
+        doc["template"] = beats["template"]  # per-tool template: its own archetypes, css and engine
+    if any(s.get("archetype") == "endcard" for s in doc["scenes"]):
+        doc["brand"] = brand_block()
+    return doc
+
+
 def plan_scenes(sheet: dict, source_text: str, beats: dict, phrases: list[dict], duration: float, words: list[list],
                 events: dict | None = None):
     f_viol = lint_feature_sheet(sheet, source_text)
@@ -77,11 +97,8 @@ def plan_scenes(sheet: dict, source_text: str, beats: dict, phrases: list[dict],
             b_viol.append(Violation("B9", f"beat {k} is for scene {sc['scene_id']!r}, voice has {ph['sid']!r}"))
     if b_viol:
         raise GraphicsError("beat_plan", [v.as_dict() for v in b_viol])
-    doc = {"width": 1080, "height": 1920, "handle": beats.get("handle", ""), "scenes": scene_list(beats, phrases)}
-    if beats.get("template"):
-        doc["template"] = beats["template"]  # per-tool template: its own archetypes, css and engine
+    doc = build_doc(sheet, beats, phrases)
     if any(s.get("archetype") == "endcard" for s in doc["scenes"]):
-        doc["brand"] = brand_block()
         _attach_events(doc, events or {})
     return doc, phrases
 
@@ -106,9 +123,14 @@ def _attach_events(doc: dict, events: dict) -> None:
             sc["ev"] = ev
 
 
-
 def attach_evidence_images(doc: dict, capture_id: str) -> None:
-    """Embed only safe, locally captured stills; missing or escaping media fails closed."""
+    """Embed only safe, locally captured stills; missing or escaping media fails closed.
+
+    Upstream feature, kept in the house engine: a scene may carry an `evidence_image` (a still
+    captured from the tool itself). Nothing is fetched from the network here, and a path that
+    escapes the capture folder, or a file that is missing, stops the render instead of silently
+    shipping a broken frame.
+    """
     import base64
     import re
     if not re.fullmatch(r"[a-z0-9][a-z0-9_-]*", capture_id):
@@ -126,12 +148,13 @@ def attach_evidence_images(doc: dict, capture_id: str) -> None:
         mime = "image/png" if path.suffix.lower() == ".png" else "image/jpeg"
         scene["evidence_data"] = f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode("ascii")
 
+
 def render_for_pipeline(graphics_dir: Path, timing: dict, order: list[str], vo_wav: Path,
                         out_mp4: Path, work: Path, duration: float, events: dict | None = None) -> dict:
     """graphics_dir holds features.json, beats.json and the README snapshot the sheet was built from."""
-    sheet = json.loads((graphics_dir / "features.json").read_text(encoding="utf-8"))
+    sheet = json.loads((graphics_dir / "features.json").read_text(encoding="utf-8-sig"))
     source = (graphics_dir / "source.md").read_text(encoding="utf-8")
-    beats = json.loads((graphics_dir / "beats.json").read_text(encoding="utf-8"))
+    beats = json.loads((graphics_dir / "beats.json").read_text(encoding="utf-8-sig"))
     words = flatten_words(timing, order)
     if not words:
         raise GraphicsError("words", [{"rule": "G0", "detail": "no word timings from the voice stage"}])
