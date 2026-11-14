@@ -2126,9 +2126,11 @@
     },
     "repo-design-agent-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6af82f4fd16af15d4d0778a4",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-11-14T19:07:00Z",
+      "due_at": "2026-11-14T19:07:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:5b731b7234282f527d848ec0ad7b36bb5ebb185f3e09696c960b358901d14168",
         "asset_id": 747023080,
@@ -2143,10 +2145,11 @@
       "notify_subscribers": false,
       "payload_sha256": "279d464cb22fd390adfdf195a8bad422a790a258c97a77c40c81a6f34bd7dc35",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "LangChain Design Agent: LangChain\u2019s open-source Design Agent can make on-brand assets from a Slack request. Its 3,000+ assets and model-spend comparison are company-reported historical figures\u2014not a guarantee. Setup is required and usage costs can apply.\n\nAI-generated narration.\n\n#AITools #DesignAgent #MotionGraphics",
       "title": "LangChain Design Agent Automates Creative Work",
-      "updated_at": "2026-11-14T09:52:12Z",
+      "updated_at": "2026-11-14T09:52:15Z",
       "video_id": "repo-design-agent-01"
     },
     "repo-ds4-01:facebook": {
