@@ -5018,6 +5018,31 @@
       "updated_at": "2026-10-13T00:51:44Z",
       "video_id": "tool-openmontage-01"
     },
+    "tool-pika-flex-01:instagram": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-11-14T20:20:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:93a4264fd19b0f107afeb95ab2de9b35e67924b582a7343a0e1ab788a8ff389d",
+        "asset_id": 747023226,
+        "asset_size": 9541348,
+        "kit_asset_id": 747023287,
+        "kit_digest": "sha256:9c15c4f940c9f15d48d89dace1efe8e3d716fbc7dc7a40180ea56d96ddb0489f",
+        "media_path": "media/747023226/tool-pika-flex-01.mp4",
+        "release_tag": "renders-shorts-43580518195",
+        "video_id": "tool-pika-flex-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/747023226/tool-pika-flex-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "e98cc266e293a7a6bb87b6a63357207dd34fee2f8c2af5f376f4a4a1142a61d3",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Pika H3 Flex: Use images, video and audio as references for Pika H3 Flex. Need editable sound? Hosted stem separation can split dialogue, music and effects, with usage fees. Local output is mixed audio.\n\n#PikaLabs #AIVideo #VideoCreation #PikaH3Flex",
+      "title": "Pika H3 Flex: AI Clips With Editable Sound Stems",
+      "updated_at": "2026-11-14T09:52:16Z",
+      "video_id": "tool-pika-flex-01"
+    },
     "tool-pomelli-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6acb1ffdb07d37ac97979c9c",
