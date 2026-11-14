@@ -539,9 +539,9 @@
       "capture_id": "tool-pika-flex-01",
       "cover_sha256": "bdc432eeb718e46d74852a3a9250eca7743de749976a773c985a839ef4023356",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=skipped publish=skipped",
       "fingerprint": "2137910de47c1fe625e2d97d2661394dc8d712de87fd28c51d625642ebca918c",
-      "finished_at": null,
+      "finished_at": "2026-11-14T07:46:35Z",
       "from_tag": "",
       "graphics_sha256": "18c0fea583f0e143acddf29aef555716c363f6f9208c34e6c7875458cc9719cd",
       "quality": "looks",
@@ -549,7 +549,7 @@
       "renderer_sha256": "2193174822fafc0daef1620a9ccc23c0f799de5579616fae85ad0b8a58a74c66",
       "run_id": "43572301266",
       "started_at": "2026-11-14T07:42:01Z",
-      "status": "started",
+      "status": "failed",
       "voice_seed": 0
     },
     "21b3f335ee1c5ac281e39e60b2a361b87770a03104ce2473e794eb3f418d6812": {
@@ -3863,9 +3863,9 @@
       "capture_id": "repo-design-agent-01",
       "cover_sha256": "74023b2b6343a9ac4e05eb5faeef27623c63893b831f4bf83bcc72de0f849c27",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=skipped publish=skipped",
       "fingerprint": "d155c622338c9161df45d52afca74c6c6b3e581615be7fe722646c5f83f09f57",
-      "finished_at": null,
+      "finished_at": "2026-11-14T07:46:35Z",
       "from_tag": "",
       "graphics_sha256": "c069bd2f8337d2ffec969de2e4751101bc76a94445a54b1e55013a14af6b0cf4",
       "quality": "looks",
@@ -3873,7 +3873,7 @@
       "renderer_sha256": "2193174822fafc0daef1620a9ccc23c0f799de5579616fae85ad0b8a58a74c66",
       "run_id": "43572301266",
       "started_at": "2026-11-14T07:42:01Z",
-      "status": "started",
+      "status": "failed",
       "voice_seed": 0
     },
     "d2ca55637c35ea7f6d17fcaf3f6cca0307d8a9552abc202757c68701c643974c": {
