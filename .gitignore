@@ -2,3 +2,9 @@ node_modules/
 *.webm
 .reels-so
 models/
+
+# Never commit a credential store. A git credential helper invoked with a mangled path
+# (backslashes stripped) writes it into the repository root; GitHub's push protection
+# blocks the push, but the file must not be staged in the first place.
+*gitcreds*
+*credential*

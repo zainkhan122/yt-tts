@@ -1,0 +1,8 @@
+# The briefs and the production receipts are hashed byte for byte by the cloud gate, and the
+# runner checks out LF. A Windows checkout with core.autocrlf writes CRLF, so a receipt
+# built on Windows would pin bytes the runner never sees ("brief changed after the
+# production stages"). These paths are therefore stored and checked out with LF everywhere.
+reels-studio/briefs/*.json text eol=lf
+reels-studio/briefs/graphics/*/*.json text eol=lf
+reels-studio/research/production/receipts/*.json text eol=lf
+reels-studio/videos/*/plan.json text eol=lf
