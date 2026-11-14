@@ -1,6 +1,6 @@
 # Shorts performance — 2026-11-14
 
-Source: Buffer Insights snapshot `2026-11-14T07:37:10Z` (complete: **True**) · videos analysed: **62** · mature (≥7d): **52** · developing: **10** · too early (<2d): **0**
+Source: Buffer Insights snapshot `2026-11-14T12:11:55Z` (complete: **True**) · videos analysed: **62** · mature (≥7d): **52** · developing: **10** · too early (<2d): **0**
 
 Metrics are ranked within each platform and never compared across platforms. Verdicts use mature videos only; everything else is labelled descriptive.
 
@@ -8,31 +8,31 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| `repo-harp-01` (mature) | 20.4d | 240 | 1.2% | 0 | 0 | — | 0 |
-| `list-free-video-ai-01` (mature) | 34.6d | 182 | 0% | 0 | 0 | — | 0 |
-| `repo-ai-newtab-01` (mature) | 34.4d | 169 | 0% | 0 | 0 | — | 0 |
-| `repo-edge0-01` (mature) | 13.6d | 124 | 0% | 0 | 0 | — | 0 |
-| `repo-solidglass-01` (mature) | 29.5d | 118 | 0% | 0 | 0 | — | 0 |
+| `repo-harp-01` (mature) | 20.6d | 240 | 1.2% | 0 | 0 | — | 0 |
+| `list-free-video-ai-01` (mature) | 34.8d | 182 | 0% | 0 | 0 | — | 0 |
+| `repo-ai-newtab-01` (mature) | 34.5d | 169 | 0% | 0 | 0 | — | 0 |
+| `repo-edge0-01` (mature) | 13.8d | 124 | 0% | 0 | 0 | — | 0 |
+| `repo-solidglass-01` (mature) | 29.7d | 118 | 0% | 0 | 0 | — | 0 |
 
 ## instagram — top by views
 
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| `news-gpt61-astra-01` (mature) | 32.8d | 308 | 0.7% | 0 | 0 | 0 | 0 |
-| `repo-opencr-01` (mature) | 31.9d | 269 | 2.1% | 0 | 2 | 1 | 0 |
-| `model-embeddinggemma2-01` (mature) | 29.8d | 236 | 4.7% | 0 | 7 | 1 | 0 |
-| `news-muse-spark-01` (mature) | 28.4d | 221 | 2.5% | 0 | 1 | 3 | 0 |
-| `tool-higgsfield-01` (mature) | 31.5d | 219 | 1.6% | 0 | 1 | 2 | 0 |
+| `news-gpt61-astra-01` (mature) | 33.0d | 308 | 0.7% | 0 | 0 | 0 | 0 |
+| `repo-opencr-01` (mature) | 32.1d | 269 | 2.1% | 0 | 2 | 1 | 0 |
+| `model-embeddinggemma2-01` (mature) | 29.9d | 236 | 4.7% | 0 | 7 | 1 | 0 |
+| `news-muse-spark-01` (mature) | 28.6d | 221 | 2.5% | 0 | 1 | 3 | 0 |
+| `tool-higgsfield-01` (mature) | 31.7d | 219 | 1.6% | 0 | 1 | 2 | 0 |
 
 ## youtube — top by views
 
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| `tool-qwen38-01` (mature) | 32.6d | 2,099 | 0.6% | 0 | — | — | 8.5 |
-| `repo-coop-anything-01` (mature) | 25.5d | 1,405 | 1.4% | 3 | — | — | 36.5 |
-| `repo-ds4-01` (mature) | 32.4d | 1,031 | 0.9% | 0 | — | — | 0.3 |
-| `tool-ltx25-01` (mature) | 32.5d | 504 | 0.4% | 0 | — | — | 2.1 |
-| `repo-voicestudio-01` (mature) | 12.4d | 414 | 0% | 0 | — | — | 1.9 |
+| `tool-qwen38-01` (mature) | 32.8d | 2,099 | 0.6% | 0 | — | — | 8.1 |
+| `repo-coop-anything-01` (mature) | 25.7d | 1,405 | 1.4% | 3 | — | — | 26.7 |
+| `repo-ds4-01` (mature) | 32.6d | 1,031 | 0.9% | 0 | — | — | 0.2 |
+| `tool-ltx25-01` (mature) | 32.7d | 504 | 0.4% | 0 | — | — | 2.0 |
+| `repo-voicestudio-01` (mature) | 12.6d | 414 | 0% | 0 | — | — | 1.4 |
 
 ## Winners and underperformers (mature, cross-platform percentile)
 
