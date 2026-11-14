@@ -578,6 +578,37 @@
       "title": "Pika H3 Flex: AI Clips With Editable Sound Stems",
       "video_id": "tool-pika-flex-01",
       "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-11-14T12:57:57Z",
+      "approval": "held",
+      "asset_digest": "sha256:5ba28caa9e7bb40b16895c329f1e5d13c5ce1dc1e1d145d261ba4080adb3ebba",
+      "asset_id": 747498776,
+      "asset_size": 6093463,
+      "brief_sha256": "c80d3fb6b705436446f424c4a3b1d3e3cb83907675c5281d7e0e8ef57a51747a",
+      "category": "repo",
+      "expires_at": null,
+      "kit_asset_id": 747498844,
+      "kit_digest": "sha256:8765dfd734bfb5e2e02b9b15e2a8c9c82ecac9dc1d61f5ddf719d9239c054281",
+      "media_path": "media/747498776/repo-modern-web-01.mp4",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "priority": 100,
+      "release_tag": "renders-modern-web-43593868242",
+      "review": {
+        "cover_sha256": null,
+        "mp4_bytes": 6093463,
+        "mp4_sha256": "5ba28caa9e7bb40b16895c329f1e5d13c5ce1dc1e1d145d261ba4080adb3ebba",
+        "run_id": null,
+        "source": "release-digest"
+      },
+      "reviewed_at": null,
+      "title": "Modern Web Guidance: Better Context for Coding Agents",
+      "video_id": "repo-modern-web-01",
+      "youtube_ai_generated": false
     }
   ],
   "schema_version": 1
