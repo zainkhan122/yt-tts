@@ -123,13 +123,27 @@ def check_dispatch_head(brief_id, receipt_rel):
     remote_sha = head.stdout.split()[0]
     local = subprocess.run(git + ["rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
     if remote_sha != local:
-        return [_result("dispatch_head", "BLOCK", f"origin main {remote_sha[:7]} != local {local[:7]}", "push before dispatch")]
+        # The cloud renders origin main, so the local work has to BE THERE. But origin main also
+        # moves while a render runs (the render-attempt bookkeeping commits itself), so "the
+        # remote is exactly my commit" is the wrong question: the right one is "is my commit in
+        # the remote's history". (The publish reconciliation commits had already moved origin
+        # main past a perfectly good local HEAD, and the gate called that a dispatch blocker.)
+        # The remote has to be in the local object store before "is my commit in the remote's
+        # history" can be answered at all.
+        subprocess.run(git + ["fetch", "--quiet", "origin", "main"], capture_output=True, timeout=120)
+        merged = subprocess.run(git + ["merge-base", "--is-ancestor", local, remote_sha],
+                                capture_output=True)
+        if merged.returncode != 0:
+            return [_result("dispatch_head", "BLOCK",
+                            f"local HEAD {local[:7]} is not in origin main {remote_sha[:7]}",
+                            "push before dispatch")]
     rel = f"reels-studio/briefs/{brief_id}.json"
     for path in (rel, f"reels-studio/{receipt_rel}"):
         diff = subprocess.run(git + ["diff", "--quiet", "HEAD", "--", path], capture_output=True)
         if diff.returncode != 0:
             return [_result("dispatch_head", "BLOCK", f"{path} has uncommitted changes", "commit and push")]
-    return [_result("dispatch_head", "PASS", "origin main matches local; brief and receipt committed")]
+    return [_result("dispatch_head", "PASS",
+                    f"local HEAD {local[:7]} is in origin main {remote_sha[:7]}; brief and receipt committed")]
 
 
 def check_media_aspect(brief_id, brief):
@@ -619,6 +633,10 @@ def main(argv=None):
     ap.add_argument("ids", nargs="*")
     ap.add_argument("--all", action="store_true")
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--phase", choices=PHASES, default="full",
+                    help="pre (before the source stage), dispatch (before a cloud render), "
+                         "full (before queueing)")
+    ap.add_argument("--receipt", help="the production receipt this dispatch names (dispatch phase)")
     args = ap.parse_args(argv)
     ids = args.ids
     if args.all:
@@ -626,7 +644,7 @@ def main(argv=None):
     if not ids:
         ap.print_usage()
         return 2
-    reports = [preflight(i) for i in ids]
+    reports = [preflight(i, phase=args.phase, receipt_rel=args.receipt) for i in ids]
     if args.json:
         print(json.dumps(reports, indent=2, ensure_ascii=False))
     else:

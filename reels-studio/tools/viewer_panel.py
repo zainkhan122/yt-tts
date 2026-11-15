@@ -40,6 +40,50 @@ BARS = [
 ]
 
 
+def _frames_ffmpeg(mp4: Path, frames: Path, picks: int = 7):
+    """Extract the panel frames with ffmpeg.
+
+    OpenCV is not always installed (it is a heavy dependency and the panel only needs seven
+    stills), so the frames come from ffmpeg — the binary the renderer and the QA gates already
+    use. Same pictures, one less thing to install.
+    """
+    import subprocess
+    import tempfile
+    try:
+        import imageio_ffmpeg
+        ff = imageio_ffmpeg.get_ffmpeg_exe()
+    except Exception:
+        ff = "ffmpeg"
+    try:
+        dur = _duration(ff, mp4)
+    except Exception:
+        dur = 0.0
+    saved = []
+    with tempfile.TemporaryDirectory() as tmp:
+        for i in range(picks):
+            t = dur * (i + 0.5) / picks
+            dst = Path(tmp) / f"f{i}.jpg"
+            r = subprocess.run([ff, "-y", "-v", "error", "-ss", f"{t:.3f}", "-i", str(mp4),
+                                "-frames:v", "1", "-q:v", "3", str(dst)], capture_output=True)
+            if r.returncode != 0 or not dst.exists():
+                continue
+            name = f"panel-{i + 1}-{t:.1f}s.jpg"
+            (frames / name).write_bytes(dst.read_bytes())
+            saved.append(name)
+    return dur, saved
+
+
+def _duration(ff: str, mp4: Path) -> float:
+    import re
+    import subprocess
+    r = subprocess.run([ff, "-i", str(mp4)], capture_output=True, text=True)
+    m = re.search(r"Duration:\s*(\d+):(\d{2}):(\d{2})\.(\d+)", r.stderr or "")
+    if not m:
+        return 0.0
+    h, mi, s, frac = m.groups()
+    return int(h) * 3600 + int(mi) * 60 + int(s) + float("0." + frac)
+
+
 def main():
     if len(sys.argv) < 2:
         print(__doc__)
@@ -53,22 +97,27 @@ def main():
     out_dir = mp4.parent
     frames = out_dir / "frames"
     frames.mkdir(exist_ok=True)
-    import cv2
-    cap = cv2.VideoCapture(str(mp4))
-    fps = cap.get(cv2.CAP_PROP_FPS) or 30
-    n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-    dur = n / fps
     picks = 7
-    saved = []
-    for i in range(picks):
-        t = dur * (i + 0.5) / picks
-        cap.set(cv2.CAP_PROP_POS_MSEC, t * 1000)
-        ok, fr = cap.read()
-        if ok:
-            name = f"panel-{i + 1}-{t:.1f}s.jpg"
-            cv2.imwrite(str(frames / name), fr, [cv2.IMWRITE_JPEG_QUALITY, 85])
-            saved.append(name)
-    cap.release()
+    try:
+        import cv2
+    except ImportError:
+        dur, saved = _frames_ffmpeg(mp4, frames, picks)
+        print(f"frames via ffmpeg (openCV not installed): {len(saved)}")
+    else:
+        cap = cv2.VideoCapture(str(mp4))
+        fps = cap.get(cv2.CAP_PROP_FPS) or 30
+        n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+        dur = n / fps
+        saved = []
+        for i in range(picks):
+            t = dur * (i + 0.5) / picks
+            cap.set(cv2.CAP_PROP_POS_MSEC, t * 1000)
+            ok, fr = cap.read()
+            if ok:
+                name = f"panel-{i + 1}-{t:.1f}s.jpg"
+                cv2.imwrite(str(frames / name), fr, [cv2.IMWRITE_JPEG_QUALITY, 85])
+                saved.append(name)
+        cap.release()
     lines = [f"# Viewer panel: {vid}", "",
              f"Video: `{mp4.name}` · {dur:.1f} s · frames: {', '.join(saved)}", "",
              "Reviewer: open EVERY frame. Score as the persona, not as the producer.", "",
