@@ -4052,9 +4052,9 @@
       "capture_id": "tool-claude-tokens-01",
       "cover_sha256": "b0fa5b18c07e0fbb4c99ed7fe3d5d9063f47bd82161d311363332c52c07e3d51",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=failure",
       "fingerprint": "d13219379b0d8910ba623db5089bc0d437b863428f2c69ec504a11756a12b571",
-      "finished_at": null,
+      "finished_at": "2026-11-15T03:47:55Z",
       "from_tag": "",
       "graphics_sha256": "0df0b947c3aa3232946b415571a50b29d05eab061604d88b38f1e354c15d9eed",
       "quality": "looks",
@@ -4062,7 +4062,7 @@
       "renderer_sha256": "bfce7858813cc6b85d443726a153d0f977c733c31fadfd6f961487c0c2643b42",
       "run_id": "43671628716",
       "started_at": "2026-11-15T03:16:53Z",
-      "status": "started",
+      "status": "render_succeeded_publish_failed",
       "voice_seed": 0
     },
     "d155c622338c9161df45d52afca74c6c6b3e581615be7fe722646c5f83f09f57": {
