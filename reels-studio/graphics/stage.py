@@ -149,17 +149,22 @@ def attach_evidence_images(doc: dict, capture_id: str) -> None:
         scene["evidence_data"] = f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode("ascii")
 
 
-def attach_evidence_clips(doc: dict, capture_id: str, frame_count: int = 5) -> None:
-    """Embed frames cut from a captured screen recording as the scene's product proof.
+def attach_evidence_clips(doc: dict, capture_id: str, work: Path | None = None, fps: float = 4.0,
+                          width: int = 882, height: int | None = 406) -> None:
+    """Play a captured screen recording as the scene's product proof.
 
     A scene may carry an `evidence_clip` (a real recording of the tool's own page). The frames are
-    cut locally by ffmpeg and embedded as data URIs, so the render never touches the network. A
-    path that escapes the capture folder, a missing file, or a clip with no readable frame stops
-    the render instead of shipping a page with a hole in it.
+    cut locally by ffmpeg and written next to the stage file, so the stage HTML references them
+    instead of carrying megabytes of base64. A path that escapes the capture folder, a missing
+    file, or a clip with no readable frame stops the render instead of shipping a page with a hole
+    in it.
+
+    The frames are cut at `fps` in the recording's own order: the shot plays the product the way a
+    person recorded it, instead of holding one still screenshot (the owner's bar: no full static
+    screenshot held over a second).
     """
-    import base64
     import re
-    from .media import clip_frames
+    from .media import clip_duration, cut_clip_frames
     if not re.fullmatch(r"[a-z0-9][a-z0-9_-]*", capture_id):
         raise ValueError("invalid evidence capture id")
     cap = (Path(__file__).resolve().parents[1] / "captures" / capture_id).resolve()
@@ -172,12 +177,29 @@ def attach_evidence_clips(doc: dict, capture_id: str, frame_count: int = 5) -> N
         path = (cap / name).resolve()
         if not path.is_relative_to(cap) or not path.is_file():
             raise FileNotFoundError(f"evidence clip unavailable: {capture_id}/{name}")
-        frames = clip_frames(path, frame_count)
-        if not frames:
+        if work is None:
+            # No stage directory to write into: keep the old in-memory path (a handful of stills).
+            from .media import clip_frames
+            frames = clip_frames(path)
+            if not frames:
+                raise RuntimeError(f"evidence clip has no readable frames: {capture_id}/{name}")
+            import base64
+            scene["evidence_frames"] = [f"data:image/jpeg;base64,{base64.b64encode(b).decode('ascii')}"
+                                        for b in frames]
+            scene["evidence_frame_count"] = len(frames)
+            scene["evidence_fps"] = 0.0
+            scene["evidence_duration"] = clip_duration(path)
+            continue
+        out_dir = work / "evidence" / Path(name).stem
+        files = cut_clip_frames(path, out_dir, fps=fps, width=width, height=height)
+        if not files:
             raise RuntimeError(f"evidence clip has no readable frames: {capture_id}/{name}")
-        scene["evidence_frames"] = [f"data:image/jpeg;base64,{base64.b64encode(b).decode('ascii')}"
-                                    for b in frames]
-        scene["evidence_frame_count"] = len(frames)
+        rel = out_dir.relative_to(work).as_posix()
+        # One cut per clip, shared by every scene that shows it.
+        scene["evidence_frames"] = [f"{rel}/{f.name}" for f in files]
+        scene["evidence_frame_count"] = len(files)
+        scene["evidence_fps"] = fps
+        scene["evidence_duration"] = clip_duration(path)
 
 
 def render_for_pipeline(graphics_dir: Path, timing: dict, order: list[str], vo_wav: Path,
@@ -191,9 +213,10 @@ def render_for_pipeline(graphics_dir: Path, timing: dict, order: list[str], vo_w
         raise GraphicsError("words", [{"rule": "G0", "detail": "no word timings from the voice stage"}])
     phrases = segments_from_timing(timing, order)
     doc, phrases = plan_scenes(sheet, source, beats, phrases, duration, words, events=events)
-    attach_evidence_images(doc, graphics_dir.name)
-    attach_evidence_clips(doc, graphics_dir.name)
     work.mkdir(parents=True, exist_ok=True)
+    attach_evidence_images(doc, graphics_dir.name)
+    # The evidence frames are written next to the stage file, so they must exist before it is built.
+    attach_evidence_clips(doc, graphics_dir.name, work=work)
     (work / "scenes.json").write_text(json.dumps(doc, indent=1, ensure_ascii=False), encoding="utf-8")
     info = render(doc, vo_wav, out_mp4, work, duration)
     fallbacks = {s["id"]: s.get("fallback", []) for s in doc["scenes"] if s.get("fallback")}

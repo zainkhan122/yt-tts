@@ -19,6 +19,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -167,6 +168,9 @@ def check_layout(brief_id, brief_path):
                            timeout=900, env=_browser_env())
     except subprocess.TimeoutExpired:
         return [_result("layout", "BLOCK", "layout audit timed out", "run tools/layout_audit.py locally and fix the scene")]
+    except OSError as exc:
+        return [_result("layout", "BLOCK", f"layout audit could not run: {exc}",
+                        "run tools/browser_setup.py once (user-space Chromium), then re-run preflight")]
     out = (r.stdout + r.stderr).strip()
     if r.returncode == 0 and "FAIL" not in r.stdout:
         return [_result("layout", "PASS", "local browser layout audit: no overlap, no empty stage, no scrim over media")]
@@ -176,6 +180,38 @@ def check_layout(brief_id, brief_path):
     fails = [ln.strip() for ln in r.stdout.splitlines() if ln.strip().startswith("FAIL")]
     return [_result("layout", "BLOCK", fails[0] if fails else (out.splitlines() or ["layout audit failed"])[-1],
                     "fix the scene and re-run tools/layout_audit.py until it prints OK")]
+
+
+def check_graphics_layout(brief_id, brief_path, brief):
+    """The graphics tier's own layout gates, run locally (owner, 2026-11-15).
+
+    The spotlight layout audit measures the spotlight engine's composition; a graphics brief is
+    drawn by its own engine, whose gates (caption band reserved, nothing past the frame) live in
+    graphics/render.py. Running them here means a bad layout is found in seconds, not in a cloud
+    render cycle. Same code as the renderer: graphics/render.py::stage_layout_gates.
+    """
+    import subprocess
+    script = ROOT / "tools" / "graphics_layout_gate.py"
+    try:
+        r = subprocess.run([sys.executable, str(script), str(brief_path)], capture_output=True, text=True,
+                           timeout=900, cwd=str(ROOT))
+    except subprocess.TimeoutExpired:
+        return [_result("layout", "BLOCK", "graphics layout gate timed out",
+                        "run tools/graphics_layout_gate.py locally and fix the scene")]
+    except OSError as exc:
+        return [_result("layout", "BLOCK", f"graphics layout gate could not run: {exc}",
+                        "install playwright + chromium, then re-run preflight")]
+    out = (r.stdout + r.stderr).strip()
+    if r.returncode == 0 and "PASS" in out:
+        detail = next((ln.strip() for ln in out.splitlines() if "PASS" in ln), "graphics layout is clean")
+        return [_result("layout", "PASS", detail)]
+    fails = [ln.strip() for ln in out.splitlines() if ln.strip().startswith("x ")]
+    detail = "; ".join(fails[:3]) if fails else (out.splitlines() or ["graphics layout gate failed"])[-1]
+    if "Executable doesn't exist" in out or "ModuleNotFoundError" in out:
+        return [_result("layout", "BLOCK", "local browser unavailable for the graphics layout gate",
+                        "run tools/browser_setup.py once (user-space Chromium), then re-run preflight")]
+    return [_result("layout", "BLOCK", detail,
+                    "fix the scene and re-run tools/graphics_layout_gate.py until it prints PASS")]
 
 
 def _browser_env():
@@ -485,6 +521,37 @@ def legacy_ids():
     return set(json.loads(path.read_text(encoding="utf-8")).get("briefs", {})) if path.exists() else set()
 
 
+def check_ui_proof(brief_id, brief, phase="pre"):
+    """The gate the cloud runs before it renders, run HERE first (owner, 2026-11-15).
+
+    Actions run 43624761733 died in the voice job with "no product-evidence assets referenced" —
+    a fact a local command could have answered in seconds, before a cloud cycle was spent on it.
+    So the dispatch phase answers the same question locally, on the same assets, with the same
+    code (tools/ui_proof_gate.py): does this short actually show the product?
+    """
+    sys.path.insert(0, str(ROOT / "tools"))
+    import ui_proof_gate
+    referenced = ui_proof_gate.referenced_assets(brief)
+    if not referenced:
+        return [_result("ui_proof", "BLOCK",
+                        "no product-evidence assets referenced — the short would show no product UI at all",
+                        "point a clip/image scene at the tool's own capture (evidence_clip / image in the brief)")]
+    cap = _capture_id(brief)
+    cap_dir = ROOT / "captures" / cap if cap else None
+    if cap_dir is None or not cap_dir.is_dir():
+        status = "NOTE" if phase == "pre" else "BLOCK"
+        return [_result("ui_proof", status, f"capture pack not present locally: captures/{cap}",
+                        f"run: python3 tools/capture_store.py pull-for {brief_id}")]
+    tok = os.environ.get("NVIDIA_KEY") or os.environ.get("NVIDIA_API_KEY")
+    findings, _report = ui_proof_gate.evaluate(brief, cap_dir, tok)
+    if findings:
+        return [_result("ui_proof", "BLOCK", "; ".join(findings[:4]),
+                        "fix the capture (or the scene that points at it), then re-run")]
+    return [_result("ui_proof", "PASS",
+                    f"{len(referenced)} product-evidence asset(s) pass the UI proof gate"
+                    + ("" if tok else " (VLM half skipped: NVIDIA_KEY not set)"))]
+
+
 def _cloud_source_checks(brief_id, brief, *, with_release=True, with_cover=True):
     """Assets, capture-pack release and cover. For a LEGACY brief (its video already went out) these are
     NOTE, not BLOCK: it is not re-dispatched from the old brief, and a new render is a new decision."""
@@ -523,13 +590,16 @@ def preflight(brief_id, phase="full", receipt_rel=None):
         brief = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, ValueError) as exc:
         return {"id": brief_id, "phase": phase, "verdict": "BLOCK", "results": [_result("brief", "BLOCK", f"unreadable: {exc}", "fix the JSON")]}
+    layout = (check_graphics_layout(brief_id, path, brief) if brief.get("renderer") == "graphics"
+              else check_layout(brief_id, path))
     results = (check_lint(brief_id, path) + check_studio_rules(brief)
                + check_queue_pin(brief_id, brief) + check_render(brief_id)
                + check_motion(brief_id, path) + check_media_aspect(brief_id, brief)
-               + check_policy(brief_id, brief) + check_layout(brief_id, path)
+               + check_policy(brief_id, brief) + layout
                + check_workspace(brief_id) + check_short_qa_plan(brief_id, brief) + check_media_fallback(brief_id, brief)
                + check_package_advisories(brief_id, brief)
-               + check_reference_advisories(brief_id, brief))
+               + check_reference_advisories(brief_id, brief)
+               + check_ui_proof(brief_id, brief, phase))
     if phase == "pre":
         results += _cloud_source_checks(brief_id, brief, with_release=False, with_cover=False)
     else:

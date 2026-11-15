@@ -48,6 +48,10 @@ _OVERFLOW_JS = """() => {
     /* the scene wrap itself is the camera subject the ambient breath moves — also full-bleed by
      * design (HOUSE.ambient). Its CHILDREN are still audited, so real payload overflow is caught. */
     if (e.classList.contains('scene')) return;
+    /* the camera layer (redline): the page is read on a camera that scrolls and breathes, so the
+     * layer is deliberately larger than the frame. Its CHILDREN are clipped by it (overflow
+     * hidden) and are still audited, so real payload overflow inside the shot is caught. */
+    if (e.hasAttribute && e.hasAttribute('data-house-camera')) return;
     const cs = getComputedStyle(e);
     if (cs.display === 'none' || cs.visibility === 'hidden') return;
     let op = parseFloat(cs.opacity);
@@ -104,6 +108,71 @@ def audit_overflow(page, doc: dict) -> list[dict]:
     for v in bad:  # same element across probe times = one violation
         uniq.setdefault((v["scene"], v["cls"]), v)
     return list(uniq.values())
+
+
+# The house caption band is reserved. No scene element may enter it, or the caption sits on top
+# of the beat's own type (which is exactly what shipped once).
+#
+# It measures the VISIBLE MARKS (leaf elements: the type, the cards, the shots), not the layout
+# boxes: a container that spans the band while its content sits above it is not a collision, and
+# a container that spans the band WHILE ITS CONTENT IS IN IT is caught by its own leaves.
+_CAPTION_BAND_JS = """(CAP_TOP) => {
+  const out = [];
+  document.querySelectorAll('.scene').forEach(function (sc) {
+    if (sc.style.display === 'none') return;
+    sc.querySelectorAll('*').forEach(function (e) {
+      const cs = getComputedStyle(e);
+      if (cs.display === 'none' || cs.visibility === 'hidden') return;
+      if (parseFloat(cs.opacity) < 0.15) return;
+      if (e.closest('#postfx') || e.classList.contains('ng-grid')) return;
+      /* the camera layers frame the shot on purpose */
+      if (e.hasAttribute && e.hasAttribute('data-house-camera')) return;
+      /* only the marks themselves: a container is not a collision */
+      if (e.children.length) return;
+      const r = e.getBoundingClientRect();
+      if (r.height < 4 || r.width < 4) return;
+      if (r.bottom > CAP_TOP + 40) {
+        out.push({cls: String(e.className || e.tagName).slice(0, 60), bottom: Math.round(r.bottom)});
+      }
+    });
+  });
+  return out;
+}"""
+
+
+def caption_band_collisions(page, cap_top: int) -> list[dict]:
+    """Scene elements that run into the house caption band. Empty list = the band is clear."""
+    return page.evaluate(_CAPTION_BAND_JS, cap_top)
+
+
+def stage_layout_gates(page, doc: dict, cap_top: int) -> list[str]:
+    """The graphics tier's layout gates, as problems. Empty list = the layout is clean.
+
+    Shared by the renderer (which refuses to encode when this returns anything) and by the local
+    gate (tools/graphics_layout_gate.py), so the question "does this short fit the frame?" is
+    answered the same way before dispatch and during the render.
+    """
+    problems = []
+    bad = audit_overflow(page, doc)
+    if bad:
+        listing = "; ".join(f"{v['scene']} <{v['cls']}> rect={v['rect']} t={v['t']:.2f}s" for v in bad[:6])
+        problems.append(
+            f"edge overflow audit (lesson 25): {len(bad)} element(s) more than "
+            f"{_OVERFLOW_SLACK_PX}px past the {W}x{H} frame: {listing}")
+    # The caption band is measured at the same probe times as the overflow audit: at load every
+    # scene is hidden, so a check run once at load sees nothing (that is why this gate was inert).
+    collisions = []
+    for sid, t in _scene_samples(doc):
+        page.evaluate(f"window.setTime({t:.4f})")
+        for c in caption_band_collisions(page, cap_top):
+            c["scene"], c["t"] = sid, t
+            collisions.append(c)
+    if collisions:
+        listing = "; ".join(f"{c['scene']} <{c['cls']}> bottom={c['bottom']}" for c in collisions[:6])
+        problems.append(
+            f"caption-band gate: {len(collisions)} mark(s) run into the house caption "
+            f"band (y>={cap_top}): {listing}")
+    return problems
 
 
 def template_dir(name: str | None = None) -> Path:
@@ -379,32 +448,9 @@ def render(doc: dict, audio: Path, out: Path, work: Path, duration_s: float,
                     f"back to the box default and ship the wrong typeface; refusing to encode")
             # Gate: the house caption band is reserved. No scene element may enter it, or the
             # caption sits on top of the beat's own type (which is exactly what shipped once).
-            collisions = page.evaluate("""(CAP_TOP) => {
-              const out = [];
-              document.querySelectorAll('.scene').forEach(function (sc) {
-                if (sc.style.display === 'none') return;
-                sc.querySelectorAll('*').forEach(function (e) {
-                  const cs = getComputedStyle(e);
-                  if (cs.display === 'none' || cs.visibility === 'hidden') return;
-                  if (parseFloat(cs.opacity) < 0.15) return;
-                  if (e.closest('#postfx') || e.classList.contains('ng-grid')) return;
-                  /* the house ambient layers are full-bleed by design */
-                  if (e.classList.contains('house-sheen') || e.classList.contains('house-dust') ||
-                      e.classList.contains('house-mote')) return;
-                  const r = e.getBoundingClientRect();
-                  if (r.height < 4 || r.width < 4) return;
-                  if (r.bottom > CAP_TOP + 40) {
-                    out.push({cls: String(e.className || e.tagName).slice(0, 60), bottom: Math.round(r.bottom)});
-                  }
-                });
-              });
-              return out;
-            }""", cap_top)
-            if collisions:
-                listing = "; ".join(f"{c['cls']} bottom={c['bottom']}" for c in collisions[:6])
-                raise RuntimeError(
-                    f"caption-band gate: {len(collisions)} element(s) run into the house caption "
-                    f"band (y>={cap_top}): {listing}")
+            problems = stage_layout_gates(page, doc, cap_top)
+            if problems:
+                raise RuntimeError("; ".join(problems))
             # Gate: the house layer is on screen. The caption/outro contract is browser state, so it
             # has to be proven here — before a single frame is encoded — not guessed from a
             # still afterwards. Enabled by render(local_preview_render.py --house-gate) or HOUSEGATE=1.
@@ -428,12 +474,6 @@ def render(doc: dict, audio: Path, out: Path, work: Path, duration_s: float,
                           f"review {report_path}", flush=True)
                     if os.environ.get("MOTION_CUES_STRICT") == "1":
                         raise RuntimeError("unmatched motion cues: review timing or disable MOTION_CUES_STRICT")
-            bad = audit_overflow(page, doc)
-            if bad:
-                listing = "; ".join(f"{v['scene']} <{v['cls']}> rect={v['rect']} t={v['t']:.2f}s" for v in bad[:6])
-                raise RuntimeError(
-                    f"edge overflow audit (lesson 25): {len(bad)} element(s) more than "
-                    f"{_OVERFLOW_SLACK_PX}px past the {W}x{H} frame: {listing}")
             for f in range(n_frames):
                 t = f / fps
                 page.evaluate(f"window.setTime({t:.4f})")

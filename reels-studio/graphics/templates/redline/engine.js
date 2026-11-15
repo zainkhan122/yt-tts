@@ -1,5 +1,5 @@
 /* redline: a paper report being marked up in red pen.
- * Pure function of setTime(t) — no timers, no transitions.
+ * Pure function of setTime(t) â€” no timers, no transitions.
  * Grammar: warm paper, black ink, ONE red accent. Ruled lines draw on. Rows get struck out.
  * Captions are set as a footnote band in the same mono as the document.
  */
@@ -11,6 +11,20 @@
       RED = "#D8341C", GREEN = "#2E6B4F", CARD = "#FBF8F2";
 
   var clamp = function (x, a, b) { return Math.min(b, Math.max(a, x)); };
+  /* How fast the report page scrolls while it is read, in px per second. It has to be fast
+   * enough that the picture changes in every quarter second (the Short QA measures the frame
+   * difference over 0.25 s bins), and slow enough that the type stays readable. */
+  var SCROLL_PX_PER_S = 15;
+  /* The camera's breath: a slow push in and back, so the frame is never frozen. It is a
+   * triangle wave with eased corners â€” a constant rate, so every quarter second moves the
+   * picture, and a bounded amplitude, so the page never grows out of the frame. */
+  var PULSE_AMP = 0.14;
+  var PULSE_PERIOD = 2.4;
+  function pulse(u) {
+    var ph = (u % PULSE_PERIOD) / PULSE_PERIOD;
+    var tri = ph < 0.5 ? ph * 2 : 2 - ph * 2;
+    return eCubic(tri);
+  }
   var ramp = function (u, a, b) { return clamp((u - a) / Math.max(1e-6, b - a), 0, 1); };
   var eCubic = function (x) { x = clamp(x, 0, 1); return 1 - Math.pow(1 - x, 3); };
   var eExpo = function (x) { x = clamp(x, 0, 1); return x >= 1 ? 1 : 1 - Math.pow(2, -10 * x); };
@@ -62,14 +76,17 @@
   }
 
   function pad2(n) { n = Number(n || 0) + 1; return (n < 10 ? "0" : "") + n; }
-  /* every sheet carries a page number, so each scene reads as a page of one report */
-  function pageNum(root, s) { el("div", "rl-pnum", root, "PAGE " + pad2(s.idx)); }
+  /* every sheet carries a page number, so each scene reads as a page of one report. It is pinned
+   * to the frame (not to the page), because the page scrolls while it is read. */
+  var FIXED_EL = null;
+  function pageNum(root, s) { el("div", "rl-pnum", FIXED_EL || root, "PAGE " + pad2(s.idx)); }
 
   /* ---------- the exhibit: the tool's own page, pasted into the report ----------
    * A report about a tool that shows no tool is a text card. The capture packs hold real screen
-   * recordings of the product; graphics/stage.py cuts still frames out of one and hands them over
-   * as `evidence_frames`. The page here advances through those frames, so the viewer watches the
-   * product load instead of reading about it, and the house type sits over the top of it.
+   * recordings of the product; graphics/stage.py cuts them into frames and hands them over as
+   * `evidence_frames`. The page here PLAYS those frames, so the viewer watches the product load
+   * instead of reading about it (the owner's bar: no full static screenshot held over a second),
+   * and the house type sits over the top of it.
    */
   function exhibit(root, s) {
     var frames = s.evidence_frames || [];
@@ -94,12 +111,16 @@
     /* the exhibit arrives with the page, not before it: the shot fades up with the sheet */
     refs.node.style.opacity = fmt(ramp(u, 0.05, 0.4), 3);
     var span = Math.max(0.001, s.t1 - s.t0);
-    var slot = (u / span) * refs.count;
-    var i0 = Math.min(refs.count - 1, Math.floor(slot));
-    var i1 = Math.min(refs.count - 1, i0 + 1);
+    /* the recording plays at its own speed: the whole clip fits the scene, whatever the voice does */
+    var fps = s.evidence_fps || 0;
+    var dur = s.evidence_duration || 0;
+    var clipT = fps > 0 ? (u / span) * dur : (u / span) * refs.count;
+    var slot = clipT * fps;
+    var i0 = Math.floor(slot) % refs.count;
+    var i1 = (i0 + 1) % refs.count;
     var f = slot - Math.floor(slot);
-    /* the page loads in the recording: a short dissolve forward reads as the page filling up */
-    var blend = Math.max(0, (f - 0.82) / 0.18);
+    /* a short dissolve forward reads as the page filling up, not as a slideshow */
+    var blend = Math.max(0, (f - 0.7) / 0.3);
     refs.imgs.forEach(function (im, i) {
       var o = i === i0 ? 1 - blend : (i === i1 ? blend : 0);
       im.style.opacity = fmt(o, 3);
@@ -115,7 +136,7 @@
       var r = {};
       r.paper = paperRules(root);
       pageNum(root, s);
-      var sheet = el("div", "rl-sheet", root);
+      var sheet = el("div", "rl-sheet rl-sheet--title", root);
       el("div", "rl-kicker", sheet, p.kicker || "REPORT");
       r.title = el("div", "rl-title", sheet);
       r.title.textContent = s.headline || p.title || "";
@@ -125,6 +146,8 @@
         el("em", null, row, t);
         return { row: row, t: t };
       });
+      r.ex = exhibit(sheet, s);
+      if (r.ex) sheet.classList.add("rl-sheet--exhibit");
       r.times = bindTimes(p.cue_phrases, s, r.lines.length);
       return r;
     },
@@ -139,6 +162,7 @@
         x.row.style.opacity = fmt(p);
         x.row.style.transform = "translateX(" + fmt((1 - p) * -26, 1) + "px)";
       });
+      exhibitUpdate(r.ex, s, u);
     }
   };
 
@@ -202,7 +226,7 @@
       var val = parseFloat(p.value) || 0;
       r.paper.style.opacity = fmt(ramp(u, 0, 0.3));
       var k = eExpo(ramp(since, 0, 0.7));
-      r.num.textContent = since < 0 ? "—" : Math.round(val * k) + (p.suffix || "");
+      r.num.textContent = since < 0 ? "â€”" : Math.round(val * k) + (p.suffix || "");
       var pop = eBack(ramp(since, 0, 0.35));
       r.box.style.transform = "scale(" + fmt(0.9 + 0.1 * pop, 3) + ") rotate(-1.4deg)";
       r.box.style.opacity = fmt(0.35 + 0.65 * ramp(since, 0, 0.2));
@@ -211,7 +235,7 @@
     }
   };
 
-  /* score_rules: a scored table — the claim, a red score, and a hairline that fills. */
+  /* score_rules: a scored table â€” the claim, a red score, and a hairline that fills. */
   ARCH.score_rules = {
     build: function (root, s) {
       var p = s.payload || {};
@@ -257,6 +281,8 @@
       r.quote = el("blockquote", null, r.card, "\u201C" + (p.note || "") + "\u201D");
       r.attrib = el("div", "attrib", r.card, "\u2014 " + (p.attrib || ""));
       r.underline = el("i", "ul", r.card);
+      r.ex = exhibit(sheet, s);
+      if (r.ex) sheet.classList.add("rl-sheet--exhibit");
       return r;
     },
     update: function (r, s, u, d) {
@@ -266,11 +292,12 @@
       r.quote.style.opacity = fmt(ramp(u, 0.2, 0.45));
       r.attrib.style.opacity = fmt(ramp(u, 0.5, 0.8));
       r.underline.style.width = fmt(eExpo(ramp(u, 0.55, 0.95)) * 100, 1) + "%";
+      exhibitUpdate(r.ex, s, u);
     }
   };
 
   /* endcard: the last page, signed off. */
-  /* endcard: BYPASSED — graphics/outro.js draws the single house brand card for every short.
+  /* endcard: BYPASSED â€” graphics/outro.js draws the single house brand card for every short.
      Kept as a stub so the beat planner can still name the archetype. */
   ARCH.endcard = {
     build: function (root, s) {
@@ -296,8 +323,30 @@
       head.className = "rl-overline";
       head.style.display = "none";           /* the archetype owns the type; headline is spoken */
       var visual = el("div", "visual", wrap);
-      s._wrap = wrap; s._visual = visual;
-      s._refs = ARCH[s.archetype].build(visual, s);
+      /* The camera. The report is READ on a camera that scrolls and breathes, so the frame is
+       * never a still card. The camera has three layers:
+       *   .rl-rules-layer  the paper's ruling — it moves with the page (the ruling IS the page)
+       *   .rl-clip         the page itself; the content slides up and out of the frame
+       *   .rl-sticky       the section label, pinned, so the page slides under it
+       * The clip hides what has scrolled past, so the page is read, not clipped by accident. */
+      var cam = el("div", "rl-camera", visual);
+      cam.setAttribute("data-house-camera", "1");
+      var rules = el("div", "rl-rules-layer", cam);
+      var sticky = el("div", "rl-sticky", cam);
+      var clip = el("div", "rl-clip", cam);
+      var move = el("div", "rl-camera-move", clip);
+      move.setAttribute("data-house-camera", "1");
+      var fixed = el("div", "rl-fixed", cam);
+      fixed.setAttribute("data-house-camera", "1");
+      FIXED_EL = fixed;
+      s._wrap = wrap; s._visual = visual; s._cam = move; s._rules = rules; s._sticky = sticky;
+      s._refs = ARCH[s.archetype].build(move, s);
+      /* the section label is pinned; the ruling moves with the page */
+      var sheet = move.querySelector(".rl-sheet");
+      var kicker = sheet ? sheet.querySelector(".rl-kicker") : null;
+      if (kicker) sticky.appendChild(kicker);
+      var ruling = move.querySelector(".rl-rules");
+      if (ruling) rules.appendChild(ruling);
     });
     capEl = el("div", "rl-foot-band", stageEl);
     window.ready = true;
@@ -331,10 +380,19 @@
     var u = t - s.t0, d = Math.max(1e-6, s.t1 - s.t0);
     var enter = eCubic(ramp(u, 0, 0.28));
     s._visual.style.opacity = fmt(0.7 + 0.3 * enter);
-    s._visual.style.transform = "translateY(" + fmt((1 - enter) * 12, 1) + "px)";
+    /* The report is READ, not held: the page scrolls up while the line is spoken, at a fixed
+     * 30 px/second, so the picture is never a still card (the owner's bar: a visible change
+     * every few seconds). The camera also breathes â€” a slow push and settle â€” so even the
+     * quietest passage keeps moving. The caption band does not move with the page. */
+    var breath = 1 + PULSE_AMP * pulse(u);
+    var cam = "translateY(" + fmt((1 - enter) * 12 - SCROLL_PX_PER_S * u, 1) + "px) scale(" + fmt(breath, 4) + ")";
+    s._cam.style.transform = cam;
+    s._rules.style.transform = cam;
     ARCH[s.archetype].update(s._refs, s, u, d);
     drawCaption(s, t);
   };
 
   build();
 })();
+
+

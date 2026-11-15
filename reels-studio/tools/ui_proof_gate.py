@@ -235,6 +235,40 @@ def _resolve_capture(explicit, brief, vid) -> Path:
     return ROOT / "captures" / vid
 
 
+def referenced_assets(brief: dict) -> list[tuple[str, bool]]:
+    """The product-evidence assets a brief points at: (name, wants_motion).
+
+    A clip is a screen recording and must move; a still is allowed to be still. The order is the
+    order of the scenes, so the report reads in the order the viewer will see.
+    """
+    referenced, seen = [], set()
+    for s in brief.get("scenes", []):
+        if s.get("type") == "clip" and s.get("src") and s["src"] not in seen:
+            seen.add(s["src"]); referenced.append((s["src"], True))
+        if s.get("type") == "image" and s.get("image") and s["image"] not in seen:
+            seen.add(s["image"]); referenced.append((s["image"], False))
+    return referenced
+
+
+def evaluate(brief: dict, cap: Path, tok: str | None = None) -> tuple[list[str], list[dict]]:
+    """Check every referenced evidence asset. Returns (blocking findings, per-asset report).
+
+    Shared by the command line and by the local preflight, so the question "does this short show
+    the product at all?" is answered the same way before dispatch and in the cloud.
+    """
+    referenced = referenced_assets(brief)
+    if not referenced:
+        return (["no product-evidence assets referenced — nothing to prove "
+                 "(a short with no UI anywhere cannot pass the owner's bar)"], [])
+    findings, report = [], []
+    for name, want_motion in referenced:
+        fails = check_asset(cap / name, tok, want_motion)
+        kind = "clip" if want_motion else "image"
+        report.append({"asset": name, "kind": kind, "fails": fails})
+        findings += fails
+    return findings, report
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("brief")
@@ -252,35 +286,22 @@ def main() -> int:
     cap = _resolve_capture(a.captures, brief, vid)
     tok = None if a.no_vlm else (os.environ.get("NVIDIA_KEY") or os.environ.get("NVIDIA_API_KEY"))
 
-    referenced, seen = [], set()
-    for s in brief.get("scenes", []):
-        if s.get("type") == "clip" and s.get("src") and s["src"] not in seen:
-            seen.add(s["src"]); referenced.append((s["src"], True))
-        if s.get("type") == "image" and s.get("image") and s["image"] not in seen:
-            seen.add(s["image"]); referenced.append((s["image"], False))
-
-    if not referenced:
-        print(f"UI-PROOF {vid}: no product-evidence assets referenced — nothing to prove "
-              f"(a short with no UI anywhere cannot pass the owner's bar)")
+    findings, per_asset = evaluate(brief, cap, tok)
+    report = {"brief": vid, "vision": bool(tok), "assets": per_asset}
+    if findings and not per_asset:
+        print(f"UI-PROOF {vid}: {findings[0]}")
         return 1
-
-    report = {"brief": vid, "vision": bool(tok), "assets": []}
-    hard = 0
-    for name, want_motion in referenced:
-        fails = check_asset(cap / name, tok, want_motion)
-        kind = "clip" if want_motion else "image"
-        report["assets"].append({"asset": name, "kind": kind, "fails": fails})
-        if fails:
-            hard += len(fails)
-            for f in fails:
+    for row in per_asset:
+        if row["fails"]:
+            for f in row["fails"]:
                 print(f"  x {f}")
         else:
-            print(f"  ok {kind}: {name}")
-    print(f"UI-PROOF {vid}: {hard} blocking finding(s) across {len(referenced)} asset(s)"
+            print(f"  ok {row['kind']}: {row['asset']}")
+    print(f"UI-PROOF {vid}: {len(findings)} blocking finding(s) across {len(per_asset)} asset(s)"
           f"{'' if tok else ' (VLM check skipped: NVIDIA_KEY not set)'}")
     if a.json:
         Path(a.json).write_text(json.dumps(report, indent=1))
-    return 1 if hard else 0
+    return 1 if findings else 0
 
 
 if __name__ == "__main__":

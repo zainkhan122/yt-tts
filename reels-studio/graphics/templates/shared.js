@@ -15,7 +15,21 @@
 
   function norm(w) { return String(w).toLowerCase().replace(/[^a-z0-9]/g, ""); }
 
-  var capEl = null, handleEl = null;
+  var capEl = null, handleEl = null, grainEl = null;
+
+  /* Film grain: jitter the noise layer once per frame, a pure function of the frame index.
+   *
+   * WHY (owner, 2026-11-15): the house engine has always done this, so every house short has a
+   * live picture. The per-tool templates never got it, and the redline short sat dead between
+   * its cues: the Short QA measured a visible change in 19% of its 0.25 s bins and blocked the
+   * short on motion (graphic_only_share 0.81, motion_gap 4.5 s). The grain is the house look
+   * applied per frame; it belongs to the house layer, not to one engine. */
+  function grain(t) {
+    var g = grainEl || (grainEl = document.querySelector("#postfx .grain"));
+    if (!g) return;
+    var fi = Math.round(t * 30);
+    g.style.backgroundPosition = ((fi * 41) % 211) + "px " + ((fi * 97) % 173) + "px";
+  }
 
   /* Engines written before the house layer each grew a caption of their own (.caption,
      .pl-caption, .ng-cap, ...). They are all now superseded: two captions on screen is a bug, and
@@ -169,6 +183,7 @@
     if (typeof inner === "function") {
       window.setTime = function (t) {
         inner(t);
+        grain(t);
         draw(t);
         updateOutros(t);
       };

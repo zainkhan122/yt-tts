@@ -16,14 +16,35 @@ body { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; color: #16150F
   letter-spacing: 0.18em; text-transform: uppercase; }
 
 .scene { position: absolute; inset: 0; }
+
+/* ---------- the camera ---------- *
+ * The report is read on a camera that scrolls and breathes. The layers:
+ *   .rl-rules-layer  the paper's ruling (moves with the page — the ruling IS the page)
+ *   .rl-clip         the page; the content slides up and out of the frame
+ *   .rl-sticky       the section label, pinned, so the page slides under it
+ *   .rl-fixed        the page number, pinned to the frame
+ */
+.rl-camera { position: absolute; inset: 0; overflow: hidden; }
+.rl-rules-layer { position: absolute; inset: 0; transform-origin: 50% 50%; }
+.rl-fixed { position: absolute; inset: 0; }
+.rl-clip { position: absolute; left: 0; right: 0; top: 244px; bottom: 0; overflow: hidden; }
+.rl-camera-move { position: absolute; left: 0; right: 0; top: 0; transform-origin: 50% 50%; }
+
+/* The pinned section label reads as a tab on the page: a solid band the page slides under. */
+.rl-sticky { position: absolute; left: 96px; right: 78px; top: 200px; height: 44px; z-index: 6;
+  background: #FBF8F2; box-shadow: 0 1px 0 #CFC8B8; }
+.rl-sticky .rl-kicker { margin: 0; line-height: 44px; }
 .visual { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
 
-/* page number: every sheet is numbered like a report page */
-.rl-pnum { position: absolute; right: 78px; top: 1160px; font-family: "SF Mono", ui-monospace,
+/* page number: every sheet is numbered like a report page. It sits below the page's own bottom
+ * edge (the camera breathes, so the page moves), and above the house caption band. */
+.rl-pnum { position: absolute; right: 78px; top: 1192px; font-family: "SF Mono", ui-monospace,
   Menlo, Consolas, monospace; font-size: 24px; letter-spacing: 0.16em; color: #8A8578; }
 
 /* ---------- the sheet is the page of a report ---------- */
-.rl-sheet { position: absolute; left: 96px; right: 78px; top: 200px; height: 1230px;
+/* The sheet starts at the top of the clip, i.e. right under the pinned label, so the page slides
+ * up under it as it is read and nothing is ever hidden behind the label. */
+.rl-sheet { position: absolute; left: 96px; right: 78px; top: 0; height: 1230px;
   display: flex; flex-direction: column; justify-content: center; }
 
 .rl-kicker { font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace; font-size: 30px;
@@ -115,6 +136,13 @@ body { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; color: #16150F
 .rl-sheet--exhibit .rl-foot { margin-top: 26px; font-size: 30px; }
 .rl-sheet--exhibit .rl-stamp .n { font-size: 170px; }
 .rl-sheet--exhibit .rl-stamp { padding: 26px 38px 20px; }
+
+/* The cover page carries the exhibit too, so its own type tightens up: the page has to fit
+ * between the pinned label and the house caption band (y 1250). */
+.rl-sheet--title .rl-title { font-size: 74px; }
+.rl-sheet--title .rl-rule { margin: 30px 0 24px; }
+.rl-sheet--title .rl-line { padding: 18px 0; font-size: 38px; }
+.rl-sheet--title .rl-exhibit { height: 380px; margin-top: 40px; }
 
 /* ---------- endcard ---------- */
 .rl-end { text-align: left; }
