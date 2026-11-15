@@ -14,7 +14,7 @@
   /* How fast the report page scrolls while it is read, in px per second. It has to be fast
    * enough that the picture changes in every quarter second (the Short QA measures the frame
    * difference over 0.25 s bins), and slow enough that the type stays readable. */
-  var SCROLL_PX_PER_S = 15;
+  var SCROLL_PX_PER_S = 17;
   /* The camera's breath: a slow push in and back, so the frame is never frozen. It is a
    * triangle wave with eased corners â€” a constant rate, so every quarter second moves the
    * picture, and a bounded amplitude, so the page never grows out of the frame. */
