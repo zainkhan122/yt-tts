@@ -149,6 +149,37 @@ def attach_evidence_images(doc: dict, capture_id: str) -> None:
         scene["evidence_data"] = f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode("ascii")
 
 
+def attach_evidence_clips(doc: dict, capture_id: str, frame_count: int = 5) -> None:
+    """Embed frames cut from a captured screen recording as the scene's product proof.
+
+    A scene may carry an `evidence_clip` (a real recording of the tool's own page). The frames are
+    cut locally by ffmpeg and embedded as data URIs, so the render never touches the network. A
+    path that escapes the capture folder, a missing file, or a clip with no readable frame stops
+    the render instead of shipping a page with a hole in it.
+    """
+    import base64
+    import re
+    from .media import clip_frames
+    if not re.fullmatch(r"[a-z0-9][a-z0-9_-]*", capture_id):
+        raise ValueError("invalid evidence capture id")
+    cap = (Path(__file__).resolve().parents[1] / "captures" / capture_id).resolve()
+    for scene in doc.get("scenes", []):
+        name = scene.get("evidence_clip")
+        if not name:
+            continue
+        if not isinstance(name, str) or Path(name).name != name or Path(name).suffix.lower() not in (".mp4", ".webm", ".mov"):
+            raise ValueError("unsafe evidence clip")
+        path = (cap / name).resolve()
+        if not path.is_relative_to(cap) or not path.is_file():
+            raise FileNotFoundError(f"evidence clip unavailable: {capture_id}/{name}")
+        frames = clip_frames(path, frame_count)
+        if not frames:
+            raise RuntimeError(f"evidence clip has no readable frames: {capture_id}/{name}")
+        scene["evidence_frames"] = [f"data:image/jpeg;base64,{base64.b64encode(b).decode('ascii')}"
+                                    for b in frames]
+        scene["evidence_frame_count"] = len(frames)
+
+
 def render_for_pipeline(graphics_dir: Path, timing: dict, order: list[str], vo_wav: Path,
                         out_mp4: Path, work: Path, duration: float, events: dict | None = None) -> dict:
     """graphics_dir holds features.json, beats.json and the README snapshot the sheet was built from."""
@@ -161,6 +192,7 @@ def render_for_pipeline(graphics_dir: Path, timing: dict, order: list[str], vo_w
     phrases = segments_from_timing(timing, order)
     doc, phrases = plan_scenes(sheet, source, beats, phrases, duration, words, events=events)
     attach_evidence_images(doc, graphics_dir.name)
+    attach_evidence_clips(doc, graphics_dir.name)
     work.mkdir(parents=True, exist_ok=True)
     (work / "scenes.json").write_text(json.dumps(doc, indent=1, ensure_ascii=False), encoding="utf-8")
     info = render(doc, vo_wav, out_mp4, work, duration)

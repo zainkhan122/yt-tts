@@ -391,6 +391,11 @@ def scene_list(beats: dict, phrases: list[dict]) -> list[dict]:
             "payload": s.get("payload", {}),
             # Upstream feature (kept): a scene may show a locally captured still as evidence.
             "evidence_image": s.get("evidence_image"),
+            # House feature: a scene may show frames cut from a captured screen recording.
+            "evidence_clip": s.get("evidence_clip"),
+            "evidence_label": s.get("evidence_label"),
+            "evidence_credit": s.get("evidence_credit"),
+            "evidence_ring": s.get("evidence_ring"),
             "evidence_focus": s.get("evidence_focus"),
             "words": p["words"],
             "text": p["text"],

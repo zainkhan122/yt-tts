@@ -21,6 +21,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 
 class BuildError(SystemExit):
@@ -91,6 +93,21 @@ def _animation_file(vid, name):
     if not path.exists():
         raise BuildError(f"{vid}: animation '{name}' not found in captures/{vid}/; build it or use a card visual")
     return name
+
+
+def _clip_span(vid, name, limit: float = 14.0) -> tuple[float, float]:
+    """The honest in/out for a recorded clip: its real length, never past the end of the file.
+
+    A range that runs past the recording asks a sampler for frames that do not exist, and the
+    blank-frame check then skips the clip instead of proving anything.
+    """
+    dur = 0.0
+    try:
+        from graphics.media import clip_duration
+        dur = clip_duration(ROOT / "captures" / vid / name)
+    except Exception:
+        dur = 0.0
+    return 0.0, round(min(limit, dur), 2) if dur > 0 else limit
 
 
 def build(plan_path):

@@ -77,6 +77,45 @@ body { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; color: #16150F
   font-size: 30px; letter-spacing: 0.1em; color: #6E6A5E; text-transform: uppercase; }
 .rl-note .ul { display: block; height: 6px; background: #D8341C; width: 0; margin-top: 40px; }
 
+/* ---------- the exhibit: the tool's own captured page, pasted into the report ----------
+ * A report about a tool that shows no tool is a text card. The frames come from the capture
+ * pack's screen recording (graphics/stage.py cuts them); the sheet's own type sits above them. */
+.rl-sheet--exhibit { justify-content: flex-start; }
+
+/* The height is capped so the exhibit never reaches the report's page number (rl-pnum sits at
+ * y 1160 in the right margin): a page number hidden behind its own photo is a bug. */
+.rl-exhibit { position: relative; flex: none; margin-top: 54px; height: 430px; padding: 12px;
+  background: #FBF8F2; border: 1px solid #CFC8B8;
+  box-shadow: 12px 14px 0 rgba(22, 21, 15, 0.10); }
+
+.rl-exhibit-tab { position: absolute; left: 12px; top: -34px; background: #D8341C; color: #FBF8F2;
+  font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace; font-size: 24px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; padding: 9px 14px; }
+
+.rl-exhibit-shot { position: relative; width: 100%; height: 100%; overflow: hidden;
+  border: 1px solid #16150F; background: #FFFFFF; }
+
+.rl-exhibit-zoom { position: absolute; inset: 0; }
+.rl-exhibit-zoom img { position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 0%; opacity: 0; }
+
+/* The credit stops short of the sheet's right margin: the report's page number sits there
+ * (rl-pnum, bottom right), and a page number half-covered by its own caption is a bug. */
+.rl-exhibit-credit { position: absolute; left: 12px; right: 150px; bottom: 12px; padding: 7px 12px;
+  background: rgba(251, 248, 242, 0.94); color: #6E6A5E;
+  font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace; font-size: 19px; font-weight: 700;
+  letter-spacing: 0.10em; text-transform: uppercase; white-space: nowrap; overflow: hidden; }
+
+/* a sheet with an exhibit has less room for its own type: the rows tighten up */
+.rl-sheet--exhibit .rl-strike { padding: 22px 0 18px; }
+.rl-sheet--exhibit .rl-strike .body b { font-size: 42px; }
+.rl-sheet--exhibit .rl-strike .body s { font-size: 27px; margin-top: 6px; }
+.rl-sheet--exhibit .rl-strike .bar { top: 44px; }
+.rl-sheet--exhibit .rl-score { padding: 24px 0; }
+.rl-sheet--exhibit .rl-foot { margin-top: 26px; font-size: 30px; }
+.rl-sheet--exhibit .rl-stamp .n { font-size: 170px; }
+.rl-sheet--exhibit .rl-stamp { padding: 26px 38px 20px; }
+
 /* ---------- endcard ---------- */
 .rl-end { text-align: left; }
 .rl-markbox { margin: 26px 0 44px; }

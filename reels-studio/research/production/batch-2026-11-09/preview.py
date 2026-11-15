@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT))
 
-from graphics.stage import plan_scenes  # noqa: E402
+from graphics.stage import attach_evidence_clips, attach_evidence_images, plan_scenes  # noqa: E402
 from graphics.render import render  # noqa: E402
 
 
@@ -63,10 +63,14 @@ def main():
     phrases = segments_from_timing(timing, order)
     events = {"press": round(duration - 1.6, 3), "endcard_keyword": round(duration - 2.4, 3)}
     doc, phrases = plan_scenes(sheet, source, beats, phrases, duration, words, events=events)
+    # The pipeline adapter embeds the capture pack's real product media before rendering; the
+    # preview has to do the same, or it shows a page with a hole where the product should be.
+    attach_evidence_images(doc, gdir.name)
+    attach_evidence_clips(doc, gdir.name)
     print("template:", doc.get("template"), "| scenes:", len(doc["scenes"]), "| duration:", round(duration, 2))
 
     out = Path(a.out or f"/var/tmp/{a.vid}-preview.mp4")
-    work = Path("/var/tmp") / f"{a.vid}-preview"
+    work = out.parent / f"{a.vid}-preview"
     work.mkdir(parents=True, exist_ok=True)
     wav = work / "silent.wav"
     silent_wav(wav, duration + 0.4)
@@ -81,12 +85,20 @@ def main():
         from graphics.render import build_stage_html, W, H
         html = work / "stage.html"
         html.write_text(build_stage_html(doc), encoding="utf-8")
+        # One still per scene, plus a second one late in every scene that carries a product
+        # exhibit, so the frames that advance inside the shot are visible too.
+        times = []
+        for sc in doc["scenes"]:
+            t0, t1 = float(sc["t0"]), float(sc["t1"])
+            times.append(t0 + min(1.2, (t1 - t0) * 0.25))
+            if sc.get("evidence_frames"):
+                times.append(t0 + (t1 - t0) * 0.8)
         with sync_playwright() as p:
             br = p.chromium.launch(args=["--no-sandbox", "--font-render-hinting=none"])
             page = br.new_page(viewport={"width": W, "height": H})
             page.goto(html.as_uri())
             page.wait_for_function("window.ready === true", timeout=30000)
-            for t in [0.9, 3.4, 7.2, 15.0, 25.5, 33.0, 37.6, 43.0, duration - 1.2]:
+            for t in times:
                 page.evaluate(f"window.setTime({t:.3f})")
                 page.screenshot(path=str(sd / f"still-{t:05.1f}.jpg"), type="jpeg", quality=92)
             br.close()

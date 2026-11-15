@@ -57,7 +57,10 @@
      "logs",
      "files"
     ]
-   }
+   },
+   "evidence_clip": "headroom.mp4",
+   "evidence_label": "HEADROOM REPO PAGE",
+   "evidence_credit": "cherylaurelia/headroom · CAPTURED 11 NOV 2026"
   },
   {
    "scene_id": "point2",
@@ -75,7 +78,10 @@
     "cue_phrases": [
      "fifty-four"
     ]
-   }
+   },
+   "evidence_clip": "ponytail.mp4",
+   "evidence_label": "PONYTAIL REPO PAGE",
+   "evidence_credit": "DiertrichGebert/ponytail · CAPTURED 11 NOV 2026"
   },
   {
    "scene_id": "point3",
@@ -100,7 +106,10 @@
      "omniroute",
      "graphify"
     ]
-   }
+   },
+   "evidence_clip": "omniroute.mp4",
+   "evidence_label": "OMNIROUTE REPO PAGE",
+   "evidence_credit": "cheap-inference/OmniRoute · CAPTURED 11 NOV 2026"
   },
   {
    "scene_id": "catch",

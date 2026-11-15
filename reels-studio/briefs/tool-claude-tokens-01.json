@@ -49,21 +49,30 @@
   },
   {
    "id": "point1",
-   "type": "flow",
+   "type": "clip",
    "say": "Headroom compresses everything your agent reads — tool output, logs, files — before the model sees it. Ninety-eight percent saved on one real task. It is reversible.",
-   "heading": "INPUT, BEFORE IT IS READ"
+   "heading": "INPUT, BEFORE IT IS READ",
+   "src": "headroom.mp4",
+   "in": 0.0,
+   "out": 6.8
   },
   {
    "id": "point2",
-   "type": "flow",
+   "type": "clip",
    "say": "Ponytail stops your agent writing ten lines where two work. Its own benchmark says fifty-four percent less code — and output tokens are the expensive ones.",
-   "heading": "OUTPUT, BEFORE IT IS WRITTEN"
+   "heading": "OUTPUT, BEFORE IT IS WRITTEN",
+   "src": "ponytail.mp4",
+   "in": 0.0,
+   "out": 11.32
   },
   {
    "id": "point3",
-   "type": "flow",
+   "type": "clip",
    "say": "When the limit still comes, OmniRoute switches you to free models mid-session. Graphify maps your codebase once — the agent stops re-reading it.",
-   "heading": "ROUTE AROUND THE LIMIT"
+   "heading": "ROUTE AROUND THE LIMIT",
+   "src": "omniroute.mp4",
+   "in": 0.0,
+   "out": 6.8
   },
   {
    "id": "catch",

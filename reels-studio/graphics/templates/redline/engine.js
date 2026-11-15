@@ -65,6 +65,47 @@
   /* every sheet carries a page number, so each scene reads as a page of one report */
   function pageNum(root, s) { el("div", "rl-pnum", root, "PAGE " + pad2(s.idx)); }
 
+  /* ---------- the exhibit: the tool's own page, pasted into the report ----------
+   * A report about a tool that shows no tool is a text card. The capture packs hold real screen
+   * recordings of the product; graphics/stage.py cuts still frames out of one and hands them over
+   * as `evidence_frames`. The page here advances through those frames, so the viewer watches the
+   * product load instead of reading about it, and the house type sits over the top of it.
+   */
+  function exhibit(root, s) {
+    var frames = s.evidence_frames || [];
+    if (!frames.length) return null;
+    var ex = el("div", "rl-exhibit", root);
+    var shot = el("div", "rl-exhibit-shot", ex);
+    var zoom = el("div", "rl-exhibit-zoom", shot);
+    var imgs = frames.map(function (src) {
+      var im = el("img", null, zoom);
+      im.src = src;
+      im.alt = "Captured product page";
+      im.style.opacity = "0";
+      return im;
+    });
+    if (s.evidence_label) el("div", "rl-exhibit-tab", ex, s.evidence_label);
+    if (s.evidence_credit) el("div", "rl-exhibit-credit", ex, s.evidence_credit);
+    return { node: ex, imgs: imgs, count: frames.length };
+  }
+
+  function exhibitUpdate(refs, s, u) {
+    if (!refs) return;
+    /* the exhibit arrives with the page, not before it: the shot fades up with the sheet */
+    refs.node.style.opacity = fmt(ramp(u, 0.05, 0.4), 3);
+    var span = Math.max(0.001, s.t1 - s.t0);
+    var slot = (u / span) * refs.count;
+    var i0 = Math.min(refs.count - 1, Math.floor(slot));
+    var i1 = Math.min(refs.count - 1, i0 + 1);
+    var f = slot - Math.floor(slot);
+    /* the page loads in the recording: a short dissolve forward reads as the page filling up */
+    var blend = Math.max(0, (f - 0.82) / 0.18);
+    refs.imgs.forEach(function (im, i) {
+      var o = i === i0 ? 1 - blend : (i === i1 ? blend : 0);
+      im.style.opacity = fmt(o, 3);
+    });
+  }
+
   var ARCH = {};
 
   /* doc_title: the cover of the report. Kicker, big title, then the rule lines draw in. */
@@ -119,6 +160,8 @@
         var bar = el("i", "bar", row);
         return { row: row, bar: bar };
       });
+      r.ex = exhibit(sheet, s);
+      if (r.ex) sheet.classList.add("rl-sheet--exhibit");
       r.times = bindTimes(p.cue_phrases, s, r.rows.length);
       return r;
     },
@@ -133,6 +176,7 @@
         var st = eExpo(ramp(now - r.times[i] - 0.45, 0, 0.42));
         x.bar.style.width = fmt(st * 100, 1) + "%";
       });
+      exhibitUpdate(r.ex, s, u);
     }
   };
 
@@ -148,6 +192,8 @@
       r.num = el("div", "n", r.box);
       if (p.sub) r.sub = el("div", "s", r.box, p.sub);
       r.foot = el("div", "rl-foot", sheet, p.note || "");
+      r.ex = exhibit(sheet, s);
+      if (r.ex) sheet.classList.add("rl-sheet--exhibit");
       r.when = bindTimes(p.cue_phrases, s, 1)[0];
       return r;
     },
@@ -161,6 +207,7 @@
       r.box.style.transform = "scale(" + fmt(0.9 + 0.1 * pop, 3) + ") rotate(-1.4deg)";
       r.box.style.opacity = fmt(0.35 + 0.65 * ramp(since, 0, 0.2));
       r.foot.style.opacity = fmt(ramp(since, 0.25, 0.55));
+      exhibitUpdate(r.ex, s, u);
     }
   };
 
@@ -181,6 +228,8 @@
         el("em", null, row, spec.val || "");
         return { row: row, fill: fill, score: spec.score === undefined ? 0 : spec.score };
       });
+      r.ex = exhibit(sheet, s);
+      if (r.ex) sheet.classList.add("rl-sheet--exhibit");
       r.times = bindTimes(p.cue_phrases, s, r.rows.length);
       return r;
     },
@@ -192,6 +241,7 @@
         x.row.style.opacity = fmt(p);
         x.fill.style.width = fmt(x.score * eExpo(ramp(now - r.times[i], 0.1, 0.65)) * 100, 1) + "%";
       });
+      exhibitUpdate(r.ex, s, u);
     }
   };
 
