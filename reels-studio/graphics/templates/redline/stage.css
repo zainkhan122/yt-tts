@@ -27,7 +27,12 @@ body { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; color: #16150F
 .rl-camera { position: absolute; inset: 0; overflow: hidden; }
 .rl-rules-layer { position: absolute; inset: 0; transform-origin: 50% 50%; }
 .rl-fixed { position: absolute; inset: 0; }
-.rl-clip { position: absolute; left: 0; right: 0; top: 244px; bottom: 0; overflow: hidden; }
+.rl-clip { position: absolute; left: 0; right: 0; top: 334px; bottom: 0; overflow: hidden; }
+/* A page that scrolls dissolves under the pinned label instead of being cut by it. The cover
+ * page does not scroll, so it keeps its mask off and its title keeps its edge. */
+.rl-clip--scroll {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 78px);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 78px); }
 .rl-camera-move { position: absolute; left: 0; right: 0; top: 0; transform-origin: 50% 50%; }
 
 /* The pinned section label reads as a tab on the page: a solid band the page slides under. */
@@ -36,16 +41,18 @@ body { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; color: #16150F
 .rl-sticky .rl-kicker { margin: 0; line-height: 44px; }
 .visual { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
 
-/* page number: every sheet is numbered like a report page. It sits below the page's own bottom
- * edge (the camera breathes, so the page moves), and above the house caption band. */
-.rl-pnum { position: absolute; right: 78px; top: 1192px; font-family: "SF Mono", ui-monospace,
+/* page number: every sheet is numbered like a report page. It sits in the header row, at the
+ * right of the pinned label, so it never collides with the page (which moves) or the caption. */
+.rl-pnum { position: absolute; right: 78px; top: 202px; font-family: "SF Mono", ui-monospace,
   Menlo, Consolas, monospace; font-size: 24px; letter-spacing: 0.16em; color: #8A8578; }
 
 /* ---------- the sheet is the page of a report ---------- */
 /* The sheet starts at the top of the clip, i.e. right under the pinned label, so the page slides
  * up under it as it is read and nothing is ever hidden behind the label. */
 .rl-sheet { position: absolute; left: 96px; right: 78px; top: 0; height: 1230px;
-  display: flex; flex-direction: column; justify-content: center; }
+  display: flex; flex-direction: column; justify-content: flex-start; }
+/* The margin note is read before the page has moved under it: it starts a little lower. */
+.rl-sheet--margin { padding-top: 60px; }
 
 .rl-kicker { font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace; font-size: 30px;
   letter-spacing: 0.22em; color: #D8341C; text-transform: uppercase; margin-bottom: 30px; }
@@ -103,9 +110,9 @@ body { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; color: #16150F
  * pack's screen recording (graphics/stage.py cuts them); the sheet's own type sits above them. */
 .rl-sheet--exhibit { justify-content: flex-start; }
 
-/* The height is capped so the exhibit never reaches the report's page number (rl-pnum sits at
- * y 1160 in the right margin): a page number hidden behind its own photo is a bug. */
-.rl-exhibit { position: relative; flex: none; margin-top: 54px; height: 430px; padding: 12px;
+/* The height is capped so the exhibit never reaches the house caption band (y 1250) and never
+ * covers the page number: a page number hidden behind its own photo is a bug. */
+.rl-exhibit { position: relative; flex: none; margin-top: 42px; height: 380px; padding: 12px;
   background: #FBF8F2; border: 1px solid #CFC8B8;
   box-shadow: 12px 14px 0 rgba(22, 21, 15, 0.10); }
 
@@ -142,7 +149,7 @@ body { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; color: #16150F
 .rl-sheet--title .rl-title { font-size: 74px; }
 .rl-sheet--title .rl-rule { margin: 30px 0 24px; }
 .rl-sheet--title .rl-line { padding: 18px 0; font-size: 38px; }
-.rl-sheet--title .rl-exhibit { height: 380px; margin-top: 40px; }
+.rl-sheet--title .rl-exhibit { height: 330px; margin-top: 32px; }
 
 /* ---------- endcard ---------- */
 .rl-end { text-align: left; }

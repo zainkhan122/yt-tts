@@ -14,12 +14,12 @@
   /* How fast the report page scrolls while it is read, in px per second. It has to be fast
    * enough that the picture changes in every quarter second (the Short QA measures the frame
    * difference over 0.25 s bins), and slow enough that the type stays readable. */
-  var SCROLL_PX_PER_S = 17;
+  var SCROLL_PX_PER_S = 26;
   /* The camera's breath: a slow push in and back, so the frame is never frozen. It is a
    * triangle wave with eased corners â€” a constant rate, so every quarter second moves the
    * picture, and a bounded amplitude, so the page never grows out of the frame. */
-  var PULSE_AMP = 0.14;
-  var PULSE_PERIOD = 2.4;
+  var PULSE_AMP = 0.16;
+  var PULSE_PERIOD = 2.2;
   function pulse(u) {
     var ph = (u % PULSE_PERIOD) / PULSE_PERIOD;
     var tri = ph < 0.5 ? ph * 2 : 2 - ph * 2;
@@ -334,6 +334,7 @@
       var rules = el("div", "rl-rules-layer", cam);
       var sticky = el("div", "rl-sticky", cam);
       var clip = el("div", "rl-clip", cam);
+      if (s.archetype !== "doc_title") clip.classList.add("rl-clip--scroll");
       var move = el("div", "rl-camera-move", clip);
       move.setAttribute("data-house-camera", "1");
       var fixed = el("div", "rl-fixed", cam);
@@ -385,7 +386,10 @@
      * every few seconds). The camera also breathes â€” a slow push and settle â€” so even the
      * quietest passage keeps moving. The caption band does not move with the page. */
     var breath = 1 + PULSE_AMP * pulse(u);
-    var cam = "translateY(" + fmt((1 - enter) * 12 - SCROLL_PX_PER_S * u, 1) + "px) scale(" + fmt(breath, 4) + ")";
+    /* The cover page is the cover page: it does not scroll (the title has to stay readable for
+     * the whole hook). Every other page is read on a moving camera. */
+    var scroll = s.archetype === "doc_title" ? 0 : SCROLL_PX_PER_S;
+    var cam = "translateY(" + fmt((1 - enter) * 12 - scroll * u, 1) + "px) scale(" + fmt(breath, 4) + ")";
     s._cam.style.transform = cam;
     s._rules.style.transform = cam;
     ARCH[s.archetype].update(s._refs, s, u, d);
