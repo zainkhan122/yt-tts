@@ -1,6 +1,6 @@
 # Shorts performance — 2026-11-16
 
-Source: Buffer Insights snapshot `2026-11-16T13:39:43Z` (complete: **True**) · videos analysed: **65** · mature (≥7d): **56** · developing: **6** · too early (<2d): **3**
+Source: Buffer Insights snapshot `2026-11-16T14:10:15Z` (complete: **True**) · videos analysed: **65** · mature (≥7d): **56** · developing: **6** · too early (<2d): **3**
 
 Metrics are ranked within each platform and never compared across platforms. Verdicts use mature videos only; everything else is labelled descriptive.
 
@@ -11,8 +11,8 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 | `repo-harp-01` (mature) | 22.7d | 240 | 1.2% | 0 | 0 | — | 0 |
 | `list-free-video-ai-01` (mature) | 36.8d | 182 | 0% | 0 | 0 | — | 0 |
 | `repo-ai-newtab-01` (mature) | 36.6d | 169 | 0% | 0 | 0 | — | 0 |
-| `repo-edge0-01` (mature) | 15.8d | 125 | 0% | 0 | 0 | — | 1.0 |
-| `repo-reavideo-01` (mature) | 7.8d | 119 | 0.8% | 0 | 0 | — | 3.9 |
+| `repo-edge0-01` (mature) | 15.8d | 125 | 0% | 0 | 0 | — | 0.9 |
+| `repo-reavideo-01` (mature) | 7.8d | 119 | 0.8% | 0 | 0 | — | 3.8 |
 
 ## instagram — top by views
 
@@ -21,7 +21,7 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 | `news-gpt61-astra-01` (mature) | 35.1d | 308 | 0.7% | 0 | 0 | 0 | 0 |
 | `repo-opencr-01` (mature) | 34.2d | 269 | 2.1% | 0 | 2 | 1 | 0 |
 | `model-embeddinggemma2-01` (mature) | 32.0d | 236 | 4.7% | 0 | 7 | 1 | 0 |
-| `news-muse-spark-01` (mature) | 30.6d | 221 | 2.5% | 0 | 1 | 3 | 0 |
+| `news-muse-spark-01` (mature) | 30.7d | 221 | 2.5% | 0 | 1 | 3 | 0 |
 | `tool-higgsfield-01` (mature) | 33.8d | 219 | 1.6% | 0 | 1 | 2 | 0 |
 
 ## youtube — top by views
@@ -29,10 +29,10 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | `tool-qwen38-01` (mature) | 34.9d | 2,099 | 0.6% | 0 | — | — | 5.3 |
-| `repo-coop-anything-01` (mature) | 27.7d | 1,424 | 1.3% | 3 | — | — | 5.8 |
+| `repo-coop-anything-01` (mature) | 27.8d | 1,424 | 1.3% | 3 | — | — | 5.7 |
 | `repo-ds4-01` (mature) | 34.7d | 1,031 | 0.9% | 0 | — | — | 0.2 |
 | `tool-ltx25-01` (mature) | 34.8d | 504 | 0.4% | 0 | — | — | 1.3 |
-| `repo-voicestudio-01` (mature) | 14.7d | 417 | 0% | 0 | — | — | 2.9 |
+| `repo-voicestudio-01` (mature) | 14.7d | 417 | 0% | 0 | — | — | 2.8 |
 
 ## Winners and underperformers (mature, cross-platform percentile)
 
