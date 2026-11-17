@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-17-kiri-apkstart",
+  "created_at": "2026-11-17T15:42:51Z",
+  "briefs": {
+    "repo-kiri-01": {
+      "brief_sha256": "838ca3cb5008b5a94b24be312b41c02e3665c37a2b86acc00334571fe78a129c",
+      "brief_identity_sha256": "1ad5dde96c06a3ae6f411efde53f63759dc43ec8745900e4e344c9c69a2adfcc",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "acad5722ac1ee09fdfef44783953c0333043eb883dabb2b69d46c36052584664",
+          "word_count": 93
+        },
+        "assets": {
+          "capture_id": "repo-kiri-01",
+          "manifest_sha256": "11170f4bd254fccdb3ecc8308a7874ce5e6d57697c9f2505e611985d306ee10d",
+          "files": [
+            {
+              "path": "desktop-top.jpg",
+              "sha256": "53804ae59e71d58031a41c36da138b030450c14698da8b578403683a9e7ecd33"
+            },
+            {
+              "path": "desktop-full.jpg",
+              "sha256": "363e3e2c99123883b9cae53b9e17733537d39be63901613f82c73929481fbd8c"
+            },
+            {
+              "path": "mobile.png",
+              "sha256": "27cf40ecbfda6797a715cf9ae2b9de389e2f32382681b8cae9ba6d5d79b6bd31"
+            }
+          ],
+          "cover_sha256": "de1c07702a7015e095e99a41c1c02ed170449779272239377de872c26a7f4678",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-kiri-01/manifest.json"
+          ]
+        }
+      }
+    },
+    "repo-apkstart-01": {
+      "brief_sha256": "5590b1f6e907370b400128c9753cdf4cbafab1f51d745b4b6a825897010d0434",
+      "brief_identity_sha256": "07ec9f5f3d19f98d2e1719aaeac1e26c87ae6779fc51e0220e43c27c80eb4fcb",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "98316a1c2106d72feb4f1efdf307aaf2d9af48e6b9dd08399ed3cd4e66b014e3",
+          "word_count": 93
+        },
+        "assets": {
+          "capture_id": "repo-apkstart-01",
+          "manifest_sha256": "0d024f8f5f6b08290f2207300be69b39cfd71af8514304ed6ec72cacd33b6a29",
+          "files": [
+            {
+              "path": "app.png",
+              "sha256": "f1172af339fb16e42378b06926ee47f84a6169fdb60a536a830f10aa7bb23c86"
+            },
+            {
+              "path": "desktop-top.jpg",
+              "sha256": "1016e34e28fb174aa11dcd0abb1bf0eda930ef54524a6334a473c388c7586c34"
+            },
+            {
+              "path": "mobile.png",
+              "sha256": "40b0a506d195b37bd648def6b0bff13bb0fe60d42c0b59bde5deea78e4030916"
+            }
+          ],
+          "cover_sha256": "5c1437f8d3c01f8f74611d3d859c870140f6653cbd6e686bd07407f268b51c65",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-apkstart-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}
