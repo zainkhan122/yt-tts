@@ -124,7 +124,7 @@
   "keyword": "ApkStart",
   "onscreen_first3s": "ANDROID APPS. WINDOWS STYLE.",
   "youtube": {
-   "title": "ApkStart: Android Apps on Windows",
+   "title": "ApkStart: Turn APKs Into Desktop Shortcuts",
    "description": "ApkStart runs Android apps in separate windows on Windows after Android runtime setup. Compatibility varies: ARM-only apps may need a translation layer. Only install APKs that you trust. https://github.com/RoutineMiku/apkstart/blob/42ee604de075e4bac16e892060c4cc78ee03bca7/README.md",
    "tags": [
     "ApkStart",
@@ -136,9 +136,7 @@
    "hashtags": [
     "#ApkStart",
     "#AndroidApps",
-    "#WindowsTools",
-    "#OpenSource",
-    "#Shorts"
+    "#WindowsTools"
    ]
   },
   "instagram": {
@@ -160,9 +158,7 @@
    "hashtags": [
     "#ApkStart",
     "#AndroidApps",
-    "#WindowsTools",
-    "#OpenSource",
-    "#APKInstaller"
+    "#WindowsTools"
    ]
   },
   "tiktok": {
@@ -212,5 +208,6 @@
     }
    }
   ]
- }
+ },
+ "contains_synthetic_media": true
 }

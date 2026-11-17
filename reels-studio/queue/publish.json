@@ -647,6 +647,41 @@
       "title": "Kiri: Run Docker Images Without Docker Desktop",
       "video_id": "repo-kiri-01",
       "youtube_ai_generated": false
+    },
+    {
+      "added_at": "2026-11-17T17:03:24Z",
+      "approval": "approved",
+      "approved_cover_sha": "sha256:5c1437f8d3c01f8f74611d3d859c870140f6653cbd6e686bd07407f268b51c65",
+      "approved_panel_sha": "29b418a3d601f55b84bcfeab1954eb59c1d49ada46f5515946cbf9dd514487ed",
+      "asset_digest": "sha256:2d790ca1fb1424d0d63633e88181e6fd7cd8b6d0094659aa1be9901fe976061e",
+      "asset_id": 759895576,
+      "asset_size": 10062971,
+      "brief_sha256": "0f205720c18c37e1da6c326b3bd60dd4cd04d9a916999996dfba24f920a3c5f7",
+      "category": "repo",
+      "cover_reviewed_at": "2026-11-17T17:03:26Z",
+      "cover_sha256": "sha256:5c1437f8d3c01f8f74611d3d859c870140f6653cbd6e686bd07407f268b51c65",
+      "expires_at": "2026-11-21T17:05:00Z",
+      "facebook_disclosure": "AI-generated narration and example imagery.",
+      "kit_asset_id": 759895730,
+      "kit_digest": "sha256:a27aef129446cdf1282fc2fa599a1146a5cc951cddf47245f8ecdf2ca6f64616",
+      "media_path": "media/759895576/repo-apkstart-01.mp4",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "priority": 100,
+      "release_tag": "renders-apkstart-44127141037",
+      "review": {
+        "cover_sha256": "5c1437f8d3c01f8f74611d3d859c870140f6653cbd6e686bd07407f268b51c65",
+        "mp4_bytes": 10062971,
+        "mp4_sha256": "2d790ca1fb1424d0d63633e88181e6fd7cd8b6d0094659aa1be9901fe976061e",
+        "run_id": "44127141037"
+      },
+      "reviewed_at": "2026-11-17T17:03:36Z",
+      "title": "ApkStart: Turn APKs Into Desktop Shortcuts",
+      "video_id": "repo-apkstart-01",
+      "youtube_ai_generated": true
     }
   ],
   "schema_version": 1

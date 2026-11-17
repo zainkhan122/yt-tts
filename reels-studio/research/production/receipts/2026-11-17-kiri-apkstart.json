@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "batch_id": "2026-11-17-kiri-apkstart",
-  "created_at": "2026-11-17T16:08:43Z",
+  "created_at": "2026-11-17T17:03:24Z",
   "briefs": {
     "repo-kiri-01": {
       "brief_sha256": "9d835998a7032af7193e7bd181603590493cfb771d64362ad4d0cf79d43897fa",
@@ -38,17 +38,17 @@
       }
     },
     "repo-apkstart-01": {
-      "brief_sha256": "5590b1f6e907370b400128c9753cdf4cbafab1f51d745b4b6a825897010d0434",
-      "brief_identity_sha256": "07ec9f5f3d19f98d2e1719aaeac1e26c87ae6779fc51e0220e43c27c80eb4fcb",
+      "brief_sha256": "c3ea0830d499afec721cc80fd2ccfd6b15d334675c0ddc4b9a8f40bd82b568dd",
+      "brief_identity_sha256": "0f205720c18c37e1da6c326b3bd60dd4cd04d9a916999996dfba24f920a3c5f7",
       "stages": {
         "script": {
           "status": "complete",
-          "script_sha256": "98316a1c2106d72feb4f1efdf307aaf2d9af48e6b9dd08399ed3cd4e66b014e3",
-          "word_count": 93
+          "script_sha256": "a93727a328727e705c0aef54526bf97483487fc31e922898addddcf6cabd7a55",
+          "word_count": 94
         },
         "assets": {
           "capture_id": "repo-apkstart-01",
-          "manifest_sha256": "0d024f8f5f6b08290f2207300be69b39cfd71af8514304ed6ec72cacd33b6a29",
+          "manifest_sha256": "abcf0e5cf82f35bbfd84ca5d32dbc45de337f31af7fc5490c6e885515df17e14",
           "files": [
             {
               "path": "app.png",
@@ -61,6 +61,10 @@
             {
               "path": "mobile.png",
               "sha256": "40b0a506d195b37bd648def6b0bff13bb0fe60d42c0b59bde5deea78e4030916"
+            },
+            {
+              "path": "hero.jpg",
+              "sha256": "a582b9999324de193292257a276ff4ccee05d2a4c622f8069045e5900503785f"
             }
           ],
           "cover_sha256": "5c1437f8d3c01f8f74611d3d859c870140f6653cbd6e686bd07407f268b51c65",
