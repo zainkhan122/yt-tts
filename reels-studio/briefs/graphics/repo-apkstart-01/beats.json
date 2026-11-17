@@ -1,0 +1,100 @@
+{
+ "tool": "apkstart",
+ "handle": "@hypeless",
+ "template": "apkstart-desktop",
+ "script_sha256": "sha256:21e003e076bc5b76ad43d913e0c6a0055fe053d3b15bdecc731a805949fb133e",
+ "scenes": [
+  {
+   "scene_id": "hook",
+   "phrase": 0,
+   "archetype": "apk_hook",
+   "headline": "ANDROID APPS ON WINDOWS",
+   "feature_id": null,
+   "depicts": "Run Android apps in their own Windows windows. This is ApkStart.",
+   "payload": {
+    "cue_phrases": [
+     "Android apps",
+     "Windows windows",
+     "ApkStart"
+    ]
+   }
+  },
+  {
+   "scene_id": "setup",
+   "phrase": 1,
+   "archetype": "apk_setup",
+   "headline": "SET UP, THEN INSTALL",
+   "feature_id": "f1",
+   "depicts": "Set up its Android runtime once, then associate APK files so a double click installs them.",
+   "payload": {
+    "cue_phrases": [
+     "runtime",
+     "associate APK",
+     "double click"
+    ]
+   }
+  },
+  {
+   "scene_id": "launch",
+   "phrase": 2,
+   "archetype": "apk_launch",
+   "headline": "FROM APK TO APP",
+   "feature_id": "f2",
+   "depicts": "ApkStart creates a desktop shortcut. Open it to launch the app in a resizable window.",
+   "payload": {
+    "cue_phrases": [
+     "desktop shortcut",
+     "launch",
+     "resizable window"
+    ]
+   },
+   "evidence_image": "app.png"
+  },
+  {
+   "scene_id": "engine",
+   "phrase": 3,
+   "archetype": "apk_engine",
+   "headline": "WHAT RUNS IT",
+   "feature_id": "f3",
+   "depicts": "Behind the scenes, it uses Android tools and a virtual machine, not native Windows code.",
+   "payload": {
+    "cue_phrases": [
+     "Android tools",
+     "virtual machine",
+     "native Windows"
+    ]
+   }
+  },
+  {
+   "scene_id": "catch",
+   "phrase": 4,
+   "archetype": "apk_catch",
+   "headline": "CHECK BEFORE YOU INSTALL",
+   "feature_id": "f4",
+   "depicts": "The first setup downloads runtime components. ARM only apps may need a compatible translation layer. Only install APKs you trust.",
+   "payload": {
+    "cue_phrases": [
+     "downloads",
+     "ARM only",
+     "trust"
+    ]
+   }
+  },
+  {
+   "scene_id": "cta",
+   "phrase": 5,
+   "archetype": "endcard",
+   "headline": "YOUR CALL",
+   "feature_id": null,
+   "depicts": "Want the repo? Comment A P K and follow Hypeless for more tools, minus the hype.",
+   "payload": {
+    "cue_phrases": [
+     "A P K"
+    ],
+    "keyword": "APK",
+    "prompt": "for the repo",
+    "follow": "@hypeless"
+   }
+  }
+ ]
+}

@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from graphics.render import render  # noqa: E402
-from graphics.stage import plan_scenes, segments_from_timing  # noqa: E402
+from graphics.stage import plan_scenes, segments_from_timing, attach_evidence_images  # noqa: E402
 
 GAP_S = 0.28          # breath between scenes, same idea as the production flow cut
 LEAD_IN_S = 0.45      # a beat of silence so the hook is not clipped
@@ -266,6 +266,8 @@ def main() -> int:
 
     doc, phrases = plan_scenes(sheet, source, beats, segments_from_timing(timing, order),
                                duration, words)
+    capture_id = Path(brief.get("capture", args.brief_id)).name
+    attach_evidence_images(doc, capture_id)
     print(f"planned {len(doc['scenes'])} scenes: "
           f"{[s['archetype'] for s in doc['scenes']]}", flush=True)
     print(f"template: {doc.get('template')} (brief: {beats.get('template')})", flush=True)

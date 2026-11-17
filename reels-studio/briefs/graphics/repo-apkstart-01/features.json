@@ -1,0 +1,42 @@
+{
+ "tool": {
+  "name": "ApkStart",
+  "repo_url": "https://github.com/RoutineMiku/apkstart",
+  "category": "Android app runner",
+  "license": "MIT"
+ },
+ "features": [
+  {
+   "id": "f1",
+   "title": "APK association",
+   "what": "After file association double click installs APK.",
+   "evidence_quote": "注册 .apk 文件关联后，在资源管理器里双击 APK"
+  },
+  {
+   "id": "f2",
+   "title": "App window",
+   "what": "Apps launch in a separate resizable window.",
+   "evidence_quote": "每个安卓应用都有自己的窗口，可拖动、缩放、固定在任务栏。"
+  },
+  {
+   "id": "f3",
+   "title": "Runtime",
+   "what": "Android tools and QEMU support the runtime.",
+   "evidence_quote": "自动装好 adb / QEMU / 安卓系统镜像"
+  },
+  {
+   "id": "f4",
+   "title": "ARM compatibility",
+   "what": "ARM only apps may need native translation.",
+   "evidence_quote": "若应用仅含 ARM 原生库，需要运行时支持 ARM 转译"
+  }
+ ],
+ "risks": [
+  {
+   "text": "One-time runtime setup; ARM-only compatibility is not guaranteed."
+  }
+ ],
+ "source_urls": [
+  "https://github.com/RoutineMiku/apkstart/blob/42ee604de075e4bac16e892060c4cc78ee03bca7/README.md"
+ ]
+}

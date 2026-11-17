@@ -1,0 +1,155 @@
+{
+ "id": "repo-apkstart-01",
+ "capture": "captures/repo-apkstart-01",
+ "title": "ApkStart: Android apps in Windows windows",
+ "niche": "developer tools",
+ "lang": "en-us",
+ "style": "explainer",
+ "status": "draft",
+ "production_category": "repo",
+ "keywords": [
+  "ApkStart",
+  "Android apps",
+  "Windows",
+  "APK"
+ ],
+ "sources": [
+  "https://github.com/RoutineMiku/apkstart/blob/42ee604de075e4bac16e892060c4cc78ee03bca7/README.md"
+ ],
+ "facts": {
+  "method": "Pinned official README describes APK association, desktop shortcuts, QEMU, and per-app freeform windows.",
+  "limits": "Setup required; ARM-only app compatibility varies; only use trusted APKs."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "flow",
+   "say": "Run Android apps in their own Windows windows. This is ApkStart.",
+   "heading": "ANDROID APPS ON WINDOWS"
+  },
+  {
+   "id": "setup",
+   "type": "flow",
+   "say": "Set up its Android runtime once, then associate APK files so a double click installs them.",
+   "heading": "SET UP, THEN INSTALL"
+  },
+  {
+   "id": "launch",
+   "type": "image",
+   "say": "ApkStart creates a desktop shortcut. Open it to launch the app in a resizable window.",
+   "heading": "FROM APK TO APP",
+   "image": "app.png",
+   "focus": [
+    {
+     "at": 0,
+     "box": [
+      0,
+      0,
+      1,
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "engine",
+   "type": "flow",
+   "say": "Behind the scenes, it uses Android tools and a virtual machine, not native Windows code.",
+   "heading": "WHAT RUNS IT"
+  },
+  {
+   "id": "catch",
+   "type": "flow",
+   "say": "The first setup downloads runtime components. ARM only apps may need a compatible translation layer. Only install APKs you trust.",
+   "heading": "CHECK BEFORE YOU INSTALL"
+  },
+  {
+   "id": "cta",
+   "type": "flow",
+   "say": "Want the repo? Comment A P K and follow Hypeless for more tools, minus the hype.",
+   "heading": "YOUR CALL"
+  }
+ ],
+ "renderer": "graphics",
+ "graphics": {
+  "dir": "briefs/graphics/repo-apkstart-01",
+  "template": "apkstart-desktop"
+ },
+ "lexicon": {
+  "APK": "A P K",
+  "ApkStart": "A P K start"
+ },
+ "motion_standard": 2,
+ "viewer": {
+  "who": "Windows users with Android APKs",
+  "problem": "Running Android apps can involve emulator setup",
+  "job": "Understand what ApkStart can do and its limitations"
+ },
+ "idea": "Use Android apps in separate Windows windows after setting up an Android runtime.",
+ "claims": [
+  {
+   "id": "c1",
+   "text": "After APK file association, a double-click can install an APK and create a shortcut.",
+   "source": "https://github.com/RoutineMiku/apkstart/blob/42ee604de075e4bac16e892060c4cc78ee03bca7/README.md"
+  },
+  {
+   "id": "c2",
+   "text": "Applications run in separate freeform windows, using an Android runtime.",
+   "source": "https://github.com/RoutineMiku/apkstart/blob/42ee604de075e4bac16e892060c4cc78ee03bca7/README.md"
+  },
+  {
+   "id": "c3",
+   "text": "ARM-only apps may require a compatible translation layer.",
+   "source": "https://github.com/RoutineMiku/apkstart/blob/42ee604de075e4bac16e892060c4cc78ee03bca7/README.md"
+  }
+ ],
+ "proof_plan": [
+  {
+   "claim": "c1",
+   "evidence": "source:https://github.com/RoutineMiku/apkstart/blob/42ee604de075e4bac16e892060c4cc78ee03bca7/README.md",
+   "how_shown": "Annotated file-to-window conceptual animation and pinned official UI screenshot."
+  },
+  {
+   "claim": "c3",
+   "evidence": "source:https://github.com/RoutineMiku/apkstart/blob/42ee604de075e4bac16e892060c4cc78ee03bca7/README.md",
+   "how_shown": "Compatibility notice before CTA."
+  }
+ ],
+ "review": {
+  "reviewed_at": "2026-11-06",
+  "reviewer": "agent: pinned official documentation",
+  "notes": "Not independently tested on Windows. Voice and audiovisual review pending."
+ },
+ "seo": {
+  "keyword": "ApkStart Windows Android",
+  "onscreen_first3s": "ANDROID APPS ON WINDOWS",
+  "youtube": {
+   "title": "ApkStart: Android Apps in Windows Windows",
+   "description": "ApkStart is an Android application runner for Windows. Initial runtime setup is required and ARM-only apps may need compatible translation. Only install APKs you trust. https://github.com/RoutineMiku/apkstart/blob/42ee604de075e4bac16e892060c4cc78ee03bca7/README.md",
+   "tags": [
+    "ApkStart",
+    "Android apps",
+    "Windows",
+    "APK",
+    "developer tools"
+   ],
+   "hashtags": [
+    "#ApkStart",
+    "#Android",
+    "#Windows",
+    "#OpenSource",
+    "#Shorts"
+   ]
+  },
+  "instagram": {
+   "caption": "Run Android apps in separate windows after setting up the runtime. Compatibility varies; install only trusted APKs. Comment APK for the repo.",
+   "hashtags": [
+    "#Android",
+    "#Windows",
+    "#ApkStart",
+    "#OpenSource",
+    "#Tech"
+   ]
+  }
+ }
+}

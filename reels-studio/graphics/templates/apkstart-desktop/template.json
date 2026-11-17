@@ -1,0 +1,48 @@
+{
+ "name": "apkstart-desktop",
+ "tool": "apkstart",
+ "note": "Per-tool pastel desktop-window motion system.",
+ "max_text": 180,
+ "archetypes": {
+  "apk_hook": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": false,
+   "script_ok": true
+  },
+  "apk_setup": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "apk_launch": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "apk_engine": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "apk_catch": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  }
+ }
+}
