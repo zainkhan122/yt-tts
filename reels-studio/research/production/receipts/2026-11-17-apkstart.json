@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "batch_id": "2026-11-17-apkstart",
-  "created_at": "2026-11-17T15:29:51Z",
+  "created_at": "2026-11-17T15:42:38Z",
   "briefs": {
     "repo-apkstart-01": {
-      "brief_sha256": "4d713fa3bf67c8111350ceb8339e185aacbecaf75383a63b201f4795bd69a61d",
-      "brief_identity_sha256": "e60b011cd30f37fab734198739cd5868d2c284724b9b1728b9006c05cb25240f",
+      "brief_sha256": "5590b1f6e907370b400128c9753cdf4cbafab1f51d745b4b6a825897010d0434",
+      "brief_identity_sha256": "07ec9f5f3d19f98d2e1719aaeac1e26c87ae6779fc51e0220e43c27c80eb4fcb",
       "stages": {
         "script": {
           "status": "complete",

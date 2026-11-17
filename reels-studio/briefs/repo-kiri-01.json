@@ -118,34 +118,65 @@
   "notes": "Research complete; visual and audio review pending."
  },
  "seo": {
-  "keyword": "Kiri Docker",
+  "keyword": "Kiri",
   "onscreen_first3s": "A LIGHTER CONTAINER RUNTIME",
   "youtube": {
-   "title": "Kiri: A Lightweight Docker Desktop Alternative",
-   "description": "Kiri is a lightweight container runtime for macOS, Windows and Linux. Benchmark figures are from the project: a single start-and-remove workload, median of 30 runs using the Docker Engine API. Windows requires WSL 2. https://github.com/libracoder/kiri/blob/82e13b560b8c10a54701ce782d44218f5f9e654b/README.md",
+   "title": "Kiri Docker Alternative: A Lighter Container Runtime",
+   "description": "Kiri is a lightweight Docker-compatible container runtime for macOS, Windows and Linux. Its maker benchmark compares one start-and-remove workload using the Docker Engine API, with a 30-run median. Windows requires WSL 2. https://github.com/libracoder/kiri/blob/82e13b560b8c10a54701ce782d44218f5f9e654b/README.md",
    "tags": [
     "Kiri",
-    "Docker",
-    "containers",
-    "developer tools",
-    "Docker Desktop"
+    "Docker runtime",
+    "container runtime",
+    "Docker Desktop",
+    "Docker tools"
    ],
    "hashtags": [
     "#Kiri",
     "#Docker",
-    "#DeveloperTools",
     "#Containers",
+    "#DeveloperTools",
     "#Shorts"
    ]
   },
   "instagram": {
-   "caption": "Kiri is a lightweight container runtime. Project benchmark: one workload, 30-run median. Windows requires WSL 2. Comment KIRI for the repo.",
+   "caption": "Kiri is a lightweight Docker-compatible container runtime for macOS, Windows and Linux. Its maker benchmark compares one start-and-remove workload using the Docker Engine API, with a 30-run median. Windows requires WSL 2. Comment KIRI for the repo.",
    "hashtags": [
     "#Kiri",
     "#Docker",
-    "#DeveloperTools",
     "#Containers",
-    "#OpenSource"
+    "#DeveloperTools",
+    "#DockerTips"
+   ]
+  },
+  "aliases": [
+   "Docker runtime",
+   "container runtime"
+  ],
+  "facebook": {
+   "caption": "Kiri is a lightweight Docker-compatible container runtime for macOS, Windows and Linux. Its maker benchmark compares one start-and-remove workload using the Docker Engine API, with a 30-run median. Windows requires WSL 2.",
+   "hashtags": [
+    "#Kiri",
+    "#Docker",
+    "#Containers",
+    "#DeveloperTools",
+    "#DockerTips"
+   ]
+  },
+  "tiktok": {
+   "caption": "Kiri is a lightweight Docker-compatible container runtime for macOS, Windows and Linux. Its maker benchmark compares one start-and-remove workload using the Docker Engine API, with a 30-run median. Windows requires WSL 2.",
+   "hashtags": [
+    "#Kiri",
+    "#Docker",
+    "#Containers",
+    "#DeveloperTools",
+    "#DockerTips"
+   ]
+  },
+  "x": {
+   "text": "Kiri is a lightweight Docker-compatible container runtime for macOS, Windows and Linux. Its maker benchmark compares one start-and-remove workload using the Docker Engine API, with a 30-run median. Windows requires WSL 2.",
+   "hashtags": [
+    "#Kiri",
+    "#Docker"
    ]
   }
  },

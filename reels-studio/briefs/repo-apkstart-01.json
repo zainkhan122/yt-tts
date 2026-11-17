@@ -121,34 +121,65 @@
   "notes": "Not independently tested on Windows. Voice and audiovisual review pending."
  },
  "seo": {
-  "keyword": "ApkStart Windows Android",
+  "keyword": "ApkStart",
   "onscreen_first3s": "ANDROID APPS ON WINDOWS",
   "youtube": {
-   "title": "ApkStart: Android Apps in Windows Windows",
-   "description": "ApkStart is an Android application runner for Windows. Initial runtime setup is required and ARM-only apps may need compatible translation. Only install APKs you trust. https://github.com/RoutineMiku/apkstart/blob/42ee604de075e4bac16e892060c4cc78ee03bca7/README.md",
+   "title": "ApkStart: Android Apps on Windows",
+   "description": "ApkStart runs Android apps in separate windows on Windows after Android runtime setup. Compatibility varies: ARM-only apps may need a translation layer. Only install APKs that you trust. https://github.com/RoutineMiku/apkstart/blob/42ee604de075e4bac16e892060c4cc78ee03bca7/README.md",
    "tags": [
     "ApkStart",
     "Android apps",
-    "Windows",
-    "APK",
-    "developer tools"
+    "Windows apps",
+    "Windows Android",
+    "APK installer"
    ],
    "hashtags": [
     "#ApkStart",
-    "#Android",
-    "#Windows",
+    "#AndroidApps",
+    "#WindowsTools",
     "#OpenSource",
     "#Shorts"
    ]
   },
   "instagram": {
-   "caption": "Run Android apps in separate windows after setting up the runtime. Compatibility varies; install only trusted APKs. Comment APK for the repo.",
+   "caption": "ApkStart runs Android apps in separate windows on Windows after Android runtime setup. Compatibility varies: ARM-only apps may need a translation layer. Only install APKs that you trust. Comment APK for the repo.",
    "hashtags": [
-    "#Android",
-    "#Windows",
     "#ApkStart",
+    "#AndroidApps",
+    "#WindowsTools",
     "#OpenSource",
-    "#Tech"
+    "#APKInstaller"
+   ]
+  },
+  "aliases": [
+   "Android apps",
+   "Windows apps"
+  ],
+  "facebook": {
+   "caption": "ApkStart runs Android apps in separate windows on Windows after Android runtime setup. Compatibility varies: ARM-only apps may need a translation layer. Only install APKs that you trust.",
+   "hashtags": [
+    "#ApkStart",
+    "#AndroidApps",
+    "#WindowsTools",
+    "#OpenSource",
+    "#APKInstaller"
+   ]
+  },
+  "tiktok": {
+   "caption": "ApkStart runs Android apps in separate windows on Windows after Android runtime setup. Compatibility varies: ARM-only apps may need a translation layer. Only install APKs that you trust.",
+   "hashtags": [
+    "#ApkStart",
+    "#AndroidApps",
+    "#WindowsTools",
+    "#OpenSource",
+    "#APKInstaller"
+   ]
+  },
+  "x": {
+   "text": "ApkStart runs Android apps in separate windows on Windows after Android runtime setup. Compatibility varies: ARM-only apps may need a translation layer. Only install APKs that you trust.",
+   "hashtags": [
+    "#ApkStart",
+    "#AndroidApps"
    ]
   }
  },

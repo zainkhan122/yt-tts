@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "batch_id": "2026-11-17-kiri",
-  "created_at": "2026-11-17T15:01:08Z",
+  "created_at": "2026-11-17T15:42:38Z",
   "briefs": {
     "repo-kiri-01": {
-      "brief_sha256": "caafb184f690815832294499835d246cb14dedd9c534fae64893587218b5bf2f",
-      "brief_identity_sha256": "dc007a580edd7c30d01922fbd3ce254116e81cf90b34c8d206e4a71ff5fb71c0",
+      "brief_sha256": "838ca3cb5008b5a94b24be312b41c02e3665c37a2b86acc00334571fe78a129c",
+      "brief_identity_sha256": "1ad5dde96c06a3ae6f411efde53f63759dc43ec8745900e4e344c9c69a2adfcc",
       "stages": {
         "script": {
           "status": "complete",
