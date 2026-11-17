@@ -151,5 +151,35 @@
     "#Tech"
    ]
   }
+ },
+ "treatment": {
+  "archetype": "workflow",
+  "selected_cover": 0,
+  "cover_concepts": [
+   {
+    "layout": "window",
+    "text": "ANDROID APPS ON WINDOWS",
+    "media": {
+     "kind": "tool_media",
+     "file": "app.png"
+    }
+   },
+   {
+    "layout": "bleed",
+    "text": "OPEN APPS LIKE THIS",
+    "media": {
+     "kind": "tool_media",
+     "file": "desktop-top.jpg"
+    }
+   },
+   {
+    "layout": "split",
+    "text": "YOUR APK ON WINDOWS",
+    "media": {
+     "kind": "tool_media",
+     "file": "mobile.png"
+    }
+   }
+  ]
  }
 }

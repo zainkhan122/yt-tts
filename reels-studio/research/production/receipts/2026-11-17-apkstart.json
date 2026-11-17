@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-17-apkstart",
+  "created_at": "2026-11-17T15:29:51Z",
+  "briefs": {
+    "repo-apkstart-01": {
+      "brief_sha256": "4d713fa3bf67c8111350ceb8339e185aacbecaf75383a63b201f4795bd69a61d",
+      "brief_identity_sha256": "e60b011cd30f37fab734198739cd5868d2c284724b9b1728b9006c05cb25240f",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "98316a1c2106d72feb4f1efdf307aaf2d9af48e6b9dd08399ed3cd4e66b014e3",
+          "word_count": 93
+        },
+        "assets": {
+          "capture_id": "repo-apkstart-01",
+          "manifest_sha256": "0d024f8f5f6b08290f2207300be69b39cfd71af8514304ed6ec72cacd33b6a29",
+          "files": [
+            {
+              "path": "app.png",
+              "sha256": "f1172af339fb16e42378b06926ee47f84a6169fdb60a536a830f10aa7bb23c86"
+            },
+            {
+              "path": "desktop-top.jpg",
+              "sha256": "1016e34e28fb174aa11dcd0abb1bf0eda930ef54524a6334a473c388c7586c34"
+            },
+            {
+              "path": "mobile.png",
+              "sha256": "40b0a506d195b37bd648def6b0bff13bb0fe60d42c0b59bde5deea78e4030916"
+            }
+          ],
+          "cover_sha256": "5c1437f8d3c01f8f74611d3d859c870140f6653cbd6e686bd07407f268b51c65",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-apkstart-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}
