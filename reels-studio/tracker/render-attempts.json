@@ -4136,9 +4136,9 @@
       "capture_id": "repo-kiri-01",
       "cover_sha256": "de1c07702a7015e095e99a41c1c02ed170449779272239377de872c26a7f4678",
       "crf": 20,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=skipped",
       "fingerprint": "cea4a12e86ea37fd78de9b7678631a9cecb009dd10817f119396a41e77ed2034",
-      "finished_at": null,
+      "finished_at": "2026-11-17T16:02:14Z",
       "from_tag": "",
       "graphics_sha256": "697177477ac195693436777050dc83a921214dbc5f39b36d5b3ca22ed5cdec45",
       "quality": "delivery",
@@ -4146,7 +4146,7 @@
       "renderer_sha256": "61109ef37031ba48a145d3865bfd7b5ada4c3344a729293f0a9996f0f1d6fdc4",
       "run_id": "44117487552",
       "started_at": "2026-11-17T15:43:12Z",
-      "status": "started",
+      "status": "render_only_success",
       "voice_seed": 0
     },
     "d13219379b0d8910ba623db5089bc0d437b863428f2c69ec504a11756a12b571": {
@@ -4497,9 +4497,9 @@
       "capture_id": "repo-apkstart-01",
       "cover_sha256": "5c1437f8d3c01f8f74611d3d859c870140f6653cbd6e686bd07407f268b51c65",
       "crf": 20,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=skipped",
       "fingerprint": "e39e9ad525de32bbc02c8187e1ef1857fedd2926945b79e3efc714726752ae41",
-      "finished_at": null,
+      "finished_at": "2026-11-17T16:02:14Z",
       "from_tag": "",
       "graphics_sha256": "2d66c5ca31c5a00cdead68b35d9b2a1fe94157520ddf76e42edf38fc6661896a",
       "quality": "delivery",
@@ -4507,7 +4507,7 @@
       "renderer_sha256": "61109ef37031ba48a145d3865bfd7b5ada4c3344a729293f0a9996f0f1d6fdc4",
       "run_id": "44117487552",
       "started_at": "2026-11-17T15:43:12Z",
-      "status": "started",
+      "status": "render_only_success",
       "voice_seed": 0
     },
     "e48a268dfed153c8317665971fbd34e32066281a9e3f20fcefb84ff7d40cb324": {
