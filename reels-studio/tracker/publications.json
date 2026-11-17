@@ -3155,9 +3155,11 @@
     },
     "repo-kiri-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6afc7db8afa176f5999821e1",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-11-17T22:09:00Z",
+      "due_at": "2026-11-17T22:09:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:a8e727915297be809656e7f1d414631f7051cfbb8f8464458bd6df6db42e2979",
         "asset_id": 759697060,
@@ -3172,10 +3174,11 @@
       "notify_subscribers": true,
       "payload_sha256": "7cb2154793ece8e42e265acbd1e374cdd8b960904c966439f163f44d17679254",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Kiri is a lightweight Docker-compatible container runtime for macOS, Windows and Linux. Its maker benchmark compares one start-and-remove workload using the Docker Engine API, with a 30-run median. Windows requires WSL 2. https://github.com/libracoder/kiri/blob/82e13b560b8c10a54701ce782d44218f5f9e654b/README.md\n\n#Kiri #Docker #Shorts",
       "title": "Kiri: Run Docker Images Without Docker Desktop",
-      "updated_at": "2026-11-17T16:15:49Z",
+      "updated_at": "2026-11-17T16:15:52Z",
       "video_id": "repo-kiri-01"
     },
     "repo-koubo-01:facebook": {
