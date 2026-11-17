@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-17-kiri",
+  "created_at": "2026-11-17T15:01:08Z",
+  "briefs": {
+    "repo-kiri-01": {
+      "brief_sha256": "caafb184f690815832294499835d246cb14dedd9c534fae64893587218b5bf2f",
+      "brief_identity_sha256": "dc007a580edd7c30d01922fbd3ce254116e81cf90b34c8d206e4a71ff5fb71c0",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "acad5722ac1ee09fdfef44783953c0333043eb883dabb2b69d46c36052584664",
+          "word_count": 93
+        },
+        "assets": {
+          "capture_id": "repo-kiri-01",
+          "manifest_sha256": "11170f4bd254fccdb3ecc8308a7874ce5e6d57697c9f2505e611985d306ee10d",
+          "files": [
+            {
+              "path": "desktop-top.jpg",
+              "sha256": "53804ae59e71d58031a41c36da138b030450c14698da8b578403683a9e7ecd33"
+            },
+            {
+              "path": "desktop-full.jpg",
+              "sha256": "363e3e2c99123883b9cae53b9e17733537d39be63901613f82c73929481fbd8c"
+            },
+            {
+              "path": "mobile.png",
+              "sha256": "27cf40ecbfda6797a715cf9ae2b9de389e2f32382681b8cae9ba6d5d79b6bd31"
+            }
+          ],
+          "cover_sha256": "de1c07702a7015e095e99a41c1c02ed170449779272239377de872c26a7f4678",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-kiri-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}

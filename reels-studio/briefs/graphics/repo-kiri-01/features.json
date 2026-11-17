@@ -1,0 +1,36 @@
+{
+ "tool": {
+  "name": "Kiri",
+  "repo_url": "https://github.com/libracoder/kiri",
+  "category": "container runtime",
+  "license": "Apache-2.0"
+ },
+ "features": [
+  {
+   "id": "f1",
+   "title": "Docker compatibility",
+   "what": "Kiri runs Docker images and commands.",
+   "evidence_quote": "Runs your Docker images and works with the <code>docker</code> CLI, Compose and buildx you already use."
+  },
+  {
+   "id": "f2",
+   "title": "Maker benchmark",
+   "what": "Median results from thirty benchmark runs.",
+   "evidence_quote": "median of 30 runs, same `docker` CLI for all three:"
+  },
+  {
+   "id": "f3",
+   "title": "Supported operating systems",
+   "what": "Kiri supports macOS Windows and Linux.",
+   "evidence_quote": "Windows 10 and 11 (x86-64 or Arm, through WSL 2)"
+  }
+ ],
+ "risks": [
+  {
+   "text": "Windows requires WSL 2; project benchmark is a single workload."
+  }
+ ],
+ "source_urls": [
+  "https://github.com/libracoder/kiri/blob/82e13b560b8c10a54701ce782d44218f5f9e654b/README.md"
+ ]
+}

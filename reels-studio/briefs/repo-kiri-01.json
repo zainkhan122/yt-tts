@@ -1,0 +1,182 @@
+{
+ "id": "repo-kiri-01",
+ "capture": "captures/repo-kiri-01",
+ "title": "Kiri: a lightweight Docker Desktop alternative",
+ "niche": "developer tools",
+ "lang": "en-us",
+ "style": "explainer",
+ "status": "draft",
+ "production_category": "repo",
+ "keywords": [
+  "Kiri",
+  "Docker Desktop",
+  "container runtime",
+  "Docker"
+ ],
+ "sources": [
+  "https://github.com/libracoder/kiri/blob/82e13b560b8c10a54701ce782d44218f5f9e654b/README.md"
+ ],
+ "facts": {
+  "method": "Maker benchmark: alpine true, start and remove; median 30 Docker Engine API runs.",
+  "limits": "One benchmark workload, not a general performance guarantee; Windows requires WSL 2."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "flow",
+   "say": "Your containers could launch without Docker Desktop. Meet Kiri.",
+   "heading": "A LIGHTER CONTAINER RUNTIME"
+  },
+  {
+   "id": "how",
+   "type": "image",
+   "say": "Kiri runs your Docker images and works with the Docker commands and Compose you already use.",
+   "heading": "KEEP YOUR WORKFLOW",
+   "image": "mobile.png",
+   "focus": [
+    {
+     "at": 0,
+     "box": [
+      0,
+      0,
+      1,
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bench",
+   "type": "flow",
+   "say": "In Kiri’s own test, starting and removing a tiny container took two point five five milliseconds, versus two hundred thirteen for Docker Desktop.",
+   "heading": "ONE TEST, TWO RESULTS"
+  },
+  {
+   "id": "method",
+   "type": "flow",
+   "say": "That is a median of thirty runs through the Docker API, not a guarantee for every app.",
+   "heading": "READ THE FINE PRINT"
+  },
+  {
+   "id": "platform",
+   "type": "flow",
+   "say": "It supports Mac, Linux and Windows. On Windows it requires W S L two.",
+   "heading": "WORKS ACROSS PLATFORMS"
+  },
+  {
+   "id": "cta",
+   "type": "flow",
+   "say": "Want the repo? Comment Kiri and follow Hypeless for more tools, minus the hype.",
+   "heading": "YOUR CALL"
+  }
+ ],
+ "renderer": "graphics",
+ "graphics": {
+  "dir": "briefs/graphics/repo-kiri-01",
+  "template": "kiri-container"
+ },
+ "lexicon": {
+  "Kiri": "kee ree",
+  "KIRI": "kee ree",
+  "WSL": "W S L",
+  "API": "A P I"
+ },
+ "motion_standard": 2,
+ "viewer": {
+  "who": "Developers using Docker containers",
+  "problem": "Container tooling can feel heavy",
+  "job": "Evaluate a lightweight container runtime"
+ },
+ "idea": "Keep Docker workflows while testing a lighter runtime.",
+ "claims": [
+  {
+   "id": "c1",
+   "text": "Kiri supports Docker images and the Docker CLI and Compose.",
+   "source": "https://github.com/libracoder/kiri/blob/82e13b560b8c10a54701ce782d44218f5f9e654b/README.md"
+  },
+  {
+   "id": "c2",
+   "text": "In the project benchmark, median Docker Engine API times were 2.55 ms for Kiri and 213 ms for Docker Desktop across 30 runs.",
+   "source": "https://github.com/libracoder/kiri/blob/82e13b560b8c10a54701ce782d44218f5f9e654b/README.md"
+  }
+ ],
+ "proof_plan": [
+  {
+   "claim": "c1",
+   "evidence": "source:https://github.com/libracoder/kiri/blob/82e13b560b8c10a54701ce782d44218f5f9e654b/README.md",
+   "how_shown": "Annotated official README and a conceptual command flow."
+  },
+  {
+   "claim": "c2",
+   "evidence": "source:https://github.com/libracoder/kiri/blob/82e13b560b8c10a54701ce782d44218f5f9e654b/README.md",
+   "how_shown": "Proportional comparison, labeled maker benchmark and workload."
+  }
+ ],
+ "review": {
+  "reviewed_at": "2026-11-06",
+  "reviewer": "agent: pinned repository",
+  "notes": "Research complete; visual and audio review pending."
+ },
+ "seo": {
+  "keyword": "Kiri Docker",
+  "onscreen_first3s": "A LIGHTER CONTAINER RUNTIME",
+  "youtube": {
+   "title": "Kiri: A Lightweight Docker Desktop Alternative",
+   "description": "Kiri is a lightweight container runtime for macOS, Windows and Linux. Benchmark figures are from the project: a single start-and-remove workload, median of 30 runs using the Docker Engine API. Windows requires WSL 2. https://github.com/libracoder/kiri/blob/82e13b560b8c10a54701ce782d44218f5f9e654b/README.md",
+   "tags": [
+    "Kiri",
+    "Docker",
+    "containers",
+    "developer tools",
+    "Docker Desktop"
+   ],
+   "hashtags": [
+    "#Kiri",
+    "#Docker",
+    "#DeveloperTools",
+    "#Containers",
+    "#Shorts"
+   ]
+  },
+  "instagram": {
+   "caption": "Kiri is a lightweight container runtime. Project benchmark: one workload, 30-run median. Windows requires WSL 2. Comment KIRI for the repo.",
+   "hashtags": [
+    "#Kiri",
+    "#Docker",
+    "#DeveloperTools",
+    "#Containers",
+    "#OpenSource"
+   ]
+  }
+ },
+ "treatment": {
+  "archetype": "workflow",
+  "selected_cover": 1,
+  "cover_concepts": [
+   {
+    "layout": "bleed",
+    "text": "A LIGHTER DOCKER OPTION",
+    "media": {
+     "kind": "tool_media",
+     "file": "desktop-top.jpg"
+    }
+   },
+   {
+    "layout": "window",
+    "text": "MEET YOUR NEW RUNTIME",
+    "media": {
+     "kind": "tool_media",
+     "file": "mobile.png"
+    }
+   },
+   {
+    "layout": "split",
+    "text": "KEEP YOUR DOCKER COMMANDS",
+    "media": {
+     "kind": "tool_media",
+     "file": "desktop-full.jpg"
+    }
+   }
+  ]
+ }
+}

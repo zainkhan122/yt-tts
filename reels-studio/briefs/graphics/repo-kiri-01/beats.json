@@ -1,0 +1,99 @@
+{
+ "tool": "kiri",
+ "handle": "@hypeless",
+ "template": "kiri-container",
+ "script_sha256": "sha256:106ee6486d3c752b6c31a98f3c9db1f6985db07f6598885704b893fb8f356ed6",
+ "scenes": [
+  {
+   "scene_id": "hook",
+   "phrase": 0,
+   "archetype": "kiri_hook",
+   "headline": "A LIGHTER CONTAINER RUNTIME",
+   "feature_id": null,
+   "depicts": "Your containers could launch without Docker Desktop. Meet Kiri.",
+   "payload": {
+    "cue_phrases": [
+     "containers",
+     "Kiri"
+    ]
+   }
+  },
+  {
+   "scene_id": "how",
+   "phrase": 1,
+   "archetype": "kiri_flow",
+   "headline": "KEEP YOUR WORKFLOW",
+   "feature_id": "f1",
+   "depicts": "Kiri runs your Docker images and works with the Docker commands and Compose you already use.",
+   "payload": {
+    "cue_phrases": [
+     "Docker images",
+     "Docker commands",
+     "Compose"
+    ]
+   },
+   "evidence_image": "mobile.png"
+  },
+  {
+   "scene_id": "bench",
+   "phrase": 2,
+   "archetype": "kiri_bench",
+   "headline": "ONE TEST, TWO RESULTS",
+   "feature_id": "f2",
+   "depicts": "In Kiri’s own test, starting and removing a tiny container took two point five five milliseconds, versus two hundred thirteen for Docker Desktop.",
+   "payload": {
+    "cue_phrases": [
+     "two point five five",
+     "two hundred thirteen"
+    ]
+   }
+  },
+  {
+   "scene_id": "method",
+   "phrase": 3,
+   "archetype": "kiri_method",
+   "headline": "READ THE FINE PRINT",
+   "feature_id": "f2",
+   "depicts": "That is a median of thirty runs through the Docker API, not a guarantee for every app.",
+   "payload": {
+    "cue_phrases": [
+     "thirty runs",
+     "Docker API",
+     "every app"
+    ]
+   }
+  },
+  {
+   "scene_id": "platform",
+   "phrase": 4,
+   "archetype": "kiri_platform",
+   "headline": "WORKS ACROSS PLATFORMS",
+   "feature_id": "f3",
+   "depicts": "It supports Mac, Linux and Windows. On Windows it requires W S L two.",
+   "payload": {
+    "cue_phrases": [
+     "Mac",
+     "Linux",
+     "Windows",
+     "W S L two"
+    ]
+   }
+  },
+  {
+   "scene_id": "cta",
+   "phrase": 5,
+   "archetype": "endcard",
+   "headline": "YOUR CALL",
+   "feature_id": null,
+   "depicts": "Want the repo? Comment Kiri and follow Hypeless for more tools, minus the hype.",
+   "payload": {
+    "cue_phrases": [
+     "Kiri"
+    ],
+    "keyword": "KIRI",
+    "prompt": "for the repo",
+    "follow": "@hypeless"
+   }
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "name": "kiri-container",
+ "tool": "kiri",
+ "note": "Container shipping-label motion design, purpose-built for Kiri.",
+ "max_text": 180,
+ "archetypes": {
+  "kiri_hook": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": false,
+   "script_ok": true
+  },
+  "kiri_flow": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "kiri_bench": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "kiri_method": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "kiri_platform": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  }
+ }
+}
