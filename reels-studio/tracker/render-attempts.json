@@ -3299,9 +3299,9 @@
       "capture_id": "repo-kiri-01",
       "cover_sha256": "de1c07702a7015e095e99a41c1c02ed170449779272239377de872c26a7f4678",
       "crf": 20,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=failure publish=skipped",
       "fingerprint": "aa97883aa6c8944d500aad814ef211de8b832e90c77ed910ff9fff29fa6eb5c5",
-      "finished_at": null,
+      "finished_at": "2026-11-17T15:41:50Z",
       "from_tag": "",
       "graphics_sha256": "697177477ac195693436777050dc83a921214dbc5f39b36d5b3ca22ed5cdec45",
       "quality": "delivery",
@@ -3309,7 +3309,7 @@
       "renderer_sha256": "61109ef37031ba48a145d3865bfd7b5ada4c3344a729293f0a9996f0f1d6fdc4",
       "run_id": "44113681100",
       "started_at": "2026-11-17T15:23:08Z",
-      "status": "started",
+      "status": "failed",
       "voice_seed": 0
     },
     "abb9a9636c5e55319db39f61d9d4cf56850d2ccf3af34164c5acddf67bc0bba7": {
