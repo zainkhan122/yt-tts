@@ -1,6 +1,6 @@
 # Shorts performance — 2026-11-17
 
-Source: Buffer Insights snapshot `2026-11-17T14:24:40Z` (complete: **True**) · videos analysed: **65** · mature (≥7d): **58** · developing: **7** · too early (<2d): **0**
+Source: Buffer Insights snapshot `2026-11-17T14:59:38Z` (complete: **True**) · videos analysed: **65** · mature (≥7d): **58** · developing: **7** · too early (<2d): **0**
 
 Metrics are ranked within each platform and never compared across platforms. Verdicts use mature videos only; everything else is labelled descriptive.
 
@@ -8,10 +8,10 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| `repo-harp-01` (mature) | 23.7d | 240 | 1.2% | 0 | 0 | — | 0 |
+| `repo-harp-01` (mature) | 23.8d | 240 | 1.2% | 0 | 0 | — | 0 |
 | `list-free-video-ai-01` (mature) | 37.9d | 182 | 0% | 0 | 0 | — | 0 |
-| `repo-ai-newtab-01` (mature) | 37.6d | 169 | 0% | 0 | 0 | — | 0 |
-| `repo-edge0-01` (mature) | 16.8d | 125 | 0% | 0 | 0 | — | 0 |
+| `repo-ai-newtab-01` (mature) | 37.7d | 169 | 0% | 0 | 0 | — | 0 |
+| `repo-edge0-01` (mature) | 16.9d | 125 | 0% | 0 | 0 | — | 0 |
 | `repo-reavideo-01` (mature) | 8.8d | 119 | 0.8% | 0 | 0 | — | 0 |
 
 ## instagram — top by views
@@ -20,7 +20,7 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 |---|---:|---:|---:|---:|---:|---:|---:|
 | `news-gpt61-astra-01` (mature) | 36.1d | 308 | 0.7% | 0 | 0 | 0 | 0 |
 | `repo-opencr-01` (mature) | 35.2d | 269 | 2.1% | 0 | 2 | 1 | 0 |
-| `model-embeddinggemma2-01` (mature) | 33.0d | 236 | 4.7% | 0 | 7 | 1 | 0 |
+| `model-embeddinggemma2-01` (mature) | 33.1d | 236 | 4.7% | 0 | 7 | 1 | 0 |
 | `news-muse-spark-01` (mature) | 31.7d | 221 | 2.5% | 0 | 1 | 3 | 0 |
 | `tool-higgsfield-01` (mature) | 34.8d | 219 | 1.6% | 0 | 1 | 2 | 0 |
 
@@ -29,8 +29,8 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | `tool-qwen38-01` (mature) | 35.9d | 2,099 | 0.6% | 0 | — | — | 4.5 |
-| `repo-coop-anything-01` (mature) | 28.8d | 1,434 | 1.4% | 3 | — | — | 9.9 |
-| `repo-ds4-01` (mature) | 35.7d | 1,031 | 0.9% | 0 | — | — | 0.1 |
+| `repo-coop-anything-01` (mature) | 28.8d | 1,434 | 1.4% | 3 | — | — | 9.7 |
+| `repo-ds4-01` (mature) | 35.8d | 1,031 | 0.9% | 0 | — | — | 0.1 |
 | `tool-ltx25-01` (mature) | 35.8d | 504 | 0.4% | 0 | — | — | 1.1 |
 | `repo-voicestudio-01` (mature) | 15.7d | 418 | 0% | 0 | — | — | 1.0 |
 
