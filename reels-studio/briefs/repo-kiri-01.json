@@ -121,7 +121,7 @@
   "keyword": "Kiri",
   "onscreen_first3s": "A LIGHTER CONTAINER RUNTIME",
   "youtube": {
-   "title": "Kiri Docker Alternative: A Lighter Container Runtime",
+   "title": "Kiri: Run Docker Images Without Docker Desktop",
    "description": "Kiri is a lightweight Docker-compatible container runtime for macOS, Windows and Linux. Its maker benchmark compares one start-and-remove workload using the Docker Engine API, with a 30-run median. Windows requires WSL 2. https://github.com/libracoder/kiri/blob/82e13b560b8c10a54701ce782d44218f5f9e654b/README.md",
    "tags": [
     "Kiri",
