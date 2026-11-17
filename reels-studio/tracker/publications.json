@@ -1579,9 +1579,11 @@
     },
     "repo-apkstart-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6afc8af1afa176f5999d75f8",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-11-18T22:09:00Z",
+      "due_at": "2026-11-18T22:09:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:2d790ca1fb1424d0d63633e88181e6fd7cd8b6d0094659aa1be9901fe976061e",
         "asset_id": 759895576,
@@ -1596,10 +1598,11 @@
       "notify_subscribers": true,
       "payload_sha256": "8efe48a6db620af9b1f354b0df5796b6123820681ec3a92b91010195122974a5",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "ApkStart runs Android apps in separate windows on Windows after Android runtime setup. Compatibility varies: ARM-only apps may need a translation layer. Only install APKs that you trust. https://github.com/RoutineMiku/apkstart/blob/42ee604de075e4bac16e892060c4cc78ee03bca7/README.md\n\n#ApkStart #AndroidApps #Shorts",
       "title": "ApkStart: Turn APKs Into Desktop Shortcuts",
-      "updated_at": "2026-11-17T17:12:15Z",
+      "updated_at": "2026-11-17T17:12:17Z",
       "video_id": "repo-apkstart-01"
     },
     "repo-autoloop-01:facebook": {
