@@ -1,0 +1,48 @@
+{
+ "name": "apkstart-orbit",
+ "tool": "apkstart",
+ "note": "Rebuilt premium narrative motion with app-to-desktop transformation and illustrated runtime cutaway.",
+ "max_text": 180,
+ "archetypes": {
+  "apk_hook": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": false,
+   "script_ok": true
+  },
+  "apk_setup": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "apk_launch": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "apk_engine": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  },
+  "apk_catch": {
+   "req": [],
+   "opt": [
+    "cue_phrases"
+   ],
+   "facts": true,
+   "script_ok": false
+  }
+ }
+}

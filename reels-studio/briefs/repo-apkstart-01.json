@@ -1,7 +1,7 @@
 {
  "id": "repo-apkstart-01",
  "capture": "captures/repo-apkstart-01",
- "title": "ApkStart: Android apps in Windows windows",
+ "title": "ApkStart: Run Android Apps Like Windows Apps",
  "niche": "developer tools",
  "lang": "en-us",
  "style": "explainer",
@@ -24,8 +24,8 @@
   {
    "id": "hook",
    "type": "flow",
-   "say": "Run Android apps in their own Windows windows. This is ApkStart.",
-   "heading": "ANDROID APPS ON WINDOWS"
+   "say": "Now, easily run Android apps like native Windows apps. This is ApkStart.",
+   "heading": "ANDROID APPS. WINDOWS STYLE."
   },
   {
    "id": "setup",
@@ -73,7 +73,7 @@
  "renderer": "graphics",
  "graphics": {
   "dir": "briefs/graphics/repo-apkstart-01",
-  "template": "apkstart-desktop"
+  "template": "apkstart-orbit"
  },
  "lexicon": {
   "APK": "A P K",
@@ -85,7 +85,7 @@
   "problem": "Running Android apps can involve emulator setup",
   "job": "Understand what ApkStart can do and its limitations"
  },
- "idea": "Use Android apps in separate Windows windows after setting up an Android runtime.",
+ "idea": "Open Android apps in their own windows with desktop shortcuts after runtime setup.",
  "claims": [
   {
    "id": "c1",
@@ -118,11 +118,11 @@
  "review": {
   "reviewed_at": "2026-11-06",
   "reviewer": "agent: pinned official documentation",
-  "notes": "Not independently tested on Windows. Voice and audiovisual review pending."
+  "notes": "Revision: new hook and custom motion; not yet reviewed or approved."
  },
  "seo": {
   "keyword": "ApkStart",
-  "onscreen_first3s": "ANDROID APPS ON WINDOWS",
+  "onscreen_first3s": "ANDROID APPS. WINDOWS STYLE.",
   "youtube": {
    "title": "ApkStart: Android Apps on Windows",
    "description": "ApkStart runs Android apps in separate windows on Windows after Android runtime setup. Compatibility varies: ARM-only apps may need a translation layer. Only install APKs that you trust. https://github.com/RoutineMiku/apkstart/blob/42ee604de075e4bac16e892060c4cc78ee03bca7/README.md",

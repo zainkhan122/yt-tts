@@ -1,23 +1,24 @@
 {
  "tool": "apkstart",
  "handle": "@hypeless",
- "template": "apkstart-desktop",
- "script_sha256": "sha256:21e003e076bc5b76ad43d913e0c6a0055fe053d3b15bdecc731a805949fb133e",
+ "template": "apkstart-orbit",
+ "script_sha256": "sha256:4801931875568a2c9a64f88047dc61d34e76e824031a233b426c136adb66beaf",
  "scenes": [
   {
    "scene_id": "hook",
    "phrase": 0,
    "archetype": "apk_hook",
-   "headline": "ANDROID APPS ON WINDOWS",
+   "headline": "ANDROID APPS. WINDOWS STYLE.",
    "feature_id": null,
-   "depicts": "Run Android apps in their own Windows windows. This is ApkStart.",
+   "depicts": "Now, easily run Android apps like native Windows apps. This is ApkStart.",
    "payload": {
     "cue_phrases": [
      "Android apps",
-     "Windows windows",
+     "Windows apps",
      "ApkStart"
     ]
-   }
+   },
+   "evidence_image": "hero.jpg"
   },
   {
    "scene_id": "setup",
