@@ -1521,6 +1521,31 @@
       "updated_at": "2026-10-10T21:53:05Z",
       "video_id": "repo-ai-newtab-01"
     },
+    "repo-apkstart-01:facebook": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-11-18T22:06:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:2d790ca1fb1424d0d63633e88181e6fd7cd8b6d0094659aa1be9901fe976061e",
+        "asset_id": 759895576,
+        "asset_size": 10062971,
+        "kit_asset_id": 759895730,
+        "kit_digest": "sha256:a27aef129446cdf1282fc2fa599a1146a5cc951cddf47245f8ecdf2ca6f64616",
+        "media_path": "media/759895576/repo-apkstart-01.mp4",
+        "release_tag": "renders-apkstart-44127141037",
+        "video_id": "repo-apkstart-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/759895576/repo-apkstart-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "52b892d8983caab0647d687c9cacc04acf82bd8b31988cf5e4ff948a6a99d052",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "ApkStart runs Android apps in separate windows on Windows after Android runtime setup. Compatibility varies: ARM-only apps may need a translation layer. Only install APKs that you trust.\n\nAI-generated narration.\n\n#ApkStart #AndroidApps #WindowsTools",
+      "title": "ApkStart: Turn APKs Into Desktop Shortcuts",
+      "updated_at": "2026-11-17T17:12:12Z",
+      "video_id": "repo-apkstart-01"
+    },
     "repo-apkstart-01:instagram": {
       "attempts": 1,
       "buffer_post_id": "6afc8aea104bf3e6249410c6",
