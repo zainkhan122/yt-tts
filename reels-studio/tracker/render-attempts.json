@@ -101,6 +101,27 @@
       "status": "failed",
       "voice_seed": 0
     },
+    "0545f87db91d4052a1817d221234eb96fcc880d45a8ddc1010195cb8a00ec8a6": {
+      "asset_files_sha256": "1acc2b27efa29c275b46b2be9c459ebafeb9bab06225fd82e401fb9939fda979",
+      "asset_manifest_sha256": "abcf0e5cf82f35bbfd84ca5d32dbc45de337f31af7fc5490c6e885515df17e14",
+      "brief_id": "repo-apkstart-01",
+      "brief_sha256": "ea87d1621fa3708176e81cc870085cc8fb1dd94a57d55300e6b8e436a7d9d41e",
+      "capture_id": "repo-apkstart-01",
+      "cover_sha256": "5c1437f8d3c01f8f74611d3d859c870140f6653cbd6e686bd07407f268b51c65",
+      "crf": 23,
+      "failure_conclusion": null,
+      "fingerprint": "0545f87db91d4052a1817d221234eb96fcc880d45a8ddc1010195cb8a00ec8a6",
+      "finished_at": null,
+      "from_tag": "",
+      "graphics_sha256": "a35296bb240c3a9f5342e9a6a0cba36611d8fcd9a18bfc699732bdcd4f4410d4",
+      "quality": "delivery",
+      "rebuild_scenes": [],
+      "renderer_sha256": "bc0a45b9f70219f95eb32bdc64beed5249c2e9ff7bd7096087469aed84faa2c4",
+      "run_id": "44127141037",
+      "started_at": "2026-11-17T16:33:45Z",
+      "status": "started",
+      "voice_seed": 0
+    },
     "06cd8ae1615dff02910c72050786137f3408f7fb992740a046cf155cf9486dbf": {
       "asset_files_sha256": "126eb73f070179427f0f546c1e4c849c4943be825a0dd640ef9104514ac60e0d",
       "asset_manifest_sha256": "c6a51f15b1e2bba709739f85153c8a3acfcffb8435f7e64f50134502496c0568",
