@@ -109,9 +109,9 @@
       "capture_id": "repo-apkstart-01",
       "cover_sha256": "5c1437f8d3c01f8f74611d3d859c870140f6653cbd6e686bd07407f268b51c65",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=skipped",
       "fingerprint": "0545f87db91d4052a1817d221234eb96fcc880d45a8ddc1010195cb8a00ec8a6",
-      "finished_at": null,
+      "finished_at": "2026-11-17T16:56:17Z",
       "from_tag": "",
       "graphics_sha256": "a35296bb240c3a9f5342e9a6a0cba36611d8fcd9a18bfc699732bdcd4f4410d4",
       "quality": "delivery",
@@ -119,7 +119,7 @@
       "renderer_sha256": "bc0a45b9f70219f95eb32bdc64beed5249c2e9ff7bd7096087469aed84faa2c4",
       "run_id": "44127141037",
       "started_at": "2026-11-17T16:33:45Z",
-      "status": "started",
+      "status": "render_only_success",
       "voice_seed": 0
     },
     "06cd8ae1615dff02910c72050786137f3408f7fb992740a046cf155cf9486dbf": {
