@@ -1,0 +1,33 @@
+name: YouTube performance audit
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hypeless-publishing
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m pip install -r reels-studio/tools/youtube/requirements.txt
+      - name: Collect channel analytics (read-only on YouTube)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          YOUTUBE_OAUTH_JSON: ${{ secrets.YOUTUBE_OAUTH_JSON }}
+          YOUTUBE_STATE_KEY: ${{ secrets.YOUTUBE_STATE_KEY }}
+        run: python3 reels-studio/tools/youtube/performance_audit.py --out "$RUNNER_TEMP/youtube-performance/report.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: youtube-performance-audit
+          path: ${{ runner.temp }}/youtube-performance/
+          retention-days: 7
+          if-no-files-found: warn

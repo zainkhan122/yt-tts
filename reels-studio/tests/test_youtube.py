@@ -439,7 +439,7 @@ class ShortCoverTests(unittest.TestCase):
                     with self.assertRaises(ValueError):
                         contracts.fetch_kit_cover(item, {}, tmp)
 
-    def fake_api(self, confirm=True, existing_tags=("owner tag",), processing="succeeded"):
+    def fake_api(self, confirm=True, existing_tags=("owner tag",), processing="succeeded", privacy="public"):
         created = {"n": 0}
         memberships = {}
         class FakeAPI:
@@ -452,7 +452,7 @@ class ShortCoverTests(unittest.TestCase):
                     return {"items": [{"id": VIDEO_ID, "etag": "E1",
                             "snippet": {"channelId": FakeAPI.cfg["channel_id"], "title": "Owner title", "categoryId": "28",
                                         "description": "Owner description", "tags": list(existing_tags)},
-                            "contentDetails": {"hasCustomThumbnail": confirm}, "status": {"privacyStatus": "public"},
+                            "contentDetails": {"hasCustomThumbnail": confirm}, "status": {"privacyStatus": privacy},
                             "processingDetails": {"processingStatus": processing}}]}
                 if path == "videos" and method == "PUT":
                     return body
@@ -492,6 +492,13 @@ class ShortCoverTests(unittest.TestCase):
         self.assertIn(("POST", "upload/thumbnails/set"), api.calls)
         self.assertEqual(row["thumbnail_digest"], digest)
         self.assertTrue(row["public_copy_preserved"])
+
+    def test_cover_waits_for_public_visibility_without_spending_attempt(self):
+        api = self.fake_api(privacy="private")
+        row, _, _ = self.enrich(api)
+        self.assertEqual(row["state"], "cover_pending")
+        self.assertNotIn(("POST", "upload/thumbnails/set"), api.calls)
+        self.assertEqual(row.get("thumbnail_attempts", 0), 0)
 
     def test_cover_waits_for_processing_without_spending_attempt(self):
         api = self.fake_api(processing="processing")

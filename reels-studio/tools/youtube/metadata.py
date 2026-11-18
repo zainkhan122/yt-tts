@@ -133,6 +133,10 @@ def attach_short_cover(api, journal, row, video_id, cover):
     try:
         if row.get("thumbnail_digest") != digest:
             video = get_video(api, video_id)
+            if video.get("status", {}).get("privacyStatus") != "public":
+                row["thumbnail_error"] = "Waiting for Short to be public on YouTube before setting its cover"
+                journal.save("Shorts cover waiting for public video " + row["video_id"])
+                return "pending"
             if video.get("processingDetails", {}).get("processingStatus") != "succeeded":
                 row["thumbnail_error"] = "Waiting for YouTube processingStatus=succeeded before setting Shorts cover"
                 journal.save("Shorts cover waiting for processing " + row["video_id"])
