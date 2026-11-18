@@ -752,6 +752,42 @@
       "title": "Wireless Battery: See Device Levels in Your Taskbar",
       "video_id": "repo-wireless-battery-01",
       "youtube_ai_generated": true
+    },
+    {
+      "added_at": "2026-11-18T14:25:31Z",
+      "approval": "approved",
+      "approved_cover_sha": "sha256:64a206ad6d1972dcf467cd6eed7cb6eb063ea6a4b58a4e0725ffa68aa93f3f39",
+      "approved_panel_sha": "b9a427c44fc0a3870dd093ad4f199a876087ce224679dcec09a04d56b30ef8bb",
+      "asset_digest": "sha256:4608051802f7e4be7a97b0eb4656d9d413028d9c8e19bbf4ae7810d09bbd98e7",
+      "asset_id": 763697583,
+      "asset_size": 8965196,
+      "brief_sha256": "993c021ea4a89fc154b0d2422a0bbfdf6c3f12a079877128c0f755a1ca548559",
+      "category": "repo",
+      "cover_reviewed_at": "2026-11-18T14:25:33Z",
+      "cover_sha256": "sha256:64a206ad6d1972dcf467cd6eed7cb6eb063ea6a4b58a4e0725ffa68aa93f3f39",
+      "expires_at": "2026-11-20T05:00:00Z",
+      "facebook_disclosure": "AI-generated narration and example imagery.",
+      "kit_asset_id": 763697676,
+      "kit_digest": "sha256:e423e6ee631da3b4cb8d5039cae97d539e0b8e54934b70788b899b4683fcce07",
+      "media_path": "media/763697583/repo-paper-orchestra-01.mp4",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "priority": 100,
+      "release_tag": "renders-paper-orchestra-local-44311553849-r3",
+      "review": {
+        "cover_sha256": "64a206ad6d1972dcf467cd6eed7cb6eb063ea6a4b58a4e0725ffa68aa93f3f39",
+        "mp4_bytes": 8965196,
+        "mp4_sha256": "4608051802f7e4be7a97b0eb4656d9d413028d9c8e19bbf4ae7810d09bbd98e7",
+        "run_id": "44311553849"
+      },
+      "reviewed_at": "2026-11-18T14:25:33Z",
+      "title": "PaperOrchestra: Meet Your AI Research Writing Team",
+      "video_id": "repo-paper-orchestra-01",
+      "youtube_ai_generated": true,
+      "not_before": "2026-11-19T05:00:00Z"
     }
   ],
   "schema_version": 1

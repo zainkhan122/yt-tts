@@ -51,3 +51,7 @@ Shared cue matcher/reporting and house-layer regression checks now cover seven s
 
 ## Follow-up: negative cues and report integration
 Negative's marker list, comparison plates, trace and loss cue now use shared narration timing. Removed an unsourced 2.3-second figure. Renderer now emits `motion-cues.json` and warns about unmatched JS cues (`MOTION_CUES_STRICT=1` makes these errors); Python fallbacks are separately returned by `graphics.stage`. The seven storyboard fixtures passed browser and seek checks; selected tests: 86 passed, 1 skipped. Full per-archetype cue coverage, unified reports, sourcing, actual Chatterbox tests and full-motion design reviews remain unfinished; see motion grammar. Cleaned regenerated scratch videos and screenshots while retaining the two current review MP4s and aligned audio.
+
+## Mandatory object-led motion (owner direction)
+
+The production and editorial-review requirement in `PIPELINE.md` and `docs/MOTION-GRAMMAR.md` applies to all new shorts: animate the subject, hierarchy, connected process and outputs, and sourced charts, in sync with narration; decorative static buttons/icons are not a substitute. This is an editorial gate requiring recorded human/agent judgment, not an automated proof that legacy templates meet the standard. PaperOrchestra's corrected inputs flow and Wireless Battery's animated devices are examples, not a universal template.

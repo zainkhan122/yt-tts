@@ -296,3 +296,9 @@ python3 reels.py cloud <id> [<id2> ...] --receipt reels-studio/research/producti
 - `graphics`: `Job.graphics_render()` calls `graphics.stage.render_for_pipeline`. Inputs: the voice word timings per scene (`timing[sid]["words"]`), the scene order, and the brief's `graphics.dir` (`features.json`, `beats.json`, `source.md`). It writes `work/video.mp4`.
 - Lint is fail-closed: feature sheet (F*) and beat plan (B*, including B0 script fingerprint and B9 scene binding). A failure raises `GraphicsError` and nothing renders.
 - The cloud runner needs `playwright==1.64.1` and Chromium (`cloud/setup-render.sh`).
+
+## Mandatory object-led motion standard (owner direction)
+
+For every new short, storyboard and animate the actual subject and its relationships—not a collection of static buttons or icons. Show the hierarchy, process or transformation with purpose-built objects, connected flows and outputs; use accurate, sourced charts where they explain the story. Tie each meaningful build and transition to the corresponding narrated words. Use distinct topic-specific visual treatments, not a repeated base layout, and do not add motion for its own sake. Illustrative values must be labeled and not presented as sourced measurements.
+
+Before approval, the reviewer must inspect the finished audiovisual short at phone size and record in the viewer panel how objects, connections, hierarchy, process, charts, and narration sync serve each scene; flag missing or misleading movement and request a correction. Static UI buttons may appear only when demonstrating an actual UI or in the approved house outro, never as substitutes for the core explanatory visuals. Technical checks and still contact sheets cannot establish this subjective standard; this is a mandatory editorial review, not an automated visual-quality guarantee.
