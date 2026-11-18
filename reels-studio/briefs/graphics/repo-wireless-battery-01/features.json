@@ -1,0 +1,36 @@
+{
+  "tool": {
+    "name": "Wireless Battery",
+    "repo_url": "https://github.com/krisgfx9/Wireless-Device-Battery-Monitor",
+    "category": "Windows utility",
+    "license": "Open source"
+  },
+  "features": [
+    {
+      "id": "f1",
+      "title": "Device levels",
+      "what": "Shows supported device levels on taskbar.",
+      "evidence_quote": "Battery levels of your wireless mouse, headset, keyboard and controller, right on the Windows taskbar."
+    },
+    {
+      "id": "f2",
+      "title": "Low and charging",
+      "what": "Red for 15% or less, blue charging bolt.",
+      "evidence_quote": "a red number means 15% or less."
+    },
+    {
+      "id": "f3",
+      "title": "Installer and compatibility",
+      "what": "Installer available and device support varies.",
+      "evidence_quote": "Download **[WirelessBattery-Setup]"
+    }
+  ],
+  "risks": [
+    {
+      "text": "Device compatibility varies."
+    }
+  ],
+  "source_urls": [
+    "https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/blob/958a60a4b219189248c97497291fb362aab2a684/README.md"
+  ]
+}

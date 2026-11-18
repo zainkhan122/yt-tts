@@ -1,0 +1,190 @@
+{
+  "id": "repo-wireless-battery-01",
+  "capture": "captures/repo-wireless-battery-01",
+  "title": "Wireless Battery: See Device Levels in Your Taskbar",
+  "niche": "Windows tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "Wireless Battery",
+    "Windows taskbar",
+    "battery monitor",
+    "wireless devices"
+  ],
+  "sources": [
+    "https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/blob/958a60a4b219189248c97497291fb362aab2a684/README.md"
+  ],
+  "facts": {
+    "method": "Official README and screenshot at pinned commit",
+    "limits": "Windows support varies by device model and connection."
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "flow",
+      "say": "See your wireless battery levels right on your Windows taskbar. Meet Wireless Battery.",
+      "heading": "BATTERIES AT A GLANCE"
+    },
+    {
+      "id": "devices",
+      "type": "flow",
+      "say": "It brings supported mice, headsets, keyboards, and controllers into one glance, without opening a pile of vendor apps.",
+      "heading": "YOUR DEVICES. ONE VIEW."
+    },
+    {
+      "id": "status",
+      "type": "flow",
+      "say": "A red number warns you when a device hits fifteen percent or less. A blue bolt shows when it is charging.",
+      "heading": "LOW OR CHARGING?"
+    },
+    {
+      "id": "setup",
+      "type": "flow",
+      "say": "Download the installer from the project\u2019s GitHub releases and run it. Check the supported device list first. Not every model works.",
+      "heading": "INSTALL. CHECK SUPPORT."
+    },
+    {
+      "id": "cta",
+      "type": "flow",
+      "say": "It is free and open source. Comment BATTERY and follow Hypeless for more tools, minus the hype.",
+      "heading": "YOUR CALL"
+    }
+  ],
+  "renderer": "graphics",
+  "graphics": {
+    "dir": "briefs/graphics/repo-wireless-battery-01",
+    "template": "battery-dock"
+  },
+  "lexicon": {
+    "BATTERY": "battery"
+  },
+  "motion_standard": 2,
+  "viewer": {
+    "who": "Windows users with wireless devices",
+    "problem": "Battery levels scattered across vendor apps",
+    "job": "See supported device battery status on the taskbar"
+  },
+  "idea": "See your wireless device battery levels in one Windows taskbar view.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Shows battery levels of supported wireless mice, headsets, keyboards and controllers on the Windows taskbar.",
+      "source": "https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/blob/958a60a4b219189248c97497291fb362aab2a684/README.md"
+    },
+    {
+      "id": "c2",
+      "text": "Low battery is red at 15 percent or less; blue bolt indicates charging.",
+      "source": "https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/blob/958a60a4b219189248c97497291fb362aab2a684/README.md"
+    },
+    {
+      "id": "c3",
+      "text": "Free and open source; support depends on device model.",
+      "source": "https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/blob/958a60a4b219189248c97497291fb362aab2a684/README.md"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/blob/958a60a4b219189248c97497291fb362aab2a684/README.md",
+      "how_shown": "Official taskbar screenshot and clearly labeled illustrations."
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/blob/958a60a4b219189248c97497291fb362aab2a684/README.md",
+      "how_shown": "Official taskbar screenshot and clearly labeled illustrations."
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/blob/958a60a4b219189248c97497291fb362aab2a684/README.md",
+      "how_shown": "Official taskbar screenshot and clearly labeled illustrations."
+    }
+  ],
+  "review": {
+    "reviewed_at": "2026-11-18",
+    "reviewer": "agent: pinned official repository",
+    "notes": "Sourced research; production review pending."
+  },
+  "contains_synthetic_media": true,
+  "seo": {
+    "keyword": "Wireless Battery",
+    "onscreen_first3s": "BATTERIES AT A GLANCE",
+    "youtube": {
+      "title": "See Wireless Battery Levels on Windows",
+      "description": "Wireless Battery puts supported device battery levels on the Windows taskbar. Check your device compatibility. https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/blob/958a60a4b219189248c97497291fb362aab2a684/README.md",
+      "tags": [
+        "Wireless Battery",
+        "Windows tools",
+        "battery monitor"
+      ],
+      "hashtags": [
+        "#Windows",
+        "#OpenSource",
+        "#Shorts"
+      ]
+    },
+    "instagram": {
+      "caption": "See supported wireless device battery levels in the Windows taskbar. Comment BATTERY for the repo.",
+      "hashtags": [
+        "#Windows",
+        "#OpenSource",
+        "#Tech"
+      ]
+    },
+    "facebook": {
+      "caption": "See supported wireless device battery levels right on the Windows taskbar.",
+      "hashtags": [
+        "#Windows",
+        "#OpenSource"
+      ]
+    },
+    "tiktok": {
+      "caption": "Wireless Battery keeps supported device levels on your Windows taskbar. Comment BATTERY for the repo.",
+      "hashtags": [
+        "#Windows",
+        "#Tech",
+        "#OpenSource"
+      ]
+    },
+    "x": {
+      "text": "See supported wireless battery levels on your Windows taskbar.",
+      "hashtags": [
+        "#Windows"
+      ]
+    },
+    "aliases": [
+      "battery monitor"
+    ]
+  },
+  "treatment": {
+    "archetype": "spotlight",
+    "selected_cover": 0,
+    "cover_concepts": [
+      {
+        "layout": "window",
+        "text": "BATTERIES AT A GLANCE",
+        "media": {
+          "kind": "tool_media",
+          "file": "screenshot-upscaled.png"
+        }
+      },
+      {
+        "layout": "bleed",
+        "text": "ALL YOUR BATTERY LEVELS",
+        "media": {
+          "kind": "tool_media",
+          "file": "repo-page.png"
+        }
+      },
+      {
+        "layout": "split",
+        "text": "ONE VIEW FOR BATTERIES",
+        "media": {
+          "kind": "tool_media",
+          "file": "releases-page.png"
+        }
+      }
+    ]
+  }
+}

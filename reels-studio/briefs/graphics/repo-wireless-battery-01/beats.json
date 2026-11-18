@@ -1,0 +1,88 @@
+{
+  "tool": "wireless-battery",
+  "handle": "@hypeless",
+  "template": "battery-dock",
+  "script_sha256": "sha256:8894576a0d764d9b7dd2eb143f5518622189574461200ad6d14dab82ced7d799",
+  "scenes": [
+    {
+      "scene_id": "hook",
+      "phrase": 0,
+      "archetype": "bat_hook",
+      "headline": "BATTERIES AT A GLANCE",
+      "feature_id": null,
+      "depicts": "See your wireless battery levels right on your Windows taskbar. Meet Wireless Battery.",
+      "payload": {
+        "cue_phrases": [
+          "Windows taskbar",
+          "Wireless Battery"
+        ]
+      },
+      "evidence_image": "screenshot-upscaled.png"
+    },
+    {
+      "scene_id": "devices",
+      "phrase": 1,
+      "archetype": "bat_devices",
+      "headline": "YOUR DEVICES. ONE VIEW.",
+      "feature_id": "f1",
+      "depicts": "It brings supported mice, headsets, keyboards, and controllers into one glance, without opening a pile of vendor apps.",
+      "payload": {
+        "cue_phrases": [
+          "mice",
+          "headsets",
+          "keyboards",
+          "controllers",
+          "vendor apps"
+        ]
+      }
+    },
+    {
+      "scene_id": "status",
+      "phrase": 2,
+      "archetype": "bat_status",
+      "headline": "LOW OR CHARGING?",
+      "feature_id": "f2",
+      "depicts": "A red number warns you when a device hits fifteen percent or less. A blue bolt shows when it is charging.",
+      "payload": {
+        "cue_phrases": [
+          "red number",
+          "fifteen percent",
+          "blue bolt",
+          "charging"
+        ]
+      }
+    },
+    {
+      "scene_id": "setup",
+      "phrase": 3,
+      "archetype": "bat_setup",
+      "headline": "INSTALL. CHECK SUPPORT.",
+      "feature_id": "f3",
+      "depicts": "Download the installer from the project\u2019s GitHub releases and run it. Check the supported device list first. Not every model works.",
+      "payload": {
+        "cue_phrases": [
+          "installer",
+          "GitHub releases",
+          "supported device",
+          "Not every model"
+        ]
+      }
+    },
+    {
+      "scene_id": "cta",
+      "phrase": 4,
+      "archetype": "endcard",
+      "headline": "YOUR CALL",
+      "feature_id": null,
+      "depicts": "It is free and open source. Comment BATTERY and follow Hypeless for more tools, minus the hype.",
+      "payload": {
+        "cue_phrases": [
+          "BATTERY"
+        ],
+        "keyword": "BATTERY",
+        "prompt": "for the repo",
+        "follow": "@hypeless"
+      }
+    }
+  ]
+}

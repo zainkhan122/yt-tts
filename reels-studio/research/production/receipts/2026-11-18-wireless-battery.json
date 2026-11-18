@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-18-wireless-battery",
+  "created_at": "2026-11-18T12:21:40Z",
+  "briefs": {
+    "repo-wireless-battery-01": {
+      "brief_sha256": "8b5a0380619a8ac888815d7243ccf61bef7d0cefa196c4548bf73502624dad25",
+      "brief_identity_sha256": "5a24b393d5dd01ba894cc80d1acf93783be6cbcfc37318c0958dd932fef54df5",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "083e810948405ec2ae1c503552cf86b1cb9985bda3611ad6494af5df557a855b",
+          "word_count": 90
+        },
+        "assets": {
+          "capture_id": "repo-wireless-battery-01",
+          "manifest_sha256": "d2011d133c248b65523fea4ddb2543bc6aa0a27b74eb6a5087b142e14d622e7b",
+          "files": [
+            {
+              "path": "screenshot-upscaled.png",
+              "sha256": "89d586fcc35dbfb57fb13a56dfd168104d4672758da354d271611f9d14737e4e"
+            },
+            {
+              "path": "repo-page.png",
+              "sha256": "4e3fc5de26652226960626ec3967879964578494538b4b131764c781442cee4a"
+            },
+            {
+              "path": "releases-page.png",
+              "sha256": "8b7407ce0f51a0ed212b827438e917472127a15d9a74157da82017c5c6f5af0d"
+            }
+          ],
+          "cover_sha256": "39b2e1e393cbf04ec9ec2cc528eaaa3799426eea8e0a928ea88ed41898eda0f8",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-wireless-battery-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}
