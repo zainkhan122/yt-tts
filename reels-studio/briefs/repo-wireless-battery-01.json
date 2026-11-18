@@ -42,7 +42,7 @@
     {
       "id": "setup",
       "type": "flow",
-      "say": "Download the installer from the project’s GitHub releases and run it. Check the supported device list first. Not every model works.",
+      "say": "Download the installer from the project\u2019s GitHub releases and run it. Check the supported device list first. Not every model works.",
       "heading": "INSTALL. CHECK SUPPORT."
     },
     {
@@ -117,7 +117,7 @@
     "onscreen_first3s": "BATTERIES AT A GLANCE",
     "youtube": {
       "title": "Wireless Battery: See Device Levels in Your Taskbar",
-      "description": "Wireless Battery: See Device Levels in Your Taskbar. Shows battery levels of supported wireless mice, headsets, keyboards and controllers on the Windows taskbar. Low battery is red at 15 percent or less; blue bolt indicates charging. It is free and open source. Comment BATTERY and follow Hypeless for more tools, minus the hype. https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/blob/958a60a4b219189248c97497291fb362aab2a684/README.md",
+      "description": "Wireless Battery shows supported wireless device levels on your Windows taskbar. See at a glance when a mouse, headset, keyboard or controller needs charging. Check the project\u2019s supported device list before installing. https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/blob/958a60a4b219189248c97497291fb362aab2a684/README.md",
       "hashtags": [
         "#Shorts",
         "#WirelessBattery",
@@ -136,7 +136,7 @@
       ]
     },
     "tiktok": {
-      "caption": "Wireless Battery: See Device Levels in Your Taskbar. Shows battery levels of supported wireless mice, headsets, keyboards and controllers on the Windows taskbar. It is free and open source.",
+      "caption": "Wireless Battery puts supported mouse, headset, keyboard and controller battery levels in your Windows taskbar. Comment BATTERY for the repo.",
       "hashtags": [
         "#WirelessBattery",
         "#BatteryMonitor",
@@ -146,7 +146,7 @@
       ]
     },
     "instagram": {
-      "caption": "Wireless Battery: See Device Levels in Your Taskbar. Shows battery levels of supported wireless mice, headsets, keyboards and controllers on the Windows taskbar. It is free and open source.",
+      "caption": "Wireless Battery keeps compatible device levels on your Windows taskbar. Which wireless device do you always forget to charge? Comment BATTERY for the repo.",
       "hashtags": [
         "#WirelessBattery",
         "#BatteryMonitor",
@@ -156,13 +156,11 @@
       ]
     },
     "facebook": {
-      "caption": "Wireless Battery: See Device Levels in Your Taskbar. Shows battery levels of supported wireless mice, headsets, keyboards and controllers on the Windows taskbar. It is free and open source.",
+      "caption": "Wireless Battery gives Windows users a quick view of supported peripherals without opening vendor apps. Device support varies, so check the list before installing.",
       "hashtags": [
         "#WirelessBattery",
-        "#BatteryMonitor",
         "#WindowsTaskbar",
-        "#WirelessDevices",
-        "#WindowsTools"
+        "#BatteryMonitor"
       ]
     },
     "x": {

@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "batch_id": "2026-11-18-wireless-battery",
-  "created_at": "2026-11-18T13:04:36Z",
+  "created_at": "2026-11-18T13:08:29Z",
   "briefs": {
     "repo-wireless-battery-01": {
-      "brief_sha256": "f83af9f80373647cdfba2732143098c44ad08b0168d9c4b234047e2878c75439",
-      "brief_identity_sha256": "4814012b39287d4e296238b93a64559679cb827a867368f1694b707d3d5d8794",
+      "brief_sha256": "0816b27604b54928ed176602dc620ff1a28110a63b241701f60b800ddc241b38",
+      "brief_identity_sha256": "cbee31fbf7a57ecd44e9ca3f46410695d26328a4e4a660d06f5790117d274819",
       "stages": {
         "script": {
           "status": "complete",
