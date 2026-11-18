@@ -238,6 +238,10 @@
       "video_id": "tool-qwen38-01",
       "youtube_id": "Rw3IUZoKJiI"
     },
+    "YXCV5PbkcoI": {
+      "video_id": "repo-ahsilence-01",
+      "youtube_id": "YXCV5PbkcoI"
+    },
     "Y_zJBwfZjkY": {
       "completed_at": "2026-10-21T08:18:34Z",
       "last_error": "Local YouTube quota budget reached (QUOTA_BUDGET)",
@@ -878,7 +882,7 @@
   },
   "quota": {
     "day_pacific": "2026-11-18",
-    "general_units": 82,
+    "general_units": 83,
     "upload_starts": 0
   },
   "records": {},
