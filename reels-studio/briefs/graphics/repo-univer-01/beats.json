@@ -2,7 +2,7 @@
  "tool": "univer",
  "handle": "@hypeless",
  "template": "univer-workbench",
- "script_sha256": "sha256:3844d7249109f60f2ffbad8d6012fac9daf66c85c421b63f3ed0e89999001465",
+ "script_sha256": "sha256:884302472f27da51920e58c3b227b31583bbdeb0ed7a235f1c43616d5d143a0c",
  "scenes": [
   {
    "scene_id": "hook",
@@ -42,14 +42,14 @@
    "archetype": "uni_plugin",
    "headline": "PLUG IN. CONNECT. BUILD.",
    "feature_id": "f2",
-   "depicts": "Plug in only the components you need, then connect your own AI agent through the same APIs your app uses.",
+   "depicts": "Plug in only the components you need, then connect your own AI agent through the same API your app uses.",
    "payload": {
     "cue_phrases": [
      "components",
      "components",
      "components",
      "AI agent",
-     "APIs"
+     "API"
     ]
    }
   },

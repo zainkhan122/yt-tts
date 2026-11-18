@@ -48,7 +48,7 @@
   {
    "id": "plugins",
    "type": "flow",
-   "say": "Plug in only the components you need, then connect your own AI agent through the same APIs your app uses.",
+   "say": "Plug in only the components you need, then connect your own AI agent through the same API your app uses.",
    "heading": "PLUG IN. CONNECT. BUILD."
   },
   {
@@ -76,10 +76,10 @@
   "template": "univer-workbench"
  },
  "lexicon": {
-  "Univer": "you ni ver",
+  "Univer": "you nee vur",
   "SDK": "S D K",
-  "APIs": "A P I s",
-  "AI": "A I"
+  "AI": "A I",
+  "UNIVER": "you nee vur"
  },
  "motion_standard": 2,
  "viewer": {

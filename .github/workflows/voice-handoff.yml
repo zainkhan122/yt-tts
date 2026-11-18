@@ -1,0 +1,66 @@
+name: Approved voice handoff
+on:
+  workflow_dispatch:
+    inputs:
+      brief_id:
+        description: Brief ID for a local video assembly
+        required: true
+        type: string
+      receipt:
+        description: Production receipt path
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  voice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BRIEF_ID: ${{ inputs.brief_id }}
+      RECEIPT: ${{ inputs.receipt }}
+      HYPERFRAMES_NO_TELEMETRY: '1'
+      HYPERFRAMES_NO_UPDATE_CHECK: '1'
+      DO_NOT_TRACK: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/hyperframes
+            ~/.cache/puppeteer
+            ~/.cache/huggingface
+            ~/.cache/pip
+          key: hf-0.8.137-cbx-v2-${{ runner.os }}
+          restore-keys: |
+            hf-0.8.137-cbx-v2-${{ runner.os }}
+            hf-0.8.137-cbx-
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate request
+        run: |
+          python3 - <<'PY'
+          import os, re
+          bid = os.environ['BRIEF_ID']; receipt = os.environ['RECEIPT']
+          if not re.fullmatch(r'[a-z0-9][a-z0-9_-]{0,99}', bid): raise SystemExit('Invalid brief ID')
+          if not re.fullmatch(r'reels-studio/research/production/receipts/[a-zA-Z0-9_-]+\.json', receipt): raise SystemExit('Invalid receipt path')
+          PY
+      - name: Toolchain
+        run: bash reels-studio/cloud/setup-render.sh
+      - name: Retrieve and verify assets
+        run: |
+          python3 reels-studio/tools/capture_store.py pull "$BRIEF_ID"
+          python3 reels-studio/tools/cover_store.py pull "$BRIEF_ID"
+          python3 reels-studio/tools/production_gate.py assets "$RECEIPT" "$BRIEF_ID"
+      - name: Synthesize and check approved voice only
+        run: |
+          python3 reels-studio/reels.py make "reels-studio/briefs/$BRIEF_ID.json" --quality delivery --crf 23 \
+            --receipt "$RECEIPT" --voice-out "voice-handoff/$BRIEF_ID" --no-render
+      - uses: actions/upload-artifact@v4
+        with:
+          name: approved-voice-${{ inputs.brief_id }}
+          path: voice-handoff/${{ inputs.brief_id }}
+          retention-days: 2
+          if-no-files-found: error
