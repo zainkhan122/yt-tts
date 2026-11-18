@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "batch_id": "2026-11-18-univer",
-  "created_at": "2026-11-18T04:23:56Z",
+  "created_at": "2026-11-18T04:44:02Z",
   "briefs": {
     "repo-univer-01": {
-      "brief_sha256": "185f583dd4b60463f3057b0d96bdca44833c2ff52126bd2aad1af278c77ba5b4",
-      "brief_identity_sha256": "264854c1adf144bbfbec74b6719ee8a8a14e80ed28c3d487b712710a902380f7",
+      "brief_sha256": "9a977622a7a92e9b02d424da99608c7e8ee033fd08954823c2230de646269478",
+      "brief_identity_sha256": "b9f09c34982a4c41339883a17eee8d326b0199ac0b87c4467c895daab6195285",
       "stages": {
         "script": {
           "status": "complete",
