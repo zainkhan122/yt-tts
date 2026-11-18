@@ -1,0 +1,103 @@
+{
+ "tool": "univer",
+ "handle": "@hypeless",
+ "template": "univer-workbench",
+ "script_sha256": "sha256:3844d7249109f60f2ffbad8d6012fac9daf66c85c421b63f3ed0e89999001465",
+ "scenes": [
+  {
+   "scene_id": "hook",
+   "phrase": 0,
+   "archetype": "uni_hook",
+   "headline": "BUILD YOUR OWN AI OFFICE",
+   "feature_id": null,
+   "depicts": "Build your own AI powered office. Meet Univer, an SDK for adding spreadsheets and documents right inside your app.",
+   "payload": {
+    "cue_phrases": [
+     "AI powered office",
+     "Univer",
+     "documents"
+    ]
+   },
+   "evidence_image": "official-banner.jpg"
+  },
+  {
+   "scene_id": "sheets",
+   "phrase": 1,
+   "archetype": "uni_sheet",
+   "headline": "SHEETS + DOCS, BUILT IN",
+   "feature_id": "f1",
+   "depicts": "Start with editable sheets, formulas, sorting, and rich text documents.",
+   "payload": {
+    "cue_phrases": [
+     "editable sheets",
+     "formulas",
+     "sorting",
+     "rich text"
+    ]
+   }
+  },
+  {
+   "scene_id": "plugins",
+   "phrase": 2,
+   "archetype": "uni_plugin",
+   "headline": "PLUG IN. CONNECT. BUILD.",
+   "feature_id": "f2",
+   "depicts": "Plug in only the components you need, then connect your own AI agent through the same APIs your app uses.",
+   "payload": {
+    "cue_phrases": [
+     "components",
+     "components",
+     "components",
+     "AI agent",
+     "APIs"
+    ]
+   }
+  },
+  {
+   "scene_id": "agent",
+   "phrase": 3,
+   "archetype": "uni_agent",
+   "headline": "PEOPLE + AGENTS",
+   "feature_id": "f3",
+   "depicts": "Your agent can work with spreadsheet content while people edit it in your interface.",
+   "payload": {
+    "cue_phrases": [
+     "agent",
+     "spreadsheet content",
+     "people edit",
+     "people edit"
+    ]
+   }
+  },
+  {
+   "scene_id": "limits",
+   "phrase": 4,
+   "archetype": "uni_scope",
+   "headline": "KNOW THE BOUNDARIES",
+   "feature_id": "f4",
+   "depicts": "The open source core covers sheets and docs. Advanced collaboration and some AI extensions are separately licensed. You bring the model and orchestration.",
+   "payload": {
+    "cue_phrases": [
+     "collaboration",
+     "model and orchestration"
+    ]
+   }
+  },
+  {
+   "scene_id": "cta",
+   "phrase": 5,
+   "archetype": "endcard",
+   "headline": "YOUR CALL",
+   "feature_id": null,
+   "depicts": "Want the repo? Comment UNIVER and follow Hypeless for more tools, minus the hype.",
+   "payload": {
+    "cue_phrases": [
+     "UNIVER"
+    ],
+    "keyword": "UNIVER",
+    "prompt": "for the repo",
+    "follow": "@hypeless"
+   }
+  }
+ ]
+}

@@ -1,0 +1,202 @@
+{
+ "id": "repo-univer-01",
+ "capture": "captures/repo-univer-01",
+ "title": "Univer: Build Your Own AI-Powered Office",
+ "niche": "developer tools",
+ "lang": "en-us",
+ "style": "explainer",
+ "status": "draft",
+ "production_category": "repo",
+ "keywords": [
+  "Univer",
+  "spreadsheet SDK",
+  "AI agents",
+  "office SDK"
+ ],
+ "sources": [
+  "https://github.com/dream-num/univer/blob/0d7923dd7a26e6bea56f1bc791a03618235a4618/README.md"
+ ],
+ "facts": {
+  "method": "Pinned official Univer README: Web SDK open-source core, sheets, docs, Facade APIs, and separate commercial extensions.",
+  "limits": "The developer supplies the model and agent orchestration; server collaboration and commercial AI extensions are separately licensed."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "image",
+   "say": "Build your own AI powered office. Meet Univer, an SDK for adding spreadsheets and documents right inside your app.",
+   "heading": "BUILD YOUR OWN AI OFFICE",
+   "image": "official-banner.jpg",
+   "focus": [
+    {
+     "at": 0,
+     "box": [
+      0,
+      0,
+      1,
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sheets",
+   "type": "flow",
+   "say": "Start with editable sheets, formulas, sorting, and rich text documents.",
+   "heading": "SHEETS + DOCS, BUILT IN"
+  },
+  {
+   "id": "plugins",
+   "type": "flow",
+   "say": "Plug in only the components you need, then connect your own AI agent through the same APIs your app uses.",
+   "heading": "PLUG IN. CONNECT. BUILD."
+  },
+  {
+   "id": "agent",
+   "type": "flow",
+   "say": "Your agent can work with spreadsheet content while people edit it in your interface.",
+   "heading": "PEOPLE + AGENTS"
+  },
+  {
+   "id": "limits",
+   "type": "flow",
+   "say": "The open source core covers sheets and docs. Advanced collaboration and some AI extensions are separately licensed. You bring the model and orchestration.",
+   "heading": "KNOW THE BOUNDARIES"
+  },
+  {
+   "id": "cta",
+   "type": "flow",
+   "say": "Want the repo? Comment UNIVER and follow Hypeless for more tools, minus the hype.",
+   "heading": "YOUR CALL"
+  }
+ ],
+ "renderer": "graphics",
+ "graphics": {
+  "dir": "briefs/graphics/repo-univer-01",
+  "template": "univer-workbench"
+ },
+ "lexicon": {
+  "Univer": "you ni ver",
+  "SDK": "S D K",
+  "APIs": "A P I s",
+  "AI": "A I"
+ },
+ "motion_standard": 2,
+ "viewer": {
+  "who": "Developers building AI-enabled apps",
+  "problem": "Building office editors and spreadsheet logic from scratch is complex",
+  "job": "Understand how Univer embeds office components and connects existing agents"
+ },
+ "idea": "Build an AI office inside your app with Univer SDK.",
+ "claims": [
+  {
+   "id": "c1",
+   "text": "Univer provides open-source Sheets and Docs editing in an SDK.",
+   "source": "https://github.com/dream-num/univer/blob/0d7923dd7a26e6bea56f1bc791a03618235a4618/README.md"
+  },
+  {
+   "id": "c2",
+   "text": "Applications and agents can use APIs to work with content; the app supplies its model and orchestration.",
+   "source": "https://github.com/dream-num/univer/blob/0d7923dd7a26e6bea56f1bc791a03618235a4618/README.md"
+  },
+  {
+   "id": "c3",
+   "text": "Advanced collaboration and some AI extensions are separately licensed.",
+   "source": "https://github.com/dream-num/univer/blob/0d7923dd7a26e6bea56f1bc791a03618235a4618/README.md"
+  }
+ ],
+ "proof_plan": [
+  {
+   "claim": "c1",
+   "evidence": "source:https://github.com/dream-num/univer/blob/0d7923dd7a26e6bea56f1bc791a03618235a4618/README.md",
+   "how_shown": "Custom illustrated editable sheets and docs with official README banner."
+  },
+  {
+   "claim": "c2",
+   "evidence": "source:https://github.com/dream-num/univer/blob/0d7923dd7a26e6bea56f1bc791a03618235a4618/README.md",
+   "how_shown": "An agent and user connect through labeled API to a shared sheet; conceptual illustration, not a live demo."
+  },
+  {
+   "claim": "c3",
+   "evidence": "source:https://github.com/dream-num/univer/blob/0d7923dd7a26e6bea56f1bc791a03618235a4618/README.md",
+   "how_shown": "Separate visual bands describe open-source core, licensed extensions, and developer-supplied model."
+  }
+ ],
+ "review": {
+  "reviewed_at": "2026-11-18",
+  "reviewer": "agent: pinned official repository",
+  "notes": "Sourced research; production review pending."
+ },
+ "contains_synthetic_media": true,
+ "seo": {
+  "keyword": "Univer",
+  "onscreen_first3s": "BUILD YOUR OWN AI OFFICE",
+  "youtube": {
+   "title": "Univer: Add Spreadsheets and AI to Your App",
+   "description": "Univer is an Office SDK for embedding sheets and docs into your app. Connect your own AI agent through APIs. The open-source core and separately licensed extensions have different scope. https://github.com/dream-num/univer/blob/0d7923dd7a26e6bea56f1bc791a03618235a4618/README.md",
+   "tags": [
+    "Univer",
+    "spreadsheet SDK",
+    "AI agents",
+    "office SDK",
+    "developer tools"
+   ],
+   "hashtags": [
+    "#Univer",
+    "#AITools",
+    "#Shorts"
+   ]
+  },
+  "instagram": {
+   "caption": "Build spreadsheet and document features into your app with Univer. Connect your own AI agent through the APIs. Some extensions are separately licensed. Comment UNIVER for the repo.",
+   "hashtags": [
+    "#Univer",
+    "#DeveloperTools",
+    "#AIAgents",
+    "#OpenSource"
+   ]
+  },
+  "facebook": {
+   "caption": "Univer lets developers embed spreadsheet and document features and connect their own AI agents. The open-source core and separately licensed extensions have different scope.",
+   "hashtags": [
+    "#Univer",
+    "#DeveloperTools",
+    "#AIAgents"
+   ]
+  },
+  "aliases": [
+   "office SDK",
+   "spreadsheet SDK"
+  ]
+ },
+ "treatment": {
+  "archetype": "workflow",
+  "selected_cover": 0,
+  "cover_concepts": [
+   {
+    "layout": "window",
+    "text": "BUILD YOUR AI OFFICE",
+    "media": {
+     "kind": "tool_media",
+     "file": "official-banner.jpg"
+    }
+   },
+   {
+    "layout": "bleed",
+    "text": "SPREADSHEETS MEET AI AGENTS",
+    "media": {
+     "kind": "tool_media",
+     "file": "sheets.jpg"
+    }
+   },
+   {
+    "layout": "split",
+    "text": "YOUR OWN OFFICE SDK",
+    "media": {
+     "kind": "tool_media",
+     "file": "docs.jpg"
+    }
+   }
+  ]
+ }
+}

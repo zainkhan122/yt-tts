@@ -1,0 +1,42 @@
+{
+ "tool": {
+  "name": "Univer",
+  "repo_url": "https://github.com/dream-num/univer",
+  "category": "Office SDK",
+  "license": "Apache-2.0 core"
+ },
+ "features": [
+  {
+   "id": "f1",
+   "title": "Sheets and docs",
+   "what": "Spreadsheet editing and formula calculation, plus rich-text documents.",
+   "evidence_quote": "Sheets \u00b7 Data and calculation"
+  },
+  {
+   "id": "f2",
+   "title": "Plugin architecture",
+   "what": "Features are composed using plugins and presets.",
+   "evidence_quote": "Features are composed through plugins and presets"
+  },
+  {
+   "id": "f3",
+   "title": "Facade API",
+   "what": "Applications and agents can connect through Facade APIs and events.",
+   "evidence_quote": "Agents can use the same open-source APIs"
+  },
+  {
+   "id": "f4",
+   "title": "Open source and licensing",
+   "what": "Core is open source; commercial extensions and services are separately licensed.",
+   "evidence_quote": "Commercial Web SDK plugins, Server SDK, and commercial AI SDK extensions are distributed and licensed separately"
+  }
+ ],
+ "risks": [
+  {
+   "text": "Bring your own agent orchestration; commercial features are licensed separately."
+  }
+ ],
+ "source_urls": [
+  "https://github.com/dream-num/univer/blob/0d7923dd7a26e6bea56f1bc791a03618235a4618/README.md"
+ ]
+}

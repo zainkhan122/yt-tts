@@ -1,0 +1,48 @@
+{
+  "name": "univer-workbench",
+  "tool": "univer",
+  "note": "Original office interface kinetic motion; visual examples are illustrative, not actual usage metrics.",
+  "max_text": 180,
+  "archetypes": {
+    "uni_hook": {
+      "req": [],
+      "opt": [
+        "cue_phrases"
+      ],
+      "facts": false,
+      "script_ok": true
+    },
+    "uni_sheet": {
+      "req": [],
+      "opt": [
+        "cue_phrases"
+      ],
+      "facts": true,
+      "script_ok": false
+    },
+    "uni_plugin": {
+      "req": [],
+      "opt": [
+        "cue_phrases"
+      ],
+      "facts": true,
+      "script_ok": false
+    },
+    "uni_agent": {
+      "req": [],
+      "opt": [
+        "cue_phrases"
+      ],
+      "facts": true,
+      "script_ok": false
+    },
+    "uni_scope": {
+      "req": [],
+      "opt": [
+        "cue_phrases"
+      ],
+      "facts": true,
+      "script_ok": false
+    }
+  }
+}
