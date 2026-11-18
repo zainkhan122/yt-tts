@@ -4371,6 +4371,31 @@
       "verified_at": "2026-11-07T22:01:26Z",
       "video_id": "repo-superagent-01"
     },
+    "repo-univer-01:facebook": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-11-18T19:18:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:4cf96c5262ed1d6f0dec7b59d479c5fc9af0c47f718246c32d9fa971020ee9eb",
+        "asset_id": 762096774,
+        "asset_size": 10928152,
+        "kit_asset_id": 762096846,
+        "kit_digest": "sha256:aed129b429c43e7b29eaff4795b89d1c72628655c146f69948298136b232e3cd",
+        "media_path": "media/762096774/repo-univer-01.mp4",
+        "release_tag": "renders-univer-local-44244651177",
+        "video_id": "repo-univer-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/762096774/repo-univer-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "b2473f53c6179de4d12f49127897bfb65d1973cceb7f15a63ed659621236e511",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "Univer lets developers embed spreadsheet and document features and connect their own AI agents. The open-source core and separately licensed extensions have different scope.\n\nAI-generated narration.\n\n#Univer #DeveloperTools #AIAgents",
+      "title": "Univer: Embed Spreadsheets Into Your App",
+      "updated_at": "2026-11-18T05:49:41Z",
+      "video_id": "repo-univer-01"
+    },
     "repo-univer-01:youtube": {
       "attempts": 1,
       "buffer_post_id": "6afd3c74f38e9cc548682d86",
