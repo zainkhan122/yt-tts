@@ -3844,9 +3844,11 @@
     },
     "repo-paper-orchestra-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6afdb677e7e50af8cdd80a50",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-11-19T17:14:00Z",
+      "due_at": "2026-11-19T17:14:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:4608051802f7e4be7a97b0eb4656d9d413028d9c8e19bbf4ae7810d09bbd98e7",
         "asset_id": 763697583,
@@ -3861,10 +3863,11 @@
       "notify_subscribers": false,
       "payload_sha256": "f7af420be79a23280de3855849d7fdb197180db8d7d1b8af526143993b11efdf",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "PaperOrchestra helps turn research notes into a paper draft. Review the results. Comment PAPER for the repo.\n\n#PaperOrchestra #ResearchWriting #ResearchTools",
       "title": "PaperOrchestra: Meet Your AI Research Writing Team",
-      "updated_at": "2026-11-18T14:30:12Z",
+      "updated_at": "2026-11-18T14:30:16Z",
       "video_id": "repo-paper-orchestra-01"
     },
     "repo-poki-01:facebook": {
