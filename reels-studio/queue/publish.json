@@ -682,6 +682,41 @@
       "title": "ApkStart: Turn APKs Into Desktop Shortcuts",
       "video_id": "repo-apkstart-01",
       "youtube_ai_generated": true
+    },
+    {
+      "added_at": "2026-11-18T05:44:53Z",
+      "approval": "approved",
+      "approved_cover_sha": "sha256:e6d01c8d1d70bb31a533cf0f0b872c6b43b41ddf3e25aec293ef17038fa52c64",
+      "approved_panel_sha": "ed939f935e087d028d5729e3733305c8d46788c1159639a6bbe5cbbb7266298d",
+      "asset_digest": "sha256:4cf96c5262ed1d6f0dec7b59d479c5fc9af0c47f718246c32d9fa971020ee9eb",
+      "asset_id": 762096774,
+      "asset_size": 10928152,
+      "brief_sha256": "8279d7f80ce3b33a0d4b692314f45725cb6dd8b169f0f56aa3db377ca8771149",
+      "category": "repo",
+      "cover_reviewed_at": "2026-11-18T05:45:17Z",
+      "cover_sha256": "sha256:e6d01c8d1d70bb31a533cf0f0b872c6b43b41ddf3e25aec293ef17038fa52c64",
+      "expires_at": "2026-11-23T05:45:18Z",
+      "facebook_disclosure": "AI-generated narration and example imagery.",
+      "kit_asset_id": 762096846,
+      "kit_digest": "sha256:aed129b429c43e7b29eaff4795b89d1c72628655c146f69948298136b232e3cd",
+      "media_path": "media/762096774/repo-univer-01.mp4",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "priority": 100,
+      "release_tag": "renders-univer-local-44244651177",
+      "review": {
+        "cover_sha256": "e6d01c8d1d70bb31a533cf0f0b872c6b43b41ddf3e25aec293ef17038fa52c64",
+        "mp4_bytes": 10928152,
+        "mp4_sha256": "4cf96c5262ed1d6f0dec7b59d479c5fc9af0c47f718246c32d9fa971020ee9eb",
+        "run_id": "44244651177"
+      },
+      "reviewed_at": "2026-11-18T05:45:18Z",
+      "title": "Univer: Embed Spreadsheets Into Your App",
+      "video_id": "repo-univer-01",
+      "youtube_ai_generated": true
     }
   ],
   "schema_version": 1
