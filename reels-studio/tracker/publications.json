@@ -4401,9 +4401,11 @@
     },
     "repo-univer-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6afd3c7a93fa11d37d0d64e0",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-11-18T20:15:00Z",
+      "due_at": "2026-11-18T20:15:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:4cf96c5262ed1d6f0dec7b59d479c5fc9af0c47f718246c32d9fa971020ee9eb",
         "asset_id": 762096774,
@@ -4418,10 +4420,11 @@
       "notify_subscribers": false,
       "payload_sha256": "445987f1303c4e6e34ddf83ef71848ea6d5c4823e4cc3c01f11dd8178abc0114",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Build spreadsheet and document features into your app with Univer. Connect your own AI agent through the APIs. Some extensions are separately licensed. Comment UNIVER for the repo.\n\n#Univer #DeveloperTools #AIAgents #OpenSource",
       "title": "Univer: Embed Spreadsheets Into Your App",
-      "updated_at": "2026-11-18T05:49:44Z",
+      "updated_at": "2026-11-18T05:49:46Z",
       "video_id": "repo-univer-01"
     },
     "repo-univer-01:youtube": {
