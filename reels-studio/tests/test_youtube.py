@@ -500,6 +500,18 @@ class ShortCoverTests(unittest.TestCase):
         self.assertNotIn(("POST", "upload/thumbnails/set"), api.calls)
         self.assertEqual(row.get("thumbnail_attempts", 0), 0)
 
+    def test_new_approved_digest_does_not_reuse_old_confirmation(self):
+        api = self.fake_api(confirm=True)
+        journal = Journal()
+        journal.data.setdefault("enrichment", {})[VIDEO_ID] = {"video_id": "news-demo-01", "youtube_id": VIDEO_ID,
+            "state": "done", "thumbnail_confirmed": True, "thumbnail_digest": "sha256:old"}
+        with tempfile.TemporaryDirectory() as tmp:
+            path = self.write_cover(tmp, "new-cover.jpg")
+            spec = {"path": path, "sha256": contracts.cover_digest(path)}
+            row = metadata.enrich_short(api, journal, {"video_id": "news-demo-01", "youtube_id": VIDEO_ID}, ["AI tools"], "news", cover=spec)
+        self.assertIn(("POST", "upload/thumbnails/set"), api.calls)
+        self.assertEqual(row["thumbnail_digest"], spec["sha256"])
+
     def test_unconfirmed_cover_retries_then_blocks_but_keeps_tags(self):
         api = self.fake_api(confirm=False)
         journal = Journal()  # production journals persist across enrichment runs

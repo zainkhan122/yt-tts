@@ -56,9 +56,10 @@ class TargetingTests(unittest.TestCase):
 
     def test_due_windows_respect_age_and_already_taken(self):
         self.assertEqual(analytics.due_windows({"snapshots": []}, 30), ["24h"])
-        self.assertEqual(analytics.due_windows({"snapshots": []}, 200), ["24h", "7d"])
+        self.assertEqual(analytics.due_windows({"snapshots": []}, 175), ["7d"])
+        self.assertEqual(analytics.due_windows({"snapshots": []}, 200), [])
         taken = {"snapshots": [{"window": "24h"}]}
-        self.assertEqual(analytics.due_windows(taken, 200), ["7d"])
+        self.assertEqual(analytics.due_windows(taken, 175), ["7d"])
         self.assertEqual(analytics.due_windows({"snapshots": []}, 5), [])
 
 

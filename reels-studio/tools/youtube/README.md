@@ -93,3 +93,9 @@ Cancel in-progress delivery runs, disable both workflows and set enabled flags f
 ## Storage / boundaries
 
 Never put MP4s, OAuth JSON, raw upload-session URIs or API keys into git. Long media uses Releases → runner scratch, not Pages. Existing finished render releases are immutable; use a new `-r2` tag for revisions. Audit workspace/project budgets with `tools/maintenance/storage.py`; prune only after byte-for-byte archive verification. Existing source/media credits and all three manual YouTube duplicate locks remain intact.
+
+## Analytics and cover verification notes
+
+The read-only Analytics lane requests documented channel-video engagement and watch-time metrics. Thumbnail impressions and CTR are not in that Analytics API query; they require a separate YouTube Reporting API reach report or Studio export. Do not substitute advertising impressions or claim reach data is implemented. Compare 24-hour snapshots only at 24–30 hours of video age and 7-day snapshots only at 168–192 hours; old delayed snapshots remain in the journal but are excluded from these comparisons. These are sampled windows, not exact at-the-second measurements, and Analytics data may lag. New snapshots are collected by the scheduled YouTube enrichment runs; use `youtube.yml` mode `analytics` for a manual read-only probe. A healthy Data API connection does not itself prove Analytics scope, so the manual run explicitly probes a published Short.
+
+An approved Shorts cover waits for `processingDetails.processingStatus=succeeded` before upload. `thumbnails.set` acceptance plus `hasCustomThumbnail` read-back confirms that YouTube reports a custom thumbnail, not that YouTube returned a cryptographic match for the exact image; inspect the displayed result where practical. No cover application is confirmed for a video that has not yet published.

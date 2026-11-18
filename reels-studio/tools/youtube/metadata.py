@@ -121,9 +121,12 @@ def attach_short_cover(api, journal, row, video_id, cover):
     forever. Every try is idempotent — the digest gate prevents re-uploads."""
     from lib.secrets import redact
     digest = cover["sha256"]
-    attempts = row.get("thumbnail_attempts", 0)
-    if row.get("thumbnail_confirmed"):
+    if row.get("thumbnail_confirmed") and row.get("thumbnail_digest") == digest:
         return "confirmed"
+    if row.get("thumbnail_digest") and row.get("thumbnail_digest") != digest:
+        row.pop("thumbnail_confirmed", None)
+        row.pop("thumbnail_attempts", None)
+    attempts = row.get("thumbnail_attempts", 0)
     if attempts >= SHORT_COVER_ATTEMPT_LIMIT:
         row["thumbnail_blocked"] = True
         return "blocked"

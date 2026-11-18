@@ -109,7 +109,8 @@ def reports_metrics(api, youtube_id, published_at, now):
 
 def due_windows(record, age_hours):
     taken = {s["window"] for s in record.get("snapshots", [])}
-    return [w for w, hours in WINDOWS if age_hours >= hours and w not in taken]
+    tolerances = {"24h": 6.0, "7d": 24.0}
+    return [w for w, hours in WINDOWS if hours <= age_hours <= hours + tolerances[w] and w not in taken]
 
 
 def snapshot(api, records, store, now, include_analytics=True):
