@@ -363,6 +363,23 @@ def main():
                 if changed and not dry:
                     store_journal.save("analytics snapshot " + ", ".join(changed[:4]) + ("…" if len(changed) > 4 else ""))
                 report["analytics"] = {"changed": changed, "summary": analytics_lane.summarize(store_journal.data)}
+                if args.mode == "analytics":
+                    # Probe the current grant even when no new window is due; existing
+                    # snapshots may predate Analytics consent and cannot prove access.
+                    targets = analytics_lane.targets(shorts_records)
+                    if targets:
+                        vid = sorted(targets)[0]
+                        ytid = targets[vid]
+                        stats = analytics_lane.data_api_stats(api, [ytid]).get(ytid)
+                        if stats:
+                            probe = analytics_lane.reports_metrics(api, ytid, stats["published_at"], now_utc())
+                            report["analytics"]["live_probe"] = {"video_id": vid, "metrics": probe}
+                            if "unavailable" in probe:
+                                report["issues"].append("Analytics probe unavailable: " + probe["unavailable"])
+                        else:
+                            report["issues"].append("Analytics probe target unavailable from YouTube Data API")
+                    else:
+                        report["notes"].append("Analytics probe skipped: no published Shorts with YouTube IDs")
             for r in journal.records.values():
                 if r.get("state") in BLOCKED | {"session_start_uncertain", "upload_uncertain", "expired_uncertain"}:
                     report["issues"].append(r["video_id"] + ": " + r.get("last_error", r["state"]))
