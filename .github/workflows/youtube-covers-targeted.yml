@@ -1,0 +1,58 @@
+name: Apply approved YouTube Shorts covers
+on:
+  workflow_dispatch:
+    inputs:
+      video_ids:
+        description: 'Explicit space-separated sent Short IDs'
+        required: true
+        type: string
+permissions:
+  contents: write
+concurrency:
+  group: hypeless-publishing
+  cancel-in-progress: false
+jobs:
+  covers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m pip install -r reels-studio/tools/youtube/requirements.txt
+      - name: Cover safety regression tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}/reels-studio
+        run: |
+          set -e
+          for test in test_youtube.py test_covers_pending.py test_apply_recent_covers.py; do
+            python3 -m unittest discover -s reels-studio/tests -p "$test" -v
+          done
+      - name: Apply reviewed covers to selected public Shorts
+        env:
+          GH_TOKEN: ${{ github.token }}
+          YOUTUBE_OAUTH_JSON: ${{ secrets.YOUTUBE_OAUTH_JSON }}
+          YOUTUBE_STATE_KEY: ${{ secrets.YOUTUBE_STATE_KEY }}
+          ALLOW_YOUTUBE_COVER_MUTATIONS: 'true'
+          VIDEO_IDS: ${{ inputs.video_ids }}
+        run: |
+          python3 - <<'PY'
+          import os, subprocess, sys
+          ids = os.environ['VIDEO_IDS'].split()
+          if not ids or any(not __import__('re').fullmatch(r'[a-z0-9][a-z0-9_-]{2,80}', i) for i in ids):
+              raise SystemExit('Invalid selected video IDs')
+          raise SystemExit(subprocess.call([sys.executable,'reels-studio/tools/youtube/apply_recent_covers.py',*ids,'--report',os.environ['RUNNER_TEMP']+'/cover-report/report.json']))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: targeted-short-cover-report
+          path: ${{ runner.temp }}/cover-report/
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Clean runner images
+        if: always()
+        run: rm -rf "$RUNNER_TEMP/approved-short-covers"
