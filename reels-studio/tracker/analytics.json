@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-18T18:03:45Z",
+  "updated_at": "2026-11-18T18:15:57Z",
   "videos": {
     "list-free-video-ai-01": {
       "snapshots": [
@@ -1307,6 +1307,26 @@
           "taken_at": "2026-11-18T18:03:45Z",
           "views": 17,
           "window": "24h"
+        },
+        {
+          "age_hours": 168.04,
+          "analytics": {
+            "avg_view_duration_s": 24.0,
+            "avg_view_percentage": 46.23,
+            "engaged_views": 6,
+            "estimated_minutes_watched": 2.0,
+            "shares": 0,
+            "subscribers_gained": 0,
+            "thumbnail_impressions_ctr": "unavailable: requires separate Reporting API reach report or Studio export",
+            "views": 17
+          },
+          "comments": 0,
+          "engagement_rate": 0.0,
+          "likes": 0,
+          "published_at": "2026-11-11T18:13:34Z",
+          "taken_at": "2026-11-18T18:15:57Z",
+          "views": 17,
+          "window": "7d"
         }
       ],
       "title": null,
