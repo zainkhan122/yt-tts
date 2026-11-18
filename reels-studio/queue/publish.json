@@ -717,6 +717,41 @@
       "title": "Univer: Embed Spreadsheets Into Your App",
       "video_id": "repo-univer-01",
       "youtube_ai_generated": true
+    },
+    {
+      "added_at": "2026-11-18T13:05:11Z",
+      "approval": "approved",
+      "approved_cover_sha": "sha256:39b2e1e393cbf04ec9ec2cc528eaaa3799426eea8e0a928ea88ed41898eda0f8",
+      "approved_panel_sha": "4ee52d72eb127633d10cecf2558cf84f0ddf1db7578c7958ac72cd0fdf9fb411",
+      "asset_digest": "sha256:53fbf9d9f13c0dd9a4da1bfea46f44a355bfe8a7628b8559b10106fad6d91b48",
+      "asset_id": 763439382,
+      "asset_size": 7710166,
+      "brief_sha256": "4814012b39287d4e296238b93a64559679cb827a867368f1694b707d3d5d8794",
+      "category": "repo",
+      "cover_reviewed_at": "2026-11-18T13:05:19Z",
+      "cover_sha256": "sha256:39b2e1e393cbf04ec9ec2cc528eaaa3799426eea8e0a928ea88ed41898eda0f8",
+      "expires_at": "2026-11-23T13:05:25Z",
+      "facebook_disclosure": "AI-generated narration and example imagery.",
+      "kit_asset_id": 763439461,
+      "kit_digest": "sha256:fead62bf412c5b9cc6b9d88b8ff67d97540dbea73a53f04aa8437932d48435cb",
+      "media_path": "media/763439382/repo-wireless-battery-01.mp4",
+      "platforms": [
+        "youtube",
+        "instagram",
+        "facebook"
+      ],
+      "priority": 100,
+      "release_tag": "renders-wireless-local-44303233621",
+      "review": {
+        "cover_sha256": "39b2e1e393cbf04ec9ec2cc528eaaa3799426eea8e0a928ea88ed41898eda0f8",
+        "mp4_bytes": 7710166,
+        "mp4_sha256": "53fbf9d9f13c0dd9a4da1bfea46f44a355bfe8a7628b8559b10106fad6d91b48",
+        "run_id": "44303233621"
+      },
+      "reviewed_at": "2026-11-18T13:05:25Z",
+      "title": "Wireless Battery: See Device Levels in Your Taskbar",
+      "video_id": "repo-wireless-battery-01",
+      "youtube_ai_generated": true
     }
   ],
   "schema_version": 1

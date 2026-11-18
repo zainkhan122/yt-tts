@@ -42,7 +42,7 @@
     {
       "id": "setup",
       "type": "flow",
-      "say": "Download the installer from the project\u2019s GitHub releases and run it. Check the supported device list first. Not every model works.",
+      "say": "Download the installer from the project’s GitHub releases and run it. Check the supported device list first. Not every model works.",
       "heading": "INSTALL. CHECK SUPPORT."
     },
     {
@@ -109,53 +109,69 @@
   "contains_synthetic_media": true,
   "seo": {
     "keyword": "Wireless Battery",
+    "aliases": [
+      "battery monitor",
+      "Windows taskbar",
+      "wireless devices"
+    ],
     "onscreen_first3s": "BATTERIES AT A GLANCE",
     "youtube": {
-      "title": "See Wireless Battery Levels on Windows",
-      "description": "Wireless Battery puts supported device battery levels on the Windows taskbar. Check your device compatibility. https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/blob/958a60a4b219189248c97497291fb362aab2a684/README.md",
+      "title": "Wireless Battery: See Device Levels in Your Taskbar",
+      "description": "Wireless Battery: See Device Levels in Your Taskbar. Shows battery levels of supported wireless mice, headsets, keyboards and controllers on the Windows taskbar. Low battery is red at 15 percent or less; blue bolt indicates charging. It is free and open source. Comment BATTERY and follow Hypeless for more tools, minus the hype. https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/blob/958a60a4b219189248c97497291fb362aab2a684/README.md",
+      "hashtags": [
+        "#Shorts",
+        "#WirelessBattery",
+        "#BatteryMonitor",
+        "#WindowsTaskbar",
+        "#WirelessDevices"
+      ],
       "tags": [
         "Wireless Battery",
+        "battery monitor",
+        "Windows taskbar",
+        "wireless devices",
         "Windows tools",
-        "battery monitor"
-      ],
-      "hashtags": [
-        "#Windows",
-        "#OpenSource",
-        "#Shorts"
-      ]
-    },
-    "instagram": {
-      "caption": "See supported wireless device battery levels in the Windows taskbar. Comment BATTERY for the repo.",
-      "hashtags": [
-        "#Windows",
-        "#OpenSource",
-        "#Tech"
-      ]
-    },
-    "facebook": {
-      "caption": "See supported wireless device battery levels right on the Windows taskbar.",
-      "hashtags": [
-        "#Windows",
-        "#OpenSource"
+        "Wireless Battery tutorial",
+        "Wireless Battery alternative"
       ]
     },
     "tiktok": {
-      "caption": "Wireless Battery keeps supported device levels on your Windows taskbar. Comment BATTERY for the repo.",
+      "caption": "Wireless Battery: See Device Levels in Your Taskbar. Shows battery levels of supported wireless mice, headsets, keyboards and controllers on the Windows taskbar. It is free and open source.",
       "hashtags": [
-        "#Windows",
-        "#Tech",
-        "#OpenSource"
+        "#WirelessBattery",
+        "#BatteryMonitor",
+        "#WindowsTaskbar",
+        "#WirelessDevices",
+        "#WindowsTools"
+      ]
+    },
+    "instagram": {
+      "caption": "Wireless Battery: See Device Levels in Your Taskbar. Shows battery levels of supported wireless mice, headsets, keyboards and controllers on the Windows taskbar. It is free and open source.",
+      "hashtags": [
+        "#WirelessBattery",
+        "#BatteryMonitor",
+        "#WindowsTaskbar",
+        "#WirelessDevices",
+        "#WindowsTools"
+      ]
+    },
+    "facebook": {
+      "caption": "Wireless Battery: See Device Levels in Your Taskbar. Shows battery levels of supported wireless mice, headsets, keyboards and controllers on the Windows taskbar. It is free and open source.",
+      "hashtags": [
+        "#WirelessBattery",
+        "#BatteryMonitor",
+        "#WindowsTaskbar",
+        "#WirelessDevices",
+        "#WindowsTools"
       ]
     },
     "x": {
-      "text": "See supported wireless battery levels on your Windows taskbar.",
+      "text": "Wireless Battery Shows battery levels of supported wireless mice, headsets, keyboards and controllers on the Windows taskbar.",
       "hashtags": [
-        "#Windows"
+        "#WirelessBattery",
+        "#BatteryMonitor"
       ]
-    },
-    "aliases": [
-      "battery monitor"
-    ]
+    }
   },
   "treatment": {
     "archetype": "spotlight",
