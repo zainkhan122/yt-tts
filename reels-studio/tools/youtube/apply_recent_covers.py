@@ -15,7 +15,7 @@ sys.path.insert(0, str(ROOT))
 from lib.secrets import redact
 from tools.post.common import config, load_json
 from tools.post.state import Journal
-from tools.youtube.api import YouTubeAPI
+from tools.youtube.api import YouTubeAPI, YouTubeError
 from tools.youtube.contracts import fetch_short_cover
 from tools.youtube.metadata import attach_short_cover, get_video
 from tools.youtube.runner import external_id
@@ -43,6 +43,8 @@ def apply(api, journal, records, items, ids, work):
             state = attach_short_cover(api, journal, row, yid, cover)
             results.append({'video_id': vid, 'youtube_id': yid, 'state': state,
                             'error': row.get('thumbnail_error'), 'cover_digest': cover['sha256']})
+        except YouTubeError as exc:
+            results.append({'video_id': vid, 'state': 'error', 'error': redact(str(exc))})
         except RuntimeError:
             raise  # journal conflicts and ambiguous writes must halt the whole batch
         except Exception as exc:
