@@ -5032,6 +5032,31 @@
       "updated_at": "2026-11-18T13:12:47Z",
       "video_id": "repo-wireless-battery-01"
     },
+    "repo-wireless-battery-01:youtube": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac904af6a5c39ccb662a01f",
+      "due_at": "2026-11-18T23:09:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:53fbf9d9f13c0dd9a4da1bfea46f44a355bfe8a7628b8559b10106fad6d91b48",
+        "asset_id": 763449974,
+        "asset_size": 7710166,
+        "kit_asset_id": 763450115,
+        "kit_digest": "sha256:669192be2583f32b5367c8589375c274b317c27cc87f479c3f7bdabc9aafc068",
+        "media_path": "media/763449974/repo-wireless-battery-01.mp4",
+        "release_tag": "renders-wireless-local-44303233621-r2",
+        "video_id": "repo-wireless-battery-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/763449974/repo-wireless-battery-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "68386735904b41ce4b4a5047dadd408d97d83014a4a94a688888a2b4c038abe7",
+      "platform": "youtube",
+      "state": "submitting",
+      "text": "Wireless Battery shows supported wireless device levels on your Windows taskbar. See at a glance when a mouse, headset, keyboard or controller needs charging. Check the project\u2019s supported device list before installing. https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/blob/958a60a4b219189248c97497291fb362aab2a684/README.md\n\n#Shorts #WirelessBattery #BatteryMonitor #WindowsTaskbar #WirelessDevices",
+      "title": "Wireless Battery: See Device Levels in Your Taskbar",
+      "updated_at": "2026-11-18T13:12:48Z",
+      "video_id": "repo-wireless-battery-01"
+    },
     "spotlight-papermorph-01:youtube": {
       "buffer_post_id": "6ac904b32f26cc482c22c526",
       "channel_id": "6ac904af6a5c39ccb662a01f",
