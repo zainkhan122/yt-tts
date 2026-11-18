@@ -3872,9 +3872,11 @@
     },
     "repo-paper-orchestra-01:youtube": {
       "attempts": 1,
+      "buffer_post_id": "6afdb67b7a1c17d8bbd21124",
       "category": "repo",
       "channel_id": "6ac904af6a5c39ccb662a01f",
-      "due_at": "2026-11-19T18:15:00Z",
+      "due_at": "2026-11-19T18:15:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:4608051802f7e4be7a97b0eb4656d9d413028d9c8e19bbf4ae7810d09bbd98e7",
         "asset_id": 763697583,
@@ -3889,10 +3891,11 @@
       "notify_subscribers": true,
       "payload_sha256": "5d77165211b9cf66f2598abfc5e198eabfa58db68ad8df6efabd7077c24f0a34",
       "platform": "youtube",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "PaperOrchestra is a research-writing framework that coordinates specialist agents. Review claims, citations and figures; model access may cost money. https://github.com/google-research/paper-orchestra/blob/d9bae997e793a015ed38bb1605be9eb58c00284f/README.md\n\n#Shorts #PaperOrchestra #ResearchWriting",
       "title": "PaperOrchestra: Meet Your AI Research Writing Team",
-      "updated_at": "2026-11-18T14:30:17Z",
+      "updated_at": "2026-11-18T14:30:19Z",
       "video_id": "repo-paper-orchestra-01"
     },
     "repo-poki-01:facebook": {
