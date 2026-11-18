@@ -3,8 +3,8 @@
 
 Two data sources, one honest report:
   * YouTube Data API (current grant: youtube.force-ssl) - publishedAt, views, likes, comments.
-  * YouTube Analytics API (grant: yt-analytics.readonly) - impressions, CTR, average view
-    duration/percentage, i.e. the numbers that say whether a cover or a title actually works.
+  * YouTube Analytics API (grant: yt-analytics.readonly) - average view duration/percentage and other supported engagement metrics.
+    Thumbnail impressions and CTR require a separate Reporting API reach report or Studio export.
     That scope is NOT in the current grant. The lane still runs: those fields are recorded as
     explicitly unavailable with the reason, never as zeros. One-time remedy (owner action):
       REELS_EXTRA_SCOPES=https://www.googleapis.com/auth/yt-analytics.readonly
@@ -35,7 +35,7 @@ from tools.youtube.api import ANALYTICS_REPORTS, Deferred, YouTubeAPI  # noqa: E
 STORE = ROOT / "tracker/analytics.json"
 SCHEMA_VERSION = 1
 WINDOWS = (("24h", 24.0), ("7d", 168.0))
-ANALYTICS_METRICS = "impressions,impressionClickThroughRate,averageViewDuration,averageViewPercentage"
+ANALYTICS_METRICS = "views,engagedViews,estimatedMinutesWatched,averageViewDuration,averageViewPercentage,subscribersGained,shares"
 ID_RE = re.compile(r"(?:youtu\.be/|youtube\.com/(?:shorts/|watch\?v=))([A-Za-z0-9_-]{11})(?:[?&#/]|$)")
 
 
@@ -100,9 +100,11 @@ def reports_metrics(api, youtube_id, published_at, now):
     rows = body.get("rows") or []
     if not rows:
         return {"unavailable": "no rows returned (video may be younger than Analytics freshness)"}
-    impressions, ctr, avg_view_s, avg_view_pct = rows[0]
-    return {"impressions": int(impressions), "ctr": round(float(ctr), 5),
-            "avg_view_duration_s": round(float(avg_view_s), 2), "avg_view_percentage": round(float(avg_view_pct), 2)}
+    views, engaged, minutes, avg_view_s, avg_view_pct, subs, shares = rows[0]
+    return {"views": int(views), "engaged_views": int(engaged), "estimated_minutes_watched": round(float(minutes), 2),
+            "avg_view_duration_s": round(float(avg_view_s), 2), "avg_view_percentage": round(float(avg_view_pct), 2),
+            "subscribers_gained": int(subs), "shares": int(shares),
+            "thumbnail_impressions_ctr": "unavailable: requires separate Reporting API reach report or Studio export"}
 
 
 def due_windows(record, age_hours):
@@ -152,7 +154,11 @@ def summarize(store):
     videos = store.get("videos", {})
     for window, _ in WINDOWS:
         rows = {vid: next((s for s in rec.get("snapshots", []) if s["window"] == window), None) for vid, rec in videos.items()}
-        rows = {vid: s for vid, s in rows.items() if s}
+        # A delayed snapshot is not a true 24h/7d measurement. Only compare
+        # samples captured within 6h of 24h, or within 24h of 7d.
+        target = 24 if window == "24h" else 168
+        tolerance = 6 if window == "24h" else 24
+        rows = {vid: s for vid, s in rows.items() if s and target <= s.get("age_hours", -1) <= target + tolerance}
         if not rows:
             continue
         lines.append(f"== {window} window ({len(rows)} videos with a snapshot)")
@@ -162,10 +168,10 @@ def summarize(store):
             baseline = _median(others)
             ratio = f"x{s['views'] / baseline:.2f} vs median(n={len(others)})" if baseline else "baseline: needs 2+ other videos"
             a = s.get("analytics") or {}
-            perf = (f"CTR {a['ctr'] * 100:.2f}% · avg view {a['avg_view_percentage']:.1f}% · {a['impressions']} impressions"
-                    if "ctr" in a else f"CTR/retention unavailable ({a.get('unavailable', 'no data')})")
+            perf = (f"avg view {a['avg_view_percentage']:.1f}% · {a['engaged_views']} engaged views"
+                    if "engaged_views" in a else f"retention unavailable ({a.get('unavailable', 'no data')})")
             eng = f"{s['engagement_rate'] * 100:.2f}%" if s.get("engagement_rate") is not None else "-"
-            lines.append(f"  {vid:26s} views {s['views']:>6} (eng {eng})  {ratio}  {perf}")
+            lines.append(f"  {vid:26s} views {s['views']:>6} (age {s['age_hours']:.1f}h; eng {eng})  {ratio}  {perf}")
         lines.append("")
     if not lines:
         lines = ["no snapshots yet: run `analytics.py snapshot` once videos are 24 h old"]

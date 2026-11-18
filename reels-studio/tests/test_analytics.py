@@ -47,7 +47,7 @@ def records():
 
 
 STATS = {"AAAAAAAAAAA": {"published_at": iso(30), "views": 1000, "likes": 80, "comments": 20},
-         "BBBBBBBBBBB": {"published_at": iso(200), "views": 4000, "likes": 300, "comments": 100}}
+         "BBBBBBBBBBB": {"published_at": iso(29), "views": 4000, "likes": 300, "comments": 100}}
 
 
 class TargetingTests(unittest.TestCase):
@@ -69,7 +69,7 @@ class SnapshotTests(unittest.TestCase):
         changed = analytics.snapshot(api, recs, store, NOW)
         self.assertIn("news-a-01@24h", changed)
         self.assertIn("news-b-01@24h", changed)
-        self.assertIn("news-b-01@7d", changed)
+        self.assertNotIn("news-b-01@7d", changed)
         a24 = store["videos"]["news-a-01"]["snapshots"][0]
         self.assertEqual(a24["views"], 1000)
         self.assertEqual(a24["engagement_rate"], 0.1)
@@ -80,11 +80,11 @@ class SnapshotTests(unittest.TestCase):
 
     def test_available_analytics_metrics_are_stored(self):
         store = analytics.empty_store()
-        api = FakeAPI(stats=STATS, rows=[[2500, 0.0432, 8.5, 61.2]])
+        api = FakeAPI(stats=STATS, rows=[[2500, 2000, 300.0, 8.5, 61.2, 3, 5]])
         analytics.snapshot(api, records(), store, NOW)
         entry = store["videos"]["news-a-01"]["snapshots"][0]["analytics"]
-        self.assertEqual(entry["impressions"], 2500)
-        self.assertAlmostEqual(entry["ctr"], 0.0432)
+        self.assertEqual(entry["engaged_views"], 2000)
+        self.assertIn("unavailable", entry["thumbnail_impressions_ctr"])
         self.assertAlmostEqual(entry["avg_view_percentage"], 61.2)
 
     def test_quota_deferral_propagates_instead_of_masquerading_as_missing_data(self):
@@ -107,10 +107,10 @@ class ReportTests(unittest.TestCase):
         recs["news-d-01:youtube"] = {"video_id": "news-d-01", "platform": "youtube", "state": "sent",
                                      "external_url": "https://www.youtube.com/watch?v=CCCCCCCCCCC"}
         stats = {**STATS, "CCCCCCCCCCC": {"published_at": iso(30), "views": 500, "likes": 10, "comments": 5}}
-        analytics.snapshot(FakeAPI(stats=stats, rows=[[10, 0.02, 5, 50]]), recs, store, NOW)
+        analytics.snapshot(FakeAPI(stats=stats, rows=[[10, 8, 1, 5, 50, 0, 0]]), recs, store, NOW)
         text = analytics.summarize(store)
         self.assertIn("median(n=2)", text)  # three videos: each is judged against the other two
-        self.assertIn("CTR 2.00%", text)
+        self.assertIn("avg view 50.0%", text)
 
     def test_single_video_report_says_baseline_is_missing(self):
         store = analytics.empty_store()
@@ -156,7 +156,7 @@ class EndpointTests(unittest.TestCase):
                     headers = {}
 
                     def json(self):
-                        return {"rows": [[5, 0.1, 6.0, 40.0]]}
+                        return {"rows": [[5, 4, 1, 6.0, 40.0, 0, 0]]}
                 return R()
 
         session = Session()

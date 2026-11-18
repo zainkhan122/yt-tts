@@ -129,6 +129,11 @@ def attach_short_cover(api, journal, row, video_id, cover):
         return "blocked"
     try:
         if row.get("thumbnail_digest") != digest:
+            video = get_video(api, video_id)
+            if video.get("processingDetails", {}).get("processingStatus") != "succeeded":
+                row["thumbnail_error"] = "Waiting for YouTube processingStatus=succeeded before setting Shorts cover"
+                journal.save("Shorts cover waiting for processing " + row["video_id"])
+                return "pending"  # processing delays are not failed upload attempts
             set_thumbnail(api, row, cover["path"], digest, journal)
         fresh = get_video(api, video_id)
         if fresh.get("contentDetails", {}).get("hasCustomThumbnail") is True:
