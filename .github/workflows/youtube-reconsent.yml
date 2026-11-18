@@ -1,0 +1,62 @@
+name: YouTube Analytics re-consent
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Start private consent or finish using the temporary callback secret'
+        type: choice
+        options: [start, finish]
+        default: start
+      start_run_id:
+        description: 'Start workflow run ID (finish only)'
+        required: false
+        default: ''
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: hypeless-youtube-oauth
+  cancel-in-progress: false
+jobs:
+  consent:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m pip install 'requests>=2.32.3,<3' 'PyNaCl>=1.5,<2'
+      - name: Test secure handoff
+        env:
+          PYTHONPATH: ${{ github.workspace }}/reels-studio
+        run: python3 -m unittest discover -s reels-studio/tests -p 'test_oauth_reconsent_actions.py' -v
+      - name: Recover encrypted handoff from start run
+        if: inputs.mode == 'finish'
+        uses: actions/download-artifact@v4
+        with:
+          name: youtube-consent-handoff
+          path: ${{ runner.temp }}/yt-consent
+          run-id: ${{ inputs.start_run_id }}
+          github-token: ${{ github.token }}
+      - name: Prepare or exchange private consent
+        env:
+          YOUTUBE_OAUTH_JSON: ${{ secrets.YOUTUBE_OAUTH_JSON }}
+          YOUTUBE_STATE_KEY: ${{ secrets.YOUTUBE_STATE_KEY }}
+          YOUTUBE_OAUTH_RESPONSE_B64: ${{ secrets.YOUTUBE_OAUTH_RESPONSE_B64 }}
+          GH_TOKEN: ${{ secrets.YOUTUBE_OAUTH_SECRET_ADMIN }}
+          REELS_EXTRA_SCOPES: https://www.googleapis.com/auth/yt-analytics.readonly
+          MODE: ${{ inputs.mode }}
+          CONSENT_DIR: ${{ runner.temp }}/yt-consent
+        run: python3 reels-studio/tools/youtube/oauth_reconsent_actions.py "$MODE" "$CONSENT_DIR"
+      - name: Store private consent handoff for owner
+        if: inputs.mode == 'start'
+        uses: actions/upload-artifact@v4
+        with:
+          name: youtube-consent-handoff
+          path: ${{ runner.temp }}/yt-consent/
+          retention-days: 1
+          if-no-files-found: error
+      - name: Remove runner secrets and handoff
+        if: always()
+        run: rm -rf "$RUNNER_TEMP/yt-consent" "$HOME/.config/reels-studio/youtube_oauth.json"
