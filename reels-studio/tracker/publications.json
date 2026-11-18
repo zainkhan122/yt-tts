@@ -3842,6 +3842,31 @@
       "updated_at": "2026-10-13T23:05:04Z",
       "video_id": "repo-opencr-01"
     },
+    "repo-paper-orchestra-01:facebook": {
+      "attempts": 1,
+      "category": "repo",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-11-19T22:10:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:4608051802f7e4be7a97b0eb4656d9d413028d9c8e19bbf4ae7810d09bbd98e7",
+        "asset_id": 763697583,
+        "asset_size": 8965196,
+        "kit_asset_id": 763697676,
+        "kit_digest": "sha256:e423e6ee631da3b4cb8d5039cae97d539e0b8e54934b70788b899b4683fcce07",
+        "media_path": "media/763697583/repo-paper-orchestra-01.mp4",
+        "release_tag": "renders-paper-orchestra-local-44311553849-r3",
+        "video_id": "repo-paper-orchestra-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/763697583/repo-paper-orchestra-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "2ea5c98c11c48fe3eece32066b3f36843e8ae8142824a7309ee7ac09c18c26aa",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "PaperOrchestra coordinates research-writing agents to create a LaTeX draft from your materials. Verify every claim.\n\nAI-generated narration.\n\n#PaperOrchestra #ResearchWriting #ResearchTools",
+      "title": "PaperOrchestra: Meet Your AI Research Writing Team",
+      "updated_at": "2026-11-18T14:30:20Z",
+      "video_id": "repo-paper-orchestra-01"
+    },
     "repo-paper-orchestra-01:instagram": {
       "attempts": 1,
       "buffer_post_id": "6afdb677e7e50af8cdd80a50",
