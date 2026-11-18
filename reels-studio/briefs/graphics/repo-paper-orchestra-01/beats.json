@@ -1,0 +1,103 @@
+{
+  "tool": "paper-orchestra",
+  "handle": "@hypeless",
+  "template": "paper-orchestra",
+  "script_sha256": "sha256:c4d39bb9834da9e03c2ab8d1dd768245c1cbf9c9963da81906ee7238ee56a897",
+  "scenes": [
+    {
+      "scene_id": "hook",
+      "phrase": 0,
+      "archetype": "po_hook",
+      "headline": "NOTES INTO A PAPER",
+      "feature_id": null,
+      "depicts": "Turn messy research notes into a paper draft. Meet Paper Orchestra, a multi agent research writing framework.",
+      "payload": {
+        "cue_phrases": [
+          "research notes",
+          "Paper Orchestra"
+        ]
+      },
+      "evidence_image": "official-overview.png"
+    },
+    {
+      "scene_id": "inputs",
+      "phrase": 1,
+      "archetype": "po_inputs",
+      "headline": "START WITH YOUR RESEARCH",
+      "feature_id": "f1",
+      "depicts": "Give it your ideas, experimental logs, and a LaTeX template.",
+      "payload": {
+        "cue_phrases": [
+          "ideas",
+          "experimental logs",
+          "LaTeX template"
+        ]
+      }
+    },
+    {
+      "scene_id": "agents",
+      "phrase": 2,
+      "archetype": "po_agents",
+      "headline": "A TEAM OF AGENTS",
+      "feature_id": "f2",
+      "depicts": "Specialist agents build an outline, search related literature, draft sections, and refine the manuscript.",
+      "payload": {
+        "cue_phrases": [
+          "outline",
+          "literature",
+          "draft sections",
+          "refine"
+        ]
+      }
+    },
+    {
+      "scene_id": "figures",
+      "phrase": 3,
+      "archetype": "po_figures",
+      "headline": "PLOTS MEET PAPER",
+      "feature_id": "f3",
+      "depicts": "An optional plotting agent can generate figures. The output is a LaTeX manuscript, ready for you to review.",
+      "payload": {
+        "cue_phrases": [
+          "plotting agent",
+          "figures",
+          "LaTeX manuscript",
+          "review"
+        ]
+      }
+    },
+    {
+      "scene_id": "limits",
+      "phrase": 4,
+      "archetype": "po_limits",
+      "headline": "CHECK THE WORK",
+      "feature_id": "f4",
+      "depicts": "You still need to check every claim, citation, and chart. You need model access and API keys, which can cost money.",
+      "payload": {
+        "cue_phrases": [
+          "claim",
+          "citation",
+          "chart",
+          "API keys",
+          "cost money"
+        ]
+      }
+    },
+    {
+      "scene_id": "cta",
+      "phrase": 5,
+      "archetype": "endcard",
+      "headline": "YOUR CALL",
+      "feature_id": null,
+      "depicts": "Want the repo? Comment PAPER and follow Hypeless for more tools, minus the hype.",
+      "payload": {
+        "cue_phrases": [
+          "PAPER"
+        ],
+        "keyword": "PAPER",
+        "prompt": "for the repo",
+        "follow": "@hypeless"
+      }
+    }
+  ]
+}

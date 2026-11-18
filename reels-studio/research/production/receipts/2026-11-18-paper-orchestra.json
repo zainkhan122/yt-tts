@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-18-paper-orchestra",
+  "created_at": "2026-11-18T13:12:10Z",
+  "briefs": {
+    "repo-paper-orchestra-01": {
+      "brief_sha256": "21e7be78470f020a5a25756d71b6333351ad4a4cc71f7d81675982fb1bf7a2e4",
+      "brief_identity_sha256": "6532cdc5044dabcc578280e30b77b54748a906d4dad12dd65fc1b3b6eef39393",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "5b0f7566b28d13af2070fe98ca2d4f55e6bf5de7e1af47d0c53bffac5d9c894c",
+          "word_count": 94
+        },
+        "assets": {
+          "capture_id": "repo-paper-orchestra-01",
+          "manifest_sha256": "d571a9d69aef139a61b3f3aeb872ffd67a36ac9b243136693c00d812be5cbdbf",
+          "files": [
+            {
+              "path": "official-overview.png",
+              "sha256": "06279a0778f88eb55a1484e3d94f2bebed3b0f826b1106d2b9d630fa5c9d7896"
+            },
+            {
+              "path": "repository.png",
+              "sha256": "524e5a99f66c7f3f41c562b5e937147da1990c9d79968d07d88e7155068b9501"
+            },
+            {
+              "path": "paper.png",
+              "sha256": "ca4c810827af24611a3dd5e9d347812966ce1eb06dc6b76ceae69279fdfcacb1"
+            }
+          ],
+          "cover_sha256": "64a206ad6d1972dcf467cd6eed7cb6eb063ea6a4b58a4e0725ffa68aa93f3f39",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-paper-orchestra-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}

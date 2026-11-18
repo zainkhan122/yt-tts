@@ -1,0 +1,42 @@
+{
+  "tool": {
+    "name": "PaperOrchestra",
+    "repo_url": "https://github.com/google-research/paper-orchestra",
+    "category": "Research writing",
+    "license": "Open source"
+  },
+  "features": [
+    {
+      "id": "f1",
+      "title": "Research materials",
+      "what": "Ideas and experimental logs feed the pipeline.",
+      "evidence_quote": "unconstrained pre-writing materials (ideas and experimental logs)"
+    },
+    {
+      "id": "f2",
+      "title": "Specialized agents",
+      "what": "Outlining, literature review, writing, refinement and plotting.",
+      "evidence_quote": "Outline, Literature Review, Section Writing, Content Refinement, Plotting"
+    },
+    {
+      "id": "f3",
+      "title": "Plots and LaTeX",
+      "what": "Optional plotting and LaTeX manuscript output.",
+      "evidence_quote": "Enable the plotting agent workflow to generate figures from code"
+    },
+    {
+      "id": "f4",
+      "title": "Model access",
+      "what": "Provider credentials are needed for the chosen model.",
+      "evidence_quote": "You need to specify related keys if you want to use the model"
+    }
+  ],
+  "risks": [
+    {
+      "text": "Verify outputs. Model provider access may incur charges."
+    }
+  ],
+  "source_urls": [
+    "https://github.com/google-research/paper-orchestra/blob/d9bae997e793a015ed38bb1605be9eb58c00284f/README.md"
+  ]
+}

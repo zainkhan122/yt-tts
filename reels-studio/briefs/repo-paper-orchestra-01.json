@@ -1,0 +1,201 @@
+{
+  "id": "repo-paper-orchestra-01",
+  "capture": "captures/repo-paper-orchestra-01",
+  "title": "PaperOrchestra: Turn Research Notes Into a Paper Draft",
+  "niche": "research tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "PaperOrchestra",
+    "AI research paper",
+    "research writing",
+    "multi agent workflow"
+  ],
+  "sources": [
+    "https://github.com/google-research/paper-orchestra/blob/d9bae997e793a015ed38bb1605be9eb58c00284f/README.md"
+  ],
+  "facts": {
+    "method": "Pinned official repository README and research paper.",
+    "limits": "Model provider credentials may cost money; generated claims, citations and figures must be checked by the author. Not an officially supported Google product."
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "flow",
+      "say": "Turn messy research notes into a paper draft. Meet Paper Orchestra, a multi agent research writing framework.",
+      "heading": "NOTES INTO A PAPER"
+    },
+    {
+      "id": "inputs",
+      "type": "flow",
+      "say": "Give it your ideas, experimental logs, and a LaTeX template.",
+      "heading": "START WITH YOUR RESEARCH"
+    },
+    {
+      "id": "agents",
+      "type": "flow",
+      "say": "Specialist agents build an outline, search related literature, draft sections, and refine the manuscript.",
+      "heading": "A TEAM OF AGENTS"
+    },
+    {
+      "id": "figures",
+      "type": "flow",
+      "say": "An optional plotting agent can generate figures. The output is a LaTeX manuscript, ready for you to review.",
+      "heading": "PLOTS MEET PAPER"
+    },
+    {
+      "id": "limits",
+      "type": "flow",
+      "say": "You still need to check every claim, citation, and chart. You need model access and API keys, which can cost money.",
+      "heading": "CHECK THE WORK"
+    },
+    {
+      "id": "cta",
+      "type": "flow",
+      "say": "Want the repo? Comment PAPER and follow Hypeless for more tools, minus the hype.",
+      "heading": "YOUR CALL"
+    }
+  ],
+  "renderer": "graphics",
+  "graphics": {
+    "dir": "briefs/graphics/repo-paper-orchestra-01",
+    "template": "paper-orchestra"
+  },
+  "lexicon": {
+    "API": "A P I",
+    "PAPER": "paper",
+    "LaTeX": "Lay Tech"
+  },
+  "motion_standard": 2,
+  "viewer": {
+    "who": "Researchers and technical writers",
+    "problem": "Turning ideas and experimental results into a paper draft takes time",
+    "job": "Understand what the research-writing agents do and where human verification is necessary"
+  },
+  "idea": "Turn research materials into a LaTeX paper draft using coordinated specialist agents.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "A multi-agent framework turns research ideas and experimental logs into LaTeX manuscripts.",
+      "source": "https://github.com/google-research/paper-orchestra/blob/d9bae997e793a015ed38bb1605be9eb58c00284f/README.md"
+    },
+    {
+      "id": "c2",
+      "text": "Agents handle outlining, literature review, writing, refinement and optional figure generation.",
+      "source": "https://github.com/google-research/paper-orchestra/blob/d9bae997e793a015ed38bb1605be9eb58c00284f/README.md"
+    },
+    {
+      "id": "c3",
+      "text": "Model providers require credentials and generated output should be checked.",
+      "source": "https://github.com/google-research/paper-orchestra/blob/d9bae997e793a015ed38bb1605be9eb58c00284f/README.md"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/google-research/paper-orchestra/blob/d9bae997e793a015ed38bb1605be9eb58c00284f/README.md",
+      "how_shown": "Official overview and original conceptual animated research workflow."
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://github.com/google-research/paper-orchestra/blob/d9bae997e793a015ed38bb1605be9eb58c00284f/README.md",
+      "how_shown": "Official overview and original conceptual animated research workflow."
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://github.com/google-research/paper-orchestra/blob/d9bae997e793a015ed38bb1605be9eb58c00284f/README.md",
+      "how_shown": "Official overview and original conceptual animated research workflow."
+    }
+  ],
+  "review": {
+    "reviewed_at": "2026-11-18",
+    "reviewer": "agent: pinned official repository",
+    "notes": "Sourced research; production review pending."
+  },
+  "contains_synthetic_media": true,
+  "seo": {
+    "keyword": "PaperOrchestra",
+    "onscreen_first3s": "NOTES INTO A PAPER",
+    "youtube": {
+      "title": "PaperOrchestra: Turn Research Notes Into a Paper Draft",
+      "description": "PaperOrchestra is a research-writing framework that coordinates specialist agents. Review claims, citations and figures; model access may cost money. https://github.com/google-research/paper-orchestra/blob/d9bae997e793a015ed38bb1605be9eb58c00284f/README.md",
+      "tags": [
+        "PaperOrchestra",
+        "AI research paper",
+        "research writing",
+        "multi agent workflow"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#PaperOrchestra",
+        "#ResearchWriting"
+      ]
+    },
+    "instagram": {
+      "caption": "PaperOrchestra helps turn research notes into a paper draft. Review the results. Comment PAPER for the repo.",
+      "hashtags": [
+        "#PaperOrchestra",
+        "#ResearchWriting",
+        "#ResearchTools"
+      ]
+    },
+    "facebook": {
+      "caption": "PaperOrchestra coordinates research-writing agents to create a LaTeX draft from your materials. Verify every claim.",
+      "hashtags": [
+        "#PaperOrchestra",
+        "#ResearchWriting",
+        "#ResearchTools"
+      ]
+    },
+    "tiktok": {
+      "caption": "PaperOrchestra coordinates agents to draft research papers. Comment PAPER for the repo.",
+      "hashtags": [
+        "#PaperOrchestra",
+        "#ResearchWriting",
+        "#ResearchTools"
+      ]
+    },
+    "x": {
+      "text": "PaperOrchestra coordinates research-writing agents. Verify the draft.",
+      "hashtags": [
+        "#PaperOrchestra"
+      ]
+    },
+    "aliases": [
+      "AI research paper",
+      "research writing"
+    ]
+  },
+  "treatment": {
+    "archetype": "workflow",
+    "selected_cover": 0,
+    "cover_concepts": [
+      {
+        "layout": "window",
+        "text": "NOTES INTO A PAPER",
+        "media": {
+          "kind": "tool_media",
+          "file": "official-overview.png"
+        }
+      },
+      {
+        "layout": "bleed",
+        "text": "RESEARCH MEETS AI AGENTS",
+        "media": {
+          "kind": "tool_media",
+          "file": "repository.png"
+        }
+      },
+      {
+        "layout": "split",
+        "text": "FROM NOTES TO DRAFT",
+        "media": {
+          "kind": "tool_media",
+          "file": "paper.png"
+        }
+      }
+    ]
+  }
+}
