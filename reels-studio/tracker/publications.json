@@ -4978,9 +4978,11 @@
     },
     "repo-wireless-battery-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6afda44b61bd3b7f60c20078",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-11-18T17:11:00Z",
+      "due_at": "2026-11-18T17:11:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:53fbf9d9f13c0dd9a4da1bfea46f44a355bfe8a7628b8559b10106fad6d91b48",
         "asset_id": 763449974,
@@ -4995,10 +4997,11 @@
       "notify_subscribers": false,
       "payload_sha256": "57d6a99e9ea7c933fe303e2c110535a621aec49d6b84198e0f60e96fa1b0ea53",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Wireless Battery gives Windows users a quick view of supported peripherals without opening vendor apps. Device support varies, so check the list before installing.\n\nAI-generated narration.\n\n#WirelessBattery #WindowsTaskbar #BatteryMonitor",
       "title": "Wireless Battery: See Device Levels in Your Taskbar",
-      "updated_at": "2026-11-18T13:12:41Z",
+      "updated_at": "2026-11-18T13:12:44Z",
       "video_id": "repo-wireless-battery-01"
     },
     "spotlight-papermorph-01:youtube": {
