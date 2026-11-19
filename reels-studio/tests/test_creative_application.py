@@ -40,9 +40,9 @@ def treatment(archetype="quest", selected=0):
             "archetype": archetype, "hook_mechanic": "one-person film crew",
             "open_loop": {"plant": "what will the cut look like?", "payoff_scene": "how"},
             "proof_moment": "how",
-            "cover_concepts": [{"text": "AGENT SHOOTS ADS", "visual": "repo page", "gap": "what can it shoot?"},
-                               {"text": "NO CREW NEEDED", "visual": "demo clip", "gap": "really, no crew?"},
-                               {"text": "POINT. RE-EDIT.", "visual": "readme", "gap": "edit by pointing?"}],
+            "cover_concepts": [{"text": "AGENT SHOOTS GREAT ADS", "layout": "bleed", "media": {"kind": "tool_media", "file": "desktop-top.jpg"}},
+                               {"text": "NO CREW NEEDED HERE", "layout": "window", "media": {"kind": "tool_media", "file": "desktop-full.jpg"}},
+                               {"text": "POINT AND RE EDIT", "layout": "split", "media": {"kind": "tool_media", "file": "og.png"}}],
             "selected_cover": selected}
 
 
@@ -147,7 +147,7 @@ class CoverLabTests(unittest.TestCase):
         cap = Path(tmp) / "captures" / "demo-01"
         cap.mkdir(parents=True)
         for name, colour in zip(("desktop-top.jpg", "desktop-full.jpg", "og.png"), colours):
-            im = Image.new("RGB", (640, 400), colour)
+            im = Image.new("RGB", (1280, 800), colour)
             pen = ImageDraw.Draw(im)  # real captures have blocks of UI; flat fills read as blank
             lighter = tuple(min(255, c + 30) for c in colour)
             pen.rectangle([0, 0, 120, 400], fill=lighter)
@@ -174,6 +174,9 @@ class CoverLabTests(unittest.TestCase):
         rep = [{"concept": 0, "layout": "bleed", "source": "a.jpg", "contrast_white": 9, "contrast_accent": 9, "words": 3},
                {"concept": 1, "layout": "bleed", "source": "b.jpg", "contrast_white": 2.1, "contrast_accent": 3.0, "words": 6},
                {"concept": 2, "layout": "split", "source": "b.jpg", "contrast_white": 9, "contrast_accent": 9, "words": 3}]
+        for i, row in enumerate(rep):
+            row["text"] = "ONE TWO THREE FOUR FIVE SIX" if i == 1 else "ONE TWO THREE FOUR"
+            row["text_box"] = [108, 330, 972, 1590]
         problems = cover_lab.audit(rep)
         # concepts 0/1 share a layout, 1 fails contrast AND word count, 1/2 share media
         self.assertTrue(any("reuse a layout" in p for p in problems))
@@ -228,7 +231,7 @@ class CreativeProofTests(unittest.TestCase):
         self.covers = self.tmp / "covers" / "demo-01"
         self.covers.mkdir(parents=True)
         (self.covers / "cover-selected.jpg").write_bytes(b"designed-cover-bytes")
-        self.sel = {"brief": "demo-01", "selected": 1, "text": "NO CREW NEEDED", "layout": "window",
+        self.sel = {"brief": "demo-01", "selected": 1, "text": "NO CREW NEEDED HERE", "layout": "window",
                     "archetype": "quest",
                     "sha256": hashlib.sha256(b"designed-cover-bytes").hexdigest()}
         self.write_sel()
@@ -250,7 +253,7 @@ class CreativeProofTests(unittest.TestCase):
     def test_selected_concept_replaces_the_frame_grab(self):
         cover = self.proof()
         self.assertEqual(cover["source"], "cover-lab")
-        self.assertEqual(cover["text"], "NO CREW NEEDED")
+        self.assertEqual(cover["text"], "NO CREW NEEDED HERE")
         self.assertTrue((self.out / "cover.jpg").read_bytes() == b"designed-cover-bytes")
 
     def test_missing_cover_lab_fails_the_render(self):
@@ -319,7 +322,7 @@ class ApplicationCheckTests(unittest.TestCase):
 
     def test_matching_render_is_clean(self):
         manifest = {"creative": {"archetype": "quest", "cover": {"source": "cover-lab",
-                                                                  "text": "AGENT SHOOTS ADS"}}}
+                                                                  "text": "AGENT SHOOTS GREAT ADS"}}}
         self.assertEqual(creative_check.proof_errors(self.brief(), manifest), [])
 
     def test_wrong_archetype_and_wrong_cover_text_are_reported(self):

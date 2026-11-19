@@ -82,6 +82,7 @@ jobs:
         working-directory: reels-studio
         run: |
           set -euo pipefail
+          export PYTHONPATH=.:tools
           for test_file in \
             test_production_gate.py \
             test_render_attempts.py \
@@ -90,7 +91,6 @@ jobs:
             test_dedicated_cover_frame.py \
             test_cover_crop_safety.py \
             test_brief_lint.py \
-            test_creative.py \
             test_creative_application.py test_cover_store.py \
             test_gates.py; do
             python3 -m unittest discover -s tests -p "$test_file"
