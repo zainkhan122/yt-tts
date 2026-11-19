@@ -69,21 +69,21 @@ def _fixed_parse(raw):
 
 def test_sheet_covers_every_registered_source(sheet):
     import sources
-    assert TT.main(["--hours", "24"]) == 0
+    assert TT.main(["--hours", "24"], now=NOW) == 0
     md = (sheet / "out" / f"daily-{NOW.date().isoformat()}.md").read_text(encoding="utf-8")
     for handle in ("chan-a", "chan-b", "feed-x", "gittrend", "chan-c"):
         assert handle in md, handle
 
 
 def test_only_items_inside_the_rolling_window_are_listed(sheet):
-    TT.main(["--hours", "24"])
+    TT.main(["--hours", "24"], now=NOW)
     payload = json.loads((sheet / "out" / f"daily-{NOW.date().isoformat()}.json").read_text(encoding="utf-8"))
     names = [t["name"] for t in payload["topics"]]
     assert "acme/older-tool" not in " ".join(names)
 
 
 def test_the_same_topic_from_two_sources_is_one_row_with_two_sources(sheet):
-    TT.main(["--hours", "24"])
+    TT.main(["--hours", "24"], now=NOW)
     payload = json.loads((sheet / "out" / f"daily-{NOW.date().isoformat()}.json").read_text(encoding="utf-8"))
     demo = [t for t in payload["topics"] if "demo-tool" in t["name"]]
     assert len(demo) == 1, demo
@@ -91,7 +91,7 @@ def test_the_same_topic_from_two_sources_is_one_row_with_two_sources(sheet):
 
 
 def test_a_covered_topic_is_never_recommended(sheet):
-    TT.main(["--hours", "24"])
+    TT.main(["--hours", "24"], now=NOW)
     payload = json.loads((sheet / "out" / f"daily-{NOW.date().isoformat()}.json").read_text(encoding="utf-8"))
     assert all(not t["covered"] for t in payload["topics"])
     assert not any("older-tool" in t["name"] for t in payload["topics"])
@@ -101,3 +101,22 @@ def test_a_legacy_date_only_stamp_still_parses():
     assert TT.parse_ts("2026-11-14") is not None
     assert TT.parse_ts("") is None
     assert TT.parse_ts("not a date") is None
+
+
+def test_own_channel_analytics_changes_the_real_sheet_order(sheet, monkeypatch):
+    import selection_analytics
+    import trend_radar
+    monkeypatch.setattr(trend_radar, 'gittrend_snapshot', lambda n: {})
+    rows = [dict(video_id=k, views=v, age_hours=36, taken_at='2026-11-05T12:00:00Z') for k,v in [
+        ('repo-coop-anything-01',100),('news-gemini-agent-01',80),('repo-whatsapp-mcp-01',60),
+        ('x',20),('y',20),('z',20),('w',20)]]
+    monkeypatch.setattr(selection_analytics, 'load_rows', lambda now: rows)
+    items = [_row('chan-a','tiktok','1','acme/agent-desktop',2),
+             _row('chan-b','youtube','2','acme/unmatched-widget',2)]
+    with TT.POSTS.open('w',newline='',encoding='utf-8') as f:
+        writer=csv.DictWriter(f,fieldnames=items[0].keys());writer.writeheader();writer.writerows(items)
+    assert TT.main(['--hours','24'],now=NOW)==0
+    out=json.loads((sheet/'out'/f'daily-{NOW.date().isoformat()}.json').read_text())['topics']
+    assert out[0]['name']=='acme/agent-desktop'
+    assert out[0]['selection_score']['analytics']['adjustment'] > 0
+    assert out[1]['selection_score']['analytics']['status']=='insufficient evidence'

@@ -1,0 +1,697 @@
+{
+  "as_of_cutoff_utc": "2026-11-05T19:00:00Z",
+  "items": [
+    {
+      "name": "vercel-labs/agent-desktop",
+      "description": "Computer use CLI for AI agents",
+      "tag": "agent_workflow",
+      "trend_points": 3,
+      "fit_points": 3,
+      "reported_daily_stars": 2173,
+      "visual": "A robot opens and operates a desktop app",
+      "covered": false,
+      "scoring": {
+        "discovery_score": 6,
+        "analytics": {
+          "status": "directional, small sample",
+          "adjustment": 0.571,
+          "baseline_n": 13,
+          "baseline_median": 34,
+          "tags": [
+            "agent_workflow"
+          ],
+          "comparisons": [
+            {
+              "tag": "agent_workflow",
+              "n": 3,
+              "median_views": 51,
+              "videos": [
+                {
+                  "video_id": "news-gemini-agent-01",
+                  "views": 51,
+                  "age_hours": 32.53,
+                  "taken_at": "2026-10-13T11:32:34Z"
+                },
+                {
+                  "video_id": "repo-coop-anything-01",
+                  "views": 336,
+                  "age_hours": 35.78,
+                  "taken_at": "2026-10-21T07:48:04Z"
+                },
+                {
+                  "video_id": "repo-whatsapp-mcp-01",
+                  "views": 34,
+                  "age_hours": 30.78,
+                  "taken_at": "2026-10-21T07:48:04Z"
+                }
+              ],
+              "adjustment": 0.571
+            }
+          ]
+        },
+        "total_score": 6.571
+      }
+    },
+    {
+      "name": "max-sixty/worktrunk",
+      "description": "Parallel coding-agent worktrees",
+      "tag": "agent_workflow",
+      "trend_points": 2,
+      "fit_points": 3,
+      "reported_daily_stars": 546,
+      "visual": "One repository branches into isolated agent workspaces",
+      "covered": false,
+      "scoring": {
+        "discovery_score": 5,
+        "analytics": {
+          "status": "directional, small sample",
+          "adjustment": 0.571,
+          "baseline_n": 13,
+          "baseline_median": 34,
+          "tags": [
+            "agent_workflow"
+          ],
+          "comparisons": [
+            {
+              "tag": "agent_workflow",
+              "n": 3,
+              "median_views": 51,
+              "videos": [
+                {
+                  "video_id": "news-gemini-agent-01",
+                  "views": 51,
+                  "age_hours": 32.53,
+                  "taken_at": "2026-10-13T11:32:34Z"
+                },
+                {
+                  "video_id": "repo-coop-anything-01",
+                  "views": 336,
+                  "age_hours": 35.78,
+                  "taken_at": "2026-10-21T07:48:04Z"
+                },
+                {
+                  "video_id": "repo-whatsapp-mcp-01",
+                  "views": 34,
+                  "age_hours": 30.78,
+                  "taken_at": "2026-10-21T07:48:04Z"
+                }
+              ],
+              "adjustment": 0.571
+            }
+          ]
+        },
+        "total_score": 5.571
+      }
+    },
+    {
+      "name": "NVIDIA/auto-ontology",
+      "description": "Data meaning and graph layers for agent analytics",
+      "tag": "agent_workflow",
+      "trend_points": 3,
+      "fit_points": 2,
+      "reported_daily_stars": 2679,
+      "visual": "Tables form a graph before an agent asks a question",
+      "covered": false,
+      "scoring": {
+        "discovery_score": 5,
+        "analytics": {
+          "status": "directional, small sample",
+          "adjustment": 0.571,
+          "baseline_n": 13,
+          "baseline_median": 34,
+          "tags": [
+            "agent_workflow"
+          ],
+          "comparisons": [
+            {
+              "tag": "agent_workflow",
+              "n": 3,
+              "median_views": 51,
+              "videos": [
+                {
+                  "video_id": "news-gemini-agent-01",
+                  "views": 51,
+                  "age_hours": 32.53,
+                  "taken_at": "2026-10-13T11:32:34Z"
+                },
+                {
+                  "video_id": "repo-coop-anything-01",
+                  "views": 336,
+                  "age_hours": 35.78,
+                  "taken_at": "2026-10-21T07:48:04Z"
+                },
+                {
+                  "video_id": "repo-whatsapp-mcp-01",
+                  "views": 34,
+                  "age_hours": 30.78,
+                  "taken_at": "2026-10-21T07:48:04Z"
+                }
+              ],
+              "adjustment": 0.571
+            }
+          ]
+        },
+        "total_score": 5.571
+      }
+    },
+    {
+      "name": "scenario-labs/skills",
+      "description": "Agent skills for generating visual media",
+      "tag": "creative_media",
+      "trend_points": 2,
+      "fit_points": 3,
+      "reported_daily_stars": 667,
+      "visual": "A single brief splits into image, video and 3D outputs",
+      "covered": false,
+      "scoring": {
+        "discovery_score": 5,
+        "analytics": {
+          "status": "directional, small sample",
+          "adjustment": 0.0,
+          "baseline_n": 13,
+          "baseline_median": 34,
+          "tags": [
+            "creative_media"
+          ],
+          "comparisons": [
+            {
+              "tag": "creative_media",
+              "n": 3,
+              "median_views": 34,
+              "videos": [
+                {
+                  "video_id": "tool-higgsfield-01",
+                  "views": 34,
+                  "age_hours": 26.49,
+                  "taken_at": "2026-10-13T14:26:14Z"
+                },
+                {
+                  "video_id": "tool-mosa-01",
+                  "views": 45,
+                  "age_hours": 26.21,
+                  "taken_at": "2026-10-12T19:13:58Z"
+                },
+                {
+                  "video_id": "tool-pomelli-01",
+                  "views": 14,
+                  "age_hours": 24.87,
+                  "taken_at": "2026-10-13T00:53:29Z"
+                }
+              ],
+              "adjustment": 0.0
+            }
+          ]
+        },
+        "total_score": 5.0
+      }
+    },
+    {
+      "name": "career-ops-hq/career-ops",
+      "description": "Job-search agent scans jobs and compares CV",
+      "tag": "agent_workflow",
+      "trend_points": 1,
+      "fit_points": 3,
+      "reported_daily_stars": null,
+      "visual": "A CV and job posts flow into a scored shortlist",
+      "covered": false,
+      "scoring": {
+        "discovery_score": 4,
+        "analytics": {
+          "status": "directional, small sample",
+          "adjustment": 0.571,
+          "baseline_n": 13,
+          "baseline_median": 34,
+          "tags": [
+            "agent_workflow"
+          ],
+          "comparisons": [
+            {
+              "tag": "agent_workflow",
+              "n": 3,
+              "median_views": 51,
+              "videos": [
+                {
+                  "video_id": "news-gemini-agent-01",
+                  "views": 51,
+                  "age_hours": 32.53,
+                  "taken_at": "2026-10-13T11:32:34Z"
+                },
+                {
+                  "video_id": "repo-coop-anything-01",
+                  "views": 336,
+                  "age_hours": 35.78,
+                  "taken_at": "2026-10-21T07:48:04Z"
+                },
+                {
+                  "video_id": "repo-whatsapp-mcp-01",
+                  "views": 34,
+                  "age_hours": 30.78,
+                  "taken_at": "2026-10-21T07:48:04Z"
+                }
+              ],
+              "adjustment": 0.571
+            }
+          ]
+        },
+        "total_score": 4.571
+      }
+    },
+    {
+      "name": "vercel-labs/agent-browser",
+      "description": "Browser automation CLI for agents",
+      "tag": "agent_workflow",
+      "trend_points": 1,
+      "fit_points": 3,
+      "reported_daily_stars": 150,
+      "visual": "An agent reads a page and fills a form",
+      "covered": false,
+      "scoring": {
+        "discovery_score": 4,
+        "analytics": {
+          "status": "directional, small sample",
+          "adjustment": 0.571,
+          "baseline_n": 13,
+          "baseline_median": 34,
+          "tags": [
+            "agent_workflow"
+          ],
+          "comparisons": [
+            {
+              "tag": "agent_workflow",
+              "n": 3,
+              "median_views": 51,
+              "videos": [
+                {
+                  "video_id": "news-gemini-agent-01",
+                  "views": 51,
+                  "age_hours": 32.53,
+                  "taken_at": "2026-10-13T11:32:34Z"
+                },
+                {
+                  "video_id": "repo-coop-anything-01",
+                  "views": 336,
+                  "age_hours": 35.78,
+                  "taken_at": "2026-10-21T07:48:04Z"
+                },
+                {
+                  "video_id": "repo-whatsapp-mcp-01",
+                  "views": 34,
+                  "age_hours": 30.78,
+                  "taken_at": "2026-10-21T07:48:04Z"
+                }
+              ],
+              "adjustment": 0.571
+            }
+          ]
+        },
+        "total_score": 4.571
+      }
+    },
+    {
+      "name": "garrytan/gstack",
+      "description": "Agent engineering team skills",
+      "tag": "agent_workflow",
+      "trend_points": 2,
+      "fit_points": 2,
+      "reported_daily_stars": 612,
+      "visual": "A coding task flows through designer, reviewer and QA",
+      "covered": false,
+      "scoring": {
+        "discovery_score": 4,
+        "analytics": {
+          "status": "directional, small sample",
+          "adjustment": 0.571,
+          "baseline_n": 13,
+          "baseline_median": 34,
+          "tags": [
+            "agent_workflow"
+          ],
+          "comparisons": [
+            {
+              "tag": "agent_workflow",
+              "n": 3,
+              "median_views": 51,
+              "videos": [
+                {
+                  "video_id": "news-gemini-agent-01",
+                  "views": 51,
+                  "age_hours": 32.53,
+                  "taken_at": "2026-10-13T11:32:34Z"
+                },
+                {
+                  "video_id": "repo-coop-anything-01",
+                  "views": 336,
+                  "age_hours": 35.78,
+                  "taken_at": "2026-10-21T07:48:04Z"
+                },
+                {
+                  "video_id": "repo-whatsapp-mcp-01",
+                  "views": 34,
+                  "age_hours": 30.78,
+                  "taken_at": "2026-10-21T07:48:04Z"
+                }
+              ],
+              "adjustment": 0.571
+            }
+          ]
+        },
+        "total_score": 4.571
+      }
+    },
+    {
+      "name": "D4Vinci/Scrapling",
+      "description": "Web data extraction and crawling",
+      "tag": "agent_workflow",
+      "trend_points": 3,
+      "fit_points": 1,
+      "reported_daily_stars": 1655,
+      "visual": "Web pages are collected and transformed into structured data",
+      "covered": false,
+      "scoring": {
+        "discovery_score": 4,
+        "analytics": {
+          "status": "directional, small sample",
+          "adjustment": 0.571,
+          "baseline_n": 13,
+          "baseline_median": 34,
+          "tags": [
+            "agent_workflow"
+          ],
+          "comparisons": [
+            {
+              "tag": "agent_workflow",
+              "n": 3,
+              "median_views": 51,
+              "videos": [
+                {
+                  "video_id": "news-gemini-agent-01",
+                  "views": 51,
+                  "age_hours": 32.53,
+                  "taken_at": "2026-10-13T11:32:34Z"
+                },
+                {
+                  "video_id": "repo-coop-anything-01",
+                  "views": 336,
+                  "age_hours": 35.78,
+                  "taken_at": "2026-10-21T07:48:04Z"
+                },
+                {
+                  "video_id": "repo-whatsapp-mcp-01",
+                  "views": 34,
+                  "age_hours": 30.78,
+                  "taken_at": "2026-10-21T07:48:04Z"
+                }
+              ],
+              "adjustment": 0.571
+            }
+          ]
+        },
+        "total_score": 4.571
+      }
+    },
+    {
+      "name": "harry0703/MoneyPrinterTurbo",
+      "description": "Create short videos from a topic",
+      "tag": "creative_media",
+      "trend_points": 1,
+      "fit_points": 3,
+      "reported_daily_stars": null,
+      "visual": "A topic flows into script, footage, captions and video",
+      "covered": false,
+      "scoring": {
+        "discovery_score": 4,
+        "analytics": {
+          "status": "directional, small sample",
+          "adjustment": 0.0,
+          "baseline_n": 13,
+          "baseline_median": 34,
+          "tags": [
+            "creative_media"
+          ],
+          "comparisons": [
+            {
+              "tag": "creative_media",
+              "n": 3,
+              "median_views": 34,
+              "videos": [
+                {
+                  "video_id": "tool-higgsfield-01",
+                  "views": 34,
+                  "age_hours": 26.49,
+                  "taken_at": "2026-10-13T14:26:14Z"
+                },
+                {
+                  "video_id": "tool-mosa-01",
+                  "views": 45,
+                  "age_hours": 26.21,
+                  "taken_at": "2026-10-12T19:13:58Z"
+                },
+                {
+                  "video_id": "tool-pomelli-01",
+                  "views": 14,
+                  "age_hours": 24.87,
+                  "taken_at": "2026-10-13T00:53:29Z"
+                }
+              ],
+              "adjustment": 0.0
+            }
+          ]
+        },
+        "total_score": 4.0
+      }
+    },
+    {
+      "name": "microsoft/VibeVoice",
+      "description": "Speech generation models",
+      "tag": "creative_media",
+      "trend_points": 1,
+      "fit_points": 3,
+      "reported_daily_stars": 223,
+      "visual": "Text becomes a voice waveform with multiple speakers",
+      "covered": false,
+      "scoring": {
+        "discovery_score": 4,
+        "analytics": {
+          "status": "directional, small sample",
+          "adjustment": 0.0,
+          "baseline_n": 13,
+          "baseline_median": 34,
+          "tags": [
+            "creative_media"
+          ],
+          "comparisons": [
+            {
+              "tag": "creative_media",
+              "n": 3,
+              "median_views": 34,
+              "videos": [
+                {
+                  "video_id": "tool-higgsfield-01",
+                  "views": 34,
+                  "age_hours": 26.49,
+                  "taken_at": "2026-10-13T14:26:14Z"
+                },
+                {
+                  "video_id": "tool-mosa-01",
+                  "views": 45,
+                  "age_hours": 26.21,
+                  "taken_at": "2026-10-12T19:13:58Z"
+                },
+                {
+                  "video_id": "tool-pomelli-01",
+                  "views": 14,
+                  "age_hours": 24.87,
+                  "taken_at": "2026-10-13T00:53:29Z"
+                }
+              ],
+              "adjustment": 0.0
+            }
+          ]
+        },
+        "total_score": 4.0
+      }
+    },
+    {
+      "name": "Panniantong/Agent-Reach",
+      "description": "Agents search and read online sources",
+      "tag": "agent_workflow",
+      "trend_points": 1,
+      "fit_points": 2,
+      "reported_daily_stars": null,
+      "visual": "An agent retrieves information from multiple sources",
+      "covered": false,
+      "scoring": {
+        "discovery_score": 3,
+        "analytics": {
+          "status": "directional, small sample",
+          "adjustment": 0.571,
+          "baseline_n": 13,
+          "baseline_median": 34,
+          "tags": [
+            "agent_workflow"
+          ],
+          "comparisons": [
+            {
+              "tag": "agent_workflow",
+              "n": 3,
+              "median_views": 51,
+              "videos": [
+                {
+                  "video_id": "news-gemini-agent-01",
+                  "views": 51,
+                  "age_hours": 32.53,
+                  "taken_at": "2026-10-13T11:32:34Z"
+                },
+                {
+                  "video_id": "repo-coop-anything-01",
+                  "views": 336,
+                  "age_hours": 35.78,
+                  "taken_at": "2026-10-21T07:48:04Z"
+                },
+                {
+                  "video_id": "repo-whatsapp-mcp-01",
+                  "views": 34,
+                  "age_hours": 30.78,
+                  "taken_at": "2026-10-21T07:48:04Z"
+                }
+              ],
+              "adjustment": 0.571
+            }
+          ]
+        },
+        "total_score": 3.571
+      }
+    },
+    {
+      "name": "google/skills",
+      "description": "Skills for Google products",
+      "tag": "agent_workflow",
+      "trend_points": 1,
+      "fit_points": 1,
+      "reported_daily_stars": null,
+      "visual": "An agent chooses a skill and interacts with a Google service",
+      "covered": false,
+      "scoring": {
+        "discovery_score": 2,
+        "analytics": {
+          "status": "directional, small sample",
+          "adjustment": 0.571,
+          "baseline_n": 13,
+          "baseline_median": 34,
+          "tags": [
+            "agent_workflow"
+          ],
+          "comparisons": [
+            {
+              "tag": "agent_workflow",
+              "n": 3,
+              "median_views": 51,
+              "videos": [
+                {
+                  "video_id": "news-gemini-agent-01",
+                  "views": 51,
+                  "age_hours": 32.53,
+                  "taken_at": "2026-10-13T11:32:34Z"
+                },
+                {
+                  "video_id": "repo-coop-anything-01",
+                  "views": 336,
+                  "age_hours": 35.78,
+                  "taken_at": "2026-10-21T07:48:04Z"
+                },
+                {
+                  "video_id": "repo-whatsapp-mcp-01",
+                  "views": 34,
+                  "age_hours": 30.78,
+                  "taken_at": "2026-10-21T07:48:04Z"
+                }
+              ],
+              "adjustment": 0.571
+            }
+          ]
+        },
+        "total_score": 2.571
+      }
+    }
+  ],
+  "cohort": [
+    {
+      "video_id": "list-free-video-ai-01",
+      "views": 71,
+      "age_hours": 45.15,
+      "taken_at": "2026-10-12T12:09:37Z"
+    },
+    {
+      "video_id": "news-gemini-agent-01",
+      "views": 51,
+      "age_hours": 32.53,
+      "taken_at": "2026-10-13T11:32:34Z"
+    },
+    {
+      "video_id": "news-gpt61-astra-01",
+      "views": 191,
+      "age_hours": 25.42,
+      "taken_at": "2026-10-13T14:26:14Z"
+    },
+    {
+      "video_id": "news-haiku-55-01",
+      "views": 22,
+      "age_hours": 24.96,
+      "taken_at": "2026-10-12T13:58:48Z"
+    },
+    {
+      "video_id": "repo-ai-newtab-01",
+      "views": 26,
+      "age_hours": 41.15,
+      "taken_at": "2026-10-12T12:09:37Z"
+    },
+    {
+      "video_id": "repo-coop-anything-01",
+      "views": 336,
+      "age_hours": 35.78,
+      "taken_at": "2026-10-21T07:48:04Z"
+    },
+    {
+      "video_id": "repo-earshot-01",
+      "views": 32,
+      "age_hours": 46.76,
+      "taken_at": "2026-10-20T18:46:33Z"
+    },
+    {
+      "video_id": "repo-leanrea-01",
+      "views": 13,
+      "age_hours": 33.29,
+      "taken_at": "2026-10-21T07:48:04Z"
+    },
+    {
+      "video_id": "repo-whatsapp-mcp-01",
+      "views": 34,
+      "age_hours": 30.78,
+      "taken_at": "2026-10-21T07:48:04Z"
+    },
+    {
+      "video_id": "repo-whistle-01",
+      "views": 15,
+      "age_hours": 27.87,
+      "taken_at": "2026-10-13T00:53:29Z"
+    },
+    {
+      "video_id": "tool-higgsfield-01",
+      "views": 34,
+      "age_hours": 26.49,
+      "taken_at": "2026-10-13T14:26:14Z"
+    },
+    {
+      "video_id": "tool-mosa-01",
+      "views": 45,
+      "age_hours": 26.21,
+      "taken_at": "2026-10-12T19:13:58Z"
+    },
+    {
+      "video_id": "tool-pomelli-01",
+      "views": 14,
+      "age_hours": 24.87,
+      "taken_at": "2026-10-13T00:53:29Z"
+    }
+  ]
+}

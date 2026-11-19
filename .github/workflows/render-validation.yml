@@ -35,7 +35,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install pinned lightweight validation dependencies
-        run: python3 -m pip install --disable-pip-version-check --no-input numpy==2.2.6 scipy==1.15.3 soundfile==0.13.1 PyYAML==6.0.2 Pillow==12.3.0 jsonschema==4.26.0 graphql-core==3.2.13 requests==2.34.2
+        run: python3 -m pip install --disable-pip-version-check --no-input numpy==2.2.6 scipy==1.15.3 soundfile==0.13.1 PyYAML==6.0.2 Pillow==12.3.0 jsonschema==4.26.0 graphql-core==3.2.13 requests==2.34.2 pytest==8.3.5
       - name: Install FFmpeg for frame-zero regression
         run: |
           python3 -m pip install --disable-pip-version-check --no-input imageio-ffmpeg==0.6.0
@@ -90,11 +90,15 @@ jobs:
             test_pipeline_quality_gates.py \
             test_dedicated_cover_frame.py \
             test_cover_crop_safety.py \
+            test_selection_analytics.py \
             test_brief_lint.py \
             test_creative_application.py test_cover_store.py \
             test_gates.py; do
             python3 -m unittest discover -s tests -p "$test_file"
           done
+      - name: Verify analytics-informed topic ordering
+        working-directory: reels-studio
+        run: PYTHONPATH=.:tools python3 -m pytest -q tests/test_todays_topics.py tests/test_selection_analytics.py
       - name: Measured layout audit (real composition, Chromium)
         working-directory: reels-studio
         run: |

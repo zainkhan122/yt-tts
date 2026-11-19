@@ -255,7 +255,7 @@ def _rel(path: Path) -> str:
         return str(path)
 
 
-def main(argv=None):
+def main(argv=None, *, now=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--hours", type=float, default=24.0, help="rolling window in hours (default 24)")
     ap.add_argument("--show-covered", action="store_true", help="list covered topics instead of hiding them")
@@ -266,7 +266,7 @@ def main(argv=None):
     import topics_covered
 
     registry = {s["handle"]: s for s in sources.load()}
-    now = dt.datetime.now(dt.timezone.utc)
+    now = now or dt.datetime.now(dt.timezone.utc)
     window_s = a.hours * 3600
 
     rows = list(csv.DictReader(open(POSTS, newline="", encoding="utf-8"))) if POSTS.exists() else []
@@ -330,19 +330,32 @@ def main(argv=None):
         tp["covered"] = hit
         topics.append(tp)
 
-    def score(tp):
+    # First-party channel history actually contributes to the ranking (bounded,
+    # transparent, and neutral when too sparse); external consensus still matters.
+    import math
+    import selection_analytics
+    analytics_rows = selection_analytics.load_rows(now)
+    for tp in topics:
         ch = tp["best"][2] if tp["best"] else ""
         m = medians.get(ch)
-        mult = (tp["views"] / m) if m else 0.0
-        return (-len(tp["sources"]), -mult, -tp["views"], tp["age_h"])
-
-    topics.sort(key=score)
+        # Compare the best individual source post with its own channel median;
+        # never divide summed cross-channel views by one channel's median.
+        mult = (tp["best"][0] / m) if m and tp["best"] else 0.0
+        discovery = min(4.0, 1.5 * math.log2(1 + len(tp["sources"]))) + min(3.0, math.log2(1 + mult))
+        tp["selection_score"] = selection_analytics.score_candidate(tp, analytics_rows, discovery)
+    topics.sort(key=lambda t: (-t["selection_score"]["total_score"], t["age_h"], t["name"].lower()))
     fresh_topics = [t for t in topics if not t["covered"]]
     covered_topics = [t for t in topics if t["covered"]]
 
     # ---- the sheet
     today = now.date().isoformat()
     L = [f"# Today's topics: {today} — every registered source, last {a.hours:g} h", ""]
+    from statistics import median
+    usable_analytics = len(analytics_rows) >= 5 and median([r["views"] for r in analytics_rows]) > 0
+    if not usable_analytics:
+        L += ["> **Analytics unavailable, insufficient or too stale: ranking has no first-party adjustment; do not present it as analytics-informed.**", ""]
+    else:
+        L += [f"First-party YouTube baseline: {len(analytics_rows)} comparable 24–48-hour snapshots; median {median([r['views'] for r in analytics_rows]):g} views. Per-topic comparisons and exact snapshots are in the JSON. Small samples are directional, not forecasts.", ""]
     if scan_stale:
         L += ["> **SCAN STALE — re-run `python3 tools/sources.py scan --latest 15` before trusting this sheet.**", ""]
     L += [f"Registry: **{len(registry)} sources** ({sum(1 for s in registry.values() if s.get('type') == 'tiktok')} TikTok, "
@@ -398,17 +411,19 @@ def main(argv=None):
 
     L += [f"## Fresh topics ({len(fresh_topics)})", "",
           "**Consensus** = how many different sources mentioned it. One row per topic: the same tool "
-          "seen by five channels is one idea, never five.", "",
-          "| # | Topic | Type | Consensus | Sources | Views | Age (h) | Best link |",
-          "|---|---|---|---|---|---|---|---|"]
+          "seen by five channels is one idea, never five. Score = bounded discovery signal + first-party comparable-video analytics adjustment; missing data is neutral, not zero performance. Use as an editorial shortlist, not a prediction.", "",
+          "| # | Topic | Type | Consensus | Sources | Views | Age (h) | Analytics adjustment | Score | Best link |",
+          "|---|---|---|---|---|---|---|---|---|---|"]
     for i, t in enumerate(fresh_topics[:a.limit], 1):
         best = t["best"]
         ch = best[2] if best else ""
         m = medians.get(ch)
         v = t["views"]
-        extra = f" ({v / m:.1f}x chan. median)" if m and ch else ""
+        extra = f" (best post {best[0] / m:.1f}x its channel median)" if m and best else ""
+        adj = t["selection_score"]["analytics"]["adjustment"]
+        total = t["selection_score"]["total_score"]
         L.append(f"| {i} | **{t['name']}** | {t['kind']} | {len(t['sources'])} | "
-                 f"{', '.join(sorted(t['sources']))} | {v:,}{extra} | {t['age_h'] / 3600:.1f} | "
+                 f"{', '.join(sorted(t['sources']))} | {v:,}{extra} | {t['age_h'] / 3600:.1f} | {adj:+.2f} | {total:.2f} | "
                  f"{('[' + best[1][:46] + '](' + best[1] + ')') if best and best[1] else '—'} |")
     if not fresh_topics:
         L.append("| - | - | (no fresh topic in the window — the lane is genuinely empty) | - | - | - | - | - |")
@@ -434,6 +449,7 @@ def main(argv=None):
     payload = {
         "generated_at": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "window_hours": a.hours,
+        "analytics_cohort": analytics_rows,
         "sources_registered": len(registry),
         "items_in_window": len(fresh),
         "scan_last_seen": last_scan.isoformat() if last_scan else None,
@@ -441,7 +457,7 @@ def main(argv=None):
         "topics": [
             {"key": t["key"], "name": t["name"], "kind": t["kind"], "consensus": len(t["sources"]),
              "sources": sorted(t["sources"]), "views": t["views"], "age_h": round(t["age_h"] / 3600, 2),
-             "covered": bool(t["covered"]),
+             "covered": bool(t["covered"]), "selection_score": t["selection_score"],
              "posts": t["posts"][:4],
              "best_url": t["best"][1] if t["best"] else ""}
             for t in topics if not t["covered"]

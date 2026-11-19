@@ -116,7 +116,15 @@ def main():
                     tp["best"] = ((e.get("views") or 0), e.get("url"))
                 tp["first"] = min(tp["first"], ts or tp["first"])
     chans = list(got)
-    ranked = sorted(agg.values(), key=lambda t: (-len(t["channels"]), -t["views"]))
+    # Use first-party comparable-video data as part of topic ordering, not just notes.
+    import datetime as dt
+    import math
+    import selection_analytics
+    analytics_rows = selection_analytics.load_rows(dt.datetime.now(dt.timezone.utc))
+    for t in agg.values():
+        discovery = min(4.0, 1.5 * math.log2(1 + len(t["channels"])))
+        t["selection_score"] = selection_analytics.score_candidate(t, analytics_rows, discovery)
+    ranked = sorted(agg.values(), key=lambda t: (-t["selection_score"]["total_score"], -len(t["channels"]), t["name"].lower()))
     # Owner rule: a topic that already has a brief, a plan or a queued post is not an idea any more.
     # The registry is derived from briefs/, videos/, topics/backlog.csv and tracker/publications.json.
     sys.path.insert(0, str(ROOT / "tools"))
@@ -146,8 +154,8 @@ def main():
     L = [f"# Idea feed: {today} (last {a.days} days, {len(chans)} watchlist channels)", "",
          "**Consensus** = number of watchlist channels that posted about it. ≥ 2 = confirmed niche trend: cover it with our own research and angle.",
          "Topics are auto-extracted, so verify each before scoring (rubric: PIPELINE.md §2).", "",
-         "**Daily mix** (PIPELINE.md §1): not hardcoded — pick the strongest topics by consensus/views and let the queue priority order them. Pacing limits still apply (ceiling 10/day, 150-minute spacing). Shortlist goes to the owner for approval.", "",
-         "| # | Topic | Kind | Consensus | Channels | Views (sum) | Searched | Best video | Repo |", "|---|---|---|---|---|---|---|---|---|"]
+         "Ranking combines consensus and a bounded first-party analytics adjustment from age-matched YouTube comparables. Missing data is neutral. Results are directional; do not equate competitors' raw views to our channel. Shortlist goes to the owner for approval.", "",
+         "| # | Topic | Kind | Consensus | Channels | Views (sum) | Analytics adj. | Score | Searched | Best video | Repo |", "|---|---|---|---|---|---|---|---|---|---|---|"]
     def kind(t):
         k = t["name"].split("/")[-1].lower()
         return "repo" if "/" in t["name"] else ("platform" if k in PLATFORMS else ("tool" if k in TOOLS else "other"))
@@ -156,7 +164,7 @@ def main():
         repo = t["name"] if "/" in t["name"] else ""
         srch = f"{t['searched']}" if t.get("searched") is not None else "—"
         L.append(f"| {i} | **{t['name'].split('/')[-1]}** | {kind(t)} | {len(t['channels'])} | {', '.join(sorted(t['channels']))} | {t['views']:,} | "
-                 f"{srch} | [{t['best'][0]:,} views]({t['best'][1]}) | {('github.com/' + repo) if repo else ''} |")
+                 f"{t['selection_score']['analytics']['adjustment']:+.2f} | {t['selection_score']['total_score']:.2f} | {srch} | [{t['best'][0]:,} views]({t['best'][1]}) | {('github.com/' + repo) if repo else ''} |")
     if skipped:
         L += ["", "## Already scheduled or published — excluded from this feed", ""]
         for n, row in skipped:
