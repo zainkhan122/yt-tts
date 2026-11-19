@@ -4,7 +4,8 @@
 A plan lives at videos/<id>/plan.json and is written by the agent from the tool's own material.
 Nothing in the plan is supplied by a template. The checks below enforce the owner's rules:
 
-  * one viewer question, ending with '?'
+  * a viewer-first hook statement or question; legacy 'question' plans remain compatible
+  * new 'hook' plans carry a recorded editorial review (outcome, demonstration, payoff and caveat)
   * 1 to 5 points, numbered 1..n, each with a claim, a spoken line and a source URL (https)
   * spoken lines: no digits (no exact figures), no URLs, no legal/licence/terms/privacy words,
     at most 180 characters
@@ -43,8 +44,17 @@ def check(plan):
     def add(ok, msg):
         res.append(("PASS" if ok else "BLOCK", msg))
 
-    q = plan.get("question", "")
-    add(bool(q) and q.strip().endswith("?"), "viewer question present and ends with '?'")
+    hook = plan.get("hook")
+    if hook is not None:
+        add(isinstance(hook, str) and bool(hook.strip()), "viewer-first hook is written (statement or question)")
+        review = plan.get("script_review") or {}
+        for field in ("viewer_outcome", "hook_reason", "demonstration", "payoff", "caveat", "reviewer"):
+            value = review.get(field) if isinstance(review, dict) else None
+            add(isinstance(value, str) and bool(value.strip()), f"viewer-first editorial review: {field} recorded")
+    else:
+        # Older authored plans use this field. New work should use `hook` and its review.
+        q = plan.get("question", "")
+        add(isinstance(q, str) and bool(q.strip()) and q.strip().endswith("?"), "legacy viewer question present and ends with '?'")
     pts = plan.get("points", [])
     add(1 <= len(pts) <= 5, f"points: {len(pts)} (must be 1 to 5)")
     add([p.get("n") for p in pts] == list(range(1, len(pts) + 1)), "points numbered 1..n in order")

@@ -90,7 +90,7 @@ jobs:
             test_pipeline_quality_gates.py \
             test_dedicated_cover_frame.py \
             test_cover_crop_safety.py \
-            test_selection_analytics.py \
+            test_selection_analytics.py test_viewer_first_script.py \
             test_brief_lint.py \
             test_creative_application.py test_cover_store.py \
             test_gates.py; do

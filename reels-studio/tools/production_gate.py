@@ -268,6 +268,22 @@ def _check_voice_record(brief_id, brief, voice):
         raise ProductionGateError(f"{brief_id}: English VOICE must use the approved Chatterbox Option-3 profile")
 
 
+
+def validate_viewer_first_review(brief: dict) -> None:
+    """Validate the recorded editorial review for briefs opting into the new standard.
+
+    This checks presence, not whether a hook actually retains viewers. Legacy briefs are
+    untouched; editors must still assess outcome, evidence and truthful payoff themselves.
+    """
+    if brief.get("script_standard") != "viewer-first-v1":
+        return
+    review = brief.get("script_review")
+    fields = ("viewer_outcome", "hook_reason", "demonstration", "payoff", "caveat", "reviewer")
+    missing = [key for key in fields if not isinstance(review, dict)
+               or not isinstance(review.get(key), str) or not review[key].strip()]
+    if missing:
+        raise ProductionGateError("viewer-first script review missing: " + ", ".join(missing))
+
 def validate_receipt(
     repo_root: Path,
     receipt_path: str,
@@ -317,6 +333,7 @@ def validate_receipt(
                 raise ProductionGateError(f"{brief_id}: {stage_name.upper()} is not complete")
 
         script = stages["script"]
+        validate_viewer_first_review(brief)
         exact_script_sha = script_sha256(brief)
         if script.get("script_sha256") != exact_script_sha:
             raise ProductionGateError(f"{brief_id}: SCRIPT hash does not match the brief's spoken lines")

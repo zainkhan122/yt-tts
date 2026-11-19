@@ -3,7 +3,7 @@ import re
 """Generate briefs/<id>.json from videos/<id>/plan.json. The plan is the brain; this only maps it.
 
 Scene order is fixed by the format, not by the content:
-  hook (viewer question) -> one scene per plan point -> catch -> call to action.
+  hook (viewer benefit, statement or question) -> one scene per plan point -> catch -> call to action.
 Every spoken line, heading, image, SEO string and claim is copied from the plan. Nothing about any
 tool is written here, and nothing is claimed that the plan does not say.
 
@@ -119,11 +119,12 @@ def build(plan_path):
     meta = plan["brief_meta"]
     brand = plan["brand_line"]
 
+    hook_text = plan.get("hook") or plan["question"]  # old question-only plans remain readable
     hook_vis = plan.get("hook_visual") or {}
     if hook_vis.get("kind") == "steps":
-        scenes = [_flow_scene("hook", seo["onscreen_first3s"], hook_vis["steps"], plan["question"])]
+        scenes = [_flow_scene("hook", seo["onscreen_first3s"], hook_vis["steps"], hook_text)]
     else:
-        scenes = [_card_scene("hook", "plan-1", seo["onscreen_first3s"], brand, plan["question"], keep, vid)]
+        scenes = [_card_scene("hook", "plan-1", seo["onscreen_first3s"], brand, hook_text, keep, vid)]
         scenes[0]["keep_visible"] = [[0.0, 1.0]]
     for p in plan["points"]:
         key = f"plan-{p['n']}"
@@ -188,8 +189,8 @@ def build(plan_path):
             "audience": meta["viewer"]["who"],
             "viewer_job": meta["viewer"]["job"],
             "intent": "search",
-            "hook_mechanic": plan.get("hook_mechanic", "viewer question about the tool's first claim"),
-            "open_loop": {"plant": plan["question"], "payoff_scene": "point1"},
+            "hook_mechanic": plan.get("hook_mechanic", "viewer outcome demonstrated first"),
+            "open_loop": {"plant": hook_text, "payoff_scene": "point1"},
             "proof_moment": "point1",
             "selected_cover": [c["text"] for c in plan["cover"]["concepts"]].index(plan["cover"]["text"]),
             "archetype": "spotlight",
@@ -207,6 +208,9 @@ def build(plan_path):
         "motion_standard": 2,
         "qa_gates": True,  # new batches: Short QA gates apply (tools/short_qa.py)
     }
+    if plan.get("hook") is not None:
+        brief["script_standard"] = "viewer-first-v1"
+        brief["script_review"] = dict(plan.get("script_review") or {})
     # The visual system. "graphics" is the house renderer: every scene is generated motion graphics
     # built from the tool's own features (see reels-studio/graphics/README.md). It is chosen in the
     # plan, not by hand-editing the brief, so a batch can never end up half on one renderer.
