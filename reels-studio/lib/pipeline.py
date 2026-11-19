@@ -31,7 +31,7 @@ from pathlib import Path
 import numpy as np
 import soundfile as sf
 
-from . import framecheck
+from . import framecheck, cover_frame
 from scipy.signal import resample_poly
 
 from . import scenes as scenelib
@@ -1631,6 +1631,10 @@ class Job:
         self.out.mkdir(parents=True, exist_ok=True)
         final = self.out / f"{self.id}.mp4"
         shutil.copy2(mp4, final)
+        cover = creative_proof(self.brief, self.out)
+        if cover.get("source") != "cover-lab":
+            raise SystemExit("QA: every new Short needs a reviewed dedicated Cover Lab image before frame-zero delivery")
+        cover["frame0"] = cover_frame.embed(final, self.out / "cover.jpg")
         lb, la = normalize_mp4_audio(final)  # renderer can shift loudness (seen: -14.3 mix -> -15.3 in MP4 with am_michael)
         if lb != la:
             self.stage("loudness_fix", before=f"{lb} LUFS", after=f"{la} LUFS")
@@ -1647,6 +1651,7 @@ class Job:
             "duration_matches": abs(D - self.D) < 0.1,
             "loudness_-14±1": I is not None and abs(I + 14) <= 1.0,
             "peak<=-1dBFS": pk is not None and pk <= -1.0,
+            "dedicated_cover_frame0": bool(cover.get("frame0") and cover["frame0"].get("cover_frame") == 0),
         }
         # Cover contract (2026-10-12): the hook must be visible in frame 0 - see lib/framecheck.py
         f0_ok, f0_peak = framecheck.frame0(final)
@@ -1660,9 +1665,6 @@ class Job:
                 self.manifest["voice_reuse"] = {"from_tag": (self.rebuild or {}).get("from_tag"), **evidence}
             else:
                 checks["approved_voice"] = getattr(self, "voice_engine", None) == need
-        cover_t = self.events.get("cover", 1.0)
-        subprocess.run(["ffmpeg", "-y", "-v", "error", "-ss", f"{cover_t:.2f}", "-i", str(final), "-frames:v", "1", "-q:v", "3", str(self.out / "cover.jpg")], check=True)
-        cover = creative_proof(self.brief, self.out)  # designed cover replaces the frame grab; fails closed
         checks["designed_cover"], contract = cover_contract_check(self.brief, cover)
         cover = {**cover, "contract": contract}
         self.manifest["cover"] = cover
