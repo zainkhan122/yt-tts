@@ -80,6 +80,7 @@ jobs:
             /reels-studio/tools/render_attempts.py
             /reels-studio/tools/gh_actions.py
             /reels-studio/tools/capture_store.py
+            /reels-studio/tools/cover_store.py
             /reels-studio/topics/backlog.csv
             /reels-studio/tracker/buffer-insights.json
             /reels-studio/config/channel.json
@@ -123,6 +124,8 @@ jobs:
           for brief_id in ids:
               brief = f"reels-studio/briefs/{brief_id}.json"
               subprocess.run([sys.executable, 'reels-studio/tools/capture_store.py', 'pull-for', brief], check=True)
+              subprocess.run([sys.executable, 'reels-studio/tools/cover_store.py', 'pull-for', brief], check=True)
+              subprocess.run([sys.executable, 'reels-studio/tools/cover_store.py', 'verify-receipt', brief, receipt], check=True)
           subprocess.run([sys.executable, 'reels-studio/tools/production_gate.py', 'assets', receipt, *ids], check=True)
           PY
       - name: Reserve unique input fingerprints (write-ahead idempotency lock)
@@ -280,7 +283,11 @@ jobs:
             python3 -c "import json,sys; d=json.load(open(sys.argv[1])); bid=sys.argv[2]; d['briefs']={bid:d['briefs'][bid]}; json.dump(d,open(f"/tmp/receipt-{bid}.json","w"),indent=2)" "$RECEIPT_PATH" "$BRIEF_ID"
           fi
       - name: Reviewed cover pack (the panel's pick, byte-identical)
-        run: python3 reels-studio/tools/cover_store.py pull-for "$BRIEF"
+        run: |
+          python3 reels-studio/tools/cover_store.py pull-for "$BRIEF"
+          if [ -z "${{ inputs.rebuild_scenes }}" ]; then
+            python3 reels-studio/tools/cover_store.py verify-receipt "$BRIEF" "${{ inputs.production_receipt }}"
+          fi
       - name: Checked voice from the voice job
         if: ${{ inputs.rebuild_scenes == '' }}
         uses: actions/download-artifact@v4

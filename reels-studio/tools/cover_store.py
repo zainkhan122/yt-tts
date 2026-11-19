@@ -75,6 +75,28 @@ def verify_dir(cid):
     return data
 
 
+
+def verify_receipt(brief_path, receipt_path):
+    """Bind reviewed image, selected concept and production receipt before render."""
+    brief = json.loads(Path(brief_path).read_text())
+    cid = brief['id']
+    treatment = brief.get('treatment') or {}
+    if not treatment.get('archetype'):
+        raise SystemExit(f'{cid}: a reviewed dedicated cover and treatment are required')
+    sel = verify_dir(cid)
+    concepts = treatment.get('cover_concepts') or []
+    idx = sel.get('selected')
+    if (not isinstance(idx, int) or isinstance(idx, bool) or not 0 <= idx < len(concepts)
+            or treatment.get('selected_cover') != idx or sel.get('archetype') != treatment.get('archetype')
+            or sel.get('text') != concepts[idx].get('text')):
+        raise SystemExit(f'{cid}: selected cover does not match the current brief')
+    receipt = json.loads(Path(receipt_path).read_text())
+    expected = receipt['briefs'][cid]['stages']['assets'].get('cover_sha256')
+    if not expected or expected != sel.get('sha256'):
+        raise SystemExit(f'{cid}: reviewed cover does not match the production receipt')
+    return sel
+
+
 def push(ids):
     rel = release()
     have = {a["name"]: a for a in rel.get("assets", [])}
@@ -133,6 +155,11 @@ def main():
             pull(brief["id"])
         else:
             print(f"{brief.get('id')}: legacy brief without a treatment, no cover pack needed")
+    elif cmd == "verify-receipt":
+        if len(args) != 2:
+            raise SystemExit("verify-receipt needs brief.json and receipt.json")
+        verify_receipt(*args)
+        print("reviewed cover matches brief and production receipt")
     elif cmd == "verify":
         for cid in args:
             print(json.dumps(verify_dir(cid), indent=1)[:400])

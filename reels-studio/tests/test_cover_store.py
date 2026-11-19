@@ -98,3 +98,17 @@ class CoverStoreTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+class CoverReceiptTests(CoverStoreTests):
+    def test_receipt_binds_selected_cover_and_brief(self):
+        self.make(); root=self.tmp
+        brief=root/'brief.json'; receipt=root/'receipt.json'
+        brief.write_text(json.dumps({'id':'demo-01','treatment':{'archetype':'demo-first','selected_cover':1,'cover_concepts':[{'text':'ONE'},{'text':'NO CREW NEEDED'}]}}))
+        selection=cover_store.verify_dir('demo-01')
+        receipt.write_text(json.dumps({'briefs':{'demo-01':{'stages':{'assets':{'cover_sha256':selection['sha256']}}}}}))
+        self.assertEqual(cover_store.verify_receipt(brief,receipt)['sha256'],selection['sha256'])
+        bad=json.loads(receipt.read_text()); bad['briefs']['demo-01']['stages']['assets']['cover_sha256']='0'*64; receipt.write_text(json.dumps(bad))
+        with self.assertRaisesRegex(SystemExit,'production receipt'): cover_store.verify_receipt(brief,receipt)
+        bad['briefs']['demo-01']['stages']['assets']['cover_sha256']=selection['sha256']; receipt.write_text(json.dumps(bad))
+        (root/'covers/demo-01/cover-selected.jpg').write_bytes(b'tampered')
+        with self.assertRaisesRegex(SystemExit,'changed after selection'): cover_store.verify_receipt(brief,receipt)

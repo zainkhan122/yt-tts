@@ -82,6 +82,7 @@ jobs:
             test_validate_dispatch.py \
             test_pipeline_quality_gates.py \
             test_dedicated_cover_frame.py \
+            test_cover_crop_safety.py \
             test_brief_lint.py \
             test_creative.py \
             test_creative_application.py test_cover_store.py \

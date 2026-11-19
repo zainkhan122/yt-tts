@@ -20,3 +20,20 @@ class CoverFrameTest(unittest.TestCase):
             p=Path(tmp)/'small.jpg';Image.new('RGB',(400,400)).save(p)
             with self.assertRaises(ValueError): embed(Path(tmp)/'v.mp4',p)
 if __name__=='__main__': unittest.main()
+
+class CoverAudioAndFrameCountTest(unittest.TestCase):
+    def test_audio_stream_is_unchanged_and_frame_count_preserved(self):
+        import hashlib
+        from lib.cover_frame import verify
+        with tempfile.TemporaryDirectory() as tmp:
+            p=Path(tmp); video=p/'v.mp4'; cover=p/'cover.jpg'
+            Image.new('RGB',(1080,1920),'#f5e9d2').save(cover)
+            subprocess.run(['ffmpeg','-y','-v','error','-f','lavfi','-i','color=blue:s=1080x1920:r=30:d=0.3','-f','lavfi','-i','sine=frequency=440:sample_rate=48000:duration=0.3','-c:v','libx264','-preset','ultrafast','-pix_fmt','yuv420p','-c:a','aac','-shortest',str(video)],check=True)
+            def audio():
+                return hashlib.sha256(subprocess.run(['ffmpeg','-v','error','-i',str(video),'-map','0:a:0','-c:a','copy','-f','adts','-'],stdout=subprocess.PIPE,check=True).stdout).digest()
+            def frames():
+                return len(subprocess.run(['ffmpeg','-v','error','-i',str(video),'-map','0:v:0','-f','framemd5','-'],stdout=subprocess.PIPE,check=True).stdout.split(b'\n'))
+            original_audio, original_frames=audio(),frames()
+            embed(video,cover)
+            self.assertEqual(original_audio,audio()); self.assertEqual(original_frames,frames())
+            self.assertEqual(verify(video,cover)['cover_frame'],0)

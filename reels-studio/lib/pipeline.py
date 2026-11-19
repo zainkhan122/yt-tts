@@ -1638,6 +1638,8 @@ class Job:
         lb, la = normalize_mp4_audio(final)  # renderer can shift loudness (seen: -14.3 mix -> -15.3 in MP4 with am_michael)
         if lb != la:
             self.stage("loudness_fix", before=f"{lb} LUFS", after=f"{la} LUFS")
+        # Verify the *delivered* file, after all audio normalization/remuxing.
+        cover["frame0"] = cover_frame.verify(final, self.out / "cover.jpg")
         pr = json.loads(subprocess.run(["ffprobe", "-v", "error", "-print_format", "json", "-show_streams", "-show_format", str(final)],
                                        capture_output=True, text=True).stdout)
         v = next(s for s in pr["streams"] if s["codec_type"] == "video")
