@@ -123,7 +123,9 @@
       "youtube_id": "FzrONmLEGzs"
     },
     "GJPLl4DdvHw": {
+      "thumbnail_attempts": 1,
       "thumbnail_digest": "sha256:6d7845ac5e19c06bffcecd8dfeb61f7b8751577919a5086cc27fdae6546e2d13",
+      "thumbnail_error": "Local YouTube quota budget reached (QUOTA_BUDGET)",
       "video_id": "repo-unslop-02",
       "youtube_id": "GJPLl4DdvHw"
     },
