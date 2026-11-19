@@ -36,6 +36,12 @@ jobs:
           python-version: '3.12'
       - name: Install pinned lightweight validation dependencies
         run: python3 -m pip install --disable-pip-version-check --no-input numpy==2.2.6 scipy==1.15.3 soundfile==0.13.1 PyYAML==6.0.2 Pillow==12.3.0 jsonschema==4.26.0 graphql-core==3.2.13 requests==2.34.2
+      - name: Install FFmpeg for frame-zero regression
+        run: |
+          python3 -m pip install --disable-pip-version-check --no-input imageio-ffmpeg==0.6.0
+          mkdir -p "$RUNNER_TEMP/ffmpeg-bin"
+          ln -s "$(python3 -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')" "$RUNNER_TEMP/ffmpeg-bin/ffmpeg"
+          echo "$RUNNER_TEMP/ffmpeg-bin" >> "$GITHUB_PATH"
       - name: Compile pipeline and regression tests
         run: |
           set -euo pipefail
