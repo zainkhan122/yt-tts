@@ -1,0 +1,27 @@
+name: Remove duplicate Buffer YouTube pilot
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hypeless-publishing
+  cancel-in-progress: false
+jobs:
+  remove:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m pip install -r reels-studio/tools/youtube/requirements.txt
+      - name: Remove only owner-selected duplicate after direct schedule verification
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          YOUTUBE_OAUTH_JSON: ${{ secrets.YOUTUBE_OAUTH_JSON }}
+          DELETE_BUFFER_YOUTUBE_PILOT: owner-approved
+        run: python3 reels-studio/tools/post/delete_buffer_youtube_pilot.py

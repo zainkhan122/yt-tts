@@ -1,5 +1,5 @@
 {
-  "activation_note": "Owner authorised today's publication across YT/IG/FB on 2026-10-10. One controlled immediate Claude pilot first; subsequent videos follow the researched paced calendar. 2026-10-11 owner instruction: the daily content mix must NOT be hardcoded (no fixed 2 tools / 2 news / 1 repo); required_daily_categories is empty. 2026-10-12 owner instruction (later): the 5/day production cap is removed — the daily count is chosen by the researched factors up to a ceiling of max_videos_per_day = 10, with minimum spacing 150 minutes and per-channel queue limits still enforced by the planner. 2026-10-30 owner instruction: REMOVE the 150-minute minimum gap limit. Videos are scheduled at their BEST time slot brackets from Buffer Insights with a random 5-15 minute offset (CSPRNG, deterministic per platform+day+slot).",
+  "activation_note": "Owner authorised today's publication across YT/IG/FB on 2026-10-10. One controlled immediate Claude pilot first; subsequent videos follow the researched paced calendar. 2026-10-11 owner instruction: the daily content mix must NOT be hardcoded (no fixed 2 tools / 2 news / 1 repo); required_daily_categories is empty. 2026-10-12 owner instruction (later): the 5/day production cap is removed \u2014 the daily count is chosen by the researched factors up to a ceiling of max_videos_per_day = 10, with minimum spacing 150 minutes and per-channel queue limits still enforced by the planner. 2026-10-30 owner instruction: REMOVE the 150-minute minimum gap limit. Videos are scheduled at their BEST time slot brackets from Buffer Insights with a random 5-15 minute offset (CSPRNG, deterministic per platform+day+slot).",
   "branch": "main",
   "buffer": {
     "channels": {
@@ -20,10 +20,11 @@
       },
       "youtube": {
         "buffer_id": "6ac904af6a5c39ccb662a01f",
-        "enabled": true,
+        "enabled": false,
         "name": "Hypeless Ai",
         "service_id": "UCcWh9OdX3rbfHOtDZ6neyrA",
-        "url": "https://www.youtube.com/channel/UCcWh9OdX3rbfHOtDZ6neyrA"
+        "url": "https://www.youtube.com/channel/UCcWh9OdX3rbfHOtDZ6neyrA",
+        "posting_hold": "Owner instruction: never publish YouTube via Buffer; use verified direct YouTube workflow."
       }
     },
     "facebook_ai_disclosure_policy": "Owner 2026-10-10: include Facebook despite missing native API flag. Always add AI-narration caption disclosure; detect native flag support and use it if available. This does not assert native-label compliance or promise a Buffer rollout.",
