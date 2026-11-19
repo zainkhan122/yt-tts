@@ -3671,9 +3671,11 @@
     },
     "repo-moneyprinterturbo-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6aff12ed5187bf7d546f5eb4",
       "category": "repo",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-11-20T17:20:00Z",
+      "due_at": "2026-11-20T17:20:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:c791c5ef87a6127145a45e9a60b33aaa2ea6e0c782ddc2f8ebffe40047a21d91",
         "asset_id": 768150096,
@@ -3688,10 +3690,11 @@
       "notify_subscribers": false,
       "payload_sha256": "ee46b50bdd13e75886b51060bccc313e35293314c4da84726a583468e6833f68",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "MoneyPrinterTurbo turns a topic into a video draft. Check the output and media rights. Comment VIDEO for the repo.\n\n#MoneyPrinterTurbo #AIVideoGenerator #VideoCreation #OpenSourceTools #CreatorWorkflow",
       "title": "MoneyPrinterTurbo: Automate Your Editing Workflow",
-      "updated_at": "2026-11-19T15:16:59Z",
+      "updated_at": "2026-11-19T15:17:01Z",
       "video_id": "repo-moneyprinterturbo-01"
     },
     "repo-musike-01:facebook": {
