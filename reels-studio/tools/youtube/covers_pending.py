@@ -72,7 +72,9 @@ def main():
     except (OSError, ValueError, KeyError) as exc:
         print(f"covers_pending: cannot read state files: {exc}", file=sys.stderr)
         return 2
-    pending = pending_covers(records, items, enrichment)
+    sys.path.insert(0, str(root))
+    from tools.youtube.approved_overrides import effective_item
+    pending = pending_covers(records, [effective_item(item) for item in items], enrichment)
     if args.json:
         print(json.dumps(pending, indent=2))
     elif pending:

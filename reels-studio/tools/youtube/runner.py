@@ -22,6 +22,7 @@ from tools.post.state import Journal
 from tools.youtube import analytics as analytics_lane
 from tools.youtube.api import Deferred, Uncertain, YouTubeAPI, YouTubeError
 from tools.youtube.contracts import fetch_short_cover, preflight, read_brief
+from tools.youtube.approved_overrides import effective_item
 from tools.youtube.metadata import enrich_short, get_video, playlists_for, set_thumbnail
 from tools.youtube.resumable import reconcile_upload, tracking_tag, upload
 from tools.youtube.schedule import plan
@@ -202,7 +203,7 @@ def enrich_buffer_shorts(api, journal, shorts_records, short_items, root_cfg):
     if not api.cfg["metadata_enrichment"]["enabled"]:
         return []
     rows, count = [], 0
-    queue_by_id = {i["video_id"]: i for i in short_items}
+    queue_by_id = {i["video_id"]: effective_item(i) for i in short_items}
     for source in shorts_records.values():
         if source.get("platform") != "youtube" or source.get("state") not in {"sent", "published_manual"}:
             continue

@@ -78,7 +78,14 @@ def fetch_short_cover(item, root_cfg, work):
     """Cover for the enrichment worker: requires explicit agent approval first."""
     if not (item.get("cover_sha256") and item.get("cover_reviewed_at")):
         return None
-    cover = fetch_kit_cover(item, root_cfg, work)
+    if item.get("approved_replacement_file"):
+        expected = item["video_id"] + ".png"
+        if item["approved_replacement_file"] != expected:
+            raise ValueError("Invalid approved replacement cover filename")
+        cover = ROOT / "approved-thumbnails" / expected
+        validate_short_cover(cover, item["cover_sha256"])
+    else:
+        cover = fetch_kit_cover(item, root_cfg, work)
     return {"path": cover, "sha256": cover_digest(cover)}
 
 

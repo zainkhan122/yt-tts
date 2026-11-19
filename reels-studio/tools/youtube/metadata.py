@@ -104,7 +104,7 @@ def set_thumbnail(api, record, path, digest, journal):
     data = Path(path).read_bytes()
     # The exact same deterministic assignment may be retried; it creates no new video.
     api.json("POST", "upload/thumbnails/set", params={"videoId": record["youtube_id"], "uploadType": "media"},
-             data=data, headers={"Content-Type": "image/jpeg"}, cost=50, idempotent=True)
+             data=data, headers={"Content-Type": "image/png" if data.startswith(b"\x89PNG\r\n\x1a\n") else "image/jpeg"}, cost=50, idempotent=True)
     record["thumbnail_digest"] = digest
     journal.save("thumbnail assigned " + record["video_id"])
 

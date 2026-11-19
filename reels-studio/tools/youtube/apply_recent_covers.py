@@ -17,12 +17,13 @@ from tools.post.common import config, load_json
 from tools.post.state import Journal
 from tools.youtube.api import YouTubeAPI, YouTubeError
 from tools.youtube.contracts import fetch_short_cover
+from tools.youtube.approved_overrides import effective_item
 from tools.youtube.metadata import attach_short_cover, get_video
 from tools.youtube.runner import external_id
 
 
 def apply(api, journal, records, items, ids, work):
-    by_id = {i['video_id']: i for i in items}
+    by_id = {i['video_id']: effective_item(i) for i in items}
     results = []
     for vid in ids:
         try:
