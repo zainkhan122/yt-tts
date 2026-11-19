@@ -1038,6 +1038,9 @@ class QueueReleaseTests(unittest.TestCase):
             self.assertNotIn(kept, fb)
         ig = refresh_input({"buffer_post_id": "bp2", "_key": "tool-claude-tokens-01:instagram"}, item, cfg, iso(now_utc()))
         self.assertEqual(ig["assets"][0]["video"]["metadata"], {"thumbnailOffset": 1000})
+        item["instagram_thumbnail_offset_ms"] = 0
+        ig_zero = refresh_input({"buffer_post_id": "bp2", "_key": "tool-claude-tokens-01:instagram"}, item, cfg, iso(now_utc()))
+        self.assertEqual(ig_zero["assets"][0]["video"]["metadata"], {"thumbnailOffset": 0})
         self.assertEqual(ig["metadata"]["instagram"]["type"], "reel")
         self.assertTrue(ig["metadata"]["instagram"]["shouldShareToFeed"])
 

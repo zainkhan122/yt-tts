@@ -60,7 +60,12 @@ def payload_for(item, platform, due, cfg):
             meta["isAiGenerated"] = True
     video = {"url": media_url(item, cfg)}
     if platform == "instagram":
-        video["metadata"] = {"thumbnailOffset": 1000}
+        # Existing posts keep their historical offset. A newly approved cover-at-frame-zero
+        # item may explicitly request 0ms; the platform may still choose another frame.
+        offset = item.get("instagram_thumbnail_offset_ms", 1000)
+        if isinstance(offset, bool) or not isinstance(offset, int) or offset < 0:
+            raise ValueError("instagram thumbnail offset must be a non-negative integer (ms)")
+        video["metadata"] = {"thumbnailOffset": offset}
     return {"channelId": cfg["buffer"]["channels"][platform]["buffer_id"], "text": text,
             "schedulingType": "automatic", "mode": "customScheduled", "dueAt": iso(due),
             "saveToDraft": False, "needsApproval": False, "aiAssisted": True,
