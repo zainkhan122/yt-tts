@@ -323,6 +323,20 @@ jobs:
             extra=(--receipt "reels-studio/research/production/receipts/per-brief-${{ matrix.brief }}.json" --voice-in "voice-handoff/${{ matrix.brief }}")
           fi
           python3 reels-studio/reels.py make "$BRIEF" --quality "${{ inputs.quality }}" --crf "${{ inputs.crf }}" "${extra[@]}"
+      - name: Measured Short QA (fail closed for new briefs)
+        run: |
+          python3 - <<'PYQA'
+          import json, os, subprocess, sys
+          from pathlib import Path
+          brief = json.loads(Path(os.environ['BRIEF']).read_text())
+          if brief.get('qa_gates') is True:
+              ident = brief['id']
+              folder = Path('reels-studio/renders') / ident
+              subprocess.run([sys.executable, 'reels-studio/tools/short_qa.py', 'video',
+                              str(folder / (ident + '.mp4')), '--kit', str(folder / 'manifest.json')], check=True)
+          else:
+              print('Legacy brief: measured Short QA not enabled; no change to prior approvals.')
+          PYQA
       - name: SEO pack (gate)
         run: python3 reels-studio/tools/seo_pack.py "$BRIEF"
       - name: Gate receipt (rule IDs -> manifest)
