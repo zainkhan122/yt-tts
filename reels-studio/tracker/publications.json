@@ -3671,9 +3671,11 @@
     },
     "repo-moneyprinterturbo-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6aff12f4cfb6abb6944bb147",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-11-20T22:11:00Z",
+      "due_at": "2026-11-20T22:11:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:c791c5ef87a6127145a45e9a60b33aaa2ea6e0c782ddc2f8ebffe40047a21d91",
         "asset_id": 768150096,
@@ -3688,10 +3690,11 @@
       "notify_subscribers": false,
       "payload_sha256": "ed79c8abd48d602eea1ccd3286aac9098dafb6ae0045e8f892df9faaca65377f",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "MoneyPrinterTurbo assembles a video draft from a topic. Review results and usage rights.\n\nAI-generated narration.\n\n#MoneyPrinterTurbo #AIVideoGenerator #VideoCreation #OpenSourceTools #CreatorWorkflow",
       "title": "MoneyPrinterTurbo: Automate Your Editing Workflow",
-      "updated_at": "2026-11-19T15:17:06Z",
+      "updated_at": "2026-11-19T15:17:08Z",
       "video_id": "repo-moneyprinterturbo-01"
     },
     "repo-moneyprinterturbo-01:instagram": {
