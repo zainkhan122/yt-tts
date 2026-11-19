@@ -1073,9 +1073,13 @@
   },
   "records": {
     "repo-moneyprinterturbo-01": {
+      "asset_digest": "sha256:c791c5ef87a6127145a45e9a60b33aaa2ea6e0c782ddc2f8ebffe40047a21d91",
       "attempts": 0,
       "category": "repo",
-      "state": "queued",
+      "final_chunk_submitted": false,
+      "state": "session_start_uncertain",
+      "tracking_tag": "hypeless-ref-f890eb5fc1c3dcbc0cbd",
+      "updated_at": "2026-11-19T17:46:21Z",
       "video_id": "repo-moneyprinterturbo-01"
     }
   },
