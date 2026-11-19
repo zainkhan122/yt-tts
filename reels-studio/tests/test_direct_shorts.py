@@ -46,13 +46,13 @@ class DirectShortSafety(unittest.TestCase):
 if __name__=='__main__': unittest.main()
 
 class DirectFlow(DirectShortSafety):
-    def exercise(self, *, confirmed=True, scheduled=False):
+    def exercise(self, *, confirmed=True, scheduled=False, rec_state="uploaded_private"):
         import tempfile
         from tools.youtube.direct_shorts import run
         from unittest.mock import patch
-        snippet=self.check()
+        snippet=validate_request(self.item,self.brief,self.receipt,self.due,self.now,allow_stale=True)
         class Journal:
-            def __init__(self): self.records={'repo-moneyprinterturbo-01':{'video_id':'repo-moneyprinterturbo-01','state':'uploaded_private','youtube_id':'abcdef12345','asset_digest':self_item['asset_digest']}}; self.saves=[]
+            def __init__(self): self.records={'repo-moneyprinterturbo-01':{'video_id':'repo-moneyprinterturbo-01','state':rec_state,'youtube_id':'abcdef12345','asset_digest':self_item['asset_digest']}}; self.saves=[]
             def save(self, reason): self.saves.append(reason)
         self_item=self.item
         class API:
@@ -77,3 +77,12 @@ class DirectFlow(DirectShortSafety):
         result,api,journal=self.exercise(confirmed=False);self.assertEqual(getattr(result,'code',None),'THUMBNAIL_PENDING');self.assertEqual(api.writes,0)
     def test_existing_schedule_is_not_rearmed(self):
         result,api,_=self.exercise(scheduled=True);self.assertEqual(result['state'],'scheduled');self.assertEqual(api.writes,0)
+
+    def test_near_deadline_can_recover_existing_schedule(self):
+        self.now=self.due-dt.timedelta(minutes=5)
+        result,api,_=self.exercise(scheduled=True,rec_state='scheduling')
+        self.assertEqual(result['state'],'scheduled');self.assertEqual(api.writes,0)
+    def test_near_deadline_never_arms_new_schedule(self):
+        self.now=self.due-dt.timedelta(minutes=5)
+        result,api,_=self.exercise(scheduled=False,rec_state='scheduling')
+        self.assertIsInstance(result,ValueError);self.assertEqual(api.writes,0)

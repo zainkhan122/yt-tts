@@ -26,7 +26,7 @@ from tools.youtube.seo import validate
 REMOTE = 'reels-studio/tracker/youtube-publications.json'
 
 
-def validate_request(item, brief, buffer_record, due, now):
+def validate_request(item, brief, buffer_record, due, now, *, allow_stale=False):
     if item.get('approval') != 'approved' or 'youtube' not in item.get('platforms', []):
         raise ValueError('Short and YouTube platform must be approved')
     if fingerprint(brief) != item.get('brief_sha256'):
@@ -46,7 +46,7 @@ def validate_request(item, brief, buffer_record, due, now):
         raise ValueError('Dated editorial review and expiry required')
     if parse_time(item.get('not_before')) and due < parse_time(item['not_before']):
         raise ValueError('Slot precedes approved publication window')
-    if due < now + dt.timedelta(hours=3):
+    if not allow_stale and due < now + dt.timedelta(hours=3):
         raise ValueError('Schedule is too close or in the past; refusing immediate publication')
     if parse_time(item.get('expires_at')) and due > parse_time(item['expires_at']):
         raise ValueError('Fact review expires before publication')
@@ -63,8 +63,12 @@ def verify_copy(video, snippet):
 
 
 def run(item, brief, buffer_record, due, api, journal, root_cfg, work, clock=now_utc, sleep=time.sleep):
-    snippet = validate_request(item, brief, buffer_record, due, clock())
     vid = item['video_id']
+    # Recovery may read back an already-armed schedule near its due time.
+    # The arming branch below still refuses a stale time if no schedule exists.
+    existing = journal.records.get(vid) or {}
+    snippet = validate_request(item, brief, buffer_record, due, clock(),
+                               allow_stale=existing.get('state') in {'scheduling', 'scheduled'})
     record = journal.records.setdefault(vid, {'video_id': vid, 'category': item['category'], 'state': 'queued', 'attempts': 0})
     if record.get('asset_digest') and record['asset_digest'] != item['asset_digest']:
         raise ValueError('Existing YouTube checkpoint belongs to different media')

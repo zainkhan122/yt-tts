@@ -182,6 +182,8 @@ def main():
     for vid in selected:
         job=journal.data['direct_short_jobs'][vid]
         if job['state']=='pending' and pending_processed: continue
+        if job['state']=='pending' and parse_time(job.get('retry_at')) and parse_time(job['retry_at']) > now_utc():
+            continue  # a deferred job must not starve other due work
         if job['state']=='pending': pending_processed=True
         if vid not in items:
             job.update(state='needs_review',last_error='Approved queue item missing');journal.save('direct Short item missing');failed=True;continue
