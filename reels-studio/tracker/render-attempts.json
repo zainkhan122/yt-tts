@@ -2926,9 +2926,9 @@
       "capture_id": "repo-moneyprinterturbo-01",
       "cover_sha256": "893923311774bd7d999781e625a0797ba79069ac358e23e56b95514e60e5a1cd",
       "crf": 23,
-      "failure_conclusion": null,
+      "failure_conclusion": "render=success publish=skipped",
       "fingerprint": "8f13257a0d617e23bef5a81d891100ecb1fd3b71f8e8cf76bdea69f800295db5",
-      "finished_at": null,
+      "finished_at": "2026-11-19T14:56:37Z",
       "from_tag": "",
       "graphics_sha256": "47da3f046c71644abcbb38199b6a9922519e044cfedda5c73fc4e379624f3980",
       "quality": "looks",
@@ -2936,7 +2936,7 @@
       "renderer_sha256": "8029ff1815531ce99ce0c4ecd03deea40ce67896c7dc70184a2352d07a13c5bd",
       "run_id": "44545471354",
       "started_at": "2026-11-19T14:36:01Z",
-      "status": "started",
+      "status": "render_only_success",
       "voice_seed": 0
     },
     "9368ad25763fef5773d1527bac55c8f3e1fd494c8392b8e79fee0a8fa8498a1b": {
