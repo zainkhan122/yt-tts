@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-18T18:15:57Z",
+  "updated_at": "2026-11-19T20:59:13Z",
   "videos": {
     "list-free-video-ai-01": {
       "snapshots": [
@@ -577,6 +577,11 @@
       ],
       "title": null,
       "youtube_id": "IP70g5d8_Qc"
+    },
+    "repo-apkstart-01": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "Wy5fdSDCC28"
     },
     "repo-autoloop-01": {
       "snapshots": [
@@ -1588,6 +1593,25 @@
       "title": null,
       "youtube_id": "IXiCmdIXglY"
     },
+    "repo-univer-01": {
+      "snapshots": [
+        {
+          "age_hours": 26.81,
+          "analytics": {
+            "unavailable": "no rows returned (video may be younger than Analytics freshness)"
+          },
+          "comments": 0,
+          "engagement_rate": 0.0,
+          "likes": 0,
+          "published_at": "2026-11-18T18:10:50Z",
+          "taken_at": "2026-11-19T20:59:13Z",
+          "views": 33,
+          "window": "24h"
+        }
+      ],
+      "title": null,
+      "youtube_id": "HQlSd6W3smE"
+    },
     "repo-unslop-02": {
       "snapshots": [
         {
@@ -1602,6 +1626,26 @@
           "taken_at": "2026-11-18T18:03:45Z",
           "views": 78,
           "window": "24h"
+        },
+        {
+          "age_hours": 190.75,
+          "analytics": {
+            "avg_view_duration_s": 19.0,
+            "avg_view_percentage": 42.5,
+            "engaged_views": 24,
+            "estimated_minutes_watched": 9.0,
+            "shares": 0,
+            "subscribers_gained": 0,
+            "thumbnail_impressions_ctr": "unavailable: requires separate Reporting API reach report or Studio export",
+            "views": 78
+          },
+          "comments": 0,
+          "engagement_rate": 0.0,
+          "likes": 0,
+          "published_at": "2026-11-11T22:14:25Z",
+          "taken_at": "2026-11-19T20:59:13Z",
+          "views": 78,
+          "window": "7d"
         }
       ],
       "title": null,
@@ -1766,6 +1810,11 @@
       ],
       "title": null,
       "youtube_id": "i5STWnaoVaM"
+    },
+    "repo-wireless-battery-01": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "377pMF0rRPI"
     },
     "spotlight-papermorph-01": {
       "snapshots": [
