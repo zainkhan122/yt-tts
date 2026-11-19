@@ -59,7 +59,7 @@ def contain(im, tw, th):
     return im.resize((max(1, round(im.width * s)), max(1, round(im.height * s))))
 
 
-def fit_text(draw, text, max_w, start=190):
+def fit_text(draw, text, max_w, start=220):
     from PIL import ImageFont
     size = start
     while size > 40:
@@ -227,7 +227,7 @@ def make_concepts(brief, out_dir, root=ROOT):
             box = (cover_rules.SAFE_LEFT, text_y, cover_rules.SAFE_RIGHT, text_y + lh * len(lines))
             plate = base.copy()  # the pixels the type will sit on, before any type lands
             d = ImageDraw.Draw(base)
-            y = draw_text_block(base, lines, f, accent, text_y, d, align=align)
+            y = draw_text_block(base, lines, f, accent, text_y, d, align=align, x=cover_rules.SAFE_LEFT + 6)
             if layout == "window":
                 base.paste(media, (54, y + 60))
                 d.rectangle([54, y + 60, 54 + media.width, y + 60 + media.height], outline=accent, width=8)

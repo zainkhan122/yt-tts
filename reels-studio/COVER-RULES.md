@@ -22,8 +22,8 @@ viewer stop, read the headline, and want the answer. These rules apply to every 
 
 ## 3. Layout
 
-- Canvas 1080 × 1920. Keep every headline inside x = 108–972 and y = 330–1590, including strokes; leave a generous inset on every side.
-- Keep the recognizable part of the tool-specific graphic within the same central safe area, not cut off by platform UI.
+- Canvas 1080 × 1920. Keep every headline inside x = 54–1026 and y = 315–1605, including strokes and shadows. This is an editorial 5% horizontal margin plus 30 px inside a centered 4:5 crop; not a YouTube-published pixel specification.
+- Use the safe area fully: maximize readable headline size and the recognizable topic-specific graphic without clipping, collisions or overlaid UI. Do not shrink the whole composition into a small central island; background and nonessential decoration may bleed. Keep critical detail within the safe area.
 - Inspect the full portrait and simulated centered 2:3 and 4:5 crops at mobile size (and the actual platform preview when available). Different surfaces crop differently; these are conservative checks, not platform guarantees.
 - Three concepts per video, each using a different layout:
   - **bleed**: graphic full-bleed behind the headline,
@@ -50,3 +50,7 @@ viewer stop, read the headline, and want the answer. These rules apply to every 
 - A graphic that is blurred, pixelated, or unreadable at phone size.
 - Any text under contrast 4.5:1.
 - Only one layout across the three concepts.
+
+## 7. Evidence and limits (Nov 2026)
+
+YouTube recommends a 9:16 Shorts thumbnail, not a universal pixel safe zone: https://support.google.com/youtube/answer/72431?hl=en. Independently measured 2:3 tiles remove about 150px at top and bottom of a 1080 × 1920 image: https://thumbnailpeak.com/blog/youtube-shorts-thumbnail. A centered 4:5 crop is a more conservative stress test (crop top/bottom 285px); 315/1605 add 30px breathing room. 4:5 is not guaranteed everywhere. Preview full frame, 2:3 and 4:5 at mobile size and inspect actual target surfaces. Player controls are a separate overlay issue; avoid assuming thumbnail crop geometry covers them.

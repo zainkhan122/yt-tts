@@ -18,6 +18,10 @@ jobs:
         with:
           python-version: '3.11'
       - run: python3 -m pip install -r reels-studio/tools/youtube/requirements.txt
+      - name: Safety tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}/reels-studio
+        run: python3 -m unittest discover -s reels-studio/tests -p test_delete_buffer_youtube_pilot.py -v
       - name: Remove only owner-selected duplicate after direct schedule verification
         env:
           GH_TOKEN: ${{ github.token }}
