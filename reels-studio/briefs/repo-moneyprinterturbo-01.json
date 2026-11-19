@@ -25,7 +25,8 @@
       "id": "hook",
       "type": "flow",
       "say": "Turn one topic into a short video. This is Money Printer Turbo.",
-      "heading": "TOPIC TO VIDEO"
+      "heading": "TOPIC TO VIDEO",
+      "sub": "MoneyPrinterTurbo"
     },
     {
       "id": "script",
@@ -50,7 +51,27 @@
       "type": "image",
       "say": "Choose portrait or landscape, and customize what goes into the edit.",
       "heading": "MAKE IT YOURS",
-      "image": "webui-en.jpg"
+      "image": "webui-en.jpg",
+      "focus": [
+        {
+          "at": 0,
+          "box": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "at": 2,
+          "box": [
+            0.02,
+            0.02,
+            0.96,
+            0.96
+          ]
+        }
+      ]
     },
     {
       "id": "limits",
@@ -214,5 +235,7 @@
         }
       }
     ]
-  }
+  },
+  "qa_gates": true,
+  "media_aspect_landscape_ok": "Official landscape screenshot is cropped into a portrait composition and displayed with animated focus; no full-screen landscape card."
 }

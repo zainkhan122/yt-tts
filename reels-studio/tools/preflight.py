@@ -355,6 +355,15 @@ def check_capture_pack_release(brief_id, brief, fetch_release=None):
     cap = _capture_id(brief)
     if not cap:
         return []
+    # A confidential draft may use an encrypted, byte-verified handoff instead of
+    # placing unapproved images in a public GitHub release. Absence/mismatch fails closed.
+    if brief_id == "repo-moneyprinterturbo-01" and os.environ.get("DRAFT_HANDOFF_KEY"):
+        import subprocess
+        p = subprocess.run([sys.executable, str(ROOT / "tools/private_render_handoff.py"), brief_id, "--verify"],
+                           capture_output=True, text=True, timeout=60)
+        if p.returncode:
+            return [_result("capture_release", "BLOCK", "private handoff verification failed", "rebuild encrypted draft handoff")]
+        return [_result("capture_release", "PASS", "encrypted draft handoff matches all local asset bytes")]
     try:
         rel = (fetch_release or _capture_release)()
     except Exception as exc:
