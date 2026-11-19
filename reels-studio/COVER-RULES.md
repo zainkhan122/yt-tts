@@ -22,9 +22,9 @@ viewer stop, read the headline, and want the answer. These rules apply to every 
 
 ## 3. Layout
 
-- Canvas 1080 × 1920. Headline in the top band (safe zone starts at y = 330).
-- Graphic in the middle or lower half, large, not cut off by the platform UI.
-- Keep the bottom 330 px clear of anything important (platform buttons).
+- Canvas 1080 × 1920. Keep every headline inside x = 108–972 and y = 330–1590, including strokes; leave a generous inset on every side.
+- Keep the recognizable part of the tool-specific graphic within the same central safe area, not cut off by platform UI.
+- Inspect the full portrait and simulated centered 2:3 and 4:5 crops at mobile size (and the actual platform preview when available). Different surfaces crop differently; these are conservative checks, not platform guarantees.
 - Three concepts per video, each using a different layout:
   - **bleed**: graphic full-bleed behind the headline,
   - **window**: graphic inside a framed window or laptop,

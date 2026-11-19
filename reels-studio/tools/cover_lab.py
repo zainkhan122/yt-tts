@@ -79,7 +79,7 @@ def fit_text(draw, text, max_w, start=190):
     return ImageFont.truetype(str(FONT), 40), [text.upper()]
 
 
-def draw_text_block(base, lines, font, accent, y, draw, align="left", x=54):
+def draw_text_block(base, lines, font, accent, y, draw, align="left", x=108):
     lh = int(font.size * 1.04)
     for i, line in enumerate(lines):
         col = accent if i == len(lines) - 1 else (255, 255, 255)
@@ -195,7 +195,7 @@ def make_concepts(brief, out_dir, root=ROOT):
             sim.load()
             base = Image.new("RGB", (W, H), (7, 11, 22))
             scratch = ImageDraw.Draw(base)
-            f, lines = fit_text(scratch, text, W - 108)
+            f, lines = fit_text(scratch, text, cover_rules.SAFE_RIGHT - cover_rules.SAFE_LEFT - 12)
             lh = int(f.size * 1.04)
             if layout == "bleed":  # poster on its own blurred ground
                 ground = cover_crop(sim, W, H).filter(ImageFilter.GaussianBlur(38))
@@ -213,7 +213,7 @@ def make_concepts(brief, out_dir, root=ROOT):
             elif layout == "window":  # framed artifact under the headline
                 media = contain(sim, W - 108, 1180)
                 block = lh * len(lines) + 96 + media.height
-                text_y = max(cover_rules.SAFE_TOP, min((H - block) // 2, cover_rules.SAFE_BOTTOM - lh * len(lines)))
+                text_y = max(cover_rules.SAFE_TOP + (110 if kicker else 0), min((H - block) // 2, cover_rules.SAFE_BOTTOM - lh * len(lines)))
                 align = "left"
                 ky = text_y - (96 if kicker else 60)
             else:  # split: media band on top, headline under the accent rule
@@ -224,7 +224,7 @@ def make_concepts(brief, out_dir, root=ROOT):
                 d.rectangle([0, band, W, band + 14], fill=accent)
                 text_y, align = band + 96, "left"
                 ky = band + 34
-            box = (54, text_y, W - 54, text_y + lh * len(lines))
+            box = (cover_rules.SAFE_LEFT, text_y, cover_rules.SAFE_RIGHT, text_y + lh * len(lines))
             plate = base.copy()  # the pixels the type will sit on, before any type lands
             d = ImageDraw.Draw(base)
             y = draw_text_block(base, lines, f, accent, text_y, d, align=align)
@@ -233,8 +233,8 @@ def make_concepts(brief, out_dir, root=ROOT):
                 d.rectangle([54, y + 60, 54 + media.width, y + 60 + media.height], outline=accent, width=8)
         if kicker:
             kf = ImageFont.truetype(str(ROOT / "templates/_base/fonts/JetBrainsMono.ttf"), 34)
-            d.rectangle([54, ky - 8, 54 + d.textlength(kicker, font=kf) + 40, ky + 50], fill=accent)
-            d.text((74, ky), kicker, font=kf, fill=(6, 8, 14))
+            d.rectangle([108, ky - 8, 108 + d.textlength(kicker, font=kf) + 40, ky + 50], fill=accent)
+            d.text((128, ky), kicker, font=kf, fill=(6, 8, 14))
         p = out_dir / f"cover-{i + 1}.jpg"
         base.save(p, quality=92)
         bg = block_background(plate, box)
@@ -255,6 +255,16 @@ def make_concepts(brief, out_dir, root=ROOT):
     for i, p in enumerate(made):
         contact.paste(cover_crop(I.open(p), 360, 640), (i * 360, 0))
     contact.save(out_dir / "sheet.jpg", quality=88)
+    # Side-by-side centre crops simulate common feed crops, not a promise about
+    # any platform's exact framing. Review full-frame, 2:3 and 4:5 at phone size.
+    crop_sheet = I.new("RGB", (1080, 450), (245, 245, 245))
+    for i, p in enumerate(made):
+        crop_sheet.paste(cover_crop(I.open(p), 360, 450), (i * 360, 0))
+    crop_sheet.save(out_dir / "sheet-crop-4x5.jpg", quality=88)
+    crop_sheet = I.new("RGB", (1080, 540), (245, 245, 245))
+    for i, p in enumerate(made):
+        crop_sheet.paste(cover_crop(I.open(p), 360, 540), (i * 360, 0))
+    crop_sheet.save(out_dir / "sheet-crop-2x3.jpg", quality=88)
     return made, report
 
 
@@ -278,6 +288,8 @@ def audit(report):
         problems += [f"concept {c['concept']}: {p}" for p in cover_rules.headline_problems(c["text"])]
         if c["text_box"][1] < cover_rules.SAFE_TOP or c["text_box"][3] > cover_rules.SAFE_BOTTOM:
             problems.append(f"concept {c['concept']} headline is outside the safe vertical area")
+        if c["text_box"][0] < cover_rules.SAFE_LEFT or c["text_box"][2] > cover_rules.SAFE_RIGHT:
+            problems.append(f"concept {c['concept']} headline is outside the safe horizontal area")
         if min(c["contrast_white"], c["contrast_accent"]) < 4.5:
             problems.append(f"concept {c['concept']} contrast {c['contrast_white']}:1 / "
                             f"{c['contrast_accent']}:1 below 4.5 against its plate")
