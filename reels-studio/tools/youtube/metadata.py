@@ -151,7 +151,13 @@ def attach_short_cover(api, journal, row, video_id, cover):
             return "confirmed"
         row["thumbnail_attempts"] = attempts + 1
         row["thumbnail_error"] = "YouTube has not confirmed the custom thumbnail yet"
-    except (YouTubeError, Uncertain, Deferred) as exc:
+    except Deferred as exc:
+        # Quota/rate limits and visibility delays are scheduling deferrals, not
+        # failed image uploads. Preserve the retry budget until service resumes.
+        row["thumbnail_error"] = redact(str(exc)) + " (" + getattr(exc, "code", "DEFERRED") + ")"
+        journal.save("Shorts cover deferred " + row["video_id"])
+        return "pending"
+    except (YouTubeError, Uncertain) as exc:
         row["thumbnail_attempts"] = attempts + 1
         row["thumbnail_error"] = redact(str(exc)) + " (" + getattr(exc, "code", "ERROR") + ")"
     if row["thumbnail_attempts"] >= SHORT_COVER_ATTEMPT_LIMIT:
