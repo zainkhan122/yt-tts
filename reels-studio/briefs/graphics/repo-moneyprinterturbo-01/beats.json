@@ -1,0 +1,117 @@
+{
+  "tool": "moneyprinterturbo",
+  "handle": "@hypeless",
+  "template": "moneyprinterturbo",
+  "script_sha256": "sha256:2856c3f6b4314c97a6109d24bed745387874fe7b4c65cb83d6aba1d7005ec8df",
+  "scenes": [
+    {
+      "scene_id": "hook",
+      "phrase": 0,
+      "archetype": "mp_hook",
+      "headline": "TOPIC TO VIDEO",
+      "feature_id": null,
+      "depicts": "Turn one topic into a short video. This is Money Printer Turbo.",
+      "payload": {
+        "cue_phrases": [
+          "one topic",
+          "short video",
+          "Money Printer Turbo"
+        ]
+      }
+    },
+    {
+      "scene_id": "script",
+      "phrase": 1,
+      "archetype": "mp_script",
+      "headline": "START WITH AN IDEA",
+      "feature_id": "f1",
+      "depicts": "Type a subject or keywords, and it drafts the script.",
+      "payload": {
+        "cue_phrases": [
+          "subject",
+          "keywords",
+          "script"
+        ]
+      }
+    },
+    {
+      "scene_id": "media",
+      "phrase": 2,
+      "archetype": "mp_media",
+      "headline": "CHOOSE YOUR FOOTAGE",
+      "feature_id": "f2",
+      "depicts": "Then it can match stock footage to the script, or you can add your own clips from your computer.",
+      "payload": {
+        "cue_phrases": [
+          "stock footage",
+          "your own clips"
+        ]
+      }
+    },
+    {
+      "scene_id": "assembly",
+      "phrase": 3,
+      "archetype": "mp_assembly",
+      "headline": "BUILD THE TIMELINE",
+      "feature_id": "f1",
+      "depicts": "It adds a voiceover, subtitles, and music, then assembles the video.",
+      "payload": {
+        "cue_phrases": [
+          "voiceover",
+          "subtitles",
+          "music",
+          "assembles"
+        ]
+      }
+    },
+    {
+      "scene_id": "controls",
+      "phrase": 4,
+      "archetype": "mp_controls",
+      "headline": "MAKE IT YOURS",
+      "feature_id": "f3",
+      "depicts": "Choose portrait or landscape, and customize what goes into the edit.",
+      "payload": {
+        "cue_phrases": [
+          "portrait",
+          "landscape",
+          "customize"
+        ]
+      },
+      "evidence_image": "webui-en-crop.jpg",
+      "evidence_credit": "Official MoneyPrinterTurbo repository screenshot"
+    },
+    {
+      "scene_id": "limits",
+      "phrase": 5,
+      "archetype": "mp_limits",
+      "headline": "CHECK BEFORE SHARING",
+      "feature_id": "f4",
+      "depicts": "Some model and media services need A P I keys and can cost money. Always check the output, facts, and usage rights before you share.",
+      "payload": {
+        "cue_phrases": [
+          "A P I keys",
+          "cost money",
+          "output",
+          "rights"
+        ]
+      }
+    },
+    {
+      "scene_id": "cta",
+      "phrase": 6,
+      "archetype": "endcard",
+      "headline": "YOUR CALL",
+      "feature_id": null,
+      "depicts": "Want the repo? Comment VIDEO and follow Hypeless for more tools, minus the hype.",
+      "payload": {
+        "cue_phrases": [
+          "VIDEO"
+        ],
+        "keyword": "VIDEO",
+        "prompt": "for the repo",
+        "follow": "@hypeless"
+      }
+    }
+  ]
+}

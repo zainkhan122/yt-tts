@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-11-06-moneyprinterturbo",
+  "created_at": "2026-11-19T14:32:15Z",
+  "briefs": {
+    "repo-moneyprinterturbo-01": {
+      "brief_sha256": "053dcedaa646202fdc5b4d5a1d5bcd7cccb10250e70d0256c7c3f87938fd6922",
+      "brief_identity_sha256": "dfe07efc2b44814d6f1bfc98855fcabba3ea4420242c2a3a18a566229aa488ee",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "script_sha256": "64eaa23e2a16241d02fe98750089651c60f13f85a23ce23442e825e60280e63d",
+          "word_count": 102
+        },
+        "assets": {
+          "capture_id": "repo-moneyprinterturbo-01",
+          "manifest_sha256": "4783c4f2e4f42df6d8ac71967b69bfaf512a89974458494ae2df4c6a90eefc9b",
+          "files": [
+            {
+              "path": "webui-en.jpg",
+              "sha256": "1b43fe09bf3f9d2b04be0137eb3bead195ba3a2e1fccd1323c6c5baaeee92a84"
+            },
+            {
+              "path": "webui-en-crop.jpg",
+              "sha256": "1c230d6844dfb4367e87ed8ffbff0d1dda41126290930d3f4cc5e673be33363d"
+            }
+          ],
+          "cover_sha256": "893923311774bd7d999781e625a0797ba79069ac358e23e56b95514e60e5a1cd",
+          "status": "complete",
+          "evidence": [
+            "reels-studio/captures/repo-moneyprinterturbo-01/manifest.json"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -693,5 +693,7 @@
       "age_hours": 24.87,
       "taken_at": "2026-10-13T00:53:29Z"
     }
-  ]
+  ],
+  "status": "superseded",
+  "superseded_reason": "Stale analytics cutoff and already-rendered Agent Desktop included; do not use as a current recommendation."
 }

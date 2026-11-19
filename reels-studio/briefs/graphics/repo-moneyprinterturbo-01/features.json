@@ -1,0 +1,42 @@
+{
+  "tool": {
+    "name": "MoneyPrinterTurbo",
+    "repo_url": "https://github.com/harry0703/MoneyPrinterTurbo",
+    "category": "video creation",
+    "license": "Open source"
+  },
+  "features": [
+    {
+      "id": "f1",
+      "title": "Topic to video",
+      "what": "The topic becomes a video draft.",
+      "evidence_quote": "从主题自动完成脚本、配音、素材、字幕、配乐和剪辑"
+    },
+    {
+      "id": "f2",
+      "title": "Media options",
+      "what": "Use local images and video or stock footage.",
+      "evidence_quote": "支持上传自己的 **本地图片和视频**"
+    },
+    {
+      "id": "f3",
+      "title": "Flexible editing",
+      "what": "Customize content throughout the video workflow.",
+      "evidence_quote": "也支持在每个环节使用自定义内容"
+    },
+    {
+      "id": "f4",
+      "title": "Service credentials",
+      "what": "External providers may need API credentials.",
+      "evidence_quote": "首次启动时，项目会根据 `config.example.toml` 自动创建 `config.toml`"
+    }
+  ],
+  "risks": [
+    {
+      "text": "Provider costs and media rights vary; review output."
+    }
+  ],
+  "source_urls": [
+    "https://github.com/harry0703/MoneyPrinterTurbo/blob/22c4671843b3dcfad92b727e8d60d0e3ccc3eb3c/README.md"
+  ]
+}

@@ -81,6 +81,7 @@ jobs:
             /reels-studio/tools/gh_actions.py
             /reels-studio/tools/capture_store.py
             /reels-studio/tools/cover_store.py
+            /reels-studio/tools/private_render_handoff.py
             /reels-studio/topics/backlog.csv
             /reels-studio/tracker/buffer-insights.json
             /reels-studio/config/channel.json
@@ -110,6 +111,11 @@ jobs:
           FROM_TAG: ${{ inputs.from_tag }}
           PRODUCTION_RECEIPT: ${{ inputs.production_receipt }}
         run: python3 reels-studio/tools/validate_dispatch.py >> "$GITHUB_OUTPUT"
+      - name: Restore private provisional draft assets
+        if: ${{ inputs.briefs == 'repo-moneyprinterturbo-01' && inputs.rebuild_scenes == '' }}
+        env:
+          DRAFT_HANDOFF_KEY: ${{ secrets.DRAFT_RENDER_HANDOFF_KEY }}
+        run: python3 reels-studio/tools/private_render_handoff.py repo-moneyprinterturbo-01
       - name: Download and verify every capture pack before reserving a render
         if: ${{ inputs.rebuild_scenes == '' }}
         env:
@@ -190,6 +196,11 @@ jobs:
         run: |
           python3 -VV
           bash reels-studio/cloud/setup-render.sh
+      - name: Restore private provisional draft assets
+        if: ${{ inputs.briefs == 'repo-moneyprinterturbo-01' && inputs.rebuild_scenes == '' }}
+        env:
+          DRAFT_HANDOFF_KEY: ${{ secrets.DRAFT_RENDER_HANDOFF_KEY }}
+        run: python3 reels-studio/tools/private_render_handoff.py repo-moneyprinterturbo-01
       - name: Capture pack
         run: python3 reels-studio/tools/capture_store.py pull-for "$BRIEF"
       # Owner rule 2026-11-12: five full render cycles shipped text-on-grid shorts because no
@@ -271,6 +282,11 @@ jobs:
         run: |
           python3 -VV
           bash reels-studio/cloud/setup-render.sh
+      - name: Restore private provisional draft assets
+        if: ${{ inputs.briefs == 'repo-moneyprinterturbo-01' && inputs.rebuild_scenes == '' }}
+        env:
+          DRAFT_HANDOFF_KEY: ${{ secrets.DRAFT_RENDER_HANDOFF_KEY }}
+        run: python3 reels-studio/tools/private_render_handoff.py repo-moneyprinterturbo-01
       - name: Capture pack
         run: python3 reels-studio/tools/capture_store.py pull-for "$BRIEF"
       - name: Create per-brief receipt

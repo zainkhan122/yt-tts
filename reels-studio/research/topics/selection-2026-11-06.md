@@ -1,3 +1,5 @@
+> **SUPERSEDED — do not use for selection.** This historical shortlist used a stale analytics cutoff and included Agent Desktop, which had already been rendered. The ranking has not been replaced by a fresh, deduplicated scan.
+
 # Topic shortlist — decision record
 
 Discovery: third-party GitHub trend report generated **Nov 5, 2026, 10:14 PM New York**: https://github.com/yaojiejia/agents-radar/issues/424 and https://github.com/HuggerHustle/ai-radar/issues/159. It is not an exhaustive scan of all registered TikTok/YouTube sources or proof of a strict rolling 24-hour ranking.

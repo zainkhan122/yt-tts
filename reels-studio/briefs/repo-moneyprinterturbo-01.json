@@ -1,0 +1,218 @@
+{
+  "id": "repo-moneyprinterturbo-01",
+  "capture": "captures/repo-moneyprinterturbo-01",
+  "title": "MoneyPrinterTurbo: Turn One Topic Into a Short Video",
+  "niche": "AI video production",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "MoneyPrinterTurbo",
+    "AI video generator",
+    "video editing",
+    "open source video"
+  ],
+  "sources": [
+    "https://github.com/harry0703/MoneyPrinterTurbo/blob/22c4671843b3dcfad92b727e8d60d0e3ccc3eb3c/README.md"
+  ],
+  "facts": {
+    "method": "Pinned official repository README",
+    "limits": "Model and media provider keys and costs vary. Review generated output and usage rights."
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "flow",
+      "say": "Turn one topic into a short video. This is Money Printer Turbo.",
+      "heading": "TOPIC TO VIDEO"
+    },
+    {
+      "id": "script",
+      "type": "flow",
+      "say": "Type a subject or keywords, and it drafts the script.",
+      "heading": "START WITH AN IDEA"
+    },
+    {
+      "id": "media",
+      "type": "flow",
+      "say": "Then it can match stock footage to the script, or you can add your own clips from your computer.",
+      "heading": "CHOOSE YOUR FOOTAGE"
+    },
+    {
+      "id": "assembly",
+      "type": "flow",
+      "say": "It adds a voiceover, subtitles, and music, then assembles the video.",
+      "heading": "BUILD THE TIMELINE"
+    },
+    {
+      "id": "controls",
+      "type": "image",
+      "say": "Choose portrait or landscape, and customize what goes into the edit.",
+      "heading": "MAKE IT YOURS",
+      "image": "webui-en.jpg"
+    },
+    {
+      "id": "limits",
+      "type": "flow",
+      "say": "Some model and media services need A P I keys and can cost money. Always check the output, facts, and usage rights before you share.",
+      "heading": "CHECK BEFORE SHARING"
+    },
+    {
+      "id": "cta",
+      "type": "flow",
+      "say": "Want the repo? Comment VIDEO and follow Hypeless for more tools, minus the hype.",
+      "heading": "YOUR CALL"
+    }
+  ],
+  "renderer": "graphics",
+  "graphics": {
+    "dir": "briefs/graphics/repo-moneyprinterturbo-01",
+    "template": "moneyprinterturbo"
+  },
+  "lexicon": {
+    "VIDEO": "video"
+  },
+  "motion_standard": 2,
+  "viewer": {
+    "who": "Creators and small teams",
+    "problem": "Assembling a first video draft takes multiple steps",
+    "job": "Understand how a topic becomes an editable draft"
+  },
+  "idea": "Turn a topic into a draft video with script, footage, speech and captions.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "A topic can produce a script, footage, voice, subtitles, music and a video draft.",
+      "source": "https://github.com/harry0703/MoneyPrinterTurbo/blob/22c4671843b3dcfad92b727e8d60d0e3ccc3eb3c/README.md"
+    },
+    {
+      "id": "c2",
+      "text": "It supports stock footage or local media and portrait or landscape output.",
+      "source": "https://github.com/harry0703/MoneyPrinterTurbo/blob/22c4671843b3dcfad92b727e8d60d0e3ccc3eb3c/README.md"
+    },
+    {
+      "id": "c3",
+      "text": "Some external services require credentials and may cost money.",
+      "source": "https://github.com/harry0703/MoneyPrinterTurbo/blob/22c4671843b3dcfad92b727e8d60d0e3ccc3eb3c/README.md"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/harry0703/MoneyPrinterTurbo/blob/22c4671843b3dcfad92b727e8d60d0e3ccc3eb3c/README.md",
+      "how_shown": "Original animated workflow illustration, not a live product run."
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://github.com/harry0703/MoneyPrinterTurbo/blob/22c4671843b3dcfad92b727e8d60d0e3ccc3eb3c/README.md",
+      "how_shown": "Original animated workflow illustration, not a live product run."
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://github.com/harry0703/MoneyPrinterTurbo/blob/22c4671843b3dcfad92b727e8d60d0e3ccc3eb3c/README.md",
+      "how_shown": "Original animated workflow illustration, not a live product run."
+    }
+  ],
+  "review": {
+    "reviewed_at": "2026-11-06",
+    "reviewer": "agent: pinned official README",
+    "notes": "Draft script; product output requires verification."
+  },
+  "contains_synthetic_media": true,
+  "seo": {
+    "keyword": "MoneyPrinterTurbo",
+    "onscreen_first3s": "TOPIC TO VIDEO",
+    "youtube": {
+      "title": "MoneyPrinterTurbo: Turn a Topic Into a Video",
+      "description": "MoneyPrinterTurbo helps assemble a video draft from a topic, script, media, voice and subtitles. Check results, media rights and provider costs. https://github.com/harry0703/MoneyPrinterTurbo/blob/22c4671843b3dcfad92b727e8d60d0e3ccc3eb3c/README.md Explore the open-source workflow from a topic to a first cut, and verify generated claims and licensing before publishing.",
+      "tags": [
+        "MoneyPrinterTurbo",
+        "AI video generator",
+        "video creation",
+        "video editing",
+        "open source video"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#MoneyPrinterTurbo",
+        "#AIVideoGenerator",
+        "#VideoCreation",
+        "#OpenSourceTools"
+      ]
+    },
+    "instagram": {
+      "caption": "MoneyPrinterTurbo turns a topic into a video draft. Check the output and media rights. Comment VIDEO for the repo.",
+      "hashtags": [
+        "#MoneyPrinterTurbo",
+        "#AIVideoGenerator",
+        "#VideoCreation",
+        "#OpenSourceTools",
+        "#CreatorWorkflow"
+      ]
+    },
+    "facebook": {
+      "caption": "MoneyPrinterTurbo assembles a video draft from a topic. Review results and usage rights.",
+      "hashtags": [
+        "#MoneyPrinterTurbo",
+        "#AIVideoGenerator",
+        "#VideoCreation",
+        "#OpenSourceTools",
+        "#CreatorWorkflow"
+      ]
+    },
+    "tiktok": {
+      "caption": "MoneyPrinterTurbo turns a topic into a video draft. Review results and rights. Comment VIDEO for the repo.",
+      "hashtags": [
+        "#MoneyPrinterTurbo",
+        "#AIVideoGenerator",
+        "#VideoCreation",
+        "#OpenSourceTools",
+        "#CreatorWorkflow"
+      ]
+    },
+    "x": {
+      "text": "MoneyPrinterTurbo turns a topic into a video draft. Review the results and media rights.",
+      "hashtags": [
+        "#MoneyPrinterTurbo"
+      ]
+    },
+    "aliases": [
+      "AI video generator",
+      "video creation"
+    ]
+  },
+  "treatment": {
+    "archetype": "workflow",
+    "selected_cover": 0,
+    "cover_concepts": [
+      {
+        "layout": "window",
+        "text": "ONE TOPIC TO VIDEO",
+        "media": {
+          "kind": "designed",
+          "file": "cover-selected.jpg",
+          "design": "A light bulb, video reel, microphone, subtitles and a phone as a creative production pipeline."
+        }
+      },
+      {
+        "layout": "bleed",
+        "text": "MAKE A VIDEO DRAFT",
+        "media": {
+          "kind": "designed",
+          "file": "cover-selected.jpg",
+          "design": "A creator pipeline turns a written subject into a video draft."
+        }
+      },
+      {
+        "layout": "split",
+        "text": "FROM IDEA TO VIDEO",
+        "media": {
+          "kind": "designed",
+          "file": "cover-selected.jpg",
+          "design": "An illustration of footage, narration and subtitles becoming a video."
+        }
+      }
+    ]
+  }
+}

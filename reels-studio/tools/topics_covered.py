@@ -127,6 +127,25 @@ def collect() -> dict:
             if vid and not vid.startswith("draft"):
                 _add(reg, re.sub(r"^(repo|tool)-", "", vid), "covered",
                      "tracker/publications.json", vid)
+    # A cleaned-up brief/queue can disappear while its successful render remains.
+    # Treat actual completed work as in-production (not proof of publication).
+    history = ROOT / "tracker" / "render-attempts.json"
+    if history.exists():
+        try:
+            data = json.loads(history.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            data = {}
+        attempts = data.get("attempts") or {}
+        entries = list(attempts.values()) if isinstance(attempts, dict) else attempts
+        entries += data.get("legacy_completed_briefs") or []
+        completed = {"success", "render_only_success", "render_succeeded_publish_failed", "scene_rebuild_success", "verified_success"}
+        for row in entries:
+            if not isinstance(row, dict) or row.get("status") not in completed:
+                continue
+            vid = str(row.get("brief_id") or "")
+            if vid:
+                slug = re.sub(r"^(repo|tool|model|news)-", "", vid)
+                _add(reg, slug, "rendered", "tracker/render-attempts.json", vid)
     return reg
 
 
@@ -182,12 +201,9 @@ def load_raw() -> dict:
 
 
 def load() -> dict:
-    if not REGISTRY.exists():
-        return rebuild()
-    try:
-        return json.loads(REGISTRY.read_text(encoding="utf-8")).get("topics") or {}
-    except Exception:
-        return rebuild()
+    # Never trust a stale persisted registry by itself; deleted briefs can still
+    # be backed by durable render history or new publication records.
+    return _merge(load_raw(), collect())
 
 
 def _tokens(text: str) -> list[str]:
@@ -201,6 +217,14 @@ def is_covered(name: str, reg: dict | None = None) -> dict | None:
     ('clean-your-tv' covers 'CleanYourTV', 'unslop skill' covers 'unslop'). Keys shorter than four
     characters must match exactly, so 'rea' cannot eat 'reasoning'."""
     reg = load() if reg is None else reg
+    # Repository-qualified references should also match the exact repository
+    # basename. This is intentionally not fuzzy substring matching.
+    repo = str(name or '').strip().rstrip('/').removesuffix('.git')
+    if '/' in repo:
+        basename = repo.rsplit('/', 1)[-1]
+        basename_key = key(basename)
+        if len(basename_key) >= 4 and basename_key in reg:
+            return reg[basename_key]
     k = key(name)
     if not k:
         return None

@@ -1,6 +1,6 @@
 {
- "built_at": "2026-11-14T17:46:24Z",
- "count": 109,
+ "built_at": "2026-11-19T12:02:07Z",
+ "count": 124,
  "schema": 1,
  "topics": {
   "agentautoloop": {
@@ -16,6 +16,19 @@
     "repo-autoloop-01"
    ]
   },
+  "agentdesktop": {
+   "keys": [],
+   "names": [
+    "agent-desktop-01"
+   ],
+   "sources": [
+    "tracker/render-attempts.json"
+   ],
+   "status": "rendered",
+   "videos": [
+    "repo-agent-desktop-01"
+   ]
+  },
   "ahsilence": {
    "keys": [],
    "names": [
@@ -24,7 +37,8 @@
    ],
    "sources": [
     "briefs/repo-ahsilence-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -58,6 +72,22 @@
     "repo-anymodelbot-01"
    ]
   },
+  "apkstart": {
+   "keys": [],
+   "names": [
+    "apkstart-01",
+    "ApkStart"
+   ],
+   "sources": [
+    "briefs/repo-apkstart-01.json",
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-apkstart-01"
+   ]
+  },
   "autoloop": {
    "keys": [],
    "names": [
@@ -65,7 +95,8 @@
    ],
    "sources": [
     "briefs/repo-autoloop-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -92,7 +123,8 @@
    ],
    "sources": [
     "briefs/repo-blender-mcp-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -106,7 +138,8 @@
     "claude-code-01"
    ],
    "sources": [
-    "topics/backlog.csv"
+    "topics/backlog.csv",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -120,7 +153,8 @@
    ],
    "sources": [
     "briefs/repo-claude-mem-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -133,7 +167,8 @@
     "claude-tokens-01"
    ],
    "sources": [
-    "briefs/tool-claude-tokens-01.json"
+    "briefs/tool-claude-tokens-01.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -162,7 +197,8 @@
    "sources": [
     "briefs/repo-cleanyourtv-01.json",
     "topics/backlog.csv",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -191,7 +227,8 @@
    ],
    "sources": [
     "briefs/repo-coop-anything-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -208,7 +245,8 @@
    "sources": [
     "briefs/repo-craft-anything-01.json",
     "videos/repo-craft-anything-01/plan.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -253,7 +291,8 @@
    "sources": [
     "briefs/repo-deeptutor-01.json",
     "topics/backlog.csv",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -268,11 +307,25 @@
    ],
    "sources": [
     "briefs/repo-design-agent-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
     "repo-design-agent-01"
+   ]
+  },
+  "drama3": {
+   "keys": [],
+   "names": [
+    "drama3-01"
+   ],
+   "sources": [
+    "tracker/render-attempts.json"
+   ],
+   "status": "rendered",
+   "videos": [
+    "model-drama3-01"
    ]
   },
   "ds401": {
@@ -298,7 +351,8 @@
    "sources": [
     "briefs/repo-dshgo-01.json",
     "videos/repo-dshgo-01/plan.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -326,7 +380,8 @@
    ],
    "sources": [
     "briefs/repo-earshot-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -343,7 +398,8 @@
    "sources": [
     "briefs/repo-edge0-01.json",
     "topics/backlog.csv",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -357,11 +413,13 @@
     "EmbeddingGemma 2"
    ],
    "sources": [
-    "briefs/tool-embeddinggemma2-01.json"
+    "briefs/tool-embeddinggemma2-01.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
-    "tool-embeddinggemma2-01"
+    "tool-embeddinggemma2-01",
+    "model-embeddinggemma2-01"
    ]
   },
   "explainernegative": {
@@ -384,7 +442,8 @@
    ],
    "sources": [
     "briefs/tool-fx0-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -423,11 +482,25 @@
     "gpt6-01"
    ],
    "sources": [
-    "topics/backlog.csv"
+    "topics/backlog.csv",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
     "tool-gpt6-01"
+   ]
+  },
+  "gpt6intelligentui": {
+   "keys": [],
+   "names": [
+    "gpt6-intelligent-ui-01"
+   ],
+   "sources": [
+    "tracker/render-attempts.json"
+   ],
+   "status": "rendered",
+   "videos": [
+    "news-gpt6-intelligent-ui-01"
    ]
   },
   "graphicle": {
@@ -438,7 +511,8 @@
    ],
    "sources": [
     "briefs/repo-graphicle-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -467,7 +541,8 @@
    ],
    "sources": [
     "briefs/repo-halo-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -481,7 +556,8 @@
    ],
    "sources": [
     "briefs/repo-harp-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -495,7 +571,8 @@
     "heygen-01"
    ],
    "sources": [
-    "topics/backlog.csv"
+    "topics/backlog.csv",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -527,11 +604,25 @@
    ],
    "sources": [
     "briefs/repo-huashu-motion-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
     "repo-huashu-motion-01"
+   ]
+  },
+  "humanizer": {
+   "keys": [],
+   "names": [
+    "humanizer-01"
+   ],
+   "sources": [
+    "tracker/render-attempts.json"
+   ],
+   "status": "rendered",
+   "videos": [
+    "model-humanizer-01"
    ]
   },
   "idol": {
@@ -547,6 +638,19 @@
     "model-idol-01"
    ]
   },
+  "idol01": {
+   "keys": [],
+   "names": [
+    "idol-01"
+   ],
+   "sources": [
+    "tracker/render-attempts.json"
+   ],
+   "status": "rendered",
+   "videos": [
+    "model-idol-01"
+   ]
+  },
   "ifixai": {
    "keys": [],
    "names": [
@@ -556,7 +660,8 @@
    "sources": [
     "briefs/repo-ifixai-01.json",
     "videos/repo-ifixai-01/plan.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -572,7 +677,8 @@
    "sources": [
     "briefs/repo-impeccable-01.json",
     "topics/backlog.csv",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -586,7 +692,8 @@
    ],
    "sources": [
     "briefs/repo-indra-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -620,6 +727,21 @@
     "tool-kimi-01"
    ]
   },
+  "kiri01": {
+   "keys": [],
+   "names": [
+    "kiri-01"
+   ],
+   "sources": [
+    "briefs/repo-kiri-01.json",
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-kiri-01"
+   ]
+  },
   "koubo": {
    "keys": [],
    "names": [
@@ -627,7 +749,8 @@
    ],
    "sources": [
     "briefs/repo-koubo-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -642,11 +765,25 @@
    ],
    "sources": [
     "briefs/repo-leanrea-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
     "repo-leanrea-01"
+   ]
+  },
+  "lfm25": {
+   "keys": [],
+   "names": [
+    "lfm25-01"
+   ],
+   "sources": [
+    "tracker/render-attempts.json"
+   ],
+   "status": "rendered",
+   "videos": [
+    "model-lfm25-01"
    ]
   },
   "listfreevideoai": {
@@ -673,7 +810,8 @@
    "sources": [
     "briefs/repo-ltx25-01.json",
     "briefs/tool-ltx25-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -689,7 +827,8 @@
    ],
    "sources": [
     "briefs/repo-manimgx-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -703,7 +842,8 @@
    ],
    "sources": [
     "briefs/meta-hackathon-credits-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -721,6 +861,19 @@
    "status": "covered",
    "videos": [
     "repo-mika-01"
+   ]
+  },
+  "minicpmv47": {
+   "keys": [],
+   "names": [
+    "minicpmv47-01"
+   ],
+   "sources": [
+    "tracker/render-attempts.json"
+   ],
+   "status": "rendered",
+   "videos": [
+    "model-minicpmv47-01"
    ]
   },
   "modeldrama3": {
@@ -813,11 +966,26 @@
    ],
    "sources": [
     "briefs/repo-modern-web-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
     "repo-modern-web-01"
+   ]
+  },
+  "moneyprinterturbo": {
+   "keys": [],
+   "names": [
+    "moneyprinterturbo-01",
+    "MoneyPrinterTurbo"
+   ],
+   "sources": [
+    "briefs/repo-moneyprinterturbo-01.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-moneyprinterturbo-01"
    ]
   },
   "mosa01": {
@@ -834,6 +1002,19 @@
     "tool-mosa-01"
    ]
   },
+  "motion2code": {
+   "keys": [],
+   "names": [
+    "motion2code-01"
+   ],
+   "sources": [
+    "tracker/render-attempts.json"
+   ],
+   "status": "rendered",
+   "videos": [
+    "repo-motion2code-01"
+   ]
+  },
   "muse01": {
    "keys": [],
    "names": [
@@ -848,6 +1029,19 @@
     "tool-muse-01"
    ]
   },
+  "musespark": {
+   "keys": [],
+   "names": [
+    "muse-spark-01"
+   ],
+   "sources": [
+    "tracker/render-attempts.json"
+   ],
+   "status": "rendered",
+   "videos": [
+    "news-muse-spark-01"
+   ]
+  },
   "musike": {
    "keys": [],
    "names": [
@@ -857,7 +1051,8 @@
    "sources": [
     "briefs/repo-musike-01.json",
     "videos/repo-musike-01/plan.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -1061,6 +1256,21 @@
     "tool-openmontage-01"
    ]
   },
+  "paperorchestra": {
+   "keys": [],
+   "names": [
+    "paper-orchestra-01",
+    "PaperOrchestra"
+   ],
+   "sources": [
+    "briefs/repo-paper-orchestra-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-paper-orchestra-01"
+   ]
+  },
   "pikaflex": {
    "keys": [],
    "names": [
@@ -1068,7 +1278,8 @@
    ],
    "sources": [
     "briefs/tool-pika-flex-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -1108,7 +1319,8 @@
    ],
    "sources": [
     "briefs/repo-poki-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -1181,7 +1393,8 @@
    "sources": [
     "briefs/tool-qwen-image-21-turbo-01.json",
     "briefs/tool-qwen-image21-turbo-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -1209,7 +1422,8 @@
    ],
    "sources": [
     "briefs/repo-rea-01.json",
-    "topics/backlog.csv"
+    "topics/backlog.csv",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -1225,7 +1439,8 @@
    "sources": [
     "briefs/repo-reavideo-01.json",
     "videos/repo-reavideo-01/plan.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -1256,7 +1471,8 @@
    "sources": [
     "briefs/repo-sand3d-01.json",
     "videos/repo-sand3d-01/plan.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -1297,7 +1513,8 @@
    ],
    "sources": [
     "briefs/repo-scout-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -1312,7 +1529,8 @@
    ],
    "sources": [
     "briefs/tool-scrawl-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -1328,7 +1546,8 @@
    ],
    "sources": [
     "briefs/tool-seedance-01.json",
-    "videos/tool-seedance-01/plan.json"
+    "videos/tool-seedance-01/plan.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -1370,7 +1589,8 @@
    ],
    "sources": [
     "briefs/repo-solidglass-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -1424,7 +1644,8 @@
    ],
    "sources": [
     "briefs/repo-superagent-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -1444,6 +1665,21 @@
     "repo-uncut-01"
    ]
   },
+  "univer": {
+   "keys": [],
+   "names": [
+    "univer-01",
+    "Univer"
+   ],
+   "sources": [
+    "briefs/repo-univer-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-univer-01"
+   ]
+  },
   "unslop": {
    "keys": [],
    "names": [
@@ -1456,7 +1692,8 @@
     "briefs/repo-unslop-02.json",
     "videos/repo-unslop-01/plan.json",
     "videos/repo-unslop-02/plan.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -1484,7 +1721,8 @@
    ],
    "sources": [
     "briefs/repo-voicestudio-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -1511,7 +1749,8 @@
    ],
    "sources": [
     "briefs/repo-vork-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -1525,7 +1764,8 @@
    ],
    "sources": [
     "briefs/repo-vvv-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -1540,7 +1780,8 @@
    ],
    "sources": [
     "briefs/repo-whatsapp-mcp-01.json",
-    "tracker/publications.json"
+    "tracker/publications.json",
+    "tracker/render-attempts.json"
    ],
    "status": "covered",
    "videos": [
@@ -1560,6 +1801,21 @@
    "status": "covered",
    "videos": [
     "repo-whistle-01"
+   ]
+  },
+  "wirelessbattery": {
+   "keys": [],
+   "names": [
+    "wireless-battery-01",
+    "Wireless Battery"
+   ],
+   "sources": [
+    "briefs/repo-wireless-battery-01.json",
+    "tracker/publications.json"
+   ],
+   "status": "covered",
+   "videos": [
+    "repo-wireless-battery-01"
    ]
   }
  }
