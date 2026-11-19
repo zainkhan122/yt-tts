@@ -1,0 +1,66 @@
+name: Direct YouTube Shorts production
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Submit one approved Short, resume reserved jobs, or run a read-only smoke check
+        type: choice
+        options: [check, submit, resume]
+        default: check
+      video_id:
+        description: Approved queue ID (submit only)
+        type: string
+        required: false
+      publish_at:
+        description: Future timestamp with timezone (submit only)
+        type: string
+        required: false
+  schedule:
+    - cron: '58 0,6,12,18 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: hypeless-publishing
+  cancel-in-progress: false
+jobs:
+  direct-shorts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m pip install -r reels-studio/tools/youtube/requirements.txt
+      - name: Direct Shorts safety tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}/reels-studio
+        run: |
+          set -e
+          for t in test_direct_shorts.py test_direct_short_production.py; do
+            python3 -m unittest discover -s reels-studio/tests -p "$t" -v
+          done
+      - name: Process only explicitly approved direct Shorts
+        env:
+          GH_TOKEN: ${{ github.token }}
+          YOUTUBE_OAUTH_JSON: ${{ secrets.YOUTUBE_OAUTH_JSON }}
+          YOUTUBE_STATE_KEY: ${{ secrets.YOUTUBE_STATE_KEY }}
+          ALLOW_DIRECT_SHORT_MUTATIONS: 'true'
+          MODE: ${{ github.event_name == 'schedule' && 'resume' || inputs.mode }}
+          VIDEO_ID: ${{ inputs.video_id }}
+          PUBLISH_AT: ${{ inputs.publish_at }}
+        run: |
+          python3 - <<'PY'
+          import os, subprocess, sys
+          args=[sys.executable,'reels-studio/tools/youtube/direct_short_production.py','--mode',os.environ['MODE'] or 'check']
+          if os.environ.get('VIDEO_ID'): args+=['--video-id',os.environ['VIDEO_ID']]
+          if os.environ.get('PUBLISH_AT'): args+=['--publish-at',os.environ['PUBLISH_AT']]
+          raise SystemExit(subprocess.call(args))
+          PY
+      - name: Remove temporary media
+        if: always()
+        run: rm -rf "$RUNNER_TEMP/direct-shorts"

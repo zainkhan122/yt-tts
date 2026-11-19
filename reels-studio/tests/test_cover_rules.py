@@ -58,8 +58,8 @@ def test_plan_cover_text_must_be_one_of_the_concepts():
 def test_cover_audit_rejects_out_of_safe_area():
     from tools import cover_lab
     good = [dict(concept=i, layout=layout, source=f'{i}.jpg', text='FOUR SHORT COVER WORDS',
-                 contrast_white=10, contrast_accent=10, text_box=[54, 315, 1026, 1605])
+                 contrast_white=10, contrast_accent=10, text_box=[54, 335, 1026, 1610])
             for i, layout in enumerate(('bleed', 'window', 'split'))]
     assert cover_lab.audit(good) == []
-    good[0]['text_box'][3] = 1606
+    good[0]['text_box'][3] = 1611
     assert any('safe vertical area' in x for x in cover_lab.audit(good))

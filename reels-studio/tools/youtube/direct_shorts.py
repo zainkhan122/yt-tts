@@ -35,10 +35,17 @@ def validate_request(item, brief, buffer_record, due, now):
         raise ValueError('Reviewed cover digest missing or inconsistent')
     if item.get('review', {}).get('mp4_sha256') != item.get('asset_digest', '').removeprefix('sha256:'):
         raise ValueError('Reviewed video digest mismatch')
-    if buffer_record.get('state') != 'scheduled' or parse_time(buffer_record.get('due_at')) != due:
-        raise ValueError('Buffer schedule not verified or time differs; stop')
-    if (buffer_record.get('media_ref') or {}).get('asset_digest') != item.get('asset_digest'):
-        raise ValueError('Buffer receipt does not pin the same approved video')
+    # Legacy controlled duplicate pilot only; production passes None and independently
+    # blocks existing Buffer publications in the production admission layer.
+    if buffer_record is not None:
+        if buffer_record.get('state') != 'scheduled' or parse_time(buffer_record.get('due_at')) != due:
+            raise ValueError('Buffer schedule not verified or time differs; stop')
+        if (buffer_record.get('media_ref') or {}).get('asset_digest') != item.get('asset_digest'):
+            raise ValueError('Buffer receipt does not pin the same approved video')
+    if not item.get('reviewed_at') or not item.get('expires_at'):
+        raise ValueError('Dated editorial review and expiry required')
+    if parse_time(item.get('not_before')) and due < parse_time(item['not_before']):
+        raise ValueError('Slot precedes approved publication window')
     if due < now + dt.timedelta(hours=3):
         raise ValueError('Schedule is too close or in the past; refusing immediate publication')
     if parse_time(item.get('expires_at')) and due > parse_time(item['expires_at']):
@@ -67,9 +74,16 @@ def run(item, brief, buffer_record, due, api, journal, root_cfg, work, clock=now
     manifest = read_kit(root_cfg, item)
     if manifest.get('cover', {}).get('sha256') != item['cover_sha256']:
         raise ValueError('Render manifest cover differs from reviewed cover')
+    if (manifest.get('cover', {}).get('frame0', {}).get('cover_frame') != 0 or
+            manifest.get('qa', {}).get('checks', {}).get('dedicated_cover_frame0') is not True):
+        raise ValueError('Verified approved cover at decoded frame zero is required')
     cover = fetch_short_cover(item, root_cfg, work)
     if not cover:
         raise ValueError('Approved cover is required')
+    from PIL import Image
+    with Image.open(cover['path']) as im:
+        if im.width * 16 != im.height * 9:
+            raise ValueError('Direct Shorts cover must be exactly 9:16')
     upload_item = {**item, 'assets': {'video': {'size': item['asset_size']}},
                    'contains_synthetic_media': bool(item.get('youtube_ai_generated'))}
     channel = api.verify_channel()

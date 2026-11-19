@@ -65,7 +65,9 @@ class DirectFlow(DirectShortSafety):
             status={'privacyStatus':'private'}
             if api.due:status['publishAt']=api.due
             return {'snippet':snippet,'status':status,'etag':'test','processingDetails':{'processingStatus':'succeeded'},'contentDetails':{'hasCustomThumbnail':confirmed}}
-        with tempfile.TemporaryDirectory() as directory, patch('tools.youtube.direct_shorts.read_kit',return_value={'cover':{'sha256':self.item['cover_sha256']}}), patch('tools.youtube.direct_shorts.fetch_short_cover',return_value={'path':'ignored','sha256':self.item['cover_sha256']}), patch('tools.youtube.direct_shorts.get_video',side_effect=video), patch('tools.youtube.direct_shorts.set_thumbnail'), patch('tools.youtube.direct_shorts.playlists_for'), patch('tools.youtube.direct_shorts.ensure_playlist',return_value='playlist'):
+        with tempfile.TemporaryDirectory() as directory, patch('tools.youtube.direct_shorts.read_kit',return_value={'cover':{'sha256':self.item['cover_sha256'],'frame0':{'cover_frame':0}},'qa':{'checks':{'dedicated_cover_frame0':True}}}), patch('tools.youtube.direct_shorts.fetch_short_cover',return_value={'path':str(ROOT/'renders/covers/repo-moneyprinterturbo-01-cover.jpg'),'sha256':self.item['cover_sha256']}), patch('tools.youtube.direct_shorts.get_video',side_effect=video), patch('tools.youtube.direct_shorts.set_thumbnail'), patch('tools.youtube.direct_shorts.playlists_for'), patch('tools.youtube.direct_shorts.ensure_playlist',return_value='playlist'), patch('PIL.Image.open') as image_open:
+            image_open.return_value.__enter__.return_value.width=1080
+            image_open.return_value.__enter__.return_value.height=1920
             try: result=run(self.item,self.brief,self.receipt,self.due,api,journal,{},Path(directory),clock=lambda:self.now,sleep=lambda _:None)
             except Exception as e: result=e
         return result,api,journal
