@@ -1,0 +1,46 @@
+name: Approved house voice for local review
+on:
+  workflow_dispatch:
+    inputs:
+      script_json:
+        description: 'JSON array of spoken scene lines; do not put confidential data here'
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  voice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/hyperframes
+            ~/.cache/puppeteer
+            ~/.cache/huggingface
+            ~/.cache/pip
+          key: hf-0.8.137-cbx-v2-${{ runner.os }}
+          restore-keys: hf-0.8.137-cbx-
+      - name: Restore complete approved production voice toolchain
+        run: bash reels-studio/cloud/setup-render.sh
+      - name: Generate and check review-only narration
+        env:
+          SCRIPT_JSON: ${{ inputs.script_json }}
+        run: |
+          python3 -c 'import os,pathlib; pathlib.Path("/tmp/review-script.json").write_text(os.environ["SCRIPT_JSON"], encoding="utf-8")'
+          python3 reels-studio/tools/draft_voice.py --script /tmp/review-script.json --out /tmp/review-voice
+      - uses: actions/upload-artifact@v4
+        with:
+          name: review-house-voice
+          path: |
+            /tmp/review-voice/voice.wav
+            /tmp/review-voice/timings.json
+          retention-days: 1
+          if-no-files-found: error
