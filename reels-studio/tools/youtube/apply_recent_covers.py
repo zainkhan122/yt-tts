@@ -33,8 +33,11 @@ def apply(api, journal, records, items, ids, work):
             yid = rec.get('youtube_id') or external_id(rec.get('external_url'))
             if not yid:
                 raise ValueError('Missing YouTube video ID')
-            item = by_id.get(vid)
-            if not item or not item.get('cover_sha256') or not item.get('cover_reviewed_at'):
+            # Older published Shorts may have been removed from the active queue.
+            # Their explicitly approved, digest-pinned replacement is sufficient;
+            # effective_item does not manufacture an approval when no manifest entry exists.
+            item = by_id.get(vid) or effective_item({'video_id': vid})
+            if not item.get('cover_sha256') or not item.get('cover_reviewed_at'):
                 raise ValueError('No reviewed and pinned cover')
             video = get_video(api, yid)
             if video.get('status', {}).get('privacyStatus') != 'public':
@@ -61,6 +64,10 @@ def main():
     cfg, root_cfg = load_json(ROOT/'config/youtube.json'), config()
     records = load_json(ROOT/'tracker/publications.json')['records']; items = load_json(ROOT/'queue/publish.json')['items']
     journal = Journal(root_cfg, remote=True, path=ROOT/'tracker/youtube-publications.json', remote_path='reels-studio/tracker/youtube-publications.json')
+    # Direct uploads have their own durable journal rather than a Buffer receipt.
+    for vid, rec in journal.records.items():
+        if rec.get('kind') == 'direct_short' and rec.get('state') == 'sent':
+            records.setdefault(vid + ':youtube', {**rec, 'video_id': vid, 'platform': 'youtube'})
     api = YouTubeAPI(cfg, journal); api.verify_channel()
     result = apply(api, journal, records, items, args.ids, Path(os.environ['RUNNER_TEMP'])/'approved-short-covers')
     Path(args.report).parent.mkdir(parents=True, exist_ok=True)

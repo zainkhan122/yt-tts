@@ -15,6 +15,14 @@ class TestTargetedCovers(unittest.TestCase):
         self.assertEqual([x['state'] for x in result], ['confirmed','error','error'])
         self.assertEqual(attach.call_count,1)
 
+    def test_retired_queue_item_with_manifest_approval_can_apply(self):
+        class Journal: data={'enrichment':{}}
+        recs={'retired:youtube':{'state':'sent','youtube_id':'ABCDEFGHIJK'}}
+        def effective(item):
+            return {**item,'cover_sha256':'sha256:x','cover_reviewed_at':'user-approved'} if item['video_id']=='retired' else item
+        with patch.object(mod,'effective_item',side_effect=effective), patch.object(mod,'get_video',return_value={'status':{'privacyStatus':'public'}}), patch.object(mod,'fetch_short_cover',return_value={'sha256':'sha256:x','path':'x'}), patch.object(mod,'config',return_value={}), patch.object(mod,'attach_short_cover',return_value='confirmed'):
+            self.assertEqual(mod.apply(object(),Journal(),recs,[],['retired'],'/tmp')[0]['state'],'confirmed')
+
     def test_private_video_never_written(self):
         class Journal: data={'enrichment':{}}
         recs={'v:youtube':{'state':'sent','youtube_id':'ABCDEFGHIJK'}}
