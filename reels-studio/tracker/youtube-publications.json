@@ -1,5 +1,15 @@
 {
   "cooldown_until": "2026-10-21T07:05:32Z",
+  "direct_short_jobs": {
+    "repo-gta6-clipper-01": {
+      "attempts": 0,
+      "created_at": "2026-11-20T17:39:12Z",
+      "pins": "18b77b8bcfe324d329444982135593d20b6113335fdfb038ebb4f23d59d43683",
+      "publish_at": "2026-11-26T21:08:00Z",
+      "state": "pending",
+      "video_id": "repo-gta6-clipper-01"
+    }
+  },
   "enrichment": {
     "-BH04LS8BJI": {
       "completed_at": "2026-10-20T18:51:45Z",
