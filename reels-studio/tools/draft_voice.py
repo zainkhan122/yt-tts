@@ -3,12 +3,26 @@
 No publishing or production-gate bypass; final video must still pass production QA.
 Input JSON is a list of scene narration strings. Intended for a 16GB runner.
 """
-import argparse,difflib,hashlib,json,sys
+import argparse,difflib,hashlib,json,subprocess,sys
 from pathlib import Path
 import numpy as np
 import soundfile as sf
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
 from lib.pipeline import ChatterboxVoice,align_chunk,norm_word,normalized_match_text,melody_st
+import lib.pipeline as pipeline
+
+def direct_transcribe(wav_path,log):
+    """Use the same pinned whisper.cpp fallback directly; don't require HyperFrames for voice-only."""
+    home=Path.home()/'.cache/hyperframes/whisper'
+    binary=home/'whisper.cpp/build/bin/whisper-cli'; model=home/'models/ggml-small.en.bin'
+    wave=wav_path.parent/'whisper-16k.wav';base=wav_path.parent/'whisper-output'
+    subprocess.run(['ffmpeg','-y','-v','error','-i',str(wav_path),'-ar','16000','-ac','1','-c:a','pcm_s16le',str(wave)],check=True,capture_output=True)
+    with Path(log).open('a') as f:
+        subprocess.run([str(binary),'-m',str(model),'-f',str(wave),'-ml','1','-sow','-oj','-of',str(base)],check=True,stdout=f,stderr=subprocess.STDOUT)
+    j=json.loads(Path(str(base)+'.json').read_text())
+    return [(norm_word(row.get('text','')),float(row.get('offsets',{}).get('from',0))/1000,float(row.get('offsets',{}).get('to',0))/1000) for row in j.get('transcription',[]) if norm_word(row.get('text',''))]
+
+pipeline.transcribe_words=direct_transcribe
 
 def mapped(words,heard,start,end):
     target=[norm_word(w) for w in words];heardnorm=[h[0] for h in heard]

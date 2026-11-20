@@ -33,8 +33,8 @@ jobs:
             ~/.cache/pip
           key: hf-0.8.137-cbx-v2-${{ runner.os }}
           restore-keys: hf-0.8.137-cbx-
-      - name: Restore complete approved production voice toolchain
-        run: bash reels-studio/cloud/setup-render.sh
+      - name: Restore approved voice and pinned speech QA
+        run: bash reels-studio/cloud/setup-voice.sh
       - name: Generate and check review-only narration
         env:
           SCRIPT_JSON: ${{ inputs.script_json }}
