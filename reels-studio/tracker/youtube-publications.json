@@ -1249,10 +1249,16 @@
   },
   "quota": {
     "day_pacific": "2026-11-20",
-    "general_units": 1,
+    "general_units": 2,
     "upload_starts": 0
   },
   "records": {
+    "repo-gta6-clipper-01": {
+      "attempts": 0,
+      "category": "repo",
+      "state": "queued",
+      "video_id": "repo-gta6-clipper-01"
+    },
     "repo-moneyprinterturbo-01": {
       "asset_digest": "sha256:c791c5ef87a6127145a45e9a60b33aaa2ea6e0c782ddc2f8ebffe40047a21d91",
       "attempts": 0,
