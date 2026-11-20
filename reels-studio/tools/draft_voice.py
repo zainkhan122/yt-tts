@@ -37,26 +37,27 @@ def main():
         cur.append(i)
     if cur:chunks.append(cur)
     all_audio=[];scenes=[None]*len(lines);offset=0.;checks=[];all_expected=[];all_heard=[];sr=24000
-    with (work/'voice-qa.log').open('w') as log:
-        for ci,idx in enumerate(chunks):
-            expected=[lines[i] for i in idx];best=None
-            for attempt in range(3):
-                audio,sr=voice(' '.join(expected),seed=7+ci*1000+attempt*97)
-                cuts,match,heard=align_chunk(audio,sr,expected,work,log)
-                mel=melody_st(audio,sr,heard); item=(match,mel,audio,cuts,heard)
-                if best is None or (match,mel)>(best[0],best[1]):best=item
-                if match>=.92 and mel>=12:break
-            match,mel,audio,cuts,heard=best
-            print(f'Chunk {ci+1}: intelligibility {match:.1%}, melody {mel:.1f} st',flush=True)
-            if match<.92:raise SystemExit('Voice intelligibility did not meet 92% minimum; no handoff created')
-            if mel<12:raise SystemExit('Voice melody did not meet 12 semitone minimum; no handoff created')
-            all_expected.extend(' '.join(expected).split());all_heard.extend([h[0] for h in heard]);checks.append({'match':match,'melody_st':mel})
-            edges=[0]+cuts+[len(audio)]
-            full_words=' '.join(expected).split(); mapped_words=mapped(full_words,heard,offset,offset+len(audio)/sr);wi=0
-            for k,i in enumerate(idx):
-                count=len(lines[i].split());a0=offset+edges[k]/sr;b0=offset+edges[k+1]/sr
-                scenes[i]={'start':a0,'end':b0,'words':mapped_words[wi:wi+count]};wi+=count
-            all_audio.append(audio);all_audio.append(np.zeros(int(.06*sr),dtype=np.float32));offset+=len(audio)/sr+.06
+    log=work/'voice-qa.log'
+    if log.exists(): log.unlink()
+    for ci,idx in enumerate(chunks):
+        expected=[lines[i] for i in idx];best=None
+        for attempt in range(3):
+            audio,sr=voice(' '.join(expected),seed=7+ci*1000+attempt*97)
+            cuts,match,heard=align_chunk(audio,sr,expected,work,log)
+            mel=melody_st(audio,sr,heard); item=(match,mel,audio,cuts,heard)
+            if best is None or (match,mel)>(best[0],best[1]):best=item
+            if match>=.92 and mel>=12:break
+        match,mel,audio,cuts,heard=best
+        print(f'Chunk {ci+1}: intelligibility {match:.1%}, melody {mel:.1f} st',flush=True)
+        if match<.92:raise SystemExit('Voice intelligibility did not meet 92% minimum; no handoff created')
+        if mel<12:raise SystemExit('Voice melody did not meet 12 semitone minimum; no handoff created')
+        all_expected.extend(' '.join(expected).split());all_heard.extend([h[0] for h in heard]);checks.append({'match':match,'melody_st':mel})
+        edges=[0]+cuts+[len(audio)]
+        full_words=' '.join(expected).split(); mapped_words=mapped(full_words,heard,offset,offset+len(audio)/sr);wi=0
+        for k,i in enumerate(idx):
+            count=len(lines[i].split());a0=offset+edges[k]/sr;b0=offset+edges[k+1]/sr
+            scenes[i]={'start':a0,'end':b0,'words':mapped_words[wi:wi+count]};wi+=count
+        all_audio.append(audio);all_audio.append(np.zeros(int(.06*sr),dtype=np.float32));offset+=len(audio)/sr+.06
     expected=normalized_match_text(all_expected); heard=normalized_match_text(all_heard)
     score=sum(b.size for b in difflib.SequenceMatcher(a=expected,b=heard,autojunk=False).get_matching_blocks())/max(1,len(expected))
     if score<.95:raise SystemExit(f'Overall voice QA {score:.1%} below 95%; no handoff created')
