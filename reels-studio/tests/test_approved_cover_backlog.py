@@ -19,6 +19,16 @@ class BacklogTests(unittest.TestCase):
             p.write_bytes(b'tampered')
             self.assertEqual(classify(records, {}, approvals, td)[0]['status'], 'invalid_approval')
 
+    def test_manual_needs_explicit_eligibility(self):
+        with tempfile.TemporaryDirectory() as td:
+            p=Path(td)/'repo-demo-01.png';p.write_bytes(b'cover')
+            digest='sha256:'+hashlib.sha256(p.read_bytes()).hexdigest()
+            rec={'a':{'video_id':'repo-demo-01','platform':'youtube','state':'published_manual','youtube_id':'ABCDEFGHIJK'}}
+            appr={'repo-demo-01':{'file':p.name,'sha256':digest}}
+            self.assertEqual(classify(rec,{},appr,td),[])
+            appr['repo-demo-01']['manual_cover_eligible']=True
+            self.assertEqual(classify(rec,{},appr,td)[0]['status'],'pending')
+
     def test_new_approval_reopens_old_block(self):
         with tempfile.TemporaryDirectory() as td:
             p=Path(td)/'repo-demo-01.png';p.write_bytes(b'new')

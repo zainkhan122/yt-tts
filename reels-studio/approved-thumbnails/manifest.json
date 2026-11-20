@@ -20,6 +20,13 @@
     "reviewed_at": "agent-review-user-directed-batch",
     "sha256": "sha256:e5207b0bc0841ac16d9832873ce02a8d0da1b564d5b08bee499a8fff98e09079"
   },
+  "model-humanizer-01": {
+    "approval_basis": "User directed missing-cover generation and batch application; individual cover not separately user-reviewed.",
+    "file": "model-humanizer-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:ce2785f95d7a9ad72fbd2b6808c626f2d72445c56d8e5081cec6c09d3f2deef2"
+  },
   "model-lfm25-01": {
     "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
     "file": "model-lfm25-01.png",
@@ -179,6 +186,14 @@
   "repo-musike-01": {
     "file": "repo-musike-01.png",
     "sha256": "sha256:4751884cd0ef7559b27e904b982d043f2b200563ce9a2d4216686ca9745e53f8"
+  },
+  "repo-removemacai-01": {
+    "approval_basis": "User directed missing-cover generation and batch application; individual cover not separately user-reviewed.",
+    "file": "repo-removemacai-01.png",
+    "manual_cover_eligible": true,
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:ed1a1e4b08e9c619c397c9b5b273cba7a617f7c502f279630209b682a6e3b345"
   },
   "repo-scout-01": {
     "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",

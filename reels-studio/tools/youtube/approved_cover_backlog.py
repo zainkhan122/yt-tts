@@ -18,9 +18,11 @@ from tools.youtube.covers_pending import external_id
 def classify(records, enrichment, approvals, folder):
     rows = []
     for record in records.values():
-        if record.get('platform') != 'youtube' or record.get('state') != 'sent':
-            continue
         vid = record.get('video_id', '')
+        allowed_manual = (record.get('state') == 'published_manual' and
+                          (approvals.get(vid) or {}).get('manual_cover_eligible') is True)
+        if record.get('platform') != 'youtube' or (record.get('state') != 'sent' and not allowed_manual):
+            continue
         yid = record.get('youtube_id') or external_id(record.get('external_url'))
         if not ID.fullmatch(vid) or not yid:
             rows.append({'video_id': vid, 'status': 'needs_valid_publication_id'})

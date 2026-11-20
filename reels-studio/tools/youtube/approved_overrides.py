@@ -16,4 +16,5 @@ def effective_item(item):
     return {**item, 'cover_sha256': entry['sha256'],
             'cover_reviewed_at': entry.get('reviewed_at', 'user-approved'),
             'preserve_existing_custom': entry.get('preserve_existing_custom', False),
+            'manual_cover_eligible': entry.get('manual_cover_eligible', False),
             'approved_replacement_file': expected}

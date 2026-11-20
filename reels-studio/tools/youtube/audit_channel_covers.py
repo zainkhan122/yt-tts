@@ -29,7 +29,7 @@ def main():
     ids=list(dict.fromkeys(x['contentDetails']['videoId'] for x in entries if x.get('contentDetails',{}).get('videoId')))
     source=load_json(ROOT/'tracker/publications.json')['records'];mapping={}
     for rec in source.values():
-        if rec.get('platform')=='youtube' and rec.get('state')=='sent':
+        if rec.get('platform')=='youtube' and rec.get('state') in {'sent', 'published_manual'}:
             yid=rec.get('youtube_id') or external_id(rec.get('external_url'));mapping[yid]=rec.get('video_id')
     for vid,rec in journal.data.get('records',{}).items():
         if rec.get('kind')=='direct_short' and rec.get('youtube_id'):mapping[rec['youtube_id']]=vid

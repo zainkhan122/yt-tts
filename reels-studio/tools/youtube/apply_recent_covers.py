@@ -33,15 +33,14 @@ def apply(api, journal, records, items, ids, work):
     for vid in ids:
         try:
             rec = records.get(vid + ':youtube') or {}
-            if rec.get('state') != 'sent':
-                raise ValueError('Not a recorded sent YouTube Short')
+            # Older published Shorts may have been removed from the active queue.
+            # A manually published video additionally needs an explicit per-cover opt-in.
+            item = by_id.get(vid) or effective_item({'video_id': vid})
+            if rec.get('state') != 'sent' and not (rec.get('state') == 'published_manual' and item.get('manual_cover_eligible') is True):
+                raise ValueError('Not a recorded sent or explicitly eligible manual YouTube Short')
             yid = rec.get('youtube_id') or external_id(rec.get('external_url'))
             if not yid:
                 raise ValueError('Missing YouTube video ID')
-            # Older published Shorts may have been removed from the active queue.
-            # Their explicitly approved, digest-pinned replacement is sufficient;
-            # effective_item does not manufacture an approval when no manifest entry exists.
-            item = by_id.get(vid) or effective_item({'video_id': vid})
             if not item.get('cover_sha256') or not item.get('cover_reviewed_at'):
                 raise ValueError('No reviewed and pinned cover')
             video = get_video(api, yid)

@@ -53,6 +53,16 @@ class TestTargetedCovers(unittest.TestCase):
             self.assertEqual(result[0]['state'],'thumbnail_state_unknown')
             attach.assert_not_called()
 
+    def test_manual_upload_requires_explicit_cover_opt_in(self):
+        class Journal: data={'enrichment':{}}
+        recs={'manual:youtube':{'state':'published_manual','youtube_id':'ABCDEFGHIJK'}}
+        items=[{'video_id':'manual','cover_sha256':'sha256:x','cover_reviewed_at':'date'}]
+        with patch.object(mod,'effective_item',side_effect=lambda x:x), patch.object(mod,'get_video',return_value={'status':{'privacyStatus':'public'},'contentDetails':{'hasCustomThumbnail':False}}), patch.object(mod,'fetch_short_cover',return_value={'sha256':'sha256:x','path':'x'}), patch.object(mod,'config',return_value={}), patch.object(mod,'attach_short_cover',return_value='confirmed') as attach:
+            self.assertEqual(mod.apply(object(),Journal(),recs,items,['manual'],'/tmp')[0]['state'],'error')
+            items[0]['manual_cover_eligible']=True
+            self.assertEqual(mod.apply(object(),Journal(),recs,items,['manual'],'/tmp')[0]['state'],'confirmed')
+            self.assertEqual(attach.call_count,1)
+
     def test_private_video_never_written(self):
         class Journal: data={'enrichment':{}}
         recs={'v:youtube':{'state':'sent','youtube_id':'ABCDEFGHIJK'}}
