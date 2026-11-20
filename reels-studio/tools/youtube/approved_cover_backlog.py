@@ -41,6 +41,8 @@ def classify(records, enrichment, approvals, folder):
             continue
         if old.get('thumbnail_confirmed') and old.get('thumbnail_digest') == digest:
             status = 'confirmed'
+        elif old.get('cover_existing_custom_hold') and old.get('cover_hold_digest') == digest:
+            status = 'existing_custom_preserved'
         elif old.get('thumbnail_blocked') and old.get('thumbnail_digest') == digest:
             status = 'blocked_review'
         else:

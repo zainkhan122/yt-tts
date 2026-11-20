@@ -30,6 +30,29 @@ class TestTargetedCovers(unittest.TestCase):
         with patch.object(mod,'effective_item',side_effect=effective), patch.object(mod,'get_video',return_value={'status':{'privacyStatus':'public'}}), patch.object(mod,'fetch_short_cover',return_value={'sha256':'sha256:x','path':'x'}), patch.object(mod,'config',return_value={}), patch.object(mod,'attach_short_cover',return_value='confirmed'):
             self.assertEqual(mod.apply(object(),Journal(),recs,[],['retired'],'/tmp')[0]['state'],'confirmed')
 
+    def test_unknown_existing_custom_cover_is_preserved(self):
+        class Journal:
+            data={'enrichment':{}}
+            def save(self, message): pass
+        recs={'v:youtube':{'state':'sent','youtube_id':'ABCDEFGHIJK'}}
+        items=[{'video_id':'v','cover_sha256':'sha256:x','cover_reviewed_at':'date','preserve_existing_custom':True}]
+        with patch.object(mod,'get_video',return_value={'status':{'privacyStatus':'public'},'contentDetails':{'hasCustomThumbnail':True}}),patch.object(mod,'attach_short_cover') as attach:
+            result=mod.apply(object(),Journal(),recs,items,['v'],'/tmp')
+            self.assertEqual(result[0]['state'],'existing_custom_preserved')
+            attach.assert_not_called()
+            self.assertEqual(Journal.data['enrichment']['ABCDEFGHIJK']['cover_hold_digest'],'sha256:x')
+
+    def test_unknown_thumbnail_state_is_not_overwritten(self):
+        class Journal:
+            data={'enrichment':{}}
+            def save(self, message): pass
+        recs={'v:youtube':{'state':'sent','youtube_id':'ABCDEFGHIJK'}}
+        items=[{'video_id':'v','cover_sha256':'sha256:x','cover_reviewed_at':'date','preserve_existing_custom':True}]
+        with patch.object(mod,'get_video',return_value={'status':{'privacyStatus':'public'},'contentDetails':{}}),patch.object(mod,'attach_short_cover') as attach:
+            result=mod.apply(object(),Journal(),recs,items,['v'],'/tmp')
+            self.assertEqual(result[0]['state'],'thumbnail_state_unknown')
+            attach.assert_not_called()
+
     def test_private_video_never_written(self):
         class Journal: data={'enrichment':{}}
         recs={'v:youtube':{'state':'sent','youtube_id':'ABCDEFGHIJK'}}

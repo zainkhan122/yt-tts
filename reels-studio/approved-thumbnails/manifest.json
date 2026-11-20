@@ -1,15 +1,176 @@
 {
+  "meta-hackathon-credits-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "meta-hackathon-credits-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:97a3f89c7e42bb93fcff7338d38491d15cee32378fa088cd143c83d394a71b74"
+  },
+  "model-drama3-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "model-drama3-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:eecd94c2f12c2e3633acaeb24c6b83a713704e9da812f86f8be618c64c8bc076"
+  },
+  "model-embeddinggemma2-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "model-embeddinggemma2-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:e5207b0bc0841ac16d9832873ce02a8d0da1b564d5b08bee499a8fff98e09079"
+  },
+  "model-lfm25-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "model-lfm25-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:7ee6dfd40c7193cd3bd8d83c0c5327faae41b25635968c9e48a2b834c3b0beb3"
+  },
+  "model-minicpmv47-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "model-minicpmv47-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:bb91726601dd39357088a466a54e6d35d595952d059822c6aeddb79854bde681"
+  },
+  "news-gpt6-intelligent-ui-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "news-gpt6-intelligent-ui-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:0eea3bd2442d9ccc85fe68460ec03d97a0fdfc1ef49905737370b417ddd3e84b"
+  },
+  "news-muse-spark-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "news-muse-spark-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:f7ef4a944814888536da8b78dd7b7abea870f11cec82dd4e268b051952529726"
+  },
   "repo-apkstart-01": {
     "file": "repo-apkstart-01.png",
     "sha256": "sha256:4e3870a4d961a555b09c30b23b2b27649971a38e618370d8e21af8fbe7f4c744"
+  },
+  "repo-blender-mcp-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-blender-mcp-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:c781ba5edd8321a5a892724fa711963ddd25cc7c69dddcd1932a0f9d0e8f9372"
+  },
+  "repo-claude-mem-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-claude-mem-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:2344adaab114cbc4f128b9a4dba86a10e698f28840eac07ab275f243a1f41e81"
+  },
+  "repo-cleanyourtv-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-cleanyourtv-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:0af7e7a93445afe1dbda44c364913fc1bab57a42125151d21198a9ae30d7eb04"
+  },
+  "repo-coop-anything-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-coop-anything-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:b100b78d746661661a79259077b7fc4914fd563760df18ef8de31fd000cdd6a9"
+  },
+  "repo-deeptutor-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-deeptutor-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:6e78851657aad5bc519a38d0703f1fcea471180172b2251bdd049ca90b8eac4e"
   },
   "repo-design-agent-01": {
     "file": "repo-design-agent-01.png",
     "sha256": "sha256:c0c84d248b50481b0329eaa302d213b24f74a0d15df66f6f8dcb04d038b653a3"
   },
+  "repo-earshot-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-earshot-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:5dcd4ba2c1f533a7aabb792f0fcabbf113a1a5a31ad3a7fbc19f2b625192c3af"
+  },
+  "repo-edge0-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-edge0-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:891c29746db59ff2d14b6f69e8556c0210b586603f74459e341d6a5c206f6875"
+  },
+  "repo-graphicle-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-graphicle-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:54feb3ed856220f457092fd9840b4053cdd47ca1728c9240bea34d36fb280ada"
+  },
+  "repo-halo-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-halo-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:ac9c91c36afdb1494d52eb6fa6a40dbb8c2f2abc5bc4f7cea2269d4d3cef9043"
+  },
+  "repo-harp-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-harp-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:f3d606bbca80fb86a6fc3db6dfc0eec21372c69423c2a193fe5ad624fb1edcf3"
+  },
+  "repo-ifixai-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-ifixai-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:e1a86d16471534a81988ecef8b2f9753099e015de234729af27edfd71d167972"
+  },
+  "repo-impeccable-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-impeccable-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:0b1a6299354f6028b892889ea50a057fad683451a4b8fad3c8a94b592329e853"
+  },
+  "repo-indra-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-indra-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:e762d1ced507a76e3fcd53453dd52047764414eae9fa0f611face8a0c852aac1"
+  },
   "repo-kiri-01": {
     "file": "repo-kiri-01.png",
     "sha256": "sha256:9c2238375f7997bb3b51548ba7bd65eeea277b9fc017e901f829bffcb17e7d1d"
+  },
+  "repo-koubo-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-koubo-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:dec1aab08c8d884c028617c8f2a7c9194eebde64afc533c0b75e80e6cd23a0df"
+  },
+  "repo-leanrea-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-leanrea-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:bc262167a51714ceb78e4b8a6fb51e9e981a0e1eddbfe15fdfd1e89d4c93ae19"
+  },
+  "repo-manimgx-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-manimgx-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:6a3a28574e08707be85b806f468013e8997940422419e64238b861c570177876"
   },
   "repo-modern-web-01": {
     "file": "repo-modern-web-01.png",
@@ -19,6 +180,20 @@
     "file": "repo-musike-01.png",
     "sha256": "sha256:4751884cd0ef7559b27e904b982d043f2b200563ce9a2d4216686ca9745e53f8"
   },
+  "repo-scout-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-scout-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:399cfcb36b8bd4cda72e6a7ed1a0e1d855de9f9af2a14d96a80ba2f18dd5ddcc"
+  },
+  "repo-solidglass-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-solidglass-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:903d52ed2787c86044b85f01517b29dedc20990b75006eda5074394ca379c3d9"
+  },
   "repo-univer-01": {
     "file": "repo-univer-01.png",
     "sha256": "sha256:468e51ba27b9f2c50e35c6b5708b13f0ecd6f097e671b2e15614474632747557"
@@ -27,16 +202,58 @@
     "file": "repo-unslop-02.png",
     "sha256": "sha256:aa6018a82450227ac7508fe294ff98203ab1962426da3f0d95df6a71bb715793"
   },
+  "repo-voicestudio-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-voicestudio-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:4dc4d696d8339f5d2090f04458dfb86609d12334054f9ea52d9dfbb8447e2c3f"
+  },
   "repo-vork-01": {
     "file": "repo-vork-01.png",
     "sha256": "sha256:c35443188dd4532db292c55e5f137f28594be5fb10f41007a5c9e3fabac726cc"
+  },
+  "repo-vvv-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-vvv-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:d6e930e30258dff47b9da11a4f84eeb48de78f955fee61b39336c904ccfb2f20"
+  },
+  "repo-whatsapp-mcp-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "repo-whatsapp-mcp-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:101fb29af23a10d0d453817f4c9abbcc1dc4f01da3c9115d96f51081909ce9a9"
   },
   "repo-wireless-battery-01": {
     "file": "repo-wireless-battery-01.png",
     "sha256": "sha256:e6cc930bb9c0d5fefeed98470fb26b7da52462f23f68ef7c05f6a83664472bf0"
   },
+  "tool-fx0-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "tool-fx0-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:7c6a59b979bdf74d28c86b0454906c2e103ef32275809bac7cbeba64e789239a"
+  },
   "tool-pika-flex-01": {
     "file": "tool-pika-flex-01.png",
     "sha256": "sha256:b33b26bb04072f5d24f91948162d6f9645392e1b31033689a832772519066fa7"
+  },
+  "tool-qwen-image-21-turbo-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "tool-qwen-image-21-turbo-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:bf5fe936dc29974fc4855b23c012f5ef6ead49d52fa2265fde891b18b5ec7f55"
+  },
+  "tool-scrawl-01": {
+    "approval_basis": "User directed generation and batch application; these individual designs were not separately user-reviewed.",
+    "file": "tool-scrawl-01.png",
+    "preserve_existing_custom": true,
+    "reviewed_at": "agent-review-user-directed-batch",
+    "sha256": "sha256:c82cc3fd9a5aaf270f96bd41072cd75e19f9a32851aa9cfa60b246ad44fcb4a6"
   }
 }

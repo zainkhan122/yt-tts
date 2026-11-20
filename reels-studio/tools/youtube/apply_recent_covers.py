@@ -47,8 +47,18 @@ def apply(api, journal, records, items, ids, work):
             video = get_video(api, yid)
             if video.get('status', {}).get('privacyStatus') != 'public':
                 raise ValueError('Not currently public on YouTube')
-            cover = fetch_short_cover(item, config(), work)
             row = journal.data.setdefault('enrichment', {}).setdefault(yid, {'video_id': vid, 'youtube_id': yid})
+            # A missing receipt is not proof that a Short lacks a custom thumbnail.
+            # For the missing-cover batch, preserve unknown existing custom artwork.
+            if item.get('preserve_existing_custom') and not (row.get('thumbnail_confirmed') and row.get('thumbnail_digest') == item['cover_sha256']):
+                present = video.get('contentDetails', {}).get('hasCustomThumbnail')
+                if present is not False:
+                    row.update(cover_existing_custom_hold=True, cover_hold_digest=item['cover_sha256'],
+                               cover_hold_reason='existing_custom' if present is True else 'thumbnail_state_unknown')
+                    journal.save('preserve existing or unknown cover ' + vid)
+                    results.append({'video_id': vid, 'youtube_id': yid, 'state': 'existing_custom_preserved' if present is True else 'thumbnail_state_unknown'})
+                    continue
+            cover = fetch_short_cover(item, config(), work)
             state = attach_short_cover(api, journal, row, yid, cover)
             results.append({'video_id': vid, 'youtube_id': yid, 'state': state,
                             'error': row.get('thumbnail_error'), 'cover_digest': cover['sha256']})
@@ -83,6 +93,6 @@ def main():
     Path(args.report).write_text(json.dumps({'results': result},indent=2)+'\n')
     for r in result:
         print(r['video_id'], r['state'], r.get('error') or '')
-    return 0 if all(r['state'] == 'confirmed' for r in result) else 1
+    return 0 if all(r['state'] in {'confirmed', 'existing_custom_preserved'} for r in result) else 1
 
 if __name__ == '__main__': sys.exit(main())

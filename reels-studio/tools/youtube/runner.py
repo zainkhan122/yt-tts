@@ -215,6 +215,10 @@ def enrich_buffer_shorts(api, journal, shorts_records, short_items, root_cfg):
         item = queue_by_id.get(source["video_id"])
         if not item:
             continue
+        # Missing-cover batches use the separate cover-only worker, which
+        # preserves unknown custom thumbnails and reserves delivery quota.
+        if item.get('preserve_existing_custom'):
+            continue
         previous = journal.data.get("enrichment", {}).get(vid, {})
         if not should_enrich(previous, item):
             continue

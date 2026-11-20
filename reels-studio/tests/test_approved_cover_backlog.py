@@ -29,5 +29,7 @@ class BacklogTests(unittest.TestCase):
             self.assertEqual(classify(rec,old,approved,td)[0]['status'],'pending')
             old['ABCDEFGHIJK']['thumbnail_digest']=digest
             self.assertEqual(classify(rec,old,approved,td)[0]['status'],'blocked_review')
+            old['ABCDEFGHIJK'].update(cover_existing_custom_hold=True, cover_hold_digest=digest)
+            self.assertEqual(classify(rec,old,approved,td)[0]['status'],'existing_custom_preserved')
 
 if __name__ == '__main__': unittest.main()

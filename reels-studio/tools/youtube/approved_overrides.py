@@ -13,5 +13,7 @@ def effective_item(item):
     expected = item['video_id'] + '.png'
     if entry.get('file') != expected:
         raise ValueError('Invalid approved cover filename')
-    return {**item, 'cover_sha256': entry['sha256'], 'cover_reviewed_at': 'user-approved',
+    return {**item, 'cover_sha256': entry['sha256'],
+            'cover_reviewed_at': entry.get('reviewed_at', 'user-approved'),
+            'preserve_existing_custom': entry.get('preserve_existing_custom', False),
             'approved_replacement_file': expected}
