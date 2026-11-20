@@ -1254,9 +1254,13 @@
   },
   "records": {
     "repo-gta6-clipper-01": {
+      "asset_digest": "sha256:b918f2c0adca63e4dae4d0776b2be6e1b361991b11e4fd6ebef0ae6d4b393a33",
       "attempts": 0,
       "category": "repo",
-      "state": "queued",
+      "final_chunk_submitted": false,
+      "state": "session_start_uncertain",
+      "tracking_tag": "hypeless-ref-41e40c2767d1ea7474fb",
+      "updated_at": "2026-11-20T17:39:27Z",
       "video_id": "repo-gta6-clipper-01"
     },
     "repo-moneyprinterturbo-01": {
