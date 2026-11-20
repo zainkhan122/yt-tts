@@ -2,10 +2,15 @@ name: Approved house voice for local review
 on:
   workflow_dispatch:
     inputs:
+      request_key:
+        description: 'Unique review run identifier'
+        required: true
+        type: string
       script_json:
         description: 'JSON array of spoken scene lines; do not put confidential data here'
         required: true
         type: string
+run-name: House voice review ${{ inputs.request_key }}
 permissions:
   contents: read
 jobs:

@@ -10,7 +10,7 @@ if [ "${1:-}" = '--full' ]; then
   fi
   bash "$ROOT/cloud/setup-render.sh"
 else
-  python3 -m pip install 'playwright==1.64.1' imageio-ffmpeg pillow numpy soundfile
+  python3 -m pip install 'playwright==1.64.1' imageio-ffmpeg pillow numpy soundfile requests
   python3 -m playwright install --with-deps chromium
   python3 - <<'PY'
 import imageio_ffmpeg, PIL, playwright, numpy, soundfile

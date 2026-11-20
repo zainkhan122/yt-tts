@@ -3,7 +3,7 @@
 No publishing or production-gate bypass; final video must still pass production QA.
 Input JSON is a list of scene narration strings. Intended for a 16GB runner.
 """
-import argparse,difflib,json,sys
+import argparse,difflib,hashlib,json,sys
 from pathlib import Path
 import numpy as np
 import soundfile as sf
@@ -61,6 +61,6 @@ def main():
     score=sum(b.size for b in difflib.SequenceMatcher(a=expected,b=heard,autojunk=False).get_matching_blocks())/max(1,len(expected))
     if score<.95:raise SystemExit(f'Overall voice QA {score:.1%} below 95%; no handoff created')
     audio=np.concatenate(all_audio[:-1]);sf.write(out/'voice.wav',audio,sr,subtype='PCM_16')
-    (out/'timings.json').write_text(json.dumps({'engine':'chatterbox','profile':'option-3','model_revision':voice.model_revision,'overall_match':score,'chunks':checks,'duration':len(audio)/sr,'scenes':scenes},indent=2))
+    (out/'timings.json').write_text(json.dumps({'script_sha256':hashlib.sha256(json.dumps(lines,ensure_ascii=False,separators=(',',':')).encode()).hexdigest(),'engine':'chatterbox','profile':'option-3','model_revision':voice.model_revision,'overall_match':score,'chunks':checks,'duration':len(audio)/sr,'scenes':scenes},indent=2))
     print(f'VOICE HANDOFF OK: overall {score:.1%}; {len(audio)/sr:.2f}s; review-only')
 if __name__=='__main__':main()
