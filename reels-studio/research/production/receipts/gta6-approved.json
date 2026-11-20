@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "batch_id": "gta6-approved",
+  "briefs": {
+    "repo-gta6-clipper-01": {
+      "brief_identity_sha256": "36512b3db9cf471e8e225936dc999d49525254540905e1fe05b3b050e5afd74d",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "source": "user-approved-script.json"
+        },
+        "assets": {
+          "status": "complete",
+          "note": "Pinned repository UI and illustrative graphics"
+        }
+      }
+    }
+  }
+}

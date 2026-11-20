@@ -1,0 +1,146 @@
+{
+  "id": "repo-gta6-clipper-01",
+  "capture": "captures/repo-gta6-clipper-01",
+  "title": "GTA6 Clipper: Find Highlights in a Long Stream",
+  "niche": "Video clipping",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "draft",
+  "production_category": "repo",
+  "keywords": [
+    "GTA6 Clipper",
+    "stream highlights",
+    "short video",
+    "open source"
+  ],
+  "sources": [
+    "https://gitlab.com/nocodehack.io/gta6-clipper/-/raw/9a96d6f3d71010a94b482eb1cbde1caf9d5d72ce/README.md"
+  ],
+  "facts": {
+    "method": "Pinned official repository README",
+    "limits": "Optional AI and publishing services may cost money; permissions needed for footage."
+  },
+  "scenes": [
+    {
+      "id": "scene0",
+      "type": "flow",
+      "say": "Stop scrubbing through hours of streams for one good moment.",
+      "heading": "TURN STREAMS INTO SHORTS"
+    },
+    {
+      "id": "scene1",
+      "type": "flow",
+      "say": "GTA Six Clipper helps turn streams into vertical Shorts.",
+      "heading": "MEET THE TOOL"
+    },
+    {
+      "id": "scene2",
+      "type": "flow",
+      "say": "Give it a Twitch, YouTube, or Kick link. It transcribes the stream locally and looks for spikes in chat and loudness.",
+      "heading": "FIND PEAKS"
+    },
+    {
+      "id": "scene3",
+      "type": "flow",
+      "say": "It uses those signals to suggest moments. An AI pass is optional.",
+      "heading": "PICK A MOMENT"
+    },
+    {
+      "id": "scene4",
+      "type": "flow",
+      "say": "Then it can stack the streamer above the game, add a hook, and create word-by-word captions.",
+      "heading": "BUILD THE SHORT"
+    },
+    {
+      "id": "scene5",
+      "type": "flow",
+      "say": "You review each clip, adjust the edit, and keep the original.",
+      "heading": "REVIEW"
+    },
+    {
+      "id": "scene6",
+      "type": "flow",
+      "say": "The tool is free, though optional AI and publishing services may cost money.",
+      "heading": "THE CATCH"
+    },
+    {
+      "id": "scene7",
+      "type": "flow",
+      "say": "Want the tool? Comment CLIP and follow Hypeless for more tools, minus the hype.",
+      "heading": "YOUR CALL"
+    }
+  ],
+  "renderer": "graphics",
+  "graphics": {
+    "dir": "briefs/graphics/repo-gta6-clipper-01",
+    "template": "gta6-clipper"
+  },
+  "lexicon": {
+    "CLIP": "clip"
+  },
+  "motion_standard": 2,
+  "viewer": {
+    "who": "Streamers and video creators",
+    "problem": "Finding stream highlights takes time",
+    "job": "Understand how a stream becomes a reviewable vertical clip"
+  },
+  "idea": "Turn stream highlights into vertical shorts with a review step.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "GTA6 Clipper transcribes, ranks candidate moments and renders vertical clips.",
+      "source": "https://gitlab.com/nocodehack.io/gta6-clipper/-/raw/9a96d6f3d71010a94b482eb1cbde1caf9d5d72ce/README.md"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://gitlab.com/nocodehack.io/gta6-clipper/-/raw/9a96d6f3d71010a94b482eb1cbde1caf9d5d72ce/README.md",
+      "how_shown": "Pinned repository UI and illustrative workflow animation."
+    }
+  ],
+  "review": {
+    "reviewed_at": "2026-11-06",
+    "reviewer": "agent: pinned official README",
+    "notes": "User approved script and visual review; optional service pricing and creator footage caveats included."
+  },
+  "contains_synthetic_media": true,
+  "seo": {
+    "keyword": "GTA6 Clipper",
+    "onscreen_first3s": "TURN STREAMS INTO SHORTS",
+    "youtube": {
+      "title": "GTA6 Clipper Finds Stream Highlights for You",
+      "description": "GTA6 Clipper helps turn stream and VOD highlights into vertical clips. Review the results before sharing; optional services can cost money. Get permission to use creator footage.\n\nRepo: https://gitlab.com/nocodehack.io/gta6-clipper/-/raw/9a96d6f3d71010a94b482eb1cbde1caf9d5d72ce/README.md",
+      "tags": [
+        "GTA6 Clipper",
+        "stream highlights",
+        "video clipping",
+        "creator tools",
+        "open source"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#GTA6Clipper",
+        "#CreatorTools",
+        "#OpenSource"
+      ]
+    }
+  },
+  "treatment": {
+    "archetype": "workflow",
+    "selected_cover": 0,
+    "cover_concepts": [
+      {
+        "layout": "window",
+        "text": "TURN STREAMS INTO SHORTS",
+        "media": {
+          "kind": "designed",
+          "file": "custom-cover-proposal.png",
+          "design": "Stream timeline selected region transforms into a vertical phone with split creator and game panels."
+        }
+      }
+    ]
+  },
+  "qa_gates": true,
+  "media_aspect_landscape_ok": "Official landscape screenshot is cropped into a portrait composition and displayed with animated focus; no full-screen landscape card."
+}
