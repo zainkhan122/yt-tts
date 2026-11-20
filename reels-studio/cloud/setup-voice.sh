@@ -4,6 +4,14 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 python3 -c 'import sys; assert sys.version_info[:2] == (3,12), "Voice stack requires Python 3.12"'
+if ! command -v ffmpeg >/dev/null; then
+  python3 -m pip install -q --progress-bar off imageio-ffmpeg
+  mkdir -p "$HOME/.local/bin"
+  FFMPEG="$(python3 -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')"
+  ln -sf "$FFMPEG" "$HOME/.local/bin/ffmpeg"
+  export PATH="$HOME/.local/bin:$PATH"
+  if [ -n "${GITHUB_PATH:-}" ]; then echo "$HOME/.local/bin" >> "$GITHUB_PATH"; fi
+fi
 for exe in ffmpeg git cmake c++ curl; do command -v "$exe" >/dev/null || { echo "Missing runner dependency: $exe" >&2; exit 2; }; done
 export PIP_DISABLE_PIP_VERSION_CHECK=1 HYPERFRAMES_NO_TELEMETRY=1 HYPERFRAMES_NO_UPDATE_CHECK=1 DO_NOT_TRACK=1
 if ! python3 -c 'import torch,torchaudio' 2>/dev/null; then
