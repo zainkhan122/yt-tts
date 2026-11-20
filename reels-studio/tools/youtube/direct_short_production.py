@@ -74,8 +74,6 @@ def reserve(item, brief, due, publications, journal, now, *, ship_errors=()):
     if ship_errors:
         raise ValueError('Ship approval gate failed: '+'; '.join(ship_errors))
     validate_request(item, brief, None, due, now)
-    if due > now+dt.timedelta(days=14):
-        raise ValueError('Schedule exceeds 14-day planning horizon')
     jobs=journal.data.setdefault('direct_short_jobs',{})
     existing=jobs.get(vid)
     check_conflicts(vid,publications.records,journal.data,existing_job=bool(existing))
