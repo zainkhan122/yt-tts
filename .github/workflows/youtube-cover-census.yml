@@ -1,0 +1,35 @@
+name: Audit YouTube channel covers
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: hypeless-publishing
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m pip install -r reels-studio/tools/youtube/requirements.txt
+      - name: Read public channel uploads and cover status
+        env:
+          GH_TOKEN: ${{ github.token }}
+          YOUTUBE_OAUTH_JSON: ${{ secrets.YOUTUBE_OAUTH_JSON }}
+          YOUTUBE_STATE_KEY: ${{ secrets.YOUTUBE_STATE_KEY }}
+        run: python3 reels-studio/tools/youtube/audit_channel_covers.py --report "$RUNNER_TEMP/cover-census/report.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: youtube-cover-census
+          path: ${{ runner.temp }}/cover-census/
+          retention-days: 14
+          if-no-files-found: warn
