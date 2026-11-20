@@ -22,6 +22,13 @@ def main():
  except ImportError:
   subprocess.run(['bash',str(ROOT/'setup/restore-production.sh')],check=True)
   import requests
+ # Installed Python modules alone do not prove the ephemeral browser is still present.
+ try:
+  from playwright.sync_api import sync_playwright
+  with sync_playwright() as pw:
+   browser=pw.chromium.launch(headless=True,args=['--no-sandbox']);browser.close()
+ except Exception:
+  subprocess.run(['bash',str(ROOT/'setup/restore-production.sh')],check=True)
  from lib.secrets import gh_token
  session=requests.Session();session.headers.update({'Authorization':'Bearer '+gh_token(),'Accept':'application/vnd.github+json'})
  base='https://api.github.com/repos/zainkhan122/yt-tts'
