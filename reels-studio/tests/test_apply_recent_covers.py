@@ -3,6 +3,13 @@ from unittest.mock import patch
 from tools.youtube import apply_recent_covers as mod
 
 class TestTargetedCovers(unittest.TestCase):
+    def test_cover_budget_reserves_general_quota_and_upload_starts(self):
+        cfg = {'general_quota_budget_per_day': 2000, 'max_upload_starts_per_day': 2}
+        limited = mod.cover_config(cfg)
+        self.assertEqual(limited['general_quota_budget_per_day'], 1500)
+        self.assertEqual(limited['max_upload_starts_per_day'], 2)
+        self.assertEqual(cfg['general_quota_budget_per_day'], 2000)
+
     def test_only_sent_public_with_approved_cover_are_written(self):
         class Journal:
             data = {'enrichment': {}}

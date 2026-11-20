@@ -22,6 +22,11 @@ from tools.youtube.metadata import attach_short_cover, get_video
 from tools.youtube.runner import external_id
 
 
+def cover_config(cfg):
+    """Preserve daily general quota for delivery; never alter the upload-start limit."""
+    return {**cfg, 'general_quota_budget_per_day': max(0, cfg['general_quota_budget_per_day'] - 500)}
+
+
 def apply(api, journal, records, items, ids, work):
     by_id = {i['video_id']: effective_item(i) for i in items}
     results = []
@@ -62,6 +67,10 @@ def main():
         raise SystemExit('Cover writes require explicitly authorized Actions workflow')
     if len(args.ids) > 20 or len(set(args.ids)) != len(args.ids): raise SystemExit('Select 1–20 unique IDs')
     cfg, root_cfg = load_json(ROOT/'config/youtube.json'), config()
+    # Cover assignments are lower priority than delivery. Keep 500 units of the
+    # shared daily general-API budget for Shorts metadata/scheduling work. Upload
+    # starts have their own existing budget and are never consumed here.
+    cfg = cover_config(cfg)
     records = load_json(ROOT/'tracker/publications.json')['records']; items = load_json(ROOT/'queue/publish.json')['items']
     journal = Journal(root_cfg, remote=True, path=ROOT/'tracker/youtube-publications.json', remote_path='reels-studio/tracker/youtube-publications.json')
     # Direct uploads have their own durable journal rather than a Buffer receipt.
