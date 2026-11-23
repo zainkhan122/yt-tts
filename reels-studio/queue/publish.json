@@ -905,7 +905,7 @@
       "video_id": "claude-video-effects-02",
       "category": "tool",
       "priority": 100,
-      "approval": "approved",
+      "approval": "held",
       "platforms": [
         "facebook",
         "instagram",
@@ -937,7 +937,8 @@
         "cover_sha256": "99700201c1a496000dc82c37f2ac5ef1fcce64fd6f1781a5cc26d46cac67aca3",
         "run_id": null,
         "source": "Owner approved exact displayed video and explicitly overrode editorial gates; motion QA BLOCK and source rights unconfirmed."
-      }
+      },
+      "hold_reason": "Owner requested new dedicated cover; rebuild and re-review exact video"
     }
   ],
   "schema_version": 1
