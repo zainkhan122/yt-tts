@@ -3,9 +3,11 @@
   "records": {
     "claude-video-effects-03:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6b04c39d07fee37ee60ae102",
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-11-24T17:14:00Z",
+      "due_at": "2026-11-24T17:14:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:da814ba0d1eb898e5bcfeab89d0a8e286b9a856875463f4796db90fd5625e6f1",
         "asset_id": 784823288,
@@ -20,10 +22,11 @@
       "notify_subscribers": false,
       "payload_sha256": "7419c0d90885a7a5bdc94d60051fe1f61404015cb569b94e3d27886b877d4b75",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Your footage + one prompt = a video with a lot more motion. \u2728\n\nContentSkills works with Claude Code to build storyboards, captions and effects. Review your edit before rendering. Setup required.\n\nGet the toolkit: https://github.com/blotato/contentskills\n\n#ClaudeCode #ContentSkills #VideoEditing #CreatorTools #OpenSource",
       "title": "Turn Raw Footage Into an Animated Short With Claude",
-      "updated_at": "2026-11-23T22:52:11Z",
+      "updated_at": "2026-11-23T22:52:13Z",
       "video_id": "claude-video-effects-03"
     },
     "list-free-video-ai-01:facebook": {
