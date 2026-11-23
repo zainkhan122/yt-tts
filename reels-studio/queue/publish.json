@@ -866,7 +866,7 @@
       "video_id": "claude-video-effects-01",
       "category": "tool",
       "priority": 100,
-      "approval": "approved",
+      "approval": "held",
       "platforms": [
         "facebook",
         "instagram",
@@ -898,7 +898,8 @@
         "cover_sha256": "82b0195b2d5376ad743a331a4e4400251c0fe71eb26ba4d24bf22275b336a7c2",
         "run_id": null,
         "source": "owner-approved review with requested house-outro revision"
-      }
+      },
+      "hold_reason": "Owner rejected outro; rebuild and confirm source rights before scheduling"
     }
   ],
   "schema_version": 1
