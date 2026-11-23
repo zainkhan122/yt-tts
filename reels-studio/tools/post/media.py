@@ -217,6 +217,9 @@ def verify_site(cfg, items):
         if not entry or entry["video_id"] != item["video_id"] or entry["url"] != media_url(item, cfg):
             raise ValueError("Pinned media absent from deployment")
         if entry.get("superseded_by"):
+            # The actual served bytes, not the stale queue digest, need their own review.
+            from tools.house_outro_gate import require as require_house_outro
+            require_house_outro({**item, 'asset_digest': entry.get('digest')}, root=ROOT)
             # this URL now serves the corrected render: check it against that asset, not the old pin
             replacement = index.get(entry["superseded_by"])
             if not replacement or entry["digest"] != replacement["digest"] or entry["size"] != replacement["size"]:

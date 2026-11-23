@@ -93,6 +93,13 @@ def main():
             expiry = parse_time(args.reviewed_until)
             if not now < expiry <= now + dt.timedelta(days=14):
                 raise SystemExit("Review expiry must be in the next 14 days (use shorter windows for news/pricing)")
+            # Every new approval, including legacy/custom-rendered items, needs inspection
+            # of the exact final MP4. Existing provider schedules are not altered here.
+            from tools.house_outro_gate import errors_for as outro_errors
+            failures = {i['video_id']: outro_errors(i, root=ROOT) for i in data['items'] if i['video_id'] in args.video_ids}
+            failures = {k: v for k, v in failures.items() if v}
+            if failures:
+                raise SystemExit('House-outro gate refused approval: ' + str(failures))
             # Ship guard (owner rule 5 Nov 2026): the scheduled file must be the reviewed file,
             # and brief, receipt, cover and panel must agree. Any drift refuses approval.
             drift = {v: ship.check(v, root=ROOT) for v in args.video_ids}

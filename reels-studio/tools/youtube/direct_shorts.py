@@ -22,6 +22,7 @@ from tools.youtube.contracts import fetch_short_cover
 from tools.youtube.metadata import get_video, playlists_for, set_thumbnail, ensure_playlist
 from tools.youtube.resumable import reconcile_upload, tracking_tag, upload
 from tools.youtube.seo import validate
+from tools.house_outro_gate import require as require_house_outro
 
 REMOTE = 'reels-studio/tracker/youtube-publications.json'
 
@@ -63,6 +64,8 @@ def verify_copy(video, snippet):
 
 
 def run(item, brief, buffer_record, due, api, journal, root_cfg, work, clock=now_utc, sleep=time.sleep):
+    # One shared gate for both the direct production worker and older pilot entrypoint.
+    require_house_outro(item, root=ROOT)
     vid = item['video_id']
     # Recovery may read back an already-armed schedule near its due time.
     # The arming branch below still refuses a stale time if no schedule exists.

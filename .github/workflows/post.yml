@@ -88,7 +88,7 @@ jobs:
         run: |
           set -e
           export PYTHONPATH="$GITHUB_WORKSPACE/reels-studio${PYTHONPATH:+:$PYTHONPATH}"
-          for test in test_publishing.py test_delivery.py test_release_delivery.py test_covers_pending.py test_gh_actions.py; do
+          for test in test_house_outro_gate.py test_publishing.py test_delivery.py test_release_delivery.py test_covers_pending.py test_gh_actions.py; do
             python3 -m unittest discover -s reels-studio/tests -p "$test" -v
           done
       - name: Source / workspace budget guard

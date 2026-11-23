@@ -424,6 +424,10 @@ class PlannerTests(unittest.TestCase):
 
 class DeliveryTests(unittest.TestCase):
     def setUp(self):
+        # These isolated fake-provider tests target retries, not audiovisual receipts.
+        mock_outro = patch.object(publisher, 'require_house_outro')
+        mock_outro.start()
+        self.addCleanup(mock_outro.stop)
         self.cfg = config()
         self.cfg["buffer"]["channels"]["facebook"].pop("posting_hold", None)  # fake API, not an actual Facebook publish
         self.items = fixture_items(3)
@@ -1029,7 +1033,8 @@ class QueueReleaseTests(unittest.TestCase):
         self.assertEqual(audit(rows, posts, queue, cfg)[0]["verdict"], "OK")
 
     @_gate_off
-    def test_refresh_payload_swaps_the_video_and_keeps_slot(self, _gate):
+    @patch('tools.house_outro_gate.require')
+    def test_refresh_payload_swaps_the_video_and_keeps_slot(self, _outro_gate, _gate):
         from tools.post.release import refresh_input
         from tools.post.common import iso, now_utc
         cfg = self.cfg()

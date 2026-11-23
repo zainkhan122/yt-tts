@@ -47,9 +47,12 @@ if __name__=='__main__': unittest.main()
 
 class DirectFlow(DirectShortSafety):
     def exercise(self, *, confirmed=True, scheduled=False, rec_state="uploaded_private"):
+        # Flow fixture tests mock the separate outro receipt gate.
+        outro_gate = patch('tools.youtube.direct_shorts.require_house_outro')
+        outro_gate.start()
+        self.addCleanup(outro_gate.stop)
         import tempfile
         from tools.youtube.direct_shorts import run
-        from unittest.mock import patch
         snippet=validate_request(self.item,self.brief,self.receipt,self.due,self.now,allow_stale=True)
         class Journal:
             def __init__(self): self.records={'repo-moneyprinterturbo-01':{'video_id':'repo-moneyprinterturbo-01','state':rec_state,'youtube_id':'abcdef12345','asset_digest':self_item['asset_digest']}}; self.saves=[]

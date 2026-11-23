@@ -25,6 +25,7 @@ from tools.post.common import (PENDING, RETRYABLE, TERMINAL, UNCERTAIN, config, 
 from tools.post.media import verify_site
 from tools.post.planner import channel_problem, copy_for, plan
 from tools.post.state import Journal
+from tools.house_outro_gate import require as require_house_outro
 
 MEDIA_KEYS = ("video_id", "asset_id", "asset_size", "asset_digest", "kit_asset_id", "kit_digest", "media_path", "release_tag")
 
@@ -132,6 +133,13 @@ def deliver(rows, items, journal, client, cfg, clock=now_utc):
             outcomes.append({"key": k, "state": "deferred_stale_slot"})
             continue
         item = by_video[row["video_id"]]
+        # Applies to every new create, including immediate pilots and legacy queue items.
+        # An existing provider schedule is not edited or cancelled by this guard.
+        try:
+            require_house_outro(item, root=ROOT)
+        except ValueError as exc:
+            outcomes.append({"key": k, "state": "outro_held", "error": str(exc)})
+            continue
         record = {"video_id": row["video_id"], "platform": row["platform"], "category": row["category"],
                   "channel_id": row["payload"]["channelId"], "state": "submitting", "due_at": row["due_at"],
                   "media_url": row["media_url"], "media_ref": {n: item.get(n) for n in MEDIA_KEYS},
@@ -453,6 +461,10 @@ def main():
                 if args.live:
                     outcomes = deliver(rows, items, journal, client, cfg)
                     report["outcomes"] = outcomes
+                    held_outros = [o for o in outcomes if o.get('state') == 'outro_held']
+                    if held_outros:
+                        report['issues'].extend(held_outros)
+                        exit_code = 1
                     report["created"] = sum(1 for o in outcomes if o.get("buffer_post_id"))
                     touched = [o["key"] for o in outcomes if o.get("buffer_post_id")]
                     if touched:
