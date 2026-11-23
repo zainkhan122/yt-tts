@@ -1,6 +1,31 @@
 {
   "cooldown_until": null,
   "records": {
+    "claude-video-effects-03:facebook": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac8fe8d6a5c39ccb6623485",
+      "due_at": "2026-11-24T19:10:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:da814ba0d1eb898e5bcfeab89d0a8e286b9a856875463f4796db90fd5625e6f1",
+        "asset_id": 784823288,
+        "asset_size": 7089232,
+        "kit_asset_id": 784823362,
+        "kit_digest": "sha256:bc2fce03983fd89095ff66c73c37abb9c31926e5387544902a35cb558178d2a3",
+        "media_path": "media/784823288/claude-video-effects-03.mp4",
+        "release_tag": "renders-claude-effects-dedicated-cover-20261124",
+        "video_id": "claude-video-effects-03"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/784823288/claude-video-effects-03.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "8845761c6d9cbe37ea6ed10f5dd66a1987c847c6d38c4ea652dc98ec7b0186ea",
+      "platform": "facebook",
+      "state": "submitting",
+      "text": "Give your footage a motion upgrade. Describe the edit to Claude Code, review the storyboard, then render with ContentSkills. You\u2019ll need to set up the local toolkit first.\n\nExplore the project: https://github.com/blotato/contentskills\n\nAI-generated narration.\n\n#ClaudeCode #ContentSkills #VideoEditing #CreatorTools #OpenSource",
+      "title": "Turn Raw Footage Into an Animated Short With Claude",
+      "updated_at": "2026-11-23T22:52:15Z",
+      "video_id": "claude-video-effects-03"
+    },
     "claude-video-effects-03:instagram": {
       "attempts": 1,
       "buffer_post_id": "6b04c39d07fee37ee60ae102",
