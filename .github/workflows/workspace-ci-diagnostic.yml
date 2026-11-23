@@ -1,0 +1,21 @@
+name: Diagnose CI checkout storage
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          filter: blob:none
+          sparse-checkout: |
+            /reels-studio/
+            /.github/workflows/
+          sparse-checkout-cone-mode: false
+      - name: Measure checkout and git cache
+        run: |
+          du -sh .git reels-studio .github
+          du -h -d 1 .git | sort -h | tail -10
+          python3 reels-studio/tools/maintenance/storage.py audit || true
