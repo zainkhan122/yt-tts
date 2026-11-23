@@ -16,11 +16,11 @@
     "claude-video-effects-02": {
       "attempts": 0,
       "created_at": "2026-11-23T22:37:07Z",
+      "last_error": "Owner requested dedicated cover; delivery stopped for correction",
       "pins": "7225e28ba7b8e2126fc414071e6a34f341ca9f6266ec621429e74992d6416be7",
       "publish_at": "2026-11-24T21:08:00Z",
       "state": "needs_review",
-      "video_id": "claude-video-effects-02",
-      "last_error": "Owner requested dedicated cover; delivery stopped for correction"
+      "video_id": "claude-video-effects-02"
     },
     "repo-gta6-clipper-01": {
       "attempts": 0,
@@ -1407,12 +1407,12 @@
     "news": {
       "id": "PLAzrfp4w4AFo",
       "state": "ready",
-      "title": "AI News — What Actually Changed | Hypeless"
+      "title": "AI News \u2014 What Actually Changed | Hypeless"
     },
     "repo": {
       "id": "PLBECG-dZrK9g",
       "state": "ready",
-      "title": "AI Repos — Open-Source Projects | Hypeless"
+      "title": "AI Repos \u2014 Open-Source Projects | Hypeless"
     },
     "shorts": {
       "id": "PLb3ejrNbPznk",
@@ -1422,12 +1422,12 @@
     "tool": {
       "id": "PLDlBdIjyXXGU",
       "state": "ready",
-      "title": "AI Tools — Honest Demos | Hypeless"
+      "title": "AI Tools \u2014 Honest Demos | Hypeless"
     }
   },
   "quota": {
     "day_pacific": "2026-11-23",
-    "general_units": 492,
+    "general_units": 493,
     "upload_starts": 2
   },
   "records": {
