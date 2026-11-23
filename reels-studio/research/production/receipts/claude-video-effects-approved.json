@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "batch_id": "claude-video-effects-approved",
+  "briefs": {
+    "claude-video-effects-01": {
+      "brief_identity_sha256": "e7a95712633b76d25f9250d6dc3b1c8fea73e7072698e581b3987fa3ce31b63c",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "source": "user-approved-script.json"
+        },
+        "assets": {
+          "status": "complete",
+          "note": "Source project demonstration and illustrative graphics; cover extracted from final master frame zero"
+        }
+      }
+    }
+  }
+}
