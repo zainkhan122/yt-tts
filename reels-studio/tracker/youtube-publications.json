@@ -1444,8 +1444,10 @@
       "asset_digest": "sha256:ea5d9845939cacdd7e385c4568378cee8cafaf20251392fcaaada8b5a09c52c3",
       "attempts": 0,
       "category": "tool",
+      "confirmed_bytes": 0,
       "final_chunk_submitted": false,
-      "state": "session_start_uncertain",
+      "session_ciphertext": "yQrSw+CZno1y9+ZnFBzYOuUMZi+HYj0AkmUjYw2putKw6o/Z9wPJbWNeuMmBjlNEfMWn9Pnzyb6nc6dDVhRYDxScyCdQzpcSyuEcQWnK4feVR23Axg5bAxdPAq9m8e9+ttrfpLeBA1Wh5vB3nLma/rqRJclRw+osgibixcHgaFYZCLPMcvzZZeH6bVC3vPnu+etZCcnItbE7Ozoq5pVmlIGwKCROyL/Xp3dkoCA7HiWgI0TxP0FYM3oLEfXkWPp5yNKAmzwlWOi1PLQJszwXPzt3sLoaufqis2oDhvlIRdaTTFWzwbFWJjvhW7D+P8oi5SQdtzICkzd9BE3VmbzpVv0zzfpiipfyXi6/VvuwywhpInitEkZm9AVgZ248xMop7X2+6icdga7703Ptz5KZJEJBBHhXB3m5ozoPfUlnq1iagSMP8APxpS0HIiUwNmjlMYYY61oTzpvHtqAUNXIjF5B1822e+TxEBRrDCr7zTiiCm1XRfnRB2DR9vHarXHYNZ+DrMK1i9n0Kydb950EiQFTIGhXeA1MR1YDzuPgufhR2YGMBdWfQ5zYv+2ROTNj7P6y6Mzy/6TH2+wiTG7LTprxIseB1Ahk=",
+      "state": "uploading",
       "tracking_tag": "hypeless-ref-4c9304242b36d8347ba4",
       "updated_at": "2026-11-23T22:37:20Z",
       "video_id": "claude-video-effects-02"
