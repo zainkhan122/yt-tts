@@ -16,10 +16,11 @@
     "claude-video-effects-02": {
       "attempts": 0,
       "created_at": "2026-11-23T22:37:07Z",
+      "hold_verified_at": "2026-11-23T22:39:45Z",
       "last_error": "Owner requested dedicated cover; delivery stopped for correction",
       "pins": "7225e28ba7b8e2126fc414071e6a34f341ca9f6266ec621429e74992d6416be7",
       "publish_at": "2026-11-24T21:08:00Z",
-      "state": "needs_review",
+      "state": "cancelled",
       "video_id": "claude-video-effects-02"
     },
     "repo-gta6-clipper-01": {
@@ -1459,8 +1460,10 @@
       "category": "tool",
       "confirmed_bytes": 0,
       "final_chunk_submitted": true,
+      "hold_reason": "Dedicated-cover correction",
+      "hold_verified_at": "2026-11-23T22:39:45Z",
       "publish_at": "2026-11-24T21:08:00Z",
-      "state": "scheduling",
+      "state": "cancelled",
       "thumbnail_digest": "sha256:99700201c1a496000dc82c37f2ac5ef1fcce64fd6f1781a5cc26d46cac67aca3",
       "tracking_tag": "hypeless-ref-4c9304242b36d8347ba4",
       "updated_at": "2026-11-23T22:37:27Z",
