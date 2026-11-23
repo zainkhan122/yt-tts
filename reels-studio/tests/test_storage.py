@@ -14,6 +14,13 @@ from tools.publish_release import upload, release
 
 
 class StorageTests(unittest.TestCase):
+    def test_ci_git_exclusion_is_explicit_and_local_counts_git(self):
+        from tools.maintenance.storage import saved_usage
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);(root/'.git').mkdir();(root/'.git'/'object').write_bytes(b'12345');(root/'asset').write_bytes(b'123')
+            self.assertEqual(saved_usage(root),(8,2))
+            self.assertEqual(saved_usage(root,exclude_git=True),(3,1))
+
     def archive(self,tmp):
         folder=Path(tmp)/"pack";folder.mkdir();(folder/"media.bin").write_bytes(b"archived-source")
         archive=Path(tmp)/"pack.tar"

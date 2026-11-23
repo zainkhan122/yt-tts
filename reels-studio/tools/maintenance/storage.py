@@ -25,10 +25,10 @@ from tools.gh_actions import api
 EXCLUDED = {".arena", ".cache", ".local", ".mypy_cache", ".next", ".nox", ".npm", ".nuxt", ".output", ".parcel-cache", ".pytest_cache", ".ruff_cache", ".svelte-kit", ".tox", ".turbo", ".venv", ".vite", "__pycache__", "build", "coverage", "dist", "node_modules", "out", "target"}
 
 
-def saved_usage(root):
+def saved_usage(root, *, exclude_git=False):
     total, count = 0, 0
     for directory, dirs, files in os.walk(root):
-        dirs[:] = [d for d in dirs if d not in EXCLUDED]
+        dirs[:] = [d for d in dirs if d not in EXCLUDED and not (exclude_git and d == '.git')]
         for name in files:
             path = Path(directory)/name
             if path.is_symlink():
@@ -45,7 +45,12 @@ def audit():
     # The workspace IS the checkout (ROOT.parent): on a runner that is the workspace directory,
     # on a dev machine it is the clone. It used to measure Path.home() locally, which counted the
     # whole user profile (tens of GB) and failed the budget for files the pipeline never owns.
-    total, count = saved_usage(ROOT.parent)
+    # A GitHub Actions checkout is ephemeral and is not Arena's persisted workspace.
+    # Its fetched .git object cache was measured at 79 MB (2026-11-23), causing a
+    # false persisted-workspace failure. Count it locally; report it separately in CI.
+    ci = os.environ.get('GITHUB_ACTIONS') == 'true'
+    total, count = saved_usage(ROOT.parent, exclude_git=ci)
+    git_bytes, _ = saved_usage(ROOT.parent / '.git') if ci else (0, 0)
     paths = subprocess.check_output(["git", "ls-files", "-z", "--", "reels-studio/", ".github/workflows/"], cwd=ROOT.parent).split(b"\0")
     tracked = [ROOT.parent/p.decode() for p in paths if p]
     large = [str(p.relative_to(ROOT.parent)) for p in tracked if p.is_file() and p.stat().st_size > 5_000_000]
@@ -55,6 +60,7 @@ def audit():
     approved = ROOT / "approved-thumbnails"
     source = sum(p.stat().st_size for p in tracked if p.is_file() and not p.is_relative_to(approved))
     return {"observed_at": iso(now_utc()), "workspace_saved_bytes": total, "workspace_saved_files": count,
+            "ci_ephemeral_git_bytes_excluded": git_bytes if ci else None,
             "workspace_budget_bytes":128_000_000,"workspace_warning_bytes":100_000_000,
             "studio_tracked_bytes": source, "studio_source_budget_bytes":20_000_000,
             "tracked_video_files":videos,"tracked_files_over_5mb":large,
