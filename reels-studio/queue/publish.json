@@ -939,6 +939,44 @@
         "source": "Owner approved exact displayed video and explicitly overrode editorial gates; motion QA BLOCK and source rights unconfirmed."
       },
       "hold_reason": "Owner requested new dedicated cover; rebuild and re-review exact video"
+    },
+    {
+      "video_id": "claude-video-effects-03",
+      "category": "tool",
+      "priority": 100,
+      "approval": "approved",
+      "platforms": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "release_tag": "renders-claude-effects-dedicated-cover-20261124",
+      "asset_id": 784823288,
+      "asset_size": 7089232,
+      "asset_digest": "sha256:da814ba0d1eb898e5bcfeab89d0a8e286b9a856875463f4796db90fd5625e6f1",
+      "kit_asset_id": 784823362,
+      "kit_digest": "sha256:bc2fce03983fd89095ff66c73c37abb9c31926e5387544902a35cb558178d2a3",
+      "media_path": "media/784823288/claude-video-effects-03.mp4",
+      "title": "Turn Raw Footage Into an Animated Short With Claude",
+      "brief_sha256": "0f981f4fd22e3ff1efdee932fc75f18b2ad2ba786aa69678d72dd5184bf63f3e",
+      "added_at": "2026-11-23T22:43:51.185281+00:00",
+      "reviewed_at": "2026-11-23T22:43:51.185281+00:00",
+      "expires_at": "2026-11-27T05:00:00Z",
+      "not_before": "2026-11-24T05:00:00Z",
+      "youtube_ai_generated": true,
+      "facebook_disclosure": "AI-generated narration and example imagery.",
+      "instagram_thumbnail_offset_ms": 0,
+      "cover_sha256": "sha256:9f07de56f3af10e53e6dc47b4f6d787a7b9526b910960c2eb8d0176a9474a89f",
+      "approved_cover_sha": "sha256:9f07de56f3af10e53e6dc47b4f6d787a7b9526b910960c2eb8d0176a9474a89f",
+      "cover_reviewed_at": "2026-11-23T22:43:51.185281+00:00",
+      "approved_panel_sha": "60b5b18976a4ced0dc3743be1759cd6b466aef2ac382f8520c8df06c960fa3dc",
+      "review": {
+        "mp4_sha256": "da814ba0d1eb898e5bcfeab89d0a8e286b9a856875463f4796db90fd5625e6f1",
+        "mp4_bytes": 7089232,
+        "cover_sha256": "9f07de56f3af10e53e6dc47b4f6d787a7b9526b910960c2eb8d0176a9474a89f",
+        "run_id": null,
+        "source": "Owner approved exact displayed video and explicitly overrode editorial gates; motion QA BLOCK and source rights unconfirmed."
+      }
     }
   ],
   "schema_version": 1

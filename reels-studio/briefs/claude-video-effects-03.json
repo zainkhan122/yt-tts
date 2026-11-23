@@ -1,0 +1,170 @@
+{
+  "id": "claude-video-effects-03",
+  "title": "Turn Raw Footage Into an Animated Short With Claude",
+  "niche": "AI video editing",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "approved-for-scheduling",
+  "production_category": "tool",
+  "keywords": [
+    "Claude Code",
+    "ContentSkills",
+    "AI video effects"
+  ],
+  "sources": [
+    "https://github.com/blotato/contentskills"
+  ],
+  "viewer": {
+    "who": "Creators making short-form videos",
+    "problem": "Manual video editing and motion effects take time",
+    "job": "Understand how an AI-assisted editing workflow adds effects and offers a storyboard review"
+  },
+  "idea": "Turn raw footage into an animated edit with Claude Code and ContentSkills.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "ContentSkills supports prompted video edits, effects and storyboard review before rendering.",
+      "source": "https://github.com/blotato/contentskills"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/blotato/contentskills",
+      "how_shown": "ContentSkills source gallery video excerpts and illustrative motion graphics; not an independently tested walkthrough."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene0",
+      "type": "flow",
+      "say": "Turn your raw footage into a ready-to-share video, with one prompt.",
+      "heading": "ONE PROMPT"
+    },
+    {
+      "id": "scene1",
+      "type": "flow",
+      "say": "Yes, really. Drop in your clip, tell Claude what you want, and watch the edit come together.",
+      "heading": "DROP DESCRIBE"
+    },
+    {
+      "id": "scene2",
+      "type": "flow",
+      "say": "Want bold text behind you?",
+      "heading": "TEXT BEHIND YOU"
+    },
+    {
+      "id": "scene3",
+      "type": "flow",
+      "say": "A glowing 3D orb?",
+      "heading": "3D ORB"
+    },
+    {
+      "id": "scene4",
+      "type": "flow",
+      "say": "A chart that builds as you speak?",
+      "heading": "CHARTS IN MOTION"
+    },
+    {
+      "id": "scene5",
+      "type": "flow",
+      "say": "Tell it. Then watch your footage transform.",
+      "heading": "TRANSFORM"
+    },
+    {
+      "id": "scene6",
+      "type": "flow",
+      "say": "The toolkit is called ContentSkills. It gives you a storyboard to review before rendering, so you can change the scenes until they feel right.",
+      "heading": "REVIEW YOUR STORY"
+    },
+    {
+      "id": "scene7",
+      "type": "flow",
+      "say": "Your footage. Your ideas. A video with a lot more motion.",
+      "heading": "YOUR IDEAS"
+    }
+  ],
+  "review": {
+    "reviewed_at": "2026-11-23",
+    "reviewer": "agent: official repository plus owner approval",
+    "notes": "Owner accepted prior Short and requested the shared house outro and scheduling. Source gallery is shown as demo, not independent product test."
+  },
+  "contains_synthetic_media": true,
+  "seo": {
+    "keyword": "Claude Code",
+    "onscreen_first3s": "ONE PROMPT",
+    "youtube": {
+      "title": "Turn Raw Footage Into an Animated Short With Claude",
+      "description": "Claude Code and ContentSkills can turn raw footage into an animated short. Describe your edit, review the storyboard, and render with captions, graphics and effects.\n\nSetup requires local tools; optional services can cost money.\n\nGet ContentSkills: https://github.com/blotato/contentskills",
+      "tags": [
+        "Claude Code",
+        "ContentSkills",
+        "AI video editing",
+        "animated video editing",
+        "video effects",
+        "AI creator tools",
+        "open source video editor"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#ClaudeCode",
+        "#ContentSkills",
+        "#VideoEditing",
+        "#CreatorTools"
+      ]
+    },
+    "instagram": {
+      "caption": "Your footage + one prompt = a video with a lot more motion. ✨\n\nContentSkills works with Claude Code to build storyboards, captions and effects. Review your edit before rendering. Setup required.\n\nGet the toolkit: https://github.com/blotato/contentskills",
+      "hashtags": [
+        "#ClaudeCode",
+        "#ContentSkills",
+        "#VideoEditing",
+        "#CreatorTools",
+        "#OpenSource"
+      ]
+    },
+    "facebook": {
+      "caption": "Give your footage a motion upgrade. Describe the edit to Claude Code, review the storyboard, then render with ContentSkills. You’ll need to set up the local toolkit first.\n\nExplore the project: https://github.com/blotato/contentskills",
+      "hashtags": [
+        "#ClaudeCode",
+        "#ContentSkills",
+        "#VideoEditing",
+        "#CreatorTools",
+        "#OpenSource"
+      ]
+    },
+    "tiktok": {
+      "caption": "Turn a raw clip into an animated edit with Claude Code + ContentSkills. Review the storyboard before you render. Local setup required.",
+      "hashtags": [
+        "#ClaudeCode",
+        "#ContentSkills",
+        "#VideoEditing",
+        "#CreatorTools",
+        "#OpenSource"
+      ]
+    },
+    "x": {
+      "text": "Raw footage → a storyboard → an animated edit. ContentSkills works with Claude Code to build video effects locally. Setup required: https://github.com/blotato/contentskills",
+      "hashtags": [
+        "#ClaudeCode",
+        "#VideoEditing"
+      ]
+    }
+  },
+  "treatment": {
+    "archetype": "workflow",
+    "selected_cover": 0,
+    "cover_concepts": [
+      {
+        "layout": "window",
+        "text": "CLAUDE VIDEO EFFECTS",
+        "media": {
+          "kind": "designed",
+          "file": "master-cover.png",
+          "design": "Portrait video with luminous orb and layered title."
+        }
+      }
+    ]
+  },
+  "qa_gates": true
+}

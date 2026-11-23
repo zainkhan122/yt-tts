@@ -26,6 +26,7 @@ from tools.post.media import verify_site
 from tools.post.planner import channel_problem, copy_for, plan
 from tools.post.state import Journal
 from tools.house_outro_gate import require as require_house_outro
+from tools.dedicated_cover_gate import require as require_dedicated_cover
 
 MEDIA_KEYS = ("video_id", "asset_id", "asset_size", "asset_digest", "kit_asset_id", "kit_digest", "media_path", "release_tag")
 
@@ -137,6 +138,7 @@ def deliver(rows, items, journal, client, cfg, clock=now_utc):
         # An existing provider schedule is not edited or cancelled by this guard.
         try:
             require_house_outro(item, root=ROOT)
+            require_dedicated_cover(item, root=ROOT)
         except ValueError as exc:
             outcomes.append({"key": k, "state": "outro_held", "error": str(exc)})
             continue

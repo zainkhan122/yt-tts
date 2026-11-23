@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "batch_id": "claude-video-effects-03-owner-approved",
+  "briefs": {
+    "claude-video-effects-03": {
+      "brief_identity_sha256": "0f981f4fd22e3ff1efdee932fc75f18b2ad2ba786aa69678d72dd5184bf63f3e",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "source": "owner-approved narration, plus house CTA"
+        },
+        "assets": {
+          "status": "complete",
+          "note": "Purpose-made cover embedded frame zero; third-party demo reuse and depicted-person rights unconfirmed."
+        }
+      }
+    }
+  }
+}

@@ -24,6 +24,7 @@ jobs:
         env:
           PYTHONPATH: ${{ github.workspace }}/reels-studio
         run: |
+          python3 -m unittest discover -s reels-studio/tests -p 'test_dedicated_cover_gate.py' -v
           python3 -m unittest discover -s reels-studio/tests -p 'test_house_outro_gate.py' -v
           python3 -m unittest discover -s reels-studio/tests -p 'test_direct_shorts.py' -v
       - name: Run specifically authorized MoneyPrinterTurbo pilot

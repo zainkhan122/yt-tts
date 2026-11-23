@@ -151,6 +151,8 @@ def refresh_input(record, item, cfg, due):
     from tools.house_outro_gate import require as require_house_outro
     # A new asset substituted into a pending post must meet the same gate as a new post.
     require_house_outro(item, root=ROOT)
+    from tools.dedicated_cover_gate import require as require_dedicated_cover
+    require_dedicated_cover(item, root=ROOT)
     platform = record["_key"].split(":")[-1]
     if isinstance(due, str):
         due = parse_time(due)

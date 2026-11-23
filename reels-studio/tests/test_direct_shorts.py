@@ -51,6 +51,9 @@ class DirectFlow(DirectShortSafety):
         outro_gate = patch('tools.youtube.direct_shorts.require_house_outro')
         outro_gate.start()
         self.addCleanup(outro_gate.stop)
+        cover_gate = patch('tools.youtube.direct_shorts.require_dedicated_cover')
+        cover_gate.start()
+        self.addCleanup(cover_gate.stop)
         import tempfile
         from tools.youtube.direct_shorts import run
         snippet=validate_request(self.item,self.brief,self.receipt,self.due,self.now,allow_stale=True)

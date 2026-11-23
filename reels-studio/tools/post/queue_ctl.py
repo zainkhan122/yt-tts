@@ -100,6 +100,11 @@ def main():
             failures = {k: v for k, v in failures.items() if v}
             if failures:
                 raise SystemExit('House-outro gate refused approval: ' + str(failures))
+            from tools.dedicated_cover_gate import errors_for as cover_errors
+            failures = {i['video_id']: cover_errors(i, root=ROOT) for i in data['items'] if i['video_id'] in args.video_ids}
+            failures = {k: v for k, v in failures.items() if v}
+            if failures:
+                raise SystemExit('Dedicated-cover gate refused approval: ' + str(failures))
             # Ship guard (owner rule 5 Nov 2026): the scheduled file must be the reviewed file,
             # and brief, receipt, cover and panel must agree. Any drift refuses approval.
             drift = {v: ship.check(v, root=ROOT) for v in args.video_ids}

@@ -428,6 +428,9 @@ class DeliveryTests(unittest.TestCase):
         mock_outro = patch.object(publisher, 'require_house_outro')
         mock_outro.start()
         self.addCleanup(mock_outro.stop)
+        mock_cover = patch.object(publisher, 'require_dedicated_cover')
+        mock_cover.start()
+        self.addCleanup(mock_cover.stop)
         self.cfg = config()
         self.cfg["buffer"]["channels"]["facebook"].pop("posting_hold", None)  # fake API, not an actual Facebook publish
         self.items = fixture_items(3)
@@ -1034,7 +1037,8 @@ class QueueReleaseTests(unittest.TestCase):
 
     @_gate_off
     @patch('tools.house_outro_gate.require')
-    def test_refresh_payload_swaps_the_video_and_keeps_slot(self, _outro_gate, _gate):
+    @patch('tools.dedicated_cover_gate.require')
+    def test_refresh_payload_swaps_the_video_and_keeps_slot(self, _cover_gate, _outro_gate, _gate):
         from tools.post.release import refresh_input
         from tools.post.common import iso, now_utc
         cfg = self.cfg()

@@ -220,6 +220,8 @@ def verify_site(cfg, items):
             # The actual served bytes, not the stale queue digest, need their own review.
             from tools.house_outro_gate import require as require_house_outro
             require_house_outro({**item, 'asset_digest': entry.get('digest')}, root=ROOT)
+            from tools.dedicated_cover_gate import require as require_dedicated_cover
+            require_dedicated_cover({**item, 'asset_digest': entry.get('digest')}, root=ROOT)
             # this URL now serves the corrected render: check it against that asset, not the old pin
             replacement = index.get(entry["superseded_by"])
             if not replacement or entry["digest"] != replacement["digest"] or entry["size"] != replacement["size"]:

@@ -1,0 +1,17 @@
+{
+  "contract": "dedicated-cover-v1",
+  "video_id": "claude-video-effects-03",
+  "video_sha256": "sha256:da814ba0d1eb898e5bcfeab89d0a8e286b9a856875463f4796db90fd5625e6f1",
+  "cover_sha256": "sha256:9f07de56f3af10e53e6dc47b4f6d787a7b9526b910960c2eb8d0176a9474a89f",
+  "art_sha256": "sha256:2725800950164e03d8bec28fe0f989027f3d92919f1e9b42216b785552ac5ddc",
+  "source_kind": "purpose-made-for-this-video",
+  "headline": "ONE PROMPT VIDEO EFFECTS",
+  "dimensions": [
+    1080,
+    1920
+  ],
+  "frame_zero_verified": true,
+  "frame_zero_mean_abs_rgb_error": 2.379,
+  "reviewed_at": "2026-11-23T22:42:09.616199+00:00",
+  "note": "Source artwork was created specifically for this video; pixel check compares cover to decoded frame zero, not any platform thumbnail surface."
+}

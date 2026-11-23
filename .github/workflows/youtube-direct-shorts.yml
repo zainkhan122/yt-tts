@@ -41,7 +41,7 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}/reels-studio
         run: |
           set -e
-          for t in test_house_outro_gate.py test_direct_shorts.py test_direct_short_production.py; do
+          for t in test_dedicated_cover_gate.py test_house_outro_gate.py test_direct_shorts.py test_direct_short_production.py; do
             python3 -m unittest discover -s reels-studio/tests -p "$t" -v
           done
       - name: Process only explicitly approved direct Shorts
