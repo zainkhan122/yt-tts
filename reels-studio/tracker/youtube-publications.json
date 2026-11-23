@@ -1436,7 +1436,7 @@
   },
   "quota": {
     "day_pacific": "2026-11-23",
-    "general_units": 495,
+    "general_units": 496,
     "upload_starts": 2
   },
   "records": {
@@ -1478,6 +1478,12 @@
       "uploaded_at": "2026-11-23T22:37:27Z",
       "video_id": "claude-video-effects-02",
       "youtube_id": "O5tA5roQIng"
+    },
+    "claude-video-effects-03": {
+      "attempts": 0,
+      "category": "tool",
+      "state": "queued",
+      "video_id": "claude-video-effects-03"
     },
     "repo-gta6-clipper-01": {
       "asset_digest": "sha256:b918f2c0adca63e4dae4d0776b2be6e1b361991b11e4fd6ebef0ae6d4b393a33",
