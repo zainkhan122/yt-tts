@@ -1441,9 +1441,13 @@
       "youtube_id": "uhDlaJ-AHUQ"
     },
     "claude-video-effects-02": {
+      "asset_digest": "sha256:ea5d9845939cacdd7e385c4568378cee8cafaf20251392fcaaada8b5a09c52c3",
       "attempts": 0,
       "category": "tool",
-      "state": "queued",
+      "final_chunk_submitted": false,
+      "state": "session_start_uncertain",
+      "tracking_tag": "hypeless-ref-4c9304242b36d8347ba4",
+      "updated_at": "2026-11-23T22:37:20Z",
       "video_id": "claude-video-effects-02"
     },
     "repo-gta6-clipper-01": {
