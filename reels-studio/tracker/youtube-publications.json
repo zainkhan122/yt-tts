@@ -28,9 +28,9 @@
       "created_at": "2026-11-23T22:44:25Z",
       "error_code": "UPLOAD_BUDGET",
       "last_error": "Paced upload-start limit reached",
+      "owner_note": "Owner explicitly authorized an additional local upload start for exact approved Short",
       "pins": "f2253eae377985ababbf33739a558bd899969501a896bff63fb832819216b6c4",
       "publish_at": "2026-11-24T21:08:00Z",
-      "retry_at": "2026-11-24T08:02:00Z",
       "state": "pending",
       "video_id": "claude-video-effects-03"
     },
