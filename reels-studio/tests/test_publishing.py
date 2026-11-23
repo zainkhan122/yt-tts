@@ -213,6 +213,9 @@ class PlannerTests(unittest.TestCase):
     def setUp(self):
         self.cfg = config()
         self.cfg["buffer"]["channels"]["facebook"].pop("posting_hold", None)  # generic three-channel scheduler fixture
+        # Synthetic three-channel tests must not depend on the live YouTube Buffer hold.
+        self.cfg["buffer"]["channels"]["youtube"]["enabled"] = True
+        self.cfg["buffer"]["channels"]["youtube"].pop("posting_hold", None)
         self.cfg["schedule"].pop("daily_target_overrides", None)  # dated production overrides never alter fixtures
         self.channels = channels(self.cfg)
 
@@ -771,6 +774,9 @@ if __name__ == "__main__":
 class ImmediatePilotTests(unittest.TestCase):
     def setUp(self):
         self.cfg = config()
+        # Only the in-memory test fixture enables this channel; production remains held.
+        self.cfg["buffer"]["channels"]["youtube"]["enabled"] = True
+        self.cfg["buffer"]["channels"]["youtube"].pop("posting_hold", None)
         self.items = fixture_items(1)
         self.items[0].update(approval="approved", reviewed_at=iso(NOW), expires_at=iso(NOW + dt.timedelta(days=1)))
         self.channels = channels(self.cfg)
