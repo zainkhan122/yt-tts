@@ -1,6 +1,6 @@
 # Shorts performance — 2026-11-23
 
-Source: Buffer Insights snapshot `2026-11-23T15:58:42Z` (complete: **True**) · videos analysed: **69** · mature (≥7d): **65** · developing: **4** · too early (<2d): **0**
+Source: Buffer Insights snapshot `2026-11-23T16:43:19Z` (complete: **True**) · videos analysed: **69** · mature (≥7d): **65** · developing: **4** · too early (<2d): **0**
 
 Metrics are ranked within each platform and never compared across platforms. Verdicts use mature videos only; everything else is labelled descriptive.
 
@@ -10,7 +10,7 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 |---|---:|---:|---:|---:|---:|---:|---:|
 | `repo-harp-01` (mature) | 29.8d | 240 | 1.2% | 0 | 0 | — | 0 |
 | `repo-wireless-battery-01` (developing) | 5.0d | 201 | 0% | 0 | 0 | — | 0 |
-| `list-free-video-ai-01` (mature) | 43.9d | 182 | 0% | 0 | 0 | — | 0 |
+| `list-free-video-ai-01` (mature) | 44.0d | 182 | 0% | 0 | 0 | — | 0 |
 | `repo-ai-newtab-01` (mature) | 43.7d | 169 | 0% | 0 | 0 | — | 0 |
 | `repo-edge0-01` (mature) | 22.9d | 125 | 0% | 0 | 0 | — | 0 |
 
@@ -29,9 +29,9 @@ Metrics are ranked within each platform and never compared across platforms. Ver
 | Video | Age | Primary | Eng. rate | Comments | Shares | Saves | Views/day (recent) |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | `tool-qwen38-01` (mature) | 42.0d | 2,099 | 0.6% | 0 | — | — | 2.4 |
-| `repo-coop-anything-01` (mature) | 34.8d | 1,445 | 1.4% | 3 | — | — | 1.8 |
+| `repo-coop-anything-01` (mature) | 34.9d | 1,445 | 1.4% | 3 | — | — | 1.8 |
 | `repo-ds4-01` (mature) | 41.8d | 1,031 | 0.9% | 0 | — | — | 0.1 |
-| `repo-apkstart-01` (developing) | 4.7d | 596 | 0.5% | 2 | — | — | 145.2 |
+| `repo-apkstart-01` (developing) | 4.8d | 596 | 0.5% | 2 | — | — | 141.2 |
 | `tool-ltx25-01` (mature) | 41.9d | 504 | 0.4% | 0 | — | — | 0.6 |
 
 ## Winners and underperformers (mature, cross-platform percentile)
