@@ -30,6 +30,11 @@ class HouseOutroGateTests(unittest.TestCase):
         self.item['asset_digest']='sha256:'+'b'*64;self.assertTrue(errors_for(self.item,self.root))
         self.item['asset_digest']=self.receipt['video_sha256'];self.receipt['checks']['voiced_cta']=False;self.save();self.assertTrue(errors_for(self.item,self.root))
         self.receipt['checks']['voiced_cta']=True;self.receipt['outro_duration_seconds']=1.9;self.save();self.assertTrue(errors_for(self.item,self.root))
+    def test_explicit_owner_override_is_exact_file_only(self):
+        self.receipt.update(verdict='OWNER_OVERRIDE', reviewer='owner', approved_at='2026-11-23T22:00:00Z', authorization='OWNER_APPROVED_EXACT_VIDEO_WAIVE_EDITORIAL_GATES', known_issues=['motion QA blocked'])
+        self.save(); self.assertEqual(errors_for(self.item,self.root),[])
+        other={**self.item,'asset_digest':'sha256:'+'c'*64}; self.assertTrue(errors_for(other,self.root))
+        self.receipt.pop('known_issues');self.save();self.assertTrue(errors_for(self.item,self.root))
     def test_missing_receipt_blocks_direct_before_any_upload(self):
         with patch.object(direct_shorts,'ROOT',self.root):
             with self.assertRaisesRegex(ValueError,'house outro'):

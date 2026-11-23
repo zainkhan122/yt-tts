@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "batch_id": "claude-video-effects-02-owner-approved",
+  "briefs": {
+    "claude-video-effects-02": {
+      "brief_identity_sha256": "6fdea7d120783173d30d5be4880131f263d1a25924c19ead87846430052dc20b",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "source": "owner-approved narration, plus house CTA"
+        },
+        "assets": {
+          "status": "complete",
+          "note": "Third-party demo reuse and depicted-person rights unconfirmed; owner directed scheduling after disclosure"
+        }
+      }
+    }
+  }
+}

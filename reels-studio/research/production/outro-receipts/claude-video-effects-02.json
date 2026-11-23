@@ -1,0 +1,14 @@
+{
+  "contract": "hypeless-narrated-outro-v1",
+  "video_id": "claude-video-effects-02",
+  "video_sha256": "sha256:ea5d9845939cacdd7e385c4568378cee8cafaf20251392fcaaada8b5a09c52c3",
+  "verdict": "OWNER_OVERRIDE",
+  "reviewer": "owner",
+  "approved_at": "2026-11-23T22:35:30.456851+00:00",
+  "authorization": "OWNER_APPROVED_EXACT_VIDEO_WAIVE_EDITORIAL_GATES",
+  "known_issues": [
+    "Full-video automated motion QA BLOCK: visual change 0.699 and graphic-only share 0.301",
+    "Third-party footage and depicted-person permissions not confirmed",
+    "No claim of an independent audiovisual inspection"
+  ]
+}

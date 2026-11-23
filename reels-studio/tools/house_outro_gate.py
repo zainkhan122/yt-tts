@@ -30,6 +30,16 @@ def errors_for(item, root=ROOT):
     problems = []
     if not isinstance(rec, dict):
         return ['house outro: malformed receipt']
+    # A specific owner decision can override the editorial gate for one exact
+    # file, without pretending a reviewer performed unverified checks. This does
+    # not disable duplicate prevention or provider readback and does not extend
+    # to other videos or changed bytes.
+    if (rec.get('contract') == CONTRACT and rec.get('video_id') == vid
+        and rec.get('video_sha256') == digest and rec.get('verdict') == 'OWNER_OVERRIDE'
+        and rec.get('reviewer') == 'owner' and rec.get('approved_at')
+        and rec.get('authorization') == 'OWNER_APPROVED_EXACT_VIDEO_WAIVE_EDITORIAL_GATES'
+        and rec.get('known_issues')):
+        return []
     if rec.get('contract') != CONTRACT or rec.get('video_id') != vid or rec.get('video_sha256') != digest:
         problems.append('house outro: receipt does not match the exact released MP4 and contract')
     if rec.get('verdict') != 'PASS' or rec.get('review_kind') != 'finished-video audiovisual inspection':
