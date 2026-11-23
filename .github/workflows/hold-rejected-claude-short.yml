@@ -1,0 +1,44 @@
+name: Hold rejected Claude Short
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hypeless-publishing
+  cancel-in-progress: false
+jobs:
+  hold:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m pip install -r reels-studio/tools/youtube/requirements.txt
+      - name: Hold only rejected Short privately and verify
+        env:
+          GH_TOKEN: ${{ github.token }}
+          YOUTUBE_OAUTH_JSON: ${{ secrets.YOUTUBE_OAUTH_JSON }}
+          PYTHONPATH: ${{ github.workspace }}/reels-studio
+        run: |
+          python3 - <<'PY'
+          from tools.post.common import config,iso,now_utc
+          from tools.post.state import Journal
+          from tools.youtube.api import YouTubeAPI
+          from tools.youtube.metadata import get_video
+          from tools.youtube.direct_shorts import REMOTE
+          from pathlib import Path
+          root=config(); j=Journal(root,remote=True,path=Path('reels-studio/tracker/youtube-publications.json'),remote_path=REMOTE)
+          vid='claude-video-effects-01'; yid='uhDlaJ-AHUQ'; rec=j.records[vid]; job=j.data['direct_short_jobs'][vid]
+          assert rec['youtube_id']==yid and job['youtube_id']==yid and rec['state']=='scheduled'
+          job.update(state='needs_review',last_error='Owner rejected outro; hold from publication');j.save('hold rejected Claude outro before unscheduling')
+          api=YouTubeAPI(root['youtube'],j);v=get_video(api,yid);assert v['status']['privacyStatus']=='private'
+          status={k:v['status'][k] for k in ('license','embeddable','publicStatsViewable','selfDeclaredMadeForKids','containsSyntheticMedia') if k in v['status']}
+          status['privacyStatus']='private'
+          api.json('PUT','videos',params={'part':'status'},body={'id':yid,'status':status},headers={'If-Match':v['etag']} if v.get('etag') else {},cost=50,idempotent=True)
+          fresh=get_video(api,yid);assert fresh['status']['privacyStatus']=='private' and not fresh['status'].get('publishAt')
+          rec.update(state='cancelled',hold_reason='Owner rejected outro',hold_verified_at=iso(now_utc()));job.update(state='cancelled',hold_verified_at=iso(now_utc()));j.save('verified rejected Short remains private without publication time')
+          print('CONFIRMED private; no publishAt; no deletion')
+          PY
