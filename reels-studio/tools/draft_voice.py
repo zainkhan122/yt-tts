@@ -65,7 +65,7 @@ def main():
         print(f'Chunk {ci+1}: intelligibility {match:.1%}, melody {mel:.1f} st',flush=True)
         if match<.92:raise SystemExit('Voice intelligibility did not meet 92% minimum; no handoff created')
         if mel<12:raise SystemExit('Voice melody did not meet 12 semitone minimum; no handoff created')
-        all_expected.extend(' '.join(expected).split());all_heard.extend([h[0] for h in heard]);checks.append({'match':match,'melody_st':mel})
+        all_expected.extend(' '.join(expected).split());all_heard.extend([h[0] for h in heard]);checks.append({'match':match,'melody_st':mel,'heard_words':[h[0] for h in heard]})
         edges=[0]+cuts+[len(audio)]
         full_words=' '.join(expected).split(); mapped_words=mapped(full_words,heard,offset,offset+len(audio)/sr);wi=0
         for k,i in enumerate(idx):
