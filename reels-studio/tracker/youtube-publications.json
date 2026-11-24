@@ -1508,7 +1508,7 @@
   },
   "quota": {
     "day_pacific": "2026-11-24",
-    "general_units": 8,
+    "general_units": 9,
     "upload_starts": 0
   },
   "records": {
@@ -1611,6 +1611,12 @@
       "uploaded_at": "2026-11-19T17:46:28Z",
       "video_id": "repo-moneyprinterturbo-01",
       "youtube_id": "rp9OnMg8QII"
+    },
+    "repo-phonebox-01": {
+      "attempts": 0,
+      "category": "repo",
+      "state": "queued",
+      "video_id": "repo-phonebox-01"
     }
   },
   "schema_version": 1
