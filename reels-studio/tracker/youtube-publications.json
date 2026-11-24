@@ -1613,9 +1613,13 @@
       "youtube_id": "rp9OnMg8QII"
     },
     "repo-phonebox-01": {
+      "asset_digest": "sha256:72d46233bf497d3fe46615c740d8287210b89f6066cd2e4030f49bb1915cc4b7",
       "attempts": 0,
       "category": "repo",
-      "state": "queued",
+      "final_chunk_submitted": false,
+      "state": "session_start_uncertain",
+      "tracking_tag": "hypeless-ref-052768fcac459e6845f7",
+      "updated_at": "2026-11-24T21:19:28Z",
       "video_id": "repo-phonebox-01"
     }
   },
