@@ -1616,8 +1616,10 @@
       "asset_digest": "sha256:72d46233bf497d3fe46615c740d8287210b89f6066cd2e4030f49bb1915cc4b7",
       "attempts": 0,
       "category": "repo",
+      "confirmed_bytes": 0,
       "final_chunk_submitted": false,
-      "state": "session_start_uncertain",
+      "session_ciphertext": "ocu45mQAlCgujflArGafjTe7X/NuEOk7ZziHfXamnDEZdULgkHy3ovX8i7IyDuAOJuFR3YNWOZv4SFpWd6e/CiMkgeExKQ5OW1hKPBt5E80ivuFVfzPb7kFrKmNB9gpDvQUJVP1CpTVefgh9qzPtMDJSo0K3OBmXdpXXmM8X+oE/q1e/KD7Bgd7LsFEwBl7BAAsORp3/turGLa6uh15Et6UOe41KT4bgEPpApUk/uZLut9T+EVcjYCMHgH1t2biLsGd8TUu5fwHLYiJOzXs5Xx7Yh8IqY0ML2ePS8dFsa7yf4mR89tjW9nWcSPP4TPLvqyVkMbP7k3phUiSPg/m1CWn7/uyKKKY2dVtK1Rj3FMW/9C8yCTXrCm8JDqYdcsZI0v2k3zZzXw7OdRSJ3RCgholQj6ExUR50ONP+kbHRujOqGCkN17/9juPzv6H+vQfbDcqrzv8r9TU1JvGC3zbL93P1t+s8b5CKbMHbXnsDKLD2bO2o8LZmfMbTlpE7gvX92VcTJ5uF9Pb3gV4WBRN0unPaYsteE9sad5eVbrg8DAEryaIea9AQOujUW6WWl2LHMJUxauYX2JzUoRCZ+59ZhQ==",
+      "state": "uploading",
       "tracking_tag": "hypeless-ref-052768fcac459e6845f7",
       "updated_at": "2026-11-24T21:19:28Z",
       "video_id": "repo-phonebox-01"
