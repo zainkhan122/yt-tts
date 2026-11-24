@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """One-command setup + approved cloud voice + local review assembly, never publishing.
-Usage: python3 tools/one_go_review.py --id ID --script PATH --renderer PATH
+Usage: python3 tools/one_go_review.py --id ID --script PATH --renderer PATH --video FINAL.mp4 --cover COVER.jpg --art ART.png
 Script/inputs and voice artifacts on public repository Actions are not confidential.
 The renderer consumes renders/ID/voice-handoff/{voice.wav,timings.json}; final QA is separate.
 """
@@ -9,10 +9,23 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
 
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--id',required=True);p.add_argument('--script',required=True,type=Path);p.add_argument('--renderer',required=True,type=Path);p.add_argument('--resume',type=int);a=p.parse_args()
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--id',required=True);p.add_argument('--script',required=True,type=Path);p.add_argument('--renderer',required=True,type=Path);p.add_argument('--resume',type=int);p.add_argument('--video',required=True,type=Path);p.add_argument('--cover',required=True,type=Path);p.add_argument('--art',required=True,type=Path);a=p.parse_args()
  if not re.fullmatch(r'[a-z0-9][a-z0-9_-]{0,99}',a.id):p.error('invalid id')
  script=a.script.resolve();renderer=a.renderer.resolve()
  if ROOT not in script.parents or ROOT not in renderer.parents or not renderer.is_file():p.error('script and renderer must be files within reels-studio')
+ # Require actual purpose-made art and a composed cover before spending cloud time.
+ # Their creative origin still requires honest inspection and attestation later.
+ from PIL import Image
+ cover=a.cover.resolve(); art=a.art.resolve(); video=a.video.resolve()
+ for label,path in [('cover',cover),('art',art),('video',video)]:
+  if ROOT not in path.parents:p.error(label+' must be within reels-studio')
+ if cover==art:p.error('cover and source artwork must be separate files')
+ try:
+  with Image.open(cover) as im:
+   if im.size != (1080,1920) or im.format not in ('JPEG','PNG'):p.error('cover must be a 1080x1920 JPEG/PNG')
+  with Image.open(art) as im:im.verify()
+ except (OSError,ValueError) as exc:p.error('valid purpose-made art and cover required: '+str(exc))
+ if video.exists():p.error('output video already exists; choose a fresh output to prevent stale or accidental replacement')
  lines=json.loads(script.read_text());
  if not isinstance(lines,list) or not 1<=len(lines)<=12 or any(not isinstance(x,str) or not x.strip() or len(x)>450 for x in lines):p.error('script must be a JSON array of 1-12 short lines')
  digest=hashlib.sha256(json.dumps(lines,ensure_ascii=False,separators=(',',':')).encode()).hexdigest()
@@ -69,5 +82,20 @@ def main():
  doc=json.loads((dest/'timings.json').read_text());
  if doc.get('script_sha256')!=digest or doc.get('overall_match',0)<.95 or doc.get('engine')!='chatterbox':raise SystemExit('Voice artifact mismatch or failed voice QA')
  subprocess.run([sys.executable,str(renderer)],cwd=ROOT,check=True)
- print('Review assembly completed. No publish/schedule. Production QA, rights and cover approval remain required.')
+ if not video.is_file() or video.stat().st_size==0:raise SystemExit('Renderer did not create the required final output')
+ # The custom renderer must use the shared narrated-outro assembler. Its marker
+ # is a production provenance check, not an audiovisual inspection or approval.
+ marker_path=video.with_suffix(video.suffix+'.outro-assembly.json')
+ try:marker=json.loads(marker_path.read_text())
+ except (OSError,ValueError):raise SystemExit('Shared narrated house outro assembly proof missing')
+ expected='sha256:'+hashlib.sha256(video.read_bytes()).hexdigest()
+ if marker.get('contract')!='house-outro-assembly-v1' or marker.get('video_sha256')!=expected or marker.get('outro_duration',0)<4:
+  raise SystemExit('Shared narrated house outro assembly proof mismatches final render')
+ from lib.cover_frame import embed,verify
+ embed(video,cover)
+ proof=verify(video,cover)
+ marker['cover_embedded_video_sha256']='sha256:'+hashlib.sha256(video.read_bytes()).hexdigest()
+ marker_path.write_text(json.dumps(marker,indent=2)+'\n')
+ print('Dedicated cover embedded and verified on final review video:',proof,flush=True)
+ print('Review assembly completed. No publish/schedule. Inspect artwork and final video, certify cover and outro, and complete QA and rights checks before delivery.')
 if __name__=='__main__':main()

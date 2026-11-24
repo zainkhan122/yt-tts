@@ -202,6 +202,25 @@ def attach_evidence_clips(doc: dict, capture_id: str, work: Path | None = None, 
         scene["evidence_duration"] = clip_duration(path)
 
 
+def require_house_outro_plan(doc: dict) -> None:
+    """Enforce shared final endcard with timed spoken CTA, before a production render."""
+    import re
+    scenes = doc.get("scenes") or []
+    if not scenes or scenes[-1].get("archetype") != "endcard":
+        raise GraphicsError("house_outro", [{"rule":"H1", "detail":"final scene must be shared house endcard"}])
+    end = scenes[-1]
+    keyword = str((end.get("payload") or {}).get("keyword") or "")
+    words = end.get("words") or []
+    spoken = [re.sub(r"[^a-z0-9]", "", str(w[0]).lower()) for w in words]
+    duration = float(end.get("t1", 0)) - float(end.get("t0", 0))
+    if (not re.fullmatch(r"[A-Za-z0-9]{1,18}", keyword) or not words or duration < 4
+            or any(x not in spoken for x in ("comment", keyword.lower(), "follow", "hypeless"))):
+        raise GraphicsError("house_outro", [{"rule":"H2", "detail":"endcard needs >=4s, aligned spoken comment, keyword, follow and Hypeless"}])
+    brand = doc.get("brand") or {}
+    if not brand.get("logo") or brand.get("cta_button") != "Follow":
+        raise GraphicsError("house_outro", [{"rule":"H3", "detail":"house logo and Follow button required"}])
+
+
 def render_for_pipeline(graphics_dir: Path, timing: dict, order: list[str], vo_wav: Path,
                         out_mp4: Path, work: Path, duration: float, events: dict | None = None) -> dict:
     """graphics_dir holds features.json, beats.json and the README snapshot the sheet was built from."""
@@ -213,6 +232,7 @@ def render_for_pipeline(graphics_dir: Path, timing: dict, order: list[str], vo_w
         raise GraphicsError("words", [{"rule": "G0", "detail": "no word timings from the voice stage"}])
     phrases = segments_from_timing(timing, order)
     doc, phrases = plan_scenes(sheet, source, beats, phrases, duration, words, events=events)
+    require_house_outro_plan(doc)
     work.mkdir(parents=True, exist_ok=True)
     attach_evidence_images(doc, graphics_dir.name)
     # The evidence frames are written next to the stage file, so they must exist before it is built.

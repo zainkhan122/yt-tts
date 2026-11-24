@@ -170,6 +170,32 @@ def voice_disclosure(voice, engine):
             "so YouTube/TikTok AI labels are not mandatory; adding \"AI voice\" to the description is a cheap trust win.")
 
 
+def require_purpose_made_cover(brief, root=None):
+    """Require per-video art provenance *before* production rendering.
+
+    This is an operator attestation, not a machine judgment of artistic origin.
+    The reviewer must still inspect and certify the exact finished video.
+    """
+    root = Path(root or ROOT)
+    folder = (root / "covers" / brief["id"]).resolve()
+    try:
+        sel = json.loads((folder / "selection.json").read_text())
+        name = sel["purpose_made_art"]
+        if not isinstance(name, str) or Path(name).name != name:
+            raise ValueError("art must be a file directly in the video's cover folder")
+        art = folder / name
+        if art.is_symlink() or not art.is_file():
+            raise ValueError("source artwork missing or unsafe")
+        sha = hashlib.sha256(art.read_bytes()).hexdigest()
+        if sel.get("art_sha256") != "sha256:" + sha:
+            raise ValueError("art digest mismatch")
+        if sel.get("art_origin") != "purpose-made-for-this-video" or sel.get("brief") != brief["id"]:
+            raise ValueError("purpose-made origin attestation missing")
+    except (OSError, KeyError, ValueError, TypeError) as exc:
+        raise SystemExit(f"dedicated cover production preflight: {exc}") from exc
+    return sha
+
+
 def creative_proof(brief, out_dir, root=None):
     """Prove the treatment reached the shipped artifacts, or refuse to ship.
 
@@ -1935,6 +1961,13 @@ class Job:
     # ---------------------------------------------------------------
     def run_all(self):
         t0 = time.time()
+        # New render/rebuild production only; voice handoffs and no-render previews are not videos.
+        # Old scheduled files are never touched. Legacy template renderers lack the shared house
+        # endcard contract; fail closed rather than ship a silent/different outro.
+        if self.do_render and not self.voice_out:
+            if self.brief.get("renderer") != "graphics":
+                raise SystemExit("production requires the graphics renderer with shared narrated house endcard")
+            require_purpose_made_cover(self.brief)
         if self.work.exists():
             shutil.rmtree(self.work)
         self.work.mkdir(parents=True)

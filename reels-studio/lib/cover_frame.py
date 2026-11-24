@@ -6,6 +6,11 @@ Platforms choose their own previews; embedding frame zero does not guarantee sel
 from pathlib import Path
 import subprocess
 import tempfile
+import shutil
+import imageio_ffmpeg
+
+def _ffmpeg():
+    return shutil.which("ffmpeg") or imageio_ffmpeg.get_ffmpeg_exe()
 from PIL import Image, ImageChops, ImageStat
 
 
@@ -13,7 +18,7 @@ def verify(video, cover):
     """Decode the delivered MP4, compare its first frame to the reviewed image."""
     with tempfile.TemporaryDirectory(prefix='cover-verify-') as tmp:
         frame = Path(tmp) / 'frame.png'
-        subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', str(video), '-frames:v', '1', str(frame)], check=True, timeout=120)
+        subprocess.run([_ffmpeg(), '-y', '-v', 'error', '-i', str(video), '-frames:v', '1', str(frame)], check=True, timeout=120)
         with Image.open(cover) as a, Image.open(frame) as b:
             if a.size != (1080, 1920) or b.size != (1080, 1920):
                 raise ValueError('Dedicated cover and output must be exactly 1080x1920')
@@ -31,7 +36,7 @@ def embed(video, cover):
             raise ValueError('Dedicated cover must be exactly 1080x1920')
     with tempfile.TemporaryDirectory(prefix='cover-frame-') as tmp:
         encoded = Path(tmp) / 'with-cover.mp4'
-        cmd = ['ffmpeg','-y','-v','error','-i',str(video),'-loop','1','-framerate','30','-i',str(cover),
+        cmd = [_ffmpeg(),'-y','-v','error','-i',str(video),'-loop','1','-framerate','30','-i',str(cover),
                '-filter_complex',"[0:v][1:v]overlay=0:0:shortest=1:enable='eq(n,0)'[v]",
                '-map','[v]','-map','0:a?','-c:v','libx264','-preset','medium','-crf','18',
                '-pix_fmt','yuv420p','-c:a','copy','-movflags','+faststart',str(encoded)]
