@@ -59,7 +59,7 @@ def main():
             audio,sr=voice(' '.join(expected),seed=7+ci*1000+attempt*97)
             cuts,match,heard=align_chunk(audio,sr,expected,work,log)
             mel=melody_st(audio,sr,heard); item=(match,mel,audio,cuts,heard)
-            if best is None or (match,mel)>(best[0],best[1]):best=item
+            if best is None or (match>=.92 and mel>=12, match, mel)>(best[0]>=.92 and best[1]>=12, best[0], best[1]):best=item
             if match>=.92 and mel>=12:break
         match,mel,audio,cuts,heard=best
         print(f'Chunk {ci+1}: intelligibility {match:.1%}, melody {mel:.1f} st',flush=True)
