@@ -4186,9 +4186,11 @@
     },
     "repo-phonebox-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6b0600d9e57cd4af41f6a1af",
       "category": "repo",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-11-25T19:11:00Z",
+      "due_at": "2026-11-25T19:11:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:72d46233bf497d3fe46615c740d8287210b89f6066cd2e4030f49bb1915cc4b7",
         "asset_id": 788885259,
@@ -4203,10 +4205,11 @@
       "notify_subscribers": false,
       "payload_sha256": "d1e7dd8f77a34f984146a0180fc7c9a2fe71fcc99b082a8ee11d69ae2215a2a0",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "That old Android phone in your drawer could become a customizable desk panel for your computer. PhoneBox connects it by USB or paired Wi-Fi and lets you arrange widgets for system stats, media controls and shortcuts. You\u2019ll need the Android app and a desktop agent; features vary by platform.\n\nProject and setup: https://github.com/ersinkoc/phonebox\nComment PHONE for the link, and follow Hypeless for more tools, minus the hype.\n\nAI-generated narration. Project screenshots show demo data; illustrations and cover are conceptual. PhoneBox by Ersin Ko\u00e7 and contributors; MIT License.\n\nAI-generated narration.\n\n#PhoneBox #Android #OpenSource #DeskSetup #PCControl",
       "title": "Turn Your Old Android Into a PC Control Panel | PhoneBox",
-      "updated_at": "2026-11-24T21:25:43Z",
+      "updated_at": "2026-11-24T21:25:45Z",
       "video_id": "repo-phonebox-01"
     },
     "repo-poki-01:facebook": {
