@@ -1,0 +1,149 @@
+{
+  "id": "repo-phonebox-01",
+  "title": "Turn Your Old Android Into a PC Control Panel | PhoneBox",
+  "niche": "Android desk control panel",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "approved-for-scheduling",
+  "production_category": "repo",
+  "keywords": [
+    "PhoneBox",
+    "Android desk panel",
+    "PC control panel"
+  ],
+  "sources": [
+    "https://github.com/ersinkoc/phonebox"
+  ],
+  "viewer": {
+    "who": "Computer users with an old Android phone",
+    "problem": "An unused Android phone has no job",
+    "job": "Repurpose it as a customizable computer control panel"
+  },
+  "idea": "Turn an old Android phone into a customizable desk dashboard with PhoneBox.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "PhoneBox provides an Android app and desktop agent, USB or paired Wi-Fi, and configurable widgets.",
+      "source": "https://github.com/ersinkoc/phonebox"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/ersinkoc/phonebox",
+      "how_shown": "Project screenshots with demo data and illustrative animations, not an independent hands-on test."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene0",
+      "type": "flow",
+      "say": "That old Android in your drawer? Turn it into your computer's control panel.",
+      "heading": "OLD ANDROID"
+    },
+    {
+      "id": "scene1",
+      "type": "flow",
+      "say": "PhoneBox connects your phone to your computer over USB or paired Wi-Fi.",
+      "heading": "CONNECT"
+    },
+    {
+      "id": "scene2",
+      "type": "flow",
+      "say": "Watch system stats, control your music and volume, and launch shortcuts with a tap.",
+      "heading": "STATS AND MEDIA"
+    },
+    {
+      "id": "scene3",
+      "type": "flow",
+      "say": "Pick your widgets and layout in the browser editor. You'll need the phone app and a desktop agent.",
+      "heading": "CUSTOMIZE"
+    },
+    {
+      "id": "scene4",
+      "type": "flow",
+      "say": "Make a page for system stats, then another for media controls and shortcuts.",
+      "heading": "PAGES"
+    },
+    {
+      "id": "scene5",
+      "type": "flow",
+      "say": "Drag, resize, and save. Your dashboard is ready. Some widgets depend on your computer and permissions, so check the setup guide first.",
+      "heading": "SAVE"
+    },
+    {
+      "id": "scene6",
+      "type": "flow",
+      "say": "Want the tool? Comment PHONE and follow Hypeless for more tools, minus the hype.",
+      "heading": "YOUR CALL"
+    }
+  ],
+  "review": {
+    "reviewed_at": "2026-11-24",
+    "reviewer": "owner and official repository",
+    "notes": "Owner approved the revised video for scheduling and confirmed watching and listening to the entire outro. Project screenshots use demo data."
+  },
+  "contains_synthetic_media": true,
+  "seo": {
+    "keyword": "PhoneBox",
+    "onscreen_first3s": "OLD PHONE? NEW CONTROL.",
+    "youtube": {
+      "title": "Turn Your Old Android Into a PC Control Panel | PhoneBox",
+      "description": "Turn an old Android phone into a customizable computer control panel with PhoneBox, an open-source desk dashboard. See system stats, control media and volume, and access shortcuts from your phone.\n\nPhoneBox uses an Android app and a desktop agent. Connect over USB or paired Wi-Fi, then choose and arrange widgets in the browser editor. Features and setup vary by operating system and hardware; check the setup guide before installing.\n\nPhoneBox: https://github.com/ersinkoc/phonebox\nSetup: https://github.com/ersinkoc/phonebox/blob/main/docs/SETUP.md\n\nProject screenshots show demo data. Animated illustrations and cover are conceptual. AI narration. PhoneBox by Ersin Koç and contributors; MIT License: https://github.com/ersinkoc/phonebox/blob/main/LICENSE",
+      "tags": [
+        "PhoneBox",
+        "old Android phone",
+        "Android PC control panel",
+        "Android desk dashboard",
+        "old phone reuse",
+        "desktop control deck",
+        "computer system monitor",
+        "open source desk panel",
+        "Android shortcuts"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#PhoneBox",
+        "#Android",
+        "#OpenSource",
+        "#DeskSetup"
+      ]
+    },
+    "instagram": {
+      "caption": "Your old Android phone could become your computer’s new control panel. 📱\n\nPhoneBox connects a phone to your desktop so you can check system stats, control media and build a layout around your shortcuts. USB or paired Wi-Fi; Android app and desktop agent required.\n\nComment PHONE for the repo link. Follow Hypeless for more tools, minus the hype.\n\nProject UI shows demo data; illustrations and cover are conceptual. AI narration. PhoneBox by Ersin Koç and contributors; MIT License.",
+      "hashtags": [
+        "#PhoneBox",
+        "#Android",
+        "#DeskSetup",
+        "#OpenSource",
+        "#PCControl"
+      ]
+    },
+    "facebook": {
+      "caption": "That old Android phone in your drawer could become a customizable desk panel for your computer. PhoneBox connects it by USB or paired Wi-Fi and lets you arrange widgets for system stats, media controls and shortcuts. You’ll need the Android app and a desktop agent; features vary by platform.\n\nProject and setup: https://github.com/ersinkoc/phonebox\nComment PHONE for the link, and follow Hypeless for more tools, minus the hype.\n\nAI-generated narration. Project screenshots show demo data; illustrations and cover are conceptual. PhoneBox by Ersin Koç and contributors; MIT License.",
+      "hashtags": [
+        "#PhoneBox",
+        "#Android",
+        "#OpenSource",
+        "#DeskSetup",
+        "#PCControl"
+      ]
+    }
+  },
+  "treatment": {
+    "archetype": "workflow",
+    "selected_cover": 0,
+    "cover_concepts": [
+      {
+        "layout": "window",
+        "text": "OLD PHONE? NEW CONTROL.",
+        "media": {
+          "kind": "designed",
+          "file": "purpose-made-art.png",
+          "design": "Realistic conceptual Android phone on desk stand with control panel."
+        }
+      }
+    ]
+  },
+  "qa_gates": true
+}

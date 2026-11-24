@@ -1,0 +1,17 @@
+{
+  "contract": "dedicated-cover-v1",
+  "video_id": "repo-phonebox-01",
+  "video_sha256": "sha256:72d46233bf497d3fe46615c740d8287210b89f6066cd2e4030f49bb1915cc4b7",
+  "cover_sha256": "sha256:ef8dc149193917585b13399a2e0171e98c24a14988c0d2ef2fc8c5ef581a25bf",
+  "art_sha256": "sha256:3ad8be697dc840b01fb9f5a403ab0c8e41576f6a6a3cc1f75aa66ba90e9d8483",
+  "source_kind": "purpose-made-for-this-video",
+  "headline": "OLD PHONE? NEW CONTROL.",
+  "dimensions": [
+    1080,
+    1920
+  ],
+  "frame_zero_verified": true,
+  "frame_zero_mean_abs_rgb_error": 2.241,
+  "reviewed_at": "2026-11-24T13:12:08.540361+00:00",
+  "note": "Source artwork was created specifically for this video; pixel check compares cover to decoded frame zero, not any platform thumbnail surface."
+}

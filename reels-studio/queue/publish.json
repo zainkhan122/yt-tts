@@ -977,6 +977,44 @@
         "run_id": null,
         "source": "Owner approved exact displayed video and explicitly overrode editorial gates; motion QA BLOCK and source rights unconfirmed."
       }
+    },
+    {
+      "added_at": "2026-11-24T21:15:52Z",
+      "approval": "approved",
+      "approved_cover_sha": "sha256:ef8dc149193917585b13399a2e0171e98c24a14988c0d2ef2fc8c5ef581a25bf",
+      "approved_panel_sha": "6e94599ddf612a0181af27adcf32a9d10b904303ac905c53a22bd777ccf49b4f",
+      "asset_digest": "sha256:72d46233bf497d3fe46615c740d8287210b89f6066cd2e4030f49bb1915cc4b7",
+      "asset_id": 788885259,
+      "asset_size": 7363715,
+      "brief_sha256": "710b85a5c63ab1b70c090769442b741d557d2dd3eff8a4455b11fbba488e98e7",
+      "category": "repo",
+      "cover_reviewed_at": "2026-11-24T21:16:31Z",
+      "cover_sha256": "sha256:ef8dc149193917585b13399a2e0171e98c24a14988c0d2ef2fc8c5ef581a25bf",
+      "expires_at": "2026-11-29T05:00:00Z",
+      "facebook_disclosure": "AI-generated narration and example imagery.",
+      "instagram_thumbnail_offset_ms": 0,
+      "kit_asset_id": 788885327,
+      "kit_digest": "sha256:cf95b1972cb4d37c6c836b2cea083a3a8577d2e883a509253a1024ddc19234d2",
+      "media_path": "media/788885259/repo-phonebox-01.mp4",
+      "not_before": "2026-11-25T05:00:00Z",
+      "platforms": [
+        "instagram",
+        "facebook",
+        "youtube"
+      ],
+      "priority": 100,
+      "release_tag": "renders-phonebox-reviewed-20261125",
+      "review": {
+        "cover_sha256": "ef8dc149193917585b13399a2e0171e98c24a14988c0d2ef2fc8c5ef581a25bf",
+        "mp4_bytes": 7363715,
+        "mp4_sha256": "72d46233bf497d3fe46615c740d8287210b89f6066cd2e4030f49bb1915cc4b7",
+        "run_id": null,
+        "source": "owner-approved exact displayed video and full-outro audiovisual confirmation"
+      },
+      "reviewed_at": "2026-11-24T21:16:31Z",
+      "title": "Turn Your Old Android Into a PC Control Panel | PhoneBox",
+      "video_id": "repo-phonebox-01",
+      "youtube_ai_generated": true
     }
   ],
   "schema_version": 1

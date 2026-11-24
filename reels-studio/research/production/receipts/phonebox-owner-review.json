@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "batch_id": "phonebox-owner-review",
+  "briefs": {
+    "repo-phonebox-01": {
+      "brief_identity_sha256": "710b85a5c63ab1b70c090769442b741d557d2dd3eff8a4455b11fbba488e98e7",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "source": "owner-approved revised short"
+        },
+        "assets": {
+          "status": "complete",
+          "note": "PhoneBox MIT licensed project screenshots with sample data and original conceptual graphics; separate dedicated cover."
+        }
+      }
+    }
+  }
+}
