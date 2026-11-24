@@ -1,7 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-19T20:59:13Z",
+  "updated_at": "2026-11-24T22:46:19Z",
   "videos": {
+    "claude-video-effects-01": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "IhBEBpz3SQQ"
+    },
+    "claude-video-effects-02": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "IhBEBpz3SQQ"
+    },
+    "claude-video-effects-03": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "IhBEBpz3SQQ"
+    },
     "list-free-video-ai-01": {
       "snapshots": [
         {
@@ -1179,7 +1194,28 @@
       "youtube_id": "187nv8dhDaQ"
     },
     "repo-kiri-01": {
-      "snapshots": [],
+      "snapshots": [
+        {
+          "age_hours": 168.61,
+          "analytics": {
+            "avg_view_duration_s": 16.0,
+            "avg_view_percentage": 48.26,
+            "engaged_views": 32,
+            "estimated_minutes_watched": 11.0,
+            "shares": 0,
+            "subscribers_gained": 0,
+            "thumbnail_impressions_ctr": "unavailable: requires separate Reporting API reach report or Studio export",
+            "views": 118
+          },
+          "comments": 0,
+          "engagement_rate": 0.0,
+          "likes": 0,
+          "published_at": "2026-11-17T22:09:29Z",
+          "taken_at": "2026-11-24T22:46:19Z",
+          "views": 125,
+          "window": "7d"
+        }
+      ],
       "title": null,
       "youtube_id": "uoaytXa3rhQ"
     },
