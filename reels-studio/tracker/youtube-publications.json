@@ -44,6 +44,14 @@
       "state": "scheduled",
       "video_id": "repo-gta6-clipper-01",
       "youtube_id": "9VfDsYzRCr4"
+    },
+    "repo-phonebox-01": {
+      "attempts": 0,
+      "created_at": "2026-11-24T21:19:12Z",
+      "pins": "157da68c742e6606c71e9c57327ab2def266654195c1ff5aa6c955d5805b1637",
+      "publish_at": "2026-11-25T21:08:00Z",
+      "state": "pending",
+      "video_id": "repo-phonebox-01"
     }
   },
   "enrichment": {
