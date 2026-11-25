@@ -3,9 +3,11 @@
   "records": {
     "claude-motion-rebuild:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6b07598db96dd8d351657435",
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-11-26T02:00:00Z",
+      "due_at": "2026-11-26T02:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:47e7d498f683ec38616a804b013fbe6fff7711b30b07dd5132558d3884bd7b4a",
         "asset_id": 793279975,
@@ -20,10 +22,11 @@
       "notify_subscribers": false,
       "payload_sha256": "7b009b94b3f9afcfacde86c18136fcc0f1cfd2281ee9459650d4d997f3c08664",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Turn a chart into an animated explainer with Claude Motion. Choose Output \u2192 Motion, describe the animation, request a revision, and export MP4. It is a Team and Enterprise beta; Enterprise owners may need to enable it.\n\nGuide: https://support.claude.com/en/articles/17454997-get-started-with-claude-motion\nComment MOTION. Illustrative recreation using sample data; AI-generated narration.\n\nAI-generated narration.\n\n#ClaudeMotion #MotionGraphics #AITools #DataVisualization #Hypeless",
       "title": "Turn a Chart Into an Animation With Claude Motion",
-      "updated_at": "2026-11-25T21:56:26Z",
+      "updated_at": "2026-11-25T21:56:29Z",
       "video_id": "claude-motion-rebuild"
     },
     "claude-video-effects-01:facebook": {
