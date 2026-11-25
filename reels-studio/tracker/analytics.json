@@ -1,19 +1,61 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-24T22:46:19Z",
+  "updated_at": "2026-11-25T22:00:49Z",
   "videos": {
     "claude-video-effects-01": {
-      "snapshots": [],
+      "snapshots": [
+        {
+          "age_hours": 24.87,
+          "analytics": {
+            "unavailable": "no rows returned (video may be younger than Analytics freshness)"
+          },
+          "comments": 0,
+          "engagement_rate": 0.0,
+          "likes": 0,
+          "published_at": "2026-11-24T21:08:24Z",
+          "taken_at": "2026-11-25T22:00:49Z",
+          "views": 40,
+          "window": "24h"
+        }
+      ],
       "title": null,
       "youtube_id": "IhBEBpz3SQQ"
     },
     "claude-video-effects-02": {
-      "snapshots": [],
+      "snapshots": [
+        {
+          "age_hours": 24.87,
+          "analytics": {
+            "unavailable": "no rows returned (video may be younger than Analytics freshness)"
+          },
+          "comments": 0,
+          "engagement_rate": 0.0,
+          "likes": 0,
+          "published_at": "2026-11-24T21:08:24Z",
+          "taken_at": "2026-11-25T22:00:49Z",
+          "views": 40,
+          "window": "24h"
+        }
+      ],
       "title": null,
       "youtube_id": "IhBEBpz3SQQ"
     },
     "claude-video-effects-03": {
-      "snapshots": [],
+      "snapshots": [
+        {
+          "age_hours": 24.87,
+          "analytics": {
+            "unavailable": "no rows returned (video may be younger than Analytics freshness)"
+          },
+          "comments": 0,
+          "engagement_rate": 0.0,
+          "likes": 0,
+          "published_at": "2026-11-24T21:08:24Z",
+          "taken_at": "2026-11-25T22:00:49Z",
+          "views": 40,
+          "window": "24h"
+        }
+      ],
       "title": null,
       "youtube_id": "IhBEBpz3SQQ"
     },
@@ -1405,6 +1447,11 @@
       "title": null,
       "youtube_id": "zOGSyBEO2Dc"
     },
+    "repo-phonebox-01": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "iIiLy3jZiXg"
+    },
     "repo-poki-01": {
       "snapshots": [
         {
@@ -1643,6 +1690,26 @@
           "taken_at": "2026-11-19T20:59:13Z",
           "views": 33,
           "window": "24h"
+        },
+        {
+          "age_hours": 171.83,
+          "analytics": {
+            "avg_view_duration_s": 26.0,
+            "avg_view_percentage": 62.62,
+            "engaged_views": 17,
+            "estimated_minutes_watched": 7.0,
+            "shares": 0,
+            "subscribers_gained": 0,
+            "thumbnail_impressions_ctr": "unavailable: requires separate Reporting API reach report or Studio export",
+            "views": 37
+          },
+          "comments": 0,
+          "engagement_rate": 0.0,
+          "likes": 0,
+          "published_at": "2026-11-18T18:10:50Z",
+          "taken_at": "2026-11-25T22:00:49Z",
+          "views": 38,
+          "window": "7d"
         }
       ],
       "title": null,
