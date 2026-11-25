@@ -1551,8 +1551,10 @@
       "asset_digest": "sha256:47e7d498f683ec38616a804b013fbe6fff7711b30b07dd5132558d3884bd7b4a",
       "attempts": 0,
       "category": "tool",
+      "confirmed_bytes": 0,
       "final_chunk_submitted": false,
-      "state": "session_start_uncertain",
+      "session_ciphertext": "spgGeqTwT1POpqtKg9xbYvWlXKcQLoREZgS1q+VBAA0Om3NGTM6ZXnFgmuv08sKVsttvJvLZHlzeOyM+g7sSvCYmVSp+hoKVsC/RV2kic7l8iDSIzQRCffKqBLpy4ObSul0TWi4c4WP4URVA0UgEi66d5eC6qKEGbaVAjkhC4iSA4U/C39GVBotZuRwva6AzLMMB4kMObTd5Trm3X0DW0m9sq/hFJq2UBmCk8VbW1UZ++AQGTVRFoGpeHQIHYEUj0oZldi13hta3inA9mG3MxatdS2QI3BY2ixflNvn+jTtXjlreA0w8gTmpA4vRp4vjQxsdG6BQJIJ42/cF2bY8BbfdBEsj634W4X7bKiT4/ha5DabCkbsFKkyRNva9kDt5+vGyEaYqiPkAc0P4fERNeO46bfK4cgfOQgIKywgbbZ4X0LtpQKOyOjAPWN5cZZBvlvclXxxuwt347L3OtOBwUiWdaw3W+Ggcr3WeZ/dCGP0GbJ9uwgJoZEogQo8f3Qd2YF2qgHI6Jj2qiLsxBecLtEKR5ZhgPtRPVhwWdh+mckH6zTL6PM2h07gdSUe5WKKCh7jX8uX5Zowx8YekhQtpyfQd+NqnwA==",
+      "state": "uploading",
       "tracking_tag": "hypeless-ref-9302d506524a45c425f4",
       "updated_at": "2026-11-25T21:57:27Z",
       "video_id": "claude-motion-rebuild"
