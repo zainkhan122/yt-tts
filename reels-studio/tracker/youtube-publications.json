@@ -1543,10 +1543,16 @@
   },
   "quota": {
     "day_pacific": "2026-11-25",
-    "general_units": 175,
+    "general_units": 176,
     "upload_starts": 0
   },
   "records": {
+    "claude-motion-rebuild": {
+      "attempts": 0,
+      "category": "tool",
+      "state": "queued",
+      "video_id": "claude-motion-rebuild"
+    },
     "claude-video-effects-01": {
       "asset_digest": "sha256:2fae7a4c44e5e64d47a7220a639496f77c2d8f393dcc9ef90662c0f25354f5b9",
       "attempts": 0,
