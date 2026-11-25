@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "batch_id": "claude-motion-owner-review",
+  "briefs": {
+    "claude-motion-rebuild": {
+      "brief_identity_sha256": "f39ba185b4878ba788b7e682e471158c5b6398adb74650ac540bd1d37ae00025",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "source": "owner approved displayed rebuilt video"
+        },
+        "assets": {
+          "status": "complete",
+          "note": "Original animated illustrative reconstruction, sample data; purpose-made cover."
+        }
+      }
+    }
+  }
+}

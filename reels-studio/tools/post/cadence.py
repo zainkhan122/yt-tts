@@ -168,6 +168,38 @@ def plan(items, records, channels, posts, cfg, now, preview=False, pilot=False, 
                 continue
             candidates.append(item)
         used = set()
+        # An explicit owner-authorized per-item time never falls back to another slot.
+        # It is still subject to lead time, horizon, review expiry, per-channel capacity,
+        # daily maximum, duplicate records, and minimum gap against provider + journal.
+        for item in candidates:
+            if 'requested_publish_at' not in item:
+                continue
+            used.add(item['video_id'])
+            due = parse_time(item.get('requested_publish_at'))
+            if not due or not earliest <= due <= end:
+                notes.append(f"{item['video_id']} {platform}: explicit time outside lead/horizon; held")
+                continue
+            if (parse_time(item.get('not_before')) and due < parse_time(item['not_before'])) or (parse_time(item.get('expires_at')) and due > parse_time(item['expires_at'])):
+                notes.append(f"{item['video_id']} {platform}: explicit time outside approved window; held")
+                continue
+            if capacity <= 0 or sum(t.astimezone(zone).date() == due.astimezone(zone).date() for t in events.values()) >= settings['max_videos_per_day']:
+                notes.append(f"{item['video_id']} {platform}: capacity or daily maximum reached; held")
+                continue
+            if any(abs((due-t).total_seconds()) < settings['minimum_gap_minutes']*60 for t in events.values()):
+                notes.append(f"{item['video_id']} {platform}: explicit time conflicts with existing post; held")
+                continue
+            try:
+                payload = copy_rules.payload_for(item, platform, due, cfg)
+            except ValueError as exc:
+                notes.append(f"{item['video_id']} {platform}: blocked — {exc}")
+                continue
+            rows.append({'video_id':item['video_id'],'platform':platform,'category':item['category'],
+                         'due_at':iso(due),'due_local':due.astimezone(zone).isoformat(),
+                         'schedule_timezone':profile.get('timezone',settings['timezone']),
+                         'media_url':media_url(item,cfg),'payload':payload,'explicit_owner_time':True})
+            events['plan:'+item['video_id']] = due
+            known_categories[due.astimezone(zone).date()].add((item['video_id'],item['category']))
+            capacity -= 1
         day = earliest.astimezone(zone).date()
         while day <= end.astimezone(zone).date() and capacity > 0:
             # A dated override can expand one calendar day (owner-instruction batches)
@@ -258,7 +290,7 @@ def plan(items, records, channels, posts, cfg, now, preview=False, pilot=False, 
             day += dt.timedelta(days=1)
     # Every API mutation is paced separately; prioritise nearest publication times.
     for row in rows:
-        row["slot_source"] = "best-time" if best_rules else "profile"
+        row["slot_source"] = "owner-explicit" if row.get("explicit_owner_time") else ("best-time" if best_rules else "profile")
     if best_rules:
         notes.append("best-time rules: " + json.dumps(planned_provenance, sort_keys=True)[:4000])
     rows.sort(key=lambda r: (r["due_at"], r["platform"], r["video_id"]))

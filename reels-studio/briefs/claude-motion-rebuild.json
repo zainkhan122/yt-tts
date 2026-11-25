@@ -1,0 +1,159 @@
+{
+  "id": "claude-motion-rebuild",
+  "title": "Turn a Chart Into an Animation With Claude Motion",
+  "niche": "AI motion graphics",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "approved-for-scheduling",
+  "production_category": "tool",
+  "keywords": [
+    "Claude Motion",
+    "motion graphics",
+    "animated charts"
+  ],
+  "sources": [
+    "https://support.claude.com/en/articles/17454997-get-started-with-claude-motion"
+  ],
+  "viewer": {
+    "who": "Creators and teams",
+    "problem": "Turning static charts into animated explainers takes time",
+    "job": "Make and refine an editable animation from a prompt"
+  },
+  "idea": "Turn a chart into a coded motion explainer with Claude Motion.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Claude Motion builds code-based animations from prompts and supports MP4 export; beta for Team and Enterprise.",
+      "source": "https://support.claude.com/en/articles/17454997-get-started-with-claude-motion"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://support.claude.com/en/articles/17454997-get-started-with-claude-motion",
+      "how_shown": "Original animated illustrative reconstruction using sample data; not a screen recording."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene0",
+      "type": "flow",
+      "say": "Turn a boring chart into a moving explainer, just by asking.",
+      "heading": "FROM CHART TO STORY"
+    },
+    {
+      "id": "scene1",
+      "type": "flow",
+      "say": "In Claude, choose Output, then Motion. Type: animate my sales chart, with each bar growing in sequence.",
+      "heading": "ASK FOR MOTION"
+    },
+    {
+      "id": "scene2",
+      "type": "flow",
+      "say": "Claude writes code that moves your graphics. Watch the bars rise, the labels appear, and the takeaway land.",
+      "heading": "WATCH IT BUILD"
+    },
+    {
+      "id": "scene3",
+      "type": "flow",
+      "say": "Need a change? Ask Claude to highlight the last bar in coral. The color changes while the rest stays put.",
+      "heading": "EDIT ONE DETAIL"
+    },
+    {
+      "id": "scene4",
+      "type": "flow",
+      "say": "Then export your animation as an MP4. Motion is in beta for Team and Enterprise; Enterprise owners may need to enable it.",
+      "heading": "EXPORT YOUR MP4"
+    },
+    {
+      "id": "scene5",
+      "type": "flow",
+      "say": "Want the guide? Comment MOTION and follow Hypeless for more tools, minus the hype.",
+      "heading": "YOUR CALL"
+    }
+  ],
+  "review": {
+    "reviewed_at": "2026-11-25",
+    "reviewer": "owner and official documentation",
+    "notes": "Owner requested schedule and confirmed full audiovisual outro review. Illustrative reconstruction, sample data, AI voice and synthetic cover."
+  },
+  "contains_synthetic_media": true,
+  "seo": {
+    "keyword": "Claude Motion",
+    "onscreen_first3s": "FROM CHART TO STORY",
+    "youtube": {
+      "title": "Turn a Chart Into an Animation With Claude Motion",
+      "description": "Claude Motion turns a chart into an editable animated explainer. Choose Output, select Motion, describe the animation, ask for a revision, and export an MP4.\n\nThis video is an illustrative reconstruction using sample data, not a screen recording of Claude. Claude Motion is a beta for Team and Enterprise; an Enterprise owner may need to enable it. Review your source data and output before publishing.\n\nOfficial Claude Motion guide: https://support.claude.com/en/articles/17454997-get-started-with-claude-motion\n\nOriginal animated illustration and synthetic cover. AI-generated narration.",
+      "tags": [
+        "Claude Motion",
+        "Claude AI",
+        "motion graphics",
+        "animated charts",
+        "AI animation",
+        "data visualization",
+        "AI tools",
+        "Claude artifacts"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#ClaudeMotion",
+        "#MotionGraphics",
+        "#AITools",
+        "#DataVisualization"
+      ]
+    },
+    "instagram": {
+      "caption": "Turn a static chart into an animated explainer. Describe the motion, revise a detail, then export. Claude Motion is a Team and Enterprise beta.\n\nComment MOTION for the guide. Illustrative recreation with sample data; AI-generated narration.",
+      "hashtags": [
+        "#ClaudeMotion",
+        "#MotionGraphics",
+        "#AIForCreators",
+        "#DataVisualization",
+        "#Hypeless"
+      ]
+    },
+    "facebook": {
+      "caption": "Turn a chart into an animated explainer with Claude Motion. Choose Output → Motion, describe the animation, request a revision, and export MP4. It is a Team and Enterprise beta; Enterprise owners may need to enable it.\n\nGuide: https://support.claude.com/en/articles/17454997-get-started-with-claude-motion\nComment MOTION. Illustrative recreation using sample data; AI-generated narration.",
+      "hashtags": [
+        "#ClaudeMotion",
+        "#MotionGraphics",
+        "#AITools",
+        "#DataVisualization",
+        "#Hypeless"
+      ]
+    },
+    "tiktok": {
+      "caption": "Turn a chart into an animated explainer with Claude Motion. Team and Enterprise beta. Illustrative recreation using sample data.",
+      "hashtags": [
+        "#ClaudeMotion",
+        "#MotionGraphics",
+        "#AITools",
+        "#DataVisualization",
+        "#Hypeless"
+      ]
+    },
+    "x": {
+      "text": "Make an editable chart animation with Claude Motion: prompt, revise, export MP4. Team/Enterprise beta. Illustrative recreation. https://support.claude.com/en/articles/17454997-get-started-with-claude-motion",
+      "hashtags": [
+        "#ClaudeMotion",
+        "#MotionGraphics"
+      ]
+    }
+  },
+  "treatment": {
+    "archetype": "workflow",
+    "selected_cover": 0,
+    "cover_concepts": [
+      {
+        "layout": "window",
+        "text": "MAKE IT MOVE",
+        "media": {
+          "kind": "designed",
+          "file": "purpose-made-art.png",
+          "design": "Purpose-made realistic conceptual motion graphics desk."
+        }
+      }
+    ]
+  },
+  "qa_gates": true
+}

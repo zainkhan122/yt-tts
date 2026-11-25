@@ -1,0 +1,17 @@
+{
+  "contract": "dedicated-cover-v1",
+  "video_id": "claude-motion-rebuild",
+  "video_sha256": "sha256:47e7d498f683ec38616a804b013fbe6fff7711b30b07dd5132558d3884bd7b4a",
+  "cover_sha256": "sha256:849ef4e3c135b1e0f6f162e02e556241f7c958146df2eb12051658db77f76386",
+  "art_sha256": "sha256:afde2c4e5792b30ee3c294f67384b2ddd7c3189dc9fbbe1060ee62454c1da5f6",
+  "source_kind": "purpose-made-for-this-video",
+  "headline": "MAKE IT MOVE",
+  "dimensions": [
+    1080,
+    1920
+  ],
+  "frame_zero_verified": true,
+  "frame_zero_mean_abs_rgb_error": 2.813,
+  "reviewed_at": "2026-11-25T21:50:10.538510+00:00",
+  "note": "Source artwork was created specifically for this video; pixel check compares cover to decoded frame zero, not any platform thumbnail surface."
+}
