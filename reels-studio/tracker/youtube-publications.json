@@ -1548,9 +1548,13 @@
   },
   "records": {
     "claude-motion-rebuild": {
+      "asset_digest": "sha256:47e7d498f683ec38616a804b013fbe6fff7711b30b07dd5132558d3884bd7b4a",
       "attempts": 0,
       "category": "tool",
-      "state": "queued",
+      "final_chunk_submitted": false,
+      "state": "session_start_uncertain",
+      "tracking_tag": "hypeless-ref-9302d506524a45c425f4",
+      "updated_at": "2026-11-25T21:57:27Z",
       "video_id": "claude-motion-rebuild"
     },
     "claude-video-effects-01": {
