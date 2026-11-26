@@ -4,10 +4,11 @@
     "claude-motion-rebuild": {
       "attempts": 0,
       "created_at": "2026-11-25T21:57:13Z",
+      "last_error": "Existing Buffer YouTube receipt may publish or already be public; manual reconciliation required",
       "pins": "0ecf17e084191531bcda2fdd977f1ccc22148da572f927f2a94e346dc282f730",
       "publish_at": "2026-11-26T02:00:00Z",
       "scheduled_at": "2026-11-25T21:58:54Z",
-      "state": "scheduled",
+      "state": "needs_review",
       "video_id": "claude-motion-rebuild",
       "youtube_id": "lr5-071x284"
     },
