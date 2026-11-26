@@ -1,7 +1,12 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T22:00:49Z",
+  "updated_at": "2026-11-26T08:54:39Z",
   "videos": {
+    "claude-motion-rebuild": {
+      "snapshots": [],
+      "title": null,
+      "youtube_id": "lr5-071x284"
+    },
     "claude-video-effects-01": {
       "snapshots": [
         {
@@ -636,7 +641,28 @@
       "youtube_id": "IP70g5d8_Qc"
     },
     "repo-apkstart-01": {
-      "snapshots": [],
+      "snapshots": [
+        {
+          "age_hours": 178.75,
+          "analytics": {
+            "avg_view_duration_s": 27.0,
+            "avg_view_percentage": 68.03,
+            "engaged_views": 369,
+            "estimated_minutes_watched": 174.0,
+            "shares": 1,
+            "subscribers_gained": 1,
+            "thumbnail_impressions_ctr": "unavailable: requires separate Reporting API reach report or Studio export",
+            "views": 789
+          },
+          "comments": 2,
+          "engagement_rate": 0.00432,
+          "likes": 2,
+          "published_at": "2026-11-18T22:09:22Z",
+          "taken_at": "2026-11-26T08:54:39Z",
+          "views": 926,
+          "window": "7d"
+        }
+      ],
       "title": null,
       "youtube_id": "Wy5fdSDCC28"
     },
@@ -1915,7 +1941,28 @@
       "youtube_id": "i5STWnaoVaM"
     },
     "repo-wireless-battery-01": {
-      "snapshots": [],
+      "snapshots": [
+        {
+          "age_hours": 177.75,
+          "analytics": {
+            "avg_view_duration_s": 21.0,
+            "avg_view_percentage": 63.82,
+            "engaged_views": 218,
+            "estimated_minutes_watched": 82.0,
+            "shares": 1,
+            "subscribers_gained": 1,
+            "thumbnail_impressions_ctr": "unavailable: requires separate Reporting API reach report or Studio export",
+            "views": 487
+          },
+          "comments": 0,
+          "engagement_rate": 0.0058,
+          "likes": 3,
+          "published_at": "2026-11-18T23:09:24Z",
+          "taken_at": "2026-11-26T08:54:39Z",
+          "views": 517,
+          "window": "7d"
+        }
+      ],
       "title": null,
       "youtube_id": "377pMF0rRPI"
     },
