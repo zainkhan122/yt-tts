@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-26T08:54:39Z",
+  "updated_at": "2026-11-26T21:55:45Z",
   "videos": {
     "claude-motion-rebuild": {
       "snapshots": [],
@@ -1474,7 +1474,21 @@
       "youtube_id": "zOGSyBEO2Dc"
     },
     "repo-phonebox-01": {
-      "snapshots": [],
+      "snapshots": [
+        {
+          "age_hours": 24.79,
+          "analytics": {
+            "unavailable": "no rows returned (video may be younger than Analytics freshness)"
+          },
+          "comments": 0,
+          "engagement_rate": 0.00494,
+          "likes": 3,
+          "published_at": "2026-11-25T21:08:33Z",
+          "taken_at": "2026-11-26T21:55:45Z",
+          "views": 607,
+          "window": "24h"
+        }
+      ],
       "title": null,
       "youtube_id": "iIiLy3jZiXg"
     },
