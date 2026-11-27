@@ -1741,9 +1741,13 @@
       "youtube_id": "iIiLy3jZiXg"
     },
     "tool-mroffice-01": {
+      "asset_digest": "sha256:b1bba969168090a9e21f3140a75f6b056eb9c42c5c8351a18af3d202c6eafb44",
       "attempts": 0,
       "category": "tool",
-      "state": "queued",
+      "final_chunk_submitted": false,
+      "state": "session_start_uncertain",
+      "tracking_tag": "hypeless-ref-111da8c476bc02567867",
+      "updated_at": "2026-11-27T16:25:36Z",
       "video_id": "tool-mroffice-01"
     }
   },
