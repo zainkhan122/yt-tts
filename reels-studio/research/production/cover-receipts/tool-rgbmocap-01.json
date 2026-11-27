@@ -1,0 +1,17 @@
+{
+  "contract": "dedicated-cover-v1",
+  "video_id": "tool-rgbmocap-01",
+  "video_sha256": "sha256:3a9a4548704617ae7f8f8eaed5b4c35436a416744a8f62c1c158600ee280b990",
+  "cover_sha256": "sha256:f196359742839344e68b19209468c37a8e4d134d03a2da3daeea89f777904b06",
+  "art_sha256": "sha256:78783dc32154a833ff8ecf1ff0e3ef8f94593cf204205a3d0db4e08c986172e4",
+  "source_kind": "purpose-made-for-this-video",
+  "headline": "YOUR VIDEO, 3D ANIMATION - NO SUIT NEEDED",
+  "dimensions": [
+    1080,
+    1920
+  ],
+  "frame_zero_verified": true,
+  "frame_zero_mean_abs_rgb_error": 1.682,
+  "reviewed_at": "2026-11-27T18:52:20.182955+00:00",
+  "note": "Source artwork was created specifically for this video; pixel check compares cover to decoded frame zero, not any platform thumbnail surface."
+}
