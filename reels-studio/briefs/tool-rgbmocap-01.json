@@ -1,0 +1,174 @@
+{
+  "id": "tool-rgbmocap-01",
+  "title": "RGB MoCap Turns Your Video Into 3D Animation",
+  "niche": "AI motion capture tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "approved-for-scheduling",
+  "production_category": "tool",
+  "keywords": [
+    "RGB MoCap",
+    "motion capture",
+    "3D animation",
+    "Blender"
+  ],
+  "sources": [
+    "https://github.com/toyxyz/toyxyz_RGBMocap"
+  ],
+  "viewer": {
+    "who": "3D artists, animators and indie game devs",
+    "problem": "Motion capture normally needs a tracking suit and a studio budget",
+    "job": "Turn an ordinary video of a person into editable 3D character animation on a Windows PC"
+  },
+  "idea": "Show RGB MoCap converting video to 3D motion using the project's official sample footage: source video, 3D reconstruction, skeleton and contact correction, character retargeting, and Blender export.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "RGB MoCap is a Windows application that converts a video of a person into editable 3D human animation, with AI models running locally.",
+      "source": "https://github.com/toyxyz/toyxyz_RGBMocap"
+    },
+    {
+      "id": "c2",
+      "text": "It requires 64-bit Windows, a compatible NVIDIA GPU and OpenGL 4.3; it does not run on every PC and is not GPU-free.",
+      "source": "https://github.com/toyxyz/toyxyz_RGBMocap"
+    },
+    {
+      "id": "c3",
+      "text": "Full-body models include ExMR, FlowHMR, GVHMR, MAMMA, PromptHMR and GEM-X; model files are downloaded separately in the Model Manager, some require registration or license acceptance, and all workflows together take about 77.8 GB.",
+      "source": "https://github.com/toyxyz/toyxyz_RGBMocap"
+    },
+    {
+      "id": "c4",
+      "text": "Foot and hand contact timings can be corrected, motion can be retargeted onto 3D characters, and animation can be exported as FBX, BVH, VMD, a portable Blender project or UE5 FBX, with live bone streaming into Blender.",
+      "source": "https://github.com/toyxyz/toyxyz_RGBMocap"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://github.com/toyxyz/toyxyz_RGBMocap",
+      "how_shown": "Official project sample footage (docs/samples/motion-capture) shows the app reconstructing a dancer's motion in 3D beside the source video. The app could not be run on this Linux machine (Windows + NVIDIA GPU required), so no live capture is claimed; footage is the project's own published sample."
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://github.com/toyxyz/toyxyz_RGBMocap",
+      "how_shown": "Payoff scene carries an on-screen 'WINDOWS \u00b7 NVIDIA GPU \u00b7 OPENGL 4.3' tag; the video never claims it works on every PC or without a GPU."
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://github.com/toyxyz/toyxyz_RGBMocap",
+      "how_shown": "Model chips on screen (ExMR, FlowHMR, GVHMR, + MAMMA \u00b7 PromptHMR \u00b7 GEM-X) with fine print 'MODELS DOWNLOADED SEPARATELY \u2014 SOME NEED REGISTRATION' in the payoff scene."
+    },
+    {
+      "claim": "c4",
+      "evidence": "source:https://github.com/toyxyz/toyxyz_RGBMocap",
+      "how_shown": "Official samples show the skeleton/body inspect view with the contact-lock timeline, retargeted anime characters (character-retargeting sample), and the Blender Live Retarget view with bone mapping (streaming-to-blender sample); export chips list FBX, BVH, VMD, Blender project and UE5 FBX."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene0",
+      "type": "flow",
+      "say": "Imagine turning an ordinary video into 3D character animation.",
+      "heading": "ORDINARY VIDEO \u2192 3D ANIMATION?"
+    },
+    {
+      "id": "scene1",
+      "type": "flow",
+      "say": "This is RGB MoCap.",
+      "heading": "THIS IS RGB MOCAP"
+    },
+    {
+      "id": "scene2",
+      "type": "flow",
+      "say": "Give it footage of a person moving, and its AI models reconstruct the motion in 3D.",
+      "heading": "VIDEO IN. 3D MOTION OUT."
+    },
+    {
+      "id": "scene3",
+      "type": "flow",
+      "say": "You can inspect the skeleton, correct foot and hand contacts, and transfer that movement onto any 3D character.",
+      "heading": "FIX CONTACTS. MOVE A CHARACTER."
+    },
+    {
+      "id": "scene4",
+      "type": "flow",
+      "say": "Then export the animation for tools like Blender.",
+      "heading": "INTO BLENDER. INTO YOUR TOOLS."
+    },
+    {
+      "id": "scene5",
+      "type": "flow",
+      "say": "Motion capture, without wearing a tracking suit.",
+      "heading": "MOTION CAPTURE. NO TRACKING SUIT."
+    }
+  ],
+  "review": {
+    "reviewed_at": "2026-11-27",
+    "reviewer": "owner",
+    "notes": "Owner watched the finished Short and approved it ('rest is Good') after requesting removal of the scene kicker labels and the on-screen sample disclaimer; both were removed and the exact revised file was re-rendered, re-verified (full decode, loudness, contact sheet) and is the file pinned here. Footage remains the project's official samples; no live run is claimed. Owner requested Buffer + YouTube scheduling for tomorrow 6:15 PM New York."
+  },
+  "contains_synthetic_media": true,
+  "seo": {
+    "keyword": "RGB MoCap video to 3D animation",
+    "onscreen_first3s": "ORDINARY VIDEO \u2192 3D ANIMATION?",
+    "youtube": {
+      "title": "RGB MoCap Turns Your Video Into 3D Animation",
+      "description": "Imagine turning an ordinary video into 3D character animation. RGB MoCap reconstructs a person's motion in 3D, lets you inspect the skeleton, correct foot and hand contacts, retarget the movement onto a 3D character, and export it for tools like Blender.\n\nRequirements: 64-bit Windows, a compatible NVIDIA GPU and OpenGL 4.3. AI models (ExMR, FlowHMR, GVHMR, MAMMA, PromptHMR, GEM-X) are downloaded separately; some need registration. Footage: the project's official sample videos. AI-generated narration.\n\nGet it: https://github.com/toyxyz/toyxyz_RGBMocap\n\nComment Mocap for the link and follow Hypeless \u2014 AI tools, minus the hype.",
+      "tags": [
+        "RGB MoCap",
+        "motion capture",
+        "3D animation",
+        "Blender",
+        "AI tools",
+        "animation",
+        "Hypeless"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#AITools",
+        "#MotionCapture",
+        "#Blender",
+        "#3DAnimation"
+      ]
+    },
+    "instagram": {
+      "caption": "Your video in, 3D animation out. RGB MoCap reconstructs the motion, you fix the contacts and put it on any character \u2014 no tracking suit.\n\nWindows + NVIDIA GPU required. Comment Mocap for the link. Footage: official project samples; AI-generated narration.",
+      "hashtags": [
+        "#AITools",
+        "#MotionCapture",
+        "#Blender3D",
+        "#3DAnimation",
+        "#Hypeless"
+      ]
+    },
+    "facebook": {
+      "caption": "Motion capture without the suit: RGB MoCap turns a video of a person into editable 3D animation you can retarget and export to Blender.\n\nNeeds 64-bit Windows and an NVIDIA GPU. Get it: https://github.com/toyxyz/toyxyz_RGBMocap\nComment Mocap for the link. Footage: official project samples; AI-generated narration.",
+      "hashtags": [
+        "#AITools",
+        "#MotionCapture",
+        "#Blender",
+        "#3DAnimation",
+        "#Hypeless"
+      ]
+    },
+    "tiktok": {
+      "caption": "Video \u2192 3D animation, no tracking suit. RGB MoCap on Windows + NVIDIA GPU. Footage: official project samples; AI-generated narration.",
+      "hashtags": [
+        "#AITools",
+        "#MotionCapture",
+        "#Blender",
+        "#3DAnimation",
+        "#Hypeless"
+      ]
+    },
+    "x": {
+      "text": "No tracking suit: RGB MoCap turns an ordinary video into editable 3D character animation \u2014 inspect, fix contacts, retarget, export to Blender. Windows + NVIDIA GPU. https://github.com/toyxyz/toyxyz_RGBMocap",
+      "hashtags": [
+        "#AITools",
+        "#MotionCapture"
+      ]
+    }
+  },
+  "qa_gates": true
+}
