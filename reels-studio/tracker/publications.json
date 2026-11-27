@@ -6399,9 +6399,11 @@
     },
     "tool-rgbmocap-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6b09d317ec27d4f87e4126c9",
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-11-28T23:15:00Z",
+      "due_at": "2026-11-28T23:15:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:3a9a4548704617ae7f8f8eaed5b4c35436a416744a8f62c1c158600ee280b990",
         "asset_id": 801658863,
@@ -6416,10 +6418,11 @@
       "notify_subscribers": false,
       "payload_sha256": "8b39f9c85eded667c17e90396026fdf0cc100b8e5383f62eee701e051ed27f10",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Motion capture without the suit: RGB MoCap turns a video of a person into editable 3D animation you can retarget and export to Blender.\n\nNeeds 64-bit Windows and an NVIDIA GPU. Get it: https://github.com/toyxyz/toyxyz_RGBMocap\nComment Mocap for the link. Footage: official project samples; AI-generated narration.\n\nAI-generated narration.\n\n#AITools #MotionCapture #Blender #Animation3D #Hypeless",
       "title": "RGB MoCap Turns Your Video Into 3D Animation",
-      "updated_at": "2026-11-27T18:59:33Z",
+      "updated_at": "2026-11-27T18:59:35Z",
       "video_id": "tool-rgbmocap-01"
     },
     "tool-scrawl-01:facebook": {
