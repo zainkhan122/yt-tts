@@ -1,0 +1,21 @@
+{
+  "contract": "hypeless-narrated-outro-v1",
+  "video_id": "tool-rgbmocap-01",
+  "video_sha256": "sha256:3a9a4548704617ae7f8f8eaed5b4c35436a416744a8f62c1c158600ee280b990",
+  "verdict": "PASS",
+  "review_kind": "finished-video audiovisual inspection",
+  "reviewer": "owner",
+  "reviewed_at": "2026-11-27T18:52:22.168406+00:00",
+  "keyword": "MOCAP",
+  "outro_duration_seconds": 5.87,
+  "checks": {
+    "house_layout": true,
+    "logo": true,
+    "follow_and_comment": true,
+    "animated_cursor": true,
+    "voiced_cta": true,
+    "caption_sync": true,
+    "ending_not_truncated": true
+  },
+  "note": "Reviewer attests to layout, logo, CTA, cursor motion, narrated CTA, synced captions, and complete ending after watching and listening. Automated decode only verifies technical readability."
+}
