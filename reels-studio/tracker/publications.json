@@ -6425,6 +6425,31 @@
       "updated_at": "2026-11-27T18:59:35Z",
       "video_id": "tool-rgbmocap-01"
     },
+    "tool-rgbmocap-01:instagram": {
+      "attempts": 1,
+      "category": "tool",
+      "channel_id": "6ac8fe316a5c39ccb66231cb",
+      "due_at": "2026-11-28T23:15:00Z",
+      "media_ref": {
+        "asset_digest": "sha256:3a9a4548704617ae7f8f8eaed5b4c35436a416744a8f62c1c158600ee280b990",
+        "asset_id": 801658863,
+        "asset_size": 6610107,
+        "kit_asset_id": 801670972,
+        "kit_digest": "sha256:3a93863c69b2bdbb7ea1357fa3c3acc829dcd7408370c88573d465ae936ba667",
+        "media_path": "media/801658863/tool-rgbmocap-01.mp4",
+        "release_tag": "renders-rgbmocap-20261128",
+        "video_id": "tool-rgbmocap-01"
+      },
+      "media_url": "https://zainkhan122.github.io/yt-tts/media/801658863/tool-rgbmocap-01.mp4",
+      "notify_subscribers": false,
+      "payload_sha256": "937322b13eecd16b6a3085a35ed1a455ac365c6e1301e5e8b3a27c8c6298c07c",
+      "platform": "instagram",
+      "state": "submitting",
+      "text": "Your video in, 3D animation out. RGB MoCap reconstructs the motion, you fix the contacts and put it on any character \u2014 no tracking suit.\n\nWindows + NVIDIA GPU required. Comment Mocap for the link. Footage: official project samples; AI-generated narration.\n\n#AITools #MotionCapture #Blender3D #Animation3D #Hypeless",
+      "title": "RGB MoCap Turns Your Video Into 3D Animation",
+      "updated_at": "2026-11-27T18:59:37Z",
+      "video_id": "tool-rgbmocap-01"
+    },
     "tool-scrawl-01:facebook": {
       "attempts": 1,
       "buffer_post_id": "6ad88f71611a87957c8df90a",
