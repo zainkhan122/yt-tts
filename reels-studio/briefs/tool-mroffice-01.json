@@ -1,0 +1,49 @@
+{
+  "id": "tool-mroffice-01",
+  "title": "MR Office AI Adds a Revenue Column For You",
+  "niche": "AI spreadsheet tools",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "approved-for-scheduling",
+  "production_category": "tool",
+  "keywords": ["MR Office", "AI spreadsheet", "Excel formulas"],
+  "sources": ["https://mroffice.ai/", "https://github.com/XinaTian/MROffice"],
+  "viewer": {"who": "Spreadsheet users", "problem": "Calculating totals and revenue columns by hand is slow", "job": "Let the built-in AI add formulas, totals and highlights"},
+  "idea": "Show MR Office's built-in AI spreadsheet editing as a fast animated demonstration grounded in a real captured sheet.",
+  "claims": [
+    {"id": "c1", "text": "MR Office has a built-in AI assistant in the spreadsheet editor that edits cells and formulas; proposed changes are reviewed before applying and can be undone.", "source": "https://github.com/XinaTian/MROffice"},
+    {"id": "c2", "text": "A free account adds the AI assistant with a daily allowance.", "source": "https://mroffice.ai/llms.txt"}
+  ],
+  "proof_plan": [
+    {"claim": "c1", "evidence": "source:https://github.com/XinaTian/MROffice", "how_shown": "Real MR Office editor captured anonymously with the actual sales data typed in (before state); the AI transformation is an animated demonstration labelled on screen, per owner instruction. No account was accessed."}
+  ],
+  "scenes": [
+    {"id": "scene0", "type": "flow", "say": "Still calculating spreadsheet totals by hand?", "heading": "STILL CALCULATING BY HAND?"},
+    {"id": "scene1", "type": "flow", "say": "In MR Office, just tell the built-in AI what you need.", "heading": "JUST ASK THE AI"},
+    {"id": "scene2", "type": "flow", "say": "Here's a sales sheet with products, quantities and prices.", "heading": "A REAL SALES SHEET"},
+    {"id": "scene3", "type": "flow", "say": "Ask it to add a revenue formula, total everything, and highlight the top seller.", "heading": "REVENUE. TOTAL. TOP SELLER."},
+    {"id": "scene4", "type": "flow", "say": "Review the proposed changes, apply them—and the spreadsheet updates right inside the editor.", "heading": "REVIEW THEN APPLY"},
+    {"id": "scene5", "type": "flow", "say": "No manual formula entry.", "heading": "NO MANUAL FORMULA ENTRY"}
+  ],
+  "review": {"reviewed_at": "2026-11-27", "reviewer": "owner", "notes": "Owner watched the finished Short and approved it for scheduling ('its good'), then requested Buffer + YouTube scheduling for today evening New York. Animated feature demonstration; real before-state capture; AI narration."},
+  "contains_synthetic_media": true,
+  "seo": {
+    "keyword": "MR Office AI spreadsheet",
+    "onscreen_first3s": "STILL CALCULATING BY HAND?",
+    "youtube": {
+      "title": "MR Office AI Adds a Revenue Column For You",
+      "description": "Still calculating spreadsheet totals by hand? In MR Office, you ask the built-in AI: add a Revenue column (Units × Unit Price), total everything, and highlight the top seller.\n\nResult: Laptop $10,200 · Monitor $3,960 · Keyboard $1,575 · Mouse $1,000 · TOTAL $16,735.\n\nThe before sheet is the real MR Office editor; the AI edit is shown as an animated demonstration of the built-in assistant's review-and-apply flow. AI-generated narration.\n\nTry it: https://mroffice.ai/\nOpen source: https://github.com/XinaTian/MROffice\n\nComment SHEET for the link and follow Hypeless — AI tools, minus the hype.",
+      "tags": ["MR Office", "AI spreadsheet", "Excel AI", "spreadsheet formulas", "AI tools", "productivity", "Hypeless"],
+      "hashtags": ["#Shorts", "#AITools", "#Spreadsheet", "#Excel", "#Productivity"]
+    },
+    "instagram": {
+      "caption": "Ask the AI, review the changes, apply — revenue column, $16,735 total and the top seller highlighted. No manual formula entry.\n\nComment SHEET for the link. Animated demonstration of MR Office's built-in AI; AI-generated narration.",
+      "hashtags": ["#AITools", "#Spreadsheet", "#ExcelTips", "#Productivity", "#Hypeless"]
+    },
+    "facebook": {
+      "caption": "MR Office's built-in AI adds a Revenue column, totals it ($16,735) and highlights the top seller — you review before anything applies.\n\nTry it: https://mroffice.ai/\nComment SHEET for the link. Animated demonstration; AI-generated narration.",
+      "hashtags": ["#AITools", "#Spreadsheet", "#Excel", "#Productivity", "#Hypeless"]
+    }
+  },
+  "qa_gates": true
+}
