@@ -1783,9 +1783,13 @@
       "youtube_id": "UFOaoGjrzp4"
     },
     "tool-rgbmocap-01": {
+      "asset_digest": "sha256:3a9a4548704617ae7f8f8eaed5b4c35436a416744a8f62c1c158600ee280b990",
       "attempts": 0,
       "category": "tool",
-      "state": "queued",
+      "final_chunk_submitted": false,
+      "state": "session_start_uncertain",
+      "tracking_tag": "hypeless-ref-574fc30cfb92c5aad461",
+      "updated_at": "2026-11-27T19:03:12Z",
       "video_id": "tool-rgbmocap-01"
     }
   },
