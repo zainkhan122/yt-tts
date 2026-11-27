@@ -1,0 +1,17 @@
+{
+  "contract": "dedicated-cover-v1",
+  "video_id": "tool-mroffice-01",
+  "video_sha256": "sha256:b1bba969168090a9e21f3140a75f6b056eb9c42c5c8351a18af3d202c6eafb44",
+  "cover_sha256": "sha256:d53f70b4b0a644340a2061f64cec4bb58d30ce476beadd65a14947a4bf8123d1",
+  "art_sha256": "sha256:d53f70b4b0a644340a2061f64cec4bb58d30ce476beadd65a14947a4bf8123d1",
+  "source_kind": "purpose-made-for-this-video",
+  "headline": "AI DOES THE SHEET MATH FOR YOU?",
+  "dimensions": [
+    1080,
+    1920
+  ],
+  "frame_zero_verified": true,
+  "frame_zero_mean_abs_rgb_error": 1.734,
+  "reviewed_at": "2026-11-27T16:16:08.976043+00:00",
+  "note": "Source artwork was created specifically for this video; pixel check compares cover to decoded frame zero, not any platform thumbnail surface."
+}
