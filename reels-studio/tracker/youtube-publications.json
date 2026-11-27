@@ -1614,7 +1614,7 @@
   },
   "quota": {
     "day_pacific": "2026-11-27",
-    "general_units": 617,
+    "general_units": 618,
     "upload_starts": 1
   },
   "records": {
@@ -1781,6 +1781,12 @@
       "uploaded_at": "2026-11-27T16:25:42Z",
       "video_id": "tool-mroffice-01",
       "youtube_id": "UFOaoGjrzp4"
+    },
+    "tool-rgbmocap-01": {
+      "attempts": 0,
+      "category": "tool",
+      "state": "queued",
+      "video_id": "tool-rgbmocap-01"
     }
   },
   "schema_version": 1
