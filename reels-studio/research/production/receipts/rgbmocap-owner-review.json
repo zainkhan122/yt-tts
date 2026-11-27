@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "batch_id": "rgbmocap-owner-review",
+  "briefs": {
+    "tool-rgbmocap-01": {
+      "brief_identity_sha256": "67cab3643e874003a88e42f0d06537ecc435bc46ffb63ece532aedf79bd5c4fc",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "source": "owner approved narration (minor factual/ASR wording strengthening)"
+        },
+        "assets": {
+          "status": "complete",
+          "note": "Official RGB MoCap project sample footage; purpose-made cover; owner removed on-screen sample label on 2026-11-27."
+        }
+      }
+    }
+  }
+}
