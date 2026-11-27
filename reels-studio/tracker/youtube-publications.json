@@ -1744,8 +1744,10 @@
       "asset_digest": "sha256:b1bba969168090a9e21f3140a75f6b056eb9c42c5c8351a18af3d202c6eafb44",
       "attempts": 0,
       "category": "tool",
+      "confirmed_bytes": 0,
       "final_chunk_submitted": false,
-      "state": "session_start_uncertain",
+      "session_ciphertext": "UEXWUShgvq1RffnNA67IZyagdlAOQnKPor3IDKoCIitN0aRl+RUkrtaZuUx6kTqehlj6oW1P5hRlk1glztqx/Ql72ADaDyk4HjJ9fTkpmhYw8oUKpqDAafuhYKLr/T+jdLQ7pl8ERE/cEIyZwGhXGNMigDnBwAeKtPv3Bu5MgolGwZ1NOPHlvIs6+2n9P7U0IN7CsyOrGhg1eOp2kaeM10VcYeBQ51zYoaDnyk74mdT3fZJ3GxSV4SYJ9q9cdLKU4ZXhUNX/pM54eUOANvnzjGgiRw/H70G4Qk7zZB3uxMaD9B6KpRwEYqxMJoRiNZVLKnjuuYNBIXweCv9m1tgl83eCwnTS6GGqpMC9PN84w1rA4uAoXxnEpabCzn/sbtJ2uCtALMP940R5XCfzZFSkoyveG9BUO5hTE27bNs7qPOjPQ6j7kbBqBvMrfPidrgnV28Ez1hP4UM9OrXZyst2te+Vc1gEOHH6LQQ2cyPHDEw38IqK3gV1Na0rex5dVMaJQKzoQy54nGUAnCj3NGrTp2io7GWWmUBUxVYqRbOOWSIdOYUbsUa/zwsazVKVZtd/SHvg29MsSm3+N6zfaSNXUwg==",
+      "state": "uploading",
       "tracking_tag": "hypeless-ref-111da8c476bc02567867",
       "updated_at": "2026-11-27T16:25:36Z",
       "video_id": "tool-mroffice-01"
