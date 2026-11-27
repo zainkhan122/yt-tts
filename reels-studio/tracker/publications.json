@@ -5933,9 +5933,11 @@
     },
     "tool-mroffice-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6b09aec3b83ec61257e218a3",
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-11-28T00:00:00Z",
+      "due_at": "2026-11-28T00:00:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:b1bba969168090a9e21f3140a75f6b056eb9c42c5c8351a18af3d202c6eafb44",
         "asset_id": 801166723,
@@ -5950,10 +5952,11 @@
       "notify_subscribers": false,
       "payload_sha256": "877c7d8b69898a0df59f9d3f567539eeee385d30886673e217e3271e3a64758f",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Ask the AI, review the changes, apply \u2014 revenue column, $16,735 total and the top seller highlighted. No manual formula entry.\n\nComment SHEET for the link. Animated demonstration of MR Office's built-in AI; AI-generated narration.\n\n#AITools #Spreadsheet #ExcelTips #Productivity #Hypeless",
       "title": "MR Office AI Adds a Revenue Column For You",
-      "updated_at": "2026-11-27T16:24:34Z",
+      "updated_at": "2026-11-27T16:24:36Z",
       "video_id": "tool-mroffice-01"
     },
     "tool-muse-01:youtube": {
