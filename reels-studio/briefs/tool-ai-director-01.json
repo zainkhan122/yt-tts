@@ -1,0 +1,168 @@
+{
+  "id": "tool-ai-director-01",
+  "title": "Use AI Better Than 99% of People",
+  "niche": "AI productivity methods",
+  "lang": "en-us",
+  "style": "explainer",
+  "status": "approved-for-scheduling",
+  "production_category": "tool",
+  "keywords": [
+    "AI productivity",
+    "AI workflows",
+    "prompting",
+    "AI agents"
+  ],
+  "sources": [
+    "https://www.youtube.com/watch?v=wU-g8_FCsb8"
+  ],
+  "viewer": {
+    "who": "Knowledge workers and creators who use AI chat daily",
+    "problem": "They use AI like a search box and get shallow, generic answers",
+    "job": "Direct AI like a colleague: context, delegation, correction, background monitoring, workflows"
+  },
+  "idea": "Animated conceptual explainer, adapted from the reference video's method: stop prompting AI like Google; give it context, delegate whole tasks, correct mistakes, let it monitor, and build workflows.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Most people use AI like a search engine \u2014 isolated questions, shallow generic answers \u2014 which barely scratches the surface.",
+      "source": "https://www.youtube.com/watch?v=wU-g8_FCsb8"
+    },
+    {
+      "id": "c2",
+      "text": "Highly effective users treat AI like a capable colleague: they give it context, delegate complete tasks, correct its mistakes, and let it monitor things in the background.",
+      "source": "https://www.youtube.com/watch?v=wU-g8_FCsb8"
+    },
+    {
+      "id": "c3",
+      "text": "Instead of asking more questions, effective users build workflows that get work done; the closing advice is to stop just prompting AI and start directing it.",
+      "source": "https://www.youtube.com/watch?v=wU-g8_FCsb8"
+    },
+    {
+      "id": "c4",
+      "text": "This Short is an illustrated conceptual explainer with AI-generated narration; every interface shown is drawn concept artwork, not a real product demonstration.",
+      "source": "https://www.youtube.com/watch?v=wU-g8_FCsb8"
+    }
+  ],
+  "proof_plan": [
+    {
+      "claim": "c1",
+      "evidence": "source:https://www.youtube.com/watch?v=wU-g8_FCsb8",
+      "how_shown": "Hook scene: animated chat with typed questions and generic-answer cards flying off; slammed headline 'YOU'RE USING AI WRONG.' Method framing from the reference video, presented as editorial method, not measured fact."
+    },
+    {
+      "claim": "c2",
+      "evidence": "source:https://www.youtube.com/watch?v=wU-g8_FCsb8",
+      "how_shown": "Four consecutive animated conceptual scenes \u2014 knowledge-base documents assembling (context), an agent progressing a task through research/plan/execute (delegation), a wrong figure flagged and corrected (correction), a radar watcher firing a notification (monitoring) \u2014 each labelled 'CONCEPTUAL WORKFLOW' on screen."
+    },
+    {
+      "claim": "c3",
+      "evidence": "source:https://www.youtube.com/watch?v=wU-g8_FCsb8",
+      "how_shown": "Three workflow lanes complete and converge into one composition, closing with 'STOP PROMPTING. START DIRECTING.' typography synced to the narration."
+    },
+    {
+      "claim": "c4",
+      "evidence": "source:https://www.youtube.com/watch?v=wU-g8_FCsb8",
+      "how_shown": "All interfaces are drawn illustrations carrying a 'CONCEPTUAL WORKFLOW' tag; post copy discloses AI-generated narration and conceptual illustration."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene0",
+      "type": "flow",
+      "say": "Most people use AI like Google. That's why they barely scratch the surface.",
+      "heading": "YOU'RE USING AI WRONG."
+    },
+    {
+      "id": "scene1",
+      "type": "flow",
+      "say": "The best users treat AI like a capable colleague.",
+      "heading": "TREAT AI LIKE A COLLEAGUE."
+    },
+    {
+      "id": "scene2",
+      "type": "flow",
+      "say": "They give it context, delegate complete tasks, correct its mistakes, and let it monitor things in the background.",
+      "heading": "CONTEXT \u00b7 DELEGATE \u00b7 CORRECT \u00b7 MONITOR"
+    },
+    {
+      "id": "scene3",
+      "type": "flow",
+      "say": "Instead of asking more questions, they build workflows that actually get work done.",
+      "heading": "WORKFLOWS, NOT QUESTIONS."
+    },
+    {
+      "id": "scene4",
+      "type": "flow",
+      "say": "Stop just prompting AI. Start directing it.",
+      "heading": "STOP PROMPTING. START DIRECTING."
+    }
+  ],
+  "review": {
+    "reviewed_at": "2026-11-28",
+    "reviewer": "owner",
+    "notes": "Owner watched the finished Short and approved it, requesting the same Buffer + YouTube scheduling flow at tomorrow 6:15 PM New York. Illustrated conceptual workflows (labelled on screen); AI-generated narration."
+  },
+  "contains_synthetic_media": true,
+  "seo": {
+    "keyword": "Use AI Better Than 99% of People",
+    "onscreen_first3s": "YOU'RE USING AI WRONG.",
+    "youtube": {
+      "title": "Use AI Better Than 99% of People",
+      "description": "Use AI better than 99% of people: stop treating it like Google. The best users treat AI like a capable colleague \u2014 they give it context, delegate complete tasks, correct its mistakes, and let it monitor things in the background. Instead of asking more questions, they build workflows that actually get work done.\n\nStop just prompting AI. Start directing it.\n\nAnimated conceptual illustration; AI-generated narration. Method adapted from: https://www.youtube.com/watch?v=wU-g8_FCsb8\n\nComment DIRECT for the link and follow Hypeless \u2014 AI tools, minus the hype.",
+      "tags": [
+        "AI productivity",
+        "how to use AI",
+        "AI workflows",
+        "prompting",
+        "AI agents",
+        "AI tools",
+        "Hypeless"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#AITools",
+        "#Productivity",
+        "#ArtificialIntelligence",
+        "#WorkSmarter"
+      ]
+    },
+    "instagram": {
+      "caption": "Most people use AI like Google. The best users direct it like a colleague: context, delegation, correction, monitoring \u2014 workflows, not questions.\n\nComment DIRECT for the link. Conceptual illustration; AI-generated narration.",
+      "hashtags": [
+        "#AITools",
+        "#Productivity",
+        "#ArtificialIntelligence",
+        "#WorkSmarter",
+        "#Hypeless"
+      ]
+    },
+    "facebook": {
+      "caption": "Use AI better than 99% of people: give it context, delegate whole tasks, correct its mistakes and let it watch in the background. Stop prompting. Start directing.\n\nComment DIRECT for the link. Conceptual illustration; AI-generated narration.",
+      "hashtags": [
+        "#AITools",
+        "#Productivity",
+        "#ArtificialIntelligence",
+        "#WorkSmarter",
+        "#Hypeless"
+      ]
+    },
+    "tiktok": {
+      "caption": "Stop using AI like Google. Direct it like a colleague \u2014 context, delegation, correction, monitoring. Conceptual illustration; AI-generated narration.",
+      "hashtags": [
+        "#AITools",
+        "#Productivity",
+        "#ArtificialIntelligence",
+        "#WorkSmarter",
+        "#Hypeless"
+      ]
+    },
+    "x": {
+      "text": "Most people use AI like Google. The top users direct it like a colleague: context, whole tasks, corrections, background monitoring \u2014 workflows, not questions. Stop prompting. Start directing.",
+      "hashtags": [
+        "#AITools",
+        "#Productivity"
+      ]
+    }
+  },
+  "qa_gates": true
+}
