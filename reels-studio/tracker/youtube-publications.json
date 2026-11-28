@@ -1798,9 +1798,13 @@
       "youtube_id": "iIiLy3jZiXg"
     },
     "tool-ai-director-01": {
+      "asset_digest": "sha256:b842251105bbab182ecf8453dd486caad0cfd767daacc792c964f7279ff94a73",
       "attempts": 0,
       "category": "tool",
-      "state": "queued",
+      "final_chunk_submitted": false,
+      "state": "session_start_uncertain",
+      "tracking_tag": "hypeless-ref-80276e35d22f0ac25fef",
+      "updated_at": "2026-11-28T18:15:03Z",
       "video_id": "tool-ai-director-01"
     },
     "tool-mroffice-01": {
