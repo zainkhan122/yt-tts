@@ -5566,9 +5566,11 @@
     },
     "tool-ai-director-01:facebook": {
       "attempts": 1,
+      "buffer_post_id": "6b0b19a45e276ead9fc2c67f",
       "category": "tool",
       "channel_id": "6ac8fe8d6a5c39ccb6623485",
-      "due_at": "2026-11-29T23:15:00Z",
+      "due_at": "2026-11-29T23:15:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:b842251105bbab182ecf8453dd486caad0cfd767daacc792c964f7279ff94a73",
         "asset_id": 805486468,
@@ -5583,10 +5585,11 @@
       "notify_subscribers": false,
       "payload_sha256": "8f7a25158671d0c4386f85661cf32023b6430e86be653a73f4009d58db063acf",
       "platform": "facebook",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Use AI better than 99% of people: give it context, delegate whole tasks, correct its mistakes and let it watch in the background. Stop prompting. Start directing.\n\nComment DIRECT for the link. Conceptual illustration; AI-generated narration.\n\nAI-generated narration.\n\n#AITools #Productivity #AIWorkflows #WorkSmarter #Hypeless",
       "title": "Use AI Better Than 99% of People",
-      "updated_at": "2026-11-28T18:12:49Z",
+      "updated_at": "2026-11-28T18:12:52Z",
       "video_id": "tool-ai-director-01"
     },
     "tool-fx0-01:facebook": {
