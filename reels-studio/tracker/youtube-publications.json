@@ -72,9 +72,11 @@
     "tool-ai-director-01": {
       "attempts": 0,
       "created_at": "2026-11-28T18:14:50Z",
+      "error_code": "VALIDATION",
+      "last_error": "YouTube tag readback mismatch",
       "pins": "91c201c2b1cca746811707810516afc3e1bfd03b1d1628fdf6b139cf04ced3ed",
       "publish_at": "2026-11-29T23:15:00Z",
-      "state": "pending",
+      "state": "needs_review",
       "video_id": "tool-ai-director-01"
     },
     "tool-mroffice-01": {
