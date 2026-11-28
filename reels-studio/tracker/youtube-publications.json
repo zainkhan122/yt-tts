@@ -1801,8 +1801,10 @@
       "asset_digest": "sha256:b842251105bbab182ecf8453dd486caad0cfd767daacc792c964f7279ff94a73",
       "attempts": 0,
       "category": "tool",
+      "confirmed_bytes": 0,
       "final_chunk_submitted": false,
-      "state": "session_start_uncertain",
+      "session_ciphertext": "29yEc352PGNW/3t5CuLxX/HyvWSv41vtd4xIS8C1RxDCp5gsr0nN+taCx+SIOor/hYRGnCYdEOQoBJgbC7cfq2AjAxe6gvaiwwHSrs1/wAry7FAr7U/4dEPBHpyBgqcC/L73vB5QcUByiuVZfxTd/4oGqZeWfEeuGTTBFcZInoQfc8xGkBQK0ifY8I07GxKB8Si44oykZL/8USrSNG5Mch2UB43wdA379Ix+gXPo+UFuv3wJ6xd4zT8crE5F/w4mANFHwCGmyLIUAh8tSyhrklFW5o2IP4m05qYqaTFlG9yBgmFGc5pwv8ZWp8vfN1NC3hdCyuSi9S2c4EMejgdRqbNm6oDpJmDRiFweMuqLFvwSjxF5VgNjrawucvPZ0ryW6nobQhzGtwuUxqOJRD3+c7COFAeL7kJSpzn4Jh7UNYkqlpDTjJ+woiZmyNBdKcBLI23Fw+1w7c6omecuGg/v5G8CJsA72qHjqOZ7UdiKd5vRjnjeOls1mtGGe+YXt8BtP0MH66RYmKbSMKC0LzvMGpzYc0E8257VINbrlpzJwoeEE5Bo3oDPDQA8YtA65sdx7VXUKfHYvUtmjJBfgsI2WdXcwuI=",
+      "state": "uploading",
       "tracking_tag": "hypeless-ref-80276e35d22f0ac25fef",
       "updated_at": "2026-11-28T18:15:03Z",
       "video_id": "tool-ai-director-01"
