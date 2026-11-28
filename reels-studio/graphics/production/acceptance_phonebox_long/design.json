@@ -1,0 +1,341 @@
+{
+  "assets": {
+    "home": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/acceptance_phonebox_long/home.png",
+      "sha256": "261e6a5b236e4c2edb3799bb54cbdb473afc470374e30332039b7c349c398f2f",
+      "type": "image"
+    },
+    "music": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/acceptance_phonebox_long/music.png",
+      "sha256": "8e3e31053d39b1c03a072f865f4a148f0a42aec717f0fa104baa33b61439e745",
+      "type": "image"
+    },
+    "stats": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/acceptance_phonebox_long/stats.png",
+      "sha256": "00c37de6ab66ed957a364bd0f54a231aad394fbb638940af6ca53a4db8937b1a",
+      "type": "image"
+    },
+    "editor": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/acceptance_phonebox_long/editor.png",
+      "sha256": "f6f0d1ea7243372a37322cc5fd2e24949d3498f801720de27a507a8fac11b3d7",
+      "type": "image"
+    },
+    "widget": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/acceptance_phonebox_long/widget.png",
+      "sha256": "3edc6b0db10be28bfbef4e49851a4dace2990883435d8335133a063f9370d6c9",
+      "type": "image"
+    },
+    "cursor": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/acceptance_phonebox_long/cursor.png",
+      "sha256": "da2b92c06102a4c2e22c89415015db5b8ded53f19e989e73e00fdf703c4ebc3c",
+      "type": "image"
+    },
+    "disclosure": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/acceptance_phonebox_long/disclosure.png",
+      "sha256": "247e8ff6c10fb9035a50dc48ab4c003b3e93a81131aea840fd039a766cf04e5e",
+      "type": "image"
+    }
+  },
+  "beats": {
+    "intro": {
+      "layers": [
+        {
+          "id": "home-layer",
+          "asset": "home",
+          "x": 270,
+          "y": 480,
+          "width": 510,
+          "height": 235,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "notice-intro",
+          "asset": "disclosure",
+          "x": 270,
+          "y": 865,
+          "width": 490,
+          "height": 38,
+          "z": 20,
+          "opacity": 1
+        }
+      ],
+      "events": {
+        "show-dashboard": {
+          "target": "home-layer",
+          "operation": "position",
+          "from": [
+            270,
+            600
+          ],
+          "to": [
+            270,
+            480
+          ],
+          "easing": "smooth"
+        }
+      },
+      "transition": "cut"
+    },
+    "media": {
+      "layers": [
+        {
+          "id": "music-layer",
+          "asset": "music",
+          "x": 270,
+          "y": 480,
+          "width": 500,
+          "height": 293,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "notice-media",
+          "asset": "disclosure",
+          "x": 270,
+          "y": 865,
+          "width": 490,
+          "height": 38,
+          "z": 20,
+          "opacity": 1
+        }
+      ],
+      "events": {
+        "focus-music": {
+          "target": "music-layer",
+          "operation": "scale",
+          "from": 0.72,
+          "to": 1,
+          "easing": "smooth"
+        }
+      },
+      "transition": "cut"
+    },
+    "stats": {
+      "layers": [
+        {
+          "id": "stats-layer",
+          "asset": "stats",
+          "x": 270,
+          "y": 480,
+          "width": 510,
+          "height": 228,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "notice-stats",
+          "asset": "disclosure",
+          "x": 270,
+          "y": 865,
+          "width": 490,
+          "height": 38,
+          "z": 20,
+          "opacity": 1
+        }
+      ],
+      "events": {
+        "show-stats": {
+          "target": "stats-layer",
+          "operation": "position",
+          "from": [
+            270,
+            610
+          ],
+          "to": [
+            270,
+            480
+          ],
+          "easing": "smooth"
+        }
+      },
+      "transition": "cut"
+    },
+    "editor": {
+      "layers": [
+        {
+          "id": "editor-layer",
+          "asset": "editor",
+          "x": 270,
+          "y": 455,
+          "width": 510,
+          "height": 238,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "widget-layer",
+          "asset": "widget",
+          "x": 215,
+          "y": 490,
+          "width": 155,
+          "height": 95,
+          "z": 4,
+          "opacity": 1
+        },
+        {
+          "id": "cursor-layer",
+          "asset": "cursor",
+          "x": 200,
+          "y": 500,
+          "width": 37,
+          "height": 44,
+          "z": 5,
+          "opacity": 1
+        },
+        {
+          "id": "notice-editor",
+          "asset": "disclosure",
+          "x": 270,
+          "y": 865,
+          "width": 490,
+          "height": 38,
+          "z": 20,
+          "opacity": 1
+        }
+      ],
+      "events": {
+        "drag-widget": {
+          "target": "widget-layer",
+          "operation": "position",
+          "from": [
+            215,
+            490
+          ],
+          "to": [
+            345,
+            510
+          ],
+          "easing": "smooth"
+        },
+        "drag-cursor": {
+          "target": "cursor-layer",
+          "operation": "position",
+          "from": [
+            200,
+            500
+          ],
+          "to": [
+            330,
+            520
+          ],
+          "easing": "smooth"
+        }
+      },
+      "transition": "cut"
+    },
+    "connection": {
+      "layers": [
+        {
+          "id": "dashboard-layer",
+          "asset": "home",
+          "x": 270,
+          "y": 480,
+          "width": 510,
+          "height": 235,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "pointer-layer",
+          "asset": "cursor",
+          "x": 330,
+          "y": 650,
+          "width": 38,
+          "height": 45,
+          "z": 3,
+          "opacity": 1
+        },
+        {
+          "id": "notice-connection",
+          "asset": "disclosure",
+          "x": 270,
+          "y": 865,
+          "width": 490,
+          "height": 38,
+          "z": 20,
+          "opacity": 1
+        }
+      ],
+      "events": {
+        "usb-highlight": {
+          "target": "pointer-layer",
+          "operation": "position",
+          "from": [
+            330,
+            650
+          ],
+          "to": [
+            68,
+            383
+          ],
+          "easing": "smooth"
+        }
+      },
+      "transition": "cut"
+    },
+    "setup": {
+      "layers": [
+        {
+          "id": "d-layer",
+          "asset": "home",
+          "x": 270,
+          "y": 330,
+          "width": 510,
+          "height": 235,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "e-layer",
+          "asset": "editor",
+          "x": 270,
+          "y": 650,
+          "width": 510,
+          "height": 238,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "notice-setup",
+          "asset": "disclosure",
+          "x": 270,
+          "y": 865,
+          "width": 490,
+          "height": 38,
+          "z": 20,
+          "opacity": 1
+        }
+      ],
+      "events": {
+        "dashboard-stack": {
+          "target": "d-layer",
+          "operation": "position",
+          "from": [
+            270,
+            460
+          ],
+          "to": [
+            270,
+            330
+          ],
+          "easing": "smooth"
+        },
+        "editor-stack": {
+          "target": "e-layer",
+          "operation": "position",
+          "from": [
+            270,
+            780
+          ],
+          "to": [
+            270,
+            650
+          ],
+          "easing": "smooth"
+        }
+      },
+      "transition": "cut"
+    }
+  }
+}

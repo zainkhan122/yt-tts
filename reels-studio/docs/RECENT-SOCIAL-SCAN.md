@@ -1,0 +1,13 @@
+# Verified recent social source scan
+
+Run `python3 tools/recent_social_scan.py --hours 24 --limit 40 --workers 8 --details` after making yt-dlp available (or setting `YT_DLP` to its executable). It reads active TikTok and YouTube rows from `research/sources.csv`; it does not change that registry or the legacy posts CSV. GitTrend is discovery only, not a social publication source.
+
+Output: `research/topics/recent-social-latest.json`, atomically replaced at completion. Each entry records UTC and New York publication times, timestamp provenance, source URL, and rolling-window status. Observation time is never used as publication time. Bare dates, missing dates, failed individual-video retrieval and suspicious future timestamps are not included as verified recent items. A `limit_reached` flag signals possible incomplete pagination; check it even when all fetched timestamps are known.
+
+YouTube: channel Atom `<published>` is used when available; `YOUTUBE_API_KEY` optionally enables batched YouTube Data API `videos.list` `snippet.publishedAt`, which takes precedence. Without either, `--details` attempts individual yt-dlp extraction. TikTok: yt-dlp's source timestamp is used when available, with individual-video extraction as fallback. Platform data, timestamp accuracy, rate limits and access are not guaranteed; a page date by itself does not prove a rolling-24-hour timestamp. Individual-video errors are recorded without logging credentials. API keys should be supplied through a secure environment, not committed or placed in command history.
+
+Exit 2 means at least one source has listing/Atom/API errors, unknown timestamps or a reached list limit; it does not mean that all source requests failed. The full result is still saved for review. An absent recent post is not proof a source posted nothing when coverage is incomplete. Limits are per tab. Multiple tabs can contain duplicates: deduplicate by platform/video ID before ranking.
+
+Feed the verified scan to the existing deduplication and analytics-aware topic sheet with `python3 tools/todays_topics.py --verified-scan research/topics/recent-social-latest.json`. This reads only active social sources and exact timestamped entries with provenance, flags gaps, and keeps GitTrend separate as a discovery lane. Review semantic duplicates and the live publishing queue separately; exact name matching alone cannot guarantee uniqueness. The topic sheet rebuilds its derived coverage tracker as before.
+
+IMPORTANT: Without `--verified-scan`, `tools/todays_topics.py` still uses the legacy CSV and marks the sheet as unverified. Never infer old CSV publication provenance from `first_seen` or `last_seen`. This is an on-demand local system, not an automatically scheduled or deployed daily pipeline.

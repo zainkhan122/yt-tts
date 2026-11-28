@@ -1,0 +1,518 @@
+{
+  "audio_sha256": "721b7087a24d5bbbeb7ed62d6af5eb09dc460f249d231302b21eaffe7e57c9b7",
+  "duration": 23.034916666666668,
+  "assets": {
+    "art": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/multimode_art/phone-desk.png",
+      "sha256": "8274e664985a9d4a6706223a89bc052ace1616e729707ec0a20e4d744b462bbf",
+      "type": "image"
+    },
+    "play": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/multimode_demo/playback-demo.mp4",
+      "sha256": "f617807b197e82a06e295b1fbaf88fa82ccbf813d4ba75b92faf761cde968567",
+      "type": "video"
+    },
+    "stats": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/acceptance_phonebox_long/stats.png",
+      "sha256": "00c37de6ab66ed957a364bd0f54a231aad394fbb638940af6ca53a4db8937b1a",
+      "type": "image"
+    },
+    "editor": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/acceptance_phonebox_long/editor.png",
+      "sha256": "f6f0d1ea7243372a37322cc5fd2e24949d3498f801720de27a507a8fac11b3d7",
+      "type": "image"
+    },
+    "widget": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/acceptance_phonebox_long/widget.png",
+      "sha256": "3edc6b0db10be28bfbef4e49851a4dace2990883435d8335133a063f9370d6c9",
+      "type": "image"
+    },
+    "cursor": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/acceptance_phonebox_long/cursor.png",
+      "sha256": "da2b92c06102a4c2e22c89415015db5b8ded53f19e989e73e00fdf703c4ebc3c",
+      "type": "image"
+    },
+    "intro-title": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/multimode_demo/intro-title.png",
+      "sha256": "22aaedb4603c6e49ac82d5d3aab59359e6c9c1af40f6dcaef623acbd5ee4565b",
+      "type": "image"
+    },
+    "intro-note": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/multimode_demo/intro-note.png",
+      "sha256": "695a4c8bba7462d714539f09c2b2083ff69088310e484bffb077e52168d0f8bf",
+      "type": "image"
+    },
+    "music-title": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/multimode_demo/music-title.png",
+      "sha256": "07bbdd318217972c40b04c4a53b433268eb8ba42002e6ee49ae325675150ab0f",
+      "type": "image"
+    },
+    "stats-title": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/multimode_demo/stats-title.png",
+      "sha256": "fcb68066c53e7e4f5091f780e28d00db4316807e4336de10533fc89edd4082a8",
+      "type": "image"
+    },
+    "editor-title": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/multimode_demo/editor-title.png",
+      "sha256": "c69bb7ad246fdcf7660eb412876af964e7f455f4d12953474503b4fd99722001",
+      "type": "image"
+    },
+    "conn-title": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/multimode_demo/conn-title.png",
+      "sha256": "03510c5de70f86496133354b6ff57c9ab11e5b61d92550b49ee015fce4a314d6",
+      "type": "image"
+    },
+    "conn-note": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/multimode_demo/conn-note.png",
+      "sha256": "a63ffaf7bdd76bc7a036425704bfd9f733336fed43372789481dbf24ac9c271e",
+      "type": "image"
+    },
+    "setup-title": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/multimode_demo/setup-title.png",
+      "sha256": "ae260a9c79f8cb803518fd82bf4130bcb6afb76a847f5ddb9fbc863151b95ec3",
+      "type": "image"
+    },
+    "permissions": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/multimode_demo/permissions.png",
+      "sha256": "d869acb413afa94b392221084990648ee2a2adddbc261e2d51a0e0b90161c73c",
+      "type": "image"
+    },
+    "connection-diagram": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/multimode_demo/connection-diagram.png",
+      "sha256": "3ed9e3c2383b768102f2e5828d1132020e431a3b695b00d3ab8bcdb6e7d1f5c4",
+      "type": "image"
+    },
+    "packet": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/multimode_demo/packet.png",
+      "sha256": "2c0a52c83267d39a17f896974e3f4dab5f0310afa9943bf3b555c54dbaa2b231",
+      "type": "image"
+    },
+    "background": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/multimode_demo/background.png",
+      "sha256": "0d73b36a9bd9c937fa74b73cc795fbe68610ce60299d5fb0902303df4b940b5d",
+      "type": "image"
+    }
+  },
+  "beats": [
+    {
+      "id": "intro",
+      "start": 0,
+      "end": 4.08,
+      "layers": [
+        {
+          "id": "img",
+          "asset": "art",
+          "x": 270,
+          "y": 480,
+          "width": 540,
+          "height": 960,
+          "z": 0,
+          "opacity": 1
+        },
+        {
+          "id": "title",
+          "asset": "intro-title",
+          "x": 270,
+          "y": 180,
+          "width": 500,
+          "height": 90,
+          "z": 3,
+          "opacity": 1
+        },
+        {
+          "id": "note",
+          "asset": "intro-note",
+          "x": 270,
+          "y": 825,
+          "width": 380,
+          "height": 30,
+          "z": 4,
+          "opacity": 1
+        }
+      ],
+      "events": [
+        {
+          "target": "img",
+          "operation": "scale",
+          "from": 1,
+          "to": 1.06,
+          "easing": "smooth",
+          "event_id": "show-dashboard",
+          "start": 1.92,
+          "end": 2.92
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "id": "media",
+      "start": 4.08,
+      "end": 6.12,
+      "layers": [
+        {
+          "id": "bg",
+          "asset": "background",
+          "x": 270,
+          "y": 480,
+          "width": 540,
+          "height": 960,
+          "z": 0,
+          "opacity": 1
+        },
+        {
+          "id": "label",
+          "asset": "music-title",
+          "x": 270,
+          "y": 175,
+          "width": 500,
+          "height": 90,
+          "z": 3,
+          "opacity": 1
+        },
+        {
+          "id": "clip",
+          "asset": "play",
+          "x": 270,
+          "y": 455,
+          "width": 510,
+          "height": 319,
+          "z": 2,
+          "opacity": 1
+        }
+      ],
+      "events": [
+        {
+          "target": "clip",
+          "operation": "scale",
+          "from": 0.94,
+          "to": 1,
+          "easing": "smooth",
+          "event_id": "focus-music",
+          "start": 4.98,
+          "end": 5.880000000000001
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "id": "stats",
+      "start": 6.12,
+      "end": 9.44,
+      "layers": [
+        {
+          "id": "bg",
+          "asset": "background",
+          "x": 270,
+          "y": 480,
+          "width": 540,
+          "height": 960,
+          "z": 0,
+          "opacity": 1
+        },
+        {
+          "id": "label",
+          "asset": "stats-title",
+          "x": 270,
+          "y": 175,
+          "width": 500,
+          "height": 90,
+          "z": 3,
+          "opacity": 1
+        },
+        {
+          "id": "stat",
+          "asset": "stats",
+          "x": 270,
+          "y": 470,
+          "width": 520,
+          "height": 233,
+          "z": 2,
+          "opacity": 1
+        }
+      ],
+      "events": [
+        {
+          "target": "stat",
+          "operation": "position",
+          "from": [
+            270,
+            560
+          ],
+          "to": [
+            270,
+            470
+          ],
+          "easing": "smooth",
+          "event_id": "show-stats",
+          "start": 6.44,
+          "end": 7.540000000000001
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "id": "editor",
+      "start": 9.44,
+      "end": 11.34,
+      "layers": [
+        {
+          "id": "bg",
+          "asset": "background",
+          "x": 270,
+          "y": 480,
+          "width": 540,
+          "height": 960,
+          "z": 0,
+          "opacity": 1
+        },
+        {
+          "id": "label",
+          "asset": "editor-title",
+          "x": 270,
+          "y": 175,
+          "width": 500,
+          "height": 90,
+          "z": 3,
+          "opacity": 1
+        },
+        {
+          "id": "edit",
+          "asset": "editor",
+          "x": 270,
+          "y": 470,
+          "width": 520,
+          "height": 242,
+          "z": 2,
+          "opacity": 1
+        },
+        {
+          "id": "widget",
+          "asset": "widget",
+          "x": 180,
+          "y": 482,
+          "width": 125,
+          "height": 78,
+          "z": 4,
+          "opacity": 1
+        },
+        {
+          "id": "cursor",
+          "asset": "cursor",
+          "x": 170,
+          "y": 490,
+          "width": 38,
+          "height": 45,
+          "z": 5,
+          "opacity": 1
+        }
+      ],
+      "events": [
+        {
+          "target": "widget",
+          "operation": "position",
+          "from": [
+            180,
+            482
+          ],
+          "to": [
+            338,
+            500
+          ],
+          "easing": "smooth",
+          "event_id": "drag-widget",
+          "start": 9.58,
+          "end": 10.68
+        },
+        {
+          "target": "cursor",
+          "operation": "position",
+          "from": [
+            170,
+            490
+          ],
+          "to": [
+            328,
+            510
+          ],
+          "easing": "smooth",
+          "event_id": "drag-cursor",
+          "start": 9.84,
+          "end": 10.69
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "id": "connection",
+      "start": 11.34,
+      "end": 16.22,
+      "layers": [
+        {
+          "id": "bg",
+          "asset": "background",
+          "x": 270,
+          "y": 480,
+          "width": 540,
+          "height": 960,
+          "z": 0,
+          "opacity": 1
+        },
+        {
+          "id": "title",
+          "asset": "conn-title",
+          "x": 270,
+          "y": 175,
+          "width": 500,
+          "height": 90,
+          "z": 3,
+          "opacity": 1
+        },
+        {
+          "id": "diagram",
+          "asset": "connection-diagram",
+          "x": 270,
+          "y": 470,
+          "width": 480,
+          "height": 340,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "usb",
+          "asset": "packet",
+          "x": 200,
+          "y": 467,
+          "width": 25,
+          "height": 25,
+          "z": 4,
+          "opacity": 1
+        },
+        {
+          "id": "wifi",
+          "asset": "packet",
+          "x": 185,
+          "y": 410,
+          "width": 25,
+          "height": 25,
+          "z": 4,
+          "opacity": 1
+        },
+        {
+          "id": "note",
+          "asset": "conn-note",
+          "x": 270,
+          "y": 805,
+          "width": 465,
+          "height": 30,
+          "z": 5,
+          "opacity": 1
+        }
+      ],
+      "events": [
+        {
+          "target": "usb",
+          "operation": "position",
+          "from": [
+            200,
+            467
+          ],
+          "to": [
+            350,
+            467
+          ],
+          "easing": "smooth",
+          "event_id": "usb-highlight",
+          "start": 13.72,
+          "end": 14.42
+        },
+        {
+          "target": "wifi",
+          "operation": "position",
+          "from": [
+            185,
+            410
+          ],
+          "to": [
+            355,
+            410
+          ],
+          "easing": "smooth",
+          "event_id": "wifi-packet",
+          "start": 15.02,
+          "end": 15.77
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "id": "setup",
+      "start": 16.22,
+      "end": 23.034916666666668,
+      "layers": [
+        {
+          "id": "bg",
+          "asset": "background",
+          "x": 270,
+          "y": 480,
+          "width": 540,
+          "height": 960,
+          "z": 0,
+          "opacity": 1
+        },
+        {
+          "id": "title",
+          "asset": "setup-title",
+          "x": 270,
+          "y": 175,
+          "width": 500,
+          "height": 90,
+          "z": 3,
+          "opacity": 1
+        },
+        {
+          "id": "diagram",
+          "asset": "connection-diagram",
+          "x": 270,
+          "y": 460,
+          "width": 480,
+          "height": 340,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "permissions",
+          "asset": "permissions",
+          "x": 270,
+          "y": 745,
+          "width": 475,
+          "height": 75,
+          "z": 4,
+          "opacity": 1
+        }
+      ],
+      "events": [
+        {
+          "target": "diagram",
+          "operation": "scale",
+          "from": 0.83,
+          "to": 1,
+          "easing": "smooth",
+          "event_id": "dashboard-stack",
+          "start": 16.28,
+          "end": 17.28
+        },
+        {
+          "target": "permissions",
+          "operation": "opacity",
+          "from": 0,
+          "to": 1,
+          "easing": "smooth",
+          "event_id": "editor-stack",
+          "start": 16.98,
+          "end": 17.98
+        }
+      ],
+      "transition": "cut"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "source_url": "https://ersinkoc.github.io/phonebox/",
+  "mode": "real_browser_demo",
+  "scope": "demo data; not a physical device",
+  "actions": [
+    {
+      "operation": "click",
+      "cursor": {
+        "x": 742.96875,
+        "y": 428.46875
+      },
+      "before": "w w-media card playing",
+      "after": "w w-media card",
+      "verified": true,
+      "before_image": "00-before.png",
+      "after_image": "00-after.png",
+      "time_from_page_ready_s": 0.918
+    }
+  ],
+  "status": "observed",
+  "recording": "graphics/production/phonebox_live/recording.webm",
+  "sha256": "916bc7bc287efc4e5bb44a0f7a84cc67070c29d9fda199b08351f4312ccdf72c",
+  "timing_note": "Action time is relative to page-ready start, not the start of the recording."
+}

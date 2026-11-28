@@ -1,0 +1,109 @@
+{
+  "file": "phonebox-corrected.mp4",
+  "verdict": "BLOCK",
+  "measured": {
+    "duration_s": 24.25,
+    "frames_sampled": 97,
+    "bins": 97,
+    "frame_change_min": 2.0,
+    "words": 71
+  },
+  "results": [
+    {
+      "gate": "duration",
+      "status": "BLOCK",
+      "value": 24.25,
+      "limit": "29-55s",
+      "detail": "measured length of the MP4",
+      "fix": "trim or extend the script"
+    },
+    {
+      "gate": "speech_wpm",
+      "status": "PASS",
+      "value": 175.7,
+      "limit": "167-211 wpm",
+      "detail": "71 words over 24.2s",
+      "fix": "adjust the script length or the voice pace"
+    },
+    {
+      "gate": "longest_pause",
+      "status": "PASS",
+      "value": 0.3,
+      "limit": "<= 1.2s",
+      "detail": "longest silence between words",
+      "fix": "cut the dead air between phrases"
+    },
+    {
+      "gate": "hook_speech_start",
+      "status": "PASS",
+      "value": 0.09,
+      "limit": "<= 0.3s",
+      "detail": "time of the first spoken word",
+      "fix": "remove intro silence before the first word"
+    },
+    {
+      "gate": "measure_first3s_wpm",
+      "status": "INFO",
+      "value": 200.0,
+      "limit": "reference 220 wpm (measured, not gated)",
+      "detail": "10 words in the first 3 s",
+      "fix": "none"
+    },
+    {
+      "gate": "measure_phrases",
+      "status": "INFO",
+      "value": 1,
+      "limit": "reference [5, 14] phrases with >= 0.35s pause (measured)",
+      "detail": "0 pauses >= 0.35s; mean 71.0 words per phrase",
+      "fix": "none"
+    },
+    {
+      "gate": "hook_first_phrase_end",
+      "status": "PASS",
+      "value": 2.08,
+      "limit": "<= 3.5s",
+      "detail": "end of the first phrase",
+      "fix": "make the first phrase shorter"
+    },
+    {
+      "gate": "visual_change_speech",
+      "status": "BLOCK",
+      "value": 0.227,
+      "limit": ">= 0.75",
+      "detail": "share of speech time with a visible change (threshold frame_change_min)",
+      "fix": "add camera moves, highlights or cuts on the spoken scenes"
+    },
+    {
+      "gate": "graphic_only_share",
+      "status": "BLOCK",
+      "value": 0.773,
+      "limit": "<= 0.25",
+      "detail": "share of the video with no visible change",
+      "fix": "replace still stretches with tool screens or zooms"
+    },
+    {
+      "gate": "motion_gap",
+      "status": "BLOCK",
+      "value": 4.0,
+      "limit": "<= 3.0s",
+      "detail": "longest stretch with no visible change",
+      "fix": "add a move inside the still stretch"
+    }
+  ],
+  "thresholds": {
+    "duration_s": [
+      29,
+      55
+    ],
+    "speech_wpm": [
+      167,
+      211
+    ],
+    "longest_pause_s": 1.2,
+    "graphic_only_share_max": 0.25,
+    "visual_change_speech_share_min": 0.75,
+    "motion_gap_max_s": 3.0,
+    "frame_change_min": 2.0
+  },
+  "timing_note": "Body timing from original voice handoff; corrected CTA timestamps shifted by 19.545 seconds. Interpolated alignments and frame differences are measurements, not audiovisual inspection."
+}

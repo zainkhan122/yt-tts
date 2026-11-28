@@ -1,0 +1,120 @@
+{
+  "script_sha256": "502118de29c61cf65fc7ce7e9de52a0e844db94cc45972ea9596393a2b6ed124",
+  "engine": "chatterbox",
+  "profile": "option-3",
+  "model_revision": "5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18",
+  "overall_match": 1.0,
+  "chunks": [
+    {
+      "match": 1.0,
+      "melody_st": 18.02584111994465,
+      "heard_words": [
+        "your",
+        "smartphone",
+        "battery",
+        "does",
+        "not",
+        "simply",
+        "run",
+        "out",
+        "of",
+        "power",
+        "its",
+        "chemistry",
+        "is",
+        "changing",
+        "every",
+        "second"
+      ]
+    }
+  ],
+  "duration": 6.2,
+  "scenes": [
+    {
+      "start": 0.0,
+      "end": 6.2,
+      "words": [
+        [
+          "Your",
+          0.27,
+          0.29
+        ],
+        [
+          "smartphone",
+          0.29,
+          0.95
+        ],
+        [
+          "battery",
+          0.95,
+          1.42
+        ],
+        [
+          "does",
+          1.42,
+          1.71
+        ],
+        [
+          "not",
+          1.71,
+          1.94
+        ],
+        [
+          "simply",
+          1.94,
+          2.34
+        ],
+        [
+          "run",
+          2.34,
+          2.52
+        ],
+        [
+          "out",
+          2.52,
+          2.69
+        ],
+        [
+          "of",
+          2.69,
+          2.82
+        ],
+        [
+          "power.",
+          2.82,
+          3.32
+        ],
+        [
+          "Its",
+          3.32,
+          3.61
+        ],
+        [
+          "chemistry",
+          3.61,
+          4.32
+        ],
+        [
+          "is",
+          4.32,
+          4.48
+        ],
+        [
+          "changing",
+          4.48,
+          5.14
+        ],
+        [
+          "every",
+          5.14,
+          5.55
+        ],
+        [
+          "second.",
+          5.55,
+          6.08
+        ]
+      ]
+    }
+  ]
+}

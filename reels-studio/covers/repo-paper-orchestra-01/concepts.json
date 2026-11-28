@@ -1,0 +1,59 @@
+{
+  "brief": "repo-paper-orchestra-01",
+  "concepts": [
+    {
+      "concept": 0,
+      "text": "NOTES INTO A PAPER",
+      "layout": "window",
+      "luma_std": 97.3,
+      "source": "captures/repo-paper-orchestra-01/official-overview.png",
+      "file": "cover-1.jpg",
+      "sha256": "1add24c03c1c899c9ae4e902bae89736717fbe27e88787ca202d07133445b202",
+      "words": 4,
+      "contrast_white": 19.65,
+      "contrast_accent": 10.56,
+      "text_box": [
+        54,
+        462,
+        1026,
+        856
+      ]
+    },
+    {
+      "concept": 1,
+      "text": "RESEARCH MEETS AI AGENTS",
+      "layout": "bleed",
+      "luma_std": 112.0,
+      "source": "captures/repo-paper-orchestra-01/repository.png",
+      "file": "cover-2.jpg",
+      "sha256": "f169dedbcb291e51483dbe23bf48f2f512950dd68290a4c84d325cd724c9eb5c",
+      "words": 4,
+      "contrast_white": 19.87,
+      "contrast_accent": 10.67,
+      "text_box": [
+        54,
+        997,
+        1026,
+        1588
+      ]
+    },
+    {
+      "concept": 2,
+      "text": "FROM NOTES TO DRAFT",
+      "layout": "split",
+      "luma_std": 114.2,
+      "source": "captures/repo-paper-orchestra-01/paper.png",
+      "file": "cover-3.jpg",
+      "sha256": "b9a6c84dd6b3196f3f54058cf72e68e898561fb7c07f62f2a5dbc24270a82f17",
+      "words": 4,
+      "contrast_white": 19.65,
+      "contrast_accent": 10.56,
+      "text_box": [
+        54,
+        946,
+        1026,
+        1340
+      ]
+    }
+  ]
+}

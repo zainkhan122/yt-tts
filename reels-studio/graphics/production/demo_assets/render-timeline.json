@@ -1,0 +1,282 @@
+{
+  "audio_sha256": "8f05172994ed3e9324cfd276a92b723810eb61fe7bb7b0e2e302bf5405f396d7",
+  "duration": 6.2,
+  "assets": {
+    "smartphone": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/demo_assets/smartphone.png",
+      "sha256": "53917bedd6f4774ad2595ab6507088403b11f2de581b7b9209b720c60806ac92",
+      "type": "image"
+    },
+    "battery_layer": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/demo_assets/battery_layer.png",
+      "sha256": "82483f6525c55d1f7e71da523f6c9800985c8482c2a814a8d48aaaef4971d277",
+      "type": "image"
+    },
+    "cross_background": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/demo_assets/cross_background.png",
+      "sha256": "113ac2d347cd7f58e01c203cd6f08a1da8b3619204929ec802920b4dbc0cdbbc",
+      "type": "image"
+    },
+    "cross_section": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/demo_assets/cross_section.png",
+      "sha256": "0891c55fdb2534a01faaf9d899949666bbcf4280bb4af589aa24ceaf9aaf2d47",
+      "type": "image"
+    },
+    "ion": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/demo_assets/ion.png",
+      "sha256": "78fe90448dd3f5582ad85c079fd71626939649ec56f78945c502447ef0543f85",
+      "type": "image"
+    },
+    "energy_meter": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/demo_assets/energy_meter.png",
+      "sha256": "de282edbac4bac7205aa45520207cc0cf1f590b4158a53addc8bdcbb3ed5c979",
+      "type": "image"
+    },
+    "energy_fill": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/demo_assets/energy_fill.png",
+      "sha256": "641e35344dede3fbecd6ce4f76dd14d28e202e7cbbec7c034787588b5c65af9e",
+      "type": "image"
+    },
+    "headline": {
+      "path": "/home/user/yt-tts/reels-studio/graphics/production/demo_assets/headline.png",
+      "sha256": "00f667d9adc8684070a0ee38090a8cad0678f3b66e5f31a96d08357a3c772ef5",
+      "type": "image"
+    }
+  },
+  "beats": [
+    {
+      "id": "hero",
+      "start": 0,
+      "end": 1.42,
+      "layers": [
+        {
+          "id": "photo",
+          "asset": "smartphone",
+          "x": 270,
+          "y": 480,
+          "width": 540,
+          "height": 960,
+          "z": 0,
+          "opacity": 1
+        },
+        {
+          "id": "head",
+          "asset": "headline",
+          "x": 270,
+          "y": 130,
+          "width": 270,
+          "height": 50,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "battery",
+          "asset": "battery_layer",
+          "x": 270,
+          "y": 490,
+          "width": 135,
+          "height": 188,
+          "z": 2,
+          "opacity": 1
+        }
+      ],
+      "events": [
+        {
+          "target": "camera",
+          "operation": "camera",
+          "from": [
+            1,
+            0
+          ],
+          "to": [
+            1.08,
+            0
+          ],
+          "easing": "smooth",
+          "event_id": "push",
+          "start": 0.29,
+          "end": 1.09
+        },
+        {
+          "target": "battery",
+          "operation": "opacity",
+          "from": 0,
+          "to": 1,
+          "easing": "smooth",
+          "event_id": "reveal",
+          "start": 0.95,
+          "end": 1.35
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "id": "separate",
+      "start": 1.42,
+      "end": 3.32,
+      "layers": [
+        {
+          "id": "photo",
+          "asset": "smartphone",
+          "x": 270,
+          "y": 480,
+          "width": 540,
+          "height": 960,
+          "z": 0,
+          "opacity": 1
+        },
+        {
+          "id": "head",
+          "asset": "headline",
+          "x": 270,
+          "y": 130,
+          "width": 270,
+          "height": 50,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "battery",
+          "asset": "battery_layer",
+          "x": 270,
+          "y": 490,
+          "width": 135,
+          "height": 188,
+          "z": 2,
+          "opacity": 1
+        },
+        {
+          "id": "meter",
+          "asset": "energy_meter",
+          "x": 270,
+          "y": 780,
+          "width": 260,
+          "height": 55,
+          "z": 3,
+          "opacity": 1
+        },
+        {
+          "id": "charge",
+          "asset": "energy_fill",
+          "x": 310,
+          "y": 780,
+          "width": 135,
+          "height": 27,
+          "z": 4,
+          "opacity": 1
+        }
+      ],
+      "events": [
+        {
+          "target": "battery",
+          "operation": "position",
+          "from": [
+            270,
+            490
+          ],
+          "to": [
+            425,
+            475
+          ],
+          "easing": "smooth",
+          "event_id": "separate-cell",
+          "start": 1.42,
+          "end": 2.42
+        },
+        {
+          "target": "charge",
+          "operation": "scale",
+          "from": 1,
+          "to": 0.35,
+          "easing": "smooth",
+          "event_id": "meter-grow",
+          "start": 2.82,
+          "end": 3.2199999999999998
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "id": "chemistry",
+      "start": 3.32,
+      "end": 6.2,
+      "layers": [
+        {
+          "id": "bg",
+          "asset": "cross_background",
+          "x": 270,
+          "y": 480,
+          "width": 540,
+          "height": 960,
+          "z": 0,
+          "opacity": 1
+        },
+        {
+          "id": "electrodes",
+          "asset": "cross_section",
+          "x": 270,
+          "y": 460,
+          "width": 470,
+          "height": 360,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "particle1",
+          "asset": "ion",
+          "x": 135,
+          "y": 420,
+          "width": 36,
+          "height": 36,
+          "z": 2,
+          "opacity": 1
+        },
+        {
+          "id": "particle2",
+          "asset": "ion",
+          "x": 135,
+          "y": 510,
+          "width": 36,
+          "height": 36,
+          "z": 3,
+          "opacity": 1
+        }
+      ],
+      "events": [
+        {
+          "target": "particle1",
+          "operation": "position",
+          "from": [
+            135,
+            420
+          ],
+          "to": [
+            398,
+            420
+          ],
+          "easing": "smooth",
+          "event_id": "ion-one",
+          "start": 3.61,
+          "end": 4.81
+        },
+        {
+          "target": "particle2",
+          "operation": "position",
+          "from": [
+            135,
+            510
+          ],
+          "to": [
+            398,
+            510
+          ],
+          "easing": "smooth",
+          "event_id": "ion-two",
+          "start": 4.48,
+          "end": 5.58
+        }
+      ],
+      "transition": "fade"
+    }
+  ]
+}

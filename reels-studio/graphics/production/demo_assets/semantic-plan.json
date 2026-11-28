@@ -1,0 +1,188 @@
+{
+  "beats": [
+    {
+      "id": "hero",
+      "word_start": 0,
+      "word_end": 3,
+      "meaning": "Reveal phone battery",
+      "visual_objective": "Reveal phone battery",
+      "treatment": "product_visualization",
+      "scene_description": "Reveal phone battery",
+      "subject": "smartphone",
+      "objects": [
+        "phone",
+        "battery"
+      ],
+      "composition": "center",
+      "camera": "hold",
+      "transition": "cut",
+      "assets": [
+        {
+          "id": "photo",
+          "kind": "image",
+          "description": "AI-generated phone photo",
+          "reuse_of": null
+        },
+        {
+          "id": "battery-a",
+          "kind": "graphic",
+          "description": "illustrated battery",
+          "reuse_of": null
+        }
+      ],
+      "events": [
+        {
+          "id": "push",
+          "trigger_phrase": "smartphone",
+          "occurrence": 1,
+          "action": "Push camera toward phone",
+          "target": "camera",
+          "animation_type": "camera_only",
+          "duration": 0.8,
+          "camera": "hold",
+          "asset_id": "photo",
+          "transition": "cut"
+        },
+        {
+          "id": "reveal",
+          "trigger_phrase": "battery",
+          "occurrence": 1,
+          "action": "Reveal the battery",
+          "target": "battery",
+          "animation_type": "opacity",
+          "duration": 0.4,
+          "camera": "hold",
+          "asset_id": "battery-a",
+          "transition": "cut"
+        }
+      ]
+    },
+    {
+      "id": "separate",
+      "word_start": 3,
+      "word_end": 10,
+      "meaning": "Separate battery and show energy",
+      "visual_objective": "Separate battery and show energy",
+      "treatment": "exploded_view",
+      "scene_description": "Separate battery and show energy",
+      "subject": "smartphone battery",
+      "objects": [
+        "phone",
+        "battery",
+        "energy indicator"
+      ],
+      "composition": "center",
+      "camera": "hold",
+      "transition": "cut",
+      "assets": [
+        {
+          "id": "photo-b",
+          "kind": "image",
+          "description": "same phone",
+          "reuse_of": null
+        },
+        {
+          "id": "battery-b",
+          "kind": "graphic",
+          "description": "battery",
+          "reuse_of": null
+        },
+        {
+          "id": "meter",
+          "kind": "graphic",
+          "description": "energy indicator",
+          "reuse_of": null
+        }
+      ],
+      "events": [
+        {
+          "id": "separate-cell",
+          "trigger_phrase": "does",
+          "occurrence": 1,
+          "action": "Move battery out of phone",
+          "target": "battery",
+          "animation_type": "position",
+          "duration": 1.0,
+          "camera": "hold",
+          "asset_id": "battery-b",
+          "transition": "cut"
+        },
+        {
+          "id": "meter-grow",
+          "trigger_phrase": "power",
+          "occurrence": 1,
+          "action": "Energy indicator appears",
+          "target": "meter",
+          "animation_type": "scale",
+          "duration": 0.4,
+          "camera": "hold",
+          "asset_id": "meter",
+          "transition": "cut"
+        }
+      ]
+    },
+    {
+      "id": "chemistry",
+      "word_start": 10,
+      "word_end": 16,
+      "meaning": "Show ion movement in cell",
+      "visual_objective": "Show ion movement in cell",
+      "treatment": "scientific_visualization",
+      "scene_description": "Show ion movement in cell",
+      "subject": "battery cross-section",
+      "objects": [
+        "electrodes",
+        "ions"
+      ],
+      "composition": "center",
+      "camera": "hold",
+      "transition": "cut",
+      "assets": [
+        {
+          "id": "cross",
+          "kind": "graphic",
+          "description": "electrodes",
+          "reuse_of": null
+        },
+        {
+          "id": "ion-a",
+          "kind": "graphic",
+          "description": "ion",
+          "reuse_of": null
+        },
+        {
+          "id": "ion-b",
+          "kind": "graphic",
+          "description": "ion",
+          "reuse_of": null
+        }
+      ],
+      "events": [
+        {
+          "id": "ion-one",
+          "trigger_phrase": "chemistry",
+          "occurrence": 1,
+          "action": "Move an ion between electrodes",
+          "target": "ion a",
+          "animation_type": "position",
+          "duration": 1.2,
+          "camera": "hold",
+          "asset_id": "ion-a",
+          "transition": "cut"
+        },
+        {
+          "id": "ion-two",
+          "trigger_phrase": "changing",
+          "occurrence": 1,
+          "action": "Move a second ion between electrodes",
+          "target": "ion b",
+          "animation_type": "position",
+          "duration": 1.1,
+          "camera": "hold",
+          "asset_id": "ion-b",
+          "transition": "cut"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "status": "review-only; mode choices hand-directed",
+  "beats": [
+    {
+      "beat": "intro",
+      "mode": "ai_visual",
+      "evidence": "interactive AI-generated still, not image-to-video"
+    },
+    {
+      "beat": "media",
+      "mode": "screen_demo",
+      "evidence": "public PhoneBox demo, real click in synthetic data"
+    },
+    {
+      "beat": "stats",
+      "mode": "screen_demo",
+      "evidence": "static prior demo capture, not action recording"
+    },
+    {
+      "beat": "editor",
+      "mode": "motion_graphics",
+      "evidence": "labelled illustrative widget drag"
+    },
+    {
+      "beat": "connection",
+      "mode": "motion_graphics",
+      "evidence": "illustrative connections, not actual hardware"
+    },
+    {
+      "beat": "setup",
+      "mode": "motion_graphics",
+      "evidence": "illustrative components and permission dependency"
+    }
+  ]
+}

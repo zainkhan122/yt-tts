@@ -1,0 +1,44 @@
+{
+  "home": {
+    "path": "/home/user/yt-tts/reels-studio/graphics/production/acceptance_phonebox_long/home.png",
+    "sha256": "261e6a5b236e4c2edb3799bb54cbdb473afc470374e30332039b7c349c398f2f",
+    "type": "image",
+    "description": "PhoneBox home screen capture showing media controls, clock and system metric cards"
+  },
+  "music": {
+    "path": "/home/user/yt-tts/reels-studio/graphics/production/acceptance_phonebox_long/music.png",
+    "sha256": "8e3e31053d39b1c03a072f865f4a148f0a42aec717f0fa104baa33b61439e745",
+    "type": "image",
+    "description": "PhoneBox home screen crop showing music playback controls, track and volume slider"
+  },
+  "stats": {
+    "path": "/home/user/yt-tts/reels-studio/graphics/production/acceptance_phonebox_long/stats.png",
+    "sha256": "00c37de6ab66ed957a364bd0f54a231aad394fbb638940af6ca53a4db8937b1a",
+    "type": "image",
+    "description": "PhoneBox system screen capture showing CPU, graphics, memory and network charts"
+  },
+  "editor": {
+    "path": "/home/user/yt-tts/reels-studio/graphics/production/acceptance_phonebox_long/editor.png",
+    "sha256": "f6f0d1ea7243372a37322cc5fd2e24949d3498f801720de27a507a8fac11b3d7",
+    "type": "image",
+    "description": "PhoneBox editor screen crop showing the dashboard grid and widget tiles"
+  },
+  "widget": {
+    "path": "/home/user/yt-tts/reels-studio/graphics/production/acceptance_phonebox_long/widget.png",
+    "sha256": "3edc6b0db10be28bfbef4e49851a4dace2990883435d8335133a063f9370d6c9",
+    "type": "image",
+    "description": "Clock widget tile cropped from PhoneBox dashboard editor grid"
+  },
+  "cursor": {
+    "path": "/home/user/yt-tts/reels-studio/graphics/production/acceptance_phonebox_long/cursor.png",
+    "sha256": "da2b92c06102a4c2e22c89415015db5b8ded53f19e989e73e00fdf703c4ebc3c",
+    "type": "image",
+    "description": "White computer cursor pointer with dark outline on transparent background"
+  },
+  "disclosure": {
+    "path": "/home/user/yt-tts/reels-studio/graphics/production/acceptance_phonebox_long/disclosure.png",
+    "sha256": "247e8ff6c10fb9035a50dc48ab4c003b3e93a81131aea840fd039a766cf04e5e",
+    "type": "image",
+    "description": "Disclosure label saying static interface captures with animated recreation"
+  }
+}

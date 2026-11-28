@@ -1,0 +1,30 @@
+{
+  "removed": [
+    {
+      "path": "captures/claude-video-effects-01/library-showcase.mp4",
+      "bytes": 65474336,
+      "sha256": "0aa9134e9ce1835e7d8edf7506921a363a9fd1909ea456a51538f9ac9030eb31"
+    },
+    {
+      "path": "renders/claude-video-effects-01/claude-video-effects-final.mp4",
+      "bytes": 6530963,
+      "sha256": "4ac3140864533733c63140aa688e8b874a1b11542440eb6ca309daf406dd4ebc"
+    },
+    {
+      "path": "renders/claude-video-effects-01/claude-video-effects-master.mp4",
+      "bytes": 6511710,
+      "sha256": "2fae7a4c44e5e64d47a7220a639496f77c2d8f393dcc9ef90662c0f25354f5b9"
+    },
+    {
+      "path": "renders/new-covers",
+      "bytes": 13514598,
+      "files": 10
+    },
+    {
+      "path": "renders/skillevaluator-cover-concept.png",
+      "bytes": 2233594,
+      "sha256": "81dbfd5d081a3baf13c6da59f62bb5cf2fbff47af214db888838072b65bf7429"
+    }
+  ],
+  "notes": "Demo capture is available from the recorded ContentSkills source URL and extracted scene frames remain. Rejected former master remains in its digest-verified GitHub Release. The latest corrected video, body, final cover, voice, source frames, MoneyPrinterTurbo master, GTA master and active schedules were retained. No remote publication or release was removed."
+}

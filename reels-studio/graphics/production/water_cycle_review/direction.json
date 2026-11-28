@@ -1,0 +1,1833 @@
+{
+  "scenes": [
+    {
+      "narration": "Sunlight warms water in a lake. Some of that water evaporates, rising into the air as invisible water vapor.",
+      "meaning": "Sun warms a lake and water evaporates as invisible vapor",
+      "subject": "lake and sun",
+      "treatment": "process_animation",
+      "eyebrow": "01 / EVAPORATION",
+      "title": "WATER RISES",
+      "subtitle": "Heat moves water into the air",
+      "nodes": [
+        {
+          "id": "lake",
+          "pos": [
+            48,
+            650
+          ],
+          "size": [
+            445,
+            135
+          ],
+          "shapes": [
+            {
+              "kind": "ellipse",
+              "box": [
+                0,
+                20,
+                440,
+                110
+              ],
+              "fill": "#1b6e7a",
+              "outline": "#8bd2ce",
+              "width": 3
+            },
+            {
+              "kind": "ellipse",
+              "box": [
+                17,
+                35,
+                421,
+                95
+              ],
+              "fill": "#2e99a3",
+              "outline": null,
+              "width": 1
+            },
+            {
+              "kind": "path",
+              "points": [
+                [
+                  70,
+                  57
+                ],
+                [
+                  152,
+                  57
+                ]
+              ],
+              "fill": "#b8e9dd",
+              "width": 3,
+              "head": false,
+              "head_size": 15
+            },
+            {
+              "kind": "path",
+              "points": [
+                [
+                  230,
+                  78
+                ],
+                [
+                  330,
+                  78
+                ]
+              ],
+              "fill": "#b8e9dd",
+              "width": 3,
+              "head": false,
+              "head_size": 15
+            },
+            {
+              "kind": "path",
+              "points": [
+                [
+                  336,
+                  49
+                ],
+                [
+                  386,
+                  49
+                ]
+              ],
+              "fill": "#b8e9dd",
+              "width": 3,
+              "head": false,
+              "head_size": 15
+            }
+          ],
+          "z": 1
+        },
+        {
+          "id": "sun",
+          "pos": [
+            72,
+            265
+          ],
+          "size": [
+            142,
+            142
+          ],
+          "shapes": [
+            {
+              "kind": "ellipse",
+              "box": [
+                18,
+                18,
+                122,
+                122
+              ],
+              "fill": "#354643",
+              "outline": "#a8835d",
+              "width": 2
+            },
+            {
+              "kind": "ellipse",
+              "box": [
+                31,
+                31,
+                110,
+                110
+              ],
+              "fill": "#f7c781",
+              "outline": "#ffe3a9",
+              "width": 3
+            },
+            {
+              "kind": "ellipse",
+              "box": [
+                43,
+                42,
+                95,
+                94
+              ],
+              "fill": "#ffd99d",
+              "outline": null,
+              "width": 1
+            },
+            {
+              "kind": "path",
+              "points": [
+                [
+                  122.0,
+                  70.0
+                ],
+                [
+                  137.0,
+                  70.0
+                ]
+              ],
+              "fill": "#f6c887",
+              "width": 4,
+              "head": false,
+              "head_size": 15
+            },
+            {
+              "kind": "path",
+              "points": [
+                [
+                  106.76955262170048,
+                  106.76955262170047
+                ],
+                [
+                  117.3761543394987,
+                  117.37615433949868
+                ]
+              ],
+              "fill": "#f6c887",
+              "width": 4,
+              "head": false,
+              "head_size": 15
+            },
+            {
+              "kind": "path",
+              "points": [
+                [
+                  70.0,
+                  122.0
+                ],
+                [
+                  70.0,
+                  137.0
+                ]
+              ],
+              "fill": "#f6c887",
+              "width": 4,
+              "head": false,
+              "head_size": 15
+            },
+            {
+              "kind": "path",
+              "points": [
+                [
+                  33.23044737829953,
+                  106.76955262170048
+                ],
+                [
+                  22.623845660501317,
+                  117.3761543394987
+                ]
+              ],
+              "fill": "#f6c887",
+              "width": 4,
+              "head": false,
+              "head_size": 15
+            },
+            {
+              "kind": "path",
+              "points": [
+                [
+                  18.0,
+                  70.0
+                ],
+                [
+                  3.0,
+                  70.00000000000001
+                ]
+              ],
+              "fill": "#f6c887",
+              "width": 4,
+              "head": false,
+              "head_size": 15
+            },
+            {
+              "kind": "path",
+              "points": [
+                [
+                  33.23044737829952,
+                  33.23044737829953
+                ],
+                [
+                  22.623845660501303,
+                  22.623845660501317
+                ]
+              ],
+              "fill": "#f6c887",
+              "width": 4,
+              "head": false,
+              "head_size": 15
+            },
+            {
+              "kind": "path",
+              "points": [
+                [
+                  69.99999999999999,
+                  18.0
+                ],
+                [
+                  69.99999999999999,
+                  3.0
+                ]
+              ],
+              "fill": "#f6c887",
+              "width": 4,
+              "head": false,
+              "head_size": 15
+            },
+            {
+              "kind": "path",
+              "points": [
+                [
+                  106.76955262170046,
+                  33.23044737829952
+                ],
+                [
+                  117.37615433949867,
+                  22.623845660501303
+                ]
+              ],
+              "fill": "#f6c887",
+              "width": 4,
+              "head": false,
+              "head_size": 15
+            }
+          ],
+          "z": 3
+        },
+        {
+          "id": "vapor",
+          "pos": [
+            213,
+            442
+          ],
+          "size": [
+            150,
+            190
+          ],
+          "shapes": [
+            {
+              "kind": "ellipse",
+              "box": [
+                22,
+                140,
+                37,
+                155
+              ],
+              "fill": "#a7e2dc",
+              "outline": null,
+              "width": 1
+            },
+            {
+              "kind": "ellipse",
+              "box": [
+                67,
+                120,
+                79,
+                132
+              ],
+              "fill": "#d5f4e9",
+              "outline": null,
+              "width": 1
+            },
+            {
+              "kind": "ellipse",
+              "box": [
+                107,
+                152,
+                124,
+                169
+              ],
+              "fill": "#a7e2dc",
+              "outline": null,
+              "width": 1
+            },
+            {
+              "kind": "ellipse",
+              "box": [
+                40,
+                76,
+                51,
+                87
+              ],
+              "fill": "#def8ee",
+              "outline": null,
+              "width": 1
+            },
+            {
+              "kind": "ellipse",
+              "box": [
+                94,
+                45,
+                108,
+                59
+              ],
+              "fill": "#b8e9dd",
+              "outline": null,
+              "width": 1
+            }
+          ],
+          "z": 4
+        },
+        {
+          "id": "up_arrow",
+          "pos": [
+            363,
+            345
+          ],
+          "size": [
+            80,
+            270
+          ],
+          "shapes": [
+            {
+              "kind": "path",
+              "points": [
+                [
+                  37,
+                  250
+                ],
+                [
+                  37,
+                  25
+                ]
+              ],
+              "fill": "#f4c28c",
+              "width": 5,
+              "head": true,
+              "head_size": 15
+            }
+          ],
+          "z": 5
+        },
+        {
+          "id": "vapor_label",
+          "pos": [
+            120,
+            785
+          ],
+          "size": [
+            440,
+            55
+          ],
+          "shapes": [
+            {
+              "kind": "text",
+              "at": [
+                0,
+                0
+              ],
+              "text": "VAPOR IS INVISIBLE",
+              "size": 22,
+              "fill": "#d0e9e1"
+            }
+          ],
+          "z": 8
+        },
+        {
+          "id": "terrain",
+          "pos": [
+            48,
+            477
+          ],
+          "size": [
+            445,
+            192
+          ],
+          "z": 0,
+          "shapes": [
+            {
+              "kind": "polygon",
+              "points": [
+                [
+                  2,
+                  174
+                ],
+                [
+                  76,
+                  62
+                ],
+                [
+                  115,
+                  113
+                ],
+                [
+                  164,
+                  35
+                ],
+                [
+                  245,
+                  157
+                ],
+                [
+                  293,
+                  88
+                ],
+                [
+                  371,
+                  158
+                ],
+                [
+                  444,
+                  105
+                ],
+                [
+                  444,
+                  191
+                ],
+                [
+                  2,
+                  191
+                ]
+              ],
+              "fill": "#263f41"
+            },
+            {
+              "kind": "polygon",
+              "points": [
+                [
+                  28,
+                  174
+                ],
+                [
+                  76,
+                  93
+                ],
+                [
+                  98,
+                  125
+                ],
+                [
+                  164,
+                  70
+                ],
+                [
+                  220,
+                  170
+                ]
+              ],
+              "fill": "#3c605e"
+            },
+            {
+              "kind": "polygon",
+              "points": [
+                [
+                  250,
+                  184
+                ],
+                [
+                  293,
+                  119
+                ],
+                [
+                  350,
+                  171
+                ],
+                [
+                  395,
+                  139
+                ],
+                [
+                  444,
+                  171
+                ],
+                [
+                  444,
+                  191
+                ]
+              ],
+              "fill": "#4b706c"
+            },
+            {
+              "kind": "path",
+              "points": [
+                [
+                  17,
+                  184
+                ],
+                [
+                  92,
+                  167
+                ],
+                [
+                  163,
+                  177
+                ],
+                [
+                  240,
+                  165
+                ],
+                [
+                  310,
+                  180
+                ],
+                [
+                  428,
+                  169
+                ]
+              ],
+              "fill": "#759b91",
+              "width": 3
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "node": "sun",
+          "property": "scale",
+          "start": "sunlight",
+          "end": "warms water",
+          "from": 0.78,
+          "to": 1,
+          "action": "Scale the sun as it warms the lake"
+        },
+        {
+          "node": "vapor",
+          "property": "offset",
+          "start": "evaporates",
+          "end": "water vapor",
+          "from": [
+            0,
+            60
+          ],
+          "to": [
+            0,
+            -140
+          ],
+          "action": "Move symbolic vapor upward from the lake"
+        },
+        {
+          "node": "vapor",
+          "property": "opacity",
+          "start": "evaporates",
+          "end": "rising into the air",
+          "from": 0,
+          "to": 1,
+          "action": "Reveal the abstract vapor particles"
+        },
+        {
+          "node": "up_arrow",
+          "property": "reveal",
+          "start": "rising into the air",
+          "end": "water vapor",
+          "from": 0,
+          "to": 1,
+          "action": "Trace the direction of vapor moving upward"
+        },
+        {
+          "node": "vapor_label",
+          "property": "opacity",
+          "start": "invisible",
+          "end": "water vapor",
+          "from": 0,
+          "to": 1,
+          "action": "Reveal the distinction that vapor is invisible"
+        }
+      ]
+    },
+    {
+      "narration": "Higher up, the air cools. Water vapor condenses into tiny droplets, and those droplets gather together to form a cloud.",
+      "meaning": "Cooling water vapor condenses into droplets that gather as a cloud",
+      "subject": "cloud droplets",
+      "treatment": "process_animation",
+      "eyebrow": "02 / CONDENSATION",
+      "title": "CLOUDS FORM",
+      "subtitle": "Cooling air forms tiny droplets",
+      "nodes": [
+        {
+          "id": "thermo",
+          "pos": [
+            405,
+            274
+          ],
+          "size": [
+            95,
+            235
+          ],
+          "shapes": [
+            {
+              "kind": "rect",
+              "box": [
+                32,
+                15,
+                62,
+                180
+              ],
+              "fill": "#405f63",
+              "radius": 15,
+              "outline": "#a7d5d1",
+              "width": 3
+            },
+            {
+              "kind": "rect",
+              "box": [
+                43,
+                60,
+                51,
+                183
+              ],
+              "fill": "#7fd1d5",
+              "radius": 4,
+              "outline": null,
+              "width": 1
+            },
+            {
+              "kind": "ellipse",
+              "box": [
+                19,
+                166,
+                76,
+                223
+              ],
+              "fill": "#a5e4df",
+              "outline": "#d7f7ec",
+              "width": 3
+            }
+          ],
+          "z": 3
+        },
+        {
+          "id": "cloud_left",
+          "pos": [
+            118,
+            375
+          ],
+          "size": [
+            135,
+            150
+          ],
+          "shapes": [
+            {
+              "kind": "ellipse",
+              "box": [
+                5,
+                47,
+                125,
+                142
+              ],
+              "fill": "#cce8e7",
+              "outline": "#e6f7f0",
+              "width": 2
+            }
+          ],
+          "z": 2
+        },
+        {
+          "id": "cloud_mid",
+          "pos": [
+            185,
+            331
+          ],
+          "size": [
+            165,
+            190
+          ],
+          "shapes": [
+            {
+              "kind": "ellipse",
+              "box": [
+                7,
+                15,
+                157,
+                178
+              ],
+              "fill": "#edf7f1",
+              "outline": "#e6f7f0",
+              "width": 2
+            }
+          ],
+          "z": 3
+        },
+        {
+          "id": "cloud_right",
+          "pos": [
+            300,
+            375
+          ],
+          "size": [
+            135,
+            150
+          ],
+          "shapes": [
+            {
+              "kind": "ellipse",
+              "box": [
+                5,
+                47,
+                125,
+                142
+              ],
+              "fill": "#c7e1e2",
+              "outline": "#e6f7f0",
+              "width": 2
+            }
+          ],
+          "z": 2
+        },
+        {
+          "id": "particles",
+          "pos": [
+            152,
+            557
+          ],
+          "size": [
+            240,
+            95
+          ],
+          "shapes": [
+            {
+              "kind": "ellipse",
+              "box": [
+                6,
+                50,
+                25,
+                69
+              ],
+              "fill": "#91d5d2",
+              "outline": null,
+              "width": 1
+            },
+            {
+              "kind": "ellipse",
+              "box": [
+                59,
+                62,
+                77,
+                80
+              ],
+              "fill": "#d0f1e6",
+              "outline": null,
+              "width": 1
+            },
+            {
+              "kind": "ellipse",
+              "box": [
+                114,
+                46,
+                132,
+                64
+              ],
+              "fill": "#91d5d2",
+              "outline": null,
+              "width": 1
+            },
+            {
+              "kind": "ellipse",
+              "box": [
+                177,
+                64,
+                195,
+                82
+              ],
+              "fill": "#d0f1e6",
+              "outline": null,
+              "width": 1
+            },
+            {
+              "kind": "ellipse",
+              "box": [
+                216,
+                41,
+                235,
+                60
+              ],
+              "fill": "#91d5d2",
+              "outline": null,
+              "width": 1
+            }
+          ],
+          "z": 5
+        },
+        {
+          "id": "droplets",
+          "pos": [
+            100,
+            745
+          ],
+          "size": [
+            440,
+            55
+          ],
+          "shapes": [
+            {
+              "kind": "text",
+              "at": [
+                0,
+                0
+              ],
+              "text": "TINY DROPLETS",
+              "size": 26,
+              "fill": "#b5e4dd"
+            }
+          ],
+          "z": 8
+        },
+        {
+          "id": "cloud_base",
+          "pos": [
+            151,
+            448
+          ],
+          "size": [
+            248,
+            80
+          ],
+          "z": 3,
+          "shapes": [
+            {
+              "kind": "rect",
+              "box": [
+                2,
+                2,
+                245,
+                75
+              ],
+              "radius": 34,
+              "fill": "#d8eeea"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "node": "thermo",
+          "property": "offset",
+          "start": "air cools",
+          "end": "water vapor",
+          "from": [
+            0,
+            -60
+          ],
+          "to": [
+            0,
+            0
+          ],
+          "action": "Bring the cool air indicator into view"
+        },
+        {
+          "node": "thermo",
+          "property": "opacity",
+          "start": "air cools",
+          "end": "water vapor",
+          "from": 0,
+          "to": 1,
+          "action": "Show the cool air indicator"
+        },
+        {
+          "node": "particles",
+          "property": "offset",
+          "start": "water vapor condenses",
+          "end": "tiny droplets",
+          "from": [
+            0,
+            80
+          ],
+          "to": [
+            0,
+            -100
+          ],
+          "action": "Move symbolic droplets toward the cloud"
+        },
+        {
+          "node": "particles",
+          "property": "opacity",
+          "start": "water vapor condenses",
+          "end": "tiny droplets",
+          "from": 0,
+          "to": 1,
+          "action": "Reveal condensation particles"
+        },
+        {
+          "node": "cloud_left",
+          "property": "offset",
+          "start": "droplets gather together",
+          "end": "form a cloud",
+          "from": [
+            -75,
+            25
+          ],
+          "to": [
+            0,
+            0
+          ],
+          "action": "Move the left cloud component toward the center"
+        },
+        {
+          "node": "cloud_mid",
+          "property": "offset",
+          "start": "droplets gather together",
+          "end": "form a cloud",
+          "from": [
+            0,
+            -65
+          ],
+          "to": [
+            0,
+            0
+          ],
+          "action": "Move the center cloud component into position"
+        },
+        {
+          "node": "cloud_right",
+          "property": "offset",
+          "start": "droplets gather together",
+          "end": "form a cloud",
+          "from": [
+            75,
+            25
+          ],
+          "to": [
+            0,
+            0
+          ],
+          "action": "Move the right cloud component toward the center"
+        },
+        {
+          "node": "droplets",
+          "property": "opacity",
+          "start": "tiny droplets",
+          "end": "gather together",
+          "from": 0,
+          "to": 1,
+          "action": "Reveal the words tiny droplets"
+        }
+      ]
+    },
+    {
+      "narration": "When droplets grow large enough, they fall as rain. The water returns to the ground, flows back into lakes, and the cycle begins again.",
+      "meaning": "Larger droplets fall as rain and water returns to lakes",
+      "subject": "rain and water return",
+      "treatment": "process_animation",
+      "eyebrow": "03 / PRECIPITATION",
+      "title": "RAIN RETURNS",
+      "subtitle": "A cycle powered by heat and gravity",
+      "nodes": [
+        {
+          "id": "lake",
+          "pos": [
+            48,
+            650
+          ],
+          "size": [
+            445,
+            135
+          ],
+          "shapes": [
+            {
+              "kind": "ellipse",
+              "box": [
+                0,
+                20,
+                440,
+                110
+              ],
+              "fill": "#1b6e7a",
+              "outline": "#8bd2ce",
+              "width": 3
+            },
+            {
+              "kind": "ellipse",
+              "box": [
+                17,
+                35,
+                421,
+                95
+              ],
+              "fill": "#2e99a3",
+              "outline": null,
+              "width": 1
+            },
+            {
+              "kind": "path",
+              "points": [
+                [
+                  70,
+                  57
+                ],
+                [
+                  152,
+                  57
+                ]
+              ],
+              "fill": "#b8e9dd",
+              "width": 3,
+              "head": false,
+              "head_size": 15
+            },
+            {
+              "kind": "path",
+              "points": [
+                [
+                  230,
+                  78
+                ],
+                [
+                  330,
+                  78
+                ]
+              ],
+              "fill": "#b8e9dd",
+              "width": 3,
+              "head": false,
+              "head_size": 15
+            },
+            {
+              "kind": "path",
+              "points": [
+                [
+                  336,
+                  49
+                ],
+                [
+                  386,
+                  49
+                ]
+              ],
+              "fill": "#b8e9dd",
+              "width": 3,
+              "head": false,
+              "head_size": 15
+            }
+          ],
+          "z": 1
+        },
+        {
+          "id": "cloud",
+          "pos": [
+            115,
+            245
+          ],
+          "size": [
+            310,
+            150
+          ],
+          "shapes": [
+            {
+              "kind": "ellipse",
+              "box": [
+                12,
+                54,
+                108,
+                145
+              ],
+              "fill": "#bcd9dc",
+              "outline": null,
+              "width": 1
+            },
+            {
+              "kind": "ellipse",
+              "box": [
+                60,
+                12,
+                200,
+                146
+              ],
+              "fill": "#e0eeee",
+              "outline": null,
+              "width": 1
+            },
+            {
+              "kind": "ellipse",
+              "box": [
+                157,
+                36,
+                290,
+                145
+              ],
+              "fill": "#c8e3e4",
+              "outline": null,
+              "width": 1
+            },
+            {
+              "kind": "rect",
+              "box": [
+                52,
+                87,
+                257,
+                146
+              ],
+              "fill": "#d8ebea",
+              "radius": 25,
+              "outline": null,
+              "width": 1
+            },
+            {
+              "kind": "ellipse",
+              "box": [
+                78,
+                20,
+                168,
+                97
+              ],
+              "fill": "#edf8f4",
+              "outline": null,
+              "width": 1
+            }
+          ],
+          "z": 2
+        },
+        {
+          "id": "rain0",
+          "pos": [
+            118,
+            453
+          ],
+          "size": [
+            35,
+            52
+          ],
+          "shapes": [
+            {
+              "kind": "polygon",
+              "points": [
+                [
+                  17,
+                  2
+                ],
+                [
+                  4,
+                  30
+                ],
+                [
+                  6,
+                  40
+                ],
+                [
+                  14,
+                  48
+                ],
+                [
+                  22,
+                  48
+                ],
+                [
+                  31,
+                  39
+                ],
+                [
+                  30,
+                  29
+                ]
+              ],
+              "fill": "#9cdbdf",
+              "outline": "#e1f9f4",
+              "width": 2
+            }
+          ],
+          "z": 4
+        },
+        {
+          "id": "rain1",
+          "pos": [
+            186,
+            481
+          ],
+          "size": [
+            35,
+            52
+          ],
+          "shapes": [
+            {
+              "kind": "polygon",
+              "points": [
+                [
+                  17,
+                  2
+                ],
+                [
+                  4,
+                  30
+                ],
+                [
+                  6,
+                  40
+                ],
+                [
+                  14,
+                  48
+                ],
+                [
+                  22,
+                  48
+                ],
+                [
+                  31,
+                  39
+                ],
+                [
+                  30,
+                  29
+                ]
+              ],
+              "fill": "#9cdbdf",
+              "outline": "#e1f9f4",
+              "width": 2
+            }
+          ],
+          "z": 4
+        },
+        {
+          "id": "rain2",
+          "pos": [
+            258,
+            453
+          ],
+          "size": [
+            35,
+            52
+          ],
+          "shapes": [
+            {
+              "kind": "polygon",
+              "points": [
+                [
+                  17,
+                  2
+                ],
+                [
+                  4,
+                  30
+                ],
+                [
+                  6,
+                  40
+                ],
+                [
+                  14,
+                  48
+                ],
+                [
+                  22,
+                  48
+                ],
+                [
+                  31,
+                  39
+                ],
+                [
+                  30,
+                  29
+                ]
+              ],
+              "fill": "#9cdbdf",
+              "outline": "#e1f9f4",
+              "width": 2
+            }
+          ],
+          "z": 4
+        },
+        {
+          "id": "rain3",
+          "pos": [
+            332,
+            481
+          ],
+          "size": [
+            35,
+            52
+          ],
+          "shapes": [
+            {
+              "kind": "polygon",
+              "points": [
+                [
+                  17,
+                  2
+                ],
+                [
+                  4,
+                  30
+                ],
+                [
+                  6,
+                  40
+                ],
+                [
+                  14,
+                  48
+                ],
+                [
+                  22,
+                  48
+                ],
+                [
+                  31,
+                  39
+                ],
+                [
+                  30,
+                  29
+                ]
+              ],
+              "fill": "#9cdbdf",
+              "outline": "#e1f9f4",
+              "width": 2
+            }
+          ],
+          "z": 4
+        },
+        {
+          "id": "rain4",
+          "pos": [
+            403,
+            453
+          ],
+          "size": [
+            35,
+            52
+          ],
+          "shapes": [
+            {
+              "kind": "polygon",
+              "points": [
+                [
+                  17,
+                  2
+                ],
+                [
+                  4,
+                  30
+                ],
+                [
+                  6,
+                  40
+                ],
+                [
+                  14,
+                  48
+                ],
+                [
+                  22,
+                  48
+                ],
+                [
+                  31,
+                  39
+                ],
+                [
+                  30,
+                  29
+                ]
+              ],
+              "fill": "#9cdbdf",
+              "outline": "#e1f9f4",
+              "width": 2
+            }
+          ],
+          "z": 4
+        },
+        {
+          "id": "flow",
+          "pos": [
+            72,
+            665
+          ],
+          "size": [
+            385,
+            135
+          ],
+          "shapes": [
+            {
+              "kind": "path",
+              "points": [
+                [
+                  20,
+                  110
+                ],
+                [
+                  95,
+                  102
+                ],
+                [
+                  150,
+                  66
+                ],
+                [
+                  230,
+                  60
+                ],
+                [
+                  280,
+                  45
+                ],
+                [
+                  350,
+                  47
+                ]
+              ],
+              "fill": "#f0c08f",
+              "width": 5,
+              "head": true,
+              "head_size": 15
+            }
+          ],
+          "z": 6
+        },
+        {
+          "id": "rain_word",
+          "pos": [
+            180,
+            570
+          ],
+          "size": [
+            440,
+            55
+          ],
+          "shapes": [
+            {
+              "kind": "text",
+              "at": [
+                0,
+                0
+              ],
+              "text": "RAIN",
+              "size": 30,
+              "fill": "#d7f3eb"
+            }
+          ],
+          "z": 8
+        },
+        {
+          "id": "cycle_word",
+          "pos": [
+            106,
+            784
+          ],
+          "size": [
+            440,
+            55
+          ],
+          "shapes": [
+            {
+              "kind": "text",
+              "at": [
+                0,
+                0
+              ],
+              "text": "THE CYCLE REPEATS",
+              "size": 24,
+              "fill": "#f2c18e"
+            }
+          ],
+          "z": 8
+        },
+        {
+          "id": "terrain",
+          "pos": [
+            48,
+            477
+          ],
+          "size": [
+            445,
+            192
+          ],
+          "z": 0,
+          "shapes": [
+            {
+              "kind": "polygon",
+              "points": [
+                [
+                  2,
+                  174
+                ],
+                [
+                  76,
+                  62
+                ],
+                [
+                  115,
+                  113
+                ],
+                [
+                  164,
+                  35
+                ],
+                [
+                  245,
+                  157
+                ],
+                [
+                  293,
+                  88
+                ],
+                [
+                  371,
+                  158
+                ],
+                [
+                  444,
+                  105
+                ],
+                [
+                  444,
+                  191
+                ],
+                [
+                  2,
+                  191
+                ]
+              ],
+              "fill": "#263f41"
+            },
+            {
+              "kind": "polygon",
+              "points": [
+                [
+                  28,
+                  174
+                ],
+                [
+                  76,
+                  93
+                ],
+                [
+                  98,
+                  125
+                ],
+                [
+                  164,
+                  70
+                ],
+                [
+                  220,
+                  170
+                ]
+              ],
+              "fill": "#3c605e"
+            },
+            {
+              "kind": "polygon",
+              "points": [
+                [
+                  250,
+                  184
+                ],
+                [
+                  293,
+                  119
+                ],
+                [
+                  350,
+                  171
+                ],
+                [
+                  395,
+                  139
+                ],
+                [
+                  444,
+                  171
+                ],
+                [
+                  444,
+                  191
+                ]
+              ],
+              "fill": "#4b706c"
+            },
+            {
+              "kind": "path",
+              "points": [
+                [
+                  17,
+                  184
+                ],
+                [
+                  92,
+                  167
+                ],
+                [
+                  163,
+                  177
+                ],
+                [
+                  240,
+                  165
+                ],
+                [
+                  310,
+                  180
+                ],
+                [
+                  428,
+                  169
+                ]
+              ],
+              "fill": "#759b91",
+              "width": 3
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "node": "rain0",
+          "property": "scale",
+          "start": "droplets grow large enough",
+          "end": "fall as rain",
+          "from": 0.35,
+          "to": 1,
+          "action": "Enlarge the illustrated water droplet"
+        },
+        {
+          "node": "rain1",
+          "property": "scale",
+          "start": "droplets grow large enough",
+          "end": "fall as rain",
+          "from": 0.35,
+          "to": 1,
+          "action": "Enlarge the illustrated water droplet"
+        },
+        {
+          "node": "rain2",
+          "property": "scale",
+          "start": "droplets grow large enough",
+          "end": "fall as rain",
+          "from": 0.35,
+          "to": 1,
+          "action": "Enlarge the illustrated water droplet"
+        },
+        {
+          "node": "rain3",
+          "property": "scale",
+          "start": "droplets grow large enough",
+          "end": "fall as rain",
+          "from": 0.35,
+          "to": 1,
+          "action": "Enlarge the illustrated water droplet"
+        },
+        {
+          "node": "rain4",
+          "property": "scale",
+          "start": "droplets grow large enough",
+          "end": "fall as rain",
+          "from": 0.35,
+          "to": 1,
+          "action": "Enlarge the illustrated water droplet"
+        },
+        {
+          "node": "rain0",
+          "property": "offset",
+          "start": "fall as rain",
+          "end": "returns to the ground",
+          "from": [
+            0,
+            -8
+          ],
+          "to": [
+            0,
+            155
+          ],
+          "action": "Move the droplet downward as rain"
+        },
+        {
+          "node": "rain1",
+          "property": "offset",
+          "start": "fall as rain",
+          "end": "returns to the ground",
+          "from": [
+            0,
+            -8
+          ],
+          "to": [
+            0,
+            160
+          ],
+          "action": "Move the droplet downward as rain"
+        },
+        {
+          "node": "rain2",
+          "property": "offset",
+          "start": "fall as rain",
+          "end": "returns to the ground",
+          "from": [
+            0,
+            -8
+          ],
+          "to": [
+            0,
+            165
+          ],
+          "action": "Move the droplet downward as rain"
+        },
+        {
+          "node": "rain3",
+          "property": "offset",
+          "start": "fall as rain",
+          "end": "returns to the ground",
+          "from": [
+            0,
+            -8
+          ],
+          "to": [
+            0,
+            170
+          ],
+          "action": "Move the droplet downward as rain"
+        },
+        {
+          "node": "rain4",
+          "property": "offset",
+          "start": "fall as rain",
+          "end": "returns to the ground",
+          "from": [
+            0,
+            -8
+          ],
+          "to": [
+            0,
+            175
+          ],
+          "action": "Move the droplet downward as rain"
+        },
+        {
+          "node": "rain_word",
+          "property": "opacity",
+          "start": "fall as rain",
+          "end": "water returns",
+          "from": 0,
+          "to": 1,
+          "action": "Reveal the word rain as droplets fall"
+        },
+        {
+          "node": "rain_word",
+          "property": "offset",
+          "start": "fall as rain",
+          "end": "water returns",
+          "from": [
+            -30,
+            0
+          ],
+          "to": [
+            0,
+            0
+          ],
+          "action": "Slide the rain label into place"
+        },
+        {
+          "node": "flow",
+          "property": "reveal",
+          "start": "flows back into lakes",
+          "end": "cycle begins again",
+          "from": 0,
+          "to": 1,
+          "action": "Trace the route of water back toward a lake"
+        },
+        {
+          "node": "cycle_word",
+          "property": "opacity",
+          "start": "cycle begins again",
+          "end": "cycle begins again",
+          "from": 0,
+          "to": 1,
+          "action": "Reveal that the water cycle repeats"
+        },
+        {
+          "node": "cycle_word",
+          "property": "offset",
+          "start": "cycle begins again",
+          "end": "cycle begins again",
+          "from": [
+            -25,
+            0
+          ],
+          "to": [
+            0,
+            0
+          ],
+          "action": "Slide the cycle statement into place"
+        }
+      ]
+    }
+  ]
+}

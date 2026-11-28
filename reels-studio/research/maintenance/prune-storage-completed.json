@@ -1,0 +1,44 @@
+{
+  "deleted": 3,
+  "freed_bytes": 2857165,
+  "packs": [
+    {
+      "archive_digest": "sha256:a841ecc77dced6778baf69fcda21606afcd2932047098232b2c27f3169f2f35c",
+      "archive_id": 763462071,
+      "bytes_verified": 2156083,
+      "deleted": true,
+      "files_verified": 4,
+      "pack": "repo-paper-orchestra-01"
+    },
+    {
+      "archive_digest": "sha256:e21280c44baeaab73c4a887aef94247150ba09c4242eaba96734ae3c61bd7429",
+      "archive_id": 761871615,
+      "bytes_verified": 242775,
+      "deleted": true,
+      "files_verified": 4,
+      "pack": "repo-univer-01"
+    },
+    {
+      "archive_digest": "sha256:0e79b4ea4cf98f7a293bda81ad6a1bc11ef78e6626a851e4772e1cb0b6caaf4e",
+      "archive_id": 763302731,
+      "bytes_verified": 458307,
+      "deleted": true,
+      "files_verified": 4,
+      "pack": "repo-wireless-battery-01"
+    }
+  ],
+  "skipped": [
+    {
+      "pack": "claude-video-effects-01",
+      "reason": "no verified archive in capture-packs"
+    },
+    {
+      "pack": "repo-gta6-clipper-01",
+      "reason": "no verified archive in capture-packs"
+    },
+    {
+      "pack": "repo-moneyprinterturbo-01",
+      "reason": "no verified archive in capture-packs"
+    }
+  ]
+}

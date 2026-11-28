@@ -1,0 +1,398 @@
+{
+  "version": 1,
+  "audio_sha256": "721b7087a24d5bbbeb7ed62d6af5eb09dc460f249d231302b21eaffe7e57c9b7",
+  "audio_duration": 23.034916666666668,
+  "alignment_provider": "faster-whisper",
+  "alignment_model": "base.en",
+  "beats": [
+    {
+      "id": "intro",
+      "word_start": 0,
+      "word_end": 12,
+      "meaning": "An Android device can display computer controls",
+      "visual_objective": "Introduce the actual dashboard as a control surface",
+      "treatment": "product_visualization",
+      "scene_description": "A dashboard screenshot slides into the center of frame",
+      "subject": "PhoneBox dashboard",
+      "objects": [
+        "dashboard",
+        "computer controls"
+      ],
+      "composition": "Center the dashboard below the upper margin",
+      "camera": "hold",
+      "transition": "cut",
+      "assets": [
+        {
+          "id": "a-home",
+          "kind": "image",
+          "description": "PhoneBox home interface showing computer dashboard widgets",
+          "reuse_of": null
+        },
+        {
+          "id": "notice-intro",
+          "kind": "image",
+          "description": "Disclosure label for animated use of static interface screenshots",
+          "reuse_of": null
+        }
+      ],
+      "events": [
+        {
+          "id": "show-dashboard",
+          "trigger_phrase": "control",
+          "occurrence": 1,
+          "action": "Move the dashboard capture into the main viewing area",
+          "target": "home-layer",
+          "animation_type": "position",
+          "duration": 1,
+          "camera": "hold",
+          "asset_id": "a-home",
+          "transition": "cut",
+          "word_index": 7,
+          "audio_time": 1.92,
+          "beat_relative_time": 1.92,
+          "end_time": 2.92
+        }
+      ],
+      "start": 0,
+      "end": 4.08,
+      "duration": 4.08,
+      "audio_start": 0.0,
+      "audio_end": 3.4,
+      "narration": "turn an old android phone into a control panel for your computer"
+    },
+    {
+      "id": "media",
+      "word_start": 12,
+      "word_end": 17,
+      "meaning": "Media playback controls are visible on the dashboard",
+      "visual_objective": "Bring the real music control panel forward on screen",
+      "treatment": "product_visualization",
+      "scene_description": "A music player capture expands to emphasize playback controls",
+      "subject": "music controls",
+      "objects": [
+        "playback buttons",
+        "volume control"
+      ],
+      "composition": "Center the playback panel in the portrait frame",
+      "camera": "hold",
+      "transition": "cut",
+      "assets": [
+        {
+          "id": "a-music",
+          "kind": "image",
+          "description": "Captured music playback panel with controls and volume",
+          "reuse_of": null
+        },
+        {
+          "id": "notice-media",
+          "kind": "image",
+          "description": "Disclosure label for animated use of static interface screenshots",
+          "reuse_of": null
+        }
+      ],
+      "events": [
+        {
+          "id": "focus-music",
+          "trigger_phrase": "media",
+          "occurrence": 1,
+          "action": "Enlarge the captured playback controls for closer viewing",
+          "target": "music-layer",
+          "animation_type": "scale",
+          "duration": 0.9,
+          "camera": "hold",
+          "asset_id": "a-music",
+          "transition": "cut",
+          "word_index": 14,
+          "audio_time": 4.98,
+          "beat_relative_time": 0.9000000000000004,
+          "end_time": 5.880000000000001
+        }
+      ],
+      "start": 4.08,
+      "end": 6.12,
+      "duration": 2.04,
+      "audio_start": 4.08,
+      "audio_end": 6.12,
+      "narration": "phonebox puts media controls and"
+    },
+    {
+      "id": "stats",
+      "word_start": 17,
+      "word_end": 23,
+      "meaning": "System stats appear as dashboard charts",
+      "visual_objective": "Bring processor and network charts into view",
+      "treatment": "product_visualization",
+      "scene_description": "A real system screen slides upward into the frame",
+      "subject": "system statistics",
+      "objects": [
+        "processor graph",
+        "network graph",
+        "memory"
+      ],
+      "composition": "Place the system screen across the central viewing area",
+      "camera": "hold",
+      "transition": "cut",
+      "assets": [
+        {
+          "id": "a-stats",
+          "kind": "image",
+          "description": "Captured processor graphics memory and network charts",
+          "reuse_of": null
+        },
+        {
+          "id": "notice-stats",
+          "kind": "image",
+          "description": "Disclosure label for animated use of static interface screenshots",
+          "reuse_of": null
+        }
+      ],
+      "events": [
+        {
+          "id": "show-stats",
+          "trigger_phrase": "stats",
+          "occurrence": 1,
+          "action": "Slide the system charts into the main viewing area",
+          "target": "stats-layer",
+          "animation_type": "position",
+          "duration": 1.1,
+          "camera": "hold",
+          "asset_id": "a-stats",
+          "transition": "cut",
+          "word_index": 18,
+          "audio_time": 6.44,
+          "beat_relative_time": 0.3200000000000003,
+          "end_time": 7.540000000000001
+        }
+      ],
+      "start": 6.12,
+      "end": 9.44,
+      "duration": 3.3199999999999994,
+      "audio_start": 6.12,
+      "audio_end": 8.5,
+      "narration": "system stats on a customizable dashboard"
+    },
+    {
+      "id": "editor",
+      "word_start": 23,
+      "word_end": 30,
+      "meaning": "Widgets can be arranged using an editor",
+      "visual_objective": "Illustrate the widget placement gesture using interface crops",
+      "treatment": "product_visualization",
+      "scene_description": "A cursor and clock widget move over the editor screenshot",
+      "subject": "dashboard editor",
+      "objects": [
+        "cursor",
+        "clock widget",
+        "dashboard grid"
+      ],
+      "composition": "Keep the editor centered with a separately moving widget",
+      "camera": "hold",
+      "transition": "cut",
+      "assets": [
+        {
+          "id": "a-editor",
+          "kind": "image",
+          "description": "Captured dashboard editor with configurable widget tiles",
+          "reuse_of": null
+        },
+        {
+          "id": "a-widget",
+          "kind": "image",
+          "description": "Clock widget cropped from the dashboard editor grid",
+          "reuse_of": null
+        },
+        {
+          "id": "a-cursor",
+          "kind": "image",
+          "description": "White cursor graphic indicating an illustrative drag gesture",
+          "reuse_of": null
+        },
+        {
+          "id": "notice-editor",
+          "kind": "image",
+          "description": "Disclosure label for animated use of static interface screenshots",
+          "reuse_of": null
+        }
+      ],
+      "events": [
+        {
+          "id": "drag-widget",
+          "trigger_phrase": "arrange",
+          "occurrence": 1,
+          "action": "Move the cropped clock widget across the editor grid",
+          "target": "widget-layer",
+          "animation_type": "position",
+          "duration": 1.1,
+          "camera": "hold",
+          "asset_id": "a-widget",
+          "transition": "cut",
+          "word_index": 25,
+          "audio_time": 9.58,
+          "beat_relative_time": 0.14000000000000057,
+          "end_time": 10.68
+        },
+        {
+          "id": "drag-cursor",
+          "trigger_phrase": "widgets",
+          "occurrence": 1,
+          "action": "Move the cursor alongside the cropped clock widget",
+          "target": "cursor-layer",
+          "animation_type": "position",
+          "duration": 0.85,
+          "camera": "hold",
+          "asset_id": "a-cursor",
+          "transition": "cut",
+          "word_index": 26,
+          "audio_time": 9.84,
+          "beat_relative_time": 0.40000000000000036,
+          "end_time": 10.69
+        }
+      ],
+      "start": 9.44,
+      "end": 11.34,
+      "duration": 1.9000000000000004,
+      "audio_start": 9.44,
+      "audio_end": 10.9,
+      "narration": "you can arrange widgets in its editor"
+    },
+    {
+      "id": "connection",
+      "word_start": 30,
+      "word_end": 44,
+      "meaning": "Phone and desktop agent can connect over USB or paired wireless",
+      "visual_objective": "Focus attention on the captured USB connection status",
+      "treatment": "product_visualization",
+      "scene_description": "A pointer approaches the USB status on the dashboard screenshot",
+      "subject": "connection status",
+      "objects": [
+        "dashboard",
+        "USB status",
+        "cursor"
+      ],
+      "composition": "Center the dashboard with the pointer near its USB status",
+      "camera": "hold",
+      "transition": "cut",
+      "assets": [
+        {
+          "id": "a-link",
+          "kind": "image",
+          "description": "Captured dashboard with a visible USB status at its top edge",
+          "reuse_of": null
+        },
+        {
+          "id": "a-pointer",
+          "kind": "image",
+          "description": "White cursor graphic used to highlight a status label",
+          "reuse_of": null
+        },
+        {
+          "id": "notice-connection",
+          "kind": "image",
+          "description": "Disclosure label for animated use of static interface screenshots",
+          "reuse_of": null
+        }
+      ],
+      "events": [
+        {
+          "id": "usb-highlight",
+          "trigger_phrase": "usb",
+          "occurrence": 1,
+          "action": "Move the pointer to the visible USB status indicator",
+          "target": "pointer-layer",
+          "animation_type": "position",
+          "duration": 0.7,
+          "camera": "hold",
+          "asset_id": "a-pointer",
+          "transition": "cut",
+          "word_index": 39,
+          "audio_time": 13.72,
+          "beat_relative_time": 2.380000000000001,
+          "end_time": 14.42
+        }
+      ],
+      "start": 11.34,
+      "end": 16.22,
+      "duration": 4.879999999999999,
+      "audio_start": 11.34,
+      "audio_end": 15.56,
+      "narration": "then connect the phone to a desktop agent using usb or paired wi fi"
+    },
+    {
+      "id": "setup",
+      "word_start": 44,
+      "word_end": 64,
+      "meaning": "Both app components run and features depend on configuration",
+      "visual_objective": "Show both the dashboard and editor interfaces together",
+      "treatment": "product_visualization",
+      "scene_description": "Two real interface captures move into a stacked comparison",
+      "subject": "dashboard and editor",
+      "objects": [
+        "dashboard",
+        "editor"
+      ],
+      "composition": "Stack the dashboard above the editor with a small gap",
+      "camera": "hold",
+      "transition": "cut",
+      "assets": [
+        {
+          "id": "a-dashboard",
+          "kind": "image",
+          "description": "Captured dashboard with controls and system information",
+          "reuse_of": null
+        },
+        {
+          "id": "a-settings",
+          "kind": "image",
+          "description": "Captured editor showing configurable dashboard widgets",
+          "reuse_of": null
+        },
+        {
+          "id": "notice-setup",
+          "kind": "image",
+          "description": "Disclosure label for animated use of static interface screenshots",
+          "reuse_of": null
+        }
+      ],
+      "events": [
+        {
+          "id": "dashboard-stack",
+          "trigger_phrase": "phone app",
+          "occurrence": 1,
+          "action": "Move the dashboard capture into the upper comparison position",
+          "target": "d-layer",
+          "animation_type": "position",
+          "duration": 1,
+          "camera": "hold",
+          "asset_id": "a-dashboard",
+          "transition": "cut",
+          "word_index": 45,
+          "audio_time": 16.28,
+          "beat_relative_time": 0.060000000000002274,
+          "end_time": 17.28
+        },
+        {
+          "id": "editor-stack",
+          "trigger_phrase": "desktop agent",
+          "occurrence": 1,
+          "action": "Move the editor capture into the lower comparison position",
+          "target": "e-layer",
+          "animation_type": "position",
+          "duration": 1,
+          "camera": "hold",
+          "asset_id": "a-settings",
+          "transition": "cut",
+          "word_index": 48,
+          "audio_time": 16.98,
+          "beat_relative_time": 0.7600000000000016,
+          "end_time": 17.98
+        }
+      ],
+      "start": 16.22,
+      "end": 23.034916666666668,
+      "duration": 6.814916666666669,
+      "audio_start": 16.22,
+      "audio_end": 22.54,
+      "narration": "the phone app and desktop agent both need to be running available features depend on your computer setup and permissions"
+    }
+  ]
+}

@@ -1,0 +1,654 @@
+{
+  "semantic_plan": {
+    "beats": [
+      {
+        "id": "intro",
+        "word_start": 0,
+        "word_end": 12,
+        "meaning": "An Android device can display computer controls",
+        "visual_objective": "Introduce the actual dashboard as a control surface",
+        "treatment": "product_visualization",
+        "scene_description": "A dashboard screenshot slides into the center of frame",
+        "subject": "PhoneBox dashboard",
+        "objects": [
+          "dashboard",
+          "computer controls"
+        ],
+        "composition": "Center the dashboard below the upper margin",
+        "camera": "hold",
+        "transition": "cut",
+        "assets": [
+          {
+            "id": "a-home",
+            "kind": "image",
+            "description": "PhoneBox home interface showing computer dashboard widgets",
+            "reuse_of": null
+          },
+          {
+            "id": "notice-intro",
+            "kind": "image",
+            "description": "Disclosure label for animated use of static interface screenshots",
+            "reuse_of": null
+          }
+        ],
+        "events": [
+          {
+            "id": "show-dashboard",
+            "trigger_phrase": "control",
+            "occurrence": 1,
+            "action": "Move the dashboard capture into the main viewing area",
+            "target": "home-layer",
+            "animation_type": "position",
+            "duration": 1,
+            "camera": "hold",
+            "asset_id": "a-home",
+            "transition": "cut"
+          }
+        ]
+      },
+      {
+        "id": "media",
+        "word_start": 12,
+        "word_end": 17,
+        "meaning": "Media playback controls are visible on the dashboard",
+        "visual_objective": "Bring the real music control panel forward on screen",
+        "treatment": "product_visualization",
+        "scene_description": "A music player capture expands to emphasize playback controls",
+        "subject": "music controls",
+        "objects": [
+          "playback buttons",
+          "volume control"
+        ],
+        "composition": "Center the playback panel in the portrait frame",
+        "camera": "hold",
+        "transition": "cut",
+        "assets": [
+          {
+            "id": "a-music",
+            "kind": "image",
+            "description": "Captured music playback panel with controls and volume",
+            "reuse_of": null
+          },
+          {
+            "id": "notice-media",
+            "kind": "image",
+            "description": "Disclosure label for animated use of static interface screenshots",
+            "reuse_of": null
+          }
+        ],
+        "events": [
+          {
+            "id": "focus-music",
+            "trigger_phrase": "media",
+            "occurrence": 1,
+            "action": "Enlarge the captured playback controls for closer viewing",
+            "target": "music-layer",
+            "animation_type": "scale",
+            "duration": 0.9,
+            "camera": "hold",
+            "asset_id": "a-music",
+            "transition": "cut"
+          }
+        ]
+      },
+      {
+        "id": "stats",
+        "word_start": 17,
+        "word_end": 23,
+        "meaning": "System stats appear as dashboard charts",
+        "visual_objective": "Bring processor and network charts into view",
+        "treatment": "product_visualization",
+        "scene_description": "A real system screen slides upward into the frame",
+        "subject": "system statistics",
+        "objects": [
+          "processor graph",
+          "network graph",
+          "memory"
+        ],
+        "composition": "Place the system screen across the central viewing area",
+        "camera": "hold",
+        "transition": "cut",
+        "assets": [
+          {
+            "id": "a-stats",
+            "kind": "image",
+            "description": "Captured processor graphics memory and network charts",
+            "reuse_of": null
+          },
+          {
+            "id": "notice-stats",
+            "kind": "image",
+            "description": "Disclosure label for animated use of static interface screenshots",
+            "reuse_of": null
+          }
+        ],
+        "events": [
+          {
+            "id": "show-stats",
+            "trigger_phrase": "stats",
+            "occurrence": 1,
+            "action": "Slide the system charts into the main viewing area",
+            "target": "stats-layer",
+            "animation_type": "position",
+            "duration": 1.1,
+            "camera": "hold",
+            "asset_id": "a-stats",
+            "transition": "cut"
+          }
+        ]
+      },
+      {
+        "id": "editor",
+        "word_start": 23,
+        "word_end": 30,
+        "meaning": "Widgets can be arranged using an editor",
+        "visual_objective": "Illustrate the widget placement gesture using interface crops",
+        "treatment": "product_visualization",
+        "scene_description": "A cursor and clock widget move over the editor screenshot",
+        "subject": "dashboard editor",
+        "objects": [
+          "cursor",
+          "clock widget",
+          "dashboard grid"
+        ],
+        "composition": "Keep the editor centered with a separately moving widget",
+        "camera": "hold",
+        "transition": "cut",
+        "assets": [
+          {
+            "id": "a-editor",
+            "kind": "image",
+            "description": "Captured dashboard editor with configurable widget tiles",
+            "reuse_of": null
+          },
+          {
+            "id": "a-widget",
+            "kind": "image",
+            "description": "Clock widget cropped from the dashboard editor grid",
+            "reuse_of": null
+          },
+          {
+            "id": "a-cursor",
+            "kind": "image",
+            "description": "White cursor graphic indicating an illustrative drag gesture",
+            "reuse_of": null
+          },
+          {
+            "id": "notice-editor",
+            "kind": "image",
+            "description": "Disclosure label for animated use of static interface screenshots",
+            "reuse_of": null
+          }
+        ],
+        "events": [
+          {
+            "id": "drag-widget",
+            "trigger_phrase": "arrange",
+            "occurrence": 1,
+            "action": "Move the cropped clock widget across the editor grid",
+            "target": "widget-layer",
+            "animation_type": "position",
+            "duration": 1.1,
+            "camera": "hold",
+            "asset_id": "a-widget",
+            "transition": "cut"
+          },
+          {
+            "id": "drag-cursor",
+            "trigger_phrase": "widgets",
+            "occurrence": 1,
+            "action": "Move the cursor alongside the cropped clock widget",
+            "target": "cursor-layer",
+            "animation_type": "position",
+            "duration": 0.85,
+            "camera": "hold",
+            "asset_id": "a-cursor",
+            "transition": "cut"
+          }
+        ]
+      },
+      {
+        "id": "connection",
+        "word_start": 30,
+        "word_end": 44,
+        "meaning": "Phone and desktop agent can connect over USB or paired wireless",
+        "visual_objective": "Focus attention on the captured USB connection status",
+        "treatment": "product_visualization",
+        "scene_description": "A pointer approaches the USB status on the dashboard screenshot",
+        "subject": "connection status",
+        "objects": [
+          "dashboard",
+          "USB status",
+          "cursor"
+        ],
+        "composition": "Center the dashboard with the pointer near its USB status",
+        "camera": "hold",
+        "transition": "cut",
+        "assets": [
+          {
+            "id": "a-link",
+            "kind": "image",
+            "description": "Captured dashboard with a visible USB status at its top edge",
+            "reuse_of": null
+          },
+          {
+            "id": "a-pointer",
+            "kind": "image",
+            "description": "White cursor graphic used to highlight a status label",
+            "reuse_of": null
+          },
+          {
+            "id": "notice-connection",
+            "kind": "image",
+            "description": "Disclosure label for animated use of static interface screenshots",
+            "reuse_of": null
+          }
+        ],
+        "events": [
+          {
+            "id": "usb-highlight",
+            "trigger_phrase": "usb",
+            "occurrence": 1,
+            "action": "Move the pointer to the visible USB status indicator",
+            "target": "pointer-layer",
+            "animation_type": "position",
+            "duration": 0.7,
+            "camera": "hold",
+            "asset_id": "a-pointer",
+            "transition": "cut"
+          }
+        ]
+      },
+      {
+        "id": "setup",
+        "word_start": 44,
+        "word_end": 64,
+        "meaning": "Both app components run and features depend on configuration",
+        "visual_objective": "Show both the dashboard and editor interfaces together",
+        "treatment": "product_visualization",
+        "scene_description": "Two real interface captures move into a stacked comparison",
+        "subject": "dashboard and editor",
+        "objects": [
+          "dashboard",
+          "editor"
+        ],
+        "composition": "Stack the dashboard above the editor with a small gap",
+        "camera": "hold",
+        "transition": "cut",
+        "assets": [
+          {
+            "id": "a-dashboard",
+            "kind": "image",
+            "description": "Captured dashboard with controls and system information",
+            "reuse_of": null
+          },
+          {
+            "id": "a-settings",
+            "kind": "image",
+            "description": "Captured editor showing configurable dashboard widgets",
+            "reuse_of": null
+          },
+          {
+            "id": "notice-setup",
+            "kind": "image",
+            "description": "Disclosure label for animated use of static interface screenshots",
+            "reuse_of": null
+          }
+        ],
+        "events": [
+          {
+            "id": "dashboard-stack",
+            "trigger_phrase": "phone app",
+            "occurrence": 1,
+            "action": "Move the dashboard capture into the upper comparison position",
+            "target": "d-layer",
+            "animation_type": "position",
+            "duration": 1,
+            "camera": "hold",
+            "asset_id": "a-dashboard",
+            "transition": "cut"
+          },
+          {
+            "id": "editor-stack",
+            "trigger_phrase": "desktop agent",
+            "occurrence": 1,
+            "action": "Move the editor capture into the lower comparison position",
+            "target": "e-layer",
+            "animation_type": "position",
+            "duration": 1,
+            "camera": "hold",
+            "asset_id": "a-settings",
+            "transition": "cut"
+          }
+        ]
+      }
+    ]
+  },
+  "layout": {
+    "intro": {
+      "layers": [
+        {
+          "id": "home-layer",
+          "asset": "home",
+          "semantic_asset": "a-home",
+          "x": 270,
+          "y": 480,
+          "width": 510,
+          "height": 235,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "notice-intro",
+          "asset": "disclosure",
+          "semantic_asset": "notice-intro",
+          "x": 270,
+          "y": 865,
+          "width": 490,
+          "height": 38,
+          "z": 20,
+          "opacity": 1
+        }
+      ],
+      "events": {
+        "show-dashboard": {
+          "target": "home-layer",
+          "operation": "position",
+          "from": [
+            270,
+            600
+          ],
+          "to": [
+            270,
+            480
+          ],
+          "easing": "smooth"
+        }
+      },
+      "transition": "cut"
+    },
+    "media": {
+      "layers": [
+        {
+          "id": "music-layer",
+          "asset": "music",
+          "semantic_asset": "a-music",
+          "x": 270,
+          "y": 480,
+          "width": 500,
+          "height": 293,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "notice-media",
+          "asset": "disclosure",
+          "semantic_asset": "notice-media",
+          "x": 270,
+          "y": 865,
+          "width": 490,
+          "height": 38,
+          "z": 20,
+          "opacity": 1
+        }
+      ],
+      "events": {
+        "focus-music": {
+          "target": "music-layer",
+          "operation": "scale",
+          "from": 0.72,
+          "to": 1,
+          "easing": "smooth"
+        }
+      },
+      "transition": "cut"
+    },
+    "stats": {
+      "layers": [
+        {
+          "id": "stats-layer",
+          "asset": "stats",
+          "semantic_asset": "a-stats",
+          "x": 270,
+          "y": 480,
+          "width": 510,
+          "height": 228,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "notice-stats",
+          "asset": "disclosure",
+          "semantic_asset": "notice-stats",
+          "x": 270,
+          "y": 865,
+          "width": 490,
+          "height": 38,
+          "z": 20,
+          "opacity": 1
+        }
+      ],
+      "events": {
+        "show-stats": {
+          "target": "stats-layer",
+          "operation": "position",
+          "from": [
+            270,
+            610
+          ],
+          "to": [
+            270,
+            480
+          ],
+          "easing": "smooth"
+        }
+      },
+      "transition": "cut"
+    },
+    "editor": {
+      "layers": [
+        {
+          "id": "editor-layer",
+          "asset": "editor",
+          "semantic_asset": "a-editor",
+          "x": 270,
+          "y": 455,
+          "width": 510,
+          "height": 238,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "widget-layer",
+          "asset": "widget",
+          "semantic_asset": "a-widget",
+          "x": 215,
+          "y": 490,
+          "width": 155,
+          "height": 95,
+          "z": 4,
+          "opacity": 1
+        },
+        {
+          "id": "cursor-layer",
+          "asset": "cursor",
+          "semantic_asset": "a-cursor",
+          "x": 200,
+          "y": 500,
+          "width": 37,
+          "height": 44,
+          "z": 5,
+          "opacity": 1
+        },
+        {
+          "id": "notice-editor",
+          "asset": "disclosure",
+          "semantic_asset": "notice-editor",
+          "x": 270,
+          "y": 865,
+          "width": 490,
+          "height": 38,
+          "z": 20,
+          "opacity": 1
+        }
+      ],
+      "events": {
+        "drag-widget": {
+          "target": "widget-layer",
+          "operation": "position",
+          "from": [
+            215,
+            490
+          ],
+          "to": [
+            345,
+            510
+          ],
+          "easing": "smooth"
+        },
+        "drag-cursor": {
+          "target": "cursor-layer",
+          "operation": "position",
+          "from": [
+            200,
+            500
+          ],
+          "to": [
+            330,
+            520
+          ],
+          "easing": "smooth"
+        }
+      },
+      "transition": "cut"
+    },
+    "connection": {
+      "layers": [
+        {
+          "id": "dashboard-layer",
+          "asset": "home",
+          "semantic_asset": "a-link",
+          "x": 270,
+          "y": 480,
+          "width": 510,
+          "height": 235,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "pointer-layer",
+          "asset": "cursor",
+          "semantic_asset": "a-pointer",
+          "x": 330,
+          "y": 650,
+          "width": 38,
+          "height": 45,
+          "z": 3,
+          "opacity": 1
+        },
+        {
+          "id": "notice-connection",
+          "asset": "disclosure",
+          "semantic_asset": "notice-connection",
+          "x": 270,
+          "y": 865,
+          "width": 490,
+          "height": 38,
+          "z": 20,
+          "opacity": 1
+        }
+      ],
+      "events": {
+        "usb-highlight": {
+          "target": "pointer-layer",
+          "operation": "position",
+          "from": [
+            330,
+            650
+          ],
+          "to": [
+            68,
+            383
+          ],
+          "easing": "smooth"
+        }
+      },
+      "transition": "cut"
+    },
+    "setup": {
+      "layers": [
+        {
+          "id": "d-layer",
+          "asset": "home",
+          "semantic_asset": "a-dashboard",
+          "x": 270,
+          "y": 330,
+          "width": 510,
+          "height": 235,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "e-layer",
+          "asset": "editor",
+          "semantic_asset": "a-settings",
+          "x": 270,
+          "y": 650,
+          "width": 510,
+          "height": 238,
+          "z": 1,
+          "opacity": 1
+        },
+        {
+          "id": "notice-setup",
+          "asset": "disclosure",
+          "semantic_asset": "notice-setup",
+          "x": 270,
+          "y": 865,
+          "width": 490,
+          "height": 38,
+          "z": 20,
+          "opacity": 1
+        }
+      ],
+      "events": {
+        "dashboard-stack": {
+          "target": "d-layer",
+          "operation": "position",
+          "from": [
+            270,
+            460
+          ],
+          "to": [
+            270,
+            330
+          ],
+          "easing": "smooth"
+        },
+        "editor-stack": {
+          "target": "e-layer",
+          "operation": "position",
+          "from": [
+            270,
+            780
+          ],
+          "to": [
+            270,
+            650
+          ],
+          "easing": "smooth"
+        }
+      },
+      "transition": "cut"
+    }
+  },
+  "rationale": {
+    "intro": "The real dashboard makes the described control panel visible",
+    "media": "The screenshot contains the playback controls named in narration",
+    "stats": "The displayed captured charts correspond to system stats",
+    "editor": "Moving a cropped widget and pointer illustrates the narrated arrangement rather than claiming a live recording",
+    "connection": "The screenshot supports the USB status; paired wireless is narrated but not visually demonstrated",
+    "setup": "Showing dashboard and editor supports the discussion of setup but does not prove both apps are running"
+  },
+  "fallbacks": []
+}

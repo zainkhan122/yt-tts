@@ -1,0 +1,59 @@
+{
+  "brief": "repo-univer-01",
+  "concepts": [
+    {
+      "concept": 0,
+      "text": "BUILD YOUR AI OFFICE",
+      "layout": "window",
+      "luma_std": 76.6,
+      "source": "captures/repo-univer-01/official-banner.jpg",
+      "file": "cover-1.jpg",
+      "sha256": "e6d01c8d1d70bb31a533cf0f0b872c6b43b41ddf3e25aec293ef17038fa52c64",
+      "words": 4,
+      "contrast_white": 19.65,
+      "contrast_accent": 10.56,
+      "text_box": [
+        54,
+        553,
+        1026,
+        947
+      ]
+    },
+    {
+      "concept": 1,
+      "text": "SPREADSHEETS MEET AI AGENTS",
+      "layout": "bleed",
+      "luma_std": 91.8,
+      "source": "captures/repo-univer-01/sheets.jpg",
+      "file": "cover-2.jpg",
+      "sha256": "84789276ac8b01b0c1062e09b6cf80954c8bcd7d24696021d88cfb601655bd49",
+      "words": 4,
+      "contrast_white": 19.87,
+      "contrast_accent": 10.67,
+      "text_box": [
+        54,
+        1033,
+        1026,
+        1588
+      ]
+    },
+    {
+      "concept": 2,
+      "text": "YOUR OWN OFFICE SDK",
+      "layout": "split",
+      "luma_std": 115.3,
+      "source": "captures/repo-univer-01/docs.jpg",
+      "file": "cover-3.jpg",
+      "sha256": "0c3fd2abb62313fa900f4ce7ab617964f483b475c2460b9ae4d4f5f8516fc8a8",
+      "words": 4,
+      "contrast_white": 19.65,
+      "contrast_accent": 10.56,
+      "text_box": [
+        54,
+        946,
+        1026,
+        1340
+      ]
+    }
+  ]
+}

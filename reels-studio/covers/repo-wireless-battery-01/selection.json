@@ -1,0 +1,67 @@
+{
+  "brief": "repo-wireless-battery-01",
+  "selected": 0,
+  "text": "BATTERIES AT A GLANCE",
+  "layout": "window",
+  "source": "captures/repo-wireless-battery-01/screenshot-upscaled.png",
+  "file": "cover-selected.jpg",
+  "sha256": "39b2e1e393cbf04ec9ec2cc528eaaa3799426eea8e0a928ea88ed41898eda0f8",
+  "archetype": "spotlight",
+  "concepts": [
+    {
+      "concept": 0,
+      "text": "BATTERIES AT A GLANCE",
+      "layout": "window",
+      "luma_std": 61.6,
+      "source": "captures/repo-wireless-battery-01/screenshot-upscaled.png",
+      "file": "cover-1.jpg",
+      "sha256": "3eba0cd9f61fe7d55c5947306a944fbfa5bbdbef4485d21658ac62c608617d69",
+      "words": 4,
+      "contrast_white": 19.65,
+      "contrast_accent": 13.92,
+      "text_box": [
+        54,
+        621,
+        1026,
+        1015
+      ]
+    },
+    {
+      "concept": 1,
+      "text": "ALL YOUR BATTERY LEVELS",
+      "layout": "bleed",
+      "luma_std": 111.7,
+      "source": "captures/repo-wireless-battery-01/repo-page.png",
+      "file": "cover-2.jpg",
+      "sha256": "fededaf6598bc73f9d235716c1747e5274ba5d8d566d4236083721fb068b9a11",
+      "words": 4,
+      "contrast_white": 19.87,
+      "contrast_accent": 14.07,
+      "text_box": [
+        54,
+        999,
+        1026,
+        1590
+      ]
+    },
+    {
+      "concept": 2,
+      "text": "ONE VIEW FOR BATTERIES",
+      "layout": "split",
+      "luma_std": 118.1,
+      "source": "captures/repo-wireless-battery-01/releases-page.png",
+      "file": "cover-3.jpg",
+      "sha256": "0551671bf64e7ad394bb2e940b17a23671d5c50b820ef37dca2f8208c588f121",
+      "words": 4,
+      "contrast_white": 19.65,
+      "contrast_accent": 13.92,
+      "text_box": [
+        54,
+        946,
+        1026,
+        1340
+      ]
+    }
+  ],
+  "manual_design": "Light custom battery-dock cover using official taskbar screenshot; replaces selected concept for review"
+}

@@ -1,0 +1,236 @@
+{
+  "version": 1,
+  "audio_sha256": "8f05172994ed3e9324cfd276a92b723810eb61fe7bb7b0e2e302bf5405f396d7",
+  "audio_duration": 6.2,
+  "alignment_provider": "review-house-voice / whisper.cpp",
+  "alignment_model": "small.en; no per-word confidence",
+  "beats": [
+    {
+      "id": "hero",
+      "word_start": 0,
+      "word_end": 3,
+      "meaning": "Reveal phone battery",
+      "visual_objective": "Reveal phone battery",
+      "treatment": "product_visualization",
+      "scene_description": "Reveal phone battery",
+      "subject": "smartphone",
+      "objects": [
+        "phone",
+        "battery"
+      ],
+      "composition": "center",
+      "camera": "hold",
+      "transition": "cut",
+      "assets": [
+        {
+          "id": "photo",
+          "kind": "image",
+          "description": "AI-generated phone photo",
+          "reuse_of": null
+        },
+        {
+          "id": "battery-a",
+          "kind": "graphic",
+          "description": "illustrated battery",
+          "reuse_of": null
+        }
+      ],
+      "events": [
+        {
+          "id": "push",
+          "trigger_phrase": "smartphone",
+          "occurrence": 1,
+          "action": "Push camera toward phone",
+          "target": "camera",
+          "animation_type": "camera_only",
+          "duration": 0.8,
+          "camera": "hold",
+          "asset_id": "photo",
+          "transition": "cut",
+          "word_index": 1,
+          "audio_time": 0.29,
+          "beat_relative_time": 0.29,
+          "end_time": 1.09
+        },
+        {
+          "id": "reveal",
+          "trigger_phrase": "battery",
+          "occurrence": 1,
+          "action": "Reveal the battery",
+          "target": "battery",
+          "animation_type": "opacity",
+          "duration": 0.4,
+          "camera": "hold",
+          "asset_id": "battery-a",
+          "transition": "cut",
+          "word_index": 2,
+          "audio_time": 0.95,
+          "beat_relative_time": 0.95,
+          "end_time": 1.35
+        }
+      ],
+      "start": 0,
+      "end": 1.42,
+      "duration": 1.42,
+      "audio_start": 0.27,
+      "audio_end": 1.42,
+      "narration": "your smartphone battery"
+    },
+    {
+      "id": "separate",
+      "word_start": 3,
+      "word_end": 10,
+      "meaning": "Separate battery and show energy",
+      "visual_objective": "Separate battery and show energy",
+      "treatment": "exploded_view",
+      "scene_description": "Separate battery and show energy",
+      "subject": "smartphone battery",
+      "objects": [
+        "phone",
+        "battery",
+        "energy indicator"
+      ],
+      "composition": "center",
+      "camera": "hold",
+      "transition": "cut",
+      "assets": [
+        {
+          "id": "photo-b",
+          "kind": "image",
+          "description": "same phone",
+          "reuse_of": null
+        },
+        {
+          "id": "battery-b",
+          "kind": "graphic",
+          "description": "battery",
+          "reuse_of": null
+        },
+        {
+          "id": "meter",
+          "kind": "graphic",
+          "description": "energy indicator",
+          "reuse_of": null
+        }
+      ],
+      "events": [
+        {
+          "id": "separate-cell",
+          "trigger_phrase": "does",
+          "occurrence": 1,
+          "action": "Move battery out of phone",
+          "target": "battery",
+          "animation_type": "position",
+          "duration": 1.0,
+          "camera": "hold",
+          "asset_id": "battery-b",
+          "transition": "cut",
+          "word_index": 3,
+          "audio_time": 1.42,
+          "beat_relative_time": 0.0,
+          "end_time": 2.42
+        },
+        {
+          "id": "meter-grow",
+          "trigger_phrase": "power",
+          "occurrence": 1,
+          "action": "Energy indicator appears",
+          "target": "meter",
+          "animation_type": "scale",
+          "duration": 0.4,
+          "camera": "hold",
+          "asset_id": "meter",
+          "transition": "cut",
+          "word_index": 9,
+          "audio_time": 2.82,
+          "beat_relative_time": 1.4,
+          "end_time": 3.2199999999999998
+        }
+      ],
+      "start": 1.42,
+      "end": 3.32,
+      "duration": 1.9,
+      "audio_start": 1.42,
+      "audio_end": 3.32,
+      "narration": "does not simply run out of power"
+    },
+    {
+      "id": "chemistry",
+      "word_start": 10,
+      "word_end": 16,
+      "meaning": "Show ion movement in cell",
+      "visual_objective": "Show ion movement in cell",
+      "treatment": "scientific_visualization",
+      "scene_description": "Show ion movement in cell",
+      "subject": "battery cross-section",
+      "objects": [
+        "electrodes",
+        "ions"
+      ],
+      "composition": "center",
+      "camera": "hold",
+      "transition": "cut",
+      "assets": [
+        {
+          "id": "cross",
+          "kind": "graphic",
+          "description": "electrodes",
+          "reuse_of": null
+        },
+        {
+          "id": "ion-a",
+          "kind": "graphic",
+          "description": "ion",
+          "reuse_of": null
+        },
+        {
+          "id": "ion-b",
+          "kind": "graphic",
+          "description": "ion",
+          "reuse_of": null
+        }
+      ],
+      "events": [
+        {
+          "id": "ion-one",
+          "trigger_phrase": "chemistry",
+          "occurrence": 1,
+          "action": "Move an ion between electrodes",
+          "target": "ion a",
+          "animation_type": "position",
+          "duration": 1.2,
+          "camera": "hold",
+          "asset_id": "ion-a",
+          "transition": "cut",
+          "word_index": 11,
+          "audio_time": 3.61,
+          "beat_relative_time": 0.29000000000000004,
+          "end_time": 4.81
+        },
+        {
+          "id": "ion-two",
+          "trigger_phrase": "changing",
+          "occurrence": 1,
+          "action": "Move a second ion between electrodes",
+          "target": "ion b",
+          "animation_type": "position",
+          "duration": 1.1,
+          "camera": "hold",
+          "asset_id": "ion-b",
+          "transition": "cut",
+          "word_index": 13,
+          "audio_time": 4.48,
+          "beat_relative_time": 1.1600000000000006,
+          "end_time": 5.58
+        }
+      ],
+      "start": 3.32,
+      "end": 6.2,
+      "duration": 2.8800000000000003,
+      "audio_start": 3.32,
+      "audio_end": 6.08,
+      "narration": "its chemistry is changing every second"
+    }
+  ],
+  "review_only": true
+}

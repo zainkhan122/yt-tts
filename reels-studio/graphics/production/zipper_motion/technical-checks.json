@@ -1,0 +1,35 @@
+{
+  "decode": "passed",
+  "streams": [
+    {
+      "type": "video",
+      "duration": 27.041666666666668,
+      "frames": 649,
+      "time_base": "1/12288"
+    },
+    {
+      "type": "audio",
+      "duration": 27.03,
+      "frames": 635,
+      "time_base": "1/24000"
+    }
+  ],
+  "fps": 24,
+  "event_frame_delay_seconds": {
+    "focus_slider": 0.015,
+    "move_up": 0.028333,
+    "lock": 0.006667,
+    "channel_reveal": 0.003333,
+    "enter": 0.015,
+    "merge": 0.026667,
+    "exit": 0.018333,
+    "down": 0.023333,
+    "wedge": 0.038333,
+    "separates": 0.008333,
+    "glue": 0.018333,
+    "magnets": 0.008333,
+    "shape": 0.031667,
+    "pressure": 0.038333,
+    "connection": 0.013333
+  }
+}
