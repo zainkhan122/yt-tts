@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "batch_id": "ai-director-owner-review",
+  "briefs": {
+    "tool-ai-director-01": {
+      "brief_identity_sha256": "b3f2eb5c2d899136ce7b64a9226e195ff4cc1f127c7bb55f93e072dae2e337de",
+      "stages": {
+        "script": {
+          "status": "complete",
+          "source": "owner supplied exact narration"
+        },
+        "assets": {
+          "status": "complete",
+          "note": "Drawn conceptual UI (labelled on screen); purpose-made cover; house voice match 1.0, strict alignment 60/60."
+        }
+      }
+    }
+  }
+}
