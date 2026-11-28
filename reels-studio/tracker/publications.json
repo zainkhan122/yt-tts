@@ -5594,9 +5594,11 @@
     },
     "tool-ai-director-01:instagram": {
       "attempts": 1,
+      "buffer_post_id": "6b0b19a7c2c05b6cf48f3167",
       "category": "tool",
       "channel_id": "6ac8fe316a5c39ccb66231cb",
-      "due_at": "2026-11-29T23:15:00Z",
+      "due_at": "2026-11-29T23:15:00.000Z",
+      "external_url": null,
       "media_ref": {
         "asset_digest": "sha256:b842251105bbab182ecf8453dd486caad0cfd767daacc792c964f7279ff94a73",
         "asset_id": 805486468,
@@ -5611,10 +5613,11 @@
       "notify_subscribers": false,
       "payload_sha256": "d542276bb2e43bf0e60d43ff4a5711cb899fb4838e52b15bd879fa6e6f008ffb",
       "platform": "instagram",
-      "state": "submitting",
+      "sent_at": null,
+      "state": "scheduled",
       "text": "Most people use AI like Google. The best users direct it like a colleague: context, delegation, correction, monitoring \u2014 workflows, not questions.\n\nComment DIRECT for the link. Conceptual illustration; AI-generated narration.\n\n#AITools #Productivity #AIWorkflows #WorkSmarter #Hypeless",
       "title": "Use AI Better Than 99% of People",
-      "updated_at": "2026-11-28T18:12:54Z",
+      "updated_at": "2026-11-28T18:12:55Z",
       "video_id": "tool-ai-director-01"
     },
     "tool-fx0-01:facebook": {
