@@ -1649,7 +1649,7 @@
   },
   "quota": {
     "day_pacific": "2026-11-28",
-    "general_units": 571,
+    "general_units": 572,
     "upload_starts": 0
   },
   "records": {
@@ -1796,6 +1796,12 @@
       "uploaded_at": "2026-11-24T21:19:36Z",
       "video_id": "repo-phonebox-01",
       "youtube_id": "iIiLy3jZiXg"
+    },
+    "tool-ai-director-01": {
+      "attempts": 0,
+      "category": "tool",
+      "state": "queued",
+      "video_id": "tool-ai-director-01"
     },
     "tool-mroffice-01": {
       "asset_digest": "sha256:b1bba969168090a9e21f3140a75f6b056eb9c42c5c8351a18af3d202c6eafb44",
