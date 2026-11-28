@@ -1,0 +1,21 @@
+{
+  "contract": "hypeless-narrated-outro-v1",
+  "video_id": "tool-ai-director-01",
+  "video_sha256": "sha256:b842251105bbab182ecf8453dd486caad0cfd767daacc792c964f7279ff94a73",
+  "verdict": "PASS",
+  "review_kind": "finished-video audiovisual inspection",
+  "reviewer": "owner",
+  "reviewed_at": "2026-11-28T18:01:23.467179+00:00",
+  "keyword": "DIRECT",
+  "outro_duration_seconds": 6.3,
+  "checks": {
+    "house_layout": true,
+    "logo": true,
+    "follow_and_comment": true,
+    "animated_cursor": true,
+    "voiced_cta": true,
+    "caption_sync": true,
+    "ending_not_truncated": true
+  },
+  "note": "Reviewer attests to layout, logo, CTA, cursor motion, narrated CTA, synced captions, and complete ending after watching and listening. Automated decode only verifies technical readability."
+}
