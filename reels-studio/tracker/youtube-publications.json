@@ -93,10 +93,11 @@
     "tool-rgbmocap-01": {
       "attempts": 0,
       "created_at": "2026-11-27T19:02:58Z",
+      "last_error": "Approved queue pins changed after reservation; hold",
       "pins": "35655f3047dabf4e9d0d79bac10d575d7351c4ff6d9fe067048a21a144d89b85",
       "publish_at": "2026-11-28T23:15:00Z",
       "scheduled_at": "2026-11-27T19:04:20Z",
-      "state": "scheduled",
+      "state": "needs_review",
       "video_id": "tool-rgbmocap-01",
       "youtube_id": "tfFPqiEYEUw"
     }
